@@ -109,7 +109,7 @@ El siguiente diagrama ilustra las operaciones principales realizadas por los scr
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarea descarga sus datos de entrada de Azure Storage y comienza la ejecución.<br/>
 [**Paso 6.**](#step-6-monitor-tasks) Supervisar las tareas.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** A medida que se completan las tareas, cargan sus datos de salida en Azure Storage.<br/>
-[**Paso 7.**](#step-7-download-task-output)  Descargar el resultado de la tarea de Almacenamiento
+[**Paso 7.**](#step-7-download-task-output) Descargar el resultado de la tarea de Almacenamiento
 
 Como se ha indicado, no todas las soluciones de Lote realizan estos mismos pasos y se puede haber muchos otros; sin embargo, sin embargo, este ejemplo muestra los procesos comunes que se encuentran en una solución de Lote.
 

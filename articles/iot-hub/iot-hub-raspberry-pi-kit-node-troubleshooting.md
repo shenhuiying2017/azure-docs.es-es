@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: e94ed55941521cf7b8b2dac77cf54835ca8f2829
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
 
 
 ---
@@ -121,7 +121,7 @@ Al instalar pip, se produce un error de permisos si hay paquetes antiguos instal
 Si el centro de Azure IoT Hub se ha aprovisionado correctamente con la CLI de Azure y necesita una herramienta que administre los dispositivos que se conectan a este centro, puede probar las siguientes herramientas.
 
 ### <a name="device-explorer"></a>Explorador de dispositivos
-El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) se ejecuta en el equipo local Windows y se conecta a IoT Hub de Azure. Además, se comunica con los siguientes [puntos de conexión de IoT Hub](iot-hub-devguide.md):
+El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) se ejecuta en el equipo local Windows y se conecta a IoT Hub de Azure. Además, se comunica con los siguientes [puntos de conexión de IoT Hub](iot-hub-devguide.md):
 
 * *Administración de identidades de dispositivo* para aprovisionar y administrar los dispositivos registrados con su instancia de IoT Hub.
 * *Recepción de mensajes del dispositivo a la nube*, para poder supervisar mensajes enviados desde el dispositivo al centro de IoT Hub.
@@ -130,11 +130,11 @@ El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdks/blob/mas
 Configure la cadena de conexión de IoT Hub con esta herramienta para que pueda utilizar todas las funcionalidades.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) es una sencilla herramienta multiplataforma de CLI que se utiliza para administrar los clientes de los dispositivos. Esta herramienta puede usarse para administrar los dispositivos en el registro de identidad, supervisar los mensajes del dispositivo a la nube y enviar comandos de la nube al dispositivo.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) es una sencilla herramienta multiplataforma de CLI que se utiliza para administrar los dispositivos. Esta herramienta puede usarse para administrar los dispositivos en el registro de identidad, supervisar los mensajes de dispositivo a nube y enviar mensajes de nube a dispositivo.
 
 Para instalar la última versión (versión preliminar) de la herramienta iothub-explorer, ejecute el siguiente comando en el entorno de la línea de comandos:
 
-```
+```bash
 npm install -g iothub-explorer@latest
 ```
 
@@ -153,6 +153,6 @@ El [Explorador de Microsoft Azure Storage (versión preliminar)](http://storagee
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

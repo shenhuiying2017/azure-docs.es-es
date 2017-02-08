@@ -17,19 +17,19 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 04b081d265c53ddcf77c79bf604296a0d44be4ed
+ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
+ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
 
 
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Introducción a la acción HTTP + Swagger
 Con la acción HTTP + Swagger puede crear un conector de primera categoría para cualquier punto de conexión REST a través de un [documento Swagger](https://swagger.io). También puede ampliar una aplicación lógica para llamar a cualquier punto de conexión REST con una experiencia de diseñador de aplicaciones lógicas de primer nivel.
 
-Para empezar con la acción HTTP + Swagger en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para empezar con la acción HTTP + Swagger en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 - - -
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Uso de HTTP + Swagger como desencadenador o acción
-El desencadenador y la función de acción de HTTP + Swagger funcionan igual que la [acción HTTP](connectors-native-http.md), pero ofrecen una experiencia de diseño más eficaz, ya que muestran la forma de la API y los resultados en el diseñador desde los [metadatos de Swagger](https://swagger.io). Además, puede utilizar HTTP + Swagger como desencadenador. Si desea implementar un desencadenador de sondeo, debería seguir el modelo de sondeo que se describe en [Creación de una API personalizada para usar con aplicaciones lógicas](../app-service-logic/app-service-logic-create-api-app.md#polling-triggers).
+El desencadenador y la función de acción de HTTP + Swagger funcionan igual que la [acción HTTP](connectors-native-http.md), pero ofrecen una experiencia de diseño más eficaz, ya que muestran la forma de la API y los resultados en el diseñador desde los [metadatos de Swagger](https://swagger.io). Además, puede utilizar HTTP + Swagger como desencadenador. Si desea implementar un desencadenador de sondeo, debería seguir el modelo de sondeo que se describe en [Creación de una API personalizada para usar con aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
 [más información sobre las acciones y los desencadenadores de aplicaciones lógicas.](connectors-overview.md)
 
@@ -64,14 +64,14 @@ Estos son los pasos necesarios para crear, configurar y almacenar documentos Swa
 A continuación se muestran los detalles de los desencadenadores y las acciones que admite el conector HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Desencadenadores HTTP + Swagger
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores.](connectors-overview.md)  El conector HTTP + Swagger tiene un desencadenador.
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores.](connectors-overview.md) El conector HTTP + Swagger tiene un desencadenador.
 
 | Desencadenador | Description |
 | --- | --- |
 | HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
 
 ## <a name="http--swagger-actions"></a>Acciones HTTP + Swagger
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md)  El conector HTTP + Swagger tiene una acción posible.
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md) El conector HTTP + Swagger tiene una acción posible.
 
 | Acción | Description |
 | --- | --- |
@@ -117,11 +117,11 @@ Al realizar llamadas a diversas acciones, es posible que obtenga determinadas re
 
 - - -
 ## <a name="next-steps"></a>Pasos siguientes
-Pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) ahora. Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
+Pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) ahora. Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

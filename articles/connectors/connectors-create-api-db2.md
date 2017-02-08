@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d9b00d1db69951ce183f05c8237db02cd046931b
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
 
 
 ---
@@ -40,7 +40,7 @@ El conector de DB2 admite las siguientes operaciones de base de datos:
 
 Este tema le muestra cómo usar el conector en una aplicación lógica para procesar operaciones de base de datos.
 
-Para más información acerca de Logic Apps, consulte el artículo sobre [creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para más información acerca de Logic Apps, consulte el artículo sobre [creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="available-actions"></a>Acciones disponibles
 El conector de DB2 admite las siguientes acciones de Logic Apps:
@@ -409,11 +409,11 @@ Este conector admite las siguientes plataformas y versiones de IBM DB2, así com
 * IBM DB2 para LUW 10.5
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

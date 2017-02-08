@@ -1,14 +1,13 @@
 ---
 title: "Galería de imágenes de Azure Government | Microsoft Docs"
 description: "En este artículo se proporciona información general de la Galería de imágenes de Azure Government y las imágenes incluidas"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: 
 ms.assetid: f6dd4386-7b79-448a-8ae3-409258cc257b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -206,7 +205,7 @@ Vaya al repositorio de GitHub de plantillas de inicio rápido de Azure y selecci
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> (Splunk en Ubuntu) |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v"> Cisco CSR1000v (2 NIC) </a> |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 NIC) </a> |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> CSR1000v de Cisco (red virtual existente 4 NIC) </a> |
+| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> CSR1000v de Cisco (red virtual existente&4; NIC) </a> |
 
 ### <a name="step-2"></a>Paso 2
 En el archivo Léame, inicie la plantilla haciendo clic en el botón o vínculo "Deploy to Azure Government" (Implementar en Azure Government) situado en la parte superior de la página.

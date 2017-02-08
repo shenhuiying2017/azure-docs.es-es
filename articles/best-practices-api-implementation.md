@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: f4ad13e7674f7af28b22f55dbbb76ccc5d5d26f8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
 
 
 ---
@@ -1150,6 +1150,6 @@ Puede usar esta información para determinar si una operación o API web determi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

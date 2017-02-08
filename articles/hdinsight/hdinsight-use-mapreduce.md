@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 04ed02c07c10b74c60169eb895a448109650817a
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
 
 
 ---
@@ -168,6 +168,9 @@ HDInsight puede ejecutar trabajos de HiveQL mediante una variedad de métodos. U
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Enviar el trabajo de forma remota mediante **Windows PowerShell** |Linux o Windows |Windows |
 | [Escritorio remoto](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Uso del comando Hadoop mediante **Escritorio remoto** |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
 
 Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco difícil de dominar. Hay varios marcos basados en Java que facilitan la definición de aplicaciones de MapReduce, además de tecnologías como Pig y Hive, que proporcionan una manera más sencilla de trabajar con datos en HDInsight. Para obtener más información, consulte los artículos siguientes:
@@ -193,6 +196,6 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

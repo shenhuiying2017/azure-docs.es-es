@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: adb787b4ff1b4164bcf7ac08e7b6a227acfce423
-ms.openlocfilehash: 1f29554cce2ba5fe7b02c546c705cce3d9e13019
+ms.sourcegitcommit: 83b9f84ed017b4777b70777c653cc24ca19ab648
+ms.openlocfilehash: aadd8ec3d4d6d70c8ba7c28cd00fa21379b48929
 
 ---
 
@@ -159,7 +159,7 @@ Para configurar las variables resaltadas anteriormente, realice los pasos siguie
 
 ### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modificación de la programación de inicio y apagado
 
-La administración de la programación de inicio y apagado en esta solución sigue los mismos pasos descritos en [Programación de un Runbook en Azure Automation](automation-scheduling-a-runbook.md).  Recuerde que no se puede modificar la configuración de programación.  Deberá deshabilitar la programación existente y crear una nueva y, a continuación, crear un vínculo al Runbook **StartByResourceGroup-MS-Mgmt-VM** o **StopByResourceGroup-MS-Mgmt-VM** al que quiere que se aplique la programación.   
+La administración de la programación de inicio y apagado en esta solución sigue los mismos pasos descritos en [Programación de un Runbook en Azure Automation](automation-schedules.md).  Recuerde que no se puede modificar la configuración de programación.  Deberá deshabilitar la programación existente y crear una nueva y, a continuación, crear un vínculo al Runbook **StartByResourceGroup-MS-Mgmt-VM** o **StopByResourceGroup-MS-Mgmt-VM** al que quiere que se aplique la programación.   
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 
@@ -247,6 +247,6 @@ No se eliminarán la cuenta de Automation ni el área de trabajo de OMS como par
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 11/29/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5975bd5b2a2e7fe8799155ab47d96c3ecd0093ee
+ms.sourcegitcommit: d5800e53349c3f2f6146a7d62381a531537dba90
+ms.openlocfilehash: 990c679bc9937b3a684a7933fb7b8656eb798b69
 
 
 ---
@@ -27,7 +27,7 @@ En esta guía se asume que ya tiene una suscripción de Azure y puede iniciar se
 ## <a name="find-azure-search-in-the-azure-portal"></a>Encontrar Búsqueda de Azure en el Portal de Azure
 1. Abra el [Portal de Azure](https://portal.azure.com/) e inicie sesión.
 2. Haga clic en el signo más ("+") en la esquina superior izquierda.
-3. Seleccione **Datos y almacenamiento**.
+3. Seleccione **Web + Móvil**.
 4. Seleccione **Búsqueda de Azure**.
 
 ![](./media/search-create-service-portal/find-search.png)
@@ -67,8 +67,7 @@ Las ***réplicas*** permiten que el servicio gestione una carga más elevada de 
 1. Vaya a la hoja de administración de su servicio Búsqueda de Azure en el Portal de Azure.
 2. En la hoja **Configuración**, seleccione **Escala**.
 3. Puede escalar el servicio mediante la adición de particiones o réplicas.
-   * No se puede escalar el servicio por encima de 36 unidades de búsqueda. El número total de unidades de búsqueda es el producto de sus réplicas y particiones (réplicas * particiones = total de unidades de búsqueda).
-   * Si ha elegido el nivel Básico, solo puede escalar a 3 réplicas. Los servicios básicos están enlazados a una sola partición.
+   * Cada nivel de servicio tiene distintos [límites](search-limits-quotas-capacity.md) en el número total de unidades de búsqueda que se permiten en un único servicio (réplicas * particiones = total de unidades de búsqueda).
 
 ![](./media/search-create-service-portal/scale-service.png)
 
@@ -80,6 +79,6 @@ Consulte [Introducción a Búsqueda de Azure en el Portal](search-get-started-po
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Adición del desencadenador de periodicidad en aplicaciones lógicas | Microsoft Docs
-description: Información general sobre el desencadenador de periodicidad y cómo utilizarlo con una aplicación lógica de Azure.
-services: ''
-documentationcenter: ''
+title: "Adición del desencadenador de periodicidad en Logic Apps | Microsoft Docs"
+description: "Información general sobre el desencadenador de periodicidad y cómo utilizarlo con una aplicación lógica de Azure."
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
+
 
 ---
-# Introducción al desencadenador de periodicidad
+# <a name="get-started-with-the-recurrence-trigger"></a>Introducción al desencadenador de periodicidad
 Con el desencadenador de periodicidad, puede crear flujos de trabajo eficaces en la nube.
 
 Por ejemplo, puede:
@@ -25,9 +29,9 @@ Por ejemplo, puede:
 * Programar un flujo de trabajo para ejecutar un procedimiento almacenado de SQL cada día.
 * Enviar por correo electrónico un resumen de todos los tweets de la última semana sobre un determinado hashtag.
 
-Para empezar a usar la acción de periodicidad en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para empezar a usar la acción de periodicidad en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## Uso de un desencadenador de periodicidad
+## <a name="use-a-recurrence-trigger"></a>Uso de un desencadenador de periodicidad
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](connectors-overview.md).
 
 Esta es una secuencia de ejemplo de cómo configurar un desencadenador de periodicidad en una aplicación lógica:
@@ -39,10 +43,11 @@ La aplicación lógica inicia ahora una ejecución después de cada intervalo de
 
 ![Desencadenador HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
-## Detalles del desencadenador
+## <a name="trigger-details"></a>Detalles del desencadenador
 El desencadenador de periodicidad tiene las siguientes propiedades que se pueden configurar.
 
-Active una aplicación lógica después de un intervalo de tiempo especificado. Un * significa que es un campo obligatorio.
+Active una aplicación lógica después de un intervalo de tiempo especificado.
+Un * significa que es un campo obligatorio.
 
 | Nombre para mostrar | Nombre de propiedad | Description |
 | --- | --- | --- |
@@ -53,7 +58,12 @@ Active una aplicación lógica después de un intervalo de tiempo especificado. 
 
 <br>
 
-## Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) ahora. Puede explorar los demás conectores disponibles en aplicaciones consultando nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>Pasos siguientes
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

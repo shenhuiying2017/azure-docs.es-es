@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 31632f9c88810d5cd26ad314dde2c28a4012dc75
+ms.sourcegitcommit: 314170f8d1ef228817543a80b99f4c2ff282866f
+ms.openlocfilehash: 8c783fc8e789ec31f0b8f4db90b5fa67334d95ab
 
 
 ---
@@ -30,8 +30,7 @@ Este SDK es compatible con la versión 6.0.0 y posterior de Apache Cordova en di
 
 * Niveles de API de Android del 19 al 24 (de KitKat a Nougat)
 * Versiones 8.0 y posteriores de iOS.
-* Windows Phone 8.0
-* Windows Phone 8,1
+* Windows Phone 8.1
 * Plataforma universal de Windows
 
 ## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Configuración y requisitos previos
@@ -74,12 +73,12 @@ Siga estas instrucciones para agregar los ajustes locales a la configuración:
 5. Expanda los nodos **config** y **authsettings** de su sitio en el panel de navegación izquierdo.
 6. Haga clic en **Editar**
 7. Busque el elemento "allowedExternalRedirectUrls".  Se puede establecer en Null o una matriz de valores.  Cambie el valor al siguiente:
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Sustituya las URL por las de su servicio.  Por ejemplo: "http://localhost:3000" (para el servicio de muestra Node.js) o "http://localhost:4400" (para el servicio de Ripple).  Sin embargo, estas URL no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
 8. Haga clic en el botón **Lectura/escritura** situado en la esquina superior derecha de la pantalla.
 9. Haga clic en el botón verde **PUT** .
@@ -139,11 +138,15 @@ pushHandler.on('error', function (error) {
 
 Use el SDK de Centros de notificaciones para enviar notificaciones push desde el servidor.  No envíe nunca notificaciones push directamente desde la aplicación, ya que podría usarse para desencadenar un ataque de denegación de servicio en Notification Hubs o el PNS.  El PNS puede prohibir el tráfico como resultado de estos ataques.
 
+## <a name="more-information"></a>Más información
+
+Puede encontrar información detallada sobre las API en nuestra [documentación de la API](http://azure.github.io/azure-mobile-apps-js-client/).
+
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com
 [Creación de una aplicación de Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
-[Incorporación de la autenticación a una aplicación]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [complemento de Apache Cordova para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [su primera aplicación de Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -151,10 +154,10 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Documentación del objeto Consulta]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

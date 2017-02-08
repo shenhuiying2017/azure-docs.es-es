@@ -501,6 +501,6 @@ Consulte [Consideraciones sobre la topología de implementación de AD FS 2.0](h
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

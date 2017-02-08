@@ -3,8 +3,8 @@ title: "Implementación del servicio StorSimple Manager | Microsoft Docs"
 description: "Aquí encontrará información sobre cómo crear y eliminar el servicio StorSimple Manager en el Portal de Azure clásico, así como una descripción acerca de cómo administrar la clave de registro de servicio."
 services: storsimple
 documentationcenter: 
-author: SharS
-manager: carmonm
+author: alkohli
+manager: byronr
 editor: 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2016
-ms.author: v-sharos
+ms.date: 12/05/2016
+ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: 51c414bacb825dd51bcd76a06e1f9e0f0c001b93
+ms.sourcegitcommit: f507eb6986f7c62965dc00673ee5ebe38e70f1d7
+ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
 
 
 ---
@@ -51,6 +51,9 @@ También puede generar una cuenta de almacenamiento predeterminada cuando se cre
 
 Un único servicio puede administrar varios dispositivos. Sin embargo, un dispositivo no puede abarcar varios servicios. Una gran empresa puede tener varias instancias de servicio para trabajar con distintas suscripciones, organizaciones o incluso las ubicaciones de implementación. Tenga en cuenta que necesita instancias separadas del servicio StorSimple Manager para administrar matrices virtuales de StorSimple y dispositivos de la serie StorSimple 8000.
 
+> [!IMPORTANT] 
+> Si tiene un servicio sin usar creado (no se realizaron operaciones en este recurso) antes de agosto de 2016, no puede administrarse a través de Azure Portal o el Portal de Azure clásico. Le recomendamos que cree un nuevo servicio en Azure Portal.
+
 Realice los siguientes pasos para crear un servicio.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -58,7 +61,8 @@ Realice los siguientes pasos para crear un servicio.
 ## <a name="delete-a-service"></a>Eliminar un servicio
 Antes de eliminar un servicio, asegúrese de que no lo esté utilizando ningún dispositivo conectado. Si se está utilizando el servicio, desactive los dispositivos conectados. La operación de desactivación eliminará la conexión entre el dispositivo y el servicio, pero conservará los datos del dispositivo en la nube.
 
-[AZURE.IMPORTANT] Después de eliminar un servicio, no se puede revertir la operación. Cualquier dispositivo que estaba utilizando el servicio deberá restablecerse a los valores de fábrica para que pueda ser usado con otro servicio. En este escenario, se perderán los datos locales del dispositivo, así como la configuración.
+> [!IMPORTANT] 
+> Después de eliminar un servicio, no se puede revertir la operación. Cualquier dispositivo que estaba utilizando el servicio deberá restablecerse a los valores de fábrica para que pueda ser usado con otro servicio. En este escenario, se perderán los datos locales del dispositivo, así como la configuración.
 
 Realice los siguientes pasos para eliminar un servicio.
 
@@ -89,15 +93,15 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 3. Aparecerá un mensaje de confirmación. Haga clic en **Aceptar** para continuar con la regeneración.
 4. Aparecerá una nueva clave de registro de servicio.
 5. Copie esta clave y guárdela para registrar los dispositivos nuevos con este servicio.
-6. Haga clic en el icono de verificación  ![Icono de marca de verificación](./media/storsimple-manage-service/HCS_CheckIcon.png)  para cerrar este cuadro de diálogo.
+6. Haga clic en el icono de verificación  ![Icono de marca de verificación](./media/storsimple-manage-service/HCS_CheckIcon.png) para cerrar este cuadro de diálogo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre el [proceso de implementación de StorSimple](storsimple-deployment-walkthrough.md).
+* Obtenga más información sobre el [proceso de implementación de StorSimple](storsimple-deployment-walkthrough-u2.md).
 * Obtenga más información sobre cómo [administrar su cuenta de almacenamiento de StorSimple](storsimple-manage-storage-accounts.md).
 * Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

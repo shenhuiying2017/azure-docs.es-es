@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 000bc72e5c880abdd455d50cd7ac0bb57a51391d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c67cfcc8b01786dcd39fa683898ba076059be0b4
 
 
 ---
@@ -29,8 +29,8 @@ Este tutorial usa un dispositivo simulado Node.js simple que puede modificar fá
 
 Para completar este tutorial necesitará lo siguiente:
 
-* Una suscripción de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
-* [Node.js][lnk-node] versión 0.12.x o posteriores.
+* Una suscripción de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte la [evaluación gratuita de Azure][lnk_free_trial].
+* [Node.js][lnk-node] versión 0.12.x, o posteriores.
 
 Puede completar este tutorial en cualquier sistema operativo, como Windows o Linux, donde pueda instalar Node.js.
 
@@ -232,15 +232,15 @@ Este cambio solo afecta a la visualización del gráfico. Los valores de datos d
 Para que el gráfico muestre el flujo de datos, su **Type** en los metadatos de **Device-Info** debe coincidir con el tipo de datos de los valores de telemetría. Por ejemplo, si los metadatos que especifican que el **tipo** de datos de humedad es **int** y se encuentra **double** en el flujo de telemetría, los datos de telemetría relativos a la humedad no se muestran en el gráfico. Sin embargo, los valores de **Humidity** (Humedad) siguen almacenados y están disponibles para cualquier procesamiento de back-end.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ya sabe cómo utilizar la telemetría dinámica, puede obtener más información sobre cómo las soluciones preconfiguradas emplean la información de los dispositivos: [Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota][lnk-devinfo].
+Ahora que ya sabe cómo utilizar la telemetría dinámico, puede obtener más información sobre cómo las soluciones preconfiguradas emplean la información de los dispositivos: [Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[imagen1]: media/iot-suite-dynamic-telemetry/image1.png
-[Imagen 2]: media/iot-suite-dynamic-telemetry/image2.png
-[Imagen 3]: media/iot-suite-dynamic-telemetry/image3.png
-[Imagen 4]: media/iot-suite-dynamic-telemetry/image4.png
-[Imagen 5]: media/iot-suite-dynamic-telemetry/image5.png
+[image1]: media/iot-suite-dynamic-telemetry/image1.png
+[image2]: media/iot-suite-dynamic-telemetry/image2.png
+[image3]: media/iot-suite-dynamic-telemetry/image3.png
+[image4]: media/iot-suite-dynamic-telemetry/image4.png
+[image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
@@ -249,6 +249,6 @@ Ahora que ya sabe cómo utilizar la telemetría dinámica, puede obtener más in
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98333c8721274c207ed3d7f2bd05cc20bcd10562
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: be19590bca7c7fb45e32f5a5e29c88ab5dd21deb
 
 
 ---
@@ -30,6 +30,10 @@ Una de las ventajas de la ejecución de Base de datos SQL en Microsoft Azure es 
 
 ## <a name="when-your-app-is-an-overnight-success"></a>Si la aplicación es un éxito de la noche a la mañana
 Base de datos SQL facilita el escalado en un instante. Por lo que si la aplicación se vuelve un éxito de la noche a la mañana, únicamente tendrá que hacer un solo clic para dar cabida a las nuevas necesidades de rendimiento. Todo ello, además, con un tiempo mínimo de inactividad, por lo que no tendrá que preocuparse por si la aplicación se puede ver afectada cuando llegue el momento de escalar o reducir verticalmente.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+>
 
 [Lea la documentación](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -57,6 +61,6 @@ Revise la [información general técnica de Base de datos SQL](sql-database-tech
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

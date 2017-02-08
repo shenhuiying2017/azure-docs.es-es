@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ee46dc265669d3520677b474181c9c7c720644c
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
 
 
 ---
@@ -33,13 +33,13 @@ La solicitud contiene información no válida y se rechazará debido a uno de lo
   > Si usa SDK de Java o .NET para conectarse a Media Services, la versión de la API se especificará automáticamente cada vez que intente realizar alguna acción con Media Services.
   > 
   > 
-* Se ha especificado una propiedad no definida. El nombre de la propiedad se encuentra en el mensaje de error. Se pueden especificar solo las propiedades miembro de una entidad determinada. Consulte [Referencia de la API de REST de Azure Media Services](http://msdn.microsoft.com/library/azure/hh973617.aspx) para obtener una lista de entidades y sus propiedades.
+* Se ha especificado una propiedad no definida. El nombre de la propiedad se encuentra en el mensaje de error. Se pueden especificar solo las propiedades miembro de una entidad determinada. Consulte [Referencia de la API de REST de Azure Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) para obtener una lista de entidades y sus propiedades.
 * Se ha especificado un valor de propiedad no válido. El nombre de la propiedad se encuentra en el mensaje de error. Vea el vínculo anterior para tipos de propiedad válidos y sus valores.
 * Falta un valor de propiedad y es obligatorio.
 * Parte de la dirección URL especificada contiene un valor incorrecto.
 * Se intentó actualizar una propiedad WriteOnce.
 * Se ha intentado crear un trabajo que tiene un recurso de entrada con un AssetFile principal que no se especificó o no se pudo determinar.
-* Se realizó un intento de actualizar un localizador SAS. Solo se pueden crear o eliminar localizadores SAS. Los localizadores en streaming pueden actualizarse. Para obtener más información, consulte [Localizadores](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+* Se realizó un intento de actualizar un localizador SAS. Solo se pueden crear o eliminar localizadores SAS. Los localizadores en streaming pueden actualizarse. Para obtener más información, consulte [Localizadores](https://docs.microsoft.com/rest/api/media/operations/locator).
 * Se ha enviado una operación no compatible o una consulta.
 
 ## <a name="401-unauthorized"></a>401 No autorizado
@@ -127,6 +127,6 @@ Para controlar este error, se recomienda usar la lógica de reintento de retroce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

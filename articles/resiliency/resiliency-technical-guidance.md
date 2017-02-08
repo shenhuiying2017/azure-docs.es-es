@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d0cae49b3d45be153daf53cd3ff352e25c447ed1
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 7618f94574fd02d29a55ccbe8723a0228ad64f7f
 
 
 ---
@@ -49,11 +49,11 @@ La información se organiza en los siguientes artículos:
   En este artículo se incluye un índice de los servicios de Azure y se proporcionan vínculos tanto a la guía para recuperación ante desastres como a la guía de diseño.
 * [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](../sql-database/sql-database-business-continuity.md).
   En este artículo se especifican las técnicas de Base de datos SQL de Azure para lograr disponibilidad. Se centra principalmente en las estrategias de copia de seguridad y restauración. Si va a utilizar Base de datos SQL de Azure en el servicio en la nube, debe revisar este documento y los recursos relacionados.
-* [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)
   En este artículo se describen las opciones de disponibilidad que se pueden explorar cuando se utiliza la infraestructura como servicio (IaaS) para hospedar servicios de base de datos. Describe los grupos de disponibilidad AlwaysOn, la creación de reflejo de la base de datos, el trasvase de registros y la copia de seguridad y la restauración. Varios tutoriales muestran cómo utilizar estas técnicas.
 * [Best Practices for designing large-scale services on Azure Cloud Services](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/)(Procedimientos recomendados para el diseño de servicios a gran escala en Servicios en la nube de Azure).
   Este artículo se centra en el desarrollo de arquitecturas en la nube altamente escalables. Muchas de las técnicas que se emplean para mejorar la escalabilidad también mejoran la disponibilidad. Además, si la aplicación no se puede escalar cuando aumenta la carga, la escalabilidad pasará a ser un problema de disponibilidad.
-* [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md)
   En este artículo se proporciona una guía técnica para realizar copias de seguridad y restauraciones de Microsoft SQL Server cuando se ejecuta en Máquinas virtuales de Azure.
 * [Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)(Failsafe: guía para arquitecturas en la nube resistentes).
   En este artículo se proporcionan instrucciones para la creación de arquitecturas resistentes en la nube y para implementar dichas arquitecturas en tecnologías de Microsoft y en escenarios específicos.
@@ -66,6 +66,6 @@ Este artículo forma parte de una serie que se centra en la guía técnica sobre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

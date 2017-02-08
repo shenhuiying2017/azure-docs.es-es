@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/09/2016
 ms.author: kipandya
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: b188c8d8d66f0af1afa6f357f4d67db7b778ec86
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: d7ed490157eff98e31c824daf1f9af98ae1afeaa
 
 
 ---
@@ -43,7 +43,7 @@ Si la propiedad PreferredLocations no está establecida, atenderá todas las sol
 ## <a name="net-sdk"></a>.NET SDK
 Se puede usar el SDK sin cambiar el código. En este caso, el SDK dirige automáticamente tanto las lecturas como las escrituras a la región de escritura actual.
 
-En la versión 1.8 y posteriores del SDK de .NET, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una propiedad denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propiedad es del tipo Collection `<string>` y debería contener una lista de nombres de región. Se da formato a los valores de cadena según la columna Nombre de región en la página [Regiones de Azure][regiones], sin espacios antes ni después del primer y el último carácter, respectivamente.
+En la versión 1.8 y posteriores del SDK de .NET, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una propiedad denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propiedad es del tipo Collection `<string>` y debería contener una lista de nombres de región. Se da formato a los valores de cadena según la columna Nombre de región en la página [Regiones de Azure][regions], sin espacios antes ni después del primer y el último carácter, respectivamente.
 
 Los puntos de conexión de lectura y escritura actuales están disponibles en DocumentClient.ReadEndpoint y DocumentClient.WriteEndpoint, respectivamente.
 
@@ -55,6 +55,8 @@ Los puntos de conexión de lectura y escritura actuales están disponibles en Do
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+    
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
     //Setting read region selection preference
     connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
@@ -74,7 +76,7 @@ Los puntos de conexión de lectura y escritura actuales están disponibles en Do
 ## <a name="nodejs-javascript-and-python-sdks"></a>SDK de NodeJS, JavaScript y Python
 Se puede usar el SDK sin cambiar el código. En este caso, el SDK dirigirá automáticamente tanto las lecturas como las escrituras a la región de escritura actual.
 
-En la versión 1.8 y posteriores de cada SDK, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una nueva propiedad denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este parámetro es una matriz de cadenas que acepta una lista de nombres de región. Se da formato a los nombres según la columna Nombre de región en la página [Regiones de Azure][regiones]. También puede usar las constantes predefinidas en el objeto de conveniencia AzureDocuments.Regions.
+En la versión 1.8 y posteriores de cada SDK, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una nueva propiedad denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este parámetro es una matriz de cadenas que acepta una lista de nombres de región. Se da formato a los nombres según la columna Nombre de región en la página [Regiones de Azure][regions]. También puede usar las constantes predefinidas en el objeto de conveniencia AzureDocuments.Regions.
 
 Los puntos de conexión de lectura y escritura actuales están disponibles en DocumentClient.getReadEndpoint y DocumentClient.getWriteEndpoint, respectivamente.
 
@@ -150,13 +152,12 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 
 * [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md)
 * [Niveles de coherencia](documentdb-consistency-levels.md)
-* [Obtener información acerca del almacenamiento y el aprovisionamiento de rendimiento predecible en DocumentDB](documentdb-manage.md)
 * [Add regions using the Azure portal (Incorporación de regiones con el Portal de Azure)](documentdb-portal-global-replication.md)
 
-[regiones]: https://azure.microsoft.com/regions/
+[regions]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

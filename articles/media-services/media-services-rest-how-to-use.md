@@ -1,5 +1,5 @@
 ---
-title: "Información general sobre la API de REST de Media Services | Microsoft Docs"
+title: "Información general sobre la API de REST de Media Services Operations | Microsoft Docs"
 description: "Información general de la API de REST de Servicios multimedia"
 services: media-services
 documentationcenter: 
@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/29/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900c8fe2710d02d117c1b8155623ed911796203b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
 
 
 ---
-# <a name="media-services-rest-api-overview"></a>Información general de la API de REST de Servicios multimedia
+# <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de Media Services Operations
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+
+La API de **REST de Media Services Operations** se usa para crear trabajos, activos, directivas de acceso y otras operaciones en objetos de una cuenta de Media Services. Para obtener más información, consulte la [referencia de la API de REST de Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Servicios multimedia de Microsoft Azure es un servicio que acepta solicitudes HTTP basadas en OData y puede responder en JSON detallado o atom+pub. Como los Servicios multimedia cumplen las directrices de diseño de Azure, hay un conjunto de encabezados HTTP obligatorios que cada cliente debe usar al conectarse a los Servicios multimedia, así como un conjunto de encabezados opcionales que se pueden usar. En las secciones siguientes se describen los encabezados y los verbos HTTP que puede usar al crear solicitudes y recibir respuestas de los Servicios multimedia.
 
+
 ## <a name="considerations"></a>Consideraciones
+
 Las siguientes consideraciones se aplican al usar REST.
 
 * Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar **Skip** y **Take** (.NET)/ **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
@@ -66,7 +70,7 @@ A continuación se muestra un conjunto de encabezados opcionales:
 | Encabezado | Tipo | Valor |
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
-| Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p>  Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contendrá la secuencia de blob como la carga. |
+| Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contendrá la secuencia de blob como la carga. |
 | Accept-Encoding |Gzip, deflate |Codificación GZIP y DEFLATE, según corresponda. En el caso de recursos grandes, Servicios multimedia puede ignorar el encabezado y devolver datos sin comprimir. |
 | Accept-Language |"en", "es", etc. |Especifica el idioma preferido para la respuesta. |
 | Accept-Charset |Tipo de juego de caracteres como "UTF-8" |El valor predeterminado es UTF-8. |
@@ -114,6 +118,6 @@ Anexe "?api-version=2.x" al final del URI si desea ver los metadatos en un explo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

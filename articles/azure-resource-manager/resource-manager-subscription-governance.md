@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: cd39256ae2132e25631d0264ae1fa2c5a1d76a6a
+ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
+ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
 
 
 ---
@@ -92,7 +92,7 @@ El segundo pilar implica la creación de [directivas de Azure Resource Manager](
 
 * Las directivas son un sistema de **permisos** predeterminado. Las acciones se controlan mediante la definición y asignación de directivas a los recursos que deniegan o auditan acciones en los recursos.
 * Las directivas se describen a través de las definiciones de directiva en un lenguaje de definición de directivas (condiciones If-Then).
-* Las directivas se crean con archivos JSON (notación de objetos JavaScript). Después de definir una directiva, se asigna a un ámbito determinado: suscripción, recurso o grupo de recursos.
+* Las directivas se crean con archivos JSON (notación de objetos JavaScript). Después de definir una directiva, se asigna a un ámbito determinado: suscripción, grupo de recursos o recurso.
 
 Las directivas tienen varias acciones que permiten adoptar un enfoque específico en sus escenarios. Las acciones son las siguientes:
 
@@ -251,11 +251,9 @@ Quizás, uno de los principales impedimentos para adoptar la tecnología de nube
 ## <a name="next-steps"></a>Pasos siguientes
 * Ahora que ha obtenido información sobre el gobierno de suscripciones, es hora de ver estas recomendaciones en la práctica. Vea [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md) (Ejemplos de implementación de un sistema de gobierno de suscripciones).
 
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) ha realizado una aportación a este tema.*
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

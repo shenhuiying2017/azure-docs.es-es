@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 15f0183d8ada59227a412788f1d53a9db0e712c8
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
 
 
 ---
@@ -97,7 +97,7 @@ La funcionalidad de [restauración geográfica](../sql-database/sql-database-rec
 [Replicación geográfica activa](../sql-database/sql-database-geo-replication-overview.md) está disponible para todos los niveles de base de datos. Está diseñada para aplicaciones que tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Para obtener más información, consulte el artículo sobre cómo [configurar la replicación geográfica](../sql-database/sql-database-geo-replication-portal.md) y [conmutar por error a la base de datos secundaria](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en SQL Database](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de SQL Database](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obtener información sobre cómo diseñar e implementar aplicaciones y actualizaciones de aplicaciones sin que se produzcan tiempos de inactividad.
 
 ### <a name="sql-server-on-virtual-machines"></a>SQL Server en máquinas virtuales
-Hay varias opciones disponibles de recuperación y alta disponibilidad para SQL Server 2012 (y versiones posteriores) que se ejecutan en las máquinas virtuales de Azure. Para más información, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Hay varias opciones disponibles de recuperación y alta disponibilidad para SQL Server 2012 (y versiones posteriores) que se ejecutan en las máquinas virtuales de Azure. Para más información, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="other-azure-platform-services"></a>Otros servicios de la plataforma de Azure
 Al intentar ejecutar el servicio en la nube en varias regiones de Azure, debe tener en cuenta las implicaciones de cada una de las dependencias. En las secciones siguientes, la guía específica del servicio supone que debe usar el mismo servicio de Azure en un centro de datos de Azure alternativo. Esto implica tareas de configuración y de replicación de datos.
@@ -188,6 +188,6 @@ Este artículo forma parte de una serie que se centra en la [Guía técnica sobr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

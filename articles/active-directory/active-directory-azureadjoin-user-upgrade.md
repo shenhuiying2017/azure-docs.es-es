@@ -50,6 +50,6 @@ Si ya usa Windows 7 o Windows 8 y el equipo o dispositivo se ha actualizado a Wi
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

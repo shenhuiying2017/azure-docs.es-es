@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 397928e851524fb43d3ffa114b45024b0158a410
+ms.sourcegitcommit: b8b663d802fde83f3435f2d97ceb51d5b5c802bb
+ms.openlocfilehash: ef17c0226528fef35c0317cebbaa14b7bbe28b1d
 
 
 ---
@@ -116,7 +116,7 @@ Solicite que se asignen dos direcciones IP públicas a la puerta de enlace que c
     $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $subnet1 -PublicIpAddress $gw1pip2
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Creación de la puerta de enlace VPN con una configuración activo-activo
-Cree la puerta de enlace de red virtual para TestVNet1. Tenga en cuenta que hay dos entradas de GatewayIpConfig y la marca EnableActiveActiveFeature está establecida. El modo activo-activo requiere una puerta de enlace VPN basada en enrutamiento de SKU HighPerformance. Se tardan unos 30 minutos o algo más en crear una puerta de enlace.
+Cree la puerta de enlace de red virtual para TestVNet1. Tenga en cuenta que hay dos entradas de GatewayIpConfig y la marca EnableActiveActiveFeature está establecida. El modo activo-activo requiere una puerta de enlace VPN basada en enrutamiento de SKU HighPerformance. Se tardan unos&30; minutos o algo más en crear una puerta de enlace.
 
     New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 
@@ -217,7 +217,7 @@ Tenga en cuenta que la dirección IP de puerta de enlace, el prefijo de direcci�
 
     New-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP52 -AddressPrefix $LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP52
 
-#### <a name="2-connect-the-vnet-gateway-and-the-second-local-network-gateway"></a>2. Paso 2: Conexión de la puerta de enlace de red virtual y la segunda puerta de enlace de red local
+#### <a name="2-connect-the-vnet-gateway-and-the-second-local-network-gateway"></a>2. Paso&2;: Conexión de la puerta de enlace de red virtual y la segunda puerta de enlace de red local
 Cree la conexión de TestVNet1 a Site5_2 con "EnableBGP" establecido como $True
 
     $lng5gw2 = Get-AzureRmLocalNetworkGateway   -Name $LNGName52 -ResourceGroupName $RG5
@@ -227,14 +227,15 @@ Cree la conexión de TestVNet1 a Site5_2 con "EnableBGP" establecido como $True
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Los parámetros VPN y BGP para el segundo dispositivo VPN local
 De forma similar, a continuación se indican los parámetros que tendrá que especificar en el segundo dispositivo VPN:
 
-    - ASN de Site5            : 65050
-    - IP de BGP Site5: 10.52.255.254
-    - Prefijos para anunciar: (por ejemplo), 10.51.0.0/16 y 10.52.0.0/16
-    - ASN de red virtual de Azure: 65010
-    - IP 1 de BGP de red virtual de Azure: 10.12.255.4 de túnel para 40.112.190.5
-    - IP 2 de BGP de red virtual de Azure: 10.12.255.5 de túnel para 138.91.156.129
-    - Rutas estáticas        : destino 10.12.255.4/32, próximo salto de la interfaz del túnel VPN para 40.112.190.5                        Destino 10.12.255.5/32, próximo salto de la interfaz del túnel VPN para 138.91.156.129
-    - Salto múltiple de eBGP        : asegúrese de que la opción de "salto múltiple" eBGP está habilitada en el dispositivo, si es necesario
+      - Site5 ASN            : 65050
+      - Site5 BGP IP         : 10.52.255.254
+      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+      - Azure VNet ASN       : 65010
+      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 
 Una vez que se establece la conexión (túneles), tendrá dos dispositivos VPN redundantes y túneles que conectan la red local y Azure:
 
@@ -381,6 +382,6 @@ Una vez completada la conexión, puede agregar máquinas virtuales a las redes v
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

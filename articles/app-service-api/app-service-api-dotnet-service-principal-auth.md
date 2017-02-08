@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 234ab46713657c7400148210c6029c63afd35e96
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
 
 
 ---
@@ -27,7 +27,7 @@ Este artículo explica cómo utilizar la autenticación del Servicio de aplicaci
 En este artículo, aprenderá lo siguiente:
 
 * Usar Azure Active Directory (Azure AD) para proteger una aplicación de API de accesos no autenticados.
-* Consumir una aplicación de API protegida desde otra aplicación de API, una aplicación web o una aplicación móvil mediante credenciales de entidad de servicio (identidad de aplicación) de Azure AD. Para más información sobre cómo consumir desde una aplicación lógica, consulte [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md).
+* Consumir una aplicación de API protegida desde otra aplicación de API, una aplicación web o una aplicación móvil mediante credenciales de entidad de servicio (identidad de aplicación) de Azure AD. Para más información sobre cómo consumir desde una aplicación lógica, consulte [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../logic-apps/logic-apps-custom-hosted-api.md).
 * Asegurarse de que los usuarios que iniciaron sesión no pueda llaman a la aplicación de API protegida desde un explorador.
 * Asegurarse de que solo una entidad de servicio de Azure AD pueda llamar a la aplicación de API protegida.
 
@@ -352,6 +352,6 @@ Para más información sobre otras formas de implementar proyectos de Visual Stu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

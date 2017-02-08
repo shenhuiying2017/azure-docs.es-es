@@ -8,7 +8,7 @@ ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentación de Monitoring and Diagnostics
 
-Monitoring and Diagnostics es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios escalables y de confianza, además de abordar los importantes desafíos a los que se enfrentan el desarrollo y la administración de aplicaciones en la nube.  Monitoring and Diagnostics representa la plataforma middleware de próxima generación para crear y administrar estas aplicaciones de clase empresarial, de escala de nube de nivel 1.
+Monitoring and Diagnostics es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios escalables y de confianza, además de abordar los importantes desafíos a los que se enfrentan el desarrollo y la administración de aplicaciones en la nube.  Monitoring and Diagnostics representa la plataforma middleware de próxima generación para crear y administrar estas aplicaciones de clase empresarial, de escala de nube de nivel&1;.
 
 <ul class="panelContent cardsFTitle">
     <li>

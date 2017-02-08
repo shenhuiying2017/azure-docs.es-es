@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4ba6ce876df3ec426e02e10eda062b67d0d42c4e
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
 
 
 ---
@@ -66,7 +66,7 @@ Para eliminar una vista existente, ábrala haciendo clic en su icono del panel p
 ![Eliminación de una vista](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>Exportación de vistas existentes
-Puede exportar una vista a un archivo JSON, que puede importar a otra área de trabajo o usarse en una [plantilla de Azure Resource Manager](../resource-group-authoring-templates.md).  Para exportar una vista existente, ábrala haciendo clic en su icono del panel principal de OMS.  Después, haga clic en el botón **Exportar** para crear un archivo en la carpeta de descargas del explorador.  El nombre del archivo será el de la vista con la extensión *omsview*.
+Puede exportar una vista a un archivo JSON, que puede importar a otra área de trabajo o usarse en una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).  Para exportar una vista existente, ábrala haciendo clic en su icono del panel principal de OMS.  Después, haga clic en el botón **Exportar** para crear un archivo en la carpeta de descargas del explorador.  El nombre del archivo será el de la vista con la extensión *omsview*.
 
 ![Exportación de una vista](media/log-analytics-view-designer/edit-menu-export.png)
 
@@ -99,6 +99,6 @@ Las vistas solo tienen una fila de elementos de visualización.  Los elementos d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

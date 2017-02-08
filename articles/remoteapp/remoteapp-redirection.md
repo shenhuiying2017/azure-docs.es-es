@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5a5ad526513c7adf9b8274acec7d89fe375f43fc
 
 
 ---
@@ -48,7 +48,7 @@ Existen dos opciones de redireccionamiento deshabilitadas de forma predeterminad
 * Redireccionamiento de USB: puede usar los dispositivos USB conectados al equipo local en la sesión remota.
 
 ## <a name="change-your-redirection-settings-in-remoteapp"></a>Cambiar la configuración de redireccionamiento de RemoteApp
-Puede cambiar la configuración de redireccionamiento de dispositivos para una colección mediante el uso de Microsoft Azure PowerShell con el SDK. Después de instalar el nuevo SDK y PowerShell, primero configúrelo para administrar la suscripción como se describe en [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+Puede cambiar la configuración de redireccionamiento de dispositivos para una colección mediante el uso de Microsoft Azure PowerShell con el SDK. Después de instalar el nuevo SDK y PowerShell, primero configúrelo para administrar la suscripción como se describe en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 A continuación, utilice un comando similar al siguiente para establecer las propiedades personalizadas de RDP:
 
@@ -119,6 +119,6 @@ También puede utilizar la herramienta de administración de directivas de grupo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

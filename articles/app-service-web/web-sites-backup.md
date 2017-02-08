@@ -1,12 +1,12 @@
 ---
-title: Realizar una copia de seguridad de la aplicación en Azure
-description: Obtenga información sobre cómo crear copias de seguridad de sus aplicaciones en el Servicio de aplicaciones de Azure.
+title: "Realizar una copia de seguridad de la aplicación en Azure"
+description: "Obtenga información sobre cómo crear copias de seguridad de sus aplicaciones en el Servicio de aplicaciones de Azure."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,23 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b00c320eeb1e8b30a0fad9634844ceeca60d1c29
+
 
 ---
-# Realizar una copia de seguridad de la aplicación en Azure
-La característica Copia de seguridad y restauración del [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) le permite crear fácilmente las copias de seguridad de la aplicación manual o automáticamente. Puede restaurar su aplicación a un estado anterior o crear una nueva aplicación basada en una de las copias de seguridad de la aplicación original.
+# <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
+La característica Copia de seguridad y restauración del [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) le permite crear fácilmente las copias de seguridad de la aplicación manual o automáticamente. Puede restaurar su aplicación a un estado anterior o crear una nueva aplicación basada en una de las copias de seguridad de la aplicación original. 
 
 Para obtener información sobre cómo restaurar una aplicación desde la copia de seguridad, vea [Restauración de una aplicación en el Servicio de aplicaciones de Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
-## ¿Qué se incluye en la copia de seguridad?
+## <a name="what-gets-backed-up"></a>¿Qué se incluye en la copia de seguridad?
 El Servicio de aplicaciones puede realizar una copia de seguridad de la siguiente información:
 
 * Configuración de la aplicación
 * Contenido del archivo
 * Todas las Bases de datos SQL de Azure o las Base de datos MySQL en Azure (ClearDB) conectadas a su aplicación (puede elegir las que quiere incluir en la copia de seguridad)
 
-Esta información se guarda en una copia de seguridad en la cuenta de almacenamiento y el contenedor de Azure que especifique.
+Esta información se guarda en una copia de seguridad en la cuenta de almacenamiento y el contenedor de Azure que especifique. 
 
 > [!NOTE]
 > Cada copia de seguridad es una copia completa sin conexión de su aplicación, no una actualización incremental.
@@ -39,20 +43,22 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 
 <a name="requirements"></a>
 
-## Requisitos y restricciones
+## <a name="requirements-and-restrictions"></a>Requisitos y restricciones
 * La característica Copia de seguridad y restauración requiere que el plan Servicio de aplicaciones tenga el nivel **estándar** o superior. Para obtener más información sobre cómo escalar el plan Servicio de aplicaciones para usar un nivel superior, vea [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el nivel **premium** permite realizar un mayor número de copias de seguridad diarias que el nivel **estándar**.
 * Necesita una cuenta de almacenamiento de Azure y un contenedor en la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
-* Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Obtendrá un error si el tamaño de la copia de seguridad supera este límite.
+* Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Obtendrá un error si el tamaño de la copia de seguridad supera este límite. 
 
 <a name="manualbackup"></a>
 
-## Crear una copia de seguridad manual
-1. En el [Portal de Azure](https://portal.azure.com), vaya a la hoja de la aplicación, seleccione **Configuración** y **Copias de seguridad**. Se mostrará la hoja **Copias de seguridad**.
+## <a name="create-a-manual-backup"></a>Crear una copia de seguridad manual
+1. En [Azure Portal](https://portal.azure.com), vaya a la hoja de la aplicación, seleccione **Configuración** y **Copias de seguridad**. Se mostrará la hoja **Copias de seguridad** .
    
     ![Página Copias de seguridad][ChooseBackupsPage]
    
    > [!NOTE]
-   > Si ve el mensaje siguiente, haga clic en él para actualizar su plan del Servicio de aplicaciones antes de continuar con las copias de seguridad. Vea [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md) para obtener más información. ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/01UpgradePlan.png)
+   > Si ve el mensaje siguiente, haga clic en él para actualizar su plan del Servicio de aplicaciones antes de continuar con las copias de seguridad.
+   > Vea [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md) para obtener más información.  
+   > ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/01UpgradePlan.png)
    > 
    > 
 2. En la hoja **Copias de seguridad**, haga clic en **Almacenamiento: no configurado** para configurar una cuenta de almacenamiento.
@@ -61,7 +67,7 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 3. Elija el destino de copia de seguridad; para ello, seleccione una **Cuenta de almacenamiento** y un **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Si lo desea, puede crear una nueva cuenta de almacenamiento o un nuevo contenedor en las hojas correspondientes. Cuando haya terminado, haga clic en **Seleccionar**.
    
     ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. En la hoja **Establecer la configuración de la copia de seguridad** que está abierta aún, haga clic en **Configuración de base de datos**, seleccione las bases de datos que desea incluir en las copias de seguridad (base de datos SQL o MySQL) y después haga clic en **Aceptar**.
+4. En la hoja **Establecer la configuración de la copia de seguridad** que está abierta aún, haga clic en **Configuración de base de datos**, seleccione las bases de datos que desea incluir en las copias de seguridad (base de datos SQL o MySQL) y después haga clic en **Aceptar**.  
    
     ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase.png)
    
@@ -69,19 +75,19 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
    > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación** de la aplicación.
    > 
    > 
-5. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.
+5. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.    
 6. En la barra de comandos de la hoja **Copias de seguridad**, haga clic en **Realizar copia de seguridad ahora**.
    
     ![Botón Backup Now][BackUpNow]
    
     Verá un mensaje de progreso durante el proceso de realización de la copia de seguridad.
 
-Después de que haya configurado una cuenta de almacenamiento y un contenedor para las copias de seguridad, puede realizar una copia de seguridad manual en cualquier momento.
+Después de que haya configurado una cuenta de almacenamiento y un contenedor para las copias de seguridad, puede realizar una copia de seguridad manual en cualquier momento.  
 
 <a name="automatedbackups"></a>
 
-## Configuración de copias de seguridad automatizadas
-1. En la hoja **Copias de seguridad**, haga clic en **Programación: no configurada**.
+## <a name="configure-automated-backups"></a>Configuración de copias de seguridad automatizadas
+1. En la hoja **Copias de seguridad**, haga clic en **Programación: no configurada**. 
    
     ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/05ScheduleBackup.png)
 2. En la hoja **Configuración de programación de copia de seguridad**, establezca **Copia de seguridad programada** en **Activada**, configure la programación de la copia de seguridad como desee y haga clic en **Aceptar**.
@@ -90,7 +96,7 @@ Después de que haya configurado una cuenta de almacenamiento y un contenedor pa
 3. En la hoja **Establecer la configuración de la copia de seguridad** que está abierta aún, haga clic en **Configuración de almacenamiento** y después elija un destino de copia de seguridad seleccionando una **Cuenta de almacenamiento** y un **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Si lo desea, puede crear una nueva cuenta de almacenamiento o un nuevo contenedor en las hojas correspondientes. Cuando haya terminado, haga clic en **Seleccionar**.
    
     ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Configuración de base de datos**, seleccione las bases de datos que desea incluir en las copias de seguridad (base de datos SQL o MySQL) y después haga clic en **Aceptar**.
+4. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Configuración de base de datos**, seleccione las bases de datos que desea incluir en las copias de seguridad (base de datos SQL o MySQL) y después haga clic en **Aceptar**.  
    
     ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase.png)
    
@@ -98,11 +104,11 @@ Después de que haya configurado una cuenta de almacenamiento y un contenedor pa
    > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación** de la aplicación.
    > 
    > 
-5. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.
+5. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.    
 
 <a name="partialbackups"></a>
 
-## Realizar una copia de seguridad de una parte de la aplicación
+## <a name="backup-just-part-of-your-app"></a>Realizar una copia de seguridad de una parte de la aplicación
 En ocasiones, no querrá realizar una copia de seguridad de todo el contenido de la aplicación. Estos son algunos ejemplos:
 
 * [Configure copias de seguridad semanales](web-sites-backup.md#configure-automated-backups) de la aplicación que contiene contenido estático que nunca cambia, como entradas de blog antiguas o imágenes.
@@ -111,12 +117,13 @@ En ocasiones, no querrá realizar una copia de seguridad de todo el contenido de
 
 Las copias de seguridad parciales le permitirá elegir exactamente de qué archivos desea realizar la copia de seguridad.
 
-### Exclusión de los archivos de la copia de seguridad
-Para excluir archivos y carpetas de las copias de seguridad, cree un archivo `_backup.filter` en la carpeta D:\\home\\site\\wwwroot de la aplicación y especifique la lista de archivos y carpetas que quiere excluir. Es una manera fácil de obtener acceso a ella a través de la [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console).
+### <a name="exclude-files-from-your-backup"></a>Exclusión de los archivos de la copia de seguridad
+Para excluir archivos y carpetas de las copias de seguridad, cree un archivo `_backup.filter` en la carpeta D:\home\site\wwwroot de la aplicación y especifique la lista de archivos y carpetas que quiere excluir. Es una manera fácil de obtener acceso a ella a través de la [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console). 
 
 Suponga que tiene una aplicación que contiene archivos de registro e imágenes estáticas de los últimos años que nunca van a cambiar. Ya tiene una copia de seguridad completa de la aplicación que incluye las imágenes anteriores. Ahora le gustaría hacer una copia de seguridad de la aplicación todos los días, pero no quiere pagar para almacenar los archivos de registro o los archivos de imagen estática que no van a cambiar.
 
-![Carpeta de registros][LogsFolder] ![Carpeta de imágenes][ImagesFolder]
+![Carpeta de registros][LogsFolder]
+![Carpeta de imágenes][ImagesFolder]
 
 Los pasos siguientes muestran cómo podría excluir estos archivos de la copia de seguridad.
 
@@ -131,8 +138,8 @@ Los pasos siguientes muestran cómo podría excluir estos archivos de la copia d
     [AZURE.NOTE] La última línea muestra que puede excluir archivos de individuales, así como carpetas.
 2. Cree un archivo llamado `_backup.filter` y ponga la lista anterior en el archivo, pero quite `D:\home`. Enumere un directorio o archivo por línea. Por lo tanto, el contenido del archivo debe ser:
    
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
-3. Cargue este archivo en el directorio `D:\home\site\wwwroot` de su sitio con [ftp](web-sites-deploy.md#ftp) o cualquier otro método. Si lo desea, puede crear el archivo directamente en `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e insertar el contenido.
+    \site\wwwroot\Logs  \LogFiles  \site\wwwroot\Images\2013  \site\wwwroot\Images\2014  \site\wwwroot\Images\brand.png
+3. Cargue este archivo en el directorio `D:\home\site\wwwroot\` de su sitio con [ftp](web-sites-deploy.md#ftp) o cualquier otro método. Si lo desea, puede crear el archivo directamente en `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e insertar el contenido.
 4. Ejecute copias de seguridad de la misma forma que lo haría normalmente, [manual](#create-a-manual-backup) o [automáticamente](#configure-automated-backups).
 
 Ahora, los archivos y carpetas que se especifican en `_backup.filter` se excluirán de la copia de seguridad. En este ejemplo, ya no se realizará la copia de seguridad de los archivos de registro y los archivos de imagen de 2013 y 2014 , ni de brand.png.
@@ -146,8 +153,8 @@ Ahora, los archivos y carpetas que se especifican en `_backup.filter` se excluir
 
 <a name="aboutbackups"></a>
 
-## Cómo se almacenan las copias de seguridad
-Después de realizar una o varias copias de seguridad de la aplicación, las copias estarán visibles en la hoja **Contenedores** de la cuenta de almacenamiento, así como la aplicación. En la cuenta de almacenamiento, cada copia de seguridad consta de un archivo .zip que contiene los datos de copia de seguridad y el archivo .xml que contiene un manifiesto del contenido del archivo zip. Puede descomprimir y examinar estos archivos si quiere disponer de acceso a las copias de seguridad sin tener que realizar una restauración de la aplicación.
+## <a name="how-backups-are-stored"></a>Cómo se almacenan las copias de seguridad
+Después de realizar una o varias copias de seguridad de la aplicación, las copias estarán visibles en la hoja **Contenedores** de la cuenta de almacenamiento, así como la aplicación. En la cuenta de almacenamiento, cada copia de seguridad consta de un archivo .zip que contiene los datos de copia de seguridad y el archivo .xml  que contiene un manifiesto del contenido del archivo zip. Puede descomprimir y examinar estos archivos si quiere disponer de acceso a las copias de seguridad sin tener que realizar una restauración de la aplicación.
 
 La copia de seguridad de la base de datos para la aplicación se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una nueva base de datos SQL basándose en la exportación del BACPAC, vea [Importación de un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
 
@@ -158,11 +165,11 @@ La copia de seguridad de la base de datos para la aplicación se almacena en la 
 
 <a name="nextsteps"></a>
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre cómo restaurar una aplicación desde una copia de seguridad, vea [Restauración de una aplicación en el Servicio de aplicaciones de Azure](web-sites-restore.md). También puede crear una copia de seguridad y restaurar las aplicaciones del Servicio de aplicaciones mediante la API de REST (vea [Uso de REST para copia de seguridad y restauración de aplicaciones del Servicio de aplicaciones](websites-csm-backup.md)).
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -182,4 +189,8 @@ Para obtener información sobre cómo restaurar una aplicación desde una copia 
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

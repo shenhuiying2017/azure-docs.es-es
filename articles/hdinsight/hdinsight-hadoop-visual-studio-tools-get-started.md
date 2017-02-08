@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -232,7 +232,7 @@ La vista de ejecución de tareas de Hive en trabajos Tez puede usarse para obten
 ## <a name="run-pig-scripts"></a>Ejecución de scripts de Pig
 Data Lake Tools para Visual Studio admite la creación y el envío de scripts de Pig a clústeres de HDInsight. Los usuarios pueden crear un proyecto de Pig desde una plantilla y, a continuación, enviar el scripts a los clústeres de HDInsight.
 
-## <a name="feedbacks-known-issues"></a>Comentarios y problemas conocidos
+## <a name="feedbacks--known-issues"></a>Comentarios y problemas conocidos
 * Actualmente, los resultados de HiveServer2 se muestran en forma de texto puro, un formato que no es el ideal. Estamos trabajando para solucionar ese problema.
 * Si los resultados comienzan con valores NULL, no se muestran. Este problema se ha solucionado, por lo que si está bloqueado debido a dicho problema, no dude en enviarnos un correo electrónico o en ponerse en contacto con el equipo de soporte técnico.
 * La codificación del script de HQL creado con Visual Studio depende de la configuración regional del usuario. Si el usuario carga el script en el clúster como binario, es posible que no se ejecute correctamente.

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5a73ee6865a09af68a9ab55f17c85136608c4d84
-ms.openlocfilehash: cfe10bc9c86835d228b09550cc98a846ee1a78ad
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
 
 
 ---
@@ -233,12 +233,12 @@ Cada evento del registro de actividad tiene un blob JSON similar al siguiente:
 | nextLink |Token de continuación para recuperar el siguiente conjunto de resultados cuando se dividen en varias respuestas. Suele ser necesario cuando hay más de 200 registros. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../resource-group-audit.md)
+* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../azure-resource-manager/resource-group-audit.md)
 * [Transmisión del registro de actividad de Azure a centros de eventos](monitoring-stream-activity-logs-event-hubs.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 62d5b9d1698dc8f0331fc9ced8fc9611055db06e
 
 
 ---
@@ -36,7 +36,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 
 ## <a name="install-azure-powershell-10-or-greater"></a>Instalar Azure PowerShell 1.0 o versiones posteriores
-Vea la sección de requisitos previos de [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+Vea la sección de requisitos previos de [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ## <a name="manage-accounts"></a>Administrar cuentas
 Antes de ejecutar un trabajo de Análisis de Data Lake, debe tener una cuenta de Análisis de Data Lake. A diferencia de HDInsight de Azure, no se paga por una cuenta de Análisis cuando no está ejecutando un trabajo.  Solo se paga por el tiempo en que se ejecuta un trabajo.  Para obtener más información, consulte la página con [información general sobre Análisis con Azure Data Lake](data-lake-analytics-overview.md).  
@@ -269,7 +269,7 @@ El catálogo de U-SQL se usa para estructurar datos y código, para que puedan c
         -ItemType Table `
         -Path "master.dbo.mytable"
 
-### <a name="test-existence-of-catalog-item"></a>Comprobación de un elemento del catálogo
+### <a name="test-existence-of--catalog-item"></a>Comprobación de un elemento del catálogo
     Test-AzureRmDataLakeAnalyticsCatalogItem  `
         -Account $adlAnalyticsAccountName `
         -ItemType Database `
@@ -319,7 +319,7 @@ Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.
 * [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="appendix-a---data-lake-analytics-arm-template"></a>Apéndice A: Plantilla ARM de Análisis de Data Lake
-La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Análisis de Data Lake y su cuenta de Almacén de Data Lake dependiente.  Guárdela como un archivo json y después use el script de PowerShell para llamar a la plantilla. Para obtener más información , consulte el artículo sobre cómo [implementar una aplicación con la plantilla de Azure Resource Manager](../resource-group-template-deploy.md#deploy-with-powershell) y [crear plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
+La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Análisis de Data Lake y su cuenta de Almacén de Data Lake dependiente.  Guárdela como un archivo json y después use el script de PowerShell para llamar a la plantilla. Para obtener más información , consulte el artículo sobre cómo [implementar una aplicación con la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) y [crear plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -377,6 +377,6 @@ La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Anál
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: milangada;cenkdin;juliako
+ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 8321f677d344109e35da3d8ba1109d8bece70db1
 
 
 ---
@@ -37,13 +37,13 @@ Servicios multimedia depende de una clave de almacenamiento que se le ofrece. En
 ## <a name="step-1-regenerate-secondary-storage-access-key"></a>Paso 1: Regeneración de la clave de acceso de almacenamiento secundaria
 Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria.  Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Paso 2: Actualización de Media Services para usar la nueva clave de almacenamiento secundaria
+## <a name="a-idstep2astep-2--update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Paso 2: Actualización de Media Services para usar la nueva clave de almacenamiento secundaria
 Actualice Servicios multimedia para usar la clave de acceso de almacenamiento secundaria. Puede usar uno de los dos métodos siguientes para sincronizar la clave de almacenamiento regenerada con Servicios multimedia.
 
 * Utilice Azure Portal: para buscar el nombre y la clave de valores, vaya a Azure Portal y seleccione la cuenta. Aparecerá la ventana Configuración a la derecha. En la ventana Configuración, seleccione Claves. Según la clave de almacenamiento con la que desee que se sincronice Servicios multimedia, seleccione el botón para sincronizar la clave principal o para sincronizar la clave secundaria. En este caso, use la clave secundaria.
 * Use la API de REST de Servicios multimedia.
 
-En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key con el fin de sincronizar la clave de almacenamiento especificada con Media Services. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para más información, vea [Uso de la API de REST de administración de Servicios multimedia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key con el fin de sincronizar la clave de almacenamiento especificada con Media Services. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para más información, vea [Uso de la API de REST de administración de Servicios multimedia](https://docs.microsoft.com/rest/api/media/management/how-to-use-media-services-management-rest-api).
 
     public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
     {
@@ -103,13 +103,25 @@ Tenga en cuenta que al actualizar (o volver a crear) un localizador de SAS, la d
 
 En el siguiente ejemplo de .NET se muestra cómo se puede volver a crear un localizador con el mismo identificador.
 
-private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator) { // Guardar propiedades del localizador existente.
-var asset = locator.Asset; var accessPolicy = locator.AccessPolicy; var locatorId = locator.Id; var startDate = locator.StartTime; var locatorType = locator.Type; var locatorName = locator.Name;
+    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+    {
+    // Save properties of existing locator.
+    var asset = locator.Asset;
+    var accessPolicy = locator.AccessPolicy;
+    var locatorId = locator.Id;
+    var startDate = locator.StartTime;
+    var locatorType = locator.Type;
+    var locatorName = locator.Name;
 
-// Eliminar localizador antiguo.
-locator.Delete();
+    // Delete old locator.
+    locator.Delete();
 
-if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.Format( "No se puede volver a crear el identificador del localizador ={0} porque ya ha pasado la hora de expiración", locator.Id)); }
+    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+        {
+            throw new Exception(String.Format(
+                "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+                locator.Id));
+        }
 
         // Create new locator using saved properties.
         var newLocator = context.Locators.CreateLocator(
@@ -126,7 +138,7 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5-regenerate-primary-storage-access-key"></a>Paso 5: Regeneración de la clave de acceso de almacenamiento principal
+## <a name="step-5-regenerate--primary-storage-access-key"></a>Paso 5: Regeneración de la clave de acceso de almacenamiento principal
 Regenere la clave de acceso de almacenamiento principal. Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>Paso 6: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento principal
@@ -153,6 +165,6 @@ Nos gustaría mencionar a las siguientes personas que han contribuido a crear es
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

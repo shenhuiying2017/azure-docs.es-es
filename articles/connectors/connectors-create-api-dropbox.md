@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: connectors
 ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0038c582d1a597dfcbb1fe8255b3a0fac1235e25
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: a8ecad3552f35c02c07fe33aa8531fb462b27002
 
 
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Introducción al conector de Dropbox
 Conéctese a Dropbox para administrar los archivos. En Dropbox, puede realizar diversas acciones, como cargar, actualizar, obtener y eliminar archivos.
 
-Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Puede empezar [creando una aplicación lógica ahora](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Puede empezar [creando una aplicación lógica ahora](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-dropbox"></a>Conexión con Dropbox
 Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para poder conectarse a Dropbox, primero necesita crear una *conexión* a Dropbox. Para ello, tendrá que especificar las credenciales que usa habitualmente para acceder al servicio al que desea conectarse. Por tanto, en el ejemplo de Dropbox, deberá escribir las credenciales de la cuenta de Dropbox para crear la conexión con este servicio. [Más información sobre las conexiones]()
@@ -35,7 +35,7 @@ Para que la aplicación lógica pueda acceder a un servicio, primero debe crear 
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Uso de un desencadenador de Dropbox
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 En este ejemplo, vamos a usar el desencadenador **When a file is created (Cuando se crea un archivo)**. Cuando se active este desencadenador, se invocará la acción de Dropbox **Get file content using path (Obtener contenido del archivo mediante la ruta de acceso)**. 
 
@@ -45,7 +45,7 @@ En este ejemplo, vamos a usar el desencadenador **When a file is created (Cuando
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Uso de una acción de Dropbox
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Ahora que se ha agregado el desencadenador, siga estos pasos para incorporar una acción que obtenga el contenido del nuevo archivo.
 
@@ -354,11 +354,11 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 | default |Error en la operación. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

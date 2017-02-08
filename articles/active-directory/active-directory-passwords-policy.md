@@ -67,6 +67,6 @@ En la tabla siguiente se describe la configuración de políticas de contraseña
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

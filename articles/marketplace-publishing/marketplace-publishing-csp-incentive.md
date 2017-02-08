@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/10/2016
 ms.author: DavidBosland
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80b6c1a1b5f5ae3f66ee2f39daf5b65ebc63fbed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
 
 
 ---
@@ -48,6 +48,6 @@ Para ver o cambiar el estado del "Incentivo de revendedores", siga estos pasos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

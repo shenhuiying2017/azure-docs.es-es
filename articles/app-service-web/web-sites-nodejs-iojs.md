@@ -1,74 +1,78 @@
 ---
-title: How to use io.js with Azure App Service Web Apps
-description: Learn how to use a web app in Azure App Service with io.js.
+title: Uso de io.js con aplicaciones web del Servicio de aplicaciones de Azure
+description: "Aprenda a usar una aplicación web en el Servicio de aplicaciones de Azure con io.js."
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d6320725-ffcb-4ad7-ba63-fc72fa2f2808
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5c14bd2ae2effd554f52662961c2e219433f8cd8
+
 
 ---
-# <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>How to use io.js with Azure App Service Web Apps
-The popular Node fork [io.js] features various differences to Joyent's Node.js project, including a more open governance model, a faster release cycle and a faster adoption of new and experimental JavaScript features.
+# <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>Uso de io.js con aplicaciones web del Servicio de aplicaciones de Azure
+La popular bifurcación de nodo [io.js] tiene varias diferencias con el proyecto Node.js de Joyent, entre las que se incluyen un modelo de gobernanza más abierto, un ciclo de versiones más rápido y una adopción más rápida de características de JavaScript nuevas y experimentales.
 
-While [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary. This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
+Aunque Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) tiene muchas las versiones de Node.js preinstaladas, permite binarios de Node.js proporcionados por el usuario. Este artículo analiza dos métodos que habilitan el uso de io.js en Aplicaciones web del Servicio de aplicaciones: el uso de un script de implementación extendido, que configura automáticamente Azure para que use la versión de io.js más reciente disponible, así como la carga manual de un binario de io.js. 
 
 <a id="deploymentscript"></a>
 
-## <a name="using-a-deployment-script"></a>Using a Deployment Script
-Upon deployment of a Node.js app, App Service Web Apps runs a number of small commands to ensure that the environment is configured properly. Using a deployment script, this process can be customized to include the download and configuration of io.js.
+## <a name="using-a-deployment-script"></a>Uso de un script de implementación
+Tras la implementación de una aplicación de Node.js, Aplicaciones web del Servicio de aplicaciones ejecuta varios comandos pequeños para asegurarse de que el entorno está configurado correctamente. Mediante un script de implementación, este proceso se puede personalizar para que incluya la descarga y configuración de io.js.
 
-The [io.js Deployment Script](https://github.com/felixrieseberg/iojs-azure) is available on GitHub. To enable io.js on your web app, simply copy **.deployment**, **deploy.cmd** and **IISNode.yml** to the root of your application folder and deploy to Web Apps.  
+El [script de implementación de io.js](https://github.com/felixrieseberg/iojs-azure) está disponible en GitHub. Para habilitar io.js en una aplicación web, solo es preciso copiar **.deployment**, **deploy.cmd** y **IISNode.yml** en la raíz de la carpeta de aplicaciones e implementarlos en Web Apps.  
 
-The first file, **.deployment**, instructs Web Apps to run **deploy.cmd** upon deployment. This script runs all the usual steps for a Node.js application, but also downloads the latest version of io.js. Finally, **IISNode.yml** configures Web Apps to use just the downloaded io.js binary instead of a pre-installed Node.js binary.
+El primer archivo, **.deployment**, indica a Web Apps que ejecute **deploy.cmd** tras la implementación. Este script ejecuta todos los pasos habituales de una aplicación de Node.js, pero también descarga la versión más reciente de io.js. Por último, **IISNode.yml** configura Aplicaciones Web para que utilice el binario de io.js que se acaba de descargar, en lugar de un binario de Node.js preinstalado.
 
 > [!NOTE]
-> To update the used io.js binary, just redeploy your application - the script will download a new version of io.js every single time the application is deployed.
+> Para actualizar el binario de io.js utilizado, solo es preciso volver a implementar la aplicación (el script descargará una nueva versión de io.js cada vez que se implemente la aplicación).
 > 
 > 
 
 <a id="manualinstallation"></a>
 
-## <a name="using-manual-installation"></a>Using Manual Installation
-The manual installation of a custom io.js version includes only two steps. First, download the **win-x64** binary directly from the [io.js distribution]. Required are two files - **iojs.exe** and **iojs.lib**. Save both files to a folder inside your web app, for example in **bin/iojs**.
+## <a name="using-manual-installation"></a>Uso de la instalación manual
+La instalación manual de una versión personalizada de io.js incluye solo dos pasos. En primer lugar, descargue el binario **win-x64** directamente desde la [distribución de io.js]. Se requieren dos archivos: **iojs.exe** e **iojs.lib**. Guarde ambos archivos en una carpeta de la aplicación web, por ejemplo en **bin/iojs**.
 
-To configure Web Apps to use **iojs.exe** instead of a pre-installed Node version, create a **IISNode.yml** file at the root of your application and add the following line.
+Para configurar Web Apps para que use **iojs.exe**, en lugar de una versión preinstalada de Node.js, cree un archivo **IISNode.yml** en la raíz de la aplicación y agregue la siguiente línea.
 
     nodeProcessCommandLine: "D:\home\site\wwwroot\bin\iojs\iojs.exe"
 
 <a id="nextsteps"></a>
 
-## <a name="next-steps"></a>Next Steps
-In this article you learned how to use io.js with App Service Web Apps, using both provided deployment scripts as well as manual installation. 
+## <a name="next-steps"></a>Pasos siguientes
+En este artículo ha aprendido a usar io.js con Aplicaciones web del Servicio de aplicaciones utilizando tanto los scripts de implementación que se proporcionan como la instalación. 
 
 > [!NOTE]
-> io.js is in heavy development and updated more frequently than Node.js. A number of Node.js modules might not work with io.js - please consult [io.js on GitHub] for troubleshooting.
+> io.js está en pleno desarrollo y se actualiza con más frecuencia que Node.js. Es posible que varios módulos Node.js no funcionen con io.js (para solucionar el problema, consulte [io.js en GitHub] ).
 > 
 > 
 
-## <a name="whats-changed"></a>What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+## <a name="whats-changed"></a>Lo que ha cambiado
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
 [io.js]: https://iojs.org
-[io.js distribution]: https://iojs.org/dist/
-[io.js on GitHub]: https://github.com/iojs/io.js
+[distribución de io.js]: https://iojs.org/dist/
+[io.js en GitHub]: https://github.com/iojs/io.js
 [io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

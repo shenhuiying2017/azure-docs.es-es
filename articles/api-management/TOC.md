@@ -1,11 +1,11 @@
 # Información general
 ## [¿Qué es API Management?](api-management-key-concepts.md)
-# Primeros pasos
-## [Administración de su primera API en Administración de API de Azure](api-management-get-started.md)
+# Introducción
+## [Administración de su primera API](api-management-get-started.md)
 ## [Protección de la API con límites de tarifa](api-management-howto-product-with-rules.md)
 ## [Adición de almacenamiento en caché para mejorar el rendimiento](api-management-howto-cache.md)
 ## [Preguntas más frecuentes](api-management-faq.md)
-# Cómo
+# Procedimientos
 ## Desarrollar API
 ### [Incorporación y publicación de un producto de API](api-management-howto-add-products.md)
 ### [Incorporación de operaciones](api-management-howto-add-operations.md)
@@ -39,13 +39,16 @@
 ### [Administración de cuentas de usuario](api-management-howto-create-or-invite-developers.md)
 ### [Administración mediante automatización](automation-manage-api-management.md)
 ### [Configuración mediante Git](api-management-configuration-repository-git.md)
-#Referencia
+
+# Referencia
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell clásico](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [REST (original)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# Recursos
 ## [Directivas](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Plantillas](https://msdn.microsoft.com/library/azure/mt697540)
-#Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -63,6 +66,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

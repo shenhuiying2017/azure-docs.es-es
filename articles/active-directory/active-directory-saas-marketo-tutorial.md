@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2d31f2643ac39fb6227b57d2b064058af1dbe20d
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 20f3a8b006e45e3a94e95b516bca292a82c5fd03
 
 
 ---
@@ -139,46 +139,47 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_12.png)
 6. Para configurar el SSO en la aplicación, siga estos pasos:
    
-   a. Inicie sesión en la aplicación de Marketo con credenciales de administrador.
+    a. Inicie sesión en la aplicación de Marketo con credenciales de administrador.
    
-   b. Haga clic en el botón Administrador en el panel de navegación superior.
+    b. Haga clic en el botón Administrador en el panel de navegación superior.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-   c. Vaya al menú Integración y haga clic en Inicio de sesión único.
+    c. Vaya al menú Integración y haga clic en Inicio de sesión único.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
    
-   d. Para habilitar la configuración de SAML, haga clic en el botón Editar.
+    d. Para habilitar la configuración de SAML, haga clic en el botón Editar.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
    
-   e. **Habilite** el inicio de sesión único.
+    e. **Habilite** el inicio de sesión único.
    
-   f. Escriba el identificador del emisor, que ha copiado desde el asistente para configuración de Azure AD.
+    f. Escriba el identificador del emisor, que ha copiado desde el asistente para configuración de Azure AD.
    
-   g. En el cuadro de texto Id. de entidad, escriba la dirección URL como **http://saml.marketo.com/sp**
+    g. En el cuadro de texto Id. de entidad, escriba la dirección URL como **http://saml.marketo.com/sp**
    
-   h. Seleccione la ubicación del identificador de usuario como **elemento Identificador de nombre**
+    h. Seleccione la ubicación del identificador de usuario como **elemento Identificador de nombre**
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
    
-   > [!NOTE]
-   > Si su identificador de usuario no es el valor UPN, cambie el valor en la pestaña Atributo.
-   > 
-   > 
+    > [!NOTE]
+    > Si su identificador de usuario no es el valor UPN, cambie el valor en la pestaña Atributo.
+    > 
+    > 
    
-   i. Cargue el certificado que descargó en el asistente para configuración de Azure AD. Guarde la configuración
+    i. Cargue el certificado que descargó en el asistente para configuración de Azure AD. Guarde la configuración
    
-   j. Edite la configuración de Página de redireccionamiento.
+    j. Edite la configuración de Página de redireccionamiento.
    
-   k. Copie la dirección URL de inicio de sesión del asistente para configuración de Azure AD en el cuadro de texto **URL de inicio de sesión** .
+    k. Copie la dirección URL de inicio de sesión del asistente para configuración de Azure AD en el cuadro de texto **URL de inicio de sesión** .
    
-   l. Copie la dirección URL de cierre de sesión del Asistente para configuración de Azure AD en el cuadro de texto **URL de cierre de sesión** .
+    l. Copie la dirección URL de cierre de sesión del Asistente para configuración de Azure AD en el cuadro de texto **URL de cierre de sesión** .
    
-   m. En URL del error, copie la dirección URL de la instancia de Marketo y haga clic en el botón Guardar para guardar la configuración.
+    m. En URL del error, copie la dirección URL de la instancia de Marketo y haga clic en el botón Guardar para guardar la configuración.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+
 7. Para habilitar el SSO para los usuarios, complete las siguientes acciones:
    
     a. Inicie sesión en la aplicación de Marketo con credenciales de administrador.
@@ -225,17 +226,18 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
     b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
    
     c. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
+6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_07.png) 
@@ -329,6 +331,6 @@ Al hacer clic en el icono de Marketo en el Panel de acceso, debería iniciar ses
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

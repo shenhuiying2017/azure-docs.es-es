@@ -1,13 +1,13 @@
 ---
-title: Traslación de una máquina virtual Windows | Microsoft Docs
-description: Mueva una máquina virtual Windows a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager.
+title: "Traslación de una máquina virtual Windows | Microsoft Docs"
+description: "Mueva una máquina virtual Windows a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,19 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 2464b54f70dc38b79a883b08664f4f165ec4c2d3
+
 
 ---
-# Movimiento de una máquina virtual Windows a otro grupo de recursos o suscripción de Azure
+# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Movimiento de una máquina virtual Windows a otro grupo de recursos o suscripción de Azure
 Este artículo le guiará en el procedimiento para mover una máquina virtual Windows entre suscripciones o grupos de recursos. Mover máquinas virtuales entre suscripciones puede ser útil si originalmente creó una en una suscripción personal y ahora quiere moverla a la suscripción de su compañía para seguir trabajando.
 
 > [!NOTE]
-> Como parte de esta operación, se crean nuevos id. de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos id. de recursos.
+> Como parte de esta operación, se crean nuevos id. de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos id. de recursos. 
 > 
 > 
 
 [!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
-## Uso de PowerShell para mover una máquina virtual
+## <a name="use-powershell-to-move-a-vm"></a>Uso de PowerShell para mover una máquina virtual
 Para mover una máquina virtual a otro grupo de recursos, debe asegurarse de trasladar todos los recursos dependientes. Para usar el cmdlet Move-AzureRMResource, necesita el nombre del recurso y el tipo. Puede obtener estos dos datos con el cmdlet Find-AzureRMResource.
 
     Find-AzureRMResource -ResourceGroupNameContains "<sourceResourceGroupName>"
@@ -48,7 +52,7 @@ Para mover una máquina virtual, hay que trasladar varios recursos. Podemos crea
 
     Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
-Para mover los recursos a otra suscripción, incluya el parámetro **-DestinationSubscriptionId**.
+Para mover los recursos a otra suscripción, incluya el parámetro **-DestinationSubscriptionId** . 
 
     Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
@@ -56,7 +60,12 @@ Para mover los recursos a otra suscripción, incluya el parámetro **-Destinatio
 
 Se le pedirá que confirme que desea mover los recursos especificados. Escriba **Y** para confirmar que quiere mover los recursos.
 
-## Pasos siguientes
-Puede mover muchos tipos diferentes de recursos entre suscripciones y grupos de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../resource-group-move-resources.md).
+## <a name="next-steps"></a>Pasos siguientes
+Puede mover muchos tipos diferentes de recursos entre suscripciones y grupos de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).    
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8824001526565e64f398b8f1e520d82d29d2f58
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4480366f620ccd8397aa4264ab7f0cc1c5b37c7d
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: d8824001526565e64f398b8f1e520d82d29d2f58
 Consulte [Introducción a Diagnósticos de Azure](azure-diagnostics.md) para obtener información sobre Diagnósticos de Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-virtual-machine"></a>Habilitación de Diagnósticos en una máquina virtual
-En este tutorial se describe cómo instalar Diagnósticos de forma remota en una máquina virtual de Azure desde un equipo de desarrollo. También aprenderá a implementar una aplicación que se ejecuta en esa máquina virtual de Azure y emite datos de telemetría con la [clase EventSource][clase EventSource]. Diagnósticos de Azure se usa para recopilar la telemetría y almacenarla en una cuenta de almacenamiento de Azure.
+En este tutorial se describe cómo instalar Diagnósticos de forma remota en una máquina virtual de Azure desde un equipo de desarrollo. También aprenderá a implementar una aplicación que se ejecuta en esa máquina virtual de Azure y emite datos de telemetría con la [clase EventSource][EventSource Class] de .NET. Diagnósticos de Azure se usa para recopilar la telemetría y almacenarla en una cuenta de almacenamiento de Azure.
 
 ### <a name="pre-requisites"></a>Requisitos previos
-En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studio 2013 con el SDK de Azure. Si no tiene una suscripción de Azure, puede registrarse para obtener una [evaluación gratuita][prueba gratuita]. Asegúrese de [instalar y configurar la versión de Azure PowerShell 0.8.7 o posterior][instalar y configurar Azure PowerShell versión 0.8.7 o posterior].
+En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studio 2013 con el SDK de Azure. Si no tiene una suscripción de Azure, puede registrarse para obtener una [prueba gratuita][Free Trial]. Asegúrese de [instalar y configurar Azure PowerShell versión 0.8.7 o posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-virtual-machine"></a>Paso 1: crear una máquina virtual
 1. En el equipo del desarrollador, inicie Visual Studio 2013.
@@ -112,7 +112,7 @@ En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studi
    
      (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
 2. Abra un nuevo archivo XML en Visual Studio, ya sea en un proyecto que ya tenga abierto o en una instancia de Visual Studio sin proyectos abiertos. En Visual Studio, seleccione **Agregar** -> ** Nuevo elemento...** -> **Elementos de visual C#** -> **Datos** -> **Archivo XML**. Asigne al archivo el nombre "WadExample.xml".
-3. Asocie WadConfig.xsd al archivo de configuración. Asegúrese de que la ventana del editor de WadExample es la ventana activa. Presione **F4** para abrir la ventana **Propiedades**. Haga clic en la propiedad **Esquemas** de la ventana **Propiedades**. Haga clic en **…** in the **Esquemas** . Haga clic en **Agregar…**  y vaya a la ubicación en la que ha guardado el archivo XSD y seleccione el archivo WadConfig.xsd. Haga clic en **Aceptar**.
+3. Asocie WadConfig.xsd al archivo de configuración. Asegúrese de que la ventana del editor de WadExample es la ventana activa. Presione **F4** para abrir la ventana **Propiedades**. Haga clic en la propiedad **Esquemas** de la ventana **Propiedades**. Haga clic en **…** in the **Esquemas** . Haga clic en **Agregar…** y vaya a la ubicación en la que ha guardado el archivo XSD y seleccione el archivo WadConfig.xsd. Haga clic en **Aceptar**.
 4. Reemplace el contenido del archivo de configuración WadExample.xml por el siguiente archivo XM y guarde el archivo. Este archivo de configuración define un par de contadores de rendimiento para recopilar: uno para la utilización de la CPU y el otro para la utilización de memoria. A continuación, la configuración define los cuatro eventos correspondientes a los métodos de la clase SampleEventSourceWriter.
 
 ```
@@ -160,15 +160,15 @@ Consulte [Solución de problemas de Diagnósticos de Azure](azure-diagnostics-tr
 ## <a name="next-steps"></a>Pasos siguientes
 [Vea una lista de artículos sobre Diagnósticos de Azure relacionados con máquinas virtuales](azure-diagnostics.md#virtual-machines-using-azure-diagnostics) para cambiar los datos que se van a recopilar, solucionar problemas u obtener más información sobre los diagnósticos en general.
 
-[clase EventSource]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Depuración de una aplicación de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Recopilación de datos de registro mediante Diagnósticos de Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[instalar y configurar Azure PowerShell versión 0.8.7 o posterior]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

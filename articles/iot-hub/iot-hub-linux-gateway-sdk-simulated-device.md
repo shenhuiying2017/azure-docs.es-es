@@ -1,6 +1,6 @@
 ---
-title: "Simulación de un dispositivo con el SDK de puerta de enlace de IoT | Microsoft Docs"
-description: "Tutorial del SDK de puerta de enlace de IoT de Azure con Linux para ilustrar el envío de datos de telemetría desde un dispositivo simulado mediante el SDK de puerta de enlace de IoT de Azure."
+title: "Simulación de un dispositivo con el SDK de puerta de enlace de IoT de Azure (Linux) | Microsoft Docs"
+description: "Describe cómo usar el SDK de puerta de enlace de IoT de Azure en Linux para crear un dispositivo simulado que envíe datos de telemetría a través de una puerta de enlace a un centro de IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: ce70835a4f8f39d320b1effdb0dee11abd22cd81
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-using-linux"></a>SDK de puerta de enlace de IoT de Azure: envío de mensajes de dispositivo a la nube con un dispositivo simulado mediante Linux
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>Uso del SDK de puerta de enlace de IoT de Azure para enviar mensajes de dispositivo a nube con un dispositivo simulado (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Compilación y ejecución del ejemplo
@@ -28,13 +28,13 @@ Antes de comenzar, realice los siguientes pasos:
 
 * [Configure el entorno de desarrollo][lnk-setupdevbox] para trabajar con el SDK en Linux.
 * [Cree un centro de IoT][lnk-create-hub] en su suscripción de Azure; que necesitará el nombre de su centro para realizar este tutorial. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
-* Agregue dos dispositivos en su Centro de IoT y tome nota de sus identificadores y claves de dispositivo. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar los dispositivos al centro de IoT que creó en el paso anterior y recuperar las claves.
+* Agregue dos dispositivos en su Centro de IoT y tome nota de sus identificadores y claves de dispositivo. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar los dispositivos al centro de IoT Hub que creó en el paso anterior y recuperar las claves.
 
 Para compilar el ejemplo:
 
 1. Abra un shell.
 2. Vaya a la carpeta raíz en la copia local del repositorio **azure-iot-gateway-sdk** .
-3. Ejecute el script **tools/build.sh** . Este script emplea la utilidad **cmake** para crear una carpeta llamada **build** en la carpeta raíz de la copia local del repositorio **azure-iot-gateway-sdk** y generar un archivo Make. A continuación, el script compila la solución y ejecuta las pruebas.
+3. Ejecute el script **tools/build.sh** . Este script emplea la utilidad **cmake** para crear una carpeta llamada **build** en la carpeta raíz de la copia local del repositorio **azure-iot-gateway-sdk** y generar un archivo Make. A continuación, el script compila la solución, omitiendo las pruebas unitarias y las pruebas completas. Agregue el parámetro **--run-unittests** si desea crear y ejecutar las pruebas unitarias. Agregue el parámetro **--run-e2e-tests** si desea crear y ejecutar las pruebas completas. 
 
 > [!NOTE]
 > Cada vez que ejecute el script **build.sh**, elimina y luego vuelve a crear la carpeta **build** en la carpeta raíz de la copia local del repositorio **azure-iot-gateway-sdk**.
@@ -152,13 +152,13 @@ Guarde los cambios realizados en el archivo de configuración.
 
 Para ejecutar el ejemplo:
 
-1. En el shell, vaya a la carpeta raíz en la copia local del repositorio **azure-iot-gateway-sdk** .
+1. En el shell, vaya a la carpeta **azure-iot-gateway-sdk/build**.
 2. Ejecute el siguiente comando:
    
     ```
-    ./build/samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
+    ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
-3. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que el centro de IoT recibe de la puerta de enlace.
+3. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que el centro de IoT Hub recibe de la puerta de enlace.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea una descripción más avanzada del SDK de puerta de enlace de IoT y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
@@ -168,7 +168,7 @@ Si desea una descripción más avanzada del SDK de puerta de enlace de IoT y exp
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía del desarrollador][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Protección total de la solución de IoT][lnk-securing]
 
 <!-- Links -->
@@ -185,6 +185,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

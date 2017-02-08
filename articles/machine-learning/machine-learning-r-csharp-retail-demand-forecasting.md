@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: yijichen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5f9f7366b6e957215bed717e94c8138add6506d6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7a8877257ba03de22e0f74253885585c02d2bd10
 
 
 ---
-# <a name="forecasting---ets-stl"></a>Previsión - ETS + STL
+# <a name="forecasting---ets--stl"></a>Previsión - ETS + STL
 Este [servicio web](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) implementa la descomposición de tendencias estacionales (STL) y el modelo de suavizado exponencial (ETS) para generar previsiones basadas en datos históricos facilitados por el usuario. ¿Aumentará la demanda de un producto específico este año? ¿Puedo prever las ventas de productos para la temporada navideña, a fin de poder planear el inventario con eficacia? Los modelos de previsión suelen abordar estas cuestiones. Conforme a los datos anteriores, estos modelos examinan las tendencias ocultas y la estacionalidad para prever futuras tendencias. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -88,7 +88,7 @@ Hay varias maneras de consumir el servicio de forma automática ( [aquí](http:/
 > 
 > 
 
-Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. Se cargaron datos de entrada de muestra con un esquema de datos predefinido. Vinculado al esquema de datos hay un módulo [Ejecutar scripts R][execute-r-script] que genera el modelo de previsión STL y ETS mediante las funciones "stl", "ets" y "forecast" de R. 
+Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. Se cargaron datos de entrada de muestra con un esquema de datos predefinido. Vinculado al esquema de datos hay un módulo [Ejecutar scripts R][execute-r-script] que genera el modelo de previsión STL y ETS mediante las funciones "auto.arima" y "previsión" de R. 
 
 ### <a name="experiment-flow"></a>Flujo de experimento:
 ![Flujo de experimento][2]
@@ -141,6 +141,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

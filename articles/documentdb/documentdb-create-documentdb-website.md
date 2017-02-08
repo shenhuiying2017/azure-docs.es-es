@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/08/2016
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+ms.sourcegitcommit: 08b101f42558280d8ffa690829570257d8d6deca
+ms.openlocfilehash: 6f519ac78d28fac69171b083f18d783cf1d9b24a
 
 
 ---
@@ -73,6 +73,7 @@ Ahora vamos a implementar nuestra primera plantilla.
       
       ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Elija un grupo de recursos existente o proporcione un nombre para crear uno nuevo y elija una ubicación para él.
+
     ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Haga clic en **Revisar los términos legales**, **Compra** y luego haga clic en **Crear** para comenzar la implementación.  Seleccione **Anclar al panel** de modo que la implementación resultante se pueda ver fácilmente en la página principal del Portal de Azure.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -113,6 +114,7 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla es útil para m
       
       ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Elija un grupo de recursos existente o proporcione un nombre para crear uno nuevo y elija una ubicación para él.
+
     ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Haga clic en **Revisar los términos legales**, **Compra** y luego haga clic en **Crear** para comenzar la implementación.  Seleccione **Anclar al panel** de modo que la implementación resultante se pueda ver fácilmente en la página principal del Portal de Azure.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -121,6 +123,7 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla es útil para m
 8. Haga clic en el recurso Web App en la lista Recursos y luego haga clic en **Configuración de la aplicación**
     ![Captura de pantalla del grupo de recursos](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)  
 9. Tenga en cuenta que existen valores de configuración de aplicación para el punto de conexión de DocumentDB y para cada una de las claves maestras de DocumentDB.
+
     ![Captura de pantalla de configuración de la aplicación](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 10. Explore libremente el Portal de Azure o siga uno de nuestros [ejemplos](http://go.microsoft.com/fwlink/?LinkID=402386) de DocumentDB para crear su propia aplicación de DocumentDB.
 
@@ -145,6 +148,6 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla es útil para m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

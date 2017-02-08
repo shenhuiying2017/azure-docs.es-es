@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede557e1678aa6c24f50bd120552345dcd00cdc3
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: d6bf108a4d03855171d2b9c5552c57f8ee6f1f9b
 
 
 ---
@@ -65,7 +65,7 @@ Los miembros de la comunidad pueden enviar soluciones de administración a las p
 7. Haga clic en **Adquirir** para instalar la solución.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Implementación de plantilla de Azure Resource Manager
-Las soluciones que obtenga de la comunidad o que [cree usted mismo](#creating-a-solution) se implementan como una plantilla de Resource Manager. Puede utilizar cualquiera de los métodos estándares para [implementar plantillas](../resource-group-template-deploy-portal.md).  Tenga en cuenta que antes de instalar la solución, debe crear y vincular el [área de trabajo de OMS y la cuenta de Automation](#oms-workspace-and-automation-account).
+Las soluciones que obtenga de la comunidad o que [cree usted mismo](#creating-a-solution) se implementan como una plantilla de Resource Manager. Puede utilizar cualquiera de los métodos estándares para [implementar plantillas](../azure-resource-manager/resource-group-template-deploy-portal.md).  Tenga en cuenta que antes de instalar la solución, debe crear y vincular el [área de trabajo de OMS y la cuenta de Automation](#oms-workspace-and-automation-account).
 
 ## <a name="oms-workspace-and-automation-account"></a>Área de trabajo de OMS y cuenta de Automation
 La mayoría de las soluciones de administración requieren que un [área de trabajo de OMS](../log-analytics/log-analytics-manage-access.md) contenga vistas y que una [cuenta de Automation](../automation/automation-security-overview.md#automation-account-overview) contenga runbooks y recursos relacionados. El área de trabajo y la cuenta deben cumplir los siguientes requisitos.
@@ -116,6 +116,6 @@ Hay disponible una guía completa sobre cómo crear soluciones de administració
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

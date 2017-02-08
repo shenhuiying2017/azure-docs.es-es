@@ -26,7 +26,7 @@ ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
 
 ##<a name="overview"></a>Información general
 
-En este artículo se proporciona una colección de prácticas recomendadas para tener en cuenta al implementar aplicaciones de funciones. Tenga en cuenta que Azure Function App es un Azure App Service. Por tanto, se aplicarán los procedimientos recomendados.  
+En este artículo se proporciona una colección de prácticas recomendadas para tener en cuenta al implementar aplicaciones de funciones. Tenga en cuenta que Azure Function App es un Azure App Service. Por tanto, se aplicarán los procedimientos recomendados.
 
 
 ## <a name="avoid-large-long-running-functions"></a>Evitar funciones grandes de ejecución prolongada

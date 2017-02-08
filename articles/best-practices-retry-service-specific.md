@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 28f0a833ca410a518291c99b308ac52a1318761e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
 
 
 ---
@@ -42,7 +42,7 @@ En la tabla siguiente se resumen las características de reintento de los servic
 | **[Azure Search](#azure-storage-retry-guidelines)** |Nativo en el cliente |Programático |Cliente |ETW o personalizado |
 | **[Active Directory](#azure-active-directory-retry-guidelines)** |Topaz* (con estrategia de detección personalizada) |Declarativo y programático |Bloques de código |Personalizado |
 
-*Topaz es el nombre descriptivo para el bloque de aplicaciones de manejo de errores transitorios que se incluye en [Enterprise Library 6.0][entlib]. Puede usar una estrategia de detección personalizada con Topaz para la mayoría de los tipos de servicios, como se describe en esta guía. En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para Topaz. Tenga en cuenta que el bloque es ahora un marco de código abierto y no es compatible directamente con Microsoft.
+* Topaz en el nombre descriptivo para el bloque de aplicaciones de manejo de errores transitorios que se incluye en [Enterprise Library 6.0][entlib]. Puede usar una estrategia de detección personalizada con Topaz para la mayoría de los tipos de servicios, como se describe en esta guía. En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para Topaz. Tenga en cuenta que el bloque es ahora un marco de código abierto y no es compatible directamente con Microsoft.
 
 > [!NOTE]
 > Para la mayoría de los mecanismos de reintento integrados de Azure, actualmente no hay ninguna manera de aplicar una directiva de reintento diferente para distintos tipos de error o excepción más allá de la funcionalidad que se incluye en la directiva de reintentos. Por lo tanto, las instrucciones recomendadas disponibles en el momento de la escritura consisten en configurar una directiva que proporcione el rendimiento y la disponibilidad medios óptimos. Una forma de ajustar la directiva consiste en analizar archivos de registro para determinar el tipo de errores transitorios que se están produciendo. Por ejemplo, si la mayoría de los errores está relacionada con problemas de conectividad de red, podría intentar efectuar un reintento inmediato en lugar de esperar mucho tiempo para el primer reintento.
@@ -883,10 +883,10 @@ Búsqueda de Azure puede usarse para agregar capacidades de búsqueda eficaces y
 El comportamiento de reintento en el SDK de Azure Search se controla mediante el método `SetRetryPolicy` en las clases [SearchServiceClient] y [SearchIndexClient]. Los reintentos de directiva predeterminada con interrupción exponencial cuando Azure Search devuelve una respuesta 5xx o 408 (tiempo de espera de solicitud).
 
 ### <a name="telemetry"></a>Telemetría
-Realice un seguimiento con ETW o mediante el registro de un proveedor de seguimiento personalizado. Para más información, vea [Seguimiento][autorest-tracing] en la documentación de AutoRest.
+Realice un seguimiento con ETW o mediante el registro de un proveedor de seguimiento personalizado. Para obtener más información, vea [Seguimiento][autorest-tracing] en la documentación de AutoRest.
 
 ### <a name="more-information"></a>Más información
-* [Reintentos automáticos][autorest-retry] en la documentación de AutoRest
+* [Reintentos automáticos] [ autorest-retry] en la documentación de AutoRest
 
 ## <a name="azure-active-directory-retry-guidelines"></a>Directrices de reintento de Azure Active Directory
 Azure Active Directory (AD) es una solución de nube de administración de identidades y accesos integral que combina servicios de directorio de núcleo, gobierno de identidades avanzado, seguridad y administración de acceso a aplicaciones. Azure AD también ofrece a los desarrolladores una plataforma de administración de identidades para proporcionar control de acceso a sus aplicaciones, según las reglas y directivas centralizadas.
@@ -1101,6 +1101,6 @@ Para obtener ejemplos del uso del bloque de aplicaciones de control de errores t
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

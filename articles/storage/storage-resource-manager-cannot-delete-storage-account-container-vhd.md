@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -56,13 +56,13 @@ Para resolver estos problemas, debe identificar el VHD que está ocasionando el 
 ### <a name="step-1-identify-the-problem-vhd-and-the-associated-vm"></a>Paso 1: Identificación del VHD que causa el problema y la VM asociada
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. En el menú **Concentrador**, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento que quiere eliminar y, después, seleccione **Blobs** > **vhds**.
-   
+
     ![Captura de pantalla del portal en la que se han resaltado la cuenta de almacenamiento y el contenedor "vhds".](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 3. Compruebe las propiedades de cada VHD en el contenedor. Busque el VHD que se encuentre en el estado **Concedido**. Después, determine la VM que esté usando el VHD. Normalmente, para determinar la VM que contiene el VHD, basta con consultar el nombre de este último:
-   
+
    * Los discos de sistema operativo suelen seguir esta convención de nomenclatura: NombreVMAAAAMMDDHHMMSS.vhd.
    * Los discos de datos suelen seguir esta convención de nomenclatura: NombreVM-AAAAMMDD-HHMMSS.vhd.
-     
+
      ![Captura de pantalla de la información del contenedor en el portal, donde se muestran el nombre de la VM, el estado de concesión "Bloqueado" y el estado de concesión "Concedido" resaltados.](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
 ### <a name="step-2-remove-the-lease-from-the-vhd"></a>Paso 2: Eliminación de la concesión del VHD
@@ -96,7 +96,6 @@ Una concesión es un bloqueo que puede utilizarse para controlar el acceso a un 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Eliminar una cuenta de almacenamiento](storage-create-storage-account.md#delete-a-storage-account)
 * [How to break the locked lease of blob storage in Microsoft Azure (PowerShell) (Cómo interrumpir la concesión bloqueada de Almacenamiento de blobs en Microsoft Azure (PowerShell))](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
-
 
 
 

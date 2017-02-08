@@ -84,6 +84,6 @@ Una vez que se han completados estos pasos en cada uno de los inquilinos B2C, la
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

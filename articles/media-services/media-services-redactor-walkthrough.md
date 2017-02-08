@@ -1,5 +1,5 @@
 ---
-title: Tutorial de Censura de rostros | Microsoft Docs
+title: Tutorial de censura de rostros con Azure Media Analytics | Microsoft Docs
 description: "En este tema se muestran instrucciones paso a paso sobre cómo ejecutar un flujo de trabajo de censura completa mediante el Explorador de Azure Media Services (AMSE) y Azure Media Redactor Visualizer (herramienta de código abierto)."
 services: media-services
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/30/2016
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: d693bc0de2f8a03d67b346f3b2d4693284ae4d71
-ms.openlocfilehash: b9bd117d2b2a4bb710c98d4a8771727d3f5d06b6
+ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
+ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 
 
 ---
-# <a name="face-redaction-walkthrough"></a>Tutorial de Censura de rostros
+# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
 
 ## <a name="overview"></a>Información general
 
@@ -67,7 +67,7 @@ El resultado incluirá un archivo JSON de anotaciones con datos de ubicación de
 
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. Opcional: cargue un archivo idlist.txt que incluya una lista delimitada de nueva línea de los identificadores que se van a censurar. 
+2. Opcional: cargue un archivo Dance_idlist.txt que incluya una lista delimitada de nueva línea de los identificadores que se van a censurar. 
 
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
@@ -132,6 +132,6 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

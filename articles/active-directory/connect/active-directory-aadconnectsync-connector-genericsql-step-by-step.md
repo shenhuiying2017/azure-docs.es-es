@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/04/2017
 ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
@@ -34,7 +34,7 @@ El conector de SQL genérico usa ODBC para conectarse al servidor remoto. Primer
 
 1. Inicie la utilidad de administración de ODBC en el servidor:   
    ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
-2. Seleccione la pestaña **DSN de archivo**. Haga clic en **Agregar...**.
+2. Seleccione la pestaña **DSN de archivo**. Haga clic en **Agregar...**.  
    ![ODBC1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
 3. El controlador integrado funciona correctamente, así que selecciónelo y haga clic en **Siguiente>**.  
    ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
@@ -87,7 +87,7 @@ Ya tenemos el archivo que necesitamos y podemos comenzar a crear el conector.
    ![Runprofile2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
 3. Seleccione la partición **OBJECT=User**.  
    ![Runprofile3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
-4. Seleccione **Table** (Tabla) y escriba **[USERS]**. Desplácese hacia abajo hasta la sección de tipo de objeto con varios valores y escriba los datos como en la imagen siguiente. Seleccione **Finish** (Finalizar) para guardar la fase.
+4. Seleccione **Table** (Tabla) y escriba **[USERS]**. Desplácese hacia abajo hasta la sección de tipo de objeto con varios valores y escriba los datos como en la imagen siguiente. Seleccione **Finish** (Finalizar) para guardar la fase.  
    ![Runprofile4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Runprofile4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
 5. Seleccione **New step**(Nuevo paso). Esta vez, seleccione **OBJECT=Group**. En la última página, use la configuración como se muestra en la imagen siguiente. Haga clic en **Finalizar**.  

@@ -10,14 +10,14 @@ tags: azure-resource-manager
 ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 547a2c0ab49c0b79d85bab1bd3abd800c9288ccf
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
 
 Para crear un emparejamiento de VNET mediante plantillas de Resource Manager, siga estos pasos:
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
    
    > [!NOTE]
    > El cmdlet de PowerShell para administrar el emparejamiento de VNET se suministra con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
@@ -101,7 +101,7 @@ Para crear un emparejamiento de VNET mediante plantillas de Resource Manager, si
    | UseRemoteGateways |Se usa la puerta de enlace de la red virtual emparejada. La red virtual emparejada debe tener configurada una puerta de enlace y AllowGatewayTransit debe estar seleccionado. Esta opción no se puede utilizar si hay una puerta de enlace configurada. |No |
    
     Cada vínculo de emparejamiento de VNET tiene el conjunto de propiedades anteriores. Por ejemplo, puede establecer AllowVirtualNetworkAccess en True para el vínculo de emparejamiento de VNET entre VNet1 y VNet2, y en False para el vínculo de emparejamiento de VNET en la otra dirección.
-4. Para implementar el archivo de plantilla, puede ejecutar el cmdlet New-AzureRmResourceGroupDeployment para crear o actualizar la implementación. Para más información acerca de cómo usar las plantillas de Resource Manager, consulte este [artículo](../resource-group-template-deploy.md).
+4. Para implementar el archivo de plantilla, puede ejecutar el cmdlet New-AzureRmResourceGroupDeployment para crear o actualizar la implementación. Para más información acerca de cómo usar las plantillas de Resource Manager, consulte este [artículo](../azure-resource-manager/resource-group-template-deploy.md).
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
    
@@ -308,26 +308,34 @@ Para crear un emparejamiento entre redes virtuales de diferentes modelos de impl
 1. En el texto siguiente se muestra la definición de un vínculo de emparejamiento de redes virtuales entre VNET1 y VNET2 en este escenario. Solo se requiere un vínculo para emparejar una red virtual clásica a una red virtual de Azure Resource Manager.
    
     Asegúrese de colocar el identificador de suscripción con la ubicación de la red virtual clásica o VNET2 y cambiar MyResouceGroup al nombre de grupo de recursos adecuado.
-   
-    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
-   
+
         {
-        "apiVersion": "2016-06-01",
-        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-        "name": "VNET1/LinkToVNET2",
-        "location": "[resourceGroup().location]",
-        "properties": {
-        "allowVirtualNetworkAccess": true,
-        "allowForwardedTraffic": false,
-        "allowGatewayTransit": false,
-        "useRemoteGateways": false,
-            "remoteVirtualNetwork": {
-            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
-    }
-   
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+        },
+        "variables": {
+        },
+        "resources": [
+
+            {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "VNET1/LinkToVNET2",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "allowVirtualNetworkAccess": true,
+            "allowForwardedTraffic": false,
+            "allowGatewayTransit": false,
+            "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
         }
+
+            }
+            }
+        ]
         }
-    ]  }
 2. Para implementar el archivo de plantilla, ejecute el siguiente cmdlet para crear o actualizar la implementación.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -374,6 +382,6 @@ Una vez establecido el emparejamiento entre una red virtual clásica y una red v
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

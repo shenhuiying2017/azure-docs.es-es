@@ -4,7 +4,7 @@ description: "Creación de un inquilino de Azure Active Directory o de Azure Act
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
 ms.assetid: 7ba4c6b2-161b-45b5-b3bd-ccb662f5d7a0
 ms.service: active-directory-b2c
@@ -35,6 +35,6 @@ Si surgen problemas durante la [creación de un inquilino de Azure AD B2C](activ
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

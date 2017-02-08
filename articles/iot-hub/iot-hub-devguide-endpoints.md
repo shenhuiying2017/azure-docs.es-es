@@ -1,6 +1,6 @@
 ---
-title: "Guía del desarrollador: Puntos de conexión de IoT Hub | Microsoft Docs"
-description: "Guía para desarrolladores de IoT Hub de Azure: Información de referencia acerca de los puntos de conexión de IoT Hub"
+title: "Información de los puntos de conexión de IoT Hub de Azure | Microsoft Docs"
+description: "Guía para desarrolladores: información de referencia sobre los puntos de conexión orientados a dispositivos y servicios IoT Hub."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: f2da46ba3fdf9386ad78ade4d2364a4a8990cd6d
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 702f2d8b936e52a49afc6000d2018f02c18e448a
 
 
 ---
@@ -43,7 +43,7 @@ Esta es una descripción de los puntos de conexión:
     Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1][lnk-mqtt], HTTP 1.1 y [AMQP 1.0][lnk-amqp]. Tenga en cuenta que AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
     
     Los puntos de conexión de métodos y dispositivos gemelos están disponibles solo mediante [MQTT v3.1.1][lnk-mqtt].
-* **Puntos de conexión de servicio**. Cada Centro de IoT muestra un conjunto de puntos de conexión que el back-end de aplicaciones puede usar para comunicarse con los dispositivos. Estos puntos de conexión se exponen solo actualmente mediante el protocolo [AMQP][lnk-amqp], excepto para el punto de conexión de la invocación de método que se expone a través de HTTP 1.1.
+* **Puntos de conexión de servicio**. Cada centro de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución puede usar para comunicarse con los dispositivos. Estos puntos de conexión se exponen solo actualmente mediante el protocolo [AMQP][lnk-amqp], excepto para el punto de conexión de la invocación de método que se expone a través de HTTP 1.1.
   
   * *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con [Azure Event Hubs][lnk-event-hubs]. Un servicio back-end puede usarse para leer todos los [mensajes de dispositivo a nube][lnk-d2c] enviados por los dispositivos.
   * *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables [de nube a dispositivo][lnk-c2d] y recibir las confirmaciones de entrega o expiración correspondientes.
@@ -96,6 +96,6 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

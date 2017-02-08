@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa823259a86d361d13af9f6c2df062362c7e47b
-ms.openlocfilehash: 2faa881f146cc1b0a8c0523f2fb0f20b0136441e
+ms.sourcegitcommit: e64b544d8785b7453f4d77333fd0eb6673d32504
+ms.openlocfilehash: f5a6ee866891fdfb27ed00a22cbd784484ae5e5f
 
 
 ---
@@ -34,14 +34,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|
 |qpu_metric|QPU|Recuento|Media|QPU. Intervalo de 0-100 para S1, 0-200 para S2 y 0-400 para S4|
 |memory_metric|Memoria|Bytes|Media|Memoria. Intervalo de 0-25 GB para S1, 0-50 GB para S2 y 0-100 GB para S4|
-
-## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
-|---|---|---|---|---|
-|TotalRequests|Solicitudes de puerta de enlace en total|Recuento|Suma|Número de solicitudes de puerta de enlace|
-|TotalSuccessfulRequests|Solicitudes de puerta de enlace correctas|Recuento|Suma|Número de solicitudes de puerta de enlace procesadas|
-|TotalFailedRequests|Solicitudes de puerta de enlace con error|Recuento|Suma|Número de errores en solicitudes de puerta de enlace|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -503,6 +495,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

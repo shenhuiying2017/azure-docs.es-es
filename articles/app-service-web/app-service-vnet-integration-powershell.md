@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b0dcf833981364abfbc77d0cd6dfde8beb081b7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
 
 
 ---
@@ -47,7 +47,7 @@ Para conectar una aplicación a una red virtual, siga estos tres pasos:
 2. Cargue el certificado de la aplicación web en la red virtual y recupere el URI de paquete de VPN de punto a sitio.
 3. Actualice la conexión de red virtual de las aplicaciones web con el URI del paquete de punto a sitio.
 
-Los pasos 1 y 3 admiten el uso de scripts, pero el paso 2 necesita que se realice una única acción manual en el portal o que se acceda al punto de conexión de Azure Resource Manager de la red virtual para realizar las acciones **PUT** o **PATCH**. Póngase en contacto con el soporte técnico de Azure para habilitar esta opción. Antes de comenzar, asegúrese de que tiene una red virtual clásica con una conectividad de punto a sitio habilitada y una puerta de enlace implementada. Para crear la puerta de enlace y habilitar la conectividad de punto a sitio, es preciso que use el portal, como se describe en [Creación de una red virtual y una puerta de enlace de VPN][createvpngateway].
+Los pasos 1 y 3 admiten el uso de scripts, pero el paso 2 necesita que se realice una única acción manual en el portal o que se acceda al punto de conexión de Azure Resource Manager de la red virtual para realizar las acciones **PUT** o **PATCH**. Póngase en contacto con el soporte técnico de Azure para habilitar esta opción. Antes de comenzar, asegúrese de que tiene una red virtual clásica con una conectividad de punto a sitio habilitada y una puerta de enlace implementada. Para crear la puerta de enlace y habilitar la conectividad de punto a sitio, debe usar el portal como se describe en [Creación de una puerta de enlace de VPN][createvpngateway].
 
 La red virtual clásica debe estar en la misma suscripción que el plan del Servicio de aplicaciones que contiene la aplicación con la que va a realizar la integración.
 
@@ -119,7 +119,7 @@ El primer paso consiste en generar el archivo .cer. El segundo paso es cargar el
 
 El certificado estará en la ubicación especificada con **$Configuration.GeneratedCertificatePath** .
 
-Para cargar el certificado manualmente, use [Azure Portal][azureportal] y **Browse Virtual Network (classic)** [Examinar red virtual (clásica)] > **VPN connections** (Conexiones de VPN) > **Point-to-site** (Punto a sitio) > **Manage certificates** (Administrar certificados). Desde aquí, cargue el certificado.
+Para cargar el certificado manualmente, use [Azure Portal][azureportal] y **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates** (Administrar certificados). Desde aquí, cargue el certificado.
 
 ##### <a name="get-the-point-to-site-package"></a>Obtención del paquete de punto a sitio
 El siguiente paso en la configuración de una conexión de red virtual en una aplicación web es obtener el paquete de punto a sitio y proporcionarlo a la aplicación web.
@@ -706,6 +706,6 @@ Aunque el script indica eliminar, no se elimina la red virtual. Solo se quita la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

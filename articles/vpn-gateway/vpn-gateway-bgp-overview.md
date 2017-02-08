@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2016
+ms.date: 01/12/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5f270d383750dc6308f01807e04469e3873d70f9
-ms.openlocfilehash: 6d2a72831726f59ff79a7f4c1ff0e258275bfe4f
+ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
+ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
 
 
 ---
@@ -35,11 +35,6 @@ Hay varias ventajas y nuevas funcionalidades con BGP:
 Con BGP, solo necesita declarar un prefijo mínimo para un par BGP específico a través del túnel VPN S2S de IPsec. Puede ser tan pequeño como un prefijo de host (/32) de la dirección IP del par BGP del dispositivo VPN local. Puede controlar que prefijos de red local desea anunciar a Azure para permitir el acceso de la red virtual de Azure.
 
 También puede anunciar prefijos mayores que pueden incluir algunos de los prefijos de dirección de red virtual, como un espacio de direcciones IP privado grande (por ejemplo, 10.0.0.0/8). Sin embargo, tenga en cuenta que los prefijos no pueden ser idénticos a uno de sus prefijos de red virtual. Se rechazarán dichas rutas idénticas a sus prefijos de red virtual.
-
-> [!IMPORTANT]
-> Actualmente, el anuncio de la ruta predeterminada (0.0.0.0/0) para puertas de enlace de VPN de Azure estará bloqueado. Cuando esté habilitada esta funcionalidad, se proporcionarán más actualizaciones.
-> 
-> 
 
 ### <a name="support-multiple-tunnels-between-a-vnet-and-an-on-premises-site-with-automatic-failover-based-on-bgp"></a>Uso de varios túneles entre una red virtual y un sitio local con la conmutación por error automática basada en BGP
 Puede establecer varias conexiones entre la red virtual de Azure y los dispositivos VPN locales en la misma ubicación. Esta funcionalidad proporciona varios túneles (rutas) entre las dos redes en una configuración activa-activa. Si uno de los túneles está desconectado, se retiran las rutas correspondientes a través de BGP y el tráfico se cambiará automáticamente a los túneles restantes.
@@ -64,6 +59,6 @@ Consulte [Cómo configurar BGP en puertas de enlace de VPN de Azure mediante Azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

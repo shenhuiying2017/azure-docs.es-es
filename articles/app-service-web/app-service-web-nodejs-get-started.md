@@ -1,5 +1,5 @@
 ---
-title: "Introducción a las aplicaciones web Node.js en Azure App Service | Microsoft Docs"
+title: "Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure"
 description: "Obtenga información sobre cómo implementar una aplicación de Node.js en una aplicación web en el Servicio de aplicaciones de Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
-ms.date: 12/16/2016
+ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -25,35 +25,24 @@ ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
 
 En este tutorial se muestra cómo crear una aplicación de [Node.js] sencilla e implementarla en [Azure App Service] a partir de un entorno de línea de comandos, como cmd.exe o bash. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.js.
 
-[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+> 
+> 
 
 <a name="prereq"></a>
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](app-service-web-nodejs-get-started.md): la CLI de última generación para el modelo de implementación de Resource Manager
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Node.js]
 * [Bower]
 * [Yeoman]
 * [Git]
-* [Versión preliminar de la CLI de Azure 2.0](/cli/azure/install-az-cli2)
+* [CLI de Azure]
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita] o [activar las ventajas de suscriptor de Visual Studio].
 
-> [!NOTE]
-> También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
-> 
-> 
-
-## <a name="create-and-configure-a-simple-nodejs-app-for-azure"></a>Creación y configuración de una aplicación Node.js sencilla para Azure
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Creación e implementación de una aplicación web de Node.js simple
 1. Abra el terminal de la línea de comandos que prefiera e instale el [generador Express de Yeoman].
    
         npm install -g generator-express
-
 2. `CD` , vaya a un directorio de trabajo y genere una aplicación de Express con la siguiente sintaxis:
    
         yo express
@@ -67,13 +56,22 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
     `? Select a css preprocessor to use (Sass Requires Ruby):` **None**  
     `? Select a database to use:` **None**  
     `? Select a build tool to use:` **Grunt**
-
 3. Mediante `CD`, vaya al directorio raíz de la nueva aplicación e iníciela para asegurarse de que se ejecuta en el entorno de desarrollo:
    
         npm start
    
     En el explorador, vaya a <http://localhost:3000> para asegurarse de que puede ver la página principal de Express. Una vez comprobado que la aplicación se ejecuta correctamente, use `Ctrl-C` para detenerla.
-
+4. Cambie al modo ASM e inicie sesión en Azure (necesita la [CLI de Azure](#prereq)):
+   
+        azure config mode asm
+        azure login
+   
+    Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
+5. Asegúrese de que todavía se encuentra en el directorio raíz de la aplicación y cree el recurso de la aplicación de App Service en Azure con un nombre de aplicación único con el siguiente comando. Por ejemplo: http://{appname}.azurewebsites.net
+   
+        azure site create --git {appname}
+   
+    Siga las indicaciones para seleccionar una región de Azure para la implementación. Si nunca ha configurado credenciales de implementación de Git/FTP para su suscripción de Azure, también se le solicitará que las cree.
 6. Abra el archivo ./config/config.js de la raíz de la aplicación y cambie el puerto de producción a `process.env.port`; la propiedad `production` en el objeto `config` debe ser similar a la del ejemplo siguiente:
    
         production: {
@@ -84,73 +82,23 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
             port: process.env.port,
         }
    
-    > [!NOTE] 
-    > De forma predeterminada, Azure App Service ejecuta aplicaciones Node.js con las variables de entorno `production` (`process.env.NODE_ENV="production"`.
-    > Por tanto, esta configuración le permite que la aplicación de Node.js en Azure responda a solicitudes web en el puerto predeterminado en el que escucha iisnode.
-    >
-    >
-
+    Esto permite que la aplicación de Node.js responda a solicitudes web en el puerto predeterminado en el que escucha iisnode.
 7. Abra./package.json y agregue la propiedad `engines` para [especificar la versión de Node.js deseada](#version).
    
         "engines": {
-            "node": "6.9.1"
+            "node": "6.6.0"
         }, 
-
-8. Guarde los cambios y, después, inicialice un repositorio Git en la raíz de la aplicación y confirme el código:
+8. Guarde los cambios y use git para implementar la aplicación en Azure:
    
         git add .
         git add -f config
         git commit -m "{your commit message}"
-
-## <a name="deploy-your-nodejs-app-to-azure"></a>Implementación de la aplicación Node.js en Azure
-
-1. Inicie sesión en Azure (necesita la [versión preliminar de CLI de Azure 2.0](#prereq)):
-   
-        az login
-   
-    Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
-
-3. Establezca el usuario de implementación de App Service. Posteriormente implementará el código mediante estas credenciales.
-   
-        az appservice web deployment user set --user-name <username> --password <password>
-
-3. Cree un nuevo [grupo de recursos](../azure-resource-manager/resource-group-overview.md). Para este tutorial de PHP, no necesita realmente saber qué es.
-
-        az group create --location "<location>" --name my-nodejs-app-group
-
-    Para ver los posibles valores que puede usar para `<location>`, use el comando de la CLI `az appservice list-locations`.
-
-3. Cree un nuevo [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATIS". Para este tutorial de PHP, sepa que no se le cobrará por las aplicaciones web de este plan.
-
-        az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
-
-4. Cree una nueva aplicación web con un nombre único en `<app_name>`.
-
-        az appservice web create --name <app_name> --resource-group my-nodejs-app-group --plan my-nodejs-appservice-plan
-
-5. Configure la implementación local de Git para la nueva aplicación web con el siguiente comando:
-
-        az appservice web source-control config-local-git --name <app_name> --resource-group my-nodejs-app-group
-
-    Obtendrá una salida JSON como esta, lo que significa que está configurado el repositorio de Git remoto:
-
-        {
-        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-        }
-
-6. Agregue la dirección URL en la salida JSON como un repositorio de Git remoto para el repositorio local (llamado `azure` para mayor claridad).
-
-        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
-   
-7. Implemente el código de ejemplo para el repositorio de Git remoto `azure`. Cuando se le pida, use las credenciales de implementación que configuró anteriormente.
-
         git push azure master
    
     El generador Express ya proporciona un archivo .gitignore, por lo que su comando `git push` no consume ancho de banda al intentar cargar el directorio node_modules/.
-
 9. Por último, inicie la aplicación de Azure activa en el explorador:
    
-        az appservice web browse --name <app_name> --resource-group my-nodejs-app-group
+        azure site browse
    
     Ahora debería ver la aplicación web de Node.js que se ejecuta directamente en el Servicio de aplicaciones de Azure.
    
@@ -160,9 +108,9 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 Para realizar actualizaciones en su aplicación web de Node.js que se ejecuta en el Servicio de aplicaciones, solo tiene que ejecutar `git add`, `git commit` y `git push` como hizo cuando implementó por primera vez su aplicación web.
 
 ## <a name="how-app-service-deploys-your-nodejs-app"></a>Modo en que el Servicio de aplicaciones implementa la aplicación de Node.js
-El Servicio de aplicaciones de Azure usa [iisnode] para ejecutar aplicaciones de Node.js. La versión preliminar de la CLI de Azure 2.0 y el motor de Kudu (implementación de Git) colaboran para proporcionar una experiencia simplificada al desarrollar e implementar aplicaciones de Node.js desde la línea de comandos. 
+El Servicio de aplicaciones de Azure usa [iisnode] para ejecutar aplicaciones de Node.js. La CLI de Azure y el motor de Kudu (implementación de Git) colaboran para proporcionar una experiencia simplificada al desarrollar e implementar aplicaciones de Node.js desde la línea de comandos. 
 
-* Puede crear un archivo iisnode.yml en el directorio raíz y usarlo para personalizar las propiedades de iisnode. Todos los valores configurables se documentan [aquí](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/iisnode.yml).
+* `azure site create --git` reconoce el patrón común de Node.js de server.js o app.js y crea una instancia de iisnode.yml en el directorio raíz. Puede utilizar este archivo para personalizar iisnode.
 * En `git push azure master`, Kudu automatiza las tareas de implementación siguientes:
   
   * Si package.json está en la raíz del repositorio, ejecute `npm install --production`.
@@ -185,7 +133,7 @@ En el flujo de trabajo típico, puede indicar a App Service que use un motor de 
 Por ejemplo:
 
     "engines": {
-        "node": "6.9.1"
+        "node": "6.6.0"
     }, 
 
 El motor de implementación de Kudu determina qué motor de Node.js se usará en el orden siguiente:
@@ -193,10 +141,6 @@ El motor de implementación de Kudu determina qué motor de Node.js se usará en
 * Primero, consulte en iisnode.yml si `nodeProcessCommandLine` está especificado. En caso afirmativo, úselo.
 * Después, consulte package.json para ver si `"node": "..."` está especificado en el objeto `engines`. En caso afirmativo, úselo.
 * De forma predeterminada, elija una versión predeterminada de Node.js.
-
-Para obtener la lista actualizada de todas las versiones compatibles de Node.js/NPM en Azure App Service, acceda a la siguiente dirección URL para la aplicación:
-
-    https://<app_name>.scm.azurewebsites.net/api/diagnostics/runtime
 
 > [!NOTE]
 > Se recomienda definir explícitamente el motor de Node.js que desea. Puede cambiar la versión predeterminada de Node.js y es posible que obtenga errores en la aplicación web de Azure porque la versión de Node.js predeterminada no es adecuada para su aplicación.
@@ -213,7 +157,7 @@ Para leer los registros de iisnode, siga estos pasos.
 > 
 > 
 
-1. Abra el archivo iisnode.yml proporcionado por la versión preliminar de la CLI de Azure 2.0.
+1. Abra el archivo iisnode.yml proporcionado por la CLI de Azure.
 2. Establezca los dos parámetros siguientes: 
    
         loggingEnabled: true
@@ -277,6 +221,7 @@ Para habilitar Node-Inspector, siga estos pasos:
 
 <!-- URL List -->
 
+[CLI de Azure]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [activar las ventajas de suscriptor de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
@@ -303,6 +248,6 @@ Para habilitar Node-Inspector, siga estos pasos:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b67594033bfa89fc6ff8d80dd064d766c4048a3b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 
 ---
@@ -43,6 +43,7 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 >
 
 ## <a name="requirements-and-considerations"></a>Requisitos y consideraciones
+
 * Se necesita lo siguiente para usar AMS para proporcionar HLS cifrado con FairPlay y entregar licencias de FairPlay.
 
   * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -162,8 +163,7 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. Para obtener más información, consulte [Configuración de puntos de conexión de streaming](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Sobrescriba el código del archivo Program.cs con el código mostrado en esta sección.
+7. Sobrescriba el código del archivo Program.cs con el código mostrado en esta sección.
 
         using System;
         using System.Collections.Generic;
@@ -566,6 +566,6 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

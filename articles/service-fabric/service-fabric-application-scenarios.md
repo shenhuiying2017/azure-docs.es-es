@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 160d6a41fc1ea3eecd39e8ad199bc5e69f236061
+ms.sourcegitcommit: ef4d5bb9b8b25d940aca26117d759a4152639730
+ms.openlocfilehash: bc8009e0ba0b604c995ce24f883eb03d586d667b
 
 
 ---
@@ -51,6 +51,7 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 * Empiece a crear servicios sin y con estado con los modelos de programación [Reliable Services](service-fabric-reliable-services-quick-start.md) y [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
+* Obtenga más información sobre los [patrones y escenarios](service-fabric-patterns-and-scenarios.md).
 * Vea también los siguientes temas:
   * [Quiero información acerca de los microservicios](service-fabric-overview-microservices.md)
   * [Estado de servicio](service-fabric-concepts-state.md)
@@ -58,11 +59,11 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
   * [Escalación de aplicaciones de Service Fabric](service-fabric-concepts-scalability.md)
   * [Cómo crear particiones de los servicios confiables de Service Fabric](service-fabric-concepts-partitioning.md)
 
-[Imagen 1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
-[Imagen 2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
+[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
+[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

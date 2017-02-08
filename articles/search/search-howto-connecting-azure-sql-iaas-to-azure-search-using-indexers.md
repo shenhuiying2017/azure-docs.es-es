@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 09/26/2016
 ms.author: jackma
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: cfd53c8240244ffbcf34380acb25657fcc8c9562
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 2150735fbf1e1438feeef70f0ea92ed041d0cd24
 
 
 ---
@@ -50,8 +50,8 @@ Azure Search requiere un canal cifrado para todas las solicitudes del indexador 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configuración de la conectividad de SQL Server en la máquina virtual
 Después de configurar la conexión cifrada requerida por Azure Search, existen pasos adicionales de configuración intrínsecos a SQL Server en las máquinas virtuales de Azure. Si aún no lo ha hecho, el paso siguiente es finalizar la configuración mediante cualquiera de estos artículos:
 
-* En el caso de una máquina virtual de **Resource Manager** , consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](../virtual-machines/virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-* En el caso de una máquina virtual **clásica** , consulte [Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)](../virtual-machines/virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* En el caso de una máquina virtual de **Resource Manager** , consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* En el caso de una máquina virtual **clásica** , consulte [Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md).
 
 En concreto, consulte en ambos artículos la sección dedicada a la "conexión a través de Internet".
 
@@ -91,6 +91,6 @@ Dejando a un lado la configuración, ya puede especificar un servicio SQL Server
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

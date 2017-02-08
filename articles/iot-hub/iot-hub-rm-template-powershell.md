@@ -1,6 +1,6 @@
 ---
-title: "Creación de un centro de IoT Hub con una plantilla de Azure Resource Manager y PowerShell | Microsoft Docs"
-description: Siga este tutorial para empezar a usar las plantillas de Azure Resource Manager para crear un IoT Hub con PowerShell.
+title: "Creación de un centro de IoT Hub de Azure mediante una plantilla (PowerShell) | Microsoft Docs"
+description: "Describe cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT Hub con PowerShell."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2016
+ms.date: 12/06/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: cbd9c2a5d3e3f03fd9136feb35a82be0cd1ee420
+ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
+ms.openlocfilehash: b884fe128b8414ae1692df92e89a41f7ba1c0447
 
 
 ---
-# <a name="create-an-iot-hub-using-powershell"></a>Creación de un Centro de IoT con Powershell
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creación de un centro de IoT Hub con una plantilla de Azure Resource Manager (PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introducción
@@ -34,7 +34,7 @@ Puede usar el Administrador de recursos de Azure para crear y administrar los ce
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. <br/>Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versiones posteriores.
+* [Azure PowerShell 1.0][lnk-powershell-install] o posterior.
 
 > [!TIP]
 > El artículo [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] (Uso de Azure PowerShell con Azure Resource Manager) contiene más información sobre cómo utilizar scripts de PowerShell y plantillas de Azure Resource Manager para crear recursos de Azure. 
@@ -148,7 +148,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
@@ -160,6 +160,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

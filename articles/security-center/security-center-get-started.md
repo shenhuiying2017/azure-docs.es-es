@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: bb64c7e5f25517477cb1f24333d10149b2e8c844
-ms.openlocfilehash: d9bb2249e41095c247d08fd75e44e0696e1d31a6
+ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
+ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
 
 
 ---
@@ -34,6 +34,9 @@ Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscrip
 El nivel gratuito de Security Center se habilita automáticamente con su suscripción y proporciona visibilidad sobre el estado de seguridad de los recursos de Azure. Ofrece administración básica de directivas de seguridad, recomendaciones de seguridad e integración con servicios y productos de seguridad de Azure de asociados.
 
 Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). Para más información sobre Azure Portal, consulte la [documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/).
+
+## <a name="permissions"></a>Permisos
+En Security Center, solo se muestra información relacionada con un recurso de Azure cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso. Consulte [Permisos en Azure Security Center](security-center-permissions.md) para más información sobre los roles y las acciones permitidas en Security Center.
 
 ## <a name="data-collection"></a>Colección de datos
 Security Center recopila datos de las máquinas virtuales (VM) para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Security Center, la recopilación de datos está habilitada en todas las máquinas virtuales de la suscripción. Aunque se recomienda usar la recopilación de datos, puede desactivarla en la directiva de Security Center.
@@ -123,6 +126,6 @@ En este artículo se han presentado los componentes de supervisión de la seguri
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

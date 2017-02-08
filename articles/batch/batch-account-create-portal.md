@@ -52,7 +52,7 @@ Aprenda a crear una cuenta de Azure Batch en [Azure Portal][azure_portal] y dón
    El portal indica que la cuenta se está **implementando** y, tras la finalización, se muestra una notificación de **Implementaciones correctas** en *Notificaciones*.
 
 ## <a name="view-batch-account-properties"></a>Visualización de propiedades de la cuenta de Lote
-Una vez creada la cuenta, puede abrir la **hoja de la cuenta de Lote** para acceder a sus propiedades y configuración. Puede tener acceso a todas las propiedades y configuración de la cuenta en el menú izquierdo de la hoja Cuenta de lote.
+Una vez creada la cuenta, puede abrir la **hoja de la cuenta de Lote** para acceder a sus propiedades y configuración. Puede tener acceso a todas las propiedades y configuración de la cuenta en el menú izquierdo de la hoja Cuenta de Batch.
 
 ![Hoja de la cuenta de Lote en el Portal de Azure][account_blade]
 

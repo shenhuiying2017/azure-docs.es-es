@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 3f27488c8c0173f695edc98da01345d14ff64698
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 08b4cd3fe4a246bc62fb4a6cc596630968d7f9d7
 
 
 ---
@@ -49,7 +49,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
+> También puede [probar App Service](https://azure.microsoft.com/try/app-service/) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
 > 
 > 
 
@@ -170,7 +170,7 @@ Puede controlar la granularidad de los registros de stdout en el archivo [config
 Para conectarse a una base de datos de Azure, debe crear una base de datos de su elección en Azure, como Azure SQL Database, MySQL, MongoDB, Azure Redis Cache, etc., y usar el [adaptador de almacén de datos](https://github.com/balderdashy/sails#compatibility) correspondiente para conectarse a ella. Los pasos de esta sección le muestran cómo conectarse a MongoDB mediante una base de datos de [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md), que puede admitir conexiones de cliente de MongoDB.
 
 1. [Cree una cuenta de DocumentDB que sea compartible con el protocolo MongoDB](../documentdb/documentdb-create-mongodb-account.md).
-2. [Cree una colección y una base de datos de DocumentDB](../documentdb/documentdb-create-collection.md). El nombre de la colección es irrelevante, pero necesitará el nombre de la base de datos al conectase desde Sails.js.
+2. [Cree una colección y una base de datos de DocumentDB](../documentdb/documentdb-create-collection.md). El nombre de la colección es irrelevante, pero necesita el nombre de la base de datos al conectase desde Sails.js.
 3. [Busque la información de conexión para la base de datos de DocumentDB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. Desde el terminal de línea de comandos, instale el adaptador de MongoDB:
 
@@ -261,6 +261,6 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

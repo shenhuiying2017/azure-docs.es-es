@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b4bd777b454a68ee06bbc4dffaff91213d58f28c
+ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
+ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: b4bd777b454a68ee06bbc4dffaff91213d58f28c
 Azure SQL Database ofrece tres [niveles de servicio](sql-database-service-tiers.md): Básico, Estándar y Premium. Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
 
 > [!NOTE]
-> Este artículo se centra en la guía de rendimiento para bases de datos únicas de Azure SQL Database. Para obtener instrucciones sobre rendimiento relativas a los grupos de bases de datos elásticas, consulte las [consideraciones sobre precios y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md). Observe, sin embargo, que muchas de las recomendaciones de optimización de este artículo se pueden aplicar a bases de datos de un grupo de bases de datos elásticas y obtener ventajas de rendimiento similares.
+> Este artículo se centra en la guía de rendimiento para bases de datos únicas de Azure SQL Database. Para obtener instrucciones sobre rendimiento relativas a los grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md). Observe, sin embargo, que muchas de las recomendaciones de optimización de este artículo se pueden aplicar a bases de datos de un grupo elástico y obtener ventajas de rendimiento similares.
 > 
 > 
 
@@ -62,15 +62,8 @@ Cada nivel de servicio y nivel de rendimiento están asociados a distintos lími
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-Las secciones siguientes contienen más información sobre cómo ver el uso relacionado con estos límites.
-
 ### <a name="maximum-in-memory-oltp-storage"></a>Almacenamiento máximo OLTP en memoria
 Puede usar la vista **sys.dm_db_resource_stats** para supervisar el uso del almacenamiento en memoria de Azure. Para más información sobre la supervisión, consulte [Supervisión del almacenamiento OLTP en memoria](sql-database-in-memory-oltp-monitoring.md).
-
-> [!NOTE]
-> Actualmente, la versión preliminar del procesamiento de transacciones en línea en memoria (OLTP) de Azure solo se admite para bases de datos únicas. No se puede usar en bases de datos de grupos de bases de datos elásticas.
-> 
-> 
 
 ### <a name="maximum-concurrent-requests"></a>Número máximo de solicitudes simultáneas
 Para ver el número de solicitudes simultáneas, ejecute esta consulta Transact-SQL en la base de datos SQL:
@@ -93,7 +86,7 @@ Puede analizar los patrones de usuario y aplicación para hacerse una idea de la
 Si varios clientes usan la misma cadena de conexión, el servicio autentica cada inicio de sesión. Si 10 usuarios se conectan de forma simultánea a una base de datos con el mismo nombre de usuario y contraseña, habrá 10 conexiones simultáneas. Este límite se aplica solo a la duración del inicio de sesión y la autenticación. Si los mismos 10 usuarios se conectan a la base de datos de forma secuencial, el número de inicios de sesión simultáneos nunca será superior a uno.
 
 > [!NOTE]
-> Este límite no se aplica actualmente a las bases de datos de grupos de bases de datos elásticas.
+> Este límite no se aplica actualmente a las bases de datos de grupos elásticos.
 > 
 > 
 
@@ -439,12 +432,12 @@ Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones d
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre los niveles de servicio, consulte [Opciones y rendimiento de SQL Database](sql-database-service-tiers.md)
-* Para más información sobre los grupos de bases de datos elásticas, consulte [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
-* Para información sobre el rendimiento y los grupos de bases de datos elásticas, consulte [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md)
+* Para obtener más información sobre los grupos elásticos, consulte [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
+* Para información sobre el rendimiento y los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

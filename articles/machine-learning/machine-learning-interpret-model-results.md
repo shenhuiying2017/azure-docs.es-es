@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79948e3ec83dc8d56f0fa38998a48ee3518f8962
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e9e8dfa79ac0b902b8ecbcf9911e38ef49f754ec
 
 
 ---
@@ -34,9 +34,9 @@ Hay cuatro tipos de modelos de aprendizaje automático principales en Aprendizaj
 
 Los módulos usados para la predicción sobre estos modelos son:
 
-* Módulo [Puntuar modelo][score-model] para la clasificación y la regresión
-* Módulo [Asignar a clústeres][assign-to-clusters] para la agrupación en clústeres
-* [Puntuar recomendador Matchbox][score-matchbox-recommender] para los sistemas de recomendación
+* módulo [Modelo de puntuación][score-model] para la clasificación y regresión
+* módulo [Asignar a clústeres][assign-to-clusters] para la agrupación en clústeres
+* [Score Matchbox Recommender][score-matchbox-recommender] para sistemas de recomendación
 
 Este documento explica cómo interpretar los resultados de predicción para cada uno de estos módulos. Para obtener información general sobre estos módulos, consulte [Cómo elegir parámetros para optimizar los algoritmos de Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
 
@@ -83,7 +83,7 @@ Una vez comprendidos los resultados de la predicción, el experimento puede publ
 
 Figura 3. Puntuación del experimento del problema de clasificación de dos clases de iris
 
-Ahora debe establecer la entrada y salida del servicio web. La entrada es el puerto de entrada derecho de [Puntuar modelo][score-model], que es la entrada de las características de la flor Iris. La elección del resultado depende de si está interesado en la clase de predicción (etiqueta puntuada), en la probabilidad puntuada o en ambas. En este ejemplo, se supone que está interesado en ambas. Para seleccionar las columnas de salida deseadas, use un módulo [Seleccionar columnas de conjunto de datos][select-columns]. Haga clic en [Seleccionar columnas de conjunto de datos][select-columns] y en **Iniciar el selector de columnas**, y seleccione **Etiquetas puntuadas** y **Probabilidades puntuadas**. Después de configurar el puerto de salida de [Seleccionar columnas de conjunto de datos][select-columns] y ejecutarlo de nuevo, deberíamos estar preparados para publicar el experimento de puntuación como un servicio web haciendo clic en **PUBLICAR SERVICIO WEB**. El experimento final es similar a la figura 4.
+Ahora debe establecer la entrada y salida del servicio web. Obviamente, la entrada es el puerto de entrada derecho del [Módulo de puntuación][score-model], que es la entrada de las características de la flor Iris. La elección del resultado depende de si está interesado en la clase de predicción (etiqueta puntuada), en la probabilidad puntuada o en ambas. En este ejemplo, se supone que está interesado en ambas. Para seleccionar las columnas de salida deseadas, use un módulo [Seleccionar columnas de conjunto de datos][select-columns]. Haga clic en [Seleccionar columnas de conjunto de datos][select-columns] y en **Iniciar el selector de columnas**, y seleccione **Etiquetas puntuadas** y **Probabilidades puntuadas**. Después de configurar el puerto de salida de [Seleccionar columnas de conjunto de datos][select-columns] y ejecutarlo de nuevo, deberíamos estar preparados para publicar el experimento de puntuación como un servicio web haciendo clic en **PUBLICAR SERVICIO WEB**. El experimento final es similar a la figura 4.
 
 ![El experimento de clasificación de dos clases de iris](./media/machine-learning-interpret-model-results/4.png)
 
@@ -110,7 +110,7 @@ En los datos de entrenamiento, hay 16 funciones extraídas de imágenes de letra
 
 Figura 6. Experimento del problema de clasificación multiclase de reconocimiento de letras
 
-Al visualizar los resultados del módulo [Puntuar modelo][score-model] haciendo clic en el puerto de salida del módulo [Puntuar modelo][score-model] y, a continuación, haciendo clic en **Visualizar**, debería ver contenido como el que se muestra en la figura 7.
+Al visualizar los resultados del módulo [Puntuar modelo][score-model] haciendo clic en el puerto de salida del módulo [Puntuar modelo][score-modelscore-model] y, a continuación, haciendo clic en **Visualizar**, debería ver contenido como el que se muestra en la figura 7.
 
 ![Resultados del modelo de puntuación](./media/machine-learning-interpret-model-results/7.png)
 
@@ -151,7 +151,7 @@ Use la predicción de precios de automóviles como su ejemplo de regresión. Int
 
 Figura 11. Experimento del problema de regresión de precios de automóviles
 
-Al ver el módulo [Evaluar modelo][score-model], el resultado es parecido al de la figura 12.
+Al ver el módulo [Modelo de puntuación][score-model], el resultado es parecido al de la figura 12.
 
 ![Resultados de puntuación del problema de predicción de precios de automóviles](./media/machine-learning-interpret-model-results/12.png)
 
@@ -229,7 +229,7 @@ Para los sistemas de recomendación, puede usar el problema de la recomendación
 * Datos de características de los clientes
 * Datos de características de restaurantes
 
-Hay varias cosas que podemos hacer con el módulo [Entrenar recomendador Matchbox][score-matchbox-recommender] de Azure Machine Learning:
+Hay varias tareas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] de Azure Machine Learning:
 
 * predecir las valoraciones para un usuario determinado y un elemento;
 * recomendar elementos a un usuario determinado;
@@ -240,7 +240,7 @@ Puede elegir lo que quiere hacer mediante la selección de las cuatro opciones e
 
 ![Recomendador Matchbox](./media/machine-learning-interpret-model-results/19_1.png)
 
-Un experimento de Azure Machine Learning típico para un sistema de recomendación es similar al de la figura 20. Para obtener información sobre cómo usar esos módulos del sistema de recomendación, consulte [Entrenar recomendador Matchbox][score-matchbox-recommender] y [Puntuar recomendador Matchbox][score-matchbox-recommender].
+Un experimento de Azure Machine Learning típico para un sistema de recomendación es similar al de la figura 20. Para información sobre cómo usar los módulos del sistema de recomendación, vea la página de ayuda [Train Matchbox Recommender][train-matchbox-recommender] y [Score Matchbox Recommender][score-matchbox-recommender].
 
 ![Experimento del sistema de recomendación](./media/machine-learning-interpret-model-results/20.png)
 
@@ -250,7 +250,7 @@ Figura 20. Experimento del sistema de recomendación
 
 **Predecir las valoraciones para un usuario determinado y un elemento**
 
-Al seleccionar la **predicción de valoración** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que prediga la valoración de un usuario y un elemento determinados. La visualización del resultado de [Puntuar recomendador Matchbox][score-matchbox-recommender] es similar a la de la figura 21.
+Al seleccionar la **predicción de valoración** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que prediga la valoración de un usuario y un elemento determinados. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 21.
 
 ![Resultado de puntuación del sistema de recomendación: valoración de predicción](./media/machine-learning-interpret-model-results/21.png)
 
@@ -260,7 +260,7 @@ Las dos primeras columnas son los pares de elemento-usuario proporcionados por l
 
 **Recomendar elementos a un usuario determinado**
 
-Al seleccionar **Recomendación de elementos** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que recomiende elementos a un usuario determinado. El último parámetro que elegir en este escenario es la *selección de elementos recomendados*. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado de [Puntuar recomendador Matchbox][score-matchbox-recommender] es similar a la de la figura 22.
+Al seleccionar **Recomendación de elementos** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que recomiende elementos a un usuario determinado. El último parámetro que elegir en este escenario es la *selección de elementos recomendados*. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 22.
 
 ![Resultado de puntuación del sistema de recomendación: recomendación de elementos](./media/machine-learning-interpret-model-results/22.png)
 
@@ -270,7 +270,7 @@ La primera de las seis columnas representa los id. de usuario determinados para 
 
 **Buscar usuarios relacionados con un usuario determinado**
 
-Al seleccionar **usuarios relacionados** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los usuarios relacionados son los usuarios que tienen preferencias similares. El último parámetro que elegir en este escenario es la *selección de usuarios relacionados*. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elija **De todos los usuarios**. La visualización del resultado de [Puntuar recomendador Matchbox][score-matchbox-recommender] es similar a la de la figura 23.
+Al seleccionar **usuarios relacionados** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los usuarios relacionados son los usuarios que tienen preferencias similares. El último parámetro que elegir en este escenario es la *selección de usuarios relacionados*. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elija **De todos los usuarios**. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 23.
 
 ![Resultado de puntuación del sistema de recomendación: usuarios relacionados](./media/machine-learning-interpret-model-results/23.png)
 
@@ -280,7 +280,7 @@ La primera de las seis columnas muestra los id. de usuario determinados necesari
 
 **Buscar elementos relacionados con un elemento determinado**
 
-Al seleccionar **usuarios relacionados** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que busque elementos relacionados a un elemento determinado. Los elementos relacionados son los que tienen mayor probabilidad de estar vinculados al mismo usuario. El último parámetro que elegir en este escenario es la *selección de elementos relacionados*. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos** . La visualización del resultado de [Puntuar recomendador Matchbox][score-matchbox-recommender] es similar a la de la figura 24.
+Al seleccionar **usuarios relacionados** en **Tipo de predicción de recomendación**, pide al sistema de recomendación que busque elementos relacionados a un elemento determinado. Los elementos relacionados son los que tienen mayor probabilidad de estar vinculados al mismo usuario. El último parámetro que elegir en este escenario es la *selección de elementos relacionados*. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos** . La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 24.
 
 ![Resultado de puntuación del sistema de recomendación: elementos relacionados](./media/machine-learning-interpret-model-results/24.png)
 
@@ -313,10 +313,10 @@ Figura 26. Resultado de servicio web del problema de recomendación de restauran
 [score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

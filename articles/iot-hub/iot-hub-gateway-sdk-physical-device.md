@@ -1,6 +1,6 @@
 ---
-title: "Uso de un dispositivo físico con el SDK de puerta de enlace de IoT | Microsoft Docs"
-description: "Tutorial de SDK de puerta de enlace de IoT de Azure mediante un dispositivo SensorTag de Texas Instruments para enviar datos a IoT Hub a través de una puerta de enlace que se ejecuta en un Raspberry Pi 3"
+title: "Uso de un dispositivo físico con el SDK de puerta de enlace de IoT de Azure | Microsoft Docs"
+description: "Describe cómo usar un dispositivo SensorTag de Texas Instruments para enviar datos a IoT Hub a través de una puerta de enlace que se ejecuta en una Raspberry Pi 3. La puerta de enlace se ha creado mediante el SDK de puerta de enlace de IoT de Azure."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 9c8ab5b54644c3fa7999e7250825fba5d8532082
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-physical-device-using-linux"></a>SDK de puerta de enlace de IoT de Azure: envío de mensajes del dispositivo a la nube con un dispositivo físico a través de Linux
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Uso del SDK de puerta de enlace de IoT de Azure para enviar mensajes de dispositivo a nube con un dispositivo físico (Linux)
 Este tutorial de [ejemplo de baja energía de Bluetooth][lnk-ble-samplecode] muestra cómo usar el [SDK de puerta de enlace de IoT de Azure][lnk-sdk] para la telemetría directa de dispositivos a la nube a IoT Hub desde un dispositivo físico y cómo enrutar comandos de IoT Hub a un dispositivo físico.
 
 En este tutorial, se describen los siguientes procedimientos:
@@ -218,7 +218,7 @@ En el momento de la escritura, el SDK de puerta de enlace de IoT solo es compati
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configuración de dos dispositivos de ejemplo en su Centro de IoT
 * [Cree un centro de IoT][lnk-create-hub] en su suscripción de Azure; que necesitará el nombre de su centro para realizar este tutorial. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
-* Agregue un dispositivo denominado **SensorTag_01** a su centro de IoT y tome nota de la clave y el identificador del dispositivo. Puede usar las herramientas de [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar este dispositivo al centro de IoT que creó en el paso anterior y recuperar la clave. Tendrá que asignar este dispositivo al dispositivo SensorTag cuando configure la puerta de enlace.
+* Agregue un dispositivo denominado **SensorTag_01** a su centro de IoT y tome nota de la clave y el identificador del dispositivo. Puede usar las herramientas de [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar este dispositivo al centro de IoT Hub que creó en el paso anterior y recuperar la clave. Tendrá que asignar este dispositivo al dispositivo SensorTag cuando configure la puerta de enlace.
 
 ### <a name="build-the-azure-iot-gateway-sdk-on-your-raspberry-pi-3"></a>Creación del SDK de puerta de enlace de IoT de Azure en el Raspberry Pi 3
 
@@ -239,7 +239,7 @@ git submodule update --init --recursive
 Cuando haya una copia de todo el repositorio del SDK de puerta de enlace de IoT en el Raspberry Pi 3, puede crear el SDK desde la carpeta que lo contiene con el comando siguiente:
 
 ```
-./tools/build.sh --skip-unittests --skip-e2e-tests
+./tools/build.sh --skip-unittests
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configuración y ejecución del ejemplo de BLE en el Raspberry Pi 3
@@ -347,7 +347,7 @@ Agregue el nombre de su Centro de IoT. El sufijo suele ser **azure-devices.net**
 ```
 
 #### <a name="identity-mapping-module-configuration"></a>Configuración del módulo de asignación de identidad
-Agregue la dirección MAC del dispositivo SensorTag, y el identificador del dispositivo y la clave del dispositivo **SensorTag_01** agregado al centro de IoT:
+Agregue la dirección MAC del dispositivo SensorTag, y el identificador del dispositivo y la clave del dispositivo **SensorTag_01** agregado al centro de IoT de Hub:
 
 ```json
 {
@@ -429,7 +429,7 @@ Presione el botoncito del dispositivo SensorTag para que se pueda detectar antes
 Cuando ejecute el ejemplo, puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que la puerta de enlace remite desde el dispositivo SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
-El módulo BLE también admite instrucciones de envío de Azure IoT Hub al dispositivo. Puede usar el [Explorador de dispositivos de Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador de IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE.
+El módulo BLE también admite instrucciones de envío de Azure IoT Hub al dispositivo. Puede usar el [Explorador de dispositivos ](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador de IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE.
 Si está utilizando el dispositivo SensorTag de Texas Instruments, a continuación, puede activar el LED rojo o verde, o timbre mediante el envío de comandos desde IoT Hub. Para ello, en primer lugar, envíe los siguientes dos mensajes JSON en orden. A continuación, puede enviar cualquiera de los comandos para activar las luces o timbre.
 
 1 Restablecer todos los LED y el timbre (desactivarlos)
@@ -485,7 +485,7 @@ Si desea una descripción más avanzada del SDK de puerta de enlace de IoT y exp
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía del desarrollador][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
@@ -501,6 +501,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

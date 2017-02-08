@@ -3,7 +3,7 @@ title: "Incorporación o eliminación de un rol de usuario | Microsoft Docs"
 description: "Aprenda a agregar roles a identidades con privilegios con la aplicación Privileged Identity Management de Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
@@ -32,8 +32,6 @@ Para agregar o quitar un usuario en un rol mediante Privileged Identity Manageme
 
 > [!NOTE]
 > Si aún no ha habilitado PIM en el Portal de Azure, vaya a [Introducción a Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) para más información.
-> 
-> 
 
 Si desea dar a otro usuario acceso a PIM, los roles que debe tener el usuario para PIM se describen con más detalle en [How to give access to manage Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)(Cómo proporcionar acceso para administrar Privileged Identity Management de Azure AD).
 
@@ -49,8 +47,6 @@ Si desea dar a otro usuario acceso a PIM, los roles que debe tener el usuario pa
 > [!NOTE]
 > Los nuevos usuarios de un rol solo son aptos para el rol de forma predeterminada. Si quiere que el rol sea permanente, haga clic en el usuario en la lista. La información del usuario aparecerá en una nueva hoja. Seleccione **Establecer como permanente** en el menú de información de usuario.  
 > Si un usuario no puede registrarse en Azure Multi-Factor Authentication (MFA) o usa una cuenta de Microsoft (normalmente @outlook.com),, deberá establecerlo como permanente en todos sus roles. Los administradores aptos deben registrarse en MFA durante la activación.
-> 
-> 
 
 Ahora que el usuario es apto para un rol, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Activación y desactivación de un rol](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -66,13 +62,12 @@ Siga estos pasos para quitar a un usuario específico de un rol:
 
 Si no está seguro de si los usuarios necesitan aún sus asignaciones de roles, puede [iniciar una revisión de acceso del rol](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
