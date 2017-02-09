@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ Aunque el Servicio de aplicaciones admite muchas maneras de implementar el códi
    
     La API de ejemplo proporciona dos puntos de conexión: una solicitud Get a `/contacts` devuelve una lista de nombres y direcciones de correo electrónico en formato JSON, mientras que `/contacts/{id}` solo devuelve el contacto seleccionado.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Código de Node.js scaffold (generación automática) basado en los metadatos de Swagger
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Código de Node.js scaffold (generación automática) basado en los metadatos de Swagger
 [Swagger](http://swagger.io/) es un formato de archivo para metadatos que describe una API de RESTful. El Servicio de aplicaciones de Azure tiene [compatibilidad integrada para los metadatos de Swagger](app-service-api-metadata.md). En esta sección del tutorial se modela un flujo de trabajo de desarrollo de API en el que primero crea los metadatos de Swagger y los usa para aplicar la técnica scaffolding (generación automática) al código del servidor para la API. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Aunque el Servicio de aplicaciones admite muchas maneras de implementar el códi
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ Ya ha creado una aplicación de API e implementado código de API Node.js en ell
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

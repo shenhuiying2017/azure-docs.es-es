@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Configuración de una cuenta de Azure para Servicios multimedia
-Para configurar su cuenta de Media Services, use Azure Portal. Vea el tema [Cómo crear una cuenta de Media Services](media-services-portal-create-account.md). Después de crear la cuenta en Azure Portal, estará listo para configurar el equipo para el desarrollo de Media Services.
 
-## <a name="setting-up-for-media-services-development"></a>Configuración para el desarrollo de Servicios multimedia
+Para configurar su cuenta de Media Services, use Azure Portal. Vea el tema [Cómo crear una cuenta de Media Services](media-services-portal-create-account.md). Después de crear la cuenta en Azure Portal, estará listo para configurar el equipo para el desarrollo de Media Services.
+ 
 Esta sección contiene los requisitos previos generales para el desarrollo de Servicios multimedia usando el SDK de Servicios multimedia para Java.
 
 ### <a name="prerequisites"></a>Requisitos previos
@@ -34,6 +34,10 @@ Esta sección contiene los requisitos previos generales para el desarrollo de Se
 * Las Bibliotecas de Azure para Java, que puede instalar desde el [Centro para desarrolladores de Java para Azure][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Uso de Servicios multimedia con Java
+
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+
 El siguiente código muestra cómo crear un recurso, cargar un archivo multimedia en el recurso, ejecutar un trabajo con una tarea para transformar el recurso y crear un localizador para transmitir el vídeo.
 
 Necesitará configurar una cuenta de Servicios multimedia antes de usar este código. Para obtener información sobre cómo configurar una cuenta, consulte [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Para ver la documentación de Javadoc de Media Services, consulte la [documentac
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

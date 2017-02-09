@@ -1,9 +1,10 @@
 # Información general
 ## [¿Qué es la mensajería de Service Bus?](service-bus-queues-topics-subscriptions.md)
 ## [Comparación de colas de Azure con colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-## [P+F](service-bus-faq.md)
+## [Preguntas más frecuentes](service-bus-faq.md)
 
 # Introducción
+## [Compilación de una aplicación de Service Bus de niveles múltiples](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [Creación de un espacio de nombres](service-bus-create-namespace-portal.md)
 ## Uso de colas
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -46,23 +47,25 @@
 ### [Uso de AMQP con temas y colas con particiones](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Espacios de nombres emparejados](service-bus-paired-namespaces.md)
 ### [Encadenamiento de entidades con reenvío automático](service-bus-auto-forwarding.md)
-## Manage
+## Administrar
 ### [Uso de plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Uso de PowerShell para aprovisionar entidades](service-bus-powershell-how-to-provision.md)
 
 # Referencia
-## [Detalles de precios](service-bus-pricing-billing.md)
-## [Ejemplos](service-bus-samples.md)
-## [Excepciones](service-bus-messaging-exceptions.md)
-## [Cuotas](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Recursos
 ## [Sintaxis de SQLFilter](service-bus-messaging-sql-filter.md)
 ## [Sintaxis de SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 ## [Guía del protocolo AMQP1.0](service-bus-amqp-protocol-guide.md)
 ### [Operaciones basadas en solicitud/respuesta de AMQP 1.0](service-bus-amqp-request-response.md)
-
-# Recursos
+## [Detalles de precios](service-bus-pricing-billing.md)
+## [Ejemplos](service-bus-samples.md)
+## [Excepciones](service-bus-messaging-exceptions.md)
+## [Cuotas](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Foros de MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +76,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

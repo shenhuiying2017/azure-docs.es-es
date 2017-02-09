@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial de SQL Database: crear un servidor, una regla de firewall de nivel de servidor, una base de datos de ejemplo, una regla de firewall de nivel de base de datos y conectar con SQL Server Management Studio | Microsoft Docs'
-description: "Obtenga información sobre cómo configurar un servidor lógico de SQL Database, una regla de firewall del servidor, una base de datos SQL y datos de ejemplo. Aprenda también a conectarse con herramientas de cliente, configurar usuarios y configurar una regla de firewall de base de datos."
+title: "Azure Portal: introducción a Azure SQL Database | Microsoft Docs"
+description: "Aprenda a crear un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y bases de datos con Azure Portal. También aprenderá a consultar las bases de datos con SQL Server Management Studio."
 keywords: "tutorial de base de datos SQL, creación de una base de datos SQL"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Empezar a trabajar con servidores, bases de datos y reglas de firewall de Azure SQL Database mediante Azure Portal y SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Tutorial de SQL Database: introducción a los servidores, las bases de datos y las reglas de firewall de Azure SQL Database mediante Azure Portal y SQL Server Management Studio
 
 En este tutorial de introducción, aprenderá a usar Azure Portal para:
 
@@ -30,7 +30,7 @@ En este tutorial de introducción, aprenderá a usar Azure Portal para:
 * Crear un servidor lógico de Azure SQL
 * Ver las propiedades de servidor lógico de Azure SQL
 * Crear una regla de firewall de nivel de servidor
-* Crear la base de datos de ejemplo Adventure Works LT como una base de datos independiente
+* Creación de la base de datos de ejemplo Adventure Works LT como una base de datos única
 * Ver las propiedades de la base de datos de ejemplo Adventure Works LT en Azure
 
 En este tutorial, también se usa la versión más reciente de SQL Server Management Studio para:
@@ -208,7 +208,7 @@ Con una [suscripción existente](https://account.windowsazure.com/Home/Index), s
     ![credenciales de servidor](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Al agregar una base de datos a un servidor, pueden agregarse como una base de datos independiente (el valor predeterminado) o a un grupo elástico. Para más información sobre los grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
+    > Al agregar una base de datos a un servidor, puede agregarse como una base de datos única (el valor predeterminado) o a un grupo elástico. Para más información sobre los grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
     >
 
 7. En Plan de tarifa, cambie el plan de tarifa a **Básico** (puede aumentar el plan de tarifa más adelante si lo desea pero, con fines de aprendizaje, se recomienda usar el plan de tarifa más bajo).
@@ -299,11 +299,13 @@ Ahora que ha completado este tutorial, hay otros tutoriales que quizás desee ex
 * Si desea empezar a crear tablas y otros objetos, consulte el tema "Crear una tabla" en [Creación de una tabla](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-[¿Qué es Base de datos SQL?](sql-database-technical-overview.md)
+
+- Para obtener una descripción general técnica, consulte [¿Qué es SQL Database?](sql-database-technical-overview.md)
+- Para obtener información de precios, consulte [Precio de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

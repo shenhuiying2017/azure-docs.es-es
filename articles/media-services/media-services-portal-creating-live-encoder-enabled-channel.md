@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1b0f5d61753df5860c4cc934ea2aad5175a41e16
 
 
 ---
@@ -54,9 +54,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
    
     Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 5. Cree un evento o programa (que también creará un recurso). 
-6. Publique el evento (que creará un localizador a petición para el recurso asociado).  
-   
-    Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+6. Publique el evento (que creará un localizador a petición para el recurso asociado).    
 7. Inicie el evento cuando esté listo para iniciar el streaming y el archivo.
 8. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 9. Detenga el evento cuando quiera detener el streaming y el archivo del evento.
@@ -65,13 +63,12 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 ## <a name="in-this-tutorial"></a>Apartados de este tutorial
 En este tutorial, se utiliza el portal de Azure para realizar las tareas siguientes: 
 
-1. Configure de extremos de streaming.
-2. Cree un canal que está habilitado para realizar la codificación en directo.
-3. Obtenga la URL de introducción para proporcionarla al codificador en directo. El codificador en directo utilizará esta dirección URL para introducir la transmisión en el canal. .
-4. Crear un evento o programa (y un recurso)
-5. Publicar el recurso y obtener las direcciones URL de streaming  
-6. Reproducir el contenido 
-7. Limpiar
+1. Cree un canal que está habilitado para realizar la codificación en directo.
+2. Obtenga la URL de introducción para proporcionarla al codificador en directo. El codificador en directo utilizará esta dirección URL para introducir la transmisión en el canal.
+3. Cree un evento o programa (y un recurso).
+4. Publicar el recurso y obtener las direcciones URL de streaming.  
+5. Reproduzca el contenido.
+6. Realice la limpieza.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
@@ -80,28 +77,6 @@ Los siguientes requisitos son necesarios para completar el tutorial.
   Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
 * Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.
-
-## <a name="configure-streaming-endpoints"></a>Configurar extremos de streaming
-Media Services proporciona empaquetado dinámico que permite entregar archivos MP4 de velocidad de bits múltiple en los siguientes formatos de streaming: MPEG DASH, HLS y Smooth Streaming sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
-
-Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una unidad de streaming para el punto de conexión de streaming desde el que va a entregar el contenido.  
-
-Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y seleccione la cuenta de AMS.
-2. En la ventana **Configuración**, haga clic en **Puntos de conexión de streaming**. 
-3. Haga clic en el punto de conexión de streaming predeterminado. 
-   
-    Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO** .
-4. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming** .
-   
-    ![Unidades de streaming](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Haga clic en el botón **Guardar** para guardar los cambios.
-   
-   > [!NOTE]
-   > La asignación de cualquier nueva unidad puede tardar hasta 20 minutos en completarse.
-   > 
-   > 
 
 ## <a name="create-a-channel"></a>Creación de un canal
 1. En [Azure Portal](https://portal.azure.com/), seleccione Media Services y, luego, haga clic en el nombre de la cuenta de Media Services.
@@ -172,6 +147,9 @@ Si desea conservar el contenido archivado, pero no hacerlo disponible para la tr
 ### <a name="createstartstop-events"></a>Creación/inicio/detención de eventos
 Cuando la secuencia fluye en el canal, puede comenzar el evento de streaming mediante la creación de un recurso, un programa y el localizador de streaming. Se archivará la secuencia y estará disponible a los usuarios a través del extremo de streaming. 
 
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+
 Existen dos formas de iniciar un evento: 
 
 1. En la página **Canal**, presione **Evento en directo** para agregar un nuevo evento.
@@ -216,7 +194,7 @@ Para administrar los recursos seleccione **Configuración** y haga clic en **Rec
 
 ## <a name="considerations"></a>Consideraciones
 * Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
-* Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+* Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución).
 
 ## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Servicios multimedia.
@@ -229,6 +207,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

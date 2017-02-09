@@ -1,8 +1,8 @@
 # [Información general](cdn-overview.md)
-## [¿Qué es CDN de Azure?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+## [¿Qué es Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 
-# Primeros pasos
-## [Habilitación de CDN de Azure](cdn-create-new-endpoint.md)
+# Introducción
+## [Habilitación de Azure CDN](cdn-create-new-endpoint.md)
 
 # Procedimientos
 ## Integrate
@@ -44,12 +44,17 @@
 ### [Compresión de archivos](cdn-troubleshoot-compression.md)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Ubicaciones POP de red CDN de Azure](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # Recursos
+##  [Referencia del motor de reglas](cdn-rules-engine-reference.md)
+### [Expresiones condicionales del motor de reglas](cdn-rules-engine-reference-conditional-expressions.md)
+### [Condiciones de coincidencia del motor de reglas](cdn-rules-engine-reference-match-conditions.md)
+### [Características del motor de reglas](cdn-rules-engine-reference-features.md)
+## [Ubicaciones POP de la red CDN de Azure](cdn-pop-locations.md)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=cdn)
 ## [Precios](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +62,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
 
 
 ---
@@ -34,7 +34,7 @@ Este tutorial le guiará por los pasos para usar el Portal de Azure para crear u
 Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Una cuenta de Servicios multimedia.    Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
+* Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
 * Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Es importante que revise los artículos siguientes:
@@ -46,6 +46,9 @@ Es importante que revise los artículos siguientes:
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Escenario común de streaming en vivo
 Los pasos siguientes describen las tareas que conlleva la creación de aplicaciones comunes de streaming en vivo que usan canales configurados para entregas de paso a través. Este tutorial muestra cómo crear y administrar un canal de paso a través y eventos en directo.
 
+>[!NOTE]
+>Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución). 
+    
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador en directo local que genere una transmisión de RTMP o MP4 fragmentado con velocidad de bits múltiple. Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Este paso también puede realizarse después de crear el canal.
@@ -59,11 +62,7 @@ Los pasos siguientes describen las tareas que conlleva la creación de aplicacio
 5. Cree un evento o programa en directo. 
    
     Con el Portal de Azure, al crear un evento en directo también se crea un recurso. 
-   
-   > [!NOTE]
-   > Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
-   > 
-   > 
+
 6. Inicie el evento o programa cuando esté listo para iniciar el streaming y el archivo.
 7. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 8. Detenga el evento o programa cuando quiera detener el streaming y el archivo del evento.
@@ -78,28 +77,6 @@ Los pasos siguientes describen las tareas que conlleva la creación de aplicacio
 Si desea ver las notificaciones y los errores generados por el Portal de Azure, haga clic en el icono de notificación.
 
 ![Notificaciones](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
-
-## <a name="configure-streaming-endpoints"></a>Configurar extremos de streaming
-Media Services proporciona empaquetado dinámico que permite entregar archivos MP4 de velocidad de bits múltiple en los siguientes formatos de streaming: MPEG DASH, HLS y Smooth Streaming sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Media Services creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
-
-Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una unidad de streaming para el punto de conexión de streaming desde el que va a entregar el contenido.  
-
-Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
-
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. En la ventana **Configuración**, haga clic en **Puntos de conexión de streaming**. 
-3. Haga clic en el punto de conexión de streaming predeterminado. 
-   
-    Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO** .
-4. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming** .
-   
-    ![Unidades de streaming](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Haga clic en el botón **Guardar** para guardar los cambios.
-   
-   > [!NOTE]
-   > La asignación de cualquier nueva unidad puede tardar hasta 20 minutos en completarse.
-   > 
-   > 
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Creación e inicio de canales de paso a través y eventos
 Un canal está asociado a eventos y programas que le permiten controlar la publicación y el almacenamiento de segmentos en una transmisión en vivo. Los canales administran los eventos. 
@@ -180,6 +157,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

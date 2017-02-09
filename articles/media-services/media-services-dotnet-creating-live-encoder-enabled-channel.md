@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
 
 
 ---
@@ -46,31 +46,32 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Este paso también puede realizarse después de crear el canal.
+    Este paso también puede realizarse después de crear el canal.
 
-1. Cree e inicie un canal.
-2. Recupere la URL de ingesta de canales.
+2. Cree e inicie un canal.
+3. Recupere la URL de ingesta de canales.
 
-El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
+    El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 
-1. Recupere la URL de vista previa de canal.
+4. Recupere la URL de vista previa de canal.
 
-Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
+    Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 
-1. Cree un recurso.
-2. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
-3. Cree una clave de contenido.
-4. Configure la directiva de autorización de claves de contenido.
-5. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
-6. Cree un programa y especifique que se use el recurso que ha creado.
-7. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
+5. Cree un recurso.
+6. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
+7. Cree una clave de contenido.
+8. Configure la directiva de autorización de claves de contenido.
+9. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
+10. Cree un programa y especifique que se use el recurso que ha creado.
+11. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
 
-Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+    >[!NOTE]
+    >Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). El punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
 
-1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
-2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
-3. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-4. Elimine el programa (y, opcionalmente, elimine el recurso).
+12. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
+13. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
+14. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
+15. Elimine el programa (y, opcionalmente, elimine el recurso).
 
 ## <a name="what-youll-learn"></a>Temas que se abordarán
 Este tema muestra cómo ejecutar distintas operaciones en los canales y programas mediante el SDK de .NET de Media Services. Dado que la ejecución de muchas de las operaciones es prolongada, se usan las API de .NET que administran operaciones de este tipo.
@@ -100,7 +101,6 @@ En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en t
 
 ## <a name="considerations"></a>Consideraciones
 * Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
-* Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 
 ## <a name="download-sample"></a>Descarga de un ejemplo
 Obtenga y ejecute un ejemplo desde [aquí](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -524,12 +524,10 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>¿Busca alguna otra cosa?
-Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
