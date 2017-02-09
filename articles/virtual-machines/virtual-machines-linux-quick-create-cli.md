@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Creación de una máquina virtual Linux con la CLI de Azure 2.0 (versión preliminar)
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Creación de una máquina virtual Linux con la versión preliminar de la CLI de Azure 2.0 (az.py)
 En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando [az vm create](/cli/azure/vm#create) con la CLI de Azure 2.0 (versión preliminar). 
 
 > [!NOTE] 
-> La versión preliminar de la CLI de Azure 2.0 es la CLI multiplataforma de próxima generación. Pruébela y cuéntenos su opinión en la [página del proyecto de GitHub](https://github.com/Azure/azure-cli).
+> La versión preliminar de la CLI de Azure 2.0 es la CLI multiplataforma de próxima generación. [Pruébelo.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> El resto de nuestro documentos usa la CLI de Azure existente. Para crear una máquina virtual mediante la CLI de Azure y no con la CLI 2.0 (versión preliminar), consulte [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Creación de una máquina virtual con la CLI de Azure).
+> El resto de nuestro documentos usa la CLI de Azure existente. Para crear una máquina virtual mediante la CLI de Azure 1.0 y no con la versión preliminar de la CLI 2.0, consulte [Creación de una máquina virtual con Linux desde cero con la CLI de Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para crear una máquina virtual necesitará: 
 
 * Una cuenta de Azure ([obtenga aquí una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/)).
-* La [CLI de Azure v. 2.0 (versión preliminar)](https://github.com/Azure/azure-cli#installation) instalada
+* La [CLI de Azure v. 2.0 (versión preliminar)](/cli/azure/install-az-cli2) instalada
 * para iniciar sesión en la cuenta de Azure (escriba [az login](/cli/azure/#login))
 
 (también puede implementar rápidamente una máquina virtual Linux mediante [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
@@ -41,10 +41,10 @@ En el ejemplo siguiente se muestra cómo implementar una máquina virtual Debian
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-En primer lugar, escriba [az resource group create](/cli/azure/resource/group#create) para crear el grupo de recursos que contiene todos los recursos implementados:
+En primer lugar, escriba [az group create](/cli/azure/group#create) para crear el grupo de recursos que contiene todos los recursos implementados:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 El resultado es similar al siguiente (puede elegir otra opción `--output` diferente si lo desea):
@@ -127,6 +127,6 @@ También puede [utilizar el controlador de Azure `docker-machine` con diversos c
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

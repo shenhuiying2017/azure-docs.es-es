@@ -10,12 +10,13 @@
 ## [Conexión a Azure Stack POC](azure-stack-connect-azure-stack.md)
 ## [Implementación de Azure Stack](azure-stack-redeploy.md)
 
-# Primeros pasos
+# Introducción
 ## [Primeras tareas](azure-stack-first-scenarios.md)
 ## [Aprovisionamiento de una máquina virtual](azure-stack-provision-vm.md)
-## [crear una cuenta de almacenamiento](azure-stack-provision-storage-account.md)
+## [Crear una cuenta de almacenamiento](azure-stack-provision-storage-account.md)
 ## [Conexión con CLI](azure-stack-connect-cli.md)
 ## [Conexión con PowerShell](azure-stack-connect-powershell.md)
+## [Instalación de Visual Studio](azure-stack-install-visual-studio.md)
 ## [Preguntas más frecuentes](azure-stack-faq.md)
 
 # Oferta de servicios a los inquilinos
@@ -28,8 +29,9 @@
 # Uso de plantillas
 ## [Introducción a las plantillas](azure-stack-arm-templates.md)
 ## [Desarrollo de plantillas](azure-stack-develop-templates.md)
+## [Comprobación de plantillas](azure-stack-validate-templates.md)
 ## [Implementación de plantillas con el portal](azure-stack-deploy-template-portal.md)
-## [Implementación de plantillas en Azure Stack con PowerShell](azure-stack-deploy-template-powershell.md)
+## [Implementación de plantillas con PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Implementación de plantillas con Visual Studio](azure-stack-deploy-template-visual-studio.md)
 ## [Implementación de plantillas con la línea de comandos](azure-stack-deploy-template-command-line.md)
 
@@ -72,10 +74,10 @@
 ### [Implementación del adaptador del proveedor de recursos de SQL Server en Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
 ## Planeación e implementación de App Service
-### [Introducción a Web Apps de Azure Stack](azure-stack-app-service-overview.md)
-### [Antes de empezar a trabajar con Web Apps de Azure Stack](azure-stack-app-service-before-you-get-started.md)
-### [Web Apps: incorporación de más roles de trabajo web](azure-stack-webapps-add-worker-roles.md)
-### [Incorporación de un proveedor de recursos de Web Apps a Azure Stack](azure-stack-app-service-deploy.md)
+### [Introducción a App Service on Azure Stack](azure-stack-app-service-overview.md)
+### [Antes de comenzar](azure-stack-app-service-before-you-get-started.md)
+### [Incorporación de más roles de trabajo web](azure-stack-app-service-add-worker-roles.md)
+### [Incorporación de un proveedor de recursos de App Service a Azure Stack](azure-stack-app-service-deploy.md)
 
 # Solución de problemas
 ## [Solución problemas de Azure Stack](azure-stack-troubleshooting.md)
@@ -86,6 +88,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 
