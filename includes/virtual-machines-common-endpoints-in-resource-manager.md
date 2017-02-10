@@ -19,8 +19,6 @@ Los grupos de seguridad de red son una nueva característica que proporciona un 
 
 > [!TIP]
 > Los grupos de seguridad de red se pueden asignar a varias subredes o interfaces de red. No hay ninguna asignación 1:1, lo que significa que puede crear un grupo de seguridad de red con un conjunto común de reglas de ACL y aplicarlo a varias subredes o interfaces de red. Además, el grupo de seguridad de red se puede aplicar a los recursos de la suscripción (basado en los [controles de acceso basados en rol](../articles/active-directory/role-based-access-control-what-is.md)).
-> 
-> 
 
 ## <a name="load-balancers-overview"></a>Información general de los equilibradores de carga
 En el modelo de implementación Clásico, Azure realizaría automáticamente toda la traducción de direcciones de red (NAT) y el enrutamiento de puertos reenvío en un servicio en la nube. Al crear un punto de conexión, debe especificar el puerto externo que se va a exponer junto con el puerto interno al que se va a dirigir el tráfico. Por sí mismos, los grupos de seguridad de red no realizan el mismo enrutamiento de puertos ni la misma NAT. 
@@ -60,8 +58,6 @@ Es posible crear una máquina virtual sin necesidad de crear un grupo de segurid
 
 > [!NOTE]
 > Para poder establecer conexiones remotas, será preciso tener una dirección IP pública asignada a una máquina virtual. No tener un grupo de seguridad de red para la interfaz de red o la subred no expone la máquina virtual al tráfico externo. La acción predeterminada cuando se crea una máquina virtual a través del portal es crear una nueva dirección IP pública. En el caso de las demás formas de crear una máquina virtual como PowerShell, la CLI de Azure o una plantilla de Resource Manager, no se crea automáticamente una dirección IP pública, a menos que se solicite explícitamente. La acción predeterminada a través del portal también es crear un grupo de seguridad de red. Esta acción predeterminada significa que no debe terminar en una situación con una máquina virtual expuesta que no tenga el filtrado de redes instalado.
-> 
-> 
 
 ## <a name="understanding-load-balancers-and-nat-rules"></a>Descripción de las reglas NAT y los equilibradores de carga
 En el modelo de implementación Clásico, se pueden crear puntos de conexión que también realizan el enrutamiento de puertos. Cuando crea una máquina virtual en el modelo de implementación Clásico, se crearán automáticamente reglas de ACL para RDP o SSH. Estas reglas no expondrán el puerto TCP 3389 ni el puerto TCP 22 respectivamente al mundo exterior. En su lugar, se expondrá un valor TCP con un valor alto que se asigna al puerto interno apropiado. También puede crear sus propias reglas de ACL de forma similar, como por ejemplo, puede exponer un servidor web en el puerto TCP 4280 al mundo exterior. Todas estas reglas de ACL y asignaciones de puerto se pueden ver en la siguiente captura de pantalla del portal clásico:
@@ -74,9 +70,6 @@ Con los grupos de seguridad de red, la función de enrutamiento de puertos la co
 
 > [!NOTE]
 > Cuando se implementa un equilibrador de carga, lo habitual es no asignar una dirección IP pública a la propia máquina virtual. En su lugar, el equilibrador de carga tiene una dirección IP pública asignada. Aún así será preciso crear las reglas de ACL y el grupo de seguridad de red para definir el flujo de tráfico que entra y sale de la máquina virtual. Las reglas NAT del equilibrador de carga se usan simplemente para definir qué puertos se permiten a través del equilibrador de carga y cómo se distribuyen entre el máquinas virtuales de back-end. Por lo tanto, debe crear una regla NAT para que el tráfico fluya a través del equilibrador de carga. Para permitir que el tráfico llegue a la máquina virtual, cree una regla de ACL de grupo de seguridad de red.
-> 
-> 
-
 
 
 <!--HONumber=Nov16_HO3-->

@@ -73,16 +73,18 @@ Puede probar que los registros DNS están presentes en los servidores de nombres
 
 Si aún no ha delegado el dominio para usar la nueva zona en Azure DNS, deberá [dirigir la consulta de DNS directamente a uno de los servidores de nombres de la zona](dns-getstarted-create-dnszone.md#test-name-servers). Asegúrese de sustituir los valores correctos de su zona de registros en el comando que aparece a continuación.
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    Name:    www.contoso.com
-    Address:  1.2.3.4
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
