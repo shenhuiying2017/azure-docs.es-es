@@ -80,8 +80,8 @@ Implementación del servicio en la producción.
 13. Cuando haya terminado de escribir todos los metadatos acerca de la oferta, haga clic en **Publicar** y, a continuación, haga clic en **Pasar a ensayo**. En este momento, se le notificarán los problemas restantes que deba corregir.
 14. Una vez que se haya asegurado de que no quedan problemas pendientes, haga clic en **Solicitar aprobación para pasar a producción**. El proceso de publicación puede tardar varios días laborables. 
 
-[imagen1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
-[Imagen 2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+[image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
+[image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
 [workspace]:./media/machine-learning-publish-web-service-to-azure-marketplace/selectworkspace.png
 [apikey]:./media/machine-learning-publish-web-service-to-azure-marketplace/apikey.png
 [odata]:./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png

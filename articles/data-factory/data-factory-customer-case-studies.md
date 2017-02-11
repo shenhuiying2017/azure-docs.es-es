@@ -1,43 +1,52 @@
 ---
-title: Casos prácticos de clientes | Microsoft Docs
-description: Obtenga información sobre la manera en que algunos de nuestros clientes han venido utilizando la Factoría de datos de Azure.
+title: "Casos prácticos de clientes | Microsoft Docs"
+description: "Obtenga información sobre la manera en que algunos de nuestros clientes han venido utilizando la Factoría de datos de Azure."
 services: data-factory
-documentationcenter: ''
-author: spelluru
+documentationcenter: 
+author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
-ms.author: spelluru
+ms.date: 12/05/2016
+ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85bc4e2224bf367473fa9b999d6798d8b1aa6a42
+
 
 ---
-# Casos prácticos de clientes
-Factoría de datos es un servicio de administración de información basado en la nube que automatiza el movimiento y la transformación de datos. Los clientes de numerosos sectoress usan la Factoría de datos y otros servicios de Azure para crear su canalizaciones de análisis y solucionar sus problemas empresariales. Aprenda directamente de nuestros clientes cómo y por qué usan la Factoría de datos.
+# <a name="customer-case-studies"></a>Casos prácticos de clientes
+Factoría de datos es un servicio de administración de información basado en la nube que automatiza el movimiento y la transformación de datos. Los clientes de numerosos sectoress usan la Factoría de datos y otros servicios de Azure para crear su canalizaciones de análisis y solucionar sus problemas empresariales.  Aprenda directamente de nuestros clientes cómo y por qué usan la Factoría de datos.
 
-## Milliman
+## <a name="milliman"></a>Milliman
 [Importante compañía actuarial superior transforma el sector de los seguros](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
-## Rockwell Automation
+## <a name="rockwell-automation"></a>Rockwell Automation
 [Compañía de automatización industrial reduce los costes hasta en un 90 por ciento con las soluciones de macrodatos](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
-## Ziosk
+## <a name="ziosk"></a>Ziosk
 [¿Qué juego va a querer con esa hamburguesa? Puede que Ziosk lo sepa.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
-## Alaska Airlines
+## <a name="alaska-airlines"></a>Alaska Airlines
 [Compañía aérea usa tabletas, servicios en la nube para ofrecer un entretenimiento en vuelo más atractivo](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-## Escuelas Públicas de Tacoma
+## <a name="tacoma-public-schools"></a>Escuelas Públicas de Tacoma
 [Predicción de riesgos de abandono de estudiantes, aumento de las tasas de graduación con análisis en la nube](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
-## Real Madrid FC
+## <a name="real-madrid-fc"></a>Real Madrid FC
 [Real Madrid acerca el estadio a 450 millones de aficionados de todo el mundo con la nube de Microsoft](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
-## Pier 1 Imports
+## <a name="pier-1-imports"></a>Pier 1 Imports
 [Búsqueda de una mejor conexión con los clientes a través del aprendizaje automático en la nube](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

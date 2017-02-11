@@ -1,12 +1,12 @@
 ---
-title: Creación y registro de la cuenta de publicador | Microsoft Docs
-description: Instrucciones para crear una cuenta de desarrollador de Microsoft de manera que, tras su aprobación, se puedan vender varios tipos de productos en Azure Marketplace.
+title: "Creación y registro de la cuenta de publicador | Microsoft Docs"
+description: "Instrucciones para crear una cuenta de desarrollador de Microsoft de manera que, tras su aprobación, se puedan vender varios tipos de productos en Azure Marketplace."
 services: Azure Marketplace
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
-manager: ''
-editor: ''
-
+manager: hascipio
+editor: 
+ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: caee61e1395bdbd1db025878822990f345225019
+
 
 ---
-# Crear una cuenta de desarrollador de Microsoft
+# <a name="create-a-microsoft-developer-account"></a>Crear una cuenta de desarrollador de Microsoft
 Este artículo le guía a través del proceso necesario de creación y registro de cuentas para convertirse en un desarrollador de Microsoft aprobado para Azure Marketplace.
 
-## 1\. Creación de una cuenta Microsoft
+## <a name="1-create-a-microsoft-account"></a>1. Creación de una cuenta Microsoft
 Para finalizar el proceso de publicación, deberá crear una cuenta Microsoft. Esta cuenta se utilizará para registrarse en el **Centro para desarrolladores de Microsoft** y el **Portal de publicación de Azure**. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta no debe ser específica para servicios u ofertas.
 
 La dirección que constituye el nombre de usuario debe estar en su dominio y estar controlada por su equipo de TI. Todas las actividades relacionadas con la publicación deben realizarse a través de esta cuenta.
@@ -29,12 +33,13 @@ La dirección que constituye el nombre de usuario debe estar en su dominio y est
 > 
 > 
 
-### Instrucciones
-1. Cree una lista de distribución (DL) o un grupo de seguridad (SG) dentro del dominio de la compañía. El uso de una lista de distribución permite que varias personas reciban notificaciones de correo electrónico que son importantes para la información sobre los pagos. También garantiza que la propiedad de la cuenta Microsoft se pueda transferir y no esté vinculada a un único usuario. Siga las instrucciones que se describen a continuación.
+### <a name="instructions"></a>Instrucciones
+1. Cree una lista de distribución (DL) o un grupo de seguridad (SG) dentro del dominio de la compañía. El uso de una lista de distribución permite que varias personas reciban notificaciones de correo electrónico que son importantes para la información sobre los pagos. También garantiza que la propiedad de la cuenta Microsoft se pueda transferir y no esté vinculada a un único usuario.
+   Siga las instrucciones que se describen a continuación.
    
    1. Agregue el equipo de incorporación a la lista de distribución.
    2. Asegúrese de que la DL o el SG sean una dirección de correo activa y de que puedan recibir mensajes de correo electrónico, ya que el pago, la información fiscal y los informes se enviarán a esta cuenta.
-   3. Se recomienda usar como dirección de correo electrónico de la DL o el SG algo del tipo: marketplace@partnercompany.com.
+   3. Se recomienda usar como dirección de correo electrónico de la DL o el SG algo del tipo: marketplace@partnercompany.com .
 2. Abra una nueva sesión de exploración de incógnito en Chrome o de InPrivate en Internet Explorer para asegurarse de que no tiene una sesión iniciada en una cuenta existente.
 3. Registre la DL que creó en el paso 1 como cuenta Microsoft haciendo clic en el vínculo [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Siga las instrucciones que se describen a continuación.
    
@@ -43,8 +48,8 @@ La dirección que constituye el nombre de usuario debe estar en su dominio y est
 4. Compruebe la dirección de correo electrónico enviada a la lista de distribución.
 5. Ahora está listo para usar la nueva cuenta Microsoft en el Centro para desarrolladores de Microsoft.
 
-## 2\. Creación de la cuenta del Centro para desarrolladores de Microsoft
-El Centro para desarrolladores de Microsoft se usa para registrar la información de la empresa una sola vez. El usuario inscrito debe ser un representante válido de la compañía y debe proporcionar su información personal, como una forma de validar su identidad. La persona que se inscriba debe usar una cuenta Microsoft que se comparta en la compañía, **y esa misma cuenta debe usarse en el Portal de publicación de Azure.** Debe asegurarse de que su compañía no tenga ya una cuenta del Centro para desarrolladores de Microsoft antes de intentar crear una nueva. Durante el proceso, recopilaremos la información de dirección, los datos de la cuenta bancaria y la información fiscal de la compañía. Normalmente, estos datos se pueden obtener de contactos financieros o comerciales.
+## <a name="2-create-your-microsoft-developer-center-account"></a>2. Creación de la cuenta del Centro para desarrolladores de Microsoft
+El Centro para desarrolladores de Microsoft se usa para registrar la información de la empresa una sola vez. El usuario inscrito debe ser un representante válido de la compañía y debe proporcionar su información personal, como una forma de validar su identidad. La persona que se inscriba debe usar una cuenta Microsoft que se comparta en la compañía, **y esa misma cuenta debe usarse en el Portal de publicación de Azure.**  Debe asegurarse de que su compañía no tenga ya una cuenta del Centro para desarrolladores de Microsoft antes de intentar crear una nueva. Durante el proceso, recopilaremos la información de dirección, los datos de la cuenta bancaria y la información fiscal de la compañía. Normalmente, estos datos se pueden obtener de contactos financieros o comerciales.
 
 > [!IMPORTANT]
 > Debe completar los siguientes componentes del perfil de desarrollador para avanzar por las distintas fases de la creación e implementación de ofertas.
@@ -58,16 +63,16 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
 | Cuenta bancaria |Opcional |Opcional |Opcional |Obligatorio |
 
 > [!NOTE]
-> El sistema "traiga su propia licencia" (BYOL) solo se admite para las máquinas virtuales y se considera una oferta **gratuita**.
+> El sistema "traiga su propia licencia" (BYOL) solo se admite para las máquinas virtuales y se considera una oferta **gratuita** .
 > 
 > 
 
-### Registro de su cuenta de compañía
+### <a name="register-your-company-account"></a>Registro de su cuenta de compañía
 1. Abra una nueva sesión de exploración de InPrivate en Internet Explorer o de incógnito en Chrome para asegurarse de que no tiene una sesión iniciada en una cuenta personal.
 2. Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registrarse como vendedor en el Centro de desarrollo. Lea la siguiente nota importante antes de continuar.
    
    > [!IMPORTANT]
-   > Asegúrese de que el identificador de correo electrónico o la DL (se recomienda usar una lista de distribución para no tener que depender de otras personas) que va a utilizar para registrarse en el Centro de desarrollo es una cuenta Microsoft. En caso contrario, regístrela haciendo clic en este [vínculo](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Además, **no se puede utilizar cualquier identificador de correo electrónico en el dominio de empresa de Microsoft, es decir, @microsoft.com** para registrarse en el Centro de desarrollo.
+   > Asegúrese de que el identificador de correo electrónico o la DL (se recomienda usar una lista de distribución para no tener que depender de otras personas) que va a utilizar para registrarse en el Centro de desarrollo es una cuenta Microsoft. En caso contrario, regístrela haciendo clic en este [vínculo](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Además, **no se puede utilizar cualquier identificador de correo electrónico en el dominio de empresa de Microsoft**, es decir, @microsoft.com para registrarse en el Centro de desarrollo.
    > 
    > 
    
@@ -80,13 +85,13 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
     ![dibujo](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
    
    > [!WARNING]
-   > **Países de "origen de venta":** para vender sus servicios en Azure Marketplace, la entidad registrada debe proceder de uno de los países de "origen de venta" aprobados que se mencionan arriba. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para más información, consulte las [directivas de participación de Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **Países de "origen de venta":** para vender sus servicios en Azure Marketplace, la entidad registrada debe proceder de uno de los países de "origen de venta" aprobados que se mencionan arriba. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para obtener más información, consulte las [directivas de participación de Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
    > 
    > 
 5. Seleccione **Compañía** como tipo de cuenta y, después, haga clic en el botón **Siguiente**.
    
    > [!IMPORTANT]
-   > Para comprender mejor los tipos de cuenta y cuál es la mejor para sus necesidades, consulte la página [Tipos de cuenta, ubicaciones y precios](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx).
+   > Para comprender mejor los tipos de cuenta y cuál es la mejor para sus necesidades, consulte la página [Tipos de cuenta, ubicaciones y precios](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
    > 
    > 
    
@@ -113,7 +118,7 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
 11. Haga clic en **Finalizar** para confirmar el registro. Le enviaremos un mensaje de confirmación a su dirección de correo electrónico.
 12. Si solo tiene pensado publicar ofertas gratuitas, haga clic en **Ir al Portal de publicación de Azure Marketplace** y vaya directamente a la sección 3 de este documento, [Registro de la cuenta en el portal de publicación](#3-register-your-account-in-the-publishing-portal).
 
-Si piensa publicar ofertas comerciales (por ejemplo, ofertas de máquinas virtuales con el modelo de facturación por hora), haga clic en **Actualizar la información de la cuenta**, donde debe completar la información fiscal y bancaria de su cuenta del Centro para desarrolladores.
+Si piensa publicar ofertas comerciales (por ejemplo, ofertas de máquinas virtuales con el modelo de facturación por hora), haga clic en **Actualizar la información de la cuenta** , donde debe completar la información fiscal y bancaria de su cuenta del Centro para desarrolladores.
 
 Si prefiere actualizar la información fiscal y bancaria en otro momento, puede ir a la sección 3 de este documento, [Registro de la cuenta en el portal de publicación](#3-register-your-account-in-the-publishing-portal), y volver más tarde mediante los vínculos del Portal de publicación de Azure.
 
@@ -124,7 +129,7 @@ Si prefiere actualizar la información fiscal y bancaria en otro momento, puede 
 
 Si prefiere actualizar la información fiscal y bancaria en otro momento, puede ir a la sección 3, [Registro de la cuenta en el portal de publicación](#3-register-your-account-in-the-publishing-portal), y volver más tarde mediante los vínculos del Portal de publicación de Azure.
 
-### Adición de información bancaria y fiscal
+### <a name="add-tax-and-banking-information"></a>Adición de información bancaria y fiscal
  Si desea publicar ofertas comerciales de compra, también necesitará agregar información de pago y fiscal y enviarla para su validación en el Centro para desarrolladores. Si solo va a publicar ofertas gratis (u ofertas BYOL), no necesita agregar esta información. Puede agregarla más adelante, pero se tarda algún tiempo en validar la información fiscal. Si sabe que ofrecerá ofertas comerciales de compra, se recomienda que las agregue tan pronto como sea posible.
 
 **Información bancaria**
@@ -136,7 +141,7 @@ Si prefiere actualizar la información fiscal y bancaria en otro momento, puede 
    > Si tiene ofertas comerciales que compran los clientes en Marketplace, esta es la cuenta donde recibirá el pago para esas compras.
    > 
    > 
-3. Escriba la información de pago y, cuando esté satisfecho, haga clic en **Guardar**.
+3. Escriba la información de pago y, cuando esté satisfecho, haga clic en **Guardar** .
    
    > [!IMPORTANT]
    > Si necesita actualizar o cambiar la cuenta de pago, siga estos mismos pasos, pero sustituya la información actual por la nueva. El hecho de cambiar la cuenta de pago puede dar lugar a retrasos en los pagos de hasta un ciclo completo. Este retraso se produce porque es necesario comprobar el cambio de la cuenta, al igual que hicimos cuando configuró por primera vez la cuenta de pago. Aunque se le seguirá pagando el importe completo después de que se haya comprobado la cuenta, los pagos pendientes del ciclo actual se agregarán al siguiente.
@@ -148,7 +153,7 @@ Si prefiere actualizar la información fiscal y bancaria en otro momento, puede 
 
 1. Inicie sesión en el [Centro para desarrolladores de Microsoft](http://dev.windows.com/registration?accountprogram=azure) con su cuenta Microsoft (si es necesario).
 2. Haga clic en **Perfil fiscal** en el menú izquierdo.
-3. En la página **Configure su formulario fiscal**, seleccione el país o la región donde tenga la residencia permanente y después seleccione el país o la región donde tiene la nacionalidad principal. Haga clic en **Siguiente**.
+3. En la página **Configure su formulario fiscal** , seleccione el país o la región donde tenga la residencia permanente y después seleccione el país o la región donde tiene la nacionalidad principal. Haga clic en **Siguiente**.
 4. Escriba la información fiscal y, después, haga clic en **Siguiente**.
 
 > [!WARNING]
@@ -158,7 +163,7 @@ Si prefiere actualizar la información fiscal y bancaria en otro momento, puede 
 
 Si tiene problemas para registrarse en el Centro para desarrolladores, abra una incidencia de soporte técnico tal y como se indica a continuación.
 
-1. Vaya al vínculo de soporte técnico [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support).
+1. Vaya al vínculo de soporte técnico [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
 2. En la sección **Ponte en contacto con nosotros**, haga clic en el botón **Enviar un incidente** (tal y como se muestra en la siguiente captura de pantalla).
    
     ![dibujo](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
@@ -170,7 +175,7 @@ Si tiene problemas para registrarse en el Centro para desarrolladores, abra una 
    
     ![dibujo](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
 
-## 3\. Registro de su cuenta en el portal de publicación
+## <a name="3-register-your-account-in-the-publishing-portal"></a>3. Registro de su cuenta en el portal de publicación
 El [Portal de publicación](http://publish.windowsazure.com) se usa para publicar y administrar ofertas.
 
 1. Abra una nueva sesión de exploración de incógnito en Chrome o de InPrivate en Internet Explorer para asegurarse de que no tiene una sesión iniciada en una cuenta personal.
@@ -184,8 +189,8 @@ Si a usted se le agregó como coadministrador en el Portal de publicación, podr
 > 
 > 
 
-## 4\. Pasos para agregar coadministradores en el Portal de publicación
-**Si damos por hecho que usted es el administrador**, siga estos pasos para agregar un coadministrador.
+## <a name="4-steps-to-add-a-co-admin-in-the-publishing-portal"></a>4. Pasos para agregar coadministradores en el Portal de publicación
+**Si damos por hecho que usted es el administrador** , siga estos pasos para agregar un coadministrador.
 
 > [!NOTE]
 > **Para los nuevos usuarios,** antes de agregar un coadministrador en el Portal de publicación, asegúrese de que ha creado, al menos, una aplicación en el Portal de publicación. Esto es necesario porque la pestaña **PUBLICADORES** solo se muestra después de crear, como mínimo, una aplicación en el Portal de publicación.
@@ -200,8 +205,8 @@ Si a usted se le agregó como coadministrador en el Portal de publicación, podr
    
    ![dibujo](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
 
-## 5\. Pasos para eliminar a un coadministrador en el portal de publicación
-**Dando por hecho que usted es el administrador**, siga estos pasos para eliminar a un coadministrador.
+## <a name="5-steps-to-delete-a-co-admin-in-the-publishing-portal"></a>5. Pasos para eliminar a un coadministrador en el portal de publicación
+**Dando por hecho que usted es el administrador** , siga estos pasos para eliminar a un coadministrador.
 
 1. Inicie sesión en el portal de publicación con el identificador de correo electrónico de administrador.
 2. Vaya a **Publicadores** -> seleccione su cuenta -> **Administradores** -> **Co-Admins** (Coadministradores).
@@ -209,37 +214,41 @@ Si a usted se le agregó como coadministrador en el Portal de publicación, podr
    
     ![dibujo](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
-## Pasos siguientes
-Ahora que ya se creó y se registró la cuenta, consulte los [requisitos previos no técnicos](marketplace-publishing-pre-requisites.md) para asegurarse de cumplir o satisfacer todos los requisitos previos no técnicos para publicar su oferta.
+## <a name="next-steps"></a>Pasos siguientes
+Ahora que ya se creó y se registró la cuenta, consulte los [requisitos previos no técnicos](marketplace-publishing-pre-requisites.md)para asegurarse de cumplir o satisfacer todos los requisitos previos no técnicos para publicar su oferta.
 
-## Consulte también
+## <a name="see-also"></a>Consulte también
 * [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-[img-msalive]: media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
-[img-email]: media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg
-[img-sd-url]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-incognito.jpg
-[img-signin]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-login.jpg
-[img-verify]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-verify.jpg
-[img-sd-top]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-details.jpg
-[img-sd-info]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal.jpg
-[img-sd-type]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-type.jpg
-[img-sd-mktg1]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det1.jpg
-[img-sd-mktg2]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det2.jpg
-[img-sd-addr]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-add.jpg
-[img-sd-legal]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-cmp.jpg
-[img-sd-submit]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-approval.jpg
+[img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
+[img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg
+[img-sd-url]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-incognito.jpg
+[img-signin]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-login.jpg
+[img-verify]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-verify.jpg
+[img-sd-top]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-details.jpg
+[img-sd-info]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal.jpg
+[img-sd-type]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-acc-type.jpg
+[img-sd-mktg1]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det1.jpg
+[img-sd-mktg2]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-det2.jpg
+[img-sd-addr]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-comp-add.jpg
+[img-sd-legal]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-cmp.jpg
+[img-sd-submit]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-approval.jpg
 
 [link-msdndoc]: https://msdn.microsoft.com/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
-[link-single-vm]: marketplace-publishing-vm-image-creation.md
-[link-single-vm-prereq]: marketplace-publishing-vm-image-creation-prerequisites.md
-[link-multi-vm]: marketplace-publishing-solution-template-creation.md
-[link-multi-vm-prereq]: marketplace-publishing-solution-template-creation-prerequisites.md
-[link-datasvc]: marketplace-publishing-data-service-creation.md
-[link-datasvc-prereq]: marketplace-publishing-data-service-creation-prerequisites.md
-[link-devsvc]: marketplace-publishing-dev-service-creation.md
-[link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
-[link-pushstaging]: marketplace-publishing-push-to-staging.md
+[link-single-vm]:marketplace-publishing-vm-image-creation.md
+[link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
+[link-multi-vm]:marketplace-publishing-solution-template-creation.md
+[link-multi-vm-prereq]:marketplace-publishing-solution-template-creation-prerequisites.md
+[link-datasvc]:marketplace-publishing-data-service-creation.md
+[link-datasvc-prereq]:marketplace-publishing-data-service-creation-prerequisites.md
+[link-devsvc]:marketplace-publishing-dev-service-creation.md
+[link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
+[link-pushstaging]:marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

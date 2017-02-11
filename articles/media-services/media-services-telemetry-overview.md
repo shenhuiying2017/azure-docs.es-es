@@ -70,7 +70,7 @@ Gracias a esto, muchas de las consultas comunes serán eficaces:
 
 ### <a name="telemetry-table-storage-output-schema"></a>Esquema de salida de almacenamiento de tablas de telemetría
 
-Los datos de telemetría se almacenan en una tabla, TelemetryMetrics20160321, donde 20160321 es la fecha de la tabla creada. El sistema de telemetría creará una tabla independiente para cada día nuevo con el formato de hora 00:00 UTC. La tabla se utiliza para almacenar valores de repetición, como la velocidad de bits de ingesta en una determinada ventana de tiempo, los bytes enviados, etc. 
+Los datos de telemetría se almacenan en una tabla, TelemetryMetrics20160321, donde&20160;321 es la fecha de la tabla creada. El sistema de telemetría creará una tabla independiente para cada día nuevo con el formato de hora 00:00 UTC. La tabla se utiliza para almacenar valores de repetición, como la velocidad de bits de ingesta en una determinada ventana de tiempo, los bytes enviados, etc. 
 
 
 Propiedad|Valor|Ejemplos y notas

@@ -1,19 +1,23 @@
 ---
 title: Mensajes de Syslog en Log Analytics | Microsoft Docs
-description: Syslog es un protocolo de registro de eventos que es común a Linux.   En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que crean en el repositorio de OMS.
+description: "Syslog es un protocolo de registro de eventos que es común a Linux.   En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que crean en el repositorio de OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+
 
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Orígenes de datos de Syslog en Log Analytics
@@ -69,7 +73,7 @@ El archivo de configuración de rsyslog se encuentra en **/etc/rsyslog.d/95-omsa
 
 Para quitar un recurso, elimine su sección del archivo de configuración.  Puede limitar los niveles de gravedad que se recopilan para un recurso determinado mediante la modificación de la entrada de ese recurso.  Por ejemplo, para limitar el recurso del usuario a mensajes con una gravedad de error o superior, debe modificar esa línea del archivo de configuración de la siguiente manera:
 
-    user.error  @127.0.0.1:25224
+    user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
@@ -175,6 +179,9 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 * Use [Campos personalizados](log-analytics-custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
 * [Configure agentes de Linux](log-analytics-linux-agents.md) para recopilar otros tipos de datos. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

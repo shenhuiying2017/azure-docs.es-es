@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a configurar la supervisión de la seguridad y la administración de directivas para recursos de Azure. Tutoriales, referencia de API de REST y otra documentación."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8091c1c7cbf6617725bf7620fe0c2232e4e47cec
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Documentación de Security Center
 
-Security Center ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+Aprenda a usar Security Center para obtener visibilidad y control sobre la seguridad de los recursos de Azure.  En los tutoriales, la referencia de API de REST y otra documentación, se muestra cómo configurar la supervisión de seguridad y la administración de directivas de forma que funcionen con un amplio ecosistema de soluciones de seguridad.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -84,15 +85,10 @@ Security Center ayuda a evitar, detectar y responder a amenazas con más visibil
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Security Center </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

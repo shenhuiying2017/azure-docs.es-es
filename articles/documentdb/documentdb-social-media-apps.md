@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6c9e285834707b668086ceab7fdde582f0cd87cc
+ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
+ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
 
 
 ---
@@ -108,7 +108,7 @@ Los flujos de fuente se pueden generar mediante procesos en segundo plano de [Az
 
 La puntuación y los "me gusta" de una publicación se pueden procesar de manera aplazada usando esta misma técnica para crear un entorno coherente.
 
-Con los seguidores es más complicado. DocumentDB tiene un límite de tamaño de documentos de 512 kB, por lo que debería plantearse almacenar los seguidores como un documento con esta estructura:
+Con los seguidores es más complicado. DocumentDB tiene un límite de tamaño máximo del documento y los documentos de gran tamaño de lectura/escritura pueden afectar a la escalabilidad de la aplicación. Por esta razón, debería plantearse almacenar los seguidores como un documento con esta estructura:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -121,7 +121,7 @@ Con los seguidores es más complicado. DocumentDB tiene un límite de tamaño de
         ]
     }
 
-Este enfoque podría funcionar con un usuario que tenga unos miles de seguidores, pero si se trata de una persona famosa, terminaría superándose el límite de tamaño de documentos.
+Este enfoque podría funcionar con un usuario que tenga unos miles de seguidores, pero si se trata de una persona famosa este enfoque produciría un tamaño de documento grande y terminaría superándose el límite de tamaño de documentos.
 
 Para solucionar esto, podemos adoptar un enfoque mixto. Como parte del documento Estadísticas de usuario, podemos almacenar el número de seguidores:
 
@@ -234,6 +234,6 @@ También puede obtener más información sobre DocumentDB siguiendo la [ruta de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

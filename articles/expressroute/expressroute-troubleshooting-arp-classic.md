@@ -1,25 +1,29 @@
 ---
-title: 'Guía de solución de problemas de ExpressRoute: obtención de tablas ARP | Microsoft Docs'
-description: En esta página se proporcionan instrucciones para obtener tablas ARP para un circuito ExpressRoute.
+title: "Guía de solución de problemas de ExpressRoute: obtención de tablas ARP | Microsoft Docs"
+description: "En esta página se proporcionan instrucciones para obtener tablas ARP para un circuito ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: b5856acf-03c2-4933-8111-6ce12998d92a
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 49f7eae7184fda3ea73c8a85e354d0e41df039c7
+
 
 ---
-# <a name="expressroute-troubleshooting-guide:-getting-arp-tables-in-the-classic-deployment-model"></a>Guía de solución de problemas de ExpressRoute: obtención de tablas ARP en el modelo de implementación clásica
+# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>Guía de solución de problemas de ExpressRoute: obtención de tablas ARP en el modelo de implementación clásica
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - Clásico](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell: administrador de recursos](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell: clásico](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ Este artículo le guiará a través de los pasos para obtener las tablas del Pro
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>Protocolo de resolución de direcciones (ARP) y tablas ARP
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Protocolo de resolución de direcciones (ARP) y tablas ARP
 ARP es un protocolo de nivel 2 que se define en [RFC 826](https://tools.ietf.org/html/rfc826). ARP se usa para asignar una dirección Ethernet (dirección MAC) a una dirección IP.
 
 Una tabla ARP proporciona una asignación de la dirección IPv4 y la dirección MAC para un emparejamiento determinado. La tabla ARP de un emparejamiento de circuito ExpressRoute proporciona la siguiente información para cada interfaz (principal y secundaria):
@@ -82,7 +86,7 @@ A continuación, se muestra el resultado de ejemplo de una de las rutas de acces
           0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
 
 
-### <a name="arp-tables-for-azure-public-peering:"></a>Tablas ARP para el emparejamiento público de Azure:
+### <a name="arp-tables-for-azure-public-peering"></a>Tablas ARP para el emparejamiento público de Azure:
 El siguiente cmdlet proporciona las tablas ARP para el emparejamiento público de Azure:
 
         # Required variables
@@ -131,7 +135,7 @@ A continuación se muestra el resultado de ejemplo de una de las rutas de acceso
 ## <a name="how-to-use-this-information"></a>Uso de esta información
 La tabla ARP de un emparejamiento se puede usar para validar la configuración y la conectividad de nivel 2. En esta sección se proporciona información general sobre la apariencia de las tablas ARP en distintos escenarios.
 
-### <a name="arp-table-when-a-circuit-is-in-an-operational-(expected)-state"></a>Tabla ARP cuando un circuito está en un estado operativo (esperado)
+### <a name="arp-table-when-a-circuit-is-in-an-operational-expected-state"></a>Tabla ARP cuando un circuito está en un estado operativo (esperado)
 * La tabla ARP tiene una entrada para el lado local con una dirección IP válida y la dirección MAC, y una entrada similar para el lado de Microsoft.
 * El último octeto de la dirección IP local siempre será un número impar.
 * El último octeto de la dirección IP de Microsoft siempre será un número par.
@@ -142,7 +146,7 @@ La tabla ARP de un emparejamiento se puede usar para validar la configuración y
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-it's-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Tabla ARP cuando es local o cuando el lado del proveedor de conectividad tiene problemas
+### <a name="arp-table-when-its-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Tabla ARP cuando es local o cuando el lado del proveedor de conectividad tiene problemas
  Solo aparece una entrada en la tabla ARP. Muestra la asignación entre la dirección MAC y la dirección IP que se usa en el lado de Microsoft.
 
         Age InterfaceProperty IpAddress  MacAddress    
@@ -165,6 +169,9 @@ La tabla ARP de un emparejamiento se puede usar para validar la configuración y
 * Validar la transferencia de datos revisando los bytes de entrada y de salida.
 * Si sigue teniendo problemas, abra una solicitud de soporte técnico en [Ayuda y soporte técnico de Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

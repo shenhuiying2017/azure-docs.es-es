@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con SanSan | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SanSan.
+title: "Tutorial: Integración de Azure Active Directory con SanSan | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SanSan."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2533338698478a4d9aa07aace93c9bbecb0b3350
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sansan"></a>Tutorial: integración de Azure Active Directory con SanSan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: integración de Azure Active Directory con SanSan
 En este tutorial, obtendrá información sobre cómo integrar SanSan con Azure Active Directory (Azure AD).
 
 Integrar SanSan con Azure AD proporciona las siguientes ventajas:
@@ -113,11 +117,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     b. En el cuadro de texto **Identificador** , escriba la dirección URL con el siguiente patrón: 
 
-      | Environment             | URL |
-      | :--                     | :-- |
-      | Web de PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
-      | Aplicación nativa móvil       | `https://internal.api.sansan.com/saml2/<company name>` |
-      | Configuración del explorador móvil | `https://ap.sansan.com/s/saml2/<company name>` |
+    | Environment             | URL |
+    | :--                     | :-- |
+    | Web de PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
+    | Aplicación nativa móvil       | `https://internal.api.sansan.com/saml2/<company name>` |
+    | Configuración del explorador móvil | `https://ap.sansan.com/s/saml2/<company name>` |
 
 
     c. Haga clic en **Next**.
@@ -231,7 +235,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 En esta sección, probará la configuración de inicio de sesión único de Microsoft Azure AD mediante el Panel de acceso.
 Al hacer clic en el icono de SanSan en el panel de acceso, debería iniciar sesión automáticamente en su aplicación SanSan.
 
@@ -259,6 +263,6 @@ Al hacer clic en el icono de SanSan en el panel de acceso, debería iniciar sesi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

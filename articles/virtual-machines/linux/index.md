@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Aprenda cómo crear una máquina virtual mediante la distribución de Linux de su elección. La documentación muestra diferentes maneras de crear plantillas de máquinas virtuales."
+title: "Documentación, tutoriales y referencia de API sobre Azure Virtual Machines para Linux | Microsoft Docs"
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
-ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Documentación de máquina virtual Linux
+# <a name="linux-virtual-machine-documentation"></a>Documentación de máquinas virtuales Linux
 
-Use Azure Virtual Machines para crear y ejecutar máquinas virtuales Linux en una infraestructura de proceso, redes y almacenamiento de Azure.  Escale a miles de máquinas para realizar implementaciones a lo largo y ancho de Internet o ejecute una durante solo unos minutos, en ambos casos conseguirá velocidad y consistencia.
+Aprenda cómo ejecutar máquinas virtuales en Azure mediante la distribución de Linux de su elección. La documentación, las referencias de API y los ejemplos le muestran varias formas de crear e implementar plantillas de máquinas virtuales.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -57,7 +69,7 @@ Use Azure Virtual Machines para crear y ejecutar máquinas virtuales Linux en un
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Más información acerca de máquinas virtuales Linux</h3>
+                        <h3>Más información acerca de las máquinas virtuales Linux</h3>
                     </div>
                 </div>
             </div>
@@ -85,121 +97,55 @@ Use Azure Virtual Machines para crear y ejecutar máquinas virtuales Linux en un
 </ul>
 
 ---
-
-##<a name="reference"></a>Referencia
-
+ 
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Cmdlets de PowerShell</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">CLI de Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Instalación de la CLI de Azure</p>
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API de referencia administrada de .NET</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>SDK de Java</h3>
-                        <p>Referencia de la API de Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Referencia de API de REST de Compute</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Network)</h3>
-                        <p>Referencia de API de REST de Network</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Storage)</h3>
-                        <p>Referencia de la API de REST de Storage</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
-    
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de máquina virtual Linux </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

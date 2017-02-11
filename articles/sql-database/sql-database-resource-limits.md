@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: b5306d864593898246d0e7ba81ed3f93253fab74
-ms.openlocfilehash: 81746a6f893eab4fe2b951fb0d52bd1645d2a56c
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 4f4d5a4f3c401974157182afa9575f6f28a0673b
 
 
 ---
@@ -51,7 +51,7 @@ Para una base de datos independiente, los límites de una base de datos se defin
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ### <a name="elastic-pools"></a>Grupos elásticos
-[Grupos elásticos](sql-database-elastic-pool.md) comparten recursos entre bases de datos del grupo. En la tabla siguiente se describen las características de los grupos de bases de datos elásticas de nivel Básico, Estándar y Premium.
+[Grupos elásticos](sql-database-elastic-pool.md) comparten recursos entre bases de datos del grupo. En la tabla siguiente se describen las características de los grupos elásticos de nivel Básico, Estándar y Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -62,7 +62,7 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 | --- | --- | --- |
 | Bases de datos que usan exportación automatizada por suscripción |10 |La exportación automatizada le permite crear una programación personalizada para realizar copias de seguridad de las bases de datos SQL. La versión preliminar de esta función finalizará el 1 de marzo de 2017.  |
 | Base de datos por servidor |Hasta 5000 |Se permiten hasta 5000 bases de datos por servidor en servidores V12. |
-| DTU por servidor |45000 |Hay disponibles 45000 DTU por servidor en servidores V12 para el aprovisionamiento de las bases de datos, los grupos elásticos y los almacenes de datos. |
+| DTU por servidor |45000 |Hay disponibles&45000; DTU por servidor en servidores V12 para el aprovisionamiento de las bases de datos, los grupos elásticos y los almacenes de datos. |
 
 ## <a name="resources"></a>Recursos
 [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)
@@ -74,6 +74,6 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: Cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas | Microsoft Docs
-description: Obtenga información sobre cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas
+title: "Personalización del portal para desarrolladores para API Management de Azure mediante plantillas | Microsoft Docs"
+description: "Obtenga información sobre cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas"
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7e9b100a041934e6512a83c936effb48c2cba53b
+
 
 ---
-# Cómo personalizar el portal para desarrolladores de Administración de API de Azure mediante plantillas
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Administración de API de Azure mediante plantillas
 Administración de API de Azure proporciona varias características de personalización que permiten a los administradores [personalizar la apariencia del portal para desarrolladores](api-management-customize-portal.md), así como personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran el contenido de las páginas. Mediante el uso de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y del conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de gran flexibilidad para configurar el contenido de las páginas según le convenga con estas plantillas.
 
-## Información general sobre las plantillas del portal para desarrolladores
-Los administradores de la instancia del servicio de Administración de API pueden administrar las plantillas del portal para desarrolladores en el portal. Para administrar las plantillas de desarrollador, vaya a la instancia del servicio de Administración de API en el Portal de Azure clásico y haga clic en **Examinar**.
+## <a name="developer-portal-templates-overview"></a>Información general sobre las plantillas del portal para desarrolladores
+Los administradores de la instancia del servicio de Administración de API pueden administrar las plantillas del portal para desarrolladores en el portal. Para administrar las plantillas de desarrollador, vaya a la instancia del servicio API Management en Azure Portal y haga clic en la opción **Portal del desarrollador** de la barra de herramientas.
 
-![Portal para desarrolladores][api-management-browse]
+![portal para desarrolladores][api-management-browse]
 
 Si ya se encuentra en el portal del publicador, puede acceder al portal para desarrolladores haciendo clic en **Portal para desarrolladores**.
 
@@ -36,17 +40,17 @@ La lista de plantillas muestra varias categorías de plantillas que abarcan las 
 
 ![Plantillas del portal para desarrolladores][api-management-templates-menu]
 
-Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos**. La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo.
+Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos** . La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo. 
 
 ![Plantilla de lista de productos][api-management-developer-portal-templates-overview]
 
-Algunas plantillas, como las plantillas **Perfil de usuario**, personalizan partes diferentes de la misma página.
+Algunas plantillas, como las plantillas **Perfil de usuario** , personalizan partes diferentes de la misma página. 
 
 ![Plantillas de perfil de usuario][api-management-user-profile-templates]
 
-El editor de cada plantilla del portal para desarrolladores tiene dos secciones que se muestran en la parte inferior de la página. El lado izquierdo muestra el panel de edición de la plantilla y el lado derecho muestra el modelo de datos de la plantilla.
+El editor de cada plantilla del portal para desarrolladores tiene dos secciones que se muestran en la parte inferior de la página. El lado izquierdo muestra el panel de edición de la plantilla y el lado derecho muestra el modelo de datos de la plantilla. 
 
-El panel de edición de plantillas contiene el marcado que controla la apariencia y el comportamiento de la página correspondiente en el portal para desarrolladores. El marcado de la plantilla usa la sintaxis [DotLiquid](http://dotliquidmarkup.org/). Un editor popular de DotLiquid es [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Todos los cambios que se realizan en la plantilla durante la edición se muestran en tiempo real en el explorador, pero no son visibles para los clientes mientras no se [guarde](#to-save-a-template) y se [publique](#to-publish-a-template) la plantilla.
+El panel de edición de plantillas contiene el marcado que controla la apariencia y el comportamiento de la página correspondiente en el portal para desarrolladores. El marcado de la plantilla usa la sintaxis [DotLiquid](http://dotliquidmarkup.org/) . Un editor popular de DotLiquid es [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Todos los cambios que se realizan en la plantilla durante la edición se muestran en tiempo real en el explorador, pero no son visibles para los clientes mientras no se [guarda](#to-save-a-template) y se [publica](#to-publish-a-template) la plantilla.
 
 ![Marcado de plantilla][api-management-template]
 
@@ -90,7 +94,7 @@ En el ejemplo anterior, se muestran en el portal para desarrolladores dos produc
         ]
     }
 
-El marcado de la plantilla **Lista de productos** procesa los datos para proporcionar el resultado deseado. Para ello, itere a través de la colección de productos para mostrar información y un vínculo a cada producto. Observe los elementos `<search-control>` y `<page-control>` del marcado. Controlan la presentación de los controles de búsqueda y paginación de la página. `ProductsStrings|PageTitleProducts` es una referencia de cadena localizada que contiene el texto de encabezado `h2` de la página. Para obtener una lista de recursos de cadena, controles de página e iconos disponibles para su uso en plantillas del portal para desarrolladores, consulte la [referencia de plantillas del portal para desarrolladores de Administración de API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+El marcado de la plantilla **Lista de productos** procesa los datos para proporcionar el resultado deseado. Para ello, itere a través de la colección de productos para mostrar información y un vínculo a cada producto. Observe los elementos `<search-control>` y `<page-control>` del marcado. Controlan la presentación de la búsqueda y los controles de paginación en la página. `ProductsStrings|PageTitleProducts` es una referencia de cadena localizada que contiene el texto del encabezado `h2` de la página. Para obtener una lista de recursos de cadena, controles de página e iconos disponibles para su uso en plantillas del portal para desarrolladores, consulte la [referencia de plantillas del portal para desarrolladores de API Management](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
     <search-control></search-control>
     <div class="row">
@@ -116,14 +120,14 @@ El marcado de la plantilla **Lista de productos** procesa los datos para proporc
         </div>
     </div>
 
-## Para guardar una plantilla
+## <a name="to-save-a-template"></a>Para guardar una plantilla
 Para guardar una plantilla, haga clic en guardar en el editor de plantillas.
 
 ![Guardar plantilla][api-management-save-template]
 
 Los cambios guardados no se activan en el portal para desarrolladores mientras no se publiquen.
 
-## Para publicar una plantilla
+## <a name="to-publish-a-template"></a>Para publicar una plantilla
 Las plantillas guardadas se pueden publicar individualmente o todas juntas. Para publicar una plantilla individual, haga clic en publicar en el editor de plantillas.
 
 ![Publicar plantilla][api-management-publish-template]
@@ -142,7 +146,7 @@ Haga clic en **Publicar personalizaciones** para confirmar.
 
 Las plantillas recién publicadas entran en vigor de inmediato en el portal para desarrolladores.
 
-## Para revertir una plantilla a la versión anterior
+## <a name="to-revert-a-template-to-the-previous-version"></a>Para revertir una plantilla a la versión anterior
 Para revertir una plantilla a la versión publicada anterior, haga clic en revertir en el editor de plantillas.
 
 ![Revertir plantilla][api-management-revert-template]
@@ -153,7 +157,7 @@ Haga clic en **Sí** para continuar.
 
 La versión de una plantilla publicada anteriormente estará activa en el portal para desarrolladores en cuanto se complete la operación de reversión.
 
-## Para restaurar una plantilla a la versión predeterminada
+## <a name="to-restore-a-template-to-the-default-version"></a>Para restaurar una plantilla a la versión predeterminada
 La restauración de las plantillas a su versión predeterminada es un proceso que consta de dos pasos. Primero deben restaurarse las plantillas y después deben publicarse las versiones restauradas.
 
 Para restaurar una sola plantilla a la versión predeterminada, haga clic en restaurar en el editor de plantillas.
@@ -170,10 +174,10 @@ Para restaurar todas las plantillas a las versiones predeterminadas, haga clic e
 
 Las plantillas restauradas deben publicarse individualmente o a la vez siguiendo los pasos descritos en [Para publicar una plantilla](#to-publish-a-template).
 
-## Referencia de plantillas del portal para desarrolladores
+## <a name="developer-portal-templates-reference"></a>Referencia de plantillas del portal para desarrolladores
 Para obtener información de referencia sobre plantillas del portal para desarrolladores, recursos de cadena, iconos y controles de página, consulte la [referencia de plantillas del portal para desarrolladores de Administración de API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-## Vea un vídeo de introducción.
+## <a name="watch-a-video-overview"></a>Vea un vídeo de introducción.
 Vea el vídeo siguiente para obtener información sobre cómo agregar un panel de discusión y valoraciones a las páginas de API y de funcionamiento en el portal para desarrolladores mediante plantillas.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
@@ -199,4 +203,15 @@ Vea el vídeo siguiente para obtener información sobre cómo agregar un panel d
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

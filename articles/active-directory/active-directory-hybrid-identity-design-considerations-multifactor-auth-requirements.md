@@ -1,12 +1,12 @@
 ---
-title: 'Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de autenticación multifactor| Microsoft Docs'
-description: Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación.
-documentationcenter: ''
+title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de autenticación multifactor| Microsoft Azure"
+description: "Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
+documentationcenter: 
 services: active-directory
 author: femila
 manager: billmath
-editor: ''
-
+editor: 
+ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc314b1c362e86d9c875a0e794c0f930f7eb4e90
+
 
 ---
-# Determinación de los requisitos de autenticación multifactor para la solución de identidad híbrida
-En este mundo de la movilidad en el que los usuarios acceden a datos y aplicaciones en la nube desde cualquier dispositivo, la seguridad de la información se ha convertido en algo primordial. Todos los días hay un nuevo titular sobre una infracción de la seguridad. Aunque no existe ninguna garantía contra tales infracciones, la autenticación multifactor ofrece una capa de seguridad adicional para ayudar a evitarlas. Para comenzar, evalúe los requisitos de las organizaciones de autenticación multifactor. Es decir, que intenta proteger la organización. Esta evaluación es importante para definir los requisitos técnicos para configurar y habilitar a los usuarios de las organizaciones para la autenticación multifactor.
+# <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de autenticación multifactor para la solución de identidad híbrida
+En este mundo de la movilidad en el que los usuarios acceden a datos y aplicaciones en la nube desde cualquier dispositivo, la seguridad de la información se ha convertido en algo primordial.  Todos los días hay un nuevo titular sobre una infracción de la seguridad.  Aunque no existe ninguna garantía contra tales infracciones, la autenticación multifactor ofrece una capa de seguridad adicional para ayudar a evitarlas.
+Para comenzar, evalúe los requisitos de las organizaciones de autenticación multifactor. Es decir, que intenta proteger la organización.  Esta evaluación es importante para definir los requisitos técnicos para configurar y habilitar a los usuarios de las organizaciones para la autenticación multifactor.
 
 > [!NOTE]
 > Si no está familiarizado con MFA y cómo funciona, se recomienda encarecidamente que lea el artículo [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) antes de continuar leyendo esta sección.
@@ -26,7 +31,7 @@ En este mundo de la movilidad en el que los usuarios acceden a datos y aplicacio
 
 Asegúrese de responder a las siguientes preguntas:
 
-* ¿Intenta su empresa proteger aplicaciones de Microsoft?
+* ¿Intenta su empresa proteger aplicaciones de Microsoft? 
 * ¿Cómo se publican estas aplicaciones?
 * ¿Proporciona su empresa acceso remoto para permitir a los empleados el acceso a aplicaciones locales?
 
@@ -39,7 +44,7 @@ En caso afirmativo, ¿qué tipo de acceso remoto? También debe evaluar dónde s
 Una vez que comprenda estos requisitos, es importante evaluar también los requisitos del usuario de autenticación multifactor. Esta evaluación es importante porque definirá los requisitos para implementar la autenticación multifactor. Asegúrese de responder a las siguientes preguntas:
 
 * ¿Están los usuarios familiarizados con la autenticación multifactor?
-* ¿Algunos usuarios deben proporcionar autenticación adicional?
+* ¿Algunos usuarios deben proporcionar autenticación adicional?  
   * En caso afirmativo, ¿siempre, cuando proceden de redes externas o cuando acceden a aplicaciones específicas, o en otras condiciones?
 * ¿Necesitarán los usuarios entrenamiento sobre cómo configurar e implementar la autenticación multifactor?
 * ¿Cuáles son los principales escenarios en los que su empresa quiere habilitar la autenticación multifactor para sus usuarios?
@@ -51,10 +56,15 @@ Después de responder a las preguntas anteriores, podrá comprender si la autent
 * ¿Necesita habilitar su empresa MFA para todos los usuarios elegidos de estas aplicaciones o solo para los administradores?
 * ¿Necesita tiene MFA siempre habilitado o solo cuando los usuarios se registran fuera de la red corporativa?
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Definición de una estrategia de adopción de identidad híbrida](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

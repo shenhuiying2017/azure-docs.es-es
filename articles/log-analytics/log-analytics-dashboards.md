@@ -1,19 +1,23 @@
 ---
-title: Creación de un panel personalizado en Log Analytics | Microsoft Docs
-description: Con esta guía le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le proporciona una sola imagen de visualización de su entorno.
+title: "Creación de un panel personalizado en Log Analytics | Microsoft Docs"
+description: "Con esta guía le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le proporciona una sola imagen de visualización de su entorno."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afd1e5359edbdfdbd4a8afaac139f5877b306c2b
+
 
 ---
 # <a name="create-a-custom-dashboard-in-log-analytics"></a>Creación de un panel personalizado en Log Analytics
@@ -28,7 +32,7 @@ Todos los paneles personalizados que cree en el portal de OMS también están di
 
 ![mobile dashboard](./media/log-analytics-dashboards/oms-search-mobile.png)
 
-## <a name="how-do-i-create-my-dashboard?"></a>¿Cómo creo mi panel?
+## <a name="how-do-i-create-my-dashboard"></a>¿Cómo creo mi panel?
 Para empezar, vaya a la página de información general de OMS. Verá el icono **Mi panel** a la izquierda. Haga clic en él para explorar en profundidad el panel.
 
 ![Información general](./media/log-analytics-dashboards/oms-dashboards-overview.png)
@@ -55,7 +59,7 @@ En la vista Mi panel, haga clic en **Personalizar** para especificar el modo de 
 
 ![Editar mosaico](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
-### <a name="tile-visualizations#"></a>Visualizaciones de mosaico
+### <a name="tile-visualizations"></a>Visualizaciones de mosaico
 Existen tres tipos de visualizaciones de iconos que puede elegir:
 
 | tipo de gráfico | qué hace |
@@ -80,6 +84,8 @@ Para quitar un icono, vaya a la vista Mi panel y haga clic en **Personalizar** p
 ## <a name="next-steps"></a>Pasos siguientes
 * Cree [alertas](log-analytics-alerts.md) en Log Analytics para generar notificaciones y solucionar problemas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

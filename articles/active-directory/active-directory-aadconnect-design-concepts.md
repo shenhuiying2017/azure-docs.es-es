@@ -1,12 +1,12 @@
 ---
-title: Conceptos de diseño de Azure AD Connect | Microsoft Docs
-description: En este tema se detallan algunas áreas de diseño de implementación
+title: "Conceptos de diseño de Azure AD Connect | Microsoft Docs"
+description: "En este tema se detallan algunas áreas de diseño de implementación"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
 ms.devlang: na
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 09/13/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 116ef0786c9c45b549311a59615d06f194093bc2
+
 
 ---
-# <a name="azure-ad-connect:-design-concepts"></a>Azure AD Connect: conceptos de diseño
+# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceptos de diseño
 El propósito de este tema es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Este tema trata de una profundización en determinadas áreas, y estos conceptos se describen también brevemente en otros temas.
 
 ## <a name="sourceanchor"></a>sourceAnchor
@@ -92,6 +96,9 @@ Azure AD Connect detecta si está ejecutando en un entorno de dominio no enrutab
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

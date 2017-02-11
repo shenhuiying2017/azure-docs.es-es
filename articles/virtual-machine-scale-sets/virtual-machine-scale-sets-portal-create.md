@@ -1,21 +1,25 @@
 ---
-title: Creación de un conjunto de escalado de máquinas virtuales con Azure Portal | Microsoft Docs
-description: Implementación de conjuntos de escalado mediante Azure Portal.
-keywords: conjuntos de escalado de máquinas virtuales
+title: "Creación de un conjunto de escalado de máquinas virtuales con Azure Portal | Microsoft Docs"
+description: "Implementación de conjuntos de escalado mediante Azure Portal."
+keywords: "conjuntos de escalado de máquinas virtuales"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gatneil
 manager: madhana
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9c1583f0-bcc7-4b51-9d64-84da76de1fda
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
-ms.author: gatneil
+ms.author: negat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8c4248077626cba2f1ace3c119d301b99247e19f
+
 
 ---
 # <a name="create-a-virtual-machine-scale-set-using-the-azure-portal"></a>Creación de un conjunto de escalado de máquinas virtuales con Azure Portal
@@ -64,6 +68,9 @@ Para la documentación general, consulte la [página de documentación principal
 
 Para información general, consulte la [página de destino principal de los conjuntos de escalado](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

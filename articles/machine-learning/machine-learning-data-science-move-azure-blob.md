@@ -1,12 +1,12 @@
 ---
-title: Mover datos hacia y desde el almacenamiento de blobs de Azure | Microsoft Docs
+title: Mover datos hacia y desde Azure Blob Storage | Microsoft Docs
 description: Mover datos hacia y desde el almacenamiento de blobs de Azure
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: bradsev;sachouks
+translationtype: Human Translation
+ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
+ms.openlocfilehash: d19ab9fb96319203b2d90e1d203a26f6453db950
+
 
 ---
-# Mover datos hacia y desde el almacenamiento de blobs de Azure
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Mover datos hacia y desde el almacenamiento de blobs de Azure
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-A continuación se ofrecen vínculos de orientación sobre las tecnologías que se usan para mover datos hacia o desde el almacenamiento de blobs de Azure:
+<!-- just in case, adding this to separate these two include references -->
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -30,19 +34,24 @@ El método más adecuado para usted dependerá de su escenario. El artículo [Es
 > 
 > 
 
-Como alternativa, puede usar [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para:
+Como alternativa, puede usar [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para: 
 
-* crear y programar una canalización que descarga los datos desde Azure Blob Storage,
-* pasarla a un servicio web Azure Machine Learning publicado,
-* recibir los resultados de análisis predictivo y
-* cargar los resultados al almacenamiento.
+* crear y programar una canalización que descarga los datos desde Azure Blob Storage, 
+* pasarla a un servicio web Azure Machine Learning publicado, 
+* recibir los resultados de análisis predictivo y 
+* cargar los resultados al almacenamiento. 
 
-Consulte [Creación de canalizaciones predictivas mediante Factoría de datos de Azure y Aprendizaje automático de Azure](../data-factory/data-factory-azure-ml-batch-execution-activity.md) para obtener más información.
+Consulte [Creación de canalizaciones predictivas mediante Factoría de datos de Azure y Aprendizaje automático de Azure](../data-factory/data-factory-azure-ml-batch-execution-activity.md)para obtener más información.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este documento se supone que tiene una suscripción de Azure y una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta.
 
 * Para configurar una suscripción a Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

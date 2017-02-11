@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da2e3e4f9a33860141d94352fd2e657b14b0d03d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
 
 
 ---
@@ -65,7 +65,7 @@ En el centro de la aplicación SMART by GEP se encuentran las instancias de Azur
 
 Al utilizar Azure SQL Database, GEP obtiene automáticamente funcionalidades de recuperación ante desastres más eficaces que si se hubiesen diseñado de forma económica en un entorno local, gracias a las características de tolerancia a errores que integra Azure SQL Database. GEP utiliza la funcionalidad de replicación geográfica activa de Azure SQL Database, además de varias réplicas secundarias activas, legibles y en línea (grupos de disponibilidad AlwaysOn) en distintas regiones geográficas, con el objetivo de crear pares de alta disponibilidad. El fin de la replicación de los datos de SMART by GEP en diferentes regiones es que, en caso de que se produzca un desastre en una región entera, GEP puede recuperar fácilmente los datos de clientes con un objetivo de punto de recuperación (RPO) y un objetivo de tiempo de recuperación (RTO) mínimos.
 
-Cada cliente de SMART by GEP tiene dos instancias de Azure SQL Database: una para procesar transacciones en línea (OLTP) y otra para realizar análisis (por ejemplo, análisis de informes y gastos de los clientes). Gracias a los grupos de bases de datos elásticas de Azure SQL Database, GEP puede administrar con facilidad miles de bases de datos de todo el mundo para responder a las impredecibles exigencias de recursos de bases de datos. Los grupos elásticos proporcionan a GEP una forma de garantizar que puedan escalarse las bases de datos de los clientes cuando sea necesario, sin tener que provocar el exceso o la falta de aprovisionamiento, además de poder controlar los costos. Además, como se trata de un servicio PaaS, GEP obtiene todas las nuevas características de Azure SQL Database con actualizaciones automáticas.
+Cada cliente de SMART by GEP tiene dos instancias de Azure SQL Database: una para procesar transacciones en línea (OLTP) y otra para realizar análisis (por ejemplo, análisis de informes y gastos de los clientes). Gracias a los grupos elásticos de Azure SQL Database, GEP puede administrar con facilidad miles de bases de datos de todo el mundo para responder a las impredecibles exigencias de recursos de bases de datos. Los grupos elásticos proporcionan a GEP una forma de garantizar que puedan escalarse las bases de datos de los clientes cuando sea necesario, sin tener que provocar el exceso o la falta de aprovisionamiento, además de poder controlar los costos. Además, como se trata de un servicio PaaS, GEP obtiene todas las nuevas características de Azure SQL Database con actualizaciones automáticas.
 
 ## <a name="unstructured-and-semi-structured-data"></a>Datos no estructurados y semiestructurados
 Sin embargo, algunos datos de clientes de SMART by GEP necesitan guardarse en un almacenamiento estructurado de una forma menos rígida. Para este tipo de datos, GEP utiliza los servicios Azure Blob Storage, Azure Table Storage y Azure Redis Cache. Azure Blob Storage hospeda todos los datos adjuntos que los usuarios de SMART by GEP cargan en la aplicación. Aquí también guarda el contenido estático, como las hojas de estilos en cascada (CSS) y los archivos JavaScript.
@@ -107,6 +107,6 @@ Desde que GEP migró los centros de datos locales a Azure y desarrolló SMART by
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

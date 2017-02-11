@@ -3,7 +3,7 @@ title: "Incorporación o eliminación de un clúster de Service Fabric independi
 description: "Obtenga información sobre cómo agregar o quitar nodos en un clúster de Azure Service Fabric en una máquina virtual o física con Windows Server, la que podría estar en el entorno local o en alguna nube."
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2016
-ms.author: dkshir;chackdan
+ms.date: 12/06/2016
+ms.author: ryanwi;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 335ab9d3746b089e9e7a8d640a89a2d381295b46
+ms.sourcegitcommit: 3f7d2861512ba02e3b158db78fbee771da1c788b
+ms.openlocfilehash: 0d15e9a68c91c85e6a9250cc31e03e24b32cf7bf
 
 
 ---
@@ -29,20 +29,22 @@ Una vez que [cree su clúster de Service Fabric independiente en máquinas de Wi
 3. Abra una conexión de Escritorio remoto (RDP) en la máquina o VM que desea agregar al clúster.
 4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) en esta máquina o VM y descomprímalo.
 5. Ejecute PowerShell como administrador y vaya a la ubicación del paquete no descomprimido.
-6. Ejecute el script *AddNode.ps1* de PowerShell con los parámetros que describen el nuevo nodo que se va a agregar. En el ejemplo siguiente se agrega un nuevo nodo denominado VM5, con el tipo NodeType0 y la dirección IP 182.17.34.52, en UD1 y FD1. *ExistingClusterConnectionEndPoint* es un punto de conexión para un nodo que ya está presente en el clúster existente. Para este punto de conexión, puede elegir la dirección IP de *cualquier* nodo del clúster.
+6. Ejecute el script *AddNode.ps1* de PowerShell con los parámetros que describen el nuevo nodo que se va a agregar. En el ejemplo siguiente se agrega un nuevo nodo denominado VM5, con el tipo NodeType0 y la dirección IP 182.17.34.52, en UD1 y fd:/dc1/r0. *ExistingClusterConnectionEndPoint* es un punto de conexión para un nodo que ya está presente en el clúster existente. Para este punto de conexión, puede elegir la dirección IP de *cualquier* nodo del clúster.
 
 ```
-.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
 
 ```
+Puede comprobar si el nuevo nodo se agrega al ejecutar el cmdlet [ServiceFabricNode Get](https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode).
+
 
 ## <a name="remove-nodes-from-your-cluster"></a>Eliminación de nodos del clúster
-1. Según el nivel de confiabilidad elegido para el clúster, no podrá quitar los primeros nodos de n (3/5/7/9) del tipo de nodo principal
-2. No se admite la ejecución del comando RemoveNode en un clúster de desarrollo.
-3. Abra una conexión de Escritorio remoto (RDP) en la máquina o máquina virtual que desea quitar del clúster.
-4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprima el paquete en esta VM o máquina.
-5. Ejecute PowerShell como administrador y vaya a la ubicación del paquete no descomprimido.
-6. Ejecute *RemoveNode.ps1* en PowerShell. En el ejemplo siguiente se quita el nodo actual del clúster. *ExistingClientConnectionEndpoint* es un punto de conexión de cliente para cualquier nodo que permanecerá en el clúster. Elija la dirección IP y el puerto del punto de conexión de *cualquier* **otro nodo** del clúster. Este **otro nodo** a su vez actualizará la configuración del clúster para el nodo quitado. 
+Según el nivel de confiabilidad elegido para el clúster, no podrá quitar los primeros nodos de n (3/5/7/9) del tipo de nodo principal También tenga en cuenta que no se admite la ejecución del comando RemoveNode en un clúster de desarrollo.
+
+1. Abra una conexión de Escritorio remoto (RDP) en la máquina o máquina virtual que desea quitar del clúster.
+2. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprima el paquete en esta VM o máquina.
+3. Ejecute PowerShell como administrador y vaya a la ubicación del paquete no descomprimido.
+4. Ejecute *RemoveNode.ps1* en PowerShell. En el ejemplo siguiente se quita el nodo actual del clúster. *ExistingClientConnectionEndpoint* es un punto de conexión de cliente para cualquier nodo que permanecerá en el clúster. Elija la dirección IP y el puerto del punto de conexión de *cualquier* **otro nodo** del clúster. Este **otro nodo** a su vez actualizará la configuración del clúster para el nodo quitado. 
 
 ```
 .\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
@@ -64,6 +66,6 @@ Incluso después de quitar un nodo, puede que aparezca como si estuviera inactiv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: Directivas de indexación de DocumentDB | Microsoft Docs
-description: Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar y cambiar la directiva de indexación. Configurar la directiva de indexación dentro de DocumentDB para una indexación automática y un mayor rendimiento.
+title: "Directivas de indexación de DocumentDB | Microsoft Docs"
+description: "Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar y cambiar la directiva de indexación. Configurar la directiva de indexación dentro de DocumentDB para una indexación automática y un mayor rendimiento."
 keywords: how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: documentdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/08/2016
+ms.date: 12/22/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
+ms.openlocfilehash: a48cdb58dd48cc033f69de15fc19f313bc12cdfa
+
 
 ---
 # <a name="documentdb-indexing-policies"></a>Directivas de indexación de DocumentDB
@@ -30,7 +34,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 * ¿Cómo se pueden realizar cambios en la directiva de indexación de una colección?
 * ¿Cómo se puede comparar el almacenamiento y el rendimiento de diferentes directivas de indexación?
 
-## <a name="<a-id="customizingindexingpolicy"></a>-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personalización de la directiva de indexación de una colección
+## <a name="a-idcustomizingindexingpolicya-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personalización de la directiva de indexación de una colección
 Los desarrolladores pueden personalizar los equilibrios entre almacenamiento, rendimiento de escritura y consulta y coherencia de las consultas, reemplazando la directiva de indexación predeterminada en una colección de DocumentDB y configurando los aspectos siguientes.
 
 * **Inclusión y exclusión de documentos y rutas de acceso del índice y al índice**. Los desarrolladores pueden elegir que se incluyan o excluyan determinados documentos en el índice en el momento de insertarlos o reemplazarlos en la colección. Los desarrolladores también pueden elegir incluir o excluir determinadas propiedades JSON, lo que también se conoce como rutas de acceso (incluidos patrones de caracteres comodín) para indexarlas en documentos que se incluyen en un índice.
@@ -72,198 +76,28 @@ El siguiente programa de ejemplo muestra cómo crear una colección de DocumentD
 
 La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente y Diferida) que se configure para la colección y el nivel de coherencia especificado para la solicitud de consulta. Esto se aplica a las consultas realizadas con cualquier interfaz: API de REST, SDK o desde procedimientos almacenados y desencadenadores. 
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Coherente</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Diferida</strong>
-                </p>
-            </td>            
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Alta</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Alta </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>            
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>De obsolescencia entrelazada</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-De obsolescencia entrelazada </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>            
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Sesión</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Sesión </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>            
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Ocasional</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>            
-        </tr>         
-    </tbody>
-</table>
+|Coherencia|Modo de indexación: coherente|Modo de indexación: diferido|
+|---|---|---|
+|Alta|Alta|Ocasional|
+|De obsolescencia entrelazada|De obsolescencia entrelazada|Ocasional|
+|Sesión|Sesión|Ocasional|
+|Ocasional|Ocasional|Ocasional|
 
 DocumentDB devuelve un error para las consultas realizadas en colecciones con el modo de indexación Ninguno. Será posible seguir ejecutando consultas como exámenes a través del encabezado `x-ms-documentdb-enable-scan` explícito en la API de REST o la opción `EnableScanInQuery`  mediante el SDK de .NET. Algunas funciones de consulta, como ORDER BY, no se admiten como exámenes con `EnableScanInQuery`.
 
 La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente, Diferida y Ninguna) cuando se especifica EnableScanInQuery.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Coherente</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Diferida</strong>
-                </p>
-            </td>       
-            <td valign="top">
-                <p>
-                    <strong>Ninguna</strong>
-                </p>
-            </td>             
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Alta</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Alta </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>    
-            <td valign="top">
-                <p>
-Alta </p>
-            </td>                
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>De obsolescencia entrelazada</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-De obsolescencia entrelazada </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>      
-            <td valign="top">
-                <p>
-De obsolescencia entrelazada </p>
-            </td> 
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Sesión</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Sesión </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>   
-            <td valign="top">
-                <p>
-Sesión </p>
-            </td>             
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Ocasional</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>      
-            <td valign="top">
-                <p>
-Ocasional </p>
-            </td>              
-        </tr>         
-    </tbody>
-</table>
+|Coherencia|Modo de indexación: coherente|Modo de indexación: diferido|Modo de indexación: ninguno|
+|---|---|---|---|
+|Alta|Alta|Ocasional|Alta|
+|De obsolescencia entrelazada|De obsolescencia entrelazada|Ocasional|De obsolescencia entrelazada|
+|Sesión|Sesión|Ocasional|Sesión|
+|Ocasional|Ocasional|Ocasional|Ocasional|
 
 El siguiente ejemplo de código muestra cómo crear una colección de DocumentDB mediante .NET SDK con indexación coherente en todas las inserciones de documentos.
 
-     // Default collection creates a hash index for all string and numeric    
-     // fields. Hash indexes are compact and offer efficient
-     // performance for equality queries.
+     // Default collection creates a hash index for all string fields and a range index for all numeric    
+     // fields. Hash indexes are compact and offer efficient performance for equality queries.
 
      var collection = new DocumentCollection { Id ="defaultCollection" };
 
@@ -281,116 +115,14 @@ Las rutas de acceso del índice también pueden usar el operador comodín * para
 
 Estos son los patrones comunes para especificar las rutas de acceso del índice:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Ruta de acceso</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descripción/caso de uso</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /*
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Ruta de acceso predeterminada de la recopilación. Recursiva. Se aplica a la totalidad del árbol de documentos.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/prop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Ruta de acceso de índice necesaria para atender las consultas como la siguiente (con tipos hash o de intervalo respectivamente): </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>                
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/"prop"/* </p>
-            </td>
-            <td valign="top">
-                <p>
-Ruta de acceso del índice para todas las rutas de acceso situadas en la etiqueta especificada. Funciona con las siguientes consultas </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value" </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de valores escalares como ["a", "b", "c"]: </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de objetos como [{subprop: "a"}, {subprop: "b"}]: </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" </p>
-            </td>
-        </tr>        
-        <tr>
-            <td valign="top">
-                <p>
-/prop/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Ruta de acceso de índice necesaria para atender consultas (con las de tipo hash o de intervalo respectivamente): </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop.subprop </p>                
-            </td>
-        </tr>
-    </tbody>
-</table>
+| path                | Descripción/caso de uso                                                                                                                                                                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| /                   | Ruta de acceso predeterminada de la recopilación. Recursiva. Se aplica a la totalidad del árbol de documentos.                                                                                                                                                                                                                                   |
+| /prop/?             | Ruta de acceso de índice necesaria para atender las consultas como la siguiente (con tipos hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/              | Ruta de acceso del índice para todas las rutas de acceso situadas en la etiqueta especificada. Funciona con las siguientes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /props/[]/?         | Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de valores escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
+| /props/[]/subprop/? | Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
+| /prop/subprop/?     | Ruta de acceso de índice necesaria para atender consultas (con las de tipo hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Al configurar las rutas de acceso de índice personalizado, es necesario especificar la regla de indexación predeterminada para el árbol de todo el documento indicada mediante la ruta de acceso especial "/". 
@@ -421,76 +153,35 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
 
 
-### <a name="index-data-types,-kinds-and-precisions"></a>Tipos de datos de índice, variantes y precisiones
+### <a name="index-data-types-kinds-and-precisions"></a>Tipos de datos de índice, variantes y precisiones
 Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echemos un vistazo a las opciones que podemos usar para configurar la directiva de indexación en una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:
 
-* Tipo de datos: **cadena**, **número** o **punto** (solo puede contener una entrada por tipo de datos y ruta de acceso). En la versión preliminar privada, se admiten **polígono** y **LineString**.
+* Tipo de datos: **Cadena**, **Número** o **Punto**, **Polígono** o **LineString** (solo puede contener una entrada por tipo de datos y ruta de acceso).
 * Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales) 
 * Precisión: 1-8 o -1 (precisión máxima) para números, 1-100 (precisión máxima) para cadenas
 
 #### <a name="index-kind"></a>Tipo de índice
 DocumentDB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).
 
-* **Hash** admite consultas de igualdad y JOIN eficientes. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes.
-* **Intervalo** admite consultas de igualdad, consultas de intervalo (con >, <, >=, <=, !=) y consultas Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1).
+* **Hash** admite consultas de igualdad y JOIN eficientes. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes. El tipo de datos puede ser Cadena o Número.
+* **Intervalo** admite consultas de igualdad, consultas de intervalo (con >, <, >=, <=, !=) y consultas Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1). El tipo de datos puede ser Cadena o Número.
 
-DocumentDB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto. El valor en la ruta especificada debe ser un punto de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto, Polígono o LineString. El valor en la ruta especificada debe ser un fragmento de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
-* **Espacial** admite consultas espaciales eficaces (internas y a distancia).
+* **Espacial** admite consultas espaciales eficaces (internas y a distancia). El tipo de datos puede ser Punto, Polígono o LineString.
 
 > [!NOTE]
-> DocumentDB admite la indexación automática de puntos, polígonos (versión preliminar privada) y LineStrings (versión preliminar privada). Para tener acceso a la versión preliminar, envíe un correo electrónico a askdocdb@microsoft.com, o póngase en contacto con nosotros a través del soporte técnico de Azure.
+> DocumentDB admite la indexación automática de puntos, polígonos y LineString.
 > 
 > 
 
 Estos son las variantes de índice admitidas, con ejemplos de consultas que se pueden usar para atenderlas:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Tipo de índice</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descripción/caso de uso</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Hash </p>
-            </td>
-            <td valign="top">
-                <p>
-Hash over /prop/? (o /*) se puede usar para atender las siguientes consultas de manera eficiente: SELECT * FROM collection c WHERE c.prop = "value" Hash over /props/[]/? (o /* o /props/*) se puede usar para atender las siguientes consultas de manera eficiente: SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Intervalo </p>
-            </td>
-            <td valign="top">
-                <p>
-Range over /prop/? (o /*) se puede usar para atender las siguientes consultas de manera eficiente: SELECT * FROM collection c WHERE c.prop = "value" SELECT * FROM collection c WHERE c.prop > 5 SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Espacial </p>
-            </td>
-            <td valign="top">
-                <p>
-Range over /prop/? (o /*) se puede usar para atender las siguientes consultas de manera eficiente: SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) </p>
-            </td>
-        </tr>        
-    </tbody>
-</table>
+| Tipo de índice | Descripción/caso de uso                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hash       | Hash over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (o / o /props/) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Intervalo      | Range over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| Espacial     | Range over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
 
 De forma predeterminada, se devuelve un error para las consultas con operadores de intervalo como > = si no hay ningún índice de intervalo (de ninguna precisión) para indicar que podría ser necesario realizar un examen para atender la consulta. Las consultas de intervalo se pueden realizar sin un índice de intervalo mediante el uso del encabezado x-ms-documentdb-allow-scans en la API de REST o con la opción de solicitud EnableScanInQuery mediante el SDK de .NET. Si hay otros filtros en la consulta en los que DocumentDB pueda usar el índice para realizar el filtrado, no se devolverá ningún error.
 
@@ -501,7 +192,7 @@ La precisión de índice permite lograr un equilibrio entre la sobrecarga de alm
 
 La configuración de la precisión del índice tiene una aplicación más práctica con intervalos de cadena. Dado que las cadenas pueden ser de cualquier longitud arbitraria, la elección de la precisión del índice puede afectar al rendimiento de las consultas de intervalo de cadena, así como a la cantidad de espacio de almacenamiento del índice requerido. Los índices de intervalo de cadena pueden configurarse con 1-100 o -1 (“máxima”). Si desea realizar consultas por Order By en las propiedades de cadena, debe especificar una precisión de -1 para las rutas de acceso correspondientes.
 
-Los índices espaciales siempre usan la precisión de índice predeterminada para los puntos y no puede invalidarse. 
+Los índices espaciales siempre usan la precisión de índice predeterminada para todos los puntos (puntos, LineString y polígonos) y no puede invalidarse. 
 
 En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices de intervalo en una recopilación mediante el SDK de .NET. 
 
@@ -719,6 +410,9 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 2. [Operaciones de recopilación de la API de REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Consulta con SQL de Base de datos de documentos](documentdb-sql-query.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

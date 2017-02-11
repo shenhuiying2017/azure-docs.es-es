@@ -1,12 +1,12 @@
 ---
-title: Implementación de Azure Mobile Engagement para una aplicación de juegos
-description: Escenario de aplicación de juegos para implementar Azure Mobile Engagement
+title: "Implementación de Azure Mobile Engagement para una aplicación de juegos"
+description: "Escenario de aplicación de juegos para implementar Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,22 +14,26 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 86092228c987de83cf339f76ded6d7a59efaf0f4
+
 
 ---
-# Implementación de Mobile Engagement con una aplicación de juegos
-## Información general
+# <a name="implement-mobile-engagement-with-gaming-app"></a>Implementación de Mobile Engagement con una aplicación de juegos
+## <a name="overview"></a>Información general
 Una nueva empresa de juegos ha lanzado una aplicación de juego de estrategia/juego de rol dedicada a la pesca. El juego lleva 6 meses en activo. Ha cosechado un gran éxito, con millones de descargas, y la retención es muy alta en comparación con otras aplicaciones de juego de nuevas empresas. En la reunión de revisión trimestral, las partes interesadas están de acuerdo en que necesitan aumentar los ingresos medios por usuario (ARPU). Los módulos premium en el juego están disponibles como ofertas especiales. Estos módulos de juego permiten a los usuarios actualizar la apariencia y el rendimiento de los sedales y los cebos o aparejos en el juego. Sin embargo, las ventas de módulos son muy bajas. Por tanto, deciden en primer lugar analizar la experiencia del cliente con una herramienta de análisis y después desarrollar un programa de compromiso para aumentar las ventas mediante la segmentación avanzada.
 
-Partiendo de [Azure Mobile Engagement: Guía de introducción con procedimientos recomendados](mobile-engagement-getting-started-best-practices.md), crean una estrategia de compromiso.
+Partiendo de [Azure Mobile Engagement: Guía de introducción con procedimientos recomendados](mobile-engagement-getting-started-best-practices.md) , crean una estrategia de compromiso.
 
-## Objetivos y KPI
+## <a name="objectives-and-kpis"></a>Objetivos y KPI
 Las partes interesadas clave para el juego se reúnen. Todos están de acuerdo en un objetivo principal: aumentar las ventas de módulos premium en un 15%. Crean indicadores clave de rendimiento (KPI) de negocio para medir y promover este objetivo.
 
 * ¿En qué nivel del juego se compran estos módulos?
 * ¿Cuáles son los ingresos por usuario, por sesión, por semana y por mes?
 * ¿Cuáles son los tipos favoritos de compra?
 
-En la parte 1 de la [Guía de introducción](mobile-engagement-getting-started-best-practices.md), se explica cómo definir los objetivos y los KPI.
+En la parte 1 de la [Guía de introducción](mobile-engagement-getting-started-best-practices.md) , se explica cómo definir los objetivos y los KPI. 
 
 Con los KPI de negocio ya definidos, la encargada de productos móviles crea los KPI de compromiso para determinar la retención y las nuevas tendencias de usuarios.
 
@@ -47,17 +51,18 @@ Según las recomendaciones del equipo de TI, se han agregado los siguientes KPI 
 
 Para cada KPI, la encargada de productos móviles especifica los datos que necesita y dónde se encuentran en su cuaderno de estrategias.
 
-## Programa de compromiso e integración
+## <a name="engagement-program-and-integration"></a>Programa de compromiso e integración
 Antes de crear un programa avanzado de compromiso, el director de proyectos móviles a cargo del proyecto debe comprender a fondo cómo y cuándo los usuarios consumen los productos.
 
 Después de 3 meses, el director de proyectos móviles ha recopilado datos suficientes para mejorar las ventas por notificación push en aplicación. Descubre que:
 
-* La primera compra generalmente se produce en el nivel 14. En el 90% de los casos, la compra es de nuevas armas legendarias por 3 USD.
+* La primera compra generalmente se produce en el nivel 14. En el 90% de los casos, la compra es de nuevas armas legendarias por 3 USD.
 * En el 80% de los casos, los usuarios que han realizado una compra siguen usando el producto y hacen más compras.
-* Los usuarios que han superado el nivel 20 empiezan a gastar más de 10 USD por semana.
+* Los usuarios que han superado el nivel 20 empiezan a gastar más de 10 USD por semana.
 * Los usuarios tienden a comprar módulos premium en los niveles 16, 24 y 32.
 
-Gracias a este análisis, el director de proyectos móviles decide crear secuencias específicas de notificaciones push para aumentar las ventas en aplicación. Crea tres secuencias push denominadas: Programa de bienvenida, Programa de ventas y Programa de inactivos. Para más información, vea los [cuadernos de estrategias](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1].
+Gracias a este análisis, el director de proyectos móviles decide crear secuencias específicas de notificaciones push para aumentar las ventas en aplicación. Crea tres secuencias push denominadas: Programa de bienvenida, Programa de ventas y Programa de inactivos. Para más información, consulte los [cuadernos de estrategias](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
+    ![][1]
 
 <!--Image references-->
 
@@ -65,4 +70,8 @@ Gracias a este análisis, el director de proyectos móviles decide crear secuenc
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

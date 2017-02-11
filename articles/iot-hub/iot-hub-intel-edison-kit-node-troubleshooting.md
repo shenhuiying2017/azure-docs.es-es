@@ -113,7 +113,7 @@ Al instalar **pip**, se produce un error de permisos si hay paquetes antiguos in
 4. Vuelva a instalar Python.
 
 ## <a name="azure-iot-hub-issues"></a>Problemas de Azure IoT Hub
-Si ha aprovisionado correctamente su instancia de IoT Hub de Azure con `azure-cli` y necesita una herramienta que administre los dispositivos que se conectan a este IoT Hub, puede probar las siguientes herramientas:
+Si el centro de IoT Hub de Azure se ha aprovisionado correctamente con `azure-cli` y necesita una herramienta que administre los dispositivos que se conectan a este centro, puede probar las siguientes herramientas:
 
 ### <a name="device-explorer"></a>Explorador de dispositivos
 El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) se ejecuta en el equipo local Windows y se conecta a IoT Hub de Azure. Además, se comunica con los siguientes [puntos de conexión de IoT Hub](iot-hub-devguide.md):

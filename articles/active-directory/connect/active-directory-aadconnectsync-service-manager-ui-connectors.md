@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
 ms.openlocfilehash: 4d248fedea7c3b05b5bf4a28cd99923302c43a9b
 
 

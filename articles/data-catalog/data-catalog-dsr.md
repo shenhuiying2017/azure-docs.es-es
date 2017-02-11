@@ -1,13 +1,13 @@
 ---
-title: Orígenes de datos compatibles con el Catálogo de datos de Azure | Microsoft Docs
-description: Especificación de los orígenes de datos compatibles actualmente.
+title: "Orígenes de datos compatibles con Azure Data Catalog | Microsoft Docs"
+description: "Especificación de los orígenes de datos compatibles actualmente."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: jstrauss
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/15/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+
 
 ---
 # <a name="azure-data-catalog-supported-data-sources"></a>Orígenes de datos compatibles con el Catálogo de datos de Azure
@@ -428,7 +432,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Data Lake</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticación: {básica, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticación: {básica, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -436,7 +443,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Directorio, archivo</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticación: {básica, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticación: {básica, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -444,7 +454,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Contenedor</td>
 > <td>
-> <font size=2> protocolo: azure-blobs <br>autenticación: {azure-access-key} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contenedor</font>
+> <font size=2> protocolo: azure-blobs
+> <br>autenticación: {azure-access-key}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contenedor</font>
 > </td>
 > </tr>
 > <tr>
@@ -452,7 +467,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Blob, directorio</td>
 > <td>
-> <font size=2> protocolo: azure-blobs <br>autenticación: {azure-access-key} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contenedor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nombre </font>
+> <font size=2> protocolo: azure-blobs
+> <br>autenticación: {azure-access-key}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contenedor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nombre </font>
 > </td>
 > </tr>
 > <tr>
@@ -460,7 +481,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Contenedor</td>
 > <td>
-> <font size=2> protocolo: azure-tables <br>autenticación: {azure-access-key} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta</font>
+> <font size=2> protocolo: azure-tables
+> <br>autenticación: {azure-access-key}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta</font>
 > </td>
 > </tr>
 > <tr>
@@ -468,7 +493,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla</td>
 > <td>
-> <font size=2> protocolo: azure-tables <br>autenticación: {azure-access-key} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nombre </font>
+> <font size=2> protocolo: azure-tables
+> <br>autenticación: {azure-access-key}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dominio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cuenta
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nombre </font>
 > </td>
 > </tr>
 > <tr>
@@ -476,7 +506,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Clúster virtual</td>
 > <td>
-> <font size=2> protocolo: cosmos <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: cosmos
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -484,7 +517,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Transmisión, conjunto de transmisiones, vista</td>
 > <td>
-> <font size=2> protocolo: cosmos <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: cosmos
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -492,7 +528,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Sitio</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticación: {no, básica, windows, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticación: {no, básica, windows, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -500,7 +539,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Informe</td>
 > <td>Informe, panel</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticación: {no, básica, windows, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticación: {no, básica, windows, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -508,7 +550,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: db2 <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+> <font size=2> protocolo: db2
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
 > </td>
 > </tr>
 > <tr>
@@ -516,7 +562,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: db2 <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
+> <font size=2> protocolo: db2
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
 > </td>
 > </tr>
 > <tr>
@@ -524,7 +576,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Archivo</td>
 > <td>
-> <font size=2> protocolo: archivo <br>autenticación: {no, básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ruta de acceso </font>
+> <font size=2> protocolo: archivo
+> <br>autenticación: {no, básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ruta de acceso </font>
 > </td>
 > </tr>
 > <tr>
@@ -532,7 +587,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Directorio, archivo</td>
 > <td>
-> <font size=2> protocolo: ftp <br>autenticación: {no, básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: ftp
+> <br>autenticación: {no, básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -540,7 +598,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Clúster</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticación: {básica, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticación: {básica, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -548,7 +609,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Directorio, archivo</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticación: {básica, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticación: {básica, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -556,7 +620,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: hive <br>autenticación: {hdinsight, básica, nombre de usuario, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> protocolo: hive
+> <br>autenticación: {hdinsight, básica, nombre de usuario, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -564,7 +634,14 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: hive <br>autenticación: {hdinsight, básica, nombre de usuario, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> protocolo: hive
+> <br>autenticación: {hdinsight, básica, nombre de usuario, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -572,7 +649,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Sitio</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticación: {no, básica, windows, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticación: {no, básica, windows, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -580,7 +660,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Informe</td>
 > <td>Informe, panel</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticación: {no, básica, windows, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticación: {no, básica, windows, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -588,7 +671,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Punto de conexión, archivo</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticación: {no, básica, windows, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticación: {no, básica, windows, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -596,7 +682,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: mysql <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+> <font size=2> protocolo: mysql
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
 > </td>
 > </tr>
 > <tr>
@@ -604,7 +694,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: mysql <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: mysql
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -612,7 +707,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Contenedor de entidades</td>
 > <td>
-> <font size=2> protocolo: odata <br>autenticación: {no, básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: odata
+> <br>autenticación: {no, básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -620,7 +718,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Conjunto de entidades, función</td>
 > <td>
-> <font size=2> protocolo: odata <br>autenticación: {no, básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; recurso </font>
+> <font size=2> protocolo: odata
+> <br>autenticación: {no, básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; recurso </font>
 > </td>
 > </tr>
 > <tr>
@@ -628,7 +730,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: oracle <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+> <font size=2> protocolo: oracle
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
 > </td>
 > </tr>
 > <tr>
@@ -636,7 +742,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: oracle <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: oracle
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -644,7 +756,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: postgresql <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+> <font size=2> protocolo: postgresql
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
 > </td>
 > </tr>
 > <tr>
@@ -652,7 +768,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: postgresql <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: postgresql
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -660,7 +782,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Sitio</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticación: {no, básica, windows, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticación: {no, básica, windows, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -668,7 +793,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Informe</td>
 > <td>Informe, panel</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticación: {no, básica, windows, oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticación: {no, básica, windows, oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -676,7 +804,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Mashup de datos</td>
 > <td>Protocolo 
-> <font size=2>: power-query <br>authentication: {oauth} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2>: power-query
+> <br>authentication: {oauth}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -684,7 +815,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Objeto</td>
 > <td>
-> <font size=2> protocolo: salesforce-com <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
+> <font size=2> protocolo: salesforce-com
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
 > </td>
 > </tr>
 > <tr>
@@ -692,7 +828,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Server</td>
 > <td>
-> <font size=2> protocolo: sap-hana-sql <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor </font>
+> <font size=2> protocolo: sap-hana-sql
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor </font>
 > </td>
 > </tr>
 > <tr>
@@ -700,7 +839,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Ver</td>
 > <td>
-> <font size=2> protocolo: sap-hana-sql <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: sap-hana-sql
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -708,7 +852,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Enumerar</td>
 > <td>
-> <font size=2> protocolo: sharepoint-list <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: sharepoint-list
+> <br>autenticación: {básica, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -716,7 +863,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Comando</td>
 > <td>Procedimiento almacenado</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -724,7 +877,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>TableValuedFunction</td>
 > <td>Función con valores de tabla</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -732,7 +891,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
 > </td>
 > </tr>
 > <tr>
@@ -740,7 +903,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -748,7 +917,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Comando</td>
 > <td>Procedimiento almacenado</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -756,7 +931,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>TableValuedFunction</td>
 > <td>Función con valores de tabla</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -764,7 +945,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
 > </td>
 > </tr>
 > <tr>
@@ -772,7 +957,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -780,7 +971,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Modelo</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
 > </td>
 > </tr>
 > <tr>
@@ -788,7 +984,14 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>KPI</td>
 > <td>KPI</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -796,7 +999,14 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Measure</td>
 > <td>Measure</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
 > </td>
 > </tr>
 > <tr>
@@ -804,7 +1014,14 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Dimension Data</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
 > </td>
 > </tr>
 > <tr>
@@ -812,7 +1029,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Modelo</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
 > </td>
 > </tr>
 > <tr>
@@ -820,7 +1042,14 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>KPI</td>
 > <td>KPI</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -828,7 +1057,14 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Measure</td>
 > <td>Measure</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
 > </td>
 > </tr>
 > <tr>
@@ -836,7 +1072,14 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticación: {windows, básica, anónima, no} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticación: {windows, básica, anónima, no}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
 > </td>
 > </tr>
 > <tr>
@@ -844,7 +1087,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Server</td>
 > <td>
-> <font size=2> protocolo: reporting-services <br>autenticación: (windows) <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+> <font size=2> protocolo: reporting-services
+> <br>autenticación: (windows)
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -852,7 +1099,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Informe</td>
 > <td>Informe</td>
 > <td>
-> <font size=2> protocolo: reporting-services <br>autenticación: (windows) <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ruta de acceso <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+> <font size=2> protocolo: reporting-services
+> <br>autenticación: (windows)
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ruta de acceso
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -860,7 +1112,11 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Base de datos</td>
 > <td>
-> <font size=2> protocolo: teradata <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+> <font size=2> protocolo: teradata
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
 > </td>
 > </tr>
 > <tr>
@@ -868,7 +1124,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Tabla, vista</td>
 > <td>
-> <font size=2> protocolo: teradata <br>autenticación: {protocolo, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: teradata
+> <br>autenticación: {protocolo, windows}
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -876,7 +1137,12 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Contenedor</td>
 > <td>Modelo</td>
 > <td>
-> <font size="2"> protocol: mssql-mds <br>autenticación: (windows) <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versión </font>
+> <font size="2"> protocol: mssql-mds
+> <br>autenticación: (windows)
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versión </font>
 > </td>
 > </tr>
 > <tr>
@@ -884,7 +1150,13 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>Tabla</td>
 > <td>Entidad</td>
 > <td>
-> <font size="2"> protocol: mssql-mds <br>autenticación: (windows) <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versión <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entidad </font>
+> <font size="2"> protocol: mssql-mds
+> <br>autenticación: (windows)
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versión
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entidad </font>
 > </td>
 > </tr>
 > <tr>
@@ -892,15 +1164,16 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <td>\*</td>
 > <td>\*</td>
 > <td>
-> <font size=2> protocolo: generic-asset <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
+> <font size=2> protocolo: generic-asset
+> <br>dirección:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table>
-> 
-> 
-> 
-> 
+> </table> 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con CA PPM | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CA PPM.
+title: "Tutorial: Integración de Azure Active Directory con CA PPM | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CA PPM."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5bccef79845fc16c0154ec774817156f5be95884
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integración de Azure Active Directory con CA PPM
+# <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integración de Azure Active Directory con CA PPM
 En este tutorial, obtendrá información sobre cómo integrar CA PPM con Azure Active Directory (Azure AD).
 
 Integrar CA PPM con Azure AD le proporciona las siguientes ventajas:
@@ -200,7 +204,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de CA PPM en el panel de acceso, debería iniciar sesión automáticamente en su aplicación CA PPM.
@@ -229,6 +233,6 @@ Al hacer clic en el icono de CA PPM en el panel de acceso, debería iniciar sesi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

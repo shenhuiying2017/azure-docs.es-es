@@ -1,22 +1,26 @@
 ---
 title: Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus | Microsoft Docs
 description: Aprenda a usar Advanced Message Queuing Protocol (AMQP) 1.0 con los temas y las colas con particiones de Service Bus.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: hillaryc
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e2549ad3-41eb-47e5-b25f-20043a7ffa2a
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 10/14/2016
 ms.author: hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f343c1f087b516c35eb75fc9a1e61c5cf6d1e93
+
 
 ---
-# <a name="amqp-1.0-support-for-service-bus-partitioned-queues-and-topics"></a>Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio
+# <a name="amqp-10-support-for-service-bus-partitioned-queues-and-topics"></a>Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio
 Azure Service Bus es compatible con Advanced Message Queuing Protocol (**AMQP**) 1.0 para las **colas y los temas con particiones de Service Bus.**
 
 **AMQP** es un protocolo de cola de mensajes estándar abierto que permite desarrollar aplicaciones multiplataforma usando distintos lenguajes de programación. Para obtener información general sobre la compatibilidad de AMQP en Service Bus, consulte [Soporte de AMQP 1.0 en Service Bus](service-bus-amqp-overview.md).
@@ -33,7 +37,7 @@ Las colas son útiles para escenarios que requieren desacoplamiento temporal, di
 Una cola con particiones aumenta la disponibilidad, la confiabilidad y el rendimiento de las aplicaciones, ya que estas colas tienen particiones para distintos almacenes y agentes de mensajes.     
 
 ### <a name="create-partitioned-queues"></a>Creación de colas con particiones
-Puede crear una cola con particiones mediante el [Portal de Azure clásico][Portal de Azure clásico] y el SDK de Service Bus. Para crear una cola con particiones, establezca la propiedad [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) en **true** en la instancia de [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). El código siguiente muestra cómo crear una cola con particiones mediante el SDK de Bus de servicio. 
+Puede crear una cola con particiones con el [Portal de Azure clásico][Portal de Azure clásico] y el SDK de Service Bus. Para crear una cola con particiones, establezca la propiedad [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) en **true** en la instancia de [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). El código siguiente muestra cómo crear una cola con particiones mediante el SDK de Bus de servicio. 
 
 ```
 // Create partitioned queue
@@ -68,7 +72,7 @@ Los temas son conceptualmente similares a las colas, pero pueden enrutar una cop
 Al igual que sucede con las colas, los temas con particiones aumentan aún más la disponibilidad, la confiabilidad y el rendimiento de las aplicaciones, ya que dichos temas y sus suscripciones tienen particiones en varios agentes de mensajes y almacenes de mensajería. 
 
 ### <a name="create-partitioned-topics"></a>Creación de temas con particiones
-Los temas con particiones se pueden crear mediante el [Portal de Azure clásico][Portal de Azure clásico] y el SDK de Service Bus. Para crear un tema con particiones, establezca la propiedad [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) en **true** en la instancia de [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). El código siguiente muestra cómo crear un tema con particiones mediante el SDK de Service Bus.
+Los temas con particiones se pueden crear con el [Portal de Azure clásico][Portal de Azure clásico] y el SDK de Service Bus. Para crear un tema con particiones, establezca la propiedad [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) en **true** en la instancia de [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). El código siguiente muestra cómo crear un tema con particiones mediante el SDK de Service Bus.
 
 ```
 // Create partitioned topic
@@ -115,6 +119,6 @@ Consulte la siguiente información adicional para más información sobre las en
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

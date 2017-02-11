@@ -1,26 +1,30 @@
 ---
-title: Implementación de recursos de procesos con plantillas de Azure Resource Manager | Microsoft Docs
-description: Tutorial de DotNet Core para máquinas virtuales de Azure
+title: "Implementación de recursos de proceso con plantillas de Azure Resource Manager | Microsoft Docs"
+description: "Tutorial de DotNet Core para máquinas virtuales de Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 1c4d419e-ba0e-45e4-a9dd-7ee9975a86f9
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
+
 
 ---
 # <a name="application-architecture-with-azure-resource-manager-templates"></a>Arquitectura de aplicaciones con plantillas de Azure Resource Manager
 Al desarrollar una implementación de Azure Resource Manager, los requisitos de procesos deben asignarse a servicios y recursos de Azure. Si una aplicación consta de puntos de conexión HTTP, una base de datos y un servicio de almacenamiento en caché de datos, los recursos de Azure que hospedan cada uno de estos componentes deben racionalizarse. Por ejemplo, la aplicación Music Store de ejemplo incluye una aplicación web que se hospeda en una máquina virtual y una base de datos SQL que se hospeda en la base de datos SQL de Azure. 
 
-Este documento describe cómo se configuran los recursos de procesos de Music Store en la plantilla de Azure Resource Manager de ejemplo. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Implementación de Music Store en Ubuntu).
+Este documento describe cómo se configuran los recursos de procesos de Music Store en la plantilla de Azure Resource Manager de ejemplo. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Implementación de Music Store en Ubuntu). 
 
 ## <a name="virtual-machine"></a>Máquina virtual
 La aplicación Music Store incluye una aplicación web donde los clientes pueden buscar y comprar música. Aunque hay varios servicios de Azure que pueden hospedar aplicaciones web, en este ejemplo se utiliza una máquina virtual. Con la plantilla de Music Store de ejemplo, se implementa una máquina virtual, se instala un servidor web, y se instala y configura el sitio web de Music Store. Este artículo se centra únicamente en la implementación de la máquina virtual. La configuración del servidor web y la aplicación se detalla en un artículo posterior.
@@ -29,7 +33,7 @@ Se puede agregar una máquina virtual a una plantilla mediante el asistente Agre
 
 Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295)(JSON de máquina virtual).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/virtualMachines",
@@ -64,7 +68,7 @@ Las cuentas de almacenamiento tienen numerosas funcionalidades y opciones de alm
 
 Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Storage Account](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109)(Cuenta de almacenamiento).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Storage/storageAccounts",
@@ -76,14 +80,14 @@ Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manag
   "properties": {
     "accountType": "[variables('vhdStorageType')]"
   }
-},
+}
 ```
 
 Una cuenta de almacenamiento se asocia a una máquina virtual dentro de la declaración de plantilla de Resource Manager de la máquina virtual. 
 
 Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine and Storage Account association](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341)(Asociación de cuenta de almacenamiento con una máquina virtual).
 
-```none
+```json
 "osDisk": {
   "name": "osdisk",
   "vhd": {
@@ -109,7 +113,7 @@ Si una máquina virtual requiere una conexión en red interna, como la capacidad
 
 Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Network and Subnets](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136)(Red virtual y subredes).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/virtualNetworks",
@@ -151,7 +155,7 @@ En Azure Portal, la red virtual se asemeja a la siguiente imagen. Observe que to
 
  Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166)(Interfaz de red).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/networkInterfaces",
@@ -200,7 +204,7 @@ Cada recurso de la máquina virtual incluye un perfil de red. La interfaz de red
 
 Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine Network Profile](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350)(Perfil de red de la máquina virtual).
 
-```none
+```json
 "networkProfile": {
   "networkInterfaces": [
     {
@@ -221,9 +225,9 @@ Además de la máquina virtual que hospeda el sitio web de Music Store, se imple
 
 Se puede agregar una base de datos SQL de Azure mediante el asistente Agregar nuevo recurso de Visual Studio o insertando un recurso JSON válido en una plantilla. El recurso de SQL Server incluye un nombre de usuario y una contraseña con derechos administrativos concedidos en la instancia de SQL. Además, se agrega un recurso de firewall de base de datos SQL. De forma predeterminada, las aplicaciones hospedadas en Azure pueden conectarse con la instancia de SQL. Para permitir que una aplicación externa, como SQL Server Management Studio, se conecte a la instancia de SQL, debe configurarse el firewall. Para esta demostración de Music Store, la configuración predeterminada es correcta. 
 
-Siga este vínculo para ver el ejemplo de JSON dentro de la plantilla de Resource Manager – [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
+Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
-```none
+```json
 {
   "apiVersion": "2014-04-01-preview",
   "type": "Microsoft.Sql/servers",
@@ -265,8 +269,11 @@ Para más información sobre la implementación de Azure SQL Database, consulte 
 ## <a name="next-step"></a>Paso siguiente
 <hr>
 
-[Paso 2: acceso y seguridad en plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md)
+[Paso 2: acceso y seguridad en plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

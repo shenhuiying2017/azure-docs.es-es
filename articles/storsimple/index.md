@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar Azure StorSimple, una solución de almacenamiento integrada que administra tareas de almacenamiento entre dispositivos locales y el almacenamiento en la nube de Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c3523cfef54f6084326b913d548449f4a9b646a9
 
 ---
 #<a name="storsimple-documentation"></a>Documentación de StorSimple
 
-StorSimple y Microsoft Azure ofrecen una solución integrada y única de archivo de almacenamiento principal y recuperación ante desastres con Azure como extensión del almacenamiento local. Aprenda a implementar y administrar una solución de StorSimple.
+Aprenda a usar Azure StorSimple, una solución de almacenamiento integrada que administra tareas de almacenamiento entre dispositivos locales y el almacenamiento en la nube de Azure. En los tutoriales y otra documentación, se muestra cómo configurar la administración del almacenamiento, la copia de seguridad independiente de la ubicación y la recuperación ante desastres.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -137,16 +138,10 @@ StorSimple y Microsoft Azure ofrecen una solución integrada y única de archivo
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de StorSimple </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

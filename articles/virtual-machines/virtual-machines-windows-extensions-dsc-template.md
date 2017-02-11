@@ -1,14 +1,14 @@
 ---
-title: Configuración de estado deseado con plantilla de Resource Manager| Microsoft Docs
-description: Definición de la plantilla de Resource Manager para la configuración de estado deseado en Azure con ejemplos y solución de problemas
+title: "Configuración del estado deseado con una plantilla de Resource Manager| Microsoft Docs"
+description: "Definición de la plantilla de Resource Manager para la configuración de estado deseado en Azure con ejemplos y solución de problemas"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: zjalexander
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,12 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 3f14531dfaac9cbe03d99fc45c98060d92232c5f
+
 
 ---
-# VMSS de Windows y configuración de estado deseado con plantillas de Azure Resource Manager
-En este artículo, se describe la plantilla de Resource Manager para el [controlador de extensión de configuración de estado deseado](virtual-machines-windows-extensions-dsc-overview.md).
+# <a name="windows-vmss-and-desired-state-configuration-with-azure-resource-manager-templates"></a>VMSS de Windows y configuración de estado deseado con plantillas de Azure Resource Manager
+En este artículo, se describe la plantilla de Resource Manager para el [controlador de extensiones de configuración de estado deseado](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-## Ejemplo de plantilla para una máquina virtual de Windows
+## <a name="template-example-for-a-windows-vm"></a>Ejemplo de plantilla para una máquina virtual de Windows
 El siguiente fragmento corresponde a la sección Resource de la plantilla.
 
 ```json
@@ -54,8 +58,8 @@ El siguiente fragmento corresponde a la sección Resource de la plantilla.
 
 ```
 
-## Ejemplo de plantilla para VMSS de Windows
-Un nodo de VMSS tiene una sección "properties" con el atributo "extensionProfile" de "VirtualMachineProfile". DSC se agrega en "extensions".
+## <a name="template-example-for-windows-vmss"></a>Ejemplo de plantilla para VMSS de Windows
+Un nodo de VMSS tiene una sección "properties" con el atributo "extensionProfile" de "VirtualMachineProfile". DSC se agrega en "extensions". 
 
 ```json
 "extensionProfile": {
@@ -86,7 +90,7 @@ Un nodo de VMSS tiene una sección "properties" con el atributo "extensionProfil
             ]
 ```
 
-## Información de configuración detallada
+## <a name="detailed-settings-information"></a>Información de configuración detallada
 Este es el esquema para la parte de configuración (settings) de la extensión DSC de Azure en una plantilla de Azure Resource Manager.
 
 ```json
@@ -131,7 +135,7 @@ Este es el esquema para la parte de configuración (settings) de la extensión D
 
 ```
 
-## Detalles
+## <a name="details"></a>Detalles
 | Nombre de propiedad | Tipo | Description |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica la versión de Windows Management Framework que debe instalarse en la máquina virtual. Si se establece esta propiedad en "latest", se instala la versión más reciente de WMF. Los únicos valores posibles actuales para esta propiedad son **"4.0", "5.0", "5.0PP" y "latest"**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es "latest". |
@@ -146,8 +150,10 @@ Este es el esquema para la parte de configuración (settings) de la extensión D
 | protectedSettings.configurationUrlSasToken |string |Especifica el token de SAS para acceder a la dirección URL definida en configuration.url. Esta propiedad no está cifrada. |
 | protectedSettings.configurationDataUrlSasToken |string |Especifica el token de SAS para acceder a la dirección URL definida en configurationData.url. Esta propiedad no está cifrada. |
 
-## Settings frente a ProtectedSettings
-Todas las configuraciones se guardan en un archivo de texto de configuración en la máquina virtual. Las propiedades en "settings" son públicas porque no están cifradas en el archivo de texto de configuración. Las propiedades en "protectedSettings" se cifran con un certificado y no se muestran en texto sin formato en este archivo de la máquina virtual.
+## <a name="settings-vs-protectedsettings"></a>Settings frente a ProtectedSettings
+Todas las configuraciones se guardan en un archivo de texto de configuración en la máquina virtual.
+Las propiedades en "settings" son públicas porque no están cifradas en el archivo de texto de configuración.
+Las propiedades en "protectedSettings" se cifran con un certificado y no se muestran en texto sin formato en este archivo de la máquina virtual.
 
 Si la configuración necesita credenciales, pueden incluirse en protectedSettings:
 
@@ -162,8 +168,9 @@ Si la configuración necesita credenciales, pueden incluirse en protectedSetting
 }
 ```
 
-## Ejemplo
-El ejemplo siguiente se deriva de la sección "Introducción" de la [página con información general sobre el controlador de la extensión DSC](virtual-machines-windows-extensions-dsc-overview.md). Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión. Guardar la configuración "IisInstall.ps1", colóquela en un archivo .ZIP y cargue el archivo en una dirección URL accesible. Este ejemplo usa el almacenamiento de blobs de Azure, pero es posible descargar archivos .ZIP desde cualquier ubicación.
+## <a name="example"></a>Ejemplo
+El ejemplo siguiente se deriva de la sección "Introducción" de la [página de introducción al controlador de extensiones DSC](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión. Guardar la configuración "IisInstall.ps1", colóquela en un archivo .ZIP y cargue el archivo en una dirección URL accesible. Este ejemplo usa el almacenamiento de blobs de Azure, pero es posible descargar archivos .ZIP desde cualquier ubicación.
 
 En la plantilla de Azure Resource Manager, el siguiente código indica a la máquina virtual que descargue el archivo correcto y ejecute la función de PowerShell adecuada:
 
@@ -181,7 +188,7 @@ En la plantilla de Azure Resource Manager, el siguiente código indica a la máq
 }
 ```
 
-## Actualización del formato anterior
+## <a name="updating-from-the-previous-format"></a>Actualización del formato anterior
 Cualquier configuración en el formato anterior (que contiene las propiedades públicas ModulesUrl, ConfigurationFunction, SasToken o Properties) se adaptará automáticamente al formato actual y se ejecutará tal como lo hacía antes.
 
 El esquema de configuración anterior tenía un aspecto similar al siguiente:
@@ -218,50 +225,52 @@ Así se adapta el formato anterior al actual:
 
 | Nombre de propiedad | Equivalente en el esquema anterior |
 | --- | --- |
-| settings.wmfVersion |settings.WMFVersion |
+| settings.wmfVersion |settings.wmfVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |Primera parte de settings.ConfigurationFunction (antes de "\\") |
-| settings.configuration.function |Segunda parte de settings.ConfigurationFunction (después de "\\") |
+| settings.configuration.script |Primera parte de settings.ConfigurationFunction (antes de '\\\\') |
+| settings.configuration.function |Segunda parte de settings.ConfigurationFunction (después de '\\\\') |
 | settings.configurationArguments |settings.Properties |
 | settings.configurationData.url |protectedSettings.DataBlobUri (sin token de SAS) |
-| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
-| settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
+| settings.privacy.dataEnabled |settings.privacy.dataEnabled |
+| settings.advancedOptions.downloadMappings |settings.advancedOptions.downloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |Token de SAS de protectedSettings.DataBlobUri |
 
-## Solución de problemas: código de error 1100
-El código de error 1100 indica que hay un problema con la entrada del usuario a la extensión DSC. El texto de estos errores es variable y puede cambiar. Estos son algunos de los errores que pueden surgir y cómo corregirlos.
+## <a name="troubleshooting---error-code-1100"></a>Solución de problemas: código de error 1100
+El código de error 1100 indica que hay un problema con la entrada del usuario a la extensión DSC.
+El texto de estos errores es variable y puede cambiar.
+Estos son algunos de los errores que pueden surgir y cómo corregirlos.
 
-### Valores no válidos
-"Privacy.dataCollection is '{0}'. The only possible values are '', 'Enable', and 'Disable'" (Privacy.dataCollection es '{0}'. Los únicos valores posibles son ", "Enable" y "Disable") "WmfVersion is '{0}'. Only possible values are … and 'latest'" (WmfVersion es '{0}'. Los únicos valores posibles son … y 'latest')
+### <a name="invalid-values"></a>Valores no válidos
+"Privacy.dataCollection is '{0}'. The only possible values are '', 'Enable', and 'Disable'" (Privacy.dataCollection es '{0}'. Los únicos valores posibles son ", "Enable" y "Disable") "WmfVersion is '{0}'. Los únicos valores posibles son: y "latest".
 
 Problema: No se permite un valor proporcionado.
 
 Solución: Cambie el valor no válido a uno válido. Consulte la tabla en la sección Detalles.
 
-### Dirección URL no válida
+### <a name="invalid-url"></a>Dirección URL no válida
 "ConfigurationData.url is '{0}'. This is not a valid URL" (ConfigurationData.url es '{0}'. No es una dirección URL válida) "DataBlobUri is '{0}'. This is not a valid URL" (DataBlobUri es '{0}'. No es una dirección URL válida) "Configuration.url is '{0}'. This is not a valid URL" This is not a valid URL" (Configuration.url es '{0}'. No es una dirección URL válida)
 
 Problema: Se ha proporcionado una dirección URL que no es válida.
 
 Solución: Compruebe todas las direcciones URL proporcionadas. Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas a las que la extensión pueda acceder en la máquina remota.
 
-### Tipo de ConfigurationArguments no válido
+### <a name="invalid-configurationargument-type"></a>Tipo de ConfigurationArguments no válido
 "Invalid configurationArguments type {0}" (Tipo de configurationArguments no válido {0})
 
-Problema: La propiedad ConfigurationArguments no se puede resolver en un objeto Hashtable.
+Problema: La propiedad ConfigurationArguments no se puede resolver en un objeto Hashtable. 
 
 Solución: Convierta la propiedad ConfigurationArguments en Hashtable. Siga el formato proporcionado en el ejemplo anterior. Esté atento a las comillas, comas y llaves.
 
-### ConfigurationArguments duplicadas
+### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicadas
 "Found duplicate arguments '{0}' in both public and protected configurationArguments" (Se encontraron argumentos duplicados '{0}' en propiedades configurationArguments públicas y privadas)
 
 Problema: La propiedad ConfigurationArguments en la configuración pública y la propiedad ConfigurationArguments en la configuración protegida contienen propiedades con el mismo nombre.
 
 Solución: Quite una de las propiedades duplicadas.
 
-### Propiedades que faltan
+### <a name="missing-properties"></a>Propiedades que faltan
 "Configuration.function requires that configuration.url or configuration.module is specified" (Configuration.function requiere que se especifiquen configuration.url o configuration.module)
 
 "Configuration.url requires that configuration.script is specified" (Configuration.url requiere que se especifique configuration.script)
@@ -276,18 +285,23 @@ Solución: Quite una de las propiedades duplicadas.
 
 Problema: Una propiedad definida requiere otra propiedad que falta.
 
-Soluciones:
+Soluciones: 
 
 * Proporcione la propiedad que falta.
 * Quite la propiedad que necesita la propiedad que falta.
 
-## Pasos siguientes
-Aprenda sobre DSC y los conjuntos de escalado de máquina virtual en [Using Virtual Machine Scale Sets with the Azure DSC Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md) (Uso de conjuntos de escalado de máquina virtual con la extensión DSC de Azure).
+## <a name="next-steps"></a>Pasos siguientes
+Aprenda sobre DSC y los conjuntos de escalado de máquina virtual en [Using Virtual Machine Scale Sets with the Azure DSC Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)
 
-Puede encontrar más detalles en el artículo sobre [administración segura de credenciales de DSC](virtual-machines-windows-extensions-dsc-credentials.md).
+Puede encontrar más información en el artículo sobre [administración segura de credenciales de DSC](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Para más información sobre el controlador de extensiones DSC de Azure, consulte [Introducción al controlador de extensiones de configuración de estado deseado de Azure](virtual-machines-windows-extensions-dsc-overview.md).
+Para más información sobre el controlador de extensiones DSC de Azure, consulte [Introducción al controlador de extensiones de configuración de estado deseado de Azure](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

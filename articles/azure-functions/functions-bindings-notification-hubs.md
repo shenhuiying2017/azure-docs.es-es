@@ -1,156 +1,303 @@
 ---
-title: Enlace de centros de notificaciones de funciones de Azure | Microsoft Docs
-description: Descubra cómo utilizar los enlaces de centros de notificaciones en funciones de Azure.
+title: Enlace de centros de notificaciones de Azure Functions | Microsoft Docs
+description: "Descubra cómo utilizar los enlaces de centros de notificaciones en funciones de Azure."
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: erikre
-editor: ''
-tags: ''
-keywords: funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
-
+editor: 
+tags: 
+keywords: "funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+ms.assetid: 0ff0c949-20bf-430b-8dd5-d72b7b6ee6f7
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 10/27/2016
 ms.author: wesmc
+translationtype: Human Translation
+ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
+ms.openlocfilehash: 1e03a54956a9fd035cf40aa953a2c368d91b766b
+
 
 ---
-# Enlace de salida de centros de notificaciones de Azure de funciones de Azure
+# <a name="azure-functions-notification-hub-output-binding"></a>Enlace de salida de centros de notificaciones de Azure de funciones de Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artículo explica cómo configurar y codificar enlaces de centros de notificaciones de Azure en funciones de Azure.
+Este artículo explica cómo configurar y codificar enlaces de centros de notificaciones de Azure en funciones de Azure. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Las funciones pueden enviar notificaciones push mediante un Centro de notificaciones de Azure configurado mediante unas líneas de código tan solo. Sin embargo, el centro de notificaciones debe configurarse para los servicios de notificaciones de plataforma (PNS) que desea utilizar. Para obtener más información sobre cómo configurar centros de notificaciones de Azure y desarrollar aplicaciones cliente que se registren para recibir notificaciones, consulte [Introducción a Centros de notificaciones](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) y haga clic en la plataforma de cliente de destino de la parte superior.
+Las funciones pueden enviar notificaciones push mediante un Centro de notificaciones de Azure configurado con tan solo unas líneas de código. Sin embargo, el Centro de notificaciones de Azure debe configurarse para los servicios de notificaciones de plataforma (PNS) que desea utilizar. Para obtener más información sobre cómo configurar centros de notificaciones de Azure y desarrollar aplicaciones cliente que se registren para recibir notificaciones, consulte [Introducción a Centros de notificaciones](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) y haga clic en la plataforma de cliente de destino de la parte superior.
 
-## function.json para enlace de salida de centros de notificaciones de Azure
+Las notificaciones que envía pueden ser nativas o de plantillas. Las notificaciones nativas se envían a una plataforma de notificación específica, tal y como está configurado en la propiedad `platform` del enlace de salida. Las notificaciones de plantillas pueden enviarse varias plataformas.   
+
+## <a name="notification-hub-output-binding-properties"></a>Propiedades del enlace de salida del Centro de notificaciones
 El archivo function.json ofrece las siguientes propiedades:
 
-* `name`: nombre de variable utilizado en el código de función para el mensaje del centro de notificaciones.
-* `type`: se debe establecer en *"notificationHub"*.
-* `tagExpression`: las expresiones de etiqueta permiten especificar las notificaciones que se entregarán a un conjunto de dispositivos que se registraron para recibir las notificaciones que coincidan con estas expresiones. Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](../notification-hubs/notification-hubs-tags-segment-push-message.md).
-* `hubName`: nombre del recurso del centro de notificaciones en el Portal de Azure.
-* `connection`: esta cadena de conexión debe ser una cadena de conexión de la **configuración de la aplicación** establecida en el valor *DefaultFullSharedAccessSignature* para el centro de notificaciones.
-* `direction`: debe establecerse en *out*.
+* `name` : nombre de variable utilizado en el código de función para el mensaje del centro de notificaciones.
+* `type` : se debe establecer en *"notificationHub"*.
+* `tagExpression` : las expresiones de etiqueta permiten especificar las notificaciones que se entregarán a un conjunto de dispositivos que se registraron para recibir las notificaciones que coincidan con estas expresiones.  Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](../notification-hubs/notification-hubs-tags-segment-push-message.md).
+* `hubName` : nombre del recurso del centro de notificaciones en el Portal de Azure.
+* `connection` : esta cadena de conexión debe ser una cadena de conexión de la **configuración de la aplicación** establecida en el valor *DefaultFullSharedAccessSignature* para el centro de notificaciones.
+* `direction` : debe establecerse en *out*. 
+* `platform`: la propiedad de plataforma indica la plataforma de notificación donde se enviará la notificación. Debe ser uno de los siguientes valores: 
+  * `template`: se trata de la plataforma predeterminada si se omite la propiedad de la plataforma en el enlace de salida. Las notificaciones de plantillas se pueden enviar a cualquier plataforma configurada en el Centro de notificaciones de Azure. Para obtener más información sobre cómo utilizar plantillas en general para enviar notificaciones multiplataforma con un Centro de notificaciones de Azure, consulte [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) (Plantillas).
+  * `apns`: Apple Push Notification Service. Para obtener más información sobre cómo configurar el Centro de notificaciones para APNS y recibir la notificación en una aplicación cliente, consulte [Envío de notificaciones push a iOS con Notification Hubs de Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md). 
+  * `adm`: [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para obtener más información sobre cómo configurar el Centro de notificaciones para ADM y recibir la notificación en una aplicación de Kindle, consulte [Introducción a Notification Hubs para aplicaciones Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md). 
+  * `gcm`: [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). También se admite Firebase Cloud Messaging, que es la nueva versión de GCM. Para obtener más información sobre cómo configurar el Centro de notificaciones para GCM o FCM y recibir la notificación en una aplicación cliente, consulte [Envío de notificaciones push a Android con Notification Hubs de Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).
+  * `wns`: [servicios de notificaciones push de Windows](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) (WNS) que tienen como destino plataformas Windows. WNS también admite Windows Phone 8.1 y versiones posteriores. Para obtener más información sobre cómo configurar el Centro de notificaciones para WNS y recibir la notificación en una aplicación de la Plataforma universal de Windows (UWP), consulte [Introducción a Notification Hubs para aplicaciones de la plataforma universal de Windows](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+  * `mpns`: [servicio de notificaciones push de Microsoft](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx) (MPNS). Esta plataforma es compatible con Windows Phone 8 y versiones anteriores. Para obtener más información sobre cómo configurar el Centro de notificaciones para MPNS y recibir la notificación en una aplicación de Windows Phone, consulte [Envío de notificaciones push con Notification Hubs de Azure en Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).
 
 Function.json de ejemplo:
 
+```json
+{
+  "bindings": [
     {
-      "bindings": [
-        {
-          "name": "notification",
-          "type": "notificationHub",
-          "tagExpression": "",
-          "hubName": "my-notification-hub",
-          "connection": "MyHubConnectionString",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
+      "name": "notification",
+      "type": "notificationHub",
+      "tagExpression": "",
+      "hubName": "my-notification-hub",
+      "connection": "MyHubConnectionString",
+      "platform": "gcm",
+      "direction": "out"
     }
+  ],
+  "disabled": false
+}
+```
 
-## Configuración de la cadena de conexión del centro de notificaciones de Azure
-Para usar un enlace de salida del centro de notificaciones debe configurar la cadena de conexión para el mismo. Esto se puede realizar en la pestaña *Integrar* simplemente seleccionando el centro de notificaciones o creando uno nuevo.
+## <a name="notification-hub-connection-string-setup"></a>Configuración de la cadena de conexión del Centro de notificaciones
+Para usar un enlace de salida del Centro de notificaciones, debe configurar la cadena de conexión para él. Puede hacerlo en la pestaña *Integrar* seleccionando el Centro de notificaciones o creando uno. 
 
-También puede agregar manualmente una cadena de conexión para un centro existente mediante la adición de una cadena de conexión para *DefaultFullSharedAccessSignature* al centro de notificaciones. Esta cadena de conexión le proporciona sus permisos de acceso de función para enviar mensajes de notificación. Al valor de la cadena de conexión *DefaultFullSharedAccessSignature* se puede acceder desde el botón **Claves** de la hoja principal del recurso del centro de notificaciones en el Portal de Azure. Para agregar manualmente una cadena de conexión para su centro, siga estos pasos:
+También puede agregar manualmente una cadena de conexión para un centro existente mediante la adición de una cadena de conexión para *DefaultFullSharedAccessSignature* al centro de notificaciones. Esta cadena de conexión le proporciona sus permisos de acceso de función para enviar mensajes de notificación. Al valor de la cadena de conexión *DefaultFullSharedAccessSignature* se puede acceder desde el botón **Claves** de la hoja principal del recurso del centro de notificaciones en el Portal de Azure. Para agregar manualmente una cadena de conexión para su centro, siga estos pasos: 
 
-1. En la hoja **Function App** del Portal de Azure, haga clic en **Function App Settings > Go to App Service settings** (Configuración de Function App > Ir a la configuración del Servicio de aplicaciones).
+1. En la hoja **Function App** de Azure Portal, haga clic en **Configuración de Function App > Ir a Configuración de App Service**.
 2. Vuelva a la hoja **Configuración** y haga clic en **Configuración de la aplicación**.
-3. Desplácese hacia abajo hasta la sección **Cadenas de conexión** y agregue una entrada con nombre para el valor *DefaultFullSharedAccessSignature* para el centro de notificaciones. Cambie el tipo a **Personalizado**.
+3. Desplácese hacia abajo hasta la sección **Cadenas de conexión** y agregue una entrada con nombre para el valor *DefaultFullSharedAccessSignature* del Centro de notificaciones. Cambie el tipo a **Personalizado**.
 4. Haga referencia al nombre de la cadena de conexión en los enlaces de salida. De forma parecida al valor **MyHubConnectionString** utilizado en el ejemplo anterior.
 
-## Ejemplo de código de centro de notificaciones de Azure para un desencadenador de temporizador de Node.js
-En este ejemplo, se envía una notificación a un [registro de plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `location` y `message`.
+## <a name="apns-native-notifications-with-c-queue-triggers"></a>Notificaciones nativas de APNS con desencadenadores de colas de C#
+En este ejemplo, se muestra cómo utilizar los tipos definidos en la [biblioteca de Notification Hubs de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) para enviar una notificación de APNS nativa. 
 
-    module.exports = function (context, myTimer) {
-        var timeStamp = new Date().toISOString();
+```cs
+#r "Microsoft.Azure.NotificationHubs"
+#r "Newtonsoft.Json"
 
-        if(myTimer.isPastDue)
-        {
-            context.log('Node.js is running late!');
-        }
-        context.log('Node.js timer trigger function ran!', timeStamp);  
-        context.bindings.notification = {
-            location: "Redmond",
-            message: "Hello from Node!"
-        };
-        context.done();
+using System;
+using Microsoft.Azure.NotificationHubs;
+using Newtonsoft.Json;
+
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // a "name" value.
+    //
+    // The JSON format for a native APNS notification is ...
+    // { "aps": { "alert": "notification message" }}  
+
+    log.Info($"Sending APNS notification of a new user");    
+    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
+    string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
+                                        user.name + ")\" }}";
+    log.Info($"{apnsNotificationPayload}");
+    await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
+}
+```
+
+## <a name="gcm-native-notifications-with-c-queue-triggers"></a>Notificaciones nativas de GCM con desencadenadores de colas de C#
+En este ejemplo, se muestra cómo utilizar los tipos definidos en la [biblioteca de Notification Hubs de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) para enviar una notificación de GCM nativa. 
+
+```cs
+#r "Microsoft.Azure.NotificationHubs"
+#r "Newtonsoft.Json"
+
+using System;
+using Microsoft.Azure.NotificationHubs;
+using Newtonsoft.Json;
+
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // a "name" value.
+    //
+    // The JSON format for a native GCM notification is ...
+    // { "data": { "message": "notification message" }}  
+
+    log.Info($"Sending GCM notification of a new user");    
+    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
+    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
+                                        user.name + ")\" }}";
+    log.Info($"{gcmNotificationPayload}");
+    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
+}
+```
+
+## <a name="wns-native-notifications-with-c-queue-triggers"></a>Notificaciones nativas de WNS con desencadenadores de colas de C#
+En este ejemplo, se muestra cómo utilizar los tipos definidos en la [biblioteca de Notification Hubs de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) para enviar una notificación de WNS nativa. 
+
+```cs
+#r "Microsoft.Azure.NotificationHubs"
+#r "Newtonsoft.Json"
+
+using System;
+using Microsoft.Azure.NotificationHubs;
+using Newtonsoft.Json;
+
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // a "name" value.
+    //
+    // The XML format for a native WNS toast notification is ...
+    // <?xml version="1.0" encoding="utf-8"?>
+    // <toast>
+    //      <visual>
+    //     <binding template="ToastText01">
+    //       <text id="1">notification message</text>
+    //     </binding>
+    //   </visual>
+    // </toast>
+
+    log.Info($"Sending WNS toast notification of a new user");    
+    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
+    string wnsNotificationPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                                    "<toast><visual><binding template=\"ToastText01\">" +
+                                        "<text id=\"1\">" + 
+                                            "A new user wants to be added (" + user.name + ")" + 
+                                        "</text>" +
+                                    "</binding></visual></toast>";
+
+    log.Info($"{wnsNotificationPayload}");
+    await notification.AddAsync(new WindowsNotification(wnsNotificationPayload));        
+}
+```
+
+## <a name="template-example-for-nodejs-timer-triggers"></a>Ejemplo de plantillas para desencadenadores de temporizador de Node.js
+En este ejemplo, se envía una notificación a un [registro de plantillas`message` que contiene ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) y `location`.
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);  
+    context.bindings.notification = {
+        location: "Redmond",
+        message: "Hello from Node!"
     };
+    context.done();
+};
+```
 
-## Ejemplo de código de centro de notificaciones de Azure para un desencadenador de temporizador de F
-En este ejemplo, se envía una notificación a un [registro de plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `location` y `message`.
+## <a name="template-example-for-f-timer-triggers"></a>Ejemplo de plantillas para desencadenadores de temporizador de F#
+En este ejemplo, se envía una notificación a un [registro de plantillas`message` que contiene ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) y `location`.
 
-    let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
-        notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+```fsharp
+let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+```
 
-## Ejemplo de código de centro de notificaciones de Azure para un desencadenador de cola de C
-En este ejemplo, se envía una notificación a un [registro de plantilla](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `message`.
+## <a name="template-example-using-an-out-parameter"></a>Ejemplo de plantilla con un parámetro de salida
+En este ejemplo, se envía una notificación a un [registro de plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene un marcador de posición `message` en la plantilla.
 
-    using System;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
+```cs
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-    public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
-        notification = GetTemplateProperties(myQueueItem);
-    }
+public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    notification = GetTemplateProperties(myQueueItem);
+}
 
-    private static IDictionary<string, string> GetTemplateProperties(string message)
-    {
-        Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-        templateProperties["message"] = message;
-        return templateProperties;
-    }
+private static IDictionary<string, string> GetTemplateProperties(string message)
+{
+    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+    templateProperties["message"] = message;
+    return templateProperties;
+}
+```
 
-En este ejemplo, se envía una notificación a un [registro de plantilla](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `message` mediante una cadena JSON válida.
+## <a name="template-example-with-asynchronous-function"></a>Ejemplo de plantilla de función asincrónica
+Si va a utilizar código asincrónico, no se admiten parámetros de salida. En este caso, utilice `IAsyncCollector` para devolver la notificación de plantillas. El código siguiente es un ejemplo asincrónico del anterior. 
 
-    using System;
+```cs
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-    public static void Run(string myQueueItem,  out string notification, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
-        notification = "{"message":"Hello from C#. Processed a queue item!"}";
-    }
+public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<string,string>> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-## Ejemplo de código de C# de desencadenador de cola del Centro de notificaciones de Azure que utiliza un tipo de notificación
-En este ejemplo, se muestra cómo utilizar el tipo `Notification` definido en la [biblioteca de centros de notificaciones de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Para utilizar este tipo y la biblioteca, debe cargar un archivo *project.json* para la aplicación de función. El archivo project.json es un archivo de texto JSON que tendrá un aspecto similar al siguiente:
+    log.Info($"Sending Template Notification to Notification Hub");
+    await notification.AddAsync(GetTemplateProperties(myQueueItem));    
+}
 
-    {
-      "frameworks": {
-        ".NETFramework,Version=v4.6": {
-          "dependencies": {
-            "Microsoft.Azure.NotificationHubs": "1.0.4"
-          }
-        }
-      }
-    }
+private static IDictionary<string, string> GetTemplateProperties(string message)
+{
+    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+    templateProperties["user"] = "A new user wants to be added : " + message;
+    return templateProperties;
+}
+```
 
-Para obtener más información sobre cómo cargar el archivo project.json, consulte el artículo sobre la [carga de un archivo project.json](functions-reference.md#fileupdate).
+## <a name="template-example-using-json"></a>Ejemplo de plantilla con JSON
+En este ejemplo, se envía una notificación a un [registro de plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene un marcador de posición `message` en la plantilla mediante una cadena JSON válida.
 
-Ejemplo de código:
+```cs
+using System;
 
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.NotificationHubs;
+public static void Run(string myQueueItem,  out string notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
+}
+```
 
-    public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
-    {
-       log.Info($"C# Queue trigger function processed: {myQueueItem}");
-       notification = GetTemplateNotification(myQueueItem);
-    }
-    private static TemplateNotification GetTemplateNotification(string message)
-    {
-        Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-        templateProperties["message"] = message;
-        return new TemplateNotification(templateProperties);
-    }
+## <a name="template-example-using-notification-hubs-library-types"></a>Ejemplo de plantilla con tipos de biblioteca de Notification Hubs
+En este ejemplo, se muestra cómo utilizar los tipos definidos en la [biblioteca de Notification Hubs de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
-## Pasos siguientes
-[!INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
+```cs
+#r "Microsoft.Azure.NotificationHubs"
 
-<!---HONumber=AcomDC_0921_2016-->
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.NotificationHubs;
+
+public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
+{
+   log.Info($"C# Queue trigger function processed: {myQueueItem}");
+   notification = GetTemplateNotification(myQueueItem);
+}
+
+private static TemplateNotification GetTemplateNotification(string message)
+{
+    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+    templateProperties["message"] = message;
+    return new TemplateNotification(templateProperties);
+}
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

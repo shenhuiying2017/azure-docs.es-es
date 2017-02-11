@@ -771,7 +771,7 @@ Al usar la búsqueda de registros para buscar datos, los resultados muestran div
 | csMethod |W3CIISLog |Método HTTP (GET, POST, etc.) usado por el cliente en la solicitud HTTP. El campo cs-method en el registro original |
 | cIP |W3CIISLog |Dirección IP de cliente de la que procede la solicitud de HTTP. El campo c-ip en el registro original |
 | csUserAgent |W3CIISLog |El agente de usuario HTTP declarado por el cliente (explorador o de otro modo). El campo cs-user-agent en el registro original |
-| scStatus |W3CIISLog |Código de estado HTTP (200/403, 500/etc.) devuelto por el servidor al cliente. El campo cs-status en el registro original |
+| scStatus |W3CIISLog |Código de estado HTTP (200/403,&500;/etc.) devuelto por el servidor al cliente. El campo cs-status en el registro original |
 | TimeTaken |W3CIISLog |El tiempo que ha tardado en completarse la solicitud, expresado en milisegundos. El campo timetaken en el registro original |
 | csUriStem |W3CIISLog |El Uri relativo (sin dirección host, es decir, '/buscar') que se solicitó. El campo cs-uristem en el registro original |
 | csUriQuery |W3CIISLog |Consulta de URI. Las consultas URI son necesarias solo para páginas dinámicas, por ejemplo, páginas ASP, por lo que este campo normalmente contiene un guión para páginas estáticas. |

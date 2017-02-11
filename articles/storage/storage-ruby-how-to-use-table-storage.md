@@ -3,8 +3,8 @@ title: Uso de Azure Table Storage en Ruby | Microsoft Docs
 description: "Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c05d8d244f22998113b0fa9c7508ecc287bdbd64
-ms.openlocfilehash: d43160bf1fa7dd08bb6c3fd5e2d0f3111134239b
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: e1df2fcf4478ef7f58c5686e85abd6ae94b5a2d3
 
 
 ---
@@ -62,15 +62,15 @@ Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. En la hoja Configuración que se encuentra a la derecha, haga clic en **Claves de acceso**.
-4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas. 
-5. Haga clic en el icono de copia para copiar la clave en el Portapapeles. 
+4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas.
+5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
 Para obtener estos valores desde una cuenta de almacenamiento clásica en el Portal de Azure clásico:
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. Haga clic en **ADMINISTRAR CLAVES DE ACCESO** en la parte inferior del panel de navegación.
-4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria. 
+4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria.
 5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
 ## <a name="create-a-table"></a>Creación de una tabla
@@ -143,8 +143,8 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 > [!NOTE]
 > Si el resultado establecido es demasiado largo para que lo devuelva una única consulta, se devolverá un token de continuación que puede usar para recuperar las páginas siguientes.
-> 
-> 
+>
+>
 
 ## <a name="query-a-subset-of-entity-properties"></a>Consulta de un subconjunto de propiedades de las entidades
 Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. Esta técnica, denominada "proyección", reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. Utilice la cláusula select y pase los nombres de las propiedades que quiera que lleguen al cliente.
@@ -178,6 +178,6 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

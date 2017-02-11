@@ -1,13 +1,12 @@
-
 ---
-title: Migración de Recommendations API de Azure Cognitive Services desde Recommendations API de DataMarket | Microsoft Docs
-description: Recomendaciones de Azure Machine Learning - Migración a recomendaciones de Cognitive Services
+title: "Migración de Recommendations API de Azure Cognitive Services desde Recommendations API de DataMarket | Microsoft Docs"
+description: "Recomendaciones de Azure Machine Learning - Migración a recomendaciones de Cognitive Services"
 services: cognitive-services
-documentationcenter: ''
+documentationcenter: 
 author: luiscabrer
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ec9cc302-fef5-4b68-8f9b-fa73538d0424
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,34 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2016
 ms.author: luisca
+translationtype: Human Translation
+ms.sourcegitcommit: 8329cc800f685455be113521446e691b5798c1fc
+ms.openlocfilehash: 072f92b186f32813eef9b17e742081b680ef86a3
+
 
 ---
-# Migración a Recommendations API de Azure Cognitive Services desde Recommendations API de DataMarket
-En este artículo se explica cómo migrar desde [Recommendations API de Microsoft DataMarket](https://datamarket.azure.com/dataset/amla/recommendations) a [Recommendations API de Microsoft Azure Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
+# <a name="migrate-to-azure-cognitive-services-recommendations-api-from-the-datamarket-recommendations-api"></a>Migración a Recommendations API de Azure Cognitive Services desde Recommendations API de DataMarket
+En este artículo se explica cómo migrar desde [Recommendations API de Microsoft DataMarket](https://datamarket.azure.com/dataset/amla/recommendations) a [Recommendations API de Microsoft Azure Cognitive Services](https://www.microsoft.com/cognitive-services/en-us/recommendations-api).
 
 Recommendations API de DataMarket dejará de aceptar nuevos clientes hasta el 31 de diciembre de 2016 y dejará de utilizarse el 28 de febrero de 2017.
 
-## ¿Cómo empiezo a utilizar Recommendations API de Azure Cognitive Services?
+## <a name="how-do-i-start-using-the-azure-cognitive-services-recommendations-api"></a>¿Cómo empiezo a utilizar Recommendations API de Azure Cognitive Services?
 Para migrar Recommendations API de Cognitive Services, realice lo siguiente:
 
-1. Si aún no tiene una suscripción de Azure, [regístrese](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/Recommendations/pricingtier/S1) para crear una.
-2. Obtenga instrucciones paso a paso de la [Guía de inicio rápido](cognitive-services-recommendations-quick-start.md) para registrarse en Recommendations API de Cognitive Services, a fin de poder utilizar esta API mediante programación.
-3. Vaya a la [página de aterrizaje de Recommendations API de Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api) para obtener información sobre el servicio y encontrar documentación.
+1. Si aún no tiene una suscripción de Azure, [regístrese](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/Recommendations/pricingtier/S1) para crear una. 
+2. Obtenga instrucciones paso a paso de la [Guía de inicio rápido](cognitive-services-recommendations-quick-start.md) para registrarse en Recommendations API de Cognitive Services, a fin de poder utilizar esta API mediante programación. 
+3. Vaya a la [página de aterrizaje de Recommendations API de Cognitive Services](https://www.microsoft.com/cognitive-services/en-us/recommendations-api) para obtener información sobre el servicio y encontrar documentación.
 
-## He usado la interfaz de usuario de Recommendations para generar los modelos. ¿Hay alguna herramienta similar para Recommendations API de Cognitive Services?
-Por supuesto. La dirección URL para la nueva [interfaz de usuario de Recommendations](http://recommendations-portal.azurewebsites.net/) es http://recommendations-portal.azurewebsites.net.
+## <a name="i-used-the-recommendations-ui-to-build-my-models-is-there-a-similar-tool-for-the-cognitive-services-recommendations-api"></a>He usado la interfaz de usuario de Recommendations para generar los modelos. ¿Hay alguna herramienta similar para Recommendations API de Cognitive Services?
+Por supuesto. La dirección URL de la nueva [interfaz de usuario de recomendaciones](http://recommendations-portal.azurewebsites.net/) es http://recommendations-portal.azurewebsites.net. 
 
 > [!NOTE]
-> Las credenciales de DataMarket no funcionan aquí. Regístrese para obtener una suscripción a Azure Portal y obtener la clave de cuenta necesaria para utilizar la nueva [interfaz de usuario de Recommendations](http://recommendations-portal.azurewebsites.net/). Si no tiene una clave de cuenta, vea la tarea 1 de la [Guía de inicio rápido](cognitive-services-recommendations-quick-start.md).
+> Las credenciales de DataMarket no funcionan aquí. Regístrese para obtener una suscripción a Azure Portal y obtener la clave de cuenta necesaria para utilizar la nueva [interfaz de usuario de Recommendations](http://recommendations-portal.azurewebsites.net/).
+> Si no tiene una clave de cuenta, vea la tarea 1 de la [Guía de inicio rápido](cognitive-services-recommendations-quick-start.md).
 > 
 > 
 
-## ¿El formato de la nueva API es el mismo que el de Recommendations API de DataMarket?
+## <a name="is-the-new-api-format-the-same-as-the-datamarket-recommendations-api"></a>¿El formato de la nueva API es el mismo que el de Recommendations API de DataMarket?
 La API admite los mismos escenarios y los flujos de proceso que los escenarios admitidos en la versión de DataMarket, pero se ha actualizado la interfaz real de la API para que se ajuste a las [directrices de la API de REST de Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Las API son más coherentes y funcionan mejor con las herramientas que admiten Swagger.
 
-Para comprender cada una de las API, consulte el [explorador de API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db). Utilice el botón *Probarlo* para probar una llamada API. El formato de archivos utilizado por Recommendations API (archivos de catálogo y uso) no ha cambiado, por lo que puede seguir usando los mismos archivos o la infraestructura creada para generar esos archivos.
+Para comprender cada una de las API, consulte el [explorador de API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db).
+Utilice el botón *Probarlo* para probar una llamada API. El formato de archivos utilizado por Recommendations API (archivos de catálogo y uso) no ha cambiado, por lo que puede seguir usando los mismos archivos o la infraestructura creada para generar esos archivos.
 
-## ¿Cuáles son algunas características nuevas de Recommendations API de Cognitive Services?
+## <a name="what-are-some-new-features-in-the-cognitive-services-recommendations-api"></a>¿Cuáles son algunas características nuevas de Recommendations API de Cognitive Services?
 Durante los últimos dos meses, se han publicado nuevas funcionalidades para Recommendations API de Cognitive Services:
 
 * Interfaz de usuario de Recommendations para modelos de aprendizaje y pruebas sin tener que escribir una sola línea de código
@@ -53,10 +58,15 @@ Durante los últimos dos meses, se han publicado nuevas funcionalidades para Rec
 * Compatibilidad de generación de clasificación para consultar las características de calidad de elementos en un modelo de recomendaciones
 * Se ha agregado funcionalidad para buscar un producto en el catálogo
 
-## ¿Cuándo Microsoft deja de admitir Recommendations API de DataMarket?
-[Recommendations API de DataMarket](https://datamarket.azure.com/dataset/amla/recommendations) deja de aceptar nuevos clientes después del 31 de diciembre de 2016, y el 28 de febrero de 2017 se dejará de utilizar por completo.
+## <a name="when-does-microsoft-stop-supporting-the-datamarket-recommendations-api"></a>¿Cuándo Microsoft deja de admitir Recommendations API de DataMarket?
+[Recommendations API de DataMarket](https://datamarket.azure.com/dataset/amla/recommendations) deja de aceptar nuevos clientes después del 31 de diciembre de 2016, y el 28 de febrero de 2017 se dejará de utilizar por completo. 
 
-## ¿Qué ocurre si no tengo los datos necesarios para volver a crear los modelos en Recommendations API de Cognitive Services?
+## <a name="what-if-i-dont-have-the-data-that-i-need-to-recreate-my-models-in-the-cognitive-services-recommendations-api"></a>¿Qué ocurre si no tengo los datos necesarios para volver a crear los modelos en Recommendations API de Cognitive Services?
 Se pretende realizar esta transición lo antes posible. Podemos ayudarle a mover los modelos antiguos de su cuenta de DataMarket a la nueva suscripción de Recommendations API de Azure Cognitive Services. Póngase en contacto con nosotros en [mlapi@microsoft.com](mailto://mlapi@microsoft.com). Se le pedirá que proporcione el identificador de suscripción de DataMarket y el identificador de suscripción de Cognitive Services, antes de asociar los modelos con la nueva cuenta.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

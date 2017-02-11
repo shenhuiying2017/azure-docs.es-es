@@ -41,8 +41,8 @@ Al definir el esquema, debe especificar el nombre, el tipo y los atributos de ca
 | *Edm.String* |Texto que opcionalmente se puede acortar para búsquedas de texto completo (separación de palabras, lematización, etc.). |
 | *Collection(Edm.String)* |Una lista de cadenas que opcionalmente se pueden acortar para búsquedas de texto completo. En teoría, no hay ningún límite superior para el número de elementos de una colección, pero el límite de 16 MB en el tamaño de la carga se aplica a las colecciones. |
 | *Edm.Boolean* |Contiene valores true/false. |
-| *Edm.Int32* |Valores enteros de 32 bits. |
-| *Edm.Int64* |Valores enteros de 64 bits. |
+| *Edm.Int32* |Valores enteros de&32; bits. |
+| *Edm.Int64* |Valores enteros de&64; bits. |
 | *Edm.Double* |Datos numéricos de precisión doble. |
 | *Edm.DateTimeOffset* |Los valores de hora y fecha se representan con el formato OData V4 (por ejemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Un punto que representa una ubicación geográfica en todo el mundo. |

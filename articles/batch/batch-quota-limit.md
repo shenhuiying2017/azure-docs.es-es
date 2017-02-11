@@ -3,7 +3,7 @@ title: "Límites y cuotas del servicio Batch | Microsoft Docs"
 description: "Obtenga información sobre las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3433ce8b664fb02c5c267ea4b21e678fdc1accfe
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 
 
 ---
@@ -58,7 +58,7 @@ Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
     ![Cuotas de la cuenta de Lote][account_quotas]
 
 ## <a name="increase-a-quota"></a>Aumento de la cuota
-Siga los pasos de a continuación para solicitar un aumento de la cuota mediante [Azure Portal][portal].
+Siga los pasos a continuación para solicitar un aumento de la cuota mediante el [Azure Portal][portal].
 
 1. Seleccione el icono **Ayuda y soporte técnico** en el panel del portal o el signo de interrogación (**?**) en la esquina superior derecha del portal.
 2. Seleccione **Nueva solicitud de soporte técnico** > **Básico**.
@@ -103,6 +103,6 @@ Una vez que haya enviado la solicitud de soporte técnico, el servicio de soport
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

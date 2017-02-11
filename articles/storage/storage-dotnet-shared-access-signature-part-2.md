@@ -3,8 +3,8 @@ title: Crear y usar una SAS con Blob Storage | Microsoft Docs
 description: "En este tutorial se muestra cómo crear firmas de acceso compartido para su uso con Almacenamiento de blobs y cómo usarlas desde las aplicaciones cliente."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf65af15bc3b71baf92aec93eb1a599b9f931c2
-ms.openlocfilehash: f0e84beb6086fc098564de9f0c82846f386136c2
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 62ad4d3edeca07f1c4fe11fb6904dcbfb8f91435
 
 
 ---
@@ -43,7 +43,7 @@ En Visual Studio, cree una aplicación de consola de Windows y denomínela **Gen
 En la parte superior del archivo Program.cs, agregue las siguientes instrucciones **using** :
 
 ```csharp
-using System.IO;    
+using System.IO;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -115,7 +115,7 @@ Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
 Console.WriteLine();
 ```
 
-Compile y ejecute para generar el URI de la firma de acceso compartido para el nuevo contenedor, que será similar al siguiente:       
+Compile y ejecute para generar el URI de la firma de acceso compartido para el nuevo contenedor, que será similar al siguiente:
 
 `https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D`
 
@@ -158,7 +158,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
 }
 ```
 
-En la parte inferior del método **Main()**, agregue las líneas siguientes para llamar a **GetBlobSasUri()**, antes de la llamada a **Console.ReadLine()**, y escriba el URI de la firma de acceso compartido en la ventana de la consola:    
+En la parte inferior del método **Main()**, agregue las líneas siguientes para llamar a **GetBlobSasUri()**, antes de la llamada a **Console.ReadLine()**, y escriba el URI de la firma de acceso compartido en la ventana de la consola:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, without a stored access policy.
@@ -201,7 +201,7 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
 }
 ```
 
-En la parte inferior del método **Main()**, antes de la llamada a **Console.ReadLine()**, agregue las siguientes líneas para borrar primero cualquier directiva de acceso existente y llame luego al método **CreateSharedAccessPolicy()**:    
+En la parte inferior del método **Main()**, antes de la llamada a **Console.ReadLine()**, agregue las siguientes líneas para borrar primero cualquier directiva de acceso existente y llame luego al método **CreateSharedAccessPolicy()**:
 
 ```csharp
 //Clear any existing access policies on container.
@@ -272,7 +272,7 @@ static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string polic
 }
 ```
 
-En la parte inferior del método **Main()**, antes de la llamada a **Console.ReadLine()**, agregue las siguientes líneas para llamar al método **GetBlobSasUriWithPolicy**:    
+En la parte inferior del método **Main()**, antes de la llamada a **Console.ReadLine()**, agregue las siguientes líneas para llamar al método **GetBlobSasUriWithPolicy**:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
@@ -334,8 +334,8 @@ Para probar las firmas de acceso compartido creadas en los ejemplos anteriores, 
 
 > [!NOTE]
 > Si han transcurrido más de 24 horas desde que se completó la primera parte del tutorial, las firmas generadas ya no serán válidas. En este caso, deberá ejecutar el código de la primera aplicación de consola a fin de generar nuevas firmas de acceso compartido y usarlas en la segunda parte del tutorial.
-> 
-> 
+>
+>
 
 En Visual Studio, cree una nueva aplicación de consola de Windows y denomínela **ConsumeSharedAccessSignatures**. Agregue referencias a **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll**, como ya ha hecho anteriormente.
 
@@ -448,7 +448,7 @@ static void UseContainerSAS(string sas)
         Console.WriteLine("Delete operation failed for SAS " + sas);
         Console.WriteLine("Additional error information: " + e.Message);
         Console.WriteLine();
-    }        
+    }
 }
 ```
 
@@ -543,7 +543,7 @@ static void UseBlobSAS(string sas)
         Console.WriteLine("Delete operation failed for SAS " + sas);
         Console.WriteLine("Additional error information: " + e.Message);
         Console.WriteLine();
-    }        
+    }
 }
 ```
 
@@ -587,6 +587,6 @@ Ejecute la aplicación de consola y observe el resultado para ver qué operacion
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

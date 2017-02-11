@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed30706426271f63126905614a631961d6e5ddf8
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: ed30706426271f63126905614a631961d6e5ddf8
 > 
 > 
 
-Aprenda a usar la [replicación geográfica](sql-database-geo-replication-overview.md) en Base de datos SQL para permitir actualizaciones graduales de la aplicación en la nube. Como la actualización es una operación problemática, pues debe ser parte del diseño y planeamiento de continuidad. En este artículo veremos dos métodos diferentes de organizar el proceso de actualización y comentaremos las ventajas y desventajas de cada opción. Para este artículo, usaremos una aplicación simple que consta de un sitio web conectado a una base de datos única como su capa de datos. Nuestro objetivo consiste en actualizar la versión 1 de la aplicación a la versión 2 sin que se observe ningún impacto importante en la experiencia del usuario final. 
+Aprenda a usar la [replicación geográfica](sql-database-geo-replication-overview.md) en Base de datos SQL para permitir actualizaciones graduales de la aplicación en la nube. Como la actualización es una operación problemática, pues debe ser parte del diseño y planeamiento de continuidad. En este artículo veremos dos métodos diferentes de organizar el proceso de actualización y comentaremos las ventajas y desventajas de cada opción. Para este artículo, usaremos una aplicación simple que consta de un sitio web conectado a una base de datos independiente como su capa de datos. Nuestro objetivo consiste en actualizar la versión 1 de la aplicación a la versión 2 sin que se observe ningún impacto importante en la experiencia del usuario final. 
 
 Al evaluar las opciones de actualización, se deben considerar los factores siguientes:
 
@@ -40,7 +40,7 @@ Al evaluar las opciones de actualización, se deben considerar los factores sigu
 Si la aplicación se basa en copias de seguridad automáticas y utiliza la restauración geográfica para la recuperación ante desastres, normalmente se implementa en una única región de Azure. En este caso el proceso de actualización implica la creación de una implementación de copia de seguridad de todos los componentes de la aplicación implicados en la actualización. Para minimizar la interrupción para el usuario final, se aprovechará del Administrador de tráfico de Azure (WATM) con el perfil de conmutación por error.  En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. El punto de conexión <i>contoso-1.azurewebsites.net</i> representa una ranura de producción de la aplicación que debe actualizarse. Para habilitar la capacidad de revertir la actualización, necesita crear una ranura de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
 
 1. Cree una ranura de almacenamiento provisional para la actualización. Para ello, cree una base de datos secundaria (1) e implemente un sitio web idéntico en la misma región de Azure. Supervise la base de datos secundaria para ver si se completa el proceso de propagación.
-2. Cree un perfil de conmutación por error en WATM con <i>contoso-1.azurewebsites.net</i> como punto de conexión en línea y <i>contoso 2.azurewebsites.net</i> como punto de conexión desconectado. 
+2. Cree un perfil de conmutación por error en WATM con <i>contoso-1.azurewebsites.net</i> como punto de conexión en línea y <i>contoso&2;.azurewebsites.net</i> como punto de conexión desconectado. 
 
 > [!NOTE]
 > Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
@@ -155,6 +155,6 @@ Las páginas siguientes le ayudarán a comprender las operaciones específicas n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

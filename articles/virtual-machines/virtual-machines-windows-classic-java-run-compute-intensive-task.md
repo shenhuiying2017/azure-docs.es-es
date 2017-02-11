@@ -1,23 +1,27 @@
 ---
-title: Aplicación de Java de proceso intensivo en una máquina virtual | Microsoft Docs
-description: Aprenda a crear una máquina virtual de Azure que ejecuta una aplicación Java de proceso intensivo y que otra aplicación Java puede supervisar.
+title: "Aplicación de Java de proceso intensivo en una máquina virtual | Microsoft Docs"
+description: "Aprenda a crear una máquina virtual de Azure que ejecuta una aplicación Java de proceso intensivo y que otra aplicación Java puede supervisar."
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4ce631d80b84661a61f0aaeb9d29de0b4420ecaf
+
 
 ---
-# Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
+# <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Con Azure puede utilizar una máquina virtual para controlar tareas de proceso intensivo. Por ejemplo, una máquina virtual puede controlar tareas y ofrecer los resultados a equipos cliente o a aplicaciones móviles. Después de leer este artículo, sabrá cómo crear una máquina virtual que ejecute una aplicación Java de proceso intensivo que otra aplicación Java puede supervisar.
@@ -44,62 +48,69 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
-## Para crear una máquina virtual
+## <a name="to-create-a-virtual-machine"></a>Para crear una máquina virtual
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **Desde la galería**.
-3. En el cuadro de diálogo **Selección de imagen de máquina virtual**, seleccione **JDK 7 Windows Server 2012**. Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
+2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **De la galería**.
+3. En el cuadro de diálogo **Virtual machine image select** (Selección de imagen de máquina virtual), seleccione **JDK 7 Windows Server 2012**.
+   Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
 4. Haga clic en **Siguiente**.
-5. En el cuadro de diálogo **Configuración de la máquina virtual**:
+5. En el cuadro de diálogo **Configuración de la máquina virtual** :
    1. Especifique un nombre para la máquina virtual.
    2. Especifique el tamaño que se va a utilizar para la máquina virtual.
-   3. Escriba un nombre para el administrador en el campo **Nombre de usuario**. Recuerde este nombre y la contraseña que va a escribir a continuación ya que los utilizará cuando inicie sesión de forma remota en la máquina virtual.
-   4. Escriba una contraseña en el campo **Contraseña nueva** y confírmela en el campo **Confirmar**. Esta es la contraseña de la cuenta de administrador.
+   3. Escriba un nombre para el administrador en el campo **Nombre de usuario** . Recuerde este nombre y la contraseña que va a escribir a continuación ya que los utilizará cuando inicie sesión de forma remota en la máquina virtual.
+   4. Escriba una contraseña en el campo **New password** (Contraseña nueva) y confírmela en el campo **Confirm** (Confirmar). Esta es la contraseña de la cuenta de administrador.
    5. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo siguiente **Configuración de la máquina virtual**:
-   1. En **Servicio en la nube**, use el valor predeterminado: **Crear un nuevo servicio en la nube**.
+6. En el cuadro de diálogo siguiente **Configuración de la máquina virtual** :
+   1. En **Servicio en la nube**, use el valor predeterminado **Crear un nuevo servicio en la nube**.
    2. El valor de **Nombre DNS de servicio** en la nube debe ser exclusivo en cloudapp.net. Si es necesario, modifique este valor para que Azure indique que es exclusivo.
-   3. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
+   3. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
    4. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**.
    5. En **Conjunto de disponibilidad**, seleccione **(Ninguno)**.
-   6. Haga clic en **Siguiente**.
-7. En el cuadro de diálogo final **Configuración de la máquina virtual**:
+   6. Haga clic en **Next**.
+7. En el cuadro de diálogo final **Configuración de la máquina virtual** :
    1. Acepte las entradas de extremo predeterminadas.
    2. Haga clic en **Completo**.
 
-## Para iniciar sesión de manera remota en la máquina virtual
+## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Para iniciar sesión de manera remota en la máquina virtual
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
 4. Haga clic en **Conectar**.
 5. Siga las indicaciones, según sea necesario, para conectarse a la máquina virtual. Cuando se le pida el nombre y la contraseña del administrador, utilice los valores que proporcionó cuando creó la máquina virtual.
 
-Tenga en cuenta que la funcionalidad del bus de servicio de Azure requiere que se instale el certificado Baltimore CyberTrust Root como parte de su almacén **cacerts** de JRE. Este certificado se incluye automáticamente en el Java Runtime Environment (JRE) que se usa en este tutorial. Si no tiene este certificado en su almacén **cacerts**, consulte [Incorporación de un certificado al almacén de certificados CA de Java][add_ca_cert] para obtener más información acerca de cómo agregarlo (así como información acerca de la visualización de certificados en el almacén cacerts).
+Tenga en cuenta que la funcionalidad del bus de servicio de Azure requiere que se instale el certificado Baltimore CyberTrust Root como parte de su almacén **cacerts** de JRE. Este certificado se incluye automáticamente en el Java Runtime Environment (JRE) que se usa en este tutorial. Si no tiene este certificado en su almacén**cacerts** de JRE, consulte [Incorporación de un certificado al almacén de certificados CA de Java][add_ca_cert] para más información sobre cómo agregarlo (así como información acerca de la visualización de certificados en el almacén cacerts).
 
-## Creación de un espacio de nombres del bus de servicio
-Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
+## <a name="how-to-create-a-service-bus-namespace"></a>Creación de un espacio de nombres del bus de servicio
+Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación.
 
 Para crear un nombre de espacio de servicio:
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En el panel de navegación inferior izquierdo del Portal de Azure clásico, haga clic en **Bus de servicio, Control de acceso y Caché**.
-3. En el panel superior izquierdo del Portal de Azure clásico, haga clic en el nodo **Bus de servicio** y luego en el botón **Nuevo**. ![Captura de pantalla del nodo Service Bus][svc_bus_node]
-4. En el cuadro de diálogo **Crear un espacio de nombres de servicio nuevo**, escriba un **Espacio de nombres** y luego, para asegurarse de que es único, haga clic en el botón **Comprobar disponibilidad**.![Captura de pantalla de la creación de un nuevo espacio de nombres][create_namespace]
-5. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el país o región en el que debería alojarse el espacio de nombres y, a continuación, haga clic en el botón **Crear espacio de nombres**.
+2. En el panel de navegación inferior izquierdo del Portal de Azure clásico, haga clic en **Service Bus, Access Control y Caché**.
+3. En el panel superior izquierdo del Portal de Azure clásico, haga clic en el nodo **Service Bus** y luego en el botón **Nuevo**.  
+   ![Captura de pantalla del nodo Service Bus][svc_bus_node]
+4. En el cuadro de diálogo **Crear nuevo espacio de nombres de servicio**, escriba un **espacio de nombres** y luego, para asegurarse de que es único, haga clic en el botón **Comprobar disponibilidad**.  
+   ![Captura de pantalla de la creación de un nuevo espacio de nombres][create_namespace]
+5. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el país o región en el que debería alojarse el espacio de nombres y, a continuación, haga clic en el botón **Crear espacio de nombres** .  
    
    El espacio de nombres que creó aparecerá a continuación en el Portal de Azure clásico y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
 
-## Obtención de credenciales de administración predeterminadas para el espacio de nombres
+## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obtención de credenciales de administración predeterminadas para el espacio de nombres
 Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres.
 
-1. En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![Captura de pantalla de los espacios de nombres disponibles][avail_namespaces]
-2. Seleccione el espacio de nombres que acaba de crear en la lista desplegable: ![Captura de pantalla de la lista de espacios de nombres][namespace_list]
-3. En el panel **Propiedades** de la derecha se mostrarán las propiedades del nuevo espacio de nombres: ![Captura de pantalla del panel de propiedades][properties_pane]
-4. El valor de **Clave predeterminada** está oculto. Haga clic en el botón **Ver** para mostrar las credenciales de seguridad: ![Captura de pantalla de la clave predeterminada][default_key]
+1. En el panel de navegación izquierdo, haga clic en el nodo **Service Bus** para ver la lista de espacios de nombres disponibles.
+   ![Captura de pantalla de los espacios de nombres disponibles][avail_namespaces]
+2. Seleccione el espacio de nombres que acaba de crear en la lista que se muestra.
+   ![Captura de pantalla de lista de espacio de nombres][namespace_list]
+3. En el panel **Propiedades** de la derecha se mostrarán las propiedades del nuevo espacio de nombres.
+   ![Captura de pantalla del panel de propiedades][properties_pane]
+4. El valor de **Clave predeterminada** está oculto. Haga clic en el botón **Ver** para mostrar las credenciales de seguridad.
+   ![Captura de pantalla de la clave predeterminada][default_key]
 5. Anote el valor de **Emisor predeterminado** y **Clave predeterminada** cuando utilice la información siguiente para realizar las operaciones con el espacio de nombres.
 
-## Creación de una aplicación Java que realiza una tarea de proceso intensivo
+## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>Creación de una aplicación Java que realiza una tarea de proceso intensivo
 1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](https://azure.microsoft.com/develop/java/).
-2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. En este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
+2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. En este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores de **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio, respectivamente.
 3. Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. En este tutorial, utilizaremos **TSPSolver.jar** como el nombre JAR generado.
 
 <p/>
@@ -287,8 +298,8 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 
 
-## Creación de una aplicación Java que supervisa el progreso de la tarea de proceso intensivo
-1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. En este tutorial, utilizaremos **TSPClient.java** como nombre de archivo de Java. Como en el caso anterior. modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio, respectivamente.
+## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>Creación de una aplicación Java que supervisa el progreso de la tarea de proceso intensivo
+1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. En este tutorial, usaremos **TSPClient.java** como nombre de archivo de Java. Como se ha indicado anteriormente, modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores de **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio, respectivamente.
 2. Exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. En este tutorial, utilizaremos **TSPClient.jar** como el nombre JAR generado.
 
 <p/>
@@ -403,14 +414,14 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
     }
 
-## Ejecución de las aplicaciones Java
+## <a name="how-to-run-the-java-applications"></a>Ejecución de las aplicaciones Java
 Ejecute la aplicación de proceso intensivo, cree primero la cola y después resuelva el problema del viajante, que agregará la mejor ruta actual a la cola del bus de servicio. Mientras se está ejecutando esta aplicación (o después), ejecute el cliente para mostrar los resultados de la cola del bus de servicio.
 
-### Ejecución de la aplicación de proceso intensivo
+### <a name="to-run-the-compute-intensive-application"></a>Ejecución de la aplicación de proceso intensivo
 1. Inicie sesión en la máquina virtual.
-2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\\TSP**.
-3. Copie **TSPSolver.jar** en **c:\\TSP**,
-4. Cree un archivo de nombre **c:\\TSP\\cities.txt** con el siguiente contenido.
+2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
+3. Copie **TSPSolver.jar** en **c:\TSP**,
+4. Cree un archivo llamado **c:\TSP\cities.txt** con el siguiente contenido.
    
         City_1, 1002.81, -1841.35
         City_2, -953.55, -229.6
@@ -462,7 +473,7 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
         City_48, 363.68, 768.21
         City_49, -120.3, -463.13
         City_50, 588.51, 679.33
-5. En el símbolo del sistema, cambie los directorios a c:\\TSP.
+5. En el símbolo del sistema, cambie los directorios a c:\TSP.
 6. Asegúrese de que la carpeta bin de JRE se encuentra en la variable de entorno PATH.
 7. Tendrá que crear la cola del bus de servicio antes de ejecutar las permutaciones del solucionador del TSP. Ejecute el comando siguiente para crear la cola de bus de servicio:
    
@@ -478,12 +489,12 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 > 
 > 
 
-### Ejecución de la supervisión de la aplicación cliente
-1. Inicie sesión en el equipo donde se va a ejecutar la aplicación cliente. No tiene que ser el mismo que ejecuta la aplicación **TSPSolver**, aunque podría serlo.
-2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\\TSP**.
-3. Copie **TSPClient.jar** en **c:\\TSP**,
+### <a name="how-to-run-the-monitoring-client-application"></a>Ejecución de la supervisión de la aplicación cliente
+1. Inicie sesión en el equipo donde se va a ejecutar la aplicación cliente. No tiene que ser el mismo que ejecuta la aplicación **TSPSolver** , aunque podría serlo.
+2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
+3. Copie **TSPClient.jar** en **c:\TSP**.
 4. Asegúrese de que la carpeta bin de JRE se encuentra en la variable de entorno PATH.
-5. En el símbolo del sistema, cambie los directorios a c:\\TSP.
+5. En el símbolo del sistema, cambie los directorios a c:\TSP.
 6. Ejecute el siguiente comando.
    
         java -jar TSPClient.jar
@@ -498,7 +509,7 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
    
     El solucionador se ejecutará hasta que acabe de examinar todas las rutas.
 
-## Detención de las aplicaciones Java
+## <a name="how-to-stop-the-java-applications"></a>Detención de las aplicaciones Java
 En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para salir si desea acabar antes de la finalización normal.
 
 [solver_output]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/WA_JavaTSPSolver.png
@@ -511,4 +522,8 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

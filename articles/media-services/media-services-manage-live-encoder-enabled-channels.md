@@ -192,7 +192,7 @@ Consideraciones:
 * Perfil Alta 422 (4:2:2 de 10 bits)
 * MPEG-2 AAC-LC Audio
 * Mono, estéreo, Surround (5.1, 7.1)
-* Velocidad de muestreo 44,1 kHz
+* Velocidad de muestreo&44;,1 kHz
 * Empaquetado ADTS estilo MPEG-2
 * Entre los codificadores recomendados se incluyen:
 * Telestream Wirecast

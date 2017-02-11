@@ -1,29 +1,34 @@
 ---
-title: Vinculación de una red virtual con un circuito ExpressRoute mediante el modelo de implementación de Resource Manager y el Portal de Azure | Microsoft Docs
-description: En este documento se proporciona información general de cómo vincular redes virtuales a circuitos ExpressRoute.
+title: "Vinculación de una red virtual con un circuito ExpressRoute mediante el modelo de implementación de Resource Manager y Azure Portal | Microsoft Docs"
+description: "En este documento se proporciona información general de cómo vincular redes virtuales a circuitos ExpressRoute."
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: b3a8cdab9e609994b1c4c4d50e9571718e8091de
+ms.openlocfilehash: 8043f0d5a4c9fbd301e7565e7d62be09dd77abd8
+
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vinculación de una red virtual a un circuito ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conexión de una red virtual a un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portal de Azure: Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell: administrador de recursos](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell: clásico](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Clásico: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
-> 
+>  
 
 Este artículo le ayudará a vincular redes virtuales a circuitos ExpressRoute de Azure a través del modelo de implementación de Resource Manager y el Portal de Azure. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción.
 
@@ -70,6 +75,9 @@ En este momento, no se pueden conectar redes virtuales en diferentes suscripcion
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

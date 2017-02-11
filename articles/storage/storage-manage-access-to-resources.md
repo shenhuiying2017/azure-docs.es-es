@@ -3,8 +3,8 @@ title: "Administración del acceso de lectura anónimo a contenedores y blobs | 
 description: "Obtenga información acerca de cómo permitir el acceso anónimo a contenedores y blobs y cómo tener acceso a ellos mediante programación."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c43677749a80506221a5992d215eddab48cd69c8
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
 
 
 ---
@@ -37,18 +37,18 @@ Los contenedores ofrecen las siguientes opciones para administrar el acceso al c
 
 Puede establecer los permisos del contenedor de las maneras siguientes:
 
-* Desde el [Portal de Azure](https://portal.azure.com).
+* Desde [Azure Portal](https://portal.azure.com).
 * Mediante programación, usando la biblioteca de cliente de almacenamiento o la API de REST.
 * Mediante PowerShell. Para obtener información acerca de cómo establecer los permisos del contenedor desde Azure PowerShell, consulte [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
 
-### <a name="setting-container-permissions-from-the-azure-portal"></a>Configuración de los permisos del contenedor desde el Portal de Azure
-Para configurar los permisos del contenedor desde el [Portal de Azure](https://portal.azure.com), siga estos pasos:
+### <a name="setting-container-permissions-from-the-azure-portal"></a>Configuración de los permisos del contenedor desde el portal de Azure
+Para configurar los permisos del contenedor desde [Azure Portal](https://portal.azure.com), siga estos pasos:
 
 1. Desplácese hasta el panel de la cuenta de almacenamiento.
 2. Seleccione el nombre del contenedor en la lista. Al hacer clic en el nombre se exponen los blobs en el contenedor elegido.
 3. Seleccione **Directiva de acceso** en la barra de herramientas.
 4. En el campo **Tipo de acceso** , seleccione el nivel de permisos que desee, como se muestra en la captura de pantalla siguiente.
-   
+
     ![Cuadro de diálogo Editar metadatos del contenedor](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="setting-container-permissions-programmatically-using-net"></a>Configuración de permisos de contenedor mediante programación con .NET
@@ -156,6 +156,6 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

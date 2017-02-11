@@ -1,12 +1,12 @@
 ---
 title: Consumo de un servicio web Machine Learning | Microsoft Docs
-description: Una vez implementado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes.
+description: "Una vez implementado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 369b7c8775388f641727cb889b406ac60be13d16
+
 
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service-that-has-been-deployed-from-a-machine-learning-experiment"></a>Cómo consumir un servicio web Azure Machine Learning implementado en un experimento de Machine Learning
@@ -41,7 +45,7 @@ For more information on how to manage Azure Machine Learning Web service endpoin
 
 Para obtener información sobre cómo crear e implementar un servicio web Azure Machine Learning, consulte el artículo sobre cómo [Implementar un servicio web Azure Machine Learning][publish]. Para obtener un tutorial paso a paso sobre la creación de un experimento de Machine Learning e implementarlo, consulte el artículo sobre [desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning][walkthrough].
 
-## <a name="requestresponse-service-rrs"></a>Servicio de solicitud-respuesta (RRS)
+## <a name="request-response-service-rrs"></a>Servicio de solicitud-respuesta (RRS)
 Un servicio de solicitud-respuesta (RRS) es un servicio web altamente escalable y de baja latencia utilizado para proporcionar una interfaz para los modelos sin estado que se han creado e implementado desde un experimento de Azure Machine Learning Studio. Habilita escenarios donde la aplicación consumidora espera una respuesta en tiempo real.
 
 RRS acepta una sola fila, o varias filas, de parámetros de entrada y puede generar una fila única o varias filas, como salida. Las filas de resultados pueden contener varias columnas.
@@ -244,11 +248,11 @@ El código de ejemplo siguiente muestra cómo crear una solicitud de API de REST
 
     /**
      * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
-     */
+      */
         /**
-          * Call REST API for retrieving prediction from Azure ML 
-          * @return response from the REST API
-          */    
+           * Call REST API for retrieving prediction from Azure ML 
+           * @return response from the REST API
+           */    
         public static String rrsHttpPost() {
 
             HttpPost post;
@@ -415,7 +419,7 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
         class Program
         {
             static void Main(string[] args)
-            {               
+            {                
                 InvokeBatchExecutionService().Wait();
             }
 
@@ -530,7 +534,7 @@ La API de REST del servicio de ejecución de lotes toma JSON, que consta de una 
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
             AccountName=myAcctName; AccountKey=Q8kkieg==", 
             "RelativeLocation": "myContainer/sampleinput.csv" } }, 
-        "Outputs": { "output1": { "ConnectionString":   "DefaultEndpointsProtocol=https;
+        "Outputs": { "output1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
             AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
             "RelativeLocation": "myContainer/sampleoutput.csv" } } 
     } 
@@ -541,7 +545,7 @@ La API de REST del servicio de ejecución de lotes toma JSON, que consta de una 
          * Call REST API to create a job to Azure ML 
          * for batch predictions
          * @return response from the REST API
-         */ 
+         */    
         public static String besCreateJob() {
 
             HttpPost post;
@@ -590,7 +594,7 @@ La API de REST del servicio de ejecución de lotes toma JSON, que consta de una 
          * 
          * @param job job to be started 
          * @return response from the REST API
-         */ 
+         */    
         public static String besStartJob(String job){
             HttpPost post;
             HttpClient client;
@@ -630,7 +634,7 @@ La API de REST del servicio de ejecución de lotes toma JSON, que consta de una 
          * 
          * @param job job to be started 
          * @return response from the REST API
-         */ 
+         */    
         public static String besCancelJob(String job) {
             HttpDelete post;
             HttpClient client;
@@ -733,6 +737,7 @@ Ahora puede usar cualquiera de las herramientas swagger. Aquí encontrará las i
 [mlstudio]: https://studio.azureml.net
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Guía de introducción a la integración de Azure Active Directory con las aplicaciones | Microsoft Docs
-description: Este artículo es una guía de introducción a la integración de Azure Active Directory (AD) con aplicaciones locales y de nube.
+title: "Guía de introducción a la integración de Azure Active Directory con las aplicaciones | Microsoft Docs"
+description: "Este artículo es una guía de introducción a la integración de Azure Active Directory (AD) con aplicaciones locales y de nube."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: ihenkel
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: inhenk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e35ac9ae791f7fa917cccbba5d06319f28b7033c
+
 
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guía de introducción a la integración de Azure Active Directory con las aplicaciones
 ## <a name="overview"></a>Información general
 Este tema tiene como fin ofrecerle una guía básica para la integración de las aplicaciones con Azure Active Directory (AD). Cada una de las secciones siguientes contiene un breve resumen de un tema más detallado para que pueda identificar qué partes de esta guía de introducción son importantes para usted.  Si desea profundizar más en algún tema, siga los vínculos.
 
-## <a name="before-you-begin,-take-inventory"></a>Antes de comenzar, realizar un inventario
+## <a name="before-you-begin-take-inventory"></a>Antes de comenzar, realizar un inventario
 Antes de pasar a la integración de aplicaciones con Azure AD, es importante saber dónde se encuentra y adónde quiere ir.  Las siguientes preguntas están diseñadas para ayudarle a pensar en su proyecto de integración de aplicaciones de Azure AD.
 
 ### <a name="application-inventory"></a>Inventario de aplicaciones
@@ -88,6 +92,9 @@ Si quiere agregar su aplicación personalizada a la Galería de aplicaciones de 
 ## <a name="see-also"></a>Consulte también
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2904376bfe16d1aaa5d0816dd3ee64e13911465
+ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
+ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 
 
 ---
@@ -72,6 +72,6 @@ Llevar a cabo la tarea de escalado de procesamiento de medios con alguna de esta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

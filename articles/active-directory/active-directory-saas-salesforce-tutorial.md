@@ -1,22 +1,26 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Salesforce | Microsoft Docs'
-description: Aprenda cómo usar Salesforce con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con Salesforce | Microsoft Docs"
+description: "Aprenda cómo usar Salesforce con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 27857431abd965fd4f65c61874f9ecfc1730a7e6
+
 
 ---
-# <a name="tutorial:-how-to-integrate-salesforce-with-azure-active-directory"></a>Tutorial: Integración de Salesforce con Azure Active Directory
+# <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integración de Azure Active Directory con Salesforce
 Este tutorial le mostrará cómo conectar el entorno de Salesforece a Azure Active Directory. Obtendrá información sobre cómo configurar un inicio de sesión único en Salesforce, cómo habilitar el aprovisionamiento automático de usuarios y cómo asignar usuarios para que dispongan de acceso a Salesforce.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -35,7 +39,7 @@ Si está utilizando un entorno de espacio aislado de Salesforce, consulte el [Tu
 ## <a name="video-tutorials"></a>Tutoriales de vídeo
 Puede seguir este tutorial con los vídeos a continuación.
 
-**Tutorial de vídeo parte 1: Habilitación de inicio de sesión único**
+**Tutorial de vídeo parte&1;: Habilitación de inicio de sesión único**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-enable-Single-Sign-On-12/player]
 > 
@@ -47,7 +51,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 > 
 > 
 
-## <a name="step-1:-add-salesforce-to-your-directory"></a>Paso 1: Adición de Salesforce al directorio
+## <a name="step-1-add-salesforce-to-your-directory"></a>Paso 1: Adición de Salesforce al directorio
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
    
     ![Seleccione Active Directory en el panel de navegación izquierdo.][0]
@@ -68,7 +72,7 @@ Puede seguir este tutorial con los vídeos a continuación.
    
     ![Página de inicio rápido de Salesforce en Azure AD][5]
 
-## <a name="step-2:-enable-single-sign-on"></a>Paso 2: Habilitación del inicio de sesión único
+## <a name="step-2-enable-single-sign-on"></a>Paso 2: Habilitación del inicio de sesión único
 1. Para poder configurar el inicio de sesión único, debe configurar e implementar un dominio personalizado para su entorno de Salesforce. Para obtener instrucciones sobre cómo hacerlo, consulte [Configuración de un nombre de dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US).
 2. En la página de inicio rápido de Salesforce en Azure AD, haga clic e el botón **Configurar inicio de sesión único** .
    
@@ -146,7 +150,7 @@ Puede seguir este tutorial con los vídeos a continuación.
     ![Escriba la dirección de correo electrónico.][19]
 17. Haga clic en **Completar** para cerrar el cuadro de diálogo. Para probar la configuración, vea la sección siguiente titulada [Asignación de usuarios a Salesforce](#step-4-assign-users-to-salesforce).
 
-## <a name="step-3:-enable-automated-user-provisioning"></a>Paso 3: Habilitación del aprovisionamiento automático de usuarios
+## <a name="step-3-enable-automated-user-provisioning"></a>Paso 3: Habilitación del aprovisionamiento automático de usuarios
 1. En la página de inicio rápido de Azure AD para Salesforce, haga clic en el botón **Configurar aprovisionamiento de usuario** .
    
     ![Haga clic en el botón Configurar aprovisionamiento de usuario][20]
@@ -175,7 +179,7 @@ Puede seguir este tutorial con los vídeos a continuación.
    
     ![Escriba la dirección de correo electrónico para recibir notificaciones][26]
 
-## <a name="step-4:-assign-users-to-salesforce"></a>Paso 4: Asignación de usuarios a Salesforce
+## <a name="step-4-assign-users-to-salesforce"></a>Paso 4: Asignación de usuarios a Salesforce
 1. Para probar la configuración, empiece a crear una nueva cuenta de prueba en el directorio.
 2. En la página de inicio rápido de Salesforce, haga clic en el botón **Asignar usuarios** .
    
@@ -184,10 +188,10 @@ Puede seguir este tutorial con los vídeos a continuación.
    
    * Si no lo ha habilitado el aprovisionamiento automático de usuarios, verá el mensaje siguiente de confirmación:
      
-        ![Confirm the assignment.][28]
+        ![Confirmación de la asignación.][28]
    * Si ha habilitado el aprovisionamiento automático de usuarios, verá un símbolo del sistema para definir qué tipo de perfil de Salesforce debe tener el usuario. Los usuarios recién aprovisionados deberían aparecer en su entorno Salesforce después de unos minutos.
      
-        ![Confirm the assignment.][29]
+        ![Confirmación de la asignación.][29]
      
      > [!IMPORTANT]
      > Si está aprovisionando un entorno de **desarrolladores** de Salesforce, dispondrá de un número muy limitado de licencias disponibles para cada perfil. Por tanto, es mejor aprovisionar usuarios al perfil **Chatter Free User** (Usuario de Chatter Free), que tiene 4.999 licencias disponibles.
@@ -232,6 +236,6 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,22 +1,27 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Concur | Microsoft Docs'
-description: Aprenda a usar Concur con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: integración de Azure Active Directory con Concur | Microsoft Docs"
+description: "Aprenda a usar Concur con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 1eee0a5d-24fa-4986-9aef-3c543cfe3296
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2016
+ms.date: 09/29/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3f2cb86a78d00f4c64fb9b5b961d00946677e3e5
+
 
 ---
-# Tutorial: Integración de Azure Active Directory con Concur
-El objetivo de este tutorial es mostrar la integración de Azure y Concur. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+# <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutorial: Integración de Azure Active Directory con Concur
+El objetivo de este tutorial es mostrar la integración de Azure y Concur.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
 * Un inquilino en Concur
@@ -28,35 +33,35 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-concur-tutorial/IC769766.png "Escenario")
+![Escenario](./media/active-directory-saas-concur-tutorial/IC769766.png "Scenario")
 
 > [!NOTE]
 > La configuración de la suscripción a Concur para un SSO federado mediante SAML es una tarea independiente, que debe ponerse en contacto con Concur para llevarse a cabo.
 > 
 > 
 
-## Habilitación de la integración de aplicaciones para Concur
+## <a name="enabling-the-application-integration-for-concur"></a>Habilitación de la integración de aplicaciones para Concur
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Concur.
 
-### Siga estos pasos para habilitar la integración de aplicaciones para Concur:
+### <a name="to-enable-the-application-integration-for-concur-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para Concur:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-concur-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directorio**, seleccione el directorio cuya integración quiere habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+2. En la lista **Directorio** , seleccione el directorio cuya integración quiere habilitar.
+3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-   ![Aplicaciones](./media/active-directory-saas-concur-tutorial/IC700994.png "Aplicaciones")
-4. Para abrir la **Galería de aplicaciones**, haga clic en **Agregar una aplicación** y luego en **Agregar una aplicación que mi organización use**.
+   ![Aplicaciones](./media/active-directory-saas-concur-tutorial/IC700994.png "Applications")
+4. Para abrir la **Galería de aplicaciones**, haga clic en **Agregar una aplicación** y en **Agregar una aplicación que mi organización use**.
    
-   ![¿Qué desea hacer?](./media/active-directory-saas-concur-tutorial/IC700995.png "¿Qué desea hacer?")
+   ![¿Qué desea hacer?](./media/active-directory-saas-concur-tutorial/IC700995.png "What do you want to do?")
 5. En el **cuadro de búsqueda**, escriba **Concur**.
    
-   ![Galería de aplicaciones](./media/active-directory-saas-concur-tutorial/IC721727.png "Galería de aplicaciones")
+   ![Galería de aplicaciones](./media/active-directory-saas-concur-tutorial/IC721727.png "Application Gallery")
 6. En el panel de resultados, seleccione **Concur** y luego haga clic en **Completar** para agregar la aplicación.
    
    ![Concur](./media/active-directory-saas-concur-tutorial/IC721728.png "Concur")
    
-   ## Configuración del inicio de sesión único
+   ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Concur con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
 
@@ -65,37 +70,37 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 > 
 > 
 
-### Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Concur**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-concur-tutorial/IC769767.png "Configurar inicio de sesión único")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-concur-tutorial/IC769767.png "Configure single sign-on")
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Concur?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-concur-tutorial/IC769768.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de Concur**, escriba su dirección URL de inicio de sesión del inquilino de Concur y haga clic en **Siguiente**.
+   ![Configurar inicio de sesión único](./media/active-directory-saas-concur-tutorial/IC769768.png "Configure single sign-on")
+3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de Concur**, escriba su dirección URL de inicio de sesión del inquilino de Concur y haga clic en **Siguiente**. 
    
-   ![Configurar dirección URL de inicio de sesión](./media/active-directory-saas-concur-tutorial/IC769769.png "Configurar dirección URL de inicio de sesión")
-4. En la página **Configurar inicio de sesión único en Concur**, siga estos pasos.
+   ![Configurar dirección URL de inicio de sesión](./media/active-directory-saas-concur-tutorial/IC769769.png "Configure sign in URL")
+4. En la página **Configurar inicio de sesión único en Concur** , siga estos pasos.
    
-   ![Configurar dirección URL de inicio de sesión](./media/active-directory-saas-concur-tutorial/IC769770.png "Configurar dirección URL de inicio de sesión")
+   ![Configurar dirección URL de inicio de sesión](./media/active-directory-saas-concur-tutorial/IC769770.png "Configure sign in URL")
    
    1. Haga clic en Descargar los metadatos y después proteja el archivo de datos en su equipo.
    2. Póngase en contacto con el equipo de soporte técnico de Concur para configurar el SSO para el inquilino.
-   3. Seleccione la confirmación de la configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+   3. Seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.  
    
    > [!NOTE]
    > La configuración de la suscripción a Concur para un SSO federado mediante SAML es una tarea independiente, que debe ponerse en contacto con Concur para llevarse a cabo.
    > 
    > 
 
-## Configuración del aprovisionamiento de usuario
+## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 El objetivo de esta sección es describir cómo habilitar el aprovisionamiento de las cuentas de usuario de Active Directory en Concur.
 
 Para habilitar las aplicaciones en el servicio de gastos, debe tener la configuración correcta y el uso de un perfil de administrador de servicio web. No agregue simplemente el rol de administrador de servicio web al perfil de administrador existente que se usa para las funciones administrativas de tiempo y gastos.
 
 Los asesores de Concur o el administrador de cliente debe crear un perfil de administrador de servicios web distintos y el administrador de cliente debe usar este perfil para las funciones de administrador de servicios web (por ejemplo, para habilitar aplicaciones). Estos perfiles deben mantenerse separados a diario del perfil de administración de tiempos y gastos del administrador de cliente (el perfil de administrador de tiempos y gastos no debe tener el rol de administrador de servicios web asignado).
 
-Al crear el perfil que se usará para habilitar la aplicación, escriba el nombre del administrador de cliente en los campos de perfil de usuario. Esto asignará la propiedad al perfil. Una vez creado el perfil, el cliente debe iniciar sesión con este perfil para hacer clic en el botón "*Habilitar*" para una aplicación asociada en el menú de servicios web.
+Al crear el perfil que se usará para habilitar la aplicación, escriba el nombre del administrador de cliente en los campos de perfil de usuario. Esto asignará la propiedad al perfil. Una vez creado el perfil, el cliente debe iniciar sesión con este perfil para hacer clic en el botón *Habilitar* para una aplicación asociada en el menú de servicios web.
 
 Por las siguientes razones, esta acción no debe realizarse con el perfil que se usa en la administración normal de tiempo y gastos.
 
@@ -103,41 +108,46 @@ Por las siguientes razones, esta acción no debe realizarse con el perfil que se
 2. Si un administrador de cliente que ha habilitado una aplicación mediante el perfil de administrador de tiempo y gastos abandona la empresa (lo que da lugar a la desactivación del perfil), las aplicaciones habilitadas mediante ese perfil no funcionarán hasta que la aplicación se habilite con otro perfil de administrador de servicios web activo. Es por este motivo por lo hay que crear distintos perfiles de administrador servicios web.
 3. Si un administrador deja la compañía, el nombre asociado al perfil de administrador de servicios web puede cambiarse al del administrador de sustitución si lo desea sin afectar a la aplicación habilitada, porque no necesita ese perfil desactivado
 
-### Siga estos pasos para configurar el aprovisionamiento de usuario:
-1. Inicie sesión en su inquilino **Concur**.
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
+1. Inicie sesión en su inquilino **Concur** .
 2. En el menú **Administración**, seleccione **Servicios web**.
    
-   ![Inquilino de Concur](./media/active-directory-saas-concur-tutorial/IC721729.png "Inquilino de Concur")
+   ![Inquilino de Concur](./media/active-directory-saas-concur-tutorial/IC721729.png "Concur tenant")
 3. En el lado izquierdo, en el panel **Servicios web**, seleccione **Habilitar aplicación de asociado**.
    
-   ![Habilitar aplicación de asociado](./media/active-directory-saas-concur-tutorial/IC721730.png "Habilitar aplicación de asociado")
+   ![Habilitar aplicación de asociado](./media/active-directory-saas-concur-tutorial/IC721730.png "Enable Partner Application")
 4. En la lista **Habilitar aplicación**, seleccione **Azure Active Directory** y después haga clic en **Habilitar**.
    
    ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-tutorial/IC721731.png "Microsoft Azure Active Directory")
 5. Haga clic en **Sí** para cerrar el cuadro de diálogo **Confirmar acción**.
    
-   ![Confirmar acción](./media/active-directory-saas-concur-tutorial/IC721732.png "Confirmar acción")
+   ![Confirmar acción](./media/active-directory-saas-concur-tutorial/IC721732.png "Confirm Action")
 6. En el Portal de Azure clásico, seleccione **Concur** en la lista de aplicaciones para abrir la página de diálogo **Concur**.
-7. Para abrir la página del cuadro de diálogo **Configurar aprovisionamiento de usuarios**, haga clic en **Configurar aprovisionamiento de usuarios**.
+7. Para abrir la página de diálogo **Configurar aprovisionamiento de usuarios**, haga clic en **Configurar aprovisionamiento de usuarios**.
 8. Escriba el nombre de usuario y la contraseña del administrador de Concur y después haga clic en **Siguiente**.
 9. Para finalizar la configuración, en la página **Confirmación**, haga clic en el botón **Completar**.
 
 Ahora ya puede crear una cuenta de prueba, espere 10 minutos y compruebe si la cuenta se ha sincronizado en Concur.
 
-## Asignación de usuarios
+## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### Para asignar usuarios a Concur, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-concur-perform-the-following-steps"></a>Para asignar usuarios a Concur, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Concur**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-concur-tutorial/IC769771.png "Asignar usuarios")
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+   ![Asignar usuarios](./media/active-directory-saas-concur-tutorial/IC769771.png "Assign users")
+3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-concur-tutorial/IC767830.png "Sí")
+   ![Sí](./media/active-directory-saas-concur-tutorial/IC767830.png "Yes")
 
 Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Concur.
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,5 +1,5 @@
 ---
-title: "# Configuración del registro automático de los dispositivos con Windows 7 unidos a un dominio | Microsoft Docscs"
+title: "# Configuración del registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio| Microsoft Docs"
 description: "Pasos para configurar los dispositivos de Windows 7 unidos a un dominio a fin de registrarse automáticamente con Azure AD y pasos para implementar el paquete de software de registro de dispositivos en sus dispositivos Windows 7 unidos a un dominio mediante un sistema de distribución de software como System Center Configuration Manager."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: MarkVi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e31a22237fb6b715c1d5c24d75f645edfbeb7c9e
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2bc945283ca99dc91ae7e824606886a5389f20a6
 
 
 ---
@@ -48,7 +48,7 @@ En la siguiente ilustración se describe el proceso paso a paso para el registro
 2. Se ejecuta la tarea programada de Unión al área de trabajo.
 3. El usuario se autentica silenciosamente con AD FS mediante Autenticación integrada de Windows.
 4. El equipo con Windows 7 se registra para el usuario en Azure AD.
-5. Se crea un certificado y objeto de dispositivo en Azure AD. El objeto representa user@device.
+5. Se crea un certificado y objeto de dispositivo en Azure AD. El objeto representa el dispositivo de usuario.
 6. El certificado de Unión al área de trabajo se almacena en el equipo.
 
 ## <a name="unregistering-your-windows-7-domain-joined-devices"></a>Anulación del registro de sus dispositivos Windows 7 unidos a un dominio
@@ -75,6 +75,6 @@ El registro de eventos de Windows en el equipo con Windows 7 mostrará mensajes 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

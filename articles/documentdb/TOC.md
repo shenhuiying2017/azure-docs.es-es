@@ -35,6 +35,7 @@
 ### [Modelado de datos](documentdb-modeling-data.md)
 ### [Uso de datos geoespaciales](documentdb-geospatial.md)
 ### [Desarrollo para varias regiones](documentdb-developing-with-multiple-regions.md)
+### [Conmutaciones por error regionales](documentdb-regional-failovers.md)
 ### [Expiración automática de los datos](documentdb-time-to-live.md)
 ### [Personalización de índices](documentdb-indexing-policies.md)
 ### [Acceso seguro a datos](documentdb-secure-access-to-data.md)
@@ -54,6 +55,9 @@
 ### [Seguimiento de cambios con fuente de cambios](documentdb-change-feed.md)
 ### [Pruebas de rendimiento](documentdb-performance-testing.md)
 ### [Consejos de rendimiento](documentdb-performance-tips.md)
+### Prácticas recomendadas
+#### [Configuración de varios maestros](documentdb-multi-region-writers.md)
+#### [Fecha y hora](documentdb-working-with-dates.md)
 
 ## Uso de la compatibilidad de DocumentDB con MongoDB
 ### [Compatibilidad de protocolo para MongoDB](documentdb-protocol-mongodb.md)
@@ -78,10 +82,10 @@
 
 ## Integrate
 ### [Implementación de un sitio web en Azure App Service](documentdb-create-documentdb-website.md)
-### [Registro de aplicaciones con Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Registro de aplicaciones con Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Enlace a Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Análisis de datos con Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integración con Azure Search](documentdb-search-indexer.md)
+### [Integración con Azure Search](../search/search-howto-index-documentdb.md)
 ### [Movimiento de datos con Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Análisis de datos en tiempo real con Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Obtención de notificaciones con Logic Apps](documentdb-change-notification.md)
@@ -119,6 +123,6 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

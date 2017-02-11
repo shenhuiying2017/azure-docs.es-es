@@ -1,12 +1,12 @@
 ---
-title: Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure a VMware (heredados) | Microsoft Docs
-description: Este artículo describe cómo realizar una conmutación por recuperación de una máquina virtual de VMware replicada en Azure con Azure Site Recovery.
+title: "Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure a VMware (heredados) | Microsoft Docs"
+description: "Este artículo describe cómo realizar una conmutación por recuperación de una máquina virtual de VMware replicada en Azure con Azure Site Recovery."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: ruturaj
 manager: mkjain
-editor: ''
-
+editor: 
+ms.assetid: a63524bf-990c-42ee-8554-e017e6e67e68
 ms.service: site-recovery
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: ruturajd@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45695926bce3ec3460a572c0c01ffa4038f73ea5
+
 
 ---
-# <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-(legacy)"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware con Azure Site Recovery (heredado)
+# <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware con Azure Site Recovery (heredado)
 > [!div class="op_single_selector"]
 > * [Portal de Azure](site-recovery-failback-azure-to-vmware.md)
 > * [Portal de Azure clásico](site-recovery-failback-azure-to-vmware-classic.md)
@@ -48,7 +52,7 @@ Esta es la instalación de la conmutación por recuperación:
 1. **Instalar los componentes de conmutación por recuperación**: es preciso instalar un servidor local de vContinuum y apuntar a la máquina virtual del servidor de configuración en Azure. También instalará un servidor de procesos como una máquina virtual de Azure para enviar datos de vuelta al servidor maestro de destino local. El servidor de proceso se registra con el servidor de configuración que controló la conmutación por error. Se instala un servidor maestro de destino local. Si necesita un servidor maestro de destino de Windows, se instala automáticamente al instalar vContinuum. Si necesita Linux, tendrá que instalarlo manualmente en un servidor independiente.
 2. **Habilitar la protección y conmutación por recuperación**: después de instalar los componentes, en vContinuum deberá habilitar la protección para las máquinas virtuales de Azure que conmutaron por error. Se ejecutará una comprobación de la preparación en las máquinas virtuales y se ejecutará una conmutación por error de Azure a su sitio local. Una vez finalizada la conmutación por recuperación, se vuelven a proteger las máquinas locales para que comiencen a replicar a Azure.
 
-## <a name="step-1:-install-vcontinuum-on-premises"></a>Paso 1: Instalación local de vContinuum
+## <a name="step-1-install-vcontinuum-on-premises"></a>Paso 1: Instalación local de vContinuum
 Es preciso instalar un servidor local de vContinuum y apuntarlo hacia el servidor de configuración.
 
 1. [Descargue vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
@@ -72,7 +76,7 @@ Es preciso instalar un servidor local de vContinuum y apuntarlo hacia el servido
 9. Una vez que se complete la instalación, puede iniciar vContinuum.
     ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-## <a name="step-2:-install-a-process-server-in-azure"></a>Paso 2: Instalación de un servidor de procesos de Azure
+## <a name="step-2-install-a-process-server-in-azure"></a>Paso 2: Instalación de un servidor de procesos de Azure
 Para que las máquinas virtuales de Azure puedan devolver los datos a un servidor maestro local de destino, es preciso instalar un servidor de procesos en Azure. 
 
 1. En la página **Servidores de configuración** de Azure, seleccione la opción para agregar un nuevo servidor de procesos.
@@ -94,7 +98,7 @@ Para que las máquinas virtuales de Azure puedan devolver los datos a un servido
 > 
 > 
 
-## <a name="step-3:-install-a-master-target-server-on-premises"></a>Paso 3: Instalación de un servidor de destino maestro local
+## <a name="step-3-install-a-master-target-server-on-premises"></a>Paso 3: Instalación de un servidor de destino maestro local
 En función del sistema operativos de las máquinas virtuales de origen necesitará instalar un servidor de destino maestro local con Linux o con Windows.
 
 ### <a name="deploy-a-windows-master-target-server"></a>Implementación de un servidor de destino maestro con Windows
@@ -221,7 +225,7 @@ Puede validar que el servidor de destino maestro se ha registrado correctamente 
 > 
 > 
 
-## <a name="step-4:-protect-the-virtual-machines-to-the-on-premises-site"></a>Paso 4: Protección de las máquinas virtuales en el sitio local
+## <a name="step-4-protect-the-virtual-machines-to-the-on-premises-site"></a>Paso 4: Protección de las máquinas virtuales en el sitio local
 Antes de la conmutación por recuperación es preciso proteger las máquinas virtuales en el sitio local.
 
 ### <a name="before-you-begin"></a>Antes de empezar
@@ -357,6 +361,9 @@ Una vez que la conmutación por recuperación se haya completado, puede volver a
 ## <a name="next-steps"></a>Pasos siguientes
 * [Obtenga información](site-recovery-vmware-to-azure-classic.md) sobre la replicación de máquinas virtuales de VMware y servidores físicos a Azure mediante la implementación mejorada.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

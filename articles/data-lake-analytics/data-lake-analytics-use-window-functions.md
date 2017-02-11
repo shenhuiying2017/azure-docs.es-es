@@ -11,12 +11,12 @@ ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/16/2016
+ms.workload: big-data`
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 22aafaa80d8d7a5d7e57819acadc6c7985bf2c93
-ms.openlocfilehash: fde657c6c59852a07fd8f565572732f7a25d9e55
+ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
+ms.openlocfilehash: 7afbd2de08b5702371ef7dc8676fcd8d75d5e7fd
 
 
 ---
@@ -31,7 +31,7 @@ Las funciones de ventana se dividen en las siguientes categorías:
 
 * [Funciones de agregación de informes](#reporting-aggregation-functions), como SUM o AVG
 * [Funciones de categoría](#ranking-functions), por ejemplo, DENSE_RANK, ROW_NUMBER, NTILE y RANK
-* [Funciones analíticas](#analytic-functions), como distribución acumulativa, percentiles o acceso a los datos de una fila anterior en el mismo conjunto de resultados sin usar una autocombinación
+* [Funciones analíticas](#analytic-functions), como distribución acumulativa o percentiles, acceso a los datos de una fila anterior en el mismo conjunto de resultados sin usar una autocombinación
 
 **Requisitos previos:**
 
@@ -70,7 +70,7 @@ En este tutorial, se usan dos conjuntos de datos:
         AS T(Query,Latency,Vertical);
     ```
 
-    En la práctica, lo más probable es que los datos se almacenen en un archivo de datos. Para acceder a los datos en un archivo delimitado por tabulaciones, usaría el siguiente código: 
+    En la práctica, normalmente los datos se almacenen en un archivo. Puede obtener acceso a los datos en un archivo delimitado por tabulaciones con el siguiente código: 
   
     ```
     @querylog = 
@@ -120,7 +120,7 @@ En este tutorial, se usan dos conjuntos de datos:
 
 Cuando pruebe los ejemplos en el tutorial, debe incluir las definiciones de conjuntos de filas. U-SQL requiere que se definan solamente los conjuntos de filas que se usan. Algunos ejemplos solo necesitan un conjunto de filas.
 
-También debe agregar la siguiente instrucción para que el conjunto de filas de resultados se incluya en un archivo de datos:
+Agregue la siguiente instrucción para que el conjunto de filas de resultados se incluya en un archivo de datos:
 
     OUTPUT @result TO "/wfresult.csv" 
         USING Outputters.Csv();
@@ -143,7 +143,7 @@ En la consulta siguiente, se usa una agregación para calcular el salario total 
 > 
 > 
 
-El resultado es una sola fila y una sola columna. 165000 USD es la suma del valor de Salary de toda la tabla. 
+El resultado es una sola fila y una sola columna. 165 000 USD es la suma del valor de Salary de toda la tabla. 
 
 | TotalSalary |
 | --- |
@@ -170,15 +170,15 @@ Los resultados son:
 | Ejecutivo |50000 |
 | Marketing |25000 |
 
-La suma de la columna SalaryByDept es 165000 USD, que coincide con la cifra en el último script.
+La suma de la columna SalaryByDept es&16500;0 USD, que coincide con la cifra en el último script.
 
 En ambos casos, hay menos filas de salida que de entrada:
 
 * Sin GROUP BY, la agregación contrae todas las filas en una sola. 
-* Con GROUP BY, hay N filas de salida, donde N es el número de valores distintos que aparecen en los datos; en este caso, obtendrá 4 filas en la salida.
+* Con GROUP BY, hay N filas de salida, donde N es el número de valores distintos que aparecen en los datos.  En este caso, obtendrá&4; filas en la salida.
 
 ### <a name="use-a-window-function"></a>Uso de una función de ventana
-La cláusula OVER en el ejemplo siguiente está vacía. Esto define la "ventana" para que incluya todas las filas. La suma (SUM) en este ejemplo se aplica a la cláusula OVER a la que precede.
+La cláusula OVER en el ejemplo siguiente está vacía, por lo que la ventana incluye todas las filas. La suma (SUM) en este ejemplo se aplica a la cláusula OVER a la que precede.
 
 Se podría interpretar esta consulta como la suma del salario en una ventana de todas las filas.
 
@@ -316,10 +316,10 @@ Los resultados son:
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-Reemplace MIN con MAX y pruébelo.
+Para ver el salario más alto de cada departamento, reemplace MIN por MAX y vuelva a ejecutar la consulta.
 
 ## <a name="ranking-functions"></a>Funciones de categoría
-Las funciones de categoría devuelven un valor de categoría (long) para cada fila de cada partición definida mediante las cláusulas PARTITION BY y OVER. El orden de categorías se controla con la cláusula ORDER BY en la cláusula OVER.
+Las funciones de categoría devuelven un valor de categoría (LONG) para cada fila de cada partición definida mediante las cláusulas PARTITION BY y OVER. El orden de categorías se controla con la cláusula ORDER BY en la cláusula OVER.
 
 Se admiten estas funciones de categoría:
 
@@ -336,10 +336,10 @@ Se admiten estas funciones de categoría:
             [ORDER BY <identifier, > …[n] [ASC|DESC]] 
     ) AS <alias>
 
-* La cláusula ORDER BY es opcional para las funciones de categoría. Si se especifica ORDER BY, entonces determina el orden de las categorías. Si no se especifica ORDER BY, U-SQL asigna valores según el orden que lea en el registro. El resultado es un valor no determinista de número de fila, categoría o categoría densa si no se especificó la cláusula ORDER BY.
+* La cláusula ORDER BY es opcional para las funciones de categoría. Si no se especifica ORDER BY, U-SQL asigna valores basados en el orden en que lee el registro, lo que produce valores no deterministas para ROW_NUMBER, RANK o DENSE_RANK.
 * NTILE requiere una expresión que se evalúe como entero positivo. Este número especifica el número de grupos en que se debe dividir cada partición. Este identificador se usa solo con la función de categoría NTILE. 
 
-Para obtener más detalles sobre la cláusula OVER, consulte la [referencia sobre el lenguaje U-SQL]().
+Para obtener más información sobre la cláusula OVER, consulte la [referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ROW_NUMBER, RANK y DENSE_RANK asignan números a las filas de una ventana. En lugar de tratarlas por separado, es más intuitivo ver cómo responden a la misma entrada.
 
@@ -353,7 +353,7 @@ ROW_NUMBER, RANK y DENSE_RANK asignan números a las filas de una ventana. En lu
 
 Tenga en cuenta que las cláusulas OVER son idénticas. El resultado es:
 
-| Consultar | Latency:int | Vertical | RowNumber | RANK | DenseRank |
+| Consultar | Latency: INT | Vertical | RowNumber | RANK | DenseRank |
 | --- | --- | --- | --- | --- | --- |
 | Banana |300 |Imagen |1 |1 |1 |
 | Cherry |300 |Imagen |2 |1 |1 |
@@ -371,20 +371,20 @@ Dentro de cada ventana (Vertical, Image o Web), el número de fila aumenta en 1 
 ![Función de ventana ROW_NUMBER de U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
 
 ### <a name="rank"></a>RANK
-A diferencia de ROW_NUMBER (), RANK() tiene en cuenta el valor de Latency que se especifica en la cláusula ORDER BY para la ventana.
+A diferencia de ROW_NUMBER (), RANK() usa el valor de Latency que se especifica en la cláusula ORDER BY para la ventana.
 
-RANK comienza con (1,1,3) porque los dos primeros valores de Latency son iguales. A continuación, el siguiente valor es 3, porque el valor de Latency cambió a 500. El aspecto clave es que, aunque se proporcionen valores duplicados en la misma categoría, el número de RANK "saltará" al siguiente valor de ROW_NUMBER. Puede ver la repetición de este patrón con la secuencia (2,2,4) en la vertical Web.
+RANK comienza con (1, 1, 3) porque los dos primeros valores de Latency son iguales. A continuación, el siguiente valor es 3, porque el valor de Latency cambió a 500. El aspecto clave es que, aunque se proporcionen valores duplicados en la misma categoría, el número de RANK "saltará" al siguiente valor de ROW_NUMBER. Puede ver la repetición de este patrón con la secuencia (2, 2, 4) en la vertical Web.
 
 ![Función de ventana RANK de U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
 
 ### <a name="denserank"></a>DENSE_RANK
-DENSE_RANK es igual que RANK salvo que no "salta" al siguiente ROW_NUMBER, sino que pasa al siguiente número de la secuencia. Observe las secuencias (1,1,2) y (2,2,3) en el ejemplo.
+DENSE_RANK es igual que el RANK, salvo que no vaya al siguiente ROW_NUMBER. DENSE_RANK va al siguiente número en la secuencia. Observe las secuencias (1, 1, 2) y (2, 2, 3) en el ejemplo.
 
 ![Función de ventana DENSE_RANK de U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
 
 ### <a name="remarks"></a>Comentarios
-* Si no se especifica ORDER BY, se aplicará la función de categoría al conjunto de filas sin ningún orden. Esto dará como resultado un comportamiento no determinista en la aplicación de la función de categoría.
-* No hay ninguna garantía de que las filas devueltas por una consulta con ROW_NUMBER adopten exactamente el mismo orden con cada ejecución, a menos que las condiciones siguientes sean verdaderas.
+* Si no se especifica ORDER BY, la función de clasificación se aplica al conjunto de filas sin ningún orden, lo que provoca un comportamiento no determinista.
+* Deben cumplirse las siguientes condiciones para garantizar se ordena lo mismo a las filas devueltas por una consulta con ROW_NUMBER con cada ejecución.
   
   * Los valores de la columna particionada son únicos.
   * Los valores de las columnas ORDER BY son únicos.
@@ -393,11 +393,11 @@ DENSE_RANK es igual que RANK salvo que no "salta" al siguiente ROW_NUMBER, sino 
 ### <a name="ntile"></a>NTILE
 NTILE distribuye las filas de una partición ordenada entre un número especificado de grupos. Los grupos se numeran comenzando por uno. 
 
-En el ejemplo siguiente se divide el conjunto de filas de cada partición (vertical) en 4 grupos en el orden de latencia de la consulta y se devuelve el número de grupo para cada fila. 
+En el ejemplo siguiente se divide el conjunto de filas de cada partición (vertical) en cuatro grupos, en orden de latencia, y se devuelve el número de grupo para cada fila. 
 
-La vertical Image tiene 3 filas y, por lo tanto, 3 grupos. 
+El segmento vertical Imagen tiene tres filas, por lo que tiene tres grupos. 
 
-La vertical Web tiene 6 filas; las dos filas adicionales se distribuyen entre los dos primeros grupos. Esta es la razón de que haya 2 filas en los grupos 1 y 2, y solo 1 fila en los grupos 3 y 4.  
+El segmento vertical Web tiene seis filas.  Las dos filas adicionales se distribuyen a los primeros dos grupos. Esta es la razón de que haya dos filas en los grupos 1 y 2, y solo una fila en los grupos 3 y 4.  
 
     @result =
         SELECT 
@@ -430,7 +430,7 @@ Por ejemplo:
 * 102 filas se dividen en 4 grupos: [26, 26, 25, 25]
 
 ### <a name="top-n-records-per-partition-via-rank-denserank-or-rownumber"></a>N registros principales por partición mediante RANK, DENSE_RANK o ROW_NUMBER
-Muchos usuarios desean seleccionar solamente las n filas principales por grupo. Esto no es posible con la cláusula GROUP BY tradicional. 
+Muchos usuarios desean seleccionar solo n filas SUPERIORES por grupo, algo que no se puede hacer con la cláusula GROUP BY tradicional. 
 
 Vio el ejemplo siguiente al principio de la sección de funciones de categoría. No muestra los N registros principales para cada partición:
 
@@ -457,7 +457,7 @@ Los resultados son:
 | Durian |500 |Web |6 |5 |6 |
 
 ### <a name="top-n-with-dense-rank"></a>N principales con DENSE RANK
-El ejemplo siguiente devuelve los 3 registros principales de cada grupo sin interrupciones en la numeración secuencial de categoría de las filas de cada partición de la ventana.
+El ejemplo siguiente devuelve los tres registros principales de cada grupo sin interrupciones en la numeración secuencial de categoría de las filas de cada partición.
 
     @result =
     SELECT 
@@ -529,7 +529,7 @@ Los resultados son:
 | Papaya |200 |Web |3 |
 
 ### <a name="assign-globally-unique-row-number"></a>Asignación de un número de fila único global
-Suele resultar útil asignar un número único global a cada fila. Esto es fácil (y más eficaz que usar un reductor) con las funciones de categoría.
+Suele resultar útil asignar un número único global a cada fila. Las Funciones de categoría son más fáciles y más eficaces que el uso de un reductor.
 
     @result =
         SELECT 
@@ -549,9 +549,9 @@ Las funciones analíticas se usan para comprender las distribuciones de valores 
 * PERCENTILE_DISC
 
 ### <a name="cumedist"></a>CUME_DIST
-CUME_DIST calcula la posición relativa de un valor especificado en un grupo de valores. Calcula el porcentaje de consultas que tienen una latencia inferior o igual a la latencia de la consulta actual en la misma vertical. Para una fila R, suponiendo que el orden sea ascendente, la CUME_DIST de R es el número de filas con valores inferiores o iguales al valor de R, dividido por el número de filas que se evalúan en el conjunto de resultados de la consulta o de la partición. CUME_DIST devuelve números en el intervalo 0 < x < = 1.
+CUME_DIST calcula la posición relativa de un valor especificado en un grupo de valores. Calcula el porcentaje de consultas que tienen una latencia inferior o igual a la latencia de la consulta actual en la misma vertical. CUME_DIST para una fila R, suponiendo que el orden sea ascendente, es el número de filas con valores inferiores o iguales al valor de R, dividido por el número de filas que se evalúan en la partición. CUME_DIST devuelve números en el intervalo 0 < x < = 1.
 
-** Sintaxis**
+**Sintaxis:**
 
     CUME_DIST() 
         OVER (
@@ -581,27 +581,27 @@ Los resultados son:
 | Papaya |200 |Web |0,5 |
 | Apple |100 |Web |0.166666666666667 |
 
-Hay 6 filas en la partición donde la clave de partición es "Web" (de la cuarta fila en adelante):
+Hay seis filas en la partición donde la clave de partición es "Web" (de la cuarta fila en adelante):
 
-* Hay 6 filas con un valor inferior o igual a 500, por lo que la CUME_DIST es igual a 6/6 = 1.
-* Hay 5 filas con un valor inferior o igual a 400, por lo que la CUME_DIST es igual a 5/6 = 0.83.
-* Hay 4 filas con un valor inferior o igual a 300, por lo que la CUME_DIST es igual a 4/6 = 0.66.
-* Hay 3 filas con un valor inferior o igual a 200, por lo que la CUME_DIST es igual a 3/6 = 0.5. Hay dos filas con el mismo valor de latencia.
-* Hay 1 fila con un valor inferior o igual a 100, por lo que la CUME_DIST es igual a 1/6 = 0.16. 
+* Hay seis filas con un valor inferior o igual a 500, por lo que la CUME_DIST es igual a 6/6=1
+* Hay cinco filas con un valor inferior o igual a 400, por lo que la CUME_DIST es igual a 5/6=0,83
+* Hay cuatro filas con un valor inferior o igual a 300, por lo que la CUME_DIST es igual a 4/6=0,66
+* Hay tres filas con un valor inferior o igual a 200, por lo que la CUME_DIST es igual a 3/6=0,5. Hay dos filas con el mismo valor de latencia.
+* Hay una fila con un valor inferior o igual a 100, por lo que la CUME_DIST es igual a 1/6=0,16. 
 
 **Notas de uso:**
 
 * Los valores empatados siempre se evalúan como el mismo valor de la distribución acumulativa.
 * Los valores NULL se tratan como los valores más bajos posibles.
-* Debe especificar la cláusula ORDER BY para calcular CUME_DIST.
+* Es necesaria una cláusula ORDER BY para calcular CUME_DIST.
 * CUME_DIST es similar a la función PERCENT_RANK.
 
-Nota: no se permite la cláusula ORDER BY si la instrucción SELECT no va seguida de OUTPUT. Por lo tanto, la cláusula ORDER BY en la instrucción OUTPUT determina el orden de visualización del conjunto de filas resultante.
+Nota: no se permite la cláusula ORDER BY si la instrucción SELECT no va seguida de OUTPUT.
 
 ### <a name="percentrank"></a>PERCENT_RANK
 PERCENT_RANK calcula el orden relativo de una fila dentro de un grupo de filas. PERCENT_RANK se usa para evaluar la importancia relativa de un valor dentro de un conjunto de filas o una partición. El intervalo de valores devueltos por PERCENT_RANK es mayor que 0 y menor o igual que 1. A diferencia de CUME_DIST, PERCENT_RANK es siempre 0 para la primera fila.
 
-** Sintaxis**
+** Sintaxis:**
 
     PERCENT_RANK() 
         OVER (
@@ -613,7 +613,7 @@ PERCENT_RANK calcula el orden relativo de una fila dentro de un grupo de filas. 
 
 * La primera fila de cualquier conjunto tiene un PERCENT_RANK 0.
 * Los valores NULL se tratan como los valores más bajos posibles.
-* Debe especificar la cláusula ORDER BY para calcular PERCENT_RANK.
+* PERCENT_RANK requiere una cláusula ORDER BY.
 * CUME_DIST es similar a la función PERCENT_RANK. 
 
 En el ejemplo siguiente se usa la función PERCENT_RANK para calcular el percentil de latencia para cada consulta en una vertical. 
@@ -630,7 +630,7 @@ El valor devuelto por la función PERCENT_RANK representa el orden de latencia d
 
 Los resultados son:
 
-| Consultar | Latency:int | Vertical | PercentRank |
+| Consultar | Latency: INT | Vertical | PercentRank |
 | --- | --- | --- | --- |
 | Banana |300 |Imagen |0 |
 | Cherry |300 |Imagen |0 |
@@ -642,10 +642,10 @@ Los resultados son:
 | Cherry |400 |Web |0.8 |
 | Durian |500 |Web |1 |
 
-### <a name="percentilecont-percentiledisc"></a>PERCENTILE_CONT y PERCENTILE_DISC
+### <a name="percentilecont--percentiledisc"></a>PERCENTILE_CONT y PERCENTILE_DISC
 Estas dos funciones calculan un percentil basándose en una distribución continua o discreta de los valores de columna.
 
-**Sintaxis**
+**Sintaxis:**
 
     [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
@@ -662,7 +662,7 @@ Nota: se pasan por alto los valores NULL del conjunto de datos.
 
 **PERCENTILE_DISC**: calcula el percentil basándose en una distribución discreta de los valores de columna. El resultado es igual a un valor específico de la columna. Es decir, PERCENTILE_DISC, en contraste con PERCENTILE_CONT, siempre devuelve un valor real (entrada original).
 
-Puede ver cómo funcionan ambas en el ejemplo siguiente, que intenta encontrar la mediana (percentil = 0,50) para Latency en cada vertical.
+Puede ver cómo funcionan ambas en el ejemplo siguiente, que intenta encontrar la mediana (percentil =&0;,50) para Latency en cada vertical.
 
     @result = 
         SELECT 
@@ -679,7 +679,7 @@ Puede ver cómo funcionan ambas en el ejemplo siguiente, que intenta encontrar l
 
 Los resultados son:
 
-| Consultar | Latency:int | Vertical | PercentileCont50 | PercentilDisc50 |
+| Consultar | Latency: INT | Vertical | PercentileCont50 | PercentilDisc50 |
 | --- | --- | --- | --- | --- |
 | Banana |300 |Imagen |300 |300 |
 | Cherry |300 |Imagen |300 |300 |
@@ -697,19 +697,19 @@ PERCENTILE_DISC no interpola valores, por lo que la mediana de Web es 200, que e
 
 ## <a name="see-also"></a>Consulte también
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
+* [Introducción a Data Lake Analytics mediante el portal de Azure](data-lake-analytics-get-started-portal.md)
 * [Introducción a Análisis de Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 * [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
-* [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake.](data-lake-analytics-u-sql-get-started.md)
-* [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
+* [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
+* [Administración de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-manage-use-portal.md)
 * [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
-* [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Supervisión y solución de problemas de trabajos de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

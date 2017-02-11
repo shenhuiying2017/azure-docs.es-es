@@ -1,13 +1,13 @@
 ---
-title: Hoja de referencia rápida de algoritmos de aprendizaje automático | Microsoft Docs
-description: Una hoja de referencia rápida de algoritmos de aprendizaje automático que puede imprimirse le ayudará a elegir el algoritmo correcto para el modelo de predicción en Estudio de aprendizaje automático de Azure.
+title: "Hoja de referencia rápida de algoritmos de aprendizaje automático | Microsoft Docs"
+description: "Una hoja de referencia rápida de algoritmos de aprendizaje automático que puede imprimirse le ayudará a elegir el algoritmo correcto para el modelo de predicción en  Estudio de aprendizaje automático de Azure."
 keywords: algorithm cheat sheet,cheat sheet,machine learning algorithm
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: brohrer
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,31 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2016
 ms.author: brohrer;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 412c9ceb2e063a253f3e9d03dcf2735a7f373e15
+
 
 ---
-# Hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure
+# <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure
 La **hoja de referencia rápida de algoritmos de Aprendizaje automático de Microsoft Azure** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
 
-[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) tiene una gran biblioteca de algoritmos de las familias de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
+[Azure Machine Learning Studio](https://studio.azureml.net/) tiene una gran biblioteca de algoritmos de las familias de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
 
-## Descarga: Hoja de referencia rápida de algoritmos de aprendizaje automático
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Descarga: Hoja de referencia rápida de algoritmos de aprendizaje automático
 **Descargue la hoja de referencia rápida aquí: [Hoja de referencia rápida de algoritmos de aprendizaje automático](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Hoja de referencia rápida de algoritmos de aprendizaje automático: elección de un algoritmo de aprendizaje automático.][cheat-sheet]
 
-[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+[hoja de referencia rápida]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
 Descargue e imprima la hoja de referencia rápida de algoritmos de aprendizaje automático en tamaño tabloide para tenerlo a mano y que le sirva de ayuda al elegir un algoritmo.
 
 > [!NOTE]
-> Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
+> Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md) .
 > 
 > 
 
-## Más ayuda con los algoritmos
+## <a name="more-help-with-algorithms"></a>Más ayuda con los algoritmos
 * Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo usar esta hoja de referencia rápida para elegir el algoritmo correcto, consulte [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
-* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Estudio de aprendizaje automático, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
-* Para ver una lista completa de todos los algoritmos de Estudio de aprendizaje automático, consulte [Lista de la A a la Z de módulos de Estudio de aprendizaje automático][a-z-list] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
+* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Machine Learning Studio, vea [Initialize Model][initialize-model] (Inicializar modelo) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
+* Para ver una lista completa de todos los algoritmos de Machine Learning Studio, vea [A-Z list of Machine Learning Studio modules][a-z-list] (Lista de la A a la Z de módulos de Machine Learning Studio) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
 * Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -84,4 +88,8 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de aprendizaje a
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

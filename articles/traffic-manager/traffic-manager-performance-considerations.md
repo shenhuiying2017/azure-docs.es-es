@@ -1,58 +1,83 @@
 ---
-title: Consideraciones de rendimiento del Administrador de tráfico de Azure | Microsoft Docs
-description: Descripción del rendimiento en el Administrador de tráfico y cómo probar el rendimiento de su sitio web al usar el Administrador de tráfico
+title: Consideraciones de rendimiento de Azure Traffic Manager | Microsoft Docs
+description: "Descripción del rendimiento en el Administrador de tráfico y cómo probar el rendimiento de su sitio web al usar el Administrador de tráfico"
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: joaoma
-
+documentationcenter: 
+author: kumudd
+manager: timlt
+editor: 
+ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2016
-ms.author: sewhee
+ms.date: 10/11/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
+ms.openlocfilehash: 680c3dd7bbc5ac86d021e119b31352cbfb3451f7
 
 ---
-# Consideraciones de rendimiento sobre el Administrador de tráfico
-En esta página se explican las consideraciones de rendimiento relacionadas con el uso de Administrador de tráfico. Escenarios como: tiene un sitio web en la región de EE. UU. y uno en Asia. Uno de ellos presenta problemas en la comprobación de estado de los sondeos de Administrador de tráfico, todos los usuarios se enviarán a la región que funciona correctamente y el comportamiento podría parecer un problema de rendimiento. Sin embargo, sería un comportamiento esperado si consideramos la distancia con respecto a la solicitud del usuario.
 
-## Nota importante acerca del funcionamiento del Administrador de tráfico
-* El Administrador de tráfico básicamente solo hace una cosa: la resolución de DNS. Esto significa que el único impacto en el rendimiento que puede tener el Administrador de tráfico en su sitio web es la búsqueda de DNS inicial.
-* Un punto de aclaración sobre la búsqueda de DNS del Administrador de tráfico. Administrador de tráfico rellena y actualiza con regularidad los servidores de raíz DNS de Microsoft basados en su directiva y en los resultados del sondeo. Por lo tanto, incluso durante la búsqueda de DNS inicial no hay ninguna participación por parte del Administrador de tráfico ya que la solicitud DNS la controlan los servidores de raíz DNS de Microsoft normales. Si el Administrador se vuelve inactivo (por ejemplo, se produce un error en las máquinas virtuales que realizan el sondeo de directivas y la actualización de DNS), no habrá ningún impacto en su nombre de DNS de Administrador de tráfico, ya que las entradas de los servidores DNS de Microsoft se mantendrán; el único impacto será que el sondeo y la actualización basados en políticas no se producirán (por ejemplo, si su sitio principal deja de funcionar, Administrador de tráfico no podrá actualizar DNS para señalar su sitio de conmutación por error).
-* El tráfico NO fluye a través del Administrador de tráfico. No hay ningún servidor de Administrador de tráfico que actúe como intermediario entre los clientes y su servicio hospedado de Azure. Una vez finalizada la búsqueda de DNS, Administrador de tráfico se eliminará completamente de la comunicación entre cliente y servidor.
-* La búsqueda de DNS es muy rápida y se almacena en la memoria caché. La búsqueda de DNS inicial dependerá del cliente y de sus servidores DNS configurados. Normalmente, un cliente puede realizar una búsqueda de DNS en ~50 ms (consulte http://www.solvedns.com/dns-comparison/). Una vez que se realice la primera búsqueda, los resultados se almacenarán en la memoria caché para el TTL de DNS, que para Administrador de tráfico es un valor predeterminado de 300 segundos.
-* La directiva de Administrador de tráfico que elija (rendimiento, conmutación por error, round robin) no influye en el rendimiento de DNS. La directiva de rendimiento puede afectar negativamente a la experiencia del usuario, por ejemplo, si envía a usuarios de Estados Unidos a un servicio alojado en Asia, pero este problema de rendimiento no está causado por el Administrador de tráfico.
+# <a name="performance-considerations-for-traffic-manager"></a>Consideraciones de rendimiento sobre el Administrador de tráfico
 
-## Prueba del rendimiento del Administrador de tráfico
-Hay algunos sitios web disponibles públicamente que puede usar para determinar el rendimiento y el comportamiento del Administrador de tráfico. Estos sitios son útiles para determinar la latencia de DNS y a cuál de los servicios hospedados se está dirigiendo a los usuarios de todo el mundo. Tenga en cuenta que la mayor parte de estas herramientas no almacenan en la memoria caché los resultados de DNS, de modo que la ejecución de las pruebas varias veces mostrará la búsqueda de DNS completa, mientras que los clientes que se conecten al extremo del Administrador de tráfico solo podrán ver el impacto completo del rendimiento máximo de la búsqueda de DNS durante el TTL.
+En esta página se explican las consideraciones de rendimiento relacionadas con el uso de Administrador de tráfico. Considere el siguiente escenario:
 
-## Herramientas de muestra para medir el rendimiento
-Una de las herramientas más sencillas es WebSitePulse. Escriba la dirección URL y podrá ver las estadísticas, como el tiempo de resolución de DNS, primer byte, último byte y otras estadísticas de rendimiento. Puede elegir entre tres ubicaciones diferentes desde las que probar su sitio. En este ejemplo verá que la primera ejecución muestra que la primera búsqueda de DNS lleva 0,204 seg. La segunda vez que ejecutamos esta prueba en el mismo extremo del Administrador de tráfico, el tiempo de búsqueda de DNS será de 0,002 segundos, puesto que los resultados ya se han almacenado en la memoria caché.
+Tiene instancias de su sitio web en las regiones Oeste de EE. UU. y Este de Asia. Una de ellas no ha superado la comprobación de estado para el sondeo de Traffic Manager. El tráfico de aplicaciones se dirige a la región en buen estado. Se esperaba esta conmutación por error, pero el rendimiento puede ser un problema en función de la latencia del tráfico que ahora se desplaza a una región lejana.
 
-http://www.websitepulse.com/help/tools.php
+## <a name="how-traffic-manager-works"></a>Cómo funciona el Administrador de tráfico
 
-![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+El único impacto en el rendimiento que puede tener Traffic Manager sobre su sitio web es en la búsqueda de DNS inicial. Una solicitud de DNS del nombre de su perfil de Traffic Manager se procesa mediante el servidor de raíz DNS de Microsoft que hospeda la zona trafficmanager.net. Traffic Manager rellena y actualiza con regularidad los servidores de raíz DNS de Microsoft en función de la directiva de Traffic Manager y los resultados del sondeo. Por tanto, incluso durante la búsqueda de DNS inicial, no se envía ninguna consulta de DNS a Traffic Manager.
 
-Tiempo de DNS cuando se encuentra almacenado en la memoria caché:
+Traffic Manager se compone de varios elementos: servidores de nombres DNS, un servicio de API, la capa de almacenamiento y un servicio de supervisión de puntos de conexión. Si se produce un error en un componente del servicio Traffic Manager, no surte ningún efecto en el nombre DNS asociado a su perfil de Traffic Manager. No se modificarán los registros en los servidores DNS de Microsoft. Sin embargo, la supervisión de puntos de conexión y la actualización de DNS no se llevan a cabo. Por lo tanto, Traffic Manager no es capaz de actualizar DNS para que señale a su sitio de conmutación por error cuando el sitio principal deja de funcionar.
 
-![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
+La resolución de nombres DNS es rápida y los resultados se almacenan en la memoria caché. La velocidad de la búsqueda de DNS inicial depende de los servidores DNS que el cliente use para la resolución de nombres. Por lo general, un cliente puede completar una búsqueda de DNS en aproximadamente 50 ms. Los resultados de la búsqueda se almacenan en la memoria caché durante el período de vida (TTL) de DNS. El TTL predeterminado para Traffic Manager es 300 segundos.
 
-Otra herramienta realmente para obtener el tiempo de resolución de DNS desde varias regiones geográficas simultáneamente es la herramienta de comprobación de sitios web de Watchmouse. Escriba la dirección URL y verá el tiempo de resolución de DNS, el tiempo de conexión y la velocidad desde varias ubicaciones geográficas. Esto también resulta útil para probar la directiva de rendimiento del Administrador de tráfico para ver a qué servicio hospedado se está enviando a sus diferentes usuarios de todo el mundo.
+El tráfico NO fluye a través del Administrador de tráfico. Una vez completada la búsqueda de DNS, el cliente tiene una dirección IP para una instancia de su sitio web. El cliente se conecta directamente a esa dirección y no pasa a través de Traffic Manager. La directiva de Traffic Manager que elija no influye en el rendimiento de DNS. Sin embargo, un método de enrutamiento de rendimiento puede repercutir negativamente en el uso de la aplicación. Por ejemplo, si la directiva redirige el tráfico de Norteamérica a una instancia hospedada en Asia, la latencia de red para esas sesiones podría causar problemas de rendimiento.
 
-http://www.watchmouse.com/en/checkit.php
+## <a name="measuring-traffic-manager-performance"></a>Medición del rendimiento de Traffic Manager
 
-![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
+Existen varios sitios web que sirven para comprender el rendimiento y el comportamiento de un perfil de Traffic Manager. Muchos de ellos son gratuitos, pero pueden tener limitaciones. Algunos sitios ofrecen supervisión mejorada y elaboración de informes por una cuota.
 
-http://tools.pingdom.com/: esto probará un sitio web y proporcionará estadísticas de rendimiento para cada elemento de la página en un gráfico visual. Si cambia a la pestaña Análisis de página podrá ver el porcentaje de tiempo dedicado a realizar la búsqueda de DNS.
+Las herramientas de estos sitios miden las latencias de DNS y muestran las direcciones IP resueltas para ubicaciones de cliente en el mundo. La mayoría de estas herramientas no almacenan en caché los resultados de DNS. Por lo tanto, muestran la búsqueda de DNS completa cada vez que se ejecuta una prueba. Cuando hace la prueba desde su propio cliente, solo experimenta el rendimiento de la búsqueda de DNS completa una vez durante el TTL.
 
-http://www.whatsmydns.net/: este sitio realizará una búsqueda de DNS desde 20 ubicaciones geográficas distintas y mostrará los resultados en un mapa. Esto es una excelente representación visual que le ayudará a determinar a qué servicio hospedado se conectarán sus clientes.
+## <a name="sample-tools-to-measure-dns-performance"></a>Herramientas de muestra para medir el rendimiento de DNS
 
-http://www.digwebinterface.com: es similar al sitio de watchmouse, pero este muestra información de DNS más detallada, incluidos registros CNAME y A. Asegúrese de activar «Colorear resultados» y «Estadísticas» en Opciones y seleccione «Todo» en los servidores de nombres.
+* [SolveDNS](http://www.solvedns.com/dns-comparison/)
 
-## Pasos siguientes
+    SolveDNS ofrece muchas herramientas de rendimiento. La herramienta de comparación de DNS puede mostrarle cuánto tiempo se tarda en resolver el nombre DNS y lo compara con otros proveedores de servicios DNS.
+
+* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+
+    Una de las herramientas más sencillas es WebSitePulse. Escriba la dirección URL para ver el tiempo de resolución de DNS, el primer byte, el último byte y otras estadísticas de rendimiento. Puede elegir entre tres ubicaciones de prueba diferentes. En este ejemplo verá que la primera ejecución muestra que la búsqueda de DNS tarda 0,204 s.
+
+    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+
+    Como los resultados se almacenan en caché, en la segunda prueba para el mismo punto de conexión de Traffic Manager, la búsqueda de DNS tarda 0,002 s.
+
+    ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
+
+* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
+
+    Antes conocido como la herramienta Watchmouse Check Website, este sitio muestra el tiempo de resolución de DNS desde varias regiones geográficas simultáneamente. Escriba la dirección URL para ver el tiempo de resolución de DNS, el tiempo de conexión y la velocidad desde varias ubicaciones geográficas. Use esta prueba para ver qué servicio hospedado se devuelve para diferentes ubicaciones del mundo.
+
+    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
+
+* [Pingdom](http://tools.pingdom.com/)
+
+    Esta herramienta proporciona estadísticas de rendimiento para cada elemento de una página web. La pestaña de análisis de página muestra el porcentaje de tiempo invertido en la búsqueda de DNS.
+
+* [What's My DNS?](http://www.whatsmydns.net/)
+
+    Este sitio realiza una búsqueda de DNS desde 20 ubicaciones distintas y muestra los resultados en un mapa.
+
+* [Dig Web Interface](http://www.digwebinterface.com)
+
+    Este sitio muestra información de DNS más detallada, incluidos los registros A y CNAME. Asegúrese de activar las opciones "Colorize output" (Colorear salida) y "Stats" (Estadísticas), y de seleccionar todos los servidores de nombres.
+
+## <a name="next-steps"></a>Pasos siguientes
+
 [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
 
 [Pruebe la configuración del Administrador de tráfico](traffic-manager-testing-settings.md)
@@ -61,4 +86,9 @@ http://www.digwebinterface.com: es similar al sitio de watchmouse, pero este mue
 
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

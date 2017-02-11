@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Obtenga información acerca de SQL Database, una base de datos como servicio en la nube. Los tutoriales, los vídeos y otra documentación muestran cómo configurar, conectar y administrar una base de datos relacional."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
 # <a name="sql-database-documentation"></a>Documentación de SQL Database
 
-Azure SQL Database es un servicio de base de datos relacional en la nube, con funcionalidades críticas y basado en el motor de Microsoft SQL Server. Ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos (todo ello con una mínima administración). Al basarse en el motor SQL Server, SQL Database admite las herramientas, bibliotecas y API de SQL Server existentes, lo que facilita el proceso del paso a la nube.
+Aprenda a usar SQL Database, una base de datos relacional como servicio en la nube creada sobre el motor Microsoft SQL Server. Los tutoriales, los vídeos y otra documentación muestran cómo configurar, conectar y administrar una base de datos SQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -152,16 +153,10 @@ Azure SQL Database es un servicio de base de datos relacional en la nube, con fu
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre SQL Database </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

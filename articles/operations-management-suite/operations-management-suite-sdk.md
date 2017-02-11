@@ -1,22 +1,26 @@
 ---
 title: SDK de Operations Management Suite (OMS) | Microsoft Docs
-description: En este artículo se muestra la documentación y otros recursos disponibles para obtener acceso a servicios OMS fuera de los portales OMS y Azure.  Esto incluye la API de REST para el acceso desde varias interfaces de programación y los motores de scripting como PowerShell
+description: "En este artículo se muestra la documentación y otros recursos disponibles para obtener acceso a servicios OMS fuera de los portales OMS y Azure.  Esto incluye la API de REST para el acceso desde varias interfaces de programación y los motores de scripting como PowerShell"
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aac9c627-4060-4aa9-a2ea-85248e25d5ce
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 12/08/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 5d1ace8c6dab1655b0c2b512376b69444434f1ad
+ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
+
 
 ---
-# <a name="operations-management-suite-(oms)-sdk"></a>SDK de Operations Management Suite (OMS)
+# <a name="operations-management-suite-oms-sdk"></a>SDK de Operations Management Suite (OMS)
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube.  En este artículo se muestra la documentación y otros recursos disponibles para obtener acceso a servicios OMS fuera de los portales OMS y Azure.  Esto incluye la API de REST para el acceso desde varias interfaces de programación y los motores de scripting como PowerShell. 
 
 ## <a name="automation"></a>Automatización
@@ -39,7 +43,10 @@ ms.author: bwren
 * [Cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224.aspx)
 * [Biblioteca de .NET de Log Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/0.16.0-preview)
 
-## <a name="site-recovery"></a>Recuperación de sitios
+## <a name="service-map"></a>Mapa de servicio
+* [Documentación de Mapa de servicios](operations-management-suite-service-map.md)
+
+## <a name="site-recovery"></a>Site Recovery
 * [Cmdlets de PowerShell de Site Recovery](https://msdn.microsoft.com/library/mt637930.aspx)
 * [API de REST de Site Recovery](https://msdn.microsoft.com/library/azure/mt750497.aspx)
 * [Adición de runbooks de Azure Automation a los planes de recuperación](../site-recovery/site-recovery-runbook-automation.md)
@@ -49,6 +56,9 @@ ms.author: bwren
 * Obtenga información acerca de las diferentes opciones para [integración con servicios OMS](operations-management-suite-integration.md).
 * Cree una solución personalizada en OMS (próximamente).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

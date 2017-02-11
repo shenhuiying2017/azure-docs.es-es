@@ -1,19 +1,23 @@
 ---
-title: Procedimiento de actualización del SDK de iOS de Azure Mobile Engagement | Microsoft Docs
-description: Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement
+title: "Procedimiento de actualización del SDK de iOS de Azure Mobile Engagement | Microsoft Docs"
+description: "Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
+ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
+
 
 ---
 # <a name="upgrade-procedures"></a>Procedimientos de actualización
@@ -21,7 +25,7 @@ Si ya integró una versión anterior de Engagement en la aplicación, debería t
 
 Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a importar en xcode) las carpetas EngagementSDK y EngagementReach.
 
-## <a name="from-3.0.0-to-4.0.0"></a>De 3.0.0 a 4.0.0
+## <a name="from-300-to-400"></a>De 3.0.0 a 4.0.0
 ### <a name="xcode-8"></a>XCode 8
 XCode 8 es obligatorio a partir de la versión 4.0.0 del SDK.
 
@@ -85,12 +89,15 @@ por:
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-### <a name="if-you-already-have-your-own-unusernotificationcenterdelegate-implementation"></a>Si ya tiene su propia implementación de UNUserNotificationCenterDelegate
-El SDK también tiene su propia implementación del protocolo UNUserNotificationCenterDelegate. Se usa para supervisar el ciclo de vida de las notificaciones de Engagement en dispositivos que se ejecutan en iOS 10 o superior. Si el SDK detecta que el delegado no usa su propia implementación porque puede que solo haya un delegado UNUserNotificationCenter por aplicación. Esto significa que tendrá que agregar la lógica de Engagement a su propio delegado.
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>Resolución de conflictos de delegado de UNUserNotificationCenter
+
+*Si ni la aplicación ni una de las bibliotecas de terceros implementa `UNUserNotificationCenterDelegate`, puede pasar por alto esta parte.*
+
+El SDK usa un delegado de `UNUserNotificationCenter` para supervisar el ciclo de vida de las notificaciones de Engagement en dispositivos que se ejecutan en iOS 10 o superior. El SDK tiene su propia implementación del protocolo `UNUserNotificationCenterDelegate`, pero solo puede haber un delegado de `UNUserNotificationCenter` por aplicación. Cualquier otro delegado que se agrega al objeto `UNUserNotificationCenter` entrará en conflicto con Engagement. Si el SDK detecta su delegado o cualquier otro de terceros, no usará su propia implementación para ofrecerle una oportunidad de resolver los conflictos. Tendrá que agregar la lógica de Engagement a su propio delegado con el fin de resolver los conflictos.
 
 Hay dos formas de hacerlo:
 
-Reenviar las llamadas del delegado al SDK:
+Propuesta 1: reenviar las llamadas del delegado al SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -117,7 +124,7 @@ Reenviar las llamadas del delegado al SDK:
     }
     @end
 
-O bien, heredarla de la clase `AEUserNotificationHandler`
+O propuesta 2: heredándola de la clase `AEUserNotificationHandler`.
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -145,10 +152,18 @@ O bien, heredarla de la clase `AEUserNotificationHandler`
 
 > [!NOTE]
 > Puede determinar si una notificación proviene de Engagement o no pasando su diccionario `userInfo` al método de clase `isEngagementPushPayload:` del agente.
-> 
-> 
 
-## <a name="from-2.0.0-to-3.0.0"></a>De 2.0.0 a 3.0.0
+Asegúrese de que el delegado del objeto `UNUserNotificationCenter` se establece en su delegado en los métodos `application:willFinishLaunchingWithOptions:` o `application:didFinishLaunchingWithOptions:` del delegado de aplicación.
+Por ejemplo, si implementa la propuesta anterior 1:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
+
+## <a name="from-200-to-300"></a>De 2.0.0 a 3.0.0
 Soporte de iOS 4.X eliminado. A partir de esta versión, el destino de implementación de la aplicación debe ser como mínimo iOS 6.
 
 Si usa Reach en la aplicación, debe agregar el valor `remote-notification` a la matriz `UIBackgroundModes` en el archivo Info.plist para recibir notificaciones remotas.
@@ -161,7 +176,7 @@ El método `application:didReceiveRemoteNotification:` debe reemplazarse por `ap
     -(void)didFailToRetrieveLaunchMessage;
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-## <a name="from-1.16.0-to-2.0.0"></a>De 1.16.0 a 2.0.0
+## <a name="from-1160-to-200"></a>De 1.16.0 a 2.0.0
 A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement.
 Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 1.16 en primer lugar luego aplique el siguiente procedimiento.
 
@@ -200,6 +215,9 @@ Ejemplos:
 * La clase `CapptainUtils` cambia su nombre a `EngagementUtils`.
 * La clase `CapptainViewController` cambia su nombre a `EngagementViewController`.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

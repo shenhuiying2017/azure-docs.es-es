@@ -3,7 +3,7 @@ title: "Escalado automático de nodos de proceso en un grupo de Azure Batch | Mi
 description: "Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
 ms.date: 10/14/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2c142291b48210014597b9c0efbe1e0f2886fdf
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 75cb029e61006636de91e945404e38fd6d955697
 
 
 ---
 # <a name="automatically-scale-compute-nodes-in-an-azure-batch-pool"></a>Escalación automática de los nodos de ejecución en un grupo de Lote de Azure
 Con la escala automática, el servicio Lote de Azure puede agregar o quitar de forma dinámica nodos de ejecución en un grupo en función de los parámetros definidos. Con esto puede ahorrar tiempo y dinero ajustando automáticamente la cantidad de potencia de procesamiento utilizada por la aplicación: agregar nodos a medida que las demandas de la tarea del trabajo aumentan y quitarlos cuando disminuyen.
 
-Habilitar el escalado automático en un grupo de nodos de proceso mediante la asociación con una *fórmula de escalado automático* que defina, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca [Batch .NET](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Lote responde a las muestras de datos de métricas de servicio que se recopilan periódicamente y ajusta el número de nodos de proceso del grupo a un intervalo configurable según la fórmula asociada.
+Habilitar el escalado automático en un grupo de nodos de proceso mediante la asociación con una fórmula de *escalado automático* que defina, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca de [.NET para Batch](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Lote responde a las muestras de datos de métricas de servicio que se recopilan periódicamente y ajusta el número de nodos de proceso del grupo a un intervalo configurable según la fórmula asociada.
 
 Puede habilitar el escalado automático al crear un grupo o bien en un grupo existente. También puede cambiar una fórmula existente en un grupo con el "escalado automático" habilitado. Lote proporciona la capacidad de evaluar las fórmulas antes de asignarlas a grupos y de supervisar el estado de las ejecuciones de escalado automático.
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de escalado automático
-Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (REST de Batch) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (REST de Batch) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET para Batch) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio de Lote) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -138,8 +138,8 @@ Estas **operaciones** se permiten en los tipos enumerados arriba.
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
 | timeinterval *operador* double |*, / |timeinterval |
 | timeinterval *operador* timeinterval |+, - |timeinterval |
-| timeinterval *operador* timestamp |+ | timestamp |
-| timestamp *operador* timeinterval |+ | timestamp |
+| timeinterval *operador* timestamp |+ |timestamp |
+| timestamp *operador* timeinterval |+ |timestamp |
 | timestamp *operador* timestamp |- |timeinterval |
 | *operador*double |-, ! |double |
 | *operador*timeinterval |- |timeinterval |
@@ -173,7 +173,7 @@ Estas **funciones** predefinidas están disponibles para que las use al definir 
 | std(doubleVecList) |double |Devuelve la desviación de muestra estándar de los valores en doubleVecList. |
 | stop() | |Detiene la evaluación de la expresión de escalado automático. |
 | sum(doubleVecList) |double |Devuelve la suma de todos los componentes de doubleVecList. |
-| time(string dateTime="") | timestamp |Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123. |
+| time(string dateTime="") |timestamp |Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123. |
 | val(doubleVec v, double i) |double |Devuelve el valor del elemento que está en la ubicación i en el vector v con el índice inicial de cero. |
 
 Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista como argumento. La lista separada por comas es cualquier combinación de *double* y *doubleVec*. Por ejemplo:
@@ -342,7 +342,7 @@ Para crear un nuevo grupo que tenga habilitado escalado automático, puede usar 
 
 * [Agregar un grupo a una cuenta](https://msdn.microsoft.com/library/azure/dn820174.aspx): especifique los elementos `enableAutoScale` y `autoScaleFormula` en la solicitud de API de REST para configurar el escalado automático para un grupo al crearla.
 
-El fragmento de código siguiente crea un grupo habilitado para escalado automático mediante la biblioteca [Batch .NET][net_api]. La fórmula de escalado automático del grupo establece el número objetivo de nodos en 5 los lunes y 1 todos los demás días de la semana. El [intervalo de escalado automático](#automatic-scaling-interval) está establecido en 30 minutos. En este y otros fragmentos de código de C# de este artículo, "myBatchClient" es una instancia totalmente inicializada de [BatchClient][net_batchclient].
+El fragmento de código siguiente crea un grupo habilitado para escalado automático mediante la biblioteca de [.NET para Batch][net_api]. La fórmula de escalado automático del grupo establece el número objetivo de nodos en 5 los lunes y 1 todos los demás días de la semana. El [intervalo de escalado automático](#automatic-scaling-interval) está establecido en 30 minutos. En este y en otros fragmentos de código en C# de este artículo, "myBatchClient" es una instancia totalmente inicializada de [BatchClient][net_batchclient].
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -355,14 +355,14 @@ pool.Commit();
 Además de la API de REST de Batch y del SDK de .NET, puede usar cualquiera de los demás [SDK de Batch](batch-technical-overview.md#batch-development-apis), [cmdlets de PowerShell para Batch ](batch-powershell-cmdlets-get-started.md) y la [CLI de Batch](batch-cli-get-started.md) para trabajar con el escalado automático.
 
 > [!IMPORTANT]
-> Al crear un grupo habilitado para escalado automático, **no** debe especificar el parámetro `targetDedicated`. Tenga en cuenta también que si desea cambiar manualmente el tamaño de un grupo habilitado para escalado automático (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y después cambiar su tamaño.
+> Al crear un grupo habilitado para escalado automático, **no** debe especificar el parámetro `targetDedicated`. Además, si desea cambiar manualmente el tamaño de un grupo con el escalado automático habilitado (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y, después, cambiar su tamaño.
 > 
 > 
 
 ### <a name="automatic-scaling-interval"></a>Intervalo de escalado automático
 De forma predeterminada, el servicio Lote ajusta el tamaño de un grupo según su fórmula de escalado automático cada **15 minutos**. No obstante, este intervalo es configurable mediante las siguientes propiedades de grupo:
 
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (.NET para Batch)
 * [autoScaleEvaluationInterval][rest_autoscaleinterval] (API de REST)
 
 Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente. Si se especifica un intervalo fuera de este margen, el servicio Lote devolverá un error de solicitud incorrecta (400).
@@ -375,8 +375,8 @@ Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente.
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Habilitación del escalado automático en un grupo existente
 A pesar de que ya haya creado un grupo con un número establecido de nodos de proceso mediante el parámetro *targetDedicated*, aún puede habilitar el escalado automático en el grupo. Cada SDK de Batch proporciona una operación "habilitar escalado automático", por ejemplo:
 
-* [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] (Batch .NET)
-* [Habilitación del escalado automático en un grupo][rest_enableautoscale] (API de REST)
+* [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] (.NET de lote)
+* [Activar la escala automática en un grupo de servidores][rest_enableautoscale] (API de REST)
 
 Al habilitar el escalado automático en un grupo existente, se aplican las siguientes reglas:
 
@@ -391,7 +391,7 @@ Al habilitar el escalado automático en un grupo existente, se aplican las sigui
 > 
 > 
 
-Este fragmento de código de C# usa la biblioteca [Batch .NET][net_api] para habilitar el escalado automático en un grupo existente:
+Este fragmento de código de C# usa la biblioteca [.NET para Batch][net_api] para habilitar el escalado automático en un grupo existente:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -405,7 +405,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
 ```
 
 ### <a name="update-an-autoscale-formula"></a>Actualización de una fórmula de escalado automático
-Usará la misma solicitud "habilitar escalado automático" para *actualizar* la fórmula en un grupo habilitado para escalado automático ya existente (por ejemplo, con [EnableAutoScale][net_enableautoscale] en Batch .NET). No hay ninguna operación especial de actualización de escalado automático. Por ejemplo, si el escalado automático ya está habilitado en "myexistingpool" cuando se ejecuta el siguiente código, su fórmula de escalado automático se sustituye por el contenido de `myNewFormula`.
+Usará la misma solicitud "habilitar escalado automático" para *actualizar* la fórmula en un grupo habilitado para escalado automático ya existente (por ejemplo, con [EnableAutoScale][net_enableautoscale] en .NET para Batch). No hay ninguna operación especial de actualización de escalado automático. Por ejemplo, si el escalado automático ya está habilitado en "myexistingpool" cuando se ejecuta el siguiente código, su fórmula de escalado automático se sustituye por el contenido de `myNewFormula`.
 
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
@@ -434,7 +434,7 @@ Para evaluar una fórmula de escalado automático, primero es preciso **habilita
   
     En esta solicitud de API de REST, especifique el identificador del grupo en el URI y la fórmula de escalado automático en el elemento *autoScaleFormula* del cuerpo de la solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
 
-En este fragmento de código de [Batch .NET][net_api], evaluamos una fórmula antes de aplicarla a [CloudPool][net_cloudpool]. Si el grupo no tiene habilitado el escalado automático, lo habilitaremos primero.
+En este fragmento de código de [.NET para Batch][net_api], evaluamos una fórmula antes de aplicarla a [CloudPool][net_cloudpool]. Si el grupo no tiene habilitado el escalado automático, lo habilitaremos primero.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -646,6 +646,6 @@ string formula = string.Format(@"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

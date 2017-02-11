@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 274537c60cef2d1f5068b8713e29fc8cf97d9cd2
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: fb244491ec243399393320d0dbefb078273448d9
 
 
 ---
@@ -48,17 +48,18 @@ Este tema será útil para los desarrolladores que trabajan en aplicaciones que 
 > 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Flujo de trabajo de cifrado dinámico AES-128 y del servicio de entrega de claves
+
 Éstos son los pasos generales que deberá realizar al cifrar los recursos con AES, mediante el servicio de entrega claves de Servicios multimedia y también mediante cifrado dinámico.
 
 1. [Creación de un recurso y carga de los archivos en el recurso](media-services-protect-with-aes128.md#create_asset).
 2. [Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set](media-services-protect-with-aes128.md#encode_asset).
 3. [Creación de una clave de contenido y su asociación con el recurso codificado](media-services-protect-with-aes128.md#create_contentkey). En Servicios multimedia, la clave de contenido contiene la clave de cifrado del recurso.
 4. [Configuración de la directiva de autorización de la clave de contenido](media-services-protect-with-aes128.md#configure_key_auth_policy). El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave de contenido.
-5. [Configuración de la directiva de entrega para un recurso](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configuración de la directiva de entrega incluye: la URL de adquisición de claves y vector de inicialización (IV) (AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado), el protocolo de entrega (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos) y el tipo de cifrado dinámico (por ejemplo Envelope o sin cifrado dinámico).
+5. [Configuración de la directiva de entrega para un recurso](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configuración de la directiva de entrega incluye: la URL de adquisición de claves y vector de inicialización (IV) (AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado), el protocolo de entrega (por ejemplo, MPEG DASH, HLS y Smooth Streaming o todos) y el tipo de cifrado dinámico (por ejemplo Envelope o sin cifrado dinámico).
 
-Puede aplicar diferentes directivas a cada protocolo en el mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth/DASH y AES Envelope a HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción a esta regla se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
+    Puede aplicar diferentes directivas a cada protocolo en el mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth/DASH y AES Envelope a HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción a esta regla se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
 
-1. [Creación de un localizador a petición](media-services-protect-with-aes128.md#create_locator) para obtener una URL de streaming.
+6. [Creación de un localizador a petición](media-services-protect-with-aes128.md#create_locator) para obtener una URL de streaming.
 
 El tema también muestra [cómo una aplicación cliente puede solicitar una clave al servicio de entrega de claves](media-services-protect-with-aes128.md#client_request).
 
@@ -98,7 +99,7 @@ Configure la directiva de entrega de sus recursos. Algunos de los elementos que 
 
 * La URL de adquisición de clave. 
 * El vector de inicialización (IV) que se usará para el cifrado Envelope. AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado. 
-* El protocolo de entrega de recursos (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos).
+* El protocolo de entrega de recursos (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos).
 * El tipo de cifrado dinámico (por ejemplo, AES Envelope) o sin cifrado dinámico. 
 
 Para obtener más información, consulte [Configuración de la directiva de entrega de recursos ](media-services-rest-configure-asset-delivery-policy.md).
@@ -630,6 +631,6 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

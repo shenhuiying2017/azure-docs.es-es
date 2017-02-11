@@ -1,14 +1,14 @@
 ---
-title: Adición de un disco a una máquina virtual de Linux | Microsoft Docs
-description: Vea cómo agregar un disco persistente a la máquina virtual Linux
-keywords: máquina virtual de Linux, agregar disco de recursos
+title: "Incorporación de un disco a una máquina virtual con Linux | Microsoft Docs"
+description: "Vea cómo agregar un disco persistente a la máquina virtual Linux"
+keywords: "máquina virtual de Linux, agregar disco de recursos"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: rickstercdn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
@@ -16,55 +16,59 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 09/06/2016
 ms.author: rclaus
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
+
 
 ---
-# Adición de un disco a una máquina virtual de Linux
-En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos: incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. Para agregar un disco, tiene que configurar la [CLI de Azure](../xplat-cli-install.md) en modo Resource Manager (`azure config mode arm`).
+# <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
+En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos: incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. Para agregar un disco, tiene que configurar la [CLI de Azure](../xplat-cli-install.md) en modo Resource Manager (`azure config mode arm`).  
 
-## Comandos rápidos
-En los siguientes ejemplos de comandos, reemplace los valores entre &lt; y &gt; con los valores de su propio entorno.
+## <a name="quick-commands"></a>Comandos rápidos
+En el ejemplo siguiente se asocia un `50`disco GB a la máquina virtual denominada `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
-```bash
-azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+```azurecli
+azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## Conexión de un disco
-La asociación de un nuevo disco es algo que se hace rápidamente. Escriba `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` para crear y vincular un nuevo disco GB para la máquina virtual. Si no identifica explícitamente una cuenta de almacenamiento, cualquier disco que cree se coloca en la misma cuenta de almacenamiento donde reside el disco del sistema operativo. Debe tener un aspecto similar al siguiente:
+## <a name="attach-a-disk"></a>Conexión de un disco
+La asociación de un nuevo disco es algo que se hace rápidamente. Escriba `azure vm disk attach-new myResourceGroup myVM sizeInGB` para crear y vincular un nuevo disco GB para la máquina virtual. Si no identifica explícitamente una cuenta de almacenamiento, cualquier disco que cree se coloca en la misma cuenta de almacenamiento donde reside el disco del sistema operativo. En el ejemplo siguiente se asocia un `50`disco GB a la máquina virtual denominada `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
-```bash
-azure vm disk attach-new myuniquegroupname myuniquevmname 5
+```azurecli
+azure vm disk attach-new myResourceGroup myVM 50
 ```
 
 Salida
 
-```bash
+```azurecli
 info:    Executing command vm disk attach-new
-+ Looking up the VM "myuniquevmname"
-info:    New data disk location: https://cliexxx.blob.core.windows.net/vhds/myuniquevmname-20150526-0xxxxxxx43.vhd
-+ Updating VM "myuniquevmname"
++ Looking up the VM "myVM"
+info:    New data disk location: https://mystorageaccount.blob.core.windows.net/vhds/myVM-20150526-043.vhd
++ Updating VM "myVM"
 info:    vm disk attach-new command OK
 ```
 
-## Conexión a la máquina virtual con Linux para montar el nuevo disco
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Conexión a la máquina virtual con Linux para montar el nuevo disco
 > [!NOTE]
-> En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para usar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Uso de SSH con Linux y Mac en Azure](virtual-machines-linux-mac-create-ssh-keys.md). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso.
+> En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para usar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Uso de SSH con Linux y Mac en Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso.
 > 
 > 
 
 Necesita SSH en la máquina virtual de Azure para particionar, formatear y montar el disco nuevo para que la máquina virtual con Linux pueda usarlo. Si no está familiarizado con la conexión con **ssh**, el comando toma la forma `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` y tiene el aspecto siguiente:
 
 ```bash
-ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
+ssh ops@mypublicdns.westus.cloudapp.azure.com -p 22
 ```
 
 Salida
 
 ```bash
-The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
+The authenticity of host 'mypublicdns.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
 ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
-ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com's password:
+Warning: Permanently added 'mypublicdns.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
+ops@mypublicdns.westus.cloudapp.azure.com's password:
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-37-generic x86_64)
 
 * Documentation:  https://help.ubuntu.com/
@@ -90,10 +94,10 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-ops@myuniquevmname:~$
+ops@myVM:~$
 ```
 
-Ahora que está conectado a la máquina virtual, está listo para conectar un disco. Primero, busquemos el disco con `dmesg | grep SCSI` (el método usado para detectar el nuevo disco puede variar). En este caso, es similar a lo siguiente:
+Ahora que está conectado a la máquina virtual, está listo para conectar un disco.  Primero, busquemos el disco con `dmesg | grep SCSI` (el método usado para detectar el nuevo disco puede variar). En este caso, es similar a lo siguiente:
 
 ```bash
 dmesg | grep SCSI
@@ -159,7 +163,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Y escribimos un sistema de archivos en la partición mediante el comando **mkfs**, especificando el tipo de sistema de archivos y el nombre del dispositivo. En este tema, estamos usando `ext4` y `/dev/sdc1` mostrados anteriormente:
+Y escribimos un sistema de archivos en la partición mediante el comando **mkfs** , especificando el tipo de sistema de archivos y el nombre del dispositivo. En este tema, estamos usando `ext4` y `/dev/sdc1` mostrados anteriormente:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -215,7 +219,7 @@ bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr
 boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 ```
 
-Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (por ejemplo, `/dev/sdc1`). Si el SO detecta un error de disco durante el arranque, con el UUID se evita que se monte el disco incorrecto en una ubicación especificada. A los discos de datos restantes se les asignarán después esos mismos identificadores de dispositivo. Para buscar el UUID de la unidad nueva, use la utilidad **blkid**:
+Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (por ejemplo, `/dev/sdc1`). Si el SO detecta un error de disco durante el arranque, con el UUID se evita que se monte el disco incorrecto en una ubicación especificada. A los discos de datos restantes se les asignarán después esos mismos identificadores de dispositivo. Para buscar el UUID de la unidad nueva, use la utilidad **blkid** :
 
 ```bash
 sudo -i blkid
@@ -240,43 +244,54 @@ Después, abra el archivo **/etc/fstab** en un editor de texto:
 sudo vi /etc/fstab
 ```
 
-En este ejemplo, usamos el valor de UUID para el nuevo dispositivo **/dev/sdc1** que se ha creado en los pasos anteriores y el punto de montaje **/datadrive**. Agregue la siguiente línea al final del archivo **/etc/fstab**:
+En este ejemplo, usamos el valor de UUID para el nuevo dispositivo **/dev/sdc1** que se ha creado en los pasos anteriores y el punto de montaje **/datadrive**. Agregue la siguiente línea al final del archivo **/etc/fstab** :
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
 > Después, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. La mayoría de las distribuciones proporcionan las opciones de fstab `nofail` o `nobootwait`. Estas opciones permiten que el sistema arranque incluso si no se monta el disco en el momento del arranque. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 > 
-> 
+> La opción **nofail** garantiza que la máquina virtual se inicia incluso si el sistema de archivos está dañado o el disco no existe en tiempo de arranque. Sin esta opción, puede encontrarse con el comportamiento que se describe en [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (No se puede conectar mediante SSH a una máquina virtual Linux debido a errores de FSTAB).
 
-### Compatibilidad de TRIM/UNMAP con Linux en Azure
+### <a name="trimunmap-support-for-linux-in-azure"></a>Compatibilidad de TRIM/UNMAP con Linux en Azure
 Algunos kernels de Linux admiten operaciones TRIM/UNMAP para descartar bloques no usados del disco. Esto es especialmente útil en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. Esto puede suponer un ahorro de dinero si crea archivos grandes y, a continuación, los elimina.
 
 Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual Linux. Como es habitual, consulte la documentación de distribución para ver el enfoque recomendado:
 
 * Use la opción de montaje `discard` en `/etc/fstab`, por ejemplo:
-  
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+    ```bash
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    ```
 * Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
   
     **Ubuntu**
   
-        # sudo apt-get install util-linux
-        # sudo fstrim /datadrive
+    ```bash
+    sudo apt-get install util-linux
+    sudo fstrim /datadrive
+    ```
   
     **RHEL/CentOS**
-  
-        # sudo yum install util-linux
-        # sudo fstrim /datadrive
 
-## Solución de problemas
+    ```bash
+    sudo yum install util-linux
+    sudo fstrim /datadrive
+    ```
+
+## <a name="troubleshooting"></a>Solución de problemas
 [!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
-## Pasos siguientes
-* Recuerde que el nuevo disco no está disponible en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab).
-* Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
-* Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md) para obtener un mayor rendimiento.
+## <a name="next-steps"></a>Pasos siguientes
+* Recuerde que el nuevo disco no está disponible en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab) .
+* Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para asegurarse de que la máquina virtual Linux está configurada correctamente.
+* Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener un mayor rendimiento.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

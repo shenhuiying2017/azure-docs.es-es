@@ -1,13 +1,13 @@
 ---
-title: Accelerated networking for a virtual machine - Portal | Microsoft Docs
-description: Learn how to configure Accelerated Networking for an Azure virtual machine using the Azure Portal.
+title: "Redes aceleradas para una máquina virtual - Portal | Microsoft Docs"
+description: "Aprenda a configurar Redes aceleradas para una máquina virtual de Azure con Azure Portal."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: af4515c6-4377-4d4a-a104-18fe1348252c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,69 +15,76 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 9ace0a47e8b804840ffda3f906bf3fb8584932cf
+
 
 ---
-# <a name="accelerated-networking-for-a-virtual-machine"></a>Accelerated networking for a virtual machine
+# <a name="accelerated-networking-for-a-virtual-machine"></a>Accelerated Networking para una máquina virtual
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-network-accelerated-networking-portal.md)
 > * [PowerShell](virtual-network-accelerated-networking-powershell.md)
 > 
 > 
 
-Accelerated Networking enables Single Root I/O Virtualization (SR-IOV) to a virtual machine (VM), greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization for use with the most demanding network workloads on supported VM types. This article explains how to use the Azure Portal to configure Accelerated Networking in the Azure Resource Manager deployment model. You can also create a VM with Accelerated Networking using Azure PowerShell. To learn how, click the PowerShell box at the top of this article.
+Accelerated Networking habilita Virtualización de E/S de raíz única (SR-IOV) en una máquina virtual (VM), lo que mejora significativamente el rendimiento de la red. Esta ruta de alto rendimiento omite el host de la ruta de acceso de datos, lo que reduce la latencia, la inestabilidad y la utilización de la CPU para su uso con las cargas de trabajo de red más exigentes en tipos de máquina virtual compatibles. En este artículo se explica cómo usar Azure Portal para configurar Redes aceleradas en el modelo de implementación de Azure Resource Manager. También puede crear una máquina virtual con Redes aceleradas mediante Azure PowerShell. Para aprender a hacerlo, haga clic en la casilla PowerShell en la parte superior de este artículo.
 
-The following picture shows communication between two virtual machines (VM) with and without Accelerated Networking:
+En la siguiente imagen, se muestra la comunicación entre dos máquinas virtuales (VM) con y sin Accelerated Networking:
 
-![Comparison](./media/virtual-network-accelerated-networking-portal/image1.png)
+![De comparación](./media/virtual-network-accelerated-networking-portal/image1.png)
 
-Without Accelerated Networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more, read the [Hyper-V Network Virtualization and Virtual Switch](https://technet.microsoft.com/library/jj945275.aspx) article.
+Sin Accelerated Networking, todo el tráfico de red dentro y fuera de la máquina virtual debe atravesar el host y el conmutador virtual. El conmutador virtual se encarga de toda la aplicación de directivas, como grupos de seguridad de red, listas de control de acceso, aislamiento y otros servicios virtualizados de red, al tráfico de red. Para más información, lea el artículo [Hyper-V Network Virtualization and Virtual Switch](https://technet.microsoft.com/library/jj945275.aspx) (Virtualización de red de Hyper-V y conmutador virtual).
 
-With Accelerated Networking, network traffic arrives at the network card (NIC) and is then forwarded to the VM. All network policies that the virtual switch applies without Accelerated Networking are offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
+Con Accelerated Networking, el tráfico de red llega a la tarjeta de red (NIC) y se reenvía después a la máquina virtual. Todas las directivas de red que el conmutador virtual aplica sin Accelerated Networking se descargan y aplican en el hardware. La aplicación de directivas en hardware permite que la NIC reenvíe el tráfico de red directamente a la máquina virtual, pasando por alto el host y el conmutador virtual, al mismo tiempo que se mantienen todas las directivas aplicadas en el host.
 
-The benefits of Accelerated Networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same VNet. When communicating across VNets or connecting on-premises, this feature has a minimal impact to overall latency.
+Las ventajas de Accelerated Networking solo se aplican a la máquina virtual donde esté habilitada. Para obtener resultados óptimos, lo ideal es habilitar esta característica en al menos dos máquinas virtuales conectadas a la misma red virtual. Al comunicarse entre redes virtuales o conectarse de forma local, esta característica tiene un efecto mínimo sobre la latencia total.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-## <a name="benefits"></a>Benefits
-* **Lower Latency / Higher packets per second (pps):** Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
-* **Reduced jitter:** Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that is doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, removing the host to VM communication and all software interrupts and context switches.
-* **Decreased CPU utilization:** Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
+## <a name="benefits"></a>Ventajas
+* **Menor latencia/Más paquetes por segundo (pps):** al quitarse el conmutador virtual de la ruta de acceso de datos, se elimina el tiempo que los paquetes pasan en el host para el procesamiento de las directivas y se aumenta el número de paquetes que se pueden procesar dentro de la máquina virtual.
+* **Inestabilidad reducida:** el procesamiento del conmutador virtual depende de la cantidad de directivas que deben aplicarse y la carga de trabajo de la CPU que se encarga del procesamiento. Al descargarse la aplicación de directivas en el hardware, se elimina esa variabilidad, ya que los paquetes se entregan directamente a la máquina virtual y se elimina el host de la comunicación de la máquina virtual, así como todas las interrupciones de software y los cambios de contexto.
+* **Disminución de la utilización de la CPU:** el pasar por alto el conmutador virtual en el host conlleva una disminución de la utilización de la CPU para procesar el tráfico de red.
 
-## <a name="limitations"></a>Limitations
-The following limitations exist when using this capability:
+## <a name="limitations"></a>Limitaciones
+Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:
 
-* **Network interface creation:** Accelerated networking can only be enabled for a new network interface.  It cannot be enabled on an existing network interface.
-* **VM creation:** A network interface with accelerated networking enabled can only be attached to a VM when the VM is created. The network interface cannot be attached to an existing VM.
-* **Regions:** Offered in the West Central US and West Europe Azure regions only. The set of regions will expand in the future.
-* **Supported operating system:** Microsoft Windows Server 2012 R2 and Windows Server 2016 Technical Preview 5. Linux and Windows Server 2012 support will be added soon.
-* **VM Size:** Standard_D15_v2 and Standard_DS15_v2 are the only supported VM instance sizes. For more information, see the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) article. The set of supported VM instance sizes will expand in the future.
+* **Creación de interfaz de red:** Accelerated Networking solo se puede habilitar para una nueva interfaz de red.  No es posible para una interfaz de red existente.
+* **Creación de máquina virtual:** una interfaz de red con Accelerated Networking habilitada solo se puede asociar a una máquina virtual cuando esta se crea. La interfaz de red no puede asociarse a una máquina virtual existente.
+* **Regiones:** solo se ofrece en las regiones Centro occidental de EE. UU. y Europa Occidental de Azure. El conjunto de regiones se expandirá en el futuro.
+* **Sistema operativo compatible:** Microsoft Windows Server 2012 R2 y Windows Server 2016 Technical Preview 5. Próximamente se agregará compatibilidad con Linux y Windows Server 2012.
+* **Tamaño de máquina virtual:** Standard_D15_v2 y Standard_DS15_v2 son los únicos tamaños de instancia de máquina virtual admitidos. Para más información, consulte el artículo sobre los [tamaños de máquina virtual Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . El conjunto de tamaños de instancia de máquina virtual compatibles se ampliará en el futuro.
 
-Changes to these limitations will be announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-preview) page.
+Los cambios en estas limitaciones se anunciarán a través de la página con [actualizaciones para redes virtuales de Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview) .
 
-## <a name="create-a-windows-vm-with-accelerated-networking"></a>Create a Windows VM with Accelerated Networking
-1. Register for the preview by sending an email to [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not complete the remaining steps until after you receive an e-mail notifying you that you've been accepted into the preview.
-2. Login to the Azure Portal at http://portal.azure.com.
-3. Create a VM by completing the steps in the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) article selecting the following options:
+## <a name="create-a-windows-vm-with-accelerated-networking"></a>Creación de una máquina virtual Windows con Accelerated Networking
+1. Para registrarse para la versión preliminar, envíe un correo electrónico a [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto. No complete los pasos restantes hasta después de recibir una notificación por correo electrónico de que se le acepta en la versión preliminar.
+2. Inicie sesión en Azure Portal en http://portal.azure.com.
+3. Cree una máquina virtual según los pasos descritos en el artículo [Creación de una máquina virtual Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) seleccionando las opciones siguientes:
    
-   * Select an operating system listed in the Limitations section of this article.
-   * Select a location (region) listed in the Limitations section of this article.
-   * Select a VM size listed in the Limitations section of this article. If one of the supported sizes isn't listed, click **View all** in the **Choose a size** blade to select a size from an expanded list.
-   * In the **Settings** blade, click *Enabled* for **Accelerated networking**, as shown in the following picture:
+   * Seleccione un sistema operativo en la sección Limitaciones de este artículo.
+   * Seleccione una ubicación (región) en la sección Limitaciones de este artículo.
+   * Seleccione un tamaño de máquina virtual en la sección Limitaciones de este artículo. Si uno de los tamaños admitidos no aparece, haga clic en **Ver todo** en la hoja **Elegir un tamaño** para seleccionarlo en una lista ampliada.
+   * En la hoja **Configuración**, haga clic en *Habilitado* para **Redes aceleradas**, como se muestra en la siguiente imagen:
      
-       ![Settings](./media/virtual-network-accelerated-networking-portal/image3.png)
+       ![Configuración](./media/virtual-network-accelerated-networking-portal/image3.png)
      
      > [!NOTE]
-     > The Accelerated Networking option will only be visible if you've:
+     > La opción Redes aceleradas solo estará visible si:
      > 
-     > * Been accepted into the preview
-     > * Selected supported operating system, location, and VM sizes mentioned in the Limitations section of this article.
+     > * Se le ha aceptado en la versión preliminar.
+     > * Ha seleccionado el sistema operativo, la ubicación y los tamaños de máquina virtual admitidos que se mencionan en la sección Limitaciones de este artículo.
      > 
      > 
-4. Once the VM is created, download the [Accelerated Networking driver](https://gallery.technet.microsoft.com/Azure-Accelerated-471b5d84), connect and login to the VM, and run the driver installer inside the VM.
-5. Right-click the Windows button and click **Device Manager**. Verify that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears under the **Network** option when expanded, as shown in the following picture:
+4. Una vez creada la máquina virtual, descargue el [controlador de Redes aceleradas](https://gallery.technet.microsoft.com/Azure-Accelerated-471b5d84), conéctese a la máquina virtual, inicie sesión en ella y ejecute el instalador del controlador dentro de la máquina virtual.
+5. Haga clic con el botón derecho en el botón Windows y haga clic en **Administrador de dispositivos**. Compruebe que el **adaptador Ethernet de función virtual ConnectX-3 de Mellanox** aparezca bajo la opción **Red** expandida, como se muestra en la siguiente imagen:
    
-    ![Device Manager](./media/virtual-network-accelerated-networking-portal/image2.png)
+    ![Administrador de dispositivos](./media/virtual-network-accelerated-networking-portal/image2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

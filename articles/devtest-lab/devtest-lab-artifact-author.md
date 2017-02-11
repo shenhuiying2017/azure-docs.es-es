@@ -1,30 +1,34 @@
 ---
-title: Creación de artefactos personalizados para la máquina virtual de DevTest Labs | Microsoft Docs
+title: "Creación de artefactos personalizados para la máquina virtual de DevTest Labs | Microsoft Docs"
 description: Aprenda a crear sus propios artefactos para usarlos con laboratorios de desarrollo y pruebas
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/25/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+
 
 ---
-# Creación de artefactos personalizados para la máquina virtual de DevTest Labs
+# <a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Creación de artefactos personalizados para la máquina virtual de DevTest Labs
 > [AZURE.VIDEO how-to-author-custom-artifacts] 
 > 
 > 
 
-## Información general
-Los **artefactos** se utilizan para implementar y configurar la aplicación después de aprovisionar una máquina virtual. Un artefacto consta de un archivo de definición de artefacto y otros archivos de script que se almacenan en un repositorio de Git. Los archivos de definición de artefacto constan de JSON y expresiones que puede utilizar para especificar lo que desea instalar en una máquina virtual. Por ejemplo, puede definir el nombre del artefacto, el comando que se va a ejecutar y los parámetros que están disponibles cuando se ejecuta el comando. Puede hacer referencia a otros archivos de script en el archivo de definición de artefacto por nombre.
+## <a name="overview"></a>Información general
+**artefactos** se utilizan para implementar y configurar la aplicación después de aprovisionar una máquina virtual. Un artefacto consta de un archivo de definición de artefacto y otros archivos de script que se almacenan en un repositorio de Git. Los archivos de definición de artefacto constan de JSON y expresiones que puede utilizar para especificar lo que desea instalar en una máquina virtual. Por ejemplo, puede definir el nombre del artefacto, el comando que se va a ejecutar y los parámetros que están disponibles cuando se ejecuta el comando. Puede hacer referencia a otros archivos de script en el archivo de definición de artefacto por nombre.
 
-## Formato del archivo de definición de artefacto
+## <a name="artifact-definition-file-format"></a>Formato del archivo de definición de artefacto
 En el ejemplo siguiente se muestran las secciones que componen la estructura básica de un archivo de definición.
 
     {
@@ -49,13 +53,13 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 | --- | --- | --- |
 | $schema |No |Ubicación del archivo de esquema JSON que ayuda a probar la validez del archivo de definición. |
 | título |Sí |Nombre del artefacto que se muestra en el laboratorio. |
-| description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
+| Description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
 | iconUri |No |Identificador URI del icono que se muestra en el laboratorio. |
 | targetOsType |Sí |Sistema operativo de la máquina virtual donde se instalará el artefacto. Las opciones admitidas son Windows y Linux. |
 | parameters |No |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto ayuda a personalizar el artefacto. |
 | runCommand |Sí |Comando de instalación de artefacto que se ejecuta en una máquina virtual. |
 
-### Parámetros de artefacto
+### <a name="artifact-parameters"></a>Parámetros de artefacto
 En la sección de parámetros del archivo de definición, especifique los valores que un usuario puede indicar al instalar un artefacto. Puede hacer referencia a estos valores en el comando de instalación del artefacto.
 
 Defina parámetros con la estructura siguiente:
@@ -71,8 +75,8 @@ Defina parámetros con la estructura siguiente:
 | Nombre del elemento | ¿Necesario? | Description |
 | --- | --- | --- |
 | type |Sí |Tipo del valor de parámetro. Vea la siguiente lista para conocer los tipos permitidos: |
-| displayName Yes |Nombre del parámetro que se muestra a un usuario en el laboratorio. | |
-| description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
+| displayName    Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. | |
+| Description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
 
 Los tipos permitidos son:
 
@@ -81,13 +85,15 @@ Los tipos permitidos son:
 * bool: cualquier booleano JSON válido
 * array: cualquier matriz JSON válida
 
-## Expresiones y funciones de artefacto
-Puede utilizar la expresión y las funciones para construir el comando de instalación del artefacto. Las expresiones se incluyen entre corchetes ([ y ]) y se evalúan cuando se instala el artefacto. Pueden aparecer expresiones en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si necesita usar una cadena literal que comienza por un corchete [, debe usar dos corchetes [[. Normalmente, se utilizan expresiones con funciones para construir un valor. Al igual que en JavaScript, las llamadas de función tienen el formato functionName(arg1,arg2,arg3).
+## <a name="artifact-expressions-and-functions"></a>Expresiones y funciones de artefacto
+Puede utilizar la expresión y las funciones para construir el comando de instalación del artefacto.
+Las expresiones se incluyen entre corchetes ([ y ]) y se evalúan cuando se instala el artefacto. Pueden aparecer expresiones en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si necesita usar una cadena literal que comienza por un corchete [, debe usar dos corchetes [[.
+Normalmente, se utilizan expresiones con funciones para construir un valor. Al igual que en JavaScript, las llamadas de función tienen el formato functionName(arg1,arg2,arg3).
 
 La siguiente lista muestra las funciones comunes.
 
 * Parameters(ParameterName): devuelve un valor de parámetro que se proporciona cuando se ejecuta el comando de artefacto.
-* concat(arg1,arg2,arg3, …..): combina varios valores de cadena. Esta función puede tomar cualquier número de argumentos.
+* concat(arg1,arg2,arg3,…): combina varios valores de cadena. Esta función puede tomar cualquier número de argumentos.
 
 En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para construir un valor.
 
@@ -98,12 +104,12 @@ En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para c
     , ' -Password ', parameters('installPassword'))]"
     }
 
-## Creación de un artefacto personalizado
+## <a name="create-a-custom-artifact"></a>Creación de un artefacto personalizado
 Cree su artefacto personalizado siguiendo estos pasos:
 
 1. Instale un editor de JSON: necesitará un editor de JSON para trabajar con los archivos de definición del artefacto. Se recomienda usar el [código de Visual Studio](https://code.visualstudio.com/), que está disponible para Windows, Linux y OS X.
-2. Obtenga un artifactfile.json de ejemplo: consulte los artefactos creados por el equipo de Laboratorios de desarrollo y pruebas de Azure en nuestro [repositorio de GitHub](https://github.com/Azure/azure-devtestlab), donde hemos creado una completa biblioteca de artefactos que le ayudará a crear sus propios artefactos. Descargue un archivo de definición de artefacto y haga cambios sobre él para crear sus propios artefactos.
-3. Haga uso de IntelliSense: aproveche IntelliSense para ver elementos válidos que se pueden utilizar para construir un archivo de definición de artefacto. También puede ver las distintas opciones para los valores de un elemento. Por ejemplo, IntelliSense le muestra las dos opciones de Windows o Linux al editar el elemento **targetOsType**.
+2. Obtenga un artifactfile.json de ejemplo: consulte los artefactos creados por el equipo de Laboratorios de desarrollo y pruebas de Azure en nuestro [repositorio de GitHub](https://github.com/Azure/azure-devtestlab) , donde hemos creado una completa biblioteca de artefactos que le ayudará a crear sus propios artefactos. Descargue un archivo de definición de artefacto y haga cambios sobre él para crear sus propios artefactos.
+3. Haga uso de IntelliSense: aproveche IntelliSense para ver elementos válidos que se pueden utilizar para construir un archivo de definición de artefacto. También puede ver las distintas opciones para los valores de un elemento. Por ejemplo, IntelliSense le muestra las dos opciones de Windows o Linux al editar el elemento **targetOsType** .
 4. Almacenamiento del artefacto en un repositorio de Git
    
    1. Cree un directorio independiente para cada artefacto donde el nombre del directorio sea el mismo que el nombre del artefacto.
@@ -117,11 +123,16 @@ Cree su artefacto personalizado siguiendo estos pasos:
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Entradas blogs relacionadas
+## <a name="related-blog-posts"></a>Entradas blogs relacionadas
 * [How to troubleshoot failing Artifacts in AzureDevTestLabs (Cómo solucionar errores de artefactos en Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 * [Join a VM to existing AD Domain using ARM template in Azure DevTest Labs (Unir una máquina virtual al dominio de AD existente mediante la plantilla ARM en Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

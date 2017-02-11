@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5f0cd9a3f3d4b578312e1b9f9f8b9c5ee7d6aa27
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
 
 ---
-#<a name="cdn-documentation"></a>Documentación de CDN
+# <a name="cdn-documentation"></a>Documentación de CDN
 
 Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda que se hospeda en Azure o en cualquier otra ubicación.  Mediante CDN puede almacenar en caché objetos disponibles públicamente cargados desde Azure Blob Storage, una aplicación web, una máquina virtual, una carpeta de la aplicación u otra ubicación HTTP/HTTPS.  CDN se suele usar para entregar contenido estático, como imágenes, hojas de estilo, documentos, archivos, scripts de cliente y páginas HTML.
 
@@ -67,37 +67,44 @@ Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución 
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/CDN">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de API de REST de CDN</p>
+                        <p><a href="/rest/api/cdn/">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -106,12 +113,12 @@ Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución 
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de la documentación de CDN de Azure </div>
+Descargar la documentación sobre Azure CDN </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Creación de un proyecto de Azure con Visual Studio | Microsoft Docs
-description: Creación de un proyecto de Azure en Visual Studio
+title: "Creación de un proyecto de Azure con Visual Studio | Microsoft Docs"
+description: "Creación de un proyecto de Azure en Visual Studio"
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.service: multiple
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d933117cf513436e04c79a335998f2ddba848dc4
+
 
 ---
-# Creación de un proyecto de Azure en Visual Studio
+# <a name="creating-an-azure-project-with-visual-studio"></a>Creación de un proyecto de Azure en Visual Studio
 Azure Tools para Visual Studio ofrece una plantilla que permite crear un servicio en la nube para Azure. Las herramientas también ayudan a configurar, depurar e implementar el servicio en la nube en Azure.
 
 Una solución de servicios en la nube de Azure contiene los siguientes tipos de proyecto:
@@ -41,14 +45,19 @@ Una solución de servicios en la nube de Azure contiene los siguientes tipos de 
   
     Cola de bus de servicio que ofrece la funcionalidad de Message Queue Server para comunicarse con el proceso de trabajo. Para obtener más información, consulte [Utilización de las colas del bus de servicio](http://go.microsoft.com/fwlink/?LinkId=260560).
 
-## Abra el proyecto de servicio en la nube en Visual Studio.
+## <a name="to-create-an-azure-cloud-service-project-in-visual-studio"></a>Abra el proyecto de servicio en la nube en Visual Studio.
 1. Inicie Microsoft Visual Studio como administrador.
 2. En la barra de menús, elija **Archivo**, **Nuevo**, **Proyecto**.
 3. En el panel **Tipos de proyecto**, elija **Nube** en los nodos de plantilla del proyecto de Visual C# o Visual Basic.
 4. En el panel **Plantillas**, elija **Servicio en la nube de Azure**.
 5. Especifique la versión de .NET Framework que quiere usar para desarrollar el proyecto.
-6. Escriba un nombre y una ubicación para el proyecto y un nombre para la solución. Elija el botón **Aceptar**.
-7. En el cuadro de diálogo **Nuevo proyecto de Azure**, elija los roles que quiera agregar y elija el botón de flecha derecha para agregarlos a la solución. Puede agregar tantos roles como sea necesario.
+6. Escriba un nombre y una ubicación para el proyecto y un nombre para la solución. Elija el botón **Aceptar** .
+7. En el cuadro de diálogo **Nuevo proyecto de Azure** , elija los roles que quiera agregar y elija el botón de flecha derecha para agregarlos a la solución. Puede agregar tantos roles como sea necesario.
 8. Para cambiar el nombre de un rol que agregó al proyecto, mantenga puntero sobre el rol en el cuadro de diálogo **Nuevo proyecto de Azure** y elija el icono **Cambiar nombre** situado a la derecha del rol. También puede cambiar el nombre de un rol dentro de la solución una vez agregado.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

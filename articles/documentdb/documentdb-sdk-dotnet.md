@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/09/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
+ms.sourcegitcommit: efd154811ebbcf2170ffb001344a954be72b1d92
+ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 
 
 ---
@@ -50,10 +50,14 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
-> [!IMPORTANT]
-> A partir de la versión 1.9.2, puede recibir el error System.NotSupportedException al consultar colecciones con particiones. Para evitar este error, asegúrese de que el proceso de host es de 64 bits. Para los proyectos ejecutables, esto puede hacerse desactivando la opción Preferencia de 32 bits de la ventana de propiedades del proyecto, en la pestaña Generar.
-> 
-> 
+
+### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
+* Compatibilidad con nuevas clases y nuevos métodos para procesar la [fuente de cambios](documentdb-change-feed.md) de documentos que forman parte de una colección.
+* Compatibilidad con la continuación de consultas entre particiones y algunas mejoras de rendimiento para las consultas entre particiones.
+* Adición de métodos CreateDatabaseIfNotExistsAsync y CreateDocumentCollectionIfNotExistsAsync.
+* Compatibilidad de LINQ para las funciones del sistema: IsDefined, IsNull e IsPrimitive.
+* Corrección para colocación automática de bins de los ensamblados Microsoft.Azure.Documents.ServiceInterop.dll y DocumentDB.Spatial.Sql.dll a la carpeta bin de la aplicación cuando se usa el paquete NuGet con proyectos que tienen herramientas de project.json.
+* Compatibilidad con la emisión de los seguimientos de ETW de lado cliente que podrían resultar útiles en escenarios de depuración.
 
 ### <a name="a-name11001100httpswwwnugetorgpackagesmicrosoftazuredocumentdb1100"></a><a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
 * Se agregó compatibilidad de conectividad directa con colecciones con particiones.
@@ -179,7 +183,7 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 ### <a name="a-name09x-preview09x-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentsclient"></a><a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
 * SDK de vista previa [obsoleto]
 
-## <a name="release-retirement-dates"></a>Fechas de lanzamiento y de retirada
+## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
@@ -195,6 +199,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |08 de diciembre de 2016 |--- |
 | [1.10.0](#1.10.0) |27 de septiembre de 2016 |--- |
 | [1.9.5](#1.9.5) |01 de septiembre de 2016 |--- |
 | [1.9.4](#1.9.4) |24 de agosto de 2016 |--- |
@@ -231,6 +236,6 @@ Para más información sobre DocumentDB, vea la página del servicio [Microsoft 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

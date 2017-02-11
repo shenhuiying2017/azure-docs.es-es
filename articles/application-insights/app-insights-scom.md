@@ -1,11 +1,11 @@
 ---
-title: Integración de SCOM con Application Insights | Microsoft Docs
-description: Si es usuario de SCOM, supervise el rendimiento y diagnostique problemas con Application Insights. Paneles integrales, alertas inteligentes, eficaces herramientas de diagnóstico y consultas de análisis.
+title: "Integración de SCOM con Application Insights | Microsoft Docs"
+description: "Si es usuario de SCOM, supervise el rendimiento y diagnostique problemas con Application Insights. Paneles integrales, alertas inteligentes, eficaces herramientas de diagnóstico y consultas de análisis."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,33 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: 68ec072b972e38d8cd020adda4dcc85cdaccfb76
+
 
 ---
-# Supervisión del rendimiento de la aplicación con Application Insights para SCOM
-Si usa System Center Operations Manager (SCOM) para administrar los servidores, puede supervisar el rendimiento y diagnosticar problemas de rendimiento con la ayuda de [Visual Studio Application Insights](app-insights-asp-net.md). Application Insights supervisa solicitudes entrantes de la aplicación web, llamadas SQL y REST salientes, excepciones y seguimientos de registros. Proporciona paneles con gráficos de métricas y alertas inteligentes, así como una eficaz búsqueda de diagnóstico y consultas analíticas sobre esta telemetría.
+# <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Supervisión del rendimiento de la aplicación con Application Insights para SCOM
+Si usa System Center Operations Manager (SCOM) para administrar los servidores, puede supervisar el rendimiento y diagnosticar problemas de rendimiento con la ayuda de [Azure Application Insights](app-insights-asp-net.md). Application Insights supervisa solicitudes entrantes de la aplicación web, llamadas SQL y REST salientes, excepciones y seguimientos de registros. Proporciona paneles con gráficos de métricas y alertas inteligentes, así como una eficaz búsqueda de diagnóstico y consultas analíticas sobre esta telemetría. 
 
 Puede activar la supervisión de Application Insights mediante un módulo de administración de SCOM.
 
-## Antes de comenzar
+## <a name="before-you-start"></a>Antes de comenzar
 Condiciones:
 
 * Está familiarizado con SCOM y usa SCOM 2012 R2 o 2016 para administrar los servidores web de IIS.
 * Ya ha instalado los servidores de una aplicación web que desea supervisar con Application Insights.
 * La versión de framework de la aplicación es .NET 4.5 o posterior.
-* Tiene acceso a una suscripción en [Microsoft Azure](https://azure.com) y puede iniciar sesión en el [Portal de Azure](https://portal.azure.com). Su organización puede tener una suscripción y puede agregar su cuenta de Microsoft a ella.
+* Tiene acceso a una suscripción en [Microsoft Azure](https://azure.com) y puede iniciar sesión en [Azure Portal](https://portal.azure.com). Su organización puede tener una suscripción y puede agregar su cuenta de Microsoft a ella.
 
 (El equipo de desarrollo puede generar el [SDK de Application Insights](app-insights-asp-net.md) en la aplicación web. Esta instrumentación en tiempo de compilación les proporciona mayor flexibilidad al escribir una telemetría personalizada. Sin embargo, no importa: puede seguir los pasos descritos aquí, con o sin el SDK integrado).
 
-## (Una vez) Instalación del módulo de administración de Application Insights
+## <a name="one-time-install-application-insights-management-pack"></a>(Una vez) Instalación del módulo de administración de Application Insights
 En el equipo donde se ejecuta Operations Manager:
 
 1. Desinstale cualquier versión anterior del paquete de administración:
-   1. En Operations Manager, abra Administración, Módulos de administración.
+   1. En Operations Manager, abra Administración, Módulos de administración. 
    2. Elimine la versión anterior.
 2. Descargue e instale el módulo de administración desde el catálogo.
 3. Reinicie Operations Manager.
 
-## Creación de un módulo de administración
+## <a name="create-a-management-pack"></a>Creación de un módulo de administración
 1. En Operations Manager, abra **Creación**, **.NET... con Application Insights**, **Asistente para agregar monitores** y vuelva a elegir **.NET... con Application Insights**.
    
     ![](./media/app-insights-scom/020.png)
@@ -59,7 +63,7 @@ En el equipo donde se ejecuta Operations Manager:
     El campo opcional Ámbito de supervisión puede utilizarse para especificar un subconjunto de los servidores, si no desea supervisar la aplicación en todos los servidores.
 2. En la siguiente página del asistente, debe proporcionar las credenciales para iniciar sesión en Microsoft Azure.
    
-    En esta página, elija el recurso de Application Insights donde desea que los datos de telemetría se analicen y muestren.
+    En esta página, elija el recurso de Application Insights donde desea que los datos de telemetría se analicen y muestren. 
    
    * Si la aplicación se configuró para Application Insights durante el desarrollo, seleccione el recurso existente.
    * De lo contrario, cree un recurso con un nombre que corresponda a la aplicación. Si hay otras aplicaciones que son componentes del mismo sistema, colóquelas en el mismo grupo de recursos, para que el acceso a los datos a la telemetría sea más fácil de administrar.
@@ -77,17 +81,17 @@ Si necesita cambiar la configuración más adelante, vuelva a abrir las propieda
 
 ![En Creación, seleccione .NET Application Performance Monitoring (Supervisión del rendimiento de la aplicación de .NET) con Application Insights, seleccione al monitor y haga clic en Propiedades.](./media/app-insights-scom/080.png)
 
-## Comprobación de la supervisión
+## <a name="verify-monitoring"></a>Comprobación de la supervisión
 El monitor que ha instalado busca la aplicación en todos los servidores. Cuando encuentra la aplicación, configura el Monitor de estado de Application Insights ahí para supervisarla. Si es necesario, instala primero el Monitor de estado en el servidor.
 
 Puede comprobar qué instancias de la aplicación ha encontrado:
 
 ![En Supervisión, abra Application Insights](./media/app-insights-scom/100.png)
 
-## Visualización de la telemetría en Application Insights
+## <a name="view-telemetry-in-application-insights"></a>Visualización de la telemetría en Application Insights
 En el [Portal de Azure](https://portal.azure.com), busque el recurso de la aplicación. [Verá gráficos que muestran la telemetría](app-insights-dashboards.md) de su aplicación. (Si aún no ha aparecido en la página principal, haga clic en Live Metrics Stream).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Configuración de un panel](app-insights-dashboards.md) para reunir los gráficos más importantes que supervisan esta y otras aplicaciones.
 * [Más información sobre las métricas](app-insights-metrics-explorer.md)
 * [Configuración de alertas](app-insights-alerts.md)
@@ -95,4 +99,9 @@ En el [Portal de Azure](https://portal.azure.com), busque el recurso de la aplic
 * [Consultas de Analytics eficaces](app-insights-analytics.md)
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,22 +1,26 @@
 ---
-title: Conceptos clave de Administración de API
-description: Obtenga información acerca de las API, los productos, los roles, los grupos y otros conceptos clave de Administración de API.
+title: "Conceptos clave de Administración de API"
+description: "Obtenga información acerca de las API, los productos, los roles, los grupos y otros conceptos clave de Administración de API."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 40398b0a-ac2c-43f0-89e1-07e4abbf502f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 126fd84259c604785cdd5db0543f78539c1db9c7
+
 
 ---
-# Importación de la definición de una API con operaciones en Administración de API de Azure
+# <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Importación de la definición de una API con operaciones en Administración de API de Azure
 En Administración de API se pueden crear nuevas API y agregar las operaciones manualmente o se puede importar la API junto con las operaciones en un solo paso.
 
 Las API y sus operaciones se pueden importar con los siguientes formatos.
@@ -24,16 +28,16 @@ Las API y sus operaciones se pueden importar con los siguientes formatos.
 * WADL
 * Swagger
 
-En esta guía se muestra cómo crear una API e importar sus operaciones en un solo paso. Para obtener información sobre la creación manual de una API y la incorporación de operaciones, consulte [Creación de API][Creación de API] e [Incorporación de operaciones a una API][Incorporación de operaciones a una API].
+En esta guía se muestra cómo crear una API e importar sus operaciones en un solo paso. Para obtener información sobre cómo crear de forma manual una API y agregar operaciones, vea [Creación de API][Creación de API] y [Incorporación de operaciones a una API][Incorporación de operaciones a una API].
 
 ## <a name="import-api"> </a>Importación de una API
-Las API se crean y se configuran en el portal del publicador. Para llegar al portal del publicador, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API. Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][Creación de una instancia del servicio de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
+Las API se crean y se configuran en el portal del publicador. Para acceder al portal para editores, haga clic en el **Portal para editores** en Azure Portal para el servicio API Management. Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 
 ![Portal del publicador][api-management-management-console]
 
-Haga clic en **API** en el menú **Administración de API** de la izquierda y haga clic en **Importar API**.
+Haga clic en **API** en el menú **API Management** de la izquierda y haga clic en **Importar API**.
 
-![Import API][api-management-import-apis]
+![Importar API][api-management-import-apis]
 
 La ventana **Importar API** tiene tres pestañas que corresponden a tres formas de proporcionar la especificación de API.
 
@@ -50,7 +54,7 @@ Después de proporcionar la especificación de API, use los botones de radio de 
 
 A continuación, especifique un **Sufijo de dirección URL API web**. Este se anexa a la dirección URL base del servicio Administración de API. La dirección URL base es común para todas las API hospedadas en cada instancia de un servicio Administración de API. Administración de API distingue las API por su sufijo, por lo que el sufijo debe ser único para cada API de una instancia específica de un servicio de Administración de API.
 
-Una vez especificados todos los valores, haga clic en **Guardar** para crear la API y las operaciones asociadas.
+Una vez especificados todos los valores, haga clic en **Guardar** para crear la API y las operaciones asociadas. 
 
 > [!NOTE]
 > Para ver un tutorial de la importación de una API de calculadora básica en formato Swagger, consulte [Administración de su primera API en Administración de API de Azure](api-management-get-started.md).
@@ -62,7 +66,7 @@ Además de importar nuevas API, puede exportar las definiciones de sus API desde
 
 ![Export API][api-management-export-api]
 
-Las API se pueden exportar con WADL o Swagger. Seleccione el formato que desee, haga clic en **Guardar** y elija la ubicación en la que desea guardar el archivo.
+Las API se pueden exportar con WADL o Swagger. Seleccione el formato que desee, haga clic en **Guardar**y elija la ubicación en la que desea guardar el archivo.
 
 ![Export API format][api-management-export-api-format]
 
@@ -78,17 +82,21 @@ Una vez creada una API e importadas las operaciones, se pueden revisar y definir
 [api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
 [api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 
-[Import an API]: #import-api
-[Export an API]: #export-api
-[Configure API settings]: #configure-api-settings
-[Next steps]: #next-steps
+[Importación de una API]: #import-api
+[Exportación de una API]: #export-api
+[Definición de la configuración de la API]: #configure-api-settings
+[Pasos siguientes]: #next-steps
 
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
+[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
 
 [Incorporación de operaciones a una API]: api-management-howto-add-operations.md
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Creación de API]: api-management-howto-create-apis.md
 [Definición de la configuración de la API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

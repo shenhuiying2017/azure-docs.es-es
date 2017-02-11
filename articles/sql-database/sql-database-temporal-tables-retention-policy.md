@@ -8,7 +8,7 @@ manager: drasumic
 editor: 
 ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
 ms.service: sql-database
-ms.custom: db development
+ms.custom: development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,8 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bb68239d36203e74faa54859b20a4198ce3cba91
+ms.sourcegitcommit: 239d009a1fc7273a50d335a0d55d61f414d99b11
+ms.openlocfilehash: dac4a96f9b62f390aeb84fe237788350c70ea5cd
 
 
 ---
@@ -42,7 +42,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
 
-La marca de la base de datos **is_temporal_history_retention_enabled** está establecida en ON de forma predeterminada, pero los usuarios pueden cambiarla con la instrucción ALTER DATABASE. También se establece automáticamente en OFF después de la operación de [restauración a un momento dado](sql-database-point-in-time-restore-portal.md). Para habilitar la limpieza de la retención temporal de datos históricos, ejecute la siguiente instrucción:
+La marca de la base de datos **is_temporal_history_retention_enabled** está establecida en ON de forma predeterminada, pero los usuarios pueden cambiarla con la instrucción ALTER DATABASE. También se establece automáticamente en OFF después de la operación de [restauración a un momento dado](sql-database-point-in-time-restore.md). Para habilitar la limpieza de la retención temporal de datos históricos, ejecute la siguiente instrucción:
 
 ````
 ALTER DATABASE <myDB>
@@ -117,7 +117,7 @@ La tarea de limpieza del almacén de columnas agrupado quita [grupos de filas](h
 La excelente compresión de datos y la eficaz limpieza de retención convierten al índice del almacén de columnas agrupado en una perfecta opción en escenarios en los que la carga de trabajo genera rápidamente gran cantidad de datos históricos. Este patrón es típico de [cargas de trabajo intensivas de procesamiento de transacciones que usan tablas temporales](https://msdn.microsoft.com/library/mt631669.aspx) para el seguimiento de cambios y la auditoría, el análisis de tendencias o la ingesta de datos de IoT.
 
 ## <a name="index-considerations"></a>Consideraciones sobre el índice
-La tarea de limpieza de tablas con índice agrupado de almacén de filas requiere que el índice se inicie con la columna correspondiente al final del período de SYSTEM_TIME. Si dicho índice ni existe, no podrá configurar el período de retención finito:
+La tarea de limpieza de tablas con índice agrupado de almacén de filas requiere que el índice se inicie con la columna correspondiente al final del período de SYSTEM_TIME. Si este tipo de índice no existe, no se puede configurar un periodo de retención finito:
 
 *Mens. 13765, Nivel 16, Estado 1 <br></br> Error al establecer un período de retención finito en la tabla temporal con versiones del sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' porque la tabla Historial 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' no contiene el índice agrupado requerido. Puede crear un índice agrupado de almacén de columnas o de árbol en B que empiece por la columna que coincide con el final del período SYSTEM_TIME en la tabla Historial.*
 
@@ -158,7 +158,7 @@ La siguiente imagen muestra el plan de consulta para una consulta simple:
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
 
-El plan de consulta incluye un filtro adicional que se aplica a la columna de fin de período (ValidTo) en el operador "Examen de índice clúster" de la tabla de historial (resaltada). En este ejemplo se supone que se ha establecido el período de retención de 1 MES en la tabla WebsiteUserInfo.
+El plan de consulta incluye un filtro adicional que se aplica a la columna de fin de período (ValidTo) en el operador Examen de índice clúster de la tabla de historial (resaltada). En este ejemplo se supone que se ha establecido el período de retención de 1 MES en la tabla WebsiteUserInfo.
 
 ![Filtro de consulta de retención](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
@@ -169,7 +169,7 @@ Sin embargo, si consulta la tabla de historial directamente, puede ver filas con
 No se fíe de la lógica empresarial al leer la tabla de historial más allá del período de retención, ya que puede obtener resultados inesperados o incoherentes. Se recomienda usar consultas temporales con la cláusula FOR SYSTEM_TIME para analizar los datos de tablas temporales.
 
 ## <a name="point-in-time-restore-considerations"></a>Consideraciones sobre la restauración a un momento dado
-Cuando crea una nueva base de datos mediante la [restauración de una base de datos existente a un momento específico en el tiempo](sql-database-point-in-time-restore-portal.md), tiene una retención temporal deshabilitada en el nivel de base de datos. (la marca **is_temporal_history_retention_enabled** establecida en OFF). Esta funcionalidad permite examinar todas las filas históricas tras la restauración, sin preocuparse de que las filas antiguas se quiten antes de conseguir consultarlas. Puede usarla para *inspeccionar los datos históricos más allá del período de retención configurado*.
+Cuando crea una nueva base de datos mediante la [restauración de una base de datos existente a un momento específico en el tiempo](sql-database-point-in-time-restore.md), tiene una retención temporal deshabilitada en el nivel de base de datos. (la marca **is_temporal_history_retention_enabled** establecida en OFF). Esta funcionalidad permite examinar todas las filas históricas tras la restauración, sin preocuparse de que las filas antiguas se quiten antes de conseguir consultarlas. Puede usarla para *inspeccionar los datos históricos más allá del período de retención configurado*.
 
 Supongamos que una tabla temporal tiene especificado un período de retención de un MES. Si la base de datos se creó en el nivel de servicio Premium, podrá crear una copia de ella con el estado de hasta 35 días hacia atrás en el pasado. Eso permitiría analizar de forma eficaz las filas históricas que tienen hasta 65 días de antigüedad consultando la tabla de historial directamente.
 
@@ -181,7 +181,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo usar las tablas temporales en las aplicaciones, consulte [Introducción a las tablas temporales de Azure SQL Database](sql-database-temporal-tables.md).
+Para obtener más información sobre cómo usar las tablas temporales en las aplicaciones, consulte [Introducción a las tablas temporales de Azure SQL Database](sql-database-temporal-tables.md).
 
 Visite Channel 9 para escuchar un [caso real de éxito de implementación](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) y vea una[demostración en directo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
@@ -190,6 +190,6 @@ Para más información sobre las tablas temporales, revise la [documentación de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

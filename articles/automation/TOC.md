@@ -19,8 +19,7 @@
 ### [Integrar el control de código fuente](automation-source-control-integration.md)
 ## Automatizar runbooks
 ### [Iniciar un runbook](automation-starting-a-runbook.md)
-### [Iniciar un runbook desde una llamada web](automation-webhooks.md)
-### [Programar un runbook](automation-scheduling-a-runbook.md)
+### [Iniciar un runbook desde un webhook](automation-webhooks.md)
 ### [Ejecutar runbooks en su centro de datos](automation-hybrid-runbook-worker.md)
 ### [Configurar parámetros de entrada de runbook](automation-runbook-input-parameters.md)
 ### [Control de errores en runbooks gráficos](automation-runbook-graphical-error-handling.md)
@@ -60,7 +59,7 @@
 ### [Traslado de una cuenta de Automation](automation-migrate-account-subscription.md)
 ## Solución de problemas
 ### [Solución de errores comunes](automation-troubleshooting-automation-errors.md)
-### [Se suspendió el trabajo del runbook](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+### [Solución de problemas con Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (clásico)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
@@ -79,6 +78,6 @@
 ## [Vídeo de introducción a Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

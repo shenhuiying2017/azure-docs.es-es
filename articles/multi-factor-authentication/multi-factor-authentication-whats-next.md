@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d904de6370c1c6bd5116471465ec63fd8999a7ee
+ms.sourcegitcommit: e4ef793b2c1bc0026581fa4b414300721678d7d3
+ms.openlocfilehash: ecf2afc7a6e35b99a110e2e259e005e2164ebb27
 
 
 ---
@@ -157,7 +157,7 @@ El almacenamiento en caché permite establecer un período de tiempo específico
 <center>![Nube](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>Direcciones IP de confianza
-IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa. Las características están disponibles para los inquilinos de Azure AD que tienen licencias de Azure AD Premium, Enterprise Mobility Suite o Azure Multi-Factor Authentication.
+IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa. Esta característica está disponible con la versión completa de Multi-Factor Authentication (para obtener más información sobre cómo obtener la versión completa de Multi-Factor Authentication, consulte [Cómo conseguir Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication)).
 
 | Tipo de un inquilino de Azure AD. | Opciones de IP de confianza disponibles |
 |:--- |:--- |
@@ -349,6 +349,6 @@ Cuando los usuarios inscriben sus cuentas para MFA, deciden su método de compro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

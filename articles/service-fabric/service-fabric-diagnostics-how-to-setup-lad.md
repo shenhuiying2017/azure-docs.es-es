@@ -1,12 +1,12 @@
 ---
-title: Recopilación de registros con Diagnósticos de Azure de Linux | Microsoft Docs
-description: En este artículo se describe cómo configurar Diagnósticos de Azure para recopilar registros de un clúster de Service Fabric de Linux que se ejecute en Azure.
+title: "Recopilación de registros con Diagnósticos de Azure de Linux | Microsoft Docs"
+description: "En este artículo se describe cómo configurar Diagnósticos de Azure para recopilar registros de un clúster de Service Fabric de Linux que se ejecute en Azure."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: a160d469-8b7d-4560-82dd-8500db34a44a
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2016
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
+
 
 ---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Recopilación de registros con Diagnósticos de Azure
@@ -34,7 +38,7 @@ El primer paso para recopilar registros será implementar la extensión WAD en c
 
 Para implementar la extensión de Diagnósticos en las máquinas virtuales del clúster como parte de la creación de dicho clúster, establezca **Diagnósticos** en **Activado**. Después de crear el clúster, no puede cambiar esta configuración mediante el portal.
 
-Después, configure Diagnósticos de Azure de Linux (LAD) para recopilar los archivos y colocarlos en su cuenta de almacenamiento. En este proceso se explica en el escenario 3 ("Carga de sus propios archivos de registro") en el artículo sobre cómo [utilizar LAD para supervisar y diagnosticar máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md). Con este proceso puede acceder a los seguimientos. Puede cargar los seguimientos en un visualizador de su elección.
+Después, configure Diagnósticos de Azure de Linux (LAD) para recopilar los archivos y colocarlos en su cuenta de almacenamiento. En este proceso se explica en el escenario 3 ("Carga de sus propios archivos de registro") en el artículo sobre cómo [utilizar LAD para supervisar y diagnosticar máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Con este proceso puede acceder a los seguimientos. Puede cargar los seguimientos en un visualizador de su elección.
 
 También puede implementar la extensión de Diagnósticos mediante Azure Resource Manager. El proceso es el mismo para Windows y Linux, y está documentado para los clústeres de Windows en [Recopilación de registros con Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-wad.md).
 
@@ -43,8 +47,11 @@ También puede usar Operations Management Suite, como se describe en [Operations
 Una vez finalizada esta configuración, el agente de LAD supervisa los archivos de registro especificados. Siempre que se anexa una nueva línea al archivo, se crea una entrada syslog que se envía al almacenamiento especificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Compruebe la [documentación de LTTng](http://lttng.org/docs) y el [uso de LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md) para obtener información más detallada sobre qué eventos debe examinar durante la solución de problemas.
+Compruebe la [documentación de LTTng](http://lttng.org/docs) y el [uso de LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para obtener información más detallada sobre qué eventos debe examinar durante la solución de problemas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
