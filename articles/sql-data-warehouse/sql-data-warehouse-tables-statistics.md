@@ -497,6 +497,6 @@ Para obtener más información, consulte [DBCC SHOW_STATISTICS][DBCC SHOW_STATIS
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

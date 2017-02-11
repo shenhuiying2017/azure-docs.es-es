@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2016
+ms.date: 01/25/2017
 ms.author: DavidBosland
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -26,19 +26,19 @@ El 15 de marzo de 2016 pondremos el "Incentivo de revendedores" para proveedores
 Para ver o cambiar el estado del "Incentivo de revendedores", siga estos pasos:
 
 1. Inicie sesión en su [cuenta de publicación de Microsoft Azure](https://publish.windowsazure.com/workspace)
-   
+
    ![Pantalla de aterrizaje del perfil][1]
 2. Haga clic en **Anunciantes**
-   
+
    ![Pantalla de aterrizaje del perfil - Vínculo para anunciantes][2]
 3. Observe la información de su perfil relativa a los proveedores de soluciones en la nube.  Hay un **modificador para cambiar a Si o No** el "Incentivo para revendedores" (el estado predeterminado es "Sí").
-   
+
    ![Perfil - Anunciantes][3]
 4. Para cambiar el estado del "Incentivo de revendedores", acceda a su perfil de anunciante, haga su elección y guarde:
-   
+
    * Seleccione **Sí** para proporcionar un descuento del 20% a los proveedores de soluciones en la nube que distribuyen las aplicaciones y los servicios que anuncia en Azure Marketplace.  O seleccione **No** para no participar en este programa de incentivos.  En cualquier caso, el anunciante recibe la misma cantidad.
    * Cuando haya elegido una opción, asegúrese de hacer clic en **Guardar** en la esquina superior derecha.
-   
+
    ![Perfil - Anunciantes - Cuadros de cambio][4]
 
 [1]: ./media/marketplace-publishing-csp-incentive/profile-stock.png

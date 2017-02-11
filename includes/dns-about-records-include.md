@@ -23,6 +23,6 @@ Por ejemplo, supongamos que ya ha creado un registro "www" en la zona "contoso.c
 
 Los tipos de registros SOA y CNAME se consideran excepciones. Los estándares DNS no permiten varios registros con el mismo nombre para estos tipos, por lo tanto, los conjuntos de estos registros solo pueden contener un único registro.
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

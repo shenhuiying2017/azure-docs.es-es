@@ -67,6 +67,6 @@ Con Azure AD Join, obtendrá lo siguiente:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

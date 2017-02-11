@@ -190,6 +190,6 @@ Más información sobre el [uso de plantillas de Resource Manager](../azure-reso
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

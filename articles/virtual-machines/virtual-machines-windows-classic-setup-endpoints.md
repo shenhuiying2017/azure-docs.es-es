@@ -41,6 +41,6 @@ Al crear una máquina virtual Windows en el Portal de Azure clásico, los puntos
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

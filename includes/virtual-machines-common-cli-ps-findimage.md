@@ -229,6 +229,6 @@ En esta lista, copie el nombre de SKU elegido, y ya tiene toda la información p
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

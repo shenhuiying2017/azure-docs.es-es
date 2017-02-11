@@ -22,6 +22,6 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 
 [Azure portal]: https://portal.azure.com
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

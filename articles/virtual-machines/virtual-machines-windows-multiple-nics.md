@@ -160,6 +160,6 @@ Recuerde que no se pueden agregar NIC adicionales a una máquina virtual existen
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

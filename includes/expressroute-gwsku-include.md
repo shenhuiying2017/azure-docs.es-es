@@ -8,6 +8,6 @@ Las puertas de enlace de red virtual de ExpressRoute pueden utilizar las SKU sig
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

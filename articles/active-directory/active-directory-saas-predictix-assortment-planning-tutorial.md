@@ -235,6 +235,6 @@ Al hacer clic en el icono de Predictix Assortment Planning en el panel de acceso
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

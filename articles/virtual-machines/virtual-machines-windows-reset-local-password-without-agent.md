@@ -146,6 +146,6 @@ Si sigue sin poder conectarse mediante Escritorio remoto, consulte la [guía de 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

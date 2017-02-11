@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -35,11 +35,11 @@ Por motivos de rendimiento y mantenimiento, se recomienda mantener un número de
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
-   
+
    ![Apertura de Administración de usuarios](./media/active-directory-branding-localize-azure-portal/user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Personalización de marca de empresa**.
 4. En la hoja **Usuarios y grupos - Personalización de marca de empresa**, seleccione el comando **Agregar idioma**.
-   
+
     ![Adición de elementos de personalización de marca específicos del idioma](./media/active-directory-branding-localize-azure-portal/add-language.png)
 5. Modifique los elementos que desea personalizar. Todos los elementos son opcionales.
 6. Haga clic en **Save**.
@@ -48,7 +48,6 @@ Puede transcurrir hasta una hora para que los cambios efectuados se muestren en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Agregar personalización de marca a la página de inicio de sesión](active-directory-branding-custom-signon-azure-portal.md)
-
 
 
 
