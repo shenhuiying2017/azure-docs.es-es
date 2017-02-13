@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -27,16 +27,16 @@ Asignar un usuario o un grupo a una aplicación empresarial de la versión preli
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba Azure Active Directory en el cuadro de texto y seleccione **Entrar**.
 3. En la hoja **Azure Active Directory - *nombreDelDirectorio*** (es decir, la hoja de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
-   
+
     ![Apertura de Enterprise apps (Aplicaciones empresariales)](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
 4. En la hoja **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. Verá una lista de las aplicaciones que puede administrar.
 5. En la hoja **Enterprise applications (Aplicaciones empresariales) - Todas las aplicaciones** , seleccione una aplicación.
 6. En la hoja ***nombre de la aplicación*** (es decir, la hoja con el nombre de la aplicación seleccionada en el título), seleccione **Usuarios y grupos**.
-   
+
     ![Selección del comando Todas las aplicaciones](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
 7. En la hoja ***nombreDeAplicación*** **- User & Group Assignment** (Asignación de usuario y de grupo), seleccione el comando **Agregar**.
 8. En la hoja **Agregar asignación**, seleccione **Usuarios y grupos**.
-   
+
     ![Asignación de un usuario o un grupo a la aplicación](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
 9. En la hoja **Usuarios y grupos**, seleccione uno o varios usuarios o grupos de la lista y luego haga clic en el botón **Seleccionar** de la parte inferior de la hoja.
 10. En la hoja **Agregar asignación**, seleccione **Rol**. Después, en la hoja **Seleccionar rol**, seleccione el rol que desea aplicar a los usuarios o grupos seleccionados, y luego haga clic en el botón **Aceptar** de la parte inferior de la hoja.
@@ -47,7 +47,6 @@ Asignar un usuario o un grupo a una aplicación empresarial de la versión preli
 * [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](active-directory-coreapps-disable-app-azure-portal.md)
 * [Cambio del nombre o el logotipo de una aplicación empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
 
 
 

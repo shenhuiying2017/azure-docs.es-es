@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -45,10 +45,10 @@ Si visita un servicio con direcciones URL que no son específicas de un inquilin
 > [!NOTE]
 > * El nombre de usuario debe aparecer como "activo" en la parte **Dominios** de Azure Portal donde ha configurado la personalización de marca. Para más información, consulte [cómo agregar nombres de dominio personalizados](active-directory-domains-add-azure-portal.md).
 > * La personalización de marca de la página de inicio de sesión no se traslada a la página de inicio de sesión de cliente de Microsoft. Si inicia sesión con una cuenta de Microsoft, puede ver una lista de iconos de usuario con la personalización de marca presentada por Azure AD, pero la personalización de marca de su organización no se aplica a la página de inicio de sesión de la cuenta de Microsoft.
-> 
-> 
+>
+>
 
-En la página de inicio de sesión, la casilla **Mantener la sesión iniciada** permite que el usuario se mantenga conectado después de cerrar y abrir de nuevo el explorador. 
+En la página de inicio de sesión, la casilla **Mantener la sesión iniciada** permite que el usuario se mantenga conectado después de cerrar y abrir de nuevo el explorador.
 
    ![Mantener la sesión iniciada](./media/active-directory-branding-custom-signon-azure-portal/01.png)
 
@@ -57,22 +57,22 @@ Puede decidir si se muestra la casilla o no mediante la configuración de **Se d
 
    ![Mantener la sesión iniciada](./media/active-directory-branding-custom-signon-azure-portal/02.png)
 
-Para ocultar la casilla, seleccione **Sí** en esta opción. 
+Para ocultar la casilla, seleccione **Sí** en esta opción.
 
 > [!NOTE]
 > Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan activar esta casilla. Si configura esta opción en oculto, es posible que los usuarios reciban solicitudes adicionales e inesperadas de inicio de sesión.
-> 
-> 
+>
+>
 
 **Para agregar la información de marca de empresa a su directorio:**
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
-   
+
    ![Apertura de Administración de usuarios](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Personalización de marca de empresa**.
 4. En la hoja **Usuarios y grupos - Personalización de marca de empresa**, seleccione el comando **Editar**.
-   
+
     ![Edición de la personalización de marca](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
 5. Modifique los elementos que desea personalizar. Todos los elementos son opcionales.
 6. Haga clic en **Save**.
@@ -81,7 +81,6 @@ Puede transcurrir hasta una hora para que los cambios efectuados se muestren en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Agregar información de marca de empresa específica de un idioma](active-directory-branding-localize-azure-portal.md)
-
 
 
 
