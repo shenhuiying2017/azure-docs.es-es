@@ -1,38 +1,42 @@
 ---
-title: Exploración de datos en el almacenamiento de blobs de Azure con Pandas | Microsoft Docs
-description: Cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante Pandas.
+title: "Exploración de datos en Azure Blob Storage con Pandas | Microsoft Docs"
+description: "Cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante Pandas."
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
+
 
 ---
-# Exploración de datos en el almacenamiento de blobs de Azure con Pandas
-Este documento explica cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/).
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en el almacenamiento de blobs de Azure con Pandas
+Este documento explica cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/) .
 
 El siguiente **menú** vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)]().
 
 [!INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
 
-* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md).
-* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte el artículo sobre cómo [mover con Azure Storage como origen y destino](../storage/storage-moving-data.md).
+* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
+* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte [mover con Azure Storage como origen y destino](../storage/storage-moving-data.md)
 
-## Carga de los datos en una trama de datos de Pandas
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Carga de los datos en una trama de datos de Pandas
 Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
-1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos:
+1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -56,10 +60,10 @@ Para explorar y manipular un conjunto de datos, se debe descargar desde el orige
 
 Ya puede explorar los datos y generar características en este conjunto de datos.
 
-## <a name="blob-dataexploration"></a>Ejemplos de exploración de datos con Pandas
+## <a name="a-nameblob-dataexplorationaexamples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Ejemplos de exploración de datos con Pandas
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
 
-1. Inspeccionar el **número de filas y columnas**
+1. Inspeccionar el **número de filas y columnas** 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. **Inspeccionar** las primeras o las últimas **filas** del conjunto de datos, como se indica a continuación:
@@ -83,13 +87,12 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
         print miss_num
 7. Si hay **valores que faltan** para una columna determinada en los datos, puede quitarlos como se indica:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    Otra forma de reemplazar los valores que faltan es a través de la función de modo:
    
      dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Crear un gráfico de **histograma** con un número variable de discretizaciones para trazar la distribución de una variable.
+8. Crear un gráfico de **histograma** con un número variable de discretizaciones para trazar la distribución de una variable.    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
@@ -102,4 +105,9 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -61,10 +61,13 @@
 ### [Predicción del rendimiento de HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Predicción del resultado de la inspección de un alimento](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Análisis de registros de sitios web](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Uso de notebooks Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Kernels de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Paquetes para Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Uso de paquetes externos con Jupyter mediante instrucciones mágicas de celdas](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Uso de paquetes externos con Jupyter mediante una acción de script](hdinsight-apache-spark-python-package-installation.md)
 ### [Uso de Jupyter Notebook local](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Trabajos remotos con Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### [Desarrollo de aplicaciones mediante Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Desarrollo de aplicaciones con IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Depuración remota con IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Administración de recursos](hdinsight-apache-spark-resource-manager.md)
@@ -156,6 +159,7 @@
 #### [Uso de la CLI de Azure](hdinsight-administer-use-command-line.md)
 ### [Administración de clústeres con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 #### [Uso de la API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Adición de cuentas de almacenamiento](hdinsight-hadoop-add-storage.md)
 ### [Carga de datos para trabajos Hadoop](hdinsight-upload-data.md)
 ### [Importación y exportación de datos con Sqoop](hdinsight-use-sqoop.md)
 #### [Conexión con SSH](hdinsight-use-sqoop-mac-linux.md)
@@ -224,6 +228,6 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

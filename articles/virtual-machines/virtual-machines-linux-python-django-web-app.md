@@ -1,13 +1,13 @@
 ---
-title: Aplicación web Python con Django en Linux | Microsoft Docs
-description: Obtenga información acerca de cómo hospedar una aplicación web basada en Django en Azure con una máquina virtual de Linux.
+title: "Aplicación web Python con Django en Linux | Microsoft Docs"
+description: "Obtenga información acerca de cómo hospedar una aplicación web basada en Django en Azure con una máquina virtual de Linux."
 services: virtual-machines-linux
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 00ad4c2c-4316-4f9a-913f-f7f49b158db7
 ms.service: virtual-machines-linux
 ms.workload: web
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +15,16 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/17/2015
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 48644685a296875b8884cd4357f49391e30f034a
+
 
 ---
-# Aplicación web Django Hello World en una máquina virtual Linux
+# <a name="django-hello-world-web-application-on-a-linux-vm"></a>Aplicación web Django Hello World en una máquina virtual Linux
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-windows-classic-python-django-web-app.md)
-> * [Mac o Linux:](virtual-machines-linux-python-django-web-app.md)
+> * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Mac o Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -35,24 +39,24 @@ Aprenderá a:
 
 Mediante este tutorial, se compilará una aplicación web Hello World sencilla que se hospedará en una máquina virtual de Azure.
 
-A continuación se muestra una captura de pantalla de la aplicación completada:
+Captura de pantalla de la aplicación completa:
 
 ![Ventana del explorador que muestra la página Hello World en Azure](./media/virtual-machines-linux-python-django-web-app/mac-linux-django-helloworld-browser.png)
 
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
-## Creación y configuración de una máquina virtual de Azure para hospedar Django
-1. Siga las instrucciones que se proporcionan [aquí](virtual-machines-linux-quick-create-portal.md) para crear una máquina virtual de Azure de la distribución *Ubuntu Server 14.04 LTS*. Si lo desea, puede elegir una autenticación de contraseña en lugar de usar la clave pública SSH.
+## <a name="creating-and-configuring-an-azure-virtual-machine-to-host-django"></a>Creación y configuración de una máquina virtual de Azure para hospedar Django
+1. Siga las instrucciones que se proporcionan [aquí](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para crear una máquina virtual de Azure de la distribución *Ubuntu Server 14.04 LTS*.  Si lo desea, puede elegir una autenticación de contraseña en lugar de usar la clave pública SSH.
 2. Edite el grupo de seguridad de red para permitir el tráfico HTTP entrante al puerto 80 mediante las instrucciones que encontrará [aquí](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
-3. De forma predeterminada, la nueva máquina virtual no tiene un nombre de dominio completo (FQDN). Puede crear uno siguiendo las instrucciones que encontrará [aquí](virtual-machines-linux-portal-create-fqdn.md). Este paso es opcional para completar el tutorial.
+3. De forma predeterminada, la nueva máquina virtual no tiene un nombre de dominio completo (FQDN).  Puede crear uno siguiendo las instrucciones que encontrará [aquí](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  Este paso es opcional para completar el tutorial.
 
 ## <a id="setup"> </a>Configuración del entorno de desarrollo
 **Nota:** si es necesario instalar Python o desea usar las bibliotecas de clientes, consulte la [Guía de instalación de Python](../python-how-to-install.md).
 
-La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no incluye Apache o Django. Siga estos pasos para conectarse a la máquina virtual e instalar Apache y Django.
+La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no incluye Apache o Django.  Siga estos pasos para conectarse a la máquina virtual e instalar Apache y Django.
 
-1. Abra una nueva ventana **Terminal**.
-2. Escriba el siguiente comando para conectarse a la máquina virtual de Azure. Si no creó un FQDN, puede conectarse usando la dirección IP pública que se muestra en la máquina virtual de resumen en el Portal de Azure clásico.
+1. Abra una nueva ventana **Terminal** .
+2. Escriba el siguiente comando para conectarse a la máquina virtual de Azure.  Si no creó un FQDN, puede conectarse usando la dirección IP pública que se muestra en la máquina virtual de resumen en el Portal de Azure clásico.
    
        $ ssh yourusername@yourVmUrl
 3. Escriba los siguientes comandos para instalar Django:
@@ -63,7 +67,7 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
    
        $ sudo apt-get install apache2 libapache2-mod-wsgi
 
-## Creación de una nueva aplicación Django
+## <a name="creating-a-new-django-application"></a>Creación de una nueva aplicación Django
 1. Abra la ventana **Terminal** utilizada en la sección anterior para conectarse a la máquina virtual mediante el comando ssh.
 2. Escriba los siguientes comandos para crear un proyecto Django:
    
@@ -88,7 +92,7 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
            url(r'^$', 'helloworld.views.home', name='home'),
        )
 
-## Instalación de Apache
+## <a name="setting-up-apache"></a>Instalación de Apache
 1. Cree un archivo de configuración del host virtual **/etc/apache2/sites-available/helloworld.conf**. Configure los contenidos de la siguiente manera y asegúrese de sustituir el elemento *yourVmName* por el nombre real de la máquina que va a usar (por ejemplo, *pyubuntu*).
    
        <VirtualHost *:80>
@@ -106,7 +110,12 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
    
    ![Ventana del explorador que muestra la página Hello World en Azure](./media/virtual-machines-linux-python-django-web-app/mac-linux-django-helloworld-browser.png)
 
-## Apagado de la máquina virtual de Azure
+## <a name="shutting-down-your-azure-virtual-machine"></a>Apagado de la máquina virtual de Azure
 Cuando finalice este tutorial, apague o quite la máquina virtual de Azure recién creada para liberar recursos para otros tutoriales y así evitar incurrir en cargos por uso de Azure.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

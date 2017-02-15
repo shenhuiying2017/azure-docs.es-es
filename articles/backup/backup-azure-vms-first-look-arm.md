@@ -59,7 +59,7 @@ En función del número de máquinas virtuales que desea proteger, puede comenza
 
   ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. Para el almacén de Recovery Services, puede seleccionar un almacén existente o crear uno nuevo. Si va a crear un nuevo almacén, este se creará en el mismo grupo de recursos que la máquina virtual y la ubicación será la misma de la máquina virtual. Si desea crear un almacén de Recovery Services con valores diferentes, [cree un almacén de servicios de recuperación](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) antes de hacer clic en la opción Copia de seguridad del paso 3 y seleccione esa opción en esta hoja.
+5. Para el almacén de Recovery Services, puede seleccionar un almacén existente o crear uno nuevo. Si va a crear un nuevo almacén, este se creará en el mismo grupo de recursos que la máquina virtual y la ubicación será la misma de la máquina virtual. Si desea crear un almacén de Recovery Services con valores diferentes, [cree un almacén de servicios de recuperación](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) antes de hacer clic en la opción Copia de seguridad del paso&3; y seleccione esa opción en esta hoja.
 
 6. En la hoja Directiva de copia de seguridad, seleccione la que quiera aplicar al almacén y haga clic en **Aceptar**.
     ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)

@@ -1,11 +1,11 @@
 ---
 title: Modelo de datos de Application Insights
-description: Describe las propiedades exportadas con la exportación continua de JSON y usadas como filtros.
+description: "Describe las propiedades exportadas con la exportación continua de JSON y usadas como filtros."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,10 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
+ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+
 
 ---
-# Modelo de exportación de datos de Application Insights
-En esta tabla se enumeran las propiedades de telemetría enviadas desde los SDK de [Application Insights](app-insights-overview.md) al portal. Verá estas propiedades en el resultado de datos de [Exportación continua](app-insights-export-telemetry.md). También aparecen en los filtros de propiedad del [Explorador de métricas](app-insights-metrics-explorer.md) y la [Búsqueda de diagnóstico](app-insights-diagnostic-search.md).
+# <a name="application-insights-export-data-model"></a>Modelo de exportación de datos de Application Insights
+En esta tabla se enumeran las propiedades de telemetría enviadas desde los SDK de [Application Insights](app-insights-overview.md) al portal.
+Verá estas propiedades en el resultado de datos de [Exportación continua](app-insights-export-telemetry.md).
+También aparecen en los filtros de propiedad de [Explorador de métricas](app-insights-metrics-explorer.md) y [Búsqueda de diagnóstico](app-insights-diagnostic-search.md).
 
 Puntos a tener en cuenta:
 
@@ -26,19 +32,19 @@ Puntos a tener en cuenta:
 
 Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustran cómo usarlas.
 
-## Ejemplo
+## <a name="example"></a>Ejemplo
     // A server report about an HTTP request
     {
-    "request": [ 
+    "request": [
       {
         "urlData": { // derived from 'url'
           "host": "contoso.org",
           "base": "/",
-          "hashTag": "" 
+          "hashTag": ""
         },
         "responseCode": 200, // Sent to client
         "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events 
+        // Request id becomes the operation id of child events
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
         "count": 1, // 100% / sampling rate
@@ -71,14 +77,14 @@ Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustra
         "continent": "North America",
         "country": "United States",
         // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0", 
+        "clientip": "168.62.177.0",
         "province": "",
         "city": ""
       },
       "data": {
         "isSynthetic": true, // we identified source as a bot
         // percentage of generated data sent to portal:
-        "samplingRate": 100.0, 
+        "samplingRate": 100.0,
         "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
       },
       "user": {
@@ -106,7 +112,7 @@ Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustra
     }
   }
 
-## Context
+## <a name="context"></a>Context
 Una sección de contexto acompaña a todos los tipos de telemetría. No todos estos campos se transmiten con cada punto de datos.
 
 | Ruta de acceso | Tipo | Notas |
@@ -148,26 +154,26 @@ Una sección de contexto acompaña a todos los tipos de telemetría. No todos es
 | internal.data.documentVersion |cadena | |
 | internal.data.id |cadena | |
 
-## Eventos
+## <a name="events"></a>Eventos
 Eventos personalizados generados por [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
 
 | Ruta de acceso | Tipo | Notas |
 | --- | --- | --- |
-| event [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| event [0] name |cadena |Nombre del evento. Longitud máxima: 250. |
+| event [0] count |integer |100/(frecuencia de[muestreo](app-insights-sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
+| event [0] name |cadena |Nombre del evento.  Longitud máxima: 250. |
 | event [0] url |cadena | |
 | event [0] urlData.base |cadena | |
 | event [0] urlData.host |cadena | |
 
-## Excepciones
+## <a name="exceptions"></a>Excepciones
 Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor y en el explorador.
 
 | Ruta de acceso | Tipo | Notas |
 | --- | --- | --- |
 | basicException [0] assembly |cadena | |
-| basicException [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| basicException [0] count |integer |100/(frecuencia de[muestreo](app-insights-sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | basicException [0] exceptionGroup |cadena | |
-| basicException [0] exceptionType |cadena | |
+| basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |cadena | |
 | basicException [0] failedUserCodeAssembly |cadena | |
 | basicException [0] handledAt |cadena | |
@@ -188,17 +194,17 @@ Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor 
 | basicException [0] stack |cadena |Longitud máxima: 10 000. |
 | basicException [0] typeName |cadena | |
 
-## Mensajes de seguimiento
+## <a name="trace-messages"></a>Mensajes de seguimiento
 Enviados por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) y por los [adaptadores de registro](app-insights-asp-net-trace-logs.md).
 
-| Ruta de acceso | Tipo | Notas |
+| path | Tipo | Notas |
 | --- | --- | --- |
 | message [0] loggerName |cadena | |
 | message [0] parameters |cadena | |
-| message [0] raw |cadena |El mensaje de registro, longitud máxima: 10 000. |
+| message [0] raw |cadena |El mensaje de registro, longitud máxima: 10 000. |
 | message [0] severityLevel |cadena | |
 
-## Dependencia remota
+## <a name="remote-dependency"></a>Dependencia remota
 Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de las [llamadas a dependencias](app-insights-asp-net-dependencies.md) en el servidor y de las llamadas AJAX en el explorador.
 
 | Ruta de acceso | Tipo | Notas |
@@ -206,11 +212,11 @@ Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de la
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |cadena | |
 | remoteDependency [0] commandName |cadena |Por ejemplo, "home/index". |
-| remoteDependency [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| remoteDependency [0] count |integer |100/(frecuencia de[muestreo](app-insights-sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | remoteDependency [0] dependencyTypeName |cadena |HTTP, SQL... |
 | remoteDependency [0] durationMetric.value |número |Tiempo desde la llamada hasta la finalización de respuesta de la dependencia |
 | remoteDependency [0] id |cadena | |
-| remoteDependency [0] name |cadena |URL Longitud máxima: 250. |
+| remoteDependency [0] name |string |URL Longitud máxima: 250. |
 | remoteDependency [0] resultCode |cadena |de la dependencia de HTTP |
 | remoteDependency [0] success |boolean | |
 | remoteDependency [0] type |cadena |Http, Sql,... |
@@ -219,15 +225,15 @@ Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de la
 | remoteDependency [0] urlData.hashTag |cadena | |
 | remoteDependency [0] urlData.host |cadena |Longitud máxima: 200 |
 
-## Solicitudes
+## <a name="requests"></a>Solicitudes
 Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.
 
 | Ruta de acceso | Tipo | Notas |
 | --- | --- | --- |
-| request [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| request [0] count |integer |100/(frecuencia de[muestreo](app-insights-sampling.md) ). Por ejemplo: 4 =&gt; 25 %. |
 | request [0] durationMetric.value |número |Tiempo desde que llega la solicitud hasta la respuesta. 1e7 = 1 s |
 | request [0] id |cadena |Identificador de operación |
-| request [0] name |cadena |GET y POST + dirección url base. Longitud máxima: 250 |
+| request [0] name |cadena |GET y POST + dirección url base.  Longitud máxima: 250 |
 | request [0] responseCode |integer |Respuesta HTTP enviada al cliente |
 | request [0] success |boolean |Predeterminado == (responseCode &lt; 400) |
 | request [0] url |cadena |No incluye el host |
@@ -235,7 +241,7 @@ Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-reque
 | request [0] urlData.hashTag |cadena | |
 | request [0] urlData.host |cadena | |
 
-## Rendimiento de la vista de página
+## <a name="page-view-performance"></a>Rendimiento de la vista de página
 Enviado por el explorador. Mide el tiempo que se tarda en procesar una página desde que el usuario inicia la solicitud hasta que aparece por completo (excluidas las llamadas AJAX asincrónicas).
 
 Los valores de contexto muestran el sistema operativo del cliente y la versión del explorador.
@@ -254,27 +260,27 @@ Los valores de contexto muestran el sistema operativo del cliente y la versión 
 | clientPerformance [0] urlData.host |cadena | |
 | clientPerformance [0] urlData.protocol |cadena | |
 
-## Vistas de página
-Enviado por trackPageView() o [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
+## <a name="page-views"></a>Vistas de página
+Enviado por trackPageView() o [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
 | Ruta de acceso | Tipo | Notas |
 | --- | --- | --- |
-| view [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| view [0] count |integer |100/(frecuencia de[muestreo](app-insights-sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Valor establecido opcionalmente en trackPageView() o mediante startTrackPage() - stopTrackPage(). No es igual que los valores de clientPerformance. |
-| view [0] name |cadena |Título de la página. Longitud máxima: 250 |
+| view [0] name |cadena |Título de la página.  Longitud máxima: 250 |
 | view [0] url |cadena | |
 | view [0] urlData.base |cadena | |
 | view [0] urlData.hashTag |cadena | |
 | view [0] urlData.host |cadena | |
 
-## Disponibilidad
+## <a name="availability"></a>Disponibilidad
 Notifica sobre [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md).
 
 | Ruta de acceso | Tipo | Notas |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |cadena |availability |
+| availability [0] availabilityMetric.name |cadena |Disponibilidad |
 | availability [0] availabilityMetric.value |número |1,0 o 0,0 |
-| availability [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| availability [0] count |integer |100/(frecuencia de[muestreo](app-insights-sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | availability [0] dataSizeMetric.name |cadena | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |cadena | |
@@ -286,7 +292,7 @@ Notifica sobre [pruebas web de disponibilidad](app-insights-monitor-web-app-avai
 | availability [0] testRunId |cadena | |
 | availability [0] testTimestamp |cadena | |
 
-## Métricas
+## <a name="metrics"></a>Métricas
 Generado por TrackMetric().
 
 El valor de la métrica se encuentra en context.custom.metrics[0].
@@ -316,7 +322,7 @@ Por ejemplo:
          } ] }
     }
 
-## Acerca de los valores de métrica
+## <a name="about-metric-values"></a>Acerca de los valores de métrica
 Los valores de métrica, tanto en los informes de métrica como en otros lugares, se notifican con una estructura de objeto estándar. Por ejemplo:
 
       "durationMetric": {
@@ -330,7 +336,7 @@ Los valores de métrica, tanto en los informes de métrica como en otros lugares
         "sampledValue": 468.71603053650279
       }
 
-Actualmente, aunque esto podría cambiar en el futuro, en todos los valores notificados desde los módulos estándar de SDK, `count==1` y solo los campos `name` y `value` son útiles. El único caso donde podrían ser diferentes es si escribe sus propias llamadas de TrackMetric, en cuyo caso establecerá los demás parámetros.
+Aunque esto puede cambiar en el futuro, en la actualidad, en todos los valores notificados desde los módulos SDK estándar, `count==1` y solo los campos `name` y `value` son útiles. El único caso donde podrían ser diferentes es si escribe sus propias llamadas de TrackMetric, en cuyo caso establecerá los demás parámetros.
 
 El propósito de los demás campos es permitir que las métricas se agreguen en el SDK, para reducir el tráfico hacia el portal. Por ejemplo, podría hacer el promedio de varias lecturas sucesivas antes de enviar cada informe métrica. A continuación, podría calcular el mínimo, el máximo, la desviación estándar y un valor agregado (suma o promedio) y establecer el recuento en el número de lecturas representado por el informe.
 
@@ -338,12 +344,16 @@ En las tablas anteriores, hemos omitido los campos usados con poca frecuencia co
 
 En lugar de la agregación previa de las métricas, puede usar el [muestreo](app-insights-sampling.md) si necesita reducir el volumen de datos de telemetría.
 
-### Duraciones
+### <a name="durations"></a>Duraciones
 Excepto donde se indique lo contrario, las duraciones se representan en décimas de microsegundo, por lo que 10000000,0 equivalen a 1 segundo.
 
-## Consulte también
-* [Application Insights](app-insights-overview.md) 
+## <a name="see-also"></a>Consulte también
+* [Application Insights](app-insights-overview.md)
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

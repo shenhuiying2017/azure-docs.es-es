@@ -1,19 +1,23 @@
 ---
-title: Uso de instantáneas incrementales para realizar operaciones de copia de seguridad y recuperación de máquinas virtuales de Azure | Microsoft Docs
-description: Cree una solución personalizada para realizar operaciones de copia de seguridad y recuperación de los discos de máquina virtual de Azure mediante instantáneas incrementales.
+title: "Uso de instantáneas incrementales para realizar operaciones de copia de seguridad y recuperación de máquinas virtuales de Azure | Microsoft Docs"
+description: "Cree una solución personalizada para realizar operaciones de copia de seguridad y recuperación de los discos de máquina virtual de Azure mediante instantáneas incrementales."
 services: storage
 documentationcenter: na
 author: aungoo-msft
 manager: tadb
 editor: tysonn
-
+ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: aungoo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+
 
 ---
 # <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>Copias de seguridad de discos de máquinas virtuales de Azure con instantáneas incrementales
@@ -22,7 +26,7 @@ Almacenamiento de Azure permite realizar instantáneas de blobs. Dichas instant�
 
 Los discos de las máquinas virtuales de Azure se almacenan como blobs en páginas en Almacenamiento de Azure. Como en este artículo estamos viendo una estrategia de copias de seguridad para discos de máquinas virtuales, cuando hablemos de instantáneas, lo haremos en el contexto de blobs de páginas. Para obtener más información sobre las instantáneas, consulte [Creación de una instantánea a partir de un blob](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-## <a name="what-is-a-snapshot?"></a>¿Qué es una instantánea?
+## <a name="what-is-a-snapshot"></a>¿Qué es una instantánea?
 Una instantánea de blob es una versión de solo lectura de un blob que se ha capturado en un momento dado. Una vez se crea la instantánea, puede leerla, copiarla o eliminarla, pero no modificarla. Las instantáneas le ofrecen una oportunidad de realizar una copia de seguridad de un blob en el momento en que éste aparezca. Hasta la versión 2015-04-05 de REST, podía copiar instantáneas completas. Con la versión 2015-07-08 de REST y posteriores, también puede copiar instantáneas incrementales.
 
 ## <a name="full-snapshot-copy"></a>Copia de instantáneas completas
@@ -116,6 +120,9 @@ Obtenga más información sobre cómo crear instantáneas de un blob y planear l
 * [Crear una instantánea de un blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](../backup/backup-azure-vms-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

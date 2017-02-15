@@ -1,15 +1,12 @@
 # Información general
 ## [¿Qué es Azure Automation?](automation-intro.md)
 ## [Seguridad en Azure Automation](automation-security-overview.md)
-
-# Primeros pasos
+# Introducción
 ## [Creación de runbook](automation-first-runbook-graphical.md)
 ## [Creación de runbook de PowerShell](automation-first-runbook-textual-powershell.md)
 ## [Creación de runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 ## [Administración de control de acceso basado en roles](automation-role-based-access-control.md)
-
-
-# Cómo
+# Procedimientos
 ## Crear runbooks
 ### [Tipos de runbook](automation-runbook-types.md)
 ### [Crear e importar runbooks](automation-creating-importing-runbook.md)
@@ -22,10 +19,10 @@
 ### [Integrar el control de código fuente](automation-source-control-integration.md)
 ## Automatizar runbooks
 ### [Iniciar un runbook](automation-starting-a-runbook.md)
-### [Iniciar un runbook desde una llamada web](automation-webhooks.md)
-### [Programar un runbook](automation-scheduling-a-runbook.md)
+### [Iniciar un runbook desde un webhook](automation-webhooks.md)
 ### [Ejecutar runbooks en su centro de datos](automation-hybrid-runbook-worker.md)
 ### [Configurar parámetros de entrada de runbook](automation-runbook-input-parameters.md)
+### [Control de errores en runbooks gráficos](automation-runbook-graphical-error-handling.md)
 ### [Realizar el seguimiento de un trabajo de runbook](automation-runbook-execution.md)
 ### [Cambiar la configuración de runbook](automation-runbook-settings.md)
 ### [Administrar datos de Azure Automation](automation-managing-data.md)
@@ -55,26 +52,22 @@
 ### [Inicio y detención de máquinas virtuales con etiquetas JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Eliminación de grupo de recursos](automation-scenario-remove-resourcegroup.md)
 ### [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
-
+### [Integración de control de código fuente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ## [Supervisión](automation-manage-send-joblogs-log-analytics.md)
-
 ## Migrar
 ### [Migración desde Orchestrator](automation-orchestrator-migration.md)
 ### [Traslado de una cuenta de Automation](automation-migrate-account-subscription.md)
-
 ## Solución de problemas
 ### [Solución de errores comunes](automation-troubleshooting-automation-errors.md)
-### [Se suspendió el trabajo del runbook](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
-
+### [Solución de problemas con Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell clásico](/powershell/servicemanagement)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
+## [PowerShell (clásico)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [REST clásico](https://msdn.microsoft.com/library/azure/mt163781)
+## [REST (clásico)](https://msdn.microsoft.com/library/azure/mt163781)
+# Recursos
 ## [Notas de la versión](https://azure.microsoft.com/updates/?product=automation)
-
-# resources
 ## [Precios](https://azure.microsoft.com/pricing/details/automation/)  
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
@@ -85,6 +78,6 @@
 ## [Vídeo de introducción a Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

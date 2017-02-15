@@ -1,25 +1,29 @@
 ---
-title: Administración de la configuración de activación del rol | Microsoft Docs
-description: Obtenga información sobre cómo cambiar la configuración predeterminada de identidades con privilegios con la extensión de Privileged Identity Management de Azure Active Directory.
+title: "Administración de la configuración de activación del rol | Microsoft Docs"
+description: "Obtenga información sobre cómo cambiar la configuración predeterminada de identidades con privilegios con la extensión de Privileged Identity Management de Azure Active Directory."
 services: active-directory
-documentationcenter: ''
-author: kgremban
+documentationcenter: 
+author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f6cbcb6a-8a89-4077-afd8-06c94a64f4aa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5108b83d3291d3b934a402a0a7978c68bda0cf1b
+
 
 ---
-# Administración de la configuración de activación de rol en Privileged Identity Management de Azure AD
+# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Administración de la configuración de activación de rol en Privileged Identity Management de Azure AD
 Un administrador de roles con privilegios puede personalizar Privileged Identity Management (PIM) de Azure AD en su organización, como cambiar la experiencia de un usuario que va a activar una asignación de rol apto.
 
-## Administración de la configuración de activación del rol
+## <a name="manage-the-role-activation-settings"></a>Administración de la configuración de activación del rol
 1. Vaya al [Portal de Azure](https://portal.azure.com) y seleccione la aplicación **Azure AD Privileged Identity Management** en el panel.
 2. Seleccione **Administrar roles con privilegios** > **Configuración** > **Roles con privilegios**.
 3. Seleccione el rol cuya configuración desea administrar.
@@ -34,34 +38,39 @@ En la página de configuración de cada rol, hay una serie de valores que puede 
 
 **Multi-Factor Authentication**: puede elegir que los usuarios comprueben o no su identidad con MFA para poder activar sus roles. Solo tiene que realizar esta acción una vez por sesión, no cada vez que activen un rol. Al habilitar MFA, es conveniente tener en cuenta dos sugerencias:
 
-* Los usuarios que tienen cuentas de Microsoft para sus direcciones de correo electrónico (normalmente @outlook.com, pero no siempre) no se pueden registrar para Azure MFA. Si quiere asignar roles a los usuarios con cuentas de Microsoft, debe establecerlos en administradores permanentes o deshabilitar MFA para ese rol.
-* No se puede deshabilitar MFA para roles con privilegios elevados en Azure AD y Office 365. Esta es una característica de seguridad porque estos roles deben protegerse cuidadosamente:
+* Los usuarios que tienen cuentas de Microsoft para sus direcciones de correo electrónico (normalmente @outlook.com,, pero no siempre) no se pueden registrar para Azure MFA. Si quiere asignar roles a los usuarios con cuentas de Microsoft, debe establecerlos en administradores permanentes o deshabilitar MFA para ese rol.
+* No se puede deshabilitar MFA para roles con privilegios elevados en Azure AD y Office 365. Esta es una característica de seguridad porque estos roles deben protegerse cuidadosamente:  
   
   * Administrador de aplicaciones
   * Administrador del servidor proxy de la aplicación
-  * Administrador de facturación
-  * Administrador de cumplimiento
+  * Administrador de facturación  
+  * Administrador de cumplimiento  
   * Administrador de servicios de CRM
   * Aprobador del acceso a la Caja de seguridad del cliente
-  * Escritor de directorio
-  * Administrador de Exchange
+  * Escritor de directorio  
+  * Administrador de Exchange  
   * Administrador global
   * Administrador de servicios de Intune
-  * Administrador de buzón de correo
-  * Soporte para asociados de nivel 1
-  * Soporte para asociados de nivel 2
-  * Administrador de roles con privilegios
-  * Administrador de seguridad
-  * Administrador de SharePoint
-  * Administrador de Skype Empresarial
-  * Administrador de cuenta de usuario
+  * Administrador de buzón de correo  
+  * Soporte para asociados de nivel 1  
+  * Soporte para asociados de nivel 2  
+  * Administrador de roles con privilegios   
+  * Administrador de seguridad  
+  * Administrador de SharePoint  
+  * Administrador de Skype Empresarial  
+  * Administrador de cuenta de usuario  
 
 Para obtener más información sobre cómo usar MFA con PIM, vea [Exigencia de MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

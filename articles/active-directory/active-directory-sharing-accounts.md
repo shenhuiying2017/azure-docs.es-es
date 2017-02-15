@@ -1,12 +1,12 @@
 ---
 title: Uso compartido de cuentas mediante Azure AD | Microsoft Docs
-description: Describe cómo Azure Active Directory permite a las organizaciones compartir de forma segura las cuentas de aplicaciones locales y los servicios en la nube de consumidor.
+description: "Describe cómo Azure Active Directory permite a las organizaciones compartir de forma segura las cuentas de aplicaciones locales y los servicios en la nube de consumidor."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: msStevenPo
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: stevenpo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b689a0033103231d560c9ba4b349e675f304e35c
+
 
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
@@ -70,6 +74,9 @@ También puede hacer que su cuenta compartida sea más segura con Multi-Factor A
 * [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 * [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

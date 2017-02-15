@@ -1,25 +1,30 @@
 ---
-title: 'Guía de inicio rápido: API de análisis de texto de aprendizaje automático | Microsoft Docs'
-description: Análisis de texto de Aprendizaje automático de Azure - Guía de inicio rápido
+title: "Guía de inicio rápido: API de análisis de texto de Machine Learning | Microsoft Docs"
+description: "Análisis de texto de Aprendizaje automático de Azure - Guía de inicio rápido"
 services: cognitive-services
-documentationcenter: ''
+documentationcenter: 
 author: onewth
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8b9e98c-40e7-4425-ae16-d1eaa7d2f837
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 10/04/2016
 ms.author: onewth
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 663b99c2491bebf49f950605152604b040ade070
+
 
 ---
-# Introducción a Text Analytics API para detectar opiniones, frases clave, temas e idioma
+# <a name="getting-started-with-the-text-analytics-apis-to-detect-sentiment-key-phrases-topics-and-language"></a>Introducción a Text Analytics API para detectar opiniones, frases clave, temas e idioma
 <a name="HOLTop"></a>
 
-En este documento se explica cómo incorporar su servicio o aplicación para usar las [API de análisis de texto](//go.microsoft.com/fwlink/?LinkID=759711). Puede usar estas API para detectar opiniones, frases clave, temas e idioma del texto. [Haga clic aquí para ver una demostración interactiva de la experiencia.](//go.microsoft.com/fwlink/?LinkID=759712)
+En este documento se explica cómo incorporar su servicio o aplicación para usar las [API de análisis de texto](//go.microsoft.com/fwlink/?LinkID=759711).
+Puede usar estas API para detectar opiniones, frases clave, temas e idioma del texto. [Haga clic aquí para ver una demostración interactiva de la experiencia.](//go.microsoft.com/fwlink/?LinkID=759712)
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
@@ -36,23 +41,23 @@ Tenga en cuenta que esta API cobra una transacción por documento enviado. A mod
 
 <a name="Overview"></a>
 
-## Información general
+## <a name="general-overview"></a>Información general
 Este documento es una guía paso a paso. Nuestro objetivo es guiarle a través de los pasos necesarios para entrenar un modelo, así como indicarle los recursos que le permitirán ponerlo en producción. La duración de este ejercicio es de unos 30 minutos.
 
 Para realizar estas tareas, necesitará un editor y llamar a los puntos de conexión RESTful en el lenguaje de su preferencia.
 
 Comencemos.
 
-## Tarea 1: Registrarse en las API de análisis de texto
+## <a name="task-1---signing-up-for-the-text-analytics-apis"></a>Tarea 1: Registrarse en las API de análisis de texto
 En esta tarea, se registrará en el servicio de análisis de texto.
 
-1. Vaya a **Cognitive Services** en el [Portal de Azure](//go.microsoft.com/fwlink/?LinkId=761108) y asegúrese de que **Análisis de texto** esté seleccionado como el "Tipo de API".
-2. Seleccione un plan. Puede seleccionar el **nivel Gratis de 5 000 transacciones/mes**. Como se trata de un plan gratuito, no se le cobrará por utilizar el servicio. No se olvide de iniciar sesión en su suscripción de Azure.
+1. Vaya a **Cognitive Services** en [Azure Portal](//go.microsoft.com/fwlink/?LinkId=761108) y asegúrese de que **Análisis de texto** esté seleccionado como el "Tipo de API".
+2. Seleccione un plan. Puede seleccionar el **nivel Gratis de 5 000 transacciones/mes**. Como se trata de un plan gratuito, no se le cobrará por utilizar el servicio. No se olvide de iniciar sesión en su suscripción de Azure. 
 3. Complete los otros campos y cree su cuenta.
 4. Una vez que se registre en el análisis de texto, encuentre su **Clave de API**. Copie la clave principal, puesto que la necesitará cuando utilice los servicios de API.
 
-## Tarea 2: Detectar opiniones, frases clave e idiomas
-Es fácil detectar opiniones, frases clave e idiomas en el texto. Obtendrá de manera programática los mismos resultados que devuelve la [experiencia de demostración](//go.microsoft.com/fwlink/?LinkID=759712).
+## <a name="task-2---detect-sentiment-key-phrases-and-languages"></a>Tarea 2: Detectar opiniones, frases clave e idiomas
+Es fácil detectar opiniones, frases clave e idiomas en el texto. Obtendrá de manera programática los mismos resultados que devuelve la [experiencia de demostración](//go.microsoft.com/fwlink/?LinkID=759712) .
 
 > [!TIP]
 > En el caso del análisis de opiniones, se recomienda dividir el texto en oraciones. Generalmente, esto lleva a una mayor precisión en las predicciones de opiniones.
@@ -152,15 +157,15 @@ Tenga en cuenta que los idiomas admitidos son los siguientes:
             ]
         }
 
-## Tarea 3: Detectar temas en el cuerpo del texto
+## <a name="task-3---detect-topics-in-a-corpus-of-text"></a>Tarea 3: Detectar temas en el cuerpo del texto
 Se trata de una API recién publicada que devuelve los temas detectados más importantes para obtener los registros de texto enviados. Se identifica un tema con una frase clave, que puede ser una o más palabras relacionadas. La API se ha diseñado para funcionar bien con texto escrito humano y corto, como revisiones y comentarios del usuario.
 
 Esta API requiere **un mínimo de 100 registros de texto** que enviar, pero se ha diseñado para detectar temas en cientos o miles de registros. Los registros que no estén en inglés o que tengan menos de 3 palabras se descartarán y, por lo tanto, no se les asignarán temas. En el caso de la detección de temas, el tamaño máximo de un documento que se puede enviar es de 30 KB y el tamaño máximo total de las entradas enviadas es de 30 MB. La detección de temas tiene una velocidad limitada a 5 envíos cada 5 minutos.
 
 Hay dos parámetros de entrada **opcionales** que pueden ayudar a mejorar la calidad de los resultados:
 
-* **Palabras no significativas.** Estas palabras y sus formas cercanas (por ejemplo, plurales) se excluirán de toda la canalización de detección de temas. Use este parámetro para las palabras comunes (por ejemplo, "problema", "error" y "usuario" pueden ser opciones adecuadas para las quejas que los clientes puedan tener sobre el software). Cada cadena debe tener solo una palabra.
-* **Frases no significativas**: estas frases se excluirán de la lista de temas devueltos. Use este parámetro para excluir temas genéricos que no desea ver en los resultados. Por ejemplo, "Microsoft" y "Azure" podrían ser opciones adecuadas de temas a excluir. Las cadenas pueden contener varias palabras.
+* **Palabras no significativas.**   Estas palabras y sus formas cercanas (por ejemplo, plurales) se excluirán de toda la canalización de detección de temas. Use este parámetro para las palabras comunes (por ejemplo, "problema", "error" y "usuario" pueden ser opciones adecuadas para las quejas que los clientes puedan tener sobre el software). Cada cadena debe tener solo una palabra.
+* **Frases no significativas** : estas frases se excluirán de la lista de temas devueltos. Use este parámetro para excluir temas genéricos que no desea ver en los resultados. Por ejemplo, "Microsoft" y "Azure" podrían ser opciones adecuadas de temas a excluir. Las cadenas pueden contener varias palabras.
 
 Siga estos pasos para detectar temas en el texto.
 
@@ -191,7 +196,7 @@ Siga estos pasos para detectar temas en el texto.
 3. Esto devolverá un valor `operation-location` como el encabezado de la respuesta, donde el valor es la dirección URL para consultar los temas resultantes:
    
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
-4. Consulte periódicamente el valor `operation-location` devuelto con una solicitud **GET**. Se recomienda una vez por minuto.
+4. Consulte periódicamente el valor `operation-location` devuelto con una solicitud **GET** . Se recomienda una vez por minuto.
    
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 5. El punto de conexión devolverá una respuesta que incluya `{"status": "notstarted"}` antes del procesamiento, `{"status": "running"}` durante el procesamiento y `{"status": "succeeded"}` con la salida una vez que se complete. Luego, puede usar la salida que tendrá el siguiente formato (observe que los detalles como formato de error y fechas se excluyen de este ejemplo):
@@ -272,9 +277,14 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 | id |Identificador único del documento de entrada al que se refiere el error. |
 | message |Mensaje de error. |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 ¡Enhorabuena! Completó el tutorial sobre cómo usar el análisis de textos en sus datos. Es posible que ahora quiera obtener información sobre una herramienta como [Power BI](//powerbi.microsoft.com) para visualizar los datos, así como automatizar la información para brindarle una vista de los datos de texto en tiempo real.
 
-Para ver cómo pueden usarse las funcionalidades de análisis de textos, como una opinión, como parte de un bot, vea el ejemplo [Emotional Bot](http://docs.botframework.com/es-ES/bot-intelligence/language/#example-emotional-bot) en el sitio de Bot Framework.
+Para ver cómo pueden usarse las funcionalidades de análisis de textos, como una opinión, como parte de un bot, vea el ejemplo [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) en el sitio de Bot Framework.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

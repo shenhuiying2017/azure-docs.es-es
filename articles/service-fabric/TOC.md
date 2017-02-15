@@ -3,6 +3,8 @@
 ## [Descripción de los microservicios](service-fabric-overview-microservices.md)
 ## [Escenarios de aplicación](service-fabric-application-scenarios.md)
 ## [Arquitectura](service-fabric-architecture.md)
+## [Terminología](service-fabric-technical-overview.md)
+## [Guía básica de contenidos](service-fabric-content-roadmap.md)
 
 # Introducción
 ## Configuración de su entorno de desarrollo
@@ -17,30 +19,38 @@
 
 # Procedimientos
 ## Creación de una aplicación
+### [Patrones y escenarios](service-fabric-patterns-and-scenarios.md)
 ### Aspectos básicos
 #### [Modelo de programación](service-fabric-choose-framework.md)
 #### [Modelo de aplicación](service-fabric-application-model.md)
 #### [Comunicación de servicio](service-fabric-connect-and-communicate-with-services.md)
+#### [Recursos de manifiesto de servicio](service-fabric-service-manifest-resources.md)
 #### [Herramientas](service-fabric-manage-application-in-visual-studio.md)
-#### [Debug](service-fabric-debugging-your-application.md)
+#### Depurar
+##### [Depuración de un servicio de C# en VS](service-fabric-debugging-your-application.md)
+##### [Depuración de un servicio de Java en Eclipse](service-fabric-debugging-your-application-java.md)
 #### Supervisión y diagnóstico
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-#### [Configuración de directivas de seguridad para la aplicación](service-fabric-application-runas-security.md)
-#### [Configuración de la aplicación para varios entornos](service-fabric-manage-multiple-environment-app-configuration.md)
+#### [Administración de secretos de aplicación](service-fabric-application-secret-management.md)  
+#### [Configuración de directivas de seguridad para la aplicación](service-fabric-application-runas-security.md)  
+#### [Configuración de la aplicación para varios entornos](service-fabric-manage-multiple-environment-app-configuration.md)  
+#### [Errores y excepciones habituales](service-fabric-errors-and-exceptions.md) 
 
 ### Aplicación con Reliable Services
 #### [Información general](service-fabric-reliable-services-introduction.md)
-#### Primeros pasos
+#### Introducción
 ##### [C# en Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java en Linux](service-fabric-reliable-services-quick-start-java.md)
 #### [Arquitectura](service-fabric-reliable-services-platform-architecture.md)
+#### [Ciclo de vida de Reliable Services](service-fabric-reliable-services-lifecycle.md)
 #### [Colecciones confiables](service-fabric-reliable-services-reliable-collections.md)
 #### [Uso de colecciones confiables](service-fabric-work-with-reliable-collections.md)
 #### [Configuración](service-fabric-reliable-services-configuration.md)
-#### [Notifications](service-fabric-reliable-services-notifications.md)
+#### [Notificaciones](service-fabric-reliable-services-notifications.md)
 #### [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
 #### [Comunicación con Reliable Services](service-fabric-reliable-services-communication.md)
+#### [Comunicaciones seguras con Reliable Services](service-fabric-reliable-services-secure-communication.md)
 ##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
 ##### [Comunicación remota de servicio](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
@@ -61,6 +71,7 @@
 #### [Administración de estados](service-fabric-reliable-actors-state-management.md)
 #### [Configuración del proveedor de estado](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Serialización del tipo](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+#### [Configuración de opciones de comunicación](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
 ### Aplicación ejecutable de invitado
 #### [Implementación de una aplicación ejecutable de invitado](service-fabric-deploy-existing-app.md)
@@ -83,28 +94,33 @@
 #### [Planificación de capacidad](service-fabric-cluster-capacity.md)
 #### [Visualización de un clúster](service-fabric-visualizing-your-cluster.md)
 #### [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md)
+#### [Administración de un clúster mediante la CLI de Azure](service-fabric-azure-cli.md) 
 #### [Seguridad](service-fabric-cluster-security.md)
 #### [Recuperación ante desastres](service-fabric-disaster-recovery.md)
 
 ### Clústeres en Azure
 #### Creación de un clúster en Azure
-##### [Portal de Azure](service-fabric-cluster-creation-via-portal.md)
-##### [Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md)
+##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### [Tipos de nodos y conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md)
 #### [Escalado de un clúster](service-fabric-cluster-scale-up-down.md)
 #### [Actualización de un clúster](service-fabric-cluster-upgrade.md)
 #### [Eliminación de un clúster](service-fabric-cluster-delete.md)
 #### [Control de acceso](service-fabric-cluster-security-roles.md)
 #### [Configuración de un clúster](service-fabric-cluster-fabric-settings.md)
+#### [Incorporación o sustitución de certificados de clúster](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Prueba de un Party Cluster gratis](http://aka.ms/tryservicefabric)
 
 ### Clústeres independientes
 #### [Creación de un clúster independiente](service-fabric-cluster-creation-for-windows-server.md)
+#### [Creación de un clúster independiente en Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Escalado de un clúster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Actualización de un clúster](service-fabric-cluster-upgrade-windows-server.md)
 #### [Protección de un clúster](service-fabric-windows-cluster-x509-security.md)
 #### [Control de acceso](service-fabric-cluster-security-roles.md)
 #### [Configuración de un clúster](service-fabric-cluster-manifest.md)
+#### [Protección de un clúster mediante certificados](service-fabric-windows-cluster-x509-security.md)  
+#### [Protección de un clúster mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) 
 
 ## Administración y orquestación de recursos de clúster
 ### [Introducción a Resource Manager de clúster](service-fabric-cluster-resource-manager-introduction.md)
@@ -136,7 +152,6 @@
 ### [Solución de problemas de actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md)
 ### [Serialización de datos en actualizaciones de aplicaciones](service-fabric-application-upgrade-data-serialization.md)
 ### [Temas avanzados sobre actualización de aplicaciones](service-fabric-application-upgrade-advanced.md)
-### [Ejemplo de ciclo de vida de aplicaciones basadas en REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
 ## Inspección del estado de un clúster y una aplicación
 ### [Supervisión del estado de Service Fabric](service-fabric-health-introduction.md)
@@ -152,7 +167,7 @@
 ### Registros de Diagnósticos de Azure
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Seguimiento de aplicación de Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+### [Recopilación de registros de un proceso de servicio](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 ### [Diagnósticos en Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Diagnósticos de Reliable Services con estado](service-fabric-reliable-services-diagnostics.md)
 ### [Solución de problemas de un clúster local](service-fabric-troubleshoot-local-cluster-setup.md)
@@ -173,24 +188,19 @@
 #### [Durante las cargas de trabajo](service-fabric-testability-workload-tests.md)
 #### [Al invocar la pérdida de datos](service-fabric-use-data-loss-api.md)
 #### [Uso de escenarios de prueba](service-fabric-testability-scenarios.md)
+#### [Uso de las API Node Transition](service-fabric-node-transition-apis.md)
 ### [Prueba de carga de la aplicación](service-fabric-vso-load-test.md)
 
 # Referencia
-## [Terminología](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Datos](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Interfaces de datos](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [Sistema](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Código de ejemplo](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [API de Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [API de Java](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Recursos
+## [Preguntas comunes acerca de Service Fabric](service-fabric-common-questions.md)
+## [Opciones de soporte técnico de Service Fabric](service-fabric-support.md)
+## [Código de ejemplo](http://aka.ms/servicefabricsamples)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Precios](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=service-fabric)
@@ -198,6 +208,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,41 +1,45 @@
 ---
-title: Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
-description: Obtenga información acerca de cómo realizar un seguimiento de las llamadas con API Inspector en Administración de API de Azure.
+title: "Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure"
+description: "Obtenga información acerca de cómo realizar un seguimiento de las llamadas con API Inspector en Administración de API de Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4b222327-c8a4-4f33-9a06-adff2a9834d9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dd806a187d1ac2c34020325753ac4f68b44064de
+
 
 ---
-# Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
-Administración de API ofrece la herramienta API Inspector para ayudarle con la depuración y la solución de problemas de las API. El API Inspector se puede usar mediante programación y también directamente desde el portal para desarrolladores.
+# <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
+Administración de API ofrece la herramienta API Inspector para ayudarle con la depuración y la solución de problemas de las API. El API Inspector se puede usar mediante programación y también directamente desde el portal para desarrolladores. 
 
-Además de las operaciones de seguimiento, API Inspector también realiza el seguimiento de evaluaciones de [expresiones de directivas](https://msdn.microsoft.com/library/azure/dn910913.aspx). Para obtener una demostración, consulte [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta el minuto 21:00.
+Además de las operaciones de seguimiento, API Inspector también realiza el seguimiento de evaluaciones de [expresiones de directivas](https://msdn.microsoft.com/library/azure/dn910913.aspx) . Para obtener una demostración, consulte [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta el minuto 21:00.
 
 En esta guía se explica el uso del API Inspector.
 
 > [!NOTE]
-> Los seguimientos de API Inspector solo se generan y están disponibles para las solicitudes que contiene claves de suscripción que pertenecen a la cuenta de [administrador](api-management-howto-create-groups.md).
+> Los seguimientos de API Inspector solo se generan y están disponibles para las solicitudes que contiene claves de suscripción que pertenecen a la cuenta de [administrador](api-management-howto-create-groups.md) .
 > 
 > 
 
 ## <a name="trace-call"> </a> Uso de API Inspector para realizar el seguimiento de una llamada
 Para usar API Inspector, agregue un encabezado de solicitud **ocp-apim-trace: true** a la llamada a la operación y luego descargue e inspeccione el seguimiento con la URL indicada mediante el encabezado de respuesta **ocp-apim-trace-location**. Esto puede realizarse mediante programación y también directamente desde el portal para desarrolladores.
 
-Este tutorial muestra cómo utilizar el API Inspector para realizar un seguimiento de las operaciones mediante la API de calculadora básica que se configura en el tutorial de introducción [Administrar su primera API](api-management-get-started.md). Si no ha realizado ese tutorial, solo tardará unos minutos en importar la API de calculadora básica, o puede usar otra API de su elección, como la Echo API. Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. La Echo API devuelve cualquier entrada que se le envíe. Para usarla, se puede invocar cualquier verbo HTTP, y el valor devuelto será simplemente el que se envíe.
+Este tutorial muestra cómo utilizar el API Inspector para realizar un seguimiento de las operaciones mediante la API de calculadora básica que se configura en el tutorial de introducción [Administrar su primera API](api-management-get-started.md) . Si no ha realizado ese tutorial, solo tardará unos minutos en importar la API de calculadora básica, o puede usar otra API de su elección, como la Echo API. Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. La Echo API devuelve cualquier entrada que se le envíe. Para usarla, se puede invocar cualquier verbo HTTP, y el valor devuelto será simplemente el que se envíe. 
 
-Para comenzar, haga clic en **portal para desarrolladores** en el Portal de Azure clásico para el servicio Administración de API. Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.
+Para comenzar, haga clic en **Portal para desarrolladores** en Azure Portal para el servicio API Management. Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.
 
-> Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][Creación de una instancia del servicio de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
+> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 > 
 > 
 
@@ -43,21 +47,21 @@ Para comenzar, haga clic en **portal para desarrolladores** en el Portal de Azur
 
 Haga clic en **API** en el menú superior y después en **Calculadora básica**.
 
-![API Eco][api-management-api]
+![API eco][api-management-api]
 
 Haga clic en **Inténtelo** para intentar la operación **Agregar dos enteros**.
 
 ![Pruébelo][api-management-open-console]
 
-Mantenga los valores predeterminados de los valores de parámetros y seleccione la clave de suscripción para el producto que desee usar desde la lista desplegable **suscription-key**.
+Mantenga los valores predeterminados de los valores de parámetros y seleccione la clave de suscripción para el producto que desee usar desde la lista desplegable **suscription-key** .
 
 En el portal para desarrolladores, el encabezado **Ocp-Apim-Trace** ya está establecido en **true**. Este encabezado configura si se ha generado o no un seguimiento.
 
-![Los métodos Send][api-management-http-get]
+![Enviar][api-management-http-get]
 
 Haga clic en **Enviar** para invocar la operación.
 
-![Los métodos Send][api-management-send-results]
+![Enviar][api-management-send-results]
 
 En los encabezados de respuesta habrá una entrada **ocp-apim-trace-location** con un valor similar al que aparece en el ejemplo siguiente.
 
@@ -66,7 +70,7 @@ En los encabezados de respuesta habrá una entrada **ocp-apim-trace-location** c
 El seguimiento puede descargarse de la ubicación especificada y revisarse, como se demuestra en el paso siguiente.
 
 ## <a name="inspect-trace"> </a>Inspección del seguimiento
-Para revisar los valores del seguimiento, descargue el archivo de seguimiento de la URL de **ocp-apim-trace-location**. Se trata de un archivo de texto en formato JSON y contiene entradas similares a las que aparecen en el ejemplo siguiente.
+Para revisar los valores del seguimiento, descargue el archivo de seguimiento de la URL de **ocp-apim-trace-location** . Se trata de un archivo de texto en formato JSON y contiene entradas similares a las que aparecen en el ejemplo siguiente.
 
     {
         "traceId": "abcd8ea63d134c1fabe6371566c7cbea",
@@ -234,17 +238,17 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 > 
 > 
 
-[Use API Inspector to trace a call]: #trace-call
-[Inspect the trace]: #inspect-trace
-[Next steps]: #next-steps
+[Uso de API Inspector para realizar el seguimiento de una llamada]: #trace-call
+[Inspección del seguimiento]: #inspect-trace
+[Pasos siguientes]: #next-steps
 
-[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-[Responses]: api-management-howto-add-operations.md#responses
-[How create and publish a product]: api-management-howto-add-products.md
+[Definición de la configuración de la API]: api-management-howto-create-apis.md#configure-api-settings
+[Respuestas]: api-management-howto-add-operations.md#responses
+[Creación y publicación de un producto]: api-management-howto-add-products.md
 
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -260,4 +264,7 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Yardi eLearning | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Yardi eLearning.
+title: "Tutorial: Integración de Azure Active Directory con Yardi eLearning | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Yardi eLearning."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7ea58b54-ec5b-4576-8586-814b11d0f4fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31be0e05b72b8c1ba444ad69798f3675b58a6b71
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: Integración de Azure Active Directory con Yardi eLearning
+# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: Integración de Azure Active Directory con Yardi eLearning
 El objetivo de este tutorial es mostrar cómo integrar Yardi eLearning con Azure Active Directory (Azure AD).
 
 Integrar Yardi eLearning con Azure AD le proporciona las siguientes ventajas:
@@ -207,7 +211,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Yardi eLearning en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Yardi eLearning.
@@ -236,6 +240,6 @@ Al hacer clic en el icono de Yardi eLearning en el Panel de acceso, debería ini
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

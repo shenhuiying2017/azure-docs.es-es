@@ -246,6 +246,6 @@ Puede quitar una extensión mediante los siguientes pasos en Azure Portal:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

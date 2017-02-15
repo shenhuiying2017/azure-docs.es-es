@@ -149,6 +149,6 @@ Así, se puede omitir el parámetro -Credential en el cmdlet New-PSDrive.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

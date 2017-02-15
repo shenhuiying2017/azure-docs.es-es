@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Evidence.com | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Evidence.com.
+title: "Tutorial: Integración de Azure Active Directory con Evidence.com | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Evidence.com."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f9a7cb7c-ff67-40dc-872c-1fa35f9dd03b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d5183b136a0ceca939f754f67130d1179f6f4f7
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-evidence.com"></a>Tutorial: Integración de Azure Active Directory con Evidence.com
+# <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integración de Azure Active Directory con Evidence.com
 El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión único entre Azure Active Directory (AAD) y Evidence.com. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción válida a Microsoft Azure
@@ -24,7 +28,7 @@ El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión ú
 
 Después de completar este tutorial, los usuarios de AAD a quienes se haya asignado acceso a Evidence.com podrán realizar un inicio de sesión único en la aplicación mediante el panel de acceso de AAD.
 
-## <a name="add-evidence.com-to-your-directory"></a>Incorporación de Evidence.com a su directorio
+## <a name="add-evidencecom-to-your-directory"></a>Incorporación de Evidence.com a su directorio
 En esta sección, se describe cómo agregar Evidence.com como aplicación integrada en Azure Active Directory.
 
 **Para habilitar la integración de aplicaciones para Evidence:**
@@ -54,7 +58,7 @@ El objetivo de esta sección es describir cómo permitir que los usuarios se aut
 11. En el Portal de Azure clásico, active la casilla **Confirme que ha configurado el inicio de sesión único como se ha descrito anteriormente**. Esta comprobación permitirá que el certificado actual empiece a funcionar para la aplicación.
 12. En la página Confirmación del inicio de sesión único, haga clic en **Completar**.  
 
-## <a name="creating-an-evidence.com-test-user"></a>Creación de un usuario de prueba de Evidence.com
+## <a name="creating-an-evidencecom-test-user"></a>Creación de un usuario de prueba de Evidence.com
 Para que los usuarios de Azure AD puedan iniciar sesión, se les debe aprovisionar para el acceso dentro de la aplicación Evidence.com. En esta sección, se describe cómo crear cuentas de usuario de Azure AD en Evidence.com.
 
 **Para aprovisionar una cuenta de usuario en Evidence.com:**
@@ -65,7 +69,7 @@ Para que los usuarios de Azure AD puedan iniciar sesión, se les debe aprovision
 4. Haga clic en el botón **Add** (Agregar).
 5. El valor de **Email Address** (Dirección de correo electrónico) del usuario agregado debe coincidir con el nombre de usuario en Azure AD de los usuarios a quienes desea conceder acceso. Si el nombre de usuario y la dirección de correo electrónico no usan el mismo valor en su organización, puede usar la sección **Evidence.com > Atributos > Inicio de sesión único** del Portal de Azure clásico para hacer que el identificador de nombre enviado a Evidence.com sea la dirección de correo electrónico.
 
-## <a name="assigning-users-to-evidence.com"></a>Asignación de usuarios a Evidence.com
+## <a name="assigning-users-to-evidencecom"></a>Asignación de usuarios a Evidence.com
 Para que los usuarios de AAD aprovisionados vean Evidence.com en su panel de acceso, se les debe asignar acceso desde el Portal de Azure clásico.
 
 **Para asignar usuarios a Evidence.com:**
@@ -75,6 +79,9 @@ Para que los usuarios de AAD aprovisionados vean Evidence.com en su panel de acc
 3. En la lista **Usuarios** , seleccione los usuarios o el grupo a los que desea asignar a Evidence.com.
 4. En el pie de página, haga clic en el botón **Asignar** .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

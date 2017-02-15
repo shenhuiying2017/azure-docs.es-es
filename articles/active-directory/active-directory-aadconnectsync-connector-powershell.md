@@ -1,12 +1,12 @@
 ---
 title: Conector de PowerShell | Microsoft Docs
-description: En este artículo se describe cómo configurar el conector de Windows PowerShell de Microsoft.
+description: "En este artículo se describe cómo configurar el conector de Windows PowerShell de Microsoft."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe75e4899be6023a552c0223703cb56d29085bee
+
 
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Referencia técnica del conector de Windows PowerShell
@@ -182,7 +186,7 @@ El script de inicio de importación recibe los parámetros siguientes del conect
 El script debe devolver un único objeto [OpenImportConnectionResults][oicres] a la canalización, por ejemplo: `Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
 **Import Data**  
- El conector llama al script de importación de datos hasta que el script indica que no hay ningún dato más para importar. El conector de Windows PowerShell tiene un tamaño de página de 9 999 objetos. Si el script devuelve más de 9999 objetos para importar, debe admitir la paginación. El conector expone una propiedad de datos personalizados que se puede usar para almacenar una marca de agua, de tal forma que cada vez que se llame al script, este reanuda la importación de objetos donde se quedó.
+ El conector llama al script de importación de datos hasta que el script indica que no hay ningún dato más para importar. El conector de Windows PowerShell tiene un tamaño de página de 9 999 objetos. Si el script devuelve más de 9999 objetos para importar, debe admitir la paginación. El conector expone una propiedad de datos personalizados que se puede usar para almacenar una marca de agua, de tal forma que cada vez que se llame al script, este reanuda la importación de objetos donde se quedó.
 
 El script de importación de datos recibe los parámetros siguientes del conector:
 
@@ -341,6 +345,6 @@ Sustituya el nombre del conector de Windows PowerShell por el marcador de posici
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Programación del mantenimiento planeado para VM de Azure | Microsoft Docs
-description: Obtenga información sobre cómo programar el mantenimiento planeado en VM de Azure.
+title: "Programación del mantenimiento planeado para máquinas virtuales de Azure | Microsoft Docs"
+description: "Obtenga información sobre cómo programar el mantenimiento planeado en VM de Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: igalf
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 619a65ce-f913-4c92-a7ba-2971a839c306
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2016
 ms.author: igalf
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: c952179bd747ed2afa21f251c436e2e9fd7505fd
+
 
 ---
-# Programación del mantenimiento planeado en VM de Azure
+# <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Programación del mantenimiento planeado en VM de Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+Para más información sobre el mantenimiento planeado en el modelo de Resource Manager, consulte [aquí](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

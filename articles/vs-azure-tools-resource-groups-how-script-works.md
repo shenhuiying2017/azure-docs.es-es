@@ -1,12 +1,12 @@
 ---
-title: Información general sobre el script de implementación del proyecto de grupo de recursos de Azure | Microsoft Docs
-description: Describe cómo funciona el script de PowerShell en el proyecto de implementación de grupo de recursos de Azure.
+title: "Información general sobre el script de implementación del proyecto de grupo de recursos de Azure | Microsoft Docs"
+description: "Describe cómo funciona el script de PowerShell en el proyecto de implementación de grupo de recursos de Azure."
 services: visual-studio-online
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fecfb74f-363f-4cc8-9743-36e5ddd879c0
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2016
 ms.author: tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 078c0116eb1b70dd8d15c49343dce91fbdd96944
+
 
 ---
-# Información general sobre el script de implementación del proyecto de grupo de recursos de Azure
-Los proyectos de implementación de grupo de recursos de Azure le ayudan a realizar copias intermedias e implementar archivos y otros artefactos en Azure. Al crear un proyecto de implementación del Administrador de recursos de Azure en Visual Studio, se agrega un script de PowerShell denominado **Deploy-AzureResourceGroup.ps1**. Este tema proporciona detalles sobre lo que hace este script y cómo ejecutarlo tanto dentro como fuera de Visual Studio.
+# <a name="overview-of-the-azure-resource-group-project-deployment-script"></a>Información general sobre el script de implementación del proyecto de grupo de recursos de Azure
+Los proyectos de implementación de grupo de recursos de Azure le ayudan a realizar copias intermedias e implementar archivos y otros artefactos en Azure. Al crear un proyecto de implementación del Administrador de recursos de Azure en Visual Studio, se agrega un script de PowerShell denominado **Deploy-AzureResourceGroup.ps1** . Este tema proporciona detalles sobre lo que hace este script y cómo ejecutarlo tanto dentro como fuera de Visual Studio.
 
-## ¿Qué hace el script?
+## <a name="what-does-the-script-do"></a>¿Qué hace el script?
 El script Deploy-AzureResourceGroup.ps1 realiza dos acciones que son importantes para el flujo de trabajo de implementación.
 
 * Carga de los archivos o los artefactos necesarios para la implementación de plantilla
@@ -27,9 +31,9 @@ El script Deploy-AzureResourceGroup.ps1 realiza dos acciones que son importantes
 
 La primera parte del script carga los archivos y los artefactos para la implementación y el último cmdlet en el script implementa la plantilla. Por ejemplo, si una máquina virtual tiene que estar configurada con un script, el script de implementación primero carga de forma segura el script de configuración en una cuenta de almacenamiento de Azure. Esto lo pone a disposición del Administrador de recursos de Azure para configurar la máquina virtual durante el aprovisionamiento.
 
-Dado que no todas las implementaciones de plantilla necesitan tener artefactos adicionales que tienen que cargarse, se evalúa un parámetro de modificador denominado *uploadArtifacts*. Si es necesario cargar algún artefacto, establezca el modificador *uploadArtifacts* al llamar al script. Tenga en cuenta que no es necesario cargar el archivo de plantilla principal ni el archivo de parámetros. Solo hay que cargar otros archivos, como los scripts de configuración, las plantillas de implementación anidadas y los archivos de aplicación.
+Dado que no todas las implementaciones de plantilla necesitan tener artefactos adicionales que tienen que cargarse, se evalúa un parámetro de modificador denominado *uploadArtifacts* . Si es necesario cargar algún artefacto, establezca el modificador *uploadArtifacts* al llamar al script. Tenga en cuenta que no es necesario cargar el archivo de plantilla principal ni el archivo de parámetros. Solo hay que cargar otros archivos, como los scripts de configuración, las plantillas de implementación anidadas y los archivos de aplicación.
 
-## Descripción detallada del script
+## <a name="detailed-script-description"></a>Descripción detallada del script
 A continuación se describe lo que hacen secciones seleccionadas del script de PowerShell de Azure Deploy-AzureResourceGroup.ps1.
 
 > [!NOTE]
@@ -57,7 +61,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
    
    | Parámetro | Descripción |
    | --- | --- |
-   | $ResourceGroupLocation |La región o ubicación del centro de datos para el grupo de recursos, como **Oeste de EE. UU.** o **Asia oriental**. |
+   | $ResourceGroupLocation |La región o ubicación del centro de datos para el grupo de recursos, como **Oeste de EE. UU.** o **Asia oriental**. |
    | $ResourceGroupName |El nombre del grupo de recursos de Azure. |
    | $UploadArtifacts |Un valor binario que indica si hay o no artefactos que tienen que cargarse en Azure desde el sistema. |
    | $storageAccountName |El nombre de la cuenta de almacenamiento de Azure donde se cargan los artefactos. |
@@ -71,12 +75,12 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
 2. Compruebe si los artefactos tienen que cargarse en Azure. Si no es necesario, vaya al paso 11. De lo contrario, realice los siguiente pasos:
 3. Convierta las variables con rutas de acceso relativas a rutas de acceso absolutas. Por ejemplo, cambe una ruta de acceso como `..\Tools\AzCopy.exe` a `C:\YourFolder\Tools\AzCopy.exe`. Igualmente, inicialice las variables *ArtifactsLocationName* y *ArtifactsLocationSasTokenName* en null. *ArtifactsLocation* y *SaSToken* pueden ser parámetros de la plantilla. Si sus valores son nulos después de leer el archivo de parámetros, el script genera valores para ellos.
    
-   Las herramientas de Azure usan los valores de parámetro *\_artifactsLocation* y *\_artifactsLocationSasToken* en la plantilla de administración de artefactos. Si el script de PowerShell busca los parámetros con esos nombres, pero no se proporcionan los valores de parámetro, el script carga los artefactos y devuelve los valores adecuados para esos parámetros. A continuación los pasa al cmdlet a través de `@OptionsParameters`.
+   Las herramientas de Azure usan los valores de parámetro *_artifactsLocation* y *_artifactsLocationSasToken* en la plantilla de administración de artefactos. Si el script de PowerShell busca los parámetros con esos nombres, pero no se proporcionan los valores de parámetro, el script carga los artefactos y devuelve los valores adecuados para esos parámetros. A continuación los pasa al cmdlet a través de `@OptionsParameters`.
    
    | Variable | Descripción |
    | --- | --- |
    | ArtifactsLocationName |La ruta de acceso a donde se encuentran los artefactos de Azure. |
-   | ArtifactsLocationSasTokenName |El nombre de token de la SAS (firma de acceso compartido) que utiliza el script para autenticarse en el Bus de servicio. Para obtener más información, consulte [Autenticación con firma de acceso compartida en Bus de servicio](service-bus/service-bus-shared-access-signature-authentication.md). |
+   | ArtifactsLocationSasTokenName |El nombre de token de la SAS (firma de acceso compartido) que utiliza el script para autenticarse en el Bus de servicio. Para obtener más información, consulte [Autenticación con firma de acceso compartida en Bus de servicio](service-bus-messaging/service-bus-shared-access-signature-authentication.md) . |
    
    ```
    if ($UploadArtifacts) {
@@ -91,7 +95,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
    $OptionalParameters.Add($ArtifactsLocationName, $null)
    $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
    ```
-4. Esta sección comprueba si el archivo <nombre de la aplicación>.parameters.json (el llamado "archivo de parámetros") tiene un nodo primario denominado **parameters** (en el bloque `else`). De lo contrario, no tiene nodo primario. Cualquier formato es aceptable.
+4. Esta sección comprueba si el archivo <app name>.parameters.json (el llamado "archivo de parámetros") tiene un nodo primario denominado **parámetros** (en el bloque `else`). De lo contrario, no tiene nodo primario. Cualquier formato es aceptable.
    
    ```
    if ($JsonParameters -eq $null) {
@@ -101,7 +105,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
          $JsonParameters = $JsonContent.parameters
      }
    ```
-5. Itere a través de la colección de parámetros JSON. Si se ha asignado un valor de parámetro a *\_artifactsLocation* o *\_artifactsLocationSasToken*, establezca la variable *$OptionalParameters* con dichos valores. Esto impide que el script sobrescriba accidentalmente los valores de parámetro que usted proporcione.
+5. Itere a través de la colección de parámetros JSON. Si se ha asignado un valor de parámetro a *_artifactsLocation* o *_artifactsLocationSasToken*, establezca la variable *$OptionalParameters* con dichos valores. Esto impide que el script sobrescriba accidentalmente los valores de parámetro que usted proporcione.
    
    ```
    $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -140,7 +144,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
      $OptionalParameters[$ArtifactsLocationName] = $ArtifactsLocation
    }
    ```
-9. Utilice la utilidad **AzCopy** (incluida en la carpeta **Herramientas** de su proyecto de implementación de grupo de recursos de Azure) para copiar los archivos de la ruta de colocación del almacenamiento local en su cuenta de almacenamiento de Azure en línea. Si se produce un error en este paso, salga del script, ya que es probable que la implementación no se realice correctamente sin los artefactos necesarios.
+9. Utilice la utilidad **AzCopy** (incluida en la carpeta **Herramientas** de su proyecto de implementación de grupo de recursos de Azure) para copiar los archivos de la ruta de colocación del almacenamiento local en su cuenta de Azure Storage en línea. Si se produce un error en este paso, salga del script, ya que es probable que la implementación no se realice correctamente sin los artefactos necesarios.
    
    ```
    # Use AzCopy to copy files from the local storage drop path to the storage account container
@@ -178,12 +182,12 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
          -Force -Verbose
      ```
 
-## Implementación del grupo de recursos
-### Para implementar el grupo de recursos en Visual Studio
-1. En el menú contextual del proyecto de grupo de recursos de Azure, elija **Implementar**, **Nueva implementación**.
+## <a name="deploy-the-resource-group"></a>Implementación del grupo de recursos
+### <a name="to-deploy-the-resource-group-in-visual-studio"></a>Para implementar el grupo de recursos en Visual Studio
+1. En el menú contextual del proyecto de grupo de recursos de Azure, elija **Implementar** > **New Implementarment**.
    
     ![][0]
-2. En el cuadro de diálogo **Implementar en grupo de recursos**, seleccione un grupo ya existente en el cuadro de lista desplegable o elija **&lt;Crear nuevo...&gt;** para crear un nuevo grupo de recursos para la implementación.
+2. En el cuadro de diálogo **Implementar en grupo de recursos**, seleccione un grupo ya existente en el cuadro de lista desplegable para implementar o elija **&lt;Crear nuevo...&gt;**  para crear un nuevo grupo de recursos para la implementación.
    
     ![][1]
 3. Si se le solicita, escriba un nombre y una ubicación para el grupo de recursos en el cuadro de diálogo **Crear grupo de recursos** y, a continuación, elija el botón **Crear**.
@@ -203,25 +207,25 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
    
     Se ejecuta el script de implementación (Deploy-AzureResourceGroup.ps1) y la plantilla, junto con los artefactos, se implementa en Azure.
 
-### Implementación del grupo de recursos con PowerShell
+### <a name="to-deploy-the-resource-group-by-using-powershell"></a>Implementación del grupo de recursos con PowerShell
 Si desea ejecutar el script sin usar la interfaz de usuario y el comando de implementación de Visual Studio, en el menú contextual del script, elija **Abrir con PowerShell ISE**.
 
 ![][5]
 
-## Ejemplos de comandos de implementación
-### Implementación con los valores predeterminados
+## <a name="command-deployment-examples"></a>Ejemplos de comandos de implementación
+### <a name="deploy-using-default-values"></a>Implementación con los valores predeterminados
 Este ejemplo muestra cómo ejecutar el script con los valores de parámetro predeterminados. (Dado que el parámetro de ubicación no tiene un valor predeterminado, tendrá que proporcionar uno.)
 
 `.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation eastus`
 
-### Implementación reemplazando los valores predeterminados
+### <a name="deploy-overriding-the-default-values"></a>Implementación reemplazando los valores predeterminados
 Este ejemplo muestra cómo ejecutar el script para implementar archivos de plantilla y parámetros que difieren de los valores predeterminados.
 
 ```
 .\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation eastus –TemplateFile ..\templates\AnotherTemplate.json –TemplateParametersFile ..\templates\AnotherTemplate.parameters.json
 ```
 
-### Implementación mediante UploadArtifacts para ensayo
+### <a name="deploy-using-uploadartifacts-for-staging"></a>Implementación mediante UploadArtifacts para ensayo
 Este ejemplo muestra cómo ejecutar el script para cargar los artefactos de la carpeta de versión e implementar plantillas no predeterminadas.
 
 ```
@@ -234,10 +238,10 @@ Este ejemplo muestra cómo ejecutar el script en una tarea de PowerShell de Azur
 $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.ps1 -StorageAccountName 'mystorage' -StorageAccountResourceGroupName 'Default-Storage-EastUS' -ResourceGroupName 'myResourceGroup' -ResourceGroupLocation 'eastus' -TemplateFile '..\templates\windowsvirtualmachine.json' -TemplateParametersFile '..\templates\windowsvirtualmachine.parameters.json' -UploadArtifacts -ArtifactStagingDirectory $(Build.StagingDirectory)
 ```
 
-## Pasos siguientes
-Para obtener más información sobre el Administrador de recursos de Azure, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+## <a name="next-steps"></a>Pasos siguientes
+Para más información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
 
-Para obtener más ejemplos de cómo trabajar con proyectos de grupo de recursos de Azure, consulte cómo [implementar y administrar recursos de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources) en la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) realizada en Connect 2015. Para ver más guías rápidas de la demostración HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+Para obtener más ejemplos de cómo trabajar con proyectos de grupo de recursos de Azure, consulte cómo [implementar y administrar recursos de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources) en la [demostración](https://github.com/Microsoft/HealthClinic.biz) [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) realizada en Connect 2015. Para ver más guías rápidas de la demostración de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 [0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png
 [1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png
@@ -246,4 +250,8 @@ Para obtener más ejemplos de cómo trabajar con proyectos de grupo de recursos 
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

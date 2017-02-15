@@ -13,20 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/16/2016
+ms.date: 09/21/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: af104d47d316b3e46108e7e2ed0771bd06f360af
-ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2cd4a7536bcdde717221a8f2d25eadadee03dd4d
 
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
-
-> [!div class="op_single_selector"]
-> * [Portal de Azure clásico](active-directory-conditional-access.md)
-> * [Portal de Azure](active-directory-conditional-access-azure-portal.md)
-
 Las funcionalidades de control del acceso condicional en Azure Active Directory (Azure AD) ofrecen maneras sencillas de proteger los recursos locales y en la nube. Las directivas de acceso condicional, como la autenticación multifactor, contribuyen a proteger frente al riesgo de que las credenciales sean objeto de robo y suplantación de identidad (phishing). Otras directivas de acceso condicional pueden ayudar a mantener seguros los datos de su organización. Por ejemplo, además de requerir credenciales, podría tener una directiva por la cual solo los dispositivos que estén inscritos en un sistema de administración de dispositivos móviles como Microsoft Intune puedan acceder a los servicios confidenciales de su organización.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -99,6 +94,6 @@ Consulte las categorías de recursos y los artículos siguientes para más infor
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: configuración de Workday para la sincronización de entrada | Microsoft Docs'
+title: "Tutorial: Configuración de Workday para la sincronización de entrada | Microsoft Docs"
 description: Aprenda a usar Workday como origen de datos de identidad para Azure Active Directory.
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
+
 
 ---
-# <a name="tutorial:-configuring-workday-for-inbound-synchronization"></a>Tutorial: configuración de Workday para la sincronización de entrada
+# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>Tutorial: configuración de Workday para la sincronización de entrada
 El objetivo de este tutorial es mostrar los pasos que se deben realizar en Workday y Azure AD para importar contactos de Workday a Azure AD. 
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-workday"></a>Habilitación de la integración de aplicaciones en Workday
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Workday.
 
-### <a name="steps:"></a>Pasos:
+### <a name="steps"></a>Pasos:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-workday-inbound-tutorial/IC700993.png "Active Directory")
@@ -55,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![Galería de aplicaciones](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Application gallery")
 
 ## <a name="creating-an-integration-system-user"></a>Creación de un usuario del sistema de integración
-### <a name="steps:"></a>Pasos:
+### <a name="steps"></a>Pasos:
 1. En **Workday Workbench** (Área de trabajo de Workbench), escriba create user (crear usuario) en el cuadro de búsqueda y haga clic en **Create Integration System User** (Crear usuario del sistema de integración). 
    
     ![Crear usuario](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
@@ -66,7 +70,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 ## <a name="creating-a-security-group"></a>Creación de un grupo de seguridad
 Para el escenario que se describe en este tutorial, es preciso crear un grupo de seguridad del sistema de integración sin restricciones y asignarle el usuario.
 
-### <a name="steps:"></a>Pasos:
+### <a name="steps"></a>Pasos:
 1. Escriba create security group (crear grupo de seguridad) en el cuadro de búsqueda y luego haga clic en **Create Security Group**(Crear grupo de seguridad). 
    
     ![Crear grupos de seguridad](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
@@ -75,7 +79,7 @@ Para el escenario que se describe en este tutorial, es preciso crear un grupo de
     ![Crear grupos de seguridad](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
 
 ## <a name="assigning-the-integration-system-user-to-the-security-group"></a>Asignación del usuario del sistema de integración al grupo de seguridad
-### <a name="steps:"></a>Pasos:
+### <a name="steps"></a>Pasos:
 1. Escriba edit security group (editar grupo de seguridad) en el cuadro de búsqueda y luego haga clic en **Edit Security Group**(Editar grupo de seguridad). 
    
     ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
@@ -95,7 +99,7 @@ En este paso, se conceden al nuevo grupo de seguridad permisos para las operacio
 * Worker Data: Current Staffing Information
 * Worker Data: Business Title on Worker Profile
 
-### <a name="steps:"></a>Pasos:
+### <a name="steps"></a>Pasos:
 1. Escriba directivas de seguridad de dominio en el cuadro de búsqueda y, a continuación, haga clic en el vínculo Domain Security Policies for Functional Area (Directivas de seguridad de dominio para área funcional).  
    
     ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
@@ -127,7 +131,7 @@ En este paso, se conceden al nuevo grupo de seguridad permisos para las operacio
 
 
 ## <a name="activating-security-policy-changes"></a>Activación de cambios en directiva de seguridad
-### <a name="steps:"></a>Pasos:
+### <a name="steps"></a>Pasos:
 1. Escriba activar en el cuadro de búsqueda y, a continuación, haga clic en el vínculo Activate Pending Security Policy Changes (Activar cambios en la directiva de seguridad pendientes). 
    
     ![Activar](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
@@ -141,7 +145,7 @@ En este paso, se conceden al nuevo grupo de seguridad permisos para las operacio
 ## <a name="configuring-user-import-in-azure-ad"></a>Configuración de la importación de usuarios en Azure AD
 El objetivo de esta sección es describir cómo configurar Azure AD para importar contactos desde Workday.
 
-### <a name="steps:"></a>Pasos:
+### <a name="steps"></a>Pasos:
 1. En la página de integración de aplicaciones de **Workday**, haga clic en **Configurar importación de usuarios** para abrir el cuadro de diálogo **Configurar aprovisionamiento**.
 2. En la página **Configuración y credenciales de administrador**, realice los pasos siguientes y haga clic en **Siguiente**: 
    
@@ -168,6 +172,9 @@ Ahora puede ir a la sección **Usuarios** y comprobar si se importó el usuario 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

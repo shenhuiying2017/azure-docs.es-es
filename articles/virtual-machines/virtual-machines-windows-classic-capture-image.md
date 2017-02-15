@@ -82,6 +82,6 @@ La imagen está lista para usarse para crear máquinas virtuales. Para ello, cre
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

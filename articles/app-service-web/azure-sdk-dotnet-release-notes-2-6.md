@@ -1,12 +1,12 @@
 ---
-title: Notas de la versión de SDK de Azure para .NET 2.6
-description: Notas de la versión de SDK de Azure para .NET 2.6
+title: "Notas de la versión de SDK de Azure para .NET 2.6"
+description: "Notas de la versión de SDK de Azure para .NET 2.6"
 services: app-service/web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b45853d5-a2b8-4962-a22d-579cb36ae14c
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01db792077bbb464400de1c00117d97443b4c2dc
+
 
 ---
-# <a name="azure-sdk-for-.net-2.6-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.6
+# <a name="azure-sdk-for-net-26-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.6
 Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.6. 
 
 Con SDK de Azure 2.6 puede desarrollar aplicaciones de servicio en la nube (PaaS) destinadas a .NET 4.5.2 o a .NET 4.6, siempre que instale de manera manual .NET Framework de destino en el rol de Servicio en la nube. Consulte [Instalar .NET en un rol de Servicio en la nube](http://go.microsoft.com/fwlink/?LinkID=309796).
@@ -95,6 +99,9 @@ La cuenta de almacenamiento de diagnósticos ahora se puede especificar en el ar
 ## <a name="see-also"></a>Otras referencias
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

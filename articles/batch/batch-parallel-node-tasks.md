@@ -3,7 +3,7 @@ title: "Maximización del uso de nodos de Batch con tareas en paralelo | Microso
 description: "Aumente la eficiencia y reduzca los costos usando menos nodos de proceso y ejecutando tareas simultáneas en cada nodo de un grupo de Lote de Azure"
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/25/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: b72da9516bdcc0cd78460815ad258a110298150a
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 7fec2e08209365e306d423ab35e67532ee0876c0
 
 
 ---
@@ -36,24 +36,24 @@ Para ilustrar las ventajas de la ejecución de tareas en paralelo, imaginemos qu
 En lugar de utilizar nodos Standard\_D1 con un núcleo de CPU, podría utilizar nodos [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) con 16 núcleos en cada nodo y habilitar la ejecución de tareas en paralelo. En este caso, se podría usar un *número de nodos 16 veces menor* ; es decir, en lugar de 1000 nodos, solo serían necesarios 63. Además, si para cada nodo son necesarios datos de referencia o archivos de aplicación de gran tamaño, la eficiencia y la duración del trabajo también se mejoran, ya que los datos se copian en solo 16 nodos.
 
 ## <a name="enable-parallel-task-execution"></a>Habilitación de la ejecución en paralelo de tareas
-Los nodos de proceso para la ejecución en paralelo de tareas se configuran a nivel de grupo. Cuando cree un grupo, establezca la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net] con la biblioteca Batch .NET. Si utiliza la API de REST de Batch, establezca el elemento [maxTasksPerNode][rest_addpool] en el cuerpo de la solicitud durante la creación del grupo.
+Los nodos de proceso para la ejecución en paralelo de tareas se configuran a nivel de grupo. Con la biblioteca de .NET para Batch, establezca la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net] al crear un grupo. Si usa la API de REST de Batch, establezca el elemento [maxTasksPerNode][rest_addpool] en el cuerpo de la solicitud durante la creación del grupo.
 
 Lote de Azure permite una configuración máxima de tareas por nodo que casi cuadriplica el número de núcleos de nodo. Por ejemplo, si el grupo está configurado con nodos de tamaño "Grande" (cuatro núcleos), `maxTasksPerNode` se puede establecer en 16. Para más información sobre el número de núcleos de cada uno de los tamaños de nodo, consulte [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md). Para más información sobre los límites del servicio, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md).
 
 > [!TIP]
-> No olvide que debe tener en cuenta el valor `maxTasksPerNode` cuando cree una [fórmula de escalado automático][enable_autoscaling] para el grupo. Por ejemplo, una fórmula que evalúe `$RunningTasks` podría verse afectada considerablemente por un aumento en las tareas por nodo. Consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md) para obtener más información.
+> Asegúrese de tener en cuenta el valor `maxTasksPerNode` al construir una [fórmula de escalado automático][enable_autoscaling] para el grupo. Por ejemplo, una fórmula que evalúe `$RunningTasks` podría verse afectada considerablemente por un aumento en las tareas por nodo. Consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md) para obtener más información.
 >
 >
 
 ## <a name="distribution-of-tasks"></a>Distribución de tareas
 Cuando los nodos de proceso dentro de un grupo pueden ejecutar tareas de forma simultánea, es importante especificar cómo desea que se distribuyan las tareas entre los nodos del grupo.
 
-Mediante la propiedad [CloudPool.TaskSchedulingPolicy][task_schedule], puede especificar las tareas que deben asignarse uniformemente entre todos los nodos del grupo ("propagación"). O bien, puede especificar que se deberían asignar todas las tareas posibles a cada nodo antes de asignarlas a otro nodo del grupo ("empaquetado").
+Mediante la propiedad [CloudPool.TaskSchedulingPolicy][task_schedule], puede especificar que las tareas se deberían asignar de manera uniforme entre todos los nodos del grupo ("propagación"). O bien, puede especificar que se deberían asignar todas las tareas posibles a cada nodo antes de asignarlas a otro nodo del grupo ("empaquetado").
 
-Para ver un ejemplo de la importancia de esta característica, piense en el grupo de nodos [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) del ejemplo anterior. Este grupo está configurado de forma que [CloudPool.MaxTasksPerComputeNode][maxtasks_net] tiene el valor 16. Si [CloudPool.TaskSchedulingPolicy][task_schedule] se configura con la propiedad [ComputeNodeFillType][fill_type] establecida en *Pack*, se maximiza el uso de los 16 núcleos de cada nodo y se permite que un [grupo de escalado automático](batch-automatic-scaling.md) elimine del grupo los nodos no utilizados (los nodos que no tienen tareas asignadas). Esto minimiza el uso de recursos y permite ahorrar dinero.
+Como ejemplo de por qué esta característica es importante, considere el grupo de nodos [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (en el ejemplo anterior) configurado con un valor [CloudPool.MaxTasksPerComputeNode][maxtasks_net] de 16. Si [CloudPool.TaskSchedulingPolicy][task_schedule] se configura con un [ComputeNodeFillType][fill_type] de *Pack*, se podría maximizar el uso de los 16 núcleos de cada nodo y permitir que un [grupo con escalado automático](batch-automatic-scaling.md) elimine los nodos sin usar del grupo (nodos sin tareas asignadas). Esto minimiza el uso de recursos y permite ahorrar dinero.
 
 ## <a name="batch-net-example"></a>Ejemplo de .NET Lote
-En este fragmento de código de [Batch .NET][api_net] API, se muestra una solicitud para crear un grupo que contiene cuatro nodos grandes con un máximo de cuatro tareas por nodo. Se especifica una directiva de programación de tareas que llenará cada nodo de tareas antes de asignarlas a otro nodo del grupo. Para más información acerca de la adición de grupos mediante Batch .NET API, consulte [BatchClient.PoolOperations.CreatePool][poolcreate_net].
+En este fragmento código de la API de [.NET para Batch][api_net], se muestra una solicitud para crear un grupo que contiene cuatro nodos de gran tamaño con un máximo de cuatro tareas por nodo. Se especifica una directiva de programación de tareas que llenará cada nodo de tareas antes de asignarlas a otro nodo del grupo. Para obtener más información sobre cómo agregar grupos mediante la API de .NET para Batch, consulte [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
 ```csharp
 CloudPool pool =
@@ -69,7 +69,7 @@ pool.Commit();
 ```
 
 ## <a name="batch-rest-example"></a>Ejemplo de REST Lote
-En este fragmento de código de [Batch REST][api_rest] API, se muestra una solicitud para crear un grupo que contiene dos nodos grandes con un máximo de cuatro tareas por nodo. Para más información sobre la adición de grupos mediante la API de REST, consulte [Agregar un grupo a una cuenta][rest_addpool].
+En este fragmento de la API de [REST de Batch][api_rest], se muestra una solicitud para crear un grupo que contiene dos nodos de gran tamaño con un máximo de cuatro tareas por nodo. Para obtener más información sobre cómo agregar grupos mediante la API de REST, consulte [Agregar un grupo a una cuenta][rest_addpool].
 
 ```json
 {
@@ -87,14 +87,14 @@ En este fragmento de código de [Batch REST][api_rest] API, se muestra una solic
 ```
 
 > [!NOTE]
-> El elemento `maxTasksPerNode` y la propiedad [MaxTasksPerComputeNode][maxtasks_net] solo se pueden establecer en el momento en que se crea al grupo. No se pueden modificar después de haberlos creado.
+> Solo puede establecer el elemento `maxTasksPerNode` y la propiedad [MaxTasksPerComputeNode][maxtasks_net] en el momento de crear el grupo. No se pueden modificar después de haberlos creado.
 >
 >
 
 ## <a name="code-sample"></a>Código de ejemplo
-En el proyecto [ParallelNodeTasks][parallel_tasks_sample] de GitHub, se muestra el uso de la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
+El proyecto [ParallelNodeTasks][parallel_tasks_sample] en GitHub muestra el uso de la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
 
-Esta aplicación de consola de C# utiliza la biblioteca [Batch .NET][api_net] para crear un grupo con uno o varios nodos de proceso. Ejecuta un número configurable de tareas en esos nodos para simular una carga variable. Los resultados de la aplicación especifican qué nodos han ejecutado cada tarea. La aplicación también proporciona un resumen de los parámetros de trabajo y la duración. Abajo se muestra la parte de resumen de los resultados de dos ejecuciones diferentes de la aplicación de ejemplo.
+Esta aplicación de consola de C# utiliza la biblioteca de [.NET para Batch][api_net] para crear un grupo con uno o más nodos de proceso. Ejecuta un número configurable de tareas en esos nodos para simular una carga variable. Los resultados de la aplicación especifican qué nodos han ejecutado cada tarea. La aplicación también proporciona un resumen de los parámetros de trabajo y la duración. Abajo se muestra la parte de resumen de los resultados de dos ejecuciones diferentes de la aplicación de ejemplo.
 
 ```
 Nodes: 1
@@ -123,7 +123,7 @@ La segunda ejecución del ejemplo muestra una disminución notable en la duraci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="batch-explorer-heat-map"></a>Mapa térmico de Batch Explorer
-El [explorador de Azure Batch][batch_explorer], una de las [aplicaciones de ejemplo][github_samples] de Azure Batch, contiene una característica llamada *Mapa térmico* donde se muestra gráficamente la ejecución de las tareas. Si ejecuta la aplicación de ejemplo [ParallelTasks][parallel_tasks_sample], puede usar la característica Mapa térmico para ver fácilmente la ejecución de tareas en paralelo de cada nodo.
+El [Azure Batch Explorer][batch_explorer], una de las aplicaciones de ejemplo de [Azure Batch][github_samples], contiene una característica denominada *Mapa térmico* que proporciona una vista de la ejecución de tareas. Cuando ejecuta la aplicación de ejemplo [ParallelTasks][parallel_tasks_sample], puede usar la característica Mapa térmico para ver fácilmente la ejecución de tareas paralelas en cada nodo.
 
 ![Mapa térmico de Batch Explorer][1]
 
@@ -146,6 +146,6 @@ El [explorador de Azure Batch][batch_explorer], una de las [aplicaciones de ejem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

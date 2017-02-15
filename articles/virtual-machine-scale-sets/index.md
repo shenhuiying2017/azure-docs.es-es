@@ -1,9 +1,20 @@
 ---
 layout: LandingPage
 description: "Aprenda a usar los conjuntos de escalado de máquinas virtuales para crear máquinas virtuales Linux o Windows de escalado automático para proceso intensivo, macrodatos y soluciones en contenedores."
+title: "Documentación, tutoriales y referencia de API sobre conjuntos de escalado de Azure Virtual Machines | Microsoft Docs"
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7fefef291643ba0c640ba3520e7e40d50391220a
-ms.openlocfilehash: a35dcbfa56c03ca264d4c7a7f779672dc6ae7526
+ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
+ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentación sobre conjuntos de escalado de máquinas virtuales
@@ -79,7 +90,7 @@ Aprenda a usar los conjuntos de escalado de máquinas virtuales para implementar
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
                         <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">Azure CLI</a></p>
+                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">CLI de Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -99,16 +110,10 @@ Aprenda a usar los conjuntos de escalado de máquinas virtuales para implementar
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre conjuntos de escalado de máquinas virtuales </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Jan17_HO4-->
 
 

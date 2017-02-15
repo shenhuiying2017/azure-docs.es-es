@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ffeeb2e96510342abb0c0f8718273f41729cc2d
+ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
+ms.openlocfilehash: 496c3c1cc0f203a58a6f81476393b369e6a76215
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-u-sql-language"></a>Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake
-U-SQL es un lenguaje que unifica las ventajas de SQL con la potencia expresiva de su propio código para procesar todos los datos a cualquier escala. La funcionalidad de consulta distribuida escalable de U-SQL permite analizar de forma eficaz los datos en el almacén y en almacenes relacionales como Base de datos SQL de Azure.  Permite procesar datos no estructurados mediante la aplicación del esquema al leer, insertar lógica personalizada y UDF, y además incluye extensibilidad para habilitar el control específico sobre la ejecución a escala. Para obtener más información acerca de la filosofía de diseño de U-SQL, consulte esta [entrada de blog de Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+U-SQL es un lenguaje que unifica las ventajas de SQL con la potencia expresiva de su propio código para procesar datos a cualquier escala. La funcionalidad de consulta distribuida escalable de U-SQL permite analizar de forma eficiente los datos en almacenes relacionales como Azure SQL Database.  Permite procesar datos sin estructura mediante la aplicación de un esquema al leer, insertar lógica personalizada y UDF, e incluye extensibilidad para habilitar un control más preciso sobre la ejecución a escala. Para obtener más información sobre la filosofía de diseño de U-SQL, consulte esta [entrada de blog de Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Existen algunas diferencias con respecto a ANSI SQL o T-SQL. Por ejemplo, sus palabras clave, como SELECT, deben ir en MAYÚSCULA.
 
@@ -31,7 +31,7 @@ Esto significa que los tipos de datos son los de C# y usan la semántica de NULL
 Para obtener más información, consulte [Referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ### <a name="prerequisites"></a>Requisitos previos
-Debe completar el [Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+Complete [Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 En el tutorial, ejecutó un trabajo de Análisis de Data Lake con el siguiente script SQL U:
 
@@ -69,7 +69,7 @@ Algunos conceptos y palabras clave que se encuentran en el script:
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
   
   > [!NOTE]
-  > Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
+  > Los contenedores de blobs de Azure con permisos de acceso a contenedores públicos o blobs públicos no se admiten actualmente.
   > 
   > 
 
@@ -151,7 +151,7 @@ Observe que la segunda consulta opera con el resultado del primer conjunto de fi
 ## <a name="aggregate-rowsets"></a>Conjuntos de filas agregados
 U-SQL proporciona elementos conocidos como **ORDER BY**, **GROUP BY** y las agregaciones.
 
-La siguiente consulta busca la duración total por región y después genera las 5 duraciones principales.
+La siguiente consulta busca la duración total por región y después genera las cinco duraciones principales de forma ordenada.
 
 Los conjuntos de filas de U-SQL no conservan el orden en la siguiente consulta. Por lo tanto, para ordenar los resultados, necesita agregar ORDER BY a la instrucción OUTPUT tal y como se muestra a continuación:
 
@@ -365,7 +365,7 @@ El siguiente script crea una base de datos y dos tablas:
 
 
 ### <a name="query-tables"></a>Consulta de tablas
-Puede consultar las tablas (creadas en el script anterior) de la misma forma que se consultan los archivos de datos. En lugar de crear un conjunto de filas mediante EXTRACT, ahora se puede hacer referencia solo al nombre de la tabla.
+Puede consultar las tablas (creadas en el script anterior) de la misma forma que se consultan los archivos de datos. En lugar de crear un conjunto de filas mediante EXTRACT, ahora se puede hacer referencia al nombre de la tabla.
 
 El script de transformación que usó antes se modifica para que lea las tablas:
 
@@ -392,7 +392,7 @@ Observe que actualmente no puede ejecutar una instrucción SELECT en una tabla e
 ## <a name="conclusion"></a>Conclusión
 Lo que se trata en el tutorial es solo una pequeña parte de U-SQL. Debido al alcance de este tutorial, no se explica todo, como:
 
-* Uso de CROSS APPLY para desempaquetar partes de cadenas, matrices y mapas en filas.
+* Uso de CROSS APPLY para desempaquetar partes de cadenas, matrices y asignaciones en filas.
 * Operación de conjuntos de datos particionados (conjuntos de archivos y tablas con particiones).
 * Desarrollo de operadores definidos por el usuario como extractores, outputters, procesadores o agregadores definidos por el usuario en C#.
 * Uso de las funciones de ventana de U-SQL.
@@ -404,7 +404,7 @@ Lo que se trata en el tutorial es solo una pequeña parte de U-SQL. Debido al al
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)
-* [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Supervisión y solución de problemas de trabajos de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="let-us-know-what-you-think"></a>Díganos su opinión
 * [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
@@ -414,6 +414,6 @@ Lo que se trata en el tutorial es solo una pequeña parte de U-SQL. Debido al al
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

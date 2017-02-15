@@ -1,13 +1,13 @@
 ---
-title: Especificación de una configuración DNS en un archivo de configuración de red virtual | Microsoft Docs
-description: Cómo cambiar la configuración del servidor DNS en una red virtual con un archivo de configuración de red virtual en el modelo de implementación clásico
+title: "Especificación de una configuración DNS en un archivo de configuración de red virtual | Microsoft Docs"
+description: "Cómo cambiar la configuración del servidor DNS en una red virtual con un archivo de configuración de red virtual en el modelo de implementación clásico"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: a8905927-92ac-42b5-8c33-8e42c000692c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
+
 
 ---
-# Especificación de una configuración DNS en un archivo de configuración de red virtual
-Un archivo de configuración de red tiene dos elementos que puede utilizar para especificar la configuración del sistema de nombres de dominio (DNS): **DnsServers** y **DnsServerRef**. Puede agregar una lista de los servidores DNS especificando sus direcciones IP y nombres de referencia en el elemento **DnsServers**. Asimismo, puede usar un elemento **DnsServerRef** para especificar qué entradas del servidor DNS desde el elemento DnsServers se usan en diferentes sitios de red de la red virtual.
+# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificación de una configuración DNS en un archivo de configuración de red virtual
+Un archivo de configuración de red tiene dos elementos que puede usar para especificar la configuración del sistema de nombres de dominio (DNS): **DnsServers** y **DnsServerRef**. Puede agregar una lista de los servidores DNS especificando sus direcciones IP y nombres de referencia en el elemento **DnsServers** . Asimismo, puede usar un elemento **DnsServerRef** para especificar qué entradas del servidor DNS desde el elemento DnsServers se usan en diferentes sitios de red de la red virtual.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
@@ -42,7 +46,7 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
     </Dns>
 
 > [!WARNING]
-> El atributo **nombre** en el elemento **DnsServer** solo se usa como referencia del elemento **DnsServerRef**. No representa el nombre de host del servidor DNS. Cada valor del atributo **DnsServer** debe ser único en toda la suscripción de Microsoft Azure
+> El atributo **name** en el elemento **DnsServer** solo se usa como referencia del elemento **DnsServerRef**. No representa el nombre de host del servidor DNS. Cada valor del atributo **DnsServer** debe ser único en toda la suscripción de Microsoft Azure
 > 
 > 
 
@@ -55,13 +59,18 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
     </DnsServersRef>
 
 > [!NOTE]
-> Para especificar la configuración del elemento Sitios de red virtual, debe definirse previamente en el elemento DNS. El *nombre* DnsServerRef del elemento Sitios de red virtual debe hacer referencia a un valor de nombre especificado en el elemento DNS del *nombre* DnsServer.
+> Para especificar la configuración del elemento Sitios de red virtual, debe definirse previamente en el elemento DNS. El atributo *name* DnsServerRef del elemento Sitios de red virtual tiene que hacer referencia a un valor de nombre especificado en el elemento DNS del atributo *name* DnsServer.
 > 
 > 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Entienda el [esquema de configuración de la red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
 * Entienda el [esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Configuración de una red virtual mediante un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

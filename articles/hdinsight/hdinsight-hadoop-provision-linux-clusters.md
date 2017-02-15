@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 12/07/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8b9a3b853adcbdfd2a5d4113489e8fcad26d9f59
+ms.sourcegitcommit: b60f957cce6225894f656b20d32604f55b418311
+ms.openlocfilehash: aa37f2113ac3aceda99c9987eacff2424e9b4434
 
 
 ---
@@ -34,21 +34,22 @@ Actualmente, HDInsight de Azure proporciona cuatro tipos diferentes de clústere
 
 | Tipo de clúster | Funcionalidad |
 | --- | --- |
-| Hadoop |Consulta y análisis (trabajos por lotes) |
-| HBase |Almacenamiento de datos NoSQL |
-| Storm |Procesamiento de eventos en tiempo real |
-| Spark |Procesamiento en memoria, consultas interactivas, procesamiento de transmisión de microlotes |
-| [Interactive Hive (versión preliminar)](hdinsight-hadoop-use-interactive-hive.md) |Almacenamiento en la caché de memoria para realizar consultas de Hive interactivas y más rápidas |
-| R Server en Spark (versión preliminar) |Diversas estadísticas de macrodatos, modelado de predicción y funcionalidades de aprendizaje automático. |
+| [Hadoop](hdinsight-hadoop-introduction.md) |Consulta y análisis (trabajos por lotes) |
+| [HBase](hdinsight-hbase-overview.md) |Almacenamiento de datos NoSQL |
+| [Storm](hdinsight-storm-overview.md) |Procesamiento de eventos en tiempo real |
+| [Spark](hdinsight-apache-spark-overview.md) |Procesamiento en memoria, consultas interactivas, procesamiento de transmisión de microlotes |
+| [Interactive Hive (versión preliminar)](hdinsight-hadoop-use-interactive-hive.md) |Almacenamiento en caché en memoria para realizar consultas de Hive interactivas y más rápidas |
+| [R Server en Spark (versión preliminar)](hdinsight-hadoop-r-server-overview.md) |Diversas estadísticas de macrodatos, modelado de predicción y funcionalidades de aprendizaje automático. |
+| [Kafka (versión preliminar)](hdinsight-apache-kafka-introduction.md) | Una plataforma de streaming distribuida que se puede utilizar para compilar aplicaciones y canalizaciones de datos de streaming en tiempo real. |
 
 Cada tipo de clúster tiene dentro su propio número de nodos, la terminología de los nodos y el tamaño de máquina virtual predeterminado para cada tipo de nodo. En la siguiente tabla, el número de nodos de cada tipo de nodo se muestra entre paréntesis.
 
 | Tipo | Nodos | Diagrama |
 | --- | --- | --- |
-| Hadoop |Nodo principal (2), nodo de datos (más de 1) |![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
-| HBase |Servidor principal (2), servidor de región (más de 1), nodo maestro/Zookeeper (3) |![Nodos de clúster de HBase en HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
-| Storm |Nodo Nimbus (2), servidor de supervisor (más de 1), nodo Zookeeper (3) |![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
-| Spark |Nodo principal (2), nodo de trabajo (más de 1), nodo Zookeeper (3) (gratis para el tamaño de máquina virtual Zookeepers A1) |![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
+| Hadoop |Nodo principal (2), nodo de datos (más de&1;) |![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
+| HBase |Servidor principal (2), servidor de región (más de&1;), nodo maestro/Zookeeper (3) |![Nodos de clúster de HBase en HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
+| Storm |Nodo Nimbus (2), servidor de supervisor (más de&1;), nodo Zookeeper (3) |![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
+| Spark |Nodo principal (2), nodo de trabajo (más de&1;), nodo Zookeeper (3) (gratis para el tamaño de máquina virtual Zookeepers A1) |![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
 
 En la tabla siguiente se indican los tamaños de máquina virtual predeterminados para HDInsight:
 
@@ -56,8 +57,8 @@ En la tabla siguiente se indican los tamaños de máquina virtual predeterminado
   
   | Tipo de clúster | Hadoop | HBase | Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- |
-  | Cabeza: tamaño de máquina virtual predeterminado |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | Cabeza: tamaños de máquina virtual recomendados |D3 v2, D4 v2 y D12 v2 |D3 v2, D4 v2 y D12 v2 |A3, A4, A5 |D12 v2, v2 D13 y D14 v2 |D12 v2, v2 D13 y D14 v2 |
+  | Principal: tamaño de máquina virtual predeterminado |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
+  | Principal: tamaños de máquina virtual recomendados |D3 v2, D4 v2 y D12 v2 |D3 v2, D4 v2 y D12 v2 |A3, A4, A5 |D12 v2, v2 D13 y D14 v2 |D12 v2, v2 D13 y D14 v2 |
   | Trabajo: tamaño de máquina virtual predeterminado |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
   | Trabajo: tamaños de máquina virtual recomendados |D3 v2, D4 v2 y D12 v2 |D3 v2, D4 v2 y D12 v2 |D3 v2, D4 v2 y D12 v2 |Windows: D12 v2, v2 D13 y D14 v2; Linux: D4 v2, D12 v2, v2 D13 y D14 v2 |Windows: D12 v2, v2 D13 y D14 v2; Linux: D4 v2, D12 v2, v2 D13 y D14 v2 |
   | Zookeeper: tamaño de máquina virtual predeterminado | |A3 |A2 | | |
@@ -68,8 +69,8 @@ En la tabla siguiente se indican los tamaños de máquina virtual predeterminado
   
   | Tipo de clúster | Hadoop | HBase | Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- |
-  | Cabeza: tamaño de máquina virtual predeterminado |D3 |D3 |A3 |D12 |D12 |
-  | Cabeza: tamaños de máquina virtual recomendados |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Principal: tamaño de máquina virtual predeterminado |D3 |D3 |A3 |D12 |D12 |
+  | Principal: tamaños de máquina virtual recomendados |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
   | Trabajo: tamaño de máquina virtual predeterminado |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
   | Trabajo: tamaños de máquina virtual recomendados |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13 y D14; Linux: D4, D12, D13 y D14 |Windows: D12, D13 y D14; Linux: D4, D12, D13 y D14 |
   | Zookeeper: tamaño de máquina virtual predeterminado | |A2 |A2 | | |
@@ -77,7 +78,8 @@ En la tabla siguiente se indican los tamaños de máquina virtual predeterminado
   | Perimetral: tamaños de máquina virtual predeterminados | | | | |Windows: D12; Linux: D4 |
   | Perimetral: tamaños de máquina virtual recomendados | | | | |Windows: D12, D13 y D14; Linux: D4, D12, D13 y D14 |
 
-Observe que Principal se conoce como *Nimbus* en el tipo de clúster de Storm. Trabajo se conoce como *Región* en el tipo de clúster de HBase y como *Supervisor* en el tipo de clúster de Storm.
+> [!NOTE]
+> Nota: Principal se conoce como *Nimbus* para el tipo de clúster de Storm. Trabajo se conoce como *Región* en el tipo de clúster de HBase y como *Supervisor* en el tipo de clúster de Storm.
 
 > [!IMPORTANT]
 > Si tiene pensado crear más de 32 nodos de trabajo, bien en el momento de creación del clúster o escalando el clúster tras la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
@@ -91,7 +93,7 @@ Puede agregar otros componentes, como Hue o R, a estos tipos básicos usando [ac
 > 
 > 
 
-Si la solución requiere tecnologías que están repartidas entre varios tipos de clúster de HDInsight, debe crear una red Azure Virtual Network y los tipos de clústeres necesarios en la red virtual. De este modo, los clústeres, y cualquier otro código que se implemente en ellos, pueden comunicarse directamente entre sí.
+Si la solución requiere tecnologías que están repartidas entre varios tipos de clúster de HDInsight, debe crear una red Azure Virtual Network y los tipos de clústeres necesarios en la red virtual. Esta configuración permite que los clústeres, y cualquier otro código que se implemente en ellos, se comuniquen directamente entre sí.
 
 Para obtener más información sobre cómo usar Azure Virtual Network con HDInsight, consulte el artículo sobre cómo [extender las funcionalidades de HDInsight con Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -339,6 +341,6 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

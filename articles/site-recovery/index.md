@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Aprenda a configurar la recuperación ante desastres y la continuidad del negocio en la nube para servidores físicos y máquinas virtuales mediante la implementación y administración de la replicación."
 translationtype: Human Translation
-ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
-ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Documentación de Site Recovery
@@ -80,13 +80,7 @@ Aprenda a usar Site Recovery para una estrategia de continuidad del negocio y de
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Site Recovery </div>
-    </a>
-</div>
+
 
 
 

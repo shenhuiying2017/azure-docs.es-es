@@ -1,10 +1,10 @@
 ---
 title: "¿Qué es Azure Backup? | Microsoft Docs"
-description: "Con Azure Backup y Recovery Services, puede realizar una copia de seguridad y restaurar los datos y aplicaciones de servidores Windows, equipos cliente Windows, servidores de System Center DPM y máquinas virtuales de Azure."
+description: "Con Azure Backup y Recovery Services, se pueden realizar una copia de seguridad y restaurar los datos y aplicaciones de servidores de Windows, equipos Windows, servidores de System Center DPM y máquinas virtuales de Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "copia de seguridad y restauración; servicios de recuperación; soluciones de copia de seguridad"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/7/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
-ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
+ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
+ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
 
 
 ---
@@ -53,8 +53,8 @@ Si no está seguro de qué componentes de Azure Backup vienen bien para sus nece
 | Componente | Ventajas | límites | ¿Qué se protege? | ¿Dónde se almacenan las copias de seguridad? |
 | --- | --- | --- | --- | --- |
 | Agente de Copia de seguridad de Azure (MARS) |<li>Copia de seguridad de archivos y carpetas en el sistema operativo Windows físico o virtual (las máquinas virtuales pueden estar en el entorno local o en Azure)<li>No se necesita ningún servidor de copia de seguridad independiente. |<li>Copia de seguridad tres veces al día <li>No es compatible con la aplicación; restauración solo a nivel de archivo, carpeta y volumen. <li>  No se admite Linux. |<li>Archivos <li>Carpetas |Almacén de copia de seguridad de Azure |
-| System Center DPM |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar el almacén de Azure Backup<li>Compatibilidad con Linux en máquinas virtuales de Hyper-V y VMware <li>Protección de máquinas virtuales de VMware con DPM 2012 R2 |No puede realizar la copia de seguridad de una carga de trabajo de Oracle.|<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Azure Backup<li> Disco conectado localmente<li>  Cinta (solo local) |
-| Servidor de Copia de seguridad de Azure |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar el almacén de Azure Backup<li>Compatibilidad con Linux (si se hospeda en Hyper-V)<li>Protección de máquinas virtuales de VMware con DPM 2012 R2<li>No requiere licencia de System Center |<li>No puede realizar la copia de seguridad de una carga de trabajo de Oracle.<li>Siempre requiere una suscripción de Azure activa<li>No se admite la copia de seguridad en cinta |<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Azure Backup<li> Disco conectado localmente |
+| System Center DPM |<li>Instantáneas compatibles con aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar el almacén de Azure Backup<li>Compatibilidad con Linux en máquinas virtuales de Hyper-V y VMware <li>Copia de seguridad y restauración de máquinas virtuales de VMware mediante DPM 2012 R2 |No puede realizar la copia de seguridad de una carga de trabajo de Oracle.|<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Azure Backup<li> Disco conectado localmente<li>  Cinta (solo local) |
+| Servidor de Copia de seguridad de Azure |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar el almacén de Azure Backup<li>Compatibilidad con Linux en máquinas virtuales de Hyper-V y VMware<li>Creación de copias de seguridad y restauración de máquinas virtuales de VMware <li>No requiere licencia de System Center |<li>No puede realizar la copia de seguridad de una carga de trabajo de Oracle.<li>Siempre requiere una suscripción de Azure activa<li>No se admite la copia de seguridad en cinta |<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Azure Backup<li> Disco conectado localmente |
 | Copia de seguridad de máquina virtual de IaaS de Azure |<li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad |<li>Copia de seguridad de máquinas virtuales una vez al día <li>Restauración de máquinas virtuales solo en el nivel de disco<li>No puede realizar copias de seguridad locales |<li>Máquinas virtuales <li>Todos los discos (con PowerShell) |<p>Almacén de copia de seguridad de Azure</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>¿Cuáles son los escenarios de implementación de cada componente?
@@ -234,6 +234,6 @@ Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ Puede ver los detalles sobre el área de trabajo en Azure Portal. También puede
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Visualización de la información de un área de trabajo en Azure Portal
 
-1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com) mediante su suscripción.
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) mediante su suscripción de Azure.
 2. En el menú **central**, haga clic en **Más servicios** y, en la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Log Analytics**.  
     ![Menú central de Azure](./media/log-analytics-manage-access/hub.png)  
 3. En la hoja de suscripciones de Log Analytics, seleccione un área de trabajo.
@@ -242,6 +242,24 @@ Si necesita cambiar la suscripción de Azure a la que está vinculada el área d
 6. Cuando actualice la vista de Azure Portal, verá que **Plan de tarifa** se ha actualizado con el plan seleccionado.  
     ![plan actualizado](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Cambio de la duración del almacenamiento de datos de Log Analytics
+
+En el plan de tarifa Gratis, en Log Analytics están disponibles los datos correspondientes a los últimos siete días.
+En el plan de tarifa Estándar, en Log Analytics están disponibles los datos correspondientes a los últimos treinta días.
+En el plan de tarifa Premium, en Log Analytics están disponibles los datos correspondientes a los últimos 365 días.
+De manera predeterminada, en los planes de tarifa Independiente y OMS de Log Analytics están disponibles los datos correspondientes a los últimos 31 días.
+
+Si usa los planes de tarifas Independiente y OMS, puede conservar hasta dos años de datos (730 días). Los datos almacenados durante más tiempo que el valor predeterminado de 31 días incurrirán en un cargo por retención de datos. Para más información sobre los precios, consulte [Costos del uso por encima del límite](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Para cambiar la duración de la retención de datos:
+
+1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+2. Busque **Log Analytics** y selecciónelo.
+3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
+4. En la hoja del área de trabajo, en **General**, haga clic en **Retención**.  
+5. Use el control deslizante para aumentar o disminuir el número de días de retención y, después, haga clic en **Save** (Guardar) 
+![Change retention](./media/log-analytics-manage-access/manage-access-change-retention01.png) (Cambiar retención).
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Cambio de la organización de Azure Active Directory para un área de trabajo
 
 Puede cambiar la organización de Azure Active Directory para un área de trabajo. Cambiar la organización de Azure Active Directory le permite agregar usuarios y grupos desde ese directorio al área de trabajo.
@@ -275,6 +293,6 @@ Si es administrador y hay varios usuarios asociados al área de trabajo, se inte
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

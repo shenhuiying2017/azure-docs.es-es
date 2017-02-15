@@ -1,5 +1,5 @@
 ---
-title: " Creación de una cuenta de Azure Media Services con Azure Portal | Microsoft Docs"
+title: " Creación de una cuenta de Azure Media Services con Azure Portal | Microsoft Docss"
 description: "Este tutorial le guiará por los pasos que hay que seguir para crear una cuenta de Servicios multimedia de Azure con el Portal de Azure."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ Los pasos de esta sección muestran cómo crear una cuenta de AMS.
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **+Nuevo** > **Web y móvil** > **Servicios multimedia**.
    
-    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Creación de Servicios multimedia](./media/media-services-create-account/media-services-new1.png)
 3. En **CREAR CUENTA DE SERVICIOS MULTIMEDIA** especifique los valores obligatorios.
    
-    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Creación de Servicios multimedia](./media/media-services-create-account/media-services-new3.png)
    
    1. En **Nombre de la cuenta**, especifique el nombre de la cuenta nueva de AMS. El nombre de la cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
    2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
@@ -69,9 +69,12 @@ Los pasos de esta sección muestran cómo crear una cuenta de AMS.
    6. Seleccione **Anclar al panel** para ver el progreso de la implementación de la cuenta.
 4. Haga clic en **Crear** en la parte inferior del formulario.
    
-    Una vez que la cuenta se crea correctamente, el estado cambia a **En ejecución**. 
+    Cuando la cuenta se crea correctamente, se carga la página de información general. En la tabla de puntos de conexión de streaming, la cuenta tendrá el punto de conexión de streaming predeterminado en el estado **Stopped** (Detenido). 
+
+    >[!NOTE]
+    >Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
    
-    ![Configuración de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Configuración de Servicios multimedia](./media/media-services-create-account/media-services-settings.png)
    
     Para administrar la cuenta de AMS (por ejemplo, para cargar vídeos, codificar recursos, supervisar el progreso del trabajo) use la ventana **Configuración** .
 
@@ -86,7 +89,7 @@ Necesita el nombre de cuenta y la información de la clave principal para obtene
     Aparece la ventana **Administrar claves** que muestra el nombre de la cuenta y la clave principal y la secundaria. 
 3. Pulse el botón Copiar para copiar los valores.
    
-    ![Claves de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Claves de Servicios multimedia](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya puede cargar archivos en su cuenta de AMS. Para más información, consulte [Upload files into a Media Services account using the Azure portal](media-services-portal-upload-files.md)(Carga de archivos en una cuenta de Servicios multimedia desde el Portal de Azure).
@@ -100,6 +103,6 @@ Ya puede cargar archivos en su cuenta de AMS. Para más información, consulte [
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

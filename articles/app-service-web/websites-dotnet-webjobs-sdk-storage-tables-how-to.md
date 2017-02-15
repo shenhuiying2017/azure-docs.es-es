@@ -1,12 +1,12 @@
 ---
-title: Cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs
-description: Obtenga información sobre cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs. Cree tablas, agregue entidades a las tablas y lea tablas existentes.
+title: "Cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs"
+description: "Obtenga información sobre cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs. Cree tablas, agregue entidades a las tablas y lea tablas existentes."
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: tdykstra
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
+
 
 ---
-# Cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs
-## Información general
+# <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>Cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs
+## <a name="overview"></a>Información general
 Esta guía proporciona ejemplos de código C# que muestran cómo leer y escribir tablas de almacenamiento de Azure mediante el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) versión 1.x.
 
-En la guía se supone que sabe [cómo crear un proyecto de trabajos web en Visual Studio con cadenas de conexión que señalan a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md) o a [varias cuentas de almacenamiento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+En la guía se supone que sabe [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalan a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md) o a [varias cuentas de almacenamiento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
-Algunos de los fragmentos de código muestran el atributo `Table` usado en funciones que se [llaman manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), es decir, sin usar ninguno de los atributos de desencadenador.
+Algunos de los fragmentos de código muestran el atributo `Table` usado en funciones que se [llaman manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), es decir, sin usar ninguno de los atributos de desencadenador. 
 
-## <a id="ingress"></a>Cómo agregar entidades a una tabla
-Para agregar entidades a una tabla, utilice el atributo `Table` con un parámetro `ICollector<T>` o `IAsyncCollector<T>` donde `T` especifica el esquema de las entidades que desea agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
+## <a name="a-idingressa-how-to-add-entities-to-a-table"></a><a id="ingress"></a> Cómo agregar entidades a una tabla
+Para agregar entidades a una tabla, utilice el atributo `Table` con un parámetro `ICollector<T>` o `IAsyncCollector<T>` donde `T` especifica el esquema de las entidades que desea agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla. 
 
 El ejemplo de código siguiente agrega entidades `Person` a una tabla denominada *Ingress*.
 
@@ -60,12 +64,12 @@ Normalmente, el tipo que usa con `ICollector` deriva de `TableEntity` o implemen
 
 Si desea trabajar directamente con la API de almacenamiento de Azure, puede agregar un parámetro `CloudStorageAccount` a la firma del método.
 
-## <a id="monitor"></a>Supervisión en tiempo real
+## <a name="a-idmonitora-real-time-monitoring"></a><a id="monitor"></a> Supervisión en tiempo real
 Dado que las funciones de entrada de datos a menudo procesan grandes volúmenes de datos, el panel del SDK de WebJobs proporciona datos de supervisión en tiempo real. La sección **Registro de invocación** indica si la función sigue en ejecución.
 
 ![Función de entrada en ejecución](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-La página **Detalles de invocación** informa el progreso de la función (la cantidad de entidades escritas) mientras se ejecuta y ofrece la oportunidad de anularla.
+La página **Detalles de invocación** informa el progreso de la función (la cantidad de entidades escritas) mientras se ejecuta y ofrece la oportunidad de anularla. 
 
 ![Función de entrada en ejecución](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
@@ -73,8 +77,8 @@ Cuando finaliza la función, la página **Detalles de invocación** informa la c
 
 ![Función de entrada finalizada](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
-## <a id="multiple"></a>Cómo leer varias entidades desde una tabla
-Para leer una tabla, use el atributo `Table` con un parámetro `IQueryable<T>` donde el tipo `T` se deriva de `TableEntity` o implementa `ITableEntity`.
+## <a name="a-idmultiplea-how-to-read-multiple-entities-from-a-table"></a><a id="multiple"></a> Cómo leer varias entidades desde una tabla
+Para leer una tabla, use el atributo `Table` con un parámetro `IQueryable<T>` donde el tipo `T`  se deriva de `TableEntity` o implementa `ITableEntity`.
 
 El ejemplo de código siguiente lee y registra todas las filas de la tabla `Ingress`:
 
@@ -90,10 +94,10 @@ El ejemplo de código siguiente lee y registra todas las filas de la tabla `Ingr
             }
         }
 
-### <a id="readone"></a>Cómo leer una entidad única de una tabla
+### <a name="a-idreadonea-how-to-read-a-single-entity-from-a-table"></a><a id="readone"></a> Cómo leer una entidad única de una tabla
 Existe un constructor de atributo `Table` con dos parámetros adicionales que le permiten especificar la clave de partición y la clave de fila cuando desea enlazar a una entidad de tabla única.
 
-El siguiente ejemplo de código lee una fila de una tabla de una entidad `Person` según los valores de clave de partición y clave de fila recibidos en un mensaje en cola:
+El siguiente ejemplo de código lee una fila de una tabla de una entidad `Person` según los valores de clave de partición y clave de fila recibidos en un mensaje en cola:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -115,10 +119,10 @@ El siguiente ejemplo de código lee una fila de una tabla de una entidad `Person
 
 La clase `Person` de este ejemplo no debe implementar `ITableEntity`.
 
-## <a id="storageapi"></a>Cómo usar la API de almacenamiento .NET directamente para trabajar con una tabla
+## <a name="a-idstorageapia-how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a><a id="storageapi"></a>Cómo usar la API de almacenamiento .NET directamente para trabajar con una tabla
 También puede usar el atributo `Table` con un objeto `CloudTable` para obtener más flexibilidad en el trabajo con una tabla.
 
-El siguiente ejemplo de código usa un objeto `CloudTable` para agregar una entidad única a la tabla *Ingress*.
+El siguiente ejemplo de código usa un objeto `CloudTable` para agregar una entidad única a la tabla *Ingress* . 
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -134,10 +138,10 @@ El siguiente ejemplo de código usa un objeto `CloudTable` para agregar una enti
             tableBinding.Execute(insertOperation);
         }
 
-Para obtener más información acerca de cómo usar el objeto `CloudTable`, consulte [Uso del almacenamiento de tablas de .NET](../storage/storage-dotnet-how-to-use-tables.md)
+Para obtener más información acerca de cómo usar el objeto `CloudTable` , consulte [Uso del almacenamiento de tablas de .NET](../storage/storage-dotnet-how-to-use-tables.md) 
 
-## <a id="queues"></a>Temas relacionados tratados en el artículo sobre procedimientos de las colas
-Para obtener información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Cómo usar el almacenamiento de colas con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+## <a name="a-idqueuesarelated-topics-covered-by-the-queues-how-to-article"></a><a id="queues"></a>Temas relacionados tratados en el artículo sobre procedimientos de las colas
+Para obtener información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Cómo usar el almacenamiento de colas con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Entre los temas tratados en este artículo se incluyen los siguientes:
 
@@ -150,7 +154,12 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 * Desencadenar una función manualmente
 * Escribir registros
 
-## <a id="nextsteps"></a> Pasos siguientes
+## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,23 +1,27 @@
 ---
-title: Entorno de prueba de aplicación LOB | Microsoft Docs
-description: Aprenda a crear una aplicación de línea de negocio basada en web en un entorno de nube híbrida para profesionales de TI o pruebas de desarrollo.
+title: "Entorno de prueba de aplicación LOB | Microsoft Docs"
+description: "Aprenda a crear una aplicación de línea de negocio basada en web en un entorno de nube híbrida para profesionales de TI o pruebas de desarrollo."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: JoeDavies-MSFT
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 92d2d8ce-60ed-4512-95e5-a7fe3b0ca00b
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 09/30/2016
 ms.author: josephd
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: c90b3ca27877babb5b1f82aa810d0197417f7e70
+
 
 ---
-# Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
+# <a name="set-up-a-web-based-lob-application-in-a-hybrid-cloud-for-testing"></a>Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
 En este tema se le guiará en el proceso de creación de un entorno de nube híbrida simulada para probar una aplicación de línea de negocio (LOB) basada en web hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
@@ -31,7 +35,7 @@ Esta configuración consta de:
 
 Esta configuración proporciona una base y un punto de partida común desde el que puede:
 
-* Desarrollar y probar aplicaciones de LOB hospedadas en Internet Information Services (IIS) con un back-end de base de datos de SQL Server 2014 en Azure.
+* Desarrollar y probar aplicaciones de LOB hospedadas en Internet Information Services (IIS) con un back-end de base de datos de SQL Server 2014 en Azure.
 * Realizar pruebas de esta carga de trabajo de TI basada en la nube híbrida simulada.
 
 Hay tres fases principales para configurar este entorno de prueba de nube híbrida:
@@ -44,14 +48,14 @@ Esta carga de trabajo requiere una suscripción de Azure. Si tiene una suscripci
 
 Para obtener un ejemplo de una aplicación de producción de LOB hospedada en Azure, consulte el plano técnico de la arquitectura de las **aplicaciones de línea de negocios** en [Diagramas y planos técnicos de la arquitectura de software de Microsoft](http://msdn.microsoft.com/dn630664).
 
-## Fase 1: Configuración del entorno de nube híbrida simulada
-Cree el [entorno de prueba de nube híbrida simulada](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, puede cerrarlo por ahora.
+## <a name="phase-1-set-up-the-simulated-hybrid-cloud-environment"></a>Fase 1: Configuración del entorno de nube híbrida simulada
+Cree el [entorno de prueba de nube híbrida simulada](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, puede cerrarlo por ahora.
 
 Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)
 
-## Fase 2: configuración del equipo con SQL Server (SQL1)
+## <a name="phase-2-configure-the-sql-server-computer-sql1"></a>Fase 2: configuración del equipo con SQL Server (SQL1)
 Desde el Portal de Azure, inicie el equipo de DC2 si es necesario.
 
 Después, cree una máquina virtual para SQL1 con estos comandos en un símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < y >.
@@ -90,9 +94,9 @@ El comando ping debería devolver cuatro respuestas correctas desde la direcció
 
 Después, agregue el disco de datos adicional en SQL1 como un nuevo volumen con la letra de unidad F:.
 
-1. En el panel izquierdo del Administrador de servidores, haga clic en **Servicios de archivos y almacenamiento** y, a continuación, haga clic en **Discos**.
+1. En el panel izquierdo del Administrador de servidores, haga clic en **Servicios de archivos y almacenamiento** y luego haga clic en **Discos**.
 2. En el panel de contenido, en el grupo **Discos**, haga clic en **disco 2** (con la **partición** establecida en **Desconocida**).
-3. Haga clic en **Tareas** y, a continuación, haga clic en **Nuevo volumen**.
+3. Haga clic en **Tareas** y luego haga clic en **Nuevo volumen**.
 4. En la página Antes de empezar del Asistente para volumen nuevo, haga clic en **Siguiente**.
 5. En la página Selección del servidor y del disco, haga clic en **Disco 2** y, a continuación, haga clic en **Siguiente**. Cuando se le solicite, haga clic en **Aceptar**.
 6. En la página Especificación del tamaño de la página de volumen, haga clic en **Siguiente**.
@@ -112,33 +116,33 @@ Después, una SQL1 al dominio de Active Directory CORP Windows Server con estos 
     Add-Computer -DomainName corp.contoso.com
     Restart-Computer
 
-Use la cuenta CORP\\User1 cuando se le pida que proporcione las credenciales de cuenta de dominio para el comando **Add-Computer**.
+Use la cuenta CORP\User1 cuando se le pida que proporcione las credenciales de cuenta de dominio para el comando **Add-Computer**.
 
 Después de reiniciar, use el Portal de Azure para conectarse a SQL1 *con la cuenta de administrador local de SQL1*.
 
-A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
+A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
 
 1. Desde la pantalla Inicio, escriba **SQL Server Management** y haga clic en **SQL Server 2014 Management Studio**.
 2. En **Conectar con el servidor**, haga clic en **Conectar**.
-3. En el panel de árbol del Explorador de objetos, haga clic con el botón derecho en **SQL1** y, a continuación, haga clic en **Propiedades**.
+3. En el panel de árbol del Explorador de objetos, haga clic con el botón derecho en **SQL1**y, después, haga clic en **Propiedades**.
 4. En la ventana **Propiedades del servidor**, haga clic en **Configuración de base de datos**.
-5. Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores:
-   * Para **Datos**, escriba la ruta de acceso **f:\\Data**.
-   * Para **Registro**, escriba la ruta de acceso **f:\\Log**.
-   * Para **Copia de seguridad**, escriba la ruta de acceso **f:\\Backup**.
+5. Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores: 
+   * Para **Datos**, escriba la ruta de acceso **f:\Data**.
+   * Para **Registro**, escriba la ruta de acceso **f:\Log**.
+   * Para **Copia de seguridad**, escriba la ruta de acceso **f:\Backup**.
    * Nota: Solo las bases de datos nuevas utilizan estas ubicaciones.
 6. Haga clic en **Aceptar** para cerrar la ventana.
 7. En el panel de árbol del **Explorador de objetos**, abra **Seguridad**.
-8. Haga clic con el botón derecho en **Inicios de sesión** y, a continuación, haga clic en **Nuevo inicio de sesión**.
-9. En **Nombre de inicio de sesión**, escriba **CORP\\User1**.
-10. En la página **Roles de servidor**, haga clic en **sysadmin** y, a continuación, haga clic en **Aceptar**.
+8. Haga clic con el botón derecho en **Inicios de sesión** y luego haga clic en **Nuevo inicio de sesión**.
+9. En **Nombre de inicio de sesión**, escriba **CORP\User1**.
+10. En la página **Roles de servidor**, haga clic en **sysadmin** y luego haga clic en **Aceptar**.
 11. Cierre Microsoft SQL Server Management Studio.
 
-Se trata de la configuración actual.
+Esta es su configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph2.png)
 
-## Fase 3: configuración del servidor de línea de negocio (LOB1)
+## <a name="phase-3-configure-the-lob-server-lob1"></a>Fase 3: configuración del servidor de línea de negocio (LOB1)
 En primer lugar, cree una máquina virtual de LOB1 con estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local.
 
     $rgName="<your resource group name>"
@@ -173,9 +177,9 @@ Después, una LOB1 al dominio de Active Directory CORP con estos comandos en el 
     Add-Computer -DomainName corp.contoso.com
     Restart-Computer
 
-Use la cuenta CORP\\User1 cuando se le pida que proporcione las credenciales de cuenta de dominio para el comando **Add-Computer**.
+Use la cuenta CORP\User1 cuando se le pida que proporcione las credenciales de cuenta de dominio para el comando **Add-Computer**.
 
-Después de reiniciar, utilice el Portal de Azure para conectarse a LOB1 con la cuenta y la contraseña de CORP\\User1.
+Después de reiniciar, utilice el Portal de Azure para conectarse a LOB1 con la cuenta y la contraseña de CORP\User1.
 
 A continuación, configure LOB1 para IIS y pruebe el acceso desde CLIENT1.
 
@@ -187,11 +191,11 @@ A continuación, configure LOB1 para IIS y pruebe el acceso desde CLIENT1.
 6. Cuando se le solicite, haga clic en **Agregar características** y después en **Siguiente**.
 7. En la página **Selección de características**, haga clic en **Siguiente**.
 8. En la página **Servidor web (IIS)**, haga clic en **Siguiente**.
-9. En la página **Selección de los servicios de rol**, seleccione o desactive las casillas de los servicios que necesita para probar la aplicación de LOB y, después, haga clic en **Siguiente**.
-10. En la página **Confirmación de las selecciones de instalación**, haga clic en **Instalar**.
+9. En la página **Selección de los servicios de rol**, seleccione o desactive las casillas de verificación de los servicios que necesita para probar la aplicación del servidor de línea de negocio y, a continuación, haga clic en **Siguiente**.
+10. En la página **Confirmación selecciones de instalación**, haga clic en **Instalar**.
 11. Espere hasta que se haya completado la instalación de los componentes y haga clic en **Cerrar**.
-12. En el Portal de Azure, conéctese al equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, después, inicie Internet Explorer.
-13. En la barra de direcciones, escriba **http://lob1/** y, a continuación, presione ENTRAR. Debería ver la página web predeterminada de IIS 8.
+12. En el Portal de Azure, conéctese al equipo CLIENT1 con las credenciales de la cuenta de CORP\User1 y, después, inicie Internet Explorer.
+13. En la barra de direcciones, escriba **http://lob1/** y presione ENTRAR. Debería ver la página web predeterminada de IIS 8.
 
 Se trata de la configuración actual.
 
@@ -199,7 +203,12 @@ Se trata de la configuración actual.
 
 Este entorno ya está preparado para implementar su aplicación basada en web en LOB1 y probar la funcionalidad de CLIENT1 en la subred de la red corporativa.
 
-## Paso siguiente
-* Agregue una nueva máquina virtual mediante el [Portal de Azure](virtual-machines-windows-hero-tutorial.md).
+## <a name="next-step"></a>Paso siguiente
+* Agregue una nueva máquina virtual mediante [Azure Portal](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

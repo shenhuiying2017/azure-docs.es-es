@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar Load Balancer para mejorar el rendimiento de red de las aplicaciones. Administre el tráfico de las máquinas virtuales y recursos en la nube y en redes virtuales entre locales."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8b95ce7f93293a25db4df5858209902ba6347591
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Documentación de Load Balancer
 
-Azure Load Balancer proporciona una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones.  El equilibrador de carga se puede configurar para equilibrar la carga del tráfico de Internet que entra a las máquinas virtuales, del tráfico entre recursos en la nube, del tráfico en una red virtual entre locales o del tráfico externo a una máquina virtual específica.
+Aprenda a configurar Load Balancer para proporcionar una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones. La documentación le muestra cómo equilibrar la carga hacia y desde máquinas virtuales y recursos en la nube y en redes virtuales entre locales.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,16 +132,10 @@ Azure Load Balancer proporciona una alta disponibilidad y un elevado rendimiento
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Load Balancer </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

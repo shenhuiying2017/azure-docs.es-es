@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 02/01/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -29,7 +29,7 @@ Todos los publicadores de servicios de desarrolladores con facturación basada e
 
 * **Correo electrónico de bienvenida:** como nuevo publicador, recibirá un correo electrónico de bienvenida para notificarle que empezará a recibir los informes mensuales de perspectivas de vendedor.
 * **Informes de ventas mensuales:** si ha habido consumo, recibirá un segundo correo electrónico con los informes e instrucciones sobre cómo acceder a la contraseña:
-  
+
   * Si tiene una VM o una SKU de servicios de desarrolladores con facturación basados en uso y que generan consumo, en el informe mensual se mostrará información sobre los pedidos, el uso y los mercados, así como detalles del cliente para las ofertas.
   * Los informes se bloquean con una contraseña que solo usted y Microsoft conocen para proteger los datos de sus clientes.
   * Microsoft no enviará un informe si ninguna de sus ofertas ha generado uso durante el mes.

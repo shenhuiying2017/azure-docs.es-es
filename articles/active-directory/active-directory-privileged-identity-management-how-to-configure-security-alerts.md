@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/02/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d876b48b08faea8c45386e2816076a4416c2a1ab
 
 
 ---
@@ -70,6 +70,6 @@ Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un ro
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

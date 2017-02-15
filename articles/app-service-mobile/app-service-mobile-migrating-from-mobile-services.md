@@ -373,7 +373,7 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Precios de App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Escalado automático]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md

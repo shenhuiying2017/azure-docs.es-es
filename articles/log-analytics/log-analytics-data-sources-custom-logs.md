@@ -1,12 +1,12 @@
 ---
 title: Registros personalizados en Log Analytics | Microsoft Docs
-description: Log Analytics puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y detalles de los registros que crean en el repositorio de OMS.
+description: "Log Analytics puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y detalles de los registros que crean en el repositorio de OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
@@ -33,7 +37,7 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 ## <a name="defining-a-custom-log"></a>Definición de un registro personalizado
 Utilice el procedimiento siguiente para definir un archivo de registro personalizado.  Desplácese hasta el final de este artículo para ver un tutorial con un ejemplo de cómo agregar un registro personalizado.
 
-### <a name="step-1.-open-the-custom-log-wizard"></a>Paso 1. Apertura del Asistente para registros personalizados
+### <a name="step-1-open-the-custom-log-wizard"></a>Paso 1. Apertura del Asistente para registros personalizados
 El Asistente para registros personalizados se ejecuta en el portal OMS y le permite definir un nuevo registro personalizado para la recopilación.
 
 1. En el portal de OMS, vaya a **Settings**(Configuración).
@@ -41,7 +45,7 @@ El Asistente para registros personalizados se ejecuta en el portal OMS y le perm
 3. De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes.  En el caso de los agentes de Linux, se envía un archivo de configuración al recopilador de datos Fluentd.  Si desea modificar este archivo manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis equipos Linux).
 4. Haga clic en **Agregar+** para abrir el Asistente para registros personalizados.
 
-### <a name="step-2.-upload-and-parse-a-sample-log"></a>Paso 2: Carga y análisis de un registro de ejemplo
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Paso 2: Carga y análisis de un registro de ejemplo
 Para empezar, cargue una muestra del registro personalizado.  El Asistente analizará y mostrará las entradas de este archivo para que las valide.  Log Analytics utilizará el delimitador especificado para identificar cada registro.
 
 **Nueva línea** es el delimitador predeterminado y se utiliza para los archivos de registro que tienen una sola entrada por línea.  Si la línea empieza con una fecha y hora en uno de los formatos disponibles, puede especificar un delimitador de **marca de tiempo** que admita entradas que abarcan más de una línea. 
@@ -59,7 +63,7 @@ Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada 
 4. Cambie el delimitador que se utiliza para identificar un registro nuevo y seleccione el delimitador que mejor identifica las entradas en el archivo de registro.
 5. Haga clic en **Siguiente**.
 
-### <a name="step-3.-add-log-collection-paths"></a>Paso 3: Incorporación de rutas de recopilación de registros
+### <a name="step-3-add-log-collection-paths"></a>Paso 3: Incorporación de rutas de recopilación de registros
 Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre.  Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado.  También puede proporcionar varias rutas de acceso para un solo archivo de registro.
 
 Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
@@ -77,14 +81,14 @@ La tabla siguiente proporciona ejemplos de patrones válidos para especificar di
 2. Escriba la ruta de acceso y haga clic en el botón **+** .
 3. Repita el proceso para rutas de acceso adicionales.
 
-### <a name="step-4.-provide-a-name-and-description-for-the-log"></a>Paso 4 Suministro de un nombre y una descripción del registro
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Paso 4 Suministro de un nombre y una descripción del registro
 El nombre que especifique se utilizará para el tipo de registro como se describió anteriormente.  Siempre finalizará con _CL para distinguirlo como un registro personalizado.
 
 1. Escriba un nombre para el registro.  El sufijo **\_CF** se anexa automáticamente.
 2. Agregue una **Descripción**opcional.
 3. Haga clic en **Next** (Siguiente) para guardar la definición del registro personalizado.
 
-### <a name="step-5.-validate-that-the-custom-logs-are-being-collected"></a>Paso 5. Comprobación de que se recopilan los registros personalizados
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Paso 5. Comprobación de que se recopilan los registros personalizados
 Los datos iniciales de un nuevo registro personalizado pueden tardar hasta una hora en aparecer en Log Analytics.  Empezará a recopilar las entradas de los registros que se encuentran en la ruta de acceso que ha especificado a partir del punto que definió en el registro personalizado.  No mantendrá las entradas que ha cargado durante la creación de registro personalizado, pero recopilará entradas ya existentes en los archivos de registro que encuentra.
 
 Una vez que Log Analytics empieza a recopilar del registro personalizado, sus registros estarán disponibles con una búsqueda de registros.  Utilice el nombre que asignó al registro personalizado como **Type** en la consulta.
@@ -94,7 +98,7 @@ Una vez que Log Analytics empieza a recopilar del registro personalizado, sus re
 > 
 > 
 
-### <a name="step-6.-parse-the-custom-log-entries"></a>Paso 6. Análisis de las entradas del registro personalizado
+### <a name="step-6-parse-the-custom-log-entries"></a>Paso 6. Análisis de las entradas del registro personalizado
 La entrada de registro completa se almacenará en una sola propiedad denominada **RawData**.  Probablemente, deseará separar las diferentes partes de información de cada entrada en propiedades individuales almacenadas en el registro.  Esto se hace mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
 
 No se proporcionan aquí pasos detallados para analizar las entradas del registro personalizado.  Consulte la documentación de [campos personalizados](log-analytics-custom-fields.md) para ver esta información.
@@ -170,6 +174,9 @@ Los campos personalizados se usan para definir los campos *EventTime* (Hora del 
 * Utilice los [campos personalizados](log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

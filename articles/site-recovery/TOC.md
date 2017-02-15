@@ -1,9 +1,9 @@
 # Información general
 ## [¿Qué es Site Recovery?](site-recovery-overview.md)
-## [¿Cómo funciona Azure Site Recovery?](site-recovery-components.md)
+## [¿Cómo funciona Site Recovery?](site-recovery-components.md)
 ## [¿Qué cargas de trabajo se pueden proteger?](site-recovery-workload.md)
 ## [Matriz de compatibilidad de Site Recovery](site-recovery-support-matrix.md)
-## [P+F](site-recovery-faq.md)
+## [Preguntas más frecuentes](site-recovery-faq.md)
 ## [Vídeo introductorio](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Introducción
@@ -17,8 +17,9 @@
 ### [Asignación de red (VMM)](site-recovery-network-mapping.md)
 ### [Preparación de la asignación de almacenamiento entre sitios locales](site-recovery-storage-mapping.md)
 ## Replicar
-### [VM de VMWare y servidores en Azure](site-recovery-vmware-to-azure.md)
-### [VM de VMware y servidores en un sitio secundario](site-recovery-vmware-to-vmware.md)
+### [Máquinas virtuales de VMWare y servidores físicos en Azure](site-recovery-vmware-to-azure.md)
+### [Máquinas virtuales de VMware y servidores físicos en sitio secundario](site-recovery-vmware-to-vmware.md)
+### [Máquinas virtuales de VMware con compatibilidad multiinquilino en Azure mediante el programa CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [VM de Hyper-V en Azure (con VMM)](site-recovery-vmm-to-azure.md)
 ### [VM de Hyper-V en Azure (sin VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [VM de Hyper-V en un sitio secundario](site-recovery-vmm-to-vmm.md)
@@ -49,13 +50,14 @@
 ## [Supervisión y solución de problemas](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell clásico](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell clásico](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Temas relacionados
 ## [Azure Automation](/azure/automation/)
 
-# resources
+# Recursos
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Foro](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
@@ -63,6 +65,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

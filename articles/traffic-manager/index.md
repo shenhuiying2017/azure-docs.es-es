@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a administrar el tráfico entrante para obtener un rendimiento óptimo de las aplicaciones. La documentación muestra cómo distribuir el tráfico a los puntos de conexión de servicio de Azure o externos."
 translationtype: Human Translation
-ms.sourcegitcommit: 9e86ae23b3fe3b8134f4725035c03837425cc0c4
-ms.openlocfilehash: 9a05d78edbf2c186d4a4d84f38eb6deff0cdafc5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentación de Traffic Manager
 
-Azure Traffic Manager permite controlar la distribución del tráfico de los usuarios en puntos de conexión de servicios en distintas regiones. Traffic Manager usa el sistema de nombres de dominio (DNS) para dirigir las solicitudes del cliente al punto de conexión más adecuado en función de un método de enrutamiento del tráfico seleccionado y el estado de los puntos de conexión, lo que proporciona a la aplicación mayor disponibilidad y capacidad de respuesta.
+Aprenda a usar Traffic Manager para enrutar el tráfico entrante para optimizar el rendimiento y la confiabilidad de las aplicaciones. Los tutoriales, las referencias de API y otra documentación muestran cómo administrar el tráfico a los puntos de conexión de servicio de Azure o externos.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -110,7 +111,7 @@ Azure Traffic Manager permite controlar la distribución del tráfico de los usu
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de Traffic Manager</p>
+                        <p>API de REST de Traffic Manager</p>
                     </div>
                 </div>
             </div>
@@ -119,16 +120,10 @@ Azure Traffic Manager permite controlar la distribución del tráfico de los usu
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de Traffic Manager </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

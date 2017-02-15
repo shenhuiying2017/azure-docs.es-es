@@ -1,41 +1,45 @@
 ---
-title: Carga de una aplicación web de Java personalizada en Azure
-description: En este tutorial se muestra cómo cargar una aplicación web de Java personalizada en Aplicaciones web del Servicio de aplicaciones de Azure.
+title: "Carga de una aplicación web de Java personalizada en Azure"
+description: "En este tutorial se muestra cómo cargar una aplicación web de Java personalizada en Aplicaciones web del Servicio de aplicaciones de Azure."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: eb2ccd83-e5c6-444e-a0fc-08fd5cc8326c
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 12/22/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: df6443bb27285e8ba719c229dd1b12114acc48c7
+
 
 ---
-# Carga de una aplicación web de Java personalizada en Azure
-En este tema se explica cómo cargar una aplicación web de Java personalizada en Aplicaciones web del [Servicio de aplicaciones de Azure]. Se incluye información que se aplica a cualquier aplicación web o sitio web de Java, así como algunos ejemplos de aplicaciones específicas.
+# <a name="upload-a-custom-java-web-app-to-azure"></a>Carga de una aplicación web de Java personalizada en Azure
+En este tema se explica cómo cargar una aplicación web de Java personalizada en Aplicaciones web del [Servicio de aplicaciones de Azure] . Se incluye información que se aplica a cualquier aplicación web o sitio web de Java, así como algunos ejemplos de aplicaciones específicas.
 
-Tenga en cuenta que Azure permite crear aplicaciones web de Java con la interfaz de usuario de configuración del Portal de Azure y Azure Marketplace, tal y como se documenta en [Creación de una aplicación web de Java en Servicio de aplicaciones de Azure](web-sites-java-get-started.md). Este tutorial se destina a escenarios en los que no desea usar la interfaz de usuario de configuración del Portal de Azure ni Azure Marketplace.
+Tenga en cuenta que Azure permite crear aplicaciones web de Java con la interfaz de usuario de configuración del Portal de Azure y Azure Marketplace, tal y como se documenta en [Creación de una aplicación web de Java en Servicio de aplicaciones de Azure](web-sites-java-get-started.md). Este tutorial se destina a escenarios en los que no desea usar la interfaz de usuario de configuración del Portal de Azure ni Azure Marketplace.  
 
-## Directrices de configuración
+## <a name="configuration-guidelines"></a>Directrices de configuración
 A continuación se describe la configuración esperada para las aplicaciones web de Java personalizadas en Azure.
 
-* El puerto HTTP que utiliza el proceso de Java se asigna de manera dinámica. El proceso debe utilizar el puerto de la variable de entorno `HTTP_PLATFORM_PORT`.
-* Se deben deshabilitar todos los puertos de escucha aparte del agente de escucha simple HTTP. En Tomcat, ello incluye los puertos de apagado, HTTPS y AJP.
+* El puerto HTTP que utiliza el proceso de Java se asigna de manera dinámica.  El proceso debe utilizar el puerto de la variable de entorno `HTTP_PLATFORM_PORT`.
+* Se deben deshabilitar todos los puertos de escucha aparte del agente de escucha simple HTTP.  En Tomcat, ello incluye los puertos de apagado, HTTPS y AJP.
 * El contenedor debe estar configurado solo para el tráfico IPv4.
 * En la configuración se debe establecer el comando **startup** para la aplicación.
-* Las aplicaciones que requieren directorios con permiso de escritura tienen que estar ubicadas en el directorio de contenido de la aplicación web de Azure, que es **D:\\home**. La variable de entorno `HOME` hace referencia a D:\\home.
+* Las aplicaciones que requieren directorios con permiso de escritura tienen que estar ubicadas en el directorio de contenido de la aplicación web de Azure, que es **D:\home**.  La variable de entorno `HOME` hace referencia a D:\home.  
 
 Puede establecer las variables de entorno como se requiere en el archivo web.config.
 
-## Configuración de web.config httpPlatform
+## <a name="webconfig-httpplatform-configuration"></a>Configuración de web.config httpPlatform
 La siguiente información describe el formato **httpPlatform** dentro de web.config.
 
-**arguments** (valor predeterminado=""). Argumentos para el ejecutable o script especificado en la configuración de **processPath**.
+**arguments** (valor predeterminado=""). Argumentos para el ejecutable o script especificado en la configuración de **processPath** .
 
 Ejemplos (que se muestran con **processPath** incluido):
 
@@ -43,10 +47,10 @@ Ejemplos (que se muestran con **processPath** incluido):
     arguments="start"
 
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 
-**processPath**: ruta de acceso al ejecutable o script que iniciará un proceso de escucha de las solicitudes HTTP.
+**processPath** : ruta de acceso al ejecutable o script que iniciará un proceso de escucha de las solicitudes HTTP.
 
 Ejemplos:
 
@@ -62,24 +66,24 @@ Ejemplos:
 
 **startupRetryCount** (valor predeterminado=10). Número de veces que **HttpPlatformHandler** intentará iniciar el proceso especificado en **processPath**. Consulte **startupTimeLimit** para obtener más detalles.
 
-**startupTimeLimit** (valor predeterminado=10 segundos). Tiempo durante el cual **HttpPlatformHandler** esperará a que el ejecutable/script inicie un proceso que escucha en el puerto. Si se supera este límite de tiempo, **HttpPlatformHandler** cerrará el proceso e intentará volver a iniciarlo **startupRetryCount** veces.
+**startupTimeLimit** (valor predeterminado=10 segundos). Tiempo durante el cual **HttpPlatformHandler** esperará a que el ejecutable/script inicie un proceso que escucha en el puerto.  Si se supera este límite de tiempo, **HttpPlatformHandler** cerrará el proceso e intentará volver a iniciarlo **startupRetryCount** veces.
 
 **stdoutLogEnabled** (valor predeterminado="true"). Si el valor es true, **stdout** y **stderr** para el proceso especificado en la configuración **processPath** serán redirigidos al archivo especificado en **stdoutLogFile** (consulte la sección **stdoutLogFile**).
 
-**stdoutLogFile** (valor predeterminado="d:\\home\\LogFiles\\httpPlatformStdout.log"). Ruta de acceso absoluta del archivo por el cual se registrarán **stdout** y **stderr** desde el proceso especificado en **processPath**.
+**stdoutLogFile** (valor predeterminado="d:\home\LogFiles\httpPlatformStdout.log"). Ruta de acceso absoluta del archivo por el cual se registrarán **stdout** y **stderr** desde el proceso especificado en **processPath**.
 
 > [!NOTE]
 > `%HTTP_PLATFORM_PORT%` es un marcador de posición especial que se debe especificar como parte de los **argumentos** o como parte de la lista **environmentVariables** de **httpPlatform**. Esto se reemplazará por un puerto generado internamente mediante **HttpPlatformHandler** de modo que el proceso que se especifica en **processPath** pueda escuchar en este puerto.
 > 
 > 
 
-## Implementación
-Las aplicaciones web basadas ​​en Java se pueden implementar fácilmente a través de la mayoría de los mismos medios que se utilizan con las aplicaciones web basadas en Internet Information Services (IIS). FTP, Git y Kudu son todas compatibles como mecanismos de implementación, así como la funcionalidad de SCM integrada para las aplicaciones web. WebDeploy funciona como un protocolo; sin embargo, debido a que Java no está desarrollado en Visual Studio, WebDeploy no se adapta a los casos de uso de la implementación de una aplicación web de Java.
+## <a name="deployment"></a>Implementación
+Las aplicaciones web basadas ​​en Java se pueden implementar fácilmente a través de la mayoría de los mismos medios que se utilizan con las aplicaciones web basadas en Internet Information Services (IIS).  FTP, Git y Kudu son todas compatibles como mecanismos de implementación, así como la funcionalidad de SCM integrada para las aplicaciones web. WebDeploy funciona como un protocolo; sin embargo, debido a que Java no está desarrollado en Visual Studio, WebDeploy no se adapta a los casos de uso de la implementación de una aplicación web de Java.
 
-## Ejemplos de configuración de aplicaciones
+## <a name="application-configuration-examples"></a>Ejemplos de configuración de aplicaciones
 Para las siguientes aplicaciones, se proporciona un archivo web.config y la configuración de la aplicación como ejemplos para mostrar cómo habilitar la aplicación Java en Aplicaciones web del Servicio de aplicaciones.
 
-### Tomcat
+### <a name="tomcat"></a>Tomcat
 Si bien hay dos variaciones en Tomcat que se suministran con Aplicaciones web del Servicio de aplicaciones, todavía es posible cargar las instancias específicas de los clientes. A continuación se muestra un ejemplo de una instalación de Tomcat con una máquina virtual Java (JVM) diferente.
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -110,7 +114,7 @@ Por el lado de Tomcat, es necesario realizar algunos cambios en la configuració
 
 Las llamadas Direct3D no se admiten en Aplicaciones web del Servicio de aplicaciones. Para deshabilitarlas, agregue la siguiente opción de Java si la aplicación realiza llamadas de ese tipo: `-Dsun.java2d.d3d=false`
 
-### Jetty
+### <a name="jetty"></a>Jetty
 Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de Jetty. En el caso de ejecutar la instalación completa de Jetty, la configuración sería similar a la siguiente:
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -120,7 +124,7 @@ Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de 
           <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
         </handlers>
         <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-             arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+             arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
             startupTimeLimit="20"
           startupRetryCount="10"
           stdoutLogEnabled="true">
@@ -130,8 +134,8 @@ Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de 
 
 La configuración de Jetty necesita cambiarse en el archivo start.ini para establecer `java.net.preferIPv4Stack=true`.
 
-### Springboot
-Para obtener una aplicación Springboot en ejecución necesita cargar el archivo JAR o WAR y agregar el siguiente archivo web.config. El archivo web.config se coloca en la carpeta wwwroot. En el archivo web.config, ajuste los argumentos para apuntar al archivo JAR. En el ejemplo siguiente el archivo JAR también se encuentra en la carpeta wwwroot.
+### <a name="springboot"></a>Springboot
+Para obtener una aplicación Springboot en ejecución necesita cargar el archivo JAR o WAR y agregar el siguiente archivo web.config. El archivo web.config se coloca en la carpeta wwwroot. En el archivo web.config, ajuste los argumentos para apuntar al archivo JAR. En el ejemplo siguiente el archivo JAR también se encuentra en la carpeta wwwroot.  
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -140,18 +144,18 @@ Para obtener una aplicación Springboot en ejecución necesita cargar el archivo
           <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
         </handlers>
         <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
-            arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar ";%HOME%\site\wwwroot\my-web-project.jar";">
+            arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\my-web-project.jar&quot;">
         </httpPlatform>
       </system.webServer>
     </configuration>
 
 
-### Hudson
-Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tomcat 7.0.50, pero sin utilizar la interfaz de usuario para realizar la configuración. Debido a que Hudson es una herramienta de compilación de software, se recomienda instalarla en instancias dedicadas donde la marca **AlwaysOn** se pueda configurar en la aplicación web.
+### <a name="hudson"></a>Hudson
+Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tomcat 7.0.50, pero sin utilizar la interfaz de usuario para realizar la configuración.  Debido a que Hudson es una herramienta de compilación de software, se recomienda instalarla en instancias dedicadas donde la marca **AlwaysOn** se pueda configurar en la aplicación web.
 
-1. En el directorio raíz de la aplicación web, es decir, **d:\\home\\site\\wwwroot**, cree un directorio **webapps** (si todavía no existe) y coloque Hudson.war en **d:\\home\\site\\wwwroot\\webapps**.
-2. Descargue apache maven 3.0.5 (compatible con Hudson) y colóquelo en **d:\\home\\site\\wwwroot**.
-3. Cree web.config en **d:\\home\\site\\wwwroot** y pegue el siguiente contenido en él:
+1. En el directorio raíz de la aplicación web, es decir, **d:\home\site\wwwroot**, cree un directorio **webapps** (si todavía no existe) y coloque Hudson.war en **d:\home\site\wwwroot\webapps**.
+2. Descargue apache maven 3.0.5 (compatible con Hudson) y colóquelo en **d:\home\site\wwwroot**.
+3. Cree web.config en **d:\home\site\wwwroot** y pegue el siguiente contenido en él:
    
         <?xml version="1.0" encoding="UTF-8"?>
         <configuration>
@@ -173,7 +177,7 @@ Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tom
           </system.webServer>
         </configuration>
    
-    En este punto, se puede reiniciar la aplicación web para que los cambios surtan efecto. Conéctese con http://yourwebapp/hudson para iniciar Hudson.
+    En este punto, se puede reiniciar la aplicación web para que los cambios surtan efecto.  Conéctese con http://yourwebapp/hudson para iniciar Hudson.
 4. Cuando Hudson se haya configurado, debería ver la siguiente pantalla:
    
     ![Hudson](./media/web-sites-java-custom-upload/hudson1.png)
@@ -188,18 +192,18 @@ Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tom
 
 Para obtener información adicional sobre Hudson, consulte [http://hudson-ci.org](http://hudson-ci.org).
 
-### Liferay
-Liferay es compatible con Aplicaciones web del Servicio de aplicaciones. Debido a que Liferay puede requerir una importante cantidad de memoria, la aplicación web necesita ejecutarse en un trabajo dedicado mediano o grande, que puede proporcionar suficiente memoria. Liferay también tarda varios minutos en iniciarse. Por esa razón, se recomienda que configure el sitio en **Always On**.
+### <a name="liferay"></a>Liferay
+Liferay es compatible con Aplicaciones web del Servicio de aplicaciones. Debido a que Liferay puede requerir una importante cantidad de memoria, la aplicación web necesita ejecutarse en un trabajo dedicado mediano o grande, que puede proporcionar suficiente memoria. Liferay también tarda varios minutos en iniciarse. Por esa razón, se recomienda que configure el sitio en **Always On**.  
 
 Con Liferay 6.1.2 Community Edition GA3 incluido con Tomcat, se editaron los siguientes archivos después de descargar Liferay:
 
 **Server.xml**
 
 * Cambie el puerto de apagado a -1.
-* Cambie el conector HTTP a `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+* Cambie el conector HTTP a       `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 * Comente el conector AJP.
 
-En la carpeta **liferay\\tomcat-7.0.40\\webapps\\ROOT\\WEB-INF\\classes**, cree un archivo llamado **portal-ext.properties**. Este archivo debe contener una línea, como se muestra aquí:
+En la carpeta **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes**, cree un archivo llamado **portal-ext.properties**. Este archivo debe contener una línea, como se muestra aquí:
 
     liferay.home=%HOME%/site/wwwroot/liferay
 
@@ -227,13 +231,13 @@ En el mismo nivel de directorio que la carpeta tomcat-7.0.40, cree un archivo ll
       </system.webServer>
     </configuration>
 
-En el bloque **httpPlatform**, **requestTimeout** se establece en set to "00:10:00". Se puede reducir, pero entonces es probable se vean algunos errores de tiempo de espera mientras Liferay arranca. Si se cambia este valor, se debe modificar también **connectionTimeout** en el archivo server.xml de tomcat.
+En el bloque **httpPlatform**, **requestTimeout** se establece en "00:10:00".  Se puede reducir, pero entonces es probable se vean algunos errores de tiempo de espera mientras Liferay arranca.  Si se cambia este valor, se debe modificar también **connectionTimeout** en el archivo server.xml de tomcat.  
 
-Vale la pena señalar que la variable de entorno JRE\_HOME se especifica en web.config anterior para apuntar a la JDK de 64 bits. El valor predeterminado es 32 bits, pero debido a que Liferay puede requerir altos niveles de memoria, se recomienda utilizar el JDK de 64 bits.
+Vale la pena señalar que la variable de entorno JRE_HOME se especifica en web.config anterior para apuntar a la JDK de 64 bits. El valor predeterminado es 32 bits, pero debido a que Liferay puede requerir altos niveles de memoria, se recomienda utilizar el JDK de 64 bits.
 
-Después de que realice estos cambios, reinicie la aplicación web que ejecuta Liferay y, a continuación, abra http://yourwebapp. El portal de Liferay está disponible en la raíz de la aplicación web.
+Después de que realice estos cambios, reinicie la aplicación web que ejecuta Liferay y, a continuación, abra http://yourwebapp. El portal de Liferay está disponible en la raíz de la aplicación web. 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Liferay, consulte [http://www.liferay.com](http://www.liferay.com).
 
 Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
@@ -245,4 +249,8 @@ Para obtener más información sobre Java, consulte el [Centro para desarrollado
 <!-- External Links -->
 [Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

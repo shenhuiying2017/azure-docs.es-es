@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar los servicios de supervisión y diagnóstico para realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias. Referencias de API, procedimientos recomendados y más."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentación de Monitoring and Diagnostics
 
-Monitoring and Diagnostics es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios escalables y de confianza, además de abordar los importantes desafíos a los que se enfrentan el desarrollo y la administración de aplicaciones en la nube.  Monitoring and Diagnostics representa la plataforma middleware de próxima generación para crear y administrar estas aplicaciones de clase empresarial, de escala de nube de nivel&1;.
+Aprenda a usar los servicios de supervisión y diagnóstico de Azure para realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias. Tutoriales, referencias de API, procedimientos recomendados y otra documentación le ayudan a entender los usos de supervisión y diagnóstico y cómo planear e implementar soluciones escalables y confiables.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -145,15 +146,10 @@ Monitoring and Diagnostics es una plataforma de sistemas distribuidos que facili
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Monitoring and Diagnostics </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

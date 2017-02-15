@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: d9ff74a49742fa77f5989b8b05e0567e3ca81dc5
-ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b4dc2137ce42e3ed8e85d57dacc1acecc6de243e
 
 
 ---
@@ -30,10 +30,6 @@ ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
 > 
 
 Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor creados en la Base de datos SQL de Azure antes de comenzar. Consulte [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md) y [Conexión y consulta mediante SSMS](sql-database-connect-query-ssms.md) para más información.
-
-> [!TIP]
-> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started.md).
->
 
 Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. 
 
@@ -146,6 +142,6 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

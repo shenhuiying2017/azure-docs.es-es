@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 11/11/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 14ba9a0d5a373dc46fcb38ad157e97496311c0d3
-ms.openlocfilehash: 9db1ce94e4cfdf6caadb22111ffe05afb96220d1
+ms.sourcegitcommit: 239d009a1fc7273a50d335a0d55d61f414d99b11
+ms.openlocfilehash: e333c306d85d6eb571c3c1990188e67b18c8a6b1
 
 
 ---
@@ -28,7 +28,14 @@ Base de datos SQL proporciona tres opciones para la recuperación de bases de da
 * Una base de datos en el mismo servidor lógico recuperada a la hora de eliminación de una base de datos eliminada.
 * Una base de datos nueva en cualquier servidor lógico de cualquier región recuperada en las copias de seguridad diarias más recientes en el almacenamiento de blobs de replicación geográfica (RA-GRS).
 
+> [!TIP]
+> Para ver un tutorial, consulte [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación mediante PowerShell](sql-database-get-started-backup-recovery.md).
+>
+
 También puede usar [copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md) para crear una [copia de la base de datos](sql-database-copy.md) en cualquier servidor lógico en cualquier región que sea transaccionalmente coherente con la base de datos SQL actual. Puede usar la copia de la base de datos y [exportar a un BACPAC](sql-database-export.md) para archivar una copia transaccionalmente coherente de una base de datos durante el almacenamiento a largo plazo más allá de su período de retención o para transferir una copia de la base de datos a una instancia de máquina virtual local o de Azure de SQL Server.
+
+> [!IMPORTANT]
+> Puede configurar el servidor lógico para almacenar copias de seguridad semanales en una [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
 
 ## <a name="recovery-time"></a>Tiempo de recuperación
 El tiempo de recuperación para restaurar una base de datos mediante copias de seguridad de base de datos automatizadas se ve afectado por una serie de factores: 
@@ -47,18 +54,17 @@ El tiempo de recuperación para restaurar una base de datos mediante copias de s
 > [!IMPORTANT]
 > Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server en la suscripción o ser el propietario de la suscripción. Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST. No puede utilizar Transact-SQL. 
 > 
-> 
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado
-La restauración a un momento dado le permite restaurar una base de datos existente como si fuera una nueva a un momento dado anterior en el mismo servidor lógico mediante [copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md). No se puede sobrescribir la base de datos existente. Puede restaurar a un momento dado anterior mediante [Azure Portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) o la [API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+La restauración a un momento dado le permite restaurar una base de datos existente como si fuera una nueva a un momento dado anterior en el mismo servidor lógico mediante [copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md). No se puede sobrescribir la base de datos existente. Puede restaurar a un momento dado anterior mediante [Azure Portal](sql-database-point-in-time-restore.md), [PowerShell](sql-database-point-in-time-restore.md) o la [API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 
-La base de datos se puede restaurar a cualquier nivel de rendimiento o grupo elástico. Debe asegurarse de que tiene una cuota de DTU suficiente en el servidor lógico o el grupo elástico. Tenga en cuenta que la restauración crea una nueva base de datos y que el nivel de servicio y el de rendimiento de la base de datos restaurada puede ser diferente del estado actual de la base de datos activa. Una vez finalizada la restauración, la base de datos restaurada es una base de datos normal, totalmente accesible en línea, que se cobra a las tasas normales en función de su nivel de rendimiento y servicio. No se incurre en gastos hasta que finaliza la restauración de la base de datos.
+La base de datos se puede restaurar a cualquier nivel de rendimiento o grupo elástico. Asegúrese de que tiene una cuota de DTU suficiente en el servidor lógico o el grupo elástico. Tenga en cuenta que la restauración crea una nueva base de datos y que el nivel de servicio y el de rendimiento de la base de datos restaurada puede ser diferente del estado actual de la base de datos activa. Una vez finalizada la restauración, la base de datos restaurada es una base de datos normal, totalmente accesible en línea, que se cobra a las tasas normales en función de su nivel de rendimiento y servicio. No se incurre en gastos hasta que finaliza la restauración de la base de datos.
 
 Por lo general, una base de datos se restaura a un punto anterior para fines de recuperación. Cuando lo haga, puede tratar la base de datos restaurada como sustituto de la base de datos original o utilizarla para recuperar datos y actualizar después la base de datos original. 
 
 * ***Sustituto de la base de datos:*** si la base de datos restaurada está pensada como sustituto de la base de datos original, debe comprobar que el nivel de rendimiento y el de servicio sean adecuados y escalar la base de datos si es necesario. Puede cambiar el nombre de la base de datos original y después asignar a la base de datos restaurada el nombre original mediante el comando ALTER DATABASE en T-SQL. 
-* ***Recuperación de datos:*** si va a recuperar datos de la base de datos restaurada para recuperarse de un error de usuario o de aplicación, debe escribir y ejecutar por separado cualquier script de recuperación de datos necesario para extraer datos de la base de datos restaurada a la base de datos original. Aunque la operación de restauración puede tardar mucho tiempo en finalizar, la base de datos restaurada será visible en la lista de la base de datos completa. Si elimina la base de datos durante la restauración, se cancelará la operación y no se le cobrará por la base de datos que no terminó de restaurarse. 
+* ***Recuperación de datos:*** si va a recuperar datos de la base de datos restaurada para recuperarse de un error de usuario o de aplicación, debe escribir y ejecutar cualquier script de recuperación de datos necesario para extraer datos de la base de datos restaurada a la base de datos original. Aunque la operación de restauración puede tardar mucho tiempo en finalizar, la base de datos restaurada será visible en la lista de la base de datos completa. Si elimina la base de datos durante la restauración, se cancelará la operación y no se le cobrará por la base de datos que no terminó de restaurarse. 
 
 Para obtener información detallada acerca del uso de la restauración a un momento dado para recuperarse de errores de usuario y de aplicación, consulte [Point-in-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
@@ -66,7 +72,7 @@ Para obtener información detallada acerca del uso de la restauración a un mome
 La restauración de una base de datos eliminada le permite restaurar una base de datos eliminada a la hora de su eliminación en el mismo servidor lógico mediante [copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md). 
 
 > [!IMPORTANT]
-> Si elimina una instancia de servidor de Base de datos SQL de Azure, todas sus bases de datos también se eliminan y no se pueden recuperar. En estos momentos no es posible restaurar un servidor eliminado.
+> Si elimina una instancia de servidor de Azure SQL Database, todas sus bases de datos también se eliminan y no se pueden recuperar. En estos momentos no es posible restaurar un servidor eliminado.
 > 
 > 
 
@@ -112,13 +118,13 @@ Las copias de seguridad automáticas protegen las bases de datos de los errores 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md)
-* Para obtener información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [copias de seguridad automáticas de Base de datos SQL](sql-database-automated-backups.md)
+* Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
+* Para configurar la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services, consulte [Configuración de la retención de copia de seguridad a largo plazo](sql-database-configure-long-term-retention.md).
 * Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)  
 * Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

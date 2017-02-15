@@ -1,20 +1,24 @@
 ---
-title: Cómo guardar búsquedas y anclar recursos de datos | Microsoft Docs
-description: Artículo de procedimientos que destaca las funciones del Catálogo de datos de Azure para guardar orígenes de datos y recursos de datos para su uso posterior.
+title: "Cómo guardar búsquedas y anclar recursos de datos | Microsoft Docs"
+description: "Artículo de procedimientos que destaca las funciones del Catálogo de datos de Azure para guardar orígenes de datos y recursos de datos para su uso posterior."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/10/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f017776480466979d7f2f9edec2b3ac5caca2321
+
 
 ---
 # <a name="how-to-save-searches-and-pin-data-assets"></a>Cómo guardar búsquedas y anclar recursos de datos
@@ -68,7 +72,7 @@ Desanclar un recurso es igualmente sencillo: los usuarios solo tienen que volver
 
 ![Desanclado de un recurso de datos](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## <a name="“my-assets”"></a>“Mis recursos”
+## <a name="my-assets"></a>“Mis recursos”
 La página principal del portal Catálogo de datos de Azure una sección "Mis recursos" que muestra los recursos de interés para el usuario actual. Esta sección incluye tanto recursos anclados como búsquedas guardadas.
 
 !['Mis recursos' en la página principal](./media/data-catalog-how-to-save-pin/07-my-assets.png)
@@ -76,6 +80,8 @@ La página principal del portal Catálogo de datos de Azure una sección "Mis re
 ## <a name="summary"></a>Resumen
 El Catálogo de datos de Azure proporciona funciones que permiten a los usuarios encontrar fácilmente los orígenes de datos que necesitan, por lo que pueden dedicar menos tiempo a buscar datos y más tiempo a trabajar con ellos. Las búsquedas guardadas y los recursos de datos anclados se basan en estas funciones centrales para que los usuarios puedan identificar fácilmente los orígenes de datos con los que trabajarán repetidamente.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

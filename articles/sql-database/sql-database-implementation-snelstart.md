@@ -8,23 +8,23 @@ manager: jhubbard
 editor: 
 ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 66360bc0a8618d250cc07e3e806af6c9a157afaf
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 40ad0b85072c3a54c7791500663c4dd88133c095
 
 
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Con Azure, SnelStart ha expandido rápidamente sus servicios empresariales con una cifra de 1000 nuevas bases de datos SQL de Azure cada mes
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
-SnelStart desarrolla conocidos software de administración financiera y empresarial para pequeñas y medianas empresas (pymes) de los Países Bajos. Un personal compuesto por 110 empleados —entre ellos, un equipo de TI de 35 miembros— atiende a 55 000 clientes. Al migrar su infraestructura a la oferta de software como servicio (SaaS) de Azure, SnelStart pudo integrar la mayoría de los servicios, con lo que automatizó la administración mediante un entorno familiar en C#, y optimizó el rendimiento y la escalabilidad sin tener que provocar el exceso o la falta de aprovisionamiento de negocios gracias a los grupos de bases de datos elásticas. Azure proporciona a SnelStart fluidez para migrar clientes entre entornos locales y en la nube.
+SnelStart desarrolla conocidos software de administración financiera y empresarial para pequeñas y medianas empresas (pymes) de los Países Bajos. Un personal compuesto por 110 empleados —entre ellos, un equipo de TI de 35 miembros— atiende a 55 000 clientes. Al migrar su infraestructura a la oferta de software como servicio (SaaS) de Azure, SnelStart pudo integrar la mayoría de los servicios, con lo que automatizó la administración mediante un entorno familiar en C#, y optimizó el rendimiento y la escalabilidad sin tener que provocar el exceso o la falta de aprovisionamiento de negocios gracias a los grupos elásticos. Azure proporciona a SnelStart fluidez para migrar clientes entre entornos locales y en la nube.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
 > 
@@ -55,7 +55,7 @@ En 1995, SnelStart publicó su primera aplicación de contabilidad para Windows.
 En la actualidad, SnelStart es un importante proveedor de aplicaciones de línea de negocio (LOB) y administración empresarial destinadas a pymes neerlandesas y emprendedores autónomos. Tal y como explica Carlo Kuip, arquitecto de TI: "Nuestro objetivo es proporcionar a nuestros clientes una automatización completa de los servicios de administración empresarial".
 
 ## <a name="optimizing-performance-and-cost-with-elastic-pools"></a>Optimización del rendimiento y los costos con los grupos elásticos
-SnelStart fue pionera a gran escala en utilizar los grupos de bases de datos elásticas. Gracias a ellos, la empresa puede limitar los costos y administrar los requisitos de rendimiento de manera más eficaz. Según Been: "Al utilizar grupos de bases de datos elásticas, podemos optimizar el rendimiento según las necesidades de nuestros clientes sin provocar el exceso de aprovisionamiento. Sería bastante costoso aprovisionar según la carga pico. En su lugar, la opción de compartir recursos entre varias bases de datos de escaso uso nos permite crear una solución que funciona bien y es rentable".
+SnelStart fue pionera a gran escala en utilizar los grupos elásticos. Gracias a ellos, la empresa puede limitar los costos y administrar los requisitos de rendimiento de manera más eficaz. Según Been: "Al utilizar grupos elásticos, podemos optimizar el rendimiento según las necesidades de nuestros clientes sin provocar el exceso de aprovisionamiento. Sería bastante costoso aprovisionar según la carga pico. En su lugar, la opción de compartir recursos entre varias bases de datos de escaso uso nos permite crear una solución que funciona bien y es rentable".
 
 ## <a name="azure-sql-databases-help-containerize-data-for-isolation-and-security"></a>Azure SQL Databases ayuda a agregar los datos en contenedores para disfrutar de aislamiento y seguridad
 Azure SQL Database permite a SnelStart trasladar a Azure, de manera sencilla y transparente, los datos de administración empresarial locales de los clientes. Azure SQL Database es un contenedor cómodo que proporciona aislamiento, un límite de autenticación, autorización y funcionalidades de copia de seguridad y restauración sencillas. Las bases de datos proporcionan un modelo conceptual adecuado para la administración empresarial. Según Carlo Kuip, arquitecto de TI: "Los elementos dentro de este límite de contenedor incluyen datos confidenciales fundamentales para una empresa, y como se almacenan en una base de datos aislada, pueden mantenerse bien protegidos. Podemos administrar la autorización en el nivel de las bases de datos, e incluso automatizar su administración y escalado horizontal sin necesidad de tener en plantilla administradores de bases de datos (DBA)".
@@ -63,7 +63,7 @@ Azure SQL Database permite a SnelStart trasladar a Azure, de manera sencilla y t
 Azure SQL Data Warehouse también desempeña un papel importante en la seguridad y administración de SnelStart al ayudar a la empresa a recopilar datos de telemetría, como la detección de intrusiones, el registro de actividad de los usuarios y la conectividad.
 
 ## <a name="azure-removes-overhead-so-that-developers-can-spend-more-time-delivering-value"></a>Azure elimina la sobrecarga para que los desarrolladores pueden dedicar más tiempo a proporcionar valor
-El modelo de la plataforma de Azure quitó la sobrecarga de infraestructura y permitió a SnelStart automatizar las implementaciones con las bibliotecas de administración en C#. Como indica Kuip: "Pudimos aumentar nuestras operaciones con muy poco personal y mejorar al mismo tiempo las opciones de recuperación ante desastres, la velocidad y la escalabilidad para nuestros clientes. La transformación en el desarrollo de servicios liberó recursos para centrarse en nuevos servicios y características, en lugar de simplemente actualizar el código existente para adaptarlo a los nuevos códigos impositivos o normativas". "Automatizando la administración y el uso de la oferta de SaaS podemos ofrecer más valor a nuestros clientes sin tener que realizar grandes inversiones en personal de operaciones SaaS", afirma. Por ejemplo, mediante el uso de los grupos de bases de datos elásticas de Azure, SnelStart pudo agregar diferentes características nuevas, incluidas una integración de datos del cliente más sólida con los bancos, la facturación de nuevos servicios, las comprobaciones de antecedentes de pequeñas empresas y los servicios de correo electrónico.
+El modelo de la plataforma de Azure quitó la sobrecarga de infraestructura y permitió a SnelStart automatizar las implementaciones con las bibliotecas de administración en C#. Como indica Kuip: "Pudimos aumentar nuestras operaciones con muy poco personal y mejorar al mismo tiempo las opciones de recuperación ante desastres, la velocidad y la escalabilidad para nuestros clientes. La transformación en el desarrollo de servicios liberó recursos para centrarse en nuevos servicios y características, en lugar de simplemente actualizar el código existente para adaptarlo a los nuevos códigos impositivos o normativas". "Automatizando la administración y el uso de la oferta de SaaS podemos ofrecer más valor a nuestros clientes sin tener que realizar grandes inversiones en personal de operaciones SaaS", afirma. Por ejemplo, mediante el uso de los grupos elásticos de Azure, SnelStart pudo agregar diferentes características nuevas, incluidas una integración de datos del cliente más sólida con los bancos, la facturación de nuevos servicios, las comprobaciones de antecedentes de pequeñas empresas y los servicios de correo electrónico.
 
 > "En tan solo los primeros meses del 2016, hemos ampliado nuestras implementaciones de Azure SQL Database de 5500 aproximadamente a más de 12 000. En la actualidad, estamos agregando casi 1000 bases de datos cada mes".
 > 
@@ -88,7 +88,7 @@ Además, los servicios web SnelStart permiten a los clientes y contables acceder
 
 ![Arquitectura de SnelStart](./media/sql-database-implementation-snelstart/figure1.png)
 
-Figura 1. Desde junio de 2016, SnelStart tiene más de 11 000 bases de datos y más de 50 grupos de bases de datos elásticas
+Figura 1. Desde junio de 2016, SnelStart tiene más de 11 000 bases de datos y más de 50 grupos elásticos
 
 ## <a name="simplicity-from-the-cloud"></a>La simplicidad de la nube
 Desde que pasaran a utilizar una solución basada en la nube de Azure, SnelStart pudo responder al rápido aumento de clientes, y ofrecer servicios y características innovadoras. Según Been: "Gracias a Azure, podemos distribuir a nuestros clientes actualizaciones de forma casi continua sin aumentar nuestro personal de operaciones. Además, obtenemos integradas el resto de las características importantes de Azure, como la escalabilidad y la recuperación ante desastres".
@@ -103,7 +103,7 @@ SnelStart también valora el sólido vínculo que han establecido con el equipo 
 El objetivo inmediato de SnelStart es seguir aumentando la base de clientes satisfechos. Como afirma Been: "Sin las limitaciones técnicas y de recursos que tuvimos como ISV, ya no tenemos horizonte de crecimiento".
 
 ## <a name="more-information"></a>Más información
-* Si quiere obtener más información sobre los grupos de bases de datos elásticas de Azure, consulte [este artículo](sql-database-elastic-pool.md).
+* Para obtener más información sobre los grupos elásticos de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 * Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Si quiere conocer más información sobre Azure este artículo, lea [este artículo](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Para obtener más información sobre SnelStart, vea [este artículo](http://www.snelstart.nl).
@@ -111,6 +111,6 @@ El objetivo inmediato de SnelStart es seguir aumentando la base de clientes sati
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

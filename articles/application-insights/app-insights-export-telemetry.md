@@ -1,32 +1,40 @@
 ---
-title: Exportación continua de telemetría desde Application Insights
-description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí.
+title: "Exportación de telemetría desde Application Insights | Microsoft Docs"
+description: "Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
+ms.date: 11/16/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
+ms.openlocfilehash: 3b1654355ee84610d25da8b6ad4a66036285faba
+
 
 ---
-# Exportación de telemetría desde Application Insights
-¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.
+# <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
+¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.  
 
-La Exportación continua está disponible durante el período de evaluación gratuita y en los [planes de precios Estándar y Premium](https://azure.microsoft.com/pricing/details/application-insights/).
+La exportación continua está disponible en el [modelo de precios de Enterprise](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
 
-* [El botón Exportar](app-insights-metrics-explorer.md#export-to-excel) de la parte superior de una hoja de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
-* [Analytics](app-insights-analytics.md) proporciona un lenguaje de consulta eficaz para telemetría y también permite exportar los resultados.
-* Si lo que le interesa es [explorar los datos en Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), puede hacerlo sin usar la exportación continua.
+* [El botón Exportar](app-insights-metrics-explorer.md#export-to-excel) de la parte superior de una hoja de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel. 
 
-## Crear una cuenta de almacenamiento
+* [Analytics](app-insights-analytics.md) proporciona un lenguaje de consulta eficaz para telemetría y también permite exportar los resultados.
+* Si lo que le interesa es [explorar los datos en Power BI](app-insights-export-power-bi.md), puede hacerlo sin usar la exportación continua.
+* La [API de REST de acceso a datos](https://dev.applicationinsights.io/) le permite acceder a datos de telemetría con programación. 
+
+Cuando la exportación continua copie sus datos en el almacenamiento (donde pueden permanecer tanto tiempo como quiera), seguirán estando disponibles en Application Insights durante el [período de retención](app-insights-data-retention-privacy.md) habitual. 
+
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 Si aún no tiene una cuenta de almacenamiento "clásica", cree una ahora.
 
 1. Cree una cuenta de almacenamiento en su suscripción en el [portal de Azure](https://portal.azure.com).
@@ -36,20 +44,22 @@ Si aún no tiene una cuenta de almacenamiento "clásica", cree una ahora.
    
     ![En el nuevo almacenamiento, seleccione Contenedores, haga clic en el icono Contenedores y luego, en Agregar.](./media/app-insights-export-telemetry/040.png)
 
-## <a name="setup"></a> Configuración de la Exportación continua
-En la hoja de información general del portal de Application Insights, abra Exportación continua:
+Si crea el almacenamiento en una región distinta del recurso de Application Insights, pueden producirse [cargos por la transferencia de datos](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+## <a name="a-namesetupa-set-up-continuous-export"></a><a name="setup"></a> Configuración de la Exportación continua
+En la hoja de información general del portal de Application Insights, abra Exportación continua: 
 
 ![Desplácese hacia abajo y haga clic en Exportación continua.](./media/app-insights-export-telemetry/01-export.png)
 
-Agregue una exportación y elija una [cuenta de almacenamiento de Azure](../storage/storage-introduction.md) donde colocar los datos:
+Agregue una exportación continua y elija los tipos de evento que desea exportar:
 
 ![Haga clic en Agregar, Destino de exportación, Cuenta de almacenamiento y cree un nuevo almacén o elija uno almacén.](./media/app-insights-export-telemetry/02-add.png)
 
-Elija los tipos de evento que desea exportar:
+Elija o cree la [cuenta de Azure Storage](../storage/storage-introduction.md) donde desea almacenar los datos:
 
 ![Haga clic en Elegir tipos de evento.](./media/app-insights-export-telemetry/03-types.png)
 
-Una vez que ha creado la exportación, comienza el proceso. (Solo obtendrá los datos que lleguen después de crear la exportación.)
+Una vez que ha creado la exportación, comienza el proceso. (Solo obtendrá los datos que lleguen después de crear la exportación.) 
 
 Puede haber un retraso de aproximadamente una hora antes de que aparezcan los datos en el blob.
 
@@ -61,27 +71,27 @@ Para detener la secuencia, haga clic en Deshabilitar. Al hacer clic en Habilitar
 
 Para detener la secuencia de forma permanente, elimine la exportación. Al realizar esta acción no se eliminan los datos del almacenamiento.
 
-#### ¿No puede agregar o cambiar una exportación?
-* Para agregar o cambiar las exportaciones, necesita derechos de propietario, colaborador o colaborador de Application Insights. [Más información acerca de los roles][roles].
+#### <a name="cant-add-or-change-an-export"></a>¿No puede agregar o cambiar una exportación?
+* Para agregar o cambiar las exportaciones, necesita derechos de propietario, colaborador o colaborador de Application Insights. [Más información sobre los roles][roles].
 
-## <a name="analyze"></a> ¿Qué eventos obtiene?
-Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente.
+## <a name="a-nameanalyzea-what-events-do-you-get"></a><a name="analyze"></a> ¿Qué eventos obtiene?
+Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente. 
 
 Los datos que se han descartado por [muestreo](app-insights-sampling.md) no se incluyen en los datos exportados.
 
 No se incluyen otras métricas calculadas. Por ejemplo, no exportamos el uso medio de la CPU, pero sí la telemetría sin procesar a partir de la que se calcula la media.
 
-Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](app-insights-monitor-web-app-availability.md) que haya configurado.
+Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](app-insights-monitor-web-app-availability.md) que haya configurado. 
 
 > [!NOTE]
-> **Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+> **Muestreo.**  Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
 > 
 > 
 
-## <a name="get"></a> Inspección de los datos
+## <a name="a-namegeta-inspect-the-data"></a><a name="get"></a> Inspección de los datos
 Puede inspeccionar el almacenamiento directamente en el portal. Haga clic en **Examinar**, seleccione la cuenta de almacenamiento y abra **Contenedores**.
 
-Para inspeccionar el almacenamiento de Azure en Visual Studio, abra **Ver**, **Cloud Explorer**. (Si no dispone de ese comando de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo **Nuevo proyecto**, expanda Visual C#/Cloud y elija **Obtener el SDK de Microsoft Azure para. NET**).
+Para inspeccionar Azure Storage en Visual Studio, abra **Ver**, **Cloud Explorer**. (Si no dispone de ese comando de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo **Nuevo proyecto**, expanda Visual C#/Cloud y elija **Obtener el SDK de Microsoft Azure para. NET**).
 
 Al abrir el almacén de blobs, verá un contenedor con un conjunto de archivos blob. El URI de cada archivo que se deriva del nombre del recurso de Application Insights, su clave de instrumentación, y el tipo, fecha y hora de telemetría. (El nombre del recurso está todo en minúsculas y la clave de instrumentación omite guiones).
 
@@ -93,13 +103,13 @@ Este es el formato de la ruta de acceso:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Where
+Where 
 
 * `blobCreationTimeUtc` es la hora de creación del blob en el almacenamiento provisional interno.
 * `blobDeliveryTimeUtc` es la hora de copia del blob en el almacenamiento de destino de exportación.
 
-## <a name="format"></a> Formato de datos
-* Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'. Contiene la telemetría procesada durante un período de aproximadamente la mitad de un minuto.
+## <a name="a-nameformata-data-format"></a><a name="format"></a> Formato de datos
+* Cada blob es un archivo de texto que contiene varias filas separadas por' \n'. Contiene la telemetría procesada durante un período de aproximadamente la mitad de un minuto.
 * Cada fila representa un punto de datos de telemetría, como una vista de página o una solicitud.
 * Cada fila es un documento JSON sin formato. Si quiere sentarse a mirarlo, ábralo en Visual Studio y elija Editar, Avanzadas, Archivo de formato:
 
@@ -113,7 +123,7 @@ Las duraciones de tiempo son tics, donde 10 000 tics = 1 ms. Por ejemplo, estos 
 
 [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 
-## Procesamiento de los datos
+## <a name="processing-the-data"></a>Procesamiento de los datos
 En una pequeña escala, puede escribir código para separar sus datos, leerlos en una hoja de cálculo, etc. Por ejemplo:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
@@ -133,13 +143,13 @@ En una pequeña escala, puede escribir código para separar sus datos, leerlos e
       }
     }
 
-Para obtener un ejemplo de código más grande, consulte el [uso de un rol de trabajo][exportasa].
+Para obtener un ejemplo de código más grande, consulte [el uso de un rol de trabajo][exportasa].
 
-## <a name="delete"></a>Eliminación de los datos antiguos
-Tenga en cuenta que usted es responsable de administrar su capacidad de almacenamiento y eliminar los datos antiguos si es necesario.
+## <a name="a-namedeleteadelete-your-old-data"></a><a name="delete"></a>Eliminación de los datos antiguos
+Tenga en cuenta que usted es responsable de administrar su capacidad de almacenamiento y eliminar los datos antiguos si es necesario. 
 
-## Si vuelve a generar la clave de almacenamiento...
-Si cambia la clave para el almacenamiento, la exportación continua dejará de funcionar. Verá una notificación en su cuenta de Azure.
+## <a name="if-you-regenerate-your-storage-key"></a>Si vuelve a generar la clave de almacenamiento...
+Si cambia la clave para el almacenamiento, la exportación continua dejará de funcionar. Verá una notificación en su cuenta de Azure. 
 
 Abra la hoja Exportación continua y edite la exportación. Modifique el destino de exportación, pero deje el mismo almacenamiento seleccionado. Haga clic en Aceptar para confirmar.
 
@@ -147,16 +157,15 @@ Abra la hoja Exportación continua y edite la exportación. Modifique el destino
 
 La exportación continua se reiniciará.
 
-## Ejemplos de exportación
+## <a name="export-samples"></a>Ejemplos de exportación
 * [Exportación a SQL con un rol de trabajo][exportcode]
-* [Exportación a SQL con el Análisis de transmisiones][exportasa]
-* [Exportación a PowerBI mediante Análisis de transmisiones](app-insights-export-power-bi.md)
-  * Tenga en cuenta que esta no es la manera estándar de usar Power BI. Hay [un adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que no requiere Exportación continua.
+* [Exportación a SQL con Stream Analytics][exportasa]
+* [Ejemplo 2 de Stream Analytics](app-insights-export-stream-analytics.md)
 
-En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HDInsight](https://azure.microsoft.com/services/hdinsight/) en la nube. HDInsight ofrece diversas tecnologías para administrar y analizar Big Data.
+En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HDInsight](https://azure.microsoft.com/services/hdinsight/) en la nube. HDInsight ofrece una amplia variedad de tecnologías para administrar y analizar macrodatos, y puede usarlo para procesar datos que se han exportado desde Application Insights.
 
-## Preguntas y respuestas
-* *Lo único que quiero es una descarga única de un gráfico.*
+## <a name="q--a"></a>Preguntas y respuestas
+* *Lo único que quiero es una descarga única de un gráfico.*  
   
     Sí, puede hacerlo. En la parte superior de la hoja, haga clic en [Exportar datos](app-insights-metrics-explorer.md#export-to-excel).
 * *Configuro una exportación, pero no hay ningún dato en el almacén.*
@@ -165,15 +174,15 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 * *Intenté configurar una exportación, pero se deniega el acceso.*
   
     Si la cuenta pertenece a su organización, debe ser miembro de los grupos de propietarios o colaboradores.
-* *¿Puedo exportar directamente a mi propio almacén local?*
+* *¿Puedo exportar directamente a mi propio almacén local?* 
   
-    Lamentablemente, no. Nuestro motor de exportación actualmente solo funciona con el almacenamiento de Azure.
-* *¿Hay ningún límite para la cantidad de datos que puedo colocar en mi almacén?*
+    Lamentablemente, no. Nuestro motor de exportación actualmente solo funciona con el almacenamiento de Azure.  
+* *¿Hay ningún límite para la cantidad de datos que puedo colocar en mi almacén?* 
   
-    No. Seguiremos insertando datos hasta que elimine la exportación. Pararemos si alcanzamos los límites externos del almacenamiento de blobs, pero hasta llegar ahí falta mucho. Depende de usted controlar la cantidad de almacenamiento que usa.
+    No. Seguiremos insertando datos hasta que elimine la exportación. Pararemos si alcanzamos los límites externos del almacenamiento de blobs, pero hasta llegar ahí falta mucho. Depende de usted controlar la cantidad de almacenamiento que usa.  
 * *¿Cuántos blobs debería ver en el almacenamiento?*
   
-  * Para cada tipo de datos que seleccionó para exportar, se crea un blob nuevo cada minuto (si los datos están disponibles).
+  * Para cada tipo de datos que seleccionó para exportar, se crea un blob nuevo cada minuto (si los datos están disponibles). 
   * Además, para las aplicaciones con mucho tráfico, se asignan unidades de partición adicionales. En este caso, cada unidad crea un blob cada minuto.
 * *Volví a generar la clave de mi almacenamiento o cambié el nombre del contenedor, y ahora no funciona la exportación.*
   
@@ -182,10 +191,10 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
   
     Sí. Haga clic en Deshabilitar.
 
-## Ejemplos de código
-* [Transmisiones de Application Insights a Power BI](app-insights-export-power-bi.md)
-* [Analizar JSON exportado mediante un rol de trabajo][exportcode]
-* [Exportación a SQL con el Análisis de transmisiones][exportasa]
+## <a name="code-samples"></a>Ejemplos de código
+* [Análisis de JSON exportado mediante un rol de trabajo][exportcode]
+* [Ejemplo de Stream Analytics](app-insights-export-stream-analytics.md)
+* [Exportación a SQL con Stream Analytics][exportasa]
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 
 <!--Link references-->
@@ -196,4 +205,8 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

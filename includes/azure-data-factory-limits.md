@@ -6,7 +6,7 @@ Data Factory es un servicio multiinquilino que tiene los siguientes límites pre
 | canalizaciones dentro de una factoría de datos |2.500 |[Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | conjuntos de datos dentro de una factoría de datos |5000 |[Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | fragmentos simultáneos por conjunto de datos |10 |10 |
-| bytes por objeto para objetos de canalización <sup>1</sup> |200 KB |200 KB |
+| bytes por objeto para objetos de canalización <sup>1</sup> |200 KB |2000 KB |
 | bytes por objeto para objetos de conjunto de datos y de servicio vinculados <sup>1</sup> |100 KB |2000 KB |
 | Núcleos de clúster a petición de HDInsight con una suscripción <sup>2</sup> |48 |[Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Unidades de movimiento de datos de nube<sup>3</sup> |8 |[Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -29,6 +29,6 @@ Azure Resource Manager tiene límites para las llamadas de API. Se pueden realiz
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

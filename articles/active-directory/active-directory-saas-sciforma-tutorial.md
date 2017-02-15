@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Sciforma | Microsoft Docs'
-description: Aprenda cómo usar Sciforma con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con Sciforma | Microsoft Docs"
+description: "Aprenda cómo usar Sciforma con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: abbfb5ac-7687-4153-b263-8090102dae37
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a61552f3275aa58aca9c014d24ae69d91ce59d5
+
 
 ---
-# <a name="tutorial:-azure-ad-integration-with-sciforma"></a>Tutorial: Integración de Azure AD con Sciforma
+# <a name="tutorial-azure-ad-integration-with-sciforma"></a>Tutorial: Integración de Azure AD con Sciforma
 El objetivo de este tutorial es mostrar la integración de Azure y Sciforma.  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-sciforma"></a>Habilitación de la integración de aplicaciones en Sciforma
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones en Sciforma.
 
-### <a name="to-enable-the-application-integration-for-sciforma,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones en Sciforma:
+### <a name="to-enable-the-application-integration-for-sciforma-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones en Sciforma:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Sciforma con su cuenta de Azure AD a través de la federación basada en el protocolo SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Sciforma**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configure single sign-on")
@@ -88,7 +92,7 @@ Si no hay cuentas de usuario disponibles todavía, Sciforma crea una automática
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-sciforma,-perform-the-following-steps:"></a>Para asignar usuarios a Sciforma, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-sciforma-perform-the-following-steps"></a>Para asignar usuarios a Sciforma, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Sciforma**, haga clic en **Asignar usuarios**.
    
@@ -99,6 +103,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

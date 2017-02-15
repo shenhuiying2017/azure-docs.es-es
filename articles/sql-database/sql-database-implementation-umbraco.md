@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0800f04034410c3734ef0a97afd9d41cf850381b
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 41334fb928b18c288f32efb0978150fa24ae14e3
 
 
 ---
@@ -54,7 +54,7 @@ Con Azure SQL Database y otros servicios de Azure, los clientes de Umbraco puede
    La implementación se automatiza por completo mediante el uso de bibliotecas de administración en C# y colas de Azure Service Bus.
 2. Uso
    
-   Los clientes usan entre uno y tres entornos (producción, ensayo o desarrollo), cada uno de ellos con su propia base de datos. Las bases de datos de clientes se encuentran en grupos de bases de datos elásticas, lo que permite a Umbraco proporcionar una escalabilidad eficaz sin necesidad de aprovisionar en exceso.
+   Los clientes usan entre uno y tres entornos (producción, ensayo o desarrollo), cada uno de ellos con su propia base de datos. Las bases de datos de clientes se encuentran en grupos elásticos, lo que permite a Umbraco proporcionar una escalabilidad eficaz sin necesidad de aprovisionar en exceso.
    
    ![Información general del proyecto de Umbraco](./media/sql-database-implementation-umbraco/figure2.png)
    
@@ -78,7 +78,7 @@ Con Azure SQL Database y otros servicios de Azure, los clientes de Umbraco puede
    Cuando se elimina un entorno de proyecto, se quitan las bases de datos asociadas (desarrollo, ensayo o producción) durante la limpieza de colas de Azure Service Bus. Este proceso automatizado restaura las bases de datos sin utilizar al grupo de disponibilidad de bases de datos elásticas de Umbraco, con lo que quedan disponibles para realizar futuros aprovisionamientos al mismo tiempo que se mantiene un nivel de uso máximo.
 
 ## <a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>Los grupos elásticos permiten a UaaS realizar escalados con facilidad
-Al aprovechar las ventajas que ofrecen los grupos de bases de datos elásticas de Azure, Umbraco puede optimizar el rendimiento para sus clientes sin necesidad de provocar el exceso o la falta de aprovisionamiento. Actualmente, Umbraco tiene casi 3000 bases de datos en 19 grupos de bases de datos elásticas, y puede escalarlas fácilmente según sea necesario para satisfacer las necesidades de sus 325 000 clientes existentes o nuevos que están listos para implementar un CMS en la nube.
+Al aprovechar las ventajas que ofrecen los grupos elásticos de Azure, Umbraco puede optimizar el rendimiento para sus clientes sin necesidad de provocar el exceso o la falta de aprovisionamiento. Actualmente, Umbraco tiene casi 3000 bases de datos en 19 grupos elásticos, y puede escalarlas fácilmente según sea necesario para satisfacer las necesidades de sus 325 000 clientes existentes o nuevos que están listos para implementar un CMS en la nube.
 
 De hecho, según Morten Christensen, el responsable técnico de Umbraco: "UaaS está experimentando ahora un crecimiento de, prácticamente, 30 nuevos clientes al día. Nuestros clientes están encantados con la comodidad de poder aprovisionar nuevos proyectos en segundos, publicar al instante actualizaciones en sus sitios activos desde un entorno de desarrollo mediante el modelo de implementación de un solo clic, y realizar cambios a gran velocidad si encuentran errores".
 
@@ -91,7 +91,7 @@ Figura 3. Arquitectura de implementación de UaaS en Microsoft Azure
 ## <a name="the-path-from-datacenter-to-cloud"></a>La migración del centro de datos a la nube
 Al principio, cuando los desarrolladores de Umbraco decidieron realizar la migración a un modelo SaaS, sabían que necesitarían una forma rentable y escalable de crear el servicio.
 
-> "Los grupos de bases de datos elásticas son ideales para nuestra oferta de SaaS, ya que podemos ampliar y reducir la capacidad según sea necesario. El aprovisionamiento se realiza de forma sencilla, y con nuestra configuración, podemos mantener un nivel de uso máximo".
+> "Los grupos elásticos son ideales para nuestra oferta de SaaS, ya que podemos ampliar y reducir la capacidad según sea necesario. El aprovisionamiento se realiza de forma sencilla, y con nuestra configuración, podemos mantener un nivel de uso máximo".
 > 
 > Morten Christensen, director técnico de Umbraco
 > 
@@ -110,11 +110,11 @@ Para cumplir todos los criterios, Umbraco buscó un asociado de soluciones en la
 * Presencia en todos los mercados geográficos en los que UaaS compite (las empresas necesitan asegurarse de que pueden acceder a sus datos rápidamente y se almacenen en una ubicación que cumpla sus requisitos normativos regionales)
 
 ## <a name="why-umbraco-chose-azure-for-uaas"></a>Por qué Umbraco eligió Azure para UaaS
-Según Morten Christensen: "Después de considerar todas nuestras opciones, hemos seleccionado Azure porque cumplió todos nuestros criterios, desde la capacidad de administración y escalabilidad hasta la familiaridad y rentabilidad. Configuramos los entornos de máquinas virtuales de Azure y cada uno de ellos tiene su propia instancia de Azure SQL Database; todas las instancias se encuentran en grupos de bases de datos elásticas. Al separar las bases de datos entre los entornos de desarrollo, ensayo y producción, podemos ofrecer a nuestros clientes un aislamiento de rendimiento sólido que puede escalarse, lo que supone para nosotros una grandísima ventaja".
+Según Morten Christensen: "Después de considerar todas nuestras opciones, hemos seleccionado Azure porque cumplió todos nuestros criterios, desde la capacidad de administración y escalabilidad hasta la familiaridad y rentabilidad. Configuramos los entornos de máquinas virtuales de Azure y cada uno de ellos tiene su propia instancia de Azure SQL Database; todas las instancias se encuentran en grupos elásticos. Al separar las bases de datos entre los entornos de desarrollo, ensayo y producción, podemos ofrecer a nuestros clientes un aislamiento de rendimiento sólido que puede escalarse, lo que supone para nosotros una grandísima ventaja".
 
 Morten continúa: "Antes, teníamos que aprovisionar servidores de bases de datos web manualmente. Ahora, no tenemos que pensar en ello. Todo está automatizado, desde el aprovisionamiento hasta las tareas de limpieza".
 
-Morten también está satisfecho con las funcionalidades de escalado que proporciona Azure. "Los grupos de bases de datos elásticas son ideales para nuestra oferta de SaaS, ya que podemos ampliar y reducir la capacidad según sea necesario. El aprovisionamiento se realiza de forma sencilla, y con nuestra configuración, podemos mantener un nivel de uso máximo". Morten afirma: "La sencillez de los grupos elásticos, junto con la garantía de las DTU basadas en niveles de servicio, nos proporciona la capacidad de aprovisionar nuevos grupos de recursos a petición. Hace poco, uno de nuestros clientes más importantes alcanzó un pico de 100 DTU en su entorno de producción. Al utilizar Azure, nuestros grupos elásticos proporcionan a las bases de datos de clientes los recursos que necesitan en tiempo real sin tener que predecir los requisitos de DTU. En resumen, nuestros clientes obtienen el tiempo de respuesta que esperan y podemos cumplir nuestros acuerdos de nivel de servicio de rendimiento".
+Morten también está satisfecho con las funcionalidades de escalado que proporciona Azure. "Los grupos elásticos son ideales para nuestra oferta de SaaS, ya que podemos ampliar y reducir la capacidad según sea necesario. El aprovisionamiento se realiza de forma sencilla, y con nuestra configuración, podemos mantener un nivel de uso máximo". Morten afirma: "La sencillez de los grupos elásticos, junto con la garantía de las DTU basadas en niveles de servicio, nos proporciona la capacidad de aprovisionar nuevos grupos de recursos a petición. Hace poco, uno de nuestros clientes más importantes alcanzó un pico de 100 DTU en su entorno de producción. Al utilizar Azure, nuestros grupos elásticos proporcionan a las bases de datos de clientes los recursos que necesitan en tiempo real sin tener que predecir los requisitos de DTU. En resumen, nuestros clientes obtienen el tiempo de respuesta que esperan y podemos cumplir nuestros acuerdos de nivel de servicio de rendimiento".
 
 Tal y como resume Mikkel Madsen: "Hemos adoptado el eficaz algoritmo de Azure que conecta un escenario SaaS común (incorporando a escala nuevos clientes en tiempo real) a nuestro patrón de aplicaciones (aprovisionando previamente bases de datos de los entornos de desarrollo y producción) en la tecnología subyacente (mediante las colas de Azure Service Bus y Azure SQL Database)".
 
@@ -122,7 +122,7 @@ Tal y como resume Mikkel Madsen: "Hemos adoptado el eficaz algoritmo de Azure qu
 Desde que Umbraco eligió Azure como asociado de soluciones en la nube, ha podido brindar a los clientes de UaaS un rendimiento optimizado de administración de contenido, sin invertir en los recursos de TI que se necesitaría con una solución autohospedada. Como Morten explica: "Nos encanta la mayor escalabilidad y comodidad de desarrollo que nos ofrece Azure, y nuestros clientes están entusiasmados con las características y la confiabilidad que brinda. En líneas generales, nos ha aportado un sinfín de ventajas".
 
 ## <a name="more-information"></a>Más información
-* Si quiere obtener más información sobre los grupos de bases de datos elásticas de Azure, consulte [este artículo](sql-database-elastic-pool.md).
+* Para obtener más información sobre los grupos elásticos de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 * Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
 * Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Para aprender más sobre las redes virtuales en Azure, revise [este artículo](https://azure.microsoft.com/documentation/services/virtual-network/).    
@@ -133,6 +133,6 @@ Desde que Umbraco eligió Azure como asociado de soluciones en la nube, ha podid
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

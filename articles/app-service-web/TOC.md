@@ -4,23 +4,24 @@
 ## [Planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service en Linux](app-service-linux-intro.md)
 
-# Primeros pasos
+# Introducción
 
-## Aplicaciones web
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+## Web Apps
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Aplicación de Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
-## Aplicaciones de API
+## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## Aplicaciones móviles
+## Mobile Apps
 ### [Android](../app-service-mobile/app-service-mobile-android-get-started.md)
 ### [Cordova](../app-service-mobile/app-service-mobile-cordova-get-started.md)
 ### [iOS](../app-service-mobile/app-service-mobile-ios-get-started.md)
@@ -30,7 +31,7 @@
 ### [Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)
 
 
-# Cómo
+# Procedimientos
 
 ## Planeamiento y diseño
 ### [Procedimientos recomendados para Azure App Service](app-service-best-practices.md)
@@ -56,30 +57,30 @@
 ### [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md)
 ### [Creación de una aplicación web en Linux](app-service-linux-how-to-create-a-web-app.md)
 ### [Referencia de App Service](app-service-changes-existing-services.md)
-### [Portal de Azure](app-service-web-app-azure-portal.md)
+### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [SDK de WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Aplicaciones de ASP.NET
-#### [Implementación de su primera aplicación web .NET en Azure en 5 minutos](app-service-web-get-started-dotnet.md)
+#### [Creación de una aplicación ASP.NET en Azure con Visual Studio](web-sites-dotnet-get-started.md)
 #### [Creación de un servicio REST mediante ASP.NET Web API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Creación de una aplicación web ASP.NET 5 en Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Aplicaciones de Node.js
+#### [Desarrollo de Node.js para App Service](app-service-web-nodejs-get-started.md)
 #### [Creación de una aplicación web de Node.js](web-sites-nodejs-develop-deploy-mac.md)
 #### [Creación de una aplicación de chat de Node.js con Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [Cómo usar io.js con Web Apps](web-sites-nodejs-iojs.md)
-#### [Implementación de una aplicación web Sails.js en el Servicio de aplicaciones de Azure](app-service-web-nodejs-sails.md)
+#### [Implementación de una aplicación web Sails.js en Azure App Service](app-service-web-nodejs-sails.md)
 #### [Creación e implementación mediante WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Aplicaciones PHP
-#### [Implementación de su primera aplicación web de PHP en Azure en 5 minutos](app-service-web-get-started-php.md)
+#### [Desarrollo de aplicaciones PHP para App Service](app-service-web-php-get-started.md) 
 #### [Creación de una aplicación web de PHP-SQL e implementarla mediante Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Creación de una aplicación web de WordPress en Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Creación y conexión de una base de datos MySQL en Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [WordPress de clase empresarial en el Servicio de aplicaciones de Azure](web-sites-php-enterprise-wordpress.md)
+#### [WordPress de clase empresarial en Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Aplicaciones de Java
-#### [Implementación de su primera aplicación web de Java en Azure en 5 minutos](web-sites-java-get-started.md)
 #### Crear una aplicación Hello World
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -98,20 +99,20 @@
 #### [Django y MySQL en Azure con Python Tools 2.2 para Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Django y SQL Database en Azure con Python Tools 2.2 para Visual Studio](web-sites-python-ptvs-django-sql.md)
 
-### [Implementación de su primera aplicación web básica en Azure en 5 minutos](app-service-web-get-started-html.md)
-### [Introducción a las pruebas en producción para las aplicaciones web](app-service-web-test-in-production-get-start.md)
+### [Implementación de su primera aplicación web básica en Azure en&5; minutos](app-service-web-get-started-html.md)
+### [Introducción a las pruebas en producción para Web Apps](app-service-web-test-in-production-get-start.md)
 
 ### [WebJobs](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Qué es el SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk.md)
 #### [Crear un trabajo web de .NET](websites-dotnet-webjobs-sdk-get-started.md)
 #### [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 #### [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-#### [Uso del Bus de servicio de Azure con el SDK de trabajos web](websites-dotnet-webjobs-sdk-service-bus.md)
+#### [Uso de Azure Service Bus con el SDK de WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 #### [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 
 ### Entorno de App Service
-#### [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md)
-#### [Creación de una aplicación web en un entorno del Servicio de aplicaciones](app-service-web-how-to-create-a-web-app-in-an-ase.md)
+#### [Creación de un entorno de App Service](app-service-web-how-to-create-an-app-service-environment.md)
+#### [Creación de una aplicación web en un entorno de App Service](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 #### [Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 #### [Uso de un equilibrador de carga interno](app-service-environment-with-internal-load-balancer.md)
 
@@ -135,7 +136,7 @@
 #### [Escala distribuida geográficamente con entornos de App Service](app-service-app-service-environment-geo-distributed-scale.md)
 #### [Escalado de aplicaciones en un entorno de App Service](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Escalado automático de aplicaciones en un entorno de App Service](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [CDN de Azure](../cdn/cdn-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Azure CDN](../cdn/cdn-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## [Administración](web-sites-manage-azure-website.md)
 ### [Configuración](web-sites-configure.md)
@@ -167,7 +168,7 @@
 #### [Introducción a la arquitectura de red](app-service-app-service-environment-network-architecture-overview.md)
 #### [Detalles de configuración de red con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md)
 
-## Copia de seguridad
+## Backup
 ### [Realizar una copia de seguridad de la aplicación en Azure](web-sites-backup.md)
 ### [Restaurar una aplicación en Azure](web-sites-restore.md)
 ### [Usar REST para realizar una copia de seguridad y restaurar las aplicaciones de App Service](websites-csm-backup.md)
@@ -226,15 +227,15 @@
 ### [Conexión con una implementación de SQL Server local mediante conexiones híbridas](web-sites-hybrid-connection-connect-on-premises-sql-server.md)
 ### [Conexión de la aplicación a la red virtual con PowerShell](app-service-vnet-integration-powershell.md)
 ### [Control del tráfico de aplicaciones web de Azure con Azure Traffic Manager](web-sites-traffic-manager.md)
-### Caché de Redis
+### Redis Cache
 #### [Conexión con Redis Cache mediante el protocolo Memcache](web-sites-connect-to-redis-using-memcache-protocol.md)
-#### [Creación de una Caché en Redis mediante una plantilla](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Creación de una memoria caché de Redis Cache mediante una plantilla](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Administración del estado de sesión con Azure Redis Cache](web-sites-dotnet-session-state-caching.md)
 ### [Creación de una aplicación web de Azure que se conecta a MongoDB en una máquina virtual](web-sites-dotnet-store-data-mongodb-vm.md)
 ### [Cómo enviar correo electrónico con SendGrid](sendgrid-dotnet-how-to-send-email.md)
 ### [Integración de su aplicación con una red virtual](web-sites-integrate-with-vnet.md)
 ### [Aplicación web de Node.js con servicio Tabla de Azure](storage-nodejs-use-table-storage-web-site.md)
-### [Uso de la red CDN de Azure en Azure App Service](cdn-websites-with-cdn.md)
+### [Uso de Azure CDN en Azure App Service](cdn-websites-with-cdn.md)
 
 
 ## Solución de problemas
@@ -247,25 +248,25 @@
 ### [Solución de problemas de rendimiento de aplicaciones web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referencia
-## [CLI de Azure](/cli/azure/)
-## [Java](/java/api/)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Temas relacionados
 ## [Notas de la versión del SDK de Azure para .NET](azure-sdk-dotnet-release-notes.md)
-### [Versión 2.9](azure-sdk-dotnet-release-notes-2-9.md)
-### [Versiones 2.8.X](azure-sdk-dotnet-release-notes-2-8.md)
-### [Versiones 2.7.X](azure-sdk-dotnet-release-notes-2-7.md)
-### [Versión 2.6](azure-sdk-dotnet-release-notes-2-6.md)
-### [Versión 2.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Versión&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
+### [Versiones&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
+### [Versiones&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)
+### [Versión&2;.6](azure-sdk-dotnet-release-notes-2-6.md)
+### [Versión&2;.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
-# resources
-## [procedimientos recomendados](app-service-best-practices.md)
+# Recursos
+## [Procedimientos recomendados](app-service-best-practices.md)
 ## [Lista de recursos de WebJobs](websites-webjobs-resources.md)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

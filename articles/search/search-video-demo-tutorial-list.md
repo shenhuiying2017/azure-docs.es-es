@@ -1,13 +1,13 @@
 ---
-title: Vídeos, ejemplos y tutoriales en la Búsqueda de Azure | Microsoft Docs
-description: Lista fundamental de todos los vídeos, ejemplos, demostraciones y tutoriales creados para Búsqueda de Azure, un servicio hospedado en la nube en Microsoft Azure.
+title: "Vídeos, ejemplos y tutoriales de Azure Search | Microsoft Docs"
+description: "Lista fundamental de todos los vídeos, ejemplos, demostraciones y tutoriales creados para Búsqueda de Azure, un servicio hospedado en la nube en Microsoft Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/22/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011a19ae7ffae0fedee1d6202d1b00d35d948f9
+
 
 ---
-# <a name="azure-search:-code-samples,-demos,-videos-and-tutorials"></a>Búsqueda de Azure: ejemplos de código, demostraciones, vídeos y tutoriales
+# <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Búsqueda de Azure: ejemplos de código, demostraciones, vídeos y tutoriales
 Póngase en marcha más rápidamente con los siguientes vídeos, demostraciones, tutoriales y aplicaciones de ejemplo.
 
 ## <a name="code-samples"></a>Ejemplos de código
@@ -81,6 +85,9 @@ Estos son algunos de nuestros tutoriales y vídeos más populares para Búsqueda
 | [Tutorial de perfiles de puntuación](search-get-started-scoring-profiles.md) |Pruebe los perfiles de puntuación con una aplicación de consola. |
 | [Tutorial de la API de REST de administración de Búsqueda de Azure](search-get-started-management-api.md) |Cómo usar la API de REST de administración para aprovisionar el servicio y administrar claves de api de administrador o de consulta. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

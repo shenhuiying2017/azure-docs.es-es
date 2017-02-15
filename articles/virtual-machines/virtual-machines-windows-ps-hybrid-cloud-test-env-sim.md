@@ -1,23 +1,27 @@
 ---
-title: Entorno de prueba de nube híbrida simulado | Microsoft Docs
-description: Cree un entorno de nube híbrida simulado para profesionales de TI o pruebas de desarrollo con dos redes virtuales de Azure y una conexión de red virtual a red virtual.
+title: "Entorno de prueba de nube híbrida simulado | Microsoft Docs"
+description: "Cree un entorno de nube híbrida simulado para profesionales de TI o pruebas de desarrollo con dos redes virtuales de Azure y una conexión de red virtual a red virtual."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: JoeDavies-MSFT
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: ca5bf294-8172-44a9-8fed-d6f38d345364
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 09/30/2016
 ms.author: josephd
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 1322af70f643bcc191e3d69fe4a174adc9cd7e8d
+
 
 ---
-# Configuración de un entorno de nube híbrida simulado para pruebas
+# <a name="set-up-a-simulated-hybrid-cloud-environment-for-testing"></a>Configuración de un entorno de nube híbrida simulado para pruebas
 Este artículo le guiará en el proceso de creación de un entorno de nube híbrida simulado con Microsoft Azure mediante dos redes virtuales de Azure. Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
@@ -39,7 +43,7 @@ Existen cuatro fases principales para configurar este entorno de prueba de nube 
 1. Configuración de la red virtual de TestLab.
 2. Creación de la red virtual entre locales.
 3. Creación de la conexión VPN de red virtual a red virtual.
-4. Configuración de DC2.
+4. Configuración de DC2. 
 
 Esta configuración requiere una suscripción de Azure. Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -48,8 +52,8 @@ Esta configuración requiere una suscripción de Azure. Si tiene una suscripció
 > 
 > 
 
-## Fase 1: configuración de la red virtual TestLab
-Use las instrucciones que encontrará en el tema [Entorno de prueba de la configuración base](https://technet.microsoft.com/library/mt771177.aspx) para configurar los equipos DC1, APP1 y CLIENT1 de una red virtual de Azure denominada "TestLab".
+## <a name="phase-1-configure-the-testlab-virtual-network"></a>Fase 1: configuración de la red virtual TestLab
+Use las instrucciones que encontrará en el tema [Entorno de prueba de la configuración base](https://technet.microsoft.com/library/mt771177.aspx) para configurar los equipos DC1, APP1 y CLIENT1 de una red virtual de Azure denominada "TestLab". 
 
 Después, inicie un símbolo del sistema de Azure PowerShell.
 
@@ -92,7 +96,7 @@ A continuación, cree la puerta de enlace.
 
 Tenga en cuenta que las puertas de enlace nuevas pueden tardar 20 minutos o más en crearse.
 
-Desde el Portal de Azure en el equipo local, conéctese a DC1 con las credenciales CORP\\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con DC1.
+Desde el Portal de Azure en el equipo local, conéctese a DC1 con las credenciales CORP\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con DC1.
 
     New-ADReplicationSite -Name "TestLab" 
     New-ADReplicationSite -Name "TestVNET"
@@ -103,7 +107,7 @@ Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph1.png)
 
-## Fase 2: creación de la red virtual TestVNET
+## <a name="phase-2-create-the-testvnet-virtual-network"></a>Fase 2: creación de la red virtual TestVNET
 En primer lugar, cree la red virtual TestVNET y protéjala con un grupo de seguridad de red.
 
     $rgName="<name of the resource group that you used for your TestLab virtual network>"
@@ -130,7 +134,7 @@ Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph2.png)
 
-## Fase 3: creación de la conexión red virtual a red virtual
+## <a name="phase-3-create-the-vnet-to-vnet-connection"></a>Fase 3: creación de la conexión red virtual a red virtual
 En primer lugar, solicite una clave previamente compartida aleatoria criptográficamente segura de 32 caracteres al administrador de red o de seguridad. Como alternativa, use la información que encontrará en [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Creación de una cadena aleatoria para una clave previamente compartida IPsec) para obtener una clave previamente compartida.
 
 Después, use estos comandos para crear la conexión VPN de sitio a sitio, que puede tardar algún tiempo en crearse.
@@ -147,7 +151,7 @@ Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph3.png)
 
-## Fase 4: configuración de DC2
+## <a name="phase-4-configure-dc2"></a>Fase 4: configuración de DC2
 Primero, cree una máquina virtual para DC2. Ejecute estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local.
 
     $rgName="<your resource group name>"
@@ -179,9 +183,9 @@ El comando de ping debería devolver cuatro respuestas correctas desde la direcc
 
 Después, agregue el disco de datos adicional en DC2 como un nuevo volumen con la letra de unidad F:.
 
-1. En el panel izquierdo del Administrador de servidores, haga clic en **Servicios de archivos y almacenamiento** y, a continuación, haga clic en **Discos**.
+1. En el panel izquierdo del Administrador de servidores, haga clic en **Servicios de archivos y almacenamiento** y luego haga clic en **Discos**.
 2. En el panel de contenido, en el grupo **Discos**, haga clic en **disco 2** (con la **partición** establecida en **Desconocida**).
-3. Haga clic en **Tareas** y, a continuación, haga clic en **Nuevo volumen**.
+3. Haga clic en **Tareas** y luego haga clic en **Nuevo volumen**.
 4. En la página Antes de empezar del Asistente para volumen nuevo, haga clic en **Siguiente**.
 5. En la página Selección del servidor y del disco, haga clic en **Disco 2** y, a continuación, haga clic en **Siguiente**. Cuando se le solicite, haga clic en **Aceptar**.
 6. En la página Especificación del tamaño de la página de volumen, haga clic en **Siguiente**.
@@ -195,22 +199,27 @@ A continuación, configure DC2 como un controlador de dominio de réplica para e
     Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
     Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\\User1, una contraseña de Modo de restauración de servicios de directorio (DSRM) y que reinicie DC2.
+Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\User1, una contraseña de Modo de restauración de servicios de directorio (DSRM) y que reinicie DC2.
 
 Ahora que la red virtual TestVNET tiene su propio servidor DNS (DC2), debe configurar la red virtual de TestVNET para utilizar este servidor DNS.
 
 1. En el panel izquierdo del Portal de Azure, haga clic en el icono de las redes virtuales y elija **TestVNET**.
 2. En la pestaña **Configuración**, haga clic en **Servidores DNS**.
 3. En **Servidor DNS principal**, escriba **192.168.0.4** para sustituir el valor 10.0.0.4.
-4. Haga clic en **Save**.
+4. Haga clic en **Guardar**.
 
-Se trata de la configuración actual.
+Se trata de la configuración actual. 
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
 Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
-## Paso siguiente
-* Configuración de una [aplicación de línea de negocio web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) en este entorno
+## <a name="next-step"></a>Paso siguiente
+* Configure una [aplicación de línea de negocio web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en este entorno.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

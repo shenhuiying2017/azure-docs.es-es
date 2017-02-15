@@ -1,12 +1,12 @@
 ---
-title: Procesamiento de eventos desde centros de eventos con Storm en HDInsight con Java | Microsoft Docs
-description: Obtenga información sobre cómo procesar los datos de los Centros de eventos con una topología Java de Storm creada con Maven.
+title: Procesamiento de eventos desde cEvent Hubs con Storm en HDInsight con Java | Microsoft Docs
+description: "Obtenga información sobre cómo procesar los datos de los Centros de eventos con una topología Java de Storm creada con Maven."
 services: hdinsight,notification hubs
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 453fa7b0-c8a6-413e-8747-3ac3b71bed86
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eaa86b706a538543816b59d8cd09ee54df43b26d
+
 
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-(java)"></a>Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (Java)
+# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (Java)
 Los Centros de eventos de Azure le permiten procesar grandes volúmenes de datos provenientes de sitios web, aplicaciones y dispositivos. El spout de los Centros de eventos permite que Apache Storm en HDInsight analice fácilmente estos datos en tiempo real. También es posible escribir datos en Centros de eventos desde Storm usando el bolt de Centros de eventos.
 
 En este tutorial, obtendrá información sobre cómo usar el spout y bolt de Centros de eventos para leer y escribir datos en una topología de Storm basada en Java.
@@ -429,6 +433,9 @@ Para obtener más información sobre el uso de IU de Storm, vea los siguientes t
 ## <a name="next-steps"></a>Pasos siguientes
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Tutorial: Introducción a la biblioteca .NET de Azure Batch | Microsoft 
 description: "Aprenda los conceptos básicos sobre Lote de Azure y cómo desarrollarlos para el servicio Lote con un escenario de ejemplo."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8243e2304d846e02ecf0114b79be73c0016941df
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
 
 En este artículo, se explican los aspectos básicos de [Azure Batch][azure_batch] y de la biblioteca [.NET de Batch][net_api] a medida que se analiza paso a paso un ejemplo de aplicación escrito en C#. Examinaremos la forma en que esta aplicación de ejemplo aprovecha el servicio Batch para procesar una carga de trabajo paralela en la nube y cómo interactúa con [Azure Storage](../storage/storage-introduction.md) para almacenar provisionalmente archivos y recuperarlos. Aprenderá un flujo de trabajo de la aplicación Lote habitual y obtenga un conocimiento básico de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
 
-![Flujo de trabajo de soluciones de Lote (básico)][11]<br/>
+![Flujo de trabajo de soluciones de Batch (básico)][11]<br/>
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se asume que tiene conocimientos prácticos de C# y Visual Studio. También se asume que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y los servicios Lote y Almacenamiento.
@@ -63,7 +63,7 @@ El código de ejemplo *DotNetTutorial* es una solución de Visual Studio 2015 qu
 
 El siguiente diagrama ilustra las operaciones principales que realiza la aplicación cliente, *DotNetTutorial*, y la aplicación que ejecutan las tareas, *TaskApplication*. Este flujo de trabajo básico es típico de muchas soluciones de proceso que se crean con Lote. Aunque no muestra todas las características disponibles en el servicio Lote, casi todos los escenarios de Lote incluyen partes de este flujo de trabajo.
 
-![Flujo de trabajo de ejemplo de Lote][8]<br/>
+![Flujo de trabajo de ejemplo de Batch][8]<br/>
 
 [**Paso 1.**](#step-1-create-storage-containers) Crear **contenedores** en Azure Blob Storage.<br/>
 [**Paso 2.**](#step-2-upload-task-application-and-data-files) Cargar los archivos de aplicación y los archivos de entrada de la tarea en los contenedores.<br/>
@@ -75,7 +75,7 @@ El siguiente diagrama ilustra las operaciones principales que realiza la aplicac
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarea descarga sus datos de entrada de Azure Storage y comienza la ejecución.<br/>
 [**Paso 6.**](#step-6-monitor-tasks) Supervisar las tareas.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** A medida que se completan las tareas, cargan sus datos de salida en Azure Storage.<br/>
-[**Paso 7.**](#step-7-download-task-output)  Descargar el resultado de la tarea de Almacenamiento
+[**Paso 7.**](#step-7-download-task-output) Descargar el resultado de la tarea de Almacenamiento
 
 Como se ha indicado, no todas las soluciones de Lote realizan estos mismos pasos y se puede haber muchos otros; sin embargo, la aplicación de ejemplo *DotNetTutorial* muestra los procesos comunes que se encuentran en una solución de Lote.
 
@@ -372,7 +372,7 @@ En el fragmento de código anterior, también cabe destacar el uso de dos variab
 >
 
 ## <a name="step-4-create-batch-job"></a>Paso 4: Crear el trabajo de Lote
-![Crear trabajo de Lote][4]<br/>
+![Crear un trabajo de Batch][4]<br/>
 
 Un **trabajo** de Lote es una colección de tareas y está asociado a un grupo de nodos de proceso. Las tareas de un trabajo se ejecutan en los nodos de proceso del grupo asociado.
 
@@ -593,7 +593,7 @@ private static async Task<bool> MonitorTasks(
 ```
 
 ## <a name="step-7-download-task-output"></a>Paso 7: Descargar el resultado de la tarea
-![Descargar el resultado de la tarea desde Almacenamiento][7]<br/>
+![Descargar el resultado de la tarea desde Storage][7]<br/>
 
 Ahora que se ha completado el trabajo, el resultado de las tareas se puede descargar desde Almacenamiento de Azure. Esto se realiza con una llamada a `DownloadBlobsFromContainerAsync` en el archivo `Program.cs` de *DotNetTutorial*:
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar Scheduler para programar e invocar trabajos como acciones periódicas de aplicación y mantenimiento rutinario. Tutoriales, referencias de API y mucho más."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ee469905e6b1f55def062c1d7291bde47a5518ea
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
 
 ---
 # <a name="scheduler-documentation"></a>Documentación de Scheduler
 
-Azure Scheduler le permite describir mediante declaración las acciones para ejecutar en la nube.  A continuación, programa y ejecuta esas acciones de forma automática.  Después, Scheduler mantiene un historial de los resultados de las ejecuciones de los trabajos que se puede consultar.
+Aprenda a usar Scheduler para programar e invocar automáticamente trabajos periódicos en la nube. En los tutoriales, las referencias de API y otra documentación, se muestra cómo programar y supervisar trabajos como acciones periódicas de aplicación y mantenimiento rutinario.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,15 +97,10 @@ Azure Scheduler le permite describir mediante declaración las acciones para eje
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Scheduler </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

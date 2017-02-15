@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Projectplace | Microsoft Docs'
-description: Aprenda cómo usar Projectplace con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: integración de Azure Active Directory con Projectplace | Microsoft Docs"
+description: "Aprenda cómo usar Projectplace con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 298059ca-b652-4577-916a-c31393d53d7a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8eff0394481969839bde974dedaf2ef92c76db73
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-projectplace"></a>Tutorial: Integración de Azure Active Directory con Projectplace
+# <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Tutorial: Integración de Azure Active Directory con Projectplace
 El objetivo de este tutorial es mostrar la integración de Azure y Projectplace.  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-projectplace"></a>Habilitación de la integración de aplicaciones para Projectplace
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Projectplace.
 
-### <a name="to-enable-the-application-integration-for-projectplace,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones en Projectplace:
+### <a name="to-enable-the-application-integration-for-projectplace-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones en Projectplace:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-projectplace-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Projectplace con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Projectplace**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Configure Single SignOn")
@@ -89,7 +93,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 Para permitir que los usuarios de Azure AD inicien sesión en Projectplace, deben aprovisionarse en Projectplace.  
 En el caso de Projectplace, el aprovisionamiento es una tarea manual.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>Para aprovisionar cuentas de usuario, realice estos pasos:
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario, realice estos pasos:
 1. Inicie sesión en el sitio de la compañía **Projectplace** como administrador.
 2. Vaya a **Personas** y haga clic en **Miembros**.
    
@@ -117,7 +121,7 @@ En el caso de Projectplace, el aprovisionamiento es una tarea manual.
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-projectplace,-perform-the-following-steps:"></a>Para asignar usuarios a Projectplace, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-projectplace-perform-the-following-steps"></a>Para asignar usuarios a Projectplace, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Projectplace**, haga clic en **Asignar usuarios**.
    
@@ -128,6 +132,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

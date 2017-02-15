@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: 194da45bade88c2866aaf6066d312d125f1ac2cb
+ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
+ms.openlocfilehash: b3951106fe2e8607e65bd0ae47fa2ea3346b8ca5
 
 ---
 
@@ -28,17 +28,21 @@ ms.openlocfilehash: 194da45bade88c2866aaf6066d312d125f1ac2cb
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [CLI de Azure](dns-getstarted-create-recordset-cli.md)
 
-Este artículo le guiará a través de la creación de registros y conjuntos de registros usando el Portal de Azure. Después de crear la zona DNS, agregue los registros DNS para su dominio. Para ello, primero debe saber qué son los registros y los conjuntos de registros DNS.
+Este artículo le guiará a través de la creación de registros y conjuntos de registros usando el Portal de Azure. Para ello, primero debe saber qué son los registros y los conjuntos de registros DNS.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## <a name="create-a-record-set-and-record"></a>Creación de un nuevo conjunto de registros y de un registro
+Todos los ejemplos de esta página usan el tipo de registro DNS “A”. El proceso para otros tipos de registros es similar.
 
-En el ejemplo siguiente, se le guiará a través del proceso de creación de un conjunto de registros y un registro mediante el portal de Azure. Utilizaremos el tipo de registro DNS "A".
+Si el nuevo registro tiene el mismo nombre y tipo que un registro existente, debe agregarlo al conjunto de registros existente&mdash;(consulte [Administración de registros y conjuntos de registros DNS mediante Azure Portal](dns-operations-recordsets-portal.md)). Si el nuevo registro tiene un nombre y un tipo diferente al de todos los registros existentes, debe crear un nuevo conjunto de registros, tal y como se explica más adelante.
+
+## <a name="create-records-in-a-new-record-set"></a>Creación de registros en un conjunto de registros nuevo
+
+En el ejemplo siguiente, se le guiará a través del proceso de creación de un conjunto de registros y un registro mediante el portal de Azure.
 
 1. Inicie sesión en el portal.
 2. Vaya a la hoja **Zona DNS** en la que quiera crear un conjunto de registros.
-3. En la parte superior de la hoja **Zona DNS**, seleccione **Conjunto de registros** para abrir la hoja **Agregar conjunto de registros**.
+3. En la parte superior de la hoja **Zona DNS**, seleccione **+ Conjunto de registros** para abrir la hoja **Agregar conjunto de registros**.
 
     ![Nuevo conjunto de registros](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
@@ -48,17 +52,34 @@ En el ejemplo siguiente, se le guiará a través del proceso de creación de un 
 
 5. Seleccione el tipo de registro que quiere crear. Por ejemplo, seleccione **A**.
 6. Establezca el **TTL**. El período de vida predeterminado en el portal es una hora.
-7. Agregue las direcciones IP; una por línea. Cuando use el nombre sugerido del conjunto de registros y el tipo de registro descrito anteriormente, se agregarán direcciones IP de tipo IPv4 al registro **A** para el conjunto de registros www.
+7. Agregue los detalles de cada registro en el conjunto de registros. En este caso, puesto que el tipo de registro es "A", debe agregar las direcciones IP del registro A; una dirección IP por línea.
 8. Cuando termine de agregar direcciones IP, seleccione **Aceptar** en la parte inferior de la hoja. Se creará el conjunto de registros de DNS.
+
+### <a name="verify-name-resolution"></a>Comprobación de la resolución de nombres
+
+Puede probar que los registros DNS están presentes en los servidores de nombres de Azure DNS con herramientas DNS tales como nslookup, DIG o el cmdlet de PowerShell [Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+
+Si aún no ha delegado el dominio para usar la nueva zona en Azure DNS, deberá [dirigir la consulta de DNS directamente a uno de los servidores de nombres de la zona](dns-getstarted-create-dnszone.md#test-name-servers). Asegúrese de sustituir los valores correctos de su zona de registros en el comando que aparece a continuación.
+
+    nslookup
+    > set type=A
+    > server ns1-01.azure-dns.com
+    > www.contoso.com
+
+    Server:  ns1-01.azure-dns.com
+    Address:  40.90.4.1
+
+    Name:    www.contoso.com
+    Address:  1.2.3.4
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Obtenga información sobre cómo [delegar su nombre de dominio a los servidores de nombres de Azure DNS](dns-domain-delegation.md).
+
 Para administrar el conjunto de registros y los registros, consulte [Administración de registros y conjuntos de registros DNS mediante el Portal de Azure](dns-operations-recordsets-portal.md).
 
-Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

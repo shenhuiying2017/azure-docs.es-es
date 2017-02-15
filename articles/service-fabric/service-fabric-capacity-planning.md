@@ -62,7 +62,7 @@ Ahora, en función de esta información, la hoja de cálculo muestra que podría
 Para más información sobre cómo crear particiones de servicios, vea [Creación de particiones de los servicios de Service Fabric][10].
 
 <!--Image references-->
-[Imagen 1]: ./media/SF-Cost.png
+[Image1]: ./media/SF-Cost.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md

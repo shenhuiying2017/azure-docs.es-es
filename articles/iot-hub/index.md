@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recursos de Internet de las cosas. Tutoriales, referencias de API, vídeos y otra documentación."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>Documentación de IoT Hub
 
-Azure IoT Hub es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de soluciones.  También proporciona una amplia supervisión de la conectividad de los dispositivos e incluye bibliotecas de dispositivos para las plataformas y los lenguajes más usados. 
+Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recursos de Internet de las cosas. Tutoriales, referencias de API, vídeos y otra documentación le ayudan a implementar una comunicación confiable y bidireccional entre los dispositivos de IoT y una solución de back-end. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -103,81 +104,59 @@ Azure IoT Hub es un servicio totalmente administrado que permite la comunicació
 </ul>
 
 ---
-
-## <a name="reference"></a>Referencia
-
+ 
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/iot">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI de Azure</h3>
-                        <p>IoT HUB con CLI de Azure</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/cli/azure/iot">CLI de Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API de referencia administrada de .NET</p>
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (servicio)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispostivos)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (servicio)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (dispositivos)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/">SDK de IoT de Azure</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">SDK de puerta de enlace</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referencia de SDK de Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/iothub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de IoT HUB</p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (proveedor de recursos)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (identidades de dispositivos)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (trabajos)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de la documentación de IoT Hub </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

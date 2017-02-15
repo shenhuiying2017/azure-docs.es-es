@@ -90,7 +90,7 @@ Realice los pasos siguientes para unir la máquina virtual Windows Server al dom
     ![Especificar las credenciales para unirse al dominio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. Puede especificar credenciales de cualquiera de las maneras siguientes:
    
-   * Formato UPN: especifique el sufijo UPN de la cuenta de usuario como está configurado en Azure AD. En este ejemplo, el sufijo UPN del usuario 'bob' es 'bob@domainservicespreview.onmicrosoft.com'.
+   * Formato UPN: especifique el sufijo UPN de la cuenta de usuario como está configurado en Azure AD. En este ejemplo, el sufijo UPN del usuario "bob" es "bob@domainservicespreview.onmicrosoft.com".
    * Formato SAMAccountName: puede especificar el nombre de cuenta en formato SAMAccountName. En este ejemplo, el usuario "bob" tendría que especificar "CONTOSO100\bob".
      
      > [!NOTE]

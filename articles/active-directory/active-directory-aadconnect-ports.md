@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: Puertos | Microsoft Docs'
-description: Esta página es una página de referencia técnica para puertos que deben estar abiertos para Azure AD Connect.
+title: 'Azure AD Connect: puertos | Microsoft Docs'
+description: "Esta página es una página de referencia técnica para puertos que deben estar abiertos para Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bc48cac1f7e361df7f80f1dbf5a438484d4137c9
+
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
@@ -43,7 +47,7 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 
 Para una lista de direcciones URL y de direcciones IP que necesita para abrir en el firewall, consulte [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## <a name="table-3---azure-ad-connect-and-federation-servers/wap"></a>Tabla 3: Azure AD Connect y servidores de federación/WAP
+## <a name="table-3---azure-ad-connect-and-federation-serverswap"></a>Tabla 3: Azure AD Connect y servidores de federación/WAP
 En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre el servidor de Azure AD Connect y servidores de federación/WAP.  
 
 | Protocol | Puertos | Description |
@@ -67,10 +71,10 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 | HTTPS |443 (TCP/UDP) |Se usa para la autenticación de dispositivos. |
 | TCP |49443 (TCP) |Se usa para la autenticación de certificados. |
 
-## <a name="table-6a-&-6b---azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Tabla 6a y 6b: Agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
+## <a name="table-6a--6b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabla 6a y 6b: Agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 En las tablas siguientes se describen los puntos de conexión, puertos y protocolos que son necesarios para la comunicación entre los agentes de Azure AD Connect Health y Azure AD.
 
-### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Tabla 6a: Puertos y protocolos para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
+### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabla 6a: Puertos y protocolos para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 En esta tabla se describen los siguientes puertos y protocolos de salida que son necesarios para la comunicación entre los agentes de Azure AD Connect Health y Azure AD.  
 
 | Protocol | Puertos | Description |
@@ -78,9 +82,12 @@ En esta tabla se describen los siguientes puertos y protocolos de salida que son
 | HTTPS |443 (TCP/UDP) |Salida |
 | Bus de servicio |5671 (TCP/UDP) |Salida |
 
-### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>6b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
+### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>6b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 Para ver una lista de puntos de conexión, consulte [la sección de requisitos para el agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md#requirements).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

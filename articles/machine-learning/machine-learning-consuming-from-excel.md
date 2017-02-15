@@ -1,30 +1,34 @@
 ---
-title: Consumo de un servicio web de Aprendizaje automático de Excel | Microsoft Docs
-description: Consumir un servicio web de Aprendizaje automático de Azure de Excel
+title: Consumo de un servicio web Machine Learning de Excel | Microsoft Docs
+description: "Consumir un servicio web de Aprendizaje automático de Azure de Excel"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: tedway
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
+ms.date: 11/15/2016
 ms.author: tedway
+translationtype: Human Translation
+ms.sourcegitcommit: 2725357b2effe7c75d7a9e1462568706497757df
+ms.openlocfilehash: b1bc047d5361a4e2c6e9c946f470037fa3c45b3c
+
 
 ---
-# Consumo de un servicio web de Aprendizaje automático de Azure de Excel
+# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Consumo de un servicio web de Aprendizaje automático de Azure de Excel
  Estudio de aprendizaje automático de Azure facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
 
 Si utiliza Excel 2013 (o posterior) o Excel Online, le recomendamos que use el [complemento de Excel](machine-learning-excel-add-in-for-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Pasos
-Publicar un servicio web. En [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única).
+## <a name="steps"></a>Pasos
+Publicar un servicio web. [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única). 
 
 Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** que se encuentra a la izquierda del estudio y, luego, seleccione el servicio web que se va a usar desde Excel.
 
@@ -37,13 +41,13 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
 
 **Servicio web nuevo**
 
-1. En el portal de servicios web de Aprendizaje automático de Azure, seleccione **Consume** (Consumo).
+1. En el portal de servicios web de Aprendizaje automático de Azure, seleccione **Consume**(Consumo).
 2. En la página de consumo, en la sección **Web service consumption options** (Opciones de consumo del servicio web), haga clic en el icono de Excel.
 
 **Uso del libro**
 
 1. Abra el libro.
-2. Aparecerá una advertencia de seguridad; haga clic en el botón **Habilitar edición**.
+2. Aparecerá una advertencia de seguridad; haga clic en el botón **Habilitar edición** .
    
     ![][2]
 3. Aparecerá una advertencia de seguridad. Haga clic en el botón **Habilitar contenido** para ejecutar macros en la hoja de cálculo.
@@ -54,12 +58,12 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
     ![][4]
 5. Para puntuar más de una fila, rellene la segunda fila con datos y se generarán los valores predichos. Incluso puede pegar varias filas a la vez.
 
-Puede utilizar cualquiera de las funciones de Excel (gráficos, asignación de energía, formato condicional, etc.) con los valores de predicción como ayuda para visualizar los datos.
+Puede utilizar cualquiera de las funciones de Excel (gráficos, asignación de energía, formato condicional, etc.) con los valores de predicción como ayuda para visualizar los datos.    
 
-## Compartir el libro
+## <a name="sharing-your-workbook"></a>Compartir el libro
 Para que las macros funcionen, la clave de API debe formar parte de la hoja de cálculo. Esto significa que debe compartir el libro con las entidades e individuos de su confianza.
 
-## Actualizaciones automáticas
+## <a name="automatic-updates"></a>Actualizaciones automáticas
 En las siguientes dos situaciones se realiza una llamada a RRS:
 
 1. La primera vez que una fila tiene contenido en todos sus **PARÁMETROS**
@@ -70,4 +74,8 @@ En las siguientes dos situaciones se realiza una llamada a RRS:
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

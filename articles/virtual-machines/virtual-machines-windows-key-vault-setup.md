@@ -1,13 +1,13 @@
 ---
-title: Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager | Microsoft Docs
-description: Cómo configurar un Almacén de claves para usarlo con una máquina virtual de Azure Resource Manager.
+title: "Configuración de Key Vault para máquinas virtuales en Azure Resource Manager | Microsoft Docs"
+description: "Cómo configurar un Almacén de claves para usarlo con una máquina virtual de Azure Resource Manager."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: singhkays
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: singhkay
+translationtype: Human Translation
+ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
+ms.openlocfilehash: cf928d43851e7b3d38742387bce136de5f547fa6
+
 
 ---
-# Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager
 
-modelo de implementación clásica
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante el proveedor de recursos del Almacén de claves. Para más información sobre el Almacén de claves, consulte [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
 
@@ -30,7 +33,7 @@ En la pila de Azure Resource Manager, los certificados o secretos se modelan com
 > 
 > 
 
-## Uso de PowerShell para configurar el Almacén de claves
+## <a name="use-powershell-to-set-up-key-vault"></a>Uso de PowerShell para configurar el Almacén de claves
 Para crear un almacén de claves usando PowerShell, consulte [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md#vault).
 
 Para almacenes de claves nuevos, puede usar este cmdlet de PowerShell:
@@ -41,14 +44,14 @@ Para almacenes de claves existentes, puede usar este cmdlet de PowerShell:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
-## Uso de la CLI para configurar el Almacén de claves
+## <a name="us-cli-to-set-up-key-vault"></a>Uso de la CLI para configurar el Almacén de claves
 Para crear un almacén de claves mediante la interfaz de la línea de comandos (CLI), consulte [Administración del Almacén de claves mediante CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
 Para la CLI, primero debe crear el almacén de claves y luego asignar la directiva de implementación. Para ello, puede usar el siguiente comando:
 
     azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## Uso de plantillas para configurar el Almacén de claves
+## <a name="use-templates-to-set-up-key-vault"></a>Uso de plantillas para configurar el Almacén de claves
 Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` en `true` para el recurso de Almacén de claves.
 
     {
@@ -63,6 +66,11 @@ Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` e
       }
     }
 
-Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/) (Creación de un almacén de claves).
+Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)(Creación de un almacén de claves).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

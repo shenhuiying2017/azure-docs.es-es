@@ -3,7 +3,7 @@ title: "Registro de diagnóstico de Azure Batch | Microsoft Docs"
 description: "Registre y analice los eventos de registro de diagnóstico de los recursos de la cuenta de Azure Batch como tareas y grupos."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 10/12/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2c66486f9716ed8ac093685b10e9294beb43c381
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
 
 
 ---
@@ -78,14 +78,14 @@ Actualmente, el servicio Batch emite los siguientes eventos del registro del ser
 
 | **Eventos del registro del servicio** |
 | --- |
-| [Pool create][pool_create] |
-| [Pool delete start][pool_delete_start] |
-| [Pool delete complete][pool_delete_complete] |
-| [Pool resize start][pool_resize_start] |
-| [Pool resize complete][pool_resize_complete] |
-| [Task start][task_start] |
-| [Task complete][task_complete] |
-| [Task fail][task_fail] |
+| [Creación de grupos][pool_create] |
+| [Inicio de eliminación de grupo][pool_delete_start] |
+| [Finalización de eliminaciones de grupo][pool_delete_complete] |
+| [Inicio de cambio de tamaño de grupo][pool_resize_start] |
+| [Finalización de cambio de tamaño de grupo][pool_resize_complete] |
+| [Inicio de tarea][task_start] |
+| [Tarea completada][task_complete] |
+| [Error en la tarea][task_fail] |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Además de almacenar los eventos de registro de diagnóstico en una cuenta de Azure Storage, los eventos del registro del servicio Batch también se pueden transmitir a un [Centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md) y enviarlos a [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
@@ -108,6 +108,6 @@ Además de almacenar los eventos de registro de diagnóstico en una cuenta de Az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

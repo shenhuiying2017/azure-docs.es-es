@@ -1,13 +1,13 @@
 ---
-title: Solución de problemas de los grupos de seguridad de red - Portal | Microsoft Docs
-description: Obtenga información acerca de cómo solucionar problemas de los grupos de seguridad de red en el modelo de implementación de Azure Resource Manager utilizando Azure Portal.
+title: "Solución de problemas de los grupos de seguridad de red - Portal | Microsoft Docs"
+description: "Obtenga información acerca de cómo solucionar problemas de los grupos de seguridad de red en el modelo de implementación de Azure Resource Manager utilizando Azure Portal."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+
 
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solución de problemas de los grupos de seguridad de red utilizando Azure Portal
@@ -105,7 +109,7 @@ Si el flujo de tráfico de la máquina virtual se ve afectado por una NIC espec�
    > 
 4. Puede editar directamente las reglas para los NSG asociados con una subred y una NIC. Para obtener información sobre cómo hacerlo, vea el paso 8 de la sección **Visualización de las reglas de seguridad vigentes para una máquina virtual** de este artículo.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-(nsg)"></a>Visualización de las reglas de seguridad vigentes para un grupo de seguridad de red (NSG)
+## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>Visualización de las reglas de seguridad vigentes para un grupo de seguridad de red (NSG)
 Al modificar las reglas de NSG, puede revisar el impacto de las reglas que se agregan en una máquina virtual específica. Puede ver una lista completa de las reglas de seguridad vigentes para todas las NIC a las que se aplica un NSG determinado, sin tener que cambiar el contexto de la hoja de NSG determinada. Para solucionar problemas de las reglas vigentes dentro de un NSG, realice los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
@@ -123,8 +127,8 @@ Al modificar las reglas de NSG, puede revisar el impacto de las reglas que se ag
      > Si un NSG se aplica a solo una subred vacía, no se mostrará ninguna máquina virtual. Si se aplica un NSG a una NIC que no está asociada a una máquina virtual, las NIC tampoco aparecerán. 
      > 
      > 
-   * **Interfaz de red:** una máquina virtual puede tener varias interfaces de red. Puede seleccionar una interfaz de red conectada a la máquina virtual seleccionada.
-   * **AssociatedNSGs:** en cualquier momento, una NIC puede tener hasta dos NSG vigentes, uno aplicado a la NIC y el otro a la subred. Aunque el ámbito está seleccionado como VM1-nsg, si la NIC tiene un NSG de subred vigente, la salida mostrará ambos NSG.
+   * **Interfaz de red:** una VM puede tener varias interfaces de red. Puede seleccionar una interfaz de red conectada a la máquina virtual seleccionada.
+   * **Grupos de seguridad de red asociados:** en cualquier momento, una NIC puede tener hasta dos grupos de seguridad de red vigentes, uno aplicado a la NIC y el otro a la subred. Aunque el ámbito está seleccionado como VM1-nsg, si la NIC tiene un NSG de subred vigente, la salida mostrará ambos NSG.
 4. Puede editar directamente las reglas para los NSG asociados con una subred o una NIC. Para obtener información sobre cómo hacerlo, vea el paso 8 de la sección **Visualización de las reglas de seguridad vigentes para una máquina virtual** de este artículo.
 
 Para leer más acerca de la información que se muestra, vea el paso 6 de la sección **Visualización de las reglas de seguridad vigentes para una máquina virtual** de este artículo.
@@ -145,6 +149,9 @@ Tenga en cuenta los puntos siguientes cuando tenga que solucionar problemas de c
 * Las reglas de seguridad vigentes solo se muestran si hay un NSG asociado con la NIC o subred de máquina virtual. 
 * Si no hay ningún NSG asociado a la NIC o subred y tiene una dirección IP pública asignada a la máquina virtual, todos los puertos estarán abiertos para el acceso entrante y saliente. Si la máquina virtual tiene una dirección IP pública, es muy recomendable aplicar los NSG a la subred o NIC.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

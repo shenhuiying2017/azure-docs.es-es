@@ -17,6 +17,6 @@ Si tiene varias suscripciones, use el cmdlet [**Set-AzureRmContext**](http://msd
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

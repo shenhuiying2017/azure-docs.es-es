@@ -1,33 +1,37 @@
 ---
 title: Consola y registros de streaming
-description: Información general de la consola y los registros de transmisión
+description: "Información general de la consola y los registros de transmisión"
 author: btardif
 manager: wpickett
-editor: ''
+editor: 
 services: app-service\web
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 3e50a287-781b-4c6a-8c53-eec261889d7a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/26/2016
+ms.date: 10/12/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7704270d7bba54577f61f3f349dc69dc6ddf08c6
+
 
 ---
-# Registros de transmisión y la consola
-### Registros de transmisión
-El Portal de Microsoft Azure ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde las aplicaciones web del Servicio de aplicaciones en tiempo real.
+# <a name="streaming-logs-and-the-console"></a>Registros de transmisión y la consola
+## <a name="streaming-logs"></a>Registros de transmisión
+**Azure Portal** ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde las aplicaciones de **App Service** en tiempo real.  
 
-La configuración requiere algunos pasos sencillos:
+Configurar esta característica requiere algunos pasos sencillos:
 
 * Escritura de seguimientos en el código.
-* Habilitación de Diagnóstico de aplicaciones desde el Portal de Azure.
-* Clic en los registros de streaming en la hoja de la aplicación web
+* Habilitación de **registros de diagnósticos** de aplicación para la aplicación
+* Vea la transmisión desde la interfaz de usuario de **registros de streaming** integrados en **Azure Portal**.
 
-### Cómo escribir los seguimientos en el código
-La escritura de seguimientos en el código es sencilla. En C# es tan fácil como escribir el siguiente código:
+### <a name="how-to-write-traces-in-your-code"></a>Cómo escribir los seguimientos en el código
+La escritura de seguimientos en el código es sencilla.  En C# es tan fácil como escribir el siguiente código:
 
 `````````````````````````
 Trace.TraceInformation("My trace statement");
@@ -49,23 +53,26 @@ En una aplicación node.js, puede escribir este código para conseguir el mismo 
 console.log("My trace statement").
 `````````````````````````
 
-### Habilitación y visualización de registros de transmisión
-![][BrowseSitesScreenshot] El diagnóstico se habilita por aplicación web. En el [portal](https://portal.azure.com), vaya al sitio para el que quiere habilitar esta característica.
+### <a name="how-to-enable-and-view-the-streaming-logs"></a>Habilitación y visualización de registros de transmisión
+![][BrowseSitesScreenshot] El diagnóstico se habilita por aplicación. Para comenzar, vaya al sitio en el que quiere habilitar esta característica.  
 
-![][DiagnosticsLogs] A continuación, haga clic en **(1) Configuración** > **(2) Registros de diagnóstico** y **(3) active** el **Registro de la aplicación (sistema de archivos)** o el **Registro de la aplicación (Blob)**. La opción **Nivel** le permite cambiar el nivel de gravedad del seguimiento que se captura. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
+![][DiagnosticsLogs] En el menú de configuración, desplácese hacia abajo hasta la sección **Supervisión**y haga clic en **(1) Registros de diagnóstico**. Luego, **(2) habilite** **Registro de la aplicación (sistema de archivos)** o **Registro de la aplicación (blob)**. La opción **Nivel** le permite cambiar el nivel de gravedad del seguimiento que se captura. Si solo se está intentando familiarizar con la característica, establezca el nivel en **Detallado** para asegurarse de que se recopilarán todas las instrucciones de seguimiento.
 
 Haga clic en **SAVE** en la parte superior del cuadro y estará listo para ver los registros.
 
-**Nota:** cuanto mayor sea el **nivel de gravedad**, más recursos del registro se consumen y más trazas se obtendrán. Asegúrese de que se establece en el nivel adecuado al usar esta característica para sitio de producción o de tráfico alto.
+> [!NOTE]
+> Cuanto más alto sea el **nivel de gravedad**, más recursos del registro se consumen y más seguimientos se generarán. Asegúrese de que el **nivel de gravedad** está configurado en el nivel de detalle correcto para un sitio de producción o de alto tráfico. 
+> 
+> 
 
-![][StreamingLogsScreenshot] Para ver los registros de streaming desde el portal, haga clic en **(1) Herramientas** > **(2) Secuencia de registro**. Si la aplicación escribe instrucciones de seguimiento activamente, debe verlas en la **(3)** ventana resultante prácticamente en tiempo real.
+![][StreamingLogsScreenshot] Para ver los **registros de streaming** desde Azure Portal, haga clic en **(1) Secuencia de registro** también en la sección **Supervisión** del menú de configuración. Si la aplicación escribe instrucciones de seguimiento activamente, debe verlas en la **(2) interfaz de usuario de registros de streaming** prácticamente en tiempo real.
 
-## Consola
-El Portal de Azure proporciona acceso a la consola para el entorno de la aplicación web. Puede explorar el sistema de archivos de la aplicación web y ejecutar los scripts de cmd/powershell. Se realizará la vinculación mediante los mismos permisos establecidos en el código de la aplicación web en ejecución cuando se ejecuten los comandos de consola. No podrá obtener acceso a los directorios protegidos o ejecutar scripts que requieran permisos elevados.
+## <a name="console"></a>Consola
+**Azure Portal** proporciona acceso a la consola para la aplicación. Puede explorar el sistema de archivos de la aplicación y ejecutar los scripts de cmd/powershell. Se realizará la vinculación mediante los mismos permisos establecidos en el código de la aplicación en ejecución cuando se ejecuten los comandos de consola. El acceso a directorios protegidos o a scripts de ejecución que requieren permisos elevados están bloqueado.  
 
-![][ConsoleScreenshot] Para ir a la consola, desplácese a una aplicación web tal como se describe en la sección anterior. Haga clic en **(1) Herramientas**>**(2) Consola** y **(3)** la consola se abrirá.
+![][ConsoleScreenshot] En el menú de configuración, desplácese hacia abajo hasta la sección **Herramientas de desarrollo** y haga clic en **(1) Consola**; luego, la interfaz de usuario de la **(2) consola** aparece a la derecha.
 
-Para familiarizarse con la consola, pruebe estos comandos básicos:
+Para familiarizarse con la **consola**, pruebe estos comandos básicos:
 
 `````````````````````````
 dir
@@ -81,4 +88,8 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

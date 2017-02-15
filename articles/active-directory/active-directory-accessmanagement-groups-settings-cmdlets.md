@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -35,23 +35,23 @@ Puede descargar el módulo que contiene los cmdlets usados para estas operacione
 Con estos pasos se crean configuraciones en el nivel de directorio, las cuales se aplican a todos los grupos de Office del directorio.
 
 1. Si no sabe qué objeto SettingTemplate debe usar, este cmdlet devuelve la lista de plantillas de configuración:
-   
+
     `Get-MsolAllSettingTemplate`
-   
+
     ![Lista de plantillas de configuración](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 2. Para agregar una dirección URL de instrucciones de uso, primero debe obtener el objeto SettingsTemplate que define el valor pertinente, es decir, la plantilla Group.Unified:
-   
+
     `$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
 3. A continuación, cree un nuevo objeto de configuración basado en esa plantilla:
-   
+
     `$setting = $template.CreateSettingsObject()`
 4. Luego, actualice el valor de instrucciones de uso:
-   
+
     `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
 5. Por último, aplique la configuración:
-   
+
     `New-MsolSettings –SettingsObject $setting`
-   
+
     ![Agregar una dirección URL de instrucción de uso](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
 
 Esta es la configuración definida en el objeto SettingsTemplate Group.Unified.
@@ -67,31 +67,31 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified.
 Con estos pasos se lee la configuración en el nivel de directorio, la cual se aplica a todos los grupos de Office del directorio.
 
 1. Lea toda la configuración de directorio existente:
-   
+
     `Get-MsolAllSettings`
 2. Lea toda la configuración de un grupo específico:
-   
+
     `Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
 3. Lea la configuración de directorio específica, mediante el GUID de SettingId:
-   
+
     `Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
-   
+
     ![GUID de identificador de configuración](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
 ## <a name="update-settings-at-the-directory-level"></a>Actualización de la configuración en el nivel de directorio
 Con estos pasos se actualiza la configuración en el nivel de directorio, la cual se aplica a todos los grupos de Office del directorio.
 
 1. Obtenga el objeto Settings existente:
-   
+
     `$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 2. Obtenga el valor que quiere actualizar:
-   
+
     `$value = $Setting.GetSettingsValue()`
 3. Actualice el valor:
-   
+
     `$value["AllowToAddGuests"] = "false"`
 4. Actualice la configuración:
-   
+
     `Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
 
 ## <a name="remove-settings-at-the-directory-level"></a>Eliminación de la configuración en el nivel de directorio
@@ -122,7 +122,6 @@ Se pueden encontrar instrucciones adicionales en [Rob's Groups Blog](http://robs
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
 
 
 

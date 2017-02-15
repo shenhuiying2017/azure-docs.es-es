@@ -1,6 +1,6 @@
 ---
-title: "Configuración de reglas de firewall de nivel de servidor de SQL Database | Microsoft Docs"
-description: "Descubra cómo configurar el firewall para direcciones IP que accedan al servidor SQL de Azure."
+title: 'Azure Portal: reglas de firewall de nivel de servidor en Azure SQL Database | Microsoft Docs'
+description: Aprenda a configurar las reglas de firewall de nivel de servidor para direcciones IP que acceden a instancias de Azure SQL Server mediante Azure Portal.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
 
 
 ---
@@ -64,6 +64,6 @@ Haga clic en **Guardar** para guardar los cambios.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

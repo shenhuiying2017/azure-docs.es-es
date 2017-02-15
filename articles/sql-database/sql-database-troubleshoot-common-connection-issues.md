@@ -4,7 +4,7 @@ description: "Pasos para identificar y resolver errores de conexión comunes par
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: cshepard
+manager: felixwu
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 08/31/2016
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 7e443a350e5f3597e9d59fe934c28bd8cd93be26
-ms.openlocfilehash: 8ccf72046e95b12316685d1de9632e18f0943948
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
 
 
 ---
@@ -77,9 +77,9 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 | 4 |[Solucionar problemas de conectividad con la Base de datos SQL de Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Esta herramienta ayuda a identificar problemas y a resolver problemas de conexión. |
 | 5 |[Solucionar el problema del mensaje "Database &lt;x&gt; v &lt;y&gt; is not currently available. Please retry the connection later" (La base de datos &lt;x&gt; del servidor &lt;y&gt; no está disponible. Vuelva a intentar la conexión más tarde)](sql-database-troubleshoot-connection.md) |Se describe cómo identificar y resolver un error 40613: "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Vuelva a intentar la conexión más tarde.) |
 | 6 |[Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas.](sql-database-develop-error-messages.md) |Proporciona información sobre los códigos de error de SQL de las aplicaciones cliente de Base de datos SQL, como errores de conexión de base de datos más comunes, problemas de copia de la base de datos y errores generales. |
-| 7 |[Guía de rendimiento de Base de datos SQL de Azure](sql-database-performance-guidance.md) |Se proporcionan instrucciones para ayudarle a determinar qué nivel de servicio es adecuado para su aplicación. También se incluyen recomendaciones para optimizar la aplicación y así sacar el máximo provecho de su instancia de Base de datos SQL de Azure. |
+| 7 |[Guía de rendimiento de SQL Database de Azure para bases de datos independientes](sql-database-performance-guidance.md). |Se proporcionan instrucciones para ayudarle a determinar qué nivel de servicio es adecuado para su aplicación. También se incluyen recomendaciones para optimizar la aplicación y así sacar el máximo provecho de su instancia de Base de datos SQL de Azure. |
 | 8 |[Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md) |Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse a Base de datos SQL de Azure e interactuar con este servicio. |
-| 9 |Actualizar a la página de la versión 12 de Azure SQL Database ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Se proporcionan instrucciones para actualizar los servidores y bases de datos de Base de datos SQL de Azure V11 existentes a Base de datos SQL de Azure V12 mediante el Portal de Azure o PowerShell. |
+| 9 |Actualizar a la página de la versión&12; de Azure SQL Database ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Se proporcionan instrucciones para actualizar los servidores y bases de datos de Base de datos SQL de Azure V11 existentes a Base de datos SQL de Azure V12 mediante el Portal de Azure o PowerShell. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Evaluación y mejora del rendimiento de la base de datos con la Base de datos SQL de Azure](sql-database-troubleshoot-performance.md)
@@ -97,6 +97,6 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,8 +3,8 @@ title: Uso de Blob Storage (almacenamiento de objetos) en Ruby | Microsoft Docs
 description: Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure.
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: e2fe4c45-27b0-4d15-b3fb-e7eb574db717
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b6eb8c68402a18a66f9d227a1a835bcee81f73cc
-ms.openlocfilehash: 78d07dbcd11692fc29518a29c64507940971bc6a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: cc42e6629c256d1fe6e5b082c88ebb2497484318
 
 
 ---
@@ -51,7 +51,7 @@ Con el editor de texto que prefiera, agregue lo siguiente al principio del archi
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de almacenamiento de Azure
+## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS_KEY** para obtener información necesaria para conectarse a su cuenta de Azure Storage. Si no se establecen estas variables de entorno, debe especificar la información de la cuenta antes de usar **Azure::Blob::BlobService** con el siguiente código:
 
 ```ruby
@@ -64,15 +64,15 @@ Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. En la hoja Configuración que se encuentra a la derecha, haga clic en **Claves de acceso**.
-4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas. 
-5. Haga clic en el icono de copia para copiar la clave en el Portapapeles. 
+4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas.
+5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
 Para obtener estos valores desde una cuenta de almacenamiento clásica en el Portal de Azure clásico:
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. Haga clic en **ADMINISTRAR CLAVES DE ACCESO** en la parte inferior del panel de navegación.
-4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria. 
+4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria.
 5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
 ## <a name="create-a-container"></a>Crear un contenedor
@@ -100,7 +100,7 @@ container = azure_blob_service.create_container("test-container",
     :public_access_level => "<public access level>")
 ```
 
-Los valores correctos para la opción **:public\_access\_level son:
+Los valores válidos para la opción **:public\_access\_level** son:
 
 * **blob:** habilita el acceso de lectura público completo a los datos del contenedor y los blobs. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 * **contenedor:** habilita el acceso de lectura público a los blobs. Los datos de blob dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
@@ -168,6 +168,6 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

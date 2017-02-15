@@ -1,19 +1,22 @@
 ---
-title: Escritura de expresiones para la asignación de atributos en Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory.
+title: Escritura de expresiones para asignaciones de atributos en Azure Active Directory | Microsoft Azure
+description: "Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
+
 
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
@@ -87,7 +90,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Obligatorio |Cadena |Normalmente el nombre del atributo. |
+| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo. |
 | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
 | **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
@@ -101,7 +104,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
+| **de origen** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
 
 - - -
 ### <a name="replace"></a>Replace
@@ -128,7 +131,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
+| **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
 | **oldValue** |Opcional |Cadena |Valor que se va a reemplazar en **source** o **template**. |
 | **regexPattern** |Opcional |Cadena |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
 | **regexGroupName** |Opcional |Cadena |Nombre del grupo dentro de **regexPattern**. Sólo cuando se utilice replacementPropertyName, extraeremos el valor de este grupo como replacementValue de la propiedad de reemplazo. |
@@ -158,7 +161,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Obligatorio |Cadena |**Source** que se actualiza. |
+| **de origen** |Obligatorio |Cadena |**Source** que se actualiza. |
 | **defaultValue** |Opcional |Cadena |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
 | **key** |Obligatorio |Cadena |**Key** con que se compara el valor de **source**. |
 | **value** |Obligatorio |Cadena |Valor de reemplazo para el **source** que coincide con la clave. |
@@ -234,6 +237,9 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 * [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

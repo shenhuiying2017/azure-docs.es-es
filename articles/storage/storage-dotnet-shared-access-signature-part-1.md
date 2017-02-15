@@ -3,8 +3,8 @@ title: Uso de Firmas de acceso compartido (SAS) | Microsoft Docs
 description: "Obtenga información acerca de cómo delegar el acceso a los recursos de Almacenamiento de Azure, incluidos blobs, colas, tablas y archivos usando firmas de acceso compartido (SAS)."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf65af15bc3b71baf92aec93eb1a599b9f931c2
-ms.openlocfilehash: 81364b9ef2e310c9050a85e9d0dd11fe9a2d03a9
+ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
+ms.openlocfilehash: c027b8ecbf2941f39056bb696dbcb9c7100cdc6c
 
 
 ---
@@ -27,7 +27,7 @@ Usar una firma de acceso compartido (SAS) es una manera eficaz de conceder acces
 Para obtener ejemplos de código adicionales mediante SAS, aparte de los aquí presentados, consulte [Introducción a Azure Blob Storage en .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) y otros ejemplos disponibles en la biblioteca [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?service=storage). Puede descargar las aplicaciones de ejemplo y ejecutarlas, así como ver el código en GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>¿Qué es una firma de acceso compartido?
-Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Con una SAS, puede conceder a los clientes acceso a los recursos de su cuenta de almacenamiento sin compartir las claves de la cuenta. Este es el punto clave del uso de firmas de acceso compartido en sus aplicaciones: una SAS es una forma segura de compartir los recursos de almacenamiento sin poner en peligro las claves de cuenta.
+Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Con una SAS, puede conceder a los clientes acceso a los recursos de su cuenta de almacenamiento sin compartir las claves de la cuenta. Este es el aspecto clave de usar las firmas de acceso compartido en las aplicaciones: una SAS es una forma segura de compartir los recursos de almacenamiento sin poner en peligro las claves de cuenta.
 
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
@@ -62,13 +62,13 @@ Además, deberá usar una SAS para autenticar el objeto de origen en una operaci
 ## <a name="types-of-shared-access-signatures"></a>Tipos de firmas de acceso compartido
 La versión 2015-04-05 de Almacenamiento de Azure presenta un nuevo tipo de firma de acceso compartido, SAS de cuenta. Ahora puede crear cualquiera de los dos tipos de firmas de acceso compartido:
 
-* **SAS de cuenta.**  SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio están también disponibles con una SAS de cuenta. Además, con la SAS de cuenta, puede delegar el acceso a las operaciones que se aplican a un servicio determinado como **Get/Set Service Properties** y **Get Service Stats**. También puede delegar el acceso para leer, escribir y eliminar operaciones en contenedores de blobs, tablas, colas y recursos compartidos de archivos que no están permitidos con SAS de servicio. Consulte [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/mt584140.aspx) para obtener información detallada acerca de cómo crear el token de SAS de cuenta.
+* **SAS de cuenta.** SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio están también disponibles con una SAS de cuenta. Además, con la SAS de cuenta, puede delegar el acceso a las operaciones que se aplican a un servicio determinado como **Get/Set Service Properties** y **Get Service Stats**. También puede delegar el acceso para leer, escribir y eliminar operaciones en contenedores de blobs, tablas, colas y recursos compartidos de archivos que no están permitidos con SAS de servicio. Consulte [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/mt584140.aspx) para obtener información detallada sobre cómo crear el token de SAS de cuenta.
 * **SAS de servicio.** SAS de servicio delega el acceso a un recurso en solo uno de los servicios de almacenamiento: el servicio Blob, Cola, Tabla o Archivo. Consulte [Creación de una SAS de servicio](https://msdn.microsoft.com/library/dn140255.aspx) y [Ejemplos de SAS de servicio](https://msdn.microsoft.com/library/dn140256.aspx), para obtener información detallada acerca de cómo construir el token de SAS de servicio.
 
 ## <a name="how-a-shared-access-signature-works"></a>Funcionamiento de una firma de acceso compartido
 Una firma de acceso compartido es un URI firmado que señala a uno o más recursos de almacenamiento e incluye un token que contiene un conjunto especial de parámetros de consulta. El token indica cómo puede el cliente tener acceso a los recursos. Uno de los parámetros de consulta, la firma, se construye a partir de parámetros SAS y se firma con la clave de cuenta. Almacenamiento de Azure usa esa firma para autenticar la SAS.
 
-Este es un ejemplo de un URI de SAS, que muestra el URI de recurso y el token de SAS: 
+Este es un ejemplo de un URI de SAS, que muestra el URI de recurso y el token de SAS:
 
 ![sas-storage-uri][sas-storage-uri]
 
@@ -82,22 +82,22 @@ Los tokens de SAS de cuenta y de SAS de servicio incluyen algunos parámetros co
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parámetros comunes para tokens de SAS de cuenta y de SAS de servicio
 * **Versión de API.** Un parámetro opcional que especifica la versión del servicio de almacenamiento que se usa para ejecutar la solicitud.
 * **Versión del servicio.** Es un parámetro necesario que especifica la versión del servicio de almacenamiento que se usa para autenticar la solicitud.
-* **Hora de inicio.**  Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato. Se debe expresar en UTC (Hora universal coordinada) con un designador de hora UTC especial ("Z"); es decir, 1994-11-05T13:15:30Z.
-* **Hora de expiración.**  Es la hora a partir de la que la SAS deja de ser válida. En las prácticas recomendadas se aconseja especificar una hora de expiración para una SAS o asociarla a una directiva de acceso almacenada. Se debe expresar en UTC (Hora universal coordinada) con un designador de hora UTC especial ("Z"); es decir, 1994-11-05T13:15:30Z (puede obtener más información a continuación).
-* **Permisos.**  Los permisos especificados en una SAS indican qué operaciones puede realizar el cliente en el recurso de almacenamiento con la SAS. Los permisos disponibles son diferentes para SAS de cuenta y SAS de servicio.
+* **Hora de inicio.** Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato. Se debe expresar en UTC (Hora universal coordinada) con un designador de hora UTC especial ("Z"); es decir, 1994-11-05T13:15:30Z.
+* **Hora de expiración.** Es la hora a partir de la que la SAS deja de ser válida. En las prácticas recomendadas se aconseja especificar una hora de expiración para una SAS o asociarla a una directiva de acceso almacenada. Se debe expresar en UTC (Hora universal coordinada) con un designador de hora UTC especial ("Z"); es decir, 1994-11-05T13:15:30Z (puede obtener más información a continuación).
+* **Permisos.** Los permisos especificados en una SAS indican qué operaciones puede realizar el cliente en el recurso de almacenamiento con la SAS. Los permisos disponibles son diferentes para SAS de cuenta y SAS de servicio.
 * **Dirección Dirección IP.** Es un parámetro opcional que especifica una dirección IP o un intervalo de direcciones IP fuera de Azure (consulte la sección [Estado de la configuración de la sesión de enrutamiento](../expressroute/expressroute-workflows.md#routing-session-configuration-state) de Express Route), desde el cual puede aceptar solicitudes.
-* **Protocolo.**  Un parámetro opcional que especifica el protocolo permitido para una solicitud. Los valores posibles son HTTPS y HTTP (https,http), que es el valor predeterminado, o HTTPS solo (https). Tenga en cuenta que HTTP solo no es un valor permitido.
-* **Firma.**  La firma se construye a partir de los parámetros especificados como parte del token y, a continuación, se cifra. Se usa para autenticar la SAS.
+* **Protocolo.** Un parámetro opcional que especifica el protocolo permitido para una solicitud. Los valores posibles son HTTPS y HTTP (https,http), que es el valor predeterminado, o HTTPS solo (https). Tenga en cuenta que HTTP solo no es un valor permitido.
+* **Firma.** La firma se construye a partir de los parámetros especificados como parte del token y, a continuación, se cifra. Se usa para autenticar la SAS.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Parámetros para un token de SAS de cuenta
-* **Servicio o servicios.**  SAS de cuenta puede delegar el acceso a uno o varios de los servicios de almacenamiento. Por ejemplo, puede crear una SAS de cuenta que delega el acceso al servicio Blob y Archivo. O bien, puede crear una SAS que delega el acceso a los cuatro servicios (Blob, Cola, Tabla y Archivo).
-* **Tipos de recursos de almacenamiento.**  SAS de cuenta se aplica a una o más clases de recursos de almacenamiento, más que a un recurso específico. Puede crear una SAS de cuenta que delega el acceso a:
+* **Servicio o servicios.** SAS de cuenta puede delegar el acceso a uno o varios de los servicios de almacenamiento. Por ejemplo, puede crear una SAS de cuenta que delega el acceso al servicio Blob y Archivo. O bien, puede crear una SAS que delega el acceso a los cuatro servicios (Blob, Cola, Tabla y Archivo).
+* **Tipos de recursos de almacenamiento.** SAS de cuenta se aplica a una o más clases de recursos de almacenamiento, más que a un recurso específico. Puede crear una SAS de cuenta que delega el acceso a:
   * Las API de nivel de servicio, a las que se llaman en el recurso de la cuenta de almacenamiento. Algunos ejemplos incluyen **Get/Set Service Properties**, **Get Service Stats**, and **List Containers/Queues/Tables/Shares**.
   * Las API de nivel de contenedor, a las que se llaman en los objetos de contenedor para cada servicio: contenedores de blobs, colas, tablas y recursos compartidos de archivos. Algunos ejemplos incluyen **Create/Delete Container**, **Create/Delete Queue**, **Create/Delete Table**, **Create/Delete Share** y **List Blobs/Files y Directories**.
   * Las API de nivel de objeto, a las que se llaman en blobs, mensajes de colas, entidades de tablas y archivos. Por ejemplo, **Put Blob**, **Query Entity**, **Get Messages** y **Create File**.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parámetros para un token de SAS de servicio
-* **Recurso de almacenamiento.**  Los recursos de almacenamiento para los que puede delegar el acceso con una SAS de servicio incluyen:
+* **Recurso de almacenamiento.** Los recursos de almacenamiento para los que puede delegar el acceso con una SAS de servicio incluyen:
   * Contenedores y blobs
   * Archivos y recursos compartidos de archivo
   * Colas
@@ -159,13 +159,15 @@ Un cliente que esté en posesión de una SAS puede usarla para autenticar una so
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Uso de una SAS en un constructor o método
-Muchas de las sobrecargas de los constructores y métodos de biblioteca de cliente de almacenamiento ofrecen un parámetro de SAS.  
+Varios sobrecargas de métodos y constructores de biblioteca de cliente de Azure Storage ofrecen un parámetro SAS, para que pueda autenticar una solicitud al servicio con una SAS.
 
 Por ejemplo, aquí se usa un URI de SAS para crear una referencia a un blob en bloques. La SAS proporciona las únicas credenciales necesarias para la solicitud. La referencia de blob en bloques se usa luego para una operación de escritura:
 
 ```csharp
-string sasUri = 
-    "https://storagesample.blob.core.windows.net/sample-container/sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D&se=2016-10-18T21%3A51%3A37Z&sp=rcw"
+string sasUri = "https://storagesample.blob.core.windows.net/sample-container/" +
+    "sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D" +
+    "&se=2016-10-18T21%3A51%3A37Z&sp=rcw";
+
 CloudBlockBlob blob = new CloudBlockBlob(new Uri(sasUri));
 
 // Create operation: Upload a blob with the specified name to the container.
@@ -204,20 +206,20 @@ catch (StorageException e)
 Cuando use firmas de acceso compartido en sus aplicaciones, debe tener en cuenta dos posibles riesgos:
 
 * Si se perdió una SAS, cualquier persona que la consiga puede usarla, lo que puede poner en riesgo su cuenta de almacenamiento.
-* Si una SAS proporcionada para una aplicación cliente expira y la aplicación no puede recuperar una nueva SAS del servicio, la funcionalidad de la aplicación puede verse afectada.  
+* Si una SAS proporcionada para una aplicación cliente expira y la aplicación no puede recuperar una nueva SAS del servicio, la funcionalidad de la aplicación puede verse afectada.
 
 Las siguientes recomendaciones para el uso de firmas de acceso compartido le ayudarán a equilibrar estos riesgos:
 
 1. **Siempre use HTTPS** para crear una SAS o distribuirla.  Si se pasa una SAS a través de HTTP y se intercepta, un atacante que realice un ataque de tipo "Man in the middle" podrá leer la SAS y, a continuación, usarla como lo podría hacer el usuario previsto. Esto puede poner en riesgo los datos confidenciales o permitir que un usuario malintencionado provoque daños en los datos.
-2. **Haga referencia a las directivas de acceso almacenadas cuando sea posible.**  Las directivas de acceso almacenadas le ofrecen la posibilidad de revocar permisos sin tener que volver a generar las claves de cuenta de almacenamiento.  Establezca la expiración en ellas para que sea un período largo (o infinito) y asegúrese de que se actualiza regularmente para trasladarla a un punto posterior en el tiempo.
-3. **Use horas de expiración a corto plazo en una SAS ad-hoc.**  De esta forma, incluso si la SAS está en peligro sin saberlo, será solo viable para una duración breve. Esta práctica es especialmente importante si no puede hacer referencia a una directiva de acceso almacenada. Esta práctica también ayuda a limitar la cantidad de datos que puede escribirse en un blob mediante la limitación del tiempo disponible para cargarlos.
-4. **Haga que los clientes renueven automáticamente la SAS si fuese necesario.**  Los clientes deben renovar la SAS correctamente antes de la expiración esperada para que exista tiempo para los reintentos si el servicio que ofrece la SAS no está disponible.  Si la SAS se ha creado para usarse en un número reducido de operaciones de corta duración e inmediatas, que se espera que se va a completar dentro del tiempo de expiración determinado, es posible que no sea necesario ese procedimiento, ya que no se espera que la SAS se renueve.  Sin embargo, si dispone de un cliente que realice solicitudes de forma rutinaria a través de la SAS, existe la posibilidad de la expiración.  La consideración clave es equilibrar la necesidad de que la SAS sea de corta duración (como se estableció anteriormente) para garantizar que el cliente está solicitando la renovación con la suficiente antelación como para evitar la interrupción debido a la expiración de SAS antes de una renovación correcta.
+2. **Haga referencia a las directivas de acceso almacenadas cuando sea posible.** Las directivas de acceso almacenadas le ofrecen la posibilidad de revocar permisos sin tener que volver a generar las claves de cuenta de almacenamiento.  Establezca la expiración en ellas para que sea un período largo (o infinito) y asegúrese de que se actualiza regularmente para trasladarla a un punto posterior en el tiempo.
+3. **Use horas de expiración a corto plazo en una SAS ad-hoc.** De esta forma, incluso si la SAS está en peligro sin saberlo, será solo viable para una duración breve. Esta práctica es especialmente importante si no puede hacer referencia a una directiva de acceso almacenada. Esta práctica también ayuda a limitar la cantidad de datos que puede escribirse en un blob mediante la limitación del tiempo disponible para cargarlos.
+4. **Haga que los clientes renueven automáticamente la SAS si fuese necesario.** Los clientes deben renovar la SAS correctamente antes de la expiración para que exista tiempo para los reintentos si el servicio que ofrece la SAS no está disponible.  Si la SAS se ha creado para usarse en un número reducido de operaciones de corta duración e inmediatas, que se espera que se va a completar dentro del tiempo de expiración determinado, es posible que no sea necesario ese procedimiento, ya que no se espera que la SAS se renueve.  Sin embargo, si dispone de un cliente que realice solicitudes de forma rutinaria a través de la SAS, existe la posibilidad de la expiración.  La consideración clave es equilibrar la necesidad de que la SAS sea de corta duración (como se estableció anteriormente) para garantizar que el cliente está solicitando la renovación con la suficiente antelación como para evitar la interrupción debido a la expiración de SAS antes de una renovación correcta.
 5. **Tenga cuidado con la hora de inicio de la SAS.** Si establece la hora de inicio de la SAS en **now**, pueden producirse errores intermitentes durante los primeros minutos debido al desplazamiento del reloj (diferencias en la hora actual según las distintas máquinas).  En general, establezca la hora de inicio para que sea al menos 15 minutos antes o no la establezca. Si lo hace, será válida de inmediato en todos los casos.  Normalmente se aplica lo mismo a la hora de expiración. Recuerde que debe tener en cuenta hasta 15 minutos de desplazamiento del reloj en cualquier dirección en una solicitud.  Nota para los clientes con una versión REST anterior a 2012-02-12: la duración máxima de una SAS que no hace referencia a una directiva de acceso almacenada es de 1 hora y se producirá un error en las directivas que especifican un período más largo.
-6. **Sea específico con el recurso al que se va a tener acceso.**  Una práctica recomendada de seguridad habitual es proporcionar al usuario los privilegios mínimos necesarios.  Si un usuario solo necesita acceso de lectura en una única entidad, concédale acceso de lectura a esa única entidad y no acceso de lectura, escritura o eliminación a todas las entidades.  Esto también ayuda a mitigar la amenaza de que la SAS se encuentre en peligro, ya que esta tiene menos poder en las manos de un atacante.
-7. **Comprenda que se le hará un cargo en la cuenta por cualquier uso, incluido el realizado con la SAS.**  Si proporciona acceso de escritura a un blob, el usuario puede seleccionar cargar un blob de 200 GB.  Si le proporciona también acceso de lectura, puede seleccionar descargarlo 10 veces, lo que le supone 2 TB de costes de salida.  Proporcione de nuevo permisos limitados para ayudar a mitigar la posibilidad de usuarios malintencionados.  Use una SAS de corta duración para reducir esa amenaza (pero tenga en cuenta el desplazamiento del reloj y la hora final).
-8. **Valide los datos escritos mediante la SAS.**  Cuando una aplicación cliente escribe datos en la cuenta de almacenamiento, tenga en cuenta que pueden existir problemas con esos datos. Si la aplicación requiere que se validen o autoricen los datos antes de que estén listos para usar, debe realizar la validación después de que se escriban los datos y antes de que la aplicación los use. Esta práctica también le protege frente a los datos erróneos o malintencionados que se escriben en la cuenta, ya sea mediante un usuario que adquirió correctamente la SAS o un usuario que aproveche una SAS errónea.
-9. **No use siempre la SAS.**  En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan a las ventajas del uso de la SAS.  Para esas operaciones, cree un servicio de nivel medio que escriba en la cuenta de almacenamiento después de llevar a cabo una auditoría, autenticación o validación de la regla de negocio. A veces también es más sencillo administrar el acceso de otras formas. Por ejemplo, si desea que todos los blobs de un contenedor puedan leerse públicamente, puede hacer que el contenedor sea público en lugar de proporcionar un SAS a cada cliente para obtener acceso.
-10. **Use el análisis de almacenamiento para supervisar la aplicación.**  Puede hacer uso de registros y métricas para observar cualquier pico en los errores de autenticación producidos por la interrupción del servicio del proveedor de SAS o la eliminación involuntaria de una directiva de acceso almacenada. Consulte el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (en inglés) para obtener más información.
+6. **Sea específico con el recurso al que se va a tener acceso.** Una práctica recomendada de seguridad habitual es proporcionar al usuario los privilegios mínimos necesarios.  Si un usuario solo necesita acceso de lectura en una única entidad, concédale acceso de lectura a esa única entidad y no acceso de lectura, escritura o eliminación a todas las entidades.  Esto también ayuda a mitigar la amenaza de que la SAS se encuentre en peligro, ya que esta tiene menos poder en las manos de un atacante.
+7. **Comprenda que se le hará un cargo en la cuenta por cualquier uso, incluido el realizado con la SAS.** Si proporciona acceso de escritura a un blob, el usuario puede seleccionar cargar un blob de 200 GB.  Si le proporciona también acceso de lectura, puede seleccionar descargarlo 10 veces, lo que le supone 2 TB de costos de salida.  Proporcione de nuevo permisos limitados para ayudar a mitigar la posibilidad de usuarios malintencionados.  Use una SAS de corta duración para reducir esa amenaza (pero tenga en cuenta el desplazamiento del reloj y la hora final).
+8. **Valide los datos escritos mediante la SAS.** Cuando una aplicación cliente escribe datos en la cuenta de almacenamiento, tenga en cuenta que pueden existir problemas con esos datos. Si la aplicación requiere que se validen o autoricen los datos antes de que estén listos para usar, debe realizar la validación después de que se escriban los datos y antes de que la aplicación los use. Esta práctica también le protege frente a los datos erróneos o malintencionados que se escriben en la cuenta, ya sea mediante un usuario que adquirió correctamente la SAS o un usuario que aproveche una SAS errónea.
+9. **No use siempre la SAS.** En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan a las ventajas del uso de la SAS.  Para esas operaciones, cree un servicio de nivel medio que escriba en la cuenta de almacenamiento después de llevar a cabo una auditoría, autenticación o validación de la regla de negocio. A veces también es más sencillo administrar el acceso de otras formas. Por ejemplo, si desea que todos los blobs de un contenedor puedan leerse públicamente, puede hacer que el contenedor sea público en lugar de proporcionar un SAS a cada cliente para obtener acceso.
+10. **Use el análisis de almacenamiento para supervisar la aplicación.** Puede hacer uso de registros y métricas para observar cualquier pico en los errores de autenticación producidos por la interrupción del servicio del proveedor de SAS o la eliminación involuntaria de una directiva de acceso almacenada. Consulte el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (en inglés) para obtener más información.
 
 ## <a name="sas-examples"></a>Ejemplos de SAS
 A continuación figuran algunos ejemplos de ambos tipos de firmas de acceso compartido, SAS de cuenta y SAS de servicio.
@@ -306,7 +308,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
     // The access policy provides create, write, read, list, and delete permissions.
     SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
     {
-        // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+        // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
         // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
         SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
         Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
@@ -333,11 +335,11 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and 
-        // to construct a shared access policy that is saved to the container's shared access policies. 
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
             // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
             Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List
@@ -380,11 +382,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and 
-        // to construct a shared access policy that is saved to the container's shared access policies. 
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
             // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
             Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Create
@@ -427,6 +429,6 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

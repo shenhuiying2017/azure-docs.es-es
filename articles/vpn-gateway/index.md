@@ -1,13 +1,26 @@
 ---
+title: "Documentación, tutoriales y referencia de API sobre VPN Gateway | Microsoft Docs"
+description: "Aprenda a configurar puertas de enlace de red privada virtual (VPN) para administrar el tráfico entre redes virtuales en la nube y locales, o entre redes virtuales en la nube."
+services: vpn-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: vpn-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
+ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
+ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
+
 
 ---
-#<a name="vpn-gateway-documentation"></a>Documentación de VPN Gateway
+# <a name="vpn-gateway-documentation"></a>Documentación de VPN Gateway
 
-Azure VPN Gateway es una puerta de enlace de una red privada virtual (VPN) que se usa para enviar tráfico de red entre redes virtuales de Azure y ubicaciones locales, así como entre redes virtuales dentro de Azure (de red virtual a red virtual).  
+Aprenda a configurar VPN Gateway, una puerta de enlace de red privada virtual. En la documentación se muestra cómo enviar tráfico de red entre redes virtuales de Azure y ubicaciones locales u otras redes virtuales de Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -152,16 +165,10 @@ Azure VPN Gateway es una puerta de enlace de una red privada virtual (VPN) que s
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Azure VPN Gateway </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a insertar visualizaciones de datos e informes interactivos de Power BI en aplicaciones. Tutoriales, referencias de API y otra documentación."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b15e8e9676cba8969505728e6b9f7f2db4559e9a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentación de Power BI Embedded
 
-Power BI Embedded es un servicio de Azure que permite a los desarrolladores de aplicaciones agregar informes de Power BI interactivos a sus propias aplicaciones. Power BI Embedded se puede utilizar con las aplicaciones existentes sin necesidad de modificar el diseño ni de cambiar el modo en que los usuarios se conectan.
+Aprenda a agregar visualizaciones de datos e informes interactivos a aplicaciones con Power BI Embedded. En los tutoriales, las referencias de API y otra documentación, se muestra cómo insertar a la perfección paneles e informes de Power BI en aplicaciones.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -128,15 +129,9 @@ Power BI Embedded es un servicio de Azure que permite a los desarrolladores de a
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Power BI Embedded </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

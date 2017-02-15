@@ -13,32 +13,33 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carga de datos en Búsqueda de Azure con la API de REST
 > [!div class="op_single_selector"]
+>
 > * [Información general](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
-En este artículo mostraré cómo usar la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para importar datos en un índice de Búsqueda de Azure.
+En este artículo mostraré cómo usar la [API de REST de Búsqueda de Azure](https://docs.microsoft.com/rest/api/searchservice/) para importar datos en un índice de Búsqueda de Azure.
 
 Antes de comenzar este tutorial, debe haber [creado ya un índice de Búsqueda de Azure](search-what-is-an-index.md).
 
 Para poder insertar documentos en el índice mediante la API de REST, deberá emitir una solicitud HTTP POST al punto de conexión de la dirección URL del índice. El cuerpo de la solicitud HTTP es un objeto JSON que contiene los documentos que se van a agregar, modificar o eliminar.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identificación de la clave de API de administración del servicio de Búsqueda de Azure
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificación de la clave de API de administración del servicio de Búsqueda de Azure
 Al emitir solicitudes HTTP en el servicio mediante la API de REST, *cada* solicitud de API debe incluir la clave de API que se generó para el servicio de Búsqueda que aprovisionó. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-1. Para buscar las claves de API del servicio debe iniciar sesión en el [Portal de Azure](https://portal.azure.com/)
+1. Para buscar las claves de API del servicio, debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a la hoja de servicio de Búsqueda de Azure
 3. Haga clic en el icono "Claves"
 
@@ -65,9 +66,9 @@ Cada objeto JSON de la matriz de "value" representa un documento que se va a ind
 Ahora que ha recopilado los valores de campo necesarios para las acciones de índice, está listo para construir la solicitud HTTP real y el cuerpo de solicitud JSON para importar sus datos.
 
 #### <a name="request-and-request-headers"></a>Solicitudes y encabezados de solicitud
-En la dirección URL, deberá proporcionar el nombre del servicio, el nombre del índice ("hoteles" en este caso), así como la versión adecuada de la API (la versión actual de la API es `2015-02-28` en el momento de publicar este documento). Deberá definir los encabezados de solicitud `Content-Type` y `api-key`. Para el último, use una de las claves de administración del servicio.
+En la dirección URL, deberá proporcionar el nombre del servicio, el nombre del índice ("hoteles" en este caso), así como la versión adecuada de la API (la versión actual de la API es `2016-09-01` en el momento de publicar este documento). Deberá definir los encabezados de solicitud `Content-Type` y `api-key`. Para el último, use una de las claves de administración del servicio.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ Se devolverá un código de estado de `207` solo con que un elemento no se index
 
 > [!NOTE]
 > Esto suele significar que la carga en el servicio de búsqueda está alcanzando un punto en el que las solicitudes de indexación empezarán a devolver respuestas `503`. En este caso, es muy recomendable que interrumpa el código de cliente y espere antes de volver a intentarlo. Esto le dará al sistema un tiempo para recuperarse, lo cual hará aumentar las posibilidades de que las solicitudes futuras se realicen correctamente. Si lo vuelve a intentar demasiado pronto solo logrará prolongar la situación.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Se devolverá un código de estado de `429` si se ha superado la cuota de número de documentos por índice.
@@ -171,17 +172,16 @@ Se devolverá un código de estado de `503` si ninguno de los elementos de la so
 
 > [!NOTE]
 > En este caso, es muy recomendable que interrumpa el código de cliente y espere antes de volver a intentarlo. Esto le dará al sistema un tiempo para recuperarse, lo cual hará aumentar las posibilidades de que las solicitudes futuras se realicen correctamente. Si lo vuelve a intentar demasiado pronto solo logrará prolongar la situación.
-> 
-> 
+>
+>
 
-Para más información sobre las acciones de documentos y las respuestas de éxito o error, consulte [Agregar, actualizar o eliminar documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Para más información sobre las acciones de documentos y las respuestas de éxito o error, consulte [Agregar, actualizar o eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next"></a>Pasos siguientes
 Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Búsqueda de Azure](search-query-overview.md) .
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

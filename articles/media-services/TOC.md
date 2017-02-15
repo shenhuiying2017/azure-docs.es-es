@@ -1,7 +1,7 @@
 # [Información general](media-services-overview.md)
 ## [Conceptos ](media-services-concepts.md)
 
-# Primeros pasos
+# Introducción
 ## [Creación y administración de cuentas](media-services-portal-create-account.md)
 ## [Configuración de un entorno de desarrollo](media-services-set-up-computer.md)
 ## Entrega de vídeos a petición
@@ -14,7 +14,7 @@
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Procedimientos
-## Manage
+## Administrar
 ### Administrar cuentas
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
@@ -24,7 +24,9 @@
 ### Conexión mediante programación
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Administración puntos de conexión de streaming en el portal](media-services-portal-manage-streaming-endpoints.md)
+### [Administración de puntos de conexión de streaming](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Actualización de Media Services después de revertir las claves de acceso de almacenamiento](media-services-roll-storage-access-keys.md)
 ### [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
 
@@ -44,7 +46,7 @@
 ##### [Esquema de Media Encoder Standard](media-services-mes-schema.md)
 ##### [Metadatos de entrada](media-services-input-metadata-schema.md)
 ##### [Metadatos de salida](media-services-output-metadata-schema.md)
-#### Valores preestablecidos de MES 
+#### [Valores preestablecidos de MES](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -76,12 +78,12 @@
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Codificación avanzada con MES](media-services-advanced-encoding-with-mes.md)
 ##### [Generación de vistas en miniatura mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Recorte de vídeos con Codificador multimedia estándar](media-services-crop-video.md)
-### Flujo de trabajo del Codificador multimedia
-#### [Códecs y formatos de flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md)
-#### Codificación con Flujo de trabajo premium de codificación de medios
-##### [Flujo de trabajo premium de codificación de medios](media-services-encode-with-premium-workflow.md)
-##### [Tutoriales sobre el flujo de trabajo premium de codificación multimedia](media-services-media-encoder-premium-workflow-tutorials.md)
+##### [Recorte de vídeos con Media Encoder Standard](media-services-crop-video.md)
+### Flujo de trabajo de Media Encoder Premium
+#### [Códecs y formatos de flujo de trabajo de Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
+#### Codificación con flujo de trabajo de Media Encoder Premium
+##### [Flujo de trabajo de Media Encoder Premium](media-services-encode-with-premium-workflow.md)
+##### [Tutoriales sobre el flujo de trabajo de Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo](media-services-workflow-designer.md)
 ##### [Flujo de trabajo premium con varias entradas](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### Procesadores de multimedia
@@ -92,6 +94,9 @@
 
 ## [Streaming en vivo](media-services-manage-channels-overview.md)
 ### [Codificadores locales](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming en vivo con codificador en la nube](media-services-manage-live-encoder-enabled-channels.md)
 ### Tutoriales sobre codificadores en la nube
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -110,7 +115,7 @@
 ### [Cifrado de contenido con cifrado de Storage mediante la API de REST de AMS](media-services-rest-storage-encryption.md)
 ### [Introducción a las plantillas de licencias de PlayReady de Media Services](media-services-playready-license-template-overview.md)
 ### [Entrega de licencia DRM](media-services-deliver-keys-and-licenses.md)
-### [Uso de partners para entregar licencias de Widevine a Servicios multimedia de Azure](media-services-licenses-partner-integration.md)
+### [Uso de partners para entregar licencias de Widevine a Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Uso de cifrado dinámico común de PlayReady o Widevine.](media-services-protect-with-drm.md)
 ### [Uso de Azure Media Services para transmitir contenido HLS protegido con Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC con varios DRM y Access Control: diseño e implementación de referencia en Azure y Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
@@ -134,8 +139,8 @@
 ### [Proceso con Hyperlapse](media-services-hyperlapse-content.md)
 ### [Proceso con Face Detector](media-services-face-and-emotion-detection.md)
 ### [Proceso con Motion Detector](media-services-motion-detection.md)
-### [Proceso con censura de rostros](media-services-face-redaction.md)
-#### [Tutorial de censura de rostros](media-services-redactor-walkthrough.md)
+### [Proceso con Face Redactor](media-services-face-redaction.md)
+#### [Tutorial de Face Redactor](media-services-redactor-walkthrough.md)
 ### [Proceso con Video Thumbnails](media-services-video-summarization.md)
 ### [Proceso con OCR](media-services-video-optical-character-recognition.md)
 
@@ -195,16 +200,18 @@
 ### [Lógica de reintento](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Referencia
-## [Notas de la versión](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (administración de servicios)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Recursos
+## [Notas de la versión](media-services-release-notes.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Comunidad de Azure Media Services](media-services-community.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

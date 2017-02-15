@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: "Aprenda a crear, implementar y administrar máquinas virtuales Windows o Linux. Tutoriales, referencias de API y otra documentación."
+title: "Documentación sobre Azure Virtual Machines | Microsoft Docs"
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 334336cb8d5da4761d5c1fa53c8c63cfbdb850a6
+ms.sourcegitcommit: 0b803da9d1cfefababd18b48fd39efc9895331bf
+ms.openlocfilehash: 2cbeaebcd79944511bbd2532b533acf1b98bef06
 
 ---
-#<a name="virtual-machines-documentation"></a>Documentación de Virtual Machines
+# <a name="virtual-machines-documentation"></a>Documentación de Virtual Machines
 
-Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que ejecuta la máquina virtual. Sin embargo, todavía es necesario mantener la máquina virtual&mdash; configurar, aplicar revisiones y mantener el software que se ejecuta en la máquina virtual.
+Aprenda a crear máquinas virtuales de Azure. Los tutoriales, las referencias de API y otra documentación muestran cómo crear e implementar máquinas virtuales Windows y Linux, así como plantillas de máquina virtual complejas.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -22,7 +34,7 @@ Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización si
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introducción a Máquinas virtuales Windows</h3>
+                        <h3>Introducción a máquinas virtuales Windows</h3>
                     </div>
                 </div>
             </div>
@@ -40,7 +52,7 @@ Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización si
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introducción a Máquinas virtuales Linux</h3>
+                        <h3>Introducción a máquinas virtuales Linux</h3>
                     </div>
                 </div>
             </div>
@@ -49,79 +61,10 @@ Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización si
     </li>    
 </ul>
 
----
-
-## <a name="reference"></a>Referencia
-
-<ul class="panelContent cardsW">
-    <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API de referencia administrada de Virtual Machines</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Referencia de la API de REST de Máquina virtual</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/cli/azure/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>CLI de Azure para Virtual Machines</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Cmdlet de PowerShell de Virtual Machines</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de Máquina virtual </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO4-->
 
 
