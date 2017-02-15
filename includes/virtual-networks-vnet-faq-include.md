@@ -114,7 +114,7 @@ Un DNS proporcionado por Azure es un servicio DNS multiempresa ofrecido por Micr
 > 
 > 
 
-### <a name="can-i-override-my-dns-settings-on-a-per-vm-service-basis"></a>¿Puedo invalidar mi configuración de DNS por máquina virtual o servicio?
+### <a name="can-i-override-my-dns-settings-on-a-per-vm--service-basis"></a>¿Puedo invalidar mi configuración de DNS por máquina virtual o servicio?
 Sí. Puede configurar los servidores DNS por servicio en la nube para invalidar la configuración de red predeterminada. Sin embargo, recomendamos usar DNS en toda la red siempre que sea posible.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>¿Puedo usar mi propio sufijo DNS?

@@ -1,13 +1,13 @@
 ---
-title: Ejemplo de configuración para las extensiones de la máquina virtual de Linux | Microsoft Docs
-description: Configuración de ejemplo para crear plantillas con extensiones para máquinas virtuales de Linux
+title: "Ejemplo de configuración para extensiones de máquina virtual Linux | Microsoft Docs"
+description: "Configuración de ejemplo para crear plantillas con extensiones para máquinas virtuales de Linux"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4f50e6b2-fce0-41ef-823d-df433957601a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 7f08d711a7d45c48fab5aab272b0446cff61e163
+
 
 ---
 # <a name="linux-vm-extension-configuration-samples"></a>Ejemplos de configuración de la extensión de máquina virtual Linux
 > [!div class="op_single_selector"]
-> * [PowerShell: plantilla](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI: plantilla](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell: plantilla](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI: plantilla](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Linux.
 
-Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](virtual-machines-windows-extensions-features.md)
+Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Para obtener más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión.](virtual-machines-windows-extensions-authoring-templates.md)
+Para obtener más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión.](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Linux.
 
-## <a name="sample-template-snippet-for-vm-extensions."></a>Fragmento de plantilla de ejemplo para extensiones de VM.
+## <a name="sample-template-snippet-for-vm-extensions"></a>Fragmento de plantilla de ejemplo para extensiones de VM.
 El fragmento de plantilla para extensiones de implementación tiene el aspecto siguiente:
 
       {
@@ -55,7 +59,7 @@ El fragmento de plantilla para extensiones de implementación tiene el aspecto s
       }
       }
 
-## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -90,7 +94,7 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
             }
           }
 
-### <a name="customscript-extension-for-linux."></a>Extensión de CustomScript para Linux.
+### <a name="customscript-extension-for-linux"></a>Extensión de CustomScript para Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -127,7 +131,7 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
           }
         }
 
-### <a name="vm-access-extension-(password-reset)"></a>Extensión de acceso máquina virtual (restablecimiento de contraseña)
+### <a name="vm-access-extension-password-reset"></a>Extensión de acceso máquina virtual (restablecimiento de contraseña)
 Para el esquema actualizado, consulte la [Documentación de VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
@@ -217,6 +221,9 @@ Esta es una plantilla de máquina virtual completa para la creación de una VM d
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

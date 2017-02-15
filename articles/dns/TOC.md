@@ -15,7 +15,7 @@
 ## [Delegación del dominio en DNS de Azure](dns-domain-delegation.md)
 ## [Creación de registros DNS personalizados para una aplicación web](dns-web-sites-custom-domain.md)
 
-# Cómo
+# Procedimientos
 
 ## Administración de zonas DNS
 ### [PowerShell](dns-operations-dnszones.md)
@@ -34,17 +34,26 @@
 ## [Protección de registros y zonas DNS](dns-protect-zones-recordsets.md)
 ## [Automatización de operaciones de DNS con el SDK de .NET](dns-sdk.md)
 
+## Solución de problemas
+### [Guía de solución de problemas](dns-troubleshoot.md)
+
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [API de REST](/rest/api/dns/)
+## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/network/dns)
+## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
+## [Java](/java/api/com.microsoft.azure.management.dns)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html)
+## [REST](/rest/api/dns/)
 
 # Temas relacionados
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [Máquina virtual](/azure/virtual-machines/)
-## [Equilibrador de carga](/azure/load-balancer/)
-## [Administrador de tráfico](/azure/traffic-manager/)
-## [Web Apps](/azure/app-service-web/)
+## [Load Balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [Aplicaciones web](/azure/app-service-web/)
 
 # Recursos
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=dns)
@@ -53,6 +62,6 @@
 ## [Blog de redes](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

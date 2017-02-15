@@ -1,12 +1,12 @@
 ---
-title: Descripción de los informes de pagos de Azure Marketplace | Microsoft Docs
-description: Obtenga información sobre cómo revisar e introducir el informe de pago de Azure Marketplace.
+title: "Descripción de los informes de pagos de Azure Marketplace | Microsoft Docs"
+description: "Obtenga información sobre cómo revisar e introducir el informe de pago de Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: 3e99aefe-abeb-414c-8689-15352d25aefd
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+
 
 ---
-# Descripción de los informes de pago de Azure Marketplace
-## Acceso a los informes de pago y su visualización
-Mientras realizamos la transición al Centro de desarrollo, puede que algunos de sus informes de pago estén disponibles en el Centro de desarrollo en https://dev.windows.com/es-ES, mientras que otros siguen estando en el Portal de publicación en https://publish.windowsazure.com.
+# <a name="understand-your-azure-marketplace-payout-reports"></a>Descripción de los informes de pago de Azure Marketplace
+## <a name="access-and-view-your-payout-reports"></a>Acceso a los informes de pago y su visualización
+Mientras realizamos la transición al Centro de desarrollo, puede que algunos de sus informes de pago estén disponibles en el Centro de desarrollo en https://dev.windows.com/en-us, mientras que otros siguen estando en el Portal de publicación en https://publish.windowsazure.com.
 
-Para las ofertas de Marketplace asociadas con pagos modernos, los informes de pago estarán ahora disponibles en el **Centro de desarrollo**; actualmente aquí se incluyen:
+Para las ofertas de Marketplace asociadas con pagos modernos, los informes de pago estarán ahora disponibles en el **Centro de desarrollo** ; actualmente aquí se incluyen:
 
 * Máquinas virtuales
 * Ofertas B+C
@@ -32,8 +36,8 @@ Los informes de pagos seguirán estando en el **Portal de publicación** para:
 
 Los informes están disponibles 45 días después del cierre del trimestre y se calculan después los reembolsos.
 
-### Acceso a los informes de pago en el Centro de desarrollo
-1. Vaya al Centro de desarrollo en https://dev.windows.com/es-ES.
+### <a name="access-payout-reports-in-dev-center"></a>Acceso a los informes de pago en el Centro de desarrollo
+1. Vaya al Centro de desarrollo en https://dev.windows.com/en-us.
 2. Haga clic en **Panel**.
    
     ![LandingPageDashboardHighlight][1]
@@ -41,10 +45,10 @@ Los informes están disponibles 45 días después del cierre del trimestre y se 
    
     ![DashboardPayoutSummary][2]
 
-## Visualización de los informes de pago en el Centro de desarrollo
+## <a name="view-your-payout-reports-in-dev-center"></a>Visualización de los informes de pago en el Centro de desarrollo
 El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
 
-* El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente). Este importe suele ser normalmente 0 $ (a menos que un cliente pague con mucha antelación).
+* El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente).  Este importe suele ser normalmente 0 $ (a menos que un cliente pague con mucha antelación).
 * Haga clic en los vínculos **Ver detalles** de Próximo pago o Pago más reciente para ver una nota sobre esos pagos.
 * Haga clic en **Extractos de pagos** para ver los detalles en Ganancias por aplicación o producto.
 * Haga clic en el vínculo **Ver** para ver extractos individuales.
@@ -54,24 +58,25 @@ El informe de pago para cada trimestre registra todas las transacciones que se p
   
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
-## Visualización de los informes de pagos en el Portal de publicación
+## <a name="view-your-payout-reports-in-publishing-portal"></a>Visualización de los informes de pagos en el Portal de publicación
 El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
 
-1. Navegue al portal de publicación en https://publish.windowsazure.com.
+1. Vaya al Portal de publicación en https://publish.windowsazure.com.
 2. En la sección **Editores**, haga clic en **Informes de pago**.
 3. Haga clic en el desplegable para que aparezcan todos los informes de pago trimestrales disponibles.
    
     ![accessingpayoutreport][5]
 
-### Lectura de los informes de pago
+### <a name="read-your-payout-reports"></a>Lectura de los informes de pago
 El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
 
 * Si busca movimientos relacionados con un trimestre concreto, seleccione el informe de pago para ese trimestre en la lista desplegable. Por ejemplo, si está interesado en los movimientos de abril a junio de 2015, seleccione dicho intervalo de fechas en la lista desplegable.
-* Si busca detalles de pagos relacionados con un trimestre concreto, seleccione el informe de pago para el siguiente trimestre. Por ejemplo, si está interesado en los pagos de abril a junio de 2015, estos importes aparecerán en el siguiente informe de pagos de julio a septiembre de 2015. ![readingpayoutreport][6]
+* Si busca detalles de pagos relacionados con un trimestre concreto, seleccione el informe de pago para el siguiente trimestre. Por ejemplo, si está interesado en los pagos de abril a junio de 2015, estos importes aparecerán en el siguiente informe de pagos de julio a septiembre de 2015.
+  ![readingpayoutreport][6]
 * En el panel de resumen financiero se muestran saldos, debe y haber por categoría.
 * Los movimientos muestran las transacciones individuales.
 
-## Definiciones
+## <a name="definitions"></a>Definiciones
 **Panel de resumen financiero:**
 
 ![financialdefinitions][7]
@@ -80,7 +85,7 @@ El informe de pago para cada trimestre registra todas las transacciones que se p
 
 ![ledgerdefinitions][8]
 
-## Preguntas sobre pagos
+## <a name="payout-questions"></a>Preguntas sobre pagos
 Si tiene alguna pregunta relacionada con sus pagos, póngase en contacto con nuestro equipo de soporte técnico.
 
 ![payoutquestions][9]
@@ -90,7 +95,7 @@ Si tiene alguna pregunta relacionada con sus pagos, póngase en contacto con nue
 3. Seleccione **Consultas relacionadas con pagos**.
 4. Haga clic en **Solicitud de inicio**.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para otras consultas de soporte técnico, registre un problema en <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
@@ -103,4 +108,8 @@ Para otras consultas de soporte técnico, registre un problema en <https://porta
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

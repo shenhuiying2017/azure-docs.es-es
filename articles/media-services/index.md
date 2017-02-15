@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo de forma segura con Media Services, una plataforma en la nube extensible. Tutoriales, referencias de API y mucho más."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 78433e8f6d66d55f7917e4abbbbe1c24e662a400
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 ---
 # <a name="media-services-documentation"></a>Documentación de Media Services
 
-Azure Media Services es una plataforma extensible basada en la nube que permite a los desarrolladores compilar aplicaciones escalables de administración y entrega de contenido multimedia. Media Services se basa en las API de REST, que permiten cargar, almacenar, codificar y empaquetar de forma segura contenido de audio o vídeo para la entrega bajo demanda y de streaming en vivo a varios clientes (por ejemplo, televisión, PC y dispositivos móviles).
-
-Sin nada más que Media Services se pueden generar flujos de trabajo de un extremo a otro. También puede usar componentes de terceros para algunas partes del flujo de trabajo. Por ejemplo, puede usar un codificador de terceros y, a continuación, cargar, proteger, empaquetar y entregar con Media Services.
+Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo con Media Services, una plataforma en la nube extensible. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -168,7 +167,7 @@ Sin nada más que Media Services se pueden generar flujos de trabajo de un extre
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media">PowerShell (Resource Manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (Service Management)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (administración de servicios)</a></p>
                     </div>
                 </div>
             </div>
@@ -200,16 +199,9 @@ Sin nada más que Media Services se pueden generar flujos de trabajo de un extre
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Media Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

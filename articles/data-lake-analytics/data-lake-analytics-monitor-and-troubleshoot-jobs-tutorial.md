@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e266bf691f91381e6eed8138acd5baef44d88b57
+ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
+ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
 
 
 ---
@@ -59,7 +59,7 @@ Ahora creará un trabajo U-SQL con un nombre de archivo de origen incorrecto.
             TO "/output/SearchLog-from-adls.csv"
         USING Outputters.Csv();
 
-    El archivo de origen definido en el script es **/Samples/Data/SearchLog.tsv1**, que será **/Samples/Data/SearchLog.tsv**.
+    El archivo de origen definido en el script es **/Samples/Data/SearchLog.tsv1**, pero debería ser **/Samples/Data/SearchLog.tsv**.
 5. Haga clic en **Enviar trabajo** en la parte superior. Se abre un nuevo panel llamado Detalles del trabajo. En la barra de título, se muestra el estado del trabajo. Tarda unos minutos en finalizar. Puede hacer clic en **Actualizar** para obtener el estado más reciente.
 6. Espere a que el estado del trabajo cambie a **Error**.  Si el estado del trabajo es **Correcto**, es porque no quitó la carpeta /Samples. Consulte la sección **Requisitos previos** que se encuentra al principio del tutorial.
 
@@ -105,6 +105,6 @@ En la última sección, ha enviado un trabajo y este dio error.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

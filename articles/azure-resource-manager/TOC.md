@@ -5,7 +5,7 @@
 ## [Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md)
 ## [Ejemplos de gobierno para empresas](resource-manager-subscription-examples.md)
 
-# Primeros pasos
+# Introducción
 ## [Exportación de la plantilla](resource-manager-export-template.md)
 ## [Tutorial de plantillas](resource-manager-template-walkthrough.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -26,13 +26,14 @@
 ### [PowerShell](resource-group-template-deploy.md)
 ### [CLI de Azure](resource-group-template-deploy-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
-### [API DE REST](resource-group-template-deploy-rest.md)
+### [API de REST](resource-group-template-deploy-rest.md)
 ### [Entornos de desarrollo y pruebas](solution-dev-test-environments.md)
+### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Administrar
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [CLI de Azure](xplat-cli-azure-resource-manager.md)
 ### [Portal](resource-group-portal.md)
-### [API DE REST](resource-manager-rest-api.md)
+### [API de REST](resource-manager-rest-api.md)
 ### [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md)
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
 ### [Vínculo a recursos relacionados](resource-group-link-resources.md)
@@ -41,7 +42,7 @@
 ### [Creación de una entidad de servicio con PowerShell](resource-group-authenticate-service-principal.md)
 ### [Creación de una entidad de servicio con la CLI de Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Creación de una entidad de servicio con el portal](resource-group-create-service-principal-portal.md)
-### [Acceso de la aplicación a suscripciones](resource-manager-api-authentication.md)
+### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
 ### [Establecimiento de directivas de administración](resource-manager-policy.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)
 ### [Consideraciones sobre la seguridad](best-practices-resource-manager-security.md)
@@ -55,19 +56,20 @@
 
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [CLI de Azure](/cli/azure)
-## [Java](/java/api)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Java](/java/api/com.microsoft.azure.management.resources)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [Esquemas de plantilla](https://github.com/Azure/azure-resource-manager-schemas)
-## [Solicitudes de limitación](resource-manager-request-limits.md)
 ## [REST](/rest/api/resources/)
 
 # Recursos
+## [Solicitudes de limitación](resource-manager-request-limits.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

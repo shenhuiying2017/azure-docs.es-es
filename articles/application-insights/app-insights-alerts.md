@@ -1,105 +1,103 @@
 ---
-title: Definición de alertas en Application Insights
-description: Reciba mensajes de correo electrónico sobre bloqueos, excepciones y cambios de métrica.
+title: "Definición de alertas en Application Insights | Microsoft Docs"
+description: "Reciba notificaciones acerca de tiempos de respuesta lentos, excepciones y otros cambios de rendimiento o uso de la aplicación web."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2016
+ms.date: 10/14/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 2146030449c691af166d6a9b134d22d4504d7641
+
 
 ---
-# Definición de alertas en Application Insights
-[Visual Studio Application Insights][start] pueden alertarle de los cambios en las métricas de rendimiento o de uso de la aplicación.
+# <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
+[Azure Application Insights][start] puede avisarle sobre los cambios en las métricas de rendimiento o de uso de la aplicación web. 
 
 Application Insights supervisa la aplicación activa en una [amplia variedad de plataformas][platforms] para ayudarle a diagnosticar problemas de rendimiento y entender los patrones de uso.
 
-Hay dos tipos de alertas:
+Hay tres tipos de alertas:
 
-* Las **pruebas web** le informan de que el sitio no está disponible en Internet o responde lentamente. [Más información][availability].
-* Las **alertas de métricas** le avisan cuando una métrica cruza un valor de umbral durante un período determinado: por ejemplo, recuentos de error, memoria o vistas de página. 
+* **Alertas de métricas** le avisan cuando una métrica cruza un valor de umbral durante un período determinado: por ejemplo, tiempos de respuesta, recuentos de excepciones, uso de la CPU o vistas de página. 
+* [**Pruebas web**][availability] le informan de que el sitio no está disponible en Internet o responde lentamente. [Más información][availability].
+* [**Diagnósticos proactivos**](app-insights-proactive-diagnostics.md) se configuran automáticamente para que le notifiquen acerca de patrones de rendimiento no habituales.
 
-Hay una [página aparte sobre las pruebas web][availability], por lo que aquí nos centraremos en las alertas de métricas.
+Nos centraremos en las alertas de métricas en este artículo.
 
-> [!NOTE]
-> Además, puede recibir correos electrónicos de [detección proactiva](app-insights-proactive-detection.md), para avisarle de patrones inusuales en el rendimiento de su aplicación. A diferencia de las alertas, estas notificaciones se ejecutan sin necesidad de configurarlas. Están destinadas a optimizar el rendimiento de la aplicación, en lugar de alertar sobre problemas inmediatos.
-> 
-> 
-
-## Alertas de métricas
-Si aún no ha configurado Application Insights para su aplicación, [hágalo primero][start].
-
-Para recibir un correo electrónico cuando una métrica cruce un umbral, inicie desde el Explorador de métricas o desde el icono Reglas de alerta en la hoja de información general.
+## <a name="set-a-metric-alert"></a>Establecimiento de una alerta de métrica
+Abra la hoja Reglas de alerta y, a continuación, utilice el botón Agregar. 
 
 ![En la hoja Reglas de alerta, elija Agregar alerta. Establezca la aplicación como el recurso que se va a medir, proporcione un nombre para la alerta y elija una métrica.](./media/app-insights-alerts/01-set-metric.png)
 
 * Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
-* Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
 * El nombre que asigne a la alerta debe ser único dentro del grupo de recursos (no solo en la aplicación).
+* Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
 * Si activa la casilla "Email owners..." (Propietarios de correo electrónico), las alertas se enviarán por correo electrónico a todos los usuarios con acceso a este grupo de recursos. Para expandir dicho conjunto de usuarios, agréguelos al [grupo de recursos o suscripción](app-insights-resources-roles-access-control.md) (no al recurso).
 * Si especifica "Correos electrónicos adicionales", las alertas se enviarán a esos usuarios o grupos (independientemente de que haya activado la casilla anterior). 
 * Establezca una [dirección de webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando se active la alerta (es decir, cuando se desencadene) y cuando se haya resuelto. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades de webhook).
 * Puede habilitar o deshabilitar la alerta: consulte los botones de la parte superior de la hoja.
 
-*No veo el botón Agregar alerta.* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a Configuración -> Usuarios. [Más información sobre el control de acceso][roles].
+*No puedo ver el botón Agregar alerta* 
+
+* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a la hoja Access Control. [Más información sobre Access Control][roles].
 
 > [!NOTE]
-> En la hoja de alertas, verá que ya hay una alerta configurada: [Diagnóstico proactivo en tiempo casi real](app-insights-nrt-proactive-diagnostics.md). Se trata de una alerta automática que supervisa una métrica determinada: el índice de errores de las solicitudes. Por lo que a menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes.
+> En la hoja de alertas, verá que ya hay una alerta configurada: [Diagnóstico proactivo](app-insights-proactive-failure-diagnostics.md). Se trata de una alerta automática que supervisa una métrica determinada: el índice de errores de las solicitudes. A menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes. 
 > 
 > 
 
-## Visualización de alertas
-Recibirá un correo electrónico cuando un alerta cambia el estado entre inactivo y activo.
+## <a name="see-your-alerts"></a>Visualización de alertas
+Recibirá un correo electrónico cuando un alerta cambia el estado entre inactivo y activo. 
 
 En la hoja de reglas Alerta se muestra el estado actual de cada alerta.
 
 Hay un resumen de la actividad reciente en la lista desplegable de alertas:
 
-![](./media/app-insights-alerts/010-alert-drop.png)
+![Lista desplegable de alertas](./media/app-insights-alerts/010-alert-drop.png)
 
-El historial de cambios de estado está en el registro de auditoría:
+El historial de cambios de estado está en el registro de actividad:
 
 ![En la hoja de información general, haga clic en Configuración, Registros de auditoría](./media/app-insights-alerts/09-alerts.png)
 
-## Funcionamiento de las alertas
+## <a name="how-alerts-work"></a>Funcionamiento de las alertas
 * Una alerta tiene tres estados: "Nunca activada", "Activada" y "Resuelta". "Activada" significa que la condición especificada tenía el valor true cuando se evaluó por última vez.
 * Se genera una notificación cuando una alerta cambia de estado. (Si la condición de alerta ya tenía el valor true cuando creó la alerta, es posible que no reciba una notificación hasta que la condición cambie al valor false).
 * Si ha activado la casilla de correos electrónicos o si ha proporcionado direcciones de correo electrónico, cada notificación generará un correo. También puede consultar la lista desplegable de notificaciones.
 * Una alerta se evalúa cada vez que llega una métrica, pero no en caso contrario.
 * La evaluación agrega la métrica durante el período anterior y, luego, la compara con el umbral para determinar el nuevo estado.
 * El período que elija especifica el intervalo en el que se agregan métricas. No afecta a la frecuencia con la que se evalúa la alerta: depende de la frecuencia de llegada de métricas.
-* Si no llega ningún dato para una métrica concreta durante un tiempo, este intervalo tiene efectos diferentes en la evaluación de la alerta y en los gráficos del Explorador de métricas. En el Explorador de métricas, si no se ve ningún dato durante más tiempo que el intervalo de muestreo del gráfico, el gráfico mostrará un valor de 0. Pero una alerta basada en la misma métrica no se volverá a evaluar, y estado de la alerta permanecerá sin cambios.
+* Si no llega ningún dato para una métrica concreta durante un tiempo, este intervalo tiene efectos diferentes en la evaluación de la alerta y en los gráficos del Explorador de métricas. En el Explorador de métricas, si no se ve ningún dato durante más tiempo que el intervalo de muestreo del gráfico, el gráfico mostrará un valor de 0. Pero una alerta basada en la misma métrica no se volverá a evaluar, y el estado de la alerta permanecerá sin cambios. 
   
-    Cuando finalmente llegan datos, el gráfico se desplazará a un valor distinto de cero. La alerta se evaluará en función de los datos disponibles para el período especificado. Si el nuevo punto de datos es el único disponible en el período, el agregado se basará en eso.
+    Cuando finalmente llegan datos, el gráfico se desplazará a un valor distinto de cero. La alerta se evaluará en función de los datos disponibles para el período especificado. Si el nuevo punto de datos es el único disponible en el período, el agregado se basará en ese punto.
 * Una alerta puede parpadear con frecuencia entre los estados de alerta y correcto, incluso si se establece un período largo. Esto puede suceder si el valor de métrica se sitúa alrededor del umbral. No hay ninguna histéresis en el umbral: la transición a alerta se produce en el mismo valor que la transición a correcto.
 
-## Alertas de disponibilidad
-Puede configurar pruebas web que prueben cualquier sitio web desde diferentes puntos alrededor del mundo. [Más información][availability].
-
-## ¿Qué alertas es conveniente establecer?
-Depende de la aplicación. Para empezar, es mejor no establecer demasiadas métricas. Observe durante un tiempo sus gráficos de métrica mientras se ejecuta la aplicación para hacerse una idea de cómo se comporta normalmente. Esto le ayudará a encontrar maneras de mejorar su rendimiento. A continuación, configure alertas para que le avisen cuando las métricas salgan de la zona normal.
+## <a name="what-are-good-alerts-to-set"></a>¿Qué alertas es conveniente establecer?
+Depende de la aplicación. Para empezar, es mejor no establecer demasiadas métricas. Observe durante un tiempo sus gráficos de métrica mientras se ejecuta la aplicación para hacerse una idea de cómo se comporta normalmente. Esto le ayudará a encontrar maneras de mejorar su rendimiento. A continuación, configure alertas para que le avisen cuando las métricas salgan de la zona normal. 
 
 Las alertas más populares son:
 
-* Las [pruebas web][availability] son importantes si la aplicación es un servicio web o un sitio web que está visible en Internet de acceso público. Le indican si el sitio deja de funcionar o responde lentamente, incluso si el problema es del operador y no de la aplicación. Sin embargo, son pruebas sintéticas, por lo que no miden la experiencia real de los usuarios.
 * Las [métricas del explorador][client], especialmente los **tiempos de carga de página del explorador**, son buenas para aplicaciones web. Si la página tiene una gran cantidad de scripts, deberá tener en cuenta las **excepciones del explorador**. Para obtener estas métricas y alertas, tiene que configurar [la supervisión de páginas web][client].
-* **Tiempo de respuesta del servidor** y **Solicitudes incorrectas** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a estas métricas para ver si varían desproporcionadamente con tasas de solicitud altas: esto puede indicar que la aplicación se está quedando sin recursos.
-* **Excepciones de servidor**: para verlas, deberá realizar alguna [configuración adicional](app-insights-asp-net-exceptions.md).
+* **Tiempo de respuesta del servidor** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a esta métrica para ver si varía desproporcionadamente con tasas de solicitud altas: esto puede indicar que la aplicación se está quedando sin recursos. 
+* **Excepciones de servidor** : para verlas, deberá realizar alguna [configuración adicional](app-insights-asp-net-exceptions.md).
 
-## Automatización
+No olvide que los [diagnósticos proactivos de frecuencia de errores](app-insights-proactive-failure-diagnostics.md) permiten supervisar automáticamente la velocidad a la que la aplicación responde a solicitudes con códigos de error. 
+
+## <a name="automation"></a>Automatización
 * [Uso de PowerShell para automatizar la configuración de alertas](app-insights-powershell-alerts.md)
 * [Uso de Webhook para automatizar la respuesta a alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-## Consulte también
+## <a name="see-also"></a>Consulte también
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
 * [Use PowerShell to set alerts in Application Insights (Uso de PowerShell para definir alertas en Application Insights)](app-insights-powershell-alerts.md)
-* [Application Insights: detección proactiva](app-insights-proactive-detection.md) 
+* [Proactive diagnostics](app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
@@ -111,4 +109,7 @@ Las alertas más populares son:
 
 
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

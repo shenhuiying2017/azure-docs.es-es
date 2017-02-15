@@ -29,7 +29,7 @@ Los firewalls de aplicaciones web como [Barracuda WAF para Azure](https://www.ba
 ## <a name="setup"></a>Configuración
 Para este documento, configuraremos nuestro entorno del Servicio de aplicaciones detrás de varias instancias de equilibrio de carga de Barracuda WAF para que únicamente el tráfico del WAF pueda ponerse en contacto con el entorno del Servicio de aplicaciones, y no se podrá obtener acceso desde la red perimetral. También dispondremos del Administrador de tráfico de Azure delante de nuestras instancias de Barracuda WAF para equilibrar la carga entre las regiones y los centros de datos de Azure. Un diagrama de alto nivel del programa de instalación tendría el aspecto que se muestra a continuación.
 
-![Arquitectura][Architecture] 
+![Architecture][Architecture] 
 
 > Nota: con la introducción de [la compatibilidad de ILB con el entorno de App Service](app-service-environment-with-internal-load-balancer.md), puede configurar el ASE para que no pueda accederse desde la red perimetral y solo está disponible en la red privada. 
 > 
@@ -100,7 +100,7 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 > 
 
 <!-- IMAGES -->
-[Arquitectura]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
+[Architecture]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
 [ConfigureEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureEndpoint.png
 [AddManagementEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/AddManagementEndpoint.png
 [ManagementAddServices]: ./media/app-service-app-service-environment-web-application-firewall/ManagementAddServices.png

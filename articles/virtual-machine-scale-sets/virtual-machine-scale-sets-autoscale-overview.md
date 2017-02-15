@@ -224,6 +224,6 @@ Para ver un ejemplo de uso de Azure Portal para configurar el escalado automáti
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

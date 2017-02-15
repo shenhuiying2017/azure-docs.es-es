@@ -1,12 +1,12 @@
 ---
 title: Tutoriales del proceso de ciencia de los datos en equipos | Microsoft Docs
-description: En los tutoriales se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente.
+description: "En los tutoriales se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+
 
 ---
 # <a name="team-data-science-process-walkthroughs"></a>Tutoriales del proceso de ciencia de datos en equipos
@@ -46,9 +50,12 @@ En el [Tutorial completo de ciencia de datos con SQL Server R Services](https://
 ## <a name="use-t-sql-with-sql-server-r-services"></a>Uso de T-SQL con R Services de SQL Server
 En el tutorial [Análisis avanzados en bases de datos para desarrolladores de SQL](https://msdn.microsoft.com/library/mt683480.aspx) se proporciona a los programadores de SQL experiencia para la creación de una solución de análisis avanzada con Transact-SQL mediante R Services de SQL Server para poner en operación una solución de R.
 
-## <a name="what's-next?"></a>Pasos siguientes
+## <a name="whats-next"></a>Pasos siguientes
 Para ver una introducción a los temas que lo guiarán por las tareas que componen el proceso de ciencia de datos en Azure, consulte [Proceso de ciencia de los datos en equipos (TDSP)](http://aka.ms/datascienceprocess). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/16/2016
+ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
-ms.openlocfilehash: ed1c66f72b09a14a14c6ecd0bf39cd92f2bd22b8
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
 
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android"></a>Introducción a la autenticación basada en certificados en Android
+# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Introducción a la autenticación basada en certificados en Android (versión preliminar pública)
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -50,7 +50,7 @@ En todos los escenarios de este tema, hay que realizar las siguientes tareas:
 | Aplicaciones | Soporte técnico |
 | --- | --- |
 | Word, Excel y PowerPoint |![Comprobar][1] |
-| OneNote |![Comprobar][1] |
+| OneNote |Próximamente |
 | OneDrive |![Comprobar][1] |
 | Outlook |![Comprobar][1] |
 | Yammer |![Comprobar][1] |
@@ -70,14 +70,9 @@ Para que Azure Active Directory revoque un certificado de cliente, el token de A
 
 Azure Active Directory agrega estas notificaciones para el token de actualización, en caso de que estén disponibles en el token de ADFS (o en cualquier otro token SAML). Cuando hay que validar el token de actualización, esta información se utiliza para comprobar la revocación. 
 
-Se recomienda actualizar las páginas de error de ADFS con instrucciones sobre cómo obtener un certificado de usuario.  
+Se recomienda actualizar las páginas de error de ADFS con instrucciones sobre cómo obtener un certificado de usuario. 
+
 Para más información, consulte [Personalizar las páginas de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
-
-Algunas aplicaciones de Office (con la autenticación moderna habilitada) envían ‘*prompt=login*’ a Azure AD en su solicitud. De manera predeterminada, Azure AD lo traduce en la solicitud para ADFS a '*wauth = usernamepassworduri*' (pide a ADFS que realice la autenticación de U y P) y '*wfresh = 0*' (pide a ADFS que ignore el estado de SSO y realice una autenticación nueva). Si desea habilitar la autenticación basada en certificados para estas aplicaciones, es preciso que modifique el comportamiento predeterminado de Azure AD. Basta con establecer '*PromptLoginBehavior*' en la configuración del dominio federado como '*Disabled*'. Para realizar esta tarea, puede usar el cmdlet [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings):
-
-`Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
-
-
 
 ### <a name="exchange-activesync-clients-support"></a>Compatibilidad con clientes de Exchange ActiveSync
 Hay algunas aplicaciones de Exchange ActiveSync que son compatibles con Android 5.0 (Lollipop) o posterior. Para determinar si la aplicación de correo electrónico admite esta característica, póngase en contacto con el desarrollador de la aplicación. 
@@ -118,9 +113,9 @@ Abajo se muestran algunos ejemplos para agregar, quitar o modificar una entidad 
 
 ### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>Configuración del inquilino de Azure AD para la autenticación basada en certificados
 1. Inicie Windows PowerShell con privilegios de administrador. 
-2. Instale el módulo de Azure AD. Es preciso instalar la versión [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33), o una superior.  
+2. Instale el módulo de Azure AD. Es preciso instalar la versión [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0), o una superior.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 2.0.0.33 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 3. Conéctelo al inquilino de destino: 
    
         Connect-AzureAD 
@@ -213,6 +208,6 @@ La fecha establecida debe ser futura. De lo contrario, no se establece la propie
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

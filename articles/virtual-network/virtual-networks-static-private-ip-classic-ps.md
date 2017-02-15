@@ -1,13 +1,13 @@
 ---
-title: Establecimiento de una IP privada estática en el modo clásico con PowerShell | Microsoft Docs
-description: Descripción de las IP privadas estáticas (DIP) y su administración en el modo clásico y PowerShell
+title: "Establecimiento de una IP privada estática en el modo clásico con PowerShell | Microsoft Docs"
+description: "Descripción de las IP privadas estáticas (DIP) y su administración en el modo clásico y PowerShell"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 60c7b489-46ae-48af-a453-2b429a474afd
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a3fe657f9d4ed967701cfc91948b3a7ef799dbc
+
 
 ---
-# Configuración de una dirección IP privada estática (clásica) en PowerShell
+# <a name="how-to-set-a-static-private-ip-address-classic-in-powershell"></a>Configuración de una dirección IP privada estática (clásica) en PowerShell
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -30,7 +34,7 @@ Este artículo trata sobre el modelo de implementación clásico. También puede
 
 En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [Creación de una red virtual](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## Comprobación de que una dirección IP concreta está disponible
+## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Comprobación de que una dirección IP concreta está disponible
 Para comprobar si la dirección IP *192.168.1.101* está disponible en una red virtual denominada *TestVnet*, ejecute el siguiente comando de PowerShell y compruebe el valor de *IsAvailable*:
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
@@ -43,8 +47,8 @@ Resultado esperado:
     OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
     OperationStatus      : Succeeded
 
-## Especificación de una dirección IP privada estática al crear una VM
-El siguiente script de PowerShell crea un nuevo servicio en la nube denominado *TestService*; a continuación, recupera una imagen de Azure, crea una máquina virtual denominada *DNS01* en el nuevo servicio en la nube con la imagen recuperada, establece que la máquina virtual esté en una subred llamada *Front-end* y establece *192.168.1.7* como una dirección IP privada estática para la VM:
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificación de una dirección IP privada estática al crear una VM
+El siguiente script de PowerShell crea un servicio en la nube denominado *TestService*; a continuación, recupera una imagen de Azure, crea una máquina virtual denominada *DNS01* en el nuevo servicio en la nube con la imagen recuperada, establece que la máquina virtual esté en una subred llamada *FrontEnd* y establece *192.168.1.7* como dirección IP privada estática para la máquina virtual:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -62,7 +66,7 @@ Resultado esperado:
     New-AzureService     fcf705f1-d902-011c-95c7-b690735e7412 Succeeded      
     New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
-## Recuperación de la información de la dirección IP privada estática para una VM
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperación de la información de la dirección IP privada estática para una VM
 Para ver la información de la dirección IP privada estática para la máquina virtual creada con este script, ejecute el siguiente comando de PowerShell y observe los valores de *IpAddress*:
 
     Get-AzureVM -Name DNS01 -ServiceName TestService
@@ -96,7 +100,7 @@ Resultado esperado:
     OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
     OperationStatus             : OK
 
-## Eliminación de una dirección IP privada estática de una VM
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Eliminación de una dirección IP privada estática de una VM
 Para quitar la dirección IP privada estática agregada a la máquina virtual en el script anterior, ejecute el siguiente comando de PowerShell:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
@@ -109,7 +113,7 @@ Resultado esperado:
     -------------------- -----------                          ---------------
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
-## Adición de una dirección IP privada estática a una VM existente
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Adición de una dirección IP privada estática a una VM existente
 Para agregar una dirección IP privada estática a la VM creada con el script anterior, ejecute el siguiente comando:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
@@ -122,9 +126,14 @@ Resultado esperado:
     -------------------- -----------                          ---------------
     Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded 
 
-## Pasos siguientes
-* Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md).
-* Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
+## <a name="next-steps"></a>Pasos siguientes
+* Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
+* Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

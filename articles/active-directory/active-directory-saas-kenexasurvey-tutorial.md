@@ -264,6 +264,6 @@ Al hacer clic en el icono de IBM Kenexa Survey Enterprise en el panel de acceso,
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

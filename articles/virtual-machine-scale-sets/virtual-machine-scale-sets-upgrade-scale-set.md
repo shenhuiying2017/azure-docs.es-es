@@ -1,13 +1,13 @@
 ---
-title: Implementación de una aplicación en conjuntos de escalado de máquinas virtuales| Microsoft Docs
-description: Implementación de una aplicación en conjuntos de escalado de máquinas virtuales
+title: "Implementación de una aplicación en conjuntos de escalado de máquinas virtuales| Microsoft Docs"
+description: "Implementación de una aplicación en conjuntos de escalado de máquinas virtuales"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a5158c51149e75952eaf91af14f3fcf2dd1ed2af
+
 
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Actualización de un conjunto de escalado de máquinas virtuales
@@ -39,7 +43,7 @@ La secuencia básica para cambiar la versión o la SKU del SO de una imagen de p
 
 Tenga en cuenta esta información a la hora de actualizar la versión de un conjunto de escalado en PowerShell y con la API de REST. Aunque estos ejemplos tratan el caso de una imagen de plataforma, en este artículo se proporciona la información suficiente para adaptar este proceso a una imagen personalizada.
 
-## <a name="powershell##"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 En este ejemplo se actualiza un conjunto de escalado de máquinas virtuales Windows a la nueva versión 4.0.20160229. Después de actualizar el modelo, se actualiza una instancia de máquina virtual a la vez.
 
 ```powershell
@@ -90,6 +94,9 @@ Tras hacer clic en **Actualizar** y en **Obtener detalles**, las máquinas virtu
 
 ![Vmsseditor con la actualización en curso](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

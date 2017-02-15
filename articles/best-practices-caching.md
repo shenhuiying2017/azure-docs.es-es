@@ -1,13 +1,13 @@
 ---
-title: Orientación sobre el almacenamiento en caché | Microsoft Docs
-description: Orientación sobre el almacenamiento en caché para mejorar el rendimiento y la escalabilidad.
-services: ''
+title: "Orientación sobre el almacenamiento en caché | Microsoft Docs"
+description: "Orientación sobre el almacenamiento en caché para mejorar el rendimiento y la escalabilidad."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: c86e2d49-066b-43b0-b0b6-f70ff4f87cdd
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 27612fcd27a4d314a07982446375ac32ed1a2e4a
+
 
 ---
 # <a name="caching-guidance"></a>Guía sobre el almacenamiento en caché
@@ -134,7 +138,7 @@ En función de la naturaleza de los datos y de la probabilidad de las colisiones
 * **Optimista.**  Inmediatamente antes de actualizarlos, la aplicación comprueba si han cambiado los datos de la caché desde que se recuperaron. Si los datos siguen siendo los mismos, se pueden realizar el cambio. De lo contrario, la aplicación tiene que decidir si los va a actualizar. (La lógica de negocios que impulsa esta decisión será específica de la aplicación). Este enfoque es adecuado para situaciones en las que las actualizaciones no son frecuentes o donde es improbable que se produzcan colisiones.
 * **Pesimista.**  Cuando la aplicación recupera los datos, los bloquea en la caché para impedir que otra instancia los cambie. Este proceso garantiza que no se produzcan colisiones, pero puede bloquear otras instancias que deben procesar los mismos datos. La simultaneidad pesimista puede afectar a la escalabilidad de la solución y debe usarse únicamente en operaciones de corta duración. Este enfoque puede ser adecuado en situaciones donde existe una mayor probabilidad de colisiones, especialmente si una aplicación actualiza varios elementos de la caché y debe asegurarse de que estos cambios se apliquen de forma coherente.
 
-### <a name="implement-high-availability-and-scalability,-and-improve-performance"></a>Implementar alta disponibilidad y escalabilidad y mejorar el rendimiento
+### <a name="implement-high-availability-and-scalability-and-improve-performance"></a>Implementar alta disponibilidad y escalabilidad y mejorar el rendimiento
 Evite usar una caché como repositorio principal de los datos; esta es la función del almacén de datos original desde el que se rellena la caché. El almacén de datos original es responsable de garantizar la persistencia de los datos.
 
 Tenga cuidado de no introducir dependencias críticas en la disponibilidad de un servicio de caché compartida en sus soluciones. Una aplicación debe poder seguir funcionando si el servicio que proporciona la caché compartida no está disponible. La aplicación no debería bloquearse ni producir error mientras espera a que el servicio de caché se reanude.
@@ -207,7 +211,7 @@ Caché en Redis de Azure es una solución de almacenamiento en caché de alto re
 > La caché se hospeda en instancias de un rol web o de trabajo y solo los roles que funcionan como parte de la misma unidad de implementación del servicio en la nube pueden tener acceso a ella. (Una unidad de implementación es el conjunto de instancias de rol que se implementan como un servicio de nube en una región específica). La memoria caché está agrupada y todas las instancias del rol dentro de la misma unidad de implementación que hospedan la memoria caché se convierten en parte del mismo clúster de caché. Sin embargo, ya no se recomienda esta opción y solo se proporciona para admitir aplicaciones existentes que se han creado para usarla. Para todo el desarrollo nuevo, use en su lugar Caché en Redis de Azure.
 > 
 > Tanto el Servicio de caché administrado de Azure como el Caché en rol de Azure actualmente están programados para su retirada el 16 de noviembre de 2016.
-> Se recomienda que migre a la Caché en Redis de Azure con vistas a prepararse para la mencionada retirada. Para más información, visite la página   [What is Azure Redis Cache offering and what size should I use?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) (¿Cuál es la oferta Azure Redis Cache y qué tamaño debo usar?) en el sitio web de Microsoft.
+> Se recomienda que migre a la Caché en Redis de Azure con vistas a prepararse para la mencionada retirada. Para más información, visite la página [What is Azure Redis Cache offering and what size should I use?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) (¿Cuál es la oferta Azure Redis Cache y qué tamaño debo usar?) en el sitio web de Microsoft.
 > 
 > 
 
@@ -269,7 +273,7 @@ Para más información, visite la página [Redis Security](http://redis.io/topic
 > 
 
 ### <a name="using-the-azure-redis-cache"></a>Uso de la caché en Redis de Azure
-La caché en Redis de Azure ofrece acceso a servidores de Redis que se ejecutan en servidores hospedados en un centro de datos de Azure; actúa como una fachada que ofrece seguridad y control de acceso. Puede aprovisionar una caché mediante el portal de Administración de Azure. El portal ofrece varias configuraciones predefinidas, que van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones de SSL (para privacidad) y replicación de maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (ninguna garantía de disponibilidad) que se ejecuta en hardware compartido.
+La caché en Redis de Azure ofrece acceso a servidores de Redis que se ejecutan en servidores hospedados en un centro de datos de Azure; actúa como una fachada que ofrece seguridad y control de acceso. Puede aprovisionar una caché mediante el portal de Administración de Azure. El portal ofrece varias configuraciones predefinidas, que van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones de SSL (para privacidad) y replicación de maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (ninguna garantía de disponibilidad) que se ejecuta en hardware compartido.
 
 Mediante el portal de administración de Azure, también puede configurar la directiva de expulsión de la caché y controlar el acceso a la caché agregando usuarios a los roles ofrecidos: Propietario, Colaborador, Lector. Estos roles definen las operaciones que los miembros pueden realizar. Por ejemplo, los miembros del rol Propietario tienen control completo sobre la caché (incluida la seguridad) y su contenido, los miembros del rol Colaborador pueden leer y escribir información en la caché y los miembros del rol Lector solo pueden recuperar datos de la caché.
 
@@ -302,7 +306,7 @@ De forma similar, el proveedor de caché de resultados para caché en Redis de A
 ### <a name="azure-redis-cache"></a>Caché en Redis de Azure
 Caché en Redis de Azure proporciona acceso a servidores de Redis que se hospedan en un centro de datos de Azure. Actúa como una fachada que ofrece control de acceso y seguridad. Puede aprovisionar una caché mediante Azure Portal.
 
-En él se proporcionan varias configuraciones predefinidas. Estas van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones SSL (para la privacidad) y la replicación maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (sin garantía de disponibilidad) que se ejecuta en hardware compartido.
+En él se proporcionan varias configuraciones predefinidas. Estas van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones SSL (para la privacidad) y la replicación maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (sin garantía de disponibilidad) que se ejecuta en hardware compartido.
 
 Mediante el Portal de Azure, también puede configurar la directiva de expulsión de la caché y agregar usuarios a los roles proporcionados con el fin de controlar el acceso.  Estos roles, que definen las operaciones que pueden realizar los miembros, incluyen Propietario, Colaborador y Lector. Por ejemplo, los miembros del rol Propietario tienen control completo sobre la caché (incluida la seguridad) y su contenido, los miembros del rol Colaborador pueden leer y escribir información en la caché y los miembros del rol Lector solo pueden recuperar datos de la caché.
 
@@ -336,7 +340,7 @@ Para obtener más información, visite la página [ASP.NET session state provide
 De forma similar, el proveedor de caché de resultados para caché en Redis de Azure permite guardar las respuestas HTTP generadas por una aplicación web ASP.NET. El uso del proveedor de caché de salida con Caché en Redis de Azure puede mejorar los tiempos de respuesta de las aplicaciones que representan salida HTML compleja. Las instancias de aplicación que generan respuestas similares pueden hacer uso de los fragmentos de salida compartidos en la caché en lugar de generar esta salida HTML de nuevo. Para obtener más información, visite la página [ASP.NET output cache provider for Azure Redis Cache](redis-cache/cache-aspnet-output-cache-provider.md) (Proveedor de caché de salida de ASP.NET para Caché en Redis de Azure) en el sitio web de Microsoft.
 
 ## <a name="building-a-custom-redis-cache"></a>Creación de una caché en Redis personalizada
-Caché en Redis de Azure actúa como una fachada para los servidores de Redis subyacentes. Actualmente admite un conjunto fijo de configuraciones pero no se ofrece para la agrupación en clústeres de Redis. Si necesita una configuración avanzada que escapa del ámbito de Caché en Redis de Azure (por ejemplo, una caché mayor de 53 GB) puede crear y hospedar sus propios servidores Redis con máquinas virtuales de Azure.
+Caché en Redis de Azure actúa como una fachada para los servidores de Redis subyacentes. Actualmente admite un conjunto fijo de configuraciones pero no se ofrece para la agrupación en clústeres de Redis. Si necesita una configuración avanzada que escapa del ámbito de Caché en Redis de Azure (por ejemplo, una caché mayor de 53 GB) puede crear y hospedar sus propios servidores Redis con máquinas virtuales de Azure.
 
 Este es un proceso potencialmente complejo ya que podría tener que crear varias máquinas virtuales para que actúen como nodos maestros y subordinados si desea implementar la replicación. Además, si desea crear un clúster, necesita varios servidores maestros y subordinados. Una topología mínima de replicación en clúster que proporciona un alto grado de disponibilidad y escalabilidad consta de seis máquinas virtuales como mínimo organizadas en tres pares de servidores maestro/subordinado (un clúster debe contener al menos tres nodos maestros).
 
@@ -927,6 +931,9 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 * La página [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) (Transacciones en Redis) del repositorio de StackExchange.Redis.
 * La [guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

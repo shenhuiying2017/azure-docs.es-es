@@ -1,6 +1,6 @@
 ---
 title: "Configuración de LDAP seguro (LDAPS) en Azure AD Domain Services | Microsoft Docs"
-description: "Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services"
+description: "Configuración de LDAP seguro (LDAPS) para un dominio administrado con Servicios de dominio de Azure AD"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan

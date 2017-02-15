@@ -1,13 +1,13 @@
 ---
-title: Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla del Administrador de recursos de Azure | Microsoft Docs
-description: Use una plantilla del Administrador de recursos de Azure para crear una nueva máquina virtual de Windows con la extensión de diagnósticos de Azure.
+title: "Creación de una máquina virtual Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager | Microsoft Docs"
+description: "Use una plantilla del Administrador de recursos de Azure para crear una nueva máquina virtual de Windows con la extensión de diagnósticos de Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: sbtron
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 1eb9355b8cdb500224809ab0bd32885358983c23
+
 
 ---
 # <a name="create-a-windows-virtual-machine-with-monitoring-and-diagnostics-using-azure-resource-manager-template"></a>Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla del Administrador de recursos de Azure
-La extensión de Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla del Administrador de recursos de Azure. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](virtual-machines-windows-extensions-authoring-templates.md) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  
+La extensión de Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla del Administrador de recursos de Azure. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Incorporación de la extensión de Diagnósticos de Azure a la definición de recursos de máquina virtual
 Para habilitar la extensión de diagnósticos en una máquina virtual de Windows, deberá agregar la extensión como un recurso de máquina virtual en la plantilla del Administrador de recursos.
@@ -88,7 +92,7 @@ El fragmento json de la extensión de diagnósticos anterior presupone dos pará
             "type": "string",
             "metadata": {
         "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-            }
+              }
         }
 
 Resulta aconsejable especificar una cuenta de almacenamiento de diagnóstico en un grupo de recursos diferente al grupo de recursos de la máquina virtual. Un grupo de recursos se puede considerar una unidad de implementación con su propio ciclo de vida; una máquina virtual se puede implementar y volver a implementar a medida que se realizan nuevas actualizaciones de configuraciones en ella, pero puede que quiera seguir almacenando los datos de diagnóstico en la misma cuenta de almacenamiento en esas implementaciones de máquina virtual. Tener la cuenta de almacenamiento en un recurso diferente hace posible que dicha cuenta acepte datos de varias implementaciones de máquina virtual, lo que facilita la solución de problemas entre las distintas versiones.
@@ -161,9 +165,12 @@ Cada tabla WADMetrics contendrá las columnas siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una plantilla de ejemplo de una máquina virtual de Windows con la extensión de diagnósticos, consulte [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Implemente la plantilla de Azure Resource Manager mediante [Azure PowerShell](virtual-machines-windows-ps-manage.md) o la [ínea de comandos de Azure](virtual-machines-linux-cli-deploy-templates.md).
+* Implemente la plantilla de Azure Resource Manager mediante [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o la [ínea de comandos de Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

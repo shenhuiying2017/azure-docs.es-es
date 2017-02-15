@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/01/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
+ms.sourcegitcommit: cd256c403cc8094a135157cdc69dbdd3971978ca
+ms.openlocfilehash: 9f8a898f265bc27fc47ea2e3d00d123f3f47dad6
 
 
 ---
@@ -31,6 +31,7 @@ La solución a este problema de configuración es un conjunto de servicios prede
 ### <a name="default-services"></a>Servicios predeterminados
 Las aplicaciones de Service Fabric constan de una colección de instancias de servicio. Aunque se puede crear una aplicación vacía y, a continuación, crear todas las instancias del servicio de forma dinámica, la mayoría de las aplicaciones tienen un conjunto de servicios principales que se deben crear siempre que se crea una instancia de la aplicación. Estos se conocen como "servicios predeterminados". Se especifican en el manifiesto de aplicación con marcadores de posición para la configuración de cada entorno entre corchetes:
 
+```xml
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
@@ -46,14 +47,17 @@ Las aplicaciones de Service Fabric constan de una colección de instancias de se
         </StatefulService>
     </Service>
   </DefaultServices>
+```
 
 Todos los parámetros con nombre deben definirse dentro del elemento Parameters del manifiesto de aplicación:
 
+```xml
     <Parameters>
         <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
         <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
+```
 
 El atributo DefaultValue especifica el valor que se usará en ausencia de un parámetro más específico para un entorno determinado.
 
@@ -67,12 +71,14 @@ El [modelo de aplicación de Service Fabric](service-fabric-application-model.md
 
 Suponga que tiene la siguiente opción en Config\Settings.xml para el servicio `Stateful1`:
 
+```xml
     <Section Name="MyConfigSection">
       <Parameter Name="MaxQueueSize" Value="25" />
     </Section>
-
+```
 Para reemplazar este valor para un par entorno/aplicación específico, cree `ConfigOverride` al importar el manifiesto de servicio en el manifiesto de aplicación.
 
+```xml
     <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
@@ -82,7 +88,7 @@ Para reemplazar este valor para un par entorno/aplicación específico, cree `Co
         </Settings>
      </ConfigOverride>
   </ConfigOverrides>
-
+```
 Este parámetro se puede configurar después por entorno, tal como se mostró anteriormente. Puede hacerlo declarándolo en la sección de parámetros del manifiesto de aplicación y especificar valores específicos del entorno en el archivo de parámetros de la aplicación.
 
 > [!NOTE]
@@ -93,6 +99,7 @@ Este parámetro se puede configurar después por entorno, tal como se mostró an
 ### <a name="application-parameter-files"></a>Archivos de parámetros de la aplicación
 El proyecto de aplicación de Service Fabric puede incluir uno o más archivos de parámetro de la aplicación. Cada uno de ellos define valores concretos para los parámetros que se definen en el manifiesto de aplicación:
 
+```xml
     <!-- ApplicationParameters\Local.xml -->
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -102,7 +109,7 @@ El proyecto de aplicación de Service Fabric puede incluir uno o más archivos d
             <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
         </Parameters>
     </Application>
-
+```
 De forma predeterminada, una aplicación nueva incluye tres archivos de parámetros de aplicación, denominados Local.1Node.xml, Local.5Node.xml y Cloud.xml:
 
 ![Archivos de parámetros de la aplicación en el Explorador de soluciones][app-parameters-solution-explorer]
@@ -134,6 +141,6 @@ Para obtener más información sobre algunos de los conceptos principales descri
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -35,7 +35,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-bluejeans-tutorial/IC785860.png "Escenario")
+![Escenario](./media/active-directory-saas-bluejeans-tutorial/IC785860.png "Scenario")
 
 ## <a name="enabling-the-application-integration-for-bluejeans"></a>Habilitación de la integración de aplicaciones para BlueJeans
 El objetivo de esta sección es describir cómo se habilita la integración de las aplicaciones para BlueJeans.
@@ -47,16 +47,16 @@ El objetivo de esta sección es describir cómo se habilita la integración de l
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-   ![Aplicaciones](./media/active-directory-saas-bluejeans-tutorial/IC700994.png "Aplicaciones")
+   ![Applications](./media/active-directory-saas-bluejeans-tutorial/IC700994.png "Applications")
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-   ![Agregar aplicaciones](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "Agregar aplicaciones")
+   ![Agregar aplicación](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "Add application")
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "Agregar una aplicación de la galería")
+   ![Agregar una aplicación de la galería](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "Add an application from gallerry")
 6. En el **cuadro de búsqueda**, escriba **BlueJeans**.
    
-   ![Galería de aplicaciones](./media/active-directory-saas-bluejeans-tutorial/IC785861.png "Galería de aplicaciones")
+   ![Galería de aplicaciones](./media/active-directory-saas-bluejeans-tutorial/IC785861.png "Application Gallery")
 7. En el panel de resultados, seleccione **BlueJeans** y, luego, haga clic en **Completar** para agregar la aplicación.
    
    ![BlueJeans](./media/active-directory-saas-bluejeans-tutorial/IC785862.png "BlueJeans")
@@ -68,29 +68,29 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **BlueJeans**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785863.png "Configurar inicio de sesión único")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785863.png "Configure single sign-on")
 2. En la página **¿Cómo desea que los usuarios inicien sesión en BlueJeans?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar inicio de sesión único")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configure Single Sign-On")
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón *https://company.BlueJeans.com* y, después, haga clic en **Siguiente**.
    
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar dirección URL de la aplicación")
+   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configure App URL")
 4. En la página **Configurar inicio de sesión único en BlueJeans**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785866.png "Configurar inicio de sesión único")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785866.png "Configure Single Sign-On")
 5. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de **BlueJeans** .
 6. Vaya a **ADMIN \> Group Settings \> Security**.
    
-   ![Administración](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Administración")
+   ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
 7. En la sección **Seguridad** , realice estos pasos:
    
-   ![Inicio de sesión único de SAML](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "Inicio de sesión único de SAML")
+   ![SAML Single Sign On](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML Single Sign On")
    
    1. Seleccione **SAML Single Sign On**(Inicio de sesión único de SAML).
    2. Seleccione **Enable automatic provisioning**(Habilitar aprovisionamiento automático).
 8. Continúe con los siguiente pasos:
    
-   ![Ruta del certificado](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Ruta del certificado")
+   ![Ruta de acceso del certificado](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Certificate Path")
    
    1. Haga clic en **Elegir archivo**y cargue el certificado descargado.
    2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
@@ -98,14 +98,14 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
    4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
 9. Continúe con los siguiente pasos:
    
-   ![Guardar cambios](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Guardar cambios")
+   ![Guardar cambios](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
    
    1. Escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name** en **User ID Attribute Name** (Nombre de atributo de identificador de usuario).
    2. Escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name** en **Email** (Correo electrónico).
    3. Haga clic en **Guardar cambios**.
 10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configurar inicio de sesión único")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configure Single Sign-On")
     
     ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 
@@ -116,7 +116,7 @@ En el caso de BlueJeans, el aprovisionamiento es una tarea manual.
 1. Inicie sesión como administrador en el sitio de la compañía de **BlueJeans** .
 2. Vaya a **ADMIN \> Manage Users \> Add User**.
    
-   ![Administración](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Administración")
+   ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
    
    > [!IMPORTANT]
    > La pestaña **Add User** (Agregar usuario) está disponible solo si en la pestaña **Security** (Seguridad), la opción **Enable automatic provisioning** (Habilitar aprovisionamiento automático) está desactivada.
@@ -124,7 +124,7 @@ En el caso de BlueJeans, el aprovisionamiento es una tarea manual.
    > 
 3. En la sección **Add User** (Agregar usuario), realice estos pasos:
    
-   ![Agregar usuario](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Agregar usuario")
+   ![Agregar usuario](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Add User")
    
    1. Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **BlueJeans Username** (Nombre de usuario de BlueJeans), **Email address** (Dirección de correo electrónico), **BlueJeans Meeting ID** (Id. de reunión de BlueJeans), **Moderator Passcode** (Código de acceso de moderador), **Full Name** (Nombre completo) y **Company** (Empresa).
    2. Haga clic en **Agregar usuario**.
@@ -141,10 +141,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **BlueJeans**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Asignar usuarios")
+   ![Asignar usuarios](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Assign Users")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Sí")
+   ![Sí](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Yes")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 

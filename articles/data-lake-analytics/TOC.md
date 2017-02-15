@@ -1,27 +1,30 @@
 # Información general
 ## [¿Qué es Data Lake Analytics?](data-lake-analytics-overview.md)
 
-# Primeros pasos
+# Introducción
 ## [Tutorial interactivo: análisis de registros de sitios web](data-lake-analytics-use-interactive-tutorials.md)
-## [Portal de Azure](data-lake-analytics-get-started-portal.md)
+## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
 ## [SDK de Java](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [CLI de Azure](data-lake-analytics-get-started-cli.md)
 ## [API DE REST](data-lake-analytics-get-started-rest-api.md)
+## [Python](data-lake-analytics-get-started-python.md)
 
-# Cómo
+# Procedimientos
 ## Desarrollo
 ### [U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [Funciones de ventana de U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operadores definidos por el usuario de U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+### [Extensiones de Python de U-SQL](data-lake-analytics-u-sql-python-extensions.md)
+### [Funcionalidades cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Creación de soluciones
 ### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)
 
 ## Administrar
-### [Portal de Azure](data-lake-analytics-manage-use-portal.md)
+### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [CLI de Azure](data-lake-analytics-manage-use-cli.md)
 ### [PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -36,11 +39,11 @@
 ### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Referencia
-
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 
 # Recursos
@@ -52,6 +55,6 @@
 ## [Blog de Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

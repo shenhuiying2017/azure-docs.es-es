@@ -1,19 +1,23 @@
 ---
-title: Replicación de Hyper-V con Azure Site Recovery | Microsoft Docs
-description: Use este artículo para comprender los conceptos técnicos que le ayudan a instalar, configurar y administrar correctamente Azure Site Recovery.
+title: "Replicación de Hyper-V con Azure Site Recovery | Microsoft Docs"
+description: "Use este artículo para comprender los conceptos técnicos que le ayudan a instalar, configurar y administrar correctamente Azure Site Recovery."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: Rajani-Janaki-Ram
 manager: mkjain
-editor: ''
-
+editor: 
+ms.assetid: 97916915-1379-47df-8369-12ddf022c4da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/12/2016
+ms.date: 01/19/2017
 ms.author: rajanaki
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: b49771ff1e29aeb6ec582c21061085504705991b
+
 
 ---
 # <a name="hyper-v-replication-with-azure-site-recovery"></a>Replicación de Hyper-V con Azure Site Recovery
@@ -43,7 +47,7 @@ Cuando se desencadena la replicación inicial, se toma una [instantánea de la m
 
 Una vez finalizada la replicación inicial, el trabajo **Finalizar la protección en la máquina virtual** configura las opciones de red y posteriores a la replicación. Mientras la replicación inicial está en curso:
 
-* Se realiza un seguimiento de todos los cambios en los discos. 
+* Se realiza un seguimiento de todos los cambios en los discos.
 * Se consume un almacenamiento de disco adicional para la instantánea y los archivos de registro de réplica de Hyper-V (HRL).
 
 Al finalizar la replicación inicial, se elimina la instantánea de máquina virtual de Hyper-V. Esta eliminación genera la combinación de los cambios de datos después de la replicación inicial en el disco primario.
@@ -55,7 +59,7 @@ Hyper-V Replica Replication Tracker, que forma parte del motor de replicación d
 
 Cada disco configurado para la replicación tiene un archivo HRL asociado. Este registro se envía a la cuenta de almacenamiento del cliente una vez completada la replicación inicial. Cuando un registro se encuentra en tránsito hacia Azure, los cambios en el archivo principal se siguen en otro archivo de registro del mismo directorio.
 
-Durante la replicación inicial o la replicación diferencial, puede supervisar el estado de replicación de la máquina virtual en la vista de la máquina virtual, tal como se menciona en [Supervisar el estado de replicación de la máquina virtual](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine).  
+Durante la replicación inicial o la replicación diferencial, puede supervisar el estado de replicación de la máquina virtual en la vista de la máquina virtual, tal como se menciona en [Supervisar el estado de replicación de la máquina virtual](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### <a name="resynchronization"></a>Resincronización
 Una máquina virtual se marca para resincronización cuando la replicación diferencial da error y la replicación inicial completa es costosa en términos de ancho de banda de red o de tiempo. Por ejemplo, cuando el tamaño de archivo HRL llega al 50 por ciento del tamaño total del disco, la máquina virtual se marca para resincronización. La resincronización minimiza la cantidad de datos enviados a través de la red mediante el cálculo de sumas de comprobación de los discos de máquina virtual de origen y destino, y el envío solo de la replicación diferencial.
@@ -81,9 +85,11 @@ Existe una lógica de reintento integrada para los errores de replicación. Esta
 
 ## <a name="other-references"></a>Otras referencias
 * [Protección de supervisión y solución de problemas para los VMware, VMM, Hyper-V y sitios físicos](site-recovery-monitoring-and-troubleshooting.md)
-* [Contacto con el soporte técnico de Microsoft](site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
-* [Errores comunes de Azure Site Recovery y sus soluciones](site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
+* [Contacto con el soporte técnico de Microsoft](site-recovery-monitoring-and-troubleshooting.md#reach-out-for-microsoft-support)
+* [Errores comunes de Azure Site Recovery y sus soluciones](site-recovery-monitoring-and-troubleshooting.md#common-azure-site-recovery-errors-and-their-resolutions)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

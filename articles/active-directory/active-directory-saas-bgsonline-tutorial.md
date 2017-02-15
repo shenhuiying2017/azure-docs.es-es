@@ -231,6 +231,6 @@ Al hacer clic en el icono de BGS Online en el Panel de acceso, debería iniciar 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

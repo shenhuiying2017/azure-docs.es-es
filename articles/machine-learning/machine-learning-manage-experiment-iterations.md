@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d0e0354e6d949c3c0f7cc79e71c3ab898e8a844f
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: ae77ce19ff009555e89645c9f02402ae6f8af518
 
 
 ---
@@ -40,7 +40,7 @@ Por ejemplo, suponga que crea un experimento y ejecuta versiones de este a las 1
 ## <a name="viewing-the-run-history"></a>Ver el historial de ejecuciones
 Puede ver todas las ejecuciones anteriores de un experimento haciendo clic en **Ver historial de ejecución** en un experimento abierto.
 
-Por ejemplo, suponga que crea un experimento con el módulo [Regresión lineal][linear-regression] y desea observar el efecto de cambiar el valor de **velocidad de aprendizaje** en los resultados del experimento. Ejecute el experimento varias veces con distintos valores para este parámetro, de la siguiente forma:
+Por ejemplo, suponga que crea un experimento con el módulo [Regresión lineal][linear-regression] y desea observar el efecto de cambiar el valor de **Velocidad de aprendizaje** en los resultados del experimento. Ejecute el experimento varias veces con distintos valores para este parámetro, de la siguiente forma:
 
 | Valor de velocidad de aprendizaje | Hora de inicio de la ejecución |
 | --- | --- |
@@ -86,6 +86,6 @@ Ahora puede continuar para modificar y ejecutar esta versión del experimento, c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

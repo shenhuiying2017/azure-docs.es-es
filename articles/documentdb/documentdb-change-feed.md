@@ -1,0 +1,339 @@
+---
+title: Compatibilidad con la fuente de cambios en Azure DocumentDB | Microsoft Docs
+description: "Use la compatibilidad con la fuente de cambios de Azure DocumentDB para controlar los cambios en documentos de DocumentDB, realizar el procesamiento basado en eventos mediante desencadenadores o mantener actualizados las cachés y los sistemas de análisis."
+keywords: fuente de cambios
+services: documentdb
+author: arramac
+manager: jhubbard
+editor: mimig
+documentationcenter: 
+ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: rest-api
+ms.topic: article
+ms.date: 12/13/2016
+ms.author: b-hoedid
+translationtype: Human Translation
+ms.sourcegitcommit: b22e75264345bc9d155bd1abc1fdb6e978dfad04
+ms.openlocfilehash: bafc50750381616ecf30c4e41090f342d82007f9
+
+
+---
+# <a name="working-with-the-change-feed-support-in-azure-documentdb"></a>Compatibilidad con la fuente de cambios en Azure DocumentDB
+[Azure DocumentDB](documentdb-introduction.md) es un servicio de base de datos NoSQL rápido y flexible que se usa para almacenar elevados volúmenes de datos de transacciones y operaciones con una latencia predecible inferior a&10; milisegundos en lecturas y escrituras. Esto hace que sea adecuado para IoT, juegos y aplicaciones de registro de operaciones. Un patrón de diseño habitual en estas aplicaciones es controlar los cambios realizados en datos de DocumentDB y actualizar las vistas materializadas, realizar análisis en tiempo real, archivar los datos en almacenamiento en frío y desencadenar notificaciones ante determinados eventos en función de estos cambios. La **compatibilidad con la fuente de cambios** de DocumentDB le permite crear soluciones eficientes y escalables para cada uno de estos patrones.
+
+Gracias a la compatibilidad con la fuente de cambios, DocumentDB proporciona una lista ordenada de documentos de una colección de DocumentDB en el orden en que se modificaron. Esta fuente se puede usar para estar al tanto de las modificaciones en los datos dentro de la colección y realizar acciones tales como:
+
+* Desencadenar una llamada a una API cuando se inserta o modifica un documento
+* Realizar el procesamiento en tiempo real (secuencia) sobre las actualizaciones
+* Sincronizar datos con una caché, un motor de búsqueda o un almacén de datos
+
+Los cambios en DocumentDB se conservan y se pueden procesar de manera asincrónica y distribuirse entre uno o varios clientes para un procesamiento en paralelo. Echemos un vistazo a las API de fuente de cambios y cómo se pueden usar para crear soluciones en tiempo real escalables.
+
+![Uso de la fuente de cambios de DocumentDB para aumentar la eficacia de los escenarios de informática orientada a eventos y análisis en tiempo real](./media/documentdb-change-feed/changefeed.png)
+
+## <a name="use-cases-and-scenarios"></a>Casos de uso y escenarios
+La fuente de cambios permite el procesamiento eficaz de grandes conjuntos de datos con un elevado volumen de escrituras, y ofrece un alternativa a la consulta de conjuntos de datos enteros para identificar lo que ha cambiado. Por ejemplo, puede realizar las siguientes tareas de manera eficaz:
+
+* Actualizar una caché, un índice de búsqueda o un almacén de datos con los datos almacenados en Azure DocumentDB.
+* Implementar capas y archivado de datos de nivel de aplicación, es decir, "datos activos" en DocumentDB y "jubilar" los "datos inactivos" en [Azure Blob Storage](../storage/storage-introduction.md) o [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Implementar análisis por lotes sobre los datos mediante [Apache Hadoop](documentdb-run-hadoop-with-hdinsight.md).
+* Implementar [canalizaciones Lambda en Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) con DocumentDB. DocumentDB proporciona una solución de base de datos escalable que puede hacer frente tanto a la ingesta como a la consulta, e implementar arquitecturas con un bajo TCO. 
+* Realizar migraciones con cero tiempo de inactividad a otra cuenta de Azure DocumentDB con un esquema de partición diferente.
+
+**Canalizaciones Lambda con Azure DocumentDB para ingesta y consulta:**
+
+![Canalización Lambda basada en Azure DocumentDB para ingesta y consulta](./media/documentdb-change-feed/lambda.png)
+
+Puede usar DocumentDB para recibir y almacenar datos de eventos de dispositivos, sensores, infraestructuras y aplicaciones y luego procesarlos en tiempo real con [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+
+Dentro de aplicaciones web y móviles, puede realizar el seguimiento de eventos, como cambios en el perfil del cliente, preferencias o ubicación para desencadenar determinadas acciones como enviar notificaciones push a sus dispositivos mediante [Azure Functions](../azure-functions/functions-bindings-documentdb.md) o [App Services](https://azure.microsoft.com/services/app-service/). Si usa DocumentDB para compilar un juego, puede usar la fuente de cambios para, por ejemplo, implementar marcadores en tiempo real basados en las puntuaciones de los juegos completados.
+
+## <a name="how-change-feed-works-in-azure-documentdb"></a>Funcionamiento de la fuente de cambios en Azure DocumentDB
+DocumentDB ofrece la posibilidad de leer las actualizaciones realizadas de manera incremental en una colección de DocumentDB. Esta fuente de cambios tiene las siguientes propiedades:
+
+* Los cambios son persistentes en DocumentDB y pueden procesarse de forma asincrónica.
+* Los cambios en los documentos dentro de una colección están disponibles inmediatamente en la fuente de cambios.
+* Cada cambio realizado en un documento aparece una sola vez en la fuente de cambios. Solo el cambio más reciente en un documento determinado se incluye en el registro de cambios. Puede que los cambios intermedios no estén disponibles.
+* La fuente de cambios está clasificada por orden de modificación dentro de cada valor de clave de partición. No hay ningún orden garantizado entre valores de clave de partición.
+* Los cambios se pueden sincronizar desde cualquier punto en el tiempo, es decir, no hay ningún período fijo de retención de datos en el que los cambios estén disponibles.
+* Los cambios están disponibles en fragmentos de intervalos de claves de partición. Esta funcionalidad permite que los cambios de colecciones grandes se procesen en paralelo por medio de varios consumidores/servidores.
+* Las aplicaciones pueden solicitar varias fuentes de cambios a la vez en la misma colección.
+
+La fuente de cambios de DocumentDB está habilitada de forma predeterminada para todas las cuentas y no implica gastos adicionales en su cuenta. Puede usar la [capacidad de proceso aprovisionada](documentdb-request-units.md) en su región de escritura o en cualquier [región de lectura](documentdb-distribute-data-globally.md) para leer la fuente de cambios, igual que con cualquier otra operación de DocumentDB. La fuente de cambios incluye inserciones y operaciones de actualización realizadas en los documentos dentro de la colección. Puede capturar eliminaciones estableciendo un indicador "eliminación temporal" dentro de los documentos en lugar de eliminaciones. Como alternativa, puede establecer un período finito de caducidad para los documentos mediante la [funcionalidad TTL](documentdb-time-to-live.md), por ejemplo, 24 horas, y usar el valor de esa propiedad para capturar las eliminaciones. Con esta solución, tiene que procesar los cambios dentro de un intervalo de tiempo más corto que el período de expiración de TTL. La fuente de cambios está disponible para cada intervalo de claves de partición dentro de la colección de documentos y, por tanto, se puede distribuir entre uno o varios consumidores para el procesamiento en paralelo. 
+
+![Procesamiento distribuido de la fuente de cambio de DocumentDB](./media/documentdb-change-feed/changefeedvisual.png)
+
+En la sección siguiente, se describe cómo acceder a la fuente de cambios mediante la API de REST y los SDK de DocumentDB.
+
+## <a name="working-with-the-rest-api-and-sdk"></a>API de REST y SDK
+DocumentDB proporciona contenedores elásticos de almacenamiento y capacidad de proceso denominados **colecciones**. Los datos dentro de las colecciones están agrupados de manera lógica mediante [claves de partición](documentdb-partition-data.md) para mejorar la escalabilidad y el rendimiento. DocumentDB proporciona varias API para acceder a estos datos, entre las que se incluyen búsqueda por id. (leer/obtener), consulta y fuentes de lectura (exámenes). La fuente de cambios se puede obtener rellenando dos nuevos encabezados de solicitud para la API `ReadDocumentFeed` de DocumentDB; luego se puede procesar en paralelo entre intervalos de claves de partición.
+
+### <a name="readdocumentfeed-api"></a>ReadDocumentFeed API
+Examinemos brevemente cómo funciona ReadDocumentFeed. DocumentDB admite la lectura de una fuente de documentos dentro de una colección mediante la API `ReadDocumentFeed`. Por ejemplo, la siguiente solicitud devuelve una página de documentos dentro de la colección `serverlogs`. 
+
+    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
+    x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
+    authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
+    Cache-Control: no-cache
+    x-ms-consistency-level: Strong
+    User-Agent: Microsoft.Azure.Documents.Client/1.10.27.5
+    x-ms-version: 2016-07-11
+    Accept: application/json
+    Host: mydocumentdb.documents.azure.com
+
+Se pueden limitar los resultados mediante el encabezado `x-ms-max-item-count`, y se pueden resumir las lecturas reenviando la solicitud con un encabezado `x-ms-continuation` devuelto en la respuesta anterior. Cuando se realiza desde un único cliente, `ReadDocumentFeed` realiza la iteración de los resultados entre particiones en serie. 
+
+**Fuente de documento de lectura en serie**
+
+![Ejecución en serie de ReadDocumentFeed de DocumentDB](./media/documentdb-change-feed/readfeedserial.png)
+
+También puede recuperar la fuente de documentos mediante uno de los [SDK de DocumentDB](documentdb-sdk-dotnet.md) admitidos. Por ejemplo, el fragmento de código siguiente muestra cómo ejecutar ReadDocumentFeed en. NET.
+
+    FeedResponse<dynamic> feedResponse = null;
+    do
+    {
+        feedResponse = await client.ReadDocumentFeedAsync(collection, new FeedOptions { MaxItemCount = -1 });
+    }
+    while (feedResponse.ResponseContinuation != null);
+
+> [!NOTE]
+> La fuente de cambios necesita las versiones del SDK 1.11.0 y superior (actualmente disponible en versión preliminar privada).
+
+### <a name="distributed-execution-of-readdocumentfeed"></a>Ejecución distribuida del ReadDocumentFeed
+En el caso de colecciones que contienen terabytes de datos o mayores, o que realizan la ingesta de grandes volúmenes de actualizaciones, la ejecución en serie de la fuente de lectura desde una única máquina cliente puede que no sea una solución práctica. Para estos escenarios de macrodatos, DocumentDB proporciona API que distribuyen las llamadas a `ReadDocumentFeed` de manera transparente entre varios lectores/consumidores cliente. 
+
+**Fuente de documentos de lectura distribuida**
+
+![Ejecución distribuida de ReadDocumentFeed de DocumentDB](./media/documentdb-change-feed/readfeedparallel.png)
+
+Para proporcionar procesamiento escalable de cambios incrementales, DocumentDB admite un modelo de escalado horizontal para la API de fuente de cambios que se basa en intervalos de claves de partición.
+
+* Puede obtener una lista de intervalos de claves de partición para una colección mediante la ejecución de una llamada a `ReadPartitionKeyRanges`. 
+* Para cada intervalo de claves de partición, puede ejecutar una API `ReadDocumentFeed` para leer los documentos con las claves de partición incluidas dentro de ese intervalo.
+
+### <a name="retrieving-partition-key-ranges-for-a-collection"></a>Recuperación de los intervalos de claves de partición para una colección
+Puede recuperar los intervalos de claves de partición solicitando el recurso `pkranges` dentro de una colección. Por ejemplo, la siguiente solicitud recupera la lista de intervalos de claves de partición para la colección `serverlogs`:
+
+    GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
+    x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
+    authorization: type%3dmaster%26ver%3d1.0%26sig%3dEConYmRgDExu6q%2bZ8GjfUGOH0AcOx%2behkancw3LsGQ8%3d
+    x-ms-consistency-level: Session
+    x-ms-version: 2016-07-11
+    Accept: application/json
+    Host: querydemo.documents.azure.com
+
+Esta solicitud devuelve la siguiente respuesta que contiene metadatos sobre los intervalos de claves de partición:
+
+    HTTP/1.1 200 Ok
+    Content-Type: application/json
+    x-ms-item-count: 25
+    x-ms-schemaversion: 1.1
+    Date: Tue, 15 Nov 2016 07:26:51 GMT
+
+    {
+       "_rid":"qYcAAPEvJBQ=",
+       "PartitionKeyRanges":[
+          {
+             "_rid":"qYcAAPEvJBQCAAAAAAAAUA==",
+             "id":"0",
+             "_etag":"\"00002800-0000-0000-0000-580ac4ea0000\"",
+             "minInclusive":"",
+             "maxExclusive":"05C1CFFFFFFFF8",
+             "_self":"dbs\/qYcAAA==\/colls\/qYcAAPEvJBQ=\/pkranges\/qYcAAPEvJBQCAAAAAAAAUA==\/",
+             "_ts":1477100776
+          },
+          ...
+       ],
+       "_count": 25
+    }
+
+
+**Propiedades del intervalo de claves de partición**: cada intervalo de claves de partición incluye las propiedades de metadatos en la tabla siguiente:
+
+<table>
+    <tr>
+        <th>Nombre de encabezado</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>
+            <p>El identificador del intervalo de claves de partición. Se trata de un identificador estable y único dentro de cada colección.</p>
+            <p>Debe usarse en la llamada siguiente para leer los cambios por intervalo de claves de partición.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>maxExclusive</td>
+        <td>El valor de hash de la clave de partición máxima para el intervalo de claves de partición. Solo para uso interno.</td>
+    </tr>
+    <tr>
+        <td>minInclusive</td>
+        <td>El valor de hash de clave de partición mínimo para el intervalo de claves de partición. Solo para uso interno.</td>
+    </tr>       
+</table>
+
+Puede realizar esta tarea mediante uno de los [SDK de DocumentDB](documentdb-sdk-dotnet.md) admitidos. Por ejemplo, el fragmento de código siguiente muestra cómo recuperar intervalos de claves de partición en. NET.
+
+    List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+    FeedResponse<PartitionKeyRange> response;
+
+    do
+    {
+        response = await client.ReadPartitionKeyRangeFeedAsync(collection);
+        partitionKeyRanges.AddRange(response);
+    }
+    while (response.ResponseContinuation != null);
+
+DocumentDB admite la recuperación de documentos por intervalo de claves de partición mediante el establecimiento del encabezado `x-ms-documentdb-partitionkeyrangeid` opcional. 
+
+### <a name="performing-an-incremental-readdocumentfeed"></a>Realización de una operación ReadDocumentFeed incremental
+ReadDocumentFeed admite los siguientes escenarios o tareas para el procesamiento incremental de los cambios en las colecciones de DocumentDB:
+
+* Leer todos los cambios en los documentos desde el principio, es decir, desde la creación de la colección.
+* Leer todos los cambios en las futuras actualizaciones de documentos desde el momento actual.
+* Leer todos los cambios en los documentos desde una versión lógica de la colección (ETag). Puede controlar a sus clientes según las etiquetas ETag devueltas por las solicitudes de fuente de lectura incremental.
+
+Los cambios incluyen inserciones y actualizaciones de documentos. Para capturar las eliminaciones, debe usar una propiedad de "eliminación temporal" dentro de los documentos, o bien la [propiedad TTL integrada](documentdb-time-to-live.md) para señalar una eliminación pendiente en la fuente de cambios.
+
+En la tabla siguiente se muestran los encabezados de solicitud y respuesta para las operaciones ReadDocumentFeed.
+
+**Encabezados de solicitud para ReadDocumentFeed incremental**:
+
+<table>
+    <tr>
+        <th>Nombre de encabezado</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>
+        <td>A-IM</td>
+        <td>Debe establecerse en "fuente incremental" u omitirse.</td>
+    </tr>
+    <tr>
+        <td>If-None-Match</td>
+        <td>
+            <p>Ningún encabezado: devuelve todos los cambios desde el principio (creación de la colección).</p>
+            <p>"*": devuelve todos los cambios nuevos en los datos dentro de la colección.</p>
+            <p>&lt;etag&gt;: si está establecido en una ETag de colección, devuelve todos los cambios realizados desde esa marca de tiempo lógica.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>x-ms-documentdb-partitionkeyrangeid</td>
+        <td>Id. de intervalo de claves de partición para la lectura de datos.</td>
+    </tr>
+</table>
+
+**Encabezados de respuesta para ReadDocumentFeed incremental**:
+
+<table>
+    <tr>
+        <th>Nombre de encabezado</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>
+        <td>ETag</td>
+        <td>
+            <p>El número de secuencia lógica (LSN) del último documento devuelto en la respuesta.</p>
+            <p>La operación ReadDocumentFeed incremental se puede reanudar reenviando este valor en If-None-Match.</p>
+        </td>
+    </tr>
+</table>
+
+Este es un ejemplo de solicitud para devolver todos los cambios incrementales realizados en la colección desde la versión lógica/ETag `28535` y el intervalo de claves de partición = `16`:
+
+    GET https://mydocumentdb.documents.azure.com/dbs/bigdb/colls/bigcoll/docs HTTP/1.1
+    x-ms-max-item-count: 1
+    If-None-Match: "28535"
+    A-IM: Incremental feed
+    x-ms-documentdb-partitionkeyrangeid: 16
+    x-ms-date: Tue, 22 Nov 2016 20:43:01 GMT
+    authorization: type%3dmaster%26ver%3d1.0%26sig%3dzdpL2QQ8TCfiNbW%2fEcT88JHNvWeCgDA8gWeRZ%2btfN5o%3d
+    x-ms-version: 2016-07-11
+    Accept: application/json
+    Host: mydocumentdb.documents.azure.com
+
+Los cambios están ordenados por tiempo dentro de cada valor de clave de partición del intervalo de claves de partición. No hay ningún orden garantizado entre valores de clave de partición. Si hay más resultados que pueden caber en una sola página, puede leer la página siguiente de resultados reenviando la solicitud con el encabezado `If-None-Match` con un valor igual a la etiqueta `etag` de la respuesta anterior. Si varios documentos se actualizaron de manera transaccional dentro de un procedimiento almacenado o un desencadenador, todos se devolverán dentro de la misma página de respuesta.
+
+El SDK de .NET SDK proporciona las clases auxiliares `CreateDocumentChangeFeedQuery` y `ChangeFeedOptions` para acceder a los cambios realizados en una colección. El fragmento de código siguiente muestra cómo recuperar todos los cambios desde el principio con el SDK de .NET desde un solo cliente.
+
+    private async Task<Dictionary<string, string>> GetChanges(
+        DocumentClient client,
+        string collection,
+        Dictionary<string, string> checkpoints)
+    {
+        List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+        FeedResponse<PartitionKeyRange> pkRangesResponse;
+
+        do
+        {
+            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            partitionKeyRanges.AddRange(pkRangesResponse);
+        }
+        while (pkRangesResponse.ResponseContinuation != null);
+
+        foreach (PartitionKeyRange pkRange in partitionKeyRanges)
+        {
+            string continuation = null;
+            checkpoints.TryGetValue(pkRange.Id, out continuation);
+
+            IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+                collection,
+                new ChangeFeedOptions
+                {
+                    PartitionKeyRangeId = pkRange.Id,
+                    StartFromBeginning = true,
+                    RequestContinuation = continuation,
+                    MaxItemCount = 1
+                });
+
+            while (query.HasMoreResults)
+            {
+                FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+
+                foreach (DeviceReading changedDocument in readChangesResponse)
+                {
+                    Console.WriteLine(changedDocument.Id);
+                }
+
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
+        }
+
+        return checkpoints;
+    }
+
+Y el fragmento de código siguiente muestra cómo procesar los cambios en tiempo real con DocumentDB mediante la compatibilidad con la fuente de cambios y la función anterior. La primera llamada devuelve todos los documentos de la colección, y el segundo devuelve solo los dos documentos que se crearon desde el último punto de comprobación.
+
+    // Returns all documents in the collection.
+    Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
+
+    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
+    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
+
+    // Returns only the two documents created above.
+    checkpoints = await GetChanges(client, collection, checkpoints);
+
+
+También puede filtrar la fuente de cambios usando la lógica del lado cliente para procesar los eventos de forma selectiva. Por ejemplo, este es un fragmento de código LINQ del lado cliente para procesar solo los eventos de cambio de temperatura de los sensores de dispositivo.
+
+    FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+
+    foreach (DeviceReading changedDocument in 
+        readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
+    {
+        // trigger an action, like call an API
+    }
+
+En este artículo se proporciona un tutorial sobre la compatibilidad con la fuente de cambios de DocumentDB y cómo controlar los cambios realizados en datos de DocumentDB mediante la API de REST o los SDK de DocumentDB. 
+
+## <a name="next-steps"></a>Pasos siguientes
+* Pruebe los [ejemplos de código de fuente de cambios de DocumentDB incluidos en Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
+* Aprenda sobre el [modelo y la jerarquía de recursos de DocumentDB](documentdb-resources.md).
+* Comience con la codificación con los [SDK](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) de DocumentDB.
+
+
+<!--HONumber=Dec16_HO2-->
+
+

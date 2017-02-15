@@ -90,7 +90,7 @@ Este error puede tener distintos orígenes.
        Message=Deployment template validation failed: 'The template resource {resource-name}'
        for type {resource-type} has incorrect segment lengths.
 
-   Un recurso de nivel de raíz debe tener un segmento menos en el nombre que en el tipo de recurso. Cada segmento se distingue por una barra diagonal. En el ejemplo siguiente, el tipo tiene 2 segmentos y el nombre, 1, por lo que es un **nombre válido**.
+   Un recurso de nivel de raíz debe tener un segmento menos en el nombre que en el tipo de recurso. Cada segmento se distingue por una barra diagonal. En el ejemplo siguiente, el tipo tiene&2; segmentos y el nombre,&1;, por lo que es un **nombre válido**.
 
        {
          "type": "Microsoft.Web/serverfarms",
@@ -123,7 +123,7 @@ Este error puede tener distintos orígenes.
            }
        ]
 
-   Obtener los segmentos correctos puede resultar complicado con los tipos de Resource Manager que se aplican en los proveedores de recursos. Por ejemplo, para aplicar un bloqueo de recurso a un sitio web, el tipo debe tener 4 segmentos. Por lo tanto, el nombre tiene 3 segmentos:
+   Obtener los segmentos correctos puede resultar complicado con los tipos de Resource Manager que se aplican en los proveedores de recursos. Por ejemplo, para aplicar un bloqueo de recurso a un sitio web, el tipo debe tener&4; segmentos. Por lo tanto, el nombre tiene&3; segmentos:
 
        {
            "type": "Microsoft.Web/sites/providers/locks",
@@ -304,7 +304,7 @@ Que devuelve:
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-Si implementa una plantilla que crea más de 4 núcleos en la región oeste de EE. UU., obtendrá un error de implementación similar al siguiente:
+Si implementa una plantilla que crea más de&4; núcleos en la región oeste de EE. UU., obtendrá un error de implementación similar al siguiente:
 
     Code=OperationNotAllowed
     Message=Operation results in exceeding quota limits of Core.

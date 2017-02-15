@@ -146,7 +146,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 * [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
 
-#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory)
 **Tipo:** características comunes
 
 **Disponibilidad:**
@@ -273,7 +273,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 * [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal-mim-server"></a><a name="mim-cal-mim-server"></a>CAL de MIM + servidor MIM
+#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>CAL de MIM + servidor MIM
 Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Dado que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, se puede instalar y usarse en ese servidor siempre y cuando el servidor esté ejecutando una copia con licencia válida. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
 
 **Tipo:** Características de la edición Premium
@@ -333,7 +333,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
-## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Azure Active Directory Join: solo características relacionadas con Windows 10
+## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Azure Active Directory Join: solo características relacionadas con Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Conectar un dispositivo a Azure AD, SSO de escritorio, Microsoft Passport para Azure AD, recuperación de Bitlocker de administrador
 **Tipo:** Azure Active Directory Join: solo características relacionadas con Windows 10
 
@@ -387,6 +387,6 @@ Además de las características disponibles normalmente en las ediciones Free, B
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

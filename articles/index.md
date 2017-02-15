@@ -4,8 +4,8 @@ hide_bc: true
 title: "Documentación de Microsoft Azure | Microsoft Docs"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
 translationtype: Human Translation
-ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
-ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
+ms.sourcegitcommit: 87041c127fb3381480b162c3a3648bfd46dbaaf7
+ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
 
 ---
 <div id="main" class="v2">
@@ -184,7 +184,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/security-center">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Centro de seguridad</p>
+                                                <p>Security Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -277,7 +277,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Inteligencia + Análisis</h3>
+                                    <h3>Inteligencia y análisis</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -312,7 +312,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Análisis de Data Lake</p>
+                                                <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -383,7 +383,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                              </li>
                             <li>
                                 <div class="group">
-                                    <h3>Almacenamiento</h3>
+                                    <h3>Storage</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
@@ -406,13 +406,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Copia de seguridad</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Recuperación de sitios</p>
+                                                <p>Site Recovery</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -433,7 +433,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Azure IoT Suite</p>
+                                                <p>Conjunto de aplicaciones de IoT de Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -484,7 +484,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Copia de seguridad</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -496,13 +496,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
-                                                <p>Programador</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Traffic Manager</p>
+                                                <p>Scheduler</p>
                                             </a>
                                         </li>
                                         <li>
@@ -526,7 +520,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Administrador de recursos de Azure</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -549,13 +543,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/app-service-mobile">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Aplicaciones móviles</p>
+                                                <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/app-service-api">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>Aplicaciones de API</p>
+                                                <p>API Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -637,6 +631,21 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Otras nubes</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/azure-government/">
+                                                <img src="media/index/azure-government.svg" alt="" />
+                                                <p>US Government de Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1010,7 +1019,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Almacenamiento</h3>
+                                                    <h3>Storage</h3>
                                                     <p>Almacenamiento en la nube duradero, de alta disponibilidad y escalable a gran escala</p>
                                                 </div>
                                             </div>
@@ -1029,7 +1038,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Almacén de Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -1067,7 +1076,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Copia de seguridad</h3>
+                                                    <h3>Backup</h3>
                                                     <p>Copias de seguridad de los servidores en la nube, sencillas y confiables</p>
                                                 </div>
                                             </div>
@@ -1086,7 +1095,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Recuperación de sitios</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>Coordine la protección y recuperación de nubes privadas</p>
                                                 </div>
                                             </div>
@@ -1519,7 +1528,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Análisis de Data Lake</h3>
+                                                    <h3>Data Lake Analytics</h3>
                                                     <p>Servicio de análisis distribuido que facilita los macrodatos</p>
                                                 </div>
                                             </div>
@@ -1628,7 +1637,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                         <a href="#iot">Internet de las cosas</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/iot/">
+                                <a href="https://azure.microsoft.com/develop/iot/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1676,7 +1685,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Suite</h3>
+                                                    <h3>Conjunto de aplicaciones de IoT de Azure</h3>
                                                     <p>Capture y analice datos sin explotar para mejorar los resultados empresariales</p>
                                                 </div>
                                             </div>
@@ -1914,7 +1923,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Centro de seguridad</h3>
+                                                    <h3>Security Center</h3>
                                                     <p>Evite y detecte amenazas, y responda a ellas, con mayor visibilidad</p>
                                                 </div>
                                             </div>
@@ -2042,7 +2051,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                         <a href="#devtools">Herramientas para desarrolladores</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/en-us/docs/overview">
+                                <a href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2209,7 +2218,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Copia de seguridad</h3>
+                                                    <h3>Backup</h3>
                                                     <p>Copias de seguridad de los servidores en la nube, sencillas y confiables</p>
                                                 </div>
                                             </div>
@@ -2228,7 +2237,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Recuperación de sitios</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>Coordine la protección y recuperación de nubes privadas</p>
                                                 </div>
                                             </div>
@@ -2247,27 +2256,8 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Programador</h3>
+                                                    <h3>Scheduler</h3>
                                                     <p>Ejecute sus trabajos según programaciones recurrentes simples o complejas</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/traffic-manager/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/TrafficManager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Traffic Manager</h3>
-                                                    <p>Enrute el tráfico entrante para obtener alto rendimiento y disponibilidad</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2342,7 +2332,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Administrador de recursos de Azure</h3>
+                                                    <h3>Azure Resource Manager</h3>
                                                     <p>Implementación y administración de recursos de Azure</p>
                                                 </div>
                                             </div>
@@ -2351,15 +2341,58 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                 </a>
                             </li>
                         </ul>
-                    </li>                    
+                    </li>
+                    <li>
+                        <a href="#other">Otras nubes</a>
+                        <ul id="other" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-government/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-government.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>US Government de Microsoft Azure</h3>
+                                                    <p>Compile y hospede aplicaciones para misiones del gobierno de EE.UU. en una instancia dedicada de Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure Stack</h3>
+                                                    <p>Con esta nueva plataforma en la nube híbrida puede proporcionar servicios de Azure desde su propio centro de datos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
-                <a href="#sdktools">SDK/Herramientas</a>
-                <ul id="sdktools">
+                <a href="#sdkstools">SDK y herramientas</a>
+                <ul id="sdkstools">
                     <li>
-                        <a href="#sdktools-all">todo</a>
-                        <ul id="sdktools-all" class="cardsF">
+                        <a href="#sdkstools-all">todo</a>
+                        <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Marcos de &amp; lenguajes</h1>
@@ -2376,16 +2409,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.0.0-beta3">Obtener SDK de .NET</a>
+                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Obtener SDK de .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Primeros pasos</a>
+                                                    <a href="https://docs.microsoft.com/dotnet/api/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">Referencia de API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Obtener ejemplos</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Más información</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2403,16 +2439,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/python">Obtener SDK de Python</a>
+                                                    <a href="https://pypi.python.org/pypi/azure">Obtener SDK de Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">Primeros pasos</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Referencia de API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">Obtener ejemplos</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/python">Más información</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2430,16 +2469,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Obtener SDK de Node.js</a>
+                                                    <a href="https://www.npmjs.com/package/azure">Obtener SDK de Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Primeros pasos</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">Referencia de API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Obtener ejemplos</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs">Más información</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2457,16 +2499,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-parent/1.0.0-beta3/azure-parent-1.0.0-beta3.pom">Obtener SDK de Java</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-java#download">Obtener SDK de Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Primeros pasos</a>
+                                                    <a href="https://docs.microsoft.com/java/api/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">Referencia de API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Obtener ejemplos</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Más información</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2484,16 +2529,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/downloads/">Obtener SDK de Ruby</a>
+                                                    <a href="https://rubygems.org/gems/azure">Obtener SDK de Ruby</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">Primeros pasos</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Referencia de API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Obtener ejemplos</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Más información</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2511,7 +2559,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="">Introducción a REST</a>
+                                                    <a href="https://docs.microsoft.com/rest/api/">Introducción a REST</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Referencia</a>
@@ -2539,9 +2587,9 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Versión preliminar de CLI de Azure 2.0 </h3>
+                                                <h3>Versión preliminar de la CLI de Azure 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/get-started/">Primeros pasos</a>
+                                                    <a href="/cli/azure/get-started/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-cli">Descargar CLI de Azure 2.0</a>
@@ -2566,7 +2614,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="/azure/powershell-install-configure">Primeros pasos</a>
+                                                    <a href="/azure/powershell-install-configure">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Descargar Powershell</a>
@@ -2591,7 +2639,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             <div class="cardText">
                                                 <h3>CLI de Azure </h3>
                                                 <p>
-                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Primeros pasos</a>
+                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Descargar la CLI de Azure para Linux</a>
@@ -2650,7 +2698,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     <a href="https://github.com/Microsoft/DockerToolsDocs">Herramientas de Docker</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Primeros pasos</a>
+                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Descargar para Visual Studio</a>
@@ -2698,10 +2746,10 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com/">Explorador de almacenamiento</a>
+                                                    <a href="http://storageexplorer.com/">Explorador de Storage</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Primeros pasos</a>
+                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Introducción</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Descargar para Linux</a>
@@ -2861,6 +2909,6 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO4-->
 
 

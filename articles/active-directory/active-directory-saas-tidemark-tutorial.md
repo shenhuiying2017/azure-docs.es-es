@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Tidemark | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Tidemark.
+title: "Tutorial: Integración de Azure Active Directory con Tidemark | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Tidemark."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6436ad4fb14728457bb80cc79dad4b35985b6676
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-tidemark"></a>Tutorial: integración de Azure Active Directory con Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integración de Azure Active Directory con Tidemark
 El objetivo de este tutorial es mostrar cómo integrar Tidemark con Azure Active Directory (Azure AD).
 
 Integrar Tidemark con Azure AD le proporciona las siguientes ventajas:
@@ -203,7 +207,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Tidemark en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Tidemark.
@@ -232,6 +236,6 @@ Al hacer clic en el icono de Tidemark en el panel de acceso, debería iniciar se
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

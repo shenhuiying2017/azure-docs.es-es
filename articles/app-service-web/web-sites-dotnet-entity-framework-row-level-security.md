@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Creación de una aplicación web con una base de datos multiempresa mediante Entity Framework y la seguridad de nivel de fila'
-description: Aprenda a desarrollar una aplicación web de ASP.NET MVC 5 con un back-end de Base de datos SQL multiempresa, mediante Entity Framework y la seguridad de nivel de fila.
+title: "Tutorial: Creación de una aplicación web con una base de datos multiempresa mediante Entity Framework y la seguridad de nivel de fila"
+description: "Aprenda a desarrollar una aplicación web de ASP.NET MVC 5 con un back-end de Base de datos SQL multiempresa, mediante Entity Framework y la seguridad de nivel de fila."
 metakeywords: azure asp.net mvc entity framework multi tenant row level security rls sql database
 services: app-service\web
 documentationcenter: .net
 manager: jeffreyg
 author: tmullaney
-
+ms.assetid: 8fdc47a5-6fc3-4d29-ab6a-33e79f50699f
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/25/2016
 ms.author: thmullan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ba1bb3d84b462dfebbb2564569517d7336bf54fd
+
 
 ---
-# Tutorial: Creación de una aplicación web con una base de datos multiempresa mediante Entity Framework y la seguridad de nivel de fila
+# <a name="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>Tutorial: Creación de una aplicación web con una base de datos multiempresa mediante Entity Framework y la seguridad de nivel de fila
 En este tutorial se muestra cómo crear una aplicación web multiempresa con un modelo de arrendamiento "[base de datos compartida, esquema compartido](https://msdn.microsoft.com/library/aa479086.aspx)", con Entity Framework y la [seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131.aspx). En este modelo, una sola base de datos contiene datos de muchos inquilinos, y cada fila de cada tabla está asociada a un "identificador de inquilino". La seguridad de nivel de fila (RLS), una nueva característica de Base de datos SQL de Azure, se usa para impedir que los inquilinos obtengan acceso a los datos de los demás inquilinos. Para ello solo es necesario realizar un pequeño cambio en la aplicación. Al centralizar la lógica de acceso del inquilino dentro de la propia base de datos, RLS simplifica el código de la aplicación y reduce el riesgo de pérdidas accidentales de los datos entre los inquilinos.
 
 Vamos a comenzar con la aplicación sencilla de Contact Manager de la sección [Creación de una aplicación de ASP.NET MVP con autenticación y Base de datos SQL e implementación en el Servicio de aplicaciones de Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Ahora mismo, la aplicación permite a todos los usuarios (inquilinos) ver todos los contactos:
@@ -25,10 +29,10 @@ Vamos a comenzar con la aplicación sencilla de Contact Manager de la sección [
 
 Con solo algunos pequeños cambios, agregaremos compatibilidad con multiempresa, de forma que los usuarios solo podrán ver los contactos que les pertenecen.
 
-## Paso 1: Incorporación de una clase de Interceptor en la aplicación para establecer el valor de SESSION\_CONTEXT
-Solo tenemos que realizar un cambio en la aplicación. Puesto que todos los usuarios de la aplicación se conectan a la base de datos con la misma cadena de conexión (es decir, el mismo inicio de sesión SQL), no hay actualmente ninguna forma de que una directiva RSL sepa por qué usuario se debería filtrar. Este enfoque es muy común en las aplicaciones web porque permite la agrupación eficaz de conexiones, pero significa que necesitamos otra manera de identificar al usuario actual de la aplicación dentro de la base de datos. La solución consiste en que la aplicación establezca un par de clave-valor para el UserId actual en [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806) inmediatamente después de abrir una conexión y antes de ejecutar una consulta. SESSION\_CONTEXT es un almacén de pares de clave-valor con ámbito de sesión, y nuestra política RLS usará el UserId almacenado en él para identificar al usuario actual.
+## <a name="step-1-add-an-interceptor-class-in-the-application-to-set-the-sessioncontext"></a>Paso 1: Incorporación de una clase de Interceptor en la aplicación para establecer el valor de SESSION_CONTEXT
+Solo tenemos que realizar un cambio en la aplicación. Puesto que todos los usuarios de la aplicación se conectan a la base de datos con la misma cadena de conexión (es decir, el mismo inicio de sesión SQL), no hay actualmente ninguna forma de que una directiva RSL sepa por qué usuario se debería filtrar. Este enfoque es muy común en las aplicaciones web porque permite la agrupación eficaz de conexiones, pero significa que necesitamos otra manera de identificar al usuario actual de la aplicación dentro de la base de datos. La solución consiste en que la aplicación establezca un par de clave-valor para el UserId actual en [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806) inmediatamente después de abrir una conexión y antes de ejecutar una consulta. SESSION_CONTEXT es un almacén de pares de clave-valor con ámbito de sesión, y nuestra política RLS usará el UserId almacenado en él para identificar al usuario actual.
 
-Agregaremos un [interceptor](https://msdn.microsoft.com/data/dn469464.aspx) (en concreto [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), una nueva característica de Entity Framework (EF) 6, para establecer automáticamente el UserId actual en SESSION\_CONTEXT ejecutando una instrucción T-SQL cuando EF abra una conexión.
+Agregaremos un [interceptor](https://msdn.microsoft.com/data/dn469464.aspx) (en concreto [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), una nueva característica de Entity Framework (EF) 6, para establecer automáticamente el UserId actual en SESSION_CONTEXT ejecutando una instrucción T-SQL cuando EF abra una conexión.
 
 1. Abra el proyecto ContactManager en Visual Studio.
 2. Haga clic con el botón derecho en la carpeta Modelos en el Explorador de soluciones y seleccione Agregar > Clase.
@@ -177,7 +181,7 @@ namespace ContactManager.Models
 
 Este es el único cambio que precisa la aplicación. Siga adelante y compile y publique la aplicación.
 
-## Paso 2: Incorporación de una columna UserId al esquema de base de datos
+## <a name="step-2-add-a-userid-column-to-the-database-schema"></a>Paso 2: Incorporación de una columna UserId al esquema de base de datos
 A continuación, debemos agregar una columna UserId a la tabla Contactos para asociar cada fila a un usuario (inquilino). Modificaremos el esquema directamente en la base de datos, por lo que no tenemos que incluir este campo en nuestro modelo de datos de EF.
 
 Conéctese a la base de datos directamente, mediante SQL Server Management Studio o Visual Studio, y luego ejecute la siguiente instrucción T-SQL:
@@ -187,7 +191,7 @@ ALTER TABLE Contacts ADD UserId nvarchar(128)
     DEFAULT CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
 ```
 
-Se agrega una columna UserId a la tabla Contactos. Usamos el tipo de datos nvarchar (128) para que coincidan los UserId almacenados en la tabla AspNetUsers y creamos una restricción DEFAULT que establece automáticamente que el UserId de las filas recién insertadas sea el UserId almacenado actualmente en SESSION\_CONTEXT.
+Se agrega una columna UserId a la tabla Contactos. Usamos el tipo de datos nvarchar (128) para que coincidan los UserId almacenados en la tabla AspNetUsers y creamos una restricción DEFAULT que establece automáticamente  que el UserId de las filas recién insertadas sea el UserId almacenado actualmente en SESSION_CONTEXT.
 
 Ahora la tabla tiene este aspecto:
 
@@ -199,15 +203,15 @@ Si ya ha creado unos cuantos usuarios en la aplicación (por ejemplo, mediante c
 
 ![Tabla AspNetUsers de SSMS](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
-Copie el identificador de user1@contoso.com y péguelo en la siguiente instrucción T-SQL. Ejecute esta instrucción para asociar tres de los contactos con este UserId.
+Copie el identificador de user1@contoso.com, y péguelo en la siguiente instrucción T-SQL. Ejecute esta instrucción para asociar tres de los contactos con este UserId.
 
 ```
 UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
 WHERE ContactId IN (1, 2, 5)
 ```
 
-## Paso 3: Creación de una directiva de seguridad de nivel de fila en la base de datos
-El paso final consiste en crear una directiva de seguridad que use el UserId de SESSION\_CONTEXT para filtrar automáticamente los resultados devueltos por las consultas.
+## <a name="step-3-create-a-row-level-security-policy-in-the-database"></a>Paso 3: Creación de una directiva de seguridad de nivel de fila en la base de datos
+El paso final consiste en crear una directiva de seguridad que use el UserId de SESSION_CONTEXT para filtrar automáticamente los resultados devueltos por las consultas.
 
 Mientras sigue conectado a la base de datos, ejecute la siguiente instrucción T-SQL:
 
@@ -230,7 +234,7 @@ go
 
 ```
 
-Este código hace tres cosas. En primer lugar, crea un nuevo esquema como procedimiento recomendado para centralizar y limitar el acceso a los objetos RLS. A continuación, crea una función de predicado que devolverá '1' cuando el UserId de una fila coincide con el UserId de SESSION\_CONTEXT. Finalmente, crea una directiva de seguridad que agrega esta función como un predicado de filtro y bloqueo en la tabla Contactos. El predicado de filtro hace que las consultas solo devuelvan las filas que pertenecen al usuario actual, y el predicado de bloqueo actúa como salvaguarda para impedir que la aplicación inserte por accidente una fila para el usuario incorrecto.
+Este código hace tres cosas. En primer lugar, crea un nuevo esquema como procedimiento recomendado para centralizar y limitar el acceso a los objetos RLS. A continuación, crea una función de predicado que devolverá '1' cuando el UserId de una fila coincide con el UserId de SESSION_CONTEXT. Finalmente, crea una directiva de seguridad que agrega esta función como un predicado de filtro y bloqueo en la tabla Contactos. El predicado de filtro hace que las consultas solo devuelvan las filas que pertenecen al usuario actual, y el predicado de bloqueo actúa como salvaguarda para impedir que la aplicación inserte por accidente una fila para el usuario incorrecto.
 
 Ejecute ahora la aplicación e inicie sesión como user1@contoso.com. Ahora este usuario solo ve los contactos que se asignaron anteriormente a este UserId:
 
@@ -238,11 +242,16 @@ Ejecute ahora la aplicación e inicie sesión como user1@contoso.com. Ahora este
 
 Para validar esto aún más, intente registrar un nuevo usuario. Este usuario no verá ningún contacto, ya que no se le ha asignado ninguno. Si dicho usuario crea un nuevo contacto, se le asignará a él, y solo él podrá verlo.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Eso es todo. La aplicación web sencilla de Contact Manager se ha convertido en una aplicación multiempresa donde cada usuario tiene su propia lista de contactos. Mediante la seguridad de nivel de fila, hemos evitado la complejidad de aplicar lógica de acceso de inquilino a nuestro código de aplicación. Esta transparencia permite a la aplicación centrarse en el problema empresarial real entre manos, y también reduce el riesgo de pérdida accidental de datos cuando el código base de la aplicación crece.
 
-En este tutorial solo se ha mostrado una mínima parte de lo que se puede hacer con RLS. Por ejemplo, se puede tener una lógica de acceso más sofisticada o granular, y es posible almacenar más valores que únicamente el UserId de SESSION\_CONTEXT. También es posible [integrar RLS con las bibliotecas de cliente de herramientas de base de datos elástica](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) para permitir particiones multiempresa en una capa de datos de escalado horizontal.
+En este tutorial solo se ha mostrado una mínima parte de lo que se puede hacer con RLS. Por ejemplo, se puede tener una lógica de acceso más sofisticada o granular, y es posible almacenar más valores que únicamente el UserId de SESSION_CONTEXT. También es posible [integrar RLS con las bibliotecas de cliente de herramientas de base de datos elástica](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) para permitir particiones multiempresa en una capa de datos de escalado horizontal.
 
 Al margen de estas posibilidades, también estamos trabajando para mejorar RLS más incluso. Si tiene alguna pregunta, idea o cosas que le gustaría ver, háganos llegar sus comentarios. Agradecemos su participación.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

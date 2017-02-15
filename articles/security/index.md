@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Aprenda a personalizar las opciones de seguridad de los servicios de Azure para cumplir los requisitos de las implementaciones de servicios y datos en la nube.
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
 
 ---
 # <a name="security-documentation"></a>Documentación de Security
 
-La infraestructura de Azure está diseñada desde la instalación hasta las aplicaciones para hospedar millones de clientes simultáneamente, y proporciona una base de confianza en la que las empresas pueden satisfacer sus necesidades de seguridad. Además, Azure ofrece una amplia gama de opciones de seguridad configurables, así como la posibilidad de controlarlas, por lo que puede personalizar la seguridad para satisfacer los requisitos únicos de sus implementaciones.
+Aprenda a usar Azure Security para proteger servicios y datos en la nube. Los tutoriales y otra documentación lo ayudan a personalizar las opciones de seguridad en servicios de Azure para cumplir los requisitos de sus implementaciones.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,16 +105,10 @@ La infraestructura de Azure está diseñada desde la instalación hasta las apli
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de Security </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

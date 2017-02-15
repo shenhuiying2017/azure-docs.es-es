@@ -137,6 +137,6 @@ Ahora puede conectarse a WordPress directamente en la máquina virtual a través
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

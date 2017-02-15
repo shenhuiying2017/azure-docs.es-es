@@ -1,5 +1,5 @@
 ---
-title: " Introducción a la entrega de contenido a petición mediante Azure Portal | Microsoft Docs"
+title: " Introducción a la entrega de contenido a petición mediante Azure Portal | Microsoft Docss"
 description: "Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Servicios multimedia de Azure (AMS) mediante el Portal de Azure."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 
 ---
@@ -33,7 +33,7 @@ Este tutorial le guiará por los pasos necesarios para implementar un servicio b
 Este tutorial incluye las siguientes tareas:
 
 1. Creación de una cuenta de Servicios multimedia de Azure.
-2. Configuración de extremos de streaming.
+2. Inicie el punto de conexión de streaming.
 3. Carga de un archivo de vídeo.
 4. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
 5. Publicación del recurso y obtención de direcciones URL de descarga progresiva y streaming.  
@@ -60,7 +60,7 @@ Los pasos de esta sección muestran cómo crear una cuenta de AMS.
    6. Seleccione **Anclar al panel** para ver el progreso de la implementación de la cuenta.
 4. Haga clic en **Crear** en la parte inferior del formulario.
    
-    Una vez que la cuenta se crea correctamente, el estado cambia a **En ejecución**. 
+    Cuando la cuenta se crea correctamente, se carga la página de información general. En la tabla de puntos de conexión de streaming, la cuenta tendrá el punto de conexión de streaming predeterminado en el estado **Stopped** (Detenido). El punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
    
     ![Configuración de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -79,33 +79,22 @@ Necesita el nombre de cuenta y la información de la clave principal para obtene
    
     ![Claves de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="configure-streaming-endpoints"></a>Configurar extremos de streaming
-Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar contenido de vídeo a los clientes mediante streaming con velocidad de bits adaptable. Media Services admite las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH.
+## <a name="start-streaming-endpoints"></a>Inicio de los puntos de conexión de streaming 
 
-Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable en formatos de streaming admitidos por Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) justo a tiempo sin tener que almacenar versiones previamente empaquetadas de cada uno de estos formatos.
+Cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es entregar contenido de vídeo a los clientes mediante streaming con velocidad de bits adaptable. Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 con velocidad de bits adaptable en formatos de streaming admitidos por Media Services (MPEG DASH, HLS, Smooth Streaming) justo a tiempo, sin tener que almacenar versiones previamente empaquetadas de cada uno de estos formatos.
 
-Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
 
-* Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).  
-* Cree al menos una unidad de streaming para el *punto de conexión de streaming* para el que planea entregar el contenido. Para cambiar el número de unidades de streaming, realice los siguientes pasos.
+Para iniciar el punto de conexión de streaming, haga lo siguiente:
 
-Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
-
-Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
-
-1. En la ventana **Configuración**, haga clic en **Puntos de conexión de streaming**. 
+1. En la ventana Settings (Configuración), haga clic en Streaming endpoints (Puntos de conexión de streaming). 
 2. Haga clic en el punto de conexión de streaming predeterminado. 
-   
-    Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO** .
-3. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming** .
-   
-    ![Unidades de streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Haga clic en el botón **Guardar** para guardar los cambios.
-   
-   > [!NOTE]
-   > La asignación de cualquier nueva unidad puede tardar hasta 20 minutos en completarse.
-   > 
-   > 
+
+    Aparecerá la ventana de detalles del punto de conexión de streaming predeterminado.
+
+3. Haga clic en el icono de inicio.
+4. Haga clic en el botón Save (Guardar) para guardar los cambios.
 
 ## <a name="upload-files"></a>Carga de archivos
 Para transmitir vídeos mediante Servicios multimedia de Azure, es preciso cargar los vídeos de origen, codificarlos en varias velocidades de bits y publicar el resultado. En esta sección se describe el primer paso. 
@@ -132,10 +121,7 @@ Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más 
 
 Media Services también proporciona empaquetado dinámico, que permite entregar archivos MP4 de velocidad de bits múltiple en los siguientes formatos de streaming: MPEG DASH, HLS o Smooth Streaming sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
-Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
-
-* Codifique su archivo de origen en un conjunto de archivos MP4 de varias velocidades de bits (los pasos de codificación se muestran más adelante en esta sección).
-* Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. Para más información, consulte [Configuración de puntos de conexión de streaming](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+Para sacar partido del empaquetado dinámico, tiene que codificar su archivo de origen en un conjunto de archivos MP4 de velocidad de bits múltiple (los pasos de codificación se muestran más adelante en esta sección).
 
 ### <a name="to-use-the-portal-to-encode"></a>Uso del portal para codificar
 En esta sección se describen los pasos que puede seguir para codificar el contenido con Estándar de codificador multimedia.
@@ -221,6 +207,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

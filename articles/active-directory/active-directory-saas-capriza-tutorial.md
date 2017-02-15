@@ -236,6 +236,6 @@ Al hacer clic en el icono de Capriza en el Panel de acceso, debería iniciar ses
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Conexión híbrida con aplicación de 2 niveles | Microsoft Docs
-description: Obtenga información sobre cómo implementar aplicaciones virtuales y UDR para crear un entorno de aplicaciones de niveles múltiples en Azure
+title: "Conexión híbrida con aplicación de 2 niveles | Microsoft Docs"
+description: "Obtenga información sobre cómo implementar aplicaciones virtuales y UDR para crear un entorno de aplicaciones de niveles múltiples en Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
+
 
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
@@ -65,7 +69,7 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
   * **AZF2**. Firewall interno que se usa para controlar el tráfico entre **azsn2** y **azsn3**. También es una aplicación virtual de 3 NIC.
   * **AZF3**. Firewall de administración al que los administradores tienen acceso desde el centro de datos local y que está conectado a una subred de administración que se usa para administrar todas las aplicaciones de firewall. Puede encontrar plantillas de aplicaciones virtuales de 2 NIC en Marketplace, o bien solicitar una directamente al proveedor de aplicaciones.
 
-## <a name="user-defined-routing-(udr)"></a>Enrutamiento definido por el usuario (UDR)
+## <a name="user-defined-routing-udr"></a>Enrutamiento definido por el usuario (UDR)
 Cada subred de Azure se puede vincular a una tabla de UDR que se usa para definir cómo se enruta el tráfico que se inicia en esa subred. Si no hay definida ninguna UDR, Azure usa las rutas predeterminadas para permitir que el tráfico fluya de una subred a otra. Consulte el artículo [¿Qué son las rutas definidas por el usuario y el reenvío IP?](virtual-networks-udr-overview.md#ip-forwarding)para comprender mejor las UDR.
 
 Para asegurarse de que la comunicación que se realiza a través de la aplicación de firewall correcta, según el último requisito mencionado, debe crear la siguiente tabla de ruta que contiene UDR en **azurevnet**.
@@ -143,7 +147,7 @@ AZF2 representa una aplicación de Azure que contiene las siguientes reglas:
 * **Ruta**: todo el tráfico a 10.0.0.0/16 (**onpremvnet**) se debe enviar a la dirección IP de la puerta de enlace de Azure (es decir, 10.0.0.1) a través de **port1**.
 * **Directiva**: permita todo el tráfico bidireccional entre **port1** y **port2**.
 
-## <a name="network-security-groups-(nsgs)"></a>Grupos de seguridad de red (NSG)
+## <a name="network-security-groups-nsgs"></a>Grupos de seguridad de red (NSG)
 En este escenario, no se usan los NSG. Sin embargo, podría aplicar los NSG a cada subred para restringir el tráfico entrante y saliente. Por ejemplo, podría aplicar las siguientes reglas de NSG a la subred de firewall externo.
 
 **Entrante**
@@ -164,6 +168,9 @@ Para implementar este escenario, siga estos pasos de alto nivel.
 4. Aprovisione el túnel de **onpremvnet** a **azurevnet**.
 5. Una vez que se aprovisionen todos los recursos, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

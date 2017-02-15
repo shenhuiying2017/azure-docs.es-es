@@ -1,22 +1,26 @@
 ---
-title: Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp) | Microsoft Docs
-description: Para datos de tamaño pequeño, utiliza bcp para exportar datos de SQL Server a archivos planos e importar los datos directamente en Almacenamiento de datos SQL de Azure.
+title: Carga de datos de SQL Server en Azure SQL Data Warehouse (bcp) | Microsoft Docs
+description: "Para datos de tamaño pequeño, utiliza bcp para exportar datos de SQL Server a archivos planos e importar los datos directamente en Almacenamiento de datos SQL de Azure."
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: f87d8d7c-8276-43c5-90e7-d4ccc0e3a224
 ms.service: sql-data-warehouse
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/30/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e61865c903f168e35cff6a7ce8ccd27dbaaff104
+
 
 ---
-# Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (archivos planos)
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (archivos planos)
 > [!div class="op_single_selector"]
 > * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 > * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
@@ -36,8 +40,8 @@ En este tutorial, usará bcp para:
 > 
 > 
 
-## Antes de empezar
-### Requisitos previos
+## <a name="before-you-begin"></a>Antes de empezar
+### <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
 * Una base de datos de Almacenamiento de datos SQL
@@ -46,12 +50,12 @@ Para seguir paso a paso este tutorial, necesita:
 
 Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][Centro de descarga de Microsoft].
 
-### Datos en los formatos ASCII o UTF-16
-Si va a probar este tutorial con sus propios datos, estos deben utilizar la codificación ASCII o UTF-16, ya que bcp no admite UTF-8.
+### <a name="data-in-ascii-or-utf-16-format"></a>Datos en los formatos ASCII o UTF-16
+Si va a probar este tutorial con sus propios datos, estos deben utilizar la codificación ASCII o UTF-16, ya que bcp no admite UTF-8. 
 
-PolyBase admite UTF-8, pero aún no es compatible con UTF-16. Tenga en cuenta que si desea combinar bcp con PolyBase, será preciso que transforme los datos al formato UTF-8 después de que se exportan desde SQL Server.
+PolyBase admite UTF-8, pero aún no es compatible con UTF-16. Tenga en cuenta que si desea combinar bcp con PolyBase, será preciso que transforme los datos al formato UTF-8 después de que se exportan desde SQL Server. 
 
-## 1\. Creación de una tabla de destino.
+## <a name="1-create-a-destination-table"></a>1. Creación de una tabla de destino.
 Defina en Almacenamiento de datos SQL una tabla que será la tabla de destino de la carga. Las columnas de la tabla deben corresponder con los datos de cada fila del archivo de datos.
 
 Para crear una tabla, abra un símbolo del sistema y use sqlcmd.exe para ejecutar el comando siguiente:
@@ -73,8 +77,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2\. Creación de un archivo de datos de origen
-Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archivo de texto y, después, guarde este archivo en el directorio temporal local, C:\\Temp\\DimDate2.txt. Estos datos están en formato ASCII.
+## <a name="2-create-a-source-data-file"></a>2. Creación de un archivo de datos de origen
+Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archivo de texto y, después, guarde este archivo en el directorio temporal local, C:\Temp\DimDate2.txt. Estos datos están en formato ASCII.
 
 ```
 20150301,1,3
@@ -99,7 +103,7 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 
 
-## 3\. Carga de los datos
+## <a name="3-load-the-data"></a>3. Carga de los datos
 Para cargar los datos, abra un símbolo del sistema y ejecute el comando siguiente, pero reemplace los valores de nombre de servidor, nombre de base de datos, nombre de usuario y contraseña por su propia información.
 
 ```sql
@@ -129,8 +133,8 @@ El resultado debería ser similar a este:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-## 4\. Creación de estadísticas
-Almacenamiento de datos SQL de Azure aún no admite la creación o actualización automáticas de estadísticas. Para obtener el mejor rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga, o bien después de que se realicen cambios importante en los datos. Para ver una explicación detallada de las estadísticas, consulte [Estadísticas][Estadísticas].
+## <a name="4-create-statistics"></a>4. Creación de estadísticas
+Almacenamiento de datos SQL de Azure aún no admite la creación o actualización automáticas de estadísticas. Para obtener el mejor rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga, o bien después de que se realicen cambios importante en los datos. Para ver una explicación detallada de las estadísticas, consulte [Estadísticas][Estadísticas]. 
 
 Ejecute el siguiente comando para crear estadísticas en la tabla recién cargada.
 
@@ -142,12 +146,12 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## 5\. Exportación de datos de Almacenamiento de datos SQL
-Puede exportar los datos que acaba de cargar otra vez al Almacenamiento de datos SQL. El comando para realizar la exportación es exactamente el mismo que el que se usa para exportar desde SQL Server.
+## <a name="5-export-data-from-sql-data-warehouse"></a>5. Exportación de datos de Almacenamiento de datos SQL
+Puede exportar los datos que acaba de cargar otra vez al Almacenamiento de datos SQL.  El comando para realizar la exportación es exactamente el mismo que el que se usa para exportar desde SQL Server.
 
 Sin embargo, hay una diferencia en los resultados. Dado que los datos se almacenan en ubicaciones distribuidas en Almacenamiento de datos SQL, al realizar la exportación de datos, cada nodo de ejecución escribe sus datos en el archivo de salida. Es probable que el orden de los datos en el archivo de salida sea diferente del orden de los datos en el archivo de entrada.
 
-### Exportación de una tabla y comparación de los resultados exportados
+### <a name="export-a-table-and-compare-exported-results"></a>Exportación de una tabla y comparación de los resultados exportados
 Para ver los datos exportados, abra un símbolo del sistema y ejecute este comando con sus propios parámetros. ServerName es el nombre del servidor SQL Server lógico de Azure.
 
 ```sql
@@ -170,11 +174,13 @@ Puede comprobar que los datos se exportaron correctamente abriendo el nuevo arch
 20150101,1,3
 ```
 
-### Exportación de los resultados de una consulta
-Puede usar la función **queryout** de bcp para exportar los resultados de una consulta, en lugar de exportar toda la tabla.
+### <a name="export-the-results-of-a-query"></a>Exportación de los resultados de una consulta
+Puede usar la función **queryout** de bcp para exportar los resultados de una consulta, en lugar de exportar toda la tabla. 
 
-## Pasos siguientes
-Para obtener información general sobre la carga, vea [Carga de datos en Almacenamiento de datos SQL][Carga de datos en Almacenamiento de datos SQL]. Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL]. Consulte la [información general sobre las tablas][información general sobre las tablas] o la [sintaxis CREATE TABLE][sintaxis CREATE TABLE] para más información sobre cómo crear una tabla en Almacenamiento de datos SQL.
+## <a name="next-steps"></a>Pasos siguientes
+Para obtener información general sobre la carga, vea [Carga de datos en Almacenamiento de datos SQL][Carga de datos en Almacenamiento de datos SQL].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL].
+Consulte la [Información general sobre las tablas][Información general sobre las tablas] o la [sintaxis de CREATE TABLE][sintaxis de CREATE TABLE] para más información sobre cómo crear una tabla en SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -182,14 +188,18 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 
 [Carga de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-load.md
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
-[información general sobre las tablas]: ./sql-data-warehouse-tables-overview.md
+[Información general sobre las tablas]: ./sql-data-warehouse-tables-overview.md
 [Estadísticas]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[sintaxis CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[sintaxis de CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

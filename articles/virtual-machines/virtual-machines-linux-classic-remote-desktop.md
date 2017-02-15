@@ -116,6 +116,6 @@ Para obtener más información sobre el uso de xrdp, puede consultar [aquí](htt
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

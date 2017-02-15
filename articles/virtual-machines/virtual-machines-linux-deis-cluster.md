@@ -1,13 +1,13 @@
 ---
-title: Implementar un clúster Deis de 3 nodos | Microsoft Docs
-description: En este artículo se describe cómo crear un clúster Deis de 3 nodos en Azure mediante una plantilla de Administrador de recursos de Azure
+title: "Implementación de un clúster Deis de 3 nodos | Microsoft Docs"
+description: "En este artículo se describe cómo crear un clúster Deis de 3 nodos en Azure mediante una plantilla de Administrador de recursos de Azure"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: HaishiBai
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 5eb67eb7-95d4-461d-8eac-44925224ba5f
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 1c45d0ad8431b5cfff7859817fe57c3168f2dc7f
+
 
 ---
-# Implementar un clúster Deis de 3 nodos
+# <a name="deploy-a-3-node-deis-cluster"></a>Implementar un clúster Deis de 3 nodos
 Este artículo le guiará a través de aprovisionamiento de un clúster [Deis](http://deis.io/) en Azure. Abarca todos los pasos de creación de los certificados necesarios para implementar y escalar una aplicación **Go** de ejemplo en el clúster recién suministrado.
 
 El siguiente diagrama muestra la arquitectura del sistema implementado. Un administrador del sistema administra el clúster con herramientas Deis como **deis** y **deisctl**. Las conexiones se establecen a través de un equilibrador de carga de Azure, que reenvía las conexiones a uno de los nodos de los miembros del clúster. Los clientes acceden a aplicaciones implementadas a través del equilibrador de carga también. En este caso, el equilibrador de carga reenvía el tráfico a una malla de enrutador Deis, que enruta el tráfico a los contenedores Docker correspondientes alojados en el clúster.
@@ -27,15 +31,15 @@ El siguiente diagrama muestra la arquitectura del sistema implementado. Un admin
 Para ejecutar los siguientes pasos, necesitará:
 
 * Una suscripción de Azure activa. Si no tiene una, puede obtener una prueba gratuita en [azure.com](https://azure.microsoft.com/).
-* Un identificador profesional o educativo para usar grupos de recursos de Azure. Si tiene una cuenta personal e inicia sesión con un identificador de Microsoft, deberá [crear un identificador profesional a partir del suyo personal](virtual-machines-windows-create-aad-work-id.md).
-* O bien, dependiendo de su sistema operativo de cliente: el [Azure PowerShell](../powershell-install-configure.md) o el [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
+* Un identificador profesional o educativo para usar grupos de recursos de Azure. Si tiene una cuenta personal e inicia sesión con un identificador de Microsoft, deberá [crear un identificador profesional a partir del suyo personal](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Dependiendo de su sistema operativo de cliente, bien [Azure PowerShell](../powershell-install-configure.md) bien la [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL se usa para generar los certificados necesarios.
 * Un cliente Git como [Git Bash](https://git-scm.com/).
 * Para probar la aplicación de ejemplo, también necesitará un servidor DNS. Puede usar los servidores o servicios DNS que admiten los registros de carácter comodín A.
 * Un equipo para ejecutar herramientas de cliente Deis. Puede usar un equipo local o en una máquina virtual. Puede ejecutar estas herramientas en casi cualquier distribución de Linux, pero las siguientes instrucciones uszan Ubuntu.
 
-## Aprovisionamiento del clúster
-En esta sección, usará una plantilla de [Administrador de recursos de Azure](../resource-group-overview.md) del repositorio de código abierto [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates). En primer lugar, copiará la plantilla. A continuación, creará un nuevo par de claves SSH para la autenticación. Y, a continuación, configurará un nuevo identificador para su clúster. Por último, usará el script Shell o PowerShell para aprovisionar el clúster.
+## <a name="provision-the-cluster"></a>Aprovisionamiento del clúster
+En esta sección, usará una plantilla de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) del repositorio de código abierto [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates). En primer lugar, copiará la plantilla. A continuación, creará un nuevo par de claves SSH para la autenticación. Y, a continuación, configurará un nuevo identificador para su clúster. Por último, usará el script Shell o PowerShell para aprovisionar el clúster.
 
 1. Clone el repositorio: [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
    
@@ -52,8 +56,9 @@ En esta sección, usará una plantilla de [Administrador de recursos de Azure](.
 5. Vaya a [https://discovery.etcd.io/new](https://discovery.etcd.io/new) para generar un nuevo token de clúster, que presenta un aspecto similar al siguiente:
    
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-   <br /> Cada clúster CoreOS debe tener un token único de este servicio gratuito. Consulte [Documentación de CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obtener más detalles.
-6. Modifique el archivo **cloud-config.yaml** para reemplazar el token de **detección** existente por el nuevo token:
+   <br />
+    Cada clúster CoreOS debe tener un token único de este servicio gratuito. Consulte [Documentación de CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obtener más detalles.
+6. Modifique el archivo **cloud-config.yaml** para reemplazar el token **discovery** existente por el nuevo:
    
         #cloud-config
         ---
@@ -63,9 +68,9 @@ En esta sección, usará una plantilla de [Administrador de recursos de Azure](.
             # uncomment the following line and replace it with your discovery URL
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
-7. Modifique el archivo **azuredeploy parameters.json**: abra el certificado creado en el paso 4 en un editor de texto. Copie todo el texto entre `----BEGIN CERTIFICATE-----` y `-----END CERTIFICATE-----` en el parámetro **sshKeyData** (deberá quitar todos los caracteres de nueva línea).
-8. Modifique el parámetro **newStorageAccountName**. Esta es la cuenta de almacenamiento para los discos del sistema operativo de la máquina virtual. Este nombre de cuenta debe ser único globalmente.
-9. Modifique el parámetro **publicDomainName**. Esto pasará a formar parte del nombre DNS asociado con la IP pública del equilibrador de carga. El FQDN final tendrá el formato de *[valor de este parámetro]*.*[región]*.cloudapp.azure.com. Por ejemplo, si especifica el nombre como deishbai32 y el grupo de recursos se implementa en la región Oeste de EE. UU., el FQDN final del equilibrador de carga final será deishbai32.westus.cloudapp.azure.com.
+7. Modifique el archivo **azuredeploy parameters.json** : abra el certificado creado en el paso 4 en un editor de texto. Copie todo el texto entre `----BEGIN CERTIFICATE-----` y `-----END CERTIFICATE-----` en el parámetro **sshKeyData** (deberá quitar todos los caracteres de nueva línea).
+8. Modifique el parámetro **newStorageAccountName** . Esta es la cuenta de almacenamiento para los discos del sistema operativo de la máquina virtual. Este nombre de cuenta debe ser único globalmente.
+9. Modifique el parámetro **publicDomainName**. Esto pasará a formar parte del nombre DNS asociado con la IP pública del equilibrador de carga. El FQDN final tendrá el formato de *[valor de este parámetro]*.*[región]*.cloudapp.azure.com. Por ejemplo, si especifica el nombre como deishbai32 y el grupo de recursos se implementa en la región Oeste de EE. UU., el FQDN final del equilibrador de carga final será deishbai32.westus.cloudapp.azure.com.
 10. Guarde el archivo de parámetros. A continuación, podrá aprovisionar el clúster usando Azure PowerShell:
     
         .\deploy-deis.ps1 -ResourceGroupName [resource group name] -ResourceGroupLocation "West US" -TemplateFile
@@ -79,7 +84,7 @@ En esta sección, usará una plantilla de [Administrador de recursos de Azure](.
     
     ![Grupo de recursos aprovisionado en el Portal de Azure clásico](media/virtual-machines-linux-deis-cluster/resource-group.png)
 
-## Instalar el cliente
+## <a name="install-the-client"></a>Instalar el cliente
 Necesita **deisctl** para controlar su clúster Deis. Aunque deisctl se instala automáticamente en todos los nodos del clúster, es recomendable usar deisctl en un equipo administrativo independiente. Además, dado que todos los nodos se configuran únicamente con direcciones IP privadas, necesitará usar tunelización SSH a través del equilibrador de carga, que tiene una dirección IP pública, para conectarse a las máquinas de nodo. Estos son los pasos de configuración de deisctl en una máquina virtual o física Ubuntu independiente.
 
 1. Instalar deisctl:mkdir deis
@@ -104,7 +109,7 @@ La plantilla define reglas NAT de entrada que asignan 2223 a la instancia 1, 222
 > 
 > 
 
-## Instalar e iniciar la plataforma Deis
+## <a name="install-and-start-the-deis-platform"></a>Instalar e iniciar la plataforma Deis
 Ahora puede usar deisctl para instalar e iniciar la plataforma Deis:
 
     deisctl config platform set domain=[some domain]
@@ -151,7 +156,7 @@ Puede usar `deisctl list` para comprobar si se están ejecutando todos los servi
 
 ¡Enhorabuena! Ahora ya dispone de un clúster Deis en ejecución en Azure. A continuación, implementemos un ejemplo de aplicación Go para ver el clúster en acción.
 
-## Implementar y escalar una aplicación Hello World
+## <a name="deploy-and-scale-a-hello-world-application"></a>Implementar y escalar una aplicación Hello World
 Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World" en el clúster. Los pasos se basan en la [documentación Deis](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles).
 
 1. Para que la malla de enrutamiento funcione correctamente, deberá tener un registro de carácter comodín A para el dominio que apunta a la dirección IP pública del equilibrador de carga. La captura de pantalla siguiente muestra el registro A de un registro de dominio de ejemplo en GoDaddy:
@@ -169,7 +174,7 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
    
         cd ~/.ssh
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
-4. Agregue id\_rsa.pub o la clave pública que desee a GitHub. Puede hacerlo mediante el botón Agregar clave SSH en la pantalla de configuración de claves SSH:
+4. Agregue id_rsa.pub o la clave pública que desee a GitHub. Puede hacerlo mediante el botón Agregar clave SSH en la pantalla de configuración de claves SSH:
    
    ![Clave de Github](media/virtual-machines-linux-deis-cluster/github-key.png)
    
@@ -189,7 +194,7 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
         deis create
         git push deis master
    <p />
-8. La inserción de git desencadenará imágenes Docker para generar e implementar, lo cual llevará unos minutos. Según mi experiencia, en ocasiones es posible que el paso 10 (insertar la imagen en el repositorio privado) se cuelgue. Cuando esto suceda, puede detener el proceso, quitar la aplicación mediante `deis apps:destroy –a <application name>` e intentarlo de nuevo. Puede usar `deis apps:list` para averiguar el nombre de la aplicación. Si todo funciona, debería ver algo parecido a lo siguiente al final de las salidas de comando:
+8. La inserción de git desencadenará imágenes Docker para generar e implementar, lo cual llevará unos minutos. Según mi experiencia, en ocasiones es posible que el paso 10 (insertar la imagen en el repositorio privado) se cuelgue. Cuando esto ocurra, puede detener el proceso y quitar la aplicación mediante "deis apps:destroy –a <application name>` to remove the application and try again. You can use `deis apps:list" para averiguar el nombre de la aplicación. Si todo funciona, debería ver algo parecido a lo siguiente al final de las salidas de comando:
    
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -236,13 +241,19 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
         === lambda-underdog Domains
         No domains
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo le guiamos a través de todos los pasos para aprovisionar un nuevo clúster Deis en Azure mediante una plantilla de Administrador de recursos de Azure. La plantilla admite la redundancia en conexiones de herramientas, así como el equilibrio de cargas para aplicaciones implementadas. La plantilla también evita el uso de direcciones IP públicas en los nodos de miembro, lo cual ahorra valiosos recursos IP públicos y proporciona un entorno más seguro para hospedar aplicaciones. Para obtener más información, consulte los artículos siguientes:
 
-[Información general sobre el Administrador de recursos de Azure][resource-group-overview] [Cómo usar la CLI de Azure][azure-command-line-tools] [Uso de Azure PowerShell con el Administrador de recursos de Azure][powershell-azure-resource-manager]
+[Información general de Azure Resource Manager][resource-group-overview]  
+[Uso de la CLI de Azure][azure-command-line-tools]  
+[Uso de Azure PowerShell con Azure Resource Manager][powershell-azure-resource-manager]  
 
 [azure-command-line-tools]: ../xplat-cli-install.md
-[resource-group-overview]: ../resource-group-overview.md
+[resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

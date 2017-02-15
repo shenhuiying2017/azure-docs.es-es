@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan;carlrab;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a5b69625272b96fc9e42b9b7e57b5401351d8d6e
-ms.openlocfilehash: 9e58a144be039db609ad1400246ef2de05c1b84d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: f6bb6e1c81cafe5f0e5c43c99ab15a0483742868
 
 
 ---
@@ -42,15 +42,15 @@ The Feature Topic is a one-pager (ok, sometimes longer) that explains a capabili
 It is a "learning" topic, not an action topic.
 
 DO explain this:
-    • Definition of the feature terminology.  i.e., What is a database backup?
-    • Characteristics and capabilities of the feature. (How the feature works)
-    • Common uses with links to overview topics that recommend when to use the feature.
-    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    • Next Steps with links to related overviews, features, and tasks.
+    � Definition of the feature terminology.  i.e., What is a database backup?
+    � Characteristics and capabilities of the feature. (How the feature works)
+    � Common uses with links to overview topics that recommend when to use the feature.
+    � Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
+    � Next Steps with links to related overviews, features, and tasks.
 
 DON'T explain this:
-    • How to steps for using the feature (Tasks)
-    • How to solve business problems that incorporate the feature (Overviews)
+    � How to steps for using the feature (Tasks)
+    � How to solve business problems that incorporate the feature (Overviews)
 
 GUIDELINES for the H1 
 
@@ -58,7 +58,7 @@ GUIDELINES for the H1
 
     To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
 
-    Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
 
 GUIDELINES for introduction
 
@@ -118,6 +118,10 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 * Restaurar una base de datos desde una copia de seguridad específica guardada en el almacén de Azure Recovery Services. Esta opción permite restaurar una versión antigua de la base de datos para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Consulte el tema sobre la [retención a largo plazo](sql-database-long-term-retention.md).
 * Para llevar a cabo una restauración, consulte el artículo sobre la [restauración de bases de datos a partir de copias de seguridad](sql-database-recovery-using-backups.md).
 
+> [!TIP]
+> Para ver un tutorial, consulte [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación mediante PowerShell](sql-database-get-started-backup-recovery.md).
+>
+
 <!----------------- 
     Explains first component of the backup feature
 ------------------>
@@ -166,9 +170,13 @@ Si elimina una base de datos, SQL Database mantiene las copias de seguridad de l
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>¿Cómo se puede ampliar el periodo de retención de las copias de seguridad?
-Si la aplicación requiere que las copias de seguridad estén disponibles durante un periodo mayor, puede ampliar el periodo de retención integrado configurando la directiva de retención de copias de seguridad a largo plazo para bases de datos individuales (directiva de LTR). De este modo, podrá ampliar el periodo de retención integrado de 35 días a un máximo de 10 años. Para obtener más información, consulte el tema sobre la [retención a largo plazo](sql-database-long-term-retention.md).
+Si la aplicación requiere que las copias de seguridad estén disponibles durante un periodo mayor, puede ampliar el periodo de retención integrado configurando la directiva de retención de copias de seguridad a largo plazo para bases de datos individuales (directiva de LTR). De este modo, podrá ampliar el periodo de retención integrado de 35 días a un máximo de 10 años. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
 
-Una vez que agregue la directiva de LTR a una base de datos mediante Azure Portal o la API, las copias de seguridad completas de la base de datos semanales se copiarán de forma automática en su almacén del servicio Azure Backup. Si la base de datos se cifra con TDE, las copias de seguridad se cifran automáticamente en reposo.  El almacén de Recovery Services eliminará de forma automática sus copias de seguridad caducadas según su fecha y hora y la directiva de LTR.  Por ello, no tiene que administrar la programación de copias de seguridad ni preocuparse por la limpieza de archivos antiguos. La API de restauración admite las copias de seguridad almacenadas en el almacén siempre que este se encuentre en la misma suscripción que la base de datos SQL. Puede usar el portal o PowerShell para acceder a estas copias de seguridad.
+Una vez que agregue la directiva de LTR a una base de datos mediante Azure Portal o la API, las copias de seguridad completas de la base de datos semanales se copiarán de forma automática en su almacén del servicio Azure Backup. Si la base de datos se cifra con TDE, las copias de seguridad se cifran automáticamente en reposo.  El almacén de Recovery Services eliminará de forma automática sus copias de seguridad caducadas según su fecha y hora y la directiva de LTR.  Por ello, no tiene que administrar la programación de copias de seguridad ni preocuparse por la limpieza de archivos antiguos. La API de restauración admite las copias de seguridad almacenadas en el almacén siempre que este se encuentre en la misma suscripción que la base de datos SQL. Puede usar Azure Portal o PowerShell para acceder a estas copias de seguridad.
+
+> [!TIP]
+> Para ver un tutorial, consulte [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación mediante PowerShell](sql-database-get-started-backup-recovery.md).
+>
 
 <!-------------------
 OPTIONAL section
@@ -214,11 +222,14 @@ GUIDELINES for Next Steps
 --------------------->
 
 ## <a name="next-steps"></a>Pasos siguientes
-Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Para descubrir otras soluciones de continuidad empresarial de Azure SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](sql-database-business-continuity.md).
+
+- Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Para descubrir otras soluciones de continuidad empresarial de Azure SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](sql-database-business-continuity.md).
+- Para restaurar a un momento dado, consulte el artículo sobre cómo [restaurar la base de datos a un punto en el tiempo](sql-database-point-in-time-restore.md).
+- Visualización del punto de restauración más antiguo de las copias de seguridad generadas por el [servicio de una base de datos](sql-database-view-oldest-restore-point.md)
+- Para configurar la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services, consulte [Configuración de la retención de copia de seguridad a largo plazo](sql-database-configure-long-term-retention.md).
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

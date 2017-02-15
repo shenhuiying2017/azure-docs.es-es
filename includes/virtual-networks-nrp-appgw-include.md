@@ -1,5 +1,6 @@
-## Puerta de enlace de aplicaciones
-La puerta de enlace de aplicaciones ofrece una solución de equilibrio de carga HTTP administrada de Azure basada en el equilibrio de carga de nivel 7. El equilibrio de carga de aplicaciones permite el uso de reglas de enrutamiento para el tráfico de red basado en HTTP. <BR>
+## <a name="application-gateway"></a>Puerta de enlace de aplicaciones
+La puerta de enlace de aplicaciones ofrece una solución de equilibrio de carga HTTP administrada de Azure basada en el equilibrio de carga de nivel 7. El equilibrio de carga de aplicaciones permite el uso de reglas de enrutamiento para el tráfico de red basado en HTTP. 
+<BR>
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -215,7 +216,11 @@ Ejemplo de una plantilla de Json de una puerta de enlace de aplicaciones:
     }
 
 
-### Recursos adicionales
+### <a name="additional-resources"></a>Recursos adicionales
 Lea [ API de REST de la puerta de enlace de aplicaciones](https://msdn.microsoft.com/library/azure/mt299388.aspx) para obtener más información.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

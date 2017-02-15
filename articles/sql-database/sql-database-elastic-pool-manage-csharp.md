@@ -1,22 +1,27 @@
 ---
-title: Administración y cambio de tamaño de un grupo de bases de datos elásticas con C# | Microsoft Docs
-description: Use técnicas de desarrollo de bases de datos de C# para administrar un grupo de bases de datos elásticas de Base de datos SQL de Azure.
+title: "Supervisión y administración de un grupo elástico con C# | Microsoft Docs"
+description: "Use técnicas de desarrollo de bases de datos de C# para administrar un grupo elástico de Azure SQL Database."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: f6e6ff3b-6b60-43c1-afe9-575991e38237
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: a6d5b0ccb1b160be4f8f3c09814202634759c8c6
+
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-c&#x23;"></a>Administración y cambio de tamaño de un grupo de bases de datos elásticas con C&#x23;
+# <a name="monitor-and-manage-an-elastic-pool-with-cx23"></a>Administración y cambio de tamaño de un grupo elástico con C&#x23;
 > [!div class="op_single_selector"]
 > * [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -25,16 +30,16 @@ ms.author: sstein
 > 
 > 
 
-Aprenda a administrar un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante C&#x23;. 
+Aprenda a administrar un [grupo elástico](sql-database-elastic-pool.md) mediante C&#x23;. 
 
 > [!NOTE]
-> Muchas de las nuevas características de SQL Database solo se admiten cuando se usa el [modelo de implementación de Azure Resource Manager](../resource-group-overview.md), así que debe usar siempre la **Biblioteca de administración de Azure SQL Database para .NET más reciente ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete de NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las antiguas [bibliotecas basadas en el modelo de implementación clásico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) solo se admiten para la compatibilidad con versiones anteriores, así que se recomienda usar las bibliotecas más basadas en Resource Manager más nuevas.
+> Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), por lo que siempre debe usar la **biblioteca de administración más reciente de Azure SQL Database para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las antiguas [bibliotecas basadas en el modelo de implementación clásico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) solo se admiten para la compatibilidad con versiones anteriores, así que se recomienda usar las bibliotecas más basadas en Resource Manager más nuevas.
 > 
 > 
 
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
-* Un grupo elástico (el grupo que quiere administrar). Para crear un grupo, consulte [Creación de un grupo de bases de datos elásticas con C#](sql-database-elastic-pool-create-csharp.md).
+* Un grupo elástico (el grupo que quiere administrar). Para crear un grupo, consulte [Creación de un grupo elástico con C#](sql-database-elastic-pool-create-csharp.md).
 * Visual Studio. Para obtener una copia gratis de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Movimiento de una base de datos a un grupo elástico
@@ -102,10 +107,13 @@ Recupere las propiedades del grupo existentes. Modifique los valores y ejecute e
 * [Códigos de error para las aplicaciones cliente de SQL Database: error de conexión de base de datos y otros problemas.](sql-database-develop-error-messages.md).
 * [Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 * [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* [Creación de un grupo de bases de datos elásticas con C#](sql-database-elastic-pool-create-csharp.md)
-* [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md)
+* [Creación de un nuevo grupo elástico con PowerShell](sql-database-elastic-pool-create-csharp.md)
+* [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)
 * Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

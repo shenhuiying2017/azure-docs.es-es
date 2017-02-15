@@ -16,13 +16,13 @@ ms.workload: azure-government
 ms.date: 10/06/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 601945c05affc350eba111dcec969e6504b91611
-ms.openlocfilehash: e26f1c182869dee58b0ab26da1aa65f99ba8faaa
+ms.sourcegitcommit: 5be95e2deda3bcc36494ba51eeb050d5c4e2894b
+ms.openlocfilehash: 3c1e610412ec043a62f3c389bd239a4225111e61
 
 
 ---
 # <a name="azure-government-compliance"></a>Cumplimiento de Azure Government
-## <a name="blueprint-customer-responsibilities-matrix-streamlining-ato-processes"></a>Matriz de responsabilidades del cliente de Blueprint: simplificación de los procesos ATO
+## <a name="blueprint-customer-responsibilities-matrix--streamlining-ato-processes"></a>Matriz de responsabilidades del cliente de Blueprint: simplificación de los procesos ATO
 El programa Azure Blueprint permite a los clientes tener acceso a documentación para ayudar en los procesos de funcionamiento autorizado (ATO) específicos del sistema o la agencia. En este artículo se ahonda en la Matriz de responsabilidades del cliente (CRM) de Azure Blueprint y en cómo puede aprovechar este documento el personal de seguridad.
 
 La CRM de Azure Blueprint se ha diseñado para la utilidad. Es un formato de hoja de cálculo que define SOLO los requisitos de control allí donde la compilación del cliente en Azure debe implementar el control de seguridad.
@@ -38,7 +38,7 @@ Por ejemplo, AC-1 requiere la documentación de procedimientos y directivas de c
 
 Para tener acceso a la CRM, así como a la plantilla de Plan de seguridad de sistema de Azure Blueprint, envíe un correo electrónico a AzureBlueprint@microsoft.com.
 
-Apreciamos cualquier comentario sobre la CRM, ya que es fundamental para que nuestra iteración del documento sea tan eficaz como sea posible en cuanto a la simplificación de procesos ATO del cliente.
+Apreciamos cualquier comentario sobre la CRM, ya que son fundamentales para que nuestra iteración del documento resulte tan eficaz como sea posible en cuanto a la simplificación de procesos ATO del cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 <a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx"> Centro de confianza de Microsoft </a>
@@ -48,6 +48,6 @@ Apreciamos cualquier comentario sobre la CRM, ya que es fundamental para que nue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

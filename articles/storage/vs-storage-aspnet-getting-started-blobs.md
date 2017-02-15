@@ -1,12 +1,12 @@
 ---
-title: Introducción al almacenamiento de blobs y los servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs
-description: Cómo empezar a usar el almacenamiento de blobs de Azure en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio
+title: "Introducción al almacenamiento de blobs y los servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs"
+description: "Cómo empezar a usar el almacenamiento de blobs de Azure en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aea87ff1646770a31361e6a7e57b920be274c287
+
 
 ---
-# Introducción al almacenamiento de blobs servicios conectados de Visual Studio (ASP.NET)
+# <a name="get-started-with-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introducción al almacenamiento de blobs servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## Información general
-En este artículo se describe cómo empezar a usar Almacenamiento de blobs de Azure después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en una aplicación ASP.NET con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. El artículo muestra cómo crear contenedores de blob y realizar otras tareas comunes, como cargar, enumerar, descargar y eliminar blobs. Los ejemplos están escritos en C# y usan la [biblioteca del cliente de almacenamiento de Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+## <a name="overview"></a>Información general
+En este artículo se describe cómo empezar a usar Azure Blob Storage después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en una aplicación ASP.NET con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. El artículo muestra cómo crear contenedores de blob y realizar otras tareas comunes, como cargar, enumerar, descargar y eliminar blobs. Los ejemplos están escritos en C\# y usan la [biblioteca del cliente de Microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 * Para más información general sobre el uso de Almacenamiento de blobs de Azure, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md).
 * Para más información sobre los proyectos de ASP.NET, vea [ASP.NET](http://www.asp.net).
@@ -29,7 +33,7 @@ El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantid
 
 Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado una cuenta de almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook" puede crear contenedores de blobs en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos.
 
-## Contenedores de blobs de acceso en el código
+## <a name="access-blob-containers-in-code"></a>Contenedores de blobs de acceso en el código
 Para obtener acceso mediante programación a los blobs en los proyectos ASP.NET, deberá agregar los elementos siguientes, si no están presentes aún.
 
 1. Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al Almacenamiento de Azure mediante programación.
@@ -60,16 +64,16 @@ Para obtener acceso mediante programación a los blobs en los proyectos ASP.NET,
 > 
 > 
 
-## Crear un contenedor de blobs en código
+## <a name="create-a-blob-container-in-code"></a>Crear un contenedor de blobs en código
 También puede usar el objeto **CloudBlobClient** para crear un contenedor en su cuenta de almacenamiento. Todo lo que necesita hacer es agregar una llamada a **CreateIfNotExistsAsync** en el código anterior, tal como se muestra en el ejemplo siguiente.
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();
 
-## Cargar un blob en un contenedor
-Almacenamiento de blobs de Azure admite blobs en bloques y en páginas. En la mayoría de los casos, se recomienda usar blobs en bloques.
+## <a name="upload-a-blob-into-a-container"></a>Cargar un blob en un contenedor
+Almacenamiento de blobs de Azure admite blobs en bloques y en páginas.  En la mayoría de los casos, se recomienda usar blobs en bloques.
 
-Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y utilícela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier secuencia de datos en ella llamando al método **UploadFromStream**. De este modo, se creará el blob si no existía anteriormente, o bien se sobrescribirá si ya existía. En el siguiente ejemplo se muestra cómo cargar un blob en un contenedor creado anteriormente.
+Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y utilícela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier secuencia de datos en ella llamando al método **UploadFromStream** . De este modo, se creará el blob si no existía anteriormente, o bien se sobrescribirá si ya existía. En el siguiente ejemplo se muestra cómo cargar un blob en un contenedor creado anteriormente.
 
     // Create or overwrite the "myblob" blob with contents from a local file.
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
@@ -77,8 +81,8 @@ Para cargar un archivo en un blob en bloques, obtenga una referencia de contened
         blockBlob.UploadFromStream(fileStream);
     }
 
-## Enumerar los blobs de un contenedor
-Para enumerar los blobs en un contenedor, use el método **ListBlobs** para recuperar los blobs o directorios que incluye. Para obtener acceso a las numerosas propiedades y métodos de una lista **IListBlobItem** recuperada, debe convertir esta última en un objeto **CloudBlockBlob**, **CloudPageBlob**, o **CloudBlobDirectory**. Si se desconoce el tipo, puede realizar una comprobación de tipo para determinar el formato al que se debe convertir. El código siguiente demuestra cómo recuperar y consultar el URI de cada elemento del contenedor **photos**.
+## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
+Para enumerar los blobs en un contenedor, use el método **ListBlobs** para recuperar los blobs o directorios que incluye. Para acceder a las numerosas propiedades y métodos de una lista **IListBlobItem** recuperada, debe convertir esta última en un objeto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**.  Si se desconoce el tipo, puede realizar una comprobación de tipo para determinar el formato al que se debe convertir.  El código siguiente demuestra cómo recuperar y consultar el URI de cada elemento del contenedor **photos** .
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -123,7 +127,7 @@ Al llamar a **ListBlobs** en el contenedor "fotos" (como se muestra en el ejempl
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-También existe la opción de establecer el parámetro **UseFlatBlobListing** del método **ListBlobs** en **true**. De este modo, todos los blobs aparecerían como **CloudBlockBlob**, independientemente del directorio. En el ejemplo siguiente se muestra la llamada a **ListBlobs**.
+También existe la opción de establecer el parámetro **UseFlatBlobListing** del método **ListBlobs** en **true**. De este modo, todos los blobs aparecerían como **CloudBlockBlob**, independientemente del directorio.  En el ejemplo siguiente se muestra la llamada a **ListBlobs**.
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -144,8 +148,8 @@ Y el siguiente ejemplo muestra los resultados.
 
 
 
-## Descargar blobs
-Para descargar blobs, use el método **DownloadToStream**. En el siguiente ejemplo, se usa el método **DownloadToStream** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar en un archivo local.
+## <a name="download-blobs"></a>Descargar blobs
+Para descargar blobs, use el método **DownloadToStream** . En el siguiente ejemplo, se usa el método **DownloadToStream** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar en un archivo local.
 
     // Retrieve a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
@@ -168,8 +172,8 @@ También puede usar el método **DownloadToStream** para descargar el contenido 
         text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
     }
 
-## Eliminar blobs
-Para eliminar un blob, use el método **Delete**.
+## <a name="delete-blobs"></a>Eliminar blobs
+Para eliminar un blob, use el método **Delete** .
 
     // Retrieve reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
@@ -178,10 +182,10 @@ Para eliminar un blob, use el método **Delete**.
     blockBlob.Delete();
 
 
-## Enumerar blobs en páginas de forma asincrónica
+## <a name="list-blobs-in-pages-asynchronously"></a>Enumerar blobs en páginas de forma asincrónica
 Si enumera un gran número de blobs o desea controlar el número de resultados que devuelve en una operación de listado, puede enumerar blobs en páginas de resultados. En el siguiente ejemplo se muestra cómo devolver resultados en páginas asincrónicamente de forma que la ejecución no se bloquee mientras se espera a devolver un conjunto grande de resultados.
 
-En este ejemplo se muestra un listado de blobs plano, pero también puede realizar un listado jerárquico estableciendo el parámetro **useFlatBlobListing** del método **ListBlobsSegmentedAsync** en **false**.
+En este ejemplo se muestra un listado de blobs plano, pero también puede realizar un listado jerárquico si establece el parámetro **useFlatBlobListing** del método **ListBlobsSegmentedAsync** en **false**.
 
 Dado que el método de ejemplo llama a un método asincrónico, debe ir precedido por la palabra clave **async** y debe devolver un objeto **Task**. La palabra clave await especificada para el método **ListBlobsSegmentedAsync** suspende la ejecución del método de ejemplo hasta que se completa la tarea de enumeración.
 
@@ -214,7 +218,12 @@ Dado que el método de ejemplo llama a un método asincrónico, debe ir precedid
         while (continuationToken != null);
     }
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

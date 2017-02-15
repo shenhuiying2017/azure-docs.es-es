@@ -1,20 +1,24 @@
 ---
-title: Solución de problemas de implementación de máquinas virtuales de Windows-RM | Microsoft Docs
-description: Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Windows en Azure
+title: "Solución de problemas de implementación de máquinas virtuales de Windows-RM | Microsoft Docs"
+description: "Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Windows en Azure"
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue, azure-resource-manager
-
+ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/16/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
+
 
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual de Windows en Azure
@@ -53,9 +57,9 @@ Para resolver estos errores, use [Add-AzureRmVhd para cargar el disco duro virtu
 
 **Resolución**
 
-Para resolver estos errores, elimine la imagen actual del portal y [vuelva a capturarla desde los discos duros virtuales actuales](virtual-machines-windows-vhd-copy.md) con la misma configuración que para el sistema operativo (generalizada o especializada).
+Para resolver estos errores, elimine la imagen actual del portal y [vuelva a capturarla desde los discos duros virtuales actuales](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con la misma configuración que para el sistema operativo (generalizada o especializada).
 
-## <a name="issue:-custom/gallery/marketplace-image;-allocation-failure"></a>Problema: Imagen de galería/marketplace/personalizada; error de asignación
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Imagen de galería/marketplace/personalizada; error de asignación
 Este error se produce en situaciones en las que la nueva solicitud de máquina virtual está anclada en un clúster que no admite el tamaño de la máquina virtual que se solicita o no tiene espacio libre disponible para alojar la solicitud.
 
 **Causa 1:** el clúster no admite el tamaño de la máquina virtual solicitada.
@@ -79,8 +83,11 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
   * Agregue la nueva máquina virtual a la misma red virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si tiene problemas al iniciar una máquina virtual Windows detenida o al cambiar el tamaño de una máquina virtual Windows existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
+Si tiene problemas al iniciar una máquina virtual Windows detenida o al cambiar el tamaño de una máquina virtual Windows existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

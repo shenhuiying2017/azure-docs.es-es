@@ -132,10 +132,10 @@ La replicación garantiza que la cuenta de almacenamiento cumpla el [contrato de
 
 Cuando cree una cuenta de almacenamiento, puede seleccionar una de las siguientes opciones de replicación:
 
-* **Almacenamiento con redundancia local (LRS).**  El almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de un único centro de datos de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de un único centro de datos.
+* **Almacenamiento con redundancia local (LRS).** El almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de un único centro de datos de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de un único centro de datos.
 
     LRS se ofrece con un descuento. Para la máxima durabilidad, es recomendable utilizar el almacenamiento con redundancia geográfica, que se describe a continuación.
-* **Almacenamiento con redundancia de zona (ZRS).**  El almacenamiento con redundancia de zona mantiene tres copias de los datos. ZRS se replica tres veces entre dos o tres instalaciones, ya sea dentro de una sola región o entre dos regiones, proporcionando mayor durabilidad que LRS. ZRS garantiza la durabilidad de sus datos dentro de una sola región.
+* **Almacenamiento con redundancia de zona (ZRS).** El almacenamiento con redundancia de zona mantiene tres copias de los datos. ZRS se replica tres veces entre dos o tres instalaciones, ya sea dentro de una sola región o entre dos regiones, proporcionando mayor durabilidad que LRS. ZRS garantiza la durabilidad de sus datos dentro de una sola región.
 
     ZRS ofrece un mayor nivel de durabilidad que LRS; sin embargo, para disfrutar de la máxima durabilidad, es recomendable usar el almacenamiento con redundancia geográfica, que se describe a continuación.
 

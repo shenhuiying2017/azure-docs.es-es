@@ -1,12 +1,12 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: Mi cuenta'
-description: Obtenga información acerca de cómo administrar el perfil de su cuenta y probar dispositivos mediante Azure Mobile Engagement
+description: "Obtenga información acerca de cómo administrar el perfil de su cuenta y probar dispositivos mediante Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,41 +14,51 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8430f80b9b2ec596d43b0de5e7ef022d4b3261bd
+
 
 ---
-# Cómo administrar el perfil de su cuenta y probar los dispositivos
-Este artículo describe la página **Inicio** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles.
+# <a name="how-to-manage-your-account-profile-and-test-devices"></a>Cómo administrar el perfil de su cuenta y probar los dispositivos
+En este artículo se describe la **página principal** del portal de **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. 
 
-Para obtener acceso a la página **Mi cuenta**, haga clic en su cuenta en la parte superior de la página.
+Para obtener acceso a la página **Mi cuenta** , haga clic en su cuenta en la parte superior de la página.
 
 La sección Mi cuenta de la interfaz de usuario es donde puede ver y cambiar la configuración asociada a su cuenta, incluida la configuración del perfil y probar los ID de dispositivo. Estos valores contienen elementos a los que también se puede acceder mediante la API del dispositivo.
 
-![MyAccount1][7]
+![MyAccount1][7]  
 
-## Perfil:
+## <a name="profile"></a>Perfil:
 Puede ver o cambiar cualquier configuración de la cuenta que se muestra a continuación. También puede dar permiso a otro usuario para usar la aplicación basándose en su dirección de correo electrónico desde [Inicio](mobile-engagement-user-interface-home.md).
 
-![MyAccount2][8]
+![MyAccount2][8]  
 
-## Dispositivos:
-Puede ver, agregar o quitar un Id. de dispositivo de prueba de los dispositivos de prueba que puede usar para probar sus campañas de **cobertura** o de **inserción**. Se muestran instrucciones contextuales para encontrar el identificador de dispositivo de los dispositivos de cada plataforma (iOS, Android, Windows Phone, etc.) al hacer clic en "Nuevo dispositivo".
+## <a name="devices"></a>Dispositivos:
+Puede ver, agregar o quitar id. de dispositivo de prueba de los dispositivos de prueba que puede usar para probar sus campañas de **cobertura** o de **inserción**. Se muestran instrucciones contextuales para encontrar el identificador de dispositivo de los dispositivos de cada plataforma (iOS, Android, Windows Phone, etc.) al hacer clic en "Nuevo dispositivo". 
 
-![MyAccount3][9]
+![MyAccount3][9]  
 
 Para usar la API de inserción o la API de dispositivo necesitará conocer el identificador único del dispositivo de los usuarios (el parámetro deviceid). Existen varias formas de recuperarlo:
 
 1. Desde el backend, puede utilizar la función "Get" de la API del dispositivo para obtener la lista completa de identificadores de dispositivo.
 2. Desde su aplicación, puede usar el SDK para obtenerlo. (En Android, llame a la función getDeviceID() de la clase de agente y en iOS, lea la propiedad deviceid de la clase de agente).
-3. Desde un anuncio de Cobertura, si la dirección URL de la acción asociada con el anuncio contiene el patrón {deviceid}, se reemplazará automáticamente por el identificador del dispositivo que desencadena la acción. http://<ejemplo>com/registeruser?deviceid={deviceid}&otherparam=myparamdata se sustituirá por: http://<ejemplo>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata.
-4. Desde un anuncio de web de cobertura, si el código HTML del anuncio contiene el patrón {deviceid}, se reemplazará automáticamente por el identificador del dispositivo que muestre el anuncio web. Este es el identificador de mi dispositivo: {deviceid} será sustituido por: este es el identificador de mi dispositivo: XXXXXXXXXXXXXXXX
-5. Abra la aplicación en el dispositivo y realice un evento en la aplicación que se ha etiquetado. Desde " IU - su aplicación - Supervisión - Detalles", busque el evento que haya realizado en la lista. Haga clic en este evento en Supervisión. Debe buscar el identificador de dispositivo en la lista de los dispositivos que han realizado este evento. A continuación, puede copiar este Id. de dispositivo y registrarlo en "IU - Mi cuenta - Nuevo dispositivo - Seleccione su plataforma de dispositivo".
+3. Desde un anuncio de Cobertura, si la dirección URL de la acción asociada con el anuncio contiene el patrón {deviceid}, se reemplazará automáticamente por el identificador del dispositivo que desencadena la acción.
+   http://<example>.com/registeruser?deviceid={idDeDispositivo}&otherparam=myparamdata se reemplazará por: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&&otherparam=myparamdata 
+4. Desde un anuncio de web de cobertura, si el código HTML del anuncio contiene el patrón {deviceid}, se reemplazará automáticamente por el identificador del dispositivo que muestre el anuncio web.
+   Este es el identificador de mi dispositivo: {deviceid} será sustituido por: este es el identificador de mi dispositivo: XXXXXXXXXXXXXXXX
+5. Abra la aplicación en el dispositivo y realice un evento en la aplicación que se ha etiquetado.
+   Desde " IU - su aplicación - Supervisión - Detalles", busque el evento que haya realizado en la lista.
+   Haga clic en este evento en Supervisión.
+   Debe buscar el identificador de dispositivo en la lista de los dispositivos que han realizado este evento.
+   A continuación, puede copiar este Id. de dispositivo y registrarlo en "IU - Mi cuenta - Nuevo dispositivo - Seleccione su plataforma de dispositivo".
    >(Tenga en cuenta que cuando IDFA está deshabilitado para iOS, es posible que el identificador de dispositivo cambie con el tiempo si desinstala y vuelve a instalar la aplicación).
 
-## Guía de solución de problemas
-* [Guía de solución de problemas - Servicio][Link 24]
+## <a name="troubleshooting-guide"></a>Guía de solución de problemas
+* [Guía de solución de problemas: Servicio][Vínculo 24]
 
-## Otras referencias
-* [Documentación de interfaz de usuario: página principal][Link 13]
+## <a name="see-also"></a>Consulte también
+* [Documentación de interfaz de usuario: Página principal][Vínculo 13]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -111,42 +121,46 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Vínculo 1]: mobile-engagement-user-interface.md
+[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
+[Vínculo 3]: mobile-engagement-how-tos.md
+[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
+[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Vínculo 12]: mobile-engagement-user-interface-navigation.md
+[Vínculo 13]: mobile-engagement-user-interface-home.md
+[Vínculo 14]: mobile-engagement-user-interface-my-account.md
+[Vínculo 15]: mobile-engagement-user-interface-analytics.md
+[Vínculo 16]: mobile-engagement-user-interface-monitor.md
+[Vínculo 17]: mobile-engagement-user-interface-reach.md
+[Vínculo 18]: mobile-engagement-user-interface-segments.md
+[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
+[Vínculo 20]: mobile-engagement-user-interface-settings.md
+[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
+[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Vínculo 27]: ../mobile-engagement-how-tos-first-push.md
+[Vínculo 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Vínculo 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Vínculo 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Vínculo 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Vínculo 32]: ../mobile-engagement-how-tos-text-view.md
+[Vínculo 33]: ../mobile-engagement-how-tos-web-view.md
 
 
 
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

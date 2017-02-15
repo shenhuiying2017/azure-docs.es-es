@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/21/2016
-ms.author: darosa,sethm
+ms.date: 1/06/2016
+ms.author: darosa,sethm,jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: d36b40444af4ba68b016351f9ff016351e9fe58c
-ms.openlocfilehash: a4ccfdbc079a989477a80af7ac701dc77dce5a4f
+ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
+ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
 
 
 ---
@@ -31,9 +31,9 @@ En la tabla siguiente, se resaltan algunas de las principales diferencias.
 | --- | --- |
 | Capacidad de proceso elevada |Capacidad de proceso variable |
 | Rendimiento predecible |Latencia variable |
-| Precios previsibles |Precios según la variante de pago por uso |
-| Posibilidad de escalar y reducir verticalmente la carga de trabajo |N/D |
-| Tamaño del mensaje > 256 KB |El tamaño del mensaje es 256 KB |
+| Precio fijo |Precios según la variante de pago por uso |
+| Posibilidad de escalar y de reducir verticalmente la carga de trabajo |N/D |
+| Tamaño de mensaje de hasta 1 MB |Tamaño de mensaje de hasta 256 KB |
 
 La **mensajería Premium de Service Bus** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2 o 4 unidades de mensajería para cada espacio de nombres Premium del Bus de servicio. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad, aunque la facturación se realiza con base en una tarificación diaria o de 24 horas. El resultado es un rendimiento predecible y repetible para su solución basada en el Bus de servicio.
 
@@ -43,10 +43,19 @@ Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sin
 A continuación se presentan algunas diferencias existentes entre los niveles de mensajería Estándar y Premium.
 
 ### <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
-Las colas y los temas con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
+Las colas y los temas con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones para el rendimiento. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades exprés
 Dado que la mensajería Premium se ejecuta en un entorno de tiempo de ejecución completamente aislado, no se admiten entidades exprés en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+
+## <a name="get-started-with-premium-messaging"></a>Introducción a la Mensajería premium
+
+Comenzar con Mensajería premium es muy sencillo y el proceso es similar al de mensajería estándar. Comience con la [creación de un espacio de nombres](service-bus-create-namespace-portal.md). Asegúrese de que selecciona *Premium* en "Plan de tarifa".
+
+![create-premium-namespace][create-premium-namespace]
+
+También puede crear un [espacio de nombres premium con plantillas de Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
@@ -56,9 +65,12 @@ Para más información sobre la mensajería de Service Bus, consulte los siguien
 * [Introducción a la mensajería de Service Bus](service-bus-messaging-overview.md)
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 
+<!--Image references-->
+
+[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

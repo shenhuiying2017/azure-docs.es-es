@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar Key Vault para crear y mantener las claves usadas para el acceso y el cifrado de sus recursos en la nube, aplicaciones y soluciones. Tutoriales, referencias de API y mucho más."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 09d20c4c035a072d78118cb0e2184773f4642c81
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 ---
 # <a name="key-vault-documentation"></a>Documentación de Key Vault
 
-Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Mediante el uso de Key Vault, puede cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). Para tener mayor seguridad, puede importar o generar las claves en HSM.
+Aprenda a usar Azure Key Vault para proteger y administrar claves criptográficas y secretos usados por servicios y aplicaciones en la nube. En los tutoriales, las referencias de API y otra documentación, se muestra cómo crear y mantener las claves usadas para el acceso y el cifrado de sus recursos y soluciones.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -140,7 +141,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/keyvault">API de REST</a></p>
+                        <p><a href="/rest/api/keyvault">API DE REST</a></p>
                     </div>
                 </div>
             </div>
@@ -150,16 +151,9 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Key Vault </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

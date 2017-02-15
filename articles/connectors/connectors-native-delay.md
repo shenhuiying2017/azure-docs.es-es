@@ -1,13 +1,13 @@
 ---
-title: Adición de retraso en aplicaciones lógicas | Microsoft Docs
-description: Información general sobre las acciones de retraso y retraso hasta y cómo usarlas con una aplicación lógica de Azure.
-services: ''
-documentationcenter: ''
+title: "Adición de retraso en Logic Apps | Microsoft Docs"
+description: "Información general sobre las acciones de retraso y retraso hasta y cómo usarlas con una aplicación lógica de Azure."
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e4281c70dc0edd45ff485c64a499291b23ad51b7
+
 
 ---
-# Introducción a las acciones de retraso y retraso hasta
+# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introducción a las acciones de retraso y retraso hasta
 Con las acciones de retraso y retraso hasta, puede completar escenarios de flujo de trabajo como los siguientes.
 
 Por ejemplo, puede:
@@ -27,7 +31,7 @@ Por ejemplo, puede:
 
 Para empezar a usar la acción de retraso en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Uso de las acciones de retraso
+## <a name="use-the-delay-actions"></a>Uso de las acciones de retraso
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).
 
 Esta es una secuencia de ejemplo de cómo usar un paso de retraso en una aplicación lógica:
@@ -41,11 +45,12 @@ Esta es una secuencia de ejemplo de cómo usar un paso de retraso en una aplicac
     ![Configuración de retraso](./media/connectors-native-delay/using-action-2.png)
 4. Haga clic en **Guardar** para publicar y activar la aplicación lógica.
 
-## Detalles de la acción
+## <a name="action-details"></a>Detalles de la acción
 El desencadenador de periodicidad tiene las siguientes propiedades que se pueden configurar.
 
-### Acción de retraso
-Esta acción retrasa la ejecución durante un determinado intervalo de tiempo. Un * significa que es un campo obligatorio.
+### <a name="delay-action"></a>Acción de retraso
+Esta acción retrasa la ejecución durante un determinado intervalo de tiempo.
+Un * significa que es un campo obligatorio.
 
 | Nombre para mostrar | Nombre de propiedad | Description |
 | --- | --- | --- |
@@ -54,8 +59,9 @@ Esta acción retrasa la ejecución durante un determinado intervalo de tiempo. U
 
 <br>
 
-### Acción de retraso hasta
-Esta acción retrasa la ejecución hasta una fecha u hora especificada. Un * significa que es un campo obligatorio.
+### <a name="delay-until-action"></a>Acción de retraso hasta
+Esta acción retrasa la ejecución hasta una fecha u hora especificada.
+Un * significa que es un campo obligatorio.
 
 | Nombre para mostrar | Nombre de propiedad | Description |
 | --- | --- | --- |
@@ -65,7 +71,12 @@ Esta acción retrasa la ejecución hasta una fecha u hora especificada. Un * sig
 
 <br>
 
-## Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) ahora. Puede explorar los demás conectores disponibles en aplicaciones consultando nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>Pasos siguientes
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

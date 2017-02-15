@@ -214,6 +214,6 @@ Después de cargar el archivo .vhd, puede agregarlo como imagen a la lista de im
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

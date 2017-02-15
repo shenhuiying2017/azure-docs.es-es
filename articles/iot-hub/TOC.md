@@ -8,7 +8,8 @@
 ### [Introducción a IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Introducción a IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Introducción a IoT Hub (Node)](iot-hub-node-node-getstarted.md)
-## Introducción a Raspberry Pi
+
+## Introducción a Raspberry Pi (Node)
 ### [Introducción a Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Lección 1: Configuración del dispositivo
 #### [Configuración del dispositivo](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
@@ -25,13 +26,127 @@
 #### [Creación de una cuenta de almacenamiento y una aplicación de función de Azure](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 #### [Ejecución de la aplicación de muestra para enviar mensajes](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 #### [Lectura de mensajes que se conservan en el almacenamiento](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-### Lección 4. Envío de mensajes de nube a dispositivo
+### Lección 4: Envío de mensajes de nube a dispositivo
 #### [Ejecución de la aplicación de muestra para recibir mensajes](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 #### [Opcional: cambio del comportamiento de LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [Solución de problemas](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+
+## Introducción a Raspberry Pi (C)
+### [Introducción a Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-get-started.md)
+### Lección 1: Configuración del dispositivo
+#### [Configuración del dispositivo](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
+#### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+#### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
+#### [Creación e implementación de la aplicación de intermitencia](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+### Lección 2: Creación de la instancia de IoT Hub
+#### [Obtención de las herramientas de Azure (Windows 7 o posterior)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Obtención de las herramientas de Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Obtención de las herramientas de Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+#### [Creación de la instancia de IoT Hub y registro de Raspberry Pi](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Lección 3: Envío de mensajes de dispositivo a nube
+#### [Creación de una cuenta de almacenamiento y una aplicación de función de Azure](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [Ejecución de la aplicación de muestra para enviar mensajes](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
+#### [Lectura de mensajes que se conservan en el almacenamiento](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
+### Lección 4: Envío de mensajes de nube a dispositivo
+#### [Ejecución de la aplicación de muestra para recibir mensajes](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [Opcional: cambio del comportamiento de LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
+### [Solución de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+
+## Introducción a Intel Edison (Node)
+### [Introducción a Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
+### Lección 1: Configuración del dispositivo
+#### [Configuración del dispositivo](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
+#### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
+#### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
+#### [Creación e implementación de la aplicación de intermitencia](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
+### Lección 2: Creación de la instancia de IoT Hub
+#### [Obtención de las herramientas de Azure (Windows 7 o posterior)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
+#### [Obtención de las herramientas de Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [Obtención de las herramientas de Azure (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
+#### [Creación de la instancia de IoT Hub y registro de Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
+### Lección 3: Envío de mensajes de dispositivo a nube
+#### [Creación de una cuenta de almacenamiento y una aplicación de función de Azure](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [Ejecución de la aplicación de muestra para enviar mensajes](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
+#### [Lectura de mensajes que se conservan en el almacenamiento](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
+### Lección 4: Envío de mensajes de nube a dispositivo
+#### [Ejecución de la aplicación de muestra para recibir mensajes](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [Opcional: cambio del comportamiento de LED](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
+### [Solución de problemas](iot-hub-intel-edison-kit-node-troubleshooting.md)
+
+## Introducción a Intel Edison (C)
+### [Introducción a Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
+### Lección 1: Configuración del dispositivo
+#### [Configuración del dispositivo](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
+#### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
+#### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
+#### [Creación e implementación de la aplicación de intermitencia](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
+### Lección 2: Creación de la instancia de IoT Hub
+#### [Obtención de las herramientas de Azure (Windows 7 o posterior)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Obtención de las herramientas de Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Obtención de las herramientas de Azure (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
+#### [Creación de la instancia de IoT Hub y registro de Raspberry Pi](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Lección 3: Envío de mensajes de dispositivo a nube
+#### [Creación de una cuenta de almacenamiento y una aplicación de función de Azure](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [Ejecución de la aplicación de muestra para enviar mensajes](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
+#### [Lectura de mensajes que se conservan en el almacenamiento](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
+### Lección 4: Envío de mensajes de nube a dispositivo
+#### [Ejecución de la aplicación de muestra para recibir mensajes](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [Opcional: cambio del comportamiento de LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
+### [Solución de problemas](iot-hub-intel-edison-kit-c-troubleshooting.md)
+
 ## [Introducción al SDK de puerta de enlace (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Introducción al SDK de puerta de enlace (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+## Introducción a IoT Gateway Starter Kit
+### Dispositivo simulado
+
+#### [Introducción a un dispositivo simulado](iot-hub-gateway-kit-c-sim-get-started.md)
+#### Lección 1: Configuración de NUC
+##### [Configuración de Intel NUC como una puerta de enlace de IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+
+#### Lección 2: Creación de la instancia de IoT Hub
+##### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+##### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
+##### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
+##### [Creación de una instancia de IoT Hub y registro del dispositivo](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+
+#### Lección 3: Recepción de mensajes procedentes del dispositivo simulado
+##### [Configuración y ejecución de la aplicación de ejemplo BLE](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+##### [Lectura de mensajes del IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
+
+#### Lección 4: Almacenamiento de mensajes en Azure Table Storage
+##### [Creación de una instancia de Azure Function App y una cuenta de Azure Storage](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
+##### [Lectura de los mensajes que se conservan en Azure Table Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
+
+#### [Solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md)
+
+### Dispositivo SensorTag
+#### [Introducción a un dispositivo SensorTag](iot-hub-gateway-kit-c-get-started.md)
+#### Lección 1: Configuración de NUC
+##### [Configuración de Intel NUC como una puerta de enlace de IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+
+#### Lección 2: Creación de la instancia de IoT Hub
+##### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+##### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
+##### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
+##### [Creación de una instancia de IoT Hub y registro del dispositivo](iot-hub-gateway-kit-c-lesson2-register-device.md)
+
+#### Lección 3: Recepción de mensajes procedentes del dispositivo simulado
+##### [Configuración y ejecución de la aplicación de ejemplo BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
+##### [Lectura de mensajes del IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
+
+#### Lección 4: Almacenamiento de mensajes en Azure Table Storage
+##### [Creación de una instancia de Azure Function App y una cuenta de Azure Storage](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
+##### [Lectura de los mensajes que se conservan en Azure Table Storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+##### [Solución de problemas](iot-hub-gateway-kit-c-troubleshooting.md)
+## Introducción al SDK de dispositivo IoT
+### [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)
+### [SDK de dispositivo IoT para C: más información sobre IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [SDK de dispositivo IoT para C: más información sobre el serializador](iot-hub-device-sdk-c-serializer.md)
 # Procedimientos
 ## [Tutorial sobre el proceso de mensajes de dispositivos a la nube (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Tutorial sobre el proceso de mensajes de dispositivos a la nube (Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +166,7 @@
 ## [Uso de trabajos de dispositivos para actualizar el firmware del dispositivo para .NET/Node](iot-hub-csharp-node-firmware-update.md)
 ## [Programación y difusión de trabajos para Node.js](iot-hub-node-node-schedule-jobs.md)
 ## [Programación y difusión de trabajos para .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
-## Planeamiento de la implementación
+## Plan
 ### [Comparación de IoT Hub con Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Escalado de la solución](iot-hub-scaling.md)
 ### [Alta disponibilidad y recuperación ante desastres](iot-hub-ha-dr.md)
@@ -74,9 +189,10 @@
 ### [SDK de dispositivos y servicios](iot-hub-devguide-sdks.md)
 ### [Soporte para MQTT](iot-hub-mqtt-support.md)
 ### [Glosario](iot-hub-devguide-glossary.md)
-## Administración del servicio
+## Administrar
 ### [Creación de una instancia de IoT Hub mediante el portal](iot-hub-create-through-portal.md)
-### [Creación de una instancia de IoT Hub mediante la CLI](iot-hub-create-using-cli.md)
+### [Creación de una instancia de IoT Hub mediante la versión preliminar de la CLI 2.0](iot-hub-create-using-cli.md)
+### [Creación de una instancia de IoT Hub mediante la CLI](iot-hub-create-using-cli-nodejs.md)
 ### [Creación de una instancia de IoT Hub mediante REST](iot-hub-rm-rest.md)
 ### [Creación de una instancia de IoT Hub mediante Powershell](iot-hub-rm-template-powershell.md)
 ### [Creación de una instancia de IoT Hub mediante una plantilla](iot-hub-rm-template.md)
@@ -96,23 +212,22 @@
 ### [Protección de su implementación de IoT](iot-hub-security-deployment.md)
 
 # Referencia
-## [CLI de Azure](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [API de .NET](https://docs.microsoft.com/dotnet/api)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/iot)
+## [.NET (servicio)](/dotnet/api/microsoft.azure.devices)
+## [.NET (dispostivos)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (servicio)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (dispositivos)](/java/api/com.microsoft.azure.iothub)
 ## [SDK de IoT de Azure](http://azure.github.io/azure-iot-sdks/)
-## [API de SDK de puerta de enlace](http://azure.github.io/azure-iot-gateway-sdk)
-## [API de REST del proveedor de recursos](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [API de REST de identidades de dispositivos](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [API de REST de Device Messaging](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)
-## [SDK de dispositivo IoT para C: más información sobre IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-## [SDK de dispositivo IoT para C: más información sobre el serializador](iot-hub-device-sdk-c-serializer.md)
+## [SDK de puerta de enlace](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (proveedor de recursos)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (identidades de dispositivos)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Temas relacionados
-## [Documentación del Conjunto de aplicaciones de IoT](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Centros de eventos de Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
+## [Conjunto de aplicaciones de IoT de Azure](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Aprendizaje automático](https://azure.microsoft.com/documentation/services/machine-learning/)
+## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/iot-hub/)
@@ -125,6 +240,6 @@
 ## [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

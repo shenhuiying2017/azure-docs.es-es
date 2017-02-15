@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ Para desarrollar un modelo de análisis predictivo, normalmente se utilizan dato
 
 **Estudio de aprendizaje automático de Azure** le proporciona un área de trabajo visual e interactiva para generar, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un lienzo interactivo, conectándolos todos para formar un ***experimento*** que se ejecuta en Machine Learning Studio. Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego publicarlo como ***servicio web*** para que otros usuarios puedan acceder al modelo.
 
+No se requiere ningún tipo de programación, basta con conectar visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
+
 > [!TIP]
 > Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 > 
 > 
-
-No se requiere ningún tipo de programación, basta con conectar visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 
 ![Diagrama de Estudio de aprendizaje automático de Azure: crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introducción a Estudio de aprendizaje automático
 La primera vez que entre en [Estudio de aprendizaje automático](https://studio.azureml.net) , verá la página **principal** . Desde aquí puede ver documentación, vídeos y seminarios web, y encontrar otros recursos valiosos.
 
-Hay tres pestañas en la parte superior: **Inicio** (donde se empieza), **Estudio** y **Galería**.
+Haga clic en el menú de la parte superior izquierda ![Menú](media/machine-learning-what-is-ml-studio/menu.png) y verá varias opciones.
 
-### <a name="studio"></a>Estudio
-Haga clic en la pestaña **Estudio** y se le pedirá que inicie sesión con su cuenta de Microsoft o su cuenta profesional o educativa. Después de iniciar sesión, verá las pestañas siguientes a la izquierda:
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+Haga clic en **Cortana Intelligence**, se le dirigirá a la página principal de [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). Cortana Intelligence Suite es un conjunto de análisis avanzados y macrodatos totalmente administrado que le permite transformar los datos en acciones inteligentes. Consulte la página de inicio del conjunto de aplicaciones para ver la documentación completa, incluidas las historias de los clientes.
+
+### <a name="azure-machine-learning"></a>Aprendizaje automático de Azure
+Aquí hay dos opciones: **Inicio**, la página donde ha comenzado, y **Studio**.
+
+Haga clic en **Studio**, se le dirigirá a la **Azure Machine Learning Studio**. Primero se le pedirá que inicie sesión con su cuenta de Microsoft o su cuenta profesional o educativa. Después de iniciar sesión, verá las pestañas siguientes a la izquierda:
 
 * **PROYECTOS** : colecciones de experimentos, conjuntos de datos, cuadernos y otros recursos que representan un proyecto individual
-* **EXPERIMENTOS** : experimentos que se crearon, ejecutaron y guardaron como borradores.
+* **EXPERIMENTOS**: experimentos que ha creado y ejecutado, o que ha guardado como borrador.
 * **SERVICIOS WEB** : servicios web que implementó a partir de los experimentos
 * **CUADERNOS** : cuadernos de Jupyter que creó
 * **CONJUNTOS DE DATOS** : conjuntos de datos que cargó en Estudio
@@ -59,7 +64,7 @@ Haga clic en la pestaña **Estudio** y se le pedirá que inicie sesión con su c
 * **CONFIGURACIÓN** : una colección de ajustes que puede utilizar para configurar la cuenta y los recursos.
 
 ### <a name="gallery"></a>Galería
-Haga clic en la pestaña **Galería** y se le dirigirá a la Galería de Cortana Intelligence. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
+Haga clic en **Galería** y se le dirigirá a **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
 
 Para más información sobre la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
@@ -116,6 +121,6 @@ Cuando el modelo de análisis predictivo esté listo, puede implementarlo como s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

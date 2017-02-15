@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
+description: "Documentación, vídeos y modelos de ejemplo de Machine Learning, un servicio en la nube para especialistas en datos y desarrolladores que usan análisis predictivo en aplicaciones."
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2b15ee71010c4c2aa66621e9ac84c0b90c19ca51
-ms.openlocfilehash: 2ab86738ccbc48c39b6357c62b73de3053d13c75
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentación de Azure Machine Learning
 
-Azure Machine Learning no solo proporciona herramientas para análisis predictivos de modelos, sino también un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir.
+Vea cómo los especialistas en datos y los desarrolladores usan Machine Learning para insertar análisis predictivos en aplicaciones. En los tutoriales, los vídeos y los modelos de ejemplo, se muestra cómo compilar e implementar modelos de Machine Learning.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,63 +90,51 @@ Azure Machine Learning no solo proporciona herramientas para análisis predictiv
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de Azure PowerShell</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (nuevo)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (clásico)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/machinelearning">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Idiomas</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Referencia de módulos y algoritmos</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de Machine Learning</p>
+                        <p><a href="/rest/api/machinelearning">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Algoritmos</h3>
-                        <p>Referencia de módulo y algoritmos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-<ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de Machine Learning </div>
-    </a>
-</div>
+</ul>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

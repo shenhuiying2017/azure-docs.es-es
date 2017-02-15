@@ -1,26 +1,30 @@
 ---
-title: Escenarios comunes del Catálogo de datos de Azure | Microsoft Docs
-description: Información general de escenarios comunes del Catálogo de datos de Azure, incluido el registro y la detección de orígenes de datos de gran valor, la habilitación de inteligencia empresarial de autoservicio y la captura de conocimiento tribal existente acerca de los orígenes de datos y procesos.
+title: Escenarios comunes de Azure Data Catalog | Microsoft Docs
+description: "Información general de escenarios comunes del Catálogo de datos de Azure, incluido el registro y la detección de orígenes de datos de gran valor, la habilitación de inteligencia empresarial de autoservicio y la captura de conocimiento tribal existente acerca de los orígenes de datos y procesos."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/03/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 975084c19909b0829b6f93cab05373fb71b10cf3
+
 
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Escenarios comunes del Catálogo de datos de Azure
 Este artículo presenta escenarios comunes en los que el Catálogo de datos de Azure puede ayudar a las organizaciones a obtener más valor de sus orígenes de datos existentes.
 
-## <a name="scenario-#1---registration-of-central-data-sources"></a>Escenario número 1: registro de orígenes de datos centrales
+## <a name="scenario-1---registration-of-central-data-sources"></a>Escenario número 1: registro de orígenes de datos centrales
 Las organizaciones suelen tener un determinado número de orígenes de datos de gran valor. Entre estos orígenes de datos se incluye la línea de sistemas OLTP de negocio, almacenes de datos e inteligencia empresarial y bases de datos de análisis. A menudo el número de sistemas y la superposición entre los sistemas aumenta con el tiempo a medida que las necesidades de las empresas evolucionan y que la propia empresa evoluciona mediante fusiones y adquisiciones.
 
 A menudo es difícil para los usuarios saber dónde buscar los datos en estos orígenes de datos. Preguntas como las siguientes son demasiado comunes:
@@ -34,7 +38,7 @@ En este escenario, el Catálogo de datos de Azure puede resultar de ayuda. Los o
 
 Este escenario también presenta una oportunidad para anotar los orígenes de datos de alto valor para que sea más fáciles comprenderlos y tener acceso a ellos. Un aspecto clave de este esfuerzo es incluir información sobre cómo los usuarios pueden solicitar acceso al origen de datos. Catálogo de datos de Azure permite que los usuarios proporcionen la dirección de correo electrónico del usuario o equipo responsable de controlar el acceso al origen de datos, los vínculos a documentación o herramientas existentes o texto libre que describe el proceso de solicitud de acceso. Con esta información en el catálogo, los usuarios que detectan los orígenes de datos registrados pero todavía no tienen permiso de acceso a ellos pueden solicitar fácilmente acceso a través de los procesos definidos y controlados por los propietarios de los orígenes de datos.
 
-## <a name="scenario-#2---self-service-business-intelligence"></a>Escenario número 2: inteligencia empresarial de autoservicio
+## <a name="scenario-2---self-service-business-intelligence"></a>Escenario número 2: inteligencia empresarial de autoservicio
 Aunque las soluciones de inteligencia empresarial corporativa tradicionales continúan siendo una parte inestimable de los entornos de datos de muchas de las organizaciones, el ritmo cambiante de la empresa ha provocado que la BI de autoservicio resulte cada vez más importante. La BI de autoservicio permite a las personas que trabajan con información y a los analistas crear sus propios informes, libros y paneles sin necesidad de usar un equipo de TI central ni estar restringidos por la programación y la disponibilidad de ese equipo de TI.
 
 En escenarios de BI de autoservicio, es habitual que los usuarios combinen datos de varios orígenes, muchos de las cuales puede que no hayan sido usados anteriormente para BI y análisis. Aunque es posible que algunos de estos orígenes de datos ya sean conocidos, con frecuencia hay un proceso para descubrir lo que debe tener lugar para buscar y evaluar posibles orígenes de datos para una tarea determinada.
@@ -47,7 +51,7 @@ Este crecimiento orgánico del contenido del catálogo es un complemento natural
 
 También cabe tener en cuenta que aunque este escenario se centra específicamente en BI de autoservicio, los mismos patrones y desafíos también se aplican a proyectos de BI corporativos de gran escala. Cualquier esfuerzo que implica un proceso manual de detección del origen de los datos es un esfuerzo que puede agregar valor a la organización mediante el uso del Catálogo de datos de Azure.
 
-## <a name="scenario-#3---capturing-tribal-knowledge"></a>Escenario número 3: obtención de conocimientos tribales
+## <a name="scenario-3---capturing-tribal-knowledge"></a>Escenario número 3: obtención de conocimientos tribales
 ¿Cómo sé qué datos necesita para hacer su trabajo y dónde encontrar esos datos?
 
 Si ha estado en su trabajo durante un tiempo, probablemente lo sepa. Ha experimentado un proceso de aprendizaje gradual y con el tiempo ha obtenido información acerca de los orígenes de datos que son clave para su trabajo cotidiano.
@@ -62,6 +66,8 @@ A veces estos expertos en datos harán esfuerzos por documentar sus conocimiento
 
 Catálogo de datos de Azure proporciona una ubicación para compartir estos conocimiento tribales y para que sean fácilmente reconocibles. Los expertos en datos pueden anotar los activos de datos directamente y también pueden incluir vínculos a documentación existente. Esto no solo permite capturar el conocimiento en sí, sino que también coloca el conocimiento en la misma experiencia que se usa para la detección de orígenes de datos. Cuando alguien usa el catálogo para detectar un origen de datos, no solo encontrará el propio origen, sino que también encontrará los conocimientos que anteriormente solo existían en la mente del propio experto.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,16 +1,16 @@
-To add a tag to a resource group, use **azure group set**. If the resource group does not have any existing tags, pass in the tag.
+Para agregar una etiqueta a un grupo de recursos, use el **conjunto de grupos de Azure**. Si el grupo de recursos no tiene etiquetas, pase la etiqueta.
 
     azure group set -n tag-demo-group -t Dept=Finance
 
-Tags are updated as a whole. If you want to add a tag to a resource group that has existing tags, pass all the tags. 
+Las etiquetas se actualizan en conjunto. Si desea agregar una etiqueta a un grupo de recursos que ya tiene etiquetas, pase todas las etiquetas. 
 
     azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
 
-Tags are not inherited by resources in a resource group. To add a tag to a resource, use **azure resource set**. You must pass the API version number for the resource type that you are adding the tag to. If you need to retrieve the API version, use the following command with the resource provider for the type you are setting:
+Los recursos de un grupo de recursos no heredan las etiquetas. Para agregar una etiqueta a un recurso, use el **conjunto de recursos de Azure**. Debe pasar el número de versión de API para el tipo de recurso al que se va a agregar la etiqueta. Si necesita recuperar la versión de API, utilice el siguiente comando con el proveedor de recursos para el tipo que se va a establecer:
 
     azure provider show -n Microsoft.Storage --json
 
-In the results, look for the resource type you want.
+En los resultados, busque el tipo de recurso que desee.
 
     "resourceTypes": [
     {
@@ -24,15 +24,15 @@ In the results, look for the resource type you want.
     }
     ...
 
-Now, provide that API version, resource group name, resource name, resource type, and tag value as parameters.
+Ahora, proporcione esa versión de API, el nombre del grupo de recursos, el nombre del recurso, el tipo de recurso y el valor de etiqueta como parámetros.
 
     azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
 
-Tags exist directly on resources and resource groups. To see the existing tags, simply get a resource group and its resources with **azure group show**.
+Las etiquetas existen directamente en los recursos y grupos de recursos. Para ver las etiquetas existentes, solo debe obtener un grupo de recursos y sus recursos con **azure group show**.
 
     azure group show -n tag-demo-group --json
 
-Which returns metadata about the resource group, including any tags applied to it.
+Que devuelve metadatos sobre el grupo de recursos, incluidas las etiquetas aplicadas al mismo.
 
     {
       "id": "/subscriptions/4705409c-9372-42f0-914c-64a504530837/resourceGroups/tag-demo-group",
@@ -48,24 +48,24 @@ Which returns metadata about the resource group, including any tags applied to i
       },
       ...
 
-You view the tags for a particular resource by using **azure resource show**.
+Para ver las etiquetas de un recurso específico, use **azure resource show**.
 
     azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
 
-To retrieve all the resources with a tag value, use:
+Para recuperar todos los recursos con un valor de etiqueta, utilice:
 
     azure resource list -t Dept=Finance --json
 
-To retrieve all the resource groups with a tag value, use:
+Para recuperar todos los grupos de recursos con un valor de etiqueta, utilice:
 
     azure group list -t Dept=Finance
 
-You can view the existing tags in your subscription with the following command:
+Puede ver las etiquetas existentes en su suscripción con el siguiente comando:
 
     azure tag list
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,12 @@
-
 ---
-title: Notas de la versión de SDK de Azure para .NET 2.8.
-description: Notas de la versión de SDK de Azure para .NET 2.8.
+title: "Notas de la versión de SDK de Azure para .NET 2.8."
+description: "Notas de la versión de SDK de Azure para .NET 2.8."
 services: app-service\web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: de7207ff-ba4f-4008-9141-8742fcaa3254
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -15,21 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 81772fb5801ec620d1c1996509a275e4bb29fb12
+
 
 ---
-# <a name="azure-sdk-for-.net-2.8,-2.8.1-and-2.8.2"></a>Azure SDK para .NET 2.8, 2.8.1 y 2.8.2
+# <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK para .NET 2.8, 2.8.1 y 2.8.2
 ## <a name="overview"></a>Información general
 Este artículo contiene las notas de la versión (que incluyen los problemas conocidos y los cambios recientes) de Azure SDK para .NET, versiones 2.8, 2.8.1 y 2.8.2. 
 
 Para obtener una lista completa de nuevas características y actualizaciones realizadas en esta versión, consulte el anuncio de [SDK 2.8 de Azure para Visual Studio 2013 y Visual Studio de 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/) . 
 
-## <a name="azure-sdk-for-.net-2.8"></a>SDK de Azure para .NET 2.8
-### <a name="download-azure-sdk-for-.net-2.8"></a>Descarga del SDK de Azure para .NET 2.8
+## <a name="azure-sdk-for-net-28"></a>SDK de Azure para .NET 2.8
+### <a name="download-azure-sdk-for-net-28"></a>Descarga del SDK de Azure para .NET 2.8
 [SDK de Azure para .NET 2.8 para Visual Studio 2015](http://go.microsoft.com/fwlink/?LinkId=699285) 
 
 [SDK de Azure para .NET 2.8 para Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=699287)
 
-### <a name=".net-4.5.2-support"></a>Compatibilidad con .NET 4.5.2
+### <a name="net-452-support"></a>Compatibilidad con .NET 4.5.2
 #### <a name="known-issues"></a>Problemas conocidos
 El SDK de Azure para .NET 2.8 le permite crear paquetes de servicios en la nube de .NET 4.5.2. Sin embargo .NET Framework 4.5.2 no se instalará en las imágenes del sistema operativo invitado predeterminado hasta el lanzamiento del sistema operativo invitado de 2016. Antes de eso, .NET Framework 4.5.2 estará disponible mediante una versión de sistema operativo invitado distinta (2 de noviembre de 2015). Consulte la página [Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md) para comprobar cuándo se publicará la imagen.  Después de que se publique la imagen del 2 de noviembre de 2015, tendrá la posibilidad de elegir esa imagen; para ello, actualice el archivo de configuración de servicios en la nube (.cscfg). En el archivo de configuración de servicio, establezca el atributo osVersion del elemento ServiceConfiguration en la cadena "WA-GUEST-OS-4.26_201511-02". Si elige participar para usar esta imagen, ya no obtendrá las actualizaciones automáticas para el SO invitado. Para obtener las actualizaciones automáticas, osVersion se debe establecer en "*" y .NET 4.5.2 solo estará disponible a través de las actualizaciones automáticas en enero de 2016.
 
@@ -61,13 +64,13 @@ En la siguiente versión se abordarán los siguientes problemas conocidos.
 
 Para obtener información, vea [SDK 2.8 de Azure para Visual Studio 2013 y Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/). 
 
-## <a name="azure-sdk-for-.net-2.8.1"></a>SDK de Azure para .NET 2.8.1
+## <a name="azure-sdk-for-net-281"></a>SDK de Azure para .NET 2.8.1
 ### <a name="known-issues-for-visual-studio-2013-and-visual-studio-2015"></a>Problemas conocidos de Visual Studio 2013 y Visual Studio 2015
 1. Las publicaciones de trabajos web desencadenados en ranuras mostrarán un error y no establecerán una programación, pero el trabajo web se insertará en Azure. Los clientes que necesitan un trabajo programado pueden usar el Portal de Azure para configurar la programación del trabajo web. 
 2. Los clientes de Python pueden experimentar problemas con el depurador. El equipo de servicio está implementando una solución para ello, pero si los clientes se ven afectados, informe a Microsoft en los foros o en las secciones de comentarios del blog de anuncios o las notas de la versión. 
 3. Los clientes de determinadas regiones (por ejemplo, el sur de la India) experimentarán errores de aprovisionamiento del Servicio de aplicaciones. Esto es coherente con el portal y los clientes que experimenten este problema pueden usar el Portal de Azure para solicitar acceso para publicar en estas regiones geográficas. Cuando soliciten acceso a estas regiones, el uso del aprovisionamiento del Portal de Azure debería funcionar. 
 
-## <a name="azure-sdk-for-.net-2.8.2"></a>Azure SDK para .NET 2.8.2
+## <a name="azure-sdk-for-net-282"></a>Azure SDK para .NET 2.8.2
 Después de la instalación de la versión 2.8.2 de las herramientas, es posible que los clientes experimenten el problema siguiente.         
 
 * Si usa Windows 10 y no ha instalado Internet Explorer, puede que reciba un error de tipo "No se encontró Internet Explorer".
@@ -85,6 +88,9 @@ Para ver otras actualizaciones, vea la [publicación del anuncio de Azure SDK 2.
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

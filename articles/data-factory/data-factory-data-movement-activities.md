@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: f8e9579f15c79eef6a90c6a583b3f9ba2599d55d
-ms.openlocfilehash: d51a62cd3b0320beb7996d1b472ad500cfddd1d1
+ms.sourcegitcommit: ef5c1f296a0a4ee6476db663e85c49c351f826b9
+ms.openlocfilehash: 53a2012a1d928c961cbfbdcea485ae18d776360f
 
 
 ---
@@ -80,28 +80,28 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 
 | Geografía del almacén de datos de destino | Región del almacén de datos de destino | Región usada para el movimiento de datos |
 |:--- |:--- |:--- |
-| Estados Unidos | Este de EE. UU. |Este de EE. UU. |
-| . | Este de EE. UU. 2 |Este de EE. UU. 2 |
-| . | Central EE. UU.: |Central EE. UU.: |
-| . | Centro-Norte de EE. UU |Centro-Norte de EE. UU |
-| . | Centro-Sur de EE. UU |Centro-Sur de EE. UU |
-| . | Centro occidental de EE.UU. |Central EE. UU.: |
-| . | Oeste de EE. UU. |Oeste de EE. UU. |
-| . | Oeste de EE. UU. 2 |Oeste de EE. UU. |
+| Estados Unidos | Este de EE. UU. | Este de EE. UU. |
+| . | Este de EE. UU. 2 | Este de EE. UU. 2 |
+| . | Central EE. UU.: | Central EE. UU.: |
+| . | Centro-Norte de EE. UU | Centro-Norte de EE. UU |
+| . | Centro-Sur de EE. UU | Centro-Sur de EE. UU |
+| . | Centro occidental de EE.UU. | Centro occidental de EE.UU. |
+| . | Oeste de EE. UU. | Oeste de EE. UU. |
+| . | Oeste de EE. UU. 2 | Oeste de EE. UU. |
 | Canadá | Este de Canadá | Centro de Canadá |
 | . | Centro de Canadá | Centro de Canadá |
-| Brasil | Sur de Brasil |Sur de Brasil |
-| Europa | Europa del Norte |Europa del Norte |
-| . | Europa occidental |Europa occidental |
-| Asia Pacífico | Sudeste asiático |Sudeste asiático |
-| . | Asia oriental |Sudeste asiático |
-| Australia | Australia Oriental |Australia Oriental |
-| . | Sudeste de Australia |Sudeste de Australia |
-| Japón | Este de Japón |Este de Japón |
-| . | Oeste de Japón |Este de Japón |
-| India | India Central |India Central |
-| . | Oeste de la India |India Central |
-| . | Sur de la India |India Central |
+| Brasil | Sur de Brasil | Sur de Brasil |
+| Europa | Europa del Norte | Europa del Norte |
+| . | Europa occidental | Europa occidental |
+| Asia Pacífico | Sudeste asiático | Sudeste asiático |
+| . | Asia oriental | Sudeste asiático |
+| Australia | Australia Oriental | Australia Oriental |
+| . | Sudeste de Australia | Sudeste de Australia |
+| Japón | Este de Japón | Este de Japón |
+| . | Oeste de Japón | Este de Japón |
+| India | India Central | India Central |
+| . | Oeste de la India | India Central |
+| . | Sur de la India | India Central |
 
 
 > [!NOTE]
@@ -127,47 +127,48 @@ En el caso de la actividad de copia, la sección `typeProperties` varía en func
 
 Este es un ejemplo de definición de JSON:
 
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from Azure blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from Azure blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputBlobTable"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputSQLTable"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputBlobTable"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputSQLTable"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+}
+```
 La programación definida en el conjunto de datos de salida determina cuándo se ejecuta la actividad (por ejemplo, **diariamente**: frecuencia **día** e intervalo **1**). Esta actividad copia los datos de un conjunto de datos de entrada (**origen**) en un conjunto de datos de salida (**receptor**).
 
 Puede especificar más de un conjunto de datos de entrada para la actividad de copia. Se utilizan para comprobar las dependencias antes de ejecutarse la actividad. Sin embargo, solo los datos del primer conjunto de datos se copian en el de destino. Para obtener más información, vea [Programación y ejecución](data-factory-scheduling-and-execution.md).  
@@ -192,6 +193,6 @@ La asignación de un determinado sistema de tipo nativo a .NET para el almacén 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

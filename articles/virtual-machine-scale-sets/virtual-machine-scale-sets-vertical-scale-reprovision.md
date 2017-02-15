@@ -1,13 +1,13 @@
 ---
-title: Escalado vertical de conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
-description: Cómo escalar verticalmente una máquina virtual en respuesta a las alertas de supervisión con Automatización de Azure
+title: "Escalado vertical de conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs"
+description: "Cómo escalar verticalmente una máquina virtual en respuesta a las alertas de supervisión con Automatización de Azure"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: madhana
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 4533b446f661568d0e70a23bb64880022038bb9a
+
 
 ---
-# Autoescala vertical con conjuntos de escalado de máquinas virtuales
-Este artículo describe cómo escalar verticalmente [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/) de Azure con o sin reaprovisionamiento. Para el escalado vertical de máquinas virtuales que no están en conjuntos de escalado, consulte [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md) (Escalado vertical de máquinas virtuales de Azure con Automatización de Azure).
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Autoescala vertical con conjuntos de escalado de máquinas virtuales
+Este artículo describe cómo escalar verticalmente [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/) de Azure con o sin reaprovisionamiento. Para el escalado vertical de máquinas virtuales que no están en conjuntos de escalado, consulte [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Escalado vertical de máquinas virtuales de Azure con Automatización de Azure).
 
-El escalado vertical, también conocido como *ampliación vertical* y *reducción vertical*, significa aumentar o disminuir el tamaño de las máquinas virtuales en respuesta a una carga de trabajo. Compare esto con el [escalado horizontal](virtual-machine-scale-sets-autoscale-overview.md), también denominado *ampliación horizontal* y *reducción horizontal*, donde se modifica el número de máquinas virtuales según la carga de trabajo.
+El escalado vertical, también conocido como *ampliación vertical* y *reducción vertical*, significa aumentar o disminuir el tamaño de las máquinas virtuales (VM) en respuesta a una carga de trabajo. Compare esto con el [escalado horizontal](virtual-machine-scale-sets-autoscale-overview.md), también denominado *ampliación horizontal* y *reducción horizontal*, donde se modifica el número de máquinas virtuales según la carga de trabajo.
 
 Reaprovisionar significa quitar una máquina virtual existente y reemplazarla por una nueva. Al aumentar o disminuir el tamaño de las máquinas virtuales en un conjunto de escalado de máquinas virtuales, en algunos casos puede que quiera cambiar el tamaño de las máquinas virtuales existentes y conservar los datos, aunque en otros casos puede que necesite implementar nuevas máquinas virtuales con el nuevo tamaño. Este documento describe ambos casos.
 
@@ -41,21 +45,21 @@ Puede configurar el escalado vertical para que se desencadene en función de las
 > 
 > | Pares de escalado de tamaños de VM |  |
 > | --- | --- |
-> | Standard\_A0 |Standard\_A11 |
-> | Standard\_D1 |Standard\_D14 |
-> | Standard\_DS1 |Standard\_DS14 |
-> | Standard\_D1v2 |Standard\_D15v2 |
-> | Standard\_G1 |Standard\_G5 |
-> | Standard\_GS1 |Standard\_GS5 |
+> | Standard_A0 |Standard_A11 |
+> | Standard_D1 |Standard_D14 |
+> | Standard_DS1 |Standard_DS14 |
+> | Standard_D1v2 |Standard_D15v2 |
+> | Standard_G1 |Standard_G5 |
+> | Standard_GS1 |Standard_GS5 |
 > 
 > 
 
-## Creación de una cuenta de Automatización de Azure con funciones de ejecución
+## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Creación de una cuenta de Automatización de Azure con funciones de ejecución
 Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, [Automatización de Azure](https://azure.microsoft.com/services/automation/) presentó la característica Cuenta de ejecución, que facilita la configuración de la entidad de servicio para ejecutar los cuadernos automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
 
 * [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
-## Importación de Runbooks de escalado vertical de Automatización de Azure a la suscripción
+## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importación de Runbooks de escalado vertical de Automatización de Azure a la suscripción
 Los Runbooks necesarios para el escalado vertical de los conjuntos de escalado de máquinas virtuales están publicados en la galería de Runbooks de Automatización de Azure. Para importarlos a su suscripción, siga los pasos de este artículo:
 
 * [Galerías de runbooks y módulos para la automatización de Azure](../automation/automation-runbook-gallery.md)
@@ -68,18 +72,18 @@ Se muestran los Runbooks que es necesario importar. Seleccione el Runbook en fun
 
 ![Galería de Runbooks][gallery]
 
-## Agregar un webhook al runbook.
+## <a name="add-a-webhook-to-your-runbook"></a>Agregar un webhook al runbook.
 Una vez importados los Runbooks, deberá agregar un webhook al Runbook para que una alerta proveniente de un conjunto de escalado de máquinas virtuales pueda desencadenarlo. En este artículo puede leer los detalles sobre cómo crear un webhook para el Runbook:
 
-* [Webhooks de Automatización de Azure ](../automation/automation-webhooks.md)
+* [Webhooks de Automatización de Azure](../automation/automation-webhooks.md)
 
 > [!NOTE]
 > Asegúrese de copiar el URI del webhook antes de cerrar el cuadro de diálogo del webhook, porque lo necesitará en la siguiente sección.
 > 
 > 
 
-## Incorporación de una alerta al conjunto de escalado de máquinas virtuales
-El siguiente es un script de PowerShell que muestra cómo agregar una alerta a un conjunto de escalado de máquinas virtuales. Consulte el siguiente artículo para obtener el nombre de la métrica para desencadenar la alerta en: [Métricas comunes de escalado automático de Azure Insights](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+## <a name="add-an-alert-to-your-vm-scale-set"></a>Incorporación de una alerta al conjunto de escalado de máquinas virtuales
+El siguiente es un script de PowerShell que muestra cómo agregar una alerta a un conjunto de escalado de máquinas virtuales. Consulte el siguiente artículo para obtener el nombre de la métrica para desencadenar la alerta en: [Métricas comunes de escalado automático de Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -114,13 +118,17 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 Para más información acerca de cómo crear alertas, consulte los artículos siguientes:
 
-* [Ejemplos de inicio rápido de PowerShell de Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Ejemplos de inicio rápido de CLI multiplataforma de Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Ejemplos de inicio rápido de PowerShell de Azure Monitor](../monitoring-and-diagnostics/insights-powershell-samples.md)
+* [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md)
 
-## Resumen
+## <a name="summary"></a>Resumen
 En este artículo se mostraron ejemplos sencillos de escalado vertical. Con estos bloques de creación (cuenta de automatización, Runbooks, webhooks, alertas) puede conectar una gran variedad de eventos con un conjunto personalizado de acciones.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
-[gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
+[galería]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

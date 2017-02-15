@@ -3,7 +3,7 @@ title: Dependencias de tareas en Azure Batch | Microsoft Docs
 description: "Cree tareas que dependan de la finalización correcta de otras para procesar grandes cargas de trabajo de datos similares y de estilo MapReduce en Lote de Azure."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/28/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 5883417c6f7a0ce45c9c34ac2d37e5c1bea95ab1
 
 
 ---
@@ -32,10 +32,10 @@ Las dependencias de la tarea de Batch les permiten crear tareas que están progr
 Puede crear tareas que dependan de otras en una relación de una a una o una a varias. Incluso puede crear una dependencia de intervalo, en la que una tarea depende de la finalización correcta de un grupo de tareas dentro de un intervalo de identificadores de tarea específico. Puede combinar estos tres escenarios básicos para crear relaciones de varios a varios.
 
 ## <a name="task-dependencies-with-batch-net"></a>Dependencias de tareas con Lote de .NET
-En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET de Batch][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
+En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET para Batch][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
 
 ## <a name="enable-task-dependencies"></a>Habilitación de dependencias de tareas
-Para utilizar la dependencia de tareas en la aplicación Lote, antes es preciso indicar al servicio de Lote que el trabajo va a usar dependencias de tareas. En .NET de Batch, habilítelo en su [CloudJob][net_cloudjob] estableciendo su propiedad [UsesTaskDependencies][net_usestaskdependencies] en `true`:
+Para utilizar la dependencia de tareas en la aplicación Lote, antes es preciso indicar al servicio de Lote que el trabajo va a usar dependencias de tareas. En .NET para Batch, habilítelo en [CloudJob][net_cloudjob] estableciendo su propiedad [UsesTaskDependencies][net_usestaskdependencies] en `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -48,7 +48,7 @@ unboundJob.UsesTaskDependencies = true;
 En el fragmento de código anterior, "batchClient" es una instancia de la clase [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Creación de tareas dependientes
-Para crear una tarea que dependa de la finalización correcta de una o varias tareas, es preciso indicar a Lote que la tarea "depende" de otras. En .NET de Batch, configure la propiedad [CloudTask][net_cloudtask].[DependsOn][net_dependson] con una instancia de la clase [TaskDependencies][net_taskdependencies]:
+Para crear una tarea que dependa de la finalización correcta de una o varias tareas, es preciso indicar a Lote que la tarea "depende" de otras. En .NET para Batch, configure la propiedad [CloudTask][net_cloudtask].[DependsOn][net_dependson] con una instancia de la clase [TaskDependencies][net_taskdependencies]:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -62,7 +62,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Este fragmento de código crea una tarea con el identificador de "Flowers" que se programará para ejecutarse en un nodo de proceso cuando las tareas con los identificadores de "Rain" y "Sun" se hayan completado correctamente.
 
 > [!NOTE]
-> Se considera que una tarea se ha completado cuando se encuentra en estado **completado** y su **código de salida** es `0`. En .NET de Batch, esto significa un valor de propiedad [CloudTask][net_cloudtask].[State][net_taskstate] y el valor de `Completed` y el valor de la propiedad [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask es `0`.
+> Se considera que una tarea se ha completado cuando se encuentra en estado **completado** y su **código de salida** es `0`. En .NET para Batch, esto significa que el valor de la propiedad [CloudTask][net_cloudtask].[State ][net_taskstate] es `Completed` y el valor de la propiedad [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask es `0`.
 > 
 > 
 
@@ -95,7 +95,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Uno a varios
-Para crear una tarea que dependa de la correcta finalización de múltiples tareas, proporcione una serie de identificadores de tarea para el método estático [TaskDependencies][net_taskdependencies].[OnId][net_onids] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+Para crear una tarea que dependa de la correcta finalización de otras, proporcione distintos identificadores de tarea para el método estático [TaskDependencies][net_taskdependencies].[OnIds][net_onids] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -111,7 +111,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ```
 
 ### <a name="task-id-range"></a>Intervalo de id. de tarea
-Para crear una tarea que dependa de la correcta finalización de un grupo de tareas cuyos identificadores se encuentren a un intervalo, proporcione el primer y el último identificador del intervalo para el método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+Para crear una tarea que dependa de la correcta finalización de un grupo de tareas cuyos identificadores se encuentren a un intervalo, proporcione el primer y el último identificador de tarea del intervalo para el método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
 > Si usa intervalos de identificadores de tarea para las dependencias, dichos identificadores *deben* ser representaciones de cadena de valores enteros. Además, para que se programe la ejecución de la dependiente, deben completarse correctamente todas las tareas del intervalo.
@@ -137,14 +137,14 @@ new CloudTask("4", "cmd.exe /c echo 4")
 ```
 
 ## <a name="code-sample"></a>Código de ejemplo
-El proyecto de ejemplo [TaskDependencies][github_taskdependencies] es uno de los [ejemplos de código de Azure Batch][github_samples] en GitHub. Esta solución de Visual Studio 2015 muestra cómo habilitar la dependencia de tareas en un trabajo, crear tareas que dependan de otras y ejecutarlas en un grupo de nodos de proceso.
+El proyecto de ejemplo [TaskDependencies][github_taskdependencies] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio 2015 muestra cómo habilitar la dependencia de tareas en un trabajo, crear tareas que dependan de otras y ejecutarlas en un grupo de nodos de proceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="application-deployment"></a>Implementación de la aplicación
 La característica [paquetes de aplicación](batch-application-packages.md) de Lote proporciona una manera sencilla de implementar y de cambiar la versión de las aplicaciones que las tareas ejecutan en los nodos de proceso.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalación de aplicaciones y datos de ensayo
-Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y realización de copias intermedias de datos en los nodos de proceso de Batch) en el foro de Azure Batch para ver información general sobre los diversos métodos de preparación de los nodos para que ejecuten tareas. Este artículo lo ha escrito uno de los miembros del equipo de Lote de Azure y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso.
+Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Batch) en el foro de Azure Batch para ver la información general sobre los diversos métodos de preparación de los nodos para ejecutar tareas. Este artículo lo ha escrito uno de los miembros del equipo de Lote de Azure y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -169,6 +169,6 @@ Consulte el artículo [Installing applications and staging data on Batch compute
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

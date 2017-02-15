@@ -1,6 +1,6 @@
 ---
-title: "Configuración de reglas de firewall de nivel de servidor en Azure SQL Database mediante la API de REST | Microsoft Docs"
-description: Aprenda a configurar el firewall para direcciones IP que obtengan acceso a bases de datos SQL de Azure.
+title: 'API de REST: reglas de firewall de nivel de servidor en Azure SQL Database | Microsoft Docs'
+description: Aprenda a configurar las reglas de firewall de nivel de servidor para direcciones IP que acceden a instancias de Azure SQL Database mediante la API de REST.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 6ac9bdf34e8cf0a8ca8e06ae3ed6cd2dd1cf408b
 
 
 ---
@@ -91,6 +91,6 @@ Para saber cómo obtener acceso a las bases de datos, consulte [Manage database 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

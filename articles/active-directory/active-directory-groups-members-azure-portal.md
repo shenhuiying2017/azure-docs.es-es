@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -26,22 +26,22 @@ En este artículo se explica cómo administrar los miembros de un grupo en la ve
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>¿Cómo puedo buscar miembros y administrarlos?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
-   
+
    ![Apertura de Administración de usuarios](./media/active-directory-groups-members-azure-portal/search-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
-   
+
    ![Apertura de la hoja Grupos](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
 4. En la hoja **Usuarios y grupos - Todos los grupos** , seleccione un grupo.
 5. En la hoja **Grupo - *nombre del grupo***, seleccione **Miembros**.
-   
+
    ![Apertura de la hoja Miembros](./media/active-directory-groups-members-azure-portal/view-group-members.png)
 6. Para agregar miembros al grupo, en la hoja **Grupo - Miembros**, seleccione **Agregar miembros**.
-   
+
    ![Comando Agregar miembros](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
 7. En la hoja **Miembros**, seleccione uno o varios usuarios o dispositivos que quiera agregar al grupo y, luego, haga clic en el botón **Seleccionar** situado en la parte inferior de la hoja para agregarlos. El cuadro **Usuario** filtra la visualización en función de si coincide lo que ha escrito con cualquier parte del nombre de un usuario o dispositivo. No se aceptan caracteres comodín en el cuadro.
 8. Para quitar miembros del grupo, en la hoja **Grupo - Miembros** , seleccione uno.
 9. En la hoja ***nombreDelMiembro***, seleccione el comando **Quitar** y confirme la elección en el símbolo del sistema.
-   
+
    ![Comando Quitar miembros](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
 10. Cuando termine de modificar miembros del grupo, seleccione **Guardar**.
 
@@ -53,7 +53,6 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Administrar la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
 * [Administrar la pertenencia a grupos](active-directory-groups-membership-azure-portal.md)
 * [Administrar reglas dinámicas de los usuarios de un grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-
 
 
 

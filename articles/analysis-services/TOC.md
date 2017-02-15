@@ -1,19 +1,24 @@
 # Información general
 ##[¿Qué es Azure Analysis Services?](analysis-services-overview.md)
-# Primeros pasos
+# Introducción
 ##[Creación de un servidor](analysis-services-create-server.md)
 
-# Cómo 
-## [Implementación](analysis-services-deploy.md)
-## Administrar
-###[Conexión a un servidor](analysis-services-connect.md)
-###[Administración de un servicio](analysis-services-manage.md)
-## Integrate
-###[Puerta de enlace de datos locales](analysis-services-gateway.md)
+# Procedimientos 
+##[Implementación en un servidor](analysis-services-deploy.md)
+##[Conexión desde un cliente](analysis-services-connect.md)
+##[Administración de un servicio](analysis-services-manage.md)
+##[Administrar usuarios](analysis-services-manage-users.md)
+##[Instalación de una puerta de enlace de datos local](analysis-services-gateway.md)
 
-# Referencias
+# Referencia
+##[PowerShell](analysis-services-powershell.md)
+##[REST](/rest/api/analysisservices)
+
+# Recursos
 ##[Conexiones a origen de datos](analysis-services-datasource.md)
+##[Proveedores de datos](analysis-services-data-providers.md) 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

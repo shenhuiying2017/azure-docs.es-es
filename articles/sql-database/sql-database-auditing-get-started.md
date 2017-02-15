@@ -1,12 +1,12 @@
 ---
-title: Introducción a la auditoría de bases de datos SQL | Microsoft Docs
-description: Introducción a la auditoría de bases de datos SQL
+title: "Introducción a la auditoría de bases de datos SQL | Microsoft Docs"
+description: "Introducción a la auditoría de bases de datos SQL"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ronitr
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: CarlRabeler; ronitr; giladm
+translationtype: Human Translation
+ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
+ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+
 
 ---
-# <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
+# <a name="get-started-with-sql-database--auditing"></a>Introducción a la auditoría de bases de datos SQL
 Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de datos y registra los eventos en un registro de auditoría de la cuenta de Azure Storage.
 
 La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
@@ -27,7 +31,7 @@ La auditoría posibilita y facilita la observancia de estándares reguladores pe
 * [Configuración de la auditoría para su base de datos]
 * [Análisis de registros e informes de auditoría]
 
-## <a name="<a-id="subheading-1"></a>azure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Información general de Auditoría de Azure SQL Database
+## <a name="a-idsubheading-1aazure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Información general de Auditoría de Azure SQL Database
 La auditoría de Base de datos SQL le permite:
 
 * **Conservar** una traza de auditoría de eventos seleccionados. Puede definir categorías de acciones de base de datos para auditar.
@@ -45,10 +49,10 @@ Puede configurar la auditoría para diferentes tipos de categorías de eventos, 
 
 Puede definirse una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada. Una directiva de auditoría de servidor predeterminada se aplica a todas las bases de datos recién creadas en un servidor.
 
-## <a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuración de la auditoría para su base de datos
+## <a name="a-idsubheading-2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuración de la auditoría para su base de datos
 Las secciones siguientes describen la configuración de auditoría mediante el Portal de Azure.
 
-### <a name="<a-id="subheading-2-1">i.-blob-auditing</a>"></a><a id="subheading-2-1">i. Auditoría de blobs</a>
+### <a name="a-idsubheading-2-1blob-auditinga"></a><a id="subheading-2-1">Auditoría de blobs</a>
 1. Inicie [Azure Portal](https://portal.azure.com) en https://portal.azure.com.
 2. Vaya a la hoja de configuración de la base de datos SQL o el servidor SQL Server que desea auditar. En la hoja Configuración, seleccione **Auditoría y detección de amenazas**.
    
@@ -69,9 +73,9 @@ Las secciones siguientes describen la configuración de auditoría mediante el P
     <a id="storage-screenshot"></a>
     ![Panel de navegación][4]
 6. Si quiere personalizar los eventos auditados, puede hacerlo mediante PowerShell o la API de REST (consulte la sección [Automation (PowerShell/API de REST)](#subheading-7) para más información.
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**.
 
-### <a name="<a-id="subheading-2-2">ii.-table-auditing</a>"></a><a id="subheading-2-2">ii. Auditoría de tablas</a>
+### <a name="a-idsubheading-2-2table-auditinga"></a><a id="subheading-2-2">Auditoría de tablas</a>
 > [!NOTE]
 > Antes de configurar la **auditoría de tablas**, compruebe si usa un ["Cliente de nivel inferior"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Además, si tiene una configuración de firewall estricta, tenga en cuenta que el [punto de conexión de IP de la base de datos cambiará](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) al habilitar la auditoría de tablas.
 > 
@@ -96,14 +100,14 @@ Las secciones siguientes describen la configuración de auditoría mediante el P
 7. Cuando haya configurado los valores de auditoría, puede activar la nueva **detección de amenazas** (versión preliminar) y configurar los mensajes de correo electrónico para recibir alertas de seguridad. La detección de amenazas le permite recibir alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md) para obtener más detalles.
 8. Haga clic en **Guardar**.
 
-## <a name="<a-id="subheading-3"></a>analyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Análisis de registros e informes de auditoría
+## <a name="a-idsubheading-3aanalyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Análisis de registros e informes de auditoría
 Los registros de auditoría se agregan a la cuenta de almacenamiento de Azure que eligió durante la instalación.
 
 Puede explorar los registros de auditoría con una herramienta como el [Explorador de Azure Storage](http://storageexplorer.com/).
 
 Consulte a continuación los aspectos específicos del análisis de los registros de auditoría de **Tabla** y **Blob**.
 
-### <a name="<a-id="subheading-3-1">i.-blob-auditing</a>"></a><a id="subheading-3-1">i. Auditoría de blobs</a>
+### <a name="a-idsubheading-3-1blob-auditinga"></a><a id="subheading-3-1">Auditoría de blobs</a>
 Los registros de auditoría de blobs se guatdan como una colección de archivos de blob dentro de un contenedor llamado "**sqldbauditlogs**".
 
 Para más información sobre la jerarquía de carpetas de almacenamiento de registros de auditoría de blobs, y el formato del registro, consulte la [referencia del formato de registro de auditoría de blobs (descarga del archivo de documento)](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -127,7 +131,7 @@ Existen varios métodos para ver los registros de auditoría de blobs:
      * Lector de eventos extendidos **biblioteca de C#** ([más información aquí](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
      * Consulta de archivos de eventos extendidos mediante **PowerShell** ([más información aquí](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/))
 
-### <a name="<a-id="subheading-3-2">ii.-table-auditing</a>"></a><a id="subheading-3-2">ii. Auditoría de tablas</a>
+### <a name="a-idsubheading-3-2table-auditinga"></a><a id="subheading-3-2">Auditoría de tablas</a>
 Los registros de auditoría de tablas se guardan como una colección de instancias de Azure Storage Table con un prefijo **SQLDBAuditLogs**.
 
 Para más información sobre el formato de registro de auditoría de tablas, consulte la [referencia del formato de registro de auditoría de tablas (descarga del archivo de documento)](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -148,10 +152,10 @@ Existen varios métodos para ver los registros de auditoría de tablas:
    
     ![Panel de navegación][9]
 
-## <a name="<a-id="subheading-5"></a>practices-for-usage-in-production"></a><a id="subheading-5"></a>Procedimientos de uso en producción
+## <a name="a-idsubheading-5apractices-for-usage-in-production"></a><a id="subheading-5"></a>Procedimientos de uso en producción
 <!--The description in this section refers to screen captures above.-->
 
-### <a name="<a-id="subheading-6">auditing-geo-replicated-databases</a>"></a><a id="subheading-6">Auditoría de bases de datos con replicación geográfica</a>
+### <a name="a-idsubheading-6auditing-geo-replicated-databasesa"></a><a id="subheading-6">Auditoría de bases de datos con replicación geográfica</a>
 Al usar bases de datos con replicación geográfica, es posible configurar la auditoría en la base de datos principal, la base de datos secundaria, o ambas, según el tipo de auditoría.
 
 **Auditoría de tablas**: puede configurar una directiva aparte, en el nivel de base de datos o de servidor, para cada una de las dos bases de datos (principal y secundaria) como se describe en la sección [Configuración de la auditoría para su base de datos](#subheading-2-2).
@@ -167,7 +171,7 @@ Al usar bases de datos con replicación geográfica, es posible configurar la au
 
 <br>
 
-### <a name="<a-id="subheading-6">storage-key-regeneration</a>"></a><a id="subheading-6">Regeneración de clave de almacenamiento</a>
+### <a name="a-idsubheading-6storage-key-regenerationa"></a><a id="subheading-6">Regeneración de clave de almacenamiento</a>
 En el entorno de producción, es probable que actualice periódicamente las claves de almacenamiento. Al actualizar las claves se debe volver a guardar la directiva de auditoría. El proceso es el siguiente:
 
 1. En la hoja de detalles de almacenamiento cambie el valor de **Clave de acceso de almacenamiento** de *rincipal* a *ecundaria* y luego haga clic en **Aceptar** en la parte inferior. A continuación, haga clic en **GUARDAR** en la parte superior de la hoja de configuración de auditoría.
@@ -179,7 +183,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 3. Vuelva a la hoja de configuración de auditoría, cambie el valor de **Clave de acceso de almacenamiento** de *Secundaria* a *Principal* y haga clic en **Aceptar** en la parte inferior. A continuación, haga clic en **GUARDAR** en la parte superior de la hoja de configuración de auditoría.
 4. Vuelva a la hoja de configuración de almacenamiento y **vuelva a generar** la *lave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de claves).
 
-## <a name="<a-id="subheading-7"></a>automation-(powershell-/-rest-api)"></a><a id="subheading-7"></a>Automation (PowerShell/API de REST)
+## <a name="a-idsubheading-7aautomation-powershell--rest-api"></a><a id="subheading-7"></a>Automation (PowerShell/API de REST)
 También puede configurar la auditoría en Azure SQL Database mediante las siguientes herramientas de automatización:
 
 1. **Cmdlets de PowerShell**
@@ -237,6 +241,6 @@ También puede configurar la auditoría en Azure SQL Database mediante las sigui
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

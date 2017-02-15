@@ -2,14 +2,16 @@
 ## [¿Qué es DocumentDB?](documentdb-introduction.md)
 ## [Conceptos principales](documentdb-resources.md)
 ## [Distribución global](documentdb-distribute-data-globally.md)
+## [Análisis del TCO de NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Escenarios
 ### [Casos de uso comunes](documentdb-use-cases.md)
 ### [Redes sociales y DocumentDB](documentdb-social-media-apps.md)
 
-# Primeros pasos
+# Introducción
 ## Escritura de la primera aplicación
 ### [Aplicación de consola de .NET](documentdb-get-started.md)
 ### [Aplicación de consola de .NET Core](documentdb-dotnetcore-get-started.md)
+### [Aplicación de consola de Java](documentdb-java-get-started.md)
 ### [Aplicación de consola de Node.js](documentdb-nodejs-get-started.md)
 ### [Aplicación de la consola de C++](documentdb-cpp-get-started.md)
 ## Compilación de una aplicación web
@@ -18,12 +20,12 @@
 ### [Aplicaciones web de Java](documentdb-java-application.md)
 ### [Aplicación web de Python Flask](documentdb-python-application.md)
 ## [Desarrollar localmente](documentdb-nosql-local-emulator.md)
-## [P+F](documentdb-faq.md)
+### [Exportación de certificados del emulador](documentdb-nosql-local-emulator-export-ssl-certificates.md)
+## [Preguntas más frecuentes](documentdb-faq.md)
 
 # Procedimientos
 
 ## Plan
-### [Almacenamiento y rendimiento](documentdb-manage.md)
 ### [Particionamiento y escalado](documentdb-partition-data.md)
 ### [Coherencia](documentdb-consistency-levels.md)
 ### [NoSQL frente a SQL](documentdb-nosql-vs-sql.md)
@@ -33,29 +35,38 @@
 ### [Modelado de datos](documentdb-modeling-data.md)
 ### [Uso de datos geoespaciales](documentdb-geospatial.md)
 ### [Desarrollo para varias regiones](documentdb-developing-with-multiple-regions.md)
+### [Conmutaciones por error regionales](documentdb-regional-failovers.md)
 ### [Expiración automática de los datos](documentdb-time-to-live.md)
 ### [Personalización de índices](documentdb-indexing-policies.md)
 ### [Acceso seguro a datos](documentdb-secure-access-to-data.md)
 ### [Copia de seguridad y restauración](documentdb-online-backup-and-restore.md)
 ### [Niveles de rendimiento](documentdb-performance-levels.md)
-### [Cuotas de recursos](documentdb-limits.md)
-### [Aumento de cuotas](documentdb-increase-limits.md)
 ### [Unidades de solicitud](documentdb-request-units.md)
-### [CLI de Azure y Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Crear una cuenta](documentdb-automation-resource-manager-cli.md)
+#### [Agregar o quitar regiones](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Compatibilidad de firewall](documentdb-firewall-support.md)
 ### [Potenciación de una cuenta](documentdb-supercharge-your-account.md)
 
 ## Desarrollo
 ### [SQL query](documentdb-sql-query.md)
 ### [Procedimientos almacenados, desencadenadores y UDF](documentdb-programming.md)
+### [Seguimiento de cambios con fuente de cambios](documentdb-change-feed.md)
 ### [Pruebas de rendimiento](documentdb-performance-testing.md)
 ### [Consejos de rendimiento](documentdb-performance-tips.md)
-### DocumentDB para desarrolladores de MongoDB
-#### [Compatibilidad de protocolo para MongoDB](documentdb-protocol-mongodb.md)
-#### [Creación de cuenta](documentdb-create-mongodb-account.md)
-#### [Conexión a una cuenta](documentdb-connect-mongodb-account.md)
-#### [Uso de MongoChef](documentdb-mongodb-mongochef.md)
-#### [Ejemplos de protocolos compatibles](documentdb-mongodb-samples.md)
+### Prácticas recomendadas
+#### [Configuración de varios maestros](documentdb-multi-region-writers.md)
+#### [Fecha y hora](documentdb-working-with-dates.md)
+
+## Uso de la compatibilidad de DocumentDB con MongoDB
+### [Compatibilidad de protocolo para MongoDB](documentdb-protocol-mongodb.md)
+### [Creación de cuenta](documentdb-create-mongodb-account.md)
+### [Conexión a una cuenta](documentdb-connect-mongodb-account.md)
+### [Migración de los datos](documentdb-mongodb-migrate.md)
+### [Uso de Robomongo](documentdb-mongodb-robomongo.md)
+### [Uso de MongoChef](documentdb-mongodb-mongochef.md)
+### [Ejemplos de protocolos compatibles](documentdb-mongodb-samples.md)
 
 ## Uso del portal
 ### [Creación de una cuenta de base de datos](documentdb-create-account.md)
@@ -71,10 +82,10 @@
 
 ## Integrate
 ### [Implementación de un sitio web en Azure App Service](documentdb-create-documentdb-website.md)
-### [Registro de aplicaciones con Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Registro de aplicaciones con Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Enlace a Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Análisis de datos con Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integración con Azure Search](documentdb-search-indexer.md)
+### [Integración con Azure Search](../search/search-howto-index-documentdb.md)
 ### [Movimiento de datos con Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Análisis de datos en tiempo real con Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Obtención de notificaciones con Logic Apps](documentdb-change-notification.md)
@@ -83,18 +94,20 @@
 
 
 # Referencia
-## [SDK de Java](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [SDK de .NET Core](documentdb-sdk-dotnet-core.md)
-## [Ejemplos de .NET](documentdb-dotnet-samples.md)
-## [SDK de Node.js](documentdb-sdk-node.md)
-## [Ejemplos de Node.js](documentdb-nodejs-samples.md)
-## [SDK de Python](documentdb-sdk-python.md)
-## [Ejemplos de Python](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Hoja de referencia rápida de gramática de SQL](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [Proveedor de recursos de REST](/rest/api/documentdbresourceprovider/)
+
+# Temas relacionados
+## [Ejemplos de .NET](documentdb-dotnet-samples.md)
+## [Ejemplos de Node.js](documentdb-nodejs-samples.md)
+## [Ejemplos de Python](documentdb-python-samples.md)
+## [Sintaxis de SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Hoja de referencia rápida de gramática de SQL](documentdb-sql-query-cheat-sheet.md)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +123,6 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

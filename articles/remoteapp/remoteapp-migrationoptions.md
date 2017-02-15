@@ -51,7 +51,7 @@ Consulte la guía de implementación paso a paso, [Citrix XA 7.6 on Azure](http:
 
 ## <a name="fully-managed-paassaas-offerings"></a>Ofertas completamente administradas (PaaS y SaaS)
 ### <a name="citrix-cloud"></a>**Citrix Cloud**
-La arquitectura de la [solución en la nube actual de Citrix](https://www.citrix.com/products/citrix-cloud/) es idéntica a la de Citrix XenApp Express. Citrix está ofreciendo una [promoción de un 50 % de descuento](https://www.citrix.com/blogs/2016/10/03/special-promotion-for-microsoft-azure-remoteapp-customers/) a clientes actuales de Azure RemoteApp. 
+La arquitectura de la [solución en la nube actual de Citrix](https://www.citrix.com/products/citrix-cloud/) es idéntica a la de Citrix XenApp Express. Citrix está ofreciendo una [promoción de un&50; % de descuento](https://www.citrix.com/blogs/2016/10/03/special-promotion-for-microsoft-azure-remoteapp-customers/) a clientes actuales de Azure RemoteApp. 
 
 ### <a name="citrix-xenapp-express-in-tech-preview"></a>**Citrix XenApp Express (en fase de versión preliminar técnica)**
 [Regístrese para obtener la versión preliminar técnica](http://now.citrix.com/remoteapp) y ver la [sesión de Ignite](https://myignite.microsoft.com/videos/2792) (empieza en el minuto 20:30). La arquitectura de XenApp Express es idéntica a la de Citrix Cloud, salvo que incluye una interfaz de usuario de administración simplificada, y otras características y funcionalidades que son similares a Azure RemoteApp. 

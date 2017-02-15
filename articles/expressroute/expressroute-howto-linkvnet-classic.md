@@ -1,13 +1,13 @@
 ---
-title: Vinculación de una red virtual a un circuito ExpressRoute a través del modelo de implementación clásica y PowerShell | Microsoft Docs
-description: Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación clásica y PowerShell.
+title: "Vinculación de una red virtual a un circuito ExpressRoute a través del modelo de implementación clásica y PowerShell | Microsoft Docs"
+description: "Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación clásica y PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
+ms.openlocfilehash: 1c0891c79081f068fd6e4a60a05a6b58ebdc9598
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vinculación de una red virtual a un circuito ExpressRoute
@@ -66,7 +70,9 @@ El *propietario del circuito* es el administrador o coadministrador de la suscri
 El propietario del circuito tiene la capacidad de modificar y revocar las autorizaciones en cualquier momento. La revocación de una autorización dará como resultado la eliminación de todos los vínculos de la suscripción cuyo acceso se haya revocado.
 
 ### <a name="circuit-owner-operations"></a>Operaciones del propietario del circuito
-#### <a name="creating-an-authorization"></a>Creación de una autorización
+
+**Creación de una autorización**
+
 El propietario del circuito autoriza a los administradores de otras suscripciones para que usen el circuito especificado. En el ejemplo siguiente, el administrador del circuito (TI de Contoso) permite que el administrador de otra suscripción (Dev-Test), cree un vínculo de hasta 2 redes virtuales al circuito. El administrador de TI de Contoso lo permite especificando el identificador de Microsoft de Dev-Test. El cmdlet no envía correo electrónico al identificador de Microsoft especificado. El propietario del circuito debe notificar de forma explícita al propietario de la otra suscripción que la autorización se ha completado.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -77,7 +83,8 @@ El propietario del circuito autoriza a los administradores de otras suscripcione
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
 
-#### <a name="reviewing-authorizations"></a>Revisión de las autorizaciones
+**Revisión de las autorizaciones**
+
 El propietario del circuito puede revisar todas las autorizaciones emitidas en un circuito concreto ejecutando el siguiente cmdlet:
 
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -101,7 +108,8 @@ El propietario del circuito puede revisar todas las autorizaciones emitidas en u
     Used                : 2
 
 
-#### <a name="updating-authorizations"></a>Actualización de autorizaciones
+**Actualización de autorizaciones**
+
 El propietario del circuito puede modificar las autorizaciones mediante el siguiente cmdlet:
 
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
@@ -113,14 +121,17 @@ El propietario del circuito puede modificar las autorizaciones mediante el sigui
     Used                : 0
 
 
-#### <a name="deleting-authorizations"></a>Eliminación de autorizaciones
+**Eliminación de autorizaciones**
+
 El propietario del circuito puede revocar o eliminar las autorizaciones al usuario ejecutando el siguiente cmdlet:
 
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### <a name="circuit-user-operations"></a>Operaciones del usuario del circuito
-#### <a name="reviewing-authorizations"></a>Revisión de las autorizaciones
+
+**Revisión de las autorizaciones**
+
 El usuario del circuito puede revisar las autorizaciones mediante el siguiente cmdlet:
 
     Get-AzureAuthorizedDedicatedCircuit
@@ -135,7 +146,8 @@ El usuario del circuito puede revisar las autorizaciones mediante el siguiente c
     Status                           : Enabled
     UsedLinks                        : 0
 
-#### <a name="redeeming-link-authorizations"></a>Canjear autorizaciones de vínculo
+**Canjear autorizaciones de vínculo**
+
 El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una autorización de vínculo:
 
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
@@ -147,6 +159,9 @@ El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una auto
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

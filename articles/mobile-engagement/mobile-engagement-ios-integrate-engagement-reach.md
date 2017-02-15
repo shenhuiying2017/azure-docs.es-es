@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 090f653da4825d7953dde27740d219bf40a4bd97
+ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
+ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 
 ---
@@ -133,7 +133,7 @@ Por último, debe informar al SDK de Engagement cuando la aplicación reciba una
     }
 
 > [!NOTE]
-> El método anterior se incorpora en iOS 7. Si desea usar iOS < 7, asegúrese de implementar el método `application:didReceiveRemoteNotification:` en el delegado de aplicación y llamar a `applicationDidReceiveRemoteNotification` en EngagementAgent mediante nil en lugar del argumento `handler`:
+> El método anterior se incorpora en iOS 7. Si desea usar iOS <&7;, asegúrese de implementar el método `application:didReceiveRemoteNotification:` en el delegado de aplicación y llamar a `applicationDidReceiveRemoteNotification` en EngagementAgent mediante nil en lugar del argumento `handler`:
 > 
 > 
 
@@ -182,12 +182,15 @@ Este es un ejemplo completo de integración:
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-### <a name="if-you-have-your-own-unusernotificationcenterdelegate-implementation"></a>Si tiene su propia implementación de UNUserNotificationCenterDelegate
-El SDK también tiene su propia implementación del protocolo UNUserNotificationCenterDelegate. Se usa para supervisar el ciclo de vida de las notificaciones de Engagement en dispositivos que se ejecutan en iOS 10 o superior. Si el SDK detecta que el delegado no usa su propia implementación porque puede que solo haya un delegado UNUserNotificationCenter por aplicación. Esto significa que tendrá que agregar la lógica de Engagement a su propio delegado.
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>Resolución de conflictos de delegado de UNUserNotificationCenter
+
+*Si ni la aplicación ni una de las bibliotecas de terceros implementa `UNUserNotificationCenterDelegate`, puede pasar por alto esta parte.*
+
+El SDK usa un delegado de `UNUserNotificationCenter` para supervisar el ciclo de vida de las notificaciones de Engagement en dispositivos que se ejecutan en iOS 10 o superior. El SDK tiene su propia implementación del protocolo `UNUserNotificationCenterDelegate`, pero solo puede haber un delegado de `UNUserNotificationCenter` por aplicación. Cualquier otro delegado que se agrega al objeto `UNUserNotificationCenter` entrará en conflicto con Engagement. Si el SDK detecta su delegado o cualquier otro de terceros, no usará su propia implementación para ofrecerle una oportunidad de resolver los conflictos. Tendrá que agregar la lógica de Engagement a su propio delegado con el fin de resolver los conflictos.
 
 Hay dos formas de hacerlo:
 
-Reenviar las llamadas del delegado al SDK:
+Propuesta 1: reenviar las llamadas del delegado al SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -214,7 +217,7 @@ Reenviar las llamadas del delegado al SDK:
     }
     @end
 
-O bien, heredarla de la clase `AEUserNotificationHandler`
+O propuesta 2: heredándola de la clase `AEUserNotificationHandler`.
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -242,8 +245,16 @@ O bien, heredarla de la clase `AEUserNotificationHandler`
 
 > [!NOTE]
 > Puede determinar si una notificación proviene de Engagement o no pasando su diccionario `userInfo` al método de clase `isEngagementPushPayload:` del agente.
-> 
-> 
+
+Asegúrese de que el delegado del objeto `UNUserNotificationCenter` se establece en su delegado en los métodos `application:willFinishLaunchingWithOptions:` o `application:didFinishLaunchingWithOptions:` del delegado de aplicación.
+Por ejemplo, si implementa la propuesta anterior 1:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
 
 ## <a name="how-to-customize-campaigns"></a>Personalización de las campañas
 ### <a name="notifications"></a>Notificaciones
@@ -504,6 +515,6 @@ Al igual que para la personalización de notificación avanzada, se recomienda m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Análisis de opiniones mediante Análisis de transmisiones de Azure y Aprendizaje automático de Azure | Microsoft Docs
-description: Cómo utilizar una función definida por el usuario y Aprendizaje automático en un trabajo de Análisis de transmisiones
-keywords: ''
-documentationcenter: ''
+title: "Análisis de sentimiento mediante Azure Stream Analytics y Azure Machine Learning | Microsoft Docs"
+description: "Cómo utilizar una función definida por el usuario y Aprendizaje automático en un trabajo de Análisis de transmisiones"
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/04/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fd5d7e2bf8d9cf68f1c3e9fe98656a8cfe0d1f15
+
 
 ---
 # <a name="sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Análisis de opiniones mediante Análisis de transmisiones de Azure y Aprendizaje automático de Azure
@@ -43,7 +47,7 @@ En un nivel alto, para completar las tareas demostradas en este artículo, reali
 5. Inicio del trabajo de Análisis de transmisiones y observación de la salida.
 
 ## <a name="upload-the-csv-input-file-to-blob-storage"></a>Carga del archivo de entrada CSV en Almacenamiento de blobs
-En este paso, puede usar cualquier archivo CSV, como el que se ha especificado como disponible para su descarga en GitHub. Puede usar [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/) o Visual Studio para cargar el archivo o usar el código personalizado. Usamos ejemplos basados en Visual Studio.
+En este paso, puede usar cualquier archivo CSV, como el que se ha especificado como disponible para su descarga en GitHub. Puede usar [Explorador de almacenamiento de Windows Azure](http://storageexplorer.com/) o Visual Studio para cargar el archivo o usar el código personalizado. Usamos ejemplos basados en Visual Studio.
 
 1. En Visual Studio, haga clic en **Azure** > **Almacenamiento** > **Asociar almacenamiento externo**. Especifique un **Nombre de cuenta** y una **Clave de cuenta**.  
    
@@ -96,7 +100,7 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
     
     ```
     WITH subquery AS (  
-        SELECT text, sentiment(text) as result from input  
+      SELECT text, sentiment(text) as result from input  
     )  
     
     Select text, result.[Scored Labels]  
@@ -127,6 +131,9 @@ También puede observar las métricas relacionadas con la función de Aprendizaj
   
     ![Aprendizaje automático de Análisis de transmisiones, vista de supervisión de Aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

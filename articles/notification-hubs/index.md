@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a enviar notificaciones push desde cualquier servidor back-end a cualquier dispositivo móvil con Notification Hubs. Tutoriales, referencias de API y otra documentación."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
 
 ---
 #<a name="notification-hubs-documentation"></a>Documentación de Notification Hubs
 
-Azure Notification Hubs son una infraestructura de notificaciones de inserción fácil de usar que se puede escalar horizontalmente y que permite enviar notificaciones push móviles desde cualquier backend (en la nube o de forma local) a cualquier plataforma móvil.
-
-Con los Centros de notificaciones se pueden enviar fácilmente notificaciones push personalizadas entre plataformas, resumiendo los detalles de los distintos sistemas de notificación de plataforma (PNS). Con una única llamada API, puede dirigirse a usuarios individuales o a segmentos completos con millones de usuarios, entre todos sus dispositivos.
+Aprenda a usar Notification Hubs, un motor de notificaciones push multiplataforma y escalable, para enviar rápidamente millones de mensajes. Los tutoriales, las referencias de API y otra documentación muestran cómo configurar y enviar notificaciones push desde servidores back-end a cualquier dispositivo móvil. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -31,7 +30,7 @@ Con los Centros de notificaciones se pueden enviar fácilmente notificaciones pu
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -160,65 +159,52 @@ Con los Centros de notificaciones se pueden enviar fácilmente notificaciones pu
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Cmdlets de PowerShell de Notification Hubs</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referencia de API de .NET de Notification Hubs</p>
-                    </div>
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/notificationhubs/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de API de REST de Notification Hubs</p>
+                        <p><a href="/rest/api/notificationhubs">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar documentación de Notification Hubs </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

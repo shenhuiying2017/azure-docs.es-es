@@ -48,7 +48,7 @@ Para las máquinas virtuales creadas en el modelo de implementación clásico, p
 
 Necesitará especificar la red a la que desea que pertenezca la máquina virtual al crear la máquina virtual. No puede unir una máquina virtual existente a una red virtual. Sin embargo, puede solucionar este problema separando el disco duro virtual (VHD) de la máquina virtual existente y, a continuación, usarlo para crear una nueva máquina virtual con la configuración de red que desee.
 
-## <a name="how-can-i-access-my-virtual-machine"></a>¿Cómo puedo acceder a mi máquina virtual?
+## <a name="how-can-i-access--my-virtual-machine"></a>¿Cómo puedo acceder a mi máquina virtual?
 Deberá establecer una conexión remota para iniciar sesión en la máquina virtual, usando Conexión a Escritorio remoto para una máquina virtual de Windows o un Shell seguro (SSH) para una máquina virtual de Linux. Para obtener instrucciones, consulte:
 
 * [Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure clásico](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
@@ -131,6 +131,6 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

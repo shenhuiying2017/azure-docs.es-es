@@ -28,7 +28,7 @@ Puede descargar una versión en tamaño completo del diagrama aquí: [Diagrama d
 
 ![Diagrama de la arquitectura de la plantilla de solución de Microsoft Cortana Intelligence para la previsión de demanda de energía][image]
 
-[imagen]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
+[image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
 
 
 

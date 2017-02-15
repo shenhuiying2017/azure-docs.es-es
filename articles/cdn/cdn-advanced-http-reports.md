@@ -1,12 +1,12 @@
 ---
 title: Informes de HTTP avanzados en la red CDN de Azure | Microsoft Docs
-description: Informes de HTTP avanzados en la red CDN de Microsoft Azure Estos informes proporcionan información detallada sobre la actividad de la red CDN.
+description: "Informes de HTTP avanzados en la red CDN de Microsoft Azure Estos informes proporcionan información detallada sobre la actividad de la red CDN."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 91cafe744e07416426da6ca5a5785a21e7874f6d
+
 
 ---
-# Informes de HTTP avanzados en la red CDN de Microsoft Azure
-## Información general
+# <a name="advanced-http-reports-in-microsoft-azure-cdn"></a>Informes de HTTP avanzados en la red CDN de Microsoft Azure
+## <a name="overview"></a>Información general
 En este documento se explican los informes de HTTP avanzados en la red CDN de Microsoft Azure. Estos informes proporcionan información detallada sobre la actividad de la red CDN.
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Acceso a los informes de HTTP avanzados
-1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
+## <a name="accessing-advanced-http-reports"></a>Acceso a los informes de HTTP avanzados
+1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar** .
    
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
-    Se abre el portal de administración de la red CDN.
-2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Informes de HTTP avanzados**. Haga clic en **Plataforma grande HTTP**.
+    Se abre el portal de administración de CDN.
+2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Informes de HTTP avanzados**.  Haga clic en **Plataforma grande HTTP**.
    
     ![Portal de administración de la red CDN: menú Informes avanzados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
     Se muestran las opciones de informe.
 
-## Informes de geografía (basados en mapas)
+## <a name="geography-reports-map-based"></a>Informes de geografía (basados en mapas)
 Hay cinco informes que usan un mapa para indicar las regiones desde las que se solicita el contenido. Estos informes son World Map, United States Map, Canada Map, Europe Map y Asia Pacific Map.
 
 Cada informe basado en un mapa clasifica las entidades geográficas (es decir, países, estados y provincias), según el porcentaje de visitas originadas en esa región. Además, se proporciona un mapa que le ayudará a visualizar las ubicaciones desde las que se solicita el contenido. Para ello se usa la codificación en colores de cada región según la cantidad de demanda experimentada en dicha región. Las regiones más claras indican una demanda menor de contenido y las más oscuras indican mayores niveles de petición de contenido.
@@ -51,12 +55,12 @@ Se proporciona más abajo una descripción breve de cada tipo de informe de geog
 | Europe Map |Este informe permite ver la demanda del contenido de la red CDN en Europa. Cada país está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esta región. |
 | Asia Pacific Map |Este informe permite ver la demanda del contenido de la red CDN en Asia. Cada país está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esta región. |
 
-## Informes de geografía (gráficos de barras)
+## <a name="geography-reports-bar-charts"></a>Informes de geografía (gráficos de barras)
 Existen dos informes adicionales que proporcionan información estadística de acuerdo con la ubicación geográfica, que son Top Cities y Top Countries. Estos informes clasifican ciudades y países, respectivamente, según el número de visitas originadas en esas regiones. Tras generar este tipo de informe, un gráfico de barras indicará las 10 ciudades o países principales que solicitaron contenido en una plataforma específica. Este gráfico de barras permite evaluar rápidamente las regiones que generan la mayor cantidad de solicitudes para su contenido.
 
 El lado izquierdo del gráfico (eje y) indica cuántas visitas se han producido en la región especificada. Directamente debajo del gráfico (eje x) se muestra una etiqueta para cada una de las 10 regiones principales.
 
-### Uso de los gráficos de barras
+### <a name="using-the-bar-charts"></a>Uso de los gráficos de barras
 * Si mantiene el cursor sobre una barra, el nombre y el número total de visitas que se produjeron en la región se mostrarán como una información sobre herramientas.
 * La información sobre herramientas en el informe Top Cities identifica a la ciudad por su nombre, el estado o provincia y por la abreviatura del país.
 * Si no se pudo determinar la ciudad o la región (es decir, el estado o provincia) desde la que se originó una solicitud, se indicará que son desconocidas. Si el país es desconocido, se mostrarán dos signos de interrogación (es decir, ??).
@@ -71,7 +75,7 @@ A continuación se proporciona una breve descripción para ambos tipos de inform
 | Top Cities |Este informe clasifica las ciudades según el número de visitas originadas en esa región. |
 | Top Countries |Este informe clasifica los países según el número de visitas originadas en esa región. |
 
-## Daily Summary
+## <a name="daily-summary"></a>Daily Summary
 El informe Daily Summary permite ver el número total de visitas y los datos transferidos a diario en una plataforma particular. Esta información puede usarse para distinguir rápidamente los patrones de actividad de la red CDN. Por ejemplo, este informe puede ayudar a detectar qué días han tenido un tráfico mayor o menor que el previsto.
 
 Tras generar este tipo de informe, un gráfico de barras proporcionará una indicación visual de la cantidad de demanda específica de la plataforma experimentada a diario durante el período de tiempo cubierto por el informe. Lo hará mostrando una barra para cada día en el informe. Por ejemplo, si se selecciona el período de tiempo llamado "Last Week", se generará un gráfico de barras con siete barras. Cada barra indica el número total de visitas realizadas en ese día.
@@ -85,7 +89,7 @@ El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en 
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas y la cantidad de datos transferidos (en gigabytes) para cada día que cubre el informe.
 
-## By Hour
+## <a name="by-hour"></a>By Hour
 El informe By Hour permite ver el número total de visitas y los datos transferidos cada hora en una plataforma particular. Esta información puede usarse para distinguir rápidamente los patrones de actividad de la red CDN. Por ejemplo, este informe puede ayudar a detectar los períodos de tiempo durante el día que han tenido un tráfico mayor o menor que el previsto.
 
 Tras generar este tipo de informe, un gráfico de barras proporcionará una indicación visual de la cantidad de demanda específica de la plataforma experimentada cada hora durante el período de tiempo cubierto por el informe. Lo hará mostrando una barra para cada hora cubierta por el informe. Por ejemplo, si se selecciona un período de tiempo de 24 horas, se generará un gráfico de barras con veinticuatro barras. Cada barra indica el número total de visitas realizadas durante esa hora.
@@ -99,7 +103,7 @@ El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en 
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas y la cantidad de datos transferidos (en gigabytes) para cada hora que cubre el informe.
 
-## By File
+## <a name="by-file"></a>By File
 El informe By File permite ver la cantidad de demanda y el tráfico generados en una plataforma concreta de los activos más solicitados. Tras generar este tipo de informe, se generará un gráfico de barras con los 10 activos principales más solicitados durante el período de tiempo especificado.
 
 > [!NOTE]
@@ -111,14 +115,14 @@ El lado izquierdo del gráfico (eje y) indica el número de solicitudes para cad
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará la información siguiente para cada uno de los 250 activos principales solicitados: la ruta de acceso relativa, el número total de visitas, el porcentaje de visitas, la cantidad de datos transferidos (en gigabytes) y el porcentaje de datos transferidos.
 
-## By File Detail
+## <a name="by-file-detail"></a>By File Detail
 El informe By File Detail permite ver la cantidad de demanda y el tráfico generados en una plataforma concreta de un activo específico. En la parte superior de este informe se encuentra la opción File Details For. Esta opción proporciona una lista de los activos más solicitados en la plataforma seleccionada. Para generar un informe By File Detail, debe seleccionar el activo deseado en la opción File Details For. Después, un gráfico de barras indicará la cantidad de demanda diaria que se generó durante el período de tiempo especificado.
 
 El lado izquierdo del gráfico (eje y) indica el número total de solicitudes que ha tenido un activo en un día concreto. Directamente debajo del gráfico (eje x) se muestra una etiqueta con la fecha (formato: AAA-MM-DD) en la que se notificó la demanda de CDN para el activo.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas y la cantidad de datos transferidos (en gigabytes) para cada día que cubre el informe.
 
-## By File Type
+## <a name="by-file-type"></a>By File Type
 El informe By File Type permite ver la cantidad de demanda y el tráfico generados por tipo de archivo. Tras generar este tipo de informe, un gráfico de anillos indicará el porcentaje de visitas generadas por los 10 tipos de archivos principales.
 
 > [!TIP]
@@ -128,10 +132,10 @@ El informe By File Type permite ver la cantidad de demanda y el tráfico generad
 
 Los datos usados para generar el gráfico de anillos pueden verse debajo de él. Allí encontrará la extensión del nombre de archivo, el tipo de medio de Internet, el número total de visitas, el porcentaje de visitas, la cantidad de datos transferidos (en gigabytes) y el porcentaje de datos transferidos para cada uno de los 250 tipos de archivos principales.
 
-## By Directory
+## <a name="by-directory"></a>By Directory
 El informe By Directory permite ver la cantidad de demanda y el tráfico generados en una plataforma concreta del contenido de un directorio específico. Tras generar este tipo de informe, un gráfico de barras indicará el número total de visitas generadas por el contenido de los 10 directorios principales.
 
-### Uso del gráfico de barras
+### <a name="using-the-bar-chart"></a>Uso del gráfico de barras
 * Mantenga el cursor sobre una barra para ver la ruta de acceso relativa al directorio correspondiente.
 * El contenido almacenado en una subcarpeta de un directorio no cuenta al calcular la demanda por directorio. Este cálculo se basa únicamente en el número de solicitudes generadas para el contenido almacenado en el directorio real.
 * A efectos de este informe, las direcciones URL de CNAME perimetrales se convierten en sus direcciones URL de la red CDN equivalentes. Esto permite un recuento preciso de todas las estadísticas asociadas a un activo, con independencia de la red CDN o de la dirección URL del CNAME perimetral que usó para solicitarlo.
@@ -140,24 +144,24 @@ El lado izquierdo del gráfico (eje y) indica el número total de solicitudes pa
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará la información siguiente para cada uno de los 250 directorios principales: la ruta de acceso relativa, el número total de visitas, el porcentaje de visitas, la cantidad de datos transferidos (en gigabytes) y el porcentaje de datos transferidos.
 
-## By Browser
+## <a name="by-browser"></a>By Browser
 El informe By Browser permite ver qué exploradores se usan para solicitar el contenido. Tras generar este tipo de informe, un gráfico circular indicará el porcentaje de solicitudes controladas por los 10 exploradores principales.
 
-### Uso del gráfico circular
+### <a name="using-the-pie-chart"></a>Uso del gráfico circular
 * Mantenga el cursor sobre un segmento del gráfico circular para ver el nombre y la versión del explorador.
 * A efectos de este informe, cada combinación única de explorador y versión se considera un explorador diferente.
 * El sector denominado "Other" indica el porcentaje de solicitudes controladas por todos los demás exploradores y versiones.
 
 Los datos usados para generar el gráfico circular pueden verse debajo de él. Allí encontrará el tipo de explorador y el número de versión, el número total de visitas y el porcentaje de visitas para cada uno de los 250 exploradores principales.
 
-## By Referrer
+## <a name="by-referrer"></a>By Referrer
 El informe By Referrer permite ver los orígenes de referencia principales del contenido en la plataforma seleccionada. Un origen de referencia indica el nombre de host desde el que se generó la solicitud. Tras generar este tipo de informe, un gráfico de anillos indicará la cantidad de demanda (es decir, visitas) generada por los 10 orígenes de referencia principales.
 
 El lado izquierdo del gráfico (eje y) indica el número total de solicitudes que ha tenido un activo para cada origen de referencia. Cada barra del gráfico representa un origen de referencia. Use el esquema de codificación en colores para hacer coincidir una barra en un origen de referencia enumerado en la sección de los 250 orígenes de referencia principales.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará la dirección URL, el número total de visitas y el porcentaje de visitas generadas para cada uno de los 250 orígenes de referencia principales.
 
-## By Download
+## <a name="by-download"></a>By Download
 El informe By Download permite analizar los patrones de descarga para el contenido más solicitado. La parte superior del informe contiene un gráfico de barras que compara las descargas intentadas con descargas completadas para los 10 activos principales solicitados. Cada barra está codificada en colores, según sea un intento de descarga (azul) o una descarga completada (verde).
 
 > [!NOTE]
@@ -179,7 +183,7 @@ Directamente debajo del gráfico de barras, se mostrará la información siguien
 > 
 > 
 
-## By 404 Errors
+## <a name="by-404-errors"></a>By 404 Errors
 El informe By 404 Errors permite identificar el tipo de contenido que genera el mayor número de códigos de estado 404 No encontrado. La parte superior del informe contiene un gráfico de barras para los 10 activos principales para los que se devolvió un código de estado 404 No encontrado. Este gráfico de barras compara el número total de solicitudes con las solicitudes que dieron como resultado un código de estado 404 No encontrado para esos activos. Cada barra está codificada en colores. Se usa una barra amarilla para indicar que la solicitud dio como resultado un código de estado 404 No encontrado. Se usa una barra roja para indicar el número total de solicitudes para el activo.
 
 > [!NOTE]
@@ -194,10 +198,15 @@ El lado izquierdo del gráfico (eje y) indica el nombre de archivo para cada uno
 
 Directamente debajo del gráfico de barras, se mostrará la información siguiente para los 250 activos solicitados principales: la ruta de acceso relativa (incluido el nombre de archivo), el número de solicitudes que dieron como resultado un código de estado 404 No encontrado, el número de veces que se solicitó el activo y el porcentaje de solicitudes que dieron como resultado un código de estado de 404 No encontrado.
 
-## Consulte también
+## <a name="see-also"></a>Consulte también
 * [Información general de la red CDN de Azure](cdn-overview.md)
 * [Estadísticas en tiempo real en CDN de Microsoft Azure](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Análisis del rendimiento perimetral](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

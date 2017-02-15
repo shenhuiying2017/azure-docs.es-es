@@ -1,20 +1,24 @@
 ---
-title: Registro de orígenes de datos | Microsoft Docs
-description: Artículo de procedimientos que destaca cómo registrar orígenes de datos con el Catálogo de datos de Azure, incluidos los campos de metadatos que se extraen durante el registro.
+title: "Registro de orígenes de datos | Microsoft Docs"
+description: "Artículo de procedimientos que destaca cómo registrar orígenes de datos con el Catálogo de datos de Azure, incluidos los campos de metadatos que se extraen durante el registro."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c2b279487f099a0e688621e63faaa4ed265e6e
+
 
 ---
 # <a name="how-to-register-data-sources"></a>Registro de orígenes de datos
@@ -50,8 +54,8 @@ La herramienta de registro de orígenes de datos del **Catálogo de datos de Azu
 
 > [!NOTE]
 > Las tablas anchas que tienen un gran número de columnas pueden tener menos de 20 registros incluidos en la vista previa.
-> 
-> 
+>
+>
 
 ## <a name="including-data-profiles"></a>Inclusión de los perfiles de datos
 De la misma manera que incluir vistas previas puede proporcionar contexto valioso para los usuarios que buscan orígenes de datos en el **Catálogo de datos de Azure**, incluir un perfil de datos también puede facilitar la comprensión de los orígenes de datos detectados.
@@ -67,8 +71,8 @@ Estas estadísticas se copian después en el Catálogo junto con los metadatos e
 
 > [!NOTE]
 > Las columnas de texto y fecha no incluirá las estadísticas de promedio o desviación estándar en su perfil de datos.
-> 
-> 
+>
+>
 
 ## <a name="updating-registrations"></a>Actualización de registros
 El registro de un origen de datos hará que sea detectable en el **Catálogo de datos de Azure** con los metadatos y la vista previa opcional que se extraen durante el registro. Si el origen de datos debe actualizarse en el Catálogo (por ejemplo, si cambia el esquema de un objeto, hay que incluir tablas que se excluyeron originalmente o un usuario quiere actualizar los datos incluidos en las vistas previas), puede volver a ejecutarse la herramienta de registro de orígenes de datos.
@@ -81,6 +85,8 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure** se facili
 ## <a name="see-also"></a>Consulte también
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo registrar orígenes de datos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

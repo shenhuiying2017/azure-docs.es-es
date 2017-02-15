@@ -1,12 +1,12 @@
 ---
-title: 'Preguntas frecuentes: Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace | Microsoft Docs'
+title: "Preguntas frecuentes: Publicación y uso de aplicaciones de Machine Learning en Azure Marketplace | Microsoft Docs"
 description: Preguntas frecuentes
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bharaths
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 26b3a1e7-8b9a-4004-98bc-17456d4c25e8
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2016
 ms.author: bharaths
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f8ae758a406dfed48968531ae20a9bbd2383db92
+
 
 ---
-# Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes
-## Preguntas acerca del consumo en Marketplace
+# <a name="publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes
+## <a name="questions-about-consuming-from-marketplace"></a>Preguntas acerca del consumo en Marketplace
 **1. Por qué obtengo el siguiente mensaje de error tras especificar una entrada para el servicio web:**
 
 **La solicitud ha ocasionado un tiempo de espera de back-end o un error de back-end. El equipo está investigando el problema. Lamentamos los inconvenientes. (500)**
@@ -30,18 +34,18 @@ Los parámetros de entrada no pueden ajustarse al formato requerido para el serv
 
 Debe usar la cuenta de Marketplace como nombre de usuario y la clave de la cuenta principal como contraseña. La clave de la cuenta principal se puede encontrar en la página **Explorar este conjunto de datos** en la descripción del servicio web (haga clic en el botón **Mostrar**). El resultado se puede mostrar en el explorador o estar disponible para descargarlo, en función de qué explorador use.
 
-**3. ¿Por qué obtengo el siguiente mensaje de error tras especificar una entrada para el servicio web en la página "Explorar este conjunto de datos":**?
+**3. ¿Por qué obtengo el siguiente mensaje de error tras especificar una entrada para el servicio web en la página "Explorar este conjunto de datos":**? 
 
 **Se ha producido un error inesperado al procesar la solicitud. Vuelva a intentarlo.**
 
 Uno o varios parámetros de entrada del servicio web pueden haber excedido el límite de longitud al consumir el servicio web en la página **Explorar este conjunto de datos** de Marketplace. Los servicios pueden llamarse con una longitud de entrada mediante los métodos HTTP POST. Para obtener ejemplos, consulte [Soluciones de ejemplo con R en Aprendizaje automático y publicados en Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. ¿Por qué no veo nada en la pestaña "EXPLORADOR DE API" en el almacén en el Portal de Azure clásico?**
+**4. ¿Por qué no veo nada en la pestaña "EXPLORADOR DE API" en el almacén en el Portal de Azure clásico?** 
 
-Se trata de un problema conocido con el Portal de Azure clásico Marketplace. El equipo está trabajando para resolver este problema.
+Se trata de un problema conocido con el Portal de Azure clásico Marketplace. El equipo está trabajando para resolver este problema. 
 
-## Preguntas acerca de la publicación desde Aprendizaje automático de Azure en Marketplace
-**1. ¿Por qué mis transacciones de logotipos o imágenes no se actualizan en mi servicio web?**
+## <a name="questions-about-publishing-from-azure-machine-learning-on-marketplace"></a>Preguntas acerca de la publicación desde Aprendizaje automático de Azure en Marketplace
+**1. ¿Por qué mis transacciones de logotipos o imágenes no se actualizan en mi servicio web?** 
 
 Los logotipos y las imágenes se almacenan en caché en el portal de publicación y la actualización del nuevo logotipo o de la nueva imagen en el portal puede tardar hasta 10 días en completarse.
 
@@ -51,11 +55,11 @@ Hay un problema conocido de Marketplace al conectarse a Aprendizaje automático 
 
 **3. ¿Por qué no funciona el código de ejemplo R en los servicios web de Aprendizaje automático de Azure para consumir los servicios web en Marketplace?**
 
-Los sistemas de autenticación son diferentes al conectarse a servicios web de Aprendizaje automático de Azure directamente y al conectarse a estos servicios web a través de Marketplace. Los servicios de Marketplace son servicios de OData y se les puede llamar con los métodos GET o POST.
+Los sistemas de autenticación son diferentes al conectarse a servicios web de Aprendizaje automático de Azure directamente y al conectarse a estos servicios web a través de Marketplace. Los servicios de Marketplace son servicios de OData y se les puede llamar con los métodos GET o POST. 
 
 **4. ¿Por qué los vínculos de soporte técnico de las ofertas del servicio web no se actualizan correctamente para algunas de mis ofertas?**
 
-Los vínculos de soporte técnico son globales por publicador, no por oferta.
+Los vínculos de soporte técnico son globales por publicador, no por oferta. 
 
 **5. ¿Cómo puedo publicar un servicio web con el modo de entrada por lotes en Marketplace?**
 
@@ -63,6 +67,11 @@ El modo de entrada por lotes no se admite actualmente en los servicios web de Ma
 
 **6. ¿Con quién debo comunicarme para obtener ayuda si tengo preguntas sobre cómo convertirme en un publicador de datos o si tengo problemas durante la publicación?**
 
-Póngase en contacto con el equipo de Azure Marketplace en <mailto:datamarketbd@microsoft.com> para obtener más información.
+Póngase en contacto con el equipo de Azure Marketplace en <mailto:datamarketbd@microsoft.com> para más información.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

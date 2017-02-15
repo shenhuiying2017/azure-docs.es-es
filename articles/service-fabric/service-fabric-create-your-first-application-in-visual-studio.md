@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
+ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
 
 
 ---
@@ -41,7 +41,7 @@ El siguiente vídeo le guía a través de los pasos de este tutorial:
 > 
 
 ## <a name="create-the-application"></a>Creación de la aplicación
-Una aplicación de Service Fabric puede contener uno o varios servicios, cada uno de ellos con un rol específico en la prestación de la funcionalidad de la aplicación. Con el Asistente para nuevo proyecto se puede crear un proyecto de aplicación, junto con el primer proyecto de servicio. Puede agregar más servicios posteriormente.
+Una aplicación de Service Fabric puede contener uno o varios servicios, cada uno de ellos con un rol específico en la prestación de la funcionalidad de la aplicación. Cree un proyecto de aplicación, junto con su primer proyecto de servicio, mediante el Asistente para nuevos proyectos. Si lo desea, también puede agregar más servicios en otro momento.
 
 1. Inicie Visual Studio como administrador.
 2. Haga clic en **Archivo > Nuevo proyecto > Nube > Aplicación de Service Fabric**.
@@ -91,7 +91,7 @@ Ahora que tiene una aplicación, pruebe a ejecutarla.
    
     ![Detalle del Visor de eventos de diagnóstico][6]
    
-    El clúster local contiene cinco nodos que se hospedan en una sola máquina. Imita a un clúster de cinco nodos, en el que los nodos están en máquinas distintas. Desactivemos uno de los nodos del clúster local para simular la pérdida de una máquina mientras se ejecuta el depurador de Visual Studio.
+    El clúster local contiene cinco nodos que se hospedan en una sola máquina. Imita a un clúster de cinco nodos, en el que los nodos están en máquinas distintas. Para simular la pérdida de una máquina mientras se ejecuta el depurador de Visual Studio, vamos a desactivar uno de los nodos del clúster local.
    
    > [!NOTE]
    > Los eventos de diagnóstico de la aplicación emitidos por la plantilla del proyecto usan la clase `ServiceEventSource` incluida. Para más información, consulte [Servicios de supervisión y diagnóstico en una configuración de desarrollo de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
@@ -100,13 +100,13 @@ Ahora que tiene una aplicación, pruebe a ejecutarla.
 4. Busque en el proyecto de servicio la clase que deriva de StatefulService (por ejemplo, MyStatefulService) y establezca un punto de interrupción en la primera línea del método `RunAsync` .
    
     ![Punto de interrupción en el método RunAsync de servicio con estado][7]
-5. Haga clic con el botón derecho en la aplicación de la bandeja del sistema del Administrador de clústeres local y elija **Administrar clúster local** para iniciar Service Fabric Explorer.
+5. Para iniciar Service Fabric Explorer, haga clic con el botón derecho en la aplicación de la bandeja del sistema de la instancia de Cluster Manager local y elija **Manage Local Cluster** (Administrar clúster local).
    
     ![Inicie el Explorador de Service Fabric desde el Administrador de clústeres locales][systray-launch-sfx]
    
     Service Fabric Explorer ofrece una representación visual de un clúster, incluidos el conjunto de las aplicaciones implementadas y el conjunto de nodos físicos que lo componen. Para aprender más sobre Service Fabric, consulte [Visualización del clúster](service-fabric-visualizing-your-cluster.md).
 6. En el panel izquierdo, expanda **Clúster > Nodos** y busque el nodo en que se ejecuta el código.
-7. Haga clic en **Acciones > Desactivar (reiniciar)** para simular un reinicio de la máquina. (Tenga en cuenta que también se puede desactivar desde el menú contextual en la vista de lista del nodo en el panel izquierdo).
+7. Haga clic en **Acciones > Desactivar (reiniciar)** para simular un reinicio de la máquina. O bien, desactive el nodo de la vista de lista de nodos en el panel izquierdo.
    
     ![Detener un nodo en el Explorador de Service Fabric][sfx-stop-node]
    
@@ -116,14 +116,14 @@ Ahora que tiene una aplicación, pruebe a ejecutarla.
     ![Visor de eventos de diagnóstico después de la conmutación por error][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>Cambio del modo de clúster
-De forma predeterminada, el clúster de desarrollo local está configurado para ejecutarse como un clúster de 5 nodos lo cual resulta útil para depurar los servicios implementados en varios nodos. No obstante, implementar una aplicación en el clúster de desarrollo de 5 nodos puede tardar un tiempo. Si desea iterar los cambios de código rápidamente sin ejecutar la aplicación en los 5 nodos, puede cambiar el clúster de desarrollo al modo de un nodo. Para ejecutar el código en un clúster con un nodo, haga clic con el botón derecho en el administrador de clústeres local en la bandeja del sistema y seleccione **Switch Cluster Mode -> 1 Node** (Cambiar modo de clústeres -> 1 nodo).  
+De forma predeterminada, el clúster de desarrollo local está configurado para ejecutarse como un clúster de cinco nodos, lo cual resulta útil para depurar los servicios implementados en varios nodos. No obstante, implementar una aplicación en el clúster de desarrollo de cinco nodos puede tardar un tiempo. Si desea iterar los cambios de código rápidamente sin ejecutar la aplicación en los cinco nodos, cambie el clúster de desarrollo al modo de un nodo. Para ejecutar el código en un clúster con un nodo, haga clic con el botón derecho en el administrador de clústeres local en la bandeja del sistema y seleccione **Switch Cluster Mode -> 1 Node** (Cambiar modo de clústeres -> 1 nodo).  
 
 ![Cambio del modo de clúster][switch-cluster-mode]
 
-Al cambiar el modo de clúster, el clúster de desarrollo se restablece y se quitan todas las aplicaciones aprovisionadas o en ejecución en el clúster.
+El clúster de desarrollo se restablece al cambiar el modo del clúster y todas las aplicaciones aprovisionadas o en funcionamiento en el clúster se eliminan.
 
 ## <a name="cleaning-up"></a>Limpiar
-  Antes de concluir, es importante recordar que el clúster local es real. La detención del depurador elimina la instancia de la aplicación y anula el registro del tipo de aplicación. No obstante, el clúster se sigue ejecutando en segundo plano. Tiene varias opciones para administrar el clúster:
+Antes de concluir, es importante recordar que el clúster local es real. La detención del depurador elimina la instancia de la aplicación y anula el registro del tipo de aplicación. No obstante, el clúster se sigue ejecutando en segundo plano. Tiene varias opciones para administrar el clúster:
 
 1. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
 2. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Elimine el clúster solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
@@ -131,8 +131,10 @@ Al cambiar el modo de clúster, el clúster de desarrollo se restablece y se qui
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a crear un [clúster en Azure](service-fabric-cluster-creation-via-portal.md) o un [clúster independiente en Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Intente crear un servicio con los modelos de programación [Reliable Services](service-fabric-reliable-services-quick-start.md) o [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Aprenda cómo puede exponer los servicios en Internet con un [front-end de servicio web](service-fabric-add-a-web-frontend.md).
+* Pruebe a implementar un [contenedor de Windows](service-fabric-deploy-container.md) o una aplicación existente como un [archivo ejecutable invitado](service-fabric-deploy-existing-app.md).
+* Aprenda a exponer los servicios en Internet con un [front-end de servicio web](service-fabric-add-a-web-frontend.md).
 * Recorra un [laboratorio práctico](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) y cree un servicio sin estado, configure informes de supervisión y estado, y realice una actualización de la aplicación.
+* Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +153,6 @@ Al cambiar el modo de clúster, el clúster de desarrollo se restablece y se qui
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

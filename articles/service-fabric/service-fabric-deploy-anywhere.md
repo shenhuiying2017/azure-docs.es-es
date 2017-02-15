@@ -1,19 +1,23 @@
 ---
-title: Creación de clústeres de Service Fabric de Azure en Windows Server y Linux | Microsoft Docs
-description: Los clústeres de Service Fabric se ejecutan en Windows Server y Linux, lo que significa que podrá implementar y hospedar aplicaciones de Service Fabric en cualquier lugar donde sea posible ejecutar Windows Server y Linux.
+title: "Creación de clústeres de Service Fabric de Azure en Windows Server y Linux | Microsoft Docs"
+description: "Los clústeres de Service Fabric se ejecutan en Windows Server y Linux, lo que significa que podrá implementar y hospedar aplicaciones de Service Fabric en cualquier lugar donde sea posible ejecutar Windows Server y Linux."
 services: service-fabric
 documentationcenter: .net
 author: Chackdan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 12/06/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
+
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Creación de clústeres de Service Fabric en Windows Server o Linux
@@ -26,7 +30,7 @@ La creación de un clúster en Azure debe realizarse mediante una plantilla del 
 Puede crear clústeres en máquinas virtuales que ejecuten estos sistemas operativos:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (después de anunciarse su disponibilidad con carácter general)
+* Windows Server 2016 
 * Linux Ubuntu 16.04 (en versión preliminar pública) 
 
 ## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>Creación de clústeres independientes de Service Fabric de forma local o con cualquier proveedor en la nube
@@ -34,7 +38,7 @@ Service Fabric le proporciona un paquete de instalación para que cree clústere
 
 Para más información sobre la configuración de clústeres independientes de Service Fabric en Windows Server, lea [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
-### <a name="any-cloud-deployments-vs.-on-premises-deployments"></a>Implementaciones en la nube frente a implementaciones locales
+### <a name="any-cloud-deployments-vs-on-premises-deployments"></a>Implementaciones en la nube frente a implementaciones locales
 El proceso de creación de un clúster local de Service Fabric es similar al proceso de creación de un clúster en cualquier nube que elija donde cuente con un conjunto de máquinas virtuales. Los pasos iniciales para aprovisionar las máquinas virtuales se regirán por el proveedor de la nube o el entorno local que use. Cuando tenga un conjunto de máquinas virtuales con la conectividad de red habilitada entre ellas, los pasos para configurar el paquete de Service Fabric, editar la configuración del clúster y ejecutar la creación del clúster y los scripts de administración son idénticos. Esto garantiza que sus conocimientos y su experiencia con respecto al uso y la administración de los clústeres de Service Fabric se puedan aplicar si decide cambiar a un nuevo entorno de hospedaje.
 
 ### <a name="benefits-of-creating-standalone-service-fabric-clusters"></a>Ventajas de crear clústeres independientes de Service Fabric
@@ -49,7 +53,7 @@ El proceso de creación de un clúster local de Service Fabric es similar al pro
 Podrá crear clústeres en máquinas virtuales o equipos que ejecuten estos sistemas operativos:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (después de anunciarse su disponibilidad con carácter general)
+* Windows Server 2016 
 * Linux (próximamente)
 
 ## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>Ventajas de los clústeres de Service Fabric en Azure frente a los clústeres independientes de Service Fabric creados de forma local
@@ -63,10 +67,14 @@ La ejecución de clústeres de Service Fabric en Azure proporciona ventajas fren
 * **Escalado automático:** para los clústeres hospedados en Azure, proporcionamos una funcionalidad integrada de escalado automático debido a los conjuntos de escalas de la máquina virtual. En los entornos locales y otros entornos en la nube, hay que crear una característica propia de escalado automático o realizar el escalado manualmente mediante las API que ofrece Service Fabric para escalar los clústeres.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows Server: [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
-Creación de un clúster en máquinas virtuales o equipos que ejecutan Linux: [Service Fabric en Linux](service-fabric-linux-overview.md)
+* Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows Server: [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Creación de un clúster en máquinas virtuales o equipos que ejecutan Linux: [Service Fabric en Linux](service-fabric-linux-overview.md)
+* Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

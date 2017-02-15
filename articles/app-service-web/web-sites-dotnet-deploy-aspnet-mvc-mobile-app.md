@@ -1,12 +1,12 @@
 ---
-title: Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure
-description: Un tutorial que le enseña cómo implementar una aplicación web en el servicio d aplicaciones de Azure con las características móviles en la aplicación web ASP.NET MVC 5.
+title: "Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure"
+description: "Un tutorial que le enseña cómo implementar una aplicación web en el servicio d aplicaciones de Azure con las características móviles en la aplicación web ASP.NET MVC 5."
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 0752c802-8609-4956-a755-686116913645
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,66 +14,55 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin;riande
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
+
 
 ---
-# Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure
-Este tutorial le enseñará los conceptos básicos para crear una aplicación web ASP.NET MVC 5
-adecuada para móviles y e implementarla en Microsoft Azure. Para este tutorial, debe disponer de 
-[Visual Studio Express 2013 para Web][Visual Studio Express 2013]
-o la edición profesional de Visual Studio si ya dispone de él.
-Puede usar [Visual Studio 2015], pero las capturas de pantalla serán distintas y deberá utilizar las plantillas de ASP.NET 4.x.
+# <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure
+Este tutorial le enseñará los conceptos básicos para crear una aplicación web ASP.NET MVC 5 adecuada para móviles y e implementarla en Microsoft Azure. Para este tutorial, necesita [Visual Studio Express 2013 para Web][Visual Studio Express 2013] o la edición profesional de Visual Studio, si ya la tiene. Puede usar [Visual Studio 2015] , pero las capturas de pantalla serán distintas y deberá utilizar las plantillas de ASP.NET 4.x.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## Lo que creará
-Para este tutorial, agregará características móviles a la aplicación simple
-de lista de
-conferencias que se proporciona en el [proyecto inicial][StarterProject]. En la captura siguiente se muestran las sesiones ASP.NET en la aplicación completada, 
-tal como se muestra en el emulador de explorador en las herramientas de 
-desarrollador de Internet Explorer 11 F12.
+## <a name="what-youll-build"></a>Lo que creará
+En este tutorial, agregará características móviles a la sencilla aplicación de lista de conferencias que se proporciona en el [proyecto inicial][StarterProject]. En la captura siguiente se muestran las sesiones ASP.NET en la aplicación completada, tal como se muestra en el emulador de explorador en las herramientas de desarrollador de Internet Explorer 11 F12.
 
 ![][FixedSessionsByTag]
 
-Puede usar las herramientas de desarrollador de Internet Explorer 11 F12 y la [herramienta 
-Fiddler][Fiddler] para ayudarle a depurar su aplicación.
+Puede usar las herramientas de desarrollador de Internet Explorer 11 F12 y la [herramienta Fiddler][Fiddler] para ayudarle a depurar su aplicación. 
 
-## Habilidades que aprenderá
+## <a name="skills-youll-learn"></a>Habilidades que aprenderá
 Aprenderá lo siguiente:
 
 * Cómo usar Visual Studio 2013 para publicar la aplicación web directamente en una aplicación web en el servicio de aplicaciones de Azure.
-* Cómo las plantillas de ASP.NET MVC 5 usan el marco CSS Bootstrap para
-  mejorar la visualización en dispositivos móviles.
-* Creación de vistas específicos de móviles para dirigirse a
-  exploradores móviles específicos, tales como iPhone y Android
-* Creación de vistas de respuesta (vistas que responden a
-  exploradores distintos entre varios dispositivos)
+* Cómo las plantillas de ASP.NET MVC 5 usan el marco CSS Bootstrap para mejorar la visualización en dispositivos móviles.
+* Creación de vistas específicos de móviles para dirigirse a exploradores móviles específicos, tales como iPhone y Android
+* Creación de vistas de respuesta (vistas que responden a exploradores distintos entre varios dispositivos)
 
-## Configuración del entorno de desarrollo
-Configure el entorno de desarrollo mediante la instalación del SDK de Azure para .NET 2.5.1 o superior.
+## <a name="set-up-the-development-environment"></a>Configuración del entorno de desarrollo
+Configure el entorno de desarrollo mediante la instalación del SDK de Azure para .NET 2.5.1 o superior. 
 
-1. Para instalar el SDK de Azure para .NET, haga clic en el vínculo a continuación. Si no tiene instalado todavía Visual Studio 2013, se instalará a través del vínculo. Este tutorial requiere Visual Studio 2013. [SDK de Azure para Visual Studio 2013.][AzureSDKVs2013]
+1. Para instalar el SDK de Azure para .NET, haga clic en el vínculo a continuación. Si no tiene instalado todavía Visual Studio 2013, se instalará a través del vínculo. Este tutorial requiere Visual Studio 2013. [SDK de Azure para Visual Studio 2013][AzureSDKVs2013]
 2. En la ventana del Instalador de plataforma web, haga clic en **Instalar** y continúe con la instalación.
 
 También necesitará un emulador de explorador móvil. Funcionará cualquiera de las siguientes opciones:
 
-* Emulador de explorador en las herramientas para desarrolladores de [Internet Explorer 11 F12][EmulatorIE11] se usan en todas las capturas
-  de pantalla de explorador). Cuenta con los calores predefinidos de cadena de agente de usuario para Windows Phone 8, Windows Phone 7 y Apple iPad.
+* El Emulador de explorador en las [herramientas para desarrolladores de Internet Explorer 11 F12][EmulatorIE11] (se usa en todas las capturas de pantalla del explorador). Cuenta con los calores predefinidos de cadena de agente de usuario para Windows Phone 8, Windows Phone 7 y Apple iPad.
 * Emulador de explorador en [Google Chrome DevTools][EmulatorChrome]. Contiene valores predefinidos para varios dispositivos Android, así como Apple iPhone, Apple iPad y Amazon Kindle Fire. También emula eventos táctiles.
 * [Emulador de Opera Mobile][EmulatorOpera]
 
-Para este tema hay disponibles proyectos de Visual Studio con código fuente en C#:
+Para este tema hay disponibles proyectos de Visual Studio con código fuente en C\#:
 
 * [Descarga del proyecto inicial][StarterProject]
-* [Descarga del proyecto completado][CompletedProject]
+* [Descarga del proyecto terminado][CompletedProject]
 
-## <a name="bkmk_DeployStarterProject"></a>Implementación del proyecto inicial en una aplicación web de Azure
+## <a name="a-namebkmkdeploystarterprojectadeploy-the-starter-project-to-an-azure-web-app"></a><a name="bkmk_DeployStarterProject"></a>Implementación del proyecto inicial en una aplicación web de Azure
 1. Descargue el [proyecto inicial][StarterProject] de la aplicación de lista de conferencias.
 2. Luego, en el Explorador de Windows, haga clic con el botón derecho en el archivo ZIP descargado y seleccione *Propiedades*.
-3. En el cuadro de diálogo **Propiedades**, seleccione
-   el botón **Desbloquear**. (El desbloqueo evita recibir una advertencia de seguridad que se produce al intentar usar un archivo *.zip* que ha descargado de la web).
-4. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** para 
-   descomprimir el archivo.
-5. En Visual Studio, abra el archivo *C#\\Mvc5Mobile.sln*.
+3. En el cuadro de diálogo **Propiedades**, seleccione el botón **Desbloquear**. (El desbloqueo evita recibir una advertencia de seguridad que se produce al intentar usar un archivo *.zip* que ha descargado de la web).
+4. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** para descomprimir el archivo. 
+5. En Visual Studio, abra el archivo *C#\Mvc5Mobile.sln*.
 6. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto y, a continuación, en **Publicar**.
    
    ![][DeployClickPublish]
@@ -86,28 +75,22 @@ Para este tema hay disponibles proyectos de Visual Studio con código fuente en 
 9. Siga las indicaciones en pantalla para iniciar sesión en su cuenta de Azure.
 10. El cuadro de diálogo Servicio de aplicaciones debería mostrar que ha iniciado sesión. Haga clic en **Nuevo**.
     
-    ![][DeployNewWebsite]
-11. En el campo **Nombre de aplicación web**, especifique un prefijo de nombre de aplicación único. El nombre completo del sitio será *&lt;prefix>*.azurewebsites.net. Además, seleccione o especifique un nuevo nombre de grupo de recursos en **Grupo de recursos**. Luego, haga clic en **Nuevo** para crear un nuevo plan de Servicio de aplicaciones.
+    ![][DeployNewWebsite]  
+11. En el campo **Nombre de aplicación web** , especifique un prefijo de nombre de aplicación único. El nombre completo del sitio será *&lt;prefijo>*.azurewebsites.net. Además, seleccione o especifique un nuevo nombre de grupo de recursos en **Grupo de recursos**. Luego, haga clic en **Nuevo** para crear un nuevo plan de Servicio de aplicaciones.
     
     ![][DeploySiteSettings]
-12. Configure el nuevo plan de Servicio de aplicaciones y haga clic en **Aceptar**.
+12. Configure el nuevo plan de Servicio de aplicaciones y haga clic en **Aceptar**. 
     
     ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7a.png)
 13. En el cuadro de diálogo Crear servicio de aplicaciones, haga clic en **Crear**.
     
-    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png)
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png) 
 14. Una vez creados los recursos de Azure, el cuadro de diálogo Publicación web se habrá rellenado con la configuración de la nueva aplicación. Haga clic en **Publicar**.
     
     ![][DeployPublishSite]
     
     Una vez que Visual Studio termine de publicar el proyecto inicial en la aplicación web de Azure, se abrirá el explorador de escritorio para mostrar la aplicación web activa.
-15. Inicie su emulador de explorador móvil, copie la dirección URL de 
-    la aplicación de conferencia (*<prefix>*.azurewebsites.net) en el emulador y luego haga clic en
-    el botón superior derecho y seleccione **Explorar por etiqueta**. Si usa Internet
-    Explorer 11 como explorador predeterminado, solo tiene que escribir `F12`, luego
-    `Ctrl+8`, y luego cambiar el perfil de explorador a **Windows Phone**. La
-    imagen de abajo muestra la vista *AllTags* en el modo vertical (a partir de la selección 
-    de **Explorar por etiqueta**).
+15. Inicie su emulador de explorador móvil, copie la dirección URL de la aplicación de conferencia (*<prefix>**.azurewebsites.net) en el emulador y luego haga clic en el botón superior derecho y seleccione **Explorar por etiqueta**. Si usa Internet Explorer 11 como explorador predeterminado, solo tiene que escribir `F12`, luego `Ctrl+8` y luego cambiar el perfil de explorador a **Windows Phone**. La imagen de abajo muestra la vista *AllTags* en el modo vertical (a partir de la selección de **Explorar por etiqueta**).
     
     ![][AllTags]
 
@@ -116,24 +99,17 @@ Para este tema hay disponibles proyectos de Visual Studio con código fuente en 
 > 
 > 
 
-La pantalla es muy fácil de leer en un dispositivo móvil. Además,
-ya puedever algunos de los efectos visuales que aplica el marco Bootstrap CSS.
-Haga clic en el vínculo **ASP.NET**.
+La pantalla es muy fácil de leer en un dispositivo móvil. Además, ya puedever algunos de los efectos visuales que aplica el marco Bootstrap CSS.
+Haga clic en el vínculo **ASP.NET** .
 
 ![][SessionsByTagASP.NET]
 
 La vista de etiquetas ASP.NET se ajusta en zoom a la pantalla, que Bootstrap hace automáticamente. No obstante, puede mejorar esta vista para que se adapte mejor al explorador móvil. Por ejemplo, la columna **Fecha** es difícil de leer. Más adelante en el tutorial, cambiará la vista *AllTags* para que se ajuste mejor a exploradores móviles.
 
-## <a name="bkmk_bootstrap"></a> Marco Bootstrap CSS
-La plantilla MVC 5 ahora cuenta con compatibilidad con Bootstrap
-integrada. Ya ha visto cómo mejora inmediatamente las distintas vistas en su
-aplicación. Por ejemplo, la barra de navegación de la parte superior se contrae automáticamente cuando el ancho del explorador
-es menor. En el explorador de escritorio,intente cambiar el tamaño de la ventana del explorador para ver cómo la barra de navegación
-cambia su aspecto. Este es el diseño web de respuesta integrado en Bootstrap.
+## <a name="a-namebkmkbootstrapa-bootstrap-css-framework"></a><a name="bkmk_bootstrap"></a> Marco Bootstrap CSS
+La plantilla MVC 5 ahora cuenta con compatibilidad con Bootstrap integrada. Ya ha visto cómo mejora inmediatamente las distintas vistas en su aplicación. Por ejemplo, la barra de navegación de la parte superior se contrae automáticamente cuando el ancho del explorador es menor. En el explorador de escritorio,intente cambiar el tamaño de la ventana del explorador para ver cómo la barra de navegación cambia su aspecto. Este es el diseño web de respuesta integrado en Bootstrap.
 
-Para ver el aspecto de la aplicación web sin Bootstrap, abra
-*App_Start\BundleConfig.cs* y convierta en comentario las líneas que contienen *bootstrap.js* y *bootstrap.css*. En el código siguiente se muestran las 
-dos últimas instrucciones del método `RegisterBundles` después del cambio:
+Para ver el aspecto de la aplicación web sin Bootstrap, abra *App\_Start\\BundleConfig.cs* y convierta en comentario las líneas que contienen *bootstrap.js* y *bootstrap.css*. En el código siguiente se muestran las dos últimas instrucciones del método `RegisterBundles` después del cambio:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -145,7 +121,8 @@ dos últimas instrucciones del método `RegisterBundles` después del cambio:
 
 Presione `Ctrl+F5` para ejecutar la aplicación.
 
-Observe que la barra de navegación contraíble ahora es simplemente una lista no ordenada. Vuelva a hacer clic en **Explorar por etiqueta** y luego haga clic en **ASP.NET**. En la vista del emulador de dispositivos móviles, puede ver ahora que ya no se ajusta en zoom a la pantalla y que debe desplazarse lateralmente para ver el lado derecho de la tabla.
+Observe que la barra de navegación contraíble ahora es simplemente una lista no ordenada. Haga nuevamente clic en **Explorar por etiqueta** y luego haga clic en **ASP.NET**.
+En la vista del emulador de dispositivos móviles, puede ver ahora que ya no se ajusta en zoom a la pantalla y que debe desplazarse lateralmente para ver el lado derecho de la tabla.
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
@@ -153,16 +130,16 @@ Deshaga los cambios y actualice el explorador móvil para comprobar que se haya 
 
 Bootstrap no es específico de ASP.NET MVC 5 y puede aprovechar estas características en cualquier aplicación web. Sin embargo, ahora está integrado en la plantilla de proyecto de ASP.NET MVC 5, por lo que su aplicación web MVC 5 puede sacar provecho de Bootstrap de manera predeterminada.
 
-Para obtener más información sobre Bootstrap, visite el sitio [Bootstrap][BootstrapSite].
+Para más información sobre Bootstrap, visite el sitio [Bootstrap][BootstrapSite].
 
 En la sección siguiente, verá cómo proporcionar vistas específicas de explorador móvil.
 
-## <a name="bkmk_overrideviews"></a> Reemplazo de las vistas, diseños y vistas parciales
-Puede reemplazar cualquier vista (incluidos los diseños y las vistas parciales) para exploradores móviles en general, para un explorador móvil individual o para cualquier explorador específico. Para proporcionar una vista específica para móviles, puede copiar un archivo de vista y agregar *.Mobile* al nombre del archivo. Por ejemplo, para crear una vista de *índice* móvil, copie *Views\Home\Index.cshtml* to *Views\Home\Index.Mobile.cshtml*.
+## <a name="a-namebkmkoverrideviewsa-override-the-views-layouts-and-partial-views"></a><a name="bkmk_overrideviews"></a> Reemplazo de las vistas, diseños y vistas parciales
+Puede reemplazar cualquier vista (incluidos los diseños y las vistas parciales) para exploradores móviles en general, para un explorador móvil individual o para cualquier explorador específico. Para proporcionar una vista específica para móviles, puede copiar un archivo de vista y agregar *.Mobile* al nombre del archivo. Por ejemplo, para crear una vista de *índice* móvil, copie *Views\\Home\\Index.cshtml* to *Views\\Home\\Index.Mobile.cshtml*.
 
 En esta sección, creará un archivo de diseño específico para móviles.
 
-Para empezar, copie *Views\Shared_Layout.cshtml* en *Views\Shared_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* y cambie el título de **Aplicación MVC5** a **Aplicación MVC5 (móvil)**.
+Para empezar, copie *Views\\Shared\\\_Layout.cshtml* en *Views\\Shared\\\_Layout.Mobile.cshtml*. Abra *\_Layout.Mobile.cshtml* y cambie el título de **Aplicación MVC5** a **Aplicación MVC5 (móvil)**.
 
 En cada `Html.ActionLink` llamada de de la barra de navegación, que "Explorar por" de cada vínculo *ActionLink*. El código siguiente muestra la etiqueta terminada `<ul class="nav navbar-nav">` del archivo de diseño móvil.
 
@@ -173,20 +150,20 @@ En cada `Html.ActionLink` llamada de de la barra de navegación, que "Explorar p
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copie el archivo *Views\Home\AllTags.cshtml* en *Views\Home\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` , de "Tags" a "Tags (M)":
+Copie el archivo *Views\\Home\\AllTags.cshtml* en *Views\\Home\\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` de "Tags" a "Tags (M)":
 
     <h2>Tags (M)</h2>
 
-Diríjase a la página de etiquetas usando un explorador de escritorio y un emulador de explorador móvil. El emulador de explorador móvil muestra los dos cambios que ha realizado (el título en *_Layout.Mobile.cshtml* y el título en *AllTags.Mobile.cshtml*).
+Diríjase a la página de etiquetas usando un explorador de escritorio y un emulador de explorador móvil. El emulador de explorador móvil muestra los dos cambios que ha realizado (el título en *\_Layout.Mobile.cshtml* y el título en *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
 
-Por el contrario, la pantalla de escritorio no ha cambiado (con los títulos de *_Layout.cshtml* y *AllTags.cshtml*).
+Por el contrario, la pantalla de escritorio no ha cambiado (con los títulos de *\_Layout.cshtml* y *AllTags.cshtml*).
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-## <a name="bkmk_browserviews"></a> Creación de vistas específicas de explorador
-Además de vistas específicas de explorador móvil y de explorador de escritorio, puede crear vistas para un explorador individual. Por ejemplo, puede crear vistas específicas para el explorador de iPhone o Android. En esta sección, creará un diseño para el explorador de iPhone y una versión de iPhone de la vista *AllTags*.
+## <a name="a-namebkmkbrowserviewsa-create-browser-specific-views"></a><a name="bkmk_browserviews"></a> Creación de vistas específicas de explorador
+Además de vistas específicas de explorador móvil y de explorador de escritorio, puede crear vistas para un explorador individual. Por ejemplo, puede crear vistas específicas para el explorador de iPhone o Android. En esta sección, creará un diseño para el explorador de iPhone y una versión de iPhone de la vista *AllTags* .
 
 Abra el archivo *Global.asax* y agregue el código siguiente al final del método `Application_Start`.
 
@@ -199,11 +176,11 @@ Abra el archivo *Global.asax* y agregue el código siguiente al final del métod
 Este código define un nuevo modo de visualización llamado "iPhone" que se comparará con cada solicitud entrante. Si la solicitud entrante coincide con la condición definida (es decir, si el agente de usuario contiene la cadena "iPhone"), ASP.NET MVC buscará vistas cuyo nombre contenga el sufijo "iPhone".
 
 > [!NOTE]
-> Al agregar modos de visualización específica de explorador móvil, tal como para iPhone y Android, asegúrese de establecer el primer argumento en `0` (insértelo al principio de la lista) para que el modo específico de explorador tenga prioridad sobre la plantilla móvil (*.Mobile.cshtml). Si la plantilla móvil está al principio de la lista, se seleccionará sobre el modo de visualización esperado (la primera coincidencia tiene prioridad y la plantilla móvil coincide con todos los exploradores móviles).
+> Al agregar modos de visualización específica de explorador móvil, tal como para iPhone y Android, asegúrese de establecer el primer argumento en `0` (insértelo al principio de la lista) para que el modo específico de explorador tenga prioridad sobre la plantilla móvil (*.Mobile.cshtml). Si la plantilla móvil está al principio de la lista, se seleccionará sobre el modo de visualización esperado (la primera coincidencia tiene prioridad y la plantilla móvil coincide con todos los exploradores móviles). 
 > 
 > 
 
-En el código, haga clic con el botón derecho en `DefaultDisplayMode`, seleccione **Resolver** y luego elija `using System.Web.WebPages;`. De este modo, se agrega una referencia al espacio de nombres `System.Web.WebPages`, que es donde se definen los tipos `DisplayModeProvider` y `DefaultDisplayMode`.
+En el código, haga clic con el botón derecho en `DefaultDisplayMode`, elija **Resolver** y, luego, `using System.Web.WebPages;`. De este modo, se agrega una referencia al espacio de nombres `System.Web.WebPages`, que es donde se definen los tipos `DisplayModeProvider` y `DefaultDisplayMode`.
 
 ![][ResolveDefaultDisplayMode]
 
@@ -211,11 +188,11 @@ Como alternativa, puede agregar manualmente la siguiente línea a la sección `u
 
     using System.Web.WebPages;
 
-Guarde los cambios. Copie el archivo *Views\Shared_Layout.Mobile.cshtml* a *Views\Shared_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de `MVC5 Application (Mobile)` a `MVC5 Application (iPhone)`.
+Guarde los cambios. Copie el archivo *Views\\Shared\\\_Layout.Mobile.cshtml* a *Views\\Shared\\\_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de `MVC5 Application (Mobile)` a `MVC5 Application (iPhone)`.
 
-Copie el archivo *Views\Home\AllTags.Mobile.cshtml* a *Views\Home\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` , de "Tags (M)" a "Tags (iPhone)".
+Copie el archivo *Views\\Home\\AllTags.Mobile.cshtml* a *Views\\Home\\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` de "Tags (M)" a "Tags (iPhone)".
 
-Ejecute la aplicación. Ejecute el emulador de explorador móvil, asegúrese de que su agente de usuario esté establecido en "iPhone" y diríjase a la vista *AllTags*. Si usa el emulador en las herramientas para desarrollador de Internet Explorer 11 F12,configure la emulación según se indica a continuación:
+Ejecute la aplicación. Ejecute el emulador de explorador móvil, asegúrese de que su agente de usuario esté establecido en "iPhone" y diríjase a la vista *AllTags* . Si usa el emulador en las herramientas para desarrollador de Internet Explorer 11 F12,configure la emulación según se indica a continuación:
 
 * Perfil de explorador = **Windows Phone**
 * Cadena de agente de usuario = **Custom**
@@ -225,22 +202,22 @@ En la captura siguiente se muestra la vista *AllTags* representada en el emulado
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-En el explorador móvil, seleccione el vínculo **Oradores**. Como no hay una vista móvil (*AllSpeakers.Mobile.cshtml*), la vista de oradores predeterminada (*AllSpeakers.cshtml*) se procesa con la vista de diseño móvil (*_Layout.Mobile.cshtml*). Tal como se muestra a continuación, el título **Aplicación MVC5 (móvil)** se define en *_Layout.Mobile.cshtml*.
+En el explorador móvil, seleccione el vínculo **Oradores** . Como no hay una vista móvil (*AllSpeakers.Mobile.cshtml*), la vista de oradores predeterminada (*AllSpeakers.cshtml*) se procesa con la vista de diseño móvil (*\_Layout.Mobile.cshtml*). Tal como se muestra a continuación, el título **Aplicación MVC5 (móvil)** se define en *\_Layout.Mobile.cshtml*.
 
 ![][AllSpeakers_LayoutMobile]
 
-Puede deshabilitar globalmente una vista predeterminada (no móvil) de su procesamiento dentro de un diseño móvil al establecer `RequireConsistentDisplayMode` en `true` en el archivo *Views_ViewStart.cshtml*, como a continuación:
+Puede deshabilitar globalmente una vista predeterminada (no móvil) de su procesamiento dentro de un diseño móvil al establecer `RequireConsistentDisplayMode` en `true` en el archivo *Views\\\_ViewStart.cshtml*, como a continuación:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Cuando `RequireConsistentDisplayMode` se establece en `true`, se usa el diseño móvil (*_Layout.Mobile.cshtml*) solo para vistas móviles (por ejemplo, cuando el archivo de vista tiene el formato ***ViewName**.Mobile.cshtml*). Es posible que quiera establecer `RequireConsistentDisplayMode` en `true` si el diseño móvil no funciona bien con las vistas que no son móviles. En la siguiente captura de pantalla se muestra cómo se presenta la página *Oradores* cuando `RequireConsistentDisplayMode` está establecido en `true` (sin la cadena "(Mobile)" en la barra de navegación de la parte superior).
+Cuando `RequireConsistentDisplayMode` se establece en `true`, se usa el diseño móvil (*\_Layout.Mobile.cshtml*) solo para vistas móviles (por ejemplo, cuando el archivo de vista tiene el formato ***ViewName**.Mobile.cshtml*). Es posible que quiera establecer `RequireConsistentDisplayMode` en `true` si el diseño móvil no funciona bien con las vistas que no son móviles. En la siguiente captura de pantalla se muestra cómo se presenta la página *Oradores* cuando `RequireConsistentDisplayMode` está establecido en `true` (sin la cadena "(Mobile)" en la barra de navegación de la parte superior).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
-Puede deshabilitar el modo de visualización coherente en una vista específica al configurar `RequireConsistentDisplayMode` en `false` en el archivo de vista. El siguiente marcado en el archivo *Views\Home\AllSpeakers.cshtml* establece `RequireConsistentDisplayMode` en `false`:
+Puede deshabilitar el modo de visualización coherente en una vista específica al configurar `RequireConsistentDisplayMode` en `false` en el archivo de vista. El siguiente marcado en el archivo *Views\\Home\\AllSpeakers.cshtml* establece `RequireConsistentDisplayMode` en `false`:
 
     @model IEnumerable<string>
 
@@ -249,12 +226,13 @@ Puede deshabilitar el modo de visualización coherente en una vista específica 
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = false;
     }
 
-En esta sección, hemos visto cómo crear vistas y diseños móviles y cómo crear vistas y diseños para dispositivos específicos como el iPhone. Sin embargo, la ventaja principal del marco Bootstrap CSS es el diseño con capacidad de respuesta, lo que significa que se puede aplicar una sola hoja de estilos en los exploradores de escritorio, teléfono y tableta para crear una apariencia coherente. En la sección siguiente, verá cómo usar Bootstrap para crear vistas para dispositivos móviles.
+En esta sección, hemos visto cómo crear vistas y diseños móviles y cómo crear vistas y diseños para dispositivos específicos como el iPhone.
+Sin embargo, la ventaja principal del marco Bootstrap CSS es el diseño con capacidad de respuesta, lo que significa que se puede aplicar una sola hoja de estilos en los exploradores de escritorio, teléfono y tableta para crear una apariencia coherente. En la sección siguiente, verá cómo usar Bootstrap para crear vistas para dispositivos móviles.
 
-## <a name="bkmk_Improvespeakerslist"></a> Mejora de la lista de oradores
+## <a name="a-namebkmkimprovespeakerslista-improve-the-speakers-list"></a><a name="bkmk_Improvespeakerslist"></a> Mejora de la lista de oradores
 Como acabamos de ver, la vista *Oradores* es legible, pero los vínculos son pequeños y difíciles de pulsar en un dispositivo móvil. En esta sección, ajustará la vista *AllSpeakers* de los exploradores móviles para que se muestren vínculos de gran tamaño y fáciles de pulsar, así como un cuadro de búsqueda que permitirá buscar oradores rápidamente.
 
-Puede usar el estilo de [grupo de listas vinculadas][grupo de listas vinculadas] de Bootstrap para mejorar la vista *Oradores*. En *Views\Home\AllSpeakers.cshtml*, reemplace el contenido del archivo Razor por el código siguiente.
+Puede usar el estilo de [grupo de listas vinculadas][grupo de listas vinculadas] de Bootstrap para mejorar la vista *Oradores*. En *Views\\Home\\AllSpeakers.cshtml*, reemplace el contenido del archivo Razor por el código siguiente.
 
      @model IEnumerable<string>
 
@@ -281,7 +259,7 @@ El estilo de [grupo de listas vinculadas][grupo de listas vinculadas] de Bootstr
 
 ![][AllSpeakersFixedDesktop]
 
-Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta <form\> justo después de la etiqueta \<h2\>, como se muestra a continuación:
+Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta \<form\> justo después de la etiqueta \<h2\>, como se muestra a continuación:
 
     @model IEnumerable<string>
 
@@ -336,20 +314,20 @@ En la carpeta *Scripts*, agregue un archivo de JavaScript denominado *filter.js*
         });
     });
 
-También debe incluir filter.js en los paquetes registrados. Abra *App_Start\BundleConfig.cs* y cambie el primer paquete. Cambie la primera instrucción `bundles.Add` (por el paquete **jquery**) para incluir *Scripts\filter.js*, tal como se indica a continuación:
+También debe incluir filter.js en los paquetes registrados. Abra *App\_Start\\BundleConfig.cs* y cambie los primeros paquetes. Cambie la primera instrucción `bundles.Add` (por el paquete **jquery**) para incluir *Scripts\\filter.js*, tal como se indica a continuación:
 
      bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/filter.js"));
 
-El paquete **jquery** ya está presentado por la vista *_Layout* de forma predeterminada. Más adelante, puede utilizar el mismo código JavaScript para aplicar la funcionalidad de filtro a otras vistas de lista.
+El paquete **jquery** ya está presentado por la vista *\_Layout* de forma predeterminada. Más adelante, puede utilizar el mismo código JavaScript para aplicar la funcionalidad de filtro a otras vistas de lista.
 
-Actualice el explorador móvil y vaya a la vista *AllSpeakers*. En el cuadro de búsqueda, escriba "sc". Ahora, la lista de oradores debería estar filtrada según la cadena de búsqueda.
+Actualice el explorador móvil y vaya a la vista *AllSpeakers* . En el cuadro de búsqueda, escriba "sc". Ahora, la lista de oradores debería estar filtrada según la cadena de búsqueda.
 
 ![][AllSpeakersFixedSearchBySC]
 
-## <a name="bkmk_improvetags"></a> Mejora de la lista de etiquetas
-Al igual que la vista *Oradores*, la vista *Etiquetas* es legible, pero los vínculos son pequeños y difíciles de pulsar en un dispositivo móvil. Puede corregir la vista *Etiquetas* del mismo modo que corrige la vista *Oradores*, si usa los cambios de código indicados anteriormente, pero con la siguiente sintaxis del método `Html.ActionLink` en *Views\Home\AllTags.cshtml*:
+## <a name="a-namebkmkimprovetagsa-improve-the-tags-list"></a><a name="bkmk_improvetags"></a> Mejora de la lista de etiquetas
+Al igual que la vista *Oradores*, la vista *Etiquetas* es legible, pero los vínculos son pequeños y difíciles de pulsar en un dispositivo móvil. Puede corregir la vista *Etiquetas* del mismo modo que corrige la vista *Oradores*, si usa los cambios de código indicados anteriormente, pero con la siguiente sintaxis del método `Html.ActionLink` en *Views\\Home\\AllTags.cshtml*:
 
     @Html.ActionLink(tag, 
                      "SessionsByTag", 
@@ -360,7 +338,7 @@ El explorador de escritorio actualizado tiene el aspecto siguiente:
 
 ![][AllTagsFixedDesktop]
 
-El explorador móvil actualizado tiene el aspecto siguiente:
+El explorador móvil actualizado tiene el aspecto siguiente: 
 
 ![][AllTagsFixed]
 
@@ -369,8 +347,8 @@ El explorador móvil actualizado tiene el aspecto siguiente:
 > 
 > 
 
-## <a name="bkmk_improvedates"></a> Mejora de la lista de fechas
-Puede mejorar la vista *Fechas* del mismo modo que mejoró la vista *Oradores* y las vistas *Etiquetas* si usa los cambios de código indicados anteriormente, pero con la siguiente sintaxis del método `Html.ActionLink` en *Views\Home\AllDates.cshtml*:
+## <a name="a-namebkmkimprovedatesa-improve-the-dates-list"></a><a name="bkmk_improvedates"></a> Mejora de la lista de fechas
+Puede mejorar la vista *Fechas* del mismo modo que mejoró la vista *Oradores* y las vistas *Etiquetas* si usa los cambios de código indicados anteriormente, pero con la siguiente sintaxis del método `Html.ActionLink` en *Views\\Home\\AllDates.cshtml*:
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
                      "SessionsByDate", 
@@ -381,7 +359,7 @@ Obtendrá una vista de explorador móvil actualizada con el aspecto siguiente:
 
 ![][AllDatesFixed]
 
-Puede mejorar aún más la vista *Fechas* si organiza por fecha los valores de fecha y hora. Esto se puede hacer con el estilo de [paneles][paneles] de Bootstrap. Reemplace el contenido del archivo *Views\Home\AllDates.cshtml* por el código siguiente:
+Puede mejorar aún más la vista *Fechas* si organiza por fecha los valores de fecha y hora. Esto se puede hacer con el estilo de [paneles][paneles] de Bootstrap. Reemplace el contenido del archivo *Views\\Home\\Claims.cshtml* por el código siguiente:
 
     @model IEnumerable<DateTime>
 
@@ -417,18 +395,18 @@ Cambie al explorador de escritorio. Nuevamente, observe el aspecto coherente.
 
 ![][AllDatesFixed2Desktop]
 
-## <a name="bkmk_improvesessionstable"></a> Mejora de la vista SessionsTable
+## <a name="a-namebkmkimprovesessionstablea-improve-the-sessionstable-view"></a><a name="bkmk_improvesessionstable"></a> Mejora de la vista SessionsTable
 En esta sección, modificará la vista *SessionsTable* para que se ajuste mejora dispositivos móviles. Este cambio es más amplio que los cambios anteriores.
 
 En el explorador móvil, toque el botón **Etiqueta** y escriba `asp` en el cuadro de búsqueda.
 
 ![][AllTagsFixedSearchByASP]
 
-Toque el vínculo **ASP.NET**.
+Toque el vínculo **ASP.NET** .
 
 ![][SessionsTableTagASP.NET]
 
-Como puede observar, la pantalla tiene el formato de una tabla, que está diseñada para visualizarse en un explorador de escritorio. Sin embargo, es un poco difícil leerla en un explorador móvil. Para solucionar este problema, abra el archivo *Views\Home\SessionsTable.cshtml* y reemplace su contenido con el código siguiente:
+Como puede observar, la pantalla tiene el formato de una tabla, que está diseñada para visualizarse en un explorador de escritorio. Sin embargo, es un poco difícil leerla en un explorador móvil. Para solucionar este problema, abra el archivo *Views\\Home\\SessionsTable.cshtml* y reemplace su contenido con el código siguiente:
 
     @model IEnumerable<Mvc5Mobile.Models.Session>
 
@@ -464,8 +442,8 @@ Como puede observar, la pantalla tiene el formato de una tabla, que está diseñ
 El código hace tres cosas:
 
 * Utiliza el [grupo de listas vinculadas personalizado][grupo de listas vinculadas personalizado] de Bootstrap para que la información de sesión tenga un formato vertical, de modo que se pueda leer en un explorador móvil (mediante clases como, por ejemplo, list-group-item-text).
-* aplica el [sistema de cuadrículas][sistema de cuadrículas] al diseño, de modo que los elementos de la sesión tengan un flujo horizontal en el explorador de escritorio y un flujo vertical en el explorador móvil (con la clase col-md-4 class).
-* usa [utilidades con respuesta][utilidades con respuesta] para ocultar las etiquetas de sesión cuando el contenido se visualiza en el explorador móvil (con la clase hidden-xs).
+* Aplica el [sistema de cuadrículas][sistema de cuadrículas] al diseño, de modo que los elementos de la sesión tengan un flujo horizontal en el explorador de escritorio y un flujo vertical en el explorador móvil (con la clase col-md-4 class).
+* Usa [utilidades con respuesta][utilidades con respuesta] para ocultar las etiquetas de sesión cuando el contenido se visualiza en el explorador móvil (con la clase hidden-xs).
 
 También puede pulsar un vínculo de título para dirigirse a la respectiva sesión. La imagen siguiente refleja los cambios en el código.
 
@@ -477,24 +455,24 @@ El sistema de cuadrículas de Bootstrap que aplicó organiza automáticamente la
 
 En el explorador de escritorio, observe que las etiquetas ahora se muestran. Además, puede ver que el sistema de cuadrículas de Bootstrap que aplicó organiza los elementos de la sesión en dos columnas. Si aumenta el tamaño del explorador, verá que la organización cambia a tres columnas.
 
-## <a name="bkmk_improvesessionbycode"></a> Mejora de la vista SessionByCode
+## <a name="a-namebkmkimprovesessionbycodea-improve-the-sessionbycode-view"></a><a name="bkmk_improvesessionbycode"></a> Mejora de la vista SessionByCode
 Por último, corregirá la vista *SessionByCode* para que se adapte mejor a los dispositivos móviles.
 
 En el explorador móvil, toque el botón **Etiqueta** y escriba `asp` en el cuadro de búsqueda.
 
 ![][AllTagsFixedSearchByASP]
 
-Toque el vínculo **ASP.NET**. Se muestran las sesiones de la etiqueta ASP.NET.
+Toque el vínculo **ASP.NET** . Se muestran las sesiones de la etiqueta ASP.NET.
 
 ![][FixedSessionsByTag]
 
-Elija el vínculo **Creación de una aplicación de una página con ASP.NET y AngularJS**.
+Elija el vínculo **Creación de una aplicación de una página con ASP.NET y AngularJS** .
 
 ![][SessionByCode3-644]
 
 La vista de escritorio predeterminada está bien, pero puede mejorar su aspecto fácilmente mediante el uso de componentes de la GUI de Bootstrap.
 
-Abra el archivo *Views\Home\SessionByCode.cshtml* y sustituya el contenido por el marcado siguiente:
+Abra el archivo *Views\\Home\\SessionByCode.cshtml* y reemplace el contenido por el marcado siguiente:
 
     @model Mvc5Mobile.Models.Session
 
@@ -534,13 +512,13 @@ Abra el archivo *Views\Home\SessionByCode.cshtml* y sustituya el contenido por e
         }
     </div>
 
-El nuevo marcado usa el estilo de paneles de Bootstrap para mejorar la vista móvil.
+El nuevo marcado usa el estilo de paneles de Bootstrap para mejorar la vista móvil. 
 
 Actualice el explorador móvil. La siguiente imagen refleja los cambios en el código que acaba de hacer:
 
 ![][SessionByCodeFixed3-644]
 
-## Resumen y revisión
+## <a name="wrap-up-and-review"></a>Resumen y revisión
 En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplicaciones web para dispositivos móviles. Entre ellos se incluyen los siguientes:
 
 * Implementación de una aplicación ASP.NET MVC 5 en una aplicación web del servicio de aplicaciones
@@ -550,7 +528,7 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 * Creación de vistas dirigidas a exploradores específicos, tal como el explorador de iPhone
 * Aplicación del estilo de Bootstrap en el código de Razor
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [Nueve principios básicos del diseño web con respuesta](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 * [Bootstrap][BootstrapSite]
 * [Blog oficial de Bootstrap][Blog oficial de Bootstrap]
@@ -559,19 +537,19 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 * [Prácticas recomendadas y recomendaciones de W3C para aplicaciones web móviles][Prácticas recomendadas y recomendaciones de W3C para aplicaciones web móviles]
 * [Recomendación de candidatos de W3C para consultas multimedia][Recomendación de candidatos de W3C para consultas multimedia]
 
-## Lo que ha cambiado
+## <a name="whats-changed"></a>Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- Internal Links -->
-[Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
-[Bootstrap CSS Framework]: #bkmk_bootstrap
-[Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
-[Create Browser-Specific Views]: #bkmk_browserviews
-[Improve the Speakers List]: #bkmk_Improvespeakerslist
-[Improve the Tags List]: #bkmk_improvetags
-[Improve the Dates List]: #bkmk_improvedates
-[Improve the SessionsTable View]: #bkmk_improvesessionstable
-[Improve the SessionByCode View]: #bkmk_improvesessionbycode
+[Implementación del proyecto inicial en una aplicación web de Azure]: #bkmk_DeployStarterProject
+[Marco Bootstrap CSS]: #bkmk_bootstrap
+[Reemplazo de las vistas, diseños y vistas parciales]: #bkmk_overrideviews
+[Creación de vistas específicas de explorador]:#bkmk_browserviews
+[Mejora de la lista de oradores]: #bkmk_Improvespeakerslist
+[Mejora de la lista de etiquetas]: #bkmk_improvetags
+[Mejora de la lista de fechas]: #bkmk_improvedates
+[Mejora de la vista SessionsTable]: #bkmk_improvesessionstable
+[Mejora de la vista SessionByCode]: #bkmk_improvesessionbycode
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
@@ -587,7 +565,7 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
 [grupo de listas vinculadas]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
-[paneles]: http://getbootstrap.com/components/#panels
+[paneles]: http://getbootstrap.com/components/#paneles
 [grupo de listas vinculadas personalizado]: http://getbootstrap.com/components/#list-group-custom-content
 [sistema de cuadrículas]: http://getbootstrap.com/css/#grid
 [utilidades con respuesta]: http://getbootstrap.com/css/#responsive-utilities
@@ -620,7 +598,7 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [AllSpeakersFixed]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed.png
 [AllSpeakersFixedDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed-Desktop.png
 [AllSpeakersFixedSearchBySC]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed-SearchBySC.png
-[AllTagsFixedDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed-Desktop.png
+[AllTagsFixedDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed-Desktop.png 
 [AllTagsFixed]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed.png
 [AllDatesFixed]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed.png
 [AllDatesFixed2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed2.png
@@ -632,4 +610,8 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
 
 
-<!------------HONumber=AcomDC_0114_2016---->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -18,15 +18,15 @@
 
 # Procedimientos
 ## Creación y modificación de un circuito
-### [Portal de Azure](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
 ### [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
 ## Creación y modificación de configuraciones de enrutamiento
-### [Portal de Azure](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (clásico)](expressroute-howto-routing-classic.md)
 ## Vinculación de una red virtual a un circuito ExpressRoute
-### [Portal de Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [PowerShell (clásico)](expressroute-howto-linkvnet-classic.md)
 ## Configuración de una puerta de enlace de red virtual para ExpressRoute
@@ -45,27 +45,27 @@
 ### [Enrutamiento asimétrica](expressroute-asymmetric-routing.md)
 
 ## Solución de problemas
+### [Comprobación de la conectividad de ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Obtención de tablas ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Obtención de tablas ARP (clásico)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Referencia
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (clásico)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Temas relacionados
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Máquinas virtuales](/azure/virtual-machines/)
-## [Equilibrador de carga](/azure/load-balancer/)
-## [Administrador de tráfico](/azure/traffic-manager/)
+## [Load Balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
 
-# resources
+# Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Blog de redes](https://azure.microsoft.com/blog/topics/networking/)
 ## [Casos prácticos](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
+## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/)
 ## [Límites del servicio y la suscripción](../azure-subscription-service-limits.md)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Creación de un circuito ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
@@ -80,6 +80,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

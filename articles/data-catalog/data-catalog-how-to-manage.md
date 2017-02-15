@@ -1,13 +1,13 @@
 ---
-title: Cómo administrar recursos de datos | Microsoft Docs
-description: En este artículo de procedimientos se resalta cómo controlar la visibilidad y la propiedad de los recursos de datos registrados en Catálogo de datos de Azure.
+title: "Administración de recursos de datos | Microsoft Docs"
+description: "En este artículo de procedimientos se resalta cómo controlar la visibilidad y la propiedad de los recursos de datos registrados en Catálogo de datos de Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/04/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+
 
 ---
 # <a name="how-to-manage-data-assets"></a>Cómo administrar recursos de datos
@@ -70,6 +74,9 @@ Los administradores del Catálogo de datos son implícitamente copropietarios de
 ## <a name="summary"></a>Resumen
 El modelo de micromecenazgo del Catálogo de datos para la detección de recursos de datos y metadatos permite que todos los usuarios de Catálogo colaboren en él y lo detecten. La edición Estándar del Catálogo de datos proporciona funcionalidades para la propiedad y administración con el fin de limitar la visibilidad y el uso de los recursos de datos específicos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

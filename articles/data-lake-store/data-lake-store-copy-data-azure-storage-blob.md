@@ -183,6 +183,6 @@ AdlCopy admite la copia de datos que contienen miles de archivos y carpetas. Sin
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

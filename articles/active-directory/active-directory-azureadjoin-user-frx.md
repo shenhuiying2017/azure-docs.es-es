@@ -60,6 +60,6 @@ Si un dispositivo tiene instaladas las ediciones Windows 10 Professional o Windo
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

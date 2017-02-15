@@ -1,13 +1,13 @@
 ---
-title: Navegación y selección de imágenes de máquinas virtuales Windows | Microsoft Docs
-description: Obtenga información sobre cómo determinar el publicador, la oferta y la SKU de las imágenes al crear una máquina virtual Windows con el modelo de implementación del Administrador de recursos.
+title: "Navegación y selección de imágenes de máquina virtual Windows | Microsoft Docs"
+description: "Obtenga información sobre cómo determinar el publicador, la oferta y la SKU de las imágenes al crear una máquina virtual Windows con el modelo de implementación del Administrador de recursos."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 78f3769cd38bbcc6dbe8ac6241d6d5c3a65ccd00
+
 
 ---
-# Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o CLI
+# <a name="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell-or-the-cli"></a>Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o CLI
 En este tema se describe cómo buscar publicadores de imágenes de máquina virtual, ofertas, SKU y versiones de cada ubicación en la que podría realizar una implementación. Para dar un ejemplo, algunas de las imágenes de máquina virtual Windows más utilizadas son:
 
-## Tabla de imágenes de Windows más usadas
+## <a name="table-of-commonly-used-windows-images"></a>Tabla de imágenes de Windows más usadas
 | PublisherName | Oferta | SKU |
 |:--- |:--- |:--- |:--- |
 | MicrosoftDynamicsNAV |DynamicsNAV |2015 |
@@ -36,4 +40,9 @@ En este tema se describe cómo buscar publicadores de imágenes de máquina virt
 
 [!INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

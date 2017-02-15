@@ -8,7 +8,7 @@ Después de que los registros del nombre de dominio se hayan propagado, es preci
 > 
 
 1. En el explorador, abra el [Portal de Azure](https://portal.azure.com).
-2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web y seleccione **Dominios personalizados**.
+2. En la pestaña **Web Apps**, haga clic en el nombre de la aplicación web y seleccione **Dominios personalizados**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. En la hoja **Dominios personalizados**, haga clic en **Agregar nombre de host**.
@@ -16,8 +16,12 @@ Después de que los registros del nombre de dominio se hayan propagado, es preci
    
     ![](./media/custom-dns-web-site/add-custom-domain.png)
 5. Haga clic en **Validar**.
-6. Al hacer clic en **Validar**, Azure iniciará el flujo de trabajo Verificación de dominio. Este flujo de trabajo comprobará la propiedad del dominio y la disponibilidad del nombre de host, e informará del éxito o del error de forma detallada y con instrucciones para solucionar el error.
+6. Al hacer clic en **Validar** , Azure iniciará el flujo de trabajo Verificación de dominio. Este flujo de trabajo comprobará la propiedad del dominio y la disponibilidad del nombre de host, e informará del éxito o del error de forma detallada y con instrucciones para solucionar el error.    
 
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

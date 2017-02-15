@@ -1,13 +1,13 @@
 ---
-title: Características y extensiones de las máquinas virtuales | Microsoft Docs
-description: Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran.
+title: "Características y extensiones de las máquinas virtuales | Microsoft Docs"
+description: "Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/30/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 7bd48e2ef9177369190494c38bfdcf1bb99e61ea
+
 
 ---
 # <a name="about-virtual-machine-extensions-and-features"></a>Acerca de las características y extensiones de las máquinas virtuales
@@ -26,7 +30,7 @@ En este documento se describen los requisitos previos de la extensión de máqui
 ## <a name="azure-vm-agent"></a>Agente de máquina virtual de Azure
 El agente de máquina virtual de Azure administra la interacción entre una máquina virtual de Azure y el controlador de tejido de Azure. El agente de máquina virtual es responsable de muchos aspectos funcionales de la implementación y administración de máquinas virtuales de Azure, incluida la ejecución de extensiones de máquina virtual. El agente de máquina virtual de Azure está preinstalado en imágenes de la galería de Azure y se puede instalar en sistemas operativos compatibles. 
 
-Para más información sobre las instrucciones de instalación y los sistemas operativos compatibles, consulte [Agente de máquina virtual de Azure](virtual-machines-windows-classic-agents-and-extensions.md).
+Para más información sobre las instrucciones de instalación y los sistemas operativos compatibles, consulte [Agente de máquina virtual de Azure](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="discover-vm-extensions"></a>Detección de extensiones de máquina virtual
 Hay muchas extensiones de máquina virtual diferentes disponibles para su uso con máquinas virtuales de Azure. Para ver una lista completa, ejecute el comando siguiente con la CLI de Azure, y reemplace la ubicación por la ubicación elegida.
@@ -40,10 +44,13 @@ Get-AzureVMAvailableExtension | Select ExtensionName, Version
 ## <a name="common-vm-extensions"></a>Extensiones de máquina virtual comunes
 | Nombre de la extensión | Description | Más información |
 | --- | --- | --- |
-| Extensión de la secuencia de comandos personalizada para Windows |Ejecución de scripts en una máquina virtual de Azure |[Extensión de la secuencia de comandos personalizada para Windows](virtual-machines-windows-extensions-customscript.md) |
-| Extensión de DSC para Windows |Extensión DSC (configuración de estado deseado) de PowerShell |[Extensión de máquina virtual de Docker](virtual-machines-windows-extensions-dsc-overview.md) |
+| Extensión de la secuencia de comandos personalizada para Windows |Ejecución de scripts en una máquina virtual de Azure |[Extensión de la secuencia de comandos personalizada para Windows](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Extensión de DSC para Windows |Extensión DSC (configuración de estado deseado) de PowerShell |[Extensión de máquina virtual de Docker](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Extensión de Diagnósticos de Azure |Administración de Diagnósticos de Azure |[Extensión de Diagnósticos de Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

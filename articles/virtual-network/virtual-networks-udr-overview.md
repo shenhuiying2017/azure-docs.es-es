@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Este flujo de comunicación es posible porque Azure usa varias rutas del sistema
 * Desde una subred a otra dentro de una red virtual.
 * Desde máquinas virtuales a Internet.
 * Desde una red virtual a otra red virtual a través de una puerta de enlace de VPN.
+* Desde una red virtual a otra red virtual mediante emparejamiento de redes virtuales (encadenamiento de servicios).
 * Desde una red virtual a su red local a través de una puerta de enlace de VPN.
 
 La siguiente ilustración muestra una configuración simple con una red virtual, dos subredes y algunas máquinas virtuales, junto con las rutas del sistema que permiten el flujo del tráfico IP.
@@ -111,6 +112,6 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

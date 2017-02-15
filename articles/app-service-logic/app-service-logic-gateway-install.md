@@ -1,12 +1,12 @@
 ---
-title: Instalación de Logic Apps una puerta de enlace de datos local | Microsoft Docs
-description: Información sobre cómo instalar la puerta de enlace de datos local para su uso en una aplicación lógica.
+title: "Puerta de enlace de datos local de la Instalación de Logic Apps | Microsoft Docs"
+description: "Información sobre cómo instalar la puerta de enlace de datos local para su uso en una aplicación lógica."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddd62d3112a2c93ea3c935ce89ff387049899c09
+
 
 ---
 # <a name="install-the-on-premises-data-gateway-for-logic-apps"></a>Instalación de la puerta de enlace de datos local para las Aplicaciones lógicas
@@ -82,7 +86,7 @@ El firewall también podría estar bloqueando las conexiones del bus de servicio
 ### <a name="configure-ports"></a>Configuración de los puertos
 La puerta de enlace crea una conexión de salida con el bus de servicio de Azure. Se comunica en los puertos de salida siguientes: TCP 443 (valor predeterminado), 5671, 5672 y del 9350 al 9354. La puerta de enlace no requiere puertos de entrada.
 
-Más información sobre las [soluciones híbridas](../service-bus/service-bus-fundamentals-hybrid-solutions.md).
+Más información sobre las [soluciones híbridas](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
 | NOMBRES DE DOMINIO | PUERTOS DE SALIDA | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -142,7 +146,7 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **Pregunta**: ¿dónde se almacenan las credenciales? <br/>
 **Respuesta**: las credenciales que especifique para un origen de datos se almacenan cifradas en el servicio en la nube de puerta de enlace. Las credenciales se descifran en la puerta de enlace local.
 
-### <a name="high-availability/disaster-recovery"></a>Alta disponibilidad / recuperación ante desastres
+### <a name="high-availabilitydisaster-recovery"></a>Alta disponibilidad / recuperación ante desastres
 **Pregunta**: ¿hay algún plan para habilitar escenarios de alta disponibilidad con la puerta de enlace? <br/>
 **Respuesta**: es un punto que figura en nuestra agenda, pero aún no tenemos un cronograma para ello.
 
@@ -175,7 +179,7 @@ Cuando un usuario interactúa con un elemento conectado a un origen de datos loc
 ### <a name="update-to-the-latest-version"></a>Actualización a la versión más reciente
 Pueden surgir muchos problemas cuando la versión de la puerta de enlace no está actualizada.  En general, es conveniente asegurarse de utilizar la versión más reciente.  Si no ha actualizado la puerta de enlace durante un mes o más, debe plantearse instalar la versión más reciente de la puerta de enlace y comprobar si puede reproducir el problema.
 
-### <a name="error:-failed-to-add-user-to-group.-(-2147463168-pbiegwservice-performance-log-users-)"></a>Error: Error al agregar el usuario al grupo. (Usuarios del registro de rendimiento de-2147463168 PBIEgwService)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users-"></a>Error: Error al agregar el usuario al grupo. (Usuarios del registro de rendimiento de-2147463168 PBIEgwService)
 Es posible que reciba este error si intenta instalar la puerta de enlace en un controlador de dominio, lo cual no se admite. Debe implementar la puerta de enlace en una máquina que no sea un controlador de dominio.
 
 ## <a name="tools"></a>Herramientas
@@ -202,6 +206,9 @@ Los registros de Data Management Gateway y PowerBIGateway se encuentran en **Reg
 * [Características de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)
 * [Conectores de Aplicaciones lógicas](../connectors/apis-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
