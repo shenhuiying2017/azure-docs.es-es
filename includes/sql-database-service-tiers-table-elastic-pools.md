@@ -66,7 +66,7 @@ sql-database-service-tiers.md
 | Tamaño del grupo (eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
 | Almacenamiento máximo por grupo* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
-| Almacenamiento máximo por grupo* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
+| Almacenamiento máximo de OLTP en memoria por grupo* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Máximo número de bases de datos por grupo | 100 | 100 | 100 | 100 | 100 | 
 | Cantidad máxima de trabajos simultáneos por grupo |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Cantidad máxima de inicios de sesión simultáneos por grupo |  3200 | 4000 | 4800 | 5600 | 6400 |
@@ -79,6 +79,6 @@ sql-database-service-tiers.md
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

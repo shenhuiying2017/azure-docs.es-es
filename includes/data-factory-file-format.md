@@ -1,5 +1,5 @@
 ## <a name="specifying-formats"></a>Especificación de formatos
-Azure Data Factory admite los siguientes tipos de formato: 
+Azure Data Factory admite los siguientes tipos de formato:
 
 * [Formato de texto](#specifying-textformat)
 * [Formato JSON](#specifying-jsonformat)
@@ -52,25 +52,9 @@ Para usar escapeChar, en lugar de quoteChar, reemplace la línea con quoteChar p
 
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Escenarios de uso de firstRowAsHeader y skipLineCount
-* Va a copiar de un origen que no es archivo a un archivo de texto y quiere agregar una línea de encabezado que contenga los metadatos de esquema (por ejemplo, esquema SQL). Especifique **firstRowAsHeader** como true en el conjunto de datos de salida para este escenario. 
+* Va a copiar de un origen que no es archivo a un archivo de texto y quiere agregar una línea de encabezado que contenga los metadatos de esquema (por ejemplo, esquema SQL). Especifique **firstRowAsHeader** como true en el conjunto de datos de salida para este escenario.
 * Va a copiar de un archivo de texto que contiene una línea de encabezado a un receptor que no es archivo y quiere eliminar esa línea. Especifique **firstRowAsHeader** como true en el conjunto de datos de entrada.
 * Va a copiar de un archivo de texto y quiere omitir unas cuantas líneas al comienzo que no contienen datos ni información de encabezado. Especifique **skipLineCount** para indicar el número de líneas que se omitirá. Si el resto del archivo contiene una línea de encabezado, también puede especificar **firstRowAsHeader**. Si se especifican tanto **skipLineCount** como **firstRowAsHeader**, primero se omiten las líneas y luego se lee la información del encabezado del archivo de entrada
-
-### <a name="specifying-avroformat"></a>Especificación de AvroFormat
-Si se establece el formato en AvroFormat, no es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
-
-```json
-"format":
-{
-    "type": "AvroFormat",
-}
-```
-
-Para usar el formato Avro en una tabla de Hive, puede consultar [Tutorial de Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
-Tenga en cuenta los siguientes puntos:  
-
-* No se admiten [tipos de datos complejos](http://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumeraciones, matrices, asignaciones, uniones y fijos)
 
 ### <a name="specifying-jsonformat"></a>Especificación de JsonFormat
 Para importar y exportar archivos JSON tal como están hacia o desde DocumentDB, consulte la sección sobre [la importación y exportación de documentos JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) en el conector de DocumentDB para más información.
@@ -86,7 +70,7 @@ Si se establece el formato en **JsonFormat**, puede especificar las siguientes p
 #### <a name="setofobjects-file-pattern"></a>Patrón de archivos setOfObjects
 Cada archivo contiene un único objeto o bien varios objetos concatenados/delimitados por líneas. Si se elige esta opción en un conjunto de datos de salida, la actividad de copia genera un único archivo JSON con cada objeto por línea (delimitado por líneas).
 
-**Objeto único** 
+**Objeto único**
 
 ```json
 {
@@ -99,7 +83,7 @@ Cada archivo contiene un único objeto o bien varios objetos concatenados/delimi
 }
 ```
 
-**JSON delimitado por líneas** 
+**JSON delimitado por líneas**
 
 ```json
     {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -139,7 +123,7 @@ Cada archivo contiene un único objeto o bien varios objetos concatenados/delimi
 ```
 
 #### <a name="arrayofobjects-file-pattern"></a>Patrón de archivos arrayOfObjects
-Cada archivo contiene una matriz de objetos. 
+Cada archivo contiene una matriz de objetos.
 
 ```json
 [
@@ -214,7 +198,7 @@ Si tiene un archivo JSON con el siguiente contenido:
     "Tags": ["Data Factory”, "Azure"]
 }
 ```
-y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente: 
+y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente:
 
 | Id | Name.First | Name.Middle | Name.Last | Etiquetas |
 | --- | --- | --- | --- | --- |
@@ -244,16 +228,32 @@ El conjunto de datos de entrada con el tipo JsonFormat se define de la siguiente
     }
 }
 ```
-Si no se define la estructura, la actividad de copia aplana la estructura de manera predeterminada y copia todos los elementos. 
+Si no se define la estructura, la actividad de copia aplana la estructura de manera predeterminada y copia todos los elementos.
 
 #### <a name="supported-json-structure"></a>Estructura JSON admitida
-Tenga en cuenta los siguientes puntos: 
+Tenga en cuenta los siguientes puntos:
 
 * Cada objeto con una colección de pares nombre-valor se asigna a una fila de datos en formato de tabla. Es posible anidar objetos y puede definir cómo aplanar la estructura del conjunto de datos con el separador de anidado (.) de manera predeterminada. Para ver un ejemplo, consulte el [ejemplo de JsonFormat](#jsonformat-example) de la sección anterior.  
-* Si no se define la estructura en el conjunto de datos de Data Factory, la actividad de copia detecta el esquema del primer objeto y aplana el objeto en su conjunto. 
+* Si no se define la estructura en el conjunto de datos de Data Factory, la actividad de copia detecta el esquema del primer objeto y aplana el objeto en su conjunto.
 * Si la entrada JSON tiene una matriz, la actividad de copia convierte el valor de toda la matriz en una cadena. Puede optar por omitir este paso mediante el [filtrado o la asignación de columnas](#column-mapping-with-translator-rules).
 * Si hay algún nombre duplicado en el mismo nivel, la actividad de copia elige el último.
-* Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Dos propiedades con el mismo nombre, pero con distintas mayúsculas y minúsculas se consideran propiedades independientes. 
+* Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Dos propiedades con el mismo nombre, pero con distintas mayúsculas y minúsculas se consideran propiedades independientes.
+
+### <a name="specifying-avroformat"></a>Especificación de AvroFormat
+Si se establece el formato en AvroFormat, no es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
+
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
+
+Para usar el formato Avro en una tabla de Hive, puede consultar [Tutorial de Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+Tenga en cuenta los siguientes puntos:  
+
+* No se admiten [tipos de datos complejos](http://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumeraciones, matrices, asignaciones, uniones y fijos)
 
 ### <a name="specifying-orcformat"></a>Especificación de OrcFormat
 Si se establece el formato en OrcFormat, no es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
@@ -267,13 +267,13 @@ Si se establece el formato en OrcFormat, no es preciso especificar propiedades e
 
 > [!IMPORTANT]
 > Si no va a copiar archivos ORC **como están** entre almacenes de datos locales y en la nube, debe instalar JRE 8 (Java Runtime Environment) en la máquina de puerta de enlace. Una puerta de enlace de 64 bits requiere JRE de 64 bits y una de 32 bits, JRE de 32 bits. Puede encontrar las dos versiones [aquí](http://go.microsoft.com/fwlink/?LinkId=808605). Elija la más adecuada.
-> 
-> 
+>
+>
 
 Tenga en cuenta los siguientes puntos:
 
 * No se admiten tipos de daros complejos (STRUCT, MAP, LIST, UNION).
-* El archivo ORC tiene tres [opciones relacionadas con la compresión](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento. 
+* El archivo ORC tiene tres [opciones relacionadas con la compresión](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
 ### <a name="specifying-parquetformat"></a>Especificación de ParquetFormat
 Si se establece el formato en ParquetFormat, no es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
@@ -286,16 +286,15 @@ Si se establece el formato en ParquetFormat, no es preciso especificar propiedad
 ```
 > [!IMPORTANT]
 > Si no va a copiar archivos Parquet **como están** entre almacenes de datos locales y en la nube, debe instalar JRE 8 (Java Runtime Environment) en la máquina de puerta de enlace. Una puerta de enlace de 64 bits requiere JRE de 64 bits y una de 32 bits, JRE de 32 bits. Puede encontrar las dos versiones [aquí](http://go.microsoft.com/fwlink/?LinkId=808605). Elija la más adecuada.
-> 
-> 
+>
+>
 
 Tenga en cuenta los siguientes puntos:
 
 * No se admiten tipos de daros complejos (MAP, LIST).
-* El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento. 
+* El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

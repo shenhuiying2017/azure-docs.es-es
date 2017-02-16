@@ -1,9 +1,9 @@
 ---
-title: Roles de PIM | Microsoft Docs
+title: Roles de Azure AD Privileged Identity Management | Microsoft Docs
 description: "Obtenga información sobre los roles que se usan para identidades con privilegios con la extensión de Privileged Identity Management de Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
+ms.date: 01/23/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: b79308a3dfd50ac9fa43398cae7cd583a1442fde
 
 
 ---
-# <a name="roles-in-azure-ad-privileged-identity-management"></a>Roles en Privileged Identity Management de Azure AD
+# <a name="roles-in-azure-ad-pim"></a>Roles en PIM de Azure AD
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 En su organización, puede asignar a usuarios a roles administrativos diferentes en Azure AD. Estas asignaciones de roles controlan las tareas, como agregar y quitar usuarios o cambiar la configuración de los servicios, que pueden realizar los usuarios en Azure AD, Office 365 y otros servicios Microsoft Online Services y aplicaciones conectadas.  
@@ -92,6 +92,6 @@ El acceso a Microsoft Online Services puede requerir que se le asigne una licenc
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 
