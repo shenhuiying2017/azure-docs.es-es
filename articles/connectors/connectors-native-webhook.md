@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 13d0a71762d3cba05c3dccb647d0890862307327
-ms.openlocfilehash: 30c4c9da56687fb90e46eb9a2830d95df6e1c2f4
+ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
+ms.openlocfilehash: 2c24699f6253fc7952b331ebcce4b937f1c83603
 
 
 ---
@@ -27,13 +27,13 @@ Con el desencadenador y la acción de webhook se pueden desencadenar, pausar y r
 * Realizar una desencadenación desde un [Centro de eventos de Azure en cuanto se reciba un elemento](https://github.com/logicappsio/EventHubAPI)
 * Esperar una aprobación antes de continuar con un flujo de trabajo
 
-[En este artículo sobre creación de conectores de aplicaciones lógicas](../app-service-logic/app-service-logic-create-api-app.md)puede encontrar información sobre cómo crear una API compatible con llamadas de suscripción de webhook.
+[En este artículo sobre creación de conectores de aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md)puede encontrar información sobre cómo crear una API compatible con llamadas de suscripción de webhook.
 
 - - -
 ## <a name="use-the-webhook-trigger"></a>Uso del desencadenador de webhook
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](connectors-overview.md).  Los desencadenadores de webhook son muy útiles, ya que no dependen de que se sondeen nuevos elementos (al igual que el [desencadenador de solicitud](connectors-native-reqres.md) , la aplicación lógica se activará en cuanto se produzca un evento).  Para ello, registra una *URL de devolución de llamadas* en un servicio que puede utilizarse para activar la aplicación lógica según sea necesario.
 
-Esta es una secuencia de ejemplo de cómo configurar un desencadenador HTTP en el diseñador de aplicaciones lógicas.  En este artículo se da por hecho que ya ha implementado una API que sigue [el patrón de suscripción y cancelación de suscripción de webhook que se utiliza en Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-triggers), o bien que ya ha accedido a una de este tipo.  La llamada de suscripción se realiza cada vez que se guarda una aplicación lógica con un nuevo webhook, o bien cuando se cambia el estado de deshabilitado a habilitado.  La llamada de cancelación de suscripción se realiza cada vez que se elimina o guarda un desencadenador de webhook de aplicación lógica, o bien cuando se cambia el estado de deshabilitado a habilitado.
+Esta es una secuencia de ejemplo de cómo configurar un desencadenador HTTP en el diseñador de aplicaciones lógicas.  En este artículo se da por hecho que ya ha implementado una API que sigue [el patrón de suscripción y cancelación de suscripción de webhook que se utiliza en Logic Apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers), o bien que ya ha accedido a una de este tipo.  La llamada de suscripción se realiza cada vez que se guarda una aplicación lógica con un nuevo webhook, o bien cuando se cambia el estado de deshabilitado a habilitado.  La llamada de cancelación de suscripción se realiza cada vez que se elimina o guarda un desencadenador de webhook de aplicación lógica, o bien cuando se cambia el estado de deshabilitado a habilitado.
 
 1. Como primer paso, agregue el desencadenador de **Webhook HTTP** en una aplicación lógica.
 2. Rellene los parámetros de las llamadas de suscripción y cancelación de suscripción de webhook.
@@ -46,7 +46,7 @@ Esta es una secuencia de ejemplo de cómo configurar un desencadenador HTTP en e
 5. Cada vez que el servicio realiza una solicitud `HTTP POST` en la URL de devolución de llamada, la aplicación lógica se activa (e incluye todos los datos transmitidos en la solicitud).
 
 ## <a name="use-the-webhook-action"></a>Uso de la acción de webhook
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md)  Las acciones de webhook son muy útiles, ya que registran una *URL de devolución de llamadas* en un servicio y esperan hasta que se llame a la URL antes de reanudarse.  ["Enviar correo electrónico de aprobación"](connectors-create-api-office365-outlook.md) es un ejemplo de conector que sigue este patrón.  Puede extender este patrón a cualquier servicio a través de la acción de webhook.  En este artículo se da por hecho que ya ha implementado una API que sigue [el patrón de suscripción y cancelación de suscripción de webhook que se utiliza en Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-actions), o bien que ya ha accedido a una de este tipo.  La llamada de suscripción se realiza cada vez que una aplicación lógica ejecuta la acción de webhook.  La llamada de cancelación de suscripción se realiza cada vez que se cancela una ejecución mientras se espera una respuesta, o bien antes de que se agote el tiempo de espera para ejecutar dicha aplicación.
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md)  Las acciones de webhook son muy útiles, ya que registran una *URL de devolución de llamadas* en un servicio y esperan hasta que se llame a la URL antes de reanudarse.  ["Enviar correo electrónico de aprobación"](connectors-create-api-office365-outlook.md) es un ejemplo de conector que sigue este patrón.  Puede extender este patrón a cualquier servicio a través de la acción de webhook.  En este artículo se da por hecho que ya ha implementado una API que sigue [el patrón de suscripción y cancelación de suscripción de webhook que se utiliza en Logic Apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions), o bien que ya ha accedido a una de este tipo.  La llamada de suscripción se realiza cada vez que una aplicación lógica ejecuta la acción de webhook.  La llamada de cancelación de suscripción se realiza cada vez que se cancela una ejecución mientras se espera una respuesta, o bien antes de que se agote el tiempo de espera para ejecutar dicha aplicación.
 
 Para agregar una acción de webhook, siga estos pasos:
 
@@ -68,7 +68,7 @@ Para agregar una acción de webhook, siga estos pasos:
 A continuación, se muestran los detalles de los desencadenadores y las acciones que admite webhook.
 
 ## <a name="webhook-triggers"></a>Desencadenadores de webhook
-Un desencadenador consiste en una operación para iniciar un flujo de trabajo. [Más información sobre los desencadenadores.](connectors-overview.md)  Este conector tiene 1 desencadenador.
+Un desencadenador consiste en una operación para iniciar un flujo de trabajo. [Más información sobre los desencadenadores.](connectors-overview.md) Este conector tiene 1 desencadenador.
 
 | . | Descripción |
 | --- | --- |
@@ -107,7 +107,7 @@ Solicitud de webhook
 | Código de estado |int |Código de estado de la solicitud de webhook |
 
 ## <a name="webhook-actions"></a>Acciones de webhook
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md)  El conector tiene 1 acción posible.
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md) El conector tiene 1 acción posible.
 
 | . | Descripción |
 | --- | --- |
@@ -150,10 +150,10 @@ Solicitud de webhook
 A continuación se muestran detalles sobre cómo avanzar con aplicaciones lógicas y nuestra comunidad.
 
 ## <a name="create-a-logic-app"></a>Creación de una aplicación lógica
-Pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) ahora. Puede explorar los demás conectores disponibles en aplicaciones consultando nuestra [lista de API](apis-list.md).
+Pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) ahora. Puede explorar los demás conectores disponibles en aplicaciones consultando nuestra [lista de API](apis-list.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

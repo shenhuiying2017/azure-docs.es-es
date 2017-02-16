@@ -1,5 +1,5 @@
 ---
-title: "Uso de bibliotecas personalizadas con un clúster de HDInsight Spark para analizar registros de sitios web | Microsoft Docs"
+title: "Uso de bibliotecas de Python para analizar registros de sitios web en el clúster de Azure Spark | Microsoft Docs"
 description: "Uso de bibliotecas personalizadas con un clúster de HDInsight Spark para analizar registros de sitios web"
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: cb8b1aa0c7da7b7cacbbe89c0098e5f3d831b1c5
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 07cb021c99362d7195d2a8a6c1c802d952cf1331
 
 
 ---
-# <a name="analyze-website-logs-using-a-custom-library-with-apache-spark-cluster-on-hdinsight-linux"></a>Análisis de registros de sitio web mediante una biblioteca personalizada con el clúster Apache Spark en HDInsight Linux
+# <a name="analyze-website-logs-using-a-custom-library-with-apache-spark-cluster-on-hdinsight"></a>Análisis de registros de sitios web mediante una biblioteca personalizada con un clúster Apache Spark en HDInsight
+
 En este cuaderno se muestra cómo analizar los datos de registro mediante una biblioteca personalizada con Spark en HDInsight. La biblioteca personalizada que usamos es una biblioteca de Python llamada **iislogparser.py**.
 
 > [!TIP]
@@ -33,8 +34,9 @@ En este cuaderno se muestra cómo analizar los datos de registro mediante una bi
 
 Debe tener lo siguiente:
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
+* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="save-raw-data-as-an-rdd"></a>Almacenamiento de datos sin procesar como RDD
 En esta sección, usamos el cuaderno de [Jupyter](https://jupyter.org) asociado con un clúster Apache Spark en HDInsight para ejecutar trabajos que procesan los datos de ejemplo sin procesar y los guardan como una tabla de Hive. Los datos de ejemplo corresponden a un archivo .csv (hvac.csv) que está disponible en todos los clústeres de manera predeterminada.
@@ -52,10 +54,10 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
    >
 3. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 4. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 5. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos que son necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
 
         from pyspark.sql import Row
@@ -183,7 +185,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
    Debe ver algo parecido a lo siguiente:
 
-   ![Resultado de la consulta SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "SQL query output")
+   ![Salida de la consulta SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "Salida de la consulta SQL")
 
    Para obtener más información sobre la función mágica `%%sql` , así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
 7. Ahora puede usar Matplotlib, una biblioteca que se usa para construir la visualización de datos, para crear un gráfico. Dado que el gráfico se debe crear a partir de la trama de datos **averagetime** persistente localmente, el fragmento de código debe comenzar con la función mágica `%%local`. Esto garantiza que el código se ejecuta localmente en el servidor de Jupyter.
@@ -198,7 +200,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
    Debe ver algo parecido a lo siguiente:
 
-   ![Salida de Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Matplotlib output")
+   ![Salida de Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Salida de Matplotlib")
 8. Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
@@ -228,6 +230,6 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

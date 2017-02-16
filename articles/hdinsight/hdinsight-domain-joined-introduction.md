@@ -1,5 +1,5 @@
 ---
-title: "Introducción a HDInsight seguro | Microsoft Docs"
+title: "Seguridad de Hadoop: clústeres de HDInsight unidos a un dominio en Azure | Microsoft Docs"
 description: Aprenda a...
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Introducción a la seguridad de Hadoop con clústeres de HDInsight unidos a dominio (versión preliminar)
+
 Hasta hoy, Azure HDInsight solo admite un único usuario administrador local. Esto funcionaba muy bien para departamentos o equipos de aplicaciones menores. A medida que las cargas de trabajo basadas en Hadoop adquirieron más popularidad en el sector empresarial, la necesidad de funcionalidades de tipo empresarial, como la autenticación basada en Active Directory, la compatibilidad de múltiples usuarios y el control de acceso basado en roles, se hizo cada vez más importante. Mediante los clústeres de HDInsight unidos a dominio, puede crear un clúster de HDInsight unido a un dominio de Active Directory y configurar una lista de empleados de la empresa que pueden autenticarse mediante Azure Active Directory para iniciar sesión en el clúster de HDInsight. Ninguna persona fuera de la empresa puede iniciar sesión o acceder al clúster de HDInsight. El administrador de la empresa puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/), que restringe el acceso a datos solo en la medida que sea necesario. Por último, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de control de acceso, con lo que se consigue un alto grado de control de los recursos corporativos.
 
 > [!NOTE]
@@ -57,6 +58,6 @@ La protección de los datos es importante para cubrir los requisitos de cumplimi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

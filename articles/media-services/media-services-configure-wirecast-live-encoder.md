@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
 
 
 ---
@@ -35,7 +35,7 @@ En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Creación de una cuenta de Azure Media Services](media-services-portal-create-account.md)
-* Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md)
+* Asegúrese de que hay un punto de conexión de streaming en ejecución. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md)
 * Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Inicie la herramienta y conéctese a la cuenta de AMS.
 
@@ -45,16 +45,17 @@ En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS
 * Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 
 ## <a name="create-a-channel"></a>Crear un canal
-1. En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...**  en el menú.
+1. En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
-![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-1. Especifique un nombre de canal (el campo de descripción es opcional). En Configuración de canal, seleccione **Estándar** para la opción de Live Encoding, con el protocolo de entrada establecido en **RTMP**. Puede dejar todas las demás opciones como están.
+2. Especifique un nombre de canal (el campo de descripción es opcional). En Configuración de canal, seleccione **Estándar** para la opción Live Encoding, con el protocolo de entrada establecido en **RTMP**. Puede dejar todas las demás opciones como están.
 
-Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada.
+    Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada.
 
-1. Haga clic en **Crear canal**.
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+3. Haga clic en **Crear canal**.
+
+   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > El canal puede tardar hasta 20 minutos en iniciarse.
@@ -108,7 +109,8 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
    * Profile (Perfil): Main (Principal)
    * Key frame every (Fotograma clave cada): 60 frames (fotogramas)
 
-     **Audio**
+    **Audio**
+
    * Target bit rate (Velocidad de bits de destino): 192 kbits/sec (seg)
    * Sample Rate (Frecuencia de muestreo): 44,100 kHz
 
@@ -120,7 +122,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
     Asegúrese de que esté seleccionado el nuevo perfil.
 7. Obtenga la dirección URL de entrada del canal para asignarla al **punto de conexión de RTMP**de Wirecast.
 
-    Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que se ha cambiado el estado de **Iniciando** a **En ejecución**, puede obtener la dirección URL de entrada.
+    Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que ha cambiado el estado de **Iniciando** a **En ejecución**, puede obtener la dirección URL de entrada.
 
     Mientras se ejecuta el canal, haga clic con el botón derecho en el nombre del canal, desplácese hacia abajo y mantenga el puntero sobre **Copy Input URL to clipboard** (Copiar dirección URL de entrada en el Portapapeles) y seleccione **Primary Input URL** (Dirección URL de entrada principal).  
 
@@ -141,9 +143,10 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 >
 
 ## <a name="test-playback"></a>Reproducción de pruebas
-1. Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Playback the Preview** (Reproducir la vista previa) y seleccione **with Azure Media Player** (con Azure Media Player).  
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Playback the Preview** (Reproducir la vista previa) y seleccione **with Azure Media Player** (con Azure Media Player).  
+
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Si la transmisión aparece en el reproductor, entonces el codificador se configuró correctamente para conectarse a AMS.
 
@@ -157,9 +160,11 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
 3. Active la casilla **Iniciar el programa ahora** .
 4. Haga clic en **Crear programa**.  
 
-    Nota: la creación de programas tarda menos que la creación de canales.    
+   >[!NOTE]
+   >La creación de programas tarda menos que la creación de canales.
+       
 5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Playback the program(s)** (Reproducir los programas). Luego, seleccione **with Azure Media Player** (con Azure Media Player).  
-6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copy the Output URL to Clipboard** (Copiar la dirección URL de salida en el Portapapeles) o recupere esta información desde la opción **Program information and settings**(Información y configuración del programa) en el menú.
+6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copy the Output URL to Clipboard** (Copiar la dirección URL de salida en el Portapapeles) o recupere esta información con la opción **Program information and settings**(Información y configuración del programa) en el menú.
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.  
 
@@ -174,6 +179,6 @@ Consulte el tema de [solución de problemas](media-services-troubleshooting-live
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

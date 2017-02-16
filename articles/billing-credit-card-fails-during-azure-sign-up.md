@@ -1,5 +1,5 @@
 ---
-title: "Rechazo de la tarjeta de débito o crédito al realizar la suscripción | Microsoft Docs"
+title: "Rechazo de la tarjeta de crédito al realizar la suscripción de Azure | Microsoft Docs"
 description: "Obtenga información acerca de cómo resolver problemas cuando se rechaza la tarjeta de crédito o débito al intentar suscribirse a Azure."
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0d8bbd23fb670f23e335bf59b0814d7248d89c93
+ms.sourcegitcommit: c5a8d378802dfdc0e0a764399f5bb6655e174619
+ms.openlocfilehash: 1a0a1db8743a1fde37c0d9ecb9afa6b730f69e31
 
 
 ---
@@ -29,7 +29,7 @@ Si la tarjeta de débito o crédito se rechaza o no se acepta al suscribirse a A
 * **La información de su tarjeta de crédito o débito es inadecuada o está incompleta.** El nombre, la dirección y el código CVV que escriba deben coincidir con exactamente lo que se imprime en la tarjeta.
 * **Está utilizando una tarjeta virtual o de prepago.** Las tarjetas de crédito o débito virtuales o de prepago no se aceptan como opciones de pago para suscripciones de Azure.
 * **La tarjeta está inactiva o bloqueada.** Póngase en contacto con su banco y asegúrese de que la tarjeta está activa y no está bloqueada.
-* **Está intentando activar una segunda evaluación gratuita.** La oferta de evaluación gratuita de Azure está limitada a una activación por usuario. Si ya activó una evaluación gratuita con esta tarjeta de crédito o tenía una suscripción de Azure vinculada a dicha tarjeta, no puede activar una evaluación gratuita. Use otro plan de Azure de [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). 
+* **Está intentando activar una segunda evaluación gratuita.** La oferta de evaluación gratuita de Azure está limitada a una activación por usuario. Si ya activó una evaluación gratuita con esta tarjeta de crédito o tenía una suscripción de Azure vinculada a dicha tarjeta, no puede activar una evaluación gratuita. Use otro plan de Azure de [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
 Después de actualizar su información de pago, intente suscribirse de nuevo.
 
@@ -37,14 +37,13 @@ Después de actualizar su información de pago, intente suscribirse de nuevo.
 Si representa una empresa, puede pagar su suscripción de Azure con métodos de pago de factura como cheques, cheques urgentes o transferencias electrónicas. No puede cambiar a otra opción de pago después de que esté listo para pagar mediante factura. Para pagar mediante factura, vea [Facturación de Azure](https://azure.microsoft.com/pricing/invoicing/).
 
 ## <a name="update-your-credit-card-or-debit-card-information"></a>Actualización de la información de la tarjeta de crédito o débito
-Después de registrarse, [administre su información de pago](billing-how-to-change-credit-card.md) para cambiar o quitar una tarjeta. 
+Después de registrarse, [administre su información de pago](billing-how-to-change-credit-card.md) para cambiar o quitar una tarjeta.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente. 
+Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

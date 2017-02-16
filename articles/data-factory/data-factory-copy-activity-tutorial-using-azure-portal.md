@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
-ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
+ms.sourcegitcommit: 71d165b8eaf4fe292577dce138d96ad049de61ab
+ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
 
 
 ---
@@ -178,7 +178,7 @@ En este paso, se crea un conjunto de datos denominado **InputDataset** que apunt
      
      Si no especifica un valor de **fileName** para un conjunto de datos de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada.
      
-     Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.&lt;Guid\&txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+     Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.&lt;Guid&gt;.txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
      
      Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se está procesando) y fileName usa Hour de SliceStart. Por ejemplo, si se produce un segmento para 2016-09-20T08:00:00, folderName se establece en wikidatagateway/wikisampledataout/2016/09/20 y fileName se establece en 08.csv. 
 
@@ -311,7 +311,7 @@ En este paso, creará una canalización con una **actividad de copia** que utili
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar **ADFTutorialPipeline**. Confirme que la canalización aparece en la vista de árbol. 
 4. Ahora, para cerrar la hoja **Editor**, haga clic en la **X**. Vuelva a hacer clic en la **X** para ver la página principal de **Data Factory** de **ADFTutorialDataFactory**.
 
-**¡Enhorabuena!**  Ha creado correctamente una factoría de datos de Azure, servicios vinculados, tablas y una canalización, y ha programado la canalización.   
+**¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, servicios vinculados, tablas y una canalización, y ha programado la canalización.   
 
 ### <a name="view-the-data-factory-in-a-diagram-view"></a>Visualización de la factoría de datos en una vista de diagrama
 1. En la hoja **Data Factory**, haga clic en **Diagrama**.
@@ -379,7 +379,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
     
     ![resultados de la consulta SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>Supervisión de una canalización con la Aplicación de supervisión y administración
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Supervisión de una canalización con la Aplicación de supervisión y administración
 La Aplicación de supervisión y administración también se puede usar para supervisar las canalizaciones. Para más información acerca del uso de esta aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
 1. Haga clic en el icono **Supervisión y administración** en la página principal de Data Factory.
@@ -413,6 +413,6 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

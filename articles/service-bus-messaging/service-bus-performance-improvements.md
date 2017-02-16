@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/25/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5402481a0adc27474f7ddd9b5be1d71dc2c91d44
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
 
 
 ---
@@ -37,7 +37,7 @@ Service Bus permite a los clientes enviar y recibir mensajes a través de tres p
 AMQP y SBMP son más eficaces, ya que mantienen la conexión a Service Bus, siempre y cuando exista la fábrica de mensajería. También implementa el procesamiento por lotes y la captura previa. A menos que se mencione explícitamente, en todo el contenido de este tema se asume que se usa AMQP o SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Reutilización de factorías y clientes
-Los objetos de cliente de Service Bus, como [QueueClient][QueueClient] o [MessageSender][MessageSender], se crean con un objeto [MessagingFactory][MessagingFactory], que también permite la administración interna de las conexiones. Ni los generadores de mensajería ni los clientes de cola, tema y suscripción deben cerrarse después de enviar un mensaje y después volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Bus de servicio y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede usar el objeto [QueueClient][QueueClient] de manera segura para enviar mensajes desde varios subprocesos y operaciones asincrónicas simultáneas. 
+Los objetos de cliente de Service Bus, como [QueueClient][QueueClient] o [MessageSender][MessageSender], se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Ni los generadores de mensajería ni los clientes de cola, tema y suscripción deben cerrarse después de enviar un mensaje y después volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Bus de servicio y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar el objeto [QueueClient][QueueClient] para enviar mensajes desde varios subprocesos y operaciones asincrónicas simultáneas. 
 
 ## <a name="concurrent-operations"></a>Operaciones simultáneas
 Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Este tiempo incluye el procesamiento de la operación por el servicio Bus de servicio, además de la latencia de la solicitud y la respuesta. Para aumentar el número de operaciones por tiempo, las operaciones deberán ejecutarse simultáneamente. Puede hacerlo de varias maneras diferentes:
@@ -82,14 +82,14 @@ Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Es
 ## <a name="receive-mode"></a>Modo de recepción
 Al crear un cliente de cola o suscripción, puede especificar un modo de recepción: *Peek-lock* (Inspección y bloqueo) o *Receive And Delete* (Recepción y eliminación). El modo de recepción predeterminado es [PeekLock][PeekLock]. Cuando se trabaja en este modo, el cliente envía una solicitud para recibir un mensaje del Bus de servicio. Después de que el cliente haya recibido el mensaje, envía una solicitud para completarlo.
 
-Cuando se establece el modo de recepción en [ReceiveAndDelete][ReceiveAndDelete], ambos pasos se combinan en una sola petición. Esto reduce el número total de operaciones y puede mejorar el rendimiento general de los mensajes. Esta mejora del rendimiento conlleva el riesgo de la pérdida de mensajes.
+Cuando se establece el modo de recepción en [ReceiveAndDelete][ReceiveAndDelete], ambos pasos se combinan en una sola solicitud. Esto reduce el número total de operaciones y puede mejorar el rendimiento general de los mensajes. Esta mejora del rendimiento conlleva el riesgo de la pérdida de mensajes.
 
 El Bus de servicio no admite transacciones para las operaciones de recepción y eliminación. Además, se necesita la semántica de PeekLock para aquellos escenarios en los que el cliente desee aplazar un mensaje o [procesarlo como correo devuelto](service-bus-dead-letter-queues.md).
 
 ## <a name="client-side-batching"></a>Procesamiento por lotes del lado cliente
 El procesamiento por lotes del lado cliente permite que un cliente de cola o tema retrase el envío de un mensaje durante un período determinado. Si el cliente envía más mensajes durante este período, los transmite en un único lote. El procesamiento por lotes del lado cliente también hace que un cliente de cola o suscripción procese varias solicitudes **Complete** por lotes en una única solicitud. El procesamiento por lotes solo está disponible para las operaciones **Send** y **Complete** asincrónicas. Las operaciones sincrónicas se envían de inmediato al servicio Bus de servicio. El procesamiento por lotes no tiene lugar para las operaciones de inspección o recepción, así como tampoco entre clientes.
 
-Si el lote supera el tamaño máximo del mensaje, se quita el último mensaje del lote y el cliente envía inmediatamente el lote. El último mensaje pasa a ser el primero del siguiente lote. De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Puede cambiar el intervalo entre lotes si configura la propiedad [BatchFlushInterval][BatchFlushInterval] antes de crear la factoría de mensajería. Esta configuración afecta a todos los clientes que se creen en esta factoría.
+De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Puede cambiar el intervalo entre lotes si configura la propiedad [BatchFlushInterval][BatchFlushInterval] antes de crear la factoría de mensajería. Esta configuración afecta a todos los clientes que se creen en esta factoría.
 
 Para deshabilitar el procesamiento por lotes, establezca la propiedad [BatchFlushInterval][BatchFlushInterval] en **TimeSpan.Zero**. Por ejemplo:
 
@@ -120,7 +120,7 @@ La captura previa permite que el cliente de cola o suscripción cargue más mens
 
 Cuando se lleva a cabo la captura previa de un mensaje, el servicio bloquea dicho mensaje. De esta manera, se impide que otro receptor reciba el mensaje con captura previa. Si el receptor no puede completar el mensaje antes de que expire el bloqueo, el mensaje pasa a estar disponible para otros receptores. La copia de captura previa del mensaje permanece en la memoria caché. El receptor que consume la copia en caché expirada recibirá una excepción cuando intente completar dicho mensaje. De forma predeterminada, el bloqueo del mensaje expira tras 60 segundos. Este valor puede ampliarse a 5 minutos. Para evitar el consumo de mensajes expirados, el tamaño de la memoria caché debe ser siempre menor que el número de mensajes que un cliente puede consumir en el intervalo de tiempo de espera de bloqueo.
 
-Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] es el que se obtiene al multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de la factoría. Por ejemplo, una factoría crea 3 receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20\*3\*10 = 600. De manera predeterminada, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] se establece en 0, lo que significa que no se realiza la captura de ningún mensaje adicional desde el servicio.
+Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] es el que se obtiene de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores del generador. Por ejemplo, una factoría crea 3 receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20\*3\*10 = 600. De forma predeterminada, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] se establece en 0, lo que significa que no se realiza la captura previa de ningún mensaje adicional desde el servicio.
 
 La captura previa de los mensajes aumenta el rendimiento general de una cola o una suscripción porque reduce el número total de operaciones de mensajes o recorridos de ida y vuelta. Sin embargo, capturar el primer mensaje tardará más tiempo (debido al aumento del tamaño del mensaje). Recibir mensajes con captura previa será más rápido porque el cliente ya ha descargado estos mensajes.
 
@@ -137,10 +137,10 @@ td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
 ```
 
-Si se envía a una entidad rápida un mensaje que contiene información importante y que no tiene que perderse, el remitente puede forzar que Service Bus lo conserve inmediatamente en almacenamiento estable si se establece la propiedad [ForcePersistence][ForcePersistence] en **true**.
+Si se envía un mensaje que contiene información importante y que no debe perderse a una entidad exprés, el remitente puede forzar que Service Bus lo conserve inmediatamente en almacenamiento estable si se establece la propiedad [ForcePersistence][ForcePersistence] en **true**.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso de colas o temas con particiones
-De forma interna, Service Bus usa el mismo nodo y almacén de mensajería para procesar y almacenar todos los mensajes de una entidad de mensajería (cola o tema). Por otra parte, una cola o un tema con particiones se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas con particiones no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad con particiones, establezca la propiedad [EnablePartitioning][EnablePartitioning] en **true** como se muestra en el ejemplo siguiente. Para más información sobre las entidades con particiones, vea [Entidades de mensajería con particiones][Entidades de mensajería con particiones].
+De forma interna, Service Bus usa el mismo nodo y almacén de mensajería para procesar y almacenar todos los mensajes de una entidad de mensajería (cola o tema). Por otra parte, una cola o un tema con particiones se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas con particiones no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][EnablePartitioning] en **true** como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
 ```
 // Create partitioned queue.
@@ -152,7 +152,7 @@ namespaceManager.CreateQueue(qd);
 ## <a name="use-of-multiple-queues"></a>Uso de varias colas
 Si no se pueden usar una cola o un tema con particiones, o si una única cola o tema con particiones no pueden procesar la carga esperada, debe usar varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
 
-## <a name="development-testing-features"></a>Características de implementación y pruebas
+## <a name="development--testing-features"></a>Características de implementación y pruebas
 Service Bus tiene una característica que se utiliza específicamente para desarrollo que **nunca debe utilizarse en configuraciones de producción**.
 
 [TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
@@ -241,7 +241,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 * Establezca el número de capturas previas en el valor resultante de multiplicar por 20 la tasa de recepción esperada en segundos. Esto reduce el número de transmisiones del protocolo de cliente del Bus de servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo optimizar el rendimiento de Service Bus, vea [Entidades de mensajería con particiones][Entidades de mensajería con particiones].
+Para obtener más información sobre cómo optimizar el rendimiento de Service Bus, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
 [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
 [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -254,10 +254,10 @@ Para más información sobre cómo optimizar el rendimiento de Service Bus, vea 
 [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
 [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
 [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-[Entidades de mensajería con particiones]: service-bus-partitioning.md
+[Partitioned messaging entities]: service-bus-partitioning.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

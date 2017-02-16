@@ -1,5 +1,5 @@
 ---
-title: "Descripción general de la configuración KVSActorStateProvider de Azure Service Fabric Reliable Actors | Microsoft Docs"
+title: "Cambio de la configuración de KVSActorStateProvider en microservicios de Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo configurar los actores con estado de Azure Service Fabric de tipo KVSActorStateProvider."
 services: Service-Fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2016
+ms.date: 01/04/2017
 ms.author: sumukhs
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47c72ea0345092e23d3c8603f90891003b6a2f68
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
 
 
 ---
@@ -96,6 +96,6 @@ Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendim
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

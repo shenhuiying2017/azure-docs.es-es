@@ -1,5 +1,5 @@
 ---
-title: Uso de MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB | Microsoft Docs
+title: Uso de MongoChef con una cuenta de DocumentDB de Azure compatible con los protocolos de MongoDB | Microsoft Docs
 description: "Obtenga información acerca de cómo usar MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB, ahora disponible para versión preliminar."
 keywords: MongoChef
 services: documentdb
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/29/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 90039d2626724ed789415967a345d2aadc3407af
+ms.sourcegitcommit: b1e73ced8f11c06adc509af355ccf47b616a211b
+ms.openlocfilehash: 41b94580277bc07aad2f122b5db9060e2d7938d8
 
 
 ---
@@ -31,41 +31,41 @@ Para conectarse a una cuenta de Azure DocumentDB con soporte de protocolo para M
 Para agregar su cuenta de DocumentDB con soporte de protocolo para MongoDB en el administrador de conexiones de MongoChef, realice los pasos siguientes.
 
 1. Recupere la cuenta de DocumentDB con compatibilidad de protocolos con la información de cadena de conexión de MongoDB siguiendo [estas](documentdb-connect-mongodb-account.md)instrucciones.
-   
+
     ![Captura de pantalla de la hoja Cadena de conexión](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Haga clic en **Connect** (Conectar) para abrir Connection Manager (Administrador de conexiones) y, después, haga clic en **New Connection** (Nueva conexión).
-   
+
     ![Captura de pantalla del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 3. En la ventana **New Connection** (Nueva conexión), en la pestaña **Server** (Servidor), escriba el HOST (FQDN) de la cuenta de DocumentDB con compatibilidad de protocolos con MongoDB y el PUERTO.
-   
+
     ![Captura de pantalla de la pestaña Server (Servidor) del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. En la ventana **New Connection** (Nueva conexión), en la pestaña **Authentication** (Autenticación), elija el modo de autenticación **Standard (MONGODB-CR or SCARM-SHA-1)** (Estándar [MONGODB-CR o SCARM-SHA-1]) y escriba el NOMBRE DE USUARIO y la CONTRASEÑA.  Acepte la base de datos de autenticación predeterminada (admin) o proporcione su propio valor.
-   
+
     ![Captura de pantalla de la pestaña Authentication (Autenticación) del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
-5. En la ventana **New Connection** (Nueva conexión), en la pestaña **SSL**, active la casilla **Use SSL protocol to connect** (Usar protocolo SSL para conectar) y el botón de radio **Accept self-signed SSL certificates** (Aceptar certificados SSL autofirmados).
-   
+5. En la ventana **New Connection** (Nueva conexión), en la pestaña **SSL**, active la casilla **Use SSL protocol to connect** (Usar protocolo SSL para conectar) y el botón de radio **Accept server self-signed SSL certificates** (Aceptar certificados SSL autofirmados del servidor).
+
     ![Captura de pantalla de la pestaña SSL del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Haga clic en el botón **Test Connection** (Probar conexión) para validar la información de conexión, haga clic en **OK** (Aceptar) para volver a la ventana de la nueva conexión y, finalmente, haga clic en **Save** (Guardar).
-   
+
     ![Captura de pantalla de la ventana de conexión de prueba de MongoChef](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
 ## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Uso de MongoChef para crear una base de datos, una colección y unos documentos
 Para crear una base de datos, una colección y unos documentos mediante MongoChef, realice los pasos siguientes.
 
 1. En **Connection Manager** (Administrador de conexiones), resalte la conexión y haga clic en **Connect** (Conectar).
-   
+
     ![Captura de pantalla del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectToAccount.png)
 2. Haga clic con el botón derecho en el host y elija **Add Database**(Agregar base de datos).  Especifique un nombre de base de datos y haga clic en **OK**(Aceptar).
-   
+
     ![Captura de pantalla de la opción Add Database (Agregar base de datos) de MongoChef](./media/documentdb-mongodb-mongochef/AddDatabase1.png)
 3. Haga clic con el botón derecho en la base de datos y elija **Add Collection**(Agregar colección).  Especifique un nombre para la colección y haga clic en **Create**(Create).
-   
+
     ![Captura de pantalla de la opción Add Collection (Agregar colección) de MongoChef](./media/documentdb-mongodb-mongochef/AddCollection.png)
 4. Haga clic en el elemento de menú **Collection** (Colección) y en **Add Document** (Agregar documento).
-   
+
     ![Captura de pantalla del elemento de menú Add Document (Agregar documento) de MongoChef](./media/documentdb-mongodb-mongochef/AddDocument1.png)
 5. En el cuadro de diálogo Add Document (Agregar documento), pegue lo siguiente y haga clic en **Add Document**(Agregar documento).
-   
+
         {
         "_id": "AndersenFamily",
         "lastName": "Andersen",
@@ -83,7 +83,7 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
         "isRegistered": true
         }
 6. Agregue otro documento, esta vez con el contenido siguiente.
-   
+
         {
         "_id": "WakefieldFamily",
         "parents": [
@@ -92,25 +92,25 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
         ],
         "children": [
             {
-                "familyName": "Merriam", 
-                 "givenName": "Jesse", 
+                "familyName": "Merriam",
+                 "givenName": "Jesse",
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
                     { "givenName": "Shadow" }
                 ]
             },
-            { 
-                "familyName": "Miller", 
-                 "givenName": "Lisa", 
-                 "gender": "female", 
+            {
+                "familyName": "Miller",
+                 "givenName": "Lisa",
+                 "gender": "female",
                  "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
         }
 7. Ejecute una consulta de ejemplo. Por ejemplo, busque familias con el apellido 'Andersen' y devuelva los campos parents (padres) y state (estado).
-   
+
     ![Captura de pantalla de resultados de la consulta de MongoChef](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -118,7 +118,6 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 01/05/2017
 ms.author: seanmck;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2766c64f4ffdcaf8e583493060116a244e89f3d
+ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
+ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
 
 
 ---
@@ -40,7 +40,7 @@ De forma predeterminada, Visual Studio quita las instancias existentes de su tip
 #### <a name="to-set-the-application-debug-mode-property"></a>Establecimiento de la propiedad Application Debug Mode
 1. En el menú de acceso directo del proyecto de la aplicación, elija **Propiedades** (o presione la tecla **F4**).
 2. En la ventana **Propiedades**, establezca la propiedad **Application Debug Mode** (Modo de depuración de aplicación).
-   
+
     ![Establecer la propiedad Application Debug Mode][debugmodeproperty]
 
 Estas son las opciones disponibles de **Application Debug Mode** (Modo de depuración de aplicación).
@@ -55,8 +55,8 @@ Se conservan los datos de **Actualización automática** por medio de las funcio
 
 > [!NOTE]
 > Esta propiedad no existe antes de la versión 1.1 de Service Fabric Tools para Visual Studio. Antes de la versión 1.1, use la propiedad **Conservar datos al iniciar** para obtener el mismo comportamiento. La opción Keep Application (Mantener aplicación) se introdujo en la versión 1.2 de Service Fabric Tools para Visual Studio.
-> 
-> 
+>
+>
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Agregue un servicio a su aplicación Service Fabric
 Puede agregar nuevos servicios a su aplicación para ampliar su funcionalidad.  Para garantizar que el servicio se incluye en el paquete de aplicación, agregue el servicio a través del elemento de menú **Nuevo servicio del tejido...** .
@@ -81,8 +81,8 @@ Puede realizar operaciones básicas de administración de clúster desde Visual 
 
 > [!TIP]
 > Para obtener una mejor funcionalidad de administración de clúster, consulte [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-> 
-> 
+>
+>
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
@@ -102,6 +102,6 @@ Puede realizar operaciones básicas de administración de clúster desde Visual 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

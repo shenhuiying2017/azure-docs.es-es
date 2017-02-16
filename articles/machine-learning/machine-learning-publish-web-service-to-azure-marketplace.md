@@ -1,6 +1,6 @@
 ---
-title: "Publicación de los servicios web Machine Learning en Azure Marketplace | Microsoft Docs"
-description: "Publicación de un servicio web de Aprendizaje automático de Azure en Azure Marketplace"
+title: "(obsoleto) Publicación de un servicio web Machine Learning en Azure Marketplace | Microsoft Docs"
+description: "(obsoleto) Publicación de un servicio web Machine Learning en Azure Marketplace"
 services: machine-learning
 documentationcenter: 
 author: BharathS
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/08/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24b131d3a9a17ce9a2daf349518873871c9d1019
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 2d62966f130f6778c9561393cc7fc338f8903f1e
 
 
 ---
-# <a name="publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace
+# <a name="deprecated-publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>(obsoleto) Publicación de un servicio web Machine Learning en Azure Marketplace
+
+> [!NOTE]
+> DataMarket y Data Services están en proceso de retirada, y las suscripciones existentes se retirarán y cancelarán a partir del 31 de marzo de 2017. Como resultado, este artículo se ha quedado obsoleto. 
+> 
+> Aún tiene la posibilidad de publicar sus experimentos de Machine Learning en la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/) en beneficio de la comunidad de la ciencia de datos. Para obtener más información, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
 Azure Marketplace ofrece la posibilidad de publicar servicios web de Aprendizaje automático de Azure como servicios gratuitos o de pago para su consumo por clientes externos. Este artículo proporciona una introducción a ese proceso, junto con vínculos a directrices para comenzar. Mediante este proceso, puede poner a disposición de otros desarrolladores sus servicios web para que los consuman en sus aplicaciones.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -80,7 +87,7 @@ Implementación del servicio en la producción.
 13. Cuando haya terminado de escribir todos los metadatos acerca de la oferta, haga clic en **Publicar** y, a continuación, haga clic en **Pasar a ensayo**. En este momento, se le notificarán los problemas restantes que deba corregir.
 14. Una vez que se haya asegurado de que no quedan problemas pendientes, haga clic en **Solicitar aprobación para pasar a producción**. El proceso de publicación puede tardar varios días laborables. 
 
-[image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
+[image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
 [workspace]:./media/machine-learning-publish-web-service-to-azure-marketplace/selectworkspace.png
 [apikey]:./media/machine-learning-publish-web-service-to-azure-marketplace/apikey.png
@@ -89,6 +96,6 @@ Implementación del servicio en la producción.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

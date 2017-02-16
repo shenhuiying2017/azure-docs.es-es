@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2016
+ms.date: 1/17/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 9652e8365642ec0d088f73ba2bb4eaa0def653a6
-ms.openlocfilehash: 0752130c0e9116efcd0da44e8c81de356cace7e4
+ms.sourcegitcommit: 6eb3e6a270b0072f86e42139b36bffed52520f6c
+ms.openlocfilehash: 7628eb73068cb52d768901a5fab40ef221d64fc1
 
 
 ---
@@ -38,8 +38,11 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+###### <a name="january-10-2017"></a>**10 de enero de 2017**
+El SO invitado de enero contiene revisiones que solo afectan a la familia 2 de SO (Windows 2008 Server R2). Por tanto, solo hemos publicado la imagen de la familia 2 de SO (WA-GUEST-OS-2.59_201701-01) este mes. Para todas las demás familias de SO, el SO de diciembre (201612-01) permanece vigente.
+
 ###### <a name="december-14-2016"></a>**14 de diciembre de 2016**
-La implementación del SO invitado de diciembre comienza hoy, 14 de diciembre de 2016, y está previsto que se publique el 13 de enero de 2016.
+La implementación del SO invitado de diciembre comienza hoy, 14 de diciembre de 2016, y está previsto que se publique el 13 de enero de 2017.
 
 ###### <a name="november-20-2016"></a>**20 de noviembre de 2016**
 La implementación del SO invitado de noviembre comienza hoy, 8 de noviembre de 2016, y está previsto que se publique el 8 de diciembre de 2016.
@@ -91,6 +94,7 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.4_201612-01 |10 de enero de 2017 |Post 5.6 |TBD | 
 | WA-GUEST-OS-5.3_201611-01 |14 de diciembre de 2016 |Post 5.5 |TBD |
 | WA-GUEST-OS-5.2_201610-02 |1 de noviembre de 2016 |Post 5.4 |TBD |
 
@@ -106,9 +110,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.38_201611-01 |14 de diciembre de 2016 |Post 4.4 |TBD |
+| WA-GUEST-OS-4.39_201612-01 |10 de enero de 2017 |Post 4.41 |TBD |
+| WA-GUEST-OS-4.38_201611-01 |14 de diciembre de 2016 |Post 4.40 |TBD |
 | WA-GUEST-OS-4.37_201610-02 |16 de noviembre de 2016 |Post 4.39 |TBD |
-| WA-GUEST-OS-4.36_201609-01 |13 de octubre de 2016 |Post 4.38 |TBD |
+| WA-GUEST-OS-4.36_201609-01 |13 de octubre de 2016 |14 de enero de 2017 |TBD |
 | WA-GUEST-OS-4.35_201608-01 |13 de septiembre de 2016 |16 de diciembre de 2016 |TBD |
 | WA-GUEST-OS-4.34_201607-01 |8 de agosto de 2016 |13 de noviembre de 2016 |TBD |
 | WA-GUEST-OS-4.33_201606-01 |13 de julio de 2016 |13 de octubre de 2016 |TBD |
@@ -140,9 +145,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.46_201612-01 |10 de enero de 2017 |Post 3.48 |TBD |
 | WA-GUEST-OS-3.45_201611-01 |14 de diciembre de 2016 |Post 3.47 |TBD |
 | WA-GUEST-OS-3.44_201610-01 |16 de noviembre de 2016 |Post 3.46 |TBD |
-| WA-GUEST-OS-3.43_201609-01 |13 de octubre de 2016 |Post 3.45 |TBD |
+| WA-GUEST-OS-3.43_201609-01 |13 de octubre de 2016 |14 de enero de 2017 |TBD |
 | WA-GUEST-OS-3.42_201608-01 |13 de septiembre de 2016 |16 de diciembre de 2016 |TBD |
 | WA-GUEST-OS-3.41_201607-01 |8 de agosto de 2016 |13 de noviembre de 2016 |TBD |
 | WA-GUEST-OS-3.40_201606-01 |13 de julio de 2016 |13 de octubre de 2016 |TBD |
@@ -174,9 +180,11 @@ Admite .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.59_201701-01 |10 de enero de 2017 |Post 2.61 |TBD |
+| WA-GUEST-OS-2.58_201612-01 |10 de enero de 2017 |Post 2.60 |TBD |
 | WA-GUEST-OS-2.57_201611-01 |14 de diciembre de 2016 |Post 2.59 |TBD |
-| WA-GUEST-OS-2.56_201610-01 |16 de noviembre de 2016 |Post 2.58 |TBD |
-| WA-GUEST-OS-2.55_201609-01 |13 de octubre de 2016 |Post 2.57 |TBD |
+| WA-GUEST-OS-2.56_201610-01 |16 de noviembre de 2016 |10 de febrero de 2017 |TBD |
+| WA-GUEST-OS-2.55_201609-01 |13 de octubre de 2016 |14 de enero de 2017 |TBD |
 | WA-GUEST-OS-2.54_201608-01 |13 de septiembre de 2016 |16 de diciembre de 2016 |TBD |
 | WA-GUEST-OS-2.53_201607-01 |8 de agosto de 2016 |13 de noviembre de 2016 |TBD |
 | WA-GUEST-OS-2.52_201606-01 |13 de julio de 2016 |13 de octubre de 2016 |TBD |
@@ -274,6 +282,6 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

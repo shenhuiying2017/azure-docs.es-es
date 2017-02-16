@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18234ad720d4e85b50d1871dacf243c65f45be33
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
 
 
 ---
 # <a name="network-resource-provider"></a>Proveedor de recursos de red
-Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure (ARM) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
+Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. Azure Resource Manager permite crear tales aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en Resource Manager.
 
 El Administrador de recursos de Azure utiliza distintos proveedores de recursos para proporcionar acceso a los recursos. Hay tres proveedores de recursos principales: redes, almacenamiento y proceso. En este documento, se describen las características y ventajas del proveedor de recursos de red, entre otros:
 
@@ -40,7 +40,7 @@ El Administrador de recursos de Azure utiliza distintos proveedores de recursos 
   * SDK de Java
   * Azure CLI
   * Portal de vista previa
-  * Lenguaje de la plantilla del Administrador de recursos de Azure
+  * Idioma de la plantilla de Resource Manager
 
 ## <a name="network-resources"></a>Recursos de red
 Ahora puede administrar los recursos de red de forma independiente, en lugar de tener hacerlo a través de un recurso de proceso único (una máquina virtual). Esto garantiza un mayor grado de flexibilidad y agilidad a la hora de componer una infraestructura compleja y de gran escala en un grupo de recursos.
@@ -103,8 +103,8 @@ Se admiten los siguientes métodos HTTP cuando se realizan llamadas a la API de 
 
 La solicitud y la respuesta se ajustan a un formato de carga JSON. Para obtener más información, consulte [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
-### <a name="arm-template-language"></a>Lenguaje de la plantilla del Administrador de recursos de Azure
-Además de administrar recursos de forma imperativa (a través de API o SDK), también puede utilizar un estilo de programación declarativo para crear y administrar recursos de red mediante el lenguaje de la plantilla del Administrador de recursos de Azure.
+### <a name="resource-manager-template-language"></a>Idioma de la plantilla de Resource Manager
+Además de administrar recursos de forma imperativa (a través de API o SDK), también puede utilizar un estilo de programación declarativo para crear y administrar recursos de red mediante el lenguaje de la plantilla de Resource Manager.
 
 A continuación se proporciona una representación de una plantilla de ejemplo:
 
@@ -234,20 +234,20 @@ Tiene la opción de proporcionar los valores de los parámetros manualmente cuan
 
 Las principales ventajas derivadas del uso de plantillas son las siguientes:
 
-* Puede crear una infraestructura compleja en un grupo de recursos de estilo declarativo. La coordinación de la creación de recursos, incluida la administración de dependencias, se controla mediante el Administrador de recursos de Azure.
+* Puede crear una infraestructura compleja en un grupo de recursos de estilo declarativo. La coordinación de la creación de recursos, incluida la administración de dependencias, se controla mediante Resource Manager.
 * La infraestructura se puede crear de una manera repetible en diferentes regiones y dentro de una misma región cambiando simplemente parámetros.
 * El estilo declarativo permite reducir el tiempo necesario para generar las plantillas y distribuir la infraestructura.
 
 Para ver plantillas de ejemplo, consulte [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obtener más información sobre el lenguaje de la plantilla del Administrador de recursos de Azure, vea [Idioma de la plantilla del administrador de recursos de Azure](../resource-group-authoring-templates.md).
+Para obtener más información sobre el lenguaje de la plantilla de Resource Manager, vea [Idioma de la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 La plantilla del ejemplo anterior utiliza la red virtual y los recursos de la subred. Hay otros recursos de red que se pueden utilizar, como se muestra a continuación:
 
 ### <a name="using-a-template"></a>Uso de una plantilla
 Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CLI de Azure o mediante un clic para implementar desde GitHub. Para implementar servicios de una plantilla en GitHub, ejecute los siguientes pasos:
 
-1. Abra el archivo de plantilla 3 desde GitHub. Como ejemplo, abra [Red virtual con dos subredes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
+1. Abra el archivo de plantilla&3; desde GitHub. Como ejemplo, abra [Red virtual con dos subredes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
 2. Haga clic en **Implementación en Azure**, y, a continuación, inicie sesión en el Portal de Azure con sus credenciales.
 3. Compruebe la plantilla y, a continuación, haga clic en **Guardar**.
 4. Haga clic en **Editar parámetros** y seleccione una ubicación, como *West US*, para la red virtual y las subredes.
@@ -258,17 +258,17 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 ![Implementación de plantilla de ejemplo](./media/resource-groups-networking/Figure6.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
+[Idioma de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
 [Redes de Azure: plantillas utilizadas habitualmente](https://github.com/Azure/azure-quickstart-templates)
 
-[Implementación de Azure Resource Manager frente a la implementación clásica](../resource-manager-deployment-model.md)
+[Implementación de Azure Resource Manager frente a la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Información general sobre Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

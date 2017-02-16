@@ -7,7 +7,8 @@ Hay dos maneras para autenticar una aplicación para tener acceso a los servicio
 ### <a name="shared-key"></a>Clave compartida
 La autenticación de clave compartida significa que la aplicación usará el nombre y la clave de la cuenta para tener acceso a los servicios de almacenamiento. Con el fin de mostrar rápidamente cómo usar esta biblioteca, emplearemos la autenticación de clave compartida en esta introducción.
 
-> [AZURE.WARNING (use solo la autenticación de clave compartida para la realización de pruebas) ] El nombre y la clave de la cuenta, que ofrecen acceso total de lectura y escritura a la cuenta de Storage asociada, se distribuirán a todas las personas que descarguen la aplicación. Esta práctica **no** se recomienda, ya que se corre el riesgo de que los clientes en los que no se confía pongan la clave en peligro.
+> [!WARNING] 
+> **Use la autenticación de clave compartida solamente para las pruebas.** El nombre de cuenta y la clave de cuenta, que ofrecen acceso total de lectura y escritura a la cuenta de almacenamiento asociada, se distribuirán a todas las personas que descarguen la aplicación. Esta práctica **no** se recomienda, ya que se corre el riesgo de que los clientes en los que no se confía pongan la clave en peligro.
 > 
 > 
 
@@ -39,6 +40,6 @@ Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicaci�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

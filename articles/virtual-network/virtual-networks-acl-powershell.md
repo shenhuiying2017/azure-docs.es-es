@@ -1,5 +1,5 @@
 ---
-title: "Administración de listas de control de acceso (ACL) para extremos mediante PowerShell"
+title: "Administración de listas de control de acceso de puntos de conexión de Azure | PowerShell | Clásico | Microsoft Docs"
 description: Aprenda a administrar las ACL con PowerShell
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 6d0e461daa9a06f490c2fe1a85d160d013f26829
+ms.sourcegitcommit: 18d33244603cff921f1282ba41f3aeb6e42ae542
+ms.openlocfilehash: 60ed242b78576d4673e41801a8687a354d09bf9c
 
 
 ---
-# <a name="how-to-manage-access-control-lists-acls-for-endpoints-by-using-powershell"></a>Administración de listas de control de acceso (ACL) para extremos mediante PowerShell
+# <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Administración de listas de control de acceso de puntos de conexión con PowerShell en el modelo de implementación clásico
 Puede crear y administrar listas de control de acceso (ACL) de red para extremos mediante Azure PowerShell o en el Portal de administración. En este tema, encontrará procedimientos para realizar tareas comunes de ACL mediante PowerShell. Para obtener la lista de cmdlets de Azure PowerShell, consulte [Cmdlets de administración de Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Para obtener más información acerca de las ACL, consulte [Acerca de las listas de control de acceso (ACL) de red](virtual-networks-acl.md). Si quiere administrar las ACL usando el Portal de administración, vea [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="manage-network-acls-by-using-azure-powershell"></a>Administrar las ACL de red mediante Azure PowerShell
@@ -92,6 +92,6 @@ En ciertas situaciones, puede que desee quitar un objeto de ACL de red de un ext
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

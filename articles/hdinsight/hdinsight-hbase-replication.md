@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2016
+ms.date: 02/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 711d92d9c3d97aceaab24fa0cba0c42d2f639426
-ms.openlocfilehash: 313d4c37932c00b93841cad4616fb4deec1ba67b
+ms.sourcegitcommit: ec82fb896bc6c7212660746445af940f52546ad9
+ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
 
 
 ---
@@ -89,6 +89,8 @@ La replicación de HBase utiliza direcciones IP de las máquinas virtuales ZooKe
 
 9. Repita el paso 6 para establecer la dirección IP estática para los otros dos nodos ZooKeeper.
 
+En el escenario entre redes virtuales, debe usar el modificador **-ip** al llamar a la acción de script **hdi_enable_replication.sh**.
+
 ### <a name="configure-two-virtual-networks-in-two-different-regions"></a>Configuración de dos redes virtuales en dos regiones distintas
 
 Haga clic en la imagen siguiente para crear dos redes virtuales en dos regiones distintas. La plantilla se encuentra almacenada en un contenedor de blobs de Azure público.
@@ -98,6 +100,8 @@ Haga clic en la imagen siguiente para crear dos redes virtuales en dos regiones 
 Cree una puerta de enlace de VPN entre las dos redes virtuales. Para obtener instrucciones, consulte [Create a VNet with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (Creación de una red virtual con una conexión de sitio a sitio).
 
 La replicación de HBase utiliza direcciones IP de las máquinas virtuales ZooKeeper. Debe configurar las direcciones IP estáticas para los nodos ZooKeeper de HBase de destino. Para configurar la dirección IP estática, consulte la sección "Configuración de dos redes virtuales en la misma región" en este artículo.
+
+En el escenario entre redes virtuales, debe usar el modificador **-ip** al llamar a la acción de script **hdi_enable_replication.sh**.
 
 ## <a name="load-test-data"></a>Carga de datos de prueba
 
@@ -122,7 +126,7 @@ Los pasos siguientes muestran cómo llamar al script de acción de script desde 
   - **Principal**: seleccionado. Borre los demás tipos de nodo.
   - **Parámetros**: los siguientes parámetros de ejemplo habilitan la replicación de todas las tablas existentes y copian todos los datos del clúster de origen en el clúster de destino:
 
-            -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata
+            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
 
 6. Haga clic en **Crear**. El script puede tardar algún tiempo, especialmente cuando se usa el argumento -copydata.
 
@@ -216,11 +220,11 @@ La sección print_usage() del [script](https://raw.githubusercontent.com/Azure/h
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
   o
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=&lt;source cluster Ambari username> --src-ambari-password=&lt;source cluster Ambari password>
+        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari username> --src-ambari-password=<source cluster Ambari password>
 
 - **Deshabilitar la replicación en las tablas especificadas (table1, table2 y table3)**:
 
-        -m hn1 -s <source cluster DNS name> -sp &lt;source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -249,6 +253,6 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

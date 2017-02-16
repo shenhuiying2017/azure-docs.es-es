@@ -1,5 +1,5 @@
 ---
-title: "Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric | Microsoft Docs"
+title: "Conversión de aplicaciones de Azure Cloud Services en microservicios | Microsoft Docs"
 description: "Esta guía compara los roles web y de trabajo de Servicios en la nube y los servicios sin estado de Service Fabric para ayudar a la migración desde Servicios en la nube a Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 752d0c9cb32c602dd7721773057f113e0c8f57a0
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
 
 
 ---
@@ -38,7 +38,7 @@ Conceptualmente, un rol de trabajo representa una carga de trabajo sin estado, l
 ## <a name="web-role-to-stateless-service"></a>Rol web a servicio sin estado
 Igual que el rol de trabajo, un rol web también representa una carga de trabajo sin estado y, por tanto, conceptualmente también se puede asignar a un servicio sin estado de Service Fabric. Sin embargo, a diferencia de los roles web, Service Fabric no admite IIS. Para migrar una aplicación web desde un rol web a un servicio sin estado debe moverla primero a un marco web autohospedado que no dependa de IIS o System.Web, como ASP.NET Core 1.
 
-| **Aplicación ** | **Compatible** | **Ruta de migración** |
+| **Aplicación** | **Compatible** | **Ruta de migración** |
 | --- | --- | --- |
 | Formularios Web Forms ASP.NET |No |Conversión a ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migración |Actualización a ASP.NET Core 1 MVC |
@@ -263,6 +263,6 @@ Conozca más información sobre Reliable Services de Service Fabric y las difere
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 611099e8c28584e091f9dc6c07eebf7e397092ea
+ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
+ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
 
 
 ---
@@ -51,13 +51,11 @@ Packer y Terraform también son compatibles con Azure Resource Manager, por lo q
 Las máquinas virtuales de conjunto de escalado, se convierten así en un sustrato estable para los contenedores y solo requieren seguridad ocasional así como actualizaciones relacionadas con el sistema operativo. Como se ha mencionado, Azure Container Service es un buen ejemplo de la adopción de este enfoque y la creación de un servicio a su alrededor.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>¿Cómo aplicar una actualización de sistema operativo a través de dominios de actualización?
-Suponga que desea actualizar la imagen de sistema operativo al tiempo que mantiene el conjunto de escalado de máquina virtual en ejecución. Una manera de hacerlo es actualizar las imágenes de máquina virtual en las máquinas virtuales una por una. Puede hacerlo con PowerShell o la CLI de Azure. Hay comandos diferentes para actualizar el modelo de conjunto de escalado de máquina virtual (cómo se define su configuración) y para emitir llamadas de "actualización manual" en máquinas virtuales individuales.
-
-[Aquí](https://github.com/gbowerman/vmsstools) encontrará un ejemplo de script de Python que automatiza el proceso de actualización de un conjunto de escalado de máquina virtual por dominios de actualización uno por uno. (Advertencia: se trata más de una prueba de concepto que de una solución reforzada lista para producción, puede ser conveniente añadirle alguna comprobación de errores etc.)
+Suponga que desea actualizar la imagen de sistema operativo al tiempo que mantiene el conjunto de escalado de máquina virtual en ejecución. Una manera de hacerlo es actualizar las imágenes de máquina virtual en las máquinas virtuales una por una. Puede hacerlo con PowerShell o la CLI de Azure. Hay comandos diferentes para actualizar el modelo de conjunto de escalado de máquinas virtuales (cómo se define su configuración) y para emitir llamadas de "actualización manual" en máquinas virtuales concretas. En el documento de Azure [Actualización de un conjunto de escalado de máquinas virtuales](./virtual-machine-scale-sets-upgrade-scale-set.md) también se proporciona más información sobre qué opciones hay disponible para realizar actualizaciones del sistema operativo en un conjunto de escalado de máquinas virtuales.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

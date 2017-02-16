@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -31,9 +31,9 @@ Los grupos elásticos de SQL Database proporcionan una solución sencilla y rent
 >
 
 ## <a name="how-it-works"></a>Cómo funciona
-Un modelo de aplicación SaaS común es el modelo de base de datos de inquilino único: cada cliente tiene su propia base de datos. Cada cliente (base de datos) tiene requisitos impredecibles de recursos de memoria, E/S y CPU. Con estos valores máximos y mínimos de demanda, ¿cómo se pueden asignar recursos de manera eficaz y rentable? Normalmente había dos opciones: (1) aprovisionar en exceso los recursos según el uso máximo y pagar de más o (2) aprovisionar de forma predeterminada para ahorrar costos, en detrimento del rendimiento y la satisfacción del cliente durante las horas de actividad máxima. Los grupos elásticos solucionan este problema y se aseguran de que las bases de datos obtengan los recursos de rendimiento que necesitan y en el momento en que los necesitan. Proporcionan un mecanismo de asignación de recursos simples dentro de un presupuesto predecible. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiinquilino con Base de datos SQL de Azure).
+Un modelo de aplicación SaaS común es el modelo de base de datos de inquilino único: cada cliente tiene su propia base de datos. Cada cliente (base de datos) tiene requisitos impredecibles de recursos de memoria, E/S y CPU. Con estos valores máximos y mínimos de demanda, ¿cómo se pueden asignar recursos de manera eficaz y rentable? Normalmente había dos opciones: (1) aprovisionar en exceso los recursos según el uso máximo y pagar de más o (2) aprovisionar de forma predeterminada para ahorrar costos, en detrimento del rendimiento y la satisfacción del cliente durante las horas de actividad máxima. Los grupos elásticos solucionan este problema y se aseguran de que las bases de datos obtengan los recursos de rendimiento que necesitan y en el momento en que los necesitan. Proporcionan un mecanismo de asignación de recursos simples dentro de un presupuesto predecible. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 En Base de datos SQL, la medida relativa de la capacidad de una base de datos para administrar demandas de recursos se expresa en unidades de transacción de base de datos (DTU) para bases de datos únicas y DTU elásticas (eDTU) para bases de datos de grupos elásticos. Consulte el artículo de [introducción a SQL Database](sql-database-technical-overview.md) para obtener más información sobre las DTU y eDTU.
@@ -106,6 +106,6 @@ Para las aplicaciones que tienen requisitos de recuperación más exigentes que 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

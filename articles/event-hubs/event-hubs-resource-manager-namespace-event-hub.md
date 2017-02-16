@@ -1,5 +1,5 @@
 ---
-title: "Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager | Microsoft Docs"
+title: "Creación de un grupo de consumidores del espacio de nombres de Azure Event Hubs mediante una plantilla | Microsoft Docs"
 description: "Creación de un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager"
 services: event-hubs
 documentationcenter: .net
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: a9e31954983fa673258917785a5bd828f1970fa1
-ms.openlocfilehash: 92ec109c6cf9e3a2792ed68dfd96f86f5f9ae339
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 42ee0c02cfd419286b223738a539089570376929
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
 En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Creación de plantillas de Azure Resource Manager].
+Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
 
-Para ver la plantilla completa, consulte la [plantilla de grupo de consumidores y Centros de eventos][plantilla de grupo de consumidores y Centros de eventos] en GitHub.
+Para ver la plantilla completa, consulte la [plantilla de grupos de consumidores y un centro de eventos][Event Hub and consumer group template] en GitHub.
 
 > [!NOTE]
-> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque Event Hubs.
+> Para buscar las plantillas más recientes, visite la galería de [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque Event Hubs.
 > 
 > 
 
@@ -141,14 +141,14 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-[Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
-[Plantillas de inicio rápido de Azure]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Uso de Azure PowerShell con Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure]: ../xplat-cli-azure-resource-manager.md
-[plantilla de grupo de consumidores y Centros de eventos]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
+[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

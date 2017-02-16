@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e54d6ac95446f10270d786af87342bbd1ac46504
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 86391212e70a0f0a8ec0e53dce26b11218a5780c
 
 
 ---
@@ -50,7 +50,7 @@ La aplicación de ejemplo **Base de datos elástica con SQL de Azure - Introducc
    
     ![progreso][4]
 
-Enhorabuena; ha creado y ejecutado su primera aplicación particionada utilizando herramientas de base de datos elástica en Base de datos SQL de Azure. Eche un vistazo rápido a las particiones que creó el ejemplo conectando Visual Studio o SQL Server Management Studio a su servidor de Base de datos de Azure. Observará nuevas bases de datos de particiones de ejemplo y una base de datos de administrador de mapas de particiones que ha creado el ejemplo.
+Enhorabuena; ha creado y ejecutado su primera aplicación particionada usando herramientas de base de datos elástica en Azure SQL Database. Eche un vistazo rápido a las particiones que creó el ejemplo conectando Visual Studio o SQL Server Management Studio a su servidor de Base de datos de Azure. Observará nuevas bases de datos de particiones de ejemplo y una base de datos de administrador de mapas de particiones que ha creado el ejemplo.
 
 > [!IMPORTANT]
 > Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -103,6 +103,6 @@ Para obtener más información sobre las herramientas de base de datos elástica
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

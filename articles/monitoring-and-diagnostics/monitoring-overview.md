@@ -1,28 +1,31 @@
 ---
-title: "Información general sobre la supervisión en Microsoft Azure | Microsoft Docs"
-description: "Información general de la supervisión y los diagnósticos de Microsoft Azure, incluidas las alertas, los webhooks, el escalado automático, etc."
+title: "Información general sobre la funcionalidad de supervisión de Azure | Microsoft Docs"
+description: "Introducción breve a la característica Azure Monitor de Microsoft Azure, que incluye alertas, webhooks, escalado automático y mucho más."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
 ms.service: monitoring-and-diagnostics
-l: 
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/05/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4a9e92330081bcf56b7e3755597f76d3530a823d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
 
 
 ---
+
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Información general sobre la supervisión en Microsoft Azure
 En este artículo se proporciona información general conceptual de la supervisión de recursos de Azure. Proporciona punteros a la información sobre determinados tipos de recursos.  Para obtener información detallada sobre la supervisión de las aplicaciones desde el punto de vista no de Azure, consulte [Guía de supervisión y diagnóstico](../best-practices-monitoring.md).
+
+Hay un tutorial en vídeo de Azure Monitor en  
+[Funcionalidad de supervisión y diagnósticos de Microsoft Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) En [Funcionalidad de supervisión y diagnósticos de Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234), encontrará un vídeo adicional que explica un escenario donde puede usar Azure Monitor.  
 
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
 
@@ -145,7 +148,6 @@ Más información acerca de
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Implementar una matriz virtual de StorSimple 3: Configurar el dispositivo virtual como servidor de archivos'
+title: "Configuración de una matriz virtual de StorSimple como servidor de archivos | Microsoft Docs"
 description: "En este tercer tutorial sobre la implementación de matrices virtuales StorSimple se enseña a configurar un dispositivo virtual como servidor de archivos."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f99e3dc59c0637053cad6c2b3b6baedac803f42
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
 
 
 ---
@@ -65,7 +65,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 6. En la página **Device settings** (Configuración de dispositivo):
    
    1. Asigne un **nombre** exclusivo al dispositivo. Este nombre puede tener de 1 a 15 caracteres y puede contener letras, números y guiones.
-   2. Haga clic en el icono ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) de **servidor de archivos** para el **Tipo** de dispositivo que está creando. Un servidor de archivos le permitirá crear carpetas compartidas.
+   2. Haga clic en el icono **Servidor de archivos** ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) del **tipo** de dispositivo que crea. Un servidor de archivos le permitirá crear carpetas compartidas.
    3. Como el dispositivo es un servidor de archivos, debe unir el dispositivo a un dominio. Escriba un valor en **nombre de dominio**.
    4. Haga clic en **Apply**.
 7. Aparece un cuadro de diálogo. Escriba las credenciales del dominio en el formato especificado. Haga clic en el icono de marca de verificación. Se comprobarán las credenciales del dominio. Verá un mensaje de error si las credenciales son incorrectas.
@@ -85,9 +85,9 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
    
    En la página **Proxy web** :
    
-   1. Escriba la **URL de proxy web** en este formato: *http://&lt;dirección o nombre de dominio completo&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
+   1. Proporcione la **URL de proxy web** en este formato:  *http://&lt;dirección o nombre de dominio completo&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
    2. Especifique **Autenticación** como **Básica** o **Ninguna**.
-   3. Si utiliza autenticación, también debe escribir un **Nombre de usuario** y una **Contraseña**.
+   3. Si utiliza autenticación, también debe proporcionar un **Nombre de usuario** y una **Contraseña**.
    4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de proxy web configurados.
 10. (Opcionalmente) configure las opciones de hora para el dispositivo, como la zona horaria y los servidores NTP principal y secundario. Se requieren servidores NTP, ya que el dispositivo debe sincronizar la hora para que pueda autenticarse con los proveedores de servicios en la nube.
     
@@ -177,7 +177,7 @@ Ahora, necesitará conectarse a los recursos compartidos que creó en el paso an
 
 Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de StorSimple como servidor de archivos.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Configure-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Configure-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -187,6 +187,6 @@ Aprenda a usar la interfaz de usuario web local para [administrar la matriz virt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

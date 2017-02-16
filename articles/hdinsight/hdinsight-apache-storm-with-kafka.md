@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/09/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e1c99bbe9d6317d83cc5e71ca4f79d862223aa0a
-ms.openlocfilehash: 080def517b9a443d33148354226a394494a66e03
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: c6171ad4077e833162bfad31b01abbc9947f8e45
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Uso de Apache Kafka (versión preliminar) con Storm en HDInsight
@@ -29,8 +29,6 @@ Apache Kafka es una solución de mensajería de publicación-suscripción que es
 > Cuando haya terminado los pasos indicados en este documento, no olvide eliminar los clústeres para evitar gastos innecesarios.
 
 ## <a name="prerequisites"></a>Requisitos previos
-
-* Una suscripción de Azure
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 o versiones posteriores. O equivalente, como [OpenJDK](http://openjdk.java.net/).
   
@@ -324,6 +322,6 @@ Para más información sobre la implementación y supervisión de topologías en
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

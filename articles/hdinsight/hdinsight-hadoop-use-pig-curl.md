@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: c6da3b079ca7455fbea91d3051b7f2184c9eb9fa
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 476af10550075cde145a9cf2153330f063ad17b3
 
 
 ---
@@ -37,6 +37,10 @@ CURL sirve para demostrar cómo se puede interactuar con HDInsight mediante soli
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 * Un clúster de HDInsight de Azure (Hadoop en HDInsight) (basado en Windows o en Linux)
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -83,7 +87,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
      
         {"id":"job_1415651640909_0026"}
 
-3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fue `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
+3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fuese `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
    
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
    
@@ -127,6 +131,6 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

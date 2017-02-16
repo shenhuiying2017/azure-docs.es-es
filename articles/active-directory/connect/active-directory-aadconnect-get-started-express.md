@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 44a8b20dddfa641ab15b3b8269c0660842cd3b4d
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
 
 
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introducción a Azure AD Connect mediante la configuración rápida
-Se utiliza la **Configuración rápida** de Azure AD Connect cuando se dispone de una topología de bosque único y de [sincronización de contraseña](../active-directory-aadconnectsync-implement-password-synchronization.md) para la autenticación. **Configuración rápida** es la opción predeterminada y se utiliza en los escenarios implementados más habituales. Ya solo le faltan uno cuantos clics para extender su directorio local a la nube.
+Se utiliza la **Configuración rápida** de Azure AD Connect cuando se dispone de una topología de bosque único y de [sincronización de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) para la autenticación. **Configuración rápida** es la opción predeterminada y se utiliza en los escenarios implementados más habituales. Ya solo le faltan uno cuantos clics para extender su directorio local a la nube.
 
-Antes de empezar a instalarlo, debe [descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se señalan en [Requisitos previos de Azure AD Connect](../active-directory-aadconnect-prerequisites.md).
+Antes de empezar a instalarlo, debe [descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se señalan en [Requisitos previos de Azure AD Connect](active-directory-aadconnect-prerequisites.md).
 
 Si la configuración rápida no coincide con su topología, consulte la [documentación relacionada](#related-documentation) sobre otros escenarios.
 
@@ -36,14 +36,14 @@ Puede ver estos pasos de acción en la sección [Vídeos](#videos) .
 4. En la pantalla Configuración rápida, haga clic en **Usar configuración rápida**.  
    ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. En la pantalla Conectar a Azure AD, escriba el nombre de usuario y la contraseña de un administrador global de Azure AD. Haga clic en **Next**.  
-   ![Conectarse a Azure](./media/active-directory-aadconnect-get-started-express/connectaad.png) Si aparece un error y tiene problemas de conectividad, consulte [Solución de problemas de conectividad](../active-directory-aadconnect-troubleshoot-connectivity.md).
+   ![Conectarse a Azure](./media/active-directory-aadconnect-get-started-express/connectaad.png) Si aparece un error y tiene problemas de conectividad, consulte [Solución de problemas de conectividad](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. En la pantalla Conectar a AD DS, escriba el nombre de usuario y la contraseña de una cuenta de administrador de empresa. Puede escribir la parte del dominio con el formato NetBios o FQDN, es decir, FABRIKAM\administrator o fabrikam.com\administrator. Haga clic en **Next**.  
    ![Conectarse a AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Solo se mostrará la página [**Configuración de inicio de sesión de Azure AD**](../active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) si no completó la [comprobación de dominios](../active-directory-add-domain.md) en los [requisitos previos](../active-directory-aadconnect-prerequisites.md).
+7. Solo se mostrará la página [**Configuración de inicio de sesión de Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) si no completó la [comprobación de dominios](../active-directory-add-domain.md) en los [requisitos previos](active-directory-aadconnect-prerequisites.md).
    ![Dominios sin comprobar](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
    Si ve esta página, revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización.
 8. En la pantalla Listo para configurar, haga clic en **Instalar**.
-   * En la página Listo para configurar, puede desactivar la casilla **Inicie el proceso de sincronización en cuanto se complete la configuración**. Si quiere realizar alguna configuración adicional, por ejemplo, el [filtrado](../active-directory-aadconnectsync-configure-filtering.md), desactive esta casilla. Si desactiva esta opción, el asistente configura la sincronización, pero deja el programador deshabilitado,  y no se ejecuta hasta que lo habilite manualmente [volviendo a ejecutar el Asistente para la instalación](../active-directory-aadconnectsync-installation-wizard.md).
+   * En la página Listo para configurar, puede desactivar la casilla **Inicie el proceso de sincronización en cuanto se complete la configuración**. Si quiere realizar alguna configuración adicional, por ejemplo, el [filtrado](active-directory-aadconnectsync-configure-filtering.md), desactive esta casilla. Si desactiva esta opción, el asistente configura la sincronización, pero deja el programador deshabilitado,  y no se ejecuta hasta que lo habilite manualmente [volviendo a ejecutar el Asistente para la instalación](active-directory-aadconnectsync-installation-wizard.md).
    * Si tiene Exchange en su entorno de Active Directory local, también dispone de la opción para habilitar una [**implementación híbrida de Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Habilite esta opción si planea tener buzones de Exchange tanto en la nube como locales de manera simultánea.
      ![Listo para configurar Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. Una vez completada la instalación, haga clic en **Salir**.
@@ -57,13 +57,13 @@ Para ver un vídeo sobre el uso de la instalación rápida, consulte:
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](../active-directory-aadconnect-whats-next.md).
+Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).
 
-Para aprender más acerca de estas características que se habilitaron con la instalación, consulte la información sobre: [actualización automática](../active-directory-aadconnect-feature-automatic-upgrade.md), [cómo evitar eliminaciones accidentales](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
+Para aprender más acerca de estas características que se habilitaron con la instalación, consulte la información sobre: [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md), [cómo evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](../active-directory-aadconnectsync-feature-scheduler.md).
+Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](active-directory-aadconnectsync-feature-scheduler.md).
 
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](../active-directory-aadconnect.md).
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="related-documentation"></a>documentación relacionada
 | Tema. |
@@ -76,6 +76,6 @@ Obtenga más información sobre la [Integración de las identidades locales con 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

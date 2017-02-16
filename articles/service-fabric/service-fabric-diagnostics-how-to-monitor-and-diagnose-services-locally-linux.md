@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 03f1dde722025624997adb7c1258b2f24c481209
+ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
+ms.openlocfilehash: 1d02402f8d3d3f501a100c1618bcba595f1fedc0
 
 
 ---
@@ -58,7 +58,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
  
  
-Esta configuración hace que se recopilen los registros por orden de rotación en `/tmp/servicefabric/logs/`. El **%u** y el **%g** permiten crear más archivos, con nombres de archivo mysfapp0.log, mysfapp1.log, etc. De forma predeterminada, si no hay ningún controlador configurado explícitamente, se registra el controlador de la consola. Se pueden ver los registros de syslog en /var/log/syslog.
+Esta configuración hace que se recopilen los registros por orden de rotación en `/tmp/servicefabric/logs/`. Los valores **%u** y **%g** permiten crear más archivos, con nombres de archivo mysfapp0.log, mysfapp1.log, etc. De forma predeterminada, si no hay ningún controlador configurado explícitamente, se registra el controlador de la consola. Se pueden ver los registros de syslog en /var/log/syslog.
  
 Para más información, consulte los [ejemplos de código en GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
@@ -143,6 +143,6 @@ El mismo código de seguimiento que agregó a la aplicación también funciona c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

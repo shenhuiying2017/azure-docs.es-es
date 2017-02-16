@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6468b7e9cde47ca4caf9be14d0ad780a431e6f2
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6f336db8c8719b99420b353dca82e36a0d837769
 
 
 ---
@@ -29,7 +29,7 @@ GitHub es un servicio de hospedaje del repositorio Git basado en la Web. Ofrece 
 > 
 > 
 
-Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Desencadenadores y acciones
 El conector GitHub se puede usar como acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML. 
@@ -167,11 +167,11 @@ No hay parámetros para esta llamada
 | repository_url |string |No |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

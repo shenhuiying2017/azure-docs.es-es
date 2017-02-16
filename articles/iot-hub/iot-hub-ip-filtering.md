@@ -1,6 +1,6 @@
 ---
-title: 'IoT Hub: filtro IP | Microsoft Docs'
-description: "En este tutorial se muestra cómo crear una lista de direcciones IP permitidas y no permitidas para Azure IoT Hub."
+title: "Filtros de conexión IP de Azure IoT Hub | Microsoft Docs"
+description: "Describe cómo usar el filtrado de IP para bloquear las conexiones de direcciones IP específicas del centro de IoT Hub de Azure. Puede bloquear conexiones de direcciones IP concretas o de intervalos."
 services: iot-hub
 documentationcenter: 
 author: BeatriceOltean
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/05/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 457d0d97601e18de2a19b83be100954d01f9bbf8
-ms.openlocfilehash: 86622918a136da4c478c8d47a677a67e46eb093b
+ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
+ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
 
 
 ---
 
-# <a name="ip-filter"></a>Filtro IP
+# <a name="use-ip-filters"></a>Uso de filtros IP
 
 La seguridad es un aspecto importante de cualquier solución de IoT basada en Azure IoT Hub. En ciertas ocasiones necesitará crear una lista de direcciones IP permitidas y no permitidas como parte de la configuración de seguridad. La característica de _filtro IP_ le permite configurar reglas para rechazar o aceptar tráfico de direcciones IPv4 específicas.
 
@@ -61,6 +61,9 @@ La opción **Agregar** está deshabilitada cuando se alcanza el máximo de diez 
 
 Puede editar una regla existente al hacer doble clic en la fila que la contiene.
 
+> [!NOTE]
+> Rechazar direcciones de IP puede evitar que otros servicios de Azure (por ejemplo, Azure Stream Analytics, Azure Virtual Machines o el Explorador de dispositivos del portal) interactúen con el centro de IoT.
+
 ## <a name="delete-an-ip-filter-rule"></a>Eliminación de una regla de filtro IP
 
 Para eliminar una regla de filtro IP, seleccione una o varias reglas en la cuadrícula y haga clic en **Eliminar**.
@@ -71,7 +74,7 @@ Para eliminar una regla de filtro IP, seleccione una o varias reglas en la cuadr
 
 Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
 
-Por ejemplo, si desea aceptar las direcciones del intervalo 192.168.100.0/22 y rechazar todas las demás, la primera regla de la cuadrícula debe aceptar el intervalo de direcciones 192.168.100.0/22. La siguiente regla debe rechazar todas las direcciones mediante el intervalo 0.0.0.0/0. Si agrega una última regla que rechace el intervalo de 0.0.0.0/0, cambiará el comportamiento predeterminado para la creación de listas blancas.
+Por ejemplo, si desea aceptar las direcciones del intervalo 192.168.100.0/22 y rechazar todas las demás, la primera regla de la cuadrícula debe aceptar el intervalo de direcciones 192.168.100.0/22. La siguiente regla debe rechazar todas las direcciones mediante el intervalo 0.0.0.0/0.
 
 Puede cambiar el orden de las reglas de filtro IP en la cuadrícula al hacer clic en los tres puntos verticales situados al principio de las filas y mediante el método arrastrar y colocar.
 
@@ -96,13 +99,13 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 <!-- Links -->
 
-[Guía para desarrolladores del Centro de IoT]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Azure ExpressRoute]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

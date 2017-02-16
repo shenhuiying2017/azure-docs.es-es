@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52360ffc7224ad6ec2009e239ee1aa0b35c7f1cc
+ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
+ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
 
 
 ---
@@ -80,8 +80,9 @@ Tenga en cuenta que  las notificaciones de los tokens de identificador no se dev
 | Código hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |El código hash se incluye en los tokens de identificador solo cuando el token se emite junto con un código de autorización de OAuth 2.0. Los códigos hash se pueden usar para validar la autenticidad de un código de autorización. Consulte la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para más información sobre cómo realizar esta validación. |
 | Hash de token de acceso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |El hash de token de acceso se incluye en los tokens de identificador solo cuando el token se emite junto con un token de acceso de OAuth 2.0. El hash de token de acceso se puede usar para validar la autenticidad de un token de acceso. Consulte la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para más información sobre cómo realizar esta validación. |
 | Valor de seguridad |`nonce` |`12345` |El valor de seguridad es una estrategia que se usa para mitigar los ataques de reproducción de tokens. La aplicación puede especificar un valor de seguridad en una solicitud de autorización mediante el parámetro de consulta `nonce` . El valor que se proporcione en la solicitud solo se emitirá sin modificar en la notificación `nonce` de un token de identificador. Esto permite a la aplicación comprobar el valor con respecto al valor que especifica en la solicitud, que asocia la sesión de la aplicación con un token de identificador determinado. La aplicación tiene que realizar esta validación durante el proceso de validación del token de identificador. |
-| Asunto |`sub` |`Not supported currently. Use oid claim.` |Esta es la entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso. Sin embargo, la notificación del firmante no ha implementado todavía en Azure AD B2C. En lugar de usar la notificación del firmante para la autorización, debe configurar las directivas para incluir la notificación `oid` del identificador de objeto y usar su valor para identificar a los usuarios. |
-| Referencia de clase de contexto de autenticación |`acr` |`b2c_1_sign_in` |Nombre de la directiva que se usó para emitir el token de identificador. |
+| Asunto |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Esta es la entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso. De manera predeterminada, la notificación del asunto se rellena con el identificador de objeto del usuario del directorio. Para más información, consulte este [artículo](active-directory-b2c-token-session-sso.md). |
+| Referencia de clase de contexto de autenticación |`acr` |No aplicable |No se usa actualmente, salvo en caso de directivas anteriores. Para más información, consulte este [artículo](active-directory-b2c-token-session-sso.md). |
+| Directiva de Trustframework |`tfp` |`b2c_1_sign_in` |Nombre de la directiva que se usó para emitir el token de identificador. |
 | Hora de autenticación |`auth_time` |`1438535543` |Esta notificación es la hora a la que un usuario especificó sus credenciales por última vez, representada en tiempo de época. |
 
 ### <a name="refresh-tokens"></a>Tokens de actualización
@@ -155,6 +156,6 @@ Las siguientes vigencias de los tokens se proporcionan para ampliar sus conocimi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

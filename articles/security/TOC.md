@@ -18,7 +18,7 @@
 ### [Procedimientos recomendados para actualizaciones de software en IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Integración de registro de Azure](security-azure-log-integration-overview.md)
-#### [Primeros pasos](security-azure-log-integration-get-started.md)
+#### [Introducción](security-azure-log-integration-get-started.md)
 #### [Preguntas más frecuentes](security-azure-log-integration-faq.md)
 ## [Administración de identidades](security-identity-management-overview.md)
 ### [Identificación de procedimientos recomendados de seguridad para administración de identidades](azure-security-identity-management-best-practices.md)
@@ -33,14 +33,12 @@
 ### [Patrones y procedimientos recomendados de seguridad](security-best-practices-and-patterns.md)
 ### [Diseño de aplicaciones resistentes](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Referencia
-## [Centro de confianza](security-microsoft-trust-center.md)
-## [Centro de respuesta de seguridad de Microsoft](azure-security-response-center.md)
-## [Pruebas de penetración](azure-security-pen-testing.md)
-
 # Temas relacionados
+## [Centro de confianza](security-microsoft-trust-center.md)
+## [Microsoft Security Response Center](azure-security-response-center.md)
+## [Pruebas de penetración](azure-security-pen-testing.md)
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Almacén de claves](../key-vault/key-vault-whatis.md)
+## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
@@ -52,6 +50,7 @@
 ## [Cursos sobre seguridad de Academia virtual](security-microsoft-virtual-academy.md)
 ## [Vídeos sobre seguridad de Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

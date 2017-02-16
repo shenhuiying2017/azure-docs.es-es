@@ -1,0 +1,110 @@
+---
+title: "Requisitos previos para replicación en Azure con Azure Site Recovery | Microsoft Docs"
+description: "En este artículo se resumen los requisitos previos para replicar máquinas virtuales y máquinas físicas en Azure con el servicio Azure Site Recovery."
+services: site-recovery
+documentationcenter: 
+author: rajani-janaki-ram
+manager: jwhit
+editor: tysonn
+ms.assetid: e24eea6c-50a7-4cd5-aab4-2c5c4d72ee2d
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/11/2016
+ms.author: rajanaki
+translationtype: Human Translation
+ms.sourcegitcommit: 46ea97f5c13b7befc78466fae92a737107be8f83
+ms.openlocfilehash: 31cae0cf625552c0e9547d0e514c6017c6a179ef
+
+---
+
+#  <a name="prerequisites-for-replication-to-azure-using-azure-site-recovery"></a>Requisitos previos para replicación en Azure con Azure Site Recovery
+
+ Site Recovery es un servicio de Azure que contribuye a su estrategia de BCDR mediante la coordinación de la replicación de servidores físicos locales y máquinas virtuales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, podrá realizar la conmutación por error a una ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. Puede realizar la conmutación por recuperación a la ubicación principal cuando vuelva a su funcionamiento normal. Más información en [¿Qué es Site Recovery?](site-recovery-overview.md)
+
+En este artículo se resumen los requisitos previos necesarios para comenzar la replicación de Site Recovery en Azure.
+
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+
+## <a name="azure-requirements"></a>Requisitos de Azure
+
+**Requisito** | **Detalles**
+--- | ---
+**Cuenta de Azure** | Una cuenta de [Microsoft Azure](http://azure.microsoft.com/) .<br/><br/> Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+**Servicio Site Recovery** | [Más información](https://azure.microsoft.com/pricing/details/site-recovery/) sobre los precios de Site Recovery. |
+**Almacenamiento de Azure** | Necesita una cuenta de Azure Storage para almacenar los datos replicados que debe estar en la misma región que el almacén de Recovery Services. Los datos replicados se almacenan en almacenamiento de Azure y las máquinas virtuales de Azure se crean cuando se produce la conmutación por error.<br/><br/> Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, puede configurar una cuenta en el [modelo Resource Manager](../storage/storage-create-storage-account.md) o el [modelo clásico](../storage/storage-create-storage-account-classic-portal.md).<br></br>Puede usar [GRS](../storage/storage-redundancy.md#geo-redundant-storage) o almacenamiento LRS. Se recomienda GRS para que los datos sean resistentes si se produce una interrupción regional o si no se puede recuperar la región principal.<br/><br/> Si replica servidores físicos o máquinas virtuales de VMware en Azure Portal, se admite Premium Storage. [Premium Storage](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage) se usa normalmente para las máquinas virtuales que necesitan un alto rendimiento constante de E/S y latencia baja para hospedar cargas de trabajo intensivas de E/S. Si usa Premium Storage para los datos replicados, necesitará también una cuenta de almacenamiento estándar para almacenar los registros de replicación que capturan los cambios continuos en los datos locales.<br/><br/>
+**Limitaciones de almacenamiento** | No se pueden mover cuentas de almacenamiento que usa Site Recovery entre grupos de recursos, ya sea dentro de la misma suscripción, o bien en distintas suscripciones.<br/><br/> La replicación no se admite en las cuentas de Premium Storage en las regiones Centro de la India e India del Sur.
+**Red de Azure** | Necesita una red de Azure para que las máquinas virtuales de Azure se conecten después de la conmutación por error, la que debe estar en la misma región que el almacén de Recovery Services.<br/><br/> En Azure Portal, puede crear redes con el [modelo de Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o el [modelo clásico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).<br/><br/> Si realiza la replicación desde VMM a Azure, configurará la [asignación de red](site-recovery-network-mapping.md) entre redes de máquinas virtuales VMM y redes de Azure, para asegurarse de que las máquinas virtuales de Azure conectarse a las redes adecuadas después de la conmutación por error.
+**Limitaciones de la red** | No se pueden mover cuentas de red que usa Site Recovery entre grupos de recursos, ya sea dentro de la misma suscripción, o bien en distintas suscripciones.
+**Asignación de red** | Si replica máquinas virtuales de Hyper-V en nubes VMM, es preciso que configure la [asignación de red](site-recovery-network-mapping.md), de forma que las máquinas virtuales de Azure estén conectadas a las redes apropiadas cuando se creen después de la conmutación por error.
+
+>[!NOTE]
+>En las siguientes secciones se describen los requisitos previos para los distintos componentes del entorno del cliente. Para más información sobre la compatibilidad con configuraciones específicas, lea la [matriz de compatibilidad.](site-recovery-support-matrix.md)
+>
+
+## <a name="disaster-recovery-of-vmware-virtual-machines-or-physical-windowslinux-servers-to-azure"></a>Recuperación ante desastres de máquinas virtuales VMware o servidores físicos de Windows/Linux en Azure
+A continuación, se muestran los componentes necesarios para la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos de Windows/Linux, además de los mencionados [anteriormente.](#Azure requirements)
+
+
+1. **Servidor de configuración o servidores de procesos adicionales**: deberá configurar una máquina local como el servidor de configuración para coordinar las comunicaciones entre el sitio local y Azure, y para administrar la replicación de datos. <br></br>
+
+2. **Host vCenter/vSphere de VMware**
+
+| **Componente** | **Requisitos** |
+| --- | --- |
+| **vSphere** | Uno o varios hipervisores de VMware vSphere.<br/><br/>Los hipervisores deben ejecutar la versión 6.0, 5.5 o 5.1 de vSphere con las últimas actualizaciones.<br/><br/>Se recomienda que los hosts de vSphere y los servidores vCenter se encuentren en la misma red que el servidor de procesos (se trata de la red en que está ubicado el servidor de configuración a menos que se haya configurado un servidor de procesos dedicado). |
+| **vCenter** | Se recomienda implementar un servidor VMware vCenter para administrar los hosts vSphere. Debe ejecutar vCenter versión 6.0 o 5.5 con las actualizaciones más recientes.<br/><br/>**Limitación**: Site Recovery no admite las nuevas características de vCenter y vSphere 6.0, como Cross vCenter vMotion, volúmenes virtuales y DRS de almacenamiento. La compatibilidad de Site Recovery está limitada a las características que también estaban disponibles en la versión 5.5.||
+
+3.**Requisitos previos de máquinas replicadas**
+
+
+| **Componente** | **Requisitos** |
+| --- | --- |
+| **Local (máquinas virtuales de VMware)** | Las máquinas virtuales replicadas deben tener las herramientas de VMware instaladas y en ejecución.<br/><br/> Las máquinas virtuales deben cumplir los [requisitos previos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) para crear máquinas virtuales de Azure.<br/><br/>La capacidad del disco individual en máquinas protegidas no debe ser superior a 1023 GB. <br/><br/>Mínimo de 2 GB de espacio disponible en la unidad de instalación para la instalación de los componentes.<br/><br/>El **puerto 20004** se debe abrir en el firewall local de la máquina virtual, si desea habilitar la coherencia de varias máquinas virtuales.<br/><br/>Los nombres de las máquinas deben tener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de haber habilitado la replicación de una máquina, puede modificar el nombre de Azure.<br/><br/> |
+| **Equipos Windows (físicos o VMware)** | El equipo debe ejecutar un sistema operativo de 64 bits compatible: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 como mínimo.<br/><br/> El sistema operativo debe instalarse en la unidad C:\. El disco del sistema operativo debe ser un disco básico de Windows y no dinámico. El disco de datos puede ser dinámico.<br/><br/>|
+| **Equipos con Linux** (físicos o VMware) | Necesita un sistema operativo de 64 bits compatible: Red Hat Enterprise Linux 6.7, 7.1 y 7.2; Centos 6.5, 6.6, 6.7, 7.0 ,7.1 y 7.2; Oracle Enterprise Linux 6.4 y 6.5 con el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3), o SUSE Linux Enterprise Server 11 SP3.<br/><br/>Los archivos /etc/hosts de las máquinas protegidas deben contener entradas que asignen el nombre de host local a direcciones IP asociadas con todos los adaptadores de red.<br/><br/>Si desea conectarse a la máquina virtual de Azure con Linux después de la conmutación por error mediante un cliente Secure Shell (ssh), asegúrese de que el servicio de Secure Shell en la máquina protegida esté configurado para iniciarse automáticamente en el arranque del sistema y que las reglas de firewall permitan un ssh conexión a ella.<br/><br/>El nombre del host, los puntos de montaje, los nombres de dispositivo, las rutas de acceso de sistema de Linux y los nombres de archivo (por ejemplo, /etc/, /usr) deben estar en inglés únicamente.<br/><br/>
+
+## <a name="disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-vmm"></a>Recuperación ante desastres de máquinas virtuales de Hyper-V en Azure (sin VMM)
+
+A continuación, se muestran los componentes necesarios para la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM, además de los mencionados [anteriormente.](#Azure requirements)
+
+| **Requisito previo** | **Detalles** |
+| --- | --- |
+| **Host de Hyper-V** |Uno o varios servidores locales ejecutan Windows Server 2012 R2 con el rol de Hyper-V habilitado y las últimas actualizaciones, o bien Microsoft Hyper-V Server 2012 R2.<br></br>Hyper-V Server debe contener una o más máquinas virtuales.<br></br>Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.<br></br>Los servidores de Hyper-V deben tener correcciones mencionadas en la actualización [KB2961977](https://support.microsoft.com/en-us/kb/2961977) instalada.
+|**Proveedor y agente**| Durante la implementación de Azure Site Recovery, se instala el proveedor de Azure Site Recovery. La instalación del proveedor también instalará el agente de Servicios de recuperación de Azure en cada servidor de Hyper-V que ejecuta máquinas virtuales que desea proteger. <br></br>Todos los servidores de Hyper-V de un almacén de Site Recovery deben tener las mismas versiones del proveedor y del agente.<br></br>El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. El tráfico puede enviarse directamente o a través de un proxy. Tenga en cuenta que no se admite el proxy basado en HTTPS. El servidor proxy debe permitir el acceso a:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/>Si tiene reglas de firewall basadas en direcciones IP en el servidor, compruebe que las reglas permitan la comunicación con Azure.<br></br> Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).<br></br> Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
+
+
+## <a name="disaster-recovery-of-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM en Azure
+
+A continuación, se muestran los componentes necesarios para la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM, además de los mencionados [anteriormente.](#Azure requirements)
+
+| **Requisito previo** | **Detalles** |
+| --- | --- |
+| **VMM** |Uno o más servidores VMM con **System Center 2012 R2 o superior**. Cada servidor VMM debe tener una o más nubes configuradas. <br></br>Una nube debe contener<br>- Uno o más grupos de hosts de VMM.<br/>- Uno o más servidores host de Hyper-V o clústeres en cada grupo de hosts.<br/><br/>[Más información](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) sobre cómo configurar las nubes de VMM. |
+| **Hyper-V** |Los servidores host de Hyper-V deben estar ejecutando al menos **Windows Server 2012 R2** con el rol de Hyper-V y tener instaladas las actualizaciones más recientes de **Microsoft Hyper-V Server 2012 R2**.<br/><br/> Un servidor de Hyper-V debe contener una o varias máquinas virtuales.<br/><br/> Un servidor host o clúster de Hyper-V que incluya las máquinas virtuales que quiere replicar se debe administrar en una nube VMM.<br/><br/>Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.<br/><br/>Los servidores de Hyper-V deben tener instaladas las correcciones que se mencionan en el [artículo KB2961977](https://support.microsoft.com/kb/2961977).<br/><br/>Los servidores host de Hyper-V necesitan acceso a Internet para la replicación de datos en Azure. |
+| **Proveedor y agente** |Durante la implementación de Azure Site Recovery, instalará el proveedor de Azure Site Recovery en el servidor VMM y el agente de Recovery Services en los hosts de Hyper-V. El proveedor y el agente deben conectarse a Azure a través de Internet directamente o a través de un proxy. No se admite un proxy basado en HTTPS. El servidor proxy del servidor VMM y los hosts de Hyper-V deben permitir el acceso a:  <br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Si tiene reglas de firewall basadas en direcciones IP en el servidor VMM, compruebe que las reglas permitan la comunicación con Azure.<br/><br/> Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).<br/><br/> Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).<br/><br/> |
+
+### <a name="replicated-machine-prerequisites"></a>Requisitos previos de máquinas replicadas
+| **Componente** | **Detalles** |
+| --- | --- |
+| **Máquinas virtuales protegidas** | Site Recovery es compatible con todos los sistemas operativos admitidos por [Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).<br></br>Las máquinas virtuales deben cumplir los [requisitos previos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) para crear máquinas virtuales de Azure. Los nombres de las máquinas deben tener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. <br></br>Puede modificar el nombre después de habilitar la replicación para la máquina virtual. <br/><br/> La capacidad del disco individual en máquinas protegidas no debe ser superior a 1023 GB. Una máquina virtual puede tener hasta 16 discos (es decir, hasta 16 TB).<br/><br/>
+
+
+## <a name="disaster-recovery-of-hyper-v-virtual-machines-in-vmm-clouds-to-a-customer-owned-site"></a>Recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM en un sitio propiedad de un cliente
+
+A continuación, se muestran los componentes necesarios para la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM en un sitio propiedad de un cliente, además de los mencionados [anteriormente.](#Azure requirements)
+
+| **Componentes** | **Detalles** |
+| --- | --- |
+| **VMM** |  Se recomienda implementar un servidor VMM en el sitio principal y otro del mismo tipo en el secundario.<br/><br/> Puede [replicar máquinas virtuales entre nubes en un único servidor VMM](site-recovery-single-vmm.md). Para ello, necesita al menos dos nubes configuradas en el servidor VMM.<br/><br/> Los servidores VMM deben estar ejecutando, **como mínimo, System Center 2012 SP1** con las actualizaciones más recientes.<br/><br/> Todos los servidores VMM deben tener al menos una o varias nubes. Además, en todas las nubes se debe haber establecido el perfil de capacidad de Hyper-V. <br/><br/>Las nubes deben incluir uno o más grupos de hosts de VMM. [Más información](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) sobre cómo configurar las nubes de VMM.<br/><br/> Los servidores VMM necesitan acceso a Internet. |
+| **Hyper-V** | Los servidores Hyper-V deben estar ejecutando, **como mínimo, Windows Server 2012 con el rol Hyper-V** y tener instaladas las actualizaciones más recientes.<br/><br/> Un servidor de Hyper-V debe contener una o varias máquinas virtuales.<br/><br/>  Los servidores host de Hyper-V deben estar ubicados en grupos host de las nubes de VMM principal y secundaria.<br/><br/> Si ejecuta Hyper-V en un clúster de Windows Server 2012 R2, debe instalar la [actualización 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Si ejecuta Hyper-V en un clúster de Windows Server 2012, tenga en cuenta que el agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tiene que configurar manualmente el agente de clúster. [Más información](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
+| **Proveedor** | Durante la implementación de Site Recovery, se instala el proveedor de Azure Site Recovery en los servidores VMM. El proveedor se comunica con Site Recovery mediante HTTPS 443 para organizar la replicación. La replicación de datos se produce entre los servidores Hyper-V principal y secundario mediante la conexión LAN o VPN.<br/><br/> El proveedor que se ejecuta en el servidor VMM necesita tener acceso a estas URL:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Hay que permitir tanto la comunicación del firewall entre los servidores VMM y los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) como el protocolo HTTPS (443). |
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

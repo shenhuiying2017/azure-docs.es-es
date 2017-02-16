@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/11/2017
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 17250760526e72c05ee178e235a57082e2dfff94
+ms.sourcegitcommit: 1a8dd3d024fbe1e85a43c5b4f98901ab59c5797f
+ms.openlocfilehash: e0a7c813da53bc6ab49a456f13227b62725c5fc4
 
 
 ---
@@ -26,9 +26,9 @@ IoT Hub de Azure admite de forma nativa la comunicación a través de los protoc
 ## <a name="azure-iot-protocol-gateway"></a>Puerta de enlace de protocolos de IoT de Azure
 La puerta de enlace de protocolos de IoT de Azure es un marco para la adaptación de protocolos diseñado para la comunicación bidireccional a gran escala de dispositivos con el Centro de IoT. La puerta de enlace de protocolo es un componente de acceso directo que acepta conexiones de dispositivos a través de un protocolo específico. Une el tráfico al Centro de IoT sobre AMQP 1.0. La puerta de enlace de protocolo de IoT de Azure está disponible como proyecto de software de código abierto para ofrecer flexibilidad para agregar compatibilidad con una variedad de protocolos y versiones de protocolo.
 
-Puede implementar la puerta de enlace de protocolos en Azure de una manera altamente escalable con roles de trabajo de Servicios en la nube de Azure. Además, la puerta de enlace de protocolos puede implementarse en entornos locales como puertas de enlace de campo.
+Puede implementar la puerta de enlace de protocolo en Azure de forma muy escalable con Azure Service Fabric, los roles de trabajo de Azure Cloud Services o Windows Virtual Machines. Además, la puerta de enlace de protocolos puede implementarse en entornos locales como puertas de enlace de campo.
 
-La puerta de enlace de protocolos de IoT de Azure incluye un adaptador de protocolos de MQTT que le permite personalizar el comportamiento del protocolo de MQTT si es necesario. Puesto que IoT Hub proporciona compatibilidad integrada para el protocolo de MQTT v3.1.1, solo puede utilizar el adaptador de protocolo MQTT si necesita personalizaciones de protocolo o requisitos específicos para una funcionalidad adicional.
+La puerta de enlace de protocolos de IoT de Azure incluye un adaptador de protocolos de MQTT que le permite personalizar el comportamiento del protocolo de MQTT si es necesario. Puesto que IoT Hub proporciona compatibilidad integrada para el protocolo de MQTT v3.1.1, solo debe considerar el uso del adaptador de protocolo MQTT si necesita personalizaciones de protocolo o requisitos específicos para una funcionalidad adicional.
 
 El adaptador de MQTT también muestra el modelo de programación para la creación de adaptadores de protocolo para otros protocolos. Además, el modelo de programación de puerta de enlace de protocolo de IoT de Azure le permite conectar componentes personalizados para su procesamiento especializado como, por ejemplo, autenticación personalizada, transformaciones de mensajes, compresión y descompresión o cifrado y descifrado de tráfico entre los dispositivos y el IoT Hub.
 
@@ -44,19 +44,14 @@ Para más información acerca de planificación de la implementación del Centro
 
 * [Comparación con Event Hubs][lnk-compare]
 * [Escalado, alta disponibilidad y recuperación ante desastres][lnk-scaling]
-
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
-
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

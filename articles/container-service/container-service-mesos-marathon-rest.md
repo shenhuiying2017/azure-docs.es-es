@@ -1,5 +1,5 @@
 ---
-title: "Administración de contenedores de Azure Container Service a través de la API de REST | Microsoft Docs"
+title: "Administración de un clúster DC/OS de Azure con la API de REST de Marathon | Microsoft Docs"
 description: "Implemente contenedores en un clúster de Mesos del servicio Contenedor de Azure mediante la API de REST de Marathon."
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
-ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 0a5f75a085991f8e14d0949e2d13da1072ca6978
 
 
 ---
-# <a name="container-management-through-the-rest-api"></a>Administración de contenedores con la API de REST
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Administración de contenedores de DC/OS a través de la API de REST de Marathon
 DC/OS proporciona un entorno para implementar y escalar cargas de trabajo agrupadas, al tiempo que reduce el hardware subyacente. Por encima de DC/OS hay un marco que administra la programación y ejecución de cargas de trabajo de proceso.
 
 Aunque hay marcos de trabajo disponibles para muchas cargas de trabajo conocidas, en este documento se detalla cómo crear y escalar implementaciones de contenedores mediante Marathon. Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado en el servicio Contenedor de Azure. También debe tener conectividad remota con este clúster. Para más información sobre estos aspectos, consulte los siguientes artículos:
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

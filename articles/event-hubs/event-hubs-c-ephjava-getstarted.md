@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/04/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e8e3708989f85a7a0d895140baad5d6370ba3146
+ms.sourcegitcommit: 964adaa1b4d1247cf26bd1b8a345d785a114e3ab
+ms.openlocfilehash: ec1ed9ccf9510587a76a4860f910ac2772b35f9a
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: e8e3708989f85a7a0d895140baad5d6370ba3146
 ## <a name="introduction"></a>Introducción
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para más información, consulte [Información general de Event Hubs][Información general de Event Hubs].
+Para obtener más información, consulte [Información general de los Centros de eventos de Azure][Event Hubs overview].
 
-En este tutorial, aprenderá a recopilar mensajes en un Centro de eventos mediante una aplicación de consola en C y a recuperarlos en paralelo con la biblioteca [Host del procesador de eventos][Host del procesador de eventos] de C#.
+En este tutorial, aprenderá a recopilar mensajes en un centro de eventos mediante una aplicación de consola en C y a recuperarlos en paralelo con la biblioteca [Event Processor Host][Event Processor Host] de C#.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -55,23 +55,22 @@ Ahora está preparado para ejecutar las aplicaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-* Una completa [aplicación de ejemplo que usa Event Hubs][aplicación de ejemplo que usa Event Hubs].
-* El ejemplo de [Escala horizontal del procesamiento de eventos con Centros de eventos][Escala horizontal del procesamiento de eventos con Centros de eventos].
-* [Información general de Event Hubs][Información general de Event Hubs]
+* Una [aplicación de ejemplo completa que usa Event Hubs][sample application that uses Event Hubs].
+* El ejemplo [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] (Escalado horizontal del procesamiento de eventos con Event Hubs).
+* [Información general de Event Hubs][Event Hubs overview]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephjava-getstarted/ephjava.png
 [24]: ./media/event-hubs-c-ephjava-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Portal de Azure clásico]: https://manage.windowsazure.com/
-[Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de Event Hubs]: event-hubs-overview.md
-[aplicación de ejemplo que usa Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Supervisión y administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari| Microsoft Docs"
+title: "Supervisión y administración de clústeres de Azure HDInsight mediante la interfaz de usuario web de Ambari | Microsoft Docs"
 description: "Aprenda a usar Ambari para supervisar y administrar clústeres de HDInsight basado en Linux. En este documento, aprenderá a usar la interfaz de usuario web de Ambari incluida con clústeres de HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3c84bdd32d9daec2d50d8126c26e8d7ecc894b1
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 443e9e9d45417fb428ef4b81e9a66e04a1e4809e
 
 
 ---
@@ -31,7 +31,10 @@ En este documento, aprenderá a usar la interfaz de usuario web de Ambari con un
 ## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a> ¿Qué es Ambari?
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">API de REST de Ambari</a>.
 
-De manera predeterminada, la interfaz web de Ambari viene con los clústeres de HDInsight basado en Linux. 
+La interfaz de usuario web de Ambari se proporciona de forma predeterminada con clústeres de HDInsight que usan el sistema operativo Linux.
+
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
 
 ## <a name="connectivity"></a>Conectividad
 La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdidnsight.net, donde **CLUSTERNAME** es el nombre del clúster. 
@@ -217,6 +220,6 @@ Las vistas de Ambari permiten a los desarrolladores conectar elementos de interf
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

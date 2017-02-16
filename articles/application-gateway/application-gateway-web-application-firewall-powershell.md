@@ -4,7 +4,7 @@ description: "En este artículo se proporcionan instrucciones sobre cómo comenz
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 486ed096bba7accfb3ca54aa97fb0b57b756d291
-ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: bdfb45de4ca7f4005314115d9cd260029779b3b0
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
 
@@ -148,8 +146,6 @@ En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la 
 
 > [!NOTE]
 > Si necesita configurar un sondeo personalizado para la puerta de enlace de aplicaciones, consulte [Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell](application-gateway-create-probe-ps.md). Para más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md) .
-> 
-> 
 
 ### <a name="step-5"></a>Paso 5
 
@@ -161,8 +157,7 @@ $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPr
 
 > [!NOTE]
 > Una subred de una aplicación debe tener como mínimo 28 bits de máscara. Este valor deja 10 direcciones disponibles en la subred para instancias de Application Gateway. Con una subred más pequeña, puede que no sea capaz de agregar más instancias de su puerta de enlace de aplicaciones en el futuro.
-> 
-> 
+
 
 ### <a name="step-6"></a>Paso 6
 
@@ -200,8 +195,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwp
 
 > [!IMPORTANT]
 > Application Gateway no admite el uso de una dirección IP pública creada con una etiqueta de dominio definida. Solo se admite una dirección IP pública con una etiqueta de dominio creada dinámicamente. Si necesita un nombre DNS descriptivo para la puerta de enlace de aplicaciones, se recomienda usar un registro CNAME como alias.
-> 
-> 
+
 
 ### <a name="step-10"></a>Paso 10
 
@@ -287,15 +281,13 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
 > [!NOTE]
 > Puede elegir entre **WAF\_Medium** y **WAF\_Large**; el nivel cuando se usa WAF siempre es **WAF**. La capacidad es cualquier número entre 1 y 10.
-> 
-> 
 
 ### <a name="step-20"></a>Paso 20
 
 Configure el modo de WAF. Los valores aceptables son **Prevención** y **Detección**.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
+$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ### <a name="step-21"></a>Paso 21
@@ -308,7 +300,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
 
-Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la puerta de enlace de aplicaciones, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la puerta de enlace de aplicaciones. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
+Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -340,10 +332,10 @@ DnsSettings              : {
 
 Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md)
 
-[escenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
+[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

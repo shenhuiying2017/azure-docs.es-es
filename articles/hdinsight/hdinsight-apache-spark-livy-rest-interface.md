@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 564bd1f3095446edf839d0353b92e0df256e1007
+ms.sourcegitcommit: 0866581d6feebc71ed82aa48f6e41a58068af900
+ms.openlocfilehash: 0b8c9f9395f034355c8f10574e750fcf40e870de
 
 
 ---
@@ -33,7 +33,7 @@ Debe tener lo siguiente:
 * Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="submit-a-batch-job-the-cluster"></a>Envío de un trabajo por lotes al clúster
+## <a name="submit-a-batch-job"></a>Envío de un trabajo por lotes
 Antes de enviar un trabajo por lotes, debe cargar el archivo jar de aplicación en el almacenamiento del clúster asociado al clúster. Puede usar [**AzCopy**](../storage/storage-use-azcopy.md), una utilidad de línea de comandos, para hacerlo. Hay muchos otros clientes que se pueden utilizar para cargar datos. Puede encontrar más información al respecto en [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
@@ -154,6 +154,17 @@ Lleve a cabo los siguiente pasos.
    
     La última línea de la salida indica que el lote se ha eliminado correctamente. Si elimina un trabajo mientras está en ejecución, esencialmente terminará el trabajo. Si elimina un trabajo que se ha completado correctamente o incorrectamente, elimina la información del trabajo por completo.
 
+## <a name="using-livy-on-hdinsight-35-spark-clusters"></a>Uso de Livy en clústeres de HDInsight 3.5 Spark
+
+Un clúster de HDInsight 3.5 deshabilita de forma predeterminada el uso de rutas de acceso a archivos locales para el acceso a archivos de datos de ejemplo o archivos jar. Le recomendamos que use la ruta de acceso `wasb://` en su lugar para tener acceso a archivos jar o archivos de datos de ejemplo desde el clúster. Si desea usar la ruta de acceso local, debe actualizar la configuración de Ambari en consecuencia. Para ello:
+
+1. Vaya al portal de Ambari para el clúster. La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en https://**CLUSTERNAME**.azurehdidnsight.net, donde CLUSTERNAME es el nombre del clúster.
+
+2. En el panel de navegación izquierdo, haga clic en **Livy**y, a continuación, haga clic en **Configs** (Configuraciones).
+
+3. En **livy-default**, agregue el nombre de propiedad `livy.file.local-dir-whitelist` y establezca su valor en **"/"** si desea permitir el acceso total al sistema de archivos. Si desea permitir el acceso únicamente a un directorio específico, proporcione la ruta de acceso a ese directorio como valor.
+
+
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
@@ -182,6 +193,6 @@ Lleve a cabo los siguiente pasos.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

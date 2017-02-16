@@ -1,6 +1,6 @@
 ---
-title: "Autenticación con Data Lake Store mediante Active Directory | Microsoft Docs"
-description: "Obtenga información sobre la autenticación con Data Lake Store mediante Active Directory"
+title: "Autenticación de usuario final: Data Lake Store con Azure Active Directory | Microsoft Docs"
+description: "Aprenda a lograr la autenticación del usuario final con Data Lake Store mediante Azure Active Directory"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e7c9fd2fe7e6327cd39c4c26583c8fd556c9044
+ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
+ms.openlocfilehash: a50fc687a1738a55c3d22eb3e12060397c162e06
 
 
 ---
@@ -29,8 +29,8 @@ ms.openlocfilehash: 7e7c9fd2fe7e6327cd39c4c26583c8fd556c9044
 
 Azure Data Lake Store usa Azure Active Directory para la autenticación. Antes de crear una aplicación que funcione con Azure Data Lake Store o Azure Data Lake Analytics, debe determinar cómo desea autenticar la aplicación con Azure Active Directory (Azure AD). Las dos principales opciones disponibles son:
 
-* Autenticación de usuario final. 
-* Autenticación entre servicios. 
+* Autenticación de usuario final (este artículo)
+* Autenticación entre servicios
 
 Con ambas opciones, la aplicación recibe un token de OAuth 2.0 que se adjunta a cada solicitud realizada a Azure Data Lake Store o Azure Data Lake Analytics.
 
@@ -48,7 +48,7 @@ En este artículo se habla de cómo crear una aplicación web de Azure AD para l
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
 Es el enfoque recomendado si desea que un usuario final inicie sesión en la aplicación a través de Azure AD. La aplicación podrá tener acceso a los recursos de Azure con el mismo nivel de acceso que tiene el usuario final que inició sesión. El usuario final deberá proporcionar sus credenciales de manera periódica para que la aplicación conserve el acceso.
 
-El inicio de sesión del usuario final genera que su aplicación reciba un token de acceso y un token de actualización. El token de acceso se adjunta a cada solicitud hecha a Data Lake Store o Data Lake Analytics y es válido, de manera predeterminada, durante 1 hora. El token de actualización se puede usar para obtener un nuevo token de acceso y es válido, de manera predeterminada, hasta por dos semanas, si se usa de manera habitual. Puede usar dos enfoques distintos para el inicio de sesión del usuario final.
+El inicio de sesión del usuario final genera que su aplicación reciba un token de acceso y un token de actualización. El token de acceso se adjunta a cada solicitud hecha a Data Lake Store o Data Lake Analytics y es válido, de manera predeterminada, durante&1; hora. El token de actualización se puede usar para obtener un nuevo token de acceso y es válido, de manera predeterminada, hasta por dos semanas, si se usa de manera habitual. Puede usar dos enfoques distintos para el inicio de sesión del usuario final.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Uso de la ventana emergente de OAuth 2.0
 La aplicación puede desencadenar una ventana emergente de autorización de OAuth 2.0 en la que el usuario final puede escribir sus credenciales. Esta ventana emergente también funciona con el proceso de autenticación en dos pasos (2FA) de Azure AD, si es necesario. 
@@ -59,7 +59,7 @@ La aplicación puede desencadenar una ventana emergente de autorización de OAut
 > 
 
 ### <a name="directly-passing-in-user-credentials"></a>Transmisión directa de credenciales de usuario
-Su aplicación puede proporcionar directamente las credenciales de usuario a Azure AD. Este método solo funciona con cuentas de usuario de id. organizativo; no es compatible con cuentas de usuario personales o de "live ID", incluidas las que finalizan en @outlook.com o @live.com.. Además, este método no es compatible con cuentas de usuario que requieren autenticación en dos fases de Azure AD (2FA).
+Su aplicación puede proporcionar directamente las credenciales de usuario a Azure AD. Este método solo funciona con cuentas de usuario con identificador de organización; no es compatible con cuentas de usuario personales de tipo "Live ID", incluidas las que terminan en @outlook.com o @live.com. Además, este método no es compatible con las cuentas de usuario que requieren la autenticación en dos pasos (2FA) de Azure AD.
 
 ### <a name="what-do-i-need-to-use-this-approach"></a>¿Qué se necesita para usar este enfoque?
 * El nombre de dominio de Azure AD. Este ya aparece en los requisitos previos de este artículo.
@@ -75,7 +75,7 @@ En esta sección aprenderemos a crear y configurar una aplicación web de Azure 
 
 ### <a name="step-1-create-an-azure-active-directory-application"></a>Paso 1: Crear una aplicación de Azure Active Directory
 > [!NOTE]
-> En los pasos siguientes se usa Azure Portal. También puede crear una aplicación de Azure AD mediante [Azure PowerShell](../resource-group-authenticate-service-principal.md) o [CLI de Azure](../resource-group-authenticate-service-principal-cli.md).
+> En los pasos siguientes se usa Azure Portal. También puede crear una aplicación de Azure AD mediante [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) o [CLI de Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md).
 > 
 > 
 
@@ -134,6 +134,6 @@ En este artículo creó una aplicación web de Azure AD y recopiló la informaci
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Movimiento de datos hacia y desde Azure Storage | Microsoft Docs
-description: "Este artículo ofrece información general sobre los distintos métodos de mover los datos hacia y desde Almacenamiento de Azure."
+title: "Movimiento de grandes cantidades de datos desde el almacenamiento en la nube y hacia él en Azure | Microsoft Docs"
+description: "Información general sobre los distintos métodos de mover los datos hacia Azure Storage y desde él."
 services: storage
 documentationcenter: 
-author: micurd
-manager: jahogg
+author: JarrettRenshaw
+manager: msmets
 editor: tysonn
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 8b21bcbea774f7a5107da54081f75db331459b5f
 
 
 ---
@@ -78,6 +78,6 @@ Consulte [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

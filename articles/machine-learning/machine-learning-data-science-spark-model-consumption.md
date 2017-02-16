@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2387baad5737998d2ba7f289e0a4fcdd6dd04245
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
 
 
 ---
@@ -575,7 +575,7 @@ Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.mi
 * Escriba el nombre de la aplicación lógica y del plan de App Service para que aparezca el **Diseñador de Logic Apps**.
 * Seleccione una acción HTTP y especifique los parámetros mostrados en la ilustración siguiente:
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
+![Diseñador de Logic Apps](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Pasos siguientes
 **Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
@@ -583,6 +583,6 @@ Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.mi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

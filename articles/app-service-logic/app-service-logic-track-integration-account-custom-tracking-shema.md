@@ -1,6 +1,6 @@
 ---
-title: Esquema de seguimiento personalizado | Microsoft Docs
-description: "Más información acerca del esquema de seguimiento personalizado"
+title: Esquemas de seguimiento personalizados | Microsoft Docs
+description: "Obtenga más información sobre los esquemas de seguimiento personalizados."
 author: padmavc
 manager: erikre
 editor: 
@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 63ba6e8fec8df1cdbc9928b011130f47c5facf89
-ms.openlocfilehash: f846f23bef61e8e772920196b9c81d059546d8a6
+ms.sourcegitcommit: d88fa57c2f343636d7529780dc1b27ccb604ee02
+ms.openlocfilehash: 0de8128b01f760340e85078b433707c566fa2e4f
 
 
 ---
-# <a name="custom-tracking-schema"></a>Esquema de seguimiento personalizado
-## <a name="supported-custom-tracking-schema"></a>Esquema de seguimiento personalizado que se admite
+# <a name="custom-tracking-schemas"></a>Esquemas de seguimiento personalizados
+Puede usar estos esquemas de seguimiento personalizados en su cuenta de integración de Azure para ayudarle a supervisar las transacciones de negocio a negocio (B2B):
+
+## <a name="custom-tracking-schema"></a>Esquema de seguimiento personalizado
 ````java
 
         {
             "sourceType": "",
-            "source": { 
+            "source": {
 
             "workflow": {
                 "systemId": ""
@@ -56,36 +58,35 @@ ms.openlocfilehash: f846f23bef61e8e772920196b9c81d059546d8a6
 
 ````
 
-| Propiedad | Descripción |
-| --- | --- |
-| sourceType |Obligatorio.  Indica el tipo de origen de la ejecución. Los valores permitidos son Microsoft.Logic/workflows o personalizado |
-| Source |Obligatorio: si el tipo de origen es Microsoft.Logic/workflows, la información de origen tiene que ir detrás de este esquema. Si el tipo de origen es 'personalizado'; el esquema es un JToken  |
-| systemId |Obligatorio, cadena.  Indica el identificador de sistema de la aplicación lógica |
-| runId |Obligatorio, cadena.  Indica el identificador de ejecución de la aplicación lógica |
-| operationName |Obligatorio, cadena.  Indica el nombre de la operación (por ejemplo, acción o desencadenador) |
-| repeatItemScopeName |Obligatorio, cadena. Indica el nombre del elemento de repetición si la acción está dentro de un bucle foreach/until |
-| repeatItemIndex |Obligatorio, entero.  Si la acción está dentro de un bucle foreach/until; indica el índice del elemento repetido  |
-| trackingId |Opcional, cadena. Indica el identificador de seguimiento para correlacionar los mensajes |
-| correlationId |Opcional, cadena. Indica el identificador de correlación para correlacionar los mensajes |
-| clientRequestId |Opcional, cadena.  El cliente puede rellenarlo para correlacionar mensajes |
-| eventLevel |Obligatorio. Indica el nivel del evento |
-| eventTime |Obligatorio. Indica la hora del evento, en formato UTC AAAA-MM-DD:MM:SS.00000Z |
-| recordType |Obligatorio, indica el tipo de registro de seguimiento. El valor permitido es Personalizado |
-| record |Obligatorio.  Indica el tipo de registro personalizado y el formato permitido es JToken |
-|  | |
+| Propiedad | Escriba | Descripción |
+| --- | --- | --- |
+| sourceType |   | Tipo del origen de ejecución. Los valores permitidos son **Microsoft.Logic/workflows** y **custom**. (Obligatorio). |
+| Origen |   | Si el tipo de origen es **Microsoft.Logic/workflows**, la información de origen tiene que ir detrás de este esquema. Si el tipo de origen es **custom**, el esquema es un JToken (Obligatorio). |
+| systemId | String | Id. de sistema de aplicación lógica. (Obligatorio). |
+| runId | string | Id. de ejecución de aplicación lógica. (Obligatorio). |
+| operationName | string | Nombre de la operación (por ejemplo, acción o desencadenador). (Obligatorio). |
+| repeatItemScopeName | String | Repita el nombre del elemento si la acción se encuentra dentro de un bucle `foreach`/`until`. (Obligatorio). |
+| repeatItemIndex | Entero  | Si la acción se encuentra dentro de un bucle `foreach`/`until`. Indica el índice del elemento repetido. (Obligatorio). |
+| trackingId | String | Id. de seguimiento para correlacionar los mensajes. (Opcional). |
+| correlationId | String | Id. de correlación para correlacionar los mensajes. (Opcional). |
+| clientRequestId | String | El cliente puede rellenarlo para correlacionar mensajes. (Opcional). |
+| eventLevel |   | Nivel del evento. (Obligatorio). |
+| eventTime |   | Hora del evento, en formato UTC: AAAA-MM-DDTHH:MM:SS.00000Z. (Obligatorio). |
+| recordType |   | Tipo del registro. El valor permitido es **custom**. (Obligatorio). |
+| record |   | Tipo de registro personalizado. El formato permitido es JToken. (Obligatorio). |
 
-## <a name="supported-b2b-protocol-tracking-schemas"></a>Esquemas de seguimiento de protocolos B2B permitidos
-* [Esquema de seguimiento de AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md)   
-* [Esquema de seguimiento de X12](app-service-logic-track-integration-account-x12-tracking-shemas.md) 
+## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de seguimiento de protocolos B2B
+Para obtener información sobre los esquemas de seguimiento de protocolos B2B, consulte:
+* [Esquemas de seguimiento de AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md)   
+* [Esquemas de seguimiento de X12](app-service-logic-track-integration-account-x12-tracking-shemas.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información acerca de la supervisión de mensajes B2B](app-service-logic-monitor-b2b-message.md "Learn more about tracking B2B messages")   
-[Tracking B2B messages in OMS portal](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")  (Seguimiento de mensajes B2B en el Portal de OMS)  
-[Más información acerca de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
+* Más información sobre la [supervisión de mensajes B2B](app-service-logic-monitor-b2b-message.md)   
+* Más información sobre el [seguimiento de mensajes B2B en el portal de Operations Management Suite](app-service-logic-track-b2b-messages-omsportal.md)
+* Más información sobre el [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

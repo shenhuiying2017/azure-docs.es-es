@@ -1,5 +1,5 @@
 ---
-title: SDK y API para Python de DocumentDB | Microsoft Docs
+title: API de Python y recursos del SDK para Azure DocumentDB | Microsoft Docs
 description: "Obtenga toda la información sobre el SDK y la API para Python como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para Python de DocumentDB."
 services: documentdb
 documentationcenter: python
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 
 
 ---
@@ -142,6 +142,6 @@ Para más información sobre DocumentDB, consulte la página del servicio [Micro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

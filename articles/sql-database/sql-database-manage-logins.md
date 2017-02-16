@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 6949e07622f229616f950a9aed07c7b58a5b63fc
-ms.openlocfilehash: 9de26e09cb41ef415d0535db35d7d5d0cd8784a5
+ms.sourcegitcommit: 8ff9c07fbc6e3d2a44414b485bd0f32b68b5d494
+ms.openlocfilehash: 127303bce70801ab93992273fd8f86d6f3c41605
 
 
 ---
@@ -132,7 +132,6 @@ Para permitir un control total de la base de datos a usuarios adicionales, convi
 
 > [!NOTE]
 > La razón más común para crear usuarios de base de datos basados en inicios de sesión es tener usuarios de autenticación de SQL Server que necesitan acceder a varias bases de datos. Los usuarios basados en inicios de sesión están vinculados al inicio de sesión y solo se mantiene una contraseña para dicho inicio de sesión. Los usuarios de base de datos independiente en bases de datos individuales son entidades individuales y cada uno mantiene su propia contraseña. Esto puede confundir a los usuarios de base de datos independiente si no mantienen sus contraseñas idénticas.
- 
 
 ### <a name="configuring-the-database-level-firewall"></a>Configuración del firewall de nivel de base de datos
 Como procedimiento recomendado, los usuarios no administradores solo deben tener acceso a través del firewall a las bases de datos que utilizan. En lugar de autorizar sus direcciones IP a través del firewall de nivel de servidor y permitir acceder a todas las bases de datos, use la instrucción [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) para configurar el firewall de nivel de base de datos. El firewall de nivel de base de datos no se puede configurar a través del portal.
@@ -158,7 +157,8 @@ En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar ind
 ### <a name="considerations-and-restrictions"></a>Consideraciones y restricciones
 Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en cuenta lo siguiente:
 
-* Debe estar conectado a la base de datos **maestra** cuando ejecute las instrucciones `CREATE/ALTER/DROP DATABASE`. El usuario de la base de datos maestra correspondiente al inicio de sesión del **administrador de servidor** no se puede alterar ni quitar. 
+* Debe estar conectado a la base de datos **maestra** cuando ejecute las instrucciones `CREATE/ALTER/DROP DATABASE`.   
+* El usuario de la base de datos correspondiente al inicio de sesión del **administrador de servidor** no se puede alterar ni quitar. 
 * El inglés de Estados Unidos es el idioma predeterminado del inicio de sesión del **administrador del servidor**.
 * Solamente los administradores (inicio de sesión de **administrador de servidor** o de administrador de Azure AD) y los miembros del rol de base de datos **dbmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones `CREATE DATABASE` y `DROP DATABASE`.
 * Debe estar conectado a la base de datos maestra al ejecutar las instrucciones `CREATE/ALTER/DROP LOGIN` . Sin embargo, el uso de inicios de sesión no es recomendable. En su lugar, utilice los usuarios de la base de datos independiente.
@@ -185,13 +185,14 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 
 - Para más información acerca de las reglas de firewall, consulte [Firewall de Azure SQL Database](sql-database-firewall-configure.md).
 - Para una información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL).
-- Para obtener un tutorial, consulte [Introducción a la seguridad de SQL](sql-database-get-started-security.md)
+- Para obtener un tutorial, consulte [Introducción a la seguridad de SQL](sql-database-control-access-sql-authentication-get-started.md)
 - Para obtener información acerca de las vistas y los procedimientos almacenados, consulte [Creación de vistas y procedimientos almacenados](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para obtener información acerca de cómo otorgar acceso a un objeto de base de datos, consulte [Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)
+- Para ver un tutorial que use la autenticación de SQL Server, consulte [Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de SQL Server, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos](sql-database-control-access-sql-authentication-get-started.md).
+- Para ver un tutorial que use la autenticación de Azure Active Directory, consulte [Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de AAD, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

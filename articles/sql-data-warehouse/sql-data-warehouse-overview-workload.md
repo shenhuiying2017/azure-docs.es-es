@@ -1,5 +1,5 @@
 ---
-title: Carga de trabajo del almacenamiento de datos
+title: "Información sobre las operaciones de Azure SQL Data Warehouse | Microsoft Docs"
 description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;mausher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
 
 
 ---
@@ -65,13 +65,13 @@ Un modo de hacer que los datos estén disponibles para la creación de informes 
 * Para los análisis, se puede generar un cubo de análisis en el almacenamiento de datos y ejecutar el análisis, o bien procesar previamente los datos y exportarlos al servidor de análisis para análisis posteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][crear una instancia de SQL Data Warehouse] y [cargar datos de ejemplo][cargar datos de ejemplo].
+Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][create a SQL Data Warehouse] y [cargar datos de ejemplo de manera rápida][load sample data].
 
 <!--Image references-->
 
 <!--Article references-->
-[cargar datos de ejemplo]: ./sql-data-warehouse-load-sample-databases.md
-[crear una instancia de SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -79,6 +79,6 @@ Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

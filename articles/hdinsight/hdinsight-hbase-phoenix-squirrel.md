@@ -1,5 +1,5 @@
 ---
-title: Uso de Apache Phoenix y SQuirreL en HDInsight | Microsoft Docs
+title: "Uso de Apache Phoenix y SQuirreL con clústeres de Azure HDInsight basados en Windows | Microsoft Docs"
 description: "Aprenda a usar Apache Phoenix en HDInsight y cómo instalar y configurar SQuirreL en su estación de trabajo para conectarse a un clúster de HBase en HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 53846c9eaa1480d137b2b8f34501a63e647f23a1
 
 
 ---
@@ -203,7 +203,7 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
   > [!NOTE]
   > La carpeta de instalación predeterminada es C:\Archivos de programa\squirrel-sql-3.6.  Para poder escribir en esta ruta de acceso, el programa de instalación debe disponer de privilegios de administrador. Puede abrir un símbolo del sistema como administrador, ir a la carpeta bin de Java y, luego, ejecutar el siguiente comando:
   >
-  >     java.exe -jar [the path of the SQuirreL jar file]
+  >     java.exe -jar [la ruta de acceso del archivo jar de SQuirreL]
 5. Haga clic en **Aceptar** para confirmar la creación del directorio de destino.
 6. El valor predeterminado es instalar los paquetes Standard y Base.  Haga clic en **Siguiente**.
 7. Haga clic en **Siguiente** dos veces y, a continuación, en **Hecho**.
@@ -292,6 +292,6 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight.  Par
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

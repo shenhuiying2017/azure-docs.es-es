@@ -3,7 +3,7 @@ title: "Estadísticas en tiempo real en la red CDN de Azure | Microsoft Docs"
 description: "Las estadísticas en tiempo real proporcionan datos en tiempo real sobre el rendimiento de la red CDN de Azure al entregar contenido a los clientes."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 848010306b0946890734a1a7c3c16a91847c1145
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
 
 
 ---
@@ -96,6 +96,6 @@ Este gráfico indica cuántas conexiones se han establecido para los servidores 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

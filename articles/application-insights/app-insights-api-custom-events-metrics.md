@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: 460b9e3cf2b4c7a85895c2db872344a1a5bc0ff9
+ms.sourcegitcommit: d809bf7b5e271b8850dc0f2bc6dfd72e3ef8ad0a
+ms.openlocfilehash: 4f9b328968aca2c752b624941ec341a3a936aec3
 
 
 ---
@@ -157,7 +157,6 @@ Para ver los resultados, abra el Explorador de métricas y agregue un gráfico n
 
 ![Agregue un gráfico nuevo o seleccione un gráfico y en Personalizada, seleccione su métrica.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-Hay algunos [límites en cuanto al número de métricas](#limits) que puede usar.
 
 ## <a name="page-views"></a>Vistas de página
 En una aplicación de dispositivo o de página web, se envían datos de telemetría de la vista de página de forma predeterminada cuando se carga cada pantalla o página. Sin embargo, puede cambiar esta frecuencia para que se realice el seguimiento de las vistas de página en momentos diferentes o adicionales. Por ejemplo, en una aplicación que muestra pestañas u hojas, quizás quiera realizar el seguimiento de una "página" siempre que el usuario abra una nueva hoja.
@@ -598,7 +597,7 @@ Para **iniciar y detener dinámicamente** la recopilación y la transmisión de 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-Para **deshabilitar los recopiladores estándar seleccionados** , por ejemplo, los contadores de rendimiento, las solicitudes HTTP o las dependencias, elimine o comente las líneas correspondientes en [ApplicationInsights.config][config]. Podría hacer esto, por ejemplo, si quiere enviar sus propios datos de TrackRequest.
+Para **deshabilitar los recopiladores estándar seleccionados**, por ejemplo, los contadores de rendimiento, las solicitudes HTTP o las dependencias, elimine o comente las líneas correspondientes en [ApplicationInsights.config][config]. Podría hacer esto, por ejemplo, si quiere enviar sus propios datos de TrackRequest.
 
 ## <a name="a-namedebugadeveloper-mode"></a><a name="debug"></a>Modo de programador
 Durante la depuración, resulta útil enviar los datos de telemetría por la canalización para así poder ver los resultados inmediatamente. También puede recibir mensajes adicionales que le ayuden a realizar el seguimiento de los posibles problemas con la telemetría. Desactívelo en producción, ya que puede ralentizar la aplicación.
@@ -621,7 +620,7 @@ Durante la depuración, resulta útil enviar los datos de telemetría por la can
 
 
 ## <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Copia de la clave de instrumentación
-Para evitar la mezcla de telemetría de entornos de desarrollo, prueba y producción, puede [crear recursos separados de Application Insights][crear] y cambiar sus claves según el entorno.
+Para evitar la mezcla de telemetría de entornos de desarrollo, prueba y producción, puede [crear recursos separados de Application Insights][create] y cambiar sus claves según el entorno.
 
 En lugar de obtener la clave de instrumentación del archivo de configuración, puede establecerla en el código. Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
 
@@ -684,7 +683,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
 *¿Durante cuánto tiempo se conservan los datos?*
 
-* Consulte [Privacidad y retención de los datos][Datos].
+* Consulte [Privacidad y retención de los datos][data].
 
 ## <a name="reference-docs"></a>Documentos de referencia
 * [Referencia de ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -720,8 +719,8 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[crear]: app-insights-create-new-resource.md
-[Datos]: app-insights-data-retention-privacy.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
@@ -732,6 +731,6 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

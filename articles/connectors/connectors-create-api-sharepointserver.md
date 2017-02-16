@@ -1,10 +1,10 @@
 ---
 title: "Introducción al conector de SharePoint Online | Microsoft Docs"
-description: "Introducción al uso del conector de SharePoint Online de Azure App Service en Logic Apps."
+description: "Introducción al uso del conector de SharePoint Online en Logic Apps"
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76b6f627efdf189b873d9a6bdd722e73e837077d
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: c462c98e2ecef1afe62ef921265b8842b6ae717d
 
 
 ---
@@ -29,7 +29,7 @@ El conector de SharePoint ofrece una manera de trabajar con listas en SharePoint
 > 
 > 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>Hablemos de acciones y desencadenadores
 El conector de SharePoint se puede usar como acción (tiene desencadenadores). Todos los conectores admiten datos en formato JSON y XML. 
@@ -532,7 +532,7 @@ Ninguna de las propiedades es obligatoria.
 | value |array |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 
@@ -542,6 +542,6 @@ Ninguna de las propiedades es obligatoria.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

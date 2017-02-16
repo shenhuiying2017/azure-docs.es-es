@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fb25351de7f4b64ab36d5a1f2629677f0acece47
-ms.openlocfilehash: 3d1d6ea9ea933c5aaf27b58b9f49a5b845f610ce
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
 
 
 ---
@@ -169,7 +169,7 @@ Configure una puerta de enlace de enrutamiento dinámico para cada red virtual. 
 2. En la página **Especifique el espacio de direcciones** , haga clic en la marca de verificación de la parte inferior derecha sin hacer cambios.
 
 ## <a name="step-7---create-the-vpn-connection"></a>Paso 7: Creación de la conexión VPN
-Una vez completados todos los pasos anteriores, defina las claves compartidas previamente de IPsec/IKE y cree la conexión. Esta serie de pasos usa PowerShell y no se puede configurar en el Portal. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de Azure PowerShell. Asegúrese de descargar la versión más reciente de los cmdlets de Service Management (SM). 
+Una vez completados todos los pasos anteriores, defina las claves compartidas previamente de IPsec/IKE y cree la conexión. Esta serie de pasos usa PowerShell y no se puede configurar en el Portal. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para más información sobre cómo instalar los cmdlets de Azure PowerShell. Asegúrese de descargar la versión más reciente de los cmdlets de Service Management (SM). 
 
 1. Abra Windows PowerShell e inicie sesión.
    
@@ -200,6 +200,6 @@ Puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentac
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

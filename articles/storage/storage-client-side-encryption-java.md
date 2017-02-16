@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cdd68bccf7e876ecb12ce154ed9175066839cde
+ms.sourcegitcommit: 7e182ee18e3c2c12eb29f864dd875d764ca5d534
+ms.openlocfilehash: 116693fdb8a8fa0e332b74459f7827bbf44c9ed7
 
 
 ---
-# <a name="client-side-encryption-with-java-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Java para el Almacenamiento de Microsoft Azure
+# <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
@@ -70,7 +70,9 @@ Dado que la cola de mensajes puede tener cualquier formato, la biblioteca de cli
 
 Durante el cifrado, la biblioteca de cliente genera un vector de inicialización aleatorio de 16 bytes junto con una CEK aleatoria de 32 bytes y realiza el cifrado de sobres del texto del mensaje de cola con esta información. La CEK encapsulada y algunos metadatos de cifrado adicionales se incluyen entonces en el mensaje de cola cifrado. Este mensaje modificado (que se muestra a continuación) se almacena en el servicio.
 
-    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
+<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
 
 Durante el descifrado, la clave encapsulada se extrae del mensaje de cola y se desencapsula. El vector de inicialización también se extrae del mensaje de cola y se utiliza junto con la clave desencapsulada para descifrar los datos de mensaje de cola. Tenga en cuenta que los metadatos de cifrado son pequeños (menos de 500 bytes), por lo que, aunque se tienen en cuenta para el límite de 64 KB para un mensaje de la cola, el impacto debería ser fácil de administrar.
 
@@ -131,7 +133,7 @@ La compatibilidad con el cifrado solo está disponible en la biblioteca de clien
 > 
 > 
 
-## <a name="client-api-interface"></a>Interfaz/API de cliente
+## <a name="client-api--interface"></a>Interfaz/API de cliente
 Al crear un objeto de EncryptionPolicy, los usuarios pueden proporcionar solo una clave (implementación de IKey), solo una resolución (implementación de IKeyResolver) o ambas. IKey es el tipo de clave básico que se identifica mediante un identificador de claves y que proporciona la lógica para la encapsulación y desencapsulación. IKeyResolver se utiliza para resolver una clave durante el proceso de descifrado. Define un método ResolveKey que devuelve un IKey concreto (identificador de clave). Esto ofrece a los usuarios la posibilidad de elegir entre varias claves que se administran en varias ubicaciones.
 
 * Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.  
@@ -150,88 +152,97 @@ Por ejemplo, use **CloudBlobClient.getDefaultRequestOptions().setRequireEncrypti
 ### <a name="blob-service-encryption"></a>Cifrado del servicio de blobs
 Cree un objeto **BlobEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en un nivel de cliente mediante el elemento **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
 
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+// Create the encryption policy to be used for upload and download.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
-    // Set the encryption policy on the request options.
-    BlobRequestOptions options = new BlobRequestOptions();
-    options.setEncryptionPolicy(policy);
+// Set the encryption policy on the request options.
+BlobRequestOptions options = new BlobRequestOptions();
+options.setEncryptionPolicy(policy);
 
-    // Upload the encrypted contents to the blob.
-    blob.upload(stream, size, null, options, null);
+// Upload the encrypted contents to the blob.
+blob.upload(stream, size, null, options, null);
 
-    // Download and decrypt the encrypted contents from the blob.
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    blob.download(outputStream, null, options, null);
+// Download and decrypt the encrypted contents from the blob.
+ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+blob.download(outputStream, null, options, null);
+```
 
 ### <a name="queue-service-encryption"></a>Cifrado del servicio Cola
 Cree un objeto **QueueEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en el nivel del cliente usando **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
 
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+// Create the encryption policy to be used for upload and download.
+QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
 
-    // Add message
-    QueueRequestOptions options = new QueueRequestOptions();
-    options.setEncryptionPolicy(policy);
+// Add message
+QueueRequestOptions options = new QueueRequestOptions();
+options.setEncryptionPolicy(policy);
 
-    queue.addMessage(message, 0, 0, options, null);
+queue.addMessage(message, 0, 0, options, null);
 
-    // Retrieve message
-    CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+// Retrieve message
+CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+```
 
 ### <a name="table-service-encryption"></a>Cifrado del servicio Tabla
 Además de crear una directiva de cifrado y configurarla en las opciones de solicitud, debe especificar un elemento **EncryptionResolver** en **TableRequestOptions** o establecer el atributo [Encrypt] en el captador y establecedor de la entidad.
 
 ### <a name="using-the-resolver"></a>Uso de la resolución
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    TableRequestOptions options = new TableRequestOptions()
-    options.setEncryptionPolicy(policy);
-    options.setEncryptionResolver(new EncryptionResolver() {
-        public boolean encryptionResolver(String pk, String rk, String key) {
-            if (key == "foo")
-            {
-                return true;
-            }
-            return false;
+// Create the encryption policy to be used for upload and download.
+TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+
+TableRequestOptions options = new TableRequestOptions()
+options.setEncryptionPolicy(policy);
+options.setEncryptionResolver(new EncryptionResolver() {
+    public boolean encryptionResolver(String pk, String rk, String key) {
+        if (key == "foo")
+        {
+            return true;
         }
-    });
+        return false;
+    }
+});
 
-    // Insert Entity
-    currentTable.execute(TableOperation.insert(ent), options, null);
+// Insert Entity
+currentTable.execute(TableOperation.insert(ent), options, null);
 
-    // Retrieve Entity
-    // No need to specify an encryption resolver for retrieve
-    TableRequestOptions retrieveOptions = new TableRequestOptions()
-    retrieveOptions.setEncryptionPolicy(policy);
+// Retrieve Entity
+// No need to specify an encryption resolver for retrieve
+TableRequestOptions retrieveOptions = new TableRequestOptions()
+retrieveOptions.setEncryptionPolicy(policy);
 
-    TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
-    TableResult result = currentTable.execute(operation, retrieveOptions, null);
+TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
+TableResult result = currentTable.execute(operation, retrieveOptions, null);
+```
 
 ### <a name="using-attributes"></a>Uso de los atributos
 Tal como se mencionó anteriormente, si la entidad implementa el elemento TableEntity, el captador y establecedor de las propiedades se pueden completar con el atributo [Encrypt] en lugar de especificar **EncryptionResolver**.
 
-    private string encryptedProperty1;
+```java
+private string encryptedProperty1;
 
-    @Encrypt
-    public String getEncryptedProperty1 () {
-        return this.encryptedProperty1;
-    }
+@Encrypt
+public String getEncryptedProperty1 () {
+    return this.encryptedProperty1;
+}
 
-    @Encrypt
-    public void setEncryptedProperty1(final String encryptedProperty1) {
-        this.encryptedProperty1 = encryptedProperty1;
-    }
+@Encrypt
+public void setEncryptedProperty1(final String encryptedProperty1) {
+    this.encryptedProperty1 = encryptedProperty1;
+}
+```
 
 ## <a name="encryption-and-performance"></a>Cifrado y rendimiento
 Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da lugar a la sobrecarga de rendimiento adicional. Se deben generar la clave de contenido e IV, se debe cifrar el propio contenido y se deben formatear y cargar metadatos adicionales. Esta sobrecarga variará según la cantidad de datos que se cifran. Se recomienda que los clientes prueben siempre sus aplicaciones para obtener un rendimiento durante el desarrollo.
@@ -242,11 +253,9 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 * Descargue la biblioteca Maven del Almacén de claves de Azure para los paquetes Maven de Java:
   * [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
   * [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
-* Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md)  
+* Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md)
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

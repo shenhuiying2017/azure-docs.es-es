@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a86d5fb7c0215293e281a52d0f805053bb7b7c11
-ms.openlocfilehash: 935de6643bbfdc8674836a33ce0dfe77df0e2d1e
+ms.sourcegitcommit: f0592824bc5296a4c6e5781d43746c09d80609f9
+ms.openlocfilehash: 622f5547dee171d1b3f0a0cb65cba375d5478476
 
 
 ---
@@ -46,86 +46,91 @@ El ejemplo copia los datos en DocumentDB de Azure a un blob de Azure. Las propie
 
 **Servicio vinculado de DocumentDB de Azure:**
 
-    {
-      "name": "DocumentDbLinkedService",
-      "properties": {
-        "type": "DocumentDb",
-        "typeProperties": {
-          "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-        }
-      }
+```JSON
+{
+  "name": "DocumentDbLinkedService",
+  "properties": {
+    "type": "DocumentDb",
+    "typeProperties": {
+      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
     }
-
+  }
+}
+```
 **Servicio vinculado de almacenamiento de blobs de Azure:**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Conjunto de datos de entrada de DocumentDB de Azure:**
 
 El ejemplo supone que tiene una colección denominada **Person** en una base de datos de DocumentDB de Azure.
 
 Si se establece "external": "true" y se especifica la directiva externalData, se informa al servicio Factoría de datos de Azure que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos.
 
-    {
-      "name": "PersonDocumentDbTable",
-      "properties": {
-        "type": "DocumentDbCollection",
-        "linkedServiceName": "DocumentDbLinkedService",
-        "typeProperties": {
-          "collectionName": "Person"
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
-      }
+```JSON
+{
+  "name": "PersonDocumentDbTable",
+  "properties": {
+    "type": "DocumentDbCollection",
+    "linkedServiceName": "DocumentDbLinkedService",
+    "typeProperties": {
+      "collectionName": "Person"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
-
+  }
+}
+```
 
 **Conjunto de datos de salida de blob de Azure:**
 
 Los datos se copian a un blob nuevo cada hora con la ruta de acceso para el blob que refleja la fecha y hora específicas con granularidad de hora.
 
-    {
-      "name": "PersonBlobTableOut",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "docdb",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "nullValue": "NULL"
-          }
-        },
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
+```JSON
+{
+  "name": "PersonBlobTableOut",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "docdb",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "nullValue": "NULL"
       }
+    },
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
-
+  }
+}
+```
 Documento JSON de ejemplo de la colección Person en una base de datos de DocumentDB:
 
-    {
-      "PersonId": 2,
-      "Name": {
-        "First": "Jane",
-        "Middle": "",
-        "Last": "Doe"
-      }
-    }
-
+```JSON
+{
+  "PersonId": 2,
+  "Name": {
+    "First": "Jane",
+    "Middle": "",
+    "Last": "Doe"
+  }
+}
+```
 DocumentDB admite la consulta de documentos mediante una sintaxis similar a la de SQL en documentos jerárquicos JSON.
 
 Ejemplo: 
@@ -136,46 +141,47 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
 
 La siguiente canalización copia los datos de la colección Person de la base de datos de DocumentDB a un blob de Azure. Como parte de la actividad de copia, se han especificado los conjuntos de datos de entrada y de salida.  
 
-    {
-      "name": "DocDbToBlobPipeline",
-      "properties": {
-        "activities": [
+```JSON
+{
+  "name": "DocDbToBlobPipeline",
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DocumentDbCollectionSource",
+            "query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
+            "nestingSeparator": "."
+          },
+          "sink": {
+            "type": "BlobSink",
+            "blobWriterAddHeader": true,
+            "writeBatchSize": 1000,
+            "writeBatchTimeout": "00:00:59"
+          }
+        },
+        "inputs": [
           {
-            "type": "Copy",
-            "typeProperties": {
-              "source": {
-                "type": "DocumentDbCollectionSource",
-                "query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
-                "nestingSeparator": "."
-              },
-              "sink": {
-                "type": "BlobSink",
-                "blobWriterAddHeader": true,
-                "writeBatchSize": 1000,
-                "writeBatchTimeout": "00:00:59"
-              }
-            },
-            "inputs": [
-              {
-                "name": "PersonDocumentDbTable"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "PersonBlobTableOut"
-              }
-            ],
-            "policy": {
-              "concurrency": 1
-            },
-            "name": "CopyFromDocDbToBlob"
+            "name": "PersonDocumentDbTable"
           }
         ],
-        "start": "2015-04-01T00:00:00Z",
-        "end": "2015-04-02T00:00:00Z"
+        "outputs": [
+          {
+            "name": "PersonBlobTableOut"
+          }
+        ],
+        "policy": {
+          "concurrency": 1
+        },
+        "name": "CopyFromDocDbToBlob"
       }
-    }
-
+    ],
+    "start": "2015-04-01T00:00:00Z",
+    "end": "2015-04-02T00:00:00Z"
+  }
+}
+```
 ## <a name="sample-copy-data-from-azure-blob-to-azure-documentdb"></a>Ejemplo: copia de datos de un blob de Azure a DocumentDB de Azure
 El ejemplo siguiente muestra:
 
@@ -189,167 +195,174 @@ El ejemplo copia datos de un blob de Azure a DocumentDB de Azure Las propiedades
 
 **Servicio vinculado de almacenamiento de blobs de Azure:**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Servicio vinculado de DocumentDB de Azure:**
 
-    {
-      "name": "DocumentDbLinkedService",
-      "properties": {
-        "type": "DocumentDb",
-        "typeProperties": {
-          "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-        }
-      }
+```JSON
+{
+  "name": "DocumentDbLinkedService",
+  "properties": {
+    "type": "DocumentDb",
+    "typeProperties": {
+      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
     }
-
+  }
+}
+```
 **Conjunto de datos de entrada de blob de Azure:**
 
-    {
-      "name": "PersonBlobTableIn",
-      "properties": {
-        "structure": [
-          {
-            "name": "Id",
-            "type": "Int"
-          },
-          {
-            "name": "FirstName",
-            "type": "String"
-          },
-          {
-            "name": "MiddleName",
-            "type": "String"
-          },
-          {
-            "name": "LastName",
-            "type": "String"
-          }
-        ],
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "fileName": "input.csv",
-          "folderPath": "docdb",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "nullValue": "NULL"
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
+```JSON
+{
+  "name": "PersonBlobTableIn",
+  "properties": {
+    "structure": [
+      {
+        "name": "Id",
+        "type": "Int"
+      },
+      {
+        "name": "FirstName",
+        "type": "String"
+      },
+      {
+        "name": "MiddleName",
+        "type": "String"
+      },
+      {
+        "name": "LastName",
+        "type": "String"
       }
+    ],
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "fileName": "input.csv",
+      "folderPath": "docdb",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "nullValue": "NULL"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
-
+  }
+}
+```
 **Conjunto de datos de salida de DocumentDB de Azure:**
 
 El ejemplo copia los datos a una colección denominada "Person".
 
-    {
-      "name": "PersonDocumentDbTableOut",
-      "properties": {
-        "structure": [
-          {
-            "name": "Id",
-            "type": "Int"
-          },
-          {
-            "name": "Name.First",
-            "type": "String"
-          },
-          {
-            "name": "Name.Middle",
-            "type": "String"
-          },
-          {
-            "name": "Name.Last",
-            "type": "String"
-          }
-        ],
-        "type": "DocumentDbCollection",
-        "linkedServiceName": "DocumentDbLinkedService",
-        "typeProperties": {
-          "collectionName": "Person"
-        },
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
+```JSON
+{
+  "name": "PersonDocumentDbTableOut",
+  "properties": {
+    "structure": [
+      {
+        "name": "Id",
+        "type": "Int"
+      },
+      {
+        "name": "Name.First",
+        "type": "String"
+      },
+      {
+        "name": "Name.Middle",
+        "type": "String"
+      },
+      {
+        "name": "Name.Last",
+        "type": "String"
       }
+    ],
+    "type": "DocumentDbCollection",
+    "linkedServiceName": "DocumentDbLinkedService",
+    "typeProperties": {
+      "collectionName": "Person"
+    },
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
-
+  }
+}
+```
 La siguiente canalización copia los datos de un blob de Azure a la colección Person de DocumentDB. Como parte de la actividad de copia, se han especificado los conjuntos de datos de entrada y de salida.
 
-    {
-      "name": "BlobToDocDbPipeline",
-      "properties": {
-        "activities": [
+```JSON
+{
+  "name": "BlobToDocDbPipeline",
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "DocumentDbCollectionSink",
+            "nestingSeparator": ".",
+            "writeBatchSize": 2,
+            "writeBatchTimeout": "00:00:00"
+          }
+          "translator": {
+              "type": "TabularTranslator",
+              "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
+          }
+        },
+        "inputs": [
           {
-            "type": "Copy",
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "DocumentDbCollectionSink",
-                "nestingSeparator": ".",
-                "writeBatchSize": 2,
-                "writeBatchTimeout": "00:00:00"
-              }
-              "translator": {
-                  "type": "TabularTranslator",
-                  "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
-              }
-            },
-            "inputs": [
-              {
-                "name": "PersonBlobTableIn"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "PersonDocumentDbTableOut"
-              }
-            ],
-            "policy": {
-              "concurrency": 1
-            },
-            "name": "CopyFromBlobToDocDb"
+            "name": "PersonBlobTableIn"
           }
         ],
-        "start": "2015-04-14T00:00:00Z",
-        "end": "2015-04-15T00:00:00Z"
+        "outputs": [
+          {
+            "name": "PersonDocumentDbTableOut"
+          }
+        ],
+        "policy": {
+          "concurrency": 1
+        },
+        "name": "CopyFromBlobToDocDb"
       }
-    }
-
+    ],
+    "start": "2015-04-14T00:00:00Z",
+    "end": "2015-04-15T00:00:00Z"
+  }
+}
+```
 Si la entrada de blob de ejemplo es como:
 
-    1,John,,Doe
-
+```
+1,John,,Doe
+```
 Entonces, el resultado JSON en DocumentDB será como:
 
-    {
-      "Id": 1,
-      "Name": {
-        "First": "John",
-        "Middle": null,
-        "Last": "Doe"
-      },
-      "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
-    }
-
+```JSON
+{
+  "Id": 1,
+  "Name": {
+    "First": "John",
+    "Middle": null,
+    "Last": "Doe"
+  },
+  "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
+}
+```
 DocumentDB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Azure Data Factory permite al usuario indicar la jerarquía a través de **nestingSeparator** que es "." en este ejemplo. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla.
 
 ## <a name="azure-documentdb-linked-service-properties"></a>Propiedades del servicio vinculado de DocumentDB de Azure
@@ -371,22 +384,23 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 
 Ejemplo:
 
-    {
-      "name": "PersonDocumentDbTable",
-      "properties": {
-        "type": "DocumentDbCollection",
-        "linkedServiceName": "DocumentDbLinkedService",
-        "typeProperties": {
-          "collectionName": "Person"
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
-      }
+```JSON
+{
+  "name": "PersonDocumentDbTable",
+  "properties": {
+    "type": "DocumentDbCollection",
+    "linkedServiceName": "DocumentDbLinkedService",
+    "typeProperties": {
+      "collectionName": "Person"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
-
+  }
+}
+```
 ### <a name="schema-by-data-factory"></a>Esquema de Data Factory
 En los almacenes de datos sin esquemas como DocumentDB, el servicio Data Factory deduce el esquema de una de las maneras siguientes:  
 
@@ -398,7 +412,8 @@ Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar 
 ## <a name="azure-documentdb-copy-activity-type-properties"></a>Propiedades de tipo de actividad de copia de DocumentDB de Azure
 Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
-**Nota:** la actividad de copia toma solo una entrada y genera una única salida.
+> [!NOTE]
+> La actividad de copia toma solo una entrada y genera una única salida.
 
 Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
@@ -453,6 +468,6 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

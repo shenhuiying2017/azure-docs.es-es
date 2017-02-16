@@ -12,19 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 01/30/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f574a3cd837e4fc9cf292d672432a7960cae177b
+ms.sourcegitcommit: 2b5899ba43f651ae6f5fdf84d7aa5ee35d81b738
+ms.openlocfilehash: be27695cd1d998eedff0ca76f6ae9d4ff69bb97b
 
 
 ---
-# <a name="log-analytics-http-data-collector-api"></a>Log Analytics HTTP Data Collector API
-Con Log Analytics HTTP Data Collector API, puede agregar datos POST JSON (JavaScript Object Notation) en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a la API de REST. Con este método, puede enviar datos desde aplicaciones de terceros o desde scripts, por ejemplo, desde un runbook de Azure Automation.  
+# <a name="send-data-to-log-analytics-with-the-http-data-collector-api"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP
+Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
+
+## <a name="concepts"></a>Conceptos
+Puede usar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde cualquier cliente que pueda llamar a una API de REST.  Podría tratarse de un runbook en Azure Automation que recopila datos de administración de Azure u otra nube, o podría ser un sistema de administración alternativo que usa Log Analytics para consolidar y analizar los datos.
+
+Todos los datos del repositorio de Log Analytics se almacenan como un registro con un tipo de registro concreto.  Se da formato a los datos para enviarlos a la API del recopilador de datos HTTP como varios registros en JSON.  Al enviar los datos, se crea un registro individual en el repositorio para cada registro en la carga de solicitud.
+
+
+![Información general del recopilador de datos HTTP](media/log-analytics-data-collector-api/overview.png)
+
+
 
 ## <a name="create-a-request"></a>Creación de una solicitud
-Las dos siguientes tablas enumeran los atributos que son necesarios para cada solicitud a Log Analytics HTTP Data Collector API. Se describirá cada atributo con más detalle más adelante en el artículo.
+Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que incluya los datos que se van a enviar en notación de objetos JavaScript (JSON).  Las siguientes tres tablas enumeran los atributos que son necesarios para cada solicitud. Se describirá cada atributo con más detalle más adelante en el artículo.
 
 ### <a name="request-uri"></a>URI de solicitud
 | Atributo | Propiedad |
@@ -156,13 +166,13 @@ Existen algunas limitaciones en cuando a los datos enviados a la API de recopila
 * El número máximo recomendado de campos para un tipo determinado es 50. Se trata de un límite práctico desde una perspectiva de la experiencia de búsqueda y la facilidad de uso.  
 
 ## <a name="return-codes"></a>Códigos de retorno
-El código de estado HTTP 202 significa que la solicitud se ha aceptado para su procesamiento, pero el procesamiento todavía no ha finalizado. Esto indica que el trabajo se ha completado correctamente.
+El código de estado HTTP 200 significa que se ha recibido la solicitud para su procesamiento. Esto indica que el trabajo se ha completado correctamente.
 
 Esta tabla muestra el conjunto completo de códigos de estado que el servicio puede devolver:
 
 | Código | Estado | Código de error | Descripción |
 |:--- |:--- |:--- |:--- |
-| 202 |Accepted | |La solicitud se aceptó correctamente. |
+| 200 |OK | |La solicitud se aceptó correctamente. |
 | 400 |Solicitud incorrecta |InactiveCustomer |El área de trabajo se cerró. |
 | 400 |Solicitud incorrecta |InvalidApiVersion |El servicio no reconoció la versión de API especificada. |
 | 400 |Solicitud incorrecta |InvalidCustomerId |El identificador de área de trabajo especificado no es válido. |
@@ -173,6 +183,8 @@ Esta tabla muestra el conjunto completo de códigos de estado que el servicio pu
 | 400 |Solicitud incorrecta |MissingLogType |No se especificó el tipo de registro de valor requerido. |
 | 400 |Solicitud incorrecta |UnsupportedContentType |No se estableció el tipo de contenido en **application/json**. |
 | 403 |Prohibido |InvalidAuthorization |El servicio no pudo autenticar la solicitud. Compruebe que el identificador del área de trabajo y la clave de conexión sean válidas. |
+| 404 |No encontrado | | La dirección URL proporcionada no es correcta, bien o la solicitud es demasiado grande. |
+| 429 |Demasiadas solicitudes | | El servicio está experimentando un gran volumen de datos de su cuenta. Vuelva a intentar realizar la solicitud más tarde. |
 | 500 |Internal Server Error |UnspecifiedError |El servicio detectó un error interno. Vuelva a intentar realizar la solicitud. |
 | 503 |Servicio no disponible |ServiceUnavailable |El servicio actualmente no está disponible para recibir solicitudes. Vuelva a intentar realizar la solicitud. |
 
@@ -278,39 +290,43 @@ Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.E
 ```
 using System;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace OIAPIExample
 {
     class ApiExample
     {
-// An example JSON object, with key/value pairs
-        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
+        // An example JSON object, with key/value pairs
+        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-// Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Operations Management Suite workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
-// For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
+        // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-// LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Log Analytics
         static string LogName = "DemoExample";
 
-// You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
         {
-// Create a hash for the API signature
+            // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;
-
+    
             PostData(signature, datestring, json);
         }
 
-// Build the API signature
+        // Build the API signature
         public static string BuildSignature(string message, string secret)
         {
             var encoding = new System.Text.ASCIIEncoding();
@@ -323,22 +339,36 @@ namespace OIAPIExample
             }
         }
 
-// Send a request to the POST API endpoint
+        // Send a request to the POST API endpoint
         public static void PostData(string signature, string date, string json)
         {
-            string url = "https://"+ customerId +".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-            using (var client = new WebClient())
+            try
+            { 
+                string url = "https://" + customerId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+    
+                System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("Log-Type", LogName);
+                client.DefaultRequestHeaders.Add("Authorization", signature);
+                client.DefaultRequestHeaders.Add("x-ms-date", date);
+                client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
+    
+                System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
+                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);
+    
+                System.Net.Http.HttpContent responseContent = response.Result.Content;
+                string result = responseContent.ReadAsStringAsync().Result;
+                Console.WriteLine("Return Result: " + result);
+            }
+            catch (Exception excep)
             {
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                client.Headers.Add("Log-Type", LogName);
-                client.Headers.Add("Authorization", signature);
-                client.Headers.Add("x-ms-date", date);
-                client.Headers.Add("time-generated-field", TimeStampField);
-                client.UploadString(new Uri(url), "POST", json);
+                Console.WriteLine("API Post Exception: " + excep.Message);
             }
         }
     }
 }
+
 ```
 
 ### <a name="python-sample"></a>Ejemplo de Python
@@ -416,7 +446,7 @@ def post_data(customer_id, shared_key, body, log_type):
     }
 
     response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code == 202):
+    if (response.status_code >= 200 and response.status_code <= 299):
         print 'Accepted'
     else:
         print "Response code: {}".format(response.status_code)
@@ -425,11 +455,10 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Ver diseñador](log-analytics-view-designer.md) para crear vistas personalizadas en los datos que envíe.
+- Use la [API de búsqueda de registros](log-analytics-log-search-api.md) para recuperar datos desde el repositorio de Log Analytics.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

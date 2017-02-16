@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+ms.sourcegitcommit: b47aa6730aff534b796cfc5427e613defdf69926
+ms.openlocfilehash: 0f0b2a10ae0f16411d9043351064eafe3a26c5aa
 
 
 ---
@@ -35,7 +35,7 @@ Cuando esté satisfecho con el experimento, puede implementarlo como un ***servi
 En este artículo ofrecemos una información general de cómo progresa el modelo de Machine Learning desde un experimento de desarrollo hasta un servicio web aplicado.
 
 > [!NOTE]
-> Hay otras maneras de desarrollar e implementar modelos de Aprendizaje automático, pero este artículo se centra en cómo usar Estudio de aprendizaje automático. Para ver una explicación sobre cómo crear un servicio web predictivo clásico con R, consulte la publicación del blog [Build & Deploy Predictive web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Creación e implementación de aplicaciones web predictivas con RStudio y Azure Machine Learning).
+> Hay otras maneras de desarrollar e implementar modelos de Aprendizaje automático, pero este artículo se centra en cómo usar Estudio de aprendizaje automático. Por ejemplo, para leer una descripción sobre cómo crear un servicio web predictivo clásico con R, consulte la publicación del blog [Build & Deploy Predictive web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Creación e implementación de aplicaciones web predictivas con RStudio y Azure Machine Learning).
 > 
 > 
 
@@ -122,6 +122,6 @@ Para ver ejemplos de todo el proceso, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

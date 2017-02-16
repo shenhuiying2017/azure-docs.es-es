@@ -13,14 +13,12 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 0475c0f209cde80177df7dbf23eaf8dd17a44752
-ms.openlocfilehash: b5754a08e0683344cc97bdc664ed26ef9a9cf34d
+ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
+ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
 
 
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Vinculación de una suscripción de Azure a un inquilino de Azure B2C para pagar los cargos por uso
-> [!IMPORTANT]
-> Próximamente. Esta característica no está disponible para todos los inquilinos de B2C.
 
 Los cargos por el uso continuo de Azure Active Directory B2C (o Azure AD B2C) se facturan a una suscripción de Azure. Es necesario que el Administrador de inquilinos vincule explícitamente el inquilino de Azure AD B2C a una suscripción de Azure después de crear el propio inquilino de B2C.  Este vínculo se consigue mediante la creación de un recurso de inquilino de Azure AD B2C en la suscripción de destino de Azure. Muchos inquilinos de B2C pueden vincularse a una sola suscripción de Azure, junto con otros recursos de Azure (por ejemplo, máquinas virtuales, almacenamiento de datos y LogicApps)
 
@@ -69,6 +67,9 @@ Al hacer clic en el recurso del inquilino de B2C, es posible
 
 ![Configuración de recursos de B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## <a name="known-issues"></a>Problemas conocidos
+- Eliminación del inquilino de B2C. Si se crea un inquilino de B2C, lo elimina y lo vuelve a crear con el mismo nombre de dominio, elimine también el recurso "Linking" (Vinculación) y vuélvalo a crear con el mismo nombre de dominio.  Encontrará este recurso "Linking" (Vinculación) en "All resources" (Todos los recursos) en el inquilino de suscripción a través de Azure Portal.
+- Restricciones autoimpuestas en la ubicación del recurso regional.  En raras ocasiones, un usuario puede haber establecido una restricción regional para la creación de recursos de Azure.  Esta restricción podría impedir la creación del vínculo entre una suscripción de Azure y un inquilino de B2C. Para mitigar esto, la restricción debe ser menos exigente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez que se han completados estos pasos en cada uno de los inquilinos B2C, la suscripción de Azure se factura según los detalles del Contrato Enterprise o directo de Azure.
@@ -84,6 +85,6 @@ Una vez que se han completados estos pasos en cada uno de los inquilinos B2C, la
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

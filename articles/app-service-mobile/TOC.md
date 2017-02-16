@@ -4,8 +4,8 @@
 ## [Cómo funciona](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Primeros pasos
-## Create mobile apps (Creación de aplicaciones móviles)
+# Introducción
+## Creación de aplicaciones móviles
 ### [Android](app-service-mobile-android-get-started.md)
 ### [Cordova](app-service-mobile-cordova-get-started.md)
 ### [iOS](app-service-mobile-ios-get-started.md)
@@ -14,13 +14,13 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-## Create API apps (Creación de aplicaciones de API)
+## Creación de aplicaciones de API
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## Creación de Web Apps
+## Creación de aplicaciones web
 ### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
 ### [Node.js](../app-service-web/app-service-web-nodejs-get-started.md)
 ### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
@@ -32,7 +32,7 @@
 
 ## Planeamiento y diseño
 ### [Autenticación y autorización en Azure Mobile Apps](app-service-mobile-auth.md)
-### [Sincronización de datos sin conexión en Aplicaciones móviles de Azure](app-service-mobile-offline-data-sync.md)
+### [Sincronización de datos sin conexión en Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
 ### [Procedimientos recomendados para Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure App Service y los servicios de Azure existentes](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Información detallada de los planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -92,12 +92,12 @@
 #### [Back-end de Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md)
 #### [Control de versiones de cliente y servidor](app-service-mobile-client-and-server-versioning.md)
 
-### Trabajos web
+### WebJobs
 #### [Qué es el SDK de WebJobs de Azure](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Creación de un WebJob .NET en Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uso del Bus de servicio de Azure con el SDK de trabajos web](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uso de Azure Service Bus con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### Entorno de App Service
@@ -171,7 +171,7 @@
 #### [Implementación de una arquitectura de seguridad por niveles](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Conexión de forma segura con recursos de back-end](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Copia de seguridad
+## Backup
 ### [Realizar una copia de seguridad de la aplicación en Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Restaurar una aplicación en Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Usar REST para realizar una copia de seguridad y restaurar las aplicaciones de App Service](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -207,10 +207,12 @@
 ### [Solución de problemas con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Referencia
-## [API de .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Referencia de App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+
+# Temas relacionados
 ## [SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Referencia de App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
@@ -225,6 +227,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

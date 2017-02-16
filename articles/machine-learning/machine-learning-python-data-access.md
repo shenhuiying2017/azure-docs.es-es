@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: huvalo;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1efa86208ef45f84de5143a6a906c871d958e9d
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 
 
 ---
@@ -78,7 +78,7 @@ Para obtener el token de autorización, puede realizar una de las acciones sigui
 
 * Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens primarios y secundarios.  Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
 
-![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
+![Tokens de autorización](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
 * Pida que le amplíen al rol de propietario.  Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
 
@@ -114,7 +114,7 @@ Se admiten los siguientes formatos (sus constantes están en la clase `azureml.D
 
 Puede determinar el formato desplazando el mouse sobre un nodo de salida del módulo. Aparecerá junto al nombre del nodo, en la información sobre herramientas.
 
-Algunos de los módulos, como [Dividir][split], dan como resultado un formato denominado `Dataset`, que no es compatible con la biblioteca de cliente de Python.
+Algunos de los módulos, como el de [División][split], dan como resultado un formato denominado `Dataset`, que no es compatible con la biblioteca de cliente de Python.
 
 ![Formato de conjunto de datos][dataset-format]
 
@@ -127,7 +127,7 @@ Los pasos siguientes muestran un ejemplo que crea un experimento, lo ejecuta y t
 1. Cree un experimento nuevo.
 2. Inserte un módulo **Conjunto de datos de clasificación binaria de ingresos en el censo de adultos** .
 3. Inserte un módulo [División][split] y conecte su entrada a la salida del módulo del conjunto de datos.
-4. Inserte un módulo [Convertir en CSV][convert-to-csv] y conecte su entrada a una de las salidas del módulo [Dividir][split].
+4. Inserte un módulo [Convertir a CSV][convert-to-csv] y conecte su entrada a una de las salidas del módulo [División][split].
 5. Guarde el experimento, ejecútelo y espere a que finalice su ejecución.
 6. Haga clic en el nodo de salida del módulo [Convertir en CSV][convert-to-csv].
 7. Cuando aparezca el menú contextual, seleccione **Generar código de acceso a datos**.
@@ -338,6 +338,6 @@ Si sus datos ya están serializados, puede utilizar`update_from_raw_data` en lug
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

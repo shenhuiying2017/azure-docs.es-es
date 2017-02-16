@@ -1,14 +1,14 @@
 <!--author=SharS last changed: 01/15/2016-->
 
-#### Para instalar la actualización 1.2 desde el Portal de Azure clásico
-1. En la página de servicio de StorSimple, seleccione el dispositivo. Vaya a **Dispositivos** > **Mantenimiento**.
+#### <a name="to-install-update-12-from-the-azure-classic-portal"></a>Para instalar la actualización 1.2 desde el Portal de Azure clásico
+1. En la página de servicio de StorSimple, seleccione el dispositivo. Navegue a **Dispositivos** > **Mantenimiento**.
 2. En la parte inferior de la página, haga clic en **Buscar actualizaciones**. Para buscar actualizaciones disponibles, se creará un trabajo. Recibirá una notificación cuando el trabajo esté completado correctamente.
 3. En la sección **Actualizaciones de software** en la misma página, verá que hay nuevas actualizaciones de software disponibles. Se recomienda que revise las notas de la versión antes de aplicar la actualización 1.2 en el dispositivo.
    
     ![Instalación de actualizaciones de software](./media/storsimple-install-update-via-portal/InstallUpdate12_11M.png)
 4. En la parte inferior de la página, haga clic en **Instalar actualizaciones**.
 5. Se le pedirá confirmación. Haga clic en **Aceptar**.
-6. Aparecerá el cuadro de diálogo **Instalar actualizaciones**. El dispositivo debe cumplir las comprobaciones que se muestran en este cuadro de diálogo. Estos pasos se completaron antes de la actualización. Seleccione **Comprendo el requisito anterior y estoy listo para actualizar el dispositivo**. Haga clic en el icono de marca de verificación.
+6. Aparecerá el cuadro de diálogo **Instalar actualizaciones** . El dispositivo debe cumplir las comprobaciones que se muestran en este cuadro de diálogo. Estos pasos se completaron antes de la actualización. Seleccione **Comprendo el requisito anterior y estoy listo para actualizar el dispositivo**. Haga clic en el icono de marca de verificación.
    
     ![Mensaje de confirmación](./media/storsimple-install-update-via-portal/InstallUpdate12_2M.png)
 7. Ahora se iniciará un conjunto de comprobaciones previas automáticas. Entre ellos se incluyen los siguientes:
@@ -36,21 +36,25 @@
     ![Creación del trabajo de actualización](./media/storsimple-install-update-via-portal/InstallUpdate12_44M.png)
    
     La actualización se aplicará en el dispositivo.
-9. Para supervisar el progreso del trabajo de actualización, haga clic en **Ver trabajo**. En la página **Trabajos**, puede ver el progreso de la actualización.
+9. Para supervisar el progreso del trabajo de actualización, haga clic en **Ver trabajo**. En la página **Trabajos** , puede ver el progreso de la actualización. 
    
     ![Actualización del progreso del trabajo](./media/storsimple-install-update-via-portal/InstallUpdate12_5M.png)
 10. La actualización tardará unas horas en completarse. Puede ver los detalles del trabajo en cualquier momento.
     
     ![Actualización de detalles del trabajo](./media/storsimple-install-update-via-portal/InstallUpdate12_6M.png)
-11. Una vez completado el trabajo, vaya a la página **Mantenimiento** página y desplácese hacia abajo hasta **Actualizaciones de software**.
-12. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. También se debe modificar **Fecha de última actualización:**.
+11. Una vez que el trabajo se haya completado, navegue a la página **Mantenimiento** página y desplácese hacia abajo hasta **Actualizaciones de software**.
+12. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. También se debe modificar **Fecha de última actualización:** .
     
     ![Página de mantenimiento](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
-13. Ahora verá que las actualizaciones del modo de mantenimiento están disponibles. Estas actualizaciones son actualizaciones perjudiciales que provocan tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. Siga las instrucciones que encontrará en [Instalar actualizaciones en el modo de mantenimiento](../articles/storsimple/storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple), para instalar estas actualizaciones mediante Windows PowerShell para StorSimple.
+13. Ahora verá que las actualizaciones del modo de mantenimiento están disponibles. Estas actualizaciones son actualizaciones perjudiciales que provocan tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. Siga las instrucciones que encontrará en [Install Maintenance mode updates via Windows PowerShell for StorSimple](../articles/storsimple/storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) (Instalación de actualizaciones en el modo de mantenimiento mediante Windows PowerShell para StorSimple) para instalar estas actualizaciones mediante Windows PowerShell para StorSimple.
 
 > [!NOTE]
-> En determinados casos, el mensaje que indica que las actualizaciones del modo de mantenimiento están disponibles pueden mostrarse hasta 24 horas después de que las actualizaciones del modo de mantenimiento se apliquen correctamente en el dispositivo.
+> En determinados casos, el mensaje que indica que las actualizaciones del modo de mantenimiento están disponibles pueden mostrarse hasta 24 horas después de que las actualizaciones del modo de mantenimiento se apliquen correctamente en el dispositivo.  
 > 
 > 
 
-<!---HONumber=AcomDC_0121_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

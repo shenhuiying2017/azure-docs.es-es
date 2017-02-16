@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 12/1/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: b1369c742c0ee1eac7638ca20598060c8542c75f
+ms.sourcegitcommit: 638e3e59f91202d55347c830542801ccead1b90f
+ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar StorSimple Virtual Array
@@ -41,11 +41,11 @@ El servicio StorSimple Device Manager se ejecuta en Microsoft Azure y se conecta
 
 #### <a name="to-connect-to-the-service"></a>Para conectarse al servicio
 1. Vaya a [https://ms.portal.azure.com](https://ms.portal.azure.com).
-2. Con las credenciales de su cuenta Microsoft, inicie sesión en el Portal de Microsoft Azure clásico (situado en la parte superior derecha del panel).
-3. Desplácese hacia abajo en el panel de navegación izquierdo para obtener acceso al servicio de StorSimple Device Manager.
+2. Con las credenciales de su cuenta Microsoft, inicie sesión en el Portal de Microsoft Azure (situado en la parte superior derecha del panel).
+3. Vaya a Examinar--> Filtro en Administradores de dispositivos de StorSimple para ver todos los administradores de dispositivos de una suscripción determinada.
 
 ## <a name="use-the-storsimple-device-manager-service-to-perform-management-tasks"></a>Uso del servicio StorSimple Device Manager para realizar tareas de administración
-En la siguiente tabla se muestra un resumen de todas las tareas comunes de administración y flujos de trabajo complejos que pueden llevarse a cabo en la interfaz de usuario del servicio StorSimple Device Manager. Estas tareas se organizan en función de las páginas de la IU en que se inician.
+En la siguiente tabla se muestra un resumen de todas las tareas comunes de administración y flujos de trabajo complejos que pueden llevarse a cabo en la hoja de resumen del servicio StorSimple Device Manager. Estas tareas se organizan en función de las hojas en que se inician.
 
 Para obtener más información sobre cada flujo de trabajo, haga clic en el procedimiento adecuado en la tabla.
 
@@ -53,11 +53,11 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 | Si desea hacer esto... | Use este procedimiento |
 | --- | --- | --- |
 | Crear un servicio</br>Eliminar un servicio</br>Obtener la clave de registro del servicio</br>Volver a generar la clave de registro de servicio |[Implementar el servicio StorSimple Device Manager](storsimple-virtual-array-manage-service.md) |
-| Cambiar la clave de cifrado de datos de servicio</br>Visualizar los registros de actividad |[Usar del resumen del servicio StorSimple](storsimple-virtual-array-service-summary.md) |
+| Visualizar los registros de actividad |[Usar del resumen del servicio StorSimple](storsimple-virtual-array-service-summary.md) |
 | Desactivar una matriz virtual</br>Eliminar una matriz virtual |[Desactivar o eliminar una matriz virtual](storsimple-virtual-array-deactivate-and-delete-device.md) |
-| Recuperación ante desastres y conmutación por error de dispositivos</br>Requisitos previos de conmutación por error</br>Conmutación por error en un dispositivo virtual</br>Recuperación ante desastres y continuidad empresarial (BCDR)</br>Errores durante la recuperación ante desastres |[Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple](storsimple-virtual-array-failover-dr.md) |
+| Recuperación ante desastres y conmutación por error de dispositivos</br>Requisitos previos de conmutación por error</br>Recuperación ante desastres y continuidad empresarial (BCDR)</br>Errores durante la recuperación ante desastres |[Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple](storsimple-virtual-array-failover-dr.md) |
 | Crear copias de seguridad de los recursos compartidos y volúmenes</br>Creación de una copia de seguridad manual</br>Establecer la programación de copias de seguridad</br>Ver copias de seguridad existentes |[Crear una copia de seguridad de la matriz virtual de StorSimple](storsimple-virtual-array-backup.md) |
-| Restaurar recursos compartidos a partir de un conjunto de copias de seguridad</br>Restaurar volúmenes a partir de un conjunto de copias de seguridad</br>Recuperación a nivel de elemento (solo servidor de archivos) |[Restaurar desde una copia de seguridad de la matriz virtual de StorSimple](storsimple-virtual-array-clone.md) |
+| Clonación de recursos compartidos de un conjunto de copias de seguridad</br>Clonación de volúmenes a partir de un conjunto de copias de seguridad</br>Recuperación a nivel de elemento (solo servidor de archivos) |[Clonación a partir de una copia de seguridad de StorSimple Virtual Array](storsimple-virtual-array-clone.md) |
 | Acerca de las cuentas de almacenamiento</br>Agregar una cuenta de almacenamiento</br>Editar una cuenta de almacenamiento</br>Eliminar una cuenta de almacenamiento |[Administrar cuentas de almacenamiento para la matriz virtual de StorSimple](storsimple-virtual-array-manage-storage-accounts.md) |
 | Acerca de los registros de control de acceso</br>Agregar o modificar un registro de control de acceso </br>Eliminar un registro de control de acceso |[Administrar registros de control de acceso para la matriz virtual de StorSimple](storsimple-virtual-array-manage-acrs.md) |
 | Ver detalles del trabajo |[Administrar trabajos de matriz virtual de StorSimple](storsimple-virtual-array-manage-jobs.md) |
@@ -80,6 +80,6 @@ Si desea obtener información sobre la interfaz de usuario web y cómo usarla, v
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

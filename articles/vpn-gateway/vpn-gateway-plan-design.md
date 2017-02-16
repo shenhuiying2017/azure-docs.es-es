@@ -1,10 +1,10 @@
 ---
-title: "Planeamiento y diseño de una instancia de VPN Gateway | Microsoft Docs"
+title: "Planeamiento y diseño de conexiones entre locales: Azure VPN Gateway | Microsoft Docs"
 description: "Obtenga información acerca del planeamiento y diseño de puerta de enlace de VPN para conexiones locales, híbridas y de red virtual a red virtual"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/25/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 03f9294b558a075705fca4bd647a2154e155a1ea
+ms.sourcegitcommit: d2087d4a1844379ae642c9ce5b08d62edef2fccf
+ms.openlocfilehash: 21723b3c8ab636f6c4a497abece59ce83a46d65f
 
 
 ---
@@ -117,7 +117,7 @@ Sin la tunelización forzada, el tráfico vinculado a Internet desde las máquin
 
 **Diagrama de tunelización forzada**
 
-![Conexión de tunelización forzada](./media/vpn-gateway-plan-design/forced-tunnel.png "forced tunneling")
+![Diagrama de tunelización forzada de Azure VPN Gateway](./media/vpn-gateway-plan-design/forced-tunneling-diagram.png)
 
 Ambos modelos de implementación permiten configurar una conexión de tunelización forzada mediante distintas herramientas. Para obtener más información, vea la tabla siguiente. Esta tabla se actualiza cada vez que hay nuevos artículos, nuevos modelos de implementación y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.
 
@@ -131,6 +131,6 @@ Para obtener más información acerca de la configuración de puerta de enlace e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

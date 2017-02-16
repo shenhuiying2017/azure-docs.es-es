@@ -1,5 +1,5 @@
 ---
-title: "Requisitos de suscripción para Azure AD Privileged Identity Management | Microsoft Docs"
+title: Suscripciones de Privileged Identity Management - Azure | Microsoft Docs
 description: "Explica los requisitos de suscripción y licencia para administrar y usar Azure AD Privileged Identity Management en su inquilino"
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/25/2017
 ms.author: barclayn
 translationtype: Human Translation
-ms.sourcegitcommit: 063ed5757728b962691020c12a3a76a7144dd00c
-ms.openlocfilehash: 8c8892d73f24299c4b5ab60ea8b8ea3441e38109
+ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
+ms.openlocfilehash: c6aea0b7280ad8f1365c04203c78a1499ba0aa58
 
 
 ---
@@ -64,6 +64,6 @@ Cuando una suscripción de Azure AD Premium P2 o EMS E5 expira, o una organizaci
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

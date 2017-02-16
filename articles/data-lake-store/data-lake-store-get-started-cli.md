@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 
 
 ---
@@ -29,8 +29,9 @@ ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [CLI de Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
+>
 
 Aprenda a usar la interfaz de la línea de comandos de Azure para crear una cuenta del Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para más información acerca de Data Lake Store, consulte [Información general de Data Lake Store](data-lake-store-overview.md).
 
@@ -176,6 +177,6 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

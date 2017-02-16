@@ -1,5 +1,5 @@
 ---
-title: "Preguntas más frecuentes sobre Relay | Microsoft Docs"
+title: "Preguntas más frecuentes sobre Azure Relay | Microsoft Docs"
 description: Respuestas a algunas preguntas frecuentes sobre Relay de Azure.
 services: service-bus-relay
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: jotaub,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 12702f585605a88ed6e753a0ff301095e8629e05
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 22781ec965decbfd33923478794a76692151c363
 
 
 ---
@@ -37,7 +37,7 @@ El servicio anteriormente llamado **Relay** se conoce ahora como *WCF Relay*. Es
 En esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Microsoft Azure. Para obtener más información sobre los precios de Relay, consulte [Precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>¿Cómo se cobra por Conexiones híbridas y WCF Relay?
-Para obtener más información sobre los precios de Relay, consulte [Precios de Service Bus][Información general sobre precios]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
+Para más información sobre los precios de Relay, consulte los [detalles de precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>¿Cómo se factura Conexiones híbridas?
 Aquí se muestran tres escenarios de ejemplo:
@@ -90,14 +90,17 @@ Puede utilizar los comandos de PowerShell (los encontrará [aquí](../service-bu
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>¿Cuáles son algunas de las excepciones generadas por las API de Relay de Azure y sus acciones sugeridas?
-El artículo [Excepciones de Relay][Excepciones de Relay] describe algunas excepciones con las acciones que se sugieren.
+En el artículo sobre las [excepciones de Relay][Relay exceptions] se describen algunas excepciones con acciones sugeridas.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>¿Qué es una firma de acceso compartido y qué lenguajes admiten la generación de una firma?
-Las firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. Para más información sobre cómo generar sus propias firmas en Node, PHP, Java y C\#, consulte el artículo [Las firmas de acceso compartido][Las firmas de acceso compartido].
+Las firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. Para más información sobre cómo generar sus propias firmas en Node, PHP, Java y C, consulte el artículo \#[Las firmas de acceso compartido][Shared Access Signatures].
 
-[Información general sobre precios]: https://azure.microsoft.com/pricing/details/service-bus/
-[Excepciones de Relay]: relay-exceptions.md
-[Las firmas de acceso compartido]: ../service-bus-messaging/service-bus-sas-overview.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Relay exceptions]: relay-exceptions.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
+
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>¿Es posible incluir los puntos de conexión de Relay en la lista de permitidos?
+Sí. El cliente de Relay establece conexiones al servicio de Relay mediante nombres de dominio completos. Esto permite a los clientes agregar una entrada para `*.servicebus.windows.net` en los firewalls compatibles con la creación de listas blancas de DNS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
@@ -106,6 +109,6 @@ Las firmas de acceso compartido son un mecanismo de autenticación basado en URI
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

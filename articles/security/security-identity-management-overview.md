@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre seguridad de administración de identidades de Azure | Microsoft Docs"
-description: " Las soluciones de administración de la identidad y el acceso de Microsoft permiten al departamento de TI proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Además, esto posibilita que existan más niveles de validación, como la autenticación multifactor y las directivas de acceso condicional. Este artículo proporciona una visión general de las principales características de seguridad de Azure que contribuyen a la administración de identidades. "
+title: "Características de seguridad de Azure que ayudan a la administración de identidades | Microsoft Docs"
+description: " Este artículo proporciona una visión general de las principales características de seguridad de Azure que contribuyen a la administración de identidades. Las soluciones de administración de identidad y acceso de Microsoft permiten al departamento de TI proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Esto hace posible que existan más niveles de validación, como la autenticación multifactor y las directivas de acceso condicional.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 5778f554e83426f5fba12a25d2bbce13db4a9226
-ms.openlocfilehash: b73fb97a1f3879ae8f232d666e366b058f3253d1
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: 9c5af888ec0130ec8506602ab805221f0a83ea47
 
 
 ---
@@ -156,6 +156,6 @@ Más información:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -41,7 +41,7 @@ Esto aporta ventajas a los desarrolladores de aplicaciones porque llegan a sus c
 ## <a name="open-apis-and-ease-of-integration"></a>API abiertas y facilidad de integración
 Al proporcionar API y SDK abiertas que facilitan la integración, puede aprovechar los datos de su CRM, CMS u otros sistemas de back-end existentes. Esto le permite ser más específico al dirigirse a su audiencia y proteger sus inversiones.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Protección de datos y privacidad en todo el mundo
+## <a name="data-protection--privacy-across-the-globe"></a>Protección de datos y privacidad en todo el mundo
 Desde siempre, Microsoft tiene un compromiso con la privacidad, que es una parte integral del ciclo vida del producto y del servicio. Trabajamos para ser transparentes en nuestras prácticas de privacidad, ofrecemos a nuestros clientes opciones de privacidad significativas y administramos los datos que almacenamos de manera responsable. Al igual que con todos los servicios de Azure, Mobile Engagement no comparte ni vende información derivada de la propiedad de los clientes. Mobile Engagement está disponible internacionalmente7, lo que permite respetar la legislación de protección de datos específica de cada región o país.
 
 ### <a name="next-steps"></a>Pasos siguientes:

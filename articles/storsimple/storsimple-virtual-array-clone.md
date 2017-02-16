@@ -1,5 +1,5 @@
 ---
-title: "Clonación a partir de una copia de seguridad de Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Clonación de una copia de seguridad de StorSimple Virtual Array | Microsoft Docs"
 description: Aprenda a clonar una copia de seguridad y a recuperar un archivo de StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: f1c050c499484b612d2f9dcae395f36524397008
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
 
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonación a partir de una copia de seguridad de StorSimple Virtual Array
@@ -40,7 +40,7 @@ En este artículo se describe paso a paso cómo clonar un conjunto de copias de 
    
    b.    En la lista de copias de seguridad filtradas que se muestra, seleccione la copia de seguridad de la que se va a realizar la clonación.
    
-   c.    Haga clic en **Aceptar**.
+   c.    Haga clic en **OK**.
    
    ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. En la hoja **Clonar**, haga clic en **Configuración de destino** y realice las siguientes acciones:
@@ -140,6 +140,6 @@ Obtenga más información sobre cómo [administrar la matriz virtual de StorSimp
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

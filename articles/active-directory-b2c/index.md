@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Aprenda a implementar una administración de identidades de consumidor integral en la nube. La documentación muestra cómo proteger las aplicaciones móviles y web de consumo."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
-ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
+ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
 
 ---
 
 #<a name="active-directory-b2c-documentation"></a>Documentación de Active Directory B2C
 
-Azure Active Directory B2C es una solución completa de administración de identidades en la nube, destinada a aplicaciones móviles y web orientadas al consumidor. Se trata de un servicio global de alta disponibilidad que se puede escalar a cientos de millones de identidades de consumidor. Basado en una plataforma segura de nivel empresarial, Azure Active Directory B2C protege las aplicaciones, la empresa y los consumidores.
+Aprenda a configurar y administrar la administración de identidades de consumidor completa en la nube con Active Directory B2C. Los tutoriales, las referencias y otra documentación muestran cómo proteger las aplicaciones móviles y web de consumo con inicio de sesión seguro.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -187,6 +188,6 @@ Descarga de la documentación de Active Directory B2C </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

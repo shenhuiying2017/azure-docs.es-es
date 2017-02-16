@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/18/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
+ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
+ms.openlocfilehash: f12ed9d76e7c6db5e14ed3c00d7d4087dbd4069c
 
 
 ---
@@ -26,7 +26,8 @@ ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
 Para proporcionar seguridad, SQL Database controla el acceso con reglas de firewall que limitan la conectividad por dirección IP, con mecanismos de autenticación que requieren a los usuarios que demuestren su identidad y con mecanismos de autorización que limitan a los usuarios el acceso a datos y acciones específicos. 
 
 > [!IMPORTANT]
-> Para obtener información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL).
+> Para obtener información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL). Para ver un tutorial que use la autenticación de SQL Server, consulte [Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de SQL Server, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos](sql-database-control-access-sql-authentication-get-started.md). Para ver un tutorial que use la autenticación de Azure Active Directory, consulte [Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de AAD, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos](sql-database-control-access-aad-authentication-get-started.md).
+
 >
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall y reglas de firewall
@@ -69,10 +70,11 @@ Además, estas características se pueden utilizar para limitar o elevar los per
 - Para obtener información acerca de los usuarios e inicios de sesión, consulte [Administración de inicios de sesión](sql-database-manage-logins.md). 
 - Para información sobre el uso de las características de protección de datos en SQL Database, consulte [Protecting data within your SQL Database](sql-database-protect-data.md) (Protección de datos en SQL Database).
 - Para obtener información acerca de la supervisión proactiva, consulte [Introducción a SQL Database Auditing](sql-database-auditing-get-started.md) e [Introducción a la detección de amenazas de SQL Database](sql-database-threat-detection-get-started.md).
+- Para ver un tutorial que use la autenticación de SQL Server, consulte [Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de SQL Server, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos](sql-database-control-access-sql-authentication-get-started.md).
+- Para ver un tutorial que use la autenticación de Azure Active Directory, consulte [Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de AAD, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

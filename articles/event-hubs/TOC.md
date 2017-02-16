@@ -1,17 +1,17 @@
 # Información general
 
 ## [¿Qué es Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Información general de los Centros de eventos](event-hubs-overview.md)
-## [Introducción a la API de centros de eventos](event-hubs-api-overview.md)
+## [Información general de Event Hubs](event-hubs-overview.md)
+## [Información general de la API de Event Hubs](event-hubs-api-overview.md)
 ## [Introducción al modelo de autenticación y seguridad](event-hubs-authentication-and-security-model-overview.md)
 
 
 # Introducción
-## [Introducción a los Centros de eventos](event-hubs-csharp-ephcs-getstarted.md)
-## [Guía de programación de Centros de eventos](event-hubs-programming-guide.md)
+## [Introducción a Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
+## [Guía de programación de Event Hubs](event-hubs-programming-guide.md)
 ## [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 
-# Cómo
+# Procedimientos
 ## Ejecución de las muestras
 ### [Notificación a los usuarios sobre los datos recibidos de los sensores](event-hubs-sensors-notify-users.md)
 ### [Aplicación de muestra de Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
@@ -24,14 +24,14 @@
 ### [Uso de Python para habilitar Event Hubs Archive](event-hubs-archive-python.md)
 
 # Referencia
-## [Cuotas y límites](event-hubs-quotas.md)
-## [Excepciones de mensajería](event-hubs-messaging-exceptions.md)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
-## [Guía del protocolo AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [.NET](/dotnet/api/microsoft.azure.eventhubs)
+## [Java](/java/api/com.microsoft.azure.eventhubs)
 ## [REST](/rest/api/eventhub)
 
 # Recursos
+## [Cuotas y límites](event-hubs-quotas.md)
+## [Excepciones de mensajería](event-hubs-messaging-exceptions.md)
+## [Guía del protocolo AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## [Precios](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Explorador de Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
@@ -40,6 +40,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

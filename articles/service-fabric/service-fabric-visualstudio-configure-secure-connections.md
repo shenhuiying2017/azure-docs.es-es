@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a02d3840555df0d9c16d179023b3bc763274701a
 
 
 ---
@@ -41,7 +41,7 @@ El cuadro de diálogo **Seleccionar clúster de Service Fabric** valida automát
 1. Asegúrese de que puede acceder a uno de los certificados de cliente en el que el clúster de destino puede confiar. Normalmente, el certificado se comparte como un archivo de intercambio de información personal (.pfx, Personal Information Exchange). Consulte [Configuración de un clúster de Service Fabric desde el Portal de Azure](service-fabric-cluster-creation-via-portal.md) para ver cómo configurar el servidor y conceder acceso a un cliente.
 2. Instale el certificado de confianza. Para ello, haga doble clic en el archivo .pfx o use el script de PowerShell Import-PfxCertificate para importar los certificados. Instale el certificado en la ubicación **Cert:\LocalMachine\My**. Acepte toda la configuración predeterminada cuando importe el certificado.
 3. Elija el comando **Publicar...** en el menú contextual del proyecto para abrir el cuadro de diálogo **Publicar aplicación de Azure** y, a continuación, seleccione el clúster de destino. La herramienta resuelve automáticamente la conexión y guarda los parámetros de conexión segura en el perfil de publicación.
-4. [Opcional]: You can edit the publish profile to specify a secure cluster connection.
+4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
    
    Dado que está editando manualmente el archivo XML de perfil de publicación para especificar la información del certificado, asegúrese de anotar el nombre de almacén de certificados, ubicación de almacén y huella digital de certificado. Necesitará proporcionar estos valores para la ubicación del almacén y el nombre del almacén del certificado. Consulte [Recuperación de la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para más información.
    
@@ -53,7 +53,7 @@ El cuadro de diálogo **Seleccionar clúster de Service Fabric** valida automát
    
    Este es un ejemplo para conectarse a un clúster seguro basado en el certificado x509:
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
@@ -74,6 +74,6 @@ Para obtener más información sobre el acceso a los clústeres de Service Fabri
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

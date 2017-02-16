@@ -2,7 +2,7 @@
 ## [¿Qué es Cloud Services?](cloud-services-choose-me.md)
 ## [Archivos de configuración y empaquetado de un servicio en la nube](cloud-services-model-and-package.md)
 
-# Primeros pasos
+# Introducción
 ## [Servicio en la nube de .NET de ejemplo](cloud-services-dotnet-get-started.md)
 ## [Servicio en la nube de Python para Visual Studio de ejemplo](cloud-services-python-ptvs.md)
 ## [Configuración de un clúster HPC híbrido con Microsoft HPC Pack](cloud-services-setup-hybrid-hpcpack-cluster.md)
@@ -64,6 +64,13 @@
 #### [Portal clásico](cloud-services-how-to-scale.md)
 ### [Uso de Python para administrar recursos de Azure](cloud-services-python-how-to-use-service-management.md)
 
+### [Revisiones del SO invitado](cloud-services-guestos-msrc-releases.md)
+### Retirada de SO invitado
+#### [Directiva de retirada](cloud-services-guestos-retirement-policy.md)
+#### [Aviso de retirada de la familia 1](cloud-services-guestos-family1-retirement.md)
+### [Novedades de la versión del SO invitado](cloud-services-guestos-update-matrix.md)
+### [Hoja de referencia rápida de XPath de configuración de rol de Cloud Services](cloud-services-role-config-xpath.md)
+
 ## Administración de certificados
 ### [Cloud Services y certificados de administración](cloud-services-certs-create.md)
 ### Configuración de SSL 
@@ -95,18 +102,12 @@
 ### [Problemas comunes de implementación](cloud-services-troubleshoot-deployment-problems.md)
 ### [Error al iniciar el rol](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Guía de recuperación](cloud-services-disaster-recovery-guidance.md)
-### [P+F de Cloud Services](cloud-services-faq.md)
+### [Preguntas más frecuentes sobre Cloud Services](cloud-services-faq.md)
 
 # Referencia
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Revisiones del SO invitado](cloud-services-guestos-msrc-releases.md)
-## Retirada de SO invitado
-### [Directiva de retirada](cloud-services-guestos-retirement-policy.md)
-### [Aviso de retirada de la familia 1](cloud-services-guestos-family1-retirement.md)
-## [Novedades de la versión del SO invitado](cloud-services-guestos-update-matrix.md)
-## [Hoja de referencia rápida de XPath de configuración de rol de Cloud Services](cloud-services-role-config-xpath.md)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

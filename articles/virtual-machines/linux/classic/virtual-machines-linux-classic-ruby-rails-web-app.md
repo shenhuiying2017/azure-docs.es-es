@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 4233cd55218c59e7998c7dd6de27086c492635a8
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
 
 
 ---
@@ -43,8 +43,8 @@ Para crear la máquina virtual, puede usar el Portal de Azure clásico o la inte
 
 Después de aprovisionar la máquina virtual, haga clic en el nombre de la máquina virtual y en **Panel**. Encuentre el extremo de SSH, que aparece en **Detalles de SSH**.
 
-### <a name="azure-cli"></a>Azure CLI
-Siga los pasos de [Creación de una máquina virtual personalizada con Linux][vm-instructions].
+### <a name="azure-cli"></a>CLI de Azure
+Siga los pasos de [Creación rápida de una máquina virtual que ejecuta Linux][vm-instructions].
 
 Después de aprovisionar la máquina virtual, puede obtener el extremo de SSH ejecutando el comando siguiente:
 
@@ -117,13 +117,13 @@ Debería ver una salida similar a la siguiente.
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, hizo la mayoría de los pasos manualmente. En un entorno de producción, escribiría la aplicación en un equipo de desarrollo y la implementaría en la máquina virtual de Azure. Además, la mayoría de los entornos de producción hospedan la aplicación de Rails conjuntamente con otro proceso de servidor, como Apache o NginX, que controla el enrutamiento de solicitudes a varias instancias de la aplicación de Rails y el servicio a recursos estáticos. Para obtener más información, consulte http://rubyonrails.org/deploy/.
 
-Para obtener más información sobre Ruby on Rails, visite [Ruby on Rails Guides](Guías de Ruby on Rails)[rails-guides].
+Para más información sobre Ruby on Rails, visite [Ruby on Rails Guides][rails-guides] (Guías de Ruby on Rails).
 
 Para utilizar servicios de Azure desde su aplicación de Ruby, consulte:
 
-* [Store unstructured data using blobs](Almacenamiento de datos no estructurados con blobs)[blobs]
-* [Store key/value pairs using tables ](Almacenamiento de pares clave/valor con tablas)[tables]
-* [Serve high bandwidth content with the Content Delivery Network](Servicio de contenido de alto ancho de banda con Content Delivery Network)[cdn-howto]
+* [Almacenamiento de datos no estructurados con blobs][blobs]
+* [Almacenamiento de parejas de clave/valor con tablas][tables]
+* [Servicio de contenido de alto ancho de banda con Content Delivery Network][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]: ../../../storage/storage-ruby-how-to-use-blob-storage.md
@@ -146,6 +146,6 @@ Para utilizar servicios de Azure desde su aplicación de Ruby, consulte:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

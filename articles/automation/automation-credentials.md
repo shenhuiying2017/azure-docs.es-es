@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
-ms.openlocfilehash: d714907184ccdde8d912ff8cf4240b8c6d2c45e5
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
 
 
 ---
@@ -27,7 +27,7 @@ Un recurso de credencial de Automation contiene un objeto [PSCredential](http://
 > Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.  
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
-Los cmdlets de la tabla siguiente se usan para crear y administrar recursos de credenciales de Automatización con Windows PowerShell.  Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
+Los cmdlets de la tabla siguiente se usan para crear y administrar recursos de credenciales de Automatización con Windows PowerShell.  Se incluyen como parte del [módulo Azure PowerShell](/powershell/azureps-cmdlets-docs) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
 
 | Cmdlets | Descripción |
 |:--- |:--- |
@@ -104,6 +104,6 @@ Mientras las configuraciones DSC en Automatización de Azure pueden hacer refere
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

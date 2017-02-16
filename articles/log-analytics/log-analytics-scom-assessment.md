@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 12/06/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 04eebbe19354ab1e927ee2bb41f25dc6676a7c93
-ms.openlocfilehash: c28e73f0a6833793561d8702eb6c6480b9fbc0a4
+ms.sourcegitcommit: 45ba55083ecca1995e343dc1da1497df43f70e10
+ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution-in-log-analytics"></a>Optimización del entorno con la solución Evaluación de System Center Operations Manager (versión preliminar) en Log Analytics
 
-Puede usar periódicamente la solución Evaluación de System Center Operations Manager para evaluar el riesgo y el estado de los entornos de servidor de System Center Operations Manager. Este artículo le ayudará a instalar, configurar y usar la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
+Puede usar periódicamente la solución Evaluación de System Center Operations Manager para evaluar el riesgo y el estado de los entornos de servidor de System Center Operations Manager. Este artículo le ayudará a instalar, configurar y usar la solución para que pueda tomar acciones correctivas en caso de posibles problemas. 
 
 Esta solución proporciona una lista priorizada de recomendaciones específicas para su infraestructura de servidor implementada. Las recomendaciones se clasifican en cuatro áreas de enfoque que ayudan a comprender rápidamente el riesgo y a tomar la acción correctiva.
 
@@ -243,6 +243,12 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 
 ## <a name="system-center-operations-manager-assessment-solution-faq"></a>Preguntas más frecuentes sobre la solución Evaluación de System Center Operations Manager
 
+*He agregado la solución de evaluación agrega a mi área de trabajo de OMS. Pero no veo las recomendaciones. ¿Por qué no?* Después de agregar la solución, utilice los pasos siguiente para ver las recomendaciones del panel de OMS.  
+
+- [Establecimiento de la cuenta de ejecución de System Center Operations Manager](#operations-manager-run-as-accounts-for-oms)  
+- [Configuración de la regla de System Center Operations Manager](#configure-the-assessment-rule)
+
+
 *¿Se puede configurar la frecuencia con la que se realiza la evaluación?* Sí. Consulte [Configuración de la frecuencia de ejecución](#configure-the-run-frequency).
 
 *Si se detecta otro servidor después de haber agregado la solución Evaluación de System Center Operations Manager, ¿se evaluará?* Sí, después de la detección, se evaluará cada siete días de forma predeterminada.
@@ -274,6 +280,6 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

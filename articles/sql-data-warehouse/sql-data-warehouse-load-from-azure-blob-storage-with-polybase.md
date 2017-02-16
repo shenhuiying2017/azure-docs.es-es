@@ -1,5 +1,5 @@
 ---
-title: Carga de datos de Azure Blob Storage a SQL Data Warehouse (PolyBase) | Microsoft Docs
+title: Carga desde blob de Azure a un almacenamiento de datos de Azure | Microsoft Docs
 description: "Aprenda a usar PolyBase para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL. Cargue algunas tablas de datos públicos en el esquema Contoso Retail Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea83972d4b12a83fbf339acb6601dc961674be6f
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 348605fed8101cf83cbcfb559c71f34407692f7a
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: ea83972d4b12a83fbf339acb6601dc961674be6f
 
 Use PolyBase y comandos de T-SQL para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL. 
 
-Para no complicarlo, este tutorial carga dos tablas de un Blob de almacenamiento de Azure público en el esquema Contoso Retail Data Warehouse. Para cargar el conjunto de datos completo, ejecute el ejemplo [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] desde el repositorio de ejemplos de Microsoft SQL Server.
+Para no complicarlo, este tutorial carga dos tablas de un Blob de almacenamiento de Azure público en el esquema Contoso Retail Data Warehouse. Para cargar el conjunto de datos completo, ejecute el ejemplo [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] (Carga del esquema Contoso Retail Data Warehouse completo) del repositorio de ejemplos de Microsoft SQL Server.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá lo siguiente:
 3. Realización de optimizaciones una vez finalizada la carga
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con una base de datos de Almacenamiento de datos SQL. Si todavía no la tiene, vea la sección [Creación de una instancia de Almacenamiento de datos SQL de Azure][Creación de una instancia de Almacenamiento de datos SQL de Azure].
+Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con una base de datos de Almacenamiento de datos SQL. Si todavía no la tiene, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Configuración del origen de datos
 PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objeto externo se almacenan en Almacenamiento de datos SQL. Los propios datos se almacenan externamente.
@@ -84,7 +84,7 @@ WITH (
 Vaya al paso 2.
 
 ### <a name="12-create-the-external-data-source"></a>1.2. Creación del origen de datos externo
-Use el comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] para almacenar la ubicación de los datos y el tipo de datos. 
+Utilice este comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] para almacenar la ubicación de los datos y el tipo de datos. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -101,7 +101,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Configuración del formato de datos
-Los datos se almacenan en archivos de texto en Almacenamiento de blobs de Azure y un delimitador separa cada campo. Ejecute el comando [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] para especificar el formato de los datos en los archivos de texto. Los datos de Contoso no están comprimidos y están delimitados por canalización.
+Los datos se almacenan en archivos de texto en Almacenamiento de blobs de Azure y un delimitador separa cada campo. Ejecute este comando [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] para especificar el formato de los datos en los archivos de texto. Los datos de Contoso no están comprimidos y están delimitados por canalización.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -277,7 +277,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Optimización de compresión de almacén de columnas
-De forma predeterminada, Almacenamiento de datos SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen varios motivos por los que esto puede ocurrir. Para más información, vea [administración de índices de almacén de columnas][administración de índices de almacén de columnas].
+De forma predeterminada, Almacenamiento de datos SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen varios motivos por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
 
 Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas. 
 
@@ -289,12 +289,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Para más información sobre el mantenimiento de los índices de almacén de columnas, vea el artículo [administración de índices de almacén de columnas][administración de índices de almacén de columnas].
+Para más información sobre el mantenimiento de los índices de almacén de columnas, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
 
 ## <a name="6-optimize-statistics"></a>6. Optimización de estadísticas
 Es mejor crear estadísticas de columna única inmediatamente después de una carga. Hay algunas opciones para las estadísticas. Por ejemplo, si crea estadísticas de columna única en cada columna, la recompilación de todas las estadísticas puede llevar mucho tiempo. Si sabe que algunas columnas no van a estar en predicados de consulta, puede omitir la creación de estadísticas en dichas columnas.
 
-Si decide crear estadísticas de columna única en todas las columnas de cada una de las tablas, puede usar el ejemplo de código de procedimiento almacenado `prc_sqldw_create_stats` en el artículo sobre [estadísticas][estadísticas].
+Si decide crear estadísticas de columna única en todas las columnas de cada una de las tablas, puede usar el ejemplo de código de procedimiento almacenado `prc_sqldw_create_stats` en el artículo sobre [estadísticas][statistics].
 
 El ejemplo siguiente es un buen punto de partida para la creación de estadísticas. Crea estadísticas de columna única en cada una de las columnas de la tabla de dimensiones y en cada una de las columnas de combinación de las tablas de hechos. Siempre puede agregar estadísticas de columna única o de varias columnas a otras columnas de la tabla de hechos más adelante.
 
@@ -354,18 +354,18 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para cargar todos los datos de Contoso Retail Data Warehouse, use el script. Para obtener más sugerencias sobre desarrollo, vea [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL].
+Para cargar todos los datos de Contoso Retail Data Warehouse, use el script que aparece. Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Creación de una instancia de Almacenamiento de datos SQL de Azure]: sql-data-warehouse-get-started-provision.md
-[Carga de datos en Almacenamiento de datos SQL]: sql-data-warehouse-overview-load.md
-[información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-develop.md
-[administración de índices de almacén de columnas]: sql-data-warehouse-tables-index.md
-[Estadísticas]: sql-data-warehouse-tables-statistics.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[manage columnstore indexes]: sql-data-warehouse-tables-index.md
+[Statistics]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[etiqueta]: sql-data-warehouse-develop-label.md
+[label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
@@ -375,11 +375,11 @@ Para cargar todos los datos de Contoso Retail Data Warehouse, use el script. Par
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
-[Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

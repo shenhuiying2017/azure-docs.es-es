@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
+ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
 
 
 ---
@@ -93,7 +93,15 @@ Esto concluye todo el trabajo que debe hacerse en Power BI Desktop, pero hay una
 * **username** (opcional): se utiliza con RLS y es una cadena que puede usarse para ayudar a identificar el usuario cuando se aplican las reglas RLS. Consulte el uso de la seguridad de nivel de fila con Power BI Embedded
 * **roles** : una cadena que contiene las funciones que seleccione al aplicar las reglas de seguridad de nivel de fila. Si se pasa más de un rol, se deben pasar como una matriz de cadenas.
 
-Si la propiedad username está presente, también debe pasar al menos un valor en los roles.
+El token se crea con el método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Si la propiedad username está presente, también debe pasar al menos un valor en los roles.
+
+Por ejemplo, puede cambiar EmbedSample. La línea 55 de DashboardController se puede actualizar desde
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+
+to
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
 El token de la aplicación completo tendrá un aspecto similar al siguiente:
 
@@ -109,6 +117,6 @@ Ahora, con todas las piezas juntas, cuando un usuario inicie sesión en nuestra 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

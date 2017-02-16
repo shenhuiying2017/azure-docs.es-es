@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2016
-ms.author: msfussell
+ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 9c45513f7d2987a83026adab39257d298292b7a5
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 963ca79f83d9ae4b3c5a0e5da6c5fb7985e9ca77
 
 
 ---
@@ -48,8 +48,8 @@ Una aplicación de Service Fabric puede contener uno o varios contenedores, cada
 ## <a name="create-the-application"></a>Creación de la aplicación
 1. En un terminal, escriba **yo azuresfjava**.
 2. El marco de trabajo, elija **Contenedor**.
-3. El nombre de la aplicación, por ejemplo, SimpleContainerApp.
-4. Proporcione la dirección URL de la imagen de contenedor desde un repositorio de DockerHub. Esto toma la forma [repositorio]/[nombre de imagen].
+3. El nombre de la aplicación; por ejemplo, SimpleContainerApp
+4. Proporcione la dirección URL de la imagen de contenedor desde un repositorio de DockerHub. El parámetro de imagen toma la forma [repositorio]/[nombre de la imagen]
 
 ![Generador Yeoman de Service Fabric para contenedores][sf-yeoman]
 
@@ -74,6 +74,14 @@ Una vez compilada la aplicación, puede implementarla en el clúster local media
     ./uninstall.sh
     ```
 
+## <a name="adding-more-services-to-an-existing-application"></a>Incorporación de más servicios a una aplicación existente
+
+Para agregar otro servicio de contenedor a una aplicación ya creada mediante `yo`, realice los pasos siguientes: 
+1. Cambie el directorio al directorio raíz de la aplicación existente.  Por ejemplo, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` es la aplicación creada por Yeoman.
+2. Ejecute `yo azuresfguest:AddService`
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general: Service Fabric y contenedores](service-fabric-containers-overview.md)
 * [Interactuación con los clústeres de Service Fabric mediante la CLI de Azure](service-fabric-azure-cli.md)
@@ -83,6 +91,6 @@ Una vez compilada la aplicación, puede implementarla en el clúster local media
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

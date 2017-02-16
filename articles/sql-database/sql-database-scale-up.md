@@ -1,6 +1,6 @@
 ---
-title: Cambio del nivel de servicio y del nivel de rendimiento de Azure SQL Database | Microsoft Docs
-description: "El cambio del nivel de servicio y del nivel de rendimiento de una base de datos SQL de Azure muestra cómo escalar o reducir verticalmente dicha base de datos. Cambio del nivel de precios de una base de datos SQL de Azure."
+title: 'Azure Portal: Cambio del plan de tarifa de Azure SQL Database | Microsoft Docs'
+description: "Obtenga información sobre cómo usar Azure Portal para cambiar el nivel de servicio y el nivel de rendimiento de una instancia de Azure SQL Database y escalar o reducir verticalmente los recursos y precios de su instancia de SQL Database."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: a4d68b4365c6c5865b19a0b2e9b78afdb7a04014
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 88104e0684281f77da497ef4dd608c6a0c64b274
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-using-the-azure-portal"></a>Cambio del nivel de servicio y del nivel de rendimiento (plan de tarifa) de SQL Database con Azure Portal
 > [!div class="op_single_selector"]
 > * [**Azure Portal**](sql-database-scale-up.md)
-> * [PowerShell](sql-database-scale-up-powershell.md)
-> 
+> * [PowerShell](sql-database-scale-up-powershell.md)> 
 > 
 
 Los niveles de servicio y de rendimiento describen las características y los recursos disponibles para Base de datos SQL y pueden actualizarse a medida que cambien las necesidades de la aplicación. Si desea obtener detalles, consulte [Niveles de servicio](sql-database-service-tiers.md).
@@ -89,6 +88,6 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

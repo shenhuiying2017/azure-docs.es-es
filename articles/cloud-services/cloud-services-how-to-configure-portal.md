@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/07/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d681490c174d73361633a9e0e63208eea993e6
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 
 
 ---
@@ -34,7 +34,7 @@ También puede administrar las instancias de los roles de servicio en la nube o 
 Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="change-a-cloud-service"></a>Cambiar un servicio en la nube
-Después de abrir el [Portal de Azure](https://portal.azure.com/), vaya al servicio en la nube. Desde aquí puede administrar muchos aspectos del mismo. 
+Después de abrir el [Portal de Azure](https://portal.azure.com/), vaya al servicio en la nube. Desde aquí puede administrar muchos aspectos de este. 
 
 ![Página de configuración](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
@@ -106,6 +106,6 @@ Puede que necesite volver a configurar el servicio en la nube a través del arch
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1eb9355b8cdb500224809ab0bd32885358983c23
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: b84b4c0bd31d2e0bebafa2053a725e5e78bc3c9f
 
 
 ---
@@ -166,11 +166,11 @@ Cada tabla WADMetrics contendrá las columnas siguientes:
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una plantilla de ejemplo de una máquina virtual de Windows con la extensión de diagnósticos, consulte [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Implemente la plantilla de Azure Resource Manager mediante [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o la [ínea de comandos de Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
+* Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

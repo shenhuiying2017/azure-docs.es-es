@@ -1,6 +1,6 @@
 # Información general
 ## [¿Qué es Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
-# Primeros pasos
+# Introducción
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
 ## [Chrome](notification-hubs-chrome-push-notifications-get-started.md)
@@ -59,9 +59,9 @@
 ### [Pautas de diagnóstico](notification-hubs-push-notification-fixer.md)
 
 # Referencia
-## [Cmdlets de PowerShell](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/notificationhubs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
+## [REST](/rest/api/notificationhubs)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/notification-hubs/)
@@ -71,6 +71,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

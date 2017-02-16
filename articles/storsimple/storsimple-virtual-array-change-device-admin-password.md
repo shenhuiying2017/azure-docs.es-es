@@ -1,5 +1,5 @@
 ---
-title: "Cambio de la contraseña del administrador de dispositivos de Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Cambio de la contraseña del administrador de dispositivos de StorSimple Virtual Array | Microsoft Docs"
 description: "Describe cómo usar Azure Portal o la interfaz de usuario web de StorSimple Virtual Array para cambiar la contraseña del administrador de dispositivos."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 4645ec88f804908916f7cf9b090376753c089119
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 2ff0b7796b8e31cc3b26a951647bb483fd131c14
 
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password"></a>Cambiar la contraseña del administrador de dispositivos de la matriz virtual de StorSimple
@@ -57,7 +57,7 @@ Realice los pasos siguientes para cambiar la contraseña del administrador de di
 
 #### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Para cambiar la contraseña del administrador de dispositivos a través de la interfaz de usuario web local
 
-1. En la interfaz de usuario web local, haga clic en **Mantenimiento**Cambio de contraseña >  para el dispositivo.
+1. En la interfaz de usuario web local, haga clic en **Mantenimiento**  >  **Cambio de contraseña** para el dispositivo.
    
     ![cambiar password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Escriba la **Contraseña actual**.
@@ -80,6 +80,6 @@ Obtenga más información para [administrar la matriz virtual de StorSimple](sto
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

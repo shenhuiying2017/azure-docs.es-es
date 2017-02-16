@@ -1,5 +1,5 @@
 ---
-title: "Uso de imágenes de cliente Windows para escenarios de desarrollo y pruebas | Microsoft Docs"
+title: "Uso de imágenes de cliente de Windows en Azure | Microsoft Docs"
 description: "Cómo usar las ventajas para la suscripción de Visual Studio a fin de implementar Windows 7/8/10 en Azure para escenarios de desarrollo/pruebas"
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d95dad55ad2f9feaf1e62f671adbf3187adf8cca
+ms.sourcegitcommit: 568bd06d1dfd0e253b960dcf2fb5409a390da91b
+ms.openlocfilehash: 2116abf974974c285d94d673b6a614360edbc593
 
 
 ---
@@ -59,6 +59,6 @@ Ahora puede implementar las máquinas virtuales con [PowerShell](virtual-machine
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

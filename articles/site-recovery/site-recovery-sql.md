@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 12/21/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
-ms.openlocfilehash: 40c4f88bc91773158d416d5e89424b92cf15cf91
+ms.sourcegitcommit: ea2078722beb7c76c59f1f6cfe3bf82aac5e4a77
+ms.openlocfilehash: 20e64a0f9319596167c1f8d1a0b22c0fa8c514c7
 
 
 ---
@@ -89,11 +89,11 @@ Necesitará Active Directory en el sitio de recuperación secundario para que SQ
 
 Las instrucciones de este documento suponen que un controlador de dominio está disponible en la ubicación secundaria. [Más información](site-recovery-active-directory.md) sobre la protección de Active Directory con Site Recovery.
 
-## <a name="integrate-protection-with-sql-server-always-on-on-premises-to-azure"></a>Integración de la protección con SQL Server Always-On (del entorno local a Azure)
+## <a name="integrate-protection-with-sql-server-always-on-in-classic-azure-portal-on-premises-to-azure"></a>Integración de la protección con SQL Server Always-On en Portal de Azure clásico (entorno local a Azure)
 Site Recovery admite SQL AlwaysOn de forma nativa. Si creó un grupo de disponibilidad de SQL con una máquina virtual de Azure configurada como "secundaria", puede usar Site Recovery para administrar la conmutación por error de los grupos de disponibilidad.
 
 > [!NOTE]
-> Esta funcionalmente está actualmente en su versión preliminar y está disponible cuando los servidores host de Hyper-V del centro de datos principal se administran en nubes de VMM y cuando un [servidor de configuración](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites)administra la configuración de VMware. En este momento, no está disponible en el nuevo Portal de Azure.
+> Esta funcionalmente está actualmente en su versión preliminar y está disponible cuando los servidores host de Hyper-V del centro de datos principal se administran en nubes de VMM y cuando un [servidor de configuración](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites)administra la configuración de VMware. En este momento, no está disponible en el nuevo Portal de Azure. Siga los pasos que aparecen en [esta sección](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal) si usa la versión nueva de Azure Portal. 
 >
 >
 
@@ -106,7 +106,7 @@ A continuación, se indica lo que necesita para integrar SQL AlwaysOn con Site R
 * El acceso remoto a PowerShell debe estar habilitado en la máquina de SQL Server local. El servidor VMM o el servidor de configuración deben poder realizar llamadas remotas de PowerShell a SQL Server.
 * Se debe agregar una cuenta de usuario en la instancia de SQL Server local, en estos grupos de usuarios de SQL con al menos estos permisos:
   * ALTER AVAILABILITY GROUP: los permisos se describen [aquí](https://msdn.microsoft.com/library/hh231018.aspx) y [aquí](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3).
-  * ALTER DATABASE: los permisos se describen [aquí](https://msdn.microsoft.com/library/ff877956.aspx#Security).
+  * ALTER DATABASE: los permisos se describen  [aquí](https://msdn.microsoft.com/library/ff877956.aspx#Security).
 * Se debe crear una cuenta RunAs en el servidor VMM o una cuenta en el servidor de configuración con el archivo CSPSConfigtool.exe para el usuario que se mencionó en el paso anterior.
 * Se debe instalar el módulo PS de SQL en los servidores SQL que se ejecutan en el entorno local y en máquinas virtuales de Azure.
 * Se debe instalar el agente de máquina virtual en las máquinas virtuales que se ejecutan en Azure.
@@ -146,7 +146,7 @@ Después de agregar el servidor SQL Server, este aparecerá en la pestaña **Ser
 
 #### <a name="step-3-create-a-recovery-plan"></a>Paso 3: Creación de un plan de recuperación
 El siguiente paso es crear un plan de recuperación con las máquinas virtuales y los grupos de disponibilidad.
-Seleccione el mismo servidor VMM o servidor de configuración que usó en el paso 1 como origen y Microsoft Azure como destino.
+Seleccione el mismo servidor VMM o servidor de configuración que usó en el paso&1; como origen y Microsoft Azure como destino.
 
 ![Creación del plan de recuperación](./media/site-recovery-sql/create-rp1.png)
 
@@ -183,7 +183,7 @@ Si desea que el grupo de disponibilidad vuelva a ser principal en el servidor lo
 >
 >
 
-### <a name="protect-machines-without-a-vmm-server-or-a-configuration-server"></a>Protección de las máquinas sin un servidor VMM ni un servidor de configuración
+### <a name="protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal"></a>Protección de máquinas en la versión nueva de Azure Portal o sin un servidor VMM o un servidor de configuración en el Portal de Azure clásico
 Para los entornos que no están administrados por un servidor VMM o un servidor de configuración, se pueden usar los runbooks de Automatización de Azure para configurar una conmutación por error con script de los grupos de disponibilidad de SQL. A continuación se muestran los pasos a seguir para esta configuración:
 
 1. Cree un archivo local para que el script realice la conmutación por error de un grupo de disponibilidad. Este script de ejemplo especifica una ruta de acceso al grupo de disponibilidad en la réplica de Azure y realiza la conmutación por error a esa instancia de réplica. Este script se ejecutará en la máquina virtual de réplica de SQL Server y se pasará con la extensión de script personalizado.
@@ -206,12 +206,12 @@ Para los entornos que no están administrados por un servidor VMM o un servidor 
 
 1. **Probar conmutación por error**: SQL AlwaysOn no admite de forma nativa la función Probar conmutación por error. Por lo tanto, este es el modo recomendado de hacerlo:
     1. Configure [Azure Backup](../backup/backup-azure-vms.md) en la máquina virtual que hospede la réplica del grupo de disponibilidad en Azure. 
-    1. Antes de activar la conmutación por error del plan de recuperación, recupere la máquina virtual a partir de la copia de seguridad realizada en el paso 1.
+    1. Antes de activar la conmutación por error del plan de recuperación, recupere la máquina virtual a partir de la copia de seguridad realizada en el paso&1;.
     1. Pruebe la conmutación por error del plan de recuperación.
 
 
 > [!NOTE]
-> En el siguiente script se asume que el grupo de disponibilidad de SQL está hospedado en la máquina virtual clásica de Azure y que el nombre de la VM restaurada en el paso 2 es SQLAzureVM-Test. Modifique el script de acuerdo con el nombre que use para la máquina virtual recuperada.
+> En el siguiente script se asume que el grupo de disponibilidad de SQL está hospedado en la máquina virtual clásica de Azure y que el nombre de la VM restaurada en el paso&2; es SQLAzureVM-Test. Modifique el script de acuerdo con el nombre que use para la máquina virtual recuperada.
 > 
 > 
 
@@ -342,6 +342,6 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

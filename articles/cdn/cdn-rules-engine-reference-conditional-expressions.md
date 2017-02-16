@@ -1,6 +1,6 @@
 ---
-title: Expresiones condicionales del motor de reglas de Azure Content Delivery Network | Microsoft Docs
-description: "En este tema se describen las características y las condiciones de coincidencia del motor de reglas"
+title: Expresiones condicionales del motor de reglas de la red CDN de Azure | Microsoft Docs
+description: "Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 92cb8832de934c19164bc26e688142538a8ba96c
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
 
 
 ---
 
-# <a name="conditional-expressions-for-azure-content-delivery-network-cdn-rules-engine"></a>Expresiones condicionales para el motor de reglas de Azure Content Delivery Network (CDN)
+# <a name="azure-cdn-rules-engine-conditional-expressions"></a>Expresiones condicionales del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las expresiones condicionales para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
 
 La primera parte de una regla es la expresión condicional.
@@ -46,6 +46,6 @@ ELSE IF| Una expresión ELSE IF especifica una condición alternativa que debe c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

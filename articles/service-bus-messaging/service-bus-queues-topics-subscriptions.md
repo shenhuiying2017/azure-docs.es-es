@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 12/20/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: edee84938bddf28ac4dbf4152ccf9d7ab6afe6c3
+ms.sourcegitcommit: 60a914e4706414891863c5d1d07846898936815b
+ms.openlocfilehash: cd3b8b73db87a6b15b5a408609417ff2d2ca0a86
 
 
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
-El Bus de servicio de Microsoft Azure admite un conjunto de tecnologías basadas en la nube, middleware orientado a mensajes, incluidos una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas capacidades de mensajería asíncrona pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante el tejido de la mensajería del Bus de servicio. La comunicación desacoplada ofrece muchas ventajas; por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de forma asincrónica.
+El Bus de servicio de Microsoft Azure admite un conjunto de tecnologías basadas en la nube, middleware orientado a mensajes, incluidos una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas funcionalidades de mensajería "asíncrona" pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante el tejido de la mensajería de Service Bus. La comunicación desacoplada ofrece muchas ventajas; por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de forma asincrónica.
 
-Las entidades de mensajería que forman el núcleo de las funcionalidades de mensajería asincrónica de Service Bus son las colas, los temas o suscripciones y las reglas o acciones.
+Las entidades de mensajería que forman el núcleo de las funcionalidades de mensajería de Service Bus son las colas, los temas y suscripciones y las reglas o acciones.
 
 ## <a name="queues"></a>Colas
-Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero en salir) a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes. La principal ventaja del uso de colas es conseguir un "desacoplamiento temporal" de los componentes de la aplicación. En otras palabras, los productores (remitentes) y los consumidores (receptores) no tienen que enviar y recibir mensajes al mismo tiempo, ya que los mensajes se almacenan de forma duradera en la cola. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes.
+Las colas ofrecen una entrega de mensajes según el modelo *primero en entrar, primero en salir (FIFO [PEPS])* a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes. La principal ventaja del uso de colas es conseguir un "desacoplamiento temporal" de los componentes de la aplicación. En otras palabras, los productores (remitentes) y los consumidores (receptores) no tienen que enviar y recibir mensajes al mismo tiempo, ya que los mensajes se almacenan de forma duradera en la cola. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes.
 
 Una ventaja relacionada es la "nivelación de la carga", lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades. En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido por cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita ser aprovisionada para administrar una carga promedio en lugar de una carga pico. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos difieran en términos de capacidad de procesamiento ya que extraerán mensajes a su frecuencia máxima propia. Este patrón con frecuencia se denomina "patrón de consumo de competidor".
 
@@ -34,16 +34,16 @@ El uso de colas para intermediar entre los consumidores y productores de mensaje
 
 La creación de una cola es un proceso de varios pasos. Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas) se realizan a través la clase [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), que se construye mediante el suministro de la dirección base del espacio de nombres de Service Bus y las credenciales de usuario. La clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) proporciona métodos para crear, enumerar y eliminar entidades de mensajería. Después de crear un objeto [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) a partir del nombre y la clave SAS y un objeto de administración del espacio de nombres de servicios, puede usar el método [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/library/azure/hh293157.aspx) para crear la cola. Por ejemplo:
 
-```
+```csharp
 // Create management credentials
-TokenProvider credentials = TokenProvider. CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
+TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
 // Create namespace client
 NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
 ```
 
 A continuación, puede crear un objeto de cola y una factoría de mensajes con el URI del Bus de servicio como argumento. Por ejemplo:
 
-```
+```csharp
 QueueDescription myQueue;
 myQueue = namespaceClient.CreateQueue("TestQueue");
 MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials); 
@@ -52,7 +52,7 @@ QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 
 A continuación, puede enviar mensajes a la cola. Por ejemplo, si tiene una lista de mensajes indirectos denominada `MessageList`; el código es similar al siguiente:
 
-```
+```csharp
 for (int count = 0; count < 6; count++)
 {
     var issue = MessageList[count];
@@ -61,9 +61,9 @@ for (int count = 0; count < 6; count++)
 }
 ```
 
-A continuación, puede recibir mensajes de la cola, como se indica a continuación:
+A continuación, recibe mensajes de la cola, como se indica a continuación:
 
-```
+```csharp
 while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, seconds: 5))) != null)
     {
         Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
@@ -74,13 +74,13 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
     }
 ```
 
-Al usar el modo [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud, marca el mensaje como consumido y lo devuelve a la aplicación. El modo [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) es el modelo más sencillo y funciona mejor para los escenarios en los que la aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio marca el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+Al usar el modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor para los escenarios en los que la aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio marca el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-En el modo [PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), la operación de recepción se convierte en una operación de dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción creando la llamada [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. Cuando Service Bus ve la llamada [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), marca el mensaje como consumido.
+En el modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), la operación de recepción se convierte en una operación de dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción creando la llamada [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) en el mensaje recibido. Cuando Service Bus ve la llamada **Complete**, marca el mensaje como consumido.
 
-Si por cualquier motivo la aplicación no puede procesar el mensaje, realice la llamada al método [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) del mensaje recibido (en lugar de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Esto permite que el Bus de servicio desbloquee el mensaje y esté disponible para que el mismo consumidor u otro vuelvan a recibirlo. En segundo lugar, hay un tiempo de espera asociado con el bloqueo y, si la aplicación no puede procesar el mensaje antes de que el tiempo de espera del bloqueo expire (por ejemplo, si la aplicación se bloquea), Service Bus desbloquea el mensaje y hace que esté disponible para recibirse de nuevo (básicamente realizando una operación [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) de forma predeterminada).
+Si por cualquier motivo la aplicación no puede procesar el mensaje, realice la llamada al método [Abandon](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) del mensaje recibido (en lugar de [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Esto permite que el Bus de servicio desbloquee el mensaje y esté disponible para que el mismo consumidor u otro vuelvan a recibirlo. En segundo lugar, hay un tiempo de espera asociado con el bloqueo y, si la aplicación no puede procesar el mensaje antes de que el tiempo de espera del bloqueo expire (por ejemplo, si la aplicación se bloquea), Service Bus desbloquea el mensaje y hace que esté disponible para recibirse de nuevo (básicamente realizando una operación [Abandon](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) de forma predeterminada).
 
-Tenga en cuenta que, en caso de que la aplicación se bloquee después de procesar el mensaje, pero antes de que se emita la solicitud [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), se volverá a enviar el mensaje a la aplicación cuando esta se reinicie. Esto se conoce como *Al menos un procesamiento*; es decir, cada mensaje se procesa como mínimo una vez. Sin embargo, en determinadas situaciones, es posible que se vuelva a entregar el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, se requiere una lógica adicional en la aplicación para detectar duplicados que se puedan conseguir de acuerdo con la propiedad **MessageId** del mensaje, que permanece constante en los intentos de entrega. Esto se conoce como procesamiento *Exactamente una vez*.
+Tenga en cuenta que, en caso de que la aplicación se bloquee después de procesar el mensaje, pero antes de que se emita la solicitud **Complete**, se volverá a enviar el mensaje a la aplicación cuando esta se reinicie. Esto se conoce como *Al menos un procesamiento*; es decir, cada mensaje se procesa como mínimo una vez. Sin embargo, en determinadas situaciones, es posible que se vuelva a entregar el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, se requiere una lógica adicional en la aplicación para detectar duplicados que se puedan conseguir de acuerdo con la propiedad **MessageId** del mensaje, que permanece constante en los intentos de entrega. Esto se conoce como procesamiento *Exactamente una vez*.
 
 Para obtener más información, así como un ejemplo de cómo crear y enviar mensajes a colas como origen y destino, vea [Tutorial de .NET de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-dotnet.md).
 
@@ -89,29 +89,29 @@ A diferencia de las colas, en las que un solo consumidor procesa cada mensaje, l
 
 Por medio de la comparación, la funcionalidad de envío de mensajes de una cola los asigna directamente a un tema y su funcionalidad de recepción de mensajes a una suscripción. Entre otras cosas, esto significa que las suscripciones admiten los mismos patrones que se han descrito en esta misma sección con respecto a las colas: consumidor en competencia, desacoplamiento temporal, nivelación de carga y equilibrio de la carga.
 
-La creación de un tema es similar a la creación de una cola, como se muestra en el ejemplo de la sección anterior. Cree el URI de servicio y, a continuación, use la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para crear el cliente de espacio de nombres. A continuación, puede crear un tema mediante el método [CreateTopic](https://msdn.microsoft.com/library/azure/hh293080.aspx). Por ejemplo:
+La creación de un tema es similar a la creación de una cola, como se muestra en el ejemplo de la sección anterior. Cree el URI de servicio y, a continuación, use la clase [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) para crear el cliente de espacio de nombres. A continuación, puede crear un tema mediante el método [CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_). Por ejemplo:
 
-```
+```csharp
 TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
 ```
 
 Después, agregue las suscripciones que desee:
 
-```
+```csharp
 SubscriptionDescription myAgentSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Inventory");
 SubscriptionDescription myAuditSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Dashboard");
 ```
 
 Luego puede crear un cliente del tema. Por ejemplo:
 
-```
+```csharp
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider);
 TopicClient myTopicClient = factory.CreateTopicClient(myTopic.Path)
 ```
 
 Con el remitente del mensaje puede enviar mensajes al tema o recibirlos de este, como se muestra en la sección anterior. Por ejemplo:
 
-```
+```csharp
 foreach (BrokeredMessage message in messageList)
 {
     myTopicClient.Send(message);
@@ -120,9 +120,9 @@ foreach (BrokeredMessage message in messageList)
 }
 ```
 
-Al igual que las colas, los mensajes se reciben de una suscripción mediante un objeto [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx), en lugar de un objeto [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Cree el cliente de la suscripción y pase el nombre del tema, el nombre de la suscripción y (opcionalmente) el modo de recepción como parámetros. Por ejemplo, en el caso de la suscripción **Inventory**:
+Al igual que las colas, los mensajes se reciben de una suscripción mediante un objeto [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient), en lugar de un objeto [QueueClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient). Cree el cliente de la suscripción y pase el nombre del tema, el nombre de la suscripción y (opcionalmente) el modo de recepción como parámetros. Por ejemplo, en el caso de la suscripción **Inventory**:
 
-```
+```csharp
 // Create the subscription client
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider); 
 
@@ -149,16 +149,16 @@ En muchos escenarios, los mensajes que tienen características específicas debe
 
 En el ejemplo anterior, para filtrar los mensajes que procedan solo de **Store1**, sería preciso crear la suscripción Dashboard como sigue:
 
-```
+```csharp
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
 ```
 
 Con este filtro de suscripción activado, solo se copiarán en la cola virtual de la suscripción `Dashboard` los mensajes que tengan la propiedad `StoreName` establecida en `Store1`.
 
-Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) y [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vea también los ejemplos de [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Mensajería asincrónica: filtros avanzados) y [filtros de temas](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters).
+Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) y [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Vea también los ejemplos de [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Mensajería asincrónica: filtros avanzados) y [filtros de temas](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información y ejemplos del uso de las entidades de mensajería asincrónica de Service Bus, consulte los siguientes temas avanzados.
+Para más información y ejemplos del uso de la mensajería de Service Bus, consulte los siguientes temas avanzados.
 
 * [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 * [Tutorial de .NET de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-dotnet.md)
@@ -169,6 +169,6 @@ Para más información y ejemplos del uso de las entidades de mensajería asincr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

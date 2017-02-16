@@ -12,27 +12,36 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a7f34989dce97f32bfbbbede9acd96a1dd58e14
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
 
 
 ---
 # <a name="monitor-documentdb-requests-usage-and-storage"></a>Supervisión de las solicitudes, el uso y el almacenamiento de DocumentDB
 Puede supervisar las cuentas de Azure DocumentDB en el [Portal de Azure](https://portal.azure.com/). Para cada cuenta de DocumentDB, existen métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
 
-Las métricas pueden revisarse en la hoja Cuenta o en la nueva hoja Métricas.
+Las métricas pueden revisarse en la hoja Cuenta, en la nueva hoja Métricas o en Azure Monitor.
 
 ## <a name="view-performance-metrics-on-the-metrics-blade"></a>Visualización de las métricas de rendimiento en la hoja Métricas
-1. En una nueva ventana, abra [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, **DocumentDB (NoSQL)** y, luego, en el nombre de la cuenta de DocumentDB de la que quiere ver métricas de rendimiento.
-2. En el menú de recursos, haga clic en **Métricas**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, desplácese a **Bases de datos**, seleccione **DocumentDB (NoSQL)** y, luego, haga clic en el nombre de la cuenta de DocumentDB de la que quiere ver métricas de rendimiento.
+2. En el menú de recursos, en **Supervisión**, haga clic en **Métricas**.
 
 Se abre la hoja Métricas y podrá seleccionar la colección para revisarla. Puede revisar las métricas de disponibilidad, solicitudes, rendimiento y almacenamiento, además de compararlas con los SLA de DocumentDB.
 
+## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Visualice las métricas de rendimiento mediante el uso de supervisión de Azure
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Supervisar** en la barra de salto.
+2. En el menú de recursos, haga clic en **Métricas**.
+3. En la ventana **Supervisar: métricas**, en el menú de lista desplegable **Grupo de recursos**, seleccione el grupo de recursos asociado a la cuenta de DocumentDB que le gustaría supervisar. 
+4. En el menú de lista desplegable **Recursos**, seleccione la base de datos de la cuenta que desee supervisar.
+5. En la lista de **Métricas disponibles**, seleccione las métricas que desee mostrar. Utilice la tecla CTRL para seleccionar varios elementos. 
+
+    Las métricas se muestran en la ventana **trazar**. 
+
 ## <a name="view-performance-metrics-on-the-account-blade"></a>Visualización de métricas de rendimiento en la hoja Cuenta
-1. En una nueva ventana, abra [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, **DocumentDB (NoSQL)** y, luego, en el nombre de la cuenta de DocumentDB de la que quiere ver métricas de rendimiento.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, desplácese a **Bases de datos**, seleccione **DocumentDB (NoSQL)** y, luego, haga clic en el nombre de la cuenta de DocumentDB de la que quiere ver métricas de rendimiento.
 2. La lente **Supervisión** muestra los iconos siguientes de forma predeterminada:
    
    * El total de solicitudes del día actual.
@@ -41,7 +50,7 @@ Se abre la hoja Métricas y podrá seleccionar la colección para revisarla. Pue
    Si se muestra en la tabla **No hay datos disponibles** y cree que hay datos en la base de datos, vea la sección [Solución de problemas](#troubleshooting) .
    
    ![Captura de pantalla del modo Supervisión que muestra las solicitudes y el uso de almacenamiento](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
-3. Al hacer clic en el icono **Solicitudes** o **Almacenamiento** se abre una hoja detallada denominada **Métrica**.
+3. Al hacer clic en el icono **Solicitudes** o **Cuota de uso** se abre una hoja detallada denominada **Métrica**.
 4. La hoja **Métrica** muestra los detalles sobre las métricas que ha seleccionado.  En la parte superior de la hoja hay un gráfico de solicitudes representadas por hora y debajo una tabla que muestra los valores de agregación y las solicitudes totales.  El cuadro Métrica muestra también la lista de alertas que se han definido, filtrada por las métricas que aparecen en el cuadro actual (de esta forma, si tiene un número de alertas, solo verá aquí las pertinentes).   
    
    ![Captura de pantalla de la hoja Métrica que incluye solicitudes limitadas](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -113,11 +122,11 @@ Si los iconos de supervisión muestran el mensaje **Sin datos disponibles** y re
    ![Captura de pantalla del icono actualizado de última hora de Total de solicitudes](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información acerca de la capacidad de DocumentDB, consulte [Administración de la capacidad de DocumentDB](documentdb-manage.md).
+Para conocer más sobre el planeamiento de la capacidad de DocumentDB, consulte la [calculadora del planificador de capacidad de DocumentDB](https://www.documentdb.com/capacityplanner).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

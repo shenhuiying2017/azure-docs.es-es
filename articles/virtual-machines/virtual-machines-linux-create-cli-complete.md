@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6e12a41a9e08fe132526fb3ba517c4c6aa13ffff
-ms.openlocfilehash: b4afa8c4a86b9a8ab0df6918443e18f2a758c928
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
 
 
 ---
@@ -38,7 +38,7 @@ El entorno contiene:
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
-- [Versión preliminar de la CLI de Azure 2.0](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
+- [CLI de Azure 2.0 (versión preliminar)](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos base para cargar una máquina virtual en Azure. En el resto del documento puede encontrar información más detallada y el contexto de cada paso, comenzando [aquí](#detailed-walkthrough).
@@ -210,10 +210,10 @@ az vm show --resource-group myResourceGroup --name myVM1
 az vm show --resource-group myResourceGroup --name myVM2
 ```
 
-Exporte el nuevo entorno a una plantilla con [az resource group export](/cli/azure/resource/group#export) para volver a crear rápidamente nuevas instancias:
+Exporte el nuevo entorno a una plantilla con [az group export](/cli/azure/group#export) para volver a crear rápidamente nuevas instancias:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
 ## <a name="detailed-walkthrough"></a>Tutorial detallado
@@ -230,7 +230,7 @@ Los grupos de recursos de Azure son entidades de implementación lógicas que co
 az group create --name myResourceGroup --location westeurope
 ```
 
-De forma predeterminada, la salida está en JSON (notación de objetos JavaScript). Para la generación como lista o tabla, por ejemplo, use [az configure --output](/cli/azure/#configure). También puede agregar `--output` a cualquier comando para un cambio específico del formato de salida. En el ejemplo siguiente se muestra la salida JSON desde el comando **az resource group create**:
+De forma predeterminada, la salida está en JSON (notación de objetos JavaScript). Para la generación como lista o tabla, por ejemplo, use [az configure --output](/cli/azure/#configure). También puede agregar `--output` a cualquier comando para un cambio específico del formato de salida. En el ejemplo siguiente se muestra la salida JSON desde el comando **az group create**:
 
 ```json                       
 {
@@ -1079,28 +1079,28 @@ Llegados a este punto, ejecuta las máquinas virtuales con Ubuntu detrás de un 
 
 
 ## <a name="export-the-environment-as-a-template"></a>Exportación del entorno como una plantilla
-Ahora que ha creado este entorno, ¿y si quiere crear un entorno de desarrollo adicional con los mismos parámetros o un entorno de producción correspondiente? Resource Manager usa plantillas JSON que definen todos los parámetros de su entorno. Puede crear entornos enteros haciendo referencia a esta plantilla JSON. Puede [compilar plantillas JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o exportar un entorno existente para que la plantilla JSON se cree automáticamente. Use [az resource group export](/cli/azure/resource/group#export) para exportar su grupo de recursos de la siguiente manera:
+Ahora que ha creado este entorno, ¿y si quiere crear un entorno de desarrollo adicional con los mismos parámetros o un entorno de producción correspondiente? Resource Manager usa plantillas JSON que definen todos los parámetros de su entorno. Puede crear entornos enteros haciendo referencia a esta plantilla JSON. Puede [compilar plantillas JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o exportar un entorno existente para que la plantilla JSON se cree automáticamente. Use [az group export](/cli/azure/group#export) para exportar su grupo de recursos de la siguiente manera:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Este comando crea el archivo `myResourceGroup.json` en el directorio de trabajo actual. Al crear un entorno a partir de esta plantilla, se le piden todos los nombres de recursos, incluidos los del equilibrador de carga, las interfaces de red o las máquinas virtuales. Para rellenar estos nombres en el archivo de plantilla, agregue el parámetro `--include-parameter-default-value` al comando **az resource group export** mostrado antes. Edite su plantilla JSON para especificar los nombres de recursos o [cree un archivo parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifique los nombres de recursos.
+Este comando crea el archivo `myResourceGroup.json` en el directorio de trabajo actual. Al crear un entorno a partir de esta plantilla, se le piden todos los nombres de recursos, incluidos los del equilibrador de carga, las interfaces de red o las máquinas virtuales. Para rellenar estos nombres en el archivo de plantilla, agregue el parámetro `--include-parameter-default-value` al comando **az group export** mostrado antes. Edite su plantilla JSON para especificar los nombres de recursos o [cree un archivo parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifique los nombres de recursos.
 
-Para crear un entorno desde su plantilla, use [az resource group deployment create](/cli/azure/resource/group/deployment#create) de la siguiente manera:
+Para crear un entorno desde su plantilla, use [az group deployment create](/cli/azure/group/deployment#create) de la siguiente manera:
 
 ```azurecli
-az resource group deployment create --resource-group myNewResourceGroup \
+az group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-Es posible que quiera leer [más sobre cómo realizar implementaciones desde plantillas](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Obtenga información sobre cómo actualizar los entornos de manera incremental, usar el archivo de parámetros y tener acceso a las plantillas desde una única ubicación de almacenamiento.
+Es posible que quiera leer [más sobre cómo realizar implementaciones desde plantillas](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Obtenga información sobre cómo actualizar los entornos de manera incremental, usar el archivo de parámetros y tener acceso a las plantillas desde una única ubicación de almacenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya está listo para empezar a trabajar con varios componentes de red y máquinas virtuales. Puede usar este entorno de ejemplo para crear la aplicación con los componentes principales aquí presentados.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

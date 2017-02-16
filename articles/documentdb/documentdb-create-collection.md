@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/13/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: f8e0b05301b83223a7cb15d55be7001f3299213f
+ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
+ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
 
 
 ---
@@ -33,18 +33,18 @@ Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](docu
 2. En la hoja **Cuenta de DocumentDB** de la cuenta seleccionada, haga clic en **Agregar colección**.
 
     ![Captura de pantalla con la opción Cuentas de DocumentDB de la barra de accesos directos, la cuenta en la hoja Cuentas de DocumentDB y la base de datos en la hoja de la cuenta de DocumentDB, en la lente Bases de datos, resaltados](./media/documentdb-create-collection/docdb-database-creation-3.png)
-3. En la hoja **Agregar colección**, en el cuadro **Identificador**, escriba el identificador de la nueva colección. Los nombres de colección deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final. Cuando se valida el nombre, aparece una marca de verificación verde en el cuadro Id.
+3. En la hoja **Agregar colección**, en el cuadro **Id. de colección**, escriba el identificador de la nueva colección. Los nombres de colección deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final. Cuando se valida el nombre, aparece una marca de verificación verde en el cuadro Id.
 
     ![Captura de pantalla con el botón Agregar colección de la hoja Base de datos, la configuración de la hoja Agregar colección y el botón Aceptar resaltados - Portal de Azure para DocumentDB - Creador de bases de datos basadas en la nube para bases de datos JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
-4. De forma predeterminada, **Plan de tarifa** está establecido en **Estándar**, para que pueda personalizar el rendimiento y el almacenamiento de la colección. Para más información sobre los planes de tarifa, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md).  
-5. Seleccione uno de los valores de **Modo de particionamiento** para la colección: **Partición única** o **Particionada**.
+4. De forma predeterminada, **Capacidad de almacenamiento** está establecido en **250 GB** para administrar colecciones con particiones.
 
-    Una **única partición** tiene una capacidad de almacenamiento reservado de 10 GB y puede tener niveles de rendimiento de entre 400 y 10 000 unidades de solicitud por segundo (RU/s). Una RU corresponde al rendimiento de una lectura de un documento de 1 KB. Para más información sobre las unidades de solicitud, consulte [Unidades de solicitud en DocumentDB](documentdb-request-units.md).
+    Establezca la capacidad de almacenamiento en **10 GB** si desea una [colección de partición única](documentdb-partition-data.md#single-partition-and-partitioned-collections) con niveles de rendimiento desde 400-10.000 unidades de solicitud/segundo (RU/s). Una RU corresponde al rendimiento de una lectura de un documento de 1 KB. Para más información sobre las unidades de solicitud, consulte [Unidades de solicitud en DocumentDB](documentdb-request-units.md).
 
-    Una **colección particionada** se puede escalar para administrar una cantidad ilimitada de almacenamiento en varias particiones, y puede tener niveles de rendimiento superiores a 10 100 RU/s. En el portal, el mayor almacenamiento que puede reservar es 250 GB y el mayor rendimiento que puede reservar es 250 000 RU/s. Para aumentar cualquiera de las cuotas, envíe una solicitud como se describe en [Solicitud de aumento de los límites de la cuenta de DocumentDB](documentdb-increase-limits.md). Para más información acerca de las colecciones particionadas, consulte [Colecciones de partición única y con varias particiones](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Establezca la capacidad de almacenamiento en **250 GB** si desea una [colección particionada](documentdb-partition-data.md#single-partition-and-partitioned-collections) que se pueda escalar para administrar una cantidad ilimitada de almacenamiento en varias particiones, y puede tener niveles de rendimiento superiores a 10,100 RU/s.
 
-    De forma predeterminada, el rendimiento de una nueva colección de una sola partición se establece en 1000 RU/s con una capacidad de 10 GB. Para una colección con particiones, el rendimiento de la colección se establece en 10100 RU/s con una capacidad de 250 GB. Puede cambiar el rendimiento y almacenamiento para la colección después de crearla.
-6. Si va a crear una colección particionada, seleccione el valor de **Clave de partición** de la colección. La selección de la clave de partición correcta es importante al crear una colección de rendimiento. Para más información sobre cómo seleccionar una clave de partición, consulte [Diseño de la creación de particiones](documentdb-partition-data.md#designing-for-partitioning).
+    Establezca la capacidad de almacenamiento en **Personalizada** si desea proporcionar una cantidad diferente de 10 GB o 250 GB. DocumentDB tiene posibilidades de escalado prácticamente ilimitadas, así que incluya el tamaño de almacenamiento y el valor de rendimiento solicitados en la solicitud de soporte.
+
+6. En el cuadro **Clave de partición**, escriba la clave de partición de la colección. Esto es obligatorio para las colecciones particionadas y opcional para las colecciones de una sola partición. La selección de la clave de partición correcta es importante al crear una colección de rendimiento. Para más información sobre cómo seleccionar una clave de partición, consulte [Diseño de la creación de particiones](documentdb-partition-data.md#designing-for-partitioning).
 7. En la hoja **Base de datos**, cree una nueva base de datos o utilice una que ya exista. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final. Para validar el nombre, haga clic fuera del cuadro de texto. Cuando se valida el nombre, aparece una marca de verificación verde en el cuadro.
 8. Haga clic en **Aceptar** en la parte inferior de la pantalla para crear la nueva colección.
 9. La nueva colección aparece ahora en el modo **Colecciones** en la hoja **Información general**.
@@ -83,6 +83,6 @@ Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](docume
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

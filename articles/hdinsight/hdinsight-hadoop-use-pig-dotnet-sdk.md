@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 46acf298a489aae34866c90126f3df00fd10c6e3
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: bd1c31c669bacf9e44b13d5a676dffc8a9176046
 
 
 ---
@@ -32,6 +32,10 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight de Azure (Hadoop en HDInsight) (Windows o Linux)
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Visual Studio 2012, 2013 o 2015
 
 ## <a name="create-the-application"></a>Creación de la aplicación
@@ -136,6 +140,6 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

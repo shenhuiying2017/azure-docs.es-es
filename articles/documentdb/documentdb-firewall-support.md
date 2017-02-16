@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad con el firewall de DocumentDB | Microsoft Docs
+title: Compatibilidad con el firewall de Azure DocumentDB y control de acceso basado en IP | Microsoft Docs
 description: Aprenda a usar directivas de control de acceso IP para la compatibilidad con el firewall en cuentas de base de datos de Azure DocumentDB.
 keywords: Control de acceso IP, compatibilidad con el firewall
 services: documentdb
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/20/2016
 ms.author: ankshah; kraman
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb3c5c2adbaedc4bfb1e68f26b88079aeabe50f5
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: f96c0b7b7edcd19a041c803e268a2dc4bf25b137
 
 
 ---
@@ -48,32 +48,16 @@ Al agregar instancias adicionales de máquina virtual al grupo, se les proporcio
 Cuando se accede a una cuenta de base de datos de DocumentDB desde un equipo de Internet, se debe agregar la dirección IP del cliente o el intervalo de direcciones IP de la máquina a la lista de direcciones IP permitidas para dicha cuenta. 
 
 ## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> Configuración de la directiva de control de acceso IP
-Use Azure Portal para presentar una solicitud al [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que habiliten la directiva de control de acceso IP en la cuenta de base de datos.
+La directiva de control de acceso basado en IP se puede establecer mediante programación a través la [CLI de Azure](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) actualizando la propiedad `ipRangeFilter`. Los intervalos o direcciones IP deben ir separados por comas y no deben contener espacios. Ejemplo: "13.91.6.132,13.91.6.1/24". Al actualizar la cuenta de la base de datos mediante estos métodos, asegúrese de rellenar todas las propiedades para evitar que se restablezca la configuración predeterminada.
 
-1. En la hoja [Ayuda y soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), haga clic en **Nueva solicitud de soporte técnico**.
-2. En la hoja **Nueva solicitud de soporte técnico**, haga clic en **Datos básicos**.
-3. En la hoja **Datos básicos**, seleccione lo siguiente:
-   * **Tipo de problema**: cuota
-   * **Suscripción**: la suscripción asociada con la cuenta en la que se va a agregar la directiva de control de acceso IP.
-   * **Tipo de cuota**: DocumentDB
-   * **Plan de soporte técnico**: compatibilidad con cuotas (incluida).
-4. En la hoja **Problema**, haga lo siguiente:
-   * **Gravedad**: seleccione C - Impacto mínimo.
-   * **Detalles**: copie el siguiente texto en el cuadro e incluya los nombres de las cuentas y las direcciones IP: "Me gustaría habilitar la compatibilidad con el firewall para mi cuenta de base de datos de DocumentDB. Cuenta de base de datos: *incluya los nombres de las cuentas*. Direcciones IP o intervalos de direcciones IP permitidas: *incluya direcciones IP o intervalos de direcciones IP en formato CIDR, por ejemplo, 13.91.6.132, 13.91.6.1/24*".
-   * Haga clic en **Siguiente**. 
-5. En la hoja **Información de contacto**, escriba los detalles de contacto y haga clic en **Crear**. 
-
-Después de recibir la solicitud, el control de acceso IP se debería habilitar en 24 horas. Se le avisará cuando se complete la solicitud.
-
-![Captura de pantalla de la hojas Ayuda y soporte técnico](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
-
-![Captura de pantalla de la hoja Problema](./media/documentdb-firewall-support/documentdb-firewall-support-request-access-ticket.png)
+> [!NOTE]
+> Al habilitar una directiva de control de acceso IP para su cuenta de base de datos de DocumentDB, todo el acceso a esta cuenta desde máquinas fuera de la lista configurada de intervalos de direcciones IP permitidas se bloquea. En virtud de este modelo, la exploración de la operación de plano de datos desde el portal también se bloqueará para garantizar la integridad del control de acceso.
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Solución de problemas de la directiva de control de acceso IP
 ### <a name="portal-operations"></a>Operaciones del portal
 Al habilitar una directiva de control de acceso IP para su cuenta de base de datos de DocumentDB, todo el acceso a esta cuenta desde máquinas fuera de la lista configurada de intervalos de direcciones IP permitidas se bloquea. En virtud de este modelo, la exploración de la operación de plano de datos desde el portal también se bloqueará para garantizar la integridad del control de acceso. 
 
-### <a name="sdk-rest-api"></a>SDK y API de Rest
+### <a name="sdk--rest-api"></a>SDK y API de Rest
 Por motivos de seguridad, el acceso a través del SDK o la API de REST desde máquinas que no en la lista de permitidos, devolverá una respuesta genérica 404 No encontrado sin más detalles. Compruebe la lista de direcciones IP permitidas configurada para su cuenta de base de datos de DocumentDB para asegurarse de que se aplica la configuración de directiva correcta a dicha cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -82,6 +66,6 @@ Para más información sobre las sugerencias de rendimiento relacionadas con la 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

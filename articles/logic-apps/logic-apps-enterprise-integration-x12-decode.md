@@ -1,6 +1,6 @@
 ---
-title: "Información acerca del conector Decode X12 Message de Enterprise Integration Pack | Microsoft Docs"
-description: "Sepa cómo usar partners con las Aplicaciones lógicas y Enterprise Integration Pack"
+title: "Descodificación de mensajes X12 en Azure Logic Apps | Microsoft Docs"
+description: Uso del descodificador X12 de Enterprise Integration Pack en Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,49 +12,52 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: b6ce911b8435f3d6ed1c12c78ba81abe180346a2
+ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
+ms.openlocfilehash: 2fa435d5a52ee7a9c18926912a7212ee862b3832
 
 
 ---
-# <a name="get-started-with-decode-x12-message"></a>Introducción a Decode X12 Message
+# <a name="get-started-with-decode-x12-messages"></a>Introducción a mensajes de Decode X12
 Valida propiedades EDI y específicas de asociados, genera un documento XML para cada conjunto de transacciones y origina la confirmación de transacción procesada.
 
-## <a name="create-the-connection"></a>Creación de la conexión
-### <a name="prerequisites"></a>Requisitos previos
+## <a name="prereqs"></a>Requisitos previos
 * Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)
 * Se requiere una cuenta de integración para usar el conector de Decode X12 Message. Consulte cómo crear una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [asociados](../logic-apps/logic-apps-enterprise-integration-partners.md) y un [contrato X12](../logic-apps/logic-apps-enterprise-integration-x12.md)
 
-### <a name="connect-to-decode-x12-message-using-the-following-steps"></a>Conecte con Decode X12 Message mediante los siguientes pasos:
+## <a name="decode-x12-messages"></a>Descodificación de mensajes X12
+
 1. En [Creación de una nueva aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) se puede ver un ejemplo
-2. Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica, como uno de solicitud.  En el diseñador de aplicaciones lógicas, agregue un desencadenador y, luego, agregue una acción.  Seleccione Mostrar las API administradas por Microsoft en la lista desplegable y, luego, escriba "x12" en el cuadro de búsqueda.  Seleccione X12 – Decode X12 Message.
+2. Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica, como uno de solicitud.  En el diseñador de aplicaciones lógicas, agregue un desencadenador y, luego, agregue una acción.  Seleccione Mostrar las API administradas por Microsoft en la lista desplegable y, luego, escriba "x12" en el cuadro de búsqueda.  Seleccione X12 – Decode X12 Message:
    
     ![buscar x12](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
-3. Si no ha creado anteriormente ninguna conexión a la cuenta de integración, se le pedirán los detalles de conexión.
+3. Si no ha creado anteriormente ninguna conexión a la cuenta de integración, se le pedirán los detalles de conexión:
    
     ![conexión de la cuenta de integración](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)     
-4. Escriba los detalles de la cuenta de integración.  Las propiedades con un asterisco son obligatorias.
+4. Escriba los detalles de la cuenta de integración.  Las propiedades con un asterisco son obligatorias:
    
    | Propiedad | Detalles |
    | --- | --- |
    | Nombre de la conexión * |Escriba cualquier nombre para la conexión. |
    | Cuenta de integración* |Escriba el nombre de la cuenta de integración. Asegúrese de que la cuenta de integración y la aplicación lógica se encuentran en la misma ubicación de Azure. |
    
-    Una vez completados, los detalles de la conexión presentan un aspecto similar al siguiente:
+    Una vez completado, los detalles de la conexión presentan un aspecto similar al siguiente:
    
     ![creación de la conexión de la cuenta de integración](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
-5. Seleccione **Crear**
-6. Observe que la conexión se ha creado en el portal.
+5. Seleccione **Crear**.
+6. Observe que la conexión se ha creado en el portal:
    
     ![detalles de conexión de la cuenta de integración](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
-7. Seleccione X12 flat file message to decode (Mensaje de archivo plano X12 para descodificar).
+7. Seleccione el mensaje de archivo plano X12 para descodificar:
    
     ![especificar los campos obligatorios](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
-## <a name="x12-decode-does-following"></a>Funciones de X12 Decode
+## <a name="x12-decode-details"></a>Detalles de X12 Decode
+
+El conector X12 Decode hace lo siguiente:
+
 * Valida el sobre con el acuerdo de socio comercial.
 * Genera un documento XML para cada conjunto de transacciones.
 * Valida propiedades EDI y específicas del asociado.
@@ -82,6 +85,6 @@ Valida propiedades EDI y específicas de asociados, genera un documento XML para
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Script de PowerShell para implementar un clúster de Windows HPC | Microsoft Docs"
-description: "Ejecución de un script de Windows PowerShell para implementar un clúster de HPC Pack de Windows completo en máquinas virtuales de Azure"
+description: "Ejecución de un script de PowerShell para implementar un clúster de HPC Pack 2012 R2 de Windows completo en máquinas virtuales de Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,19 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 07/07/2016
+ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
+ms.sourcegitcommit: ff9fb5f0b2229a470ea3f5c736622ee1e9228c93
+ms.openlocfilehash: 6c38e460f9194f0becba46cbdfd85075de00e27d
 
 
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Creación de un clúster de proceso de alto rendimiento (HPC) de Windows con el script de implementación de HPC Pack IaaS
-Ejecute el script de PowerShell de implementación de HPC Pack IaaS para implementar un clúster de HPC completo para cargas de trabajo Windows en máquinas virtuales de Azure. El clúster consta de un nodo principal unido a Active Directory en el que se ejecuta Windows Server y Microsoft HPC Pack, y los recursos de cálculo de Windows adicionales que especifique. Si desea implementar un clúster de HPC Pack en Azure para cargas de trabajo de Linux, consulte [Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Linux con el script de implementación de HPC Pack IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). También puede usar una plantilla del Administrador de recursos de Azure para implementar un clúster de HPC Pack. Para ver ejemplos, consulte [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) (Creación de un clúster de HPC) y [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) (Creación de un clúster de HPC con una imagen de nodo de proceso personalizado).
+Ejecute el script de PowerShell de implementación de HPC Pack IaaS para implementar un clúster de HPC Pack 2012 R2 completo para cargas de trabajo Windows en máquinas virtuales de Azure. El clúster consta de un nodo principal unido a Active Directory en el que se ejecuta Windows Server y Microsoft HPC Pack, y los recursos de cálculo de Windows adicionales que especifique. Si desea implementar un clúster de HPC Pack en Azure para cargas de trabajo de Linux, consulte [Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Linux con el script de implementación de HPC Pack IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). También puede usar una plantilla del Administrador de recursos de Azure para implementar un clúster de HPC Pack. Para ver ejemplos, consulte [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) (Creación de un clúster de HPC) y [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) (Creación de un clúster de HPC con una imagen de nodo de proceso personalizado).
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> El script de PowerShell que se describe en este artículo crea un clúster de Microsoft HPC Pack 2012 R2 en Azure mediante el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Además, el script que se describe en este artículo no es compatible con HPC Pack 2016.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -35,7 +36,7 @@ En los siguientes ejemplos, sustituya por sus propios valores el nombre o la ide
 ### <a name="example-1"></a>Ejemplo 1
 El siguiente archivo de configuración implementa un clúster de HPC Pack que tiene un nodo principal con bases de datos locales y cinco nodos de proceso que ejecutan el sistema operativo Windows Server 2012 R2. Todos los servicios en la nube se crean directamente en la ubicación oeste de EE. UU. El nodo principal actúa como controlador de dominio del bosque de dominio.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -73,7 +74,7 @@ El siguiente archivo de configuración implementa un clúster de HPC Pack que ti
 El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene un nodo principal con bases de datos locales y 12 nodos de proceso con la extensión de máquina virtual BGInfo aplicada.
 La instalación automática de actualizaciones de Windows está deshabilitada para todas las máquinas virtuales en el bosque de dominio. Todos los servicios en la nube se crean directamente en la ubicación de Este de Asia. Los nodos de proceso se crean en tres servicios en la nube y tres cuentas de almacenamiento: de *MyHPCCN-0001* a *MyHPCCN-0005* en *MyHPCCNService01* y *mycnstorage01*; de *MyHPCCN-0006* a *MyHPCCN0010* en *MyHPCCNService02* y *mycnstorage02*; y de *MyHPCCN-0011* a *MyHPCCN-0012* en *MyHPCCNService03* y *mycnstorage03*). Los nodos de proceso se crean a partir de una imagen privada existente capturada desde un nodo de proceso. El servicio de crecimiento y reducción automático está habilitado con intervalos de crecimiento y reducción predeterminados.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -136,7 +137,7 @@ La instalación automática de actualizaciones de Windows está deshabilitada pa
 ### <a name="example-3"></a>Ejemplo 3
 El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster contiene un nodo principal, un servidor de bases de datos con un disco de datos de 500 GB, dos nodos de agente que ejecutan el sistema operativo Windows Server 2012 R2 y cinco nodos de proceso que ejecutan el sistema operativo Windows Server 2012 R2. El servicio en la nube MyHPCCNService se crea en el grupo de afinidad *MyIBAffinityGroup*, mientras que los restantes servicios en la nube se crean en el grupo de afinidad *MyAffinityGroup*. La API de REST del Programador de trabajos de HPC y el portal web de HPC están habilitados en el nodo principal.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -191,7 +192,7 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 ### <a name="example-4"></a>Ejemplo 4
 El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene dos nodos principales con bases de datos locales y se crean dos plantillas de nodo de Azure y tres nodos de Azure de tamaño medio para la plantilla de nodo *AzureTemplate1*de Azure. Se ejecuta un archivo de script en el nodo principal después de configurar este nodo.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -275,6 +276,6 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a3437ce502711a56f7201a87c84e8336b7a3e05
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
 
 
 ---
@@ -32,7 +32,7 @@ El Portal de Azure clásico le ofrece dos formas de crear e implementar un servi
 En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, luego, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure clásico pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
 
 > [!NOTE]
-> Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para más información, consulte [Entrega continua a Azure con Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para más información, consulte [Entrega continua en Azure con Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 > 
 > 
 
@@ -40,11 +40,11 @@ En este tema se explica cómo usar el método Creación rápida para crear un nu
 Se necesitan tres componentes para implementar una aplicación como servicio en la nube en Azure:
 
 * **Definición de servicio**  
-   El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
+  El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
 * **Configuración de servicio**  
-   El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
+  El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
 * **Paquete de servicio**  
-   El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
+  El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
 
 Puede obtener más información acerca de estas y cómo crear un paquete [aquí](cloud-services-model-and-package.md).
 
@@ -131,6 +131,6 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

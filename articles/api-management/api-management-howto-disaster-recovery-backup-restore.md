@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
 
 
 ---
@@ -71,28 +71,30 @@ Haga clic en **Permisos delegados** al lado de la aplicación recién agregada *
 
 Antes de invocar las API que generan la copia de seguridad y la restauran, es necesario obtener un token. En el ejemplo siguiente se utiliza el paquete de nuget [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) para recuperar el token.
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    namespace GetTokenResourceManagerRequests
+namespace GetTokenResourceManagerRequests
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
-
-                Console.WriteLine(result.AccessToken);
-
-                Console.ReadLine();
+            if (result == null) {
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
+
+            Console.WriteLine(result.AccessToken);
+
+            Console.ReadLine();
         }
     }
+}
+```
 
 Reemplace `{tentand id}`, `{application id}` y `{redirect uri}` mediante las siguientes instrucciones.
 
@@ -112,10 +114,12 @@ Una vez que se especifican los valores, el ejemplo de código debe devolver un t
 
 Antes de llamar a las operaciones de copia de seguridad y restauración descritas en las secciones siguientes, establezca el encabezado de solicitud de autorización para la llamada REST.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```c#
+request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```
 
-## <a name="step1"> </a>Crear una copia de seguridad del servicio Administración de API
-Para crear una copia de seguridad del servicio Administración de API, emita esta solicitud HTTP:
+## <a name="step1"> </a>Crear una copia de seguridad del servicio API Management
+Para crear una copia de seguridad del servicio API Management, emita esta solicitud HTTP:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
 
@@ -128,23 +132,25 @@ donde:
 
 En el cuerpo de la solicitud, especifique el nombre de la copia de seguridad, el nombre del contenedor de blobs, la clave de acceso y el nombre de la cuenta de almacenamiento de Azure de destino:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Establezca el valor del encabezado de solicitud `Content-Type` en `application/json`.
 
 La creación de una copia de seguridad es una operación de larga duración que puede tardar varios minutos en completarse.  Si la solicitud es correcta y el proceso de copia de seguridad se inicia, recibirá un código de estado de respuesta `202 Accepted` con el encabezado `Location`.  Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se crea la copia de seguridad, recibirá el código de estado "202 Aceptado". El código de respuesta `200 OK` indica que la operación de copia de seguridad se ha completado correctamente.
 
-**Nota**:
+Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia de seguridad.
 
 * El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
 * Mientras se crea la copia de seguridad, **no realice ninguna operación de administración del servicio** (por ejemplo, una actualización o degradación de SKU o un cambio de nombre de dominio).
 * La restauración de una **copia de seguridad se garantiza solo durante 7 días** a partir del momento en que esta se crea.
-* Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. Use la [API de REST de Administración de API de Azure][API de REST de Administración de API de Azure] para recuperar periódicamente informes de análisis para guardarlos en lugar seguro.
+* Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][Azure API Management REST API] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
 * La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda crear las copias de seguridad de forma periódica y también a petición tras realizar cambios importantes en el servicio Administración de API.
 * Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) mientras se está realizando la copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
 
@@ -162,12 +168,14 @@ donde:
 
 En el cuerpo de la solicitud, especifique la ubicación del archivo de copia de seguridad, es decir, el nombre de la copia de seguridad, el nombre del contenedor de blobs, la clave de acceso y el nombre de la cuenta de almacenamiento de Azure:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Establezca el valor del encabezado de solicitud `Content-Type` en `application/json`.
 
@@ -188,11 +196,11 @@ Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del pr
 * [Azure API Management: Backing Up and Restoring Configuration (Administración de API de Azure: copia de seguridad y restauración de la configuración)](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   * El enfoque detallado por Stuart no coincide con la orientación oficial, pero es muy interesante.
 
-[Crear una copia de seguridad del servicio Administración de API]: #step1
-[Restaurar el servicio Administración de API]: #step2
+[Backup an API Management service]: #step1
+[Restore an API Management service]: #step2
 
 
-[API de REST de Administración de API de Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 
@@ -206,6 +214,6 @@ Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del pr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

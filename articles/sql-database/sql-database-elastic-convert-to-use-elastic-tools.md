@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 44dd0842f23fc7e454153984836ccd7e10af6b8c
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 6f51f0585dfc75d28da72d1056ef7173c06b24fd
 
 
 ---
@@ -173,6 +174,6 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de SQL D
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

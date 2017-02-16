@@ -1,6 +1,7 @@
 ---
-title: "Determinación de la compatibilidad con SQL Database mediante SqlPackage.exe | Microsoft Docs"
-description: "Base de datos SQL de Microsoft Azure, migración de bases de datos, importación de bases de datos, compatibilidad de Base de datos SQL, SqlPackage"
+title: 'SQLPackage: compatibilidad de la base de datos de Azure SQL Server | Microsoft Docs'
+description: "En este artículo aprenderá a determinar si una base de datos de SQL Server es compatible para migrar a SQL Database mediante SqlPackage."
+keywords: "Base de datos SQL de Microsoft Azure, migración de bases de datos, importación de bases de datos, compatibilidad de Base de datos SQL, SqlPackage"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 06563b181a8d4ff568eb7cce15189defab0225ca
-ms.openlocfilehash: 16cc9beb3c239e583f47f33fe2f8c7caf44e8eb6
+ms.sourcegitcommit: 6728693290e2c1d6c970c60c7d8ef674764e053c
+ms.openlocfilehash: 834dae604fa87f753e8d050ce7cdfa7e9613f462
 
 
 ---
@@ -48,7 +49,7 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
    | <nombre_esquema.nombre_tabla > |tablas cuyos datos se envían al archivo de destino |
    | <archivo_salida > |nombre y ubicación del archivo de salida con los errores, si existen |
    
-    El motivo del argumento /p:TableName es que solo deseamos comprobar la compatibilidad de la base de datos para la exportación a Base de datos SQL de Azure V12, en lugar de exportar los datos de todas las tablas. Lamentablemente, el argumento de exportación de sqlpackage.exe no permite extraer cero tablas. Debe especificar al menos una tabla, por ejemplo, una sola tabla pequeña. < archivo_salida > contendrá el informe de los errores. La cadena "> 2>&1" une la salida estándar y el error estándar resultado de la ejecución del comando en el archivo de salida especificado.
+    El motivo del argumento /p:TableData es que solo deseamos comprobar la compatibilidad de la base de datos para la exportación a Azure SQL DB V12, en lugar de exportar los datos de todas las tablas. Lamentablemente, el argumento de exportación de sqlpackage.exe no permite extraer cero tablas. Debe especificar al menos una tabla, por ejemplo, una sola tabla pequeña. < archivo_salida > contendrá el informe de los errores. La cadena "2>&1" une la salida estándar y el error estándar resultado de la ejecución del comando en el archivo de salida especificado.
    
     ![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -70,6 +71,6 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

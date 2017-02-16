@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: c719a82e6c2ae46080811190f9ca7783414f38f4
+ms.sourcegitcommit: 3e9476f8edc4186af026495bc575b8203c35c619
+ms.openlocfilehash: b01de7724ec116e5e27369f7c0f852f82ab0348b
 
 
 ---
@@ -86,11 +86,11 @@ Application Insights es uno de los muchos servicios hospedados en Microsoft Azur
 
 Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidades. Puede agregar los demás posteriormente.
 
-* **En tiempo de ejecución: instrumente su aplicación web en el servidor.**  Evita toda actualización del código. Se necesita acceso de administrador al servidor.
+* **En tiempo de ejecución: instrumente su aplicación web en el servidor.** Evita toda actualización del código. Se necesita acceso de administrador al servidor.
   * [**IIS local o en una máquina virtual**](app-insights-monitor-performance-live-website-now.md)
   * [**Máquina virtual o aplicación web de Azure**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
-* **En tiempo de desarrollo: agregue Application Insights al código.**  Le permite escribir datos de telemetría personalizados e instrumentalizar las aplicaciones de back-end y de escritorio.
+* **En tiempo de desarrollo: agregue Application Insights al código.** Le permite escribir datos de telemetría personalizados e instrumentalizar las aplicaciones de back-end y de escritorio.
   * [Visual Studio](app-insights-asp-net.md) 2013, actualización 2 o superior.
   * Java en [Eclipse](app-insights-java-eclipse.md) u [otras herramientas](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
@@ -264,7 +264,7 @@ Stream de métricas en vivo muestra las métricas de la aplicación de este mism
 A diferencia del Explorador de métricas, la Secuencia de métricas en directo muestra un conjunto fijo de métricas. Los datos se conservan solo mientras se encuentran en el gráfico, y luego se descartan.
 
 ### <a name="annotations"></a>Anotaciones
-[anotaciones de la versión](app-insights-annotations.md) de los gráficos de métricas muestran dónde se ha implementado una nueva compilación. Permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Los puede crear el [sistema de compilación de Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), pero también se pueden [crear desde PowerShell](#create-annotations-from-powershell).
+[anotaciones de la versión](app-insights-annotations.md) de los gráficos de métricas muestran dónde se ha implementado una nueva compilación. Permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Los puede crear automáticamente el [sistema de compilación de Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) y también mediante las implementaciones web de Visual Studio. Y, también puede [crearlos desde PowerShell](#create-annotations-from-powershell).
 
 ![Ejemplo de anotaciones con correlación visible con el tiempo de respuesta del servidor](./media/app-insights-overview/00.png)
 
@@ -369,6 +369,6 @@ Comience en el tiempo de desarrollo con:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

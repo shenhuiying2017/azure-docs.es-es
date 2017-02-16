@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/22/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 00f4ddd7173affb9e557e8c993c9f7432a3152cd
 
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitación automática de Configuración de diagnóstico al crear recursos con una plantilla de Resource Manager
-En este artículo se muestra cómo usar una [plantilla de Azure Resource Manager](../resource-group-authoring-templates.md) para establecer Configuración de diagnóstico en un recurso cuando se crea. Esto permite empezar automáticamente a transmitir las métricas y los registros de diagnóstico a Event Hubs, a archivarlos en una cuenta de almacenamiento o a enviarlos a Log Analytics cuando se crea un recurso.
+En este artículo se muestra cómo usar una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para establecer Configuración de diagnóstico en un recurso cuando se crea. Esto permite empezar automáticamente a transmitir las métricas y los registros de diagnóstico a Event Hubs, a archivarlos en una cuenta de almacenamiento o a enviarlos a Log Analytics cuando se crea un recurso.
 
 El método para habilitar registros de diagnóstico mediante una plantilla de Resource Manager depende del tipo de recurso.
 
@@ -33,7 +33,7 @@ En este artículo se describe cómo configurar diagnósticos mediante cualquiera
 Los pasos básicos son los siguientes:
 
 1. Cree una plantilla como archivo JSON que describa cómo crear el recurso y habilitar los diagnósticos.
-2. [Implemente la plantilla mediante cualquier método de implementación](../resource-group-template-deploy.md).
+2. [Implemente la plantilla mediante cualquier método de implementación](../azure-resource-manager/resource-group-template-deploy.md).
 
 A continuación, se ofrece un ejemplo del archivo JSON de plantilla que debe generar para los recursos de proceso y los que no lo son.
 
@@ -86,13 +86,23 @@ Para recursos no de proceso, debe hacer dos cosas:
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-El blob de propiedades para la configuración de diagnóstico sigue [el formato descrito en este artículo](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+El blob de propiedades para la configuración de diagnóstico sigue [el formato descrito en este artículo](https://msdn.microsoft.com/library/azure/dn931931.aspx). Agregar la propiedad `metrics` le permitirá también enviar métricas de recursos para estos mismos resultados.
 
 Este es un ejemplo completo en el que se crea un grupo de seguridad de red y se activa el streaming a centros de eventos y el almacenamiento en una cuenta de almacenamiento.
 
@@ -166,6 +176,16 @@ Este es un ejemplo completo en el que se crea un grupo de seguridad de red y se 
                   "enabled": false
                 }
               }
+            ],
+            "metrics": [
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
             ]
           }
         }
@@ -198,6 +218,6 @@ Se describe el proceso completo, con ejemplos, [en este documento](../virtual-ma
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

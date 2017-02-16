@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 12/01/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 64f6f245b86d9194a52e40ed226de9960a36f3f9
-ms.openlocfilehash: 96e0c65dd57505b816843ac6290ea19ca02c88f9
+ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
+ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
 
 
 ---
@@ -43,7 +43,7 @@ La característica de múltiples rutas en Linux consta de componentes del kernel
 
 * **Kernel**: el componente principal es el *asignador de dispositivos* que redirige la E/S y admite la conmutación por error para las rutas de acceso y los grupos de la ruta de acceso.
 
-1. **Espacio de usuario**: son las *herramientas de múltiples rutas* que administran los dispositivos de múltiples rutas indicando el módulo de múltiples rutas del asignador de dispositivos qué hacer. Las herramientas son las siguientes:
+* **Espacio de usuario**: son las *herramientas de múltiples rutas* que administran los dispositivos de múltiples rutas indicando el módulo de múltiples rutas del asignador de dispositivos qué hacer. Las herramientas son las siguientes:
    
    * **Multipath**: muestra y configura los dispositivos con múltiples rutas.
    * **Multipathd**: demonio que ejecuta las múltiples rutas y supervisa las rutas de acceso.
@@ -56,12 +56,11 @@ El archivo de configuración `/etc/multipath.conf` permite que muchas de las car
 
 El archivo multipath.conf tiene cinco secciones:
 
-* **Valores predeterminados de nivel de sistema** *(defaults)*: puede invalidar los valores predeterminados de nivel de sistema.
-
-1. **Dispositivos en lista negra** *(blacklist)*: puede especificar la lista de dispositivos que no deben controlarse mediante el asignador de dispositivos.
-2. **Excepciones de la lista negra** *(blacklist_exceptions)*: puede identificar dispositivos específicos para que se traten como dispositivos de múltiples rutas, aunque aparezcan en la lista negra.
-3. **Configuración específica del controlador de almacenamiento** *(devices)*: puede especificar valores de configuración que se aplicarán a los dispositivos con información de proveedor y producto.
-4. **Configuración específica de dispositivo** *(multipaths)*: puede usar esta sección para ajustar la configuración de cada LUN.
+- **Valores predeterminados de nivel de sistema** *(defaults)*: puede invalidar los valores predeterminados de nivel de sistema.
+- **Dispositivos en lista negra** *(blacklist)*: puede especificar la lista de dispositivos que no deben controlarse mediante el asignador de dispositivos.
+- **Excepciones de la lista negra** *(blacklist_exceptions)*: puede identificar dispositivos específicos para que se traten como dispositivos de múltiples rutas, aunque aparezcan en la lista negra.
+- **Configuración específica del controlador de almacenamiento** *(devices)*: puede especificar valores de configuración que se aplicarán a los dispositivos con información de proveedor y producto.
+- **Configuración específica de dispositivo** *(multipaths)*: puede usar esta sección para ajustar la configuración de cada LUN.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configuración de múltiples rutas en StorSimple conectado al host Linux
 Un dispositivo de StorSimple conectado a un host Linux puede configurarse para alta disponibilidad y equilibrio de carga. Por ejemplo, si el host Linux tiene dos interfaces conectadas a la SAN y el dispositivo tiene dos interfaces conectadas a la SAN de tal forma que estas interfaces estén en la misma subred, habrá 4 rutas de acceso disponibles. Sin embargo, si cada interfaz DATA en la interfaz del dispositivo y de host están en una subred IP diferente (y no enrutable), solo estarán disponibles dos rutas de acceso. Puede configurar múltiples rutas para que detecten automáticamente todas las rutas de acceso disponibles, elegir un algoritmo de equilibrio de carga para esas rutas de acceso, aplicar la configuración específica para los volúmenes únicamente de StorSimple y, después, habilitar y comprobar la característica de múltiples rutas.
@@ -155,8 +154,7 @@ El dispositivo de StorSimple debe disponer de:
      2. Asegúrese de que las interfaces de red tienen la misma velocidad; ambas deben ser 1 GbE o 10 GbE.
      3. Anote las direcciones IPv4 de las interfaces habilitadas para iSCSI y guárdelas para su uso posterior en el host.
 * Las interfaces de iSCSI en el dispositivo de StorSimple deben ser accesibles desde el servidor CentOS.
-  
-    Para comprobarlo, debe proporcionar las direcciones IP de las interfaces de red habilitadas para iSCSI de StorSimple en el servidor host. A continuación se muestran los comandos usados y la salida correspondiente con DATA2 (10.126.162.25) y DATA3 (10.126.162.26):
+      Para comprobarlo, debe proporcionar las direcciones IP de las interfaces de red habilitadas para iSCSI de StorSimple en el servidor host. A continuación se muestran los comandos usados y la salida correspondiente con DATA2 (10.126.162.25) y DATA3 (10.126.162.26):
   
         [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
         10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
@@ -190,12 +188,12 @@ Se pueden detectar y configurar automáticamente los dispositivos compatibles co
 
 1. Inicialice el archivo `/etc/multipath.conf` . Escriba:
    
-     `Copy mpathconf --enable`
+     `mpathconf --enable`
    
     El comando anterior crea un archivo `sample/etc/multipath.conf` .
 2. Inicie el servicio de múltiples rutas. Escriba:
    
-    ``Copy service multipathd start``
+    `service multipathd start`
    
     Verá la salida siguiente:
    
@@ -300,38 +298,37 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 
     Si ve solo una interfaz de host y dos rutas de acceso, tendrá que habilitar ambas interfaces de host para iSCSI. Puede seguir las [instrucciones detalladas en la documentación de Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
+2. Se muestra un volumen al servidor CentOS desde el dispositivo StorSimple. Para obtener más información, consulte el [Paso 6: Creación de un volumen](storsimple-deployment-walkthrough.md#step-6-create-a-volume) mediante el Portal de Azure clásico en el dispositivo StorSimple.
 
-   c. Se muestra un volumen al servidor CentOS desde el dispositivo StorSimple. Para obtener más información, consulte el [Paso 6: Creación de un volumen](storsimple-deployment-walkthrough.md#step-6-create-a-volume) mediante el Portal de Azure clásico en el dispositivo StorSimple.
+3. Compruebe las rutas de acceso disponibles. Escriba:
 
-   d. Compruebe las rutas de acceso disponibles. Escriba:
+      ```
+      multipath –l
+      ```
 
-   ```
-   multipath –l
-   ```
+      En el ejemplo siguiente se muestra la salida de dos interfaces de red en un dispositivo StorSimple conectado a una interfaz de red de host única con dos rutas de acceso disponibles.
 
-   En el ejemplo siguiente se muestra la salida de dos interfaces de red en un dispositivo StorSimple conectado a una interfaz de red de host única con dos rutas de acceso disponibles.
-
-   ```
-    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 7:0:0:1 sdc 8:32 active undef running
         `- 6:0:0:1 sdd 8:48 active undef running
-   ```
+        ```
 
-   En el ejemplo siguiente se muestra la salida de dos interfaces de red en un dispositivo StorSimple conectado a dos interfaces de red de host con cuatro rutas de acceso disponibles.
+        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
 
-   ```
-    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 17:0:0:0 sdb 8:16 active undef running
         |- 15:0:0:0 sdd 8:48 active undef running
         |- 14:0:0:0 sdc 8:32 active undef running
         `- 16:0:0:0 sde 8:64 active undef running
-   ```
+        ```
 
-   Una vez configuradas las rutas de acceso, consulte las instrucciones específicas de su sistema operativo del host (Centos 6.6) para montar y dar formato a este volumen.
+        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
 
 ## <a name="troubleshoot-multipathing"></a>Solución de problemas de múltiples rutas
 En esta sección se proporcionan algunos consejos útiles si surge algún problema durante la configuración de múltiples rutas.
@@ -358,7 +355,8 @@ También sería conveniente comprobar que realmente puede ver algunos discos des
 * Escriba los comandos siguientes:
   
     `$ dmesg | grep sd*`
-* O
+     
+     O
   
     `$ fdisk –l`
   
@@ -452,6 +450,6 @@ Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

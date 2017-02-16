@@ -1,6 +1,6 @@
 ---
-title: "Administración de un grupo de bases de datos elásticas (PowerShell) | Microsoft Docs"
-description: "Obtenga más información sobre cómo usar PowerShell para administrar un grupo de bases de datos elásticas."
+title: "PowerShell: Administración de un grupo elástico de Azure SQL Database | Microsoft Docs"
+description: "Aprenda a usar PowerShell para administrar un grupo elástico."
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -16,29 +16,28 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
+ms.sourcegitcommit: 9c6800c54f545d5ae70e9e8c2a3234cb3acecb83
+ms.openlocfilehash: 355baefc2ef50000ddb5a1241d9d28c201deffa1
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-powershell"></a>Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell
+# <a name="monitor-and-manage-an-elastic-pool-with-powershell"></a>Supervisión y administración de un grupo elástico con PowerShell
 > [!div class="op_single_selector"]
-> * [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 > * [C#](sql-database-elastic-pool-manage-csharp.md)
 > * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 >
 >
 
-Administre un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante cmdlets de PowerShell.
+Administre un [grupo elástico](sql-database-elastic-pool.md) mediante cmdlets de PowerShell.
 
 Para ver los códigos de error comunes, consulte [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md).
 
-Se pueden encontrar valores para los grupos en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Se pueden encontrar valores para los grupos en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Azure PowerShell 1.0 o posterior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Los grupos de bases de datos elásticas solo están disponibles en los servidores de la versión 12 de Base de datos SQL de Azure. Si tiene un servidor de la versión 11 de Base de datos SQL, [use PowerShell para actualizarlo a la versión 12 y crear un grupo](sql-database-upgrade-server-portal.md) en un solo paso.
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Movimiento de una base de datos a un grupo elástico
 Puede mover una base de datos dentro o fuera de un grupo con el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
@@ -46,15 +45,15 @@ Puede mover una base de datos dentro o fuera de un grupo con el cmdlet [Set-Azur
     Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## <a name="change-performance-settings-of-a-pool"></a>Cambio de la configuración de rendimiento de un grupo
-Cuando el rendimiento se ve afectado, puede cambiar la configuración del grupo para adaptarse al crecimiento. Utilice el cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Establezca el parámetro -Dtu en las eDTU por grupo. Consulte los posibles valores en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).  
+Cuando el rendimiento se ve afectado, puede cambiar la configuración del grupo para adaptarse al crecimiento. Utilice el cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Establezca el parámetro -Dtu en las eDTU por grupo. Consulte los posibles valores en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).  
 
-    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50
+    Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
 
 
 ## <a name="get-the-status-of-pool-operations"></a>Obtención del estado de las operaciones de los grupos
 El proceso de crear grupos puede llevar tiempo. Puede realizar un seguimiento del estado de las operaciones del grupo, como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx).
 
-    Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1”
+    Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
 
 
 ## <a name="get-the-status-of-moving-an-elastic-database-into-and-out-of-a-pool"></a>Obtención del estado entrada o salida de un grupo de una base de datos elástica
@@ -92,7 +91,7 @@ Para recuperar las métricas, siga estos pasos:
 
 
 ## <a name="get-resource-usage-data-for-an-elastic-database"></a>Obtención de datos de uso de recursos de una base de datos elástica
-Estas API son las mismas que las actuales (versión 12) que se usan para supervisar el uso de recursos de una base de datos independiente, excepto por la diferencia semántica siguiente.
+Estas API son las mismas que las actuales (versión&12;) que se usan para supervisar el uso de recursos de una sola base de datos, excepto por la diferencia semántica siguiente.
 
 Para esta API, las métricas recuperadas se expresan como un porcentaje de la capacidad por cantidad máxima de eDTU (o una equivalente a la métrica subyacente como CPU, E/S etc.) establecido para ese grupo. Por ejemplo, el 50 % de uso de cualquiera de estas métricas indica que el consumo de recursos específicos es del 50 % del límite de capacidad por cada base de datos de dicho recurso del grupo principal.
 
@@ -252,11 +251,6 @@ En este ejemplo se recuperan las métricas de consumo de un grupo elástico dete
 * El cambio del número mínimo de eDTU por base de datos o del máximo de eDTU por base de datos suele completarse en cinco minutos o menos.
 * El cambio de eDTU por grupo depende de la cantidad total de espacio que usen todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para cambiar las eDTU de grupo por grupo es de 3 horas o menos.
 
-## <a name="migrate-from-v11-to-v12-servers"></a>Migración de la versión 11 de los servidores a la 12
-Los cmdlets de PowerShell se pueden usar para iniciar, detener o supervisar una actualización de la Base de datos SQL de Azure V12 a partir de la versión V11, o desde cualquier otra versión anterior a la V12.
-
-* [Actualización a la base de datos SQL V12 con PowerShell](sql-database-upgrade-server-powershell.md)
-
 Para obtener documentación de referencia acerca de estos cmdlets de Powershell, consulte:
 
 * [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582\(v=azure.300\).aspx)
@@ -271,6 +265,6 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 
-El código para todas las funciones de una aplicación de función especificada se encuentra en una carpeta raíz que contiene un archivo de configuración de host y una o varias subcarpetas que contienen cada una el código de una función diferente, como se indica en el ejemplo siguiente
+El código para todas las funciones de una aplicación de función dada se encuentra en una carpeta raíz que contiene un archivo de configuración de host y una o varias subcarpetas, cada una con el código de una función diferente, como se indica en el ejemplo siguiente:
 
 ```
 wwwroot
@@ -21,6 +21,6 @@ Cada función tiene una carpeta que contiene uno o varios archivos de código, l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 502991093c2f3c38f37a6cb4e3770459b7d5ee78
-ms.openlocfilehash: 9a06ba91dea57ef2298f2b0651a01e56f0b5c4ae
+ms.sourcegitcommit: 5ef6819df027fac095dddd7c69cb27d6eff636b8
+ms.openlocfilehash: 823e551bd60d252786c917fd1aefa9e2c06f03a0
 
 
 ---
@@ -26,7 +26,7 @@ En este artículo se describe cómo se puede usar la actividad de copia en Azure
 Puede especificar si desea utilizar PolyBase al cargar los datos en el Almacenamiento de datos SQL de Azure. Se recomienda utilizar PolyBase para obtener el mejor rendimiento a la hora de cargar datos en el Almacenamiento de datos SQL Azure. Consulte [Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
 
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más sencilla de crear una canalización que copie datos hacia y desde Almacenamiento de datos SQL es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+La manera más sencilla de crear una canalización que copie datos hacia y desde Almacenamiento de datos SQL es usar el Asistente para copia de datos. Vea [Tutorial: cargar datos en almacenamiento de datos de SQL con factoría de datos](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para una rápida visita guiada sobre la creación de una canalización mediante el Asistente para copia de datos.
 
 
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos entre Almacenamiento de datos SQL y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
@@ -473,7 +473,7 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcance writeBatchSize |Entero (número de filas) |No (valor predeterminado = 10000) |
-| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |timespan<br/><br/>  Ejemplo: "00:30:00" (30 minutos). |No |
+| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |No |
 | sqlWriterCleanupScript |Especifique una consulta para que se ejecute la actividad de copia de tal forma que se limpien los datos de un segmento específico. Consulte la [sección sobre repetibilidad](#repeatability-during-copy)para más información. |Una instrucción de consulta. |No |
 | allowPolyBase |Indica si se usa PolyBase (si procede) en lugar de mecanismo BULKINSERT para cargar datos en Almacenamiento de datos SQL de Azure. <br/><br/>Actualmente, solo se admiten conjuntos de datos de **blobs de Azure** con **formato** establecido en **TextFormat** como conjunto de datos de origen. <br/><br/>Consulte [Uso de PolyBase para cargar datos en Almacenamiento de datos SQL](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver restricciones y más información. |True  <br/>False (valor predeterminado) |No |
 | polyBaseSettings |Un grupo de propiedades que se pueden especificar si el valor de la propiedad **allowPolybase** está establecido en **true**. |&nbsp; |No |
@@ -668,6 +668,6 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

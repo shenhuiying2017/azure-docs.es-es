@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2016
+ms.date: 1/11/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 480dc512e93f8ae64a73067aaee95190f525e780
-ms.openlocfilehash: dc8e5a6990004716699420f1c9ab2a418dd6c54e
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 686b26f082951a71ad21f653c8086061afa56b59
 
 
 ---
@@ -133,7 +133,7 @@ La mayoría de las aplicaciones se desarrollan a partir de una combinación de d
 
 *Las plantillas del Administrador de recursos de Azure* permiten implementar y administrar estos recursos diferentes como una unidad lógica de implementación de manera declarativa. En lugar de indicar imperativamente a Azure que debe implementar un comando tras otro, describa la implementación completa en un archivo JSON (todos los recursos y configuración asociada y parámetros de implementación) e indíquele a Azure que implemente esos recursos como un único grupo.
 
-Puede obtener mucha más información sobre los grupos de recursos de Azure y su utilidad en [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Si está interesado en la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+Puede obtener mucha más información sobre los grupos de recursos de Azure y su utilidad en [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Si está interesado en la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="a-idquick-create-documentdb-accountatask-create-a-single-region-documentdb-account"></a><a id="quick-create-documentdb-account"></a>Tarea: Creación de una cuenta de DocumentDB de una sola región
 Siga las instrucciones de esta sección para crear una cuenta de DocumentDB de una sola región. Puede hacerlo utilizando la CLI de Azure con o las plantillas de Resource Manager o sin ellas.
@@ -146,16 +146,17 @@ Cree una cuenta de DocumentDB en el grupo de recursos nuevo o existente escribie
 >
 >
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
 
 * `<resourcegroupname>` solo admite caracteres alfanuméricos, puntos, caracteres de subrayado, el carácter "-" y paréntesis, y no puede terminar en punto.
 * `<resourcegrouplocation>` es la región del grupo de recursos actual.
+* `<ip-range-filter>` Especifica el conjunto de direcciones IP o intervalos de direcciones IP en formato CIDR para incluir en la lista permitida de direcciones IP de cliente para una cuenta de base de datos dada. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Para más información, consulte [Compatibilidad con el firewall de DocumentDB](documentdb-firewall-support.md).
 * `<databaseaccountname>` solo admite minúsculas, números, el carácter "-", y debe tener entre 3 y 50 caracteres.
 * `<databaseaccountlocation>` debe ser una de las regiones en que DocumentDB está disponible de forma general. Se proporciona la lista actual de regiones en la [página Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
 Entrada de ejemplo:
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
 
 Lo que genera el siguiente resultado cuando se aprovisiona la nueva cuenta:
 
@@ -202,6 +203,7 @@ Cree un archivo de plantilla local con el siguiente contenido. Asigne al archivo
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -212,6 +214,124 @@ Cree un archivo de plantilla local con el siguiente contenido. Asigne al archivo
             }
         ]
     }
+
+El valor de failoverPriority debe establecerse en 0, ya que esta es una cuenta de una sola región. Un valor de failoverPriority de 0 indica que esta región se mantendrá como la [región de escritura de la cuenta de DocumentDB][scaling-globally].
+Puede escribir el valor en la línea de comandos o crear un archivo de parámetros para especificar el valor.
+
+Para crear un archivo de parámetros, copie el siguiente contenido en un nuevo archivo y asigne al archivo el nombre azuredeploy.parameters.json. Si va a especificar el nombre de cuenta de base de datos en el símbolo del sistema, puede continuar sin crear este archivo.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "value": "samplearmacct"
+            },
+            "locationName1": {
+                "value": "westus"
+            }
+        }
+    }
+
+En el archivo azuredeploy.parameters.json, actualice el campo de valor de `"samplearmacct"` al nombre de base de datos que desee usar y, después, guarde el archivo. `"databaseAccountName"` solo admite minúsculas, números, el carácter "-", y debe tener entre 3 y 50 caracteres. Actualice el campo de valor de `"locationName1"` a la región donde desea crear la cuenta de DocumentDB.
+
+Para crear una cuenta de DocumentDB en el grupo de recursos, ejecute el comando siguiente e indique la ruta de acceso al archivo de plantilla, la ruta de acceso al archivo de parámetros o el valor del parámetro, el nombre del grupo de recursos en el que se va a implementar y un nombre de implementación (-n es opcional).
+
+Para usar un archivo de parámetros:
+
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
+
+* `<PathToTemplate>` es la ruta de acceso al archivo azuredeploy.json creado en el paso 1. Si el nombre de ruta de acceso contiene espacios, ponga comillas dobles alrededor de este parámetro.
+* `<PathToParameterFile>` es la ruta de acceso al archivo azuredeploy.parameters.json creado en el paso 1. Si el nombre de ruta de acceso contiene espacios, ponga comillas dobles alrededor de este parámetro.
+* `<resourcegroupname>` es el nombre del grupo de recursos existente en el que se va a agregar una cuenta de base de datos de DocumentDB.
+* `<deploymentname>` es el nombre opcional de la implementación.
+
+Entrada de ejemplo:
+
+    azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
+
+O bien, para especificar el parámetro de nombre de cuenta de base de datos sin un archivo de parámetros y que en su lugar se le pida el valor, ejecute el siguiente comando:
+
+    azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
+
+Entrada de ejemplo que muestra el símbolo del sistema y una entrada para una cuenta de base de datos denominada "samplearmacct":
+
+    azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    databaseAccountName: samplearmacct
+
+Cuando se haya aprovisionado la cuenta, aparecerá la siguiente información:
+
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "azuredeploy"
+    + Waiting for deployment to complete
+    +
+    +
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    +
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
+    data:    DeploymentName     : azuredeploy
+    data:    ResourceGroupName  : new_res_group
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
+    data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
+    data:    Name                 Type    Value
+    data:    -------------------  ------  ------------------
+    data:    databaseAccountName  String  samplearmacct
+    data:    locationName1        String  westus
+    info:    group deployment create command OK
+
+Si se producen errores, consulte [Solución de problemas](#troubleshooting).  
+
+Cuando el comando responda, la cuenta se encontrará en el estado **Creando** unos minutos antes de pasar al estado **En línea**, en el que está lista para usarse. Puede comprobar el estado de la cuenta en el [Portal de Azure](https://portal.azure.com), en la hoja **Cuentas de DocumentDB** .
+
+## <a name="a-idquick-create-documentdb-with-mongodb-api-accountatask-create-a-single-region-documentdb-with-support-for-mongodb-account"></a><a id="quick-create-documentdb-with-mongodb-api-account"></a>Tarea: Creación de una cuenta de DocumentDB compatible con MongoDB
+Siga las instrucciones de esta sección para crear una cuenta de DocumentDB de una sola región compatible con MongoDB. Puede hacerlo utilizando la CLI de Azure con plantillas de Resource Manager.
+
+### <a name="a-idcreate-single-documentdb-with-mongodb-api-account-cli-arma-create-a-single-region-documentdb-with-support-for-mongodb-account-using-azure-cli-with-resource-manager-templates"></a><a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Creación de cuenta de DocumentDB de una sola región compatible con MongoDB utilizando la CLI de Azure con las plantillas de Resource Manager
+En las instrucciones de esta sección se describe cómo crear una cuenta de DocumentDB compatible con MongoDB con una plantilla de Azure Resource Manager y un archivo opcional de parámetros (los dos recursos son archivos JSON). El uso de una plantilla le permite describir exactamente lo que desea y repetirlo sin errores.
+
+Cree un archivo de plantilla local con el siguiente contenido. Asigne al archivo el nombre azuredeploy.json.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "type": "string"
+            },
+            "locationName1": {
+                "type": "string"
+            }
+        },
+        "variables": {},
+        "resources": [
+            {
+                "apiVersion": "2015-04-08",
+                "type": "Microsoft.DocumentDb/databaseAccounts",
+                "name": "[parameters('databaseAccountName')]",
+                "location": "[resourceGroup().location]",
+                "kind": "MongoDB",
+                "properties": {
+                    "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
+                    "locations": [
+                        {
+                            "failoverPriority": 0,
+                            "locationName": "[parameters('locationName1')]"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+
+El tipo debe establecerse en MongoDB para especificar que esta cuenta sea compatible con las API de MongoDB. Si no se especifica ninguna propiedad de tipo, el valor predeterminado será una cuenta de DocumentDB nativa.
 
 El valor de failoverPriority debe establecerse en 0, ya que esta es una cuenta de una sola región. Un valor de failoverPriority de 0 indica que esta región se mantendrá como la [región de escritura de la cuenta de DocumentDB][scaling-globally].
 Puede escribir el valor en la línea de comandos o crear un archivo de parámetros para especificar el valor.
@@ -299,16 +419,17 @@ Cree una cuenta de DocumentDB en el grupo de recursos nuevo o existente escribie
 >
 >
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation1>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<databaseaccountlocation2>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation1>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<databaseaccountlocation2>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
 
 * `<resourcegroupname>` solo admite caracteres alfanuméricos, puntos, caracteres de subrayado, el carácter "-" y paréntesis, y no puede terminar en punto.
 * `<resourcegrouplocation>` es la región del grupo de recursos actual.
+* `<ip-range-filter>` Especifica el conjunto de direcciones IP o intervalos de direcciones IP en formato CIDR para incluir en la lista permitida de direcciones IP de cliente para una cuenta de base de datos dada. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Para más información, consulte [Compatibilidad con el firewall de DocumentDB](documentdb-firewall-support.md).
 * `<databaseaccountname>` solo admite minúsculas, números, el carácter "-", y debe tener entre 3 y 50 caracteres.
 * `<databaseaccountlocation1>` y `<databaseaccountlocation2>` deben ser regiones donde DocumentDB esté disponible de forma general. Se proporciona la lista actual de regiones en la [página Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
 Entrada de ejemplo:
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
 
 Lo que genera el siguiente resultado cuando se aprovisiona la nueva cuenta:
 
@@ -358,6 +479,7 @@ Cree un archivo de plantilla local con el siguiente contenido. Asigne al archivo
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -470,7 +592,7 @@ Si recibe errores como `Deployment provisioning state was not successful` al cre
 
         azure group log show new_res_group --last-deployment
 
-    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-manager-troubleshoot-deployments-cli.md) para más información.
+    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md) para más información.
 * También hay información del error disponible en Azure Portal, tal y como se muestra en la captura de pantalla siguiente. Para navegar a la información de error: haga clic en Grupos de recursos en la barra de salto, seleccione el grupo de recursos que tuvo el error. En el área Essentials de la hoja Grupo de recursos, haga clic en la fecha de la última implementación. En la hoja Historial de implementaciones, seleccione la implementación con errores. En la hoja Implementación, haga clic en los detalles de la operación con el signo de exclamación rojo. El mensaje de estado para la implementación con errores se muestra en la hoja Detalles de la operación.
 
     ![Captura de pantalla del Portal de Azure que muestra cómo navegar hasta el mensaje de error de implementación](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
@@ -478,7 +600,7 @@ Si recibe errores como `Deployment provisioning state was not successful` al cre
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que tiene una cuenta de DocumentDB, el siguiente paso es crear una base de datos de DocumentDB. Puede crear una base de datos mediante uno de los siguientes procedimientos:
 
-* Azure Portal, tal como se describe en [Creación de una base de datos para DocumentDB mediante Azure Portal](documentdb-create-database.md).
+* Azure Portal, tal como se describe en [Creación de una colección y una base de datos de DocumentDB](documentdb-create-collection.md).
 * Los ejemplos de C# .NET del proyecto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repositorio [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) de GitHub.
 * Los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB tiene .NET, Java, Python, Node.js y SDK de la API de JavaScript.
 
@@ -499,6 +621,6 @@ Para obtener más plantillas que puede usar, consulte [Plantillas de inicio ráp
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

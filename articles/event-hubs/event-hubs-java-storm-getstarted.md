@@ -3,7 +3,7 @@ title: "Introducción a Event Hubs en Java con Apache Storm | Microsoft Docs"
 description: "Siga este tutorial para empezar a usar Centros de eventos de Azure; a enviar eventos con Java y a recibirlos en un clúster de Apache Storm."
 services: event-hubs
 documentationcenter: 
-author: fsautomata
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 385869bd-1ebe-44ae-8113-cc4679a568eb
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eacafbcddb81085c706d8c4b64c426b21ce06b79
+ms.sourcegitcommit: 52c9ded8af99c5ae0836be8e71394dd1e5072aff
+ms.openlocfilehash: 7566a8d0643607ee80c056ed4410aefd930226b8
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: eacafbcddb81085c706d8c4b64c426b21ce06b79
 ## <a name="introduction"></a>Introducción
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para más información, consulte [Información general de Event Hubs][Información general de Event Hubs].
+Para obtener más información, consulte [Información general sobre Centros de eventos][Event Hubs Overview].
 
 En este tutorial se describe cómo recopilar mensajes en un Centro de eventos mediante una aplicación de consola en Java y cómo recuperarlos en paralelo mediante Apache Storm.
 
@@ -50,7 +50,7 @@ Ahora está preparado para ejecutar las aplicaciones.
     ![][22]
 
 > [!NOTE]
-> Solo en este tutorial, use Storm en modo local para fines de desarrollo. Vea [Información general de Storm en HDinsight][Información general de Storm en HDinsight] y la documentación oficial de [Apache Storm][Apache Storm] para más información sobre los patrones y las implementaciones de Storm.
+> Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte [Introducción a Storm en HDInsight][HDInsight Storm Overview] y la documentación oficial de [Apache Storm][Apache Storm] para obtener más información sobre los patrones y las implementaciones de Storm.
 > 
 > 
 
@@ -58,23 +58,22 @@ Ahora está preparado para ejecutar las aplicaciones.
 Los siguientes recursos están disponibles para desarrollar aplicaciones que integran Centros de eventos y Storm.
 
 * [Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight] es un tutorial de escenario integral donde se usan Centros de eventos, Storm y HBase para introducir datos de sensores en un clúster de Hadoop.
-* [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio][Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
+* [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
 
 <!-- Images. -->
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Portal de Azure clásico]: https://manage.windowsazure.com/
-[Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de Event Hubs]: event-hubs-overview.md
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs Overview]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Información general de Storm en HDinsight]: ../hdinsight/hdinsight-storm-overview.md
+[HDInsight Storm Overview]: ../hdinsight/hdinsight-storm-overview.md
 [Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
-[Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

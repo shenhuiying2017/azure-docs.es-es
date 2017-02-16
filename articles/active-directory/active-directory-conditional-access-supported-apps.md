@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fbc03ebf0c66950ae92ca75cf34da86dfb15a349
+ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
+ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
 
 
 ---
@@ -41,8 +41,8 @@ Las siguientes aplicaciones admiten el acceso condicional para Office 365 y otra
 | Office 365 Exchange Online |Windows 8.1, Windows 7, Windows 7 |Outlook 2016, Outlook 2013 (con autenticación moderna) y Skype Empresarial (con autenticación moderna) |
 | Office 365 Exchange Online |iOS, Android |Aplicación móvil de Outlook |
 | Office 365 Exchange Online |Mac OS X |Outlook 2016 para la autenticación multifactor y la ubicación únicamente; compatibilidad con directivas basadas en dispositivos prevista para el futuro, compatibilidad con Skype Empresarial prevista para el futuro |
-| Office 365 SharePoint Online |Windows 10 |Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), compatibilidad con la aplicación OneDrive para la Empresa (cliente de sincronización de nueva generación o NGSC) prevista para el futuro, compatibilidad con Grupos de Office prevista para el futuro, compatibilidad con la aplicación SharePoint prevista para el futuro |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7, Windows 7 |Aplicaciones de Office 2016, Office 2013 (con autenticación moderna) y aplicación OneDrive para la Empresa (cliente de sincronización de Groove) |
+| Office 365 SharePoint Online |Windows 10 |Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), compatibilidad con Grupos de Office prevista para el futuro, compatibilidad con la aplicación SharePoint prevista para el futuro |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7, Windows 7 |Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Aplicaciones móviles de Office |
 | Office 365 SharePoint Online |Mac OS X |Aplicaciones de Office 2016 para la autenticación multifactor y la ubicación únicamente; compatibilidad con directivas basadas en dispositivos prevista para el futuro |
 | Yammer para Office 365 |Windows 10, iOS y Android |Aplicación de Yammer para Office |
@@ -111,6 +111,6 @@ Al aplicar las tres reglas siguientes a la relación de confianza para usuario a
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

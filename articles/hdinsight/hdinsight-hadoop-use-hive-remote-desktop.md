@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 049ae836fae651edb0ce45eabd6d7eec64308b75
+ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
+ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 049ae836fae651edb0ce45eabd6d7eec64308b75
 
 En este artículo, obtendrá información sobre cómo conectarse a un clúster de HDInsight mediante Escritorio remoto y, a continuación, ejecutar consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive.
 
-> [!NOTE]
-> Este documento no ofrece una descripción detallada de las instrucciones de HiveQL que se usan en los ejemplos. Para obtener información sobre HiveQL utilizado en este ejemplo, consulte [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md).
+> [!IMPORTANT]
+> Remote Desktop solo está disponible para clústeres de HDInsight que usan Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 >
->
+> Para HDInsight 3.4 o superior, consulte [Uso de Hive con HDInsight y Beeline](hdinsight-hadoop-use-hive-beeline.md) para más información sobre cómo ejecutar consultas de Hive directamente en el clúster desde una línea de comandos.
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
 Para completar los pasos de este artículo, necesitará lo siguiente:
@@ -111,7 +111,7 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
 * [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -140,11 +140,11 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

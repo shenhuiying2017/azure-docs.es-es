@@ -1,6 +1,6 @@
 ---
 title: Esquemas de seguimiento de X12 | Microsoft Docs
-description: "Más información acerca de los esquemas de seguimiento de X12"
+description: "Más información sobre los esquemas de seguimiento de X12"
 author: padmavc
 manager: erikre
 editor: 
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 63ba6e8fec8df1cdbc9928b011130f47c5facf89
-ms.openlocfilehash: 48dfc8327b7e2dfb16b0392fd6d44e83bdfb1177
+ms.sourcegitcommit: c4c1d4b27c8cfbcdf96f263525b09d20ed782dc4
+ms.openlocfilehash: 6d8a1ef2a4e9c551663b65cb72bb80f630d2e5f5
 
 
 ---
 # <a name="x12-tracking-schemas"></a>Esquemas de seguimiento de X12
-Los esquemas de seguimiento de X12 compatibles son
+Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de Azure para ayudarle a supervisar las transacciones de negocio a negocio (B2B):
 
 * Esquema de seguimiento de conjuntos de transacciones de X12
 * Esquema de seguimiento de confirmación de conjuntos de transacciones de X12
@@ -48,7 +48,7 @@ Los esquemas de seguimiento de X12 compatibles son
                 "interchangeControlNumber": "",
                 "functionalGroupControlNumber": "",
                 "transactionSetControlNumber": "",
-                "CorrelationMessageId": "", 
+                "CorrelationMessageId": "",
                 "messageType": "",
                 "isMessageFailed": "",
                 "isTechnicalAcknowledgmentExpected": "",
@@ -59,26 +59,26 @@ Los esquemas de seguimiento de X12 compatibles son
     }
 ````
 
-| Propiedad | Descripción |
-| --- | --- |
-| senderPartnerName |Opcional, cadena.  Indica el nombre del asociado de envío de mensajes de X12 |
-| receiverPartnerName |Opcional, cadena.  Indica el nombre del asociado de recepción de mensajes de X12 |
-| senderQualifier |Obligatorio, cadena.  Indica el calificador del asociado de envío |
-| senderIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de envío |
-| receiverQualifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| receiverIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| agreementName |Opcional, cadena.  Nombre del contrato X12 en el que se resuelven los mensajes |
-| dirección |Obligatorio, enum.  Indica la dirección del flujo de mensajes.  Los valores permitidos son recepción o envío |
-| interchangeControlNumber |Opcional, cadena.  Indica el número de control de intercambio |
-| functionalGroupControlNumber |Opcional, cadena.  Indica el número de control funcional |
-| transactionSetControlNumber |Opcional, cadena.  Indica el número de control del conjunto de transacciones |
-| CorrelationMessageId |Opcional, cadena.  Indica el identificador de mensaje de correlación.  El identificador de correlación es la combinación de {AgreementName}*{GroupControlNumber}*{TransactionSetControlNumber} |
-| messageType |Opcional, cadena. Indica el conjunto de transacciones o el tipo de documento |
-| isMessageFailed |Obligatorio, booleano.  Indica si el mensaje de X12 se ha enviado correctamente o se ha producido un error |
-| isTechnicalAcknowledgmentExpected |Obligatorio, booleano.  Indica si la confirmación técnica se ha configurado, o no, en el acuerdo de X12 |
-| isFunctionalAcknowledgmentExpected |Obligatorio, booleano.  Indica si la confirmación funcional se ha configurado, o no, en el acuerdo de X12 |
-| needAk2LoopForValidMessages |Obligatorio, booleano.  -Si el bucle se AK2 se requiere para los mensajes válidos, o no. - Tipo booleano |
-| segmentsCount |Opcional, entero.  Indica el número de segmentos del conjunto de transacciones de X12 |
+| Propiedad | Tipo | Descripción |
+| --- | --- | --- |
+| senderPartnerName | string | Nombre de asociado del remitente del mensaje X12. (Opcional) |
+| receiverPartnerName | String | Nombre de asociado del destinatario del mensaje X12. (Opcional) |
+| senderQualifier | string | Calificador del asociado remitente. (Obligatorio) |
+| senderIdentifier | String | Identificador del asociado remitente. (Obligatorio) |
+| receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
+| receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
+| agreementName | String | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
+| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| interchangeControlNumber | string | Número de control de intercambio. (Opcional) |
+| functionalGroupControlNumber | string | Número de control funcional. (Opcional) |
+| transactionSetControlNumber | string | Número de control de conjuntos de transacciones. (Opcional) |
+| CorrelationMessageId | String | Identificador del mensaje de correlación. Una combinación de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Opcional) |
+| messageType | String | Conjunto de transacciones o tipo de documento. (Opcional) |
+| isMessageFailed | Booleano | Si el mensaje X12 genera error. (Obligatorio) |
+| isTechnicalAcknowledgmentExpected | Booleano | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
+| isFunctionalAcknowledgmentExpected | Booleano | Si la confirmación funcional se ha configurado en el contrato X12. (Obligatorio) |
+| needAk2LoopForValidMessages | Booleano | Si el bucle AK2 se requiere para un mensaje válido. (Obligatorio) |
+| segmentsCount | Entero | Número de segmentos del conjunto de transacciones de X12. (Opcional) |
 
 ## <a name="x12-transaction-set-acknowledgement-tracking-schema"></a>Esquema de seguimiento de confirmación de conjuntos de transacciones de X12
 ````java
@@ -114,32 +114,32 @@ Los esquemas de seguimiento de X12 compatibles son
     }
 ````
 
-| Propiedad | Descripción |
-| --- | --- |
-| senderPartnerName |Opcional, cadena.  Indica el nombre de asociado del remitente del mensaje de X12 |
-| receiverPartnerName |Opcional, cadena.  Indica el nombre de asociado del destinatario del mensaje de X12 |
-| senderQualifier |Obligatorio, cadena.  Indica el calificador del asociado de envío |
-| senderIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de envío |
-| receiverQualifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| receiverIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| agreementName |Opcional, cadena.  Nombre del contrato X12 en el que se resuelven los mensajes |
-| dirección |Obligatorio, enum.  Indica la dirección del flujo de mensajes.  Los valores permitidos son recepción o envío |
-| interchangeControlNumber |Opcional, cadena.  Indica el número de control de intercambio de la confirmación funcional. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado |
-| functionalGroupControlNumber |Opcional, cadena.  Indica el número de control del grupo funcional de la confirmación funcional. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado |
-| isaSegment |Opcional, cadena.  Indica el segmento ISA del mensaje. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado |
-| gsSegment |Opcional, cadena.  Indica el segmento GS del mensaje. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado |
-| respondingfunctionalGroupControlNumber |Opcional, cadena.  Indica el número de control de intercambio de respuesta |
-| respondingFunctionalGroupId |Opcional, cadena. Indica el identificador del grupo funcional de respuesta, que se asigna a AK101 en la confirmación |
-| respondingtransactionSetControlNumber |Opcional, cadena.  Indica el número de control del conjunto de transacciones de la respuesta |
-| respondingTransactionSetId |Opcional, cadena.  Indica el identificador del conjunto de transacciones de respuesta, que se asigna a AK201 en la confirmación |
-| statusCode |Obligatorio, booleano.  Indica el código de estado de la confirmación del conjunto de transacciones |
-| segmentsCount |Obligatorio, enum.  Indica el código de estado de la confirmación.  Se permiten los siguientes valores: Accepted, Rejected o AccpetedWithErrros |
-| processingStatus |Obligatorio, enum.  Indica el estado de procesamiento de la confirmación.  Se permiten los siguientes valores: Received, Generated o Sent |
-| CorrelationMessageId |Opcional, cadena.  Indica el identificador de mensaje de correlación.  El identificador de correlación es la combinación de {AgreementName}*{GroupControlNumber}*{TransactionSetControlNumber} |
-| isMessageFailed |Obligatorio, booleano.  Indica si el mensaje de X12 se ha enviado correctamente o se ha producido un error |
-| ak2Segment |Opcional, cadena. Indica el segmento ak2. El segmento ak2 indica una confirmación para un conjunto de transacciones del grupo funcional recibido |
-| ak3Segment |Opcional, cadena. Indica el segmento ak3.  El segmento ak3 indica que hay errores en un segmento de datos |
-| ak5Segment |Opcional, cadena. Indica el segmento ak5.  El segmento ak5 indica si el conjunto de transacciones identificado en el segmento de AK2 se acepta o se rechaza, y el motivo de la aceptación o rechazo |
+| Propiedad | Tipo | Descripción |
+| --- | --- | --- |
+| senderPartnerName | String | Nombre de asociado del remitente del mensaje X12. (Opcional) |
+| receiverPartnerName | String | Nombre de asociado del destinatario del mensaje X12. (Opcional) |
+| senderQualifier | string | Calificador del asociado remitente. (Obligatorio) |
+| senderIdentifier | string | Identificador del asociado remitente. (Obligatorio) |
+| receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
+| receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
+| agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
+| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| interchangeControlNumber | string | Número de control de intercambio de la confirmación funcional. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado. (Opcional) |
+| functionalGroupControlNumber | String | Número de control del grupo funcional de la confirmación funcional. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado. (Opcional) |
+| isaSegment | string | Segmento ISA del mensaje. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado. (Opcional) |
+| gsSegment | String | Segmento GS del mensaje. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado. (Opcional) |
+| respondingfunctionalGroupControlNumber | string | Número de control de intercambio de respuesta. (Opcional) |
+| respondingFunctionalGroupId | String | Identificador del grupo funcional de respuesta, que se asigna a AK101 en la confirmación. (Opcional) |
+| respondingtransactionSetControlNumber | string | Número de control del conjunto de transacciones de respuesta. (Opcional) |
+| respondingTransactionSetId | string | Identificador del conjunto de transacciones de respuesta, que se asigna a AK201 en la confirmación. (Opcional) |
+| statusCode | Booleano | Código de estado de la confirmación del conjunto de transacciones. (Obligatorio) |
+| segmentsCount | Enum | Código de estado de la confirmación. Los valores permitidos son **Accepted**, **Rejected**, y **AcceptedWithErrors**. (Obligatorio) |
+| processingStatus | Enum | Estado de procesamiento de la confirmación. Los valores permitidos son **Received**, **Generated** y **Sent**. (Obligatorio) |
+| CorrelationMessageId | String | Identificador del mensaje de correlación. Una combinación de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Opcional) |
+| isMessageFailed | Booleano | Si el mensaje X12 genera error. (Obligatorio) |
+| ak2Segment | String | Confirmación para un conjunto de transacciones del grupo funcional recibido. (Opcional) |
+| ak3Segment | String | Indica que hay errores en un segmento de datos. (Opcional) |
+| ak5Segment | String | Indica si el conjunto de transacciones identificado en el segmento de AK2 se acepta o se rechaza, y el motivo de la aceptación o rechazo. (Opcional) |
 
 ## <a name="x12-interchange-tracking-schema"></a>Esquema de seguimiento de intercambio de X12
 ````java
@@ -171,27 +171,27 @@ Los esquemas de seguimiento de X12 compatibles son
     }
 ````
 
-| Propiedad | Descripción |
-| --- | --- |
-| senderPartnerName |Opcional, cadena.  Indica el nombre de asociado del remitente del mensaje de X12 |
-| receiverPartnerName |Opcional, cadena.  Indica el nombre de asociado del destinatario del mensaje de X12 |
-| senderQualifier |Obligatorio, cadena.  Indica el calificador del asociado de envío |
-| senderIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de envío |
-| receiverQualifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| receiverIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| agreementName |Opcional, cadena.  Nombre del contrato X12 en el que se resuelven los mensajes |
-| dirección |Obligatorio, enum.  Indica la dirección del flujo de mensajes.  Los valores permitidos son recepción o envío |
-| interchangeControlNumber |Opcional, cadena.  Indica el número de control de intercambio |
-| isaSegment |Opcional, cadena.  Indica el segmento ISA del mensaje |
-| isTechnicalAcknowledgmentExpected |Obligatorio, booleano.  Indica si la confirmación técnica se ha configurado, o no, en el acuerdo de X12 |
-| isMessageFailed |Obligatorio, booleano.  Indica si el mensaje de X12 se ha enviado correctamente o se ha producido un error |
-| isa09 |Opcional, cadena.  Indica la fecha de intercambio del documento de X12 |
-| isa10 |Opcional, cadena. Indica la hora de intercambio del documento de X12 |
-| isa11 |Opcional, cadena. Indica el identificador de los estándares de control del intercambio de X12 |
-| isa12 |Opcional, cadena.  Indica el número de versión de control del intercambio de X12 |
-| isa14 |Opcional, cadena.  Indica que se solicita la confirmación de X12 |
-| isa15 |Opcional, cadena.  Muestra el indicador de prueba o de producción |
-| isa16 |Opcional, cadena. Indica el separador de elementos |
+| Propiedad | Tipo | Descripción |
+| --- | --- | --- |
+| senderPartnerName | string | Nombre de asociado del remitente del mensaje X12. (Opcional) |
+| receiverPartnerName | string | Nombre de asociado del destinatario del mensaje X12. (Opcional) |
+| senderQualifier | string | Calificador del asociado remitente. (Obligatorio) |
+| senderIdentifier | string | Identificador del asociado remitente. (Obligatorio) |
+| receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
+| receiverIdentifier | String | Identificador del asociado destinatario. (Obligatorio) |
+| agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
+| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| interchangeControlNumber | string | Número de control de intercambio. (Opcional) |
+| isaSegment | string | Segmento ISA del mensaje. (Opcional) |
+| isTechnicalAcknowledgmentExpected | Booleano | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
+| isMessageFailed | Booleano | Si el mensaje X12 genera error. (Obligatorio) |
+| isa09 | string | Fecha de intercambio del documento X12. (Opcional) |
+| isa10 | string | Hora de intercambio del documento X12. (Opcional) |
+| isa11 | string | Identificador de los estándares de control del intercambio de X12. (Opcional) |
+| isa12 | String | Número de versión de control del intercambio de X12. (Opcional) |
+| isa14 | string | Se solicita la confirmación de X12. (Opcional) |
+| isa15 | String | Indicador de prueba o de producción. (Opcional) |
+| isa16 | String | Separador de elementos. (Opcional) |
 
 ## <a name="x12-interchange-acknowledgement-tracking-schema"></a>Esquema de seguimiento de confirmación de intercambio de X12
 ````java
@@ -220,25 +220,25 @@ Los esquemas de seguimiento de X12 compatibles son
     }
 ````
 
-| Propiedad | Descripción |
-| --- | --- |
-| senderPartnerName |Opcional, cadena.  Indica el nombre de asociado del remitente del mensaje de X12 |
-| receiverPartnerName |Opcional, cadena.  Indica el nombre de asociado del destinatario del mensaje de X12 |
-| senderQualifier |Obligatorio, cadena.  Indica el calificador del asociado de envío |
-| senderIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de envío |
-| receiverQualifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| receiverIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| agreementName |Opcional, cadena.  Nombre del contrato X12 en el que se resuelven los mensajes |
-| dirección |Obligatorio, enum.  Indica la dirección del flujo de mensajes.  Los valores permitidos son recepción o envío |
-| interchangeControlNumber |Opcional, cadena.  Indica el número de control de intercambio de la confirmación técnica. La confirmación técnica recibida de los asociados tiene este valor |
-| isaSegment |Opcional, cadena.  Indica el segmento ISA de la confirmación técnica. La confirmación técnica recibida de los asociados tiene este valor |
-| respondingInterchangeControlNumber |Opcional, cadena.  Indica el número de control de intercambio de la confirmación técnica. La confirmación técnica recibida de los asociados tiene este valor |
-| isMessageFailed |Obligatorio, booleano.  Indica si el mensaje de X12 se ha enviado correctamente o se ha producido un error |
-| statusCode |Obligatorio, enum.  Indica el código de estado de la confirmación del intercambio.  Se permiten los siguientes valores: Accepted/Rejected/AccpetedWithErrros |
-| processingStatus |Obligatorio, enum.  Indica el estado de la confirmación.  Se permiten los siguientes valores: Received/Generated/Sent |
-| ta102 |Opcional, cadena. Indica la fecha de intercambio |
-| ta103 |Opcional, cadena. Indica la hora de intercambio |
-| ta105 |Opcional, cadena. Indica el código de nota del intercambio |
+| Propiedad | Tipo | Descripción |
+| --- | --- | --- |
+| senderPartnerName | string | Nombre de asociado del remitente del mensaje X12. (Opcional) |
+| receiverPartnerName | string | Nombre de asociado del destinatario del mensaje X12. (Opcional) |
+| senderQualifier | String | Calificador del asociado remitente. (Obligatorio) |
+| senderIdentifier | string | Identificador del asociado remitente. (Obligatorio) |
+| receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
+| receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
+| agreementName | String | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
+| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| interchangeControlNumber | String | Número de control de intercambio de la confirmación técnica que los asociados reciben. (Opcional) |
+| isaSegment | String | Segmento ISA de la confirmación técnica que los asociados reciben. (Opcional) |
+| respondingInterchangeControlNumber |String | Número de control de intercambio de la confirmación técnica que los asociados reciben. (Opcional) |
+| isMessageFailed | Booleano | Si el mensaje X12 genera error. (Obligatorio) |
+| statusCode | Enum | Código de estado de la confirmación del intercambio. Los valores permitidos son **Accepted**, **Rejected**, y **AcceptedWithErrors**. (Obligatorio) |
+| processingStatus | Enum | Estado de la confirmación. Los valores permitidos son **Received**, **Generated** y **Sent**. (Obligatorio) |
+| ta102 | String | Fecha de intercambio. (Opcional) |
+| ta103 | String | Hora de intercambio. (Opcional) |
+| ta105 | String | Código de nota de intercambio. (Opcional) |
 
 ## <a name="x12-functional-group-tracking-schema"></a>Esquema de seguimiento de grupos funcionales de X12
 ````java
@@ -272,29 +272,29 @@ Los esquemas de seguimiento de X12 compatibles son
     }
 ````
 
-| Propiedad | Descripción |
-| --- | --- |
-| senderPartnerName |Opcional, cadena.  Indica el nombre de asociado del remitente del mensaje de X12 |
-| receiverPartnerName |Opcional, cadena.  Indica el nombre de asociado del destinatario del mensaje de X12 |
-| senderQualifier |Obligatorio, cadena.  Indica el calificador del asociado de envío |
-| senderIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de envío |
-| receiverQualifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| receiverIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| agreementName |Opcional, cadena.  Nombre del contrato X12 en el que se resuelven los mensajes |
-| dirección |Obligatorio, enum.  Indica la dirección del flujo de mensajes.  Los valores permitidos son recepción o envío |
-| interchangeControlNumber |Opcional, cadena. Indica el número de control de intercambio |
-| functionalGroupControlNumber |Opcional - número de control funcional - tipo cadena |
-| gsSegment |Opcional, cadena.  Indica el segmento GS del mensaje |
-| isTechnicalAcknowledgmentExpected |Obligatorio, booleano.  Indica si la confirmación técnica se ha configurado, o no, en el acuerdo de X12 |
-| isFunctionalAcknowledgmentExpected |Obligatorio, booleano.  Indica si la confirmación funcional se ha configurado, o no, en el acuerdo de X12 |
-| isMessageFailed |Obligatorio, booleano.  Indica si el mensaje de X12 se ha enviado correctamente o se ha producido un error |
-| gs01 |Opcional, cadena. Indica el código del identificador funcional |
-| gs02 |Opcional, cadena. Indica el código del remitente de la aplicación |
-| gs03 |Opcional, cadena. Indica el código del destinatario de la aplicación |
-| gs04 |Opcional, cadena. Indica la fecha del grupo funcional |
-| gs05 |Opcional, cadena. Indica la hora del grupo funcional |
-| gs07 |Opcional, cadena. Indica el código de la agencia responsable |
-| gs08 |Opcional, cadena. Indica la versión/código identificador industrial - tipo cadena |
+| Propiedad | Tipo | Descripción |
+| --- | --- | --- |
+| senderPartnerName | string | Nombre de asociado del remitente del mensaje X12. (Opcional) |
+| receiverPartnerName | string | Nombre de asociado del destinatario del mensaje X12. (Opcional) |
+| senderQualifier | String | Calificador del asociado remitente. (Obligatorio) |
+| senderIdentifier | String | Identificador del asociado remitente. (Obligatorio) |
+| receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
+| receiverIdentifier | String | Identificador del asociado destinatario. (Obligatorio) |
+| agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
+| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| interchangeControlNumber | String | Número de control de intercambio. (Opcional) |
+| functionalGroupControlNumber | String | Número de control funcional. (Opcional) |
+| gsSegment | string | Segmento GS del mensaje. (Opcional) |
+| isTechnicalAcknowledgmentExpected | Booleano | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
+| isFunctionalAcknowledgmentExpected | Booleano | Si la confirmación funcional se ha configurado en el contrato X12. (Obligatorio) |
+| isMessageFailed | Booleano | Si el mensaje X12 genera error. (Obligatorio)|
+| gs01 | String | Código del identificador funcional. (Opcional) |
+| gs02 | string | Código del remitente de la aplicación. (Opcional) |
+| gs03 | String | Código del destinatario de la aplicación. (Opcional) |
+| gs04 | String | Fecha del grupo funcional. (Opcional) |
+| gs05 | string | Hora del grupo funcional. (Opcional) |
+| gs07 | string | Código de agencia responsable. (Opcional) |
+| gs08 | string | Código de identificador de versión/lanzamiento/industria. (Opcional) |
 
 ## <a name="x12-functional-group-acknowledgement-tracking-schema"></a>Esquema de seguimiento de confirmación de grupos funcionales de X12
 ````java
@@ -326,39 +326,38 @@ Los esquemas de seguimiento de X12 compatibles son
     }
 ````
 
-| Propiedad | Descripción |
-| --- | --- |
-| senderPartnerName |Opcional, cadena.  Indica el nombre de asociado del remitente del mensaje de X12 |
-| receiverPartnerName |Opcional, cadena.  Indica el nombre de asociado del destinatario del mensaje de X12 |
-| senderQualifier |Obligatorio, cadena.  Indica el calificador del asociado de envío |
-| senderIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de envío |
-| receiverQualifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| receiverIdentifier |Obligatorio, cadena.  Indica el identificador del asociado de recepción |
-| agreementName |Opcional, cadena.  Nombre del contrato X12 en el que se resuelven los mensajes |
-| dirección |Obligatorio, enum.  Indica la dirección del flujo de mensajes.  Los valores permitidos son recepción o envío |
-| interchangeControlNumber |Opcional, cadena. Indica el número de control de intercambio. El valor se rellena en el lado del envío cuando se recibe una confirmación técnica de los asociados |
-| functionalGroupControlNumber |Opcional, cadena. Indica el número de control del grupo funcional de la confirmación funcional. El valor se rellena en el lado del envío cuando se recibe una confirmación técnica de los asociados |
-| isaSegment |Opcional: igual que en el caso anterior, el número de control de intercambio se rellena solo en casos concretos. - tipo cadena |
-| gsSegment |Opcional: igual que en el caso anterior, el número de control del grupo funcional se rellena solo en casos concretos. - tipo cadena |
-| respondingfunctionalGroupControlNumber |Opcional: número de control del grupo funcional original - tipo cadena |
-| respondingFunctionalGroupId |Opcional: se asigna a AK101 en la confirmación - identificador de grupo funcional - tipo cadena |
-| isMessageFailed |Obligatorio, booleano.  Indica si el mensaje de X12 se ha enviado correctamente o se ha producido un error |
-| statusCode |Obligatorio, enum.  Indica el código de estado de la confirmación. Se permiten los siguientes valores: Accepted/Rejected/AccpetedWithErrros |
-| processingStatus |Obligatorio, enum.  Indica el estado de procesamiento de la confirmación. Se permiten los siguientes valores: Received/Generated/Sent |
-| ak903 |Opcional, cadena. Indica el número de conjuntos de transacciones recibidos |
-| ak904 |Opcional, cadena. Indica el número de conjuntos de transacciones aceptados en el grupo funcional identificado |
-| ak9Segment |Opcional, cadena.  El segmento Ak9 indica si el grupo funcional identificado en el segmento AK1 se acepta o se rechaza, y el motivo de la aceptación o rechazo |
+| Propiedad | Tipo | Descripción |
+| --- | --- | --- |
+| senderPartnerName | string | Nombre de asociado del remitente del mensaje X12. (Opcional) |
+| receiverPartnerName | String | Nombre de asociado del destinatario del mensaje X12. (Opcional) |
+| senderQualifier | string | Calificador del asociado remitente. (Obligatorio) |
+| senderIdentifier | string | Identificador del asociado remitente. (Obligatorio) |
+| receiverQualifier | String | Calificador del asociado destinatario. (Obligatorio) |
+| receiverIdentifier | String | Identificador del asociado destinatario. (Obligatorio) |
+| agreementName | String | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
+| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| interchangeControlNumber | String | Número de control de intercambio, que se rellena para el lado del envío cuando los asociados reciben la confirmación técnica. (Opcional) |
+| functionalGroupControlNumber | string | Número de control de grupo funcional de la confirmación técnica, que se rellena para el lado del envío cuando los asociados reciben la confirmación técnica. (Opcional) |
+| isaSegment | string | Igual que el número de control de intercambio, pero se rellena solo en casos específicos. (Opcional) |
+| gsSegment | string | Igual que el número de control de grupo funcional, pero se rellena solo en casos específicos. (Opcional) |
+| respondingfunctionalGroupControlNumber | string | Número de control del grupo funcional original. (Opcional) |
+| respondingFunctionalGroupId | string | Se asocia con AK101 en el identificador del grupo funcional de confirmación. (Opcional) |
+| isMessageFailed | Booleano | Si el mensaje X12 genera error. (Obligatorio) |
+| statusCode | Enum | Código de estado de la confirmación. Los valores permitidos son **Accepted**, **Rejected**, y **AcceptedWithErrors**. (Obligatorio) |
+| processingStatus | Enum | Estado de procesamiento de la confirmación. Los valores permitidos son **Received**, **Generated** y **Sent**. (Obligatorio) |
+| ak903 | String | Número de conjuntos de transacciones recibidos. (Opcional) |
+| ak904 | string | Número de conjuntos de transacciones aceptados en el grupo funcional identificado. (Opcional) |
+| ak9Segment | string | Si el grupo funcional identificado en el segmento AK1 se acepta o se rechaza, y el motivo de la aceptación o el rechazo. (Opcional) |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información acerca de la supervisión de mensajes B2B](app-service-logic-monitor-b2b-message.md "Learn more about tracking B2B messages")   
-[Tracking B2B messages in OMS portal](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")  (Seguimiento de mensajes B2B en el Portal de OMS)  
-[Más información acerca de los esquemas de seguimiento personalizado](app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
-[Más información acerca de los esquemas de seguimiento de AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Schema")   
-[Más información acerca de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+* Más información sobre la [supervisión de mensajes B2B](app-service-logic-monitor-b2b-message.md).
+* Más información sobre los [esquemas de seguimiento de AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md).
+* Más información sobre los [esquemas de seguimiento personalizado de B2B](app-service-logic-track-integration-account-custom-tracking-shema.md).
+* Más información sobre el [seguimiento de mensajes B2B en el portal de Operations Management Suite](app-service-logic-track-b2b-messages-omsportal.md).
+* Más información sobre [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).  
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

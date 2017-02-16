@@ -5,8 +5,10 @@
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento |El único límite es los 500 TB de capacidad de la cuenta de almacenamiento |
 | Tamaño máximo de un contenedor de blobs, una tabla o una cola |500 TB |
 | Número máximo de bloques en un blob en bloques o blob de anexión |50.000 |
-| Tamaño máximo de un bloque en un blob en bloques o blob de anexión |4 MB |
-| Tamaño máximo de un blob en bloques o blob de anexión |50 000 x 4 MB (195 GB aproximadamente) |
+| Tamaño máximo un bloque en un blob en bloques |100 MB |
+| Tamaño máximo de un blob en bloques |50 000 X 100 MB (4,75 TB aproximadamente) |
+| Tamaño máximo de un bloque en un blob en anexos |4 MB |
+| Tamaño máximo de un blob en anexos |50 000 x 4 MB (195 GB aproximadamente) |
 | Tamaño máximo de un blob en páginas |1 TB |
 | Tamaño máximo de una entidad de tabla |1 MB |
 | Número máximo de propiedades de una entidad de tabla |252 |
@@ -18,7 +20,7 @@
 | Número máximo de archivos en un recurso compartido de archivos |El único límite es la capacidad total de 5 TB del recurso compartido de archivos |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento |El único límite es los 500 TB de capacidad de la cuenta de almacenamiento |
 | Número máximo de directivas de acceso almacenadas por contenedor, recurso compartido de archivos, tabla o cola |5 |
-| Velocidad de solicitudes (suponiendo un tamaño de objeto de 1 KB) por cuenta de almacenamiento |Hasta 20.000 IOPS, entidades por segundo o mensajes por segundo |
+| Tasa total de solicitudes (suponiendo un tamaño de objeto de 1 KB) por cuenta de almacenamiento |Hasta 20.000 IOPS, entidades por segundo o mensajes por segundo |
 | Rendimiento de un blob |Hasta 60 MB por segundo o hasta 500 solicitudes por segundo |
 | Rendimiento de una cola (mensajes de 1 KB) |Hasta 2000 mensajes por segundo |
 | Rendimiento de destino de una sola partición de tabla (entidades de 1 KB) |Hasta 2000 entidades por segundo |
@@ -41,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

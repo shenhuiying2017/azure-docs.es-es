@@ -1,5 +1,5 @@
 ---
-title: "Solución detallada de problemas de Escritorio remoto | Microsoft Docs"
+title: "Solución detallada de problemas de Escritorio remoto en Azure | Microsoft Docs"
 description: "Revise los pasos detallados de solución de problemas para errores de Escritorio remoto en los que no se puede conectar a máquinas virtuales Windows en Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 
 
 ---
@@ -28,8 +28,6 @@ Este artículo ofrece pasos detallados de solución de problemas para diagnostic
 
 > [!IMPORTANT]
 > Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [el artículo sobre la solución de problemas básicos de Escritorio remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de continuar.
-> 
-> 
 
 Puede que se encuentre un mensaje de error de Escritorio remoto que no se parezca a ninguno de los tratados en [la guía básica de solución de problemas de Escritorio remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Siga estos pasos para determinar por qué el cliente de Escritorio remoto (RDP) no se puede conectar con el servicio RDP en la máquina virtual de Azure.
 
@@ -141,7 +139,7 @@ Pruebe de nuevo la conexión desde su equipo. Si todavía no puede conectarse me
 
 Para las máquinas virtuales creadas con el modelo de implementación clásico, puede utilizar una sesión remota de Azure PowerShell para la máquina virtual de Azure. En primer lugar, debe instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configure Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Configuración del acceso remoto seguro de PowerShell a Azure Virtual Machines) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en el equipo local.
 
-A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Después, abra un símbolo del sistema de Azure PowerShell y cambie la carpeta actual a la ubicación del archivo de script **InstallWinRMCertAzureVM.ps1** . Para ejecutar un script de Azure PowerShell, debe establecer la directiva de ejecución correcta. Ejecute el comando **Get-ExecutionPolicy** para determinar el nivel de directiva actual. Para obtener información sobre cómo establecer el nivel adecuado, vea [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -192,7 +190,7 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 
 [Restablecimiento del servicio Escritorio remoto o la contraseña para máquinas virtuales Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
+[Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -201,6 +199,6 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -8,16 +8,16 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 ms.assetid: 78b76318-d9bf-48ef-9d9e-d1b7d8cf3042
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c1df69b37b85544f00fc6ed68827f4817d766443
+ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
+ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
 
 
 ---
@@ -29,8 +29,6 @@ Puede crear un sitio web de Microsoft Azure con el control ReportViewer de Visua
 
 > [!IMPORTANT]
 > Las plantillas de aplicación web de MVC de ASP.NET no admiten el control ReportViewer.
-> 
-> 
 
 Para incorporar ReportViewer en su sitio web de Microsoft Azure, debe completar las siguientes tareas.
 
@@ -45,10 +43,6 @@ Revise la sección "Recomendación general y procedimientos recomendados" de [SQ
 > Los controles ReportViewer se incluyen con Visual Studio, Standard Edition o superior. Si usa Web Developer Express Edition, debe instalar el [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) para usar las características de tiempo de ejecución de ReportViewer.
 > 
 > No se admite el ReportViewer configurado en modo de procesamiento local en Microsoft Azure.
-> 
-> 
-
-Revise las notas del producto [Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Adición de ensamblados al paquete de implementación
 Cuando se hospeda la aplicación ASP.NET en local, los ensamblados de ReportViewer normalmente se instalan directamente en la memoria caché de ensamblados global (GAC) del servidor IIS durante la instalación de Visual Studio y la aplicación puede obtener acceso a ellos directamente. Sin embargo, cuando hospeda su aplicación ASP.NET en la nube, Microsoft Azure no permite que se instale nada en la GAC, por lo que debe asegurarse de que los ensamblados de ReportViewer están disponibles localmente para la aplicación. Puede ello, agregue referencias a los ensamblados en el proyecto y configúrelos para que se copien localmente.
@@ -99,11 +93,9 @@ Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en A
 
 [Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo](virtual-machines-windows-classic-ps-sql-report.md)
 
-[Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

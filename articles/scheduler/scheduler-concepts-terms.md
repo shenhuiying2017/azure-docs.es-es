@@ -20,7 +20,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
-# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Conceptos, terminología y jerarquía de entidades de Programador
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceptos, terminología y jerarquía de entidades de Programador
 ## <a name="scheduler-entity-hierarchy"></a>Jerarquía de entidades del Programador
 En la tabla siguiente se describen los recursos principales expuestos o utilizados por la API del Programador:
 

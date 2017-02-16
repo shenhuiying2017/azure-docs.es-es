@@ -4,7 +4,7 @@ description: "Información general de la acción HTTP con propiedades"
 services: 
 documentationcenter: 
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
 
 
 ---
@@ -29,7 +29,7 @@ Puede:
 * Cree flujos de trabajo de aplicaciones lógicas que se activen (desencadenador) cuando un sitio web que administre deje de funcionar.
 * Comuníquese con cualquier punto de conexión por HTTP para ampliar los flujos de trabajo a otros servicios.
 
-Para empezar a usar la acción HTTP en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para empezar a usar la acción HTTP en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-the-http-trigger"></a>Uso del desencadenador HTTP
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](connectors-overview.md).
@@ -125,7 +125,7 @@ Los detalles de la salida de la respuesta HTTP son los siguientes.
 | Código de estado |int |Código de estado HTTP |
 
 ## <a name="authentication"></a>Autenticación
-La característica Logic Apps del Servicio de aplicaciones de Azure le permite utilizar diferentes tipos de autenticación en los puntos de conexión HTTP. Esta autenticación se puede usar con los conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** y **[HTTP Webhook](connectors-native-webhook.md)**. Los siguientes tipos de autenticación pueden configurarse:
+Logic Apps permite utilizar diferentes tipos de autenticación en los puntos de conexión HTTP. Esta autenticación se puede usar con los conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** y **[HTTP Webhook](connectors-native-webhook.md)**. Los siguientes tipos de autenticación pueden configurarse:
 
 * [Autenticación básica](#basic-authentication)
 * [Autenticación de certificados de clientes](#client-certificate-authentication)
@@ -162,7 +162,7 @@ Se requiere el siguiente objeto de autenticación para la autenticación de cert
 | Nombre de propiedad | Tipo de datos | Description |
 | --- | --- | --- |
 | Type* |type |El tipo de autenticación (debe ser `ClientCertificate` para los certificados de cliente SSL) |
-| PFX* |pfx |El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
+| PFX* |pfx |El contenido codificado en base&64; del archivo de intercambio de información personal (PFX) |
 | Password* |contraseña |La contraseña para acceder al archivo PFX |
 
 > [!TIP]
@@ -209,11 +209,11 @@ Por ejemplo:
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Puede explorar los demás conectores disponibles en Logic Apps consultando nuestra [lista de API](apis-list.md).
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en Logic Apps consultando nuestra [lista de API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

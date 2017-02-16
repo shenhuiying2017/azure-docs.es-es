@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
-ms.author: chrande
+ms.date: 01/18/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 36cf563a8318acb9371c48ba7d29e24694446e45
+ms.sourcegitcommit: 770cac8809ab9f3d6261140333ec789ee1390daf
+ms.openlocfilehash: bf9bd2a1b5acdf5a4a4f862bef693f8c60c63a33
 
 
 ---
@@ -46,14 +46,14 @@ El desencadenador de cola de Azure Storage para una función utiliza los siguien
 }
 ```
 
-`connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación]().
+`connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, puede definir esta configuración de aplicación en la pestaña **Integrar** al crear una cuenta de almacenamiento o seleccionar una existente. Para crear manualmente esta configuración de la aplicación, consulte [Manage App Service settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings) (Administración de la configuración de App Service).
 
 Se pueden proporcionar [opciones de configuración adicionales](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) en un archivo host.json para ajustar aún más los desencadenadores de colas de almacenamiento.  
 
 ### <a name="handling-poison-queue-messages"></a>Control de mensajes dudosos en la cola
-Si se produce un error en una función del desencadenador de cola, Azure Functions volverá a intentar esa función hasta 5 veces de forma predeterminada (incluyendo el primer intento) para un determinado mensaje en la cola. Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a una cola de Storage denominada *&lt;originalqueuename >-poison*. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual. 
+Si se produce un error en una función del desencadenador de cola, Azure Functions volverá a intentar esa función hasta cinco veces para un determinado mensaje en la cola, incluido el primer intento. Si se produce un error en los cinco intentos, Functions agregará un mensaje a una cola de Storage denominada *&lt;nombreDeColaOriginal>-poison*. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual. 
 
-Si desea administrar manualmente los mensajes dudosos, puede conocer el número de veces que un mensaje se recogió para su procesamiento mediante la comprobación de `dequeueCount` (consulte [Metadatos de desencadenador de cola](#meta)).
+Para administrar manualmente los mensajes dudosos, puede conocer el número de veces que un mensaje se recogió para su procesamiento mediante la comprobación de `dequeueCount` (consulte [Metadatos de desencadenador de cola](#meta)).
 
 <a name="triggerusage"></a>
 
@@ -63,11 +63,10 @@ Donde `T` es el tipo de datos en el que desea deserializar los datos, y `paramNa
 
 El mensaje de la cola se puede deserializar en cualquiera de los siguientes tipos:
 
-* Cualquier [objeto](https://msdn.microsoft.com/library/system.object.aspx): útil para mensajes serializados mediante JSON.
-  Si declara un tipo de entrada personalizado (por ejemplo, `FooType`), Azure Functions intentará deserializar los datos JSON en el tipo especificado.
-* Cadena
-* Byte array 
-* `CloudQueueMessage` (C#) 
+* [Objeto](https://msdn.microsoft.com/library/system.object.aspx): usado para mensajes serializados de JSON. Cuando se declara un tipo de entrada personalizado, el sistema en tiempo de ejecución intenta deserializar el objeto JSON. 
+* string
+* Byte array
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx) (solo C#)
 
 <a name="meta"></a>
 
@@ -148,7 +147,7 @@ public static void Run(string myQueueItem,
 
 ```javascript
 module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
+    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -177,45 +176,46 @@ La salida de cola de Azure Storage para una función utiliza los siguientes obje
 }
 ```
 
-`connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación]().
+`connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de la aplicación, consulte [Manage App Service settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings) (Administración de la configuración de App Service).
 
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>Uso de salidas
-En las funciones de C#, puede escribir un mensaje de cola mediante el parámetro con nombre `out` de la firma de la función, como `out <T> <name>`, donde `T` es el tipo de datos en el que desea serializar el mensaje y `paramName` es el nombre que especificó en el [enlace de salida](#output). En las funciones de Node.js, puede acceder a la salida mediante `context.bindings.<name>`.
+En las funciones de C#, puede escribir un mensaje de entrada mediante el parámetro `out` con nombre en la firma de la función, como `out <T> <name>`. En este caso, `T` es el tipo de datos en el que desea serializar el mensaje, y `paramName` es el nombre que especificó en el [enlace de salida](#output). En las funciones de Node.js, puede acceder a la salida mediante `context.bindings.<name>`.
 
 Puede generar un mensaje de cola mediante cualquiera de los tipos de datos del código:
 
-* Cualquier [objeto](https://msdn.microsoft.com/library/system.object.aspx): útil para la serialización mediante JSON.
-  Si declara un tipo de salida personalizado (por ejemplo, `out FooType paramName`), Azure Functions intentará serializar el objeto en JSON. Si el parámetro de salida es nulo cuando sale la función, el tiempo de ejecución de Azure Functions creará un mensaje de cola como objeto nulo.
-* Cadena - (`out string paramName`) útil para los mensajes de prueba. el tiempo de ejecución de Azure Functions genera un mensaje solo si el parámetro de cadena no es nulo cuando sale la función.
-* Matriz de bytes - (`out byte[]`) 
-* `out CloudQueueMessage` - solo en C# 
+* Cualquier [objeto](https://msdn.microsoft.com/library/system.object.aspx): `out MyCustomType paramName`  
+Se usa para la serialización de JSON.  Cuando se declara un tipo de salida personalizado, el sistema en tiempo de ejecución intenta serializar el objeto JSON. Si el parámetro de salida es nulo cuando sale la función, el sistema en tiempo de ejecución crea un mensaje de cola como objeto nulo.
+* Cadena: `out string paramName`  
+Se utiliza para los mensajes de prueba. El sistema en tiempo de ejecución solo genera un mensaje si el parámetro de cadena no es nulo cuando la función sale.
+* Matriz de bytes: `out byte[]` 
 
-En C# también puede enlazar con `ICollector<T>` o `IAsyncCollector<T>`, donde `T` es uno de los tipos admitidos.
+Se admiten estos tipos de salida adicionales en una función de C#:
+
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx): `out CloudQueueMessage` 
+* `ICollector<T>`o `IAsyncCollector<T>`, donde `T` es uno de los tipos admitidos.
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Ejemplo de salida
-Suponga que tiene el siguiente function.json que define un [desencadenador de cola de Storage](functions-bindings-storage-queue.md), una entrada y una salida de blob de Storage:
+Suponga que tiene el siguiente objeto function.json que define un [desencadenador de cola de Storage](functions-bindings-storage-queue.md), una entrada y una salida de blob de Storage:
 
-Ejemplo de *function.json* con un enlace de salida de la cola de almacenamiento que usa un desencadenador de cola y escribe un mensaje de cola:
+Ejemplo de *function.json* con un enlace de salida de la cola de almacenamiento que usa un desencadenador manual y escribe la entrada en un mensaje de cola:
 
 ```json
 {
   "bindings": [
     {
-      "name": "myQueueItem",
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "type": "queueTrigger",
-      "direction": "in"
+      "type": "manualTrigger",
+      "direction": "in",
+      "name": "input"
     },
     {
-      "name": "myQueue",
-      "queueName": "samples-workitems-out",
-      "connection": "MyStorageConnection",
       "type": "queue",
+      "name": "myQueueItem",
+      "queueName": "myqueue",
+      "connection": "my_storage_connection",
       "direction": "out"
     }
   ],
@@ -233,19 +233,19 @@ Consulte el ejemplo de lenguaje específico que permite escribir un mensaje de l
 ### <a name="output-sample-in-c"></a>Ejemplo de salida en C# #
 
 ```cs
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+public static void Run(string input, out string myQueueItem, TraceWriter log)
 {
-    myQueue = myQueueItem + "(next step)";
+    myQueueItem = "New message: " + input;
 }
 ```
 
 O, para enviar varios mensajes,
 
 ```cs
-public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+public static void Run(string input, ICollector<string> myQueueItem, TraceWriter log)
 {
-    myQueue.Add(myQueueItem + "(step 1)");
-    myQueue.Add(myQueueItem + "(step 2)");
+    myQueueItem.Add("Message 1: " + input);
+    myQueueItem.Add("Message 2: " + "Some other message.");
 }
 ```
 
@@ -263,7 +263,8 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
+    // Define a new message for the myQueueItem output binding.
+    context.bindings.myQueueItem = "new message";
     context.done();
 };
 ```
@@ -272,20 +273,21 @@ O, para enviar varios mensajes,
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = [];
-
-    context.bindings.myQueueItem.push("(step 1)");
-    context.bindings.myQueueItem.push("(step 2)");
+    // Define a message array for the myQueueItem output binding. 
+    context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para ver un ejemplo de una función que usa desencadenadores y enlaces de la cola de Storage, consulte el artículo sobre la [creación de una instancia de Azure Functions conectada a un servicio de Azure](functions-create-an-azure-connected-function.md).
+
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 53b827f15fcba26630dd470c2c9e5bbc87919c84
-ms.openlocfilehash: 79270aa5650f4ac149b582204b3c0e41d099765b
+ms.sourcegitcommit: 4faf01ca10f263a5ecc18f51659b5004bf4f7c36
+ms.openlocfilehash: 3ca870da1a01bc216604cdd1142ba68dfd5e96e2
 
 
 ---
@@ -68,12 +68,13 @@ Enterprise Integration Pack admite estos estándares del sector:
 * [Validación de mensajes XML](app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensajes XML con Logic Apps")
 * [Transformación de XML](app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones de Enterprise Integration")
 * [Conectores de integración de empresa](../connectors/apis-list.md "Información sobre los conectores de Enterprise Integration Pack")
+* [Metadatos de la cuenta de integración](app-service-logic-enterprise-integration-metadata.md "Obtenga más información acerca de los metadatos de la cuenta de integración")
 * [Supervisión de mensajes B2B](app-service-logic-monitor-b2b-message.md "Más información acerca de la supervisión de mensajes B2B")
 * [Seguimiento de mensajes B2B en el Portal de OMS](app-service-logic-track-b2b-messages-omsportal.md "Más información acerca del seguimiento de mensajes B2B en el Portal de OMS")
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

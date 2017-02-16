@@ -1,6 +1,6 @@
 ---
-title: "Creación o movimiento de Azure SQL Database a un grupo elástico mediante T-SQL | Microsoft Docs"
-description: "Use T-SQL para crear una Base de datos SQL de Azure en un grupo elástico. O bien, use T-SQL para mover la base de datos dentro y fuera de los grupos."
+title: "T-SQL: Administración de un grupo elástico de Azure SQL Database | Microsoft Docs"
+description: "Use T-SQL para administrar un grupo elástico de Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: 9688c3b402b7961675e06e804a68ff454126d5f3
+ms.sourcegitcommit: 918e331e135003870cf22080609cb276ef3f72af
+ms.openlocfilehash: 91928c9d859ceb69e6242e6563be2db8d3da104e
 
 
 ---
@@ -84,6 +84,6 @@ Consulte [Información general de las características de bases de datos elásti
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

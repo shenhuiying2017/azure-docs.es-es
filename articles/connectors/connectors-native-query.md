@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d45ada934ad9211dbe8534b210ff06653c40afd1
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
 
 
 ---
@@ -27,7 +27,7 @@ Mediante la acción de consulta puede utilizar lotes y matrices para realizar fl
 * Crear una tarea para todos los registros de alta prioridad desde una base de datos.
 * Guardar todos los datos adjuntos en PDF de correos electrónicos en un blob de Azure.
 
-Para empezar a usar la acción de consulta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para empezar a usar la acción de consulta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-the-query-action"></a>Uso de la acción de consulta
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).  
@@ -78,11 +78,11 @@ Los detalles de la salida de la respuesta HTTP son los siguientes.
 | Matriz filtrada |array |Una matriz que contiene un objeto de cada resultado filtrado |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

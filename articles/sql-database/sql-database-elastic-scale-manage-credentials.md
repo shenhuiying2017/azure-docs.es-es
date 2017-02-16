@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
 
 ---
@@ -66,12 +66,12 @@ En este ejemplo, el elemento **smmUserConnectionString** contiene la cadena de c
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Al igual que con las credenciales de administración, no use valores con el formato "username@server".; use solo "username".  Tenga en cuenta también que la cadena de conexión no contiene un nombre de servidor y de base de datos. Esto se debe a que la llamada **OpenConnectionForKey** dirigirá automáticamente la conexión a la partición correcta según la clave. Por lo tanto, no se proporcionan ni el nombre de la base de datos ni el del servidor. 
+Al igual que con las credenciales de administración, no use valores que tengan el formato "username@server". En su lugar, use aquellos que tengan el formato "username".  Tenga en cuenta también que la cadena de conexión no contiene un nombre de servidor y de base de datos. Esto se debe a que la llamada **OpenConnectionForKey** dirigirá automáticamente la conexión a la partición correcta según la clave. Por lo tanto, no se proporcionan ni el nombre de la base de datos ni el del servidor. 
 
 ## <a name="see-also"></a>Consulte, asimismo, 
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 
-[Protección de bases de datos SQL](sql-database-security.md)
+[Protección de bases de datos SQL](sql-database-security-overview.md)
 
 [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md)
 
@@ -80,6 +80,6 @@ Al igual que con las credenciales de administración, no use valores con el form
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

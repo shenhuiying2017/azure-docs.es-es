@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 7038c19a4419aa3569a931e393f3d94896740209
+ms.sourcegitcommit: 7f63344455fafafc3a966c45742ba52d23177fa5
+ms.openlocfilehash: 8c25c33535ce942ac63b9a259aa9e61765129d0a
 
 
 ---
@@ -93,6 +93,31 @@ El servicio HDInsight es un servicio administrado y requiere acceso a Internet d
 
 Si necesita instalar HDInsight en una red virtual protegida, debe permitir el acceso entrante en el puerto 443 para las siguientes direcciones IP, que permiten a Azure administrar el clúster de HDInsight.
 
+> [!IMPORTANT]
+> Las direcciones IP que deben permitirse son específicas de la región en la que residen el clúster de HDInsight y la red Virtual. Use lo siguiente para encontrar la dirección IP correspondiente a su región.
+
+Región __Este de Canadá__:
+
+* 52.229.127.96
+* 52.229.123.172
+
+Región __Centro de Canadá__:
+
+* 52.228.37.66
+* 52.228.45.222
+
+Región __Centro occidental de EE.UU.__:
+
+* 52.161.23.15
+* 52.161.10.167
+
+Región __Oeste de EE. UU. 2__:
+
+* 52.175.211.210
+* 52.175.222.222
+
+__Todas las demás regiones__:
+
 * 168.61.49.99
 * 23.99.5.239
 * 168.61.48.131
@@ -103,7 +128,9 @@ Si permite el acceso de entrada a estas direcciones en el puerto 443, podrá ins
 > [!IMPORTANT]
 > HDInsight no puede restringir el tráfico saliente, solo el entrante. Al definir reglas de grupo de seguridad de red de la subred que contiene HDInsight, utilice solamente reglas de entrada.
 
-Los siguientes ejemplos demuestran cómo crear un nuevo grupo de seguridad de red que permita las direcciones necesarias y aplique el grupo de seguridad a una subred de la red virtual. Estos pasos dan por supuesto que ya ha creado una red virtual y una subred en la que desea instalar HDInsight.
+Los siguientes ejemplos demuestran cómo crear un nuevo grupo de seguridad de red que permita las direcciones necesarias y aplique el grupo de seguridad a una subred de la red virtual. Las direcciones usadas en este ejemplo son de la lista __Todas las demás regiones__ indicada anteriormente. Si se encuentra en una de las regiones indicadas específicamente, como __Centro occidental de EE.UU.__, modifique el script para que use las direcciones IP de su región.
+
+Estos pasos dan por supuesto que ya ha creado una red virtual y una subred en la que desea instalar HDInsight.
 
 > [!IMPORTANT]
 > Anote el valor de `priority` usado en estos ejemplos; las reglas se prueban en el tráfico de red por orden de prioridad. Cuando una regla coincide con los criterios de prueba y se aplica, no se prueba ninguna otra regla.
@@ -111,7 +138,6 @@ Los siguientes ejemplos demuestran cómo crear un nuevo grupo de seguridad de re
 > Si tiene reglas personalizadas que bloquean el tráfico entrante (como una regla **Denegar todo**), puede que necesite ajustar los valores de prioridad de estos ejemplos o personalizar las reglas de los ejemplos se produzcan antes de las reglas que bloquean el acceso. De lo contrario, la regla **Denegar todo** se probará en primer lugar y nunca se aplicarán las reglas de este ejemplo. También debe tener cuidado de no bloquear las reglas predeterminadas de una red de Azure Virtual Network. Por ejemplo, no debería crear una regla **Denegar todo** que se aplique antes que la regla predeterminada **PERMITIR RED VIRTUAL ENTRANTE** (que tiene una prioridad de 65000).
 > 
 > Para más información sobre cómo aplicar las reglas y cuáles son las reglas predeterminadas de entrada y salida, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md).
-
 
 **Uso de Azure PowerShell**
 
@@ -334,6 +360,6 @@ Para obtener más información acerca de Redes virtuales de Azure, consulte la [
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

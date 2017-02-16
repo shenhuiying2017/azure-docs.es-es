@@ -1,6 +1,6 @@
 ---
-title: "Administración de registros de DNS inversos para los servicios mediante PowerShell | Microsoft Docs"
-description: "Cómo administrar registros de DNS inversos o registros PTR para servicios Azure usando PowerShell en Resource Manager"
+title: "Administración de registros DNS inversos en Azure DNS mediante PowerShell | Microsoft Docs"
+description: Azure DNS permite administrar registros de DNS inversos o registros PTR de servicios Azure mediante PowerShell en Resource Manager
 services: DNS
 documentationcenter: na
 author: s-malone
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 6e6b3e9c727915cb52a112d38f60bf136d48be2e
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: 730321ccacb211ec82e69f8ebc69ee84cbf46a01
 
 
 ---
-# <a name="how-to-manage-reverse-dns-records-for-your-azure-services-using-azure-powershell"></a>Administración de registros de DNS inversos para los servicios de Azure mediante Azure PowerShell
+# <a name="manage-reverse-dns-records-for-your-azure-services-using-powershell"></a>Administración de registros de DNS inversos en servicios de Azure mediante PowerShell
 
 [!INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
@@ -81,6 +81,6 @@ Puede quitar una propiedad DNS inversa desde una dirección IP pública existent
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -3,20 +3,22 @@ title: "Conexión de DocumentDB con Azure Search con indexadores | Microsoft Doc
 description: "En este artículo se muestra cómo usar el indizador de Búsqueda de Azure con DocumentDB como origen de datos."
 services: documentdb
 documentationcenter: 
-author: dennyglee
+author: mimig1
 manager: jhubbard
-editor: mimig
+editor: 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
 ms.service: documentdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 07/08/2016
-ms.author: denlee
+ms.date: 01/10/2017
+ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documentdb
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81dce18eb33dcb31808e41848e543d1488e8cfb7
+ms.sourcegitcommit: 9a5416b1c26d1e8eaecec0ada79d357f32ca5ab1
+ms.openlocfilehash: c318d7133e26ec3a39d6fc97b0693b44d742d456
 
 
 ---
@@ -75,7 +77,6 @@ También tendrá que agregar `_ts` a la proyección y la cláusula `WHERE` para 
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
-
 ### <a name="a-iddatadeletiondetectionpolicyacapturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>Captura de documentos eliminados
 Cuando se eliminan filas de la tabla de origen, también debe eliminar dichas filas del índice de búsqueda. El fin de una directiva de detección de eliminación de datos es identificar eficazmente los elementos de datos eliminados. Actualmente, solo es compatible la directiva `Soft Delete` (la eliminación se indica con algún tipo de marca), especificada de la siguiente forma:
 
@@ -89,6 +90,42 @@ Cuando se eliminan filas de la tabla de origen, también debe eliminar dichas fi
 > Si usa una proyección personalizada, deberá incluir la propiedad softDeleteColumnName en la cláusula SELECT.
 > 
 > 
+
+### <a name="a-idleveagingqueriesaleveraging-queries"></a><a id="LeveagingQueries"></a>Aprovechamiento de consultas
+Además de capturar documentos modificados o eliminados, la especificación de una consulta de DocumentDB se puede usar para simplificar las propiedades anidadas, desenredar matrices, proyectar propiedades json y filtrar los datos que se vayan a indexar. La manipulación de los datos que se van a indexar puede mejorar el rendimiento del indexador de Azure Search.
+
+Documento de ejemplo:
+
+    {
+        "userId": 10001,
+        "contact": {
+            "firstName": "andy",
+            "lastName": "hoh"
+        },
+        "company": "microsoft",
+        "tags": ["azure", "documentdb", "search"]
+    }
+
+
+Consulta para simplificar:
+
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    
+    
+Consulta de proyección:
+
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+
+
+Consulta para desenredar la matriz:
+
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    
+    
+Consulta de filtro:
+
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+
 
 ### <a name="a-idcreatedatasourceexamplearequest-body-example"></a><a id="CreateDataSourceExample"></a>Ejemplo de cuerpo de solicitud
 En el ejemplo siguiente se crea un origen de datos con una consulta personalizada y sugerencias de directiva:
@@ -128,7 +165,7 @@ Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede cre
 Asegúrese de que el esquema del índice de destino es compatible con el de los documentos JSON de origen o el resultado de la proyección de consultas personalizada.
 
 > [!NOTE]
-> Para las colecciones con particiones, la clave de documento predeterminada es la propiedad `_rid` de DocumentDB, que cambia su nombre a `rid` en Azure Search. Además, los valores de `_rid` de DocumentDB contienen caracteres que no son válidos en las claves de Azure Search y, por lo tanto, los valores de `_rid` se codifican con Base 64.
+> Para las colecciones con particiones, la clave de documento predeterminada es la propiedad `_rid` de DocumentDB, que cambia su nombre a `rid` en Azure Search. Además, los valores de `_rid` de DocumentDB contienen caracteres que no son válidos en las claves de Azure Search y, por lo tanto, los valores de `_rid` se codifican con Base&64;.
 > 
 > 
 
@@ -257,6 +294,6 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

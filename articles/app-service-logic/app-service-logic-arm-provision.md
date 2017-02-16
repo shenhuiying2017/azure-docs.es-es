@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61ab873e77e3f7a691c815ba48c7f29b45269db9
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: dfe1cddd8a0d2558eecff8123cc5ce6ebaad97e8
 
 
 ---
@@ -27,7 +27,7 @@ Para obtener más detalles sobre las propiedades de la aplicación lógica, cons
 
 Para obtener ejemplos de la propia definición, consulte [Creación de definiciones de aplicaciones lógicas](app-service-logic-author-definitions.md). 
 
-Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Para la plantilla completa, consulte [Plantilla de aplicación lógica](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
@@ -113,6 +113,6 @@ Esta definición determinada se ejecuta una vez cada hora y hace ping en la ubic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
-ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+ms.sourcegitcommit: bd3dfe9472e944a127230d3dc0d564d344c4fbec
+ms.openlocfilehash: 2ca5813c12e1358afaa20b4a919de4ee8a355865
 
 
 ---
@@ -72,7 +72,7 @@ El archivo JSON de detección y seguimiento de caras incluye los siguientes atri
 Face Detector (Detector de caras) usa técnicas de fragmentación (donde los metadatos se pueden dividir en fragmentos según el tiempo y puede descargar solo lo que necesita) y segmentación (donde los eventos se dividen en caso de que aumenten demasiado). Algunos cálculos sencillos pueden ayudarle a transformar los datos. Por ejemplo, si un evento se inició en 6300 (tics), con una escala de tiempo de 2997 (tics/segundo) y una velocidad de fotogramas de 29,97 (fotogramas/segundo), entonces:
 
 * Inicio/Escala de tiempo = 2,1 segundos
-* Segundos x (Velocidad de fotogramas/Escala de tiempo) = 63 fotogramas
+* Segundos x Framerate = 63 marcos
 
 ## <a name="face-detection-input-and-output-example"></a>Ejemplo de entrada y salida de detección de caras
 ### <a name="input-video"></a>Vídeo de entrada
@@ -81,7 +81,18 @@ Face Detector (Detector de caras) usa técnicas de fragmentación (donde los met
 ### <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración es solo para detección de caras.
 
-    {"version":"1.0"}
+    {
+      "version":"1.0"
+      "options":{
+          "TrackingMode": "Faster"
+      }
+    }
+
+#### <a name="attribute-descriptions"></a>Descripciones de atributos
+| Nombre del atributo | Description |
+| --- | --- |
+| Mode |Mayor rapidez: procesamiento rápido, pero menos preciso (valor predeterminado). <br/>Calidad: seguimiento de mejor precisión, pero tarda más tiempo. |
+
 
 ### <a name="json-output"></a>Salida de JSON
 El siguiente ejemplo de salida de JSON se truncó.
@@ -153,14 +164,14 @@ Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedi
 #### <a name="attribute-descriptions"></a>Descripciones de atributos
 | Nombre del atributo | Description |
 | --- | --- |
-| Mode |Faces: Solo detección de caras  <br/>AggregateEmotion: Devolver valores de emociones medios para todas las caras del fotograma. |
+| Mode |Faces: solo detección de caras.<br/>PerFaceEmotion: devolver emociones independientemente para cada detección de cara.<br/>AggregateEmotion: Devolver valores de emociones medios para todas las caras del fotograma. |
 | AggregateEmotionWindowMs |Utilizar si se selecciona el modo AggregateEmotion. Especifica la longitud del vídeo que se utiliza para generar cada resultado agregado, en milisegundos. |
 | AggregateEmotionIntervalMs |Utilizar si se selecciona el modo AggregateEmotion. Especifica con qué frecuencia se van a producir resultados agregados. |
 
 #### <a name="aggregate-defaults"></a>Agregar valores predeterminados
 A continuación figuran valores recomendados para la configuración de ventana e intervalo agregada. AggregateEmotionWindowMs debe ser mayor que AggregateEmotionIntervalMs.
 
-| Valores predeterminados | Máximos | Mínimos |
+| Valores predeterminados | Mínimos | Máximos |
 | --- | --- | --- | --- |
 | AggregateEmotionWindowMs |0,5 |2 |
 | AggregateEmotionIntervalMs |0,5 |1 |
@@ -514,6 +525,6 @@ El programa siguiente muestra cómo:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -2,4 +2,7 @@ La versión de LA API de conjuntos de escala de máquina virtual es 2015-06-15 y
 
     azure feature register Microsoft.Compute vmssApiPreviewV2Access
 
-<!---HONumber=AcomDC_0114_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

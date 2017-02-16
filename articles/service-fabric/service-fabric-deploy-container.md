@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 1/4/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
+ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
+ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
 Este artículo le guiará a través del proceso de creación de servicios de contenedor en contenedores de Windows.
 
 > [!NOTE]
-> Esta característica es una versión preliminar para Linux y no está disponible aún en Windows Server 2016. Estará también disponible como vista previa para Windows Server 2016 en la próxima versión de Azure Service Fabric. 
-> 
-> 
+> Esta característica está disponible en versión preliminar para Linux y Windows Server 2016.
+>  
 
 Service Fabric tiene varias funcionalidades de contenedor que le ayudarán a crear aplicaciones que se componen de microservicios en contenedores. 
 
@@ -48,17 +47,32 @@ Entre estas funcionalidades, cabe destacar:
 Echemos un vistazo a cada una de las funcionalidades al empaquetar un servicio en contenedor que desea incluir en la aplicación.
 
 ## <a name="package-a-windows-container"></a>Empaquetado de un contenedor de Windows
-Al empaquetar un contenedor, puede usar una plantilla de proyecto de Visual Studio o [crear el paquete de aplicación manualmente](#manually). Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante la plantilla para nuevos proyectos. La plantilla de VS se publicará en una próxima versión.
+Al empaquetar un contenedor, puede usar una plantilla de proyecto de Visual Studio o [crear el paquete de aplicación manualmente](#manually).  Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante la plantilla para nuevos proyectos.
+
+> [!TIP]
+> La forma más sencilla de empaquetar una imagen de contenedor en un servicio es mediante Visual Studio.
 
 ## <a name="use-visual-studio-to-package-an-existing-container-image"></a>Uso de Visual Studio para empaquetar una imagen de contenedor existente
-> [!NOTE]
-> En una próxima versión de Visual Studio para Service Fabric, podrá añadir un contenedor a una aplicación de la misma manera que actualmente se puede añadir un ejecutable invitado. Para más información, consulte el tema [Implementación de un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md). Actualmente un contenedor debe empaquetarse manualmente, como se describe en la siguiente sección.
-> 
-> 
+Visual Studio proporciona una plantilla de servicio de Service Fabric para ayudarle a implementar un contenedor en un clúster de Service Fabric.
+
+1. Seleccione **Archivo** > **Nuevo proyecto** y cree una aplicación de Service Fabric.
+2. Elija **Contenedor invitado** como la plantilla de servicio.
+3. Elija **Nombre de imagen** y proporcione la ruta de acceso a la imagen en el repositorio de contenedores, como https://hub.docker.com/ por ejemplo. myrepo/myimage:v1 
+4. Asigne un nombre a su servicio y haga clic en **Aceptar**.
+5. Si el servicio en contenedores necesita un punto de conexión para establecer comunicación, ahora podrá agregar el protocolo, el puerto y el tipo al archivo ServiceManifest.xml. Por ejemplo: 
+     
+    `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
+    
+    Si proporciona `UriScheme`, se registra automáticamente el punto de conexión del contenedor con el servicio de nombres de Service Fabric para ofrece una mayor detectabilidad. El puerto puede ser fijo (como se muestra en el ejemplo anterior) o asignado de forma dinámica (se deja en blanco y se asigna un puerto desde el intervalo de puertos de aplicación designado), tal como sucedería en cualquier servicio.
+    También puede configurar la asignación de puertos de puerto a host del contenedor si especifica una directiva de `PortBinding` en el manifiesto de aplicación, tal como se describe a continuación.
+6. Si el contenedor necesita la regulación de los recursos, agregue una directiva `ResourceGovernancePolicy`. Consulte un ejemplo a continuación.
+8. Si se debe autenticar el contenedor con un repositorio privado, agregue `RepositoryCredentials`. Consulte un ejemplo a continuación.
+7. Ahora puede usar el paquete y publicar la acción en el clúster local si se trata de Windows Server 2016 con compatibilidad de contenedores activada. 
+8. Cuando esté listo puede publicar la aplicación en un clúster remoto o comprobar la solución en el control de código fuente. 
 
 <a id="manually"></a>
 
-## <a name="manually-package-and-deploy-a-container"></a>Empaquetado e implementación manual de un contenedor
+## <a name="manually-package-and-deploy-a-container-image"></a>Empaquetado e implementación manual de una imagen de contenedor
 El proceso de empaquetado manual de un servicio en contenedor se basa en los siguientes pasos:
 
 1. Publicar los contenedores en el repositorio.
@@ -263,7 +277,7 @@ Este es un ejemplo de manifiesto de servicio (especificado en el manifiesto de a
         <DataPackage Name="FrontendService.Data" Version="1.0" />
         <Resources>
             <Endpoints>
-                <Endpoint Name="Endpoint1" Port="80"  UriScheme="http" />
+                <Endpoint Name="Endpoint1" UriScheme="http" Port="80" Protocol="http"/>
             </Endpoints>
         </Resources>
     </ServiceManifest>
@@ -275,6 +289,6 @@ Ahora que ha implementado un servicio en contenedor, consulte [Ciclo de vida de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

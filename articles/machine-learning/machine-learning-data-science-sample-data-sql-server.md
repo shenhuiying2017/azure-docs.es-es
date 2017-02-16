@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 94b109fdc2c902f1452c143a84b20356e9d58df0
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
 
 
 ---
@@ -30,12 +30,12 @@ El muestreo de Python usa la biblioteca ODBC [pyodbc](https://code.google.com/p/
 > 
 > 
 
-**¿Por qué realizar un muestreo de los datos?**
- Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
-
-El **menú** siguiente vincula a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. 
+El siguiente **menú** está vinculado a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+**¿Por qué realizar un muestreo de los datos?**
+Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -65,7 +65,7 @@ Tablesample se puede usar para el muestreo, como se muestra a continuación. Pod
 > 
 
 ### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
-Puede usar directamente las consultas de ejemplo anteriores en el módulo [Importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. A continuación se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
+Puede utilizar directamente las consultas de ejemplo anteriores en el módulo [Importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. A continuación se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
 
 ![lector sql][1]
 
@@ -86,7 +86,7 @@ La biblioteca [Pandas](http://pandas.pydata.org/) en Python ofrece un amplio con
 Ahora puede trabajar con los datos de muestreo en la trama de datos de Pandas. 
 
 ### <a name="a-namepython-amlaconnecting-to-azure-machine-learning"></a><a name="python-aml"></a>Conexión con Aprendizaje automático de Azure
-Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos del blob pueden leerse directamente en un experimento de Azure Machine Learning mediante el módulo [Importar datos][import-data]. Los pasos son los siguientes: 
+Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Azure Machine Learning mediante el módulo [Importar datos][import-data]. Los pasos son los siguientes: 
 
 1. Escribir la trama de datos de Pandas en un archivo local
    
@@ -112,7 +112,7 @@ Puede usar el siguiente código de ejemplo para guardar los datos muestreados re
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Lea datos de Azure Blob mediante el módulo [Importar datos][import-data] de Azure Machine Learning, como se muestra en la captura de pantalla siguiente:
+3. Leer datos de un blob de Azure mediante el módulo [Importar datos][import-data] de Azure Machine Learning, como se muestra en la captura de pantalla siguiente:
 
 ![lector de blobs][2]
 
@@ -126,6 +126,6 @@ Para ver un ejemplo de tutorial completo del proceso de ciencia de datos en equi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Configuración de alertas de seguridad | Microsoft Docs"
 description: "Aprenda cómo configurar alertas de seguridad para la extensión de Privileged Identity Management de Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/02/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d876b48b08faea8c45386e2816076a4416c2a1ab
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
 
 
 ---
@@ -59,7 +59,6 @@ Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un ro
 
 * **Número de días**: especifique el número de días, de 0 a 100, que un usuario puede pasar sin activar un rol.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
@@ -70,6 +69,6 @@ Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un ro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

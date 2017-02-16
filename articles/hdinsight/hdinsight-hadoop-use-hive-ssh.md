@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
 
 
 ---
@@ -27,14 +27,17 @@ ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
 En este artículo, aprenderá a usar Secure Shell (SSH) para conectarse a un clúster de Hadoop en HDInsight de Azure y, a continuación, envíe de manera interactiva consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive.
 
 > [!IMPORTANT]
-> Si bien el comando de Hive está disponible en los clústeres de HDInsight basados en Linux, considere la posibilidad de usar Beeline. Beeline es un cliente más reciente para trabajar con Hive y se incluye con el clúster de HDInsight. Para obtener más información sobre su uso, consulte [Uso de Hive con Hadoop en HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
-> 
-> 
+> Si bien el comando de Hive está disponible en clústeres de HDInsight, considere la posibilidad de usar Beeline. Beeline es un cliente más reciente para trabajar con Hive y se incluye con el clúster de HDInsight. Para obtener más información sobre su uso, consulte [Uso de Hive con Hadoop en HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 * Un clúster de Hadoop basado en Linux en HDInsight.
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Un cliente SSH. Linux, Unix y Mac OS deben incluir un cliente SSH. Los usuarios de Windows deben descargar un cliente similar [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexión con SSH
@@ -120,7 +123,7 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
 * [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -154,6 +157,6 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

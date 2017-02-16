@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
@@ -804,7 +804,7 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [introducción a ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) en el sitio de [ASP.NET](http://asp.net/).
-* Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración[](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)HealthClinic.biz 2015 Connect](https://github.com/Microsoft/HealthClinic.biz).
+* Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
   * Para ver más guías rápidas de la demostración de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Más información sobre el enfoque [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542) en Entity Framework que se utiliza en este tutorial.
 * Más información sobre las [aplicaciones web del Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md).
@@ -852,6 +852,6 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

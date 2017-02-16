@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 9c8410a847d943c5baee3e08397ebf24072b3f78
+ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
+ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
 
 
 ---
@@ -60,7 +60,7 @@ Restaure una máquina virtual en una nueva máquina virtual desde las copias de 
    * Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. No admitimos la sobrescritura de máquinas virtuales existentes. 
    * Seleccione un servicio de nube para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede usar un servicio de nube existente o crear un nuevo servicio de nube.
      
-        El nombre del servicio en la nube que se seleccione debe ser único global. Por lo general, el nombre del servicio en la nube está asociado a una dirección URL pública, que tiene el siguiente formato: [servicioEnLaNube].cloudapp.net. Azure no permite crear un servicio en la nube si ya se ha utilizado el nombre. Si decide crearlo, seleccione Crear un nuevo servicio en la nube, se le dará el mismo nombre que a la máquina virtual, en cuyo caso el nombre de la máquina virtual seleccionado debe ser suficientemente exclusivo como para aplicarlo al servicio en la nube asociado.
+        El nombre del servicio en la nube que se seleccione debe ser único global. Por lo general, el nombre del servicio en la nube está asociado a una dirección URL pública, que tiene el siguiente formato: [servicioEnLaNube].cloudapp.net. Azure no permite crear un servicio en la nube si ya se ha utilizado el nombre. Si decide crear un nuevo servicio en la nube, se le dará el mismo nombre que a la máquina virtual, en cuyo caso el nombre de la máquina virtual seleccionado debe ser suficientemente exclusivo como para aplicarlo al servicio en la nube asociado.
      
         Solo se muestran servicios en la nube y redes virtuales que no están asociados con ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
@@ -125,7 +125,7 @@ Copia de seguridad de Azure es compatible con copia de seguridad para las siguie
 
 * Máquinas virtuales en el equilibrador de carga (interno y externo)
 * Máquinas virtuales con varias direcciones IP reservadas
-* Paso 3: Creación de máquinas virtuales con varias NIC
+* Paso&3;: Creación de máquinas virtuales con varias NIC
 
 Estas configuraciones exigen las siguientes consideraciones al restaurarlas.
 
@@ -146,7 +146,7 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
    
    * Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-   * Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)
+   * Cree una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)
    * Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
    * Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -157,6 +157,6 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

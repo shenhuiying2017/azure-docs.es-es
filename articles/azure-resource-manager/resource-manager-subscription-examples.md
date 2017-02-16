@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ccbf4b3819051f4520205ce6ebfb66bc39a9dd3b
+ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
+ms.openlocfilehash: 95dae0597cf9fc812bb04f070de2175a1ff4f45d
 
 
 ---
@@ -197,10 +197,9 @@ Para cumplir estos requisitos, David habilita Azure Security Center. Se asegura 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver más recomendaciones sobre cómo crear plantillas de Resource Manager, consulte [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md) (Procedimientos recomendados para crear plantillas de Azure Resource Manager).
 
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) ha realizado una aportación a este tema.*
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

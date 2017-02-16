@@ -26,19 +26,20 @@
 ### [Ejemplos para desarrolladores](data-catalog-samples.md)
 
 # Referencia
-## [Métodos abreviados de teclado para Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminología](data-catalog-terminology.md)
-## [Notas de la versión](data-catalog-release-notes.md)
 ## [REST](/rest/api/datacatalog/)
 
 # Recursos
-## [Notas de la versión](data-catalog-whats-new.md)
+## [Métodos abreviados de teclado para Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
+## [Terminología](data-catalog-terminology.md)
+## Notas de la versión
+### [Notas de la versión - Novedades](data-catalog-whats-new.md)
+### [Notas de la versión](data-catalog-release-notes.md)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Precios](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

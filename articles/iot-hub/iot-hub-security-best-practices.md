@@ -1,6 +1,6 @@
 ---
-title: "Prácticas recomendadas de seguridad de IoT | Microsoft Docs"
-description: "Prácticas recomendadas de seguridad para proteger su infraestructura IoT"
+title: "Prácticas recomendadas de seguridad de IoT de Azure | Microsoft Docs"
+description: "Prácticas recomendadas de seguridad para proteger su infraestructura IoT Incluye recomendaciones para los programadores de soluciones, los implementadores de soluciones y los operadores de soluciones."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3cb4764b6c824790bf5864d2446435168db4d708
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: b5c3257f6e2134a3e7e7eb9b4a12b95ebb70535e
 
 
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para obtener más información sobre cómo proteger la solución de IoT, consulte:
 
-* [IoT Security Architecture (Arquitectura de seguridad de IoT)][lnk-security-architecture]
-* [Secure your IoT deployment (Protección de la implementación de IoT)][lnk-security-deployment]
+* [Arquitectura de seguridad de IoT][lnk-security-architecture]
+* [Protección de su implementación de IoT][lnk-security-deployment]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Simulating a device with the IoT Gateway SDK (Simulación de un dispositivo con el SDK de puerta de enlace de IoT)][lnk-gateway]
+* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
@@ -39,6 +39,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

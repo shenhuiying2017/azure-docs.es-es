@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: be100e88e5d10c317be10aa829124a9be30e28b4
+ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
+ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
 
 
 ---
@@ -88,7 +88,7 @@ Sí, es posible, solo es preciso escribir un [complemento de procesador de telem
 ## <a name="how-long-is-the-data-kept"></a>¿Cuánto tiempo se conservan los datos?
 Los puntos de datos sin procesar (es decir, elementos que puede consultar en Analytics e inspeccionar en la búsqueda) se conservan hasta 90 días. Si necesita mantener los datos más tiempo, puede usar la [exportación continua](app-insights-export-telemetry.md) para copiarlos a una cuenta de almacenamiento.
 
-Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 30 días, y una hora o un día (en función del tipo) durante al menos 90 días.
+Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 90 días.
 
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 Usted puede ver los datos y, si tiene una cuenta de organización, también pueden los miembros del equipo. 
@@ -153,22 +153,22 @@ Sin embargo, puede implementar esta característica en la aplicación. Todos los
 Application Insights no filtra ni elimina los datos. El usuario debe administrar los datos correctamente y evitar el envío de este tipo de datos a Application Insights.
 
 ## <a name="data-sent-by-application-insights"></a>Datos enviados por Application Insights
-Los SDK varían entre las distintas plataformas y hay varios componentes que se pueden instalar. (Consulte [Introducción a Application Insights][start].) Cada componente envía datos diferentes.
+Los SDK varían entre las distintas plataformas y hay varios componentes que se pueden instalar. (Consulte [Introducción a Application Insights][start]). Cada componente envía datos diferentes.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Clases de datos que se envían en distintos escenarios
 | Acción del usuario | Clases de datos recopilados (ver tabla siguiente) |
 | --- | --- |
-| [Adición del SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesión<br/>users |
-| [Instalación del monitor de estado en IIS][redfield] |Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento |
-| [Adición del SDK de Apcación web de Java][java] |ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>users |
-| [Adición del SDK de JavaScript a una página web][client] |ClientContext  <br/>Inferidos<br/>Page<br/>ClientPerf<br/>AJAX |
-| [Definición de propiedades predeterminadas][apiproperties] |**Propiedades** en todos los eventos estándar y personalizados |
-| [Llamada a TrackMetric][api] |Valores numéricos<br/>**Propiedades** |
-| [Seguimiento de llamadas*][api] |Nombre del evento<br/>**Propiedades** |
-| [Llamada a TrackException][api] |**Excepciones**<br/>Volcado de la pila<br/>**Propiedades** |
+| [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesión<br/>users |
+| [Instalar el Monitor de estado en IIS][redfield] |Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento |
+| [Incorporar el SDK de Application Insights a una aplicación web de Java][java] |ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>users |
+| [Incorporar el SDK de JavaScript a una página web][client] |ClientContext  <br/>Inferidos<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Definir propiedades predeterminadas][apiproperties] |**Propiedades** en todos los eventos estándar y personalizados |
+| [Llamar a TrackMetric][api] |Valores numéricos<br/>**Propiedades** |
+| [Llamar a Track*][api] |Nombre del evento<br/>**Propiedades** |
+| [Llamar a TrackException][api] |**Excepciones**<br/>Volcado de la pila<br/>**Propiedades** |
 | El SDK no puede recopilar datos. Por ejemplo: <br/> - no se puede acceder a los contadores de rendimiento<br/> - excepción en el inicializador de telemetría |Diagnóstico de SDK |
 
-Para información sobre los [SDK de otras plataformas][platforms], consulte su documentación.
+Para los [SDK de otras plataformas][platforms], consulte los documentos correspondientes.
 
 #### <a name="the-classes-of-collected-data"></a>Clases de los datos recopilados
 | Clase de datos recopilados | Se incluyen (no es una lista exhaustiva) |
@@ -225,6 +225,6 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

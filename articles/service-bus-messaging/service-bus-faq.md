@@ -1,5 +1,5 @@
 ---
-title: "Preguntas más frecuentes sobre Service Bus | Microsoft Docs"
+title: "Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs"
 description: Respuestas a algunas preguntas frecuentes acerca del Bus de servicio de Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm;juconway
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b350bac36f1d46c97da37a2807ead8c9c732d69a
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: ef8fc057ca6b15fe25bcf549ad92ceb6cf5722e4
 
 
 ---
@@ -50,7 +50,7 @@ Tenga en cuenta que la ordenación no está garantizada al utilizar particiones 
 
 ## <a name="service-bus-best-practices"></a>Procedimientos recomendados del Bus de servicio
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>¿Cuáles son algunos de los procedimientos recomendados del Bus de servicio de Azure?
-* [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica de Service Bus][Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica de Service Bus]: en este artículo se describe cómo optimizar el rendimiento al intercambiar mensajes asincrónicos.
+* [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica de Service Bus][Best practices for performance improvements using Service Bus brokered messaging]: en este artículo se describe cómo optimizar el rendimiento al intercambiar mensajes asincrónicos.
 
 ### <a name="what-should-i-know-before-creating-messaging-entities"></a>¿Qué debo saber antes de crear entidades de mensajería?
 Las siguientes propiedades de una cola y un tema son inmutables. Tenga esto en cuenta al aprovisionar las entidades ya que esto no se puede modificar, sin crear una nueva entidad de reemplazo.
@@ -65,16 +65,16 @@ Las siguientes propiedades de una cola y un tema son inmutables. Tenga esto en c
 En esta sección responde a algunas preguntas frecuentes acerca de la estructura de precios del Bus de servicio. También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Microsoft Azure. Para obtener más información sobre los precios del Bus de servicio, consulte [Precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="how-do-you-charge-for-service-bus"></a>¿Cómo se cobra el Bus de servicio?
-Para más información sobre los precios del Bus de servicio, consulte [Precios de Service Bus][Información general sobre precios]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
+Para más información sobre los precios del Bus de servicio, consulte los [detalles de precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?
-Cualquier transferencia de datos dentro de una determinada región de Azure se proporciona sin cargo alguno. Cualquier transferencia fuera de una región de datos está sujeta a cargos de salida a la tarifa de 0,15 USD por GB desde las regiones de Norteamérica y Europa y 0,20 USD por GB desde la región de Asia Pacífico. Cualquier transferencia de datos de entrada se proporciona sin cargo alguno.
+Cualquier transferencia de datos dentro de una determinada región de Azure se proporciona sin cargo alguno. Cualquier transferencia fuera de una región de datos está sujeta a cargos de salida a la tarifa de&0;,15 USD por GB desde las regiones de Norteamérica y Europa y&0;,20 USD por GB desde la región de Asia Pacífico. Cualquier transferencia de datos de entrada se proporciona sin cargo alguno.
 
 ### <a name="does-service-bus-charge-for-storage"></a>¿El Bus de servicio cobra por almacenamiento?
 No, el Bus de servicio no cobra por almacenamiento. Sin embargo, hay una cuota que limita la cantidad máxima de datos que pueden persistir por cola/tema. Consulte la siguiente pregunta.
 
 ## <a name="service-bus-quotas"></a>Cuotas del Bus de servicio
-Para obtener una lista de las cuotas y límites de Service Bus, vea [Información general sobre cuotas][Información general sobre cuotas].
+Para obtener una lista de las cuotas y los límites de Service Bus, consulte [Información general sobre cuotas][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>¿El Bus de servicio tiene alguna cuota de uso?
 De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Dado que entendemos que puede necesitar más de estos límites, póngase en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites adecuadamente. Para el Bus de servicio, las cuotas de uso agregado son las siguientes:
@@ -113,10 +113,10 @@ Se rechazarán los mensajes que superen estas cuotas de tamaño y el código de 
 
 ## <a name="subscription-and-namespace-management"></a>Administración de suscripción y espacio de nombres
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>¿Cómo se migra un espacio de nombres a otra suscripción de Azure?
-Puede utilizar los comandos de PowerShell (los encontrará [aquí][aquí]) para mover un espacio de nombres de una suscripción de Azure a otra. Para ejecutar la operación, el espacio de nombres tiene que estar ya activo. Además, el usuario que ejecuta los comandos tiene que ser administrador en las suscripciones de origen y de destino.
+Puede usar comandos de PowerShell (los encontrará [aquí][here]) para mover un espacio de nombres de una suscripción de Azure a otra. Para ejecutar la operación, el espacio de nombres tiene que estar ya activo. Además, el usuario que ejecuta los comandos tiene que ser administrador en las suscripciones de origen y de destino.
 
 ## <a name="service-bus-troubleshooting"></a>Solución de problemas del Bus de servicio de Azure
-[Información general sobre excepciones][Información general sobre excepciones]
+[Información general sobre excepciones][Exceptions overview]
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-messaging-apis-and-their-suggested-actions"></a>¿Cuáles son algunas de las excepciones generadas por las API de mensajería del Bus de servicio de Azure y sus acciones sugeridas?
 Las excepciones que pueden generar las API de mensajería se dividen en las siguientes categorías:
@@ -126,10 +126,10 @@ Las excepciones que pueden generar las API de mensajería se dividen en las sigu
 * Excepciones transitorias
 * Otras excepciones
 
-El artículo [Excepciones de mensajería de Service Bus][Información general sobre excepciones] describe algunas excepciones con las acciones que se sugieren.
+El artículo [Excepciones de mensajería de Service Bus][Exceptions overview] describe algunas excepciones con las acciones que se sugieren.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>¿Qué es una firma de acceso compartido y qué lenguajes admiten la generación de una firma?
-Las firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. Para más información sobre cómo generar sus propias firmas en Node, PHP, Java y C\#, vea el artículo [Firmas de acceso compartido][Firmas de acceso compartido].
+Las firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. Para más información sobre cómo generar sus propias firmas en Node, PHP, Java y C, consulte el artículo \#[Las firmas de acceso compartido][Shared Access Signatures].
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre la mensajería de Bus de servicio, consulte los siguientes temas:
@@ -140,16 +140,16 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 * [Información general sobre la arquitectura de Bus de servicio de Azure](service-bus-fundamentals-hybrid-solutions.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
-[Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica de Service Bus]: service-bus-performance-improvements.md
-[Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio]: service-bus-outages-disasters.md
-[Información general sobre precios]: https://azure.microsoft.com/pricing/details/service-bus/
-[Información general sobre cuotas]: service-bus-quotas.md
-[aquí]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
-[Información general sobre excepciones]: service-bus-messaging-exceptions.md
-[Firmas de acceso compartido]: service-bus-sas-overview.md
+[Best practices for performance improvements using Service Bus brokered messaging]: service-bus-performance-improvements.md
+[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Quotas overview]: service-bus-quotas.md
+[here]: service-bus-powershell-how-to-provision.md
+[Exceptions overview]: service-bus-messaging-exceptions.md
+[Shared Access Signatures]: service-bus-sas-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

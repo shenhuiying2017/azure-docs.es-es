@@ -1,5 +1,5 @@
 ---
-title: "Diseñador de vistas de Log Analytics | Microsoft Docs"
+title: "Referencia de los elementos del Diseñador de vistas de Log Analytics (OMS) | Microsoft Docs"
 description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los elementos de visualización que hay disponibles para usarse en las vistas personalizadas."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d9f258bbfa582cf4059eeed939a87fb03cd232
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: 07edc26f62fada8b5e32693a172cb23b48d36e1f
 
 
 ---
@@ -346,6 +346,6 @@ En la tabla siguiente se describe la configuración de los umbrales.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

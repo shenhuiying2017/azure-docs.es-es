@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18accd5252e0ecf19fed23f3c2e4628e60fe370f
+ms.sourcegitcommit: 9ac2a1bf5987fc6fc30e20a1b4a10340eeed3825
+ms.openlocfilehash: 15cf891b9c31e1f2e2b108e631f32883ce2f36a7
 
 
 ---
@@ -43,7 +43,7 @@ Recomendaciones tiene las siguientes limitaciones de uso:
 
 * Número máximo de modelos por suscripción: 10
 * Número máximo de elementos que puede contener un catálogo: 100.000
-* El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+* El número máximo de puntos de uso que se mantienen es ~&5;&000;&000;. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
 * El tamaño máximo de datos que puede enviarse por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB.
 * El número de transacciones por segundo (TPS) para una compilación de modelo de Recomendaciones que no está activa es de ~2 TPS. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
 
@@ -107,9 +107,9 @@ La experimentación con recomendaciones se ha diseñado para que sea muy sencill
 
 **¿Cuáles son los requisitos previos para configurar las recomendaciones?**
 
-Las recomendaciones requieren que cuente con un registro de las opciones de los usuarios con respecto a su catálogo. Si no dispone de un registro de este tipo y cuenta con un sitio web orientado al cliente, las recomendaciones pueden recopilar la actividad de los usuarios en su lugar. 
+Las recomendaciones requieren que cuente con un registro de las opciones de los usuarios con respecto a su catálogo. Si no dispone de un registro de este tipo y cuenta con un sitio web orientado al cliente, las recomendaciones pueden recopilar la actividad de los usuarios por usted. 
 
-Las recomendaciones también requieren un catálogo de sus productos o servicios. Si no tiene un catálogo, las recomendaciones podrán utilizar los datos de uso de los clientes reales y elaborar un catálogo. Un catálogo "implícito" no incluirá artículos que no estaban "notificados" como parte de transacciones de usuario.
+Las recomendaciones también requieren un catálogo de sus productos o servicios. Si no tiene un catálogo, las recomendaciones podrán usar los datos de uso de los clientes reales y elaborar un catálogo. Un catálogo "implícito" no incluirá artículos que no estaban "notificados" como parte de transacciones de usuario.
 
 **¿Cómo configuro las recomendaciones por primera vez?**
 
@@ -140,6 +140,6 @@ El soporte técnico está disponible en el sitio de [Soporte técnico de Microso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

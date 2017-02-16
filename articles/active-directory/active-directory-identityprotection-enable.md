@@ -6,18 +6,17 @@ keywords: "azure active directory identity protection, detección de aplicacione
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
+ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
+ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
 
 
 ---
@@ -32,16 +31,16 @@ En este tema se muestra cómo habilitar Azure Active Directory Identity Protecti
 1. [Inicie sesión](https://ms.portal.azure.com/) en Azure Portal como administrador. 
 2. En Azure Portal, haga clic en **Marketplace**.
    
-    ![Crear](./media/active-directory-identityprotection-enable/01.png "Create")
+    ![Crear](./media/active-directory-identityprotection-enable/01.png "Crear")
 3. En la lista de aplicaciones, haga clic en **Seguridad e identidad**.
    
-    ![Crear](./media/active-directory-identityprotection-enable/02.png "Create")
+    ![Crear](./media/active-directory-identityprotection-enable/02.png "Crear")
 4. Haga clic en **Azure AD Identity Protection**.
    
-    ![Crear](./media/active-directory-identityprotection-enable/03.png "Create")
+    ![Crear](./media/active-directory-identityprotection-enable/03.png "Crear")
 5. En la hoja **Azure AD Identity Protection**, haga clic en **Crear**.
    
-    ![Crear](./media/active-directory-identityprotection-enable/04.png "Create")
+    ![Crear](./media/active-directory-identityprotection-enable/04.png "Crear")
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
@@ -49,6 +48,6 @@ En este tema se muestra cómo habilitar Azure Active Directory Identity Protecti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

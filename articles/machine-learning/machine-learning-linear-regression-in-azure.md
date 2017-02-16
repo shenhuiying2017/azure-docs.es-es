@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: kbaroni;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eb6fc4b1451d9c1ba17d1787bc8a77507b694258
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b519769502f9883c5be59dc453bce872660774b5
 
 
 ---
@@ -52,8 +52,8 @@ Calculamos el *porcentaje de error medio absoluto* y se utilizó como medida de 
 Seguimos estos pasos para crear nuestro experimento en Aprendizaje automático de Azure:  
 
 1. Carga del conjunto de datos como un archivo csv en Aprendizaje automático de Azure (archivo muy pequeño).
-2. Hemos creado un nuevo experimento en que se usa el módulo [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar las mismas características de datos que se usaron en Excel.   
-3. Se ha usado el módulo [Dividir datos][split] (con el modo *Expresión relativa*) para dividir los datos exactamente en los mismos conjuntos de aprendizaje realizados en Excel.  
+2. Hemos creado un nuevo experimento y hemos usado el módulo [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar las mismas características de datos que se usaron en Excel.   
+3. Uso del módulo [Dividir datos][split] (con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se habría realizado en Excel.  
 4. Realizamos experimentos con el módulo [Regresión lineal][linear-regression] (solo opciones predeterminadas), documentamos el proceso y comparamos los resultados con el modelo de regresión de Excel.
 
 ### <a name="review-initial-results"></a>Revisión de los resultados iniciales
@@ -69,7 +69,7 @@ Al principio, el modelo de Excel superaba claramente al de Aprendizaje automáti
 
 Cuando ejecutamos el proceso y los resultados para los desarrolladores y científicos de datos del equipo de Aprendizaje automático de Azure, rápidamente nos proporcionaron algunas sugerencias útiles.  
 
-* Cuando se usa el módulo [Regresión lineal][linear-regression] en Azure Machine Learning, se ofrecen dos métodos:
+* Cuando se usa el módulo [Regresión lineal][linear-regression] en Azure Machine Learning de Azure, se proporcionan dos métodos:
   * Descenso de gradiente en línea: pueden resultar más adecuado para los problemas a mayor escala.
   * Ordinaria de mínimos cuadrados: este es el método en el que se suele pensar cuando se habla de la regresión lineal. Para los conjuntos de datos más pequeños, la regresión ordinaria de mínimos cuadrados puede ser una opción más adecuada.
 * Considere la posibilidad de ajustar el parámetro Peso de regularización L2 para mejorar el rendimiento. Está establecido en 0,001 de forma predeterminada y, para nuestro pequeño conjunto de datos, lo establecimos en 0,005 para mejorar el rendimiento.    
@@ -131,7 +131,7 @@ Si desea experimentar con regresión, un buen conjunto de datos para probar es e
 | Regresión lineal (ordinaria de mínimos cuadrados) |1,428273 |1,984461 |0,163767 |0,042074 |0,957926 |
 
 ## <a name="key-takeaways"></a>Puntos clave
-Hemos aprendido mucho al ejecutar experimentos de regresión en Excel y en Aprendizaje automático de Azure de forma paralela. El hecho de crear un modelo de línea de base en Excel y compararlo con modelos usando la [regresión lineal][linear-regression] de Azure Machine Learning nos permitió obtener información sobre esta aplicación. Además, descubrimos oportunidades para mejorar la selección de datos y el rendimiento del modelo.         
+Hemos aprendido mucho al ejecutar experimentos de regresión en Excel y en Aprendizaje automático de Azure de forma paralela. El hecho de crear un modelo de línea de base en Excel y compararlo con modelos usando la [regresión lineal][linear-regression] de Azure Machine Learning nos permitió aprender sobre Aprendizaje automático de Azure. Además, descubrimos oportunidades para mejorar la selección de datos y el modelo de rendimiento.         
 
 También descubrimos que es aconsejable utilizar la [Selección de características basada en filtros][filter-based-feature-selection] para acelerar los proyectos futuros de predicción.  Al aplicar la selección de características a los datos, se puede crear un modelo mejorado en Aprendizaje automático de Azure con un mejor rendimiento general. 
 
@@ -159,6 +159,6 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

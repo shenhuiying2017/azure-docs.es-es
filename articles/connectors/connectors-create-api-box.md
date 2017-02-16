@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: e211d0878a7f9bd43c95c727935ad883fae0db3a
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: bb6bef230f4ba4f7019fd2f120c2115d97649b81
 
 
 ---
@@ -35,7 +35,7 @@ Con Box, puede hacer lo siguiente:
 * Usar desencadenadores para cuando se crea o actualiza un archivo.
 * Usar acciones que copian o eliminan archivos, entre otras muchas cosas. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se modifique un archivo en Box, puede tomar ese archivo y enviarlo por correo electrónico mediante Office 365.
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Desencadenadores y acciones
 Box incluye los siguientes desencadenadores y acciones.
@@ -262,11 +262,11 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Box.
 | FileLocator |cadena |no |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

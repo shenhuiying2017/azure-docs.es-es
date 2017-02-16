@@ -1,5 +1,5 @@
 ---
-title: Regiones y disponibilidad para VM Windows | Microsoft Docs
+title: "Regiones de Azure y disponibilidad para máquinas virtuales Windows | Microsoft Docs"
 description: "Obtenga información acerca de las regiones y las características de disponibilidad para ejecutar máquinas virtuales Windows en Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 837901095b7dc7b57e88917c420b0f6d71706316
+ms.sourcegitcommit: 015b152b2e807de6ad92d141d3c8bad6bb8d8eba
+ms.openlocfilehash: 6b50c3a4a621520973081da544e3248454b019e2
 
 
 ---
@@ -25,6 +25,6 @@ ms.openlocfilehash: 837901095b7dc7b57e88917c420b0f6d71706316
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

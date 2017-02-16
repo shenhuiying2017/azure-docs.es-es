@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 6b5ba034325ef1cbb7b085890c63302d06d0d927
 
 
 ---
@@ -25,59 +25,19 @@ ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Servicios multimedia de Azure (AMS) mediante el Portal de Azure.
 
-> [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
+## <a name="prerequisites"></a>Requisitos previos
+Estos son los requisitos previos para completar el tutorial.
+
+* Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
 
 Este tutorial incluye las siguientes tareas:
 
-1. Creación de una cuenta de Servicios multimedia de Azure.
-2. Inicie el punto de conexión de streaming.
-3. Carga de un archivo de vídeo.
-4. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
-5. Publicación del recurso y obtención de direcciones URL de descarga progresiva y streaming.  
-6. Reproduzca el contenido.
-
-## <a name="create-an-azure-media-services-account"></a>Creación de una cuenta de Servicios multimedia de Azure
-Los pasos de esta sección muestran cómo crear una cuenta de AMS.
-
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **+Nuevo** > **Web y móvil** > **Servicios multimedia**.
-   
-    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. En **CREAR CUENTA DE SERVICIOS MULTIMEDIA** especifique los valores obligatorios.
-   
-    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
-   1. En **Nombre de la cuenta**, especifique el nombre de la cuenta nueva de AMS. El nombre de la cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
-   2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
-   3. En **Grupo de recursos**seleccione el recurso nuevo o uno ya existente.  Un grupo de recursos es una colección de recursos que comparten ciclos de vida, permisos y directivas. Obtenga más información [aquí](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Media Services. Esta región se utiliza para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable. 
-   5. En **Cuenta de almacenamiento**, seleccione una cuenta de almacenamiento para proporcionar almacenamiento de blobs del contenido multimedia desde la cuenta de Servicios multimedia. Puede seleccionar una cuenta de almacenamiento existente de la misma región geográfica que la cuenta de Servicios multimedia o crearla. Se crea una nueva cuenta de almacenamiento en la misma región. Las reglas para los nombres de cuenta de almacenamiento son las mismas que para las cuentas de Servicios multimedia.
-      
-       Puede obtener más información acerca del almacenamiento [aquí](../storage/storage-introduction.md).
-   6. Seleccione **Anclar al panel** para ver el progreso de la implementación de la cuenta.
-4. Haga clic en **Crear** en la parte inferior del formulario.
-   
-    Cuando la cuenta se crea correctamente, se carga la página de información general. En la tabla de puntos de conexión de streaming, la cuenta tendrá el punto de conexión de streaming predeterminado en el estado **Stopped** (Detenido). El punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
-   
-    ![Configuración de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
-    Para administrar la cuenta de AMS (por ejemplo, para cargar vídeos, codificar recursos, supervisar el progreso del trabajo) use la ventana **Configuración** .
-
-## <a name="manage-keys"></a>Administrar claves
-Necesita el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
-
-1. En el Portal de Azure, seleccione la cuenta. 
-   
-    Aparecerá la ventana **Configuración** a la derecha. 
-2. En la ventana **Configuración**, seleccione **Claves**. 
-   
-    Aparece la ventana **Administrar claves** que muestra el nombre de la cuenta y la clave principal y la secundaria. 
-3. Pulse el botón Copiar para copiar los valores.
-   
-    ![Claves de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-keys.png)
+1. Inicie el punto de conexión de streaming.
+2. Carga de un archivo de vídeo.
+3. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
+4. Publicación del recurso y obtención de direcciones URL de descarga progresiva y streaming.  
+5. Reproduzca el contenido.
 
 ## <a name="start-streaming-endpoints"></a>Inicio de los puntos de conexión de streaming 
 
@@ -88,13 +48,14 @@ Cuando se trabaja con Azure Media Services, uno de los escenarios más comunes e
 
 Para iniciar el punto de conexión de streaming, haga lo siguiente:
 
-1. En la ventana Settings (Configuración), haga clic en Streaming endpoints (Puntos de conexión de streaming). 
-2. Haga clic en el punto de conexión de streaming predeterminado. 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+2. En la ventana Settings (Configuración), haga clic en Streaming endpoints (Puntos de conexión de streaming). 
+3. Haga clic en el punto de conexión de streaming predeterminado. 
 
     Aparecerá la ventana de detalles del punto de conexión de streaming predeterminado.
 
-3. Haga clic en el icono de inicio.
-4. Haga clic en el botón Save (Guardar) para guardar los cambios.
+4. Haga clic en el icono de inicio.
+5. Haga clic en el botón Save (Guardar) para guardar los cambios.
 
 ## <a name="upload-files"></a>Carga de archivos
 Para transmitir vídeos mediante Servicios multimedia de Azure, es preciso cargar los vídeos de origen, codificarlos en varias velocidades de bits y publicar el resultado. En esta sección se describe el primer paso. 
@@ -129,7 +90,7 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 1. En la ventana **Configuración**, seleccione **Activos**.  
 2. En la ventana **Activos** , seleccione el recurso que desea codificar.
 3. Presione el botón **Codificar** .
-4. En la ventana **Encode an asset** (Codificar un recurso), seleccione el procesador "Codificador multimedia estándar" y un valor predeterminado. Por ejemplo, si sabe que el vídeo de entrada tiene una resolución de 1920 x 1080 píxeles, se podría utilizar el valor predeterminado "H264 Multiple Bitrate 1080p". Para más información acerca de los valores predeterminados, consulte [este](https://msdn.microsoft.com/library/azure/mt269960.aspx) artículo: es importante seleccionar el valor predeterminado que resulta más adecuado para el vídeo de entrada. Si tiene un vídeo de baja resolución (640 x 360), no debería utilizar el valor predeterminado "H264 Multiple Bitrate 1080p".
+4. En la ventana **Encode an asset** (Codificar un recurso), seleccione el procesador "Codificador multimedia estándar" y un valor predeterminado. Por ejemplo, si sabe que el vídeo de entrada tiene una resolución de 1920 x 1080 píxeles, se podría utilizar el valor predeterminado "H264 Multiple Bitrate 1080p". Para más información acerca de los valores predeterminados, consulte [este](media-services-mes-presets-overview.md) artículo: es importante seleccionar el valor predeterminado que resulta más adecuado para el vídeo de entrada. Si tiene un vídeo de baja resolución (640 x 360), no debería utilizar el valor predeterminado "H264 Multiple Bitrate 1080p".
    
    Para facilitar la administración, se puede editar el nombre del recurso de salida y el nombre del trabajo.
    
@@ -169,7 +130,7 @@ Una dirección URL de SAS tiene el formato siguiente:
 > 
 > 
 
-Para actualizar la fecha de caducidad de un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Para actualizar la fecha de caducidad de un localizador, use las API de [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Uso del portal para publicar un recurso
 Para usar el portal para publicar un recurso, haga lo siguiente:

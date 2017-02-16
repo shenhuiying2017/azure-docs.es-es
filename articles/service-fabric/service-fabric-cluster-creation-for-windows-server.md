@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 12/06/2016
 ms.author: dkshir;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 913726bb57f727bd62cdee0aee16bc886b38884f
+ms.sourcegitcommit: 6db229794c90e985de834bd3bfb6e0b030de2df5
+ms.openlocfilehash: 0cb59a2e94a9c985cb56d9dd20c05e2e22a45151
 
 
 ---
@@ -26,7 +26,7 @@ Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las m
 Este artículo lo guía por los pasos para crear un clúster localmente mediante el paquete independiente para Service Fabric, aunque puede adaptarse con facilidad a cualquier otro entorno, por ejemplo, otros proveedores de nube.
 
 > [!NOTE]
-> Este paquete de Windows Server independiente puede contener características que están actualmente en versión preliminar y no se admiten para uso comercial. Para ver la lista de características que se encuentran en versión preliminar, vea "Características de versión preliminar incluidas en este paquete". También puede [descargar una copia de los términos de licencia](http://go.microsoft.com/fwlink/?LinkID=733084) ahora.
+> Este paquete de Windows Server independiente está disponible en el mercado y puede usarse para las implementaciones de producción. Además, puede contener nuevas características de Service Fabric que están en versión preliminar. Desplácese hacia abajo hasta Características de versión preliminar incluidas en este paquete. Sección de la lista de las características de versión preliminar. Puede [descargar una copia de los términos de licencia](http://go.microsoft.com/fwlink/?LinkID=733084) ahora.
 > 
 > 
 
@@ -35,6 +35,7 @@ Este artículo lo guía por los pasos para crear un clúster localmente mediante
 ## <a name="get-support-for-the-service-fabric-standalone-package"></a>Obtención de soporte técnico para el paquete independiente de Service Fabric
 * Pregunte a la comunidad sobre el paquete independiente de Service Fabric para Windows Server en el [foro de Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Abra una incidencia para obtener [soporte técnico profesional para Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Obtenga más información sobre el [soporte técnico profesional de Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* También puede obtener soporte técnico para este paquete como parte del [soporte técnico premier de Microsoft](https://support.microsoft.com/en-us/premier). 
 
 <a id="downloadpackage"></a>
 
@@ -127,7 +128,7 @@ Abra uno de los archivos ClusterConfig.json del paquete descargado y modifique l
 | **Opciones de configuración.** | **Descripción** |
 | --- | --- |
 | **NodeTypes** |Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes:  <br> **nombre** : es el nombre del tipo de nodo. <br>**Endpoint Ports** : diversos puntos de conexión (puertos) con nombre asociados a este tipo de nodo. Puede usar cualquier número de puerto que desee, siempre que no entren en conflicto con nada de este manifiesto y que no estén siendo usados por otra aplicación que se ejecute en el equipo o en la máquina virtual. <br> **Propiedades de ubicación**: Describen las propiedades de este tipo de nodo que se usan como restricciones de ubicación para los servicios del sistema o para sus servicios. Estas propiedades son pares de clave y valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Algunos ejemplos de propiedades de nodo son si el nodo tiene una unidad de disco duro o una tarjeta gráfica, el número de ejes de la unidad de disco duro, los núcleos y otras propiedades físicas. <br> **Capacities** : las capacidades del nodo definen el nombre y la cantidad de un recurso concreto que un nodo tiene disponible para consumir. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas funcionalidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se coloquen en nodos donde esos recursos estén disponibles en la cantidad necesaria.<br>**IsPrimary** : si hay varias opciones NodeType definidas, asegúrese de establecer solo una como principal con el valor *true*; es donde se ejecutan los servicios del sistema. Todos los demás tipos de nodo se deben establecer en *false* |
-| **Nodos** |Se trata de los detalles de cada uno de los nodos que forman parte del clúster (tipo de nodo, nombre de nodo, dirección IP, dominio de error y dominio de actualización del nodo). Las máquinas en las que desee que se cree el clúster en función de las necesidades se mostrarán aquí con sus direcciones IP. <br>  Si usa la misma dirección IP para todos los nodos, se crea un clúster one-box, que puede usar con fines de prueba. No use clústeres one-box para implementar cargas de trabajo de producción. |
+| **Nodos** |Se trata de los detalles de cada uno de los nodos que forman parte del clúster (tipo de nodo, nombre de nodo, dirección IP, dominio de error y dominio de actualización del nodo). Las máquinas en las que desee que se cree el clúster en función de las necesidades se mostrarán aquí con sus direcciones IP. <br> Si usa la misma dirección IP para todos los nodos, se crea un clúster one-box, que puede usar con fines de prueba. No use clústeres one-box para implementar cargas de trabajo de producción. |
 
 ### <a name="step-2-run-the-testconfiguration-script"></a>Paso 2: Ejecutar el script TestConfiguration
 El script TestConfiguration prueba la infraestructura definida en cluster.json para asegurarse de que se han asignado los permisos necesarios, de que las máquinas están conectadas entre sí y de que se han definido otros atributos, para que la implementación se realice correctamente. Básicamente se trata de un pequeño analizador de procedimientos recomendados. Se seguirán agregando más validaciones a esta herramienta con el tiempo para que sea más eficaz.
@@ -241,23 +242,25 @@ Para deshabilitar la telemetría, agregue lo siguiente al elemento *properties* 
 ## <a name="preview-features-included-in-this-package"></a>Características de versión preliminar incluidas en este paquete
 Ninguno.
 
+
 > [!NOTE]
-> Con la nueva [versión de GA del clúster independiente para Windows Server (versión 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), puede actualizar el clúster a versiones futuras, manual o automáticamente. Dado que esta característica no está disponible en las versiones preliminares, debe crear un clúster con la versión de GA y migrar sus datos y aplicaciones desde el clúster de versión preliminar. Permanezca atento para obtener más detalles sobre esta característica.
+> Con la nueva [versión de GA del clúster independiente para Windows Server (versión 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), puede actualizar el clúster a versiones futuras, manual o automáticamente. Consulte el documento [Actualización del clúster de Service Fabric independiente en Windows Server](service-fabric-cluster-upgrade-windows-server.md) para obtener más información.
 > 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md)
 * [Incorporación o eliminación de nodos de un clúster de Service Fabric independiente](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [Actualización de nodos de un clúster de Service Fabric independiente](service-fabric-cluster-upgrade-windows-server.md)
 * [Creación de un clúster de Service Fabric independiente con máquinas virtuales de Azure con Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 * [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md)
 * [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md)
 
 <!--Image references-->
-[Zona de confianza]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+[Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

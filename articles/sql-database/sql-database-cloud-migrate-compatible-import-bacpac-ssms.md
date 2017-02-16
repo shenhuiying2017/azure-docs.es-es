@@ -1,6 +1,7 @@
 ---
-title: "Migración de una base de datos de SQL Server a Azure SQL Database | Microsoft Docs"
-description: "Base de datos SQL de Microsoft Azure, implementación de base de datos, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración"
+title: "SSMS: Importación a Azure SQL Database desde un archivo BACPAC | Microsoft Docs"
+description: "En este artículo se muestra cómo importar desde un archivo BACPAC a SQL Database mediante el Asistente para exportar aplicaciones de capa de datos en SQL Server Management Studio."
+keywords: "Base de datos SQL de Microsoft Azure, implementación de base de datos, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 7e8f6ba6204d20c31d3e2878bd7519ae5f954ddf
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: b5a6d90069e87d6115a3b80711f06ccf286b3e88
 
 
 ---
@@ -73,6 +74,6 @@ En este artículo se muestra cómo importar desde un archivo [BACPAC](https://ms
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

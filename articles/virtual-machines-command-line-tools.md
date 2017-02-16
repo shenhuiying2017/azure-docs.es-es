@@ -13,19 +13,25 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: cff4e05de2a9e2f0603fd4beebe26e44b4652dc8
-ms.openlocfilehash: d168c6e477eff07b8f499c1be869f85506c2fabc
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: c8cc44cf132bb82c217a81ab94f27ed391a4248d
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)
-> [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../articles/azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. También puede [leer información sobre los comandos del modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y usar la CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) desde el modelo clásico al de Resource Manager.
+
 
 En este artículo se proporcionan la sintaxis y las opciones de los comandos CLI de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación clásico. Para acceder a estos comandos, ejecute la CLI en el modo de Administración de servicios de Azure (asm). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. 
+
+> [!IMPORTANT]
+> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../articles/azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. También puede [leer información sobre los comandos de la CLI del modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y usar la CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) desde el modelo clásico al de Resource Manager.
+>
+>Para trabajar en el modelo de Resource Manager, también puede probar la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2), nuestra CLI multiplataforma de última generación.
+>
+
 
 En primer lugar, [instale la CLI de Azure](xplat-cli-install.md) y [conéctese a su suscripción de Azure](xplat-cli-connect.md).
 
@@ -2353,6 +2359,6 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

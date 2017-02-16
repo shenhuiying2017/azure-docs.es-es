@@ -1,5 +1,5 @@
 ---
-title: Uso de colas de Service Bus con Ruby | Microsoft Docs
+title: Uso de colas de Service Bus de Azure con Ruby | Microsoft Docs
 description: "Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Ruby."
 services: service-bus-messaging
 documentationcenter: ruby
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
+ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
 
 
 ---
@@ -25,48 +25,12 @@ ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
 
 Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en Ruby y usan la gema de Azure. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y **eliminación de colas**. Para obtener más información sobre las colas de Service Bus, vea la sección [Pasos siguientes](#next-steps).
 
-## <a name="what-are-service-bus-queues"></a>¿Qué son las colas del Bus de servicio?
-Las colas de Service Bus admiten un modelo de comunicación de *mensajería asíncrona*. Con las colas, los componentes de una aplicación distribuida no se comunican directamente entre ellos, sino que intercambian mensajes a través de una cola, que actúa como un intermediario. El productor del mensaje (remitente) manda un mensaje a la cola y, a continuación sigue con su procesamiento.
-De forma asíncrona, el destinatario del mensaje (receptor) extrae el mensaje de la cola y lo procesa. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes. Las colas ofrecen una entrega de mensajes según el modelo **El primero en entrar es el primero en salir (FIFO)** a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-![QueueConcepts](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
-
-Las colas del Bus de servicio son una tecnología de uso general que puede utilizarse en una variedad de escenarios:
-
-* Comunicación entre roles web y de trabajo en una [aplicación de Azure de varios niveles](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md).
-* Comunicación entre aplicaciones locales y aplicaciones hospedadas en Azure en una [solución híbrida](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
-* Comunicación entre componentes de una aplicación distribuida que se ejecuta en local en distintas organizaciones o departamentos de una organización.
-
-El uso de las colas puede permitirle escalar mejor sus aplicaciones horizontalmente y dotar de más resiliencia a su arquitectura.
-
-## <a name="create-a-namespace"></a>Creación de un espacio de nombres
-Para empezar a usar colas del Bus de servicio en Azure, primero hay que crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque Azure Portal no crea el espacio de nombres con una conexión ACS.
-
-Para crear un espacio de nombres:
-
-1. Abra una consola de Azure PowerShell.
-2. Escriba el comando siguiente para crear un espacio de nombres del Bus de servicio. Proporcione su propio valor de espacio de nombres y especifique la misma región que la aplicación.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-   
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-    ```
-
-## <a name="obtain-management-credentials-for-the-namespace"></a>Obtener credenciales de administración para el espacio de nombres
-Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres.
-
-El cmdlet de PowerShell que ejecutó para crear el espacio de nombres del bus de servicio de Azure muestra la clave que puede usar para administrar el espacio de nombres. Copie el valor **DefaultKey**. Más adelante en este tutorial usará este valor en su código.
-
-![Copiar clave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
-
-> [!NOTE]
-> También puede encontrar esta clave si [Azure Portal](https://portal.azure.com/) y consulta la información sobre conexión relacionada con el espacio de nombres de Service Bus.
-> 
-> 
-
 ## <a name="create-a-ruby-application"></a>Creación de una aplicación de Ruby
-Cree una aplicación de Ruby. Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Cree una aplicación de Ruby. Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
 Para usar el Bus de servicio de Azure, descargue y use el paquete Ruby Azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
@@ -85,7 +49,7 @@ require "azure"
 ## <a name="set-up-an-azure-service-bus-connection"></a>Configuración de una conexión del Bus de servicio de Azure
 El módulo Azure lee las variables de entorno **AZURE\_SERVICEBUS\_NAMESPACE** y **AZURE\_SERVICEBUS\_ACCESS_KEY** para obtener la información necesaria para conectarse al espacio de nombres de Service Bus. Si no configura estas variables de entorno, debe especificar la información del espacio de nombres antes de usar **Azure::ServiceBusService** con el siguiente código:
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -95,7 +59,7 @@ Defina el valor del espacio de nombres en el valor que creó en lugar de hacerlo
 ## <a name="how-to-create-a-queue"></a>Creación de una cola
 El objeto **Azure::ServiceBusService** le permite trabajar con colas. Para crear una cola, use el método **create_queue()**. En el siguiente ejemplo se crea una cola o se imprime el error.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
@@ -106,7 +70,7 @@ end
 
 También puede pasar un objeto **Azure::ServiceBus::Queue** con opciones adicionales, lo que le permite reemplazar la configuración de la cola predeterminada, como el período de vida del mensaje o el tamaño de cola máximo. En el siguiente ejemplo se muestra cómo establecer el tamaño máximo de las colas en 5 GB y el período de vida en 1 minuto:
 
-```
+```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
 queue.max_size_in_megabytes = 5120
 queue.default_message_time_to_live = "PT1M"
@@ -119,7 +83,7 @@ Para enviar un mensaje a una cola de Service Bus, la aplicación llama al métod
 
 El ejemplo siguiente demuestra cómo enviar un mensaje de prueba a la cola llamada "test-queue" usando **send\_queue\_message()**:
 
-```
+```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
 message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
@@ -136,7 +100,7 @@ Si el parámetro **:peek\_lock** se establece en **false**, la lectura y elimina
 
 En el ejemplo siguiente se muestra cómo recibir y procesar mensajes mediante **receive\_queue\_message()**. El ejemplo primero recibe y elimina un mensaje mediante **:peek\_lock** establecido en **false**; después, recibe otro mensaje y luego elimina el mensaje mediante **delete\_queue\_message()**:
 
-```
+```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
   { :peek_lock => false })
 message = azure_service_bus_service.receive_queue_message("test-queue")
@@ -161,6 +125,6 @@ Para ver una comparación entre las colas de Azure Service Bus de este artículo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

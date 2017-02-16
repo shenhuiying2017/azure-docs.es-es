@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
+ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
+ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
 
 
 ---
@@ -37,7 +37,7 @@ Este artículo explica cómo configurar y codificar enlaces de blob de Azure Sto
 <a name="trigger"></a>
 
 ## <a name="storage-blob-trigger"></a>Desencadenador de blobs de Storage
-El desencadenador de blob de Azure Storage permite supervisar un contenedor de almacenamiento de blobs nuevos y actualizados y reaccionar frente a ellos. 
+El desencadenador de blobs de Azure Storage le permite supervisar un contenedor de almacenamiento para comprobar los blobs nuevos y actualizados y ejecutar el código de función cuando se detectan cambios. 
 
 El desencadenador de blob de Azure Storage para una función utiliza los siguientes objetos JSON en la matriz `bindings` de function.json:
 
@@ -224,7 +224,7 @@ La entrada de blob de Azure Storage a una función utiliza los siguientes objeto
 Tenga en cuenta lo siguiente:
 
 * `path` debe contener el nombre del contenedor y el nombre del blob. Por ejemplo, si tiene un [desencadenador de cola](functions-bindings-storage-queue.md) en la función, puede usar `"path": "samples-workitems/{queueTrigger}"` para apuntar a un blob del contenedor `samples-workitems` con un nombre que coincida con el nombre de blob especificado en el mensaje desencadenador.   
-* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
+* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
 
 <a name="inputusage"></a>
 
@@ -328,9 +328,9 @@ La salida de blob de Azure Storage para una función utiliza los siguientes obje
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 
@@ -358,6 +358,8 @@ En las funciones de C# también puede enviar la salida a cualquiera de los sigui
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
+* `ICollector<T>` (para generar varios blobs)
+* `IAsyncCollector<T>` (versión asincrónica de `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -370,6 +372,6 @@ Consulte [Ejemplo de entrada](#inputsample).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

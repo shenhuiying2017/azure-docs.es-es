@@ -13,173 +13,215 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 5f2642a83c190db3239db3e20ba981e01bc8e3e6
+ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
+ms.openlocfilehash: cb94febf8f58eda3c56755d60fd49e3dd265d3c3
 
 
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Usar funciones definidas por el usuario de C# con el streaming de Hive y Pig en Hadoop de HDInsight
+
 Hive y Pig resultan excelentes para trabajar con datos en Azure HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Hive y Pig permiten efectuar llamadas a código externo a través de funciones definidas por el usuario (UDF) o de streaming.
 
 Con este documento, aprenderá a usar C# con Hive y Pig.
 
+> [!IMPORTANT]
+> Los pasos descritos en este documento requieren un clúster de HDInsight que usa Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="prerequisites"></a>Requisitos previos
+
 * Windows 7 o posterior.
+
 * Visual Studio con las siguientes versiones:
 
   * Visual Studio 2012 Professional/Premium/Ultimate con [actualización 4](http://www.microsoft.com/download/details.aspx?id=39305)
+
   * Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/download/details.aspx?id=44921)
+
   * Visual Studio 2015
+
 * Hadoop en un clúster de HDInsight, consulte [Aprovisionamiento de un clúster de HDInsight](hdinsight-provision-clusters.md) para conocer los pasos que le permitirán crear un clúster.
+
 * Herramientas de Hadoop para Visual Studio Consulte [Introducción al uso de herramientas de Hadoop de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para conocer los pasos que le permitirán instalar y configurar las herramientas.
 
 ## <a name="net-on-hdinsight"></a>.NET en HDInsight
+
 Common Language Runtime (CLR) de .NET y los marcos se instalan de forma predeterminada en los clústeres de HDInsight basados en Windows. Esto permite utilizar las aplicaciones de C# con el streaming de Hive y Pig (los datos se pasan entre Hive/Pig y la aplicación de C# a través de stdin y stdout).
 
 > [!NOTE]
 > Actualmente, no se pueden ejecutar UDF de .NET Framework en clústeres de HDInsight basados en Linux.
->
->
+
 
 ## <a name="net-and-streaming"></a>.NET y streaming
+
 El streaming obliga a Hive y Pig a pasar datos a una aplicación externa a través de stdout y a recibir los resultados a través de stdin. En el caso de las aplicaciones de C#, esto se consigue más fácilmente a través de `Console.ReadLine()` y `Console.WriteLine()`.
 
 Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay que utilizar la plantilla de **aplicación de consola** en los proyectos de C#.
 
 ## <a name="hive-and-c35"></a>Hive y C&#35;
+
 ### <a name="create-the-c-project"></a>Creación de un proyecto de C#
+
 1. Abra Visual Studio y cree una nueva solución. Para el tipo de proyecto, elija **Aplicación de consola**. Asigne al nuevo proyecto el nombre **HiveCSharp**.
+
 2. Reemplace el contenido de **Program.cs** por lo siguiente:
 
-        using System;
-        using System.Security.Cryptography;
-        using System.Text;
-        using System.Threading.Tasks;
+    ```csharp
+    using System;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Threading.Tasks;
 
-        namespace HiveCSharp
+    namespace HiveCSharp
+    {
+        class Program
         {
-            class Program
+            static void Main(string[] args)
             {
-                static void Main(string[] args)
+                string line;
+                // Read stdin in a loop
+                while ((line = Console.ReadLine()) != null)
                 {
-                    string line;
-                    // Read stdin in a loop
-                    while ((line = Console.ReadLine()) != null)
-                    {
-                        // Parse the string, trimming line feeds
-                        // and splitting fields at tabs
-                        line = line.TrimEnd('\n');
-                        string[] field = line.Split('\t');
-                        string phoneLabel = field[1] + ' ' + field[2];
-                        // Emit new data to stdout, delimited by tabs
-                        Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
-                    }
-                }
-                /// <summary>
-                /// Returns an MD5 hash for the given string
-                /// </summary>
-                /// <param name="input">string value</param>
-                /// <returns>an MD5 hash</returns>
-                static string GetMD5Hash(string input)
-                {
-                    // Step 1, calculate MD5 hash from input
-                    MD5 md5 = System.Security.Cryptography.MD5.Create();
-                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-                    byte[] hash = md5.ComputeHash(inputBytes);
-
-                    // Step 2, convert byte array to hex string
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < hash.Length; i++)
-                    {
-                        sb.Append(hash[i].ToString("x2"));
-                    }
-                    return sb.ToString();
+                    // Parse the string, trimming line feeds
+                    // and splitting fields at tabs
+                    line = line.TrimEnd('\n');
+                    string[] field = line.Split('\t');
+                    string phoneLabel = field[1] + ' ' + field[2];
+                    // Emit new data to stdout, delimited by tabs
+                    Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
                 }
             }
+            /// <summary>
+            /// Returns an MD5 hash for the given string
+            /// </summary>
+            /// <param name="input">string value</param>
+            /// <returns>an MD5 hash</returns>
+            static string GetMD5Hash(string input)
+            {
+                // Step 1, calculate MD5 hash from input
+                MD5 md5 = System.Security.Cryptography.MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                byte[] hash = md5.ComputeHash(inputBytes);
+
+                // Step 2, convert byte array to hex string
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("x2"));
+                }
+                return sb.ToString();
+            }
         }
+    }
+    ```
+
 3. Compile el proyecto.
 
 ### <a name="upload-to-storage"></a>Carga en el almacenamiento
+
 1. En Visual Studio, abra el **Explorador de servidores**.
+
 2. Expanda **Azure** y, después, haga lo mismo con **HDInsight**.
+
 3. Si se le solicitan, escriba sus credenciales de suscripción de Azure y, a continuación, haga clic en **Iniciar sesión**.
+
 4. Expanda el clúster de HDInsight en el que desea implementar esta aplicación y, a continuación, expanda **Cuenta de almacenamiento predeterminada**.
 
     ![Explorador de servidores en el que se muestra la cuenta de almacenamiento para el clúster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+
 5. Haga doble clic en **Contenedor predeterminado** para el clúster. Se abrirá una nueva ventana en la que se muestra el contenido del contenedor predeterminado.
 6. Haga clic en el icono de carga y, a continuación, vaya a la carpeta **bin\debug** del proyecto **HiveCSharp**. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Aceptar**.
 
     ![icono para cargar](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+
 7. Una vez que haya finalizado la carga, podrá usar la aplicación desde una consulta de Hive.
 
 ### <a name="hive-query"></a>Consulta de Hive
+
 1. En Visual Studio, abra el **Explorador de servidores**.
+
 2. Expanda **Azure** y, después, haga lo mismo con **HDInsight**.
+
 3. Haga clic con el botón derecho en el clúster en el que ha implementado la aplicación **HiveCSharp** y, a continuación, elija **Escribir una consulta de Hive**.
+
 4. Utilice lo siguiente para la consulta de Hive:
 
-        add file wasbs:///HiveCSharp.exe;
+    ```hiveql
+    add file wasbs:///HiveCSharp.exe;
 
-        SELECT TRANSFORM (clientid, devicemake, devicemodel)
-        USING 'HiveCSharp.exe' AS
-        (clientid string, phoneLabel string, phoneHash string)
-        FROM hivesampletable
-        ORDER BY clientid LIMIT 50;
+    SELECT TRANSFORM (clientid, devicemake, devicemodel)
+    USING 'HiveCSharp.exe' AS
+    (clientid string, phoneLabel string, phoneHash string)
+    FROM hivesampletable
+    ORDER BY clientid LIMIT 50;
+    ```
 
     Este comando selecciona los campos `clientid`, `devicemake` y `devicemodel` de `hivesampletable`, y los pasa a la aplicación HiveCSharp.exe. La consulta espera que la aplicación devuelva tres campos, que están almacenados como `clientid`, `phoneLabel` y `phoneHash`. La consulta también espera que HiveCSharp.exe esté en la raíz del contenedor de almacenamiento predeterminado (`add file wasbs:///HiveCSharp.exe`).
+
 5. Haga clic en **Enviar** para enviar el trabajo al clúster de HDInsight. Se abrirá la ventana **Resumen del trabajo de Hive** .
+
 6. Haga clic en **Actualizar** para actualizar el resumen hasta que el valor de **Estado del trabajo** cambie a **Completado**. Para ver la salida del trabajo, haga clic en **Salida de trabajo**.
 
 ## <a name="pig-and-c35"></a>Pig y C&#35;
+
 ### <a name="create-the-c-project"></a>Creación de un proyecto de C#
+
 1. Abra Visual Studio y cree una nueva solución. Para el tipo de proyecto, elija **Aplicación de consola**. Asigne al nuevo proyecto el nombre **PigUDF**.
+
 2. Reemplace el contenido del archivo **Program.cs** por el código siguiente:
 
-        using System;
+    ```csharp
+    using System;
 
-        namespace PigUDF
+    namespace PigUDF
+    {
+        class Program
         {
-            class Program
+            static void Main(string[] args)
             {
-                static void Main(string[] args)
+                string line;
+                // Read stdin in a loop
+                while ((line = Console.ReadLine()) != null)
                 {
-                    string line;
-                    // Read stdin in a loop
-                    while ((line = Console.ReadLine()) != null)
+                    // Fix formatting on lines that begin with an exception
+                    if(line.StartsWith("java.lang.Exception"))
                     {
-                        // Fix formatting on lines that begin with an exception
-                        if(line.StartsWith("java.lang.Exception"))
-                        {
-                            // Trim the error info off the beginning and add a note to the end of the line
-                            line = line.Remove(0, 21) + " - java.lang.Exception";
-                        }
-                        // Split the fields apart at tab characters
-                        string[] field = line.Split('\t');
-                        // Put fields back together for writing
-                        Console.WriteLine(String.Join("\t",field));
+                        // Trim the error info off the beginning and add a note to the end of the line
+                        line = line.Remove(0, 21) + " - java.lang.Exception";
                     }
+                    // Split the fields apart at tab characters
+                    string[] field = line.Split('\t');
+                    // Put fields back together for writing
+                    Console.WriteLine(String.Join("\t",field));
                 }
             }
         }
+    }
+    ```
 
     Esta aplicación analizará las líneas que se envían desde Pig y cambiará el formato aquellas que comiencen por `java.lang.Exception`.
+
 3. Guarde **Program.cs**y, a continuación, compile el proyecto.
 
 ### <a name="upload-the-application"></a>Cargue la aplicación.
+
 1. El streaming de Pig espera que la aplicación sea local en el sistema de archivos del clúster. Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+
 2. Una vez conectado, copie **PigUDF.exe** desde el directorio **bin/debug** para el proyecto PigUDF en el equipo local y péguelo en el directorio **% PIG_HOME %** del clúster.
 
 ### <a name="use-the-application-from-pig-latin"></a>Uso de la aplicación desde Pig Latin
+
 1. Desde la sesión de escritorio remoto, use el icono de **línea de comandos de Hadoop** del escritorio para iniciar la línea de comandos de Hadoop.
+
 2. Utilice lo siguiente para iniciar la línea de comandos de Pig:
 
         cd %PIG_HOME%
         bin\pig
 
     Aparecerá un símbolo del sistema de `grunt>` .
+    
 3. Escriba lo siguiente para ejecutar un trabajo de Pig simple mediante la aplicación de .NET Framework:
 
         DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
@@ -190,12 +232,10 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 
     La instrucción `DEFINE` crea un alias de `streamer` para las aplicaciones de pigudf.exe, y `SHIP` lo distribuye entre los nodos del clúster. Más adelante, `streamer` se usa con el operador `STREAM` para procesar las líneas individuales incluidas en el registro y devolver los datos como una serie de columnas.
 
-> [!NOTE]
-> El nombre de la aplicación que se usa para el streaming debe estar encerrado entre caracteres \` (acento grave) cuando se usa como alias, y entre caracteres ' (comilla sencilla) cuando se utiliza con `SHIP`.
->
->
+    > [!NOTE]
+    > El nombre de la aplicación que se usa para el streaming debe estar encerrado entre caracteres \` (acento grave) cuando se usa como alias, y entre caracteres ' (comilla sencilla) cuando se utiliza con `SHIP`.
 
-1. Después de escribir la última línea, debe iniciarse el trabajo. Finalmente, se devolverán unos resultados similares a los siguientes:
+4. Después de escribir la última línea, debe iniciarse el trabajo. Finalmente, se devolverán unos resultados similares a los siguientes:
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
@@ -204,6 +244,7 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
 ## <a name="summary"></a>Resumen
+
 En este documento, ha aprendido a utilizar una aplicación de .NET Framework desde Hive y Pig en HDInsight. Si desea obtener información sobre cómo utilizar Python con Hive y Pig, consulte [Uso de Python con Hive y Pig en HDInsight](hdinsight-python.md).
 
 Para conocer otras formas de usar Pig y Hive y para obtener información acerca del uso de MapReduce, consulte lo siguiente:
@@ -214,6 +255,6 @@ Para conocer otras formas de usar Pig y Hive y para obtener información acerca 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

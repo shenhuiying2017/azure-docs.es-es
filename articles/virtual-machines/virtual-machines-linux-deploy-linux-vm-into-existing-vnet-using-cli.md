@@ -1,5 +1,5 @@
 ---
-title: "Implementación de una máquina virtual Linux en una red virtual de Azure existente mediante la CLI | Microsoft Docs"
+title: "Implementación de VM de Linux en redes existentes - CLI de Azure | Microsoft Docs"
 description: "Implemente una máquina virtual Linux en una red virtual de Azure existente mediante la CLI."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,86 +13,27 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/05/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2fad20978f40150ef9f1cb44054da2ba66848bda
-ms.openlocfilehash: 613ce9b27bc26643b2f46c490d7f550b370df998
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 93fa2521b81b423d663df6e04ef201839bca2814
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-vnet--nsg-using-the-cli"></a>Implementación de una máquina virtual Linux en una red virtual y un grupo de seguridad de red existentes mediante la CLI
+# <a name="deploy-a-linux-vm-into-an-existing-azure-virtual-network-using-the-cli"></a>Implementación de una máquina virtual Linux en una red virtual de Azure existente mediante la CLI
 
-En este artículo se describe cómo usar los marcadores CLI para implementar una máquina virtual en una red virtual existente (VNet) que está protegida mediante un grupo de seguridad de red (NSG).  Los requisitos son:
+En este artículo se describe cómo usar las etiquetas de la CLI para implementar una máquina virtual en una red virtual (VNet) existente.  Los requisitos son:
 
 - [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/);
-
 - [archivos de clave SSH pública y privada](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
-Reemplace los ejemplos por su propia configuración.
+Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos necesarios. Se puede encontrar información más detallada y contexto para cada paso en el resto del documento, [comenzando aquí](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).
 
-### <a name="create-the-resource-group"></a>Crear el grupo de recursos
-
-```azurecli
-azure group create myResourceGroup \
--l westus
-```
-
-### <a name="create-the-vnet"></a>Crear la red virtual
-
-```azurecli
-azure network vnet create myVNet \
--g myResourceGroup \
--a 10.10.0.0/24 \
--l westus
-```
-
-### <a name="create-the-nsg"></a>Crear el NSG
-
-```azurecli
-azure network nsg create myNSG \
--g myResourceGroup \
--l westus
-```
-
-### <a name="add-an-inbound-ssh-allow-rule"></a>Agregar regla de permiso de SSH entrante
-
-```azurecli
-azure network nsg rule create inboundSSH \
--g myResourceGroup \
--a myNSG \
--c Allow \
--p Tcp \
--r Inbound \
--y 100 \
--f Internet \
--o 22 \
--e 10.10.0.0/24 \
--u 22
-```
-
-### <a name="add-a-subnet-to-the-vnet"></a>Agregar una subred a la red virtual
-
-```azurecli
-azure network vnet subnet create mySubNet \
--g myResourceGroup \
--e myVNet \
--a 10.10.0.0/26 \
--o myNSG
-```
-
-### <a name="add-a-vnic-to-the-subnet"></a>Incorporación de un VNic a la subred
-
-```azurecli
-azure network nic create myVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet
-```
+Requisitos previos: grupo de recursos, red virtual, NSG con SSH entrante, subred. Reemplace los ejemplos por su propia configuración.
 
 ### <a name="deploy-the-vm-into-the-vnet-nsg-and-connect-the-vnic"></a>Implementar la máquina virtual en la red virtual, en el grupo de seguridad de red y conectar la VNic
 
@@ -220,6 +161,6 @@ Mediante el uso de los marcadores CLI para llamar a los recursos existentes, se 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

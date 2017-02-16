@@ -16,31 +16,26 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 266891083fa0d2a33ef8fd7e533b036e99b00208
+ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
+ms.openlocfilehash: 23bf15555569c2c2f5ce9db1bead5da539df571d
 
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Análisis de datos de retraso de vuelos con Hive en HDInsight
 Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en Linux y luego exportar los datos a la Base de datos SQL de Azure con Sqoop.
 
-> [!NOTE]
-> Aunque se pueden usar distintas partes de este documento con clústeres de HDInsight basados en Windows (Python y Hive, por ejemplo), muchos de los pasos son específicos de los clústeres basados en Linux. Para conocer el procedimiento que funcionará con un clúster basado en Windows, vea [Analizar datos de retrasos de vuelos en Hive en HDInsight](hdinsight-analyze-flight-delay-data.md)
-> 
-> 
+> [!IMPORTANT]
+> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un clúster de HDInsight**. Vea [Introducción al uso de Hadoop con Hive en HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md) para conocer los pasos sobre la creación de un clúster de HDInsight basado en Linux.
 * **Base de datos de SQL Azure**. Usará una Base de datos SQL de Azure como almacén de datos de destino. Si no dispone todavía de una Base de datos SQL, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos](../sql-database/sql-database-get-started.md).
 * **Azure CLI**. Si no ha instalado la CLI de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md) para conocer más pasos.
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="download-the-flight-data"></a>Descarga de los datos de vuelo
-1. Diríjase a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+1. Diríjase a[Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. En la página, seleccione los siguientes valores:
    
    | Nombre | Valor |
@@ -247,8 +242,8 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 * [Uso de Oozie con HDInsight][hdinsight-use-oozie]
 * [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
-* [Desarrollo de programas MapReduce de Java en HDInsight][hdinsight-develop-mapreduce]
-* [Desarrollo de programas de streaming de Hadoop Python para HDInsight][hdinsight-develop-streaming]
+* [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
+* [Desarrollo de programas de Hadoop con Python en HDInsight][hdinsight-develop-streaming]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -278,6 +273,6 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e4ea8b18a9aba44906ed9085fa046859cc186aa1
+ms.sourcegitcommit: f28c528b51fdf08129f78fce74dba298be7326dd
+ms.openlocfilehash: 20f820a4883643e8941be3ec59667242d727b0c1
 
 
 ---
@@ -84,7 +84,11 @@ Para ver ejemplos de código, consulte los siguientes artículos:
 * [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Escalado horizontal frente a escalado vertical
-El escalado automático aumenta los recursos únicamente en horizontal, lo que supone el aumento o la reducción del número de instancias de máquina virtual.  El escalado horizontal (más flexible en un entorno en la nube) permite ejecutar miles de máquinas virtuales para administrar la carga. El escalado vertical es diferente. Mantiene el mismo número de máquinas virtuales, pero hace que sean más o menos potentes. La potencia se mide en memoria, velocidad de CPU, espacio en disco, etc.  El escalado vertical tiene más limitaciones, ya que depende de la disponibilidad de hardware de mayor tamaño, que puede variar según la región y que supera el límite rápidamente. El escalado vertical también suele requerir que se detenga e inicie una máquina virtual. Para obtener más información, consulte [Escalado vertical de máquinas virtuales de Azure con Automatización de Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+El escalado automático solo escala horizontalmente, que es un aumento o una reducción del número de instancias de máquina virtual.  El escalado horizontal resulta más flexible en un entorno en la nube, ya que puede llegar a ejecutar miles de máquinas virtuales para administrar la carga. 
+
+En contraste, el escalado vertical es diferente. Mantiene el mismo número de máquinas virtuales, pero hace que sean más o menos potentes. La potencia se mide en memoria, velocidad de CPU, espacio en disco, etc.  El escalado vertical tiene más limitaciones, ya que depende de la disponibilidad de hardware de mayor tamaño, que supera el límite rápidamente y puede variar según la región. El escalado vertical también suele requerir que se detenga y reinicie una máquina virtual. 
+
+Para obtener más información, consulte [Escalado vertical de máquinas virtuales de Azure con Automatización de Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="methods-of-access"></a>Métodos de acceso
 Puede configurar el escalado automático en los siguientes lugares:
@@ -116,6 +120,6 @@ Para más información sobre el escalado automático, consulte los tutoriales de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

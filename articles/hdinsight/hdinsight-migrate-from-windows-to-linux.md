@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
-ms.openlocfilehash: ae954da8c71e6fcc67941919851ea67b825c54d0
+ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
+ms.openlocfilehash: 856d75c58cd911c641ec74b78f5c6133e605b2ec
 
 
 ---
@@ -92,7 +92,7 @@ En la tabla siguiente se ofrece orientación sobre cómo migrar componentes de s
 | --- | --- |
 | **PowerShell** (scripts de servidor, incluidas las acciones de script que se usan durante la creación del clúster) |Vuelva a escribirlos como scripts de Bash. Para acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md) y [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **CLI de Azure** (scripts de servidor) |Mientras que la CLI de Azure está disponible en Linux, no viene preinstalada en los nodos principales del clúster de HDInsight. Si la necesita para el scripting de servidor, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) para obtener información sobre su instalación en plataformas basadas en Linux. |
-| **Componentes de .NET** |.NET no se admite en los clústeres de HDInsight basado en Linux. Los clústeres Storm en HDInsight basados en Linux creados después del 28/10/2017 admiten topologías de C# de Storm con la plataforma SCP.NET. Se agregará compatibilidad con .NET en futuras actualizaciones. |
+| **Componentes de .NET** |.NET no se admite completamente en todos los clústeres de HDInsight basados en Linux. Los clústeres Storm en HDInsight basados en Linux creados después del 28/10/2016 admiten topologías de C# de Storm con la plataforma SCP.NET. Se agregará compatibilidad con .NET en futuras actualizaciones. |
 | **Componentes de Win32 o de otras tecnologías de Windows** |La orientación depende del componente o la tecnología; es posible que encuentre una versión compatible con Linux o tal vez tenga que encontrar una solución alternativa o volver escribir este componente. |
 
 ## <a name="cluster-creation"></a>Creación de clústeres
@@ -123,7 +123,7 @@ Los clústeres de HDInsight basados en Windows solo funcionan con redes virtuale
 Para obtener más información sobre los requisitos de configuración para usar redes virtuales de Azure con HDInsight, consulte [Extensión de las funcionalidades de HDInsight con una red virtual](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="management-and-monitoring"></a>Administración y supervisión
-Es posible que muchas de las interfaces de usuario web que haya utilizado con HDInsight basado en Windows, como el historial de trabajos o la interfaz de usuario de Yarn, estén disponibles a través de Ambari. Además, la vista Ambari Hive ofrece una forma de ejecutar consultas de Hive mediante el explorador web. La interfaz de usuario web de Ambari está disponible en los clústeres basados en Linux que crea en https://NOMBREDELCLÚSTER>.azurehdinsight.net.
+Es posible que muchas de las interfaces de usuario web que haya utilizado con HDInsight basado en Windows, como el historial de trabajos o la interfaz de usuario de Yarn, estén disponibles a través de Ambari. Además, la vista Ambari Hive ofrece una forma de ejecutar consultas de Hive mediante el explorador web. La interfaz de usuario web de Ambari está disponible en los clústeres basados en Linux que crea en https://CLUSTERNAME.azurehdinsight.net.
 
 Para más información sobre cómo trabajar con Ambari, consulte los documentos siguientes:
 
@@ -222,6 +222,6 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

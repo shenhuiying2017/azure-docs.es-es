@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: c412bea7a030c2563c413584ad3f58c5d4379e47
-ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: 727fdb9a53fe1dec189018e12f42ba7515e6fb54
 
 
 ---
@@ -82,18 +82,22 @@ La API web de este ejemplo implementa un servicio básico de calculadora mediant
 
 Agregue la siguiente instrucción `using` en la parte superior del archivo `CalcInput.cs`.
 
-    using Newtonsoft.Json;
+```c#
+using Newtonsoft.Json;
+```
 
- Reemplace la clase generada por el siguiente código.
+Reemplace la clase generada por el siguiente código.
 
-    public class CalcInput
-    {
-        [JsonProperty(PropertyName = "a")]
-        public int a;
+```c#
+public class CalcInput
+{
+    [JsonProperty(PropertyName = "a")]
+    public int a;
 
-        [JsonProperty(PropertyName = "b")]
-        public int b;
-    }
+    [JsonProperty(PropertyName = "b")]
+    public int b;
+}
+```
 
 Haga clic con el botón derecho en **Controladores** en el **Explorador de soluciones** y elija **Agregar**->**Controlador**. Elija **Controlador Web API 2 - Vacío** y haga clic en **Agregar**. Escriba **CalcController**para el controlador de nombre y haga clic en **Agregar**.
 
@@ -101,55 +105,59 @@ Haga clic con el botón derecho en **Controladores** en el **Explorador de soluc
 
 Agregue la siguiente instrucción `using` en la parte superior del archivo `CalcController.cs`.
 
-    using System.IO;
-    using System.Web;
-    using APIMAADDemo.Models;
+```c#
+using System.IO;
+using System.Web;
+using APIMAADDemo.Models;
+```
 
 Reemplace la clase del controlador generada por el siguiente código. Este código implementa las operaciones `Add`, `Subtract`, `Multiply` y `Divide` de la API de calculadora básica.
 
-    [Authorize]
-    public class CalcController : ApiController
+```c#
+[Authorize]
+public class CalcController : ApiController
+{
+    [Route("api/add")]
+    [HttpGet]
+    public HttpResponseMessage GetSum([FromUri]int a, [FromUri]int b)
     {
-        [Route("api/add")]
-        [HttpGet]
-        public HttpResponseMessage GetSum([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a + b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-
-        [Route("api/sub")]
-        [HttpGet]
-        public HttpResponseMessage GetDiff([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a - b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-
-        [Route("api/mul")]
-        [HttpGet]
-        public HttpResponseMessage GetProduct([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a * b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-
-        [Route("api/div")]
-        [HttpGet]
-        public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a + b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
     }
+
+    [Route("api/sub")]
+    [HttpGet]
+    public HttpResponseMessage GetDiff([FromUri]int a, [FromUri]int b)
+    {
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a - b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
+    }
+
+    [Route("api/mul")]
+    [HttpGet]
+    public HttpResponseMessage GetProduct([FromUri]int a, [FromUri]int b)
+    {
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a * b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
+    }
+
+    [Route("api/div")]
+    [HttpGet]
+    public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
+    {
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
+    }
+}
+```
 
 Presione **F6** para crear y comprobar la solución.
 
@@ -179,7 +187,7 @@ Anote el **URI de id. de aplicación** para usarlo en un paso posterior cuando s
 ![URI de id. de aplicación][api-management-aad-sso-uri]
 
 ## <a name="import-the-web-api-into-api-management"></a>Importar la API web en la administración de API
-Las API se configuran desde el portal para editores de API al que se accede a través de Azure Portal. Para llegar a él, haga clic en **Portal para editores** desde la barra de herramientas del servicio de API Management. Si todavía no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Administrar su primera API][Administrar su primera API].
+Las API se configuran desde el portal para editores de API al que se accede a través de Azure Portal. Para llegar a él, haga clic en **Portal para editores** desde la barra de herramientas del servicio de API Management. Si todavía no ha creado una instancia del servicio API Management, consulte la sección de [creación de una instancia del servicio de API Management][Create an API Management service instance] en el tutorial sobre cómo [administrar su primera API][Manage your first API].
 
 ![Portal del publicador][api-management-management-console]
 
@@ -187,147 +195,147 @@ Las operaciones se puede [agregar a las API manualmente](api-management-howto-ad
 
 Cree un archivo denominado `calcapi.json` con el siguiente contenido y guárdelo en el equipo. Asegúrese de que el atributo `host` señala a su back-end de API web. En este ejemplo se usa `"host": "apimaaddemo.azurewebsites.net"` .
 
-
-    {
-      "swagger": "2.0",
-      "info": {
-        "title": "Calculator",
-        "description": "Arithmetics over HTTP!",
-        "version": "1.0"
-      },
-      "host": "apimaaddemo.azurewebsites.net",
-      "basePath": "/api",
-      "schemes": [
-        "http"
-      ],
-      "paths": {
-        "/add?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a sum of two numbers.",
-            "operationId": "Add two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>51</code>.",
-                "required": true,
-                "type": "string",
-                "default": "51",
-                "enum": [
-                  "51"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>49</code>.",
-                "required": true,
-                "type": "string",
-                "default": "49",
-                "enum": [
-                  "49"
-                ]
-              }
-            ],
-            "responses": { }
+```json
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Calculator",
+    "description": "Arithmetics over HTTP!",
+    "version": "1.0"
+  },
+  "host": "apimaaddemo.azurewebsites.net",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/add?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a sum of two numbers.",
+        "operationId": "Add two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>51</code>.",
+            "required": true,
+            "type": "string",
+            "default": "51",
+            "enum": [
+              "51"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>49</code>.",
+            "required": true,
+            "type": "string",
+            "default": "49",
+            "enum": [
+              "49"
+            ]
           }
-        },
-        "/sub?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a difference between two numbers.",
-            "operationId": "Subtract two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>100</code>.",
-                "required": true,
-                "type": "string",
-                "default": "100",
-                "enum": [
-                  "100"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>50</code>.",
-                "required": true,
-                "type": "string",
-                "default": "50",
-                "enum": [
-                  "50"
-                ]
-              }
-            ],
-            "responses": { }
+        ],
+        "responses": { }
+      }
+    },
+    "/sub?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a difference between two numbers.",
+        "operationId": "Subtract two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>100</code>.",
+            "required": true,
+            "type": "string",
+            "default": "100",
+            "enum": [
+              "100"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>50</code>.",
+            "required": true,
+            "type": "string",
+            "default": "50",
+            "enum": [
+              "50"
+            ]
           }
-        },
-        "/div?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a quotient of two numbers.",
-            "operationId": "Divide two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>100</code>.",
-                "required": true,
-                "type": "string",
-                "default": "100",
-                "enum": [
-                  "100"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>20</code>.",
-                "required": true,
-                "type": "string",
-                "default": "20",
-                "enum": [
-                  "20"
-                ]
-              }
-            ],
-            "responses": { }
+        ],
+        "responses": { }
+      }
+    },
+    "/div?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a quotient of two numbers.",
+        "operationId": "Divide two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>100</code>.",
+            "required": true,
+            "type": "string",
+            "default": "100",
+            "enum": [
+              "100"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>20</code>.",
+            "required": true,
+            "type": "string",
+            "default": "20",
+            "enum": [
+              "20"
+            ]
           }
-        },
-        "/mul?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a product of two numbers.",
-            "operationId": "Multiply two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>20</code>.",
-                "required": true,
-                "type": "string",
-                "default": "20",
-                "enum": [
-                  "20"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>5</code>.",
-                "required": true,
-                "type": "string",
-                "default": "5",
-                "enum": [
-                  "5"
-                ]
-              }
-            ],
-            "responses": { }
+        ],
+        "responses": { }
+      }
+    },
+    "/mul?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a product of two numbers.",
+        "operationId": "Multiply two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>20</code>.",
+            "required": true,
+            "type": "string",
+            "default": "20",
+            "enum": [
+              "20"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>5</code>.",
+            "required": true,
+            "type": "string",
+            "default": "5",
+            "enum": [
+              "5"
+            ]
           }
-        }
+        ],
+        "responses": { }
       }
     }
-
+  }
+}
+```
 
 Para importar la API de la calculadora, haga clic en **API** en el menú **Administración de API** de la izquierda y haga clic en **Importar API**.
 
@@ -380,9 +388,9 @@ Elija **Aplicación web y/o API web**, escriba un nombre y haga clic en la flech
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-1]
 
-Para la **Dirección URL de inicio de sesión** escriba la dirección URL de su servicio API Management y anexe `/signin`. En este ejemplo se utiliza **https://contoso5.portal.azure-api.net/signin **.
+Para la **Dirección URL de inicio de sesión** escriba la dirección URL de su servicio API Management y anexe `/signin`. En este ejemplo se usa `https://contoso5.portal.azure-api.net/signin` .
 
-Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio API Management y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que desee y, en este ejemplo, se utiliza **https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
+Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio API Management y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa `https://contoso5.portal.azure-api.net/dp`. Cuando se configuran las **propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-2]
 
@@ -490,14 +498,16 @@ El siguiente procedimiento en el vídeo empieza en 16:30 y configura una aplicac
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configurar una directiva de validación de JWT para autorizar previamente las solicitudes
 El procedimiento final en el vídeo empieza en 20:48 y muestra cómo usar la directiva [Validar JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) para autorizar previamente las solicitudes validando los tokens de acceso de cada solicitud entrante. Si la directiva Validar JWT no valida la solicitud, la solicitud se bloquea por la administración de API y no se pasa a lo largo del back-end.
 
-    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-        <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
-        <required-claims>
-            <claim name="aud">
-                <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
-            </claim>
-        </required-claims>
-    </validate-jwt>
+```xml
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
+    <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <required-claims>
+        <claim name="aud">
+            <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
+        </claim>
+    </required-claims>
+</validate-jwt>
+```
 
 Para ver otra demostración de cómo configurar y usar esta directiva, consulte [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta 13:50. Avance rápidamente hasta 15:00 para ver las directivas configuradas en el editor de directivas y hasta 18:50 para ver una demostración de llamada de una operación desde el portal para desarrolladores tanto con y sin el token de autorización necesario.
 
@@ -551,11 +561,11 @@ Para ver otra demostración de cómo configurar y usar esta directiva, consulte 
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
-[Administrar su primera API]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Manage your first API]: api-management-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Compartir un inquilino de Azure AD entre suscripciones de Office 365 y Azure | Microsoft Docs
+title: "Suscripción a Azure con la cuenta de Office 365 | Microsoft Docs"
 description: "Obtenga información acerca de cómo compartir su inquilino de Azure AD de Office 365 y sus usuarios con su suscripción de Azure o viceversa."
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: bf9cf92a53bd2db9970c03463cb417310e78224e
-ms.openlocfilehash: edf236a3c9a28552b8c6831a8c7f57bab73c41ed
+ms.sourcegitcommit: 71240b7bb978ca0831a4e23cafa64a96d64dc3cd
+ms.openlocfilehash: 85db551a80ce6995965aec642f08b3b87248d21b
 
 
 ---
@@ -50,16 +50,13 @@ En este escenario, asumimos que Kelley Wall es una usuaria que tiene una suscrip
 
 Para suscribirse a Azure, siga estos pasos:
 
-1. Suscríbase a Azure en [Azure.com](https://azure.microsoft.com/). Haga clic en **Pruébelo gratis**. En la siguiente página, haga clic en **Empezar ahora**.
+1. Suscríbase a Azure en [Azure.com](https://azure.microsoft.com/). Haga clic en **Cuenta gratuita**. En la siguiente página, haga clic en **Empiece gratis**.
 
     ![Pruebe Azure gratis.](./media/billing-use-existing-office-365-account-azure-subscription/2-azure-signup-try-free.png)
-2. Haga clic en **Inicie sesión con su cuenta de organización**.
-
-    ![Inicie sesión en Azure.](./media/billing-use-existing-office-365-account-azure-subscription/3-sign-in-to-azure.png)
-3. Inicie sesión con su cuenta de Office 365. En este caso, será la cuenta de Office 365 de Kelley.
+2. Inicie sesión con su cuenta de Office 365. En este caso, será la cuenta de Office 365 de Kelley.
 
     ![Inicie sesión con su cuenta de Office 365.](./media/billing-use-existing-office-365-account-azure-subscription/4-sign-in-with-org-account.png)
-4. Rellene la información y complete el proceso de registro.
+3. Rellene la información y complete el proceso de registro.
 
     ![Rellene la información y complete el registro.](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
 
@@ -158,6 +155,6 @@ Si adquirió las suscripciones de Azure y Office 365 por separado en el pasado y
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

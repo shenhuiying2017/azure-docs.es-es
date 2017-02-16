@@ -1,5 +1,5 @@
 ---
-title: "Censura de rostros con Análisis multimedia de Azure | Microsoft Docs"
+title: Censura de rostros con Azure Media Analytics | Microsoft Docs
 description: "Este tema muestra cómo censurar caras con Análisis multimedia de Azure."
 services: media-services
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 11/30/2016
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a272384d76baf2d8c22b612d6a736fa1fae377e5
+ms.sourcegitcommit: 3feaac838fe89e54a3b561b7572a9eb3393edc4c
+ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
 
 
 ---
-# <a name="face-redaction-with-azure-media-analytics"></a>Censura de rostros con Análisis multimedia de Azure
+# <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics
 ## <a name="overview"></a>Información general
 **Redactor multimedia de Azure** es un procesador multimedia (MP) de [Análisis multimedia de Azure](media-services-analytics-overview.md) que ofrece censura de rostros escalable en la nube. La censura de rostros le permite modificar un vídeo con el fin de difuminar las caras de personas seleccionadas. Puede usar el servicio de censura de rostros en escenarios de seguridad pública y de noticias en los medios de comunicación. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, el proceso de censura de caras requiere solamente unos pocos pasos sencillos. Para más información, consulte [este blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
 En este tema se proporcionan detalles sobre **Redactor multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET.
 
-El procesador de multimedia **Redactor multimedia de Azure** está actualmente en versión preliminar.
+El procesador de multimedia **Redactor multimedia de Azure** está actualmente en versión preliminar. Está disponible en todas las regiones de Azure públicas, así como en los centros de datos de China y el gobierno de Estados Unidos. Actualmente, esta versión preliminar es gratuita. En la versión actual, hay un límite de 10 minutos en la duración del vídeo procesado.
 
 ## <a name="face-redaction-modes"></a>Modos de censura de rostros
 La censura facial funciona detectando caras en cada fotograma de vídeo y realizando un seguimiento del objeto de cara tanto hacia delante como hacia atrás en el tiempo, para que la imagen de la misma persona pueda difuminarse también desde otros ángulos. El proceso de censura automatizada es muy complejo y no siempre genera los resultados deseados al 100 %, por este motivo, Análisis multimedia de Azure le ofrece un par de métodos para modificar el resultado final.
@@ -308,6 +308,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

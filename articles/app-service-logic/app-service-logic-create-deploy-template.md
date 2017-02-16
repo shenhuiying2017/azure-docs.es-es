@@ -15,13 +15,13 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: d0015760fe086b00a264aabd38cc2625f55f4926
 
 
 ---
 # <a name="create-a-logic-app-deployment-template"></a>Creación de una plantilla de implementación de aplicación lógica
-Una vez creada una aplicación lógica, quizá desee crearla como una plantilla de Azure Resource Manager. De este modo, podrá implementar fácilmente la aplicación lógica en cualquier entorno o grupo de recursos en los que pueda necesitarla. Para obtener una introducción a las plantillas de Resource Manager, asegúrese de consultar los artículos [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md) e [Implementación de recursos con plantillas de Azure Resource Manager](../resource-group-template-deploy.md).
+Una vez creada una aplicación lógica, quizá desee crearla como una plantilla de Azure Resource Manager. De este modo, podrá implementar fácilmente la aplicación lógica en cualquier entorno o grupo de recursos en los que pueda necesitarla. Para obtener una introducción a las plantillas de Resource Manager, asegúrese de consultar los artículos [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [Implementación de recursos con plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Plantilla de implementación de aplicación lógica
 Una aplicación lógica consta de tres componentes básicos:
@@ -41,8 +41,8 @@ Algunas herramientas pueden ayudarle a crear una plantilla de implementación de
 
 > [!NOTE]
 > Las conexiones deben estar dentro del mismo grupo de recursos que la aplicación lógica.
-> 
-> 
+>
+>
 
 ### <a name="install-the-logic-app-template-powershell-module"></a>Instalación del módulo de PowerShell de plantilla de aplicación lógica
 La forma más fácil de instalar el módulo es a través de la [Galería de PowerShell](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1) con el comando `Install-Module -Name LogicAppTemplate`.  
@@ -65,7 +65,7 @@ Después de instalar PowerShell, puede generar una plantilla mediante el comando
 Después de crear la plantilla de aplicación lógica, podrá seguir agregando o modificando los parámetros que necesite. Por ejemplo, si la definición incluye un identificador de recurso a una función o un flujo de trabajo anidado de Azure en el que planea implementar una sola implementación, puede agregar más recursos a la plantilla y parametrizar los identificadores según sea necesario. Lo mismo sucede con las referencias a las API personalizadas o a los puntos de conexión de Swagger que espera implementar con cada grupo de recursos.
 
 ## <a name="deploy-a-logic-app-template"></a>Implementación de una plantilla de aplicación lógica
-Puede implementar su plantilla mediante cualquier número de herramientas, entre las que se incluyen PowerShell, API de REST, Visual Studio, Release Management o la implementación de plantillas del Portal de Azure. Consulte el artículo [Implementación de recursos con plantillas de Azure Resource Manager](../resource-group-template-deploy.md) para obtener más información. También se recomienda crear un [archivo de parámetros](../resource-group-template-deploy.md#parameter-file) para almacenar los valores del parámetro.
+Puede implementar su plantilla mediante cualquier número de herramientas, entre las que se incluyen PowerShell, API de REST, Visual Studio, Release Management o la implementación de plantillas del Portal de Azure. Consulte el artículo [Implementación de recursos con plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) para obtener más información. También se recomienda crear un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameters) para almacenar los valores del parámetro.
 
 ### <a name="authorize-oauth-connections"></a>Autorización de conexiones de OAuth
 Después de la implementación, la aplicación lógica funciona de un extremo a otro con parámetros válidos. Sin embargo, aún será necesario autorizar las conexiones de OAuth para generar un token de acceso válido. Para ello, abra la aplicación lógica en el diseñador y, a continuación, autorice las conexiones. O bien, si desea automatizarlo, puede usar un script para dar el consentimiento a cada conexión de OAuth. Hay un script de ejemplo en GitHub, en el proyecto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
@@ -74,7 +74,7 @@ Después de la implementación, la aplicación lógica funciona de un extremo a 
 Un escenario común para implementar y administrar un entorno es usar una herramienta como Visual Studio Release Management con una plantilla de implementación de aplicación lógica. Visual Studio Team Services incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) , que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la definición de la versión.
 
 1. En Release Management, para crear una nueva definición, seleccione **Vacío** para comenzar con una definición vacía.
-   
+
     ![Crear una definición nueva y vacía][1]   
 2. Elija los recursos que necesite. Es probable que sea la plantilla de aplicación lógica generada manualmente o como parte del proceso de compilación.
 3. Agregue una tarea de **Implementación de un grupo de recursos de Azure** .
@@ -86,6 +86,6 @@ Un escenario común para implementar y administrar un entorno es usar una herram
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

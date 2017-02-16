@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 7e28fdde31c735b5de99aa7031ceb1b2abf72576
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Creación de un índice de Búsqueda de Azure con la API de REST
@@ -36,7 +36,7 @@ Antes de seguir con esta guía y crear un índice, debe haber [creado ya un serv
 
 Para crear un índice de Búsqueda de Azure mediante la API de REST, emita una solicitud HTTP POST al punto de conexión de la dirección URL del servicio Búsqueda de Azure. La definición del índice se incluirá en el cuerpo de la solicitud como contenido JSON con formato correcto.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificación de la clave de API de administración del servicio de Búsqueda de Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio de Búsqueda de Azure
 Ahora que ha aprovisionado un servicio de Búsqueda de Azure, puede emitir solicitudes HTTP en el punto de conexión de la dirección URL de su servicio mediante la API de REST. *Todas* las solicitudes de API deben incluir la clave de API que se generó para el servicio Search que aprovisionó. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
 1. Para buscar las claves de API del servicio, debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
@@ -50,7 +50,7 @@ El servicio tendrá *claves de administración* y *claves de consulta*.
 
 Para crear un índice, puede usar su clave de administración principal o la secundaria.
 
-## <a name="ii-define-your-azure-search-index-using-well-formed-json"></a>II. Definición del índice de Búsqueda de Azure mediante JSON con formato correcto
+## <a name="define-your-azure-search-index-using-well-formed-json"></a>Definición del índice de Búsqueda de Azure mediante JSON con formato correcto
 Una única solicitud HTTP POST al servicio permitirá crear el índice. El cuerpo de la solicitud HTTP POST contendrá un único objeto JSON que define el índice de Búsqueda de Azure.
 
 1. La primera propiedad de este objeto JSON es el nombre del índice.
@@ -86,7 +86,7 @@ Tenga en cuenta que solo puede designar un campo en el tipo de índice `Edm.Stri
 
 La definición del índice anterior usa un analizador de lenguaje para el campo `description_fr` porque está diseñado para almacenar texto en francés. Consulte [el tema de compatibilidad de idiomas](https://docs.microsoft.com/rest/api/searchservice/Language-support) así como la correspondiente [entrada de blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) para más información sobre los analizadores de idiomas.
 
-## <a name="iii-issue-the-http-request"></a>III. Emisión de la solicitud HTTP
+## <a name="issue-the-http-request"></a>Emisión de la solicitud HTTP
 1. Mediante el uso de la definición del índice como cuerpo de la solicitud, emita una solicitud HTTP POST a la URL del punto de conexión de servicio de Búsqueda de Azure. En la dirección URL, asegúrese de usar el nombre del servicio como nombre de host y ponga la `api-version` adecuada como parámetro de la cadena de consulta (la versión actual de la API es `2016-09-01` en el momento de publicar este documento).
 2. En los encabezados de solicitud, especifique el `Content-Type` como `application/json`. También necesitará proporcionar la clave de administración del servicio que identificó en el paso I en el encabezado `api-key` .
 
@@ -105,11 +105,11 @@ Cuando haya terminado con un índice y desee eliminarlo, simplemente emita una s
     api-key: [api-key]
 
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de crear un índice de Búsqueda de Azure, ya podrá [cargar el contenido en el índice](search-what-is-data-import.md) y empezar la búsqueda de los datos.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

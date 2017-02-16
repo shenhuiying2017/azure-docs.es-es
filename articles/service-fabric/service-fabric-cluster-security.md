@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f7735767b6655046b354d2a782b2730f117976
+ms.sourcegitcommit: 628df1df8f5de99a5c18d0df5b7ee41e2fb747df
+ms.openlocfilehash: c3ff370b105a1f9bdacd1bdb4b32d6209e150be2
 
 
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
-Un clúster de Service Fabric es un recurso que usted posee. Los clústeres siempre deben estar protegidos para evitar que usuarios no autorizados se conecten a su clúster, especialmente cuando en él se están ejecutando cargas de trabajo de producción. Aunque es posible crear un clúster no protegido, si lo hace, permitirá que cualquier usuario anónimo se conecte a él si expone los puntos de conexión de administración al Internet público. 
+Un clúster de Service Fabric es un recurso que usted posee. Los clústeres deben estar protegidos para evitar que usuarios no autorizados se conecten a su clúster, especialmente cuando en él se están ejecutando cargas de trabajo de producción. Aunque es posible crear un clúster no protegido, si lo hace, permitirá que cualquier usuario anónimo se conecte a él si expone los puntos de conexión de administración al Internet público. 
 
 En este artículo se proporciona información general sobre los escenarios de seguridad de los clústeres que se ejecutan en Azure o de forma independiente, así como sobre las diversas tecnologías que se utilizan para implementar estos escenarios. Estos son los escenarios de seguridad de clúster:
 
@@ -109,7 +109,11 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se proporciona información conceptual sobre la seguridad de los clústeres. Después, [cree un clúster de Azure mediante una plantilla de Resource Manager](service-fabric-cluster-creation-via-arm.md) o a través de [Azure Portal](service-fabric-cluster-creation-via-portal.md).
+En este artículo se proporciona información conceptual sobre la seguridad de los clústeres. Después,
+
+
+1.  [cree un clúster en Azure con una plantilla de Resource Manager](service-fabric-cluster-creation-via-arm.md) 
+2.  [Azure Portal](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
@@ -117,6 +121,6 @@ En este artículo se proporciona información conceptual sobre la seguridad de l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

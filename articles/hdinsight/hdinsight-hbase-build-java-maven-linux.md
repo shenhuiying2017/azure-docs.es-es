@@ -1,5 +1,5 @@
 ---
-title: "Creación de una aplicación de HBase con Maven y Java, y posterior implementación en HDInsight basado en Linux | Microsoft Docs"
+title: "Compilación de una aplicación de Java HBase para Azure HDInsight | Microsoft Docs"
 description: "Aprenda a usar Apache Maven para compilar una aplicación de Apache HBase basada en Java e implementarla después en HDInsight basado en Linux en la nube de Azure."
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f321065b9c24075837bebb71251cbc5751a1854
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: d91e05e458c6689f04dedd85a3e4adc60e6de72d
 
 
 ---
@@ -25,10 +25,8 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
 
 [Maven](http://maven.apache.org/) es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java. En este artículo, aprenderá a usarla para crear una aplicación Java básica que crea, consulta y elimina una tabla de HBase en un clúster de HDInsight basado en Linux.
 
-> [!NOTE]
-> En este documento se da por hecho que usa un clúster de HDInsight basado en Linux. Para obtener información sobre cómo utilizar un clúster de HDInsight basado en Windows, consulte [Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Windows (Hadoop)](hdinsight-hbase-build-java-maven.md)
-> 
-> 
+> [!IMPORTANT]
+> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="requirements"></a>Requisitos
 * [JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior
@@ -391,6 +389,6 @@ Cuando haya terminado con el ejemplo, use el siguiente comando desde la sesión 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8de073bbd9da8cd722eb0ebdb7140dbd15509fe6
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 004cea5afb7ed6853043841c2c820b49d8a31584
 
 
 ---
@@ -34,10 +34,6 @@ El diagrama siguiente muestra el flujo de trabajo de empaquetado dinámico.
 
 ![Codificación dinámica](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-> [!NOTE]
-> Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="common-scenario"></a>Escenario común
 1. Cargar un archivo de entrada (llamado archivo intermedio). Por ejemplo, H.264, MP4 o WMV (para obtener la lista de formatos compatibles, vea [Formatos de Media Encoder Standard](media-services-media-encoder-standard-formats.md)).
@@ -67,6 +63,6 @@ El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

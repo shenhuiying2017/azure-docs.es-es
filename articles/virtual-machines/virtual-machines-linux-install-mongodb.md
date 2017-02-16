@@ -1,5 +1,5 @@
 ---
-title: "Instalación de MongoDB en una máquina virtual Linux | Microsoft Docs"
+title: "Instalación de MongoDB en una máquina virtual Linux en Azure | Microsoft Docs"
 description: "Aprenda a instalar y configurar MongoDB en una máquina virtual Linux en Azure con el modelo de implementación de Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bec9f1fb0797b0c073dde9e65ab6bbffe8e3b5c2
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: fd323a828ee879d6093e2473accbea883f861420
 
 
 ---
@@ -35,10 +35,10 @@ En este artículo, se requiere lo siguiente:
 * la CLI de Azure *debe estar* en el modo de Azure Resource Manager mediante `azure config mode arm`.
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Instalación y configuración manuales de MongoDB en una máquina virtual
-MongoDB [proporciona instrucciones de instalación](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuciones de Linux, incluidos Red Hat/CentOS, SUSE, Ubuntu y Debian. En el ejemplo siguiente, se crea una `CoreOS`máquina virtual mediante una clave SSH almacenada en `.ssh/azure_id_rsa.pub`. Responda a los mensajes que solicitan el nombre de la cuenta de almacenamiento, el nombre DNS y las credenciales de administrador:
+MongoDB [proporciona instrucciones de instalación](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuciones de Linux, incluidos Red Hat/CentOS, SUSE, Ubuntu y Debian. En el ejemplo siguiente, se crea una `CentOS`máquina virtual mediante una clave SSH almacenada en `~/.ssh/id_rsa.pub`. Responda a los mensajes que solicitan el nombre de la cuenta de almacenamiento, el nombre DNS y las credenciales de administrador:
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
+azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
 ```
 
 Inicie sesión en la máquina virtual con la dirección IP pública que se muestra al final del anterior paso de creación de la máquina virtual:
@@ -127,7 +127,7 @@ azure group create --name myResourceGroup --location WestUS \
 Una vez finalizada la implementación, conéctese mediante SSH a la máquina virtual. Obtenga la dirección IP de la máquina virtual con el comando `azure vm show`, como en el ejemplo siguiente:
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
+azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
 Hacia el final de la salida, se muestra `Public IP address`. Conéctese mediante SSH a la máquina virtual con la dirección IP de su máquina virtual:
@@ -186,6 +186,6 @@ Las plantillas de Azure Resource Manager usan la extensión de script personaliz
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

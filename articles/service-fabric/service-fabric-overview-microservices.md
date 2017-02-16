@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2016
+ms.date: 1/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9a3a4424e04597e2a06ea4a5df421bc511bc899b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b6853d83a77658d4d59ff340cfc413be588fe469
 
 
 ---
@@ -151,11 +151,11 @@ El objetivo de Service Fabric es reducir las complejidades que conlleva crear ap
 * [Información general sobre la terminología de Service Fabric](service-fabric-technical-overview.md)
 * [Microservices: An application revolution powered by the cloud (Microservicios: una revolución en las aplicaciones con la tecnología de la nube)](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
-[Imagen 1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
-[Imagen 2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
+[Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
+[Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

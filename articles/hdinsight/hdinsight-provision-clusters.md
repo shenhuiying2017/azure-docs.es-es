@@ -16,20 +16,23 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
+ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
+ms.openlocfilehash: 14dcb8fe12bb516bc27b27f94992801d935811c8
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight"></a>Creación de clústeres de Hadoop basados en Windows en HDInsight
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Un clúster de Hadoop se compone de varias máquinas virtuales (nodos) que se usan para el procesamiento distribuido de tareas en el clúster. Azure abstrae de los detalles de implementación de la instalación y la configuración de nodos individuales, por lo que tiene que proporcionar información de configuración general. En este artículo, obtendrá información sobre estas opciones de configuración.
 
-> [!NOTE]
-> La información contenida en este documento es específica de los clústeres de HDInsight de Azure basados en Windows. Para más información sobre los clústeres basados en Linux, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-> 
-> 
+La información contenida en este documento es específica de los clústeres de HDInsight de Azure basados en Windows. Para más información sobre los clústeres basados en Linux, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+
 
 ## <a name="access-control-requirements"></a>Requisitos de control de acceso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -48,10 +51,10 @@ Cada tipo de clúster tiene dentro su propio número de nodos, la terminología 
 
 | Tipo | Nodos (número de nodos) | Diagrama |
 | --- | --- | --- |
-| Hadoop |Nodo principal (2), nodo de datos (más de 1) |![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
-| HBase |Servidor principal (2), servidor de región (más de 1), nodo maestro/ZooKeeper (3) |![Nodos de clúster de HBase en HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
-| Storm |Nodo Nimbus (2), servidor de supervisor (más de 1), nodo ZooKeeper (3) |![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
-| Spark |Nodo principal (2), nodo de trabajo (más de 1), nodo ZooKeeper (3) (gratis para el tamaño de máquina virtual ZooKeeper A1) |![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
+| Hadoop |Nodo principal (2), nodo de datos (más de&1;) |![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
+| HBase |Servidor principal (2), servidor de región (más de&1;), nodo maestro/ZooKeeper (3) |![Nodos de clúster de HBase en HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
+| Storm |Nodo Nimbus (2), servidor de supervisor (más de&1;), nodo ZooKeeper (3) |![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
+| Spark |Nodo principal (2), nodo de trabajo (más de&1;), nodo ZooKeeper (3) (gratis para el tamaño de máquina virtual ZooKeeper A1) |![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
 
 > [!IMPORTANT]
 > Si tiene pensado crear más de 32 nodos de trabajo, bien en el momento de creación del clúster o escalando el clúster tras la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
@@ -297,6 +300,6 @@ En este artículo, ha obtenido información básica acerca de cómo crear un cl�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

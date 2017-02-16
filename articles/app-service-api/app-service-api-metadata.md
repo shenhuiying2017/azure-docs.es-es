@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f5c17d51622dbc27a27c750999a925c3f80bff
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
 
 
 ---
@@ -34,7 +34,7 @@ En el [Portal de Azure](https://portal.azure.com/) , la dirección URL del punto
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Propiedad del Administrador de recursos de Azure
-También se puede configurar la dirección URL de la definición de la API de una aplicación de API mediante el [Explorador de recursos](https://resources.azure.com/) o las plantillas de [Azure Resource Manager](../resource-group-authoring-templates.md) de las herramientas de línea de comandos, como [Azure PowerShell](../powershell-install-configure.md) y la [CLI de Azure](../xplat-cli-install.md). 
+También se puede configurar la dirección URL de la definición de la API de una aplicación de API mediante el [Explorador de recursos](https://resources.azure.com/) o las plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) de las herramientas de línea de comandos, como [Azure PowerShell](/powershell/azureps-cmdlets-docs) y la [CLI de Azure](../xplat-cli-install.md). 
 
 En el **Explorador de recursos**, vaya a **suscripciones > {su suscripción} > resourceGroups > {su grupo de recursos} > proveedores > Microsoft.Web > sitios > {su sitio} > configuración > web** y verá la propiedad `apiDefinition`:
 
@@ -60,6 +60,6 @@ Si usa Administración de API de Azure con aplicaciones de API, puede utilizar m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

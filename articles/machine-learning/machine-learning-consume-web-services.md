@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 369b7c8775388f641727cb889b406ac60be13d16
+ms.sourcegitcommit: ecb2ab00b56476b4373fa06cb766384cb2fcd514
+ms.openlocfilehash: fceb4254461bd91fd2da8603af4fefa47def72e8
 
 
 ---
@@ -28,22 +28,17 @@ Estos servicios se pueden llamar mediante cualquier lenguaje de programación y 
 
 * Disponer de una conexión de red
 * Disponer de capacidades SSL para ejecutar solicitudes HTTPS
-* Disponer de capacidad para analizar JSON (a mano o mediante bibliotecas de apoyo)
+* Puede analizar JSON (directamente o con las bibliotecas de soporte técnico)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un servicio web Azure Machine Learning se puede consumir de dos maneras: como un servicio de solicitud-respuesta o como un servicio de ejecución por lotes. En cada escenario se proporciona la funcionalidad a través del servicio web RESTFul que se facilita para consumirse una vez que se ha implementado el experimento.
+Un servicio web Machine Learning de Azure se puede consumir de dos maneras: como un servicio de solicitud-respuesta o como un servicio de ejecución por lotes. En cada escenario se proporciona la funcionalidad a través del servicio web RESTFul que se facilita para consumirse una vez que se ha implementado el experimento.
 
 > [!TIP]
 > Para conocer una forma sencilla de crear una aplicación web para obtener acceso al servicio web predictivo, vea el artículo sobre [consumo de servicios web Azure Machine Learning con una plantilla de aplicación web](machine-learning-consume-web-service-with-web-app-template.md).
 > 
 > 
-
-<!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
--->
-
-Para obtener información sobre cómo crear e implementar un servicio web Azure Machine Learning, consulte el artículo sobre cómo [Implementar un servicio web Azure Machine Learning][publish]. Para obtener un tutorial paso a paso sobre la creación de un experimento de Machine Learning e implementarlo, consulte el artículo sobre [desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning][walkthrough].
+> Para obtener información acerca de cómo crear e implementar un servicio web Machine Learning, consulte [Implementar un servicio web Machine Learning][publish]. Para obtener un tutorial paso a paso acerca de la creación de un experimento de Machine Learning e implementarlo, consulte [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Machine Learning][walkthrough].
 
 ## <a name="request-response-service-rrs"></a>Servicio de solicitud-respuesta (RRS)
 Un servicio de solicitud-respuesta (RRS) es un servicio web altamente escalable y de baja latencia utilizado para proporcionar una interfaz para los modelos sin estado que se han creado e implementado desde un experimento de Azure Machine Learning Studio. Habilita escenarios donde la aplicación consumidora espera una respuesta en tiempo real.
@@ -72,7 +67,7 @@ La manera en la que encontrar esta información depende de qué tipo de servicio
 ### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Ubicación de la información en el portal de servicios web Azure Machine Learning
 Para buscar la información necesaria, tiene que realizar estos pasos:
 
-1. Inicie sesión en el portal de [servicios web Azure Machine Learning][webservicesportal].
+1. Inicie sesión en el [portal Servicios web Azure Machine Learning][webservicesportal].
 2. Haga clic en **servicios web** o **Classic Web Services** (Servicios web clásicos).
 3. Haga clic en el servicio web que está usando. 
 4. Si está trabajando con un servicio web clásico, haga clic en el punto de conexión que esté usando.
@@ -102,7 +97,7 @@ Para acceder a la página de ayuda de la API, haga clic en el vínculo **SOLICIT
 
 Para buscar la información necesaria en el portal de servicios web Azure Machine Learning:
 
-1. Inicie sesión en el portal de [servicios web Azure Machine Learning][webservicesportal].
+1. Inicie sesión en el [portal Servicios web Azure Machine Learning][webservicesportal].
 2. Haga clic en **Classic Web Services** (Servicios web clásicos).
 3. Haga clic en el servicio web que está usando. 
 4. Haga clic en el punto de conexión con el que esté trabajando.
@@ -738,6 +733,6 @@ Ahora puede usar cualquiera de las herramientas swagger. Aquí encontrará las i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

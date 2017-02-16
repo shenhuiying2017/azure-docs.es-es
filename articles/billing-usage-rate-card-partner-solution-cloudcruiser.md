@@ -4,7 +4,7 @@ description: "Proporciona una perspectiva exclusiva del socio de facturación de
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 09/08/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;sirishap;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: fc40c33c7ae28adcd2975e89c395db4cfde90a49
 
 
 ---
@@ -140,7 +140,7 @@ El primer paso de este tutorial es crear un grupo de recursos en Azure Portal y 
 
 La captura de pantalla que aparece a continuación muestra un grupo de recursos con las etiquetas asociadas.
 
-![Ilustración 11 - Grupo de recursos con etiquetas asociadas en el Portal de Azure][11]
+![Ilustración 11 - Grupo de recursos con etiquetas asociadas en Azure Portal][11]
 
 El siguiente paso es extraer la información de la API de uso en Cloud Cruiser. Actualmente, la API de uso proporciona respuestas en formato JSON. Este es un ejemplo de los datos recuperados:
 
@@ -226,6 +226,6 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

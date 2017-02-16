@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [CLI de Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Aprenda a utilizar el SDK de Java de Azure Data Lake Store para realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, etc. Para más información sobre Data Lake, consulte [Azure Data Lake Store](data-lake-store-overview.md).
@@ -63,7 +64,7 @@ El ejemplo de código disponible [en GitHub](https://azure.microsoft.com/documen
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.1</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -148,6 +149,6 @@ Tenga en cuenta que los archivos se leen y escribes mediante secuencias de Java 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

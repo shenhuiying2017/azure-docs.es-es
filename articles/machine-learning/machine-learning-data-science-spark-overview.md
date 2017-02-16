@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: ca799d03076175d6a7193c0e58b349a6cb61693b
-ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 
 
@@ -37,7 +37,7 @@ Los pasos de instalación y el código proporcionados en este tutorial son para 
 
 2. Necesita un clúster de Spark 1.6 en HDInsight 3.4 para completar este tutorial. Para crear uno, consulte las instrucciones proporcionadas en [Introducción: creación de clústeres de Apache Spark en HDInsight para Linux y ejecución de consultas interactivas mediante Spark SQL (versión preliminar)](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). En el menú **Seleccionar tipo de clúster** se especifica el tipo de clúster y la versión. 
 
-![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+![Configuración del inicio de sesión del clúster](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 <!-- -->
 
@@ -107,11 +107,11 @@ Hemos tomado una muestra del 0,1 % de estos archivos y los hemos combinado en ar
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Ejecución del código desde un Notebook de Jupyter en el clúster de Spark
 Puede iniciar Jupyter Notebook desde el portal de Azure. Busque el clúster de Spark en el panel y haga clic en él para entrar en la página de administración del clúster. Después, haga clic en **Paneles de clúster** -> **Jupyter Notebook** para abrir el cuaderno asociado al clúster Spark.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+![Paneles de clúster](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
 También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acceder a los cuadernos de Jupyter Notebook. Reemplace la parte CLUSTERNAME de esta dirección URL por el nombre de su propio clúster. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+![Examinar cuadernos de Jupyter Notebook](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
 Seleccione PySpark para ver un directorio que contiene algunos ejemplos de cuadernos previamente empaquetados que utilizan la API de PySpark. Los cuadernos que contienen los ejemplos de código para este conjunto de aplicaciones de tema de Spark están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
@@ -154,6 +154,6 @@ Ahora que ya ha configurado un clúster de HDInsight Spark y ha cargado los cuad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

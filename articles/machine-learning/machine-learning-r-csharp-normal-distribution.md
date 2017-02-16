@@ -1,6 +1,6 @@
 ---
-title: "Conjunto de servicios web de distribución normal | Microsoft Docs"
-description: "Conjunto de servicios web de distribución normal"
+title: "(obsoleto) Conjunto de servicios web de distribución normal - Azure | Microsoft Docs"
+description: "(obsoleto) Conjunto de servicios web de distribución normal"
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3783df1f80fc6453d64c16f5002262fb7197309
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: da7b70171d13c82e9269064069e69a35b9b2daaa
 
 
 ---
-# <a name="normal-distribution-suite"></a>Conjunto de distribución normal
+# <a name="deprecated-normal-distribution-suite"></a>(obsoleto) Conjunto de distribución normal
+
+> [!NOTE]
+> Microsoft DataMarket está en proceso de retirada y esta API está en desuso. 
+> 
+> Puede encontrar muchos experimentos y API de ejemplo útiles en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com). Para más información sobre la Galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 El conjunto de distribución normal es una serie de servicios web de ejemplo ([Generador](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Calculadora de cuantil](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Calculadora de probabilidad](https://datamarket.azure.com/dataset/aml_labs/ndp5)) que ayudan a generar y administrar distribuciones normales. Los servicios permiten generar una secuencia de distribución normal de cualquier longitud, calcular los cuantiles de una probabilidad determinada y calcular la probabilidad a partir de un cuantil específico. Cada uno de los servicios genera salidas diferentes en función del servicio seleccionado (consulte la siguiente descripción). El conjunto de distribución normal se basa en funciones qnorm, rnorm y pnorm de R que se incluyen en el paquete de estadísticas de R.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -269,6 +276,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

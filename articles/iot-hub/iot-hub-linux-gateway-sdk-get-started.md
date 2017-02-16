@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
-ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
@@ -28,7 +28,7 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 
 1. Abra un shell.
 2. Vaya a la carpeta raíz en la copia local del repositorio **azure-iot-gateway-sdk** .
-3. Ejecute el script **tools/build.sh --skip-unittests**. Este script emplea la utilidad **cmake** para crear una carpeta llamada **build** en la carpeta raíz de la copia local del repositorio **azure-iot-gateway-sdk** y generar un archivo Make. A continuación, el script compila la solución, omitiendo las pruebas unitarias. Quite el parámetro **--skip unittests** si desea crear y ejecutar las pruebas unitarias.
+3. Ejecute el script **tools/build.sh** . Este script emplea la utilidad **cmake** para crear una carpeta llamada **build** en la carpeta raíz de la copia local del repositorio **azure-iot-gateway-sdk** y generar un archivo Make. A continuación, el script compila la solución, omitiendo las pruebas unitarias y las pruebas completas. Agregue el parámetro **--run-unittests** si desea crear y ejecutar las pruebas unitarias. Agregue el parámetro **--run-e2e-tests** si desea crear y ejecutar las pruebas completas.
 
 > [!NOTE]
 > Cada vez que ejecute el script **build.sh**, elimina y luego vuelve a crear la carpeta **build** en la carpeta raíz de la copia local del repositorio **azure-iot-gateway-sdk**.
@@ -92,6 +92,6 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -9,7 +9,7 @@
 ###[Instrucciones de almacenamiento en caché: modelos y prácticas](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 
-# Primeros pasos
+# Introducción
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
@@ -45,21 +45,21 @@
 ###[Actualizar a un tamaño y nivel distintos](cache-how-to-scale.md)
 ###[Usar un clúster en Redis para reducir o escalar horizontalmente](cache-how-to-premium-clustering.md)
 
-#Referencia
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [CLI de Azure](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Referencia
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Clientes de Redis](http://redis.io/clients)
 ## [Comandos de Redis](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Recursos
 ## [Ejemplos de Redis Cache](cache-redis-samples.md)
-
-#Recursos
-##[Precios](https://azure.microsoft.com/pricing/details/cache/)
+## [Precios](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,24 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: arramac
+ms.date: 12/13/2016
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db87e15ceb12238dd7b402cd04cfd36c62e3cab7
+ms.sourcegitcommit: d2728682d4fada23d884d0a6b7e2cf4cda38aa33
+ms.openlocfilehash: 32e8fb12e2b80260f7b4c5c6cf4b1b07ec766aca
 
 
 ---
 # <a name="default-quotas-for-documentdb"></a>Cuotas predeterminadas para DocumentDB
-En la tabla siguiente se describen las cuotas predeterminadas para los recursos de base de datos de Azure DocumentDB. 
 
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
-
-Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](documentdb-increase-limits.md). El aumento de la cuota puede tardar hasta 24 horas en llevarse a cabo después de recibir la información necesaria. 
+DocumentDB es una base de datos de escala global en el que se pueden escalar el rendimiento y almacenamiento para gestionar todo lo que requiera la aplicación. Si tiene alguna pregunta sobre la escala que DocumentDB proporciona, envíe un correo electrónico a askdocdb@microsoft.com.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

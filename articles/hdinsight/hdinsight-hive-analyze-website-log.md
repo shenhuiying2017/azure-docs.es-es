@@ -16,13 +16,16 @@ ms.topic: article
 ms.date: 05/17/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7038ba5e4229f65125efffb1d403364fc36a3783
+ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
+ms.openlocfilehash: 503c8a98ea5437d24ff69f3b8f44c4bfb13e391e
 
 
 ---
-# <a name="use-hive-with-hdinsight-to-analyze-logs-from-websites"></a>Uso de Hive con HDInsight para analizar registros de sitios web
+# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Uso de Hive con HDInsight basado en Windows para analizar registros de sitios web
 Vea cómo usar HiveQL con HDInsight para analizar registros de un sitio web. El análisis de registros de sitios web se puede usar para segmentar su público en función de actividades parecidas, clasificar los visitantes a los sitios por datos demográficos, descubrir el contenido que ven, los sitios web de los que proceden, etc.
+
+> [!IMPORTANT]
+> Los pasos de este tutorial solo se aplican a los clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 En este ejemplo, usará un clúster de HDInsight para analizar archivos de registro de sitios web a fin de conocer la frecuencia de las visitas al sitio web en un día desde sitios web externos en un día. También generará un resumen de errores de sitios web que experimentan los usuarios. Aprenderá a:
 
@@ -59,6 +62,6 @@ Pruebe el siguiente ejemplo: [Análisis de datos de sensor usando Hive con HDIns
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

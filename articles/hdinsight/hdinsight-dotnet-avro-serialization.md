@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cdc03ca462125ca379f7c0dd2460da719dce0c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2d3250eb1c0855d185228b0bca990b255f9aa9bd
 
 
 ---
@@ -859,7 +859,7 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
 ### <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Ejemplo 5: Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado
 El quinto ejemplo muestra cómo usar un códec de compresión personalizado para archivos contenedores de objetos de Avro. Puede descargar una muestra que contiene el código para este ejemplo desde el sitio de [muestras de código de Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) .
 
-La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite el uso de un códec de compresión opcional (además de los predeterminados **Null** y **Deflate**). En este ejemplo, no se implementa el códec totalmente nuevo Snappy (mencionado como códec opcional admitido en la [especificación de Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Se muestra cómo usar la implementación de .NET Framework 4.5 del códec [**Deflate**][deflate-110], que proporciona un algoritmo de compresión basado en la biblioteca de compresión [zlib](http://zlib.net/) mejor que el predeterminado de .NET Framework 4.
+La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite el uso de un códec de compresión opcional (además de los predeterminados **Null** y **Deflate**). En este ejemplo, no se implementa el códec totalmente nuevo Snappy (mencionado como códec opcional admitido en la [especificación de Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Se muestra cómo usar la implementación de .NET Framework 4.5 del códec [**Deflate**][deflate-110], que proporciona un algoritmo de compresión basado en la biblioteca de compresión [zlib](http://zlib.net/) mejor que el predeterminado de la versión .NET Framework 4.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1390,6 +1390,6 @@ Para limpiar el clúster, ejecute el comando siguiente:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

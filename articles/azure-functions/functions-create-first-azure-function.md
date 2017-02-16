@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d40304cd4f7ede4e37d32f66330ac712d325f898
-ms.openlocfilehash: ea7d8acec83103c981bad279507dd7ead5f72370
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 6f42f79abed80df12148463e25935893a4bbdcde
 
 
 ---
@@ -68,7 +68,7 @@ Este inicio rápido demuestra una ejecución sencilla de una función desencaden
 * [Prueba de Azure Functions](functions-test-a-function.md)  
    describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
-  Aborda los planes de servicio disponibles con Azure Functions, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado. 
+  Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
 * [¿Qué es Servicios de aplicaciones de Azure?](../app-service/app-service-value-prop-what-is.md)  
    Azure Functions aprovecha la plataforma Azure App Service para obtener una funcionalidad básica, como implementaciones, variables de entorno y diagnósticos. 
 
@@ -77,6 +77,6 @@ Este inicio rápido demuestra una ejecución sencilla de una función desencaden
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

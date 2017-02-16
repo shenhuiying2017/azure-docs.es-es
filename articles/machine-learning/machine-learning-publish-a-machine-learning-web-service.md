@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44afeaa05ff2a8ab5a685d9f82880b0fa50f490b
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
 
 
 ---
@@ -27,7 +27,7 @@ Desde una perspectiva general, esto se realiza en tres pasos:
 
 * **[Crear un experimento de entrenamiento]** : el Estudio de aprendizaje automático de Azure es un entorno de desarrollo visual de colaboración que se utiliza para entrenar y probar un modelo de análisis predictivo con los datos de entrenamiento que proporcione.
 * **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
-* **Implementarlo como un servicio web**: puede implementar el experimento predictivo como un servicio web de Azure [nuevo] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
+* **[Implementarlo como un servicio web]**: puede implementar el experimento predictivo como un servicio web de Azure [nuevo] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -54,12 +54,16 @@ Para obtener más información sobre cómo realizar esta conversión, consulte [
 
 A continuación, se describe el proceso de implementación de un experimento predictivo como servicio web nuevo. También puede implementarlo como servicio web clásico.
 
-## <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Implementación del experimento predictivo como servicio web nuevo
-Una vez preparado el experimento predictivo, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
+## <a name="deploy-it-as-a-web-service"></a>Implementación como un servicio web
+
+Puede implementar el experimento predictivo como un servicio web nuevo o como un servicio web clásico.
+
+### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Implementación del experimento predictivo como servicio web nuevo
+Una vez preparado el experimento predictivo, puede implementarlo como servicio web de Azure nuevo. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
 
 Para implementar un experimento predictivo, haga clic en la opción **Ejecutar** de la parte inferior del lienzo del experimento. Cuando el experimento haya terminado de ejecutarse, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [[New]]** (Implementar servicio web [nuevo]).  Se abrirá la página de implementación del portal Servicios web Machine Learning.
 
-### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Página de implementación de experimentos del portal Servicios web Machine Learning
+#### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Página de implementación de experimentos del portal Servicios web Machine Learning
 En la página de implementación de experimentos, escriba un nombre para el servicio web.
 Seleccione un plan de tarifa. Si ya tiene uno, puede seleccionarlo; si no, debe crear uno nuevo para el servicio.
 
@@ -73,7 +77,7 @@ A través de la página Inicio rápido del servicio web podrá acceder a las tar
 
 <!-- ![Deploy the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
 
-### <a name="test-your-web-service"></a>Prueba del servicio web
+#### <a name="test-your-new-web-service"></a>Prueba del servicios web nuevo
 Para probar el nuevo servicio web, haga clic en la opción **Test web service** (Probar servicio web) de las tareas comunes. En la página Prueba puede probar el servicio web como servicio de solicitud-respuesta (RRS) o de ejecución por lotes (BES).
 
 En la página de pruebas RRS se muestran las entradas, las salidas y los parámetros globales definidos para el experimento. Para probar el servicio web, puede escribir manualmente los valores adecuados de las entradas o bien introducir un archivo con formato de valores separados por comas (CSV) que contenga los valores de prueba.
@@ -104,22 +108,25 @@ Una vez que haya implementado el servicio web, puede hacer lo siguiente:
 * **Administrarlo** a través del portal de servicios web de Aprendizaje automático de Azure o el portal de Azure clásico
 * **Actualizarlo** si cambia el modelo
 
-### <a name="access-the-web-service"></a>Acceso al servicio web
+#### <a name="access-your-new-web-service"></a>Acceso al servicio web nuevo
 Cuando implementa el servicio web desde el Estudio de aprendizaje automático, puede enviar datos al servicio y recibir respuestas mediante programación.
 
 La página **Consume** (Consumo) proporciona toda la información que necesita para acceder al servicio web. Por ejemplo, la clave de API se ofrece para permitir el acceso autorizado al servicio.
 
 Para obtener más información sobre el acceso a un servicio web de Aprendizaje automático, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado](machine-learning-consume-web-services.md).
 
-### <a name="manage-your-new-web-service"></a>Administración de servicios web nuevos
+#### <a name="manage-your-new-web-service"></a>Administración del servicio web nuevo
 Puede administrar los servicios web clásicos mediante el portal de servicios web de Aprendizaje automático. En la [página principal del portal](https://services.azureml-test.net/), haga clic en **Servicios web**. En la página de servicios web, puede eliminar o copiar servicios. Para supervisar un servicio concreto, haga clic en el servicio y, después, haga clic en **Panel**. Para supervisar los trabajos por lotes asociados con el servicio web, haga clic en **Batch Request Log**(Registro de solicitudes por lotes).
 
-## <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Implementación del experimento predictivo como servicio web clásico
-Ahora que ha preparado el experimento predictivo suficientemente, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
+### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Implementación del experimento predictivo como servicio web clásico
+
+Ahora que ha preparado el experimento predictivo suficientemente, puede implementarlo como servicio web de Azure clásico. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
 
 Para implementar el experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo del experimento y luego haga clic en **Deploy Web Service** (Implementar servicio web). El servicio web está configurado y se colocará en el panel del servicio web.
 
 ![Implementación del servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
+
+#### <a name="test-your-classic-web-service"></a>Prueba del servicio web clásico
 
 Puede probar el servicio web en el portal de Machine Learning Studio o en Machine Learning Studio.
 
@@ -141,14 +148,14 @@ Puede habilitar el registro para diagnosticar cualquier error que vea al acceder
 
 También puede configurar los puntos de conexión del servicio web en el portal Servicios web Azure Machine Learning de una forma parecida al procedimiento mostrado anteriormente en la sección Servicio web nuevo. Las opciones son diferentes: puede agregar o cambiar la descripción del servicio, habilitar el registro y habilitar datos de ejemplo para las pruebas.
 
-### <a name="access-the-web-service"></a>Acceso al servicio web
+#### <a name="access-your-classic-web-service"></a>Acceso al servicio web clásico
 Cuando implementa el servicio web desde el Estudio de aprendizaje automático, puede enviar datos al servicio y recibir respuestas mediante programación.
 
 El panel proporciona toda la información que necesita para tener acceso a su servicio web. Por ejemplo, la clave de API se proporciona para permitir el acceso autorizado al servicio, y las páginas de ayuda de API sirven para ayudarle a empezar a escribir el código.
 
 Para obtener más información sobre el acceso a un servicio web de Aprendizaje automático, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado](machine-learning-consume-web-services.md).
 
-### <a name="manage-the-web-service"></a>Administración del servicio web
+#### <a name="manage-your-classic-web-service"></a>Administración del servicio web clásico
 Hay varias acciones que puede realizar para supervisar un servicio web. Puede actualizarlo y eliminarlo. También puede agregar puntos de conexión adicionales para un servicio web clásico aparte del punto de conexión predeterminado que se crea cuando se implementa.
 
 Para obtener más información, consulte [Administración de un área de trabajo de Azure Machine Learning](machine-learning-manage-workspace.md) y [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md).
@@ -174,14 +181,15 @@ Una opción para actualizar el servicio web es volver a entrenar el modelo media
 <!-- internal links -->
 [Crear un experimento de entrenamiento]: #create-a-training-experiment
 [Convertirlo en un experimento predictivo]: #convert-the-training-experiment-to-a-predictive-experiment
+[Implementarlo como un servicio web]: #deploy-it-as-a-web-service
 [nuevo]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [clásico]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[Acceso]: #access-the-Web-service
-[Administración]: #manage-the-Web-service-in-the-azure-management-portal
-[Actualización]: #update-the-Web-service
+[Access]: #access-the-Web-service
+[Manage]: #manage-the-Web-service-in-the-azure-management-portal
+[Update]: #update-the-Web-service
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

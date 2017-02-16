@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/09/2016
+ms.date: 01/11/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 72cc0d9ff35ff656a6134b52812b64c39a295a6f
-ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
+ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
+ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
 
 
 ---
@@ -29,10 +29,7 @@ ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
 > 
 > 
 
-## <a name="data-upload-models-in-azure-search"></a>Modelos de carga de datos en Búsqueda de Azure
-Hay dos maneras de rellenar el índice de Búsqueda de Azure con los datos. La primera opción es insertar manualmente los datos en el índice mediante la [API de REST](search-import-data-rest-api.md) o el [SDK de .NET](search-import-data-dotnet.md) de Azure Search. La segunda opción es [seleccionar un origen de datos admitido](search-indexer-overview.md) para el índice de Búsqueda de Azure y permitir que este extraiga automáticamente los datos y los sitúe en el servicio de búsqueda.
-
-Esta guía solo tratará instrucciones sobre cómo utilizar el modelo de inserción de carga de datos (que solo se admite en la [API de REST](search-import-data-rest-api.md) y el [SDK de .NET](search-import-data-dotnet.md)), pero también puede obtener más información sobre el modelo de extracción siguiente.
+Hay dos maneras de rellenar un índice con sus datos. La primera opción es insertar manualmente los datos en el índice mediante la [API de REST](search-import-data-rest-api.md) o el [SDK de .NET](search-import-data-dotnet.md) de Azure Search. La segunda opción es [señalar un origen de datos admitido](search-indexer-overview.md) hacia el índice y dejar que Azure Search y extraiga automáticamente los datos.
 
 ## <a name="push-data-to-an-index"></a>Inserción de datos en un índice
 Este enfoque se basa en cómo enviar mediante programación los datos a Búsqueda de Azure para que estén disponibles para las búsquedas. En el caso de las aplicaciones con requisitos de latencia muy baja (por ejemplo, si se necesita que las operaciones de búsqueda estén sincronizadas con las bases de datos dinámicas del inventario), la única opción es un modelo de inserción.
@@ -41,16 +38,27 @@ Para insertar datos en un índice, se pueden usar la [API de REST](https://docs.
 
 Este enfoque es más flexible que el modelo de extracción, ya que los documentos se pueden cargar individualmente o en lotes (hasta 1000 por lote o 16 MB, lo que ocurra primero). El modelo de inserción también le permite cargar documentos en Búsqueda de Azure independientemente de dónde están los datos.
 
+El formato de datos que entiende Azure Search es JSON, y todos los documentos del conjunto de datos deben tener campos que se asignen a los campos definidos en el esquema del índice. 
+
 ## <a name="pull-data-into-an-index"></a>Extracción de datos e introducción en un índice
-El modelo de extracción rastrea un origen de datos admitido y carga automáticamente para usted los datos en el índice de Búsqueda de Azure. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice.
+El modelo de extracción rastrea un origen de datos compatible y carga automáticamente los datos en el índice. En Azure Search, esta funcionalidad se implementa mediante *indexadores*, que actualmente están disponibles para [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) y SQL Server en máquinas virtuales de Azure. 
 
-En Azure Search, esta funcionalidad se implementa mediante *indexadores*, que actualmente están disponibles en [Blob storage (vista previa)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL Database y SQL Server en VM de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+Los indexadores conectan un índice a un origen de datos (normalmente una tabla, vista o estructura equivalente) y asignan campos de origen a los campos equivalentes del índice. Durante la ejecución, el conjunto de filas se transforma automáticamente en JSON y se carga en el índice especificado. Todos los indexadores admiten la programación, de modo que se puede especificar con qué frecuencia se deben actualizar los datos. La mayoría de los indexadores proporcionan seguimiento de cambios, siempre el origen de datos lo admita. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice. 
 
-La funcionalidad de indexador se expone en [Azure Portal](search-import-data-portal.md) así como en la [API de REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
+La funcionalidad del indexador se expone en [Azure Portal](search-import-data-portal.md) así como en la [API de REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) y el [SDK de .NET](https://docs.microsoft.com/otnet/api/microsoft.azure.search.iindexersoperations?redirectedfrom=MSDN#microsoft_azure_search_iindexersoperations). 
+
+Una ventaja del uso el portal es que Azure Search normalmente puede generar automáticamente un esquema de índice predeterminado mediante la lectura de los metadatos del conjunto de datos de origen. El índice generado se puede modificar hasta que se procese, tras lo cual las únicas modificaciones de esquema que se permiten son las que no requieren volver a indexar. Si los cambios que desea realizar afectan directamente el esquema, necesitaría volver a generar el índice. 
+
+Una vez que se rellena el índice, puede usar el **Explorador de búsqueda** de la barra de comandos del portal como paso de verificación.
+
+## <a name="query-an-index-using-search-explorer"></a>Realización de consultas en un índice mediante el Explorador de búsqueda
+
+Una forma rápida de realizar una comprobación preliminar en la carga de documentos es usar el **Explorador de búsqueda** en el portal. El explorador permite consultar un índice sin tener que escribir código. La búsqueda se basa en los valores predeterminados, como la [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) y el [parámetro de consulta searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents) predeterminado. Los resultados se devuelven en formato JSON, con el fin de que pueda revisar todo el documento.
+
+> [!TIP]
+> Muchos [ejemplos de código de Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluyen conjuntos de datos incrustados o rápidamente disponibles, lo que supone una forma sencilla de empezar a trabajar. El portal también proporciona un indexador de ejemplo y un origen de datos que consta del conjunto de datos de una pequeña inmobiliaria (denominado "realestate-us-sample"). Al ejecutar el indexador preconfigurado en el origen de datos de ejemplo, se crea un índice que se carga con documentos que, luego, se pueden consultar en el Explorador de búsqueda o mediante un código creado por usted.
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

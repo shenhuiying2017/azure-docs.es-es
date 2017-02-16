@@ -4,7 +4,7 @@ description: "Describe cómo solucionar algunos problemas comunes de suscripció
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: felixwu
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 ms.assetid: a0907da1-cb2d-41d1-a97f-43841fabe355
@@ -13,16 +13,32 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/24/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e2e22b767ce1d54e7b90158fb6adb877e3a165b8
+ms.sourcegitcommit: 73c4ff6fdbde09dd08d1bcacf0ec87c7fa43f3b2
+ms.openlocfilehash: 7ded94f432f8e61153ee8dfbf2508b288a4ad5fd
 
 
 ---
 # <a name="i-cant-sign-up-for-azure"></a>No puedo suscribirme a Azure
 Si no puede suscribirse a Azure, hay varias cosas que puede comprobar para solucionar el problema.
+
+## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barra de progreso se bloquea en la sección "Comprobación de identidad por tarjeta"
+
+En el proceso de registro Azure, hay una sección denominada "Comprobación de identidad por tarjeta". Si se bloquea la barra de progreso:
+
+![Captura de pantalla de la sección de comprobación de identidad por tarjeta quedándose bloqueada durante el registro](./media/billing-troubleshoot-azure-sign-up-issues/identity-verification-hangs.PNG)
+
+Este problema se produce cuando se bloquean las cookies de terceros para su explorador.
+
+### <a name="suggestion"></a>Sugerencia
+
+1. Permita las cookies de terceros en la configuración del explorador.
+  * En Edge, vaya a Settings (Configuración) -> View advanced settings (Ver configuración avanzada) -> Cookies y seleccione "Don't block cookies" (No bloquear cookies).
+  * En Chrome, vaya a Configuración-> Mostrar configuración avanzada-> Privacidad-> Configuración de contenido y anule la selección de la casilla "Bloquear los datos de sitios y las cookies de terceros".
+2. Actualice la página de registro en Azure y compruebe si se ha resuelto el problema.
+3. Si la actualización no soluciona el problema, salga y reinicie el explorador e inténtelo de nuevo.
 
 ## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>No hay mensajes de texto o llamadas durante la comprobación de la cuenta de suscripción
 * Compruebe que su número de teléfono puede recibir SMS.
@@ -39,8 +55,8 @@ Si no puede suscribirse a Azure, hay varias cosas que puede comprobar para soluc
 
 > [!NOTE]
 > Puede cambiar el número de teléfono preferido en un momento posterior [actualizando la información del perfil](billing-how-to-change-azure-account-profile.md).
-> 
-> 
+>
+>
 
 ## <a name="credit-card-declined-or-not-accepted"></a>Tarjeta de crédito rechazada o no aceptada
 Asegúrese de que el método de pago que usa en la suscripción es compatible con las activaciones o los pagos de Azure
@@ -77,15 +93,14 @@ Si no tiene una clave OSA, póngase en contacto con uno de los asociados de Micr
 ¿Ha utilizado una suscripción de Azure en el pasado? El contrato de términos de uso de Azure limita la activación de la evaluación gratuita solo para un usuario que es nuevo en Azure. Si tiene cualquier otro tipo de suscripción de Azure, no puede activar una evaluación gratuita.
 
 ### <a name="suggestion"></a>Sugerencia
-* Si activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de una suscripción de pago por uso. 
+* Si activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de una suscripción de pago por uso.
 * Compruebe si tiene derecho a una oferta ventajosa. Obtenga más información en la [página Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Los planes de ofertas requieren requisitos previos específicos.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente. 
+Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

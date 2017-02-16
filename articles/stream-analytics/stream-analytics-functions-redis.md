@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/26/2016
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26808d4d73e5b6256b56dd3c5d5ae5d075eaac5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e792f8c8b1ffddbd534b1660421e4cc89a63d35a
 
 
 ---
@@ -69,13 +69,13 @@ Ahora vamos a conectar la cola con el trabajo de Análisis de transmisiones que 
     ```
 
 ## <a name="create-an-azure-redis-cache"></a>Creación de una instancia de Caché en Redis de Azure
-Para crear una instancia de Azure Redis Cache, siga la sección .NET de [Uso de Azure Redis Cache][use-rediscache] hasta la sección llamada ***Configuración de los clientes de caché***.
+Para crear una instancia de Caché en Redis de Azure, siga la sección .NET de [Uso de Caché en Redis de Azure][use-rediscache] hasta la sección llamada ***Configuración de los clientes de caché***.
 Una vez que finalice, tendrá una nueva instancia de Caché en Redis. En **Toda la configuración**, seleccione **Claves de acceso** y anote el contenido de ***Cadena de conexión principal***.
 
 ![Captura de pantalla de arquitectura](./media/stream-analytics-functions-redis/redis-cache-keys.png)
 
 ## <a name="create-an-azure-function"></a>Creación de una Función de Azure
-Siga el tutorial [Creación de su primera instancia de Azure Functions][functions-getstarted] para comenzar a trabajar con Azure Functions. Si ya cuenta con una función de Azure que desea usar, omita este paso y vaya a [Escritura en Caché en Redis](#Writing-to-Redis-Cache)
+Siga el tutorial [Creación de su primera función de Azure][functions-getstarted] para comenzar a trabajar con Azure Functions. Si ya cuenta con una función de Azure que desea usar, omita este paso y vaya a [Escritura en Caché en Redis](#Writing-to-Redis-Cache)
 
 1. En el portal, seleccione App Services en el menú de navegación de la izquierda y haga clic en el nombre de la Function App de Azure para ir al sitio web de esta.
     ![Captura de pantalla de lista de funciones de App Services](./media/stream-analytics-functions-redis/app-services-function-list.png)
@@ -207,6 +207,6 @@ Para mantenerse al día con las noticias y características más recientes, siga
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

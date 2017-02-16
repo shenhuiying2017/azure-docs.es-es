@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b57bd17a8887dbf9bdecee4a3ad79b55ec7fb610
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 2fbbfd3d221ef2f6bce302ed169eddf5a8b0d73e
 
 
 ---
@@ -30,11 +30,13 @@ Al usar WebHCat (anteriormente conocido como Templeton,) para trabajar con HDIns
 ## <a name="modifying-configuration"></a>Modificación de la configuración
 > [!IMPORTANT]
 > Algunos de los errores que se muestran en este documento se producen porque se ha superado un máximo configurado. Cuando el paso de la resolución menciona que puede cambiar un valor, debe usar una de las acciones siguientes para realizar el cambio:
-> 
-> 
+
 
 * Para clústeres de **Windows** : use una acción de script para configurar el valor durante la creación del clúster. Para obtener más información, vea [Desarrollar acciones de script](hdinsight-hadoop-script-actions.md).
 * Para clústeres **Linux** : use Ambari (web o API de REST) para modificar el valor. Para obtener más información, vea [Administrar HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
+
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="default-configuration"></a>Configuración predeterminada
 Los son los valores de configuración predeterminados que pueden afectar al rendimiento de WebHCat o provocar errores si se superan estos valores:
@@ -42,7 +44,7 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 | Configuración | Qué hace | Valor predeterminado |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |El número máximo de trabajos que pueden estar activos de manera simultánea (pendientes o en ejecución) |10.000 |
-| [templeton.exec.max-procs][max-procs] |El número máximo de solicitudes que se pueden atender de manera simultánea |20 | |
+| [templeton.exec.max-procs][max-procs] |El número máximo de solicitudes que se pueden atender de manera simultánea |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |El número de días que se conservará el historial de trabajos |7 días |
 
 ## <a name="too-many-requests"></a>Demasiadas solicitudes
@@ -86,6 +88,6 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

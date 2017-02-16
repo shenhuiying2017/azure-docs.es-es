@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: d7e51bee4b9ec4441a080004f938cdc609fd1250
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e4e8cf878d08aab41426fcebe1c43d7a9a97b57d
 
 
 ---
@@ -99,7 +99,7 @@ HDInsight proporciona varios scripts para instalar los componentes adicionales e
 
 | Nombre | Script |
 | --- | --- |
-| **Instalar Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Consulte [Instalar y usar Spark en clústeres de HDInsight][hdinsight-install-spark]. |
+| **Instalar Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vea [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]. |
 | **Instalar R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de HDInsight][hdinsight-r-scripts]. |
 | **Instalar Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vea [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md). |
 | - **Instalar Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vea [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md). |
@@ -162,7 +162,7 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 * Proporcionar vínculos estables a recursos de script
 
     Los usuarios deben asegurarse de que todos los scripts y otros artefactos que se usan en la personalización de un clúster permanecen disponibles durante la vigencia del clúster y de que las versiones de estos archivos no cambian para la duración. Estos recursos son necesarios si es necesaria la recreación de imágenes de los nodos del clúster. La práctica recomendada es descargar y archivar todo el contenido de una cuenta de almacenamiento controlada por el usuario. Esta puede ser la cuenta de almacenamiento predeterminada o alguna de las cuentas de almacenamiento adicionales especificadas en el momento de la implementación de un clúster personalizado.
-    Por ejemplo, en los ejemplos de clústeres personalizados de Spark y R proporcionados en la documentación, hemos realizado una copia local de los recursos de esta cuenta de almacenamiento: https://hdiconfigactions.blob.core.windows.net/.
+    Así, en los ejemplos de clústeres personalizados de Spark y R proporcionados en la documentación, hemos realizado una copia local de los recursos de esta cuenta de almacenamiento: https://hdiconfigactions.blob.core.windows.net/.
 * Asegurarse de que el script de personalización del clúster es idempotente
 
     Debe esperar que se vuelve a crear una imagen de los nodos de un clúster de HDInsight durante la vigencia del clúster. El script de personalización de clústeres se ejecuta siempre que se vuelve a crear la imagen de un clúster. Este script debe estar diseñado para ser idempotente en el sentido de que tras restablecer la imagen inicial, el script debe asegurarse de que el clúster se devuelve al mismo estado personalizado en que se encontraba cuando se ejecutó el script por primera vez cuando se creó inicialmente el clúster. Por ejemplo, si un script personalizado instaló una aplicación en D:\AppLocation en su primera ejecución, en cada ejecución posterior, al restablecer la imagen inicial, el script debe comprobar si la aplicación existe en la ubicación D:\AppLocation antes de continuar con otros pasos del script.
@@ -293,8 +293,8 @@ En este registro, está claro que la acción de script de Spark se ha ejecutado 
 
 En caso de que se produzca un error de ejecución, también se incluirá la salida que lo describe en este archivo de registro. La información proporcionada en estos registros debe ser útil en la depuración de los problemas de scripts que puedan surgir.
 
-## <a name="see-also"></a>Consulte también
-* [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize]
+## <a name="see-also"></a>Otras referencias
+* [Personalización de los clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize]
 * [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]
 * [Instalación y uso de R en clústeres de Hadoop de HDInsight][hdinsight-r-scripts]
 * [Instalación y uso de Solr en clústeres de Hadoop de HDInsight](hdinsight-hadoop-solr-install.md).
@@ -311,6 +311,6 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

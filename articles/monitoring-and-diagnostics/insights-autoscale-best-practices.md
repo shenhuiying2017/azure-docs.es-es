@@ -1,8 +1,8 @@
 ---
-title: "Procedimientos recomendados de escalado automático en Azure Monitor | Microsoft Docs"
-description: "Principios para usar eficazmente el escalado automático en Azure Monitor."
+title: "Procedimientos recomendados para escalado automático | Microsoft Docs"
+description: "Aprenda los principios para realizar el escalado automático en Virtual Machines, conjuntos de escalado de máquinas virtuales y Cloud Services."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
+ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
 
 
 ---
-# <a name="best-practices-for-azure-monitor-autoscaling"></a>Procedimientos recomendados de escalado automático en Azure Monitor
-Las secciones de este documento le sirven para conocer los procedimientos recomendados de escalado automático en Azure. Tras revisar esta información, podrá usar la opción de escalado automático de mejor forma en la infraestructura de Azure.
+# <a name="best-practices-autoscaling-virtual"></a>Procedimientos recomendados de escalado automático en elementos virtuales
+En este artículo se explican los procedimientos recomendadas para el escalado automático de Azure. Se refiere a Virtual Machines, conjuntos de escalado de máquinas virtuales y Cloud Services.  Otros servicios de Azure usan distintos métodos de escalado.
 
 ## <a name="autoscale-concepts"></a>Conceptos de escalado automático
 * Un recurso solo puede tener *una* configuración de escalado automático.
@@ -46,7 +46,7 @@ Si actualiza manualmente el recuento de instancias a un valor superior o inferio
 Si usa solo una parte de la combinación, el escalado automático escala o reduce horizontalmente (y a la inversa) hasta alcanzar el valor máximo o mínimo.
 
 ### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>No alterne entre el Portal de Azure y el Portal de Azure clásico al administrar el escalado automático
-Para Cloud Services y App Services (Web Apps), use Azure Portal (portal.azure.com) para crear y administrar la configuración de escalado automático. Para los conjuntos de escala de máquinas virtuales, use PoSH, CLI o la API de REST para crear y administrar la configuración de escalado automático. No alterne entre el Portal de Azure clásico (manage.windowsazure.com) y el Portal de Azure (portal.azure.com) al administrar configuraciones de escalado automático. El Portal de Azure clásico y su back-end subyacente presentan una serie de limitaciones. Vaya al Portal de Azure para administrar el escalado automático mediante una interfaz gráfica de usuario. Las opciones son usar PowerShell de escalado automático, CLI o la API de REST (a través del Explorador de recursos de Azure).
+Para Cloud Services y App Services (Web Apps), use Azure Portal (portal.azure.com) para crear y administrar la configuración de escalado automático. Para los conjuntos de escalado de máquinas virtuales, use PowerShell, CLI o la API de REST para crear y administrar la configuración de escalado automático. No alterne entre el Portal de Azure clásico (manage.windowsazure.com) y el Portal de Azure (portal.azure.com) al administrar configuraciones de escalado automático. El Portal de Azure clásico y su back-end subyacente presentan una serie de limitaciones. Vaya al Portal de Azure para administrar el escalado automático mediante una interfaz gráfica de usuario. Las opciones son usar PowerShell de escalado automático, CLI o la API de REST (a través del Explorador de recursos de Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Elija la estadística adecuada para la métrica de diagnósticos
 Para las métricas de diagnóstico, puede elegir entre *Promedio*, *Mínimo*, *Máximo* y *Total* como métrica a partir de la que escalar. La estadística más común es *Promedio*.
@@ -67,7 +67,7 @@ Veamos un ejemplo de lo que puede llevar a producir un comportamiento confuso. C
 4. Antes de reducir verticalmente, el escalado automático intenta evaluar cuál será el estado final si reduce horizontalmente. Por ejemplo, 575 x 3 (número de instancias actual) = 1725/2 (número final de instancias al reducir verticalmente) = 862,5 subprocesos. Esto significa que el escalado automático tiene que volver a escalar horizontalmente de inmediato (incluso después de haber reducido horizontalmente) si el número promedio de subprocesos sigue siendo el mismo o incluso si se reduce solo una pequeña cantidad. Sin embargo, si se volviera a escalar verticalmente, todo el proceso se repetiría, dando lugar a un bucle infinito.
 5. Para evitar esta situación (conocida como "inestable"), el escalado automático nunca reduce verticalmente. En su lugar, pasa esto por alto y vuelve a evaluar la situación la siguiente vez que el trabajo del servicio se ejecuta. Esto podría ser confuso para muchos usuarios, ya que puede dar la impresión de que el escalado automático no funciona cuando el número promedio de subprocesos es 575.
 
-La estimación durante una reducción horizontal está pensada para evitar situaciones de inestabilidad. Conviene recordar este comportamiento cuando se elijan los mismos umbrales de escalado horizontal y reducción horizontal.
+La estimación durante una reducción horizontal está diseñada para evitar situaciones "oscilantes", donde las acciones de reducción horizontal y escalado horizontal avanzan y retroceden continuamente. Recuerde este comportamiento cuando elija los mismos umbrales de escalado horizontal y reducción horizontal.
 
 Nuestra recomendación es establecer un margen suficiente entre el escalado horizontal y en los umbrales. Por ejemplo, echemos un vistazo a esta siguiente combinación de reglas, que es mejor.
 
@@ -152,7 +152,6 @@ El escalado automático notifica a los administradores y a los colaboradores del
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

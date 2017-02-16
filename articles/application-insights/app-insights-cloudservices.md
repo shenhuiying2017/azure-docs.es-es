@@ -15,13 +15,13 @@ ms.workload: tbd
 ms.date: 11/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1022f5a2bbb9b61ce7d941de9e2a5582db22b91b
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para los Servicios en la nube de Azure
-Las [aplicaciones de servicios en la nube de Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) se pueden supervisar mediante [Application Insights][start] para obtener información sobre la disponibilidad, el rendimiento, los errores y el uso. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
+Las [aplicaciones de Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) se pueden supervisar mediante [Application Insights][start] para obtener información sobre la disponibilidad, el rendimiento, los errores y el uso. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
 
 ![Ejemplo](./media/app-insights-cloudservices/sample.png)
 
@@ -56,7 +56,7 @@ A continuación se explica cómo adaptar su propio proyecto de servicio en la nu
 ## <a name="plan-resources-and-resource-groups"></a>Planeamiento de recursos y grupos de recursos
 La telemetría de la aplicación se almacena, analiza y muestra en un recurso de Azure de tipo Application Insights. 
 
-Cada recurso pertenece a un grupo de recursos. Los grupos de recursos se usan para administrar los costos, para conceder acceso a los miembros del equipo y para implementar las actualizaciones en una transacción coordinada única. Por ejemplo, podría [escribir un script para implementar](../resource-group-template-deploy.md) un servicio en la nube de Azure y sus recursos de supervisión de Application Insights en una operación todo en uno.
+Cada recurso pertenece a un grupo de recursos. Los grupos de recursos se usan para administrar los costos, para conceder acceso a los miembros del equipo y para implementar las actualizaciones en una transacción coordinada única. Por ejemplo, podría [escribir un script para implementar](../azure-resource-manager/resource-group-template-deploy.md) un servicio en la nube de Azure y sus recursos de supervisión de Application Insights en una operación todo en uno.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
 El esquema recomendado es crear un recurso independiente para cada componente de la aplicación, es decir, cada rol web y rol de trabajo. Puede analizar cada componente por separado, pero puede crear un [panel](app-insights-dashboards.md) que reúna los gráficos de clave de todos los componentes, por lo que puede compararlos y supervisarlos conjuntamente. 
@@ -135,7 +135,7 @@ Ejecute la aplicación e inicie sesión en Azure. Abra los recursos de Applicati
 Agregue más telemetría (consulte las secciones siguientes) y luego publique la aplicación para obtener diagnósticos en vivo y comentarios sobre el uso. 
 
 #### <a name="no-data"></a>¿No hay datos?
-* Abra el icono [Búsqueda][diagnostic] para ver los eventos individuales.
+* Abra el icono [Buscar][diagnostic] para ver los eventos individuales.
 * Use la aplicación y abra varias páginas para generar telemetría.
 * Espere unos segundos y haga clic en Actualizar.
 * Consulte [Solución de problemas][qna].
@@ -215,7 +215,7 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 [Agregue el SDK de JavaScript a sus páginas web][client] para obtener telemetría basada en el explorador, como recuentos de vista de página, tiempos de carga de página y excepciones de script, y para poder editar telemetría personalizada en los scripts de página.
 
 ## <a name="availability-tests"></a>Pruebas de disponibilidad
-[Configure las pruebas web][availability] para comprobar que la aplicación permanece activa y responde adecuadamente.
+[Configure las pruebas web][availability] para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 
 ## <a name="display-everything-together"></a>Mostrar todos los elementos juntos
 Para obtener una imagen general del sistema, puede reunir los gráficos de supervisión clave en un [panel](app-insights-dashboards.md). Por ejemplo, puede anclar la solicitud y el número de errores de cada rol. 
@@ -248,6 +248,6 @@ Si tiene una aplicación móvil de cliente, inserte algún código para enviar e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

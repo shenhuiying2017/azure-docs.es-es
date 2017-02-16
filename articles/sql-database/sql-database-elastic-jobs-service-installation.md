@@ -8,7 +8,7 @@ author: ddove
 editor: 
 ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fb40d7d98486ddd74bc6f0151a816c171efa4ba4
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
 
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Información general sobre la instalación de Trabajos de base de datos elástica
 Los [**trabajos de base de datos elástica**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Portal de Azure clásico. Obtendrá acceso para crear y administrar trabajos con la API de PowerShell solo si instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
 
-Si ya instaló los **trabajos de base de datos elástica** a través del Portal a partir de un **grupo de bases de datos elásticas** existente, la última versión preliminar de PowerShell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de base de datos elástica** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
+Si ya instaló los **trabajos de base de datos elástica** a través del Portal a partir de un **grupo elástico** existente, la última versión preliminar de PowerShell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de base de datos elástica** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -147,11 +147,11 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Instalación de componentes de Trabajos de base de datos elástica mediante el Portal
-Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica** , la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
+Una vez creado el [grupo elástico](sql-database-elastic-pool-create-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica** , la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
 
 **Tiempo estimado para completar el tutorial:** 10 minutos.
 
-1. En la vista del panel del grupo de bases de datos elásticas a través del [Portal de Azure](https://portal.azure.com/#) , haga clic en **Crear trabajo**.
+1. En la vista del panel del grupo elástico a través de [Azure Portal](https://portal.azure.com/#), haga clic en **Crear trabajo**.
 2. Si va a crear un trabajo por primera vez, deberá instalar los **trabajos de base de datos elástica** haciendo clic en **TÉRMINOS DE VISTA PREVIA**.
 3. Acepte los términos haciendo clic en la casilla de verificación.
 4. En la vista "Instalar servicios", haga clic en **CREDENCIALES DEL TRABAJO**.
@@ -170,7 +170,7 @@ Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool
 Si se requiere la desinstalación, elimine el grupo de recursos. Consulte [Desinstalación de componentes de trabajos de base de datos elástica](sql-database-elastic-jobs-uninstall.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Asegúrese de que se cree una credencial con los derechos adecuados para la ejecución del script en cada base de datos del grupo. Para obtener más información, consulte [Protección de bases de datos SQL](sql-database-security.md).
+Asegúrese de que se cree una credencial con los derechos adecuados para la ejecución del script en cada base de datos del grupo. Para obtener más información, consulte [Protección de bases de datos SQL](sql-database-manage-logins.md).
 Consulte [Creación y administración de trabajos de base de datos elástica](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
@@ -181,6 +181,6 @@ Consulte [Creación y administración de trabajos de base de datos elástica](sq
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

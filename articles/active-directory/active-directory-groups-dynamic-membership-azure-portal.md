@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
@@ -26,16 +26,16 @@ El Portal de Azure clásico le ofrece la posibilidad de crear reglas avanzadas p
 ## <a name="to-create-the-advanced-rule"></a>Para crear la regla avanzada
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
-   
+
    ![Apertura de Administración de usuarios](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
-   
+
    ![Apertura de la hoja Grupos](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 4. En la hoja **Usuarios y grupos - Todos los grupos**, seleccione el comando **Agregar**.
-   
+
    ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. En la hoja **Grupo** , escriba un nombre y una descripción para el nuevo grupo. En **Tipo de pertenencia**, seleccione **Usuario dinámico** o **Dispositivo dinámico**, dependiendo de si quiere crear una regla para usuarios o dispositivos y, a continuación, seleccione **Agregar una consulta dinámica**. En el caso de atributos usados para reglas de dispositivo, consulte [Uso de atributos para crear reglas para los objetos de dispositivo](#using-attributes-to-create-rules-for-device-objects).
-   
+
    ![Adición de una regla de pertenencia dinámica](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 6. En la hoja **Reglas de pertenencia dinámica**, escriba su regla en el cuadro **Agregar una regla avanzada de pertenencia dinámica**, presione Entrar y luego seleccione **Crear** en la parte inferior de la hoja.
 7. Seleccione **Crear** on the **Grupo** para crear el grupo.
@@ -61,8 +61,8 @@ La longitud total del cuerpo de la regla avanzada no puede superar los 2048 cara
 > [!NOTE]
 > Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. También puede realizar comprobaciones Null, usando $null como constante; por ejemplo, user.department -eq $null.
 > Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regla de expresión admitidos
 En la tabla siguiente se enumeran todos los operadores de regla de expresión admitidos y su sintaxis para su uso en el cuerpo de la regla avanzada:
@@ -174,11 +174,11 @@ Ahora puede rellenar los miembros de un grupo en función del atributo de admini
 
 1. Siga los pasos del 1 al 5 de [Para crear la regla avanzada](#to-create-the-advanced-rule) y seleccione el **tipo de pertenencia** de **Usuario dinámico**.
 2. En la hoja **Dynamic membership rules** (Reglas de pertenencia dinámica), escriba la regla con la siguiente sintaxis:
-   
+
     Direct Reports for *Direct Reports for {obectID_of_manager}*. Un ejemplo de una regla válida para informes directos
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el identificador de objeto del administrador. Encontrará el identificador de objeto en Azure AD, en la pestaña **Perfil** de la página del usuario que es el administrador.
 3. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Pueden pasar unos minutos hasta que empiece a llenarse el grupo.
 
@@ -205,7 +205,6 @@ En estos artículos se proporciona información adicional sobre los grupos en Az
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,0 +1,94 @@
+---
+title: Almacenamiento de los mensajes en la nube de Azure y su lectura desde esta | Microsoft Docs
+description: "Guarde mensajes de Intel NUC en su IoT Hub, escríbalos en una tabla de Azure Table Storage y, después, léalos desde la nube."
+services: iot-hub
+documentationcenter: 
+author: shizn
+manager: timtl
+tags: 
+keywords: almacenar datos en la nube, datos almacenados en la nube, servicio en la nube de iot
+ms.assetid: ffed0c2e-b092-40e1-9113-8196ec057d67
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/28/2016
+ms.author: xshi
+translationtype: Human Translation
+ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
+ms.openlocfilehash: ac4204d6d253e59a367f110aaa3bd28fd94792ea
+
+
+---
+# <a name="create-an-azure-function-app-and-storage-account"></a>Creación de una cuenta de Azure Storage y una aplicación de Azure Function
+
+Azure Functions es una solución que permite ejecutar _funciones_ (pequeños fragmentos de código) en la nube fácilmente. Una aplicación de Azure Function hospeda la ejecución de sus funciones en Azure. 
+
+## <a name="what-you-will-do"></a>Lo que hará
+
+- Va a utilizar una plantilla de Azure Resource Manager para crear una instancia de Azure Function App y una cuenta de Azure Storage. La instancia de Azure Function App escucha los eventos de Azure IoT Hub, procesa los mensajes entrantes y los escribe en Azure Table Storage.
+
+Si tiene problemas, busque soluciones en la [página de solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
+
+
+## <a name="what-you-will-learn"></a>Lo qué aprenderá
+
+En esta lección, aprenderá lo siguiente:
+
+- Cómo utilizar Azure Resource Manager para implementar recursos de Azure.
+- Cómo utilizar una instancia de Azure Function App para procesar mensajes de IoT Hub y escribirlos en una tabla de Azure Table Storage.
+
+## <a name="what-you-need"></a>Lo que necesita
+
+Debe haber completado correctamente las lecciones anteriores:
+
+- [Lección 1: Configuración del Intel NUC como una puerta de enlace de IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+- [Lección 2: Preparación del equipo host y de Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+- [Lección 3: Recepción de mensajes del dispositivo simulado y lectura de estos desde el IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+
+## <a name="open-a-sample-app"></a>Apertura de una aplicación de ejemplo
+
+Vaya a su carpeta del repositorio `iot-hub-c-intel-nuc-gateway-getting-started`, inicialice los archivos de configuración y, después, abra el proyecto de ejemplo en Visual Studio Code ejecutando el siguiente comando:
+
+```bash
+cd Lesson4
+npm install
+gulp init
+code .
+```
+
+![Estructura del repositorio](media/iot-hub-gateway-kit-lessons/lesson4/arm_template.png)
+
+- El archivo `arm-template.json` es una plantilla de Azure Resource Manager que contiene una instancia de Azure Function App y una cuenta de Azure Storage.
+- El archivo `arm-template-param.json` es el archivo de configuración que utiliza la plantilla de Azure Resource Manager.
+- La subcarpeta `ReceiveDeviceMessages` contiene el código de Node.js para la función de Azure.
+
+## <a name="configure-azure-resource-manager-templates-and-create-resources-in-azure"></a>Configuración de las plantillas de Azure Resource Manager y creación de recursos de Azure
+
+Actualice el archivo `arm-template-param.json` en Visual Studio Code.
+
+![arm-template.json](media/iot-hub-gateway-kit-lessons/lesson4/arm_template_param.png)
+
+- Sustituya `[your IoT Hub name]` por el valor `{my hub name}` que especificara en la lección 2.
+
+Después de actualizar el archivo `arm-template-param.json`, implemente los recursos en Azure ejecutando el comando siguiente:
+
+```bash
+az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-gateway
+```
+
+Use `iot-gateway` como el valor de `{resource group name}` si no lo cambió en la lección 2.
+
+## <a name="summary"></a>Resumen
+
+Ha creado una instancia de Azure Function App para procesar mensajes de IoT Hub, así como una cuenta de Azure Storage para almacenar estos mensajes. Ahora puede leer los mensajes que envía su puerta de enlace al IoT Hub.
+
+## <a name="next-steps"></a>Pasos siguientes
+[Lectura de mensajes guardados en Azure Table Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

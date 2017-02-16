@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
+ms.sourcegitcommit: a7d0b98e1c582230c756d1c893d9cc549a5a2893
+ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
 
 
 ---
@@ -33,7 +33,7 @@ En este artículo nos centramos en estas fases relativas al Almacén de Azure Da
 ## <a name="ingest-data-into-data-lake-store"></a>Introducción de datos en el Almacén de Data Lake
 En esta sección se resaltan los distintos orígenes de datos y las distintas formas en que esos datos se pueden introducir en una cuenta de Almacén de Data Lake.
 
-![Introducción de datos en el Almacén de Data Lake](./media/data-lake-store-data-scenarios/ingest-data.png "Ingest data into Data Lake Store")
+![Ingesta de datos en Data Lake Store](./media/data-lake-store-data-scenarios/ingest-data.png "Ingesta de datos en Data Lake Store")
 
 ### <a name="ad-hoc-data"></a>Datos ad-hoc
 Representan conjuntos de datos más pequeños que se utilizan para la creación de un prototipo de una aplicación de macrodatos. Hay diferentes maneras de introducir datos ad hoc, según el origen de los datos.
@@ -91,14 +91,14 @@ Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso d
 * **Carga "sin conexión" de los datos**. Si por cualquier razón no es posible utilizar Azure ExpressRoute, puede usar el [servicio Importación/Exportación de Azure](../storage/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero a Blobs de almacenamiento de Azure. Después, puede usar [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o la [herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar datos desde Azure Storage Blobs a Data Lake Store.
 
   > [!NOTE]
-  > Al utilizar el servicio de importación y exportación, el tamaño de los archivos en los discos que se envían al centro de datos de Azure no debe ser mayor que 200 GB.
+  > Al usar el servicio Import/Export, el tamaño de los archivos en los discos que se envían al centro de datos de Azure no debe ser mayor que 195 GB.
   >
   >
 
 ## <a name="process-data-stored-in-data-lake-store"></a>Procesamiento de los datos almacenados en el Almacén de Data Lake
 Cuando los datos están disponibles en el Almacén de Data Lake, puede ejecutar un análisis en esos datos mediante las aplicaciones de macrodatos admitidas. Actualmente, se pueden utilizar HDInsight de Azure y Análisis de Azure Data Lake para ejecutar trabajos de análisis de datos en los datos almacenados en el Almacén de Data Lake.
 
-![Análisis de datos en el Almacén de Data Lake](./media/data-lake-store-data-scenarios/analyze-data.png "Analyze data in Data Lake Store")
+![Análisis de datos en Data Lake Store](./media/data-lake-store-data-scenarios/analyze-data.png "Análisis de datos en Data Lake Store")
 
 Puede buscar en los ejemplos siguientes.
 
@@ -111,7 +111,7 @@ También puede descargar o mover datos del Almacén de Azure Data Lake para situ
 * Mover datos a otros repositorios para interactuar con las canalizaciones de procesamiento de datos existentes. Por ejemplo, puede mover los datos del Almacén de Data Lake a Base de datos SQL de Azure o a SQL Server local.
 * Descargar datos en el equipo local para procesarlos en entornos IDE durante la creación de prototipos de aplicaciones.
 
-![Salida de datos del Almacén de Data Lake](./media/data-lake-store-data-scenarios/egress-data.png "Egress data from Data Lake Store")
+![Salida de datos de Data Lake Store](./media/data-lake-store-data-scenarios/egress-data.png "Salida de datos de Data Lake Store")
 
 En tales casos, puede utilizar cualquiera de las opciones siguientes.
 
@@ -128,13 +128,13 @@ También puede utilizar los métodos siguientes para escribir su propio script o
 ## <a name="visualize-data-in-data-lake-store"></a>Visualización de datos en el Almacén de Data Lake
 Puede utilizar una combinación de servicios para crear representaciones visuales de los datos almacenados en el Almacén de Data Lake.
 
-![Visualización de datos en el Almacén de Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Store")
+![Visualización de datos de Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualización de datos de Data Lake Store")
 
 * Para empezar, puede usar [Azure Data Factory para mover datos desde Data Lake Store a Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 * Después, puede [integrar Power BI con Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para crear una representación visual de los datos.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

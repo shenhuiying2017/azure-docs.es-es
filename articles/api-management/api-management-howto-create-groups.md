@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06f5bd0778fba64dbd84875d69f528d641fc5d97
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 2187c94f5deab28159594216545d7b57ef02cb70
 
 
 ---
@@ -29,7 +29,7 @@ Administración de API tiene los siguientes grupos invariables del sistema.
 * **Desarrolladores** : los usuarios del portal para desarrolladores autenticados se incluyen en este grupo. Los desarrolladores son los clientes que compilan aplicaciones con sus API. Los desarrolladores, después de que se les concede acceso al portal para desarrolladores, crean aplicaciones que llaman a las operaciones de una API.
 * **Invitados** : a este grupo pertenecen los usuarios del portal para desarrolladores no autenticados como, por ejemplo, clientes potenciales que visitan el portal para desarrolladores de una instancia de Administración de API. Se les concede determinado acceso de solo lectura, como por ejemplo la posibilidad de ver API pero no llamarlas.
 
-Además de estos grupos del sistema, los administradores pueden crear grupos personalizados o [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados][aprovechar los grupos externos en inquilinos de Azure Active Directory asociados]. Los grupos personalizados y externos pueden usarse junto con grupos del sistema en la concesión a los desarrolladores de visibilidad y acceso a productos de la API. Por ejemplo, podría crear un grupo personalizado para los desarrolladores afiliados a una organización asociada específica y permitirles el acceso a las API a partir de un producto que contenga solo las API relevantes. Un usuario puede ser miembro de más de un grupo.
+Además de estos grupos del sistema, los administradores pueden crear grupos personalizados o [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados][leverage external groups in associated Azure Active Directory tenants]. Los grupos personalizados y externos pueden usarse junto con grupos del sistema en la concesión a los desarrolladores de visibilidad y acceso a productos de la API. Por ejemplo, podría crear un grupo personalizado para los desarrolladores afiliados a una organización asociada específica y permitirles el acceso a las API a partir de un producto que contenga solo las API relevantes. Un usuario puede ser miembro de más de un grupo.
 
 En esta guía se muestra cómo los administradores de una instancia de Administración de API pueden agregar nuevos grupos y asociarlos a productos y desarrolladores.
 
@@ -43,7 +43,7 @@ Para crear un nuevo grupo, haga clic en **Publisher portal** (Portal del publica
 
 ![Portal del publicador][api-management-management-console]
 
-> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
+> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance] en el tutorial [Introducción a Azure API Management][Get started with Azure API Management].
 > 
 > 
 
@@ -91,7 +91,7 @@ Una vez seleccionados los desarrolladores que desee, haga clic en el grupo que d
 Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver en la pestaña **Usuarios** .
 
 ## <a name="next-steps"> </a>Pasos siguientes
-* Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, vea [Creación y publicación de un producto en Administración de API de Azure][Creación y publicación de un producto en Administración de API de Azure].
+* Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, consulte [Creación y publicación de un producto en Azure API Management][How create and publish a product in Azure API Management].
 * Además de crear y administrar grupos en el portal del editor, puede crear y administrar sus grupos mediante la entidad de [grupo](https://msdn.microsoft.com/library/azure/dn776329.aspx) de la API de REST de administración.
 
 [api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
@@ -105,19 +105,19 @@ Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver 
 
 [api-management-]: ./media/api-management-howto-create-groups/api-management-.png
 
-[Creación de un grupo]: #create-group
-[Asociación de un grupo a un producto]: #associate-group-product
-[Asociación de grupos a desarrolladores]: #associate-group-developer
-[Pasos siguientes]: #next-steps
+[Create a group]: #create-group
+[Associate a group with a product]: #associate-group-product
+[Associate groups with developers]: #associate-group-developer
+[Next steps]: #next-steps
 
-[Creación y publicación de un producto en Administración de API de Azure]: api-management-howto-add-products.md
+[How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
-[Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
-[aprovechar los grupos externos en inquilinos de Azure Active Directory asociados]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

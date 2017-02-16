@@ -1,5 +1,5 @@
 ---
-title: Directrices de conjuntos de disponibilidad | Microsoft Docs
+title: Directrices de conjuntos de disponibilidad de Azure | Microsoft Docs
 description: "Obtenga información sobre las directrices clave de diseño e implementación para implementar conjuntos de disponibilidad en los servicios de infraestructura de Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1af6874101acd7b977849a9b2d6c97edfc0666ca
+ms.sourcegitcommit: 2e981b0bebbc88fdad23ce8279762fe717e48a4c
+ms.openlocfilehash: 59ef4be4854c4625bed5f9f1f32e7771ccb6979d
 
 
 ---
-# <a name="availability-sets-guidelines"></a>Availability sets guidelines (Directrices de conjuntos de disponibilidad)
+# <a name="azure-availability-sets-guidelines"></a>Directrices de conjuntos de disponibilidad de Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artículo se centra en describir los pasos de planeación necesarios para que los conjuntos de disponibilidad garanticen que sus aplicaciones permanezcan accesibles durante eventos planeados o no planeados.
@@ -44,9 +44,11 @@ Como procedimiento recomendado, las aplicaciones no deben residir en una sola m�
 
 La infraestructura subyacente de Azure se divide en dominios de actualización y dominios de error. Estos dominios se definen teniendo en cuenta qué hosts compartirán un ciclo de actualización común o una infraestructura física similar como la energía y redes. Azure distribuirá automáticamente las máquinas virtuales dentro de un conjunto de disponibilidad en los dominios para mantener la disponibilidad y tolerancia a errores. Dependiendo del tamaño de la aplicación y el número de máquinas virtuales dentro de un conjunto de disponibilidad, puede ajustar el número de dominios que desea usar. Puede leer más sobre la [administración de la disponibilidad y el uso de los dominios de actualización y error](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Al diseñar la infraestructura de la aplicación, también debe planear los niveles de aplicación que usará. Agrupe las máquinas virtuales que prestan el mismo servicio a conjuntos de disponibilidad, tales como un conjunto de disponibilidad para las máquinas virtuales de front-end que ejecutan IIS. Cree un conjunto de disponibilidad independiente para las máquinas virtuales de back-end que ejecutan SQL Server. El objetivo es garantizar que un conjunto de disponibilidad proteja cada uno de los componentes de la aplicación y que la instancia siga ejecutándose al menos una vez.
+Al diseñar la infraestructura de la aplicación, planee los niveles de aplicación que usará. Agrupe las máquinas virtuales que prestan el mismo servicio a conjuntos de disponibilidad, tales como un conjunto de disponibilidad para las máquinas virtuales de front-end que ejecutan IIS. Cree un conjunto de disponibilidad independiente para las máquinas virtuales de back-end que ejecutan SQL Server. El objetivo es garantizar que un conjunto de disponibilidad proteja cada uno de los componentes de la aplicación y que la instancia siga ejecutándose al menos una vez.
 
 Los equilibradores de carga pueden usarse delante de cada nivel de aplicación junto con un conjunto de disponibilidad para garantizar que el tráfico pueda enrutarse siempre a una instancia en ejecución. Sin un equilibrador de carga, las máquinas virtuales pueden seguir ejecutándose durante los eventos de mantenimiento planeados y no planeados, pero es posible que los usuarios finales no puedan resolverlos si la máquina virtual principal no está disponible.
+
+Diseñe su aplicación para lograr una alta disponibilidad en la capa de almacenamiento. El procedimiento recomendado consiste en utilizar una cuenta de almacenamiento independiente para cada máquina virtual de un conjunto de disponibilidad. Mantenga todos los discos (sistema operativo y datos) asociados a una máquina virtual en la misma cuenta de almacenamiento. Tenga en cuenta los [límites](../storage/storage-scalability-targets.md) de la cuenta de almacenamiento al agregar más discos duros virtuales a una cuenta de almacenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
@@ -54,6 +56,6 @@ Los equilibradores de carga pueden usarse delante de cada nivel de aplicación j
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

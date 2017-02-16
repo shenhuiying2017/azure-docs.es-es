@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 10/24/2016
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 38529bf9869b38c5c932cdac56aafe0bd9045fae
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: 578059c397319147c8716e2152901dfdc15a28cd
 
 
 ---
@@ -36,7 +36,7 @@ Si se observa cualquiera de las situaciones siguientes,sus servicios en la nube 
 2. No se especifica ningún valor explícitamente para osFamily en el archivo ServiceConfiguration.cscfg del servicio en la nube. Actualmente, el sistema usa el valor predeterminado de "1" en este caso.
 3. El Portal de Azure clásico indica el valor de la familia del sistema operativo invitado como "Windows Server 2008".
 
-Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el script siguiente en Azure PowerShell, aunque debe [configurar Azure PowerShell](../powershell-install-configure.md) antes. Para obtener más detalles acerca del script, consulte [Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el script siguiente en Azure PowerShell, aunque debe [configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) antes. Para obtener más detalles acerca del script, consulte [Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -77,6 +77,6 @@ Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md)m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 6d9839d7-9303-48d2-be0f-21ce84f95a94
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 09/08/2016
 ms.author: sstein
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5916e527e078fbd6c6ee6ce0da7707611b20eafc
+ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
+ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
 
 
 ---
@@ -34,7 +35,7 @@ En este artículo se muestra cómo copiar una base de datos SQL con PowerShell e
 Para completar este artículo, necesitará lo siguiente:
 
 * Una base de datos SQL de Azure (una base de datos para copiar). Si no tiene una base de datos SQL, cree una siguiendo los pasos de este artículo: [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
-* La versión más reciente de Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* La versión más reciente de Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), por lo que los ejemplos emplean los [cmdlets de PowerShell de Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) para Resource Manager. Se admiten los [cmdlets de Base de datos SQL de Azure (clásicos)](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) del modelo de implementación clásica existentes por compatibilidad con versiones anteriores, pero se recomienda usar los cmdlets de Resource Manager.
 
@@ -122,6 +123,6 @@ El siguiente script da por hecho que el grupo y todos los grupos de recursos y s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

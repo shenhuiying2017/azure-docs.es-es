@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/05/2016
+ms.date: 12/05/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ddefdc95e8fb6e5f3743df9f4436e45cfef49b65
+ms.sourcegitcommit: f1e67f591ea32cab814257658d023395f1350773
+ms.openlocfilehash: 28f26edc36f0850ba21db3ba501793780e61612c
 
 
 ---
 # <a name="install-update-3-on-your-storsimple-device"></a>Instalación de Update 3 en el dispositivo StorSimple
+
 ## <a name="overview"></a>Información general
+
 En este tutorial se explica cómo instalar Update 3 en un dispositivo StorSimple ejecutando una versión anterior del software mediante el Portal de Azure clásico y usando el método de revisión. El método de revisión se utiliza cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple y está intentando actualizar desde una versión del software anterior a Update 1.
 
 Update 3 incluye actualizaciones de software de dispositivo, controlador LSI y firmware, Storport y Spaceport. Si actualiza desde Update 2 o una versión anterior, también será necesario aplicar iSCSI, WMI, y en algunos casos, las actualizaciones de firmware de disco. El software del dispositivo, WMI, iSCSI, el controlador LSI y las correcciones de Storport y Spaceport son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo. 
@@ -45,15 +47,12 @@ Realice los pasos siguientes para actualizar el dispositivo a [Update 3](storsim
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-1. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 3 (6.3.9600.17759)**. También se debe modificar **Fecha de última actualización:** . 
-   
-   Si está realizando la actualización desde una versión anterior a Update 2, también verá que están disponibles las actualizaciones del modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
-   
-   Las actualizaciones del modo de mantenimiento provocan interrupciones con tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. En algunos casos, cuando se ejecuta Update 1.2, es posible que el firmware del disco ya esté actualizado, en cuyo caso no es necesario instalar las actualizaciones en modo de mantenimiento.
-   
-   Si va a actualizar desde Update 2 o posterior, el dispositivo debería estar ahora actualizado. Puede omitir los demás pasos.
-2. Descargue las actualizaciones en modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB3121899, que instala las actualizaciones de firmware del disco (el resto de actualizaciones ya deben estar instaladas).
-3. Siga los pasos enumerados en [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes) para instalar las actualizaciones del modo de mantenimiento. 
+Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 3 (6.3.9600.17759)**. También se debe modificar **Fecha de última actualización:** . 
+   - Si está realizando la actualización desde una versión anterior a Update 2, también verá que están disponibles las actualizaciones del modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
+     Las actualizaciones del modo de mantenimiento provocan interrupciones con tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. En algunos casos, cuando se ejecuta Update 1.2, es posible que el firmware del disco ya esté actualizado, en cuyo caso no es necesario instalar las actualizaciones en modo de mantenimiento.
+   - Si va a actualizar desde Update 2 o posterior, el dispositivo debería estar ahora actualizado. Puede avanzar el paso siguiente.
+
+Descargue las actualizaciones en modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB3121899, que instala las actualizaciones de firmware del disco (el resto de actualizaciones ya deben estar instaladas). Siga los pasos enumerados en [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes) para instalar las actualizaciones del modo de mantenimiento. 
 
 ## <a name="install-update-3-as-a-hotfix"></a>Instalar Update 3 como una revisión
 Debe usar este procedimiento si la comprobación de la puerta de enlace produce un error al intentar instalar las actualizaciones a través del Portal de Azure clásico. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software antes de la actualización 1.
@@ -82,7 +81,7 @@ El método de revisión implica los tres pasos siguientes:
 | --- | --- | --- | --- | --- |
 | 1. |KB3186843 |Actualización de software &#42; |Regular  <br></br>Sin interrupciones |~45 min |
 | 2. |KB3186859 |Controlador LSI y firmware |Regular  <br></br>Sin interrupciones |~20 min |
-| 3. |KB3121261 |Revisión de Storport y Spaceport  </br>  Windows Server 2012 R2 |Regular  <br></br>Sin interrupciones |~20 min |
+| 3. |KB3121261 |Revisión de Storport y Spaceport  </br> Windows Server 2012 R2 |Regular  <br></br>Sin interrupciones |~20 min |
 
 &#42; *Tenga en cuenta que la actualización de software consta de dos archivos binarios: actualización de software de dispositivo precedido por `all-hcsmdssoftwareupdate` y el agente de Cis y Mds precedido por `all-cismdsagentupdatebundle`. La actualización de software de dispositivo debe instalarse antes que el agente de Cis y Mds. También debe reiniciar el controlador activo mediante el cmdlet `Restart-HcsController` después de aplicar la actualización del agente de Cis y Mds (y antes de aplicar el resto de actualizaciones).* 
 
@@ -122,6 +121,6 @@ Obtenga más información sobre el [lanzamiento de Update 3](storsimple-update3-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

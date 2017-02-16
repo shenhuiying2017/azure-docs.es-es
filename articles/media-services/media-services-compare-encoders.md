@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: dca8087230b261f14e876e49b9b0fb12579b96d0
 
 
 ---
@@ -28,8 +28,8 @@ En esta tema se comparan las funcionalidades de codificación de **Media Encoder
 ### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Medidor de facturación usado por cada codificador
 | Nombre de procesador multimedia | Precios aplicables | Notas |
 | --- | --- | --- |
-| **Media Encoder Estándar** |ENCODER |Las tareas de codificación se cobrarán en función del tamaño del recurso de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR. |
-| **Flujo de trabajo premium de codificación de medios** |CODIFICADOR PREMIUM |Las tareas de codificación se cobrarán en función del tamaño del recurso de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM. |
+| **Media Encoder Estándar** |ENCODER |Las tareas de codificación se cobrarán en función de la duración total, en minutos, de todos los archivos multimedia producidos como salida, según la tarifa especificada [aquí][1], bajo la columna ENCODER. |
+| **Flujo de trabajo de Media Encoder Premium** |CODIFICADOR PREMIUM |Las tareas de codificación se cobrarán en función de la duración total, en minutos, de todos los archivos multimedia producidos como salida, según la tarifa especificada [aquí][1], bajo la columna PREMIUM ENCODER. |
 
 ### <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
 | Formatos de archivo/contenedor de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
@@ -134,6 +134,6 @@ En esta tema se comparan las funcionalidades de codificación de **Media Encoder
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

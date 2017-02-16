@@ -1,5 +1,5 @@
 ---
-title: Supervisar el estado de los recursos de una red CDN de Azure | Microsoft Docs
+title: "Supervisión del estado de los recursos de una red CDN de Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo supervisar el estado de los recursos de una red CDN de Azure con Estado de los recursos de Azure."
 services: cdn
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/14/2016
-ms.author: mezha
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: a2fe0b6f6b3781801f74033fa8d61ae59447b9d4
-ms.openlocfilehash: d58029d5b48bbd16db2a53100f03b1b040a4bb1b
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
 
 
 ---
 
-# <a name="monitor-the-health-of-your-azure-cdn-resources"></a>Supervisar el estado de los recursos de una red CDN de Azure
+# <a name="monitor-the-health-of-azure-cdn-resources"></a>Supervisión del estado de los recursos de una red CDN de Azure
   
 El estado de los recursos de la red CDN de Azure es un subconjunto de [Estado de los recursos de Azure](../resource-health/resource-health-overview.md).  Puede usar Estado de los recursos de Azure para supervisar el estado de los recursos de una red CDN y recibir instrucciones procesables para solucionar problemas.
 
@@ -67,6 +67,6 @@ Tenemos problemas con algunos de nuestros proveedores de red CDN. | Vuelva aquí
 - [Solución de problemas de errores 404](./cdn-troubleshoot-endpoint.md)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

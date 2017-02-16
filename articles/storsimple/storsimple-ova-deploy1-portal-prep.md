@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 842ea26941a1141cde7db4e6ebff07d52aed9450
 
 
 ---
@@ -39,8 +39,8 @@ Consulte los artículos siguientes en la secuencia recomendada para implementar 
 | **#** | **En este paso** | **Hará esto…** | **Use estos documentos.** |
 | --- | --- | --- | --- |
 | 1. |**Configurar el Portal de Azure clásico** |Cree y configure el servicio de StorSimple Manager antes de aprovisionar un dispositivo virtual StorSimple. |[Preparar el portal](storsimple-ova-deploy1-portal-prep.md) |
-| 2. |**Aprovisionar la matriz virtual** |Para Hyper-V, aprovisione un dispositivo virtual de StorSimple en un sistema host que ejecuta Hyper-V en Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 y conéctese a él. <br></br> <br></br> Para VMware, aprovisione y conéctese a un dispositivo virtual local de StorSimple en un sistema host con VMware ESXi 5.5 o versiones posteriores.<br></br> |[Aprovisionamiento de una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en VMware (versión preliminar)](storsimple-ova-deploy2-provision-vmware.md) |
-| 3. |**Configurar la matriz virtual** |Para el servidor de archivos, realice la instalación inicial, registre el servidor de archivos de StorSimple y complete la instalación del dispositivo. A continuación, puede aprovisionar los recursos compartidos de SMB. <br></br> <br></br>  Para el servidor iSCSI, realice la configuración inicial, registre el servidor iSCSI de StorSimple y complete la configuración del dispositivo. A continuación, puede aprovisionar los volúmenes iSCSI. |[Configurar una matriz virtual como servidor de archivos](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Implementar una matriz virtual de StorSimple: Configurar el dispositivo virtual como servidor iSCSI (versión preliminar)](storsimple-ova-deploy3-iscsi-setup.md) |
+| 2. |**Aprovisionar la matriz virtual** |Para Hyper-V, aprovisione un dispositivo virtual de StorSimple en un sistema host que ejecuta Hyper-V en Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 y conéctese a él. <br></br> <br></br> Para VMware, aprovisione y conéctese a un dispositivo virtual local de StorSimple en un sistema host con VMware ESXi 5.5 o versiones posteriores.<br></br> |[Aprovisionamiento de una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md) (Implementación de StorSimple Virtual Array: aprovisionamiento de una matriz virtual en VMware) |
+| 3. |**Configurar la matriz virtual** |Para el servidor de archivos, realice la instalación inicial, registre el servidor de archivos de StorSimple y complete la instalación del dispositivo. A continuación, puede aprovisionar los recursos compartidos de SMB. <br></br> <br></br> Para el servidor iSCSI, realice la configuración inicial, registre el servidor iSCSI de StorSimple y complete la configuración del dispositivo. A continuación, puede aprovisionar los volúmenes iSCSI. |[Deploy StorSimple Virtual Array - Set up as file server](storsimple-ova-deploy3-fs-setup.md) (Implementación de StorSimple Virtual Array: configurar como servidor de archivos)<br></br> <br></br>[Implementar una matriz virtual de StorSimple: Configurar el dispositivo virtual como servidor iSCSI (versión preliminar)](storsimple-ova-deploy3-iscsi-setup.md) |
 
 #### <a name="deployment-videos"></a>Vídeos de implementación
 | **Para completar este paso…** | **Vea este vídeo.** |
@@ -137,7 +137,7 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 
 Mire el vídeo para obtener instrucciones paso a paso para empezar a trabajar con la matriz virtual de StorSimple.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -170,6 +170,6 @@ El siguiente paso es aprovisionar una máquina virtual para el dispositivo virtu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

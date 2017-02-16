@@ -1,0 +1,312 @@
+---
+title: Eventos programados con Azure Metadata Service| Microsoft Docs
+description: "Reaccione ante eventos de alto impacto en la máquina virtual antes de que ocurran."
+services: virtual-machines-windows, virtual-machines-linux, cloud-services
+documentationcenter: 
+author: zivraf
+manager: timlt
+editor: 
+tags: 
+ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/10/2016
+ms.author: zivr
+translationtype: Human Translation
+ms.sourcegitcommit: c7f552825f3230a924da6e5e7285e8fa7fa42842
+ms.openlocfilehash: 541709ca17b96f8334e67dbdbbd9a10eefffa06b
+
+
+---
+# <a name="azure-metadata-service---scheduled-events"></a>Azure Metadata Service: Eventos programados
+
+Azure Metadata Service le permite descubrir información sobre una máquina virtual hospedada en Azure. Eventos programados, una de las categorías expuestas, muestra información relacionada con próximos eventos (por ejemplo, un reinicio) para que la aplicación se pueda preparar y limitar la interrupción. Está disponible para todos los tipos de máquina virtual de Azure, incluso para IaaS y PaaS. El servicio permite que la máquina virtual tenga el tiempo para realizar tareas de prevención y minimizar el efecto de un evento. Por ejemplo, el servicio podría purgar las sesiones, elegir un líder nuevo o copiar datos después de observar que una instancia está programada para reinicio a fin de evitar la interrupción.
+
+
+
+## <a name="introduction---why-scheduled-events"></a>Introducción: ¿Por qué Eventos programados?
+
+Con Eventos programados, puede obtener información (es decir, descubrir) sobre eventos próximos que puedan afectar la disponibilidad de la máquina virtual y tomar medidas proactivas para limitar el impacto en el servicio.
+Las cargas de trabajo de varias instancias, que usan técnicas de replicación para mantener el estado, pueden ser vulnerables a las interrupciones frecuentes que se producen en varias instancias. Esas interrupciones pueden dar lugar a tareas costosas (por ejemplo, volver a elaborar los índices) o, incluso, a una pérdida de las réplicas.
+En muchos otros casos, usar una secuencia de cierre estable mejora la disponibilidad general del servicio. Por ejemplo, completar (o cancelar) transacciones en curso, reasignar otras tareas a otras máquinas virtuales en el clúster (conmutación por error manual) o quitar la máquina virtual de un grupo de equilibradores de carga.
+Hay casos en los que notificar a un administrador sobre un evento próximo o incluso simplemente registrar dicho evento puede mejorar el mantenimiento de las aplicaciones hospedadas en la nube.
+
+Azure Metadata Service muestra los eventos programados en los siguientes casos de uso:
+-   Mantenimiento "de alto impacto" iniciado por la plataforma (por ejemplo, la implementación del sistema operativo del host).
+-   Mantenimiento "sin impacto" iniciado por la plataforma (por ejemplo, la migración de la máquina virtual local).
+-   Llamadas interactivas (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual).
+
+
+
+## <a name="scheduled-events---the-basics"></a>Eventos programados: conceptos básicos  
+
+Azure Metadata Service expone información sobre las máquinas virtuales en ejecución mediante un punto de conexión de REST desde dentro de la máquina virtual. La información se encuentra disponible a través de una dirección IP no enrutable, de modo que no se expone fuera de la máquina virtual.
+
+### <a name="scope"></a>Scope 
+Los eventos programados se presentan a todas las máquinas virtuales en un servicio en la nube o a todas las máquinas virtuales en un conjunto de disponibilidad. Como resultado, debe revisar el campo **Recursos** del evento para identificar cuáles son las máquinas virtuales que se verán afectadas.
+
+### <a name="discover-the-endpoint"></a>Detección del punto de conexión
+Cuando una máquina virtual se crea dentro de una red virtual (VNet), el servicio de metadatos está disponible desde la dirección IP no enrutable: 169.254.169.254
+
+Cuando una máquina virtual se usa para los servicios en la nube (PaaS), el punto de conexión del servicio de metadatos se debe detectar mediante el registro.
+
+    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+
+### <a name="versioning"></a>Control de versiones 
+El servicio de metadatos usa una API con versión en el formato siguiente: http://{dirección ip}/metadata/{versión}/scheduledevents. Se recomienda que el servicio use la versión más reciente disponible en: http://{dirección ip}/metadata/latest/scheduledevents
+
+### <a name="using-headers"></a>Uso de encabezados
+Cuando consulta el Servicio de metadatos, debe proporcionar el siguiente encabezado*Metadata: true*. 
+
+### <a name="enable-scheduled-events"></a>Habilitación de eventos programados
+La primera vez que llama a los eventos programados, Azure habilita de manera implícita la característica en la máquina virtual. Como resultado, debe esperar una respuesta diferida en hasta un minuto en la primera llamada. 
+
+
+## <a name="using-the-api"></a>Uso de la API
+
+### <a name="query-for-events"></a>Consulta de eventos
+Puede consultar los eventos programados; para ello, simplemente haga la siguiente llamada
+
+    curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+
+Una respuesta contiene una matriz de eventos programados. Una matriz vacía significa que actualmente no hay eventos programados.
+En caso de que haya eventos programados, la respuesta contiene una matriz de eventos: 
+
+    {
+     "Events":[
+          {
+                "EventId":{eventID},
+                "EventType":"Reboot" | "Redeploy" | "Pause",
+                "ResourceType":"VirtualMachine",
+                "Resources":[{resourceName}],
+                "EventStatus":"Scheduled" | "Started",
+                "NotBefore":{timeInUTC},              
+         }
+     ]
+    }
+
+EventType captura el impacto esperado en la máquina virtual donde:
+- Pause: la máquina virtual está programada para pausarse por unos segundos. No hay ningún impacto en la memoria, los archivos abiertos ni las conexiones de red.
+- Reboot: la máquina virtual está programada para reiniciarse (se borra la memoria).
+- Redeploy: la máquina virtual está programada para moverse a otro nodo (el disco efímero se pierde). 
+
+Cuando un eventos está programado (Status = Scheduled), Azure comparte el tiempo después del cual se puede iniciar el evento (especificado en el campo NotBefore).
+
+### <a name="starting-an-event-expedite"></a>Inicio de un evento (acelerar)
+
+Una vez que se entera de un evento próximo y que completa la lógica para un cierre estable, puede indicar a Azure que se mueva más rápido (cuando sea posible) mediante una llamada **POST** 
+ 
+
+## <a name="powershell-sample"></a>Ejemplo de PowerShell 
+
+El ejemplo siguiente lee el servidor de metadatos de los eventos programados y los anota en el registro de eventos de la aplicación antes de reconocerlos.
+
+```PowerShell
+$localHostIP = "169.254.169.254"
+$ScheduledEventURI = "http://"+$localHostIP+"/metadata/latest/scheduledevents"
+
+# Call Azure Metadata Service - Scheduled Events 
+$scheduledEventsResponse =  Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $ScheduledEventURI -Method get 
+
+if ($json.Events.Count -eq 0 )
+{
+    Write-Output "++No scheduled events were found"
+}
+
+for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventIdx++)
+{
+    if ($scheduledEventsResponse.Events[$eventIdx].Resources[0].ToLower().substring(1) -eq $env:COMPUTERNAME.ToLower())
+    {    
+        # YOUR LOGIC HERE 
+         pause "This Virtual Machine is scheduled for to "+ $scheduledEventsResponse.Events[$eventIdx].EventType
+
+        # Acknoledge the event to expedite
+        $jsonResp = "{""StartRequests"" : [{ ""EventId"": """+$scheduledEventsResponse.events[$eventIdx].EventId +"""}]}"
+        $respbody = convertto-JSon $jsonResp
+       
+        Invoke-RestMethod -Uri $ScheduledEventURI  -Headers @{"Metadata"="true"} -Method POST -Body $jsonResp 
+    }
+}
+
+
+``` 
+
+
+## <a name="c-sample"></a>Ejemplo de C\# 
+El código siguiente es de un cliente que muestra API para comunicarse con el Servicio de metadatos
+```csharp
+   public class ScheduledEventsClient
+    {
+        private readonly string scheduledEventsEndpoint;
+        private readonly string defaultIpAddress = "169.254.169.254"; 
+
+        public ScheduledEventsClient()
+        {
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+        }
+        /// Retrieve Scheduled Events 
+        public string GetDocument()
+        {
+            Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
+            using (var webClient = new WebClient())
+            {
+                webClient.Headers.Add("Metadata", "true");
+                return webClient.DownloadString(cloudControlUri);
+            }   
+        }
+
+        /// Issues a post request to the scheduled events endpoint with the given json string
+        public void PostResponse(string jsonPost)
+        {
+            using (var webClient = new WebClient())
+            {
+                webClient.Headers.Add("Content-Type", "application/json");
+                webClient.UploadString(scheduledEventsEndpoint, jsonPost);
+            }
+        }
+    }
+
+```
+Los eventos programados se pueden analizar mediante las siguientes estructuras de datos 
+
+```csharp
+    public class ScheduledEventsDocument
+    {
+        public List<CloudControlEvent> Events { get; set; }
+    }
+
+    public class CloudControlEvent
+    {
+        public string EventId { get; set; }
+        public string EventStatus { get; set; }
+        public string EventType { get; set; }
+        public string ResourceType { get; set; }
+        public List<string> Resources { get; set; }
+        public DateTime NoteBefore { get; set; }
+    }
+
+    public class ScheduledEventsApproval
+    {
+        public List<StartRequest> StartRequests = new List<StartRequest>();
+    }
+
+    public class StartRequest
+    {
+        [JsonProperty("EventId")]
+        private string eventId;
+
+        public StartRequest(string eventId)
+        {
+            this.eventId = eventId;
+        }
+    }
+
+```
+
+Un programa de ejemplo que usa el cliente para recuperar, controlar y reconocer eventos:   
+
+```csharp
+public class Program
+    {
+    static ScheduledEventsClient client;
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            client = new ScheduledEventsClient();
+            string json = client.GetDocument();
+            ScheduledEventsDocument scheduledEventsDocument = JsonConvert.DeserializeObject<ScheduledEventsDocument>(json);
+
+            HandleEvents(scheduledEventsDocument.Events);
+
+            // Wait for user response
+            Console.WriteLine("Press Enter to approve executing events\n");
+            Console.ReadLine();
+
+            // Approve events
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
+            {
+                scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
+            }
+            if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
+            {
+                // Serialize using Newtonsoft.Json
+                string approveEventsJsonDocument =
+                    JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
+
+                Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
+                client.PostResponse(approveEventsJsonDocument);
+            }
+
+            Console.WriteLine("Complete. Press enter to repeat\n\n");
+            Console.ReadLine();
+            Console.Clear();
+        }
+    }
+
+    private static void HandleEvents(List<CloudControlEvent> events)
+    {
+        // Add logic for handling events here
+    }
+}
+
+```
+
+## <a name="python-sample"></a>Ejemplo de Python 
+
+```python
+
+
+#!/usr/bin/python
+
+import json
+import urllib2
+import socket
+import sys
+
+metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+headers="{Metadata:true}"
+this_host=socket.gethostname()
+
+def get_scheduled_events():
+   req=urllib2.Request(metadata_url)
+   req.add_header('Metadata','true')
+   resp=urllib2.urlopen(req)
+   data=json.loads(resp.read())
+   return data
+
+def handle_scheduled_events(data):
+    for evt in data['Events']:
+        eventid=evt['EventId']
+        status=evt['EventStatus']
+        resources=evt['Resources'][0]
+        eventype=evt['EventType']
+        restype=evt['ResourceType']
+        notbefore=evt['NotBefore'].replace(" ","_")
+        if this_host in evt['Resources'][0]:
+            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
+            print "++ Add you logic here"
+
+def main():
+   data=get_scheduled_events()
+   handle_scheduled_events(data)
+   
+
+if __name__ == '__main__':
+  main()
+  sys.exit(0)
+
+
+```
+## <a name="next-steps"></a>Pasos siguientes 
+[Mantenimiento planeado de máquinas virtuales en Azure](./virtual-machines-linux-planned-maintenance.md)
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

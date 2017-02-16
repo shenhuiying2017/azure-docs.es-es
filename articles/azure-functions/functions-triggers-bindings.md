@@ -1,6 +1,6 @@
 ---
-title: Enlaces y desencadenadores de Azure Functions | Microsoft Docs
-description: "Descripción sobre cómo utilizar desencadenadores y enlaces en Funciones de Azure."
+title: Trabajo con desencadenadores y enlaces de Azure Functions | Microsoft Docs
+description: "Obtenga información sobre cómo usar desencadenadores y enlaces en Azure Functions para conectar la ejecución del código a los eventos en línea y servicios basados en la nube."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -14,17 +14,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: ee24bcff625c5ea28dbf3cbc5332078721544ddc
-ms.openlocfilehash: ef6f3de0da6e051826bcb9bf4a6ebaa78fbaac7c
+ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
+ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
 
 
 ---
 
-# <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure
-En este tema se proporciona una referencia general para desencadenadores y enlaces. Además, incluye algunas de las características avanzadas de enlace y la sintaxis compatible con todos los tipos de enlace.  
+# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Obtenga información sobre cómo trabajar con desencadenadores y enlaces de Azure Functions 
+En este tema se muestra cómo utilizar desencadenadores y enlaces de Azure Functions para conectar el código a diferentes desencadenadores y servicios de Azure y otros servicios basados en la nube. Incluye algunas de las características avanzadas de enlace y la sintaxis compatible con todos los tipos de enlace.  
 
 Para obtener información detallada sobre cómo trabajar con un tipo concreto de enlace o desencadenador, consulte uno de los temas de referencia siguientes:
 
@@ -389,6 +389,6 @@ Para obtener más información, consulte los siguientes recursos:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

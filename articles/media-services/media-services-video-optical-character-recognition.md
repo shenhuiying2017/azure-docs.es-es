@@ -1,5 +1,5 @@
 ---
-title: "Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital | Microsoft Docs"
+title: "Digitalización de texto con OCR de Análisis multimedia de Azure | Microsoft Docs"
 description: "Gracias al OCR (reconocimiento óptico de caracteres) de Análisis multimedia de Azure, podrá convertir el contenido de texto de archivos de vídeo en texto digital modificable y utilizable en búsquedas.  De este modo, se puede automatizar la extracción de metadatos significativos de la señal de vídeo de los elementos multimedia."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
 
 
 ---
@@ -342,6 +342,6 @@ El programa siguiente muestra cómo:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

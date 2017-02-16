@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 12/19/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9867dcb3300aab020bdda341b5b14e40c3a01075
+ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
+ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
 
 
 ---
@@ -43,11 +43,11 @@ Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico 
 ![Modelo jerárquico de recursos de DocumentDB][1]  
 **Modelo jerárquico de recursos**   
 
-Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción de Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados (característica de vista previa). Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.  
+Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción de Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados. Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.  
 
 | Recurso | Description |
 | --- | --- |
-| Cuenta de base de datos |Una cuenta de base de datos está asociada a un conjunto de bases de datos y una cantidad fija de almacenamiento de blobs para los datos adjuntos (característica de vista previa). Puede crear una o más cuentas de base de datos mediante su suscripción de Azure. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/). |
+| Cuenta de base de datos |Una cuenta de base de datos está asociada a un conjunto de bases de datos y una cantidad fija de almacenamiento de blobs para los datos adjuntos. Puede crear una o más cuentas de base de datos mediante su suscripción de Azure. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/). |
 | Base de datos |Una base de datos es un contenedor lógico de almacenamiento de documentos particionado en recopilaciones. Es también un contenedor de usuarios. |
 | Usuario |El espacio de nombres lógico para dirigir los permisos. |
 | Permiso |Un token de autorización asociado con un usuario para el acceso a un recurso específico. |
@@ -56,7 +56,7 @@ Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos pa
 | Desencadenador |Lógica de aplicaciones creada en JavaScript que se ejecuta antes o después de una operación de inserción, reemplazo o eliminación. |
 | UDF |Lógica de aplicaciones creada en JavaScript. Las UDF le permiten modelar un operador de consultas personalizado y con ello ampliar el lenguaje de consultas de DocumentDB central. |
 | Documento |Contenido JSON definido por el usuario (arbitrario). De manera predeterminada, no es necesario definir esquemas ni proporcionar índices secundarios para todos los documentos agregados a una recopilación. |
-| (Vista previa) Datos adjuntos |Los datos adjuntos son documentos especiales que contienen referencias y metadatos asociados con blobs/medios externos. El desarrollador puede decidir administrar los blobs a través de DocumentDB o almacenarlos con un proveedor de servicios de blobs externos como OneDrive, Dropbox, etc. |
+| Datos adjuntos |Los datos adjuntos son documentos especiales que contienen referencias y metadatos asociados con blobs/medios externos. El desarrollador puede decidir administrar los blobs a través de DocumentDB o almacenarlos con un proveedor de servicios de blobs externos como OneDrive, Dropbox, etc. |
 
 ## <a name="system-vs-user-defined-resources"></a>Recursos del sistema frente a recursos definidos por el usuario
 Los recursos como cuentas de base de datos, bases de datos, colecciones, usuarios, permisos, procedimientos almacenados, desencadenadores y UDF, tienen todos un esquema fijo y se denominan recursos del sistema. En cambio, los recursos como documentos y datos adjuntos no tienen restricciones de esquema y son ejemplos de recursos definidos por el usuario. En la Base de datos de documentos, tanto los recursos del sistema como los definidos por el usuario se representan y controlan como JSON compatibles con el estándar. Todos los recursos ya sean definidos por el sistema o el usuario tienen las siguientes propiedades comunes.
@@ -413,11 +413,6 @@ Al ser un servicio de base de datos totalmente abierto, DocumentDB no crea ning�
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer, enumerar y consultar documentos fácilmente mediante las API REST o con cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Al eliminar un documento se libera inmediatamente la cuota correspondiente a todos los datos adjuntos anidados. El nivel de coherencia de lectura de documentos sigue la Directiva de coherencia de la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar documentos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta. 
 
 ## <a name="attachments-and-media"></a>Datos adjuntos y multimedia
-> [!NOTE]
-> Los datos adjuntos y recursos multimedia son características de vista previa.
-> 
-> 
-
 DocumentDB le permite almacenar blobs binarios/multimedia en la misma DocumentDB o en su almacén multimedia remoto. También le permite representar los metadatos de un archivo multimedia en términos de un documento especial llamado dato adjunto. Un dato adjunto en DocumentDB es un documento especial (JSON) que hace referencia al archivo multimedia/blob almacenado en cualquier parte. Un dato adjunto es sencillamente un documento especial que captura los metadatos (por ejemplo, ubicación, autor, etc.) de un archivo multimedia almacenado en un almacenamiento multimedia remoto. 
 
 Considere una aplicación de lectura social que utilice la Base de datos de documentos para almacenar anotaciones manuscritas y metadatos como comentarios, texto resaltado, marcadores, clasificaciones, gustos y preferencias, etc., asociados a un libro electrónico o usuario determinado.   
@@ -469,6 +464,6 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

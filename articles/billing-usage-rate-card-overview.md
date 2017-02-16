@@ -4,7 +4,7 @@ description: "Proporciona información general conceptual de las API de uso de f
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 08/16/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0503c140850cbd47cbd80fa8e56d060866846362
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35bd24f8666d2954be37bd27abebbc6c3c8a6a54
 
 
 ---
@@ -32,7 +32,7 @@ Las API de uso de recursos de Azure y de RateCard se implementan como proveedor 
 ### <a name="azure-resource-usage-api-preview"></a>API de uso de recursos de Azure (vista previa)
 Los clientes y socios pueden utilizar la API de uso de recursos de Azure para obtener los datos de consumo de Azure estimados. Las características incluyen:
 
-* **Control de acceso basado en roles de Azure**: los clientes y asociados pueden configurar sus directivas de acceso en [Azure Portal](https://portal.azure.com) o en [Cmdlets de Azure PowerShell](powershell-install-configure.md) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. El autor de llamada también debe agregarse al rol Lector, Propietario o Colaborador para obtener acceso a los datos de uso para una suscripción de Azure.
+* **Control de acceso basado en roles de Azure**: los clientes y asociados pueden configurar sus directivas de acceso en [Azure Portal](https://portal.azure.com) o en [Cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. El autor de llamada también debe agregarse al rol Lector, Propietario o Colaborador para obtener acceso a los datos de uso para una suscripción de Azure.
 * **Agregaciones cada hora o diarias** : los autores de llamadas pueden especificar si desean sus datos de uso de Azure en depósitos cada hora o diarios. El valor predeterminado es diario.
 * **Metadatos de instancia proporcionados (incluye etiquetas de recursos)** : en la respuesta se proporcionan detalles de nivel de instancia como el URI de recurso completo (/subscriptions/{subscription-id}/..), junto con la información del grupo de recursos y las etiquetas de recursos. Esto ayudará a los clientes de forma determinista y mediante programación a asignar el uso mediante las etiquetas, para casos de uso como cargos cruzados.
 * **Metadatos de recursos proporcionados** : detalles de recursos, como nombre de medidor, categoría de medidor, subcategoría de medidor, unidad y región, también se transmitirán en la respuesta para que los autores de llamadas conozcan mejor lo que han consumido. También estamos trabajando para alinear la terminología de metadatos de recursos en todo Azure Portal, CSV de uso de Azure, CSV de facturación de EA y otras experiencias orientadas al público, para que los clientes puedan poner en correlación los datos en todas las experiencias.
@@ -41,7 +41,7 @@ Los clientes y socios pueden utilizar la API de uso de recursos de Azure para ob
 ### <a name="azure-resource-ratecard-api-preview"></a>API de RateCard de recursos de Azure (vista previa)
 Los clientes y socios pueden utilizar la API de RateCard de recursos de Azure para obtener la lista de recursos disponibles de Azure, junto con una información de precios estimada para cada uno. Las características incluyen:
 
-* **Control de acceso basado en roles de Azure**: los clientes y asociados pueden configurar sus directivas de acceso en [Azure Portal](https://portal.azure.com) o en [Cmdlets de Azure PowerShell](powershell-install-configure.md) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de RateCard. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. El autor de llamada también debe agregarse al rol Lector, Propietario o Colaborador para obtener acceso a los datos de uso para una suscripción de Azure.
+* **Control de acceso basado en roles de Azure**: los clientes y asociados pueden configurar sus directivas de acceso en [Azure Portal](https://portal.azure.com) o en [Cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de RateCard. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. El autor de llamada también debe agregarse al rol Lector, Propietario o Colaborador para obtener acceso a los datos de uso para una suscripción de Azure.
 * **Soporte para ofertas de pago por uso, MSDN, compromiso monetario y crédito monetario (no compatible con EA)**: esta API proporciona información de tarifas de nivel de oferta de Azure, frente a nivel de suscripción.  El autor de llamada de esta API debe pasar la información de oferta para obtener detalles y tarifas de recursos  Como las ofertas de EA tienen tarifas personalizadas por inscripción, no es posible proporcionar tarifas de EA en este momento.
 
 ## <a name="scenarios"></a>Escenarios
@@ -72,6 +72,6 @@ Los clientes y socios pueden utilizar la API de RateCard de recursos de Azure pa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

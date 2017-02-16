@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2016
+ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1b0a9c9532662cb96a90300453d946e4c1e6f866
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: cacb2ce368a09c71c6f02548c5a1836ad77f540a
 
 
 ---
-# <a name="how-to-use-azure-active-directory-and-resource-manager-to-manage-a-customers-resources"></a>Uso de Azure Active Directory y Resource Manager para administrar los recursos de un cliente
+# <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Uso de la API de autenticación de Resource Manager para acceder a suscripciones
 ## <a name="introduction"></a>Introducción
 A los desarrolladores de software que necesitan crear una aplicación que administre los recursos de Azure de un cliente, este tema les muestra cómo realizar la autenticación con las API de Azure Resource Manager y obtener acceso a los recursos de otras suscripciones. 
 
@@ -108,7 +108,7 @@ Emita una solicitud de autorización de Open ID Connect u OAuth2.0 para el punto
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema sobre [solicitud de un código de autorización](../active-directory/active-directory-protocols-oauth-code.md#request-an-authorization-code) .
+Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema sobre [solicitud de un código de autorización](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) .
 
 En el ejemplo siguiente se muestra cómo solicitar una autorización de OAuth2.0:
 
@@ -121,7 +121,7 @@ Azure AD autentica al usuario y, si es necesario, pide al usuario que conceda pe
 ### <a name="auth-request-open-id-connect"></a>Solicitud de autenticación (Open ID Connect)
 Si no solo desea acceder a Azure Resource Manager en nombre del usuario, sino también permitirle usar su propia cuenta de Azure AD para iniciar sesión en la aplicación, emita una solicitud de autorización de Open ID Connect. Con Open ID Connect, la aplicación recibe también un id_token de Azure AD que puede utilizar para el inicio de sesión del usuario.
 
-Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema [Envío de la solicitud de inicio de sesión](../active-directory/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) .
+Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema [Envío de la solicitud de inicio de sesión](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) .
 
 Este es un ejemplo de solicitud de Open ID Connect:
 
@@ -138,7 +138,7 @@ Una vez que la aplicación haya recibido el código de autorización de Azure AD
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema sobre el [uso del código de autorización](../active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) .
+Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema sobre el [uso del código de autorización](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) .
 
 El ejemplo siguiente muestra una solicitud de token de concesión de códigos con la credencial de contraseña:
 
@@ -149,7 +149,7 @@ El ejemplo siguiente muestra una solicitud de token de concesión de códigos co
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Cuando trabaje con credenciales de certificado, cree un JSON Web Token (JWT) y una firma (RSA SHA256) mediante la clave privada de la credencial de certificado de la aplicación. Se muestran los tipos de notificación para el token en [Notificaciones de token JWT](../active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). Para referencia, consulte el [código de la biblioteca de autorización de Active Directory (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) para firmar tokens JWT de aserción de cliente.
+Cuando trabaje con credenciales de certificado, cree un JSON Web Token (JWT) y una firma (RSA SHA256) mediante la clave privada de la credencial de certificado de la aplicación. Se muestran los tipos de notificación para el token en [Notificaciones de token JWT](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). Para referencia, consulte el [código de la biblioteca de autorización de Active Directory (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) para firmar tokens JWT de aserción de cliente.
 
 Consulte la [especificación de Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) para más información acerca de la autenticación de cliente. 
 
@@ -173,7 +173,7 @@ Una respuesta correcta del token contiene el token de acceso (usuario + aplicaci
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Los parámetros que se usan con la solicitud de actualización se describen en [Actualización de los tokens de acceso](../active-directory/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
+Los parámetros que se usan con la solicitud de actualización se describen en [Actualización de los tokens de acceso](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
 
 En el ejemplo siguiente se muestra cómo utilizar el token de actualización:
 
@@ -223,14 +223,14 @@ Cuando la aplicación autentica a un usuario desde un directorio de Azure AD, cr
 
 Solo tiene un token de acceso para Azure Resource Manager (se necesita un token de acceso nuevo para llamar a la API de Azure AD Graph). Todas las aplicaciones de Azure AD tienen permiso para consultar su propio objeto de entidad de servicio, por lo que bastará con un token de acceso de solo aplicación.
 
-<a id="app-azure-ad-graph">
+<a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obtención de token de acceso de solo aplicación para la API de Azure AD Graph
 Para autenticar una aplicación y obtener un token para la API de Azure AD Graph, emita una solicitud de token de flujo de OAuth2.0 de concesión de credenciales de cliente al punto de conexión del token de Azure AD (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 El método [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) de la aplicación de ejemplo ASP.NET MVC obtiene un token de acceso de solo aplicación para la API Graph mediante la Biblioteca de autenticación de Active Directory para .NET.
 
-Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema [Solicitar un token de acceso](../active-directory/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) .
+Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el tema [Solicitar un token de acceso](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) .
 
 Una solicitud de ejemplo de token de concesión de credenciales de cliente: 
 
@@ -366,6 +366,6 @@ Eso es todo: los usuarios ya pueden conectarse y administrar fácilmente sus sus
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

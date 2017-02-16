@@ -5,18 +5,17 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 922219ec12343bd40dd343613e370ddd1813f126
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 
 
 ---
@@ -43,7 +42,7 @@ Esta sección proporciona acceso rápido a las guías de solución de problemas 
 | Inicio de sesión único federado |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md) |
 | Inicio de sesión único con contraseña |[Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy de aplicación |[Solucionar problemas del proxy de aplicación](active-directory-application-proxy-troubleshoot.md) |
-| Inicio de sesión único entre un AD local y Azure AD |[Solución de problemas de sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Solución de problemas de escritura diferida de contraseñas](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Inicio de sesión único entre un AD local y Azure AD |[Solución de problemas de sincronización de contraseñas](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Solución de problemas de escritura diferida de contraseñas](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Pertenencia a grupos dinámicos. |[Solución de problemas de pertenencias a grupos dinámicos](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Inicio de sesión único (SSO)
@@ -214,6 +213,6 @@ Para ver qué informes incluyen las diferentes ediciones de Azure Active Directo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

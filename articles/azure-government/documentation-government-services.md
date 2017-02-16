@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 10/14/2016
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
+ms.sourcegitcommit: 083ffff3a99c82a518bcc370e6d40c7500ba6907
+ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
 
 
 ---
@@ -45,15 +45,23 @@ Para obtener la lista más reciente de servicios, consulte los [productos por re
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Almacenamiento](documentation-government-services-storage.md)
-* [Almacenamiento de Azure](documentation-government-services-storage.md#azure-storage)
+* [Azure Storage](documentation-government-services-storage.md#azure-storage)
+* [Blob Storage](documentation-government-services-storage.md#azure-storage)
+* [Table Storage](documentation-government-services-storage.md#azure-storage)
+* [Queue Storage](documentation-government-services-storage.md#azure-storage)
+* [File Storage](documentation-government-services-storage.md#azure-storage)
+* [Almacenamiento caliente/frío](documentation-government-services-storage.md#azure-storage)
+* [Cifrado del servicio de almacenamiento](documentation-government-services-storage.md#azure-storage)
+* [Premium Storage](documentation-government-services-storage.md#azure-storage)
+* [Importación y exportación de blobs](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Copia de seguridad](documentation-government-services-backup.md)
+* [Recuperación de sitios](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Importación/Exportación
-* StorSimple
-* Copia de seguridad
-* Recuperación de sitios
 
-## <a name="web-mobile"></a>Web y móvil
-* Aplicaciones web
-* Servicios multimedia
+## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Web y móvil](documentation-government-services-webandmobile.md)
+* [App Services](documentation-government-services-webandmobile.md#app-services)
+* Media Services
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Bases de datos](documentation-government-services-database.md)
 * [Base de datos SQL](documentation-government-services-database.md#sql-database)
@@ -65,21 +73,21 @@ Para obtener la lista más reciente de servicios, consulte los [productos por re
 * Centros de notificaciones
 
 ## <a name="enterprise-integration"></a>Enterprise Integration
-* Bus de servicio
-* StorSimple
+* Service Bus
+* [StorSimple](documentation-government-services-storage.md)
 * SQL Server Stretch Database
 
-## <a name="security-identitydocumentation-government-services-securityandidentitymd"></a>[Seguridad + Identidad](documentation-government-services-securityandidentity.md)
+## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Seguridad + Identidad](documentation-government-services-securityandidentity.md)
 * [Almacén de claves](documentation-government-services-securityandidentity.md#key-vault)
 * Azure Active Directory
 * Multi-Factor Authentication
 
-## <a name="monitoring-managementdocumentation-government-services-monitoringandmanagementmd"></a>[Supervisión + Administración](documentation-government-services-monitoringandmanagement.md)
+## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Supervisión + Administración](documentation-government-services-monitoringandmanagement.md)
 * [Automatización](documentation-government-services-monitoringandmanagement.md#automation)
-* Copia de seguridad
+* [Copia de seguridad](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Recuperación de sitios
-* Programador
+* [Recuperación de sitios](documentation-government-services-monitoringandmanagement.md#site-recovery)
+* Scheduler
 * Administrador de tráfico
 * Supervisión y diagnóstico
 
@@ -89,6 +97,6 @@ Para información complementaria y actualizaciones, suscríbase al [blog de Micr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

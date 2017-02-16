@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9ceeecb3a603cd029117e1b7003aed16628f04f
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
 
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
-En este tutorial, se describe la creación e implementación de un modelo de aprendizaje automático con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
+En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
 
 ## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trip
 El conjunto de datos NYC Taxi Trips consiste en aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente, 48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
@@ -267,7 +267,7 @@ La secuencia recomendada al trabajar con big data es la siguiente:
 Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:  
 
 1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning. Este método se muestra en la sección [Generación de modelos en Aprendizaje automático de Azure](#mlmodel) .    
-2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de bases de datos y, a continuación, usar la nueva tabla en el módulo [Importar datos][import-data].
+2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de base de datos y usar la nueva tabla en el módulo [Importar datos][import-data].
 
 A continuación, se muestran algunas exploraciones de datos, visualizaciones de datos y ejemplos de diseño de características. Para obtener más ejemplos, vea el Bloc de notas de IPython de SQL de ejemplo en la carpeta **Blocs de notas de IPython** de ejemplo.
 
@@ -378,7 +378,7 @@ También podemos comprobar la relación entre **rate\_code** y **trip\_distance*
 ![Diagrama 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Submuestreo de los datos en SQL
-Al preparar los datos para la creación del modelo en [Azure Machine Learning Studio](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo Importar datos** o conservar los datos de ingeniería o muestreados en una tabla nueva, que puede utilizar en el módulo [Importar datos][import-data] con una simple instrucción **SELECT * FROM <your\_new\_table\_name>**.
+Al preparar los datos para la creación del modelo en [Azure Machine Learning Studio](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo Importar datos** o conservar los datos de ingeniería o muestreados en una tabla nueva, que puede utilizar en el módulo [Importar datos][import-data] con una simple instrucción **SELECT * FROM <nombre\_de la\_nueva\_tabla>**.
 
 En esta sección se creará una nueva tabla para almacenar los datos de ingeniería y muestreados. En la sección [Exploración de datos e ingeniería de características en SQL Server](#dbexplore) se proporciona un ejemplo de una consulta SQL directa para la creación del modelo.
 
@@ -574,7 +574,7 @@ Un experimento de entrenamiento típico consta de las siguientes acciones:
 
 En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y también se ha decidido el tamaño de la muestra para la ingesta en Azure Machine Learning. Para crear uno o varios de los modelos de predicción, se decidió:
 
-1. Proporcionar los datos a Azure Machine Learning con el módulo [Importar datos][import-data], disponible en la sección **Entrada y salida de datos**. Para más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
+1. Proporcionar los datos a Azure Machine Learning con el módulo [Importar datos][import-data], disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para obtener más información, consulte la página de referencia del módulo [Importar datos][import-data].
    
     ![Importar datos de Azure Machine Learning][17]
 2. Seleccionar **Azure SQL Database** como **Origen de datos** en el panel **Propiedades**.
@@ -591,7 +591,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 > [!IMPORTANT]
 > En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo, cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 > 
-> Para excluir columnas innecesarias o fugas de destino, puede usar el módulo [Seleccionar columnas de conjunto de datos][select-columns] o el módulo [Editar metadatos][edit-metadata]. Para más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
+> Para excluir columnas innecesarias o fugas de destino, puede usar los módulos [Seleccionar columnas de conjunto de datos][select-columns] o [Editar metadatos][edit-metadata]. Para obtener más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
 > 
 > 
 
@@ -613,7 +613,7 @@ Aprendizaje automático de Azure intentará crear un experimento de puntuación 
 2. Identificar un **puerto de entrada** lógico que represente el esquema de datos de entrada esperado.
 3. Identificar un **puerto de salida** lógico que represente el esquema de salida del servicio web.
 
-Cuando se crea el experimento de puntuación, revíselo y ajústelo según sea necesario. Un ajuste común consiste en reemplazar la consulta o el conjunto de datos de entrada por uno que excluya los campos de etiqueta, ya que estos no estarán disponibles cuando se llame al servicio. También es una buena práctica reducir el tamaño de la consulta o del conjunto de datos de entrada a unos pocos registros, los necesarios para indicar el esquema de entrada. En el caso del puerto de salida, es habitual excluir todos los campos de entrada e incluir solo las **etiquetas puntuadas** y las **probabilidades puntuadas** en la salida mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+Cuando se crea el experimento de puntuación, revíselo y ajústelo según sea necesario. Un ajuste común consiste en reemplazar la consulta o el conjunto de datos de entrada por uno que excluya los campos de etiqueta, ya que estos no estarán disponibles cuando se llame al servicio. También es una buena práctica reducir el tamaño de la consulta o del conjunto de datos de entrada a unos pocos registros, los necesarios para indicar el esquema de entrada. En el caso del puerto de salida, es habitual excluir todos los campos de entrada e incluir solo las **etiquetas puntuadas** y las **probabilidades puntuada**s en la salida mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 En la ilustración siguiente se muestra un ejemplo de experimento de puntuación. Cuando todo esté listo para implementar, haga clic en el botón **PUBLICAR SERVICIO WEB** de la barra de acciones inferior.
 
@@ -656,6 +656,6 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

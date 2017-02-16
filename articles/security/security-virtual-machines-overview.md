@@ -1,6 +1,6 @@
 ---
-title: "Información general de seguridad de Máquinas virtuales de Azure | Microsoft Docs"
-description: " Máquinas virtuales de Azure le ofrece la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que ejecuta la máquina virtual.  Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Máquinas virtuales de Azure. "
+title: "Características de seguridad de Azure usadas con máquinas virtuales de Azure | Microsoft Docs"
+description: " Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con máquinas virtuales de Azure. Las máquinas virtuales de Azure le ofrecen la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que las ejecutan.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f504db7d67fdf196fbdaaaba2e09d989449b101
-ms.openlocfilehash: 0be0500296ad9bed302f65da9ef8de63e0ed08f6
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 5e9dcd9913cf301e7c5a50eb9e55fb0b3dc303e5
 
 
 ---
@@ -154,6 +154,6 @@ Más información:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

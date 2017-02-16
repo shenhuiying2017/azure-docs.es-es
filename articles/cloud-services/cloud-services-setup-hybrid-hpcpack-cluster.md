@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
+ms.sourcegitcommit: 0e74a1784f39fe934d36c0391de7d01bf7699868
+ms.openlocfilehash: b0c207190fcfb23cc75c4aaa661c76c561265ef8
 
 
 ---
@@ -177,7 +177,7 @@ En este tutorial, agregará dos nodos pequeños.
 1. En el Administrador de clústeres HPC, en **Administración de nodos** (llamada **Administración de recursos** en versiones recientes de HPC Pack), en el panel **Acciones**, haga clic en **Agregar nodo**.
    
     ![Agregar nodo][add_node1]
-2. En el asistente para agregar nodos, en la página **Seleccionar método de implementación**, haga clic en **Agregar nodos de Azure** y, a continuación, en **Siguiente**.
+2. En el Asistente para agregar nodo, en la página **Select Deployment Method** (Seleccionar método de implementación), haga clic en **Add Windows Azure nodes** (Agregar nodos de Microsoft Azure) y, a continuación, en **Siguiente**.
    
     ![Agregar un nodo de Azure][add_node1_1]
 3. En la página **Especificar nodos nuevos**, seleccione la plantilla de nodo de Azure que creó anteriormente (llamada de manera predeterminada **Default AzureNode Template**). A continuación, especifique **2** nodos de tamaño **pequeño** y, a continuación, haga clic en **Siguiente**.
@@ -197,7 +197,7 @@ Cuando quiera usar los recursos del clúster de Azure, use el administrador de c
 1. En el Administrador de clústeres HPC, en **Administración de nodos** (llamada **Administración de recursos** en versiones recientes de HPC Pack), haga clic en uno o en ambos nodos y, luego, en el panel **Acciones**, haga clic en **Inicio**.
    
    ![Iniciar los nodos][add_node4]
-2. En el cuadro de diálogo **Iniciar nodos de Azure**, haga clic en **Iniciar**.
+2. En el cuadro de diálogo **Stop Windows Azure nodes** (Detener nodos de Microsoft Azure), haga clic en **Iniciar**.
    
     ![Iniciar los nodos][add_node5]
    
@@ -250,7 +250,7 @@ Después de probar el clúster, detenga los nodos de Azure e impida que se produ
 1. En el Administrador de clústeres HPC, en **Administración de nodos** (llamada **Administración de recursos** en versiones recientes de HPC Pack), seleccione los dos nodos de Azure. A continuación, en el panel **Acciones**, haga clic en **Detener**.
    
     ![Detener los nodos][stop_node1]
-2. En el cuadro de diálogo **Detener nodos de Azure**, haga clic en **Detener**.
+2. En el cuadro de diálogo **Stop Windows Azure nodes** (Detener nodos de Microsoft Azure), haga clic en **Detener**.
    
     ![Detener los nodos][stop_node2]
 3. Los nodos pasan al estado **En detención** . Después de unos minutos, el administrador de clústeres de HPC indica que los nodos tienen el estado **No implementado**.
@@ -268,7 +268,7 @@ Después de probar el clúster, detenga los nodos de Azure e impida que se produ
 * Para ver otras formas de crear un clúster HPC Pack en Azure como, por ejemplo, el uso de plantillas de Azure Resource Manager, consulte [Opciones de clúster HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Consulte [Big Compute en Azure: Recursos técnicos para informática de alto rendimiento (HPC) y computación por lotes](../batch/big-compute-resources.md) para más información sobre la gama de soluciones en la nube de Big Compute y HPC de Azure.
 
-[Información general]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
+[Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
 [install_hpc1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc1.png
 [install_hpc2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc2.png
 [install_hpc3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc3.png
@@ -307,6 +307,6 @@ Después de probar el clúster, detenga los nodos de Azure e impida que se produ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

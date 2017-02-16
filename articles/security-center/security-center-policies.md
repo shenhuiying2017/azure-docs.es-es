@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Puede configurar directivas de seguridad para cada suscripción o grupo de recur
    > Recomendamos activar la recopilación de datos para cada una de las suscripciones con el fin de garantizar la disponibilidad de la supervisión de seguridad para todas las máquinas virtuales nuevas y existentes. Al habilitar la recopilación de datos se instala el agente de supervisión. Si no desea activar la recopilación de datos ahora desde esta ubicación, puede hacerlo más tarde desde las vistas **Mantenimiento** y **Recomendaciones**. También puede habilitar la recopilación de datos solo para la suscripción o para determinadas máquinas virtuales. Consulte las [preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) para más información sobre VM compatibles.
    > 
    > 
-5. Si aún no está configurada la cuenta de almacenamiento, puede que aparezca una advertencia similar a la mostrada en la siguiente captura de pantalla al abrir la **Directiva de seguridad**:
+5. Si aún no está configurada la cuenta de almacenamiento, puede que aparezca una advertencia similar a la mostrada en la siguiente captura de pantalla al abrir la **Directiva de seguridad**. Si no elige una cuenta de almacenamiento para cada región, se creará automáticamente.
    
     ![Selección de almacenamiento](./media/security-center-policies/security-center-policies-fig2.png)
 6. Si aparece esta advertencia, haga clic en esta opción y seleccione la región como se muestra en la siguiente captura de pantalla:
@@ -111,6 +111,6 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

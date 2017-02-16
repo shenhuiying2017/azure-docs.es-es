@@ -1,9 +1,9 @@
 ---
-title: "Integración de una cuenta de almacenamiento con CDN | Microsoft Docs"
+title: "Integración de una cuenta de una instancia de Azure Storage con la red CDN de Azure | Microsoft Docs"
 description: "Aprenda a usar la red de entrega de contenido (CDN) de Azure para ofrecer contenido con un ancho de banda alto mediante el almacenamiento en caché de blobs de Almacenamiento de Azure."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52937c2abe3752dea02467c106167bfe4675fd4d
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 3a0db75612531ebf947c011e9e4545f7d9590e20
 
 
 ---
-# <a name="integrate-a-storage-account-with-cdn"></a>Integración de una cuenta de almacenamiento con CDN
+# <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integración de una cuenta de una instancia de Azure Storage con la red CDN de Azure
 CDN puede habilitarse para almacenar el contenido de la caché en Almacenamiento de Azure. Ofrece a los desarrolladores una solución global de entrega de contenido con alto ancho de banda; para ello, almacena en memoria caché los blobs y los contenidos estáticos de las instancias de proceso en nodos físicos ubicados en Estados Unidos, Europa, Asia, Australia y Sudamérica.
 
 ## <a name="step-1-create-a-storage-account"></a>Paso 1: Creación de una cuenta de almacenamiento
@@ -131,6 +131,6 @@ Un objeto que ya está almacenado en la memoria caché de la red CDN permanecer�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

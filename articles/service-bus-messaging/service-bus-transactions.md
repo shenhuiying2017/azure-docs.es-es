@@ -1,5 +1,5 @@
 ---
-title: Transacciones de Service Bus | Microsoft Docs
+title: "Introducción al procesamiento de transacciones en Azure Service Bus| Microsoft Docs"
 description: "Información general sobre las transacciones atómicas del Bus de servicio de Azure y la característica &quot;enviar por&quot;"
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: clemensv;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: d9386e08adc4646c7bfcf8bfcb4407ddb5681334
 
 
 ---
@@ -83,6 +83,6 @@ Consulte los siguientes artículos para más información sobre las colas de Bus
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

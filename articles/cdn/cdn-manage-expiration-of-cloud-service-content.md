@@ -1,9 +1,9 @@
 ---
-title: "Cómo administrar la caducidad del contenido de Azure Web Apps/Cloud Services, ASP.NET e IIS en la red CDN de Azure | Microsoft Docs"
-description: "Describe cómo administrar la expiración del contenido del servicio en la nube en CDN de Azure"
+title: "Administración de la expiración del contenido web en la red CDN de Azure | Microsoft Docs"
+description: Aprenda a administrar la caducidad del contenido de Azure Web Apps/Cloud Services, ASP.NET o IIS en la red CDN de Azure.
 services: cdn
 documentationcenter: .NET
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61c14a27fc82b128dec41e2ed46850ac7fb554ad
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 02d0270c5763eb9dd2190bc24b793022ea536746
 
 
 ---
-# <a name="how-to-manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Cómo administrar la caducidad del contenido de Azure Web Apps/Cloud Services, ASP.NET o IIS en la red CDN de Azure
+# <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Administración de la caducidad del contenido de Azure Web Apps/Cloud Services, ASP.NET o IIS en la red CDN de Azure
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Storage Blob service](cdn-manage-expiration-of-blob-content.md)
@@ -75,6 +75,6 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

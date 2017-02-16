@@ -2,7 +2,7 @@
 title: "Implementación de creación de particiones del lado cliente con los SDK | Microsoft Docs"
 description: Aprenda a usar los SDK de Azure DocumentDB para crear particiones (o particionamiento) de datos y enrutar solicitudes entre varias colecciones
 services: documentdb
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.author: arramac
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c31763a9676ec45e493cdecc76997db8fe64c38a
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 5e7aa2ead3e9c5d55f7f4c372638c0ee9c485b98
+
 
 
 ---
@@ -145,7 +148,7 @@ Los ejemplos son de código abierto y le animamos a que envíe solicitudes de ex
 Sí, DocumentDB admite [creación de particiones en el lado servidor](documentdb-partition-data.md). En los casos de uso más avanzados, DocumentDB también permite la creación de particiones en el lado de cliente a través de solucionadores de partición del lado de cliente.
 
 **¿Cuándo debería usar la creación de particiones del lado del cliente o del lado del servidor?**
- En la mayoría de los casos, le recomendamos que use la creación de particiones del lado de servidor, que gestiona las tareas administrativas de creación de particiones de datos y de enrutamiento de solicitudes. Sin embargo, si necesita crear particiones por rangos o tiene un caso de uso especializado para aislar el rendimiento entre valores distintos de claves de partición, entonces sería mejor la creación de particiones del lado de cliente.
+En la mayoría de los casos, le recomendamos que use la creación de particiones del lado de servidor, que gestiona las tareas administrativas de creación de particiones de datos y de enrutamiento de solicitudes. Sin embargo, si necesita crear particiones por rangos o tiene un caso de uso especializado para aislar el rendimiento entre valores distintos de claves de partición, entonces sería mejor la creación de particiones del lado de cliente.
 
 **¿Cómo se puede agregar una colección a mi esquema de creación de particiones o quitarla del mismo?**
 
@@ -165,12 +168,11 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Creación de particiones en ejemplos de código en Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Documentación del SDK de .NET de DocumentDB en MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
-* [Límites de DocumentDB](documentdb-limits.md)
 * [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

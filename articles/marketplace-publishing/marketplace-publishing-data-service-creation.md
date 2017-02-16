@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e0057a5e8ab3d2fa3c9f201ec88246db7a53cc4a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
 
 
 ---
@@ -26,24 +26,24 @@ ms.openlocfilehash: e0057a5e8ab3d2fa3c9f201ec88246db7a53cc4a
 > 
 > 
 
-Después de completar el paso 1, [Creación y registro de la cuenta](marketplace-publishing-accounts-creation-registration.md), le guiamos por los requisitos [no técnicos](marketplace-publishing-pre-requisites.md) y [técnicos](marketplace-publishing-data-service-creation-prerequisites.md) generales de una oferta de servicio de datos en Azure Marketplace. Ahora le guiaremos por los pasos para crear una oferta de servicio de datos en el [Portal de publicación][link-pubportal] de Azure Marketplace.
+Después de completar el paso 1, [Creación y registro de la cuenta](marketplace-publishing-accounts-creation-registration.md), le guiamos por los requisitos [no técnicos](marketplace-publishing-pre-requisites.md) y [técnicos](marketplace-publishing-data-service-creation-prerequisites.md) generales de una oferta de servicio de datos en Azure Marketplace. Ahora le guiaremos a través de los pasos para crear una oferta de servicio de datos en el [Portal de publicación][link-pubportal] de Azure Marketplace.
 
-## <a name="1-login-to-the-publishing-portal"></a>1.    Inicie sesión en el Portal de publicación.
+## <a name="1----login-to-the-publishing-portal"></a>1.    Inicie sesión en el Portal de publicación.
 Vaya a [https://publish.windowsazure.com](https://publish.windowsazure.com.)
 
-**Para el primer inicio de sesión en el Portal de publicación, use la misma cuenta con la que se registró el perfil de vendedor de la compañía en el Centro para desarrolladores.**   (Posteriormente, puede agregar a cualquier empleado de la empresa como coadministrador en el Portal de publicación).
+**Para el primer inicio de sesión en el Portal de publicación, use la misma cuenta con la que se registró el perfil de vendedor de la compañía en el Centro para desarrolladores.**  (Posteriormente, puede agregar a cualquier empleado de la empresa como coadministrador en el Portal de publicación).
 
 Haga clic en el icono **Publicar un servicio de datos** si se trata del primer inicio de sesión en el Portal de publicación.
 
-## <a name="2-choose-data-services-in-the-navigation-menu-on-the-left-side"></a>2.    Elija **Servicios de datos** en el menú de navegación del lado izquierdo.
+## <a name="2----choose-data-services-in-the-navigation-menu-on-the-left-side"></a>2.    Elija **Servicios de datos** en el menú de navegación del lado izquierdo.
   ![dibujo](media/marketplace-publishing-data-service-creation/pubportal-main-nav.png)
 
-## <a name="3-create-a-new-data-service"></a>3.    Creación de un nuevo servicio de datos
+## <a name="3----create-a-new-data-service"></a>3.    Creación de un nuevo servicio de datos
 Complete el título de la nueva oferta de servicio de datos y haga clic en el signo "+" de la derecha.
 
   ![dibujo](media/marketplace-publishing-data-service-creation/step-3.png)
 
-## <a name="4-review-the-sub-menu-under-the-newly-created-data-service-in-the-navigation-menu"></a>4.    Revise el submenú del servicio de datos recién creado en el menú de navegación.
+## <a name="4----review-the-sub-menu-under-the-newly-created-data-service-in-the-navigation-menu"></a>4.    Revise el submenú del servicio de datos recién creado en el menú de navegación.
 Haga clic en la pestaña **Tutorial** y revise todos los pasos necesarios para publicar correctamente el servicio de datos en Azure Marketplace.
 
 > [!TIP]
@@ -51,7 +51,7 @@ Haga clic en la pestaña **Tutorial** y revise todos los pasos necesarios para p
 > 
 > 
 
-## <a name="5-create-a-new-plan"></a>5.    Creación de un nuevo plan
+## <a name="5----create-a-new-plan"></a>5.    Creación de un nuevo plan
 ### <a name="offers-plans-transactions"></a>Ofertas, Planes, Transacciones
 Cada Oferta puede tener varios Planes, pero debe tener al menos un (1) Plan. Cuando los usuarios finales se suscriben a su oferta, también lo hacen en uno de los planes de la oferta. Cada plan define el modo en que los usuarios podrán hacer uso del servicio.
 
@@ -110,10 +110,10 @@ El nivel del Servicio de Azure Marketplace es quien se ocupa de supervisar (medi
 | **¿Este plan requiere un código de promoción para comprar?** |Los publicadores tienen una opción para limitar el acceso a sus Planes del servicio proporcionando un código especial, llamado "Promocode" a clientes específicos. Solo los usuarios finales que tendrán este Promocode podrán suscribirse al Plan. Si elige "No", acepta que todo el mundo de la región donde está disponible la oferta (vea la [Guía de contenido de marketing de Marketplace](marketplace-publishing-push-to-staging.md) para obtener más detalles) podrá suscribirse a este plan. No se le harán más preguntas. |
 | **¿Ocultar también este plan a cualquier persona que no tenga un código de promoción válido?** |Si la respuesta a la pregunta anterior es "Sí", el Publicador tiene la opción de hacer que este plan no aparezca en ninguna parte de la interfaz de usuario de Marketplace. Esto implica que los usuarios no verán este plan en la página de detalles de la Oferta. Los usuarios finales que reciban un Promocode para adquirirlo, podrán suscribirse a dicho plan utilizando ese código. |
 
-## <a name="6-create-your-marketplace-marketing-content"></a>6.    Creación de contenido de marketing de Marketplace
+## <a name="6----create-your-marketplace-marketing-content"></a>6.    Creación de contenido de marketing de Marketplace
 Para saber cómo proporcionar la información requerida en las pestañas de **marketing, establecimiento de precios, soporte técnico y categorías** , visite la [Guía de contenido de marketing de Marketplace](marketplace-publishing-push-to-staging.md) , que es común para todos los artefactos publicados en Azure Marketplace.  
 
-## <a name="7-connect-your-offer-to-your-service-sql-azure-based-or-web-service-based"></a>7.    Conecte la oferta al servicio (basado en SQL Azure o Servicio web).
+## <a name="7----connect-your-offer-to-your-service-sql-azure-based-or-web-service-based"></a>7.    Conecte la oferta al servicio (basado en SQL Azure o Servicio web).
 Haga clic en el submenú **Servicios de datos** .
 
 En la mitad superior de la página, se le pedirá que proporcione el **Espacio de nombres**de la oferta.  
@@ -162,6 +162,6 @@ Ahora que ha creado la oferta de servicio de datos, asegúrese de completar las 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

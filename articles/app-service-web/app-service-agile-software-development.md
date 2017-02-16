@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8ebad8e615e3bcc47d06ad3f77ad2752394f7e4
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 727891d92c047abe405415ea544db6f77a0db9f9
 
 
 ---
@@ -71,8 +71,8 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 > [!NOTE]
 > Para completar este tutorial, deberá tener una cuenta de Azure:
 > 
-> * Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/) : obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y usar servicios gratuitos de Azure, tales como Aplicaciones web.
-> * Puede [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/) : su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
+> * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) : obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y usar servicios gratuitos de Azure, tales como Aplicaciones web.
+> * Puede [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
 > 
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
@@ -264,12 +264,12 @@ Agile Software Development es un componente indispensable para muchas empresas q
 * [Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md)
 * [Desarrollo ágil en la práctica: trucos y sugerencias para un ciclo de desarrollo actualizado](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 * [Estrategias de implementación avanzada para Aplicaciones web de Azure con plantillas de Administrador de recursos](http://channel9.msdn.com/Events/Build/2015/2-620)
-* [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md)
+* [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint: validador de JSON](http://jsonlint.com/)
 * [ARMClient: configurar publicación de GitHub para el sitio](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Creación de ramas de Git: combinación y creación de ramas básicas](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Blog de David Ebbo](http://blog.davidebbo.com/)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Herramientas de línea de comandos multiplataforma de Azure](../xplat-cli-install.md)
 * [Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
@@ -277,6 +277,6 @@ Agile Software Development es un componente indispensable para muchas empresas q
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

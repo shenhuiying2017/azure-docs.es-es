@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 5fb3200bb2a21624f8718bd50e4c7bb2fc607ba9
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
 
 ---
@@ -40,7 +40,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.  
 
 ### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Instale las versiones más recientes de los módulos de Azure PowerShell.
-Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
+Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Inicie sesión en la cuenta de Azure y seleccione la suscripción.
 1. En una ventana de Windows PowerShell con privilegios elevados, ejecute los siguientes cmdlets:
@@ -332,6 +332,6 @@ Después de crear el circuito, asegúrese de hacer lo siguiente:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

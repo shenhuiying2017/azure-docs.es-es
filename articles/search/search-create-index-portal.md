@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/13/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
 
 
 ---
@@ -30,13 +30,13 @@ ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
 
 Este artículo le guiará en el proceso de creación de un [índice](search-what-is-an-index.md) de Búsqueda de Azure mediante el Portal de Azure.
 
-Antes de seguir con esta guía y crear un índice, ya debe haber [creado un servicio de Búsqueda de Azure](search-create-service-portal.md).
+Antes de seguir con esta guía y crear un índice, debe haber [creado ya un servicio de Búsqueda de Azure](search-create-service-portal.md).
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Vaya a la hoja Búsqueda de Azure.
-1. Haga clic en "Todos los recursos" en el menú en el lado izquierdo del [Portal de Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+## <a name="go-to-your-azure-search-blade"></a>Vaya a la hoja Búsqueda de Azure.
+1. Haga clic en "Todos los recursos" en el menú en el lado izquierdo de [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 2. Seleccione el servicio Búsqueda de Azure.
 
-## <a name="ii-add-and-name-your-index"></a>II. Agregue el índice y asígnele un nombre.
+## <a name="add-and-name-your-index"></a>Agregue el índice y asígnele un nombre.
 1. Haga clic en el botón "Agregar índice".
 2. Asigne un nombre a su índice de Búsqueda de Azure. Puesto que vamos a crear un índice para buscar hoteles en esta guía, hemos llamado a nuestro índice "hoteles".
    * El nombre del índice debe empezar por una letra y contener solo letras minúsculas, dígitos o guiones ("-").
@@ -45,7 +45,7 @@ Antes de seguir con esta guía y crear un índice, ya debe haber [creado un serv
 
 ![](./media/search-create-index-portal/add-index.png)
 
-## <a name="iii-create-and-define-the-fields-of-your-index"></a>III. Cree y defina los campos del índice.
+## <a name="create-and-define-the-fields-of-your-index"></a>Cree y defina los campos del índice.
 1. Al seleccionar la entrada de "Campos", se abre una nueva hoja con un formulario para escribir la definición del índice.
 2. Agregue campos a su índice mediante el formulario.
    
@@ -62,12 +62,12 @@ En las capturas de pantalla siguientes, puede ver cómo hemos denominado y defin
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de crear un índice de Búsqueda de Azure, ya podrá [cargar el contenido en el índice](search-what-is-data-import.md) y empezar la búsqueda de los datos.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

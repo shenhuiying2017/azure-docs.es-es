@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a3643b9b6ae6c1750a7c7c900375fdf1dee06f8f
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 5b7c701cc7bd3c4ad586f2e7407fa45f102771d7
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: a3643b9b6ae6c1750a7c7c900375fdf1dee06f8f
 > 
 > 
 
-Cuando tenga una aplicación o un script que necesite acceder a recursos, lo más probable es que no desee ejecutar este proceso con sus credenciales. Es posible que haya elegido permisos diferentes para la aplicación y no desea que la aplicación continúe usando sus credenciales si cambian sus responsabilidades. En su lugar, crea una identidad para la aplicación que incluye credenciales de autenticación y asignaciones de roles. Cada vez que se ejecuta la aplicación, se autentica con estas credenciales. En este tema se explica cómo usar [Azure PowerShell](../powershell-install-configure.md) para configurar todo lo que necesita para que una aplicación se ejecute con sus propias credenciales e identidad.
+Cuando tenga una aplicación o un script que necesite acceder a recursos, lo más probable es que no desee ejecutar este proceso con sus credenciales. Es posible que haya elegido permisos diferentes para la aplicación y no desea que la aplicación continúe usando sus credenciales si cambian sus responsabilidades. En su lugar, crea una identidad para la aplicación que incluye credenciales de autenticación y asignaciones de roles. Cada vez que se ejecuta la aplicación, se autentica con estas credenciales. En este tema se explica cómo usar [Azure PowerShell](/powershell/azureps-cmdlets-docs) para configurar todo lo que necesita para que una aplicación se ejecute con sus propias credenciales e identidad.
 
 Con PowerShell, tiene dos opciones para autenticar aplicaciones de AD:
 
@@ -274,6 +274,6 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entid
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

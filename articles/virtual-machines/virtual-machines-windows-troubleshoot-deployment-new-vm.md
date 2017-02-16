@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
 
 
 ---
@@ -26,12 +26,12 @@ ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Recopilación de registros de auditoría
-Para iniciar la solución de problemas, recopile los registros de auditoría para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso que se debe seguir.
+## <a name="collect-activity-logs"></a>Recopilación de registros de actividad
+Para iniciar la solución de problemas, recopile los registros de actividad para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso que se debe seguir.
 
-[Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Ver operaciones de implementación](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md)
+[Ver registros de actividad para administrar recursos de Azure](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -88,6 +88,6 @@ Si tiene problemas al iniciar una máquina virtual Windows detenida o al cambiar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

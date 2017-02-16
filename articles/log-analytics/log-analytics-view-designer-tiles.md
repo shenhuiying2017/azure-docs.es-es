@@ -1,5 +1,5 @@
 ---
-title: "Referencia de los iconos del Diseñador de vistas de Log Analytics | Microsoft Docs"
+title: "Referencia de los iconos del Diseñador de vistas de Log Analytics (OMS) | Microsoft Docs"
 description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c00a472e2dda12874dd7bee4ccb6c4d53bf104a7
-ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
 
 
 ---
@@ -180,6 +180,6 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

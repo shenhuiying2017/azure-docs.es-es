@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
 
 
 ---
@@ -109,42 +109,58 @@ En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Window
 
 Abra su herramienta Git en la carpeta deseada y ejecute el siguiente comando para clonar el repositorio de git en el equipo local, usando para ello el comando incluido en el portal para editores.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 Proporcione el nombre de usuario y la contraseña cuando se le solicite.
 
 Si recibe algún error, pruebe a modificar su comando `git clone` para incluir el nombre de usuario y la contraseña, como se muestra en el ejemplo siguiente.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 Si de este modo aparece un error, pruebe a codificar como dirección URL la parte de la contraseña del comando. Una manera rápida de hacer esto es abrir Visual Studio y emitir el siguiente comando en la **Ventana Inmediato**. Para abrir la **Ventana Inmediato**, abra cualquier solución o proyecto en Visual Studio (o cree una aplicación de consola vacía) y elija **Ventanas**, **Inmediato** en el menú **Depurar**.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 Utilice la contraseña codificada junto con su nombre de usuario y ubicación de repositorio para construir el comando git.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para más información, consulte [Referencia de estructura de archivo y carpeta del repositorio local de Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para actualizar su repositorio local con la configuración de instancia de servicio más reciente
 Si realiza cambios en la instancia del servicio de Administración de API en el portal para editores o mediante la API de REST, debe guardar estos cambios en el repositorio para poder actualizar el repositorio local con los cambios más recientes. Para ello, haga clic en **Guardar configuración en repositorio** en la pestaña **Repositorio de configuración** del portal para editores y emita el siguiente comando en el repositorio local.
 
-    git pull
+```
+git pull
+```
 
 Antes de ejecutar `git pull` , asegúrese de que se encuentra en la carpeta del repositorio local. Si acaba de completar el comando `git clone` , debe cambiar el directorio a su repositorio ejecutando un comando similar al siguiente.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Para insertar los cambios desde su repositorio local al repositorio del servidor
 Para insertar los cambios desde el repositorio local al repositorio del servidor, debe confirmar los cambios y, a continuación, insertarlos en el repositorio del servidor. Para confirmar los cambios, abra la herramienta de comandos de Git, cambie al directorio del repositorio local y emita los siguientes comandos.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 Para insertar todas las confirmaciones en el servidor, ejecute el siguiente comando.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implementar los cambios de la configuración del servicio en la instancia del servicio de Administración de API
 Una vez confirmados los cambios locales e insertados en el repositorio del servidor, puede implementarlos en la instancia del servicio Administración de API.
@@ -190,19 +206,21 @@ Estos archivos pueden crear, eliminar, editar y administrar en el sistema de arc
 ### <a name="root-api-management-folder"></a>Carpeta raíz de la administración de API
 La carpeta raíz `api-management` contiene un archivo `configuration.json` con información de nivel superior sobre la instancia de servicio en el formato siguiente.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 Los primeros cuatro valores (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` y `UserRegistrationTermsConsentRequired`) se asignan a la siguiente configuración en la pestaña **Identidades** de la sección **Seguridad**.
 
@@ -303,6 +321,6 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

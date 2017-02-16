@@ -1,5 +1,5 @@
 ---
-title: Aislamiento de las aplicaciones de Service Bus ante interrupciones y desastres | Microsoft Docs
+title: Aislamiento de las aplicaciones de Service Bus de Azure ante interrupciones y desastres | Microsoft Docs
 description: "Se describen técnicas que puede usar para proteger las aplicaciones ante una posible interrupción del Bus de servicio."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a76ebad52b8b08311b488cd5bbdb909628d43ec3
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 6424d4dabe20514c0e41c6d755d644494afea302
 
 
 ---
@@ -35,22 +35,22 @@ Todas las entidades de mensajería de Service Bus (colas, temas, retransmisiones
 ## <a name="protecting-against-acs-outages"></a>Protección contra interrupciones de ACS
 Si está usando credenciales de ACS y este deja de estar disponible, los clientes ya no pueden obtener tokens. Los clientes que posean un token en el momento en que ACS deje de funcionar pueden seguir usando el Bus de servicio hasta que expiren los tokens. La duración predeterminada del token es de 3 horas.
 
-Para protegerse ante las interrupciones de ACS, use tokens de firma de acceso compartido (SAS). En este caso, el cliente se autentica directamente con el Bus de servicio firmando un token autogenerado con una clave secreta. Las llamadas a ACS ya no son necesarias. Para más información sobre los tokens de SAS, vea [Service Bus authentication (Autenticación de Service Bus)][Service Bus authentication (Autenticación de Service Bus)].
+Para protegerse ante las interrupciones de ACS, use tokens de firma de acceso compartido (SAS). En este caso, el cliente se autentica directamente con el Bus de servicio firmando un token autogenerado con una clave secreta. Las llamadas a ACS ya no son necesarias. Para obtener más información sobre los tokens SAS, consulte [Autenticación y autorización de Service Bus][Service Bus authentication].
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protección de colas y temas contra errores en el almacén de mensajería
-Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para más información sobre las entidades con particiones, vea [Entidades de mensajería con particiones][Entidades de mensajería con particiones].
+Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protección contra desastres o interrupciones del centro de datos
 Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para el Bus de servicio en cada centro de datos. Por ejemplo, el espacio de nombres de servicio de Service Bus **contosoPrimary.servicebus.windows.net** puede encontrarse en la región norte/central de Estados Unidos, y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región sur/central de EE. UU. Si una entidad de mensajería del Bus de servicio debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.
 
-Para más información, vea la sección "Error de Service Bus en un centro de datos de Azure" en [Patrones de mensajería asincrónica y alta disponibilidad][Patrones de mensajería asincrónica y alta disponibilidad].
+Para obtener más información, consulte la sección "Error de Service Bus dentro de un centro de datos de Azure" en [Patrones de mensajería asincrónica y alta disponibilidad][Asynchronous messaging patterns and high availability].
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protección de los extremos de retransmisión contra desastres o interrupciones del centro de datos
 La replicación geográfica de los extremos de retransmisión permite que un servicio que exponga un extremo de retransmisión sea accesible en caso de interrupciones del Bus de servicio. Para lograr la replicación geográfica, el servicio debe crear dos extremos de retransmisión en diferentes espacios de nombres. Los espacios de nombres deben residir en distintos centros de datos y ambos extremos deben tener nombres diferentes. Por ejemplo, se puede acceder a un punto de conexión principal en **contosoPrimary.servicebus.windows.net/myPrimaryService**, mientras que su equivalente secundario resulta accesible en **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 A continuación, el servicio escucha en ambos extremos y un cliente puede invocar el servicio a través de cualquiera de ellos. Una aplicación cliente selecciona de forma aleatoria una de las retransmisiones como extremo principal y envía su solicitud al extremo activo. Si la operación da como resultado un código de error, este error indica que el extremo de retransmisión no está disponible. La aplicación abre un canal al extremo de reserva y vuelve a emitir la solicitud. En ese momento, el extremo activo y el de reserva intercambian roles: la aplicación cliente considera el anterior extremo activo como el nuevo extremo de reserva y el anterior extremo de reserva pasa a ser el nuevo extremo activo. Si ambas operaciones de envío generan un error, no se modifican los roles de las dos entidades y se devuelve un error.
 
-En el ejemplo de [replicación geográfica con mensajes retransmitidos del Bus de servicio][replicación geográfica con mensajes retransmitidos del Bus de servicio] se muestra cómo replicar retransmisiones.
+El ejemplo de [replicación geográfica con mensajes retransmitidos de Service Bus][Geo-replication with Service Bus relayed Messages] muestra cómo replicar retransmisiones.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protección de colas y temas contra desastres o interrupciones del centro de datos
 Para lograr resistencia frente a interrupciones del centro de datos al usar mensajería asincrónica, Service Bus admite dos enfoques: replicación *activa* y *pasiva*. Para cada enfoque, si una cola o un tema determinados deben permanecer accesibles en el caso de una interrupción del centro de datos, puede crear la entidad en ambos espacios de nombres. Ambas entidades pueden tener el mismo nombre. Por ejemplo, se puede acceder a una cola principal en **contosoPrimary.servicebus.windows.net/myQueue**, mientras que su equivalente secundaria resulta accesible en **contosoSecondary.servicebus.windows.net/myQueue**.
@@ -60,9 +60,9 @@ Si la aplicación no requiere comunicación permanente entre remitente y recepto
 ## <a name="active-replication"></a>Replicación activa
 La replicación activa usa entidades en ambos espacios de nombres para cada operación. Cualquier cliente que envíe un mensaje envía dos copias de él. La primera copia se envía a la entidad principal (por ejemplo, **contosoPrimary.servicebus.windows.net/sales**), y la segunda copia del mensaje se envía a la entidad secundaria (por ejemplo, **contosoSecondary.servicebus.windows.net/sales**).
 
-Un cliente recibe mensajes de ambas colas. El receptor procesa la primera copia de un mensaje y se suprime la segunda copia. Para suprimir mensajes duplicados, el remitente debe etiquetar cada mensaje con un identificador único. Ambas copias del mensaje deben estar etiquetadas con el mismo identificador. Puede usar las propiedades [BrokeredMessage.MessageId][BrokeredMessage.MessageId] o [BrokeredMessage.Label][BrokeredMessage.Label], o bien una propiedad personalizada para etiquetar el mensaje. El receptor debe mantener una lista de los mensajes que ya haya recibido.
+Un cliente recibe mensajes de ambas colas. El receptor procesa la primera copia de un mensaje y se suprime la segunda copia. Para suprimir mensajes duplicados, el remitente debe etiquetar cada mensaje con un identificador único. Ambas copias del mensaje deben estar etiquetadas con el mismo identificador. Puede usar las propiedades [BrokeredMessage.MessageId][BrokeredMessage.MessageId] o [BrokeredMessage.Label][BrokeredMessage.Label], o bien una propiedad personalizada, para etiquetar el mensaje. El receptor debe mantener una lista de los mensajes que ya haya recibido.
 
-En el ejemplo de [replicación geográfica con mensajes asincrónicos del Bus de servicio][replicación geográfica con mensajes asincrónicos del Bus de servicio] se muestra la replicación activa de entidades de mensajería.
+El ejemplo de [replicación geográfica con mensajes asincrónicos de Service Bus][Geo-replication with Service Bus Brokered Messages] muestra la replicación activa de entidades de mensajería.
 
 > [!NOTE]
 > La replicación activa dobla el número de operaciones; por lo tanto, este enfoque puede suponer un costo mayor.
@@ -81,26 +81,26 @@ Cuando se usa la replicación pasiva, en los siguientes escenarios se pueden per
 * **Demora o pérdida de mensajes**: se supone que el remitente envió correctamente un mensaje m1 a la cola principal y después la cola deja de estar disponible antes de que el receptor reciba m1. El remitente envía otro mensaje m2 a la cola secundaria. Si la cola principal no está disponible temporalmente, el receptor recibe m1 una vez que la cola esté disponible de nuevo. En caso de desastre, puede que el receptor no reciba nunca m1.
 * **Recepción duplicada**: supongamos que el remitente envía un mensaje m a la cola principal. El Bus de servicio procesa m correctamente , pero no envía una respuesta. Una vez que la operación de envío agota el tiempo de espera, el remitente envía una copia idéntica de m a la cola secundaria. Si el receptor puede recibir la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe ambas copias de m aproximadamente al mismo tiempo. Si el receptor no recibe la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe inicialmente solo la segunda copia de m pero, a continuación, recibe una segunda copia de m cuando la cola principal vuelve a estar disponible.
 
-En el ejemplo de [replicación geográfica con mensajes asincrónicos del Bus de servicio][replicación geográfica con mensajes asincrónicos del Bus de servicio] se muestra la replicación pasiva de entidades de mensajería.
+El ejemplo de [replicación geográfica con mensajes asincrónicos de Service Bus][Geo-replication with Service Bus Brokered Messages] muestra la replicación pasiva de entidades de mensajería.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
 
-* [Continuidad de negocio de Base de datos SQL de Azure][Continuidad de negocio de Base de datos SQL de Azure]
-* [Guía técnica sobre resistencia en Azure][Guía técnica sobre resistencia en Azure]
+* [Continuidad de negocio de SQL Database de Azure][Azure SQL Database Business Continuity]
+* [Guía técnica sobre resistencia en Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
-[Entidades de mensajería con particiones]: service-bus-partitioning.md
-[Patrones de mensajería asincrónica y alta disponibilidad]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[replicación geográfica con mensajes retransmitidos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
-[BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
-[BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
-[replicación geográfica con mensajes asincrónicos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-[Continuidad de negocio de Base de datos SQL de Azure]: ../sql-database/sql-database-business-continuity.md
-[Guía técnica sobre resistencia en Azure]: ../resiliency/resiliency-technical-guidance.md
+[Partitioned messaging entities]: service-bus-partitioning.md
+[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
+[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
+[BrokeredMessage.MessageId]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
+[BrokeredMessage.Label]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
+[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
+[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

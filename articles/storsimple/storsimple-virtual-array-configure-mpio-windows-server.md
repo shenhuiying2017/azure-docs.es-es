@@ -1,5 +1,5 @@
 ---
-title: "Configuración de MPIO en un host de Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Configuración de MPIO en un host conectado a StorSimple Virtual Array | Microsoft Docs"
 description: "Describe cómo configurar la E/S de múltiples rutas (MPIO) para una instancia de StorSimple Virtual Array conectada a un host que ejecuta Windows Server 2012 R2."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 53308da656f46a43332a204d9d49e972d8c1799c
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configuración de E/S de múltiples rutas en el host de Windows Server para la matriz Virtual de StorSimple
@@ -134,13 +134,13 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
     ![mpio14](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio14.png)
 13. Debe repetir estos pasos para cada volumen (superficies como destino).
     
-    ![mpio 15](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio15.png)
+    ![mpio&15;](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio15.png)
 14. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en StorSimple Virtual Array que pueda ver este host aparecerán en **Administración de discos** como discos nuevos.
 15. Inicialice el disco y cree otro volumen. Durante el proceso de formato, seleccione un tamaño de unidad de asignación (AUS) de 64 KB. Repita el proceso para todos los volúmenes disponibles.
     
     ![Administración de discos](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio20.png)
 16. En **Administración de discos**, haga clic con el botón derecho en el **disco** y seleccione **Propiedades**.
-17. En el cuadro de diálogo Propiedades del dispositivo de disco de múltiples rutas**, haga clic en la pestaña MPIO**.
+17. En el cuadro de diálogo **Propiedades del dispositivo de disco de múltiples rutas**, haga clic en la pestaña **MPIO**.
     
     ![Propiedades de disco](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio21.png)
 18. En la sección **Nombre DSM**, haga clic en **Detalles** y compruebe que los parámetros están establecidos en los valores predeterminados. Los parámetros predeterminados son los siguientes:
@@ -160,6 +160,6 @@ Más información sobre el [uso del servicio StorSimple Device Manager para admi
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

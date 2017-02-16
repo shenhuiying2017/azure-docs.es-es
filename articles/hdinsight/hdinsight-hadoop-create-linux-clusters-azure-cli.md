@@ -16,17 +16,17 @@ ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f322b95e3ade4318ccd64f5e2222194bd2fb9361
+ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
+ms.openlocfilehash: df8a5124b35ee00fcbe2c25a032443a1a55b7b1d
 
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Crear clústeres basados en Linux en HDInsight con la CLI de Azure
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-La CLI de Azure es una utilidad de línea de comandos multiplataforma que permite administrar los servicios de Azure. Se puede usar, junto con las plantillas de administración de recursos de Azure para crear un clúster de HDInsight, junto con las cuentas de almacenamiento asociadas y otros servicios.
+La CLI de Azure es una utilidad de línea de comandos multiplataforma que permite administrar los servicios de Azure. Se puede usar, junto con las plantillas de Azure Resource Manager, para crear un clúster de HDInsight, junto con las cuentas de almacenamiento asociadas y otros servicios.
 
-Las plantillas del Administrador de recursos de Azure son documentos JSON que describen un **grupo de recursos** y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla, le permite definir todos los recursos que necesita para HDInsight en una plantilla. También le permite administrar los cambios en el grupo como un todo a través de **implementaciones**, que aplican cambios a todo el grupo.
+Las plantillas de Azure Resource Manager son documentos JSON que describen un **grupo de recursos** y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla, le permite definir todos los recursos que necesita para HDInsight en una plantilla. También le permite administrar los cambios en el grupo como un todo a través de **implementaciones**, que aplican cambios a todo el grupo.
 
 Los pasos de este documento recorren el proceso de creación de un nuevo clúster de HDInsight mediante la CLI de Azure y una plantilla:
 
@@ -38,12 +38,13 @@ Los pasos de este documento recorren el proceso de creación de un nuevo clúste
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **CLI de Azure** Los pasos descritos en este documento se probaron por última vez en la versión 0.10.1 de la CLI de Azure.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Requisitos de control de acceso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -130,6 +131,6 @@ Una vez creado correctamente un clúster de HDInsight correctamente mediante la 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

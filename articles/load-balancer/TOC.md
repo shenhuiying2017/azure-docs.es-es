@@ -1,5 +1,5 @@
 # Información general
-## [¿Qué es el equilibrador de carga?](load-balancer-overview.md)
+## [¿Qué es Load Balancer?](load-balancer-overview.md)
 ## [Equilibrador de carga de Internet](load-balancer-internet-overview.md)
 ## [Equilibrador de carga interno](load-balancer-internal-overview.md)
 ## [Descripción de los sondeos del equilibrador de carga](load-balancer-custom-probe-overview.md)
@@ -33,7 +33,7 @@
 ### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (plantilla)](load-balancer-ipv6-internet-template.md)
 
-# Cómo
+# Procedimientos
 ## [Configuración del tiempo de espera de inactividad TCP del equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 ## [Configuración del modo de distribución en el equilibrador de carga](load-balancer-distribution-mode.md)
 ## [Configuración del equilibrador de carga interno para SQL AlwaysOn](load-balancer-configure-sqlao.md)
@@ -44,19 +44,22 @@
 ## [Configuración de DHCPv6 para VM de Linux](load-balancer-ipv6-for-linux.md)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [CLI de Azure](/cli/azure/network/lb)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Temas relacionados
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Express Route](/azure/expressroute/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Máquina virtual](/azure/virtual-machines/)
-## [Administrador de tráfico](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)
 
 # Recursos
@@ -64,6 +67,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

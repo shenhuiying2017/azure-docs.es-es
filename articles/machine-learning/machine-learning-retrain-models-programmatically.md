@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
+ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
+ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
 
 
 ---
@@ -44,10 +44,11 @@ Para crear el experimento:
 5. Escriba Census Model (Modelo de censo).
 6. En la parte inferior del lienzo del experimento, haga clic en **Ejecutar**.
 7. Haga clic en **Set Up Web Service** (Configurar servicio web) y seleccione **Retraining Web Service** (Servicio web de reentrenamiento). 
+
+A continuación, se muestra el experimento inicial.
    
    ![Experimento inicial.][2]
 
-Diagrama 2: Experimento inicial.
 
 ## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Creación de un experimento predictivo y publicación como servicio web
 A continuación creará un experimento predicativo.
@@ -79,7 +80,7 @@ En cualquier caso, una vez que el experimento ha finalizado su ejecución, el fl
 
 ![Flujo de trabajo resultante después de la ejecución.][4]
 
-Diagrama 3: Flujo de trabajo resultante después de la ejecución.
+
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>Reentrenamiento del modelo con nuevos datos mediante BES
 En este ejemplo, se utiliza C# para crear la aplicación de reentrenamiento. También puede utilizar el código de ejemplo de Python o R para realizar esta tarea.
@@ -185,6 +186,6 @@ Si implementó el servicio web predictivo haciendo clic en **Deploy Web Service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

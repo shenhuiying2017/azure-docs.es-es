@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 523687dafa670e1d48087df9a5810b79925c5cde
-ms.openlocfilehash: dc4030ce447349c4cd128a7824e0f726682f9714
+ms.sourcegitcommit: 52cf33c5b9f3c3818ef66b97f22d148f0bf7c859
+ms.openlocfilehash: 8efed4445977f1d75ede02ccc761138ba3a33928
 
 
 ---
@@ -75,18 +75,20 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 2. Seleccione **HDInsight On Demand Linked Service** (Servicio vinculado de HDInsight a petición) y haga clic en **Agregar**.
 3. Reemplace el código **JSON** por el siguiente:
 
-        {
-          "name": "HDInsightOnDemandLinkedService",
-          "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-              "version": "3.2",
-              "clusterSize": 1,
-              "timeToLive": "00:30:00",
-              "linkedServiceName": "AzureStorageLinkedService1"
-            }
-          }
+    ```JSON
+    {
+      "name": "HDInsightOnDemandLinkedService",
+      "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+          "version": "3.2",
+          "clusterSize": 1,
+          "timeToLive": "00:30:00",
+          "linkedServiceName": "AzureStorageLinkedService1"
         }
+      }
+    }
+    ```
 
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
@@ -118,28 +120,29 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
     En el fragmento de código JSON, va a crear un conjunto de datos denominado **AzureBlobInput** que representa los datos de entrada para una actividad de la canalización. Además, debe indicar que los datos de entrada se encuentran en el contenedor de blobs **adfgetstarted** y en la carpeta **inputdata**.
 
-        {
-            "name": "AzureBlobInput",
-            "properties": {
-                "type": "AzureBlob",
-                "linkedServiceName": "AzureStorageLinkedService1",
-                "typeProperties": {
-                    "fileName": "input.log",
-                    "folderPath": "adfgetstarted/inputdata",
-                    "format": {
-                        "type": "TextFormat",
-                        "columnDelimiter": ","
-                    }
-                },
-                "availability": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "external": true,
-                "policy": {}
-            }
+    ```JSON
+    {
+        "name": "AzureBlobInput",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService1",
+            "typeProperties": {
+                "fileName": "input.log",
+                "folderPath": "adfgetstarted/inputdata",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {}
         }
-
+    }
+    ```
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
    | Propiedad | Descripción |
@@ -162,24 +165,26 @@ Ahora, se crea el conjunto de datos de salida que representa los datos de salida
 
     En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput**y especifique la estructura de los datos que genera el script de Hive. Además, debe especificar que los resultados están guardados en el contenedor de blobs **adfgetstarted** y en la carpeta **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 
-        {
-          "name": "AzureBlobOutput",
-          "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService1",
-            "typeProperties": {
-              "folderPath": "adfgetstarted/partitioneddata",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "availability": {
-              "frequency": "Month",
-              "interval": 1
-            }
+    ```JSON
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService1",
+        "typeProperties": {
+          "folderPath": "adfgetstarted/partitioneddata",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
           }
+        },
+        "availability": {
+          "frequency": "Month",
+          "interval": 1
         }
+      }
+    }
+    ```
 
     Consulte la sección **Creación del conjunto de datos de entrada** para obtener las descripciones de estas propiedades. No establezca la propiedad externa en un conjunto de datos ya que este es generado por el servicio Factoría de datos.
 4. Guarde el archivo **OutputDataset.json** .
@@ -196,49 +201,50 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
    >
    >
 
-        {
-            "name": "MyFirstPipeline",
-            "properties": {
-                "description": "My first Azure Data Factory pipeline",
-                "activities": [
-                    {
-                        "type": "HDInsightHive",
-                        "typeProperties": {
-                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                            "scriptLinkedService": "AzureStorageLinkedService1",
-                            "defines": {
-                                "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                                "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                            }
-                        },
-                        "inputs": [
-                            {
-                                "name": "AzureBlobInput"
-                            }
-                        ],
-                        "outputs": [
-                            {
-                                "name": "AzureBlobOutput"
-                            }
-                        ],
-                        "policy": {
-                            "concurrency": 1,
-                            "retry": 3
-                        },
-                        "scheduler": {
-                            "frequency": "Month",
-                            "interval": 1
-                        },
-                        "name": "RunSampleHiveActivity",
-                        "linkedServiceName": "HDInsightOnDemandLinkedService"
-                    }
-                ],
-                "start": "2016-04-01T00:00:00Z",
-                "end": "2016-04-02T00:00:00Z",
-                "isPaused": false
-            }
+    ```JSON
+    {
+        "name": "MyFirstPipeline",
+        "properties": {
+            "description": "My first Azure Data Factory pipeline",
+            "activities": [
+                {
+                    "type": "HDInsightHive",
+                    "typeProperties": {
+                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                        "scriptLinkedService": "AzureStorageLinkedService1",
+                        "defines": {
+                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "AzureBlobInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "policy": {
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "scheduler": {
+                        "frequency": "Month",
+                        "interval": 1
+                    },
+                    "name": "RunSampleHiveActivity",
+                    "linkedServiceName": "HDInsightOnDemandLinkedService"
+                }
+            ],
+            "start": "2016-04-01T00:00:00Z",
+            "end": "2016-04-02T00:00:00Z",
+            "isPaused": false
         }
-
+    }
+    ```
      En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 
     En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
@@ -268,46 +274,46 @@ Cuando publique la solución en el paso siguiente, el archivo **partitionweblogs
 3. Debería ver el siguiente cuadro de diálogo:
 
    ![Cuadro de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. En la página Configurar Data Factory, haga lo siguiente:
+4. En la página **Configure data factory** (Configurar factoría de datos), haga lo siguiente:
 
    1. Seleccione la opción **Crear la nueva factoría de datos** .
-   2. Escriba un **nombre** único para la factoría de datos. Por ejemplo: **FirstDataFactoryUsingVS09152016**. El nombre debe ser único globalmente.  
+   2. Escriba un **nombre** único para la factoría de datos. Por ejemplo: **FirstDataFactoryUsingVS09152016**. El nombre debe ser único globalmente.
+   3. Seleccione la suscripción correcta en el campo **Suscripción** . Si no ve ninguna suscripción, asegúrese de que ha iniciado sesión con una cuenta que sea administrador o coadministrador de la suscripción.
+   4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear.
+   5. Seleccione la **Región** de la factoría de datos.
+   6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Si el botón **Siguiente** está deshabilitado, presione la tecla **TAB** para salir del campo).
 
-        > [AZURE.IMPORTANT] Si recibe el error **El nombre "FirstDataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreFirstDataFactoryUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
-3. Seleccione la suscripción correcta en el campo **Suscripción** .
-
-
-        > [AZURE.IMPORTANT] Si no ve ninguna suscripción, asegúrese de que ha iniciado sesión con una cuenta que sea administrador o coadministrador de la suscripción.  
-
-    4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear.
-    5. Seleccione la **Región** de la factoría de datos.
-    6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Si el botón **Siguiente** está deshabilitado, presione la tecla **TAB** para salir del campo).
+        > [!IMPORTANT]
+        > Si recibe el error **El nombre "FirstDataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreFirstDataFactoryUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.   
 1. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
 2. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 3. En la página **Estado de implementación** , debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar.
 
 Puntos importantes que hay que tener en cuenta:
 
-* Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
+- Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
+    - En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
+        ```PowerShell   
+        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```
+        Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
 
-  * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
-
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-
-      Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
-
-          Get-AzureRmResourceProvider
-  * Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
-* El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
-* Para crear instancias de Data Factory, es preciso ser administrador o coadministrador de la suscripción de Azure
+        ```PowerShell
+        Get-AzureRmResourceProvider
+        ```
+    - Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
+- El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+- Para crear instancias de Data Factory, es preciso ser administrador o coadministrador de la suscripción de Azure
 
 ## <a name="monitor-pipeline"></a>Supervisión de la canalización
 ### <a name="monitor-pipeline-using-diagram-view"></a>Supervisión de una canalización desde la vista de diagrama
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/)y realice lo siguiente:
    1. Haga clic en **More services** (Más servicios) y en **Fábricas de datos**.
-       ![Examine las factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+       
+        ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
    2. Seleccione el nombre de la factoría de datos (por ejemplo: **FirstDataFactoryUsingVS09152016**) en la lista de factorías de datos.
-       ![Seleccione la factoría de datos](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
+   
+       ![Seleccione su factoría de datos](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. En la página principal de la factoría de datos, haga clic en **Diagrama**.
 
     ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -343,14 +349,15 @@ Puntos importantes que hay que tener en cuenta:
 11. Haga clic en el segmento para ver sus detalles en una hoja **Segmento de datos** .
 
     ![Detalles de segmento de datos](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
-12. Haga clic en una de las entradas de **Activity runs list** (Lista de ejecuciones de actividad) para ver los detalles de la ejecución de la actividad (en nuestro caso, la actividad de Hive) en la ventana **Detalles de la ejecución de actividad**.   
+12. Haga clic en una de las entradas de **Activity runs list** (Lista de ejecuciones de actividad) para ver los detalles de la ejecución de la actividad (en nuestro caso, la actividad de Hive) en la ventana **Detalles de la ejecución de actividad**. 
+  
     ![Detalles de ejecución de actividad](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
 
     En los archivos de registro, puede ver la consulta de Hive que se ejecutó y la información sobre el estado. Estos registros son útiles para solucionar cualquier problema.  
 
 Consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>Supervisión de una canalización con la Aplicación de supervisión y administración
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Supervisión de una canalización con la Aplicación de supervisión y administración
 La Aplicación de supervisión y administración también se puede usar para supervisar las canalizaciones. Para más información acerca del uso de esta aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
 1. Haga clic en el icono Supervisión y administración.
@@ -388,16 +395,18 @@ Puede usar archivos de configuración de Visual Studio para configurar propiedad
 
 Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Con ella, podrá especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, pruebas y producción) en el que va a implementar las entidades de Data Factory. Puede conseguir este comportamiento mediante el uso del archivo de configuración independiente para cada entorno.
 
-    {
-        "name": "StorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
+}
+```
 
 ### <a name="add-a-configuration-file"></a>Adición de un archivo de configuración
 Agregue un archivo de configuración a cada entorno realizando los pasos siguientes:   
@@ -408,64 +417,71 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
     ![Adición de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. Agregue parámetros de configuración y sus valores en el formato siguiente.
 
-        {
-            "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
-            "AzureStorageLinkedService1": [
-                {
-                    "name": "$.properties.typeProperties.connectionString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-                }
-            ],
-            "AzureSqlLinkedService1": [
-                {
-                    "name": "$.properties.typeProperties.connectionString",
-                    "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                }
-            ]
-        }
+    ```JSON
+    {
+        "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+        "AzureStorageLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        ],
+        "AzureSqlLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        ]
+    }
+    ```
 
     En este ejemplo se configura la propiedad connectionString de un servicio vinculado de Almacenamiento de Azure y un servicio vinculado de SQL de Azure. Observe que la sintaxis para especificar el nombre es [JsonPath](http://goessner.net/articles/JsonPath/).   
 
     Si JSON tiene una propiedad con una matriz de valores como se muestra en el código siguiente:  
 
-        "structure": [
-              {
-                  "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-            }
-        ],
+    ```JSON
+    "structure": [
+          {
+              "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
+        }
+    ],
+    ```
 
     Configure las propiedades tal como se muestra en el siguiente archivo de configuración (use la indexación de base cero):
 
-        {
-            "name": "$.properties.structure[0].name",
-            "value": "FirstName"
-        }
-        {
-            "name": "$.properties.structure[0].type",
-            "value": "String"
-        }
-        {
-            "name": "$.properties.structure[1].name",
-            "value": "LastName"
-        }
-        {
-            "name": "$.properties.structure[1].type",
-            "value": "String"
-        }
+    ```JSON
+    {
+        "name": "$.properties.structure[0].name",
+        "value": "FirstName"
+    }
+    {
+        "name": "$.properties.structure[0].type",
+        "value": "String"
+    }
+    {
+        "name": "$.properties.structure[1].name",
+        "value": "LastName"
+    }
+    {
+        "name": "$.properties.structure[1].type",
+        "value": "String"
+    }
+    ```
 
 ### <a name="property-names-with-spaces"></a>Nombres de propiedad con espacios
 Si un nombre de propiedad contiene espacios, utilice corchetes como se muestra en el ejemplo siguiente (nombre de servidor de base de datos):
 
-     {
-         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
-         "value": "MyAsqlServer.database.windows.net"
-     }
-
+```JSON
+ {
+     "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+     "value": "MyAsqlServer.database.windows.net"
+ }
+```
 
 ### <a name="deploy-solution-using-a-configuration"></a>Implementación de la solución mediante una configuración
 Al publicar las entidades de Factoría de datos de Azure en Visual Studio, puede especificar la configuración que desea usar para esa operación de publicación.
@@ -507,6 +523,6 @@ En este artículo, creó una canalización con una actividad de transformación 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

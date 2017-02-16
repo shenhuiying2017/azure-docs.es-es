@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 98c7e7e4d14a52787ef76d17c38a08d8f11a21e2
+ms.sourcegitcommit: 9dedba5f1126d7d23fab3ebeb98559316a6a5a10
+ms.openlocfilehash: be2e295dfeb979737013ebe23d48b4476ef3d6e2
 
 
 ---
@@ -33,11 +33,12 @@ En Servicios multimedia, cargará (o introducirá) los archivos digitales en un 
 Los archivos del recurso se denominan **archivos de recursos**. La instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
 
 > [!NOTE]
-> Al elegir un nombre de archivo de recurso, se aplican las consideraciones siguientes:
+> Se aplican las siguientes consideraciones:
 > 
-> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un carácter "." para la extensión de nombre de archivo.
+> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 > * La longitud del nombre no debe ser superior a 260 caracteres.
-> 
+> * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) tema para obtener información más detallada acerca de la limitación de tamaño de archivo.
+>
 > 
 
 Al crear recursos, puede especificar las siguientes opciones de cifrado. 
@@ -46,7 +47,7 @@ Al crear recursos, puede especificar las siguientes opciones de cifrado.
   Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
 * **CommonEncryption** : utilice esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 * **EnvelopeEncrypted** : utilice esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
-* **StorageEncrypted** : cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+* **StorageEncrypted** : cifra el contenido no cifrado localmente mediante el cifrado AES de&256; bits y, a continuación, lo carga en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
   
     Los Servicios multimedia proporcionan cifrado de almacenamiento en disco para sus recursos, no por cable como el administrador de derechos digitales (DRM).
   
@@ -305,13 +306,13 @@ En el ejemplo siguiente se llama a la función UploadFile y se especifica el cif
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Paso siguiente
-Ahora que ha cargado un recurso en Media Services, vaya al tema [Obtención de un procesador de multimedia][Obtención de un procesador multimedia].
+Ahora que ha cargado un recurso en Media Services, vaya al tema [Obtención de un procesador multimedia][How to Get a Media Processor].
 
-[Obtención de un procesador multimedia]: media-services-get-media-processor.md
-
-
+[How to Get a Media Processor]: media-services-get-media-processor.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

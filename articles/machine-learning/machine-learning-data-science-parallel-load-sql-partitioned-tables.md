@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
+ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 
 
 ---
@@ -27,7 +27,7 @@ En este documento se describe cómo se pueden crear tablas con particiones para 
 * [Crear una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
 * Agregar grupos de archivos de base de datos a la base de datos que contendrá los archivos físicos con particiones
   
-  Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nueva o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
+  Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nueva o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
 * Agregar uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos
   
   > [!NOTE]
@@ -76,7 +76,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Sugerencia: Para comprobar los intervalos en vigor en cada partición según el esquema de función, ejecute la consulta siguiente:
+  Para comprobar los intervalos en vigor en cada partición según el esquema de función, ejecute la consulta siguiente:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
@@ -185,6 +185,6 @@ Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

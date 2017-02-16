@@ -4,7 +4,7 @@ description: Aprenda los fundamentos para crear y trabajar con Kafka en HDInsigh
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 01/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 70d910f61fa414a0c58a22057133ef3b899dac05
+ms.sourcegitcommit: 34c1138a9c3b9313a12ffbf4bc4c3141db0a016e
+ms.openlocfilehash: 98b11144c049f9db780c7665610c83a753f23b21
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Introducción a Apache Kafka (versión preliminar) en HDInsight
@@ -71,6 +71,11 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
     Por último, use el botón **Seleccionar** para guardar la configuración.
      
     ![Seleccionar el tipo de clúster](./media/hdinsight-apache-kafka-get-started/cluster-type.png)
+
+    > [!NOTE]
+    > Si su suscripción de Azure no tiene acceso a la versión preliminar de Kafka, se muestran instrucciones sobre cómo obtener acceso a la versión preliminar. Las instrucciones mostradas son similares a la siguiente imagen:
+    >
+    > ![mensaje de versión preliminar: if you would like to deploy a managed Apache Kafka cluster on HDInsight, email us to request preview access (Si quiere implementar un clúster de Apache Kafka administrado en HDInsight, envíenos un correo electrónico para solicitar el acceso a la versión preliminar)](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
 
 4. En **Credenciales**, configure el inicio de sesión de clúster y las credenciales de usuario de SSH.  Use el botón **Seleccionar** para guardar la configuración.
    
@@ -315,11 +320,11 @@ En este documento, ha aprendido los conceptos básicos de trabajar con Apache Ka
 * [Documentación de Apache Kafka](http://kafka.apache.org/documentation.html) en kafka.apache.org.
 * [Uso de MirrorMaker para crear una réplica de Kafka en HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Uso de Apache Kafka con Storm en HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Uso de Apache Spark con Kafka en HDInsight)
+* [Uso de Apache Spark con Kafka en HDInsight](hdinsight-apache-spark-with-kafka.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

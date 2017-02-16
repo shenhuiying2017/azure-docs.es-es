@@ -1,6 +1,6 @@
 ---
-title: "Creación de un centro de IoT Hub mediante una plantilla de ARM y C# | Microsoft Docs"
-description: Siga este tutorial para empezar a usar las plantillas de Azure Resource Manager para crear un IoT Hub con un programa de C#.
+title: "Creación de un centro de IoT Hub de Azure mediante una plantilla (.NET) | Microsoft Docs"
+description: "Describe cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT Hub con el programa C#."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 118ab90d7886ad48e7476abd732b16b69375d214
+ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
+ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
 
 
 ---
-# <a name="create-an-iot-hub-using-a-c-program-with-an-azure-resource-manager-template"></a>Creación de un IoT Hub mediante un programa de C# con una plantilla de Azure Resource Manager
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creación de un centro de IoT Hub con una plantilla de Azure Resource Manager (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introducción
@@ -36,7 +36,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Microsoft Visual Studio 2015.
 * Una cuenta de Azure activa. <br/>Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * Una [cuenta de Azure Storage][lnk-storage-account] en la que pueda guardar los archivos de plantilla de Azure Resource Manager.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versiones posteriores.
+* [Azure PowerShell 1.0][lnk-powershell-install] o posterior.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -206,7 +206,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
@@ -218,6 +218,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

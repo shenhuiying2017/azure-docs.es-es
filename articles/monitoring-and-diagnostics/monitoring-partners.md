@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ebbd4166bc3f76c91823ee17b8b9c460feb9e194
+ms.sourcegitcommit: 244cc5e4f053901a8de94adb8fc983edf30ca516
+ms.openlocfilehash: 46b3ade8bb58ccd0637ce4f2cf5c484f599e6173
 
 
 ---
@@ -75,7 +75,7 @@ OpsGenie actúa como un distribuidor para las alertas generadas por Azure. OpsGe
 [Vaya a la documentación.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, la solución líder de administración de incidentes, ofrece soporte de primera clase para Azure Alerts sobre las métricas. Hoy en día, PagerDuty admite notificaciones de alertas de Azure Monitor para aplicaciones Azure, notificaciones de escalado automático y eventos de registro de auditoría, además de las notificaciones sobre las métricas a nivel de plataforma para los servicios de Azure. Estas mejoras proporcionan una mayor visibilidad a los usuarios de la Plataforma Azure principal, mientras les permite aprovechar al máximo las capacidades de administración de incidentes de PagerDuty para responder en tiempo real. La integración expandida de Azure es posible a través de webhook, lo que permite realizar configuraciones y personalizaciones de manera rápida y sencilla.
+PagerDuty, la solución líder de administración de incidentes, ofrece soporte de primera clase para Azure Alerts sobre las métricas. Hoy en día, PagerDuty admite notificaciones de alertas de Azure Monitor, notificaciones de escalado automático y eventos de registro de auditoría, además de las notificaciones sobre las métricas a nivel de plataforma para los servicios de Azure. Estas mejoras proporcionan una mayor visibilidad a los usuarios de la Plataforma Azure principal, mientras les permite aprovechar al máximo las capacidades de administración de incidentes de PagerDuty para responder en tiempo real. La integración expandida de Azure es posible a través de webhook, lo que permite realizar configuraciones y personalizaciones de manera rápida y sencilla.
 
 [Vaya a la documentación.][pagerduty-doc]
 
@@ -90,7 +90,7 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 [Obtenga más información.][sumologic-doc]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../resource-group-audit.md)
+* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../azure-resource-manager/resource-group-audit.md)
 * [Transmisión del registro de actividad de Azure a centros de eventos](monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
@@ -137,6 +137,6 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
+ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
 
 
 ---
@@ -167,10 +167,22 @@ Con Power BI, puede crear paneles que reúnan datos de una gran variedad de orí
 
 [Más información acerca de la exportación a Power BI](app-insights-export-power-bi.md)
 
+## <a name="deep-link"></a>Vínculo profundo
 
-## <a name="automation"></a>Automation
+Obtenga un vínculo en **Export, Share link** (Exportar, compartir vínculo) que puede enviar a otro usuario. Siempre que el usuario tenga [acceso a su grupo de recursos](app-insights-resources-roles-access-control.md), la consulta se abrirá en la interfaz de usuario de Analytics.
 
-Las consultas de Analytics se pueden ejecutar mediante el  [API de REST de acceso a datos](https://dev.applicationinsights.io/), por ejemplo mediante PowerShell.
+(En el vínculo, aparece el texto de consulta después de "?q=", comprimido en gzip y codificado en base&64;. Puede escribir código para generar vínculos profundos que se proporcionan a los usuarios. Sin embargo, el método recomendado para ejecutar Analytics desde código es mediante la [API de REST](https://dev.applicationinsights.io/).)
+
+
+## <a name="automation"></a>Automatización
+
+Use la [API de REST de acceso a datos](https://dev.applicationinsights.io/) para ejecutar las consultas de Analytics. [Por ejemplo](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (con PowerShell):
+
+```PS
+curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
+```
+
+A diferencia de la interfaz de usuario de Analytics, la API de REST no agrega automáticamente ninguna limitación de marca de tiempo a las consultas. No olvide agregar su propia cláusula de where para evitar la obtención de respuestas muy grandes.
 
 
 
@@ -217,6 +229,6 @@ Si usa [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-start
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

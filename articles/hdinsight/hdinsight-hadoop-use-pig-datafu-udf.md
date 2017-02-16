@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: 42ef05571b77267dd2ba2522acf9bc21619f26e3
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 4ebe010ab1f3d9df8bef1a6fc2ac5c24a7d1f5ee
 
 
 ---
@@ -28,6 +28,10 @@ DataFu es un conjunto de bibliotecas de código abierto para su uso con Hadoop. 
 
 * Una suscripción de Azure.
 * Clúster de HDInsight de Azure (basado en Linux o Windows)
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Cierta familiaridad básica con el [uso de Pig en HDInsight](hdinsight-use-pig.md)
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>Instalación de DataFu en HDInsight basado en Linux
@@ -116,6 +120,6 @@ Para obtener más información sobre DataFu o Pig, consulte los documentos sigui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

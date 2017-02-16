@@ -1,25 +1,29 @@
 ---
 title: Copias de seguridad de SQL Data Warehouse| Microsoft Docs
-description: Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta.
+description: "Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: lakshmi1812
-manager: barbkess
-editor: monicar
-
+manager: jhubbard
+editor: 
+ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/06/2016
+ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 71f2798871c946b1edce467e1f491e0d62b342c6
+ms.openlocfilehash: fb61dd8b33581740557be6e5902bbe573f11999c
+
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Copias de seguridad de SQL Data Warehouse
 SQL Data Warehouse ofrece copias de seguridad locales y geográficas como parte de sus funcionalidades de copia de seguridad de almacenamiento de datos. Aquí se incluyen instantáneas de Azure Storage Blob y almacenamiento con redundancia geográfica. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria o a una región geográfica diferente. En este artículo se explican los aspectos específicos de las copias de seguridad en SQL Data Warehouse.
 
-## <a name="what-is-a-data-warehouse-backup?"></a>¿Qué es una copia de seguridad de almacenamiento de datos?
+## <a name="what-is-a-data-warehouse-backup"></a>¿Qué es una copia de seguridad de almacenamiento de datos?
 Una copia de seguridad de almacenamiento de datos son los datos que se pueden usar para restaurar un almacenamiento de datos a un momento específico.  Como SQL Data Warehouse es un sistema distribuido, una copia de seguridad de almacenamiento de datos consta de muchos archivos que se almacenan en blobs de Azure. 
 
 Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Para más información, consulte [Información general sobre la continuidad empresarial](../sql-database/sql-database-business-continuity.md).
@@ -42,7 +46,7 @@ Para más información sobre:
 ## <a name="geo-redundant-backups"></a>Copias de seguridad con redundancia geográfica
 Cada 24 horas, SQL Data Warehouse almacena el almacenamiento de datos completo en almacenamiento Estándar. El almacenamiento de datos completo se crea para que coincida con la hora de la última instantánea. El almacenamiento estándar pertenece a una cuenta de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). La característica RA-GRS de Azure Storage replica los archivos de copias de seguridad en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). Esta replicación geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no se pueda acceder a las instantáneas de la región primaria. 
 
-Esta característica está activada de forma predeterminada. Si no desea usar copias de seguridad con redundancia geográfica, puede desactivarla. 
+Esta característica está activada de forma predeterminada. Si no desea utilizar copias de seguridad con redundancia geográfica, puede [descartar] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn). 
 
 > [!NOTE]
 > En Azure Storage, el término *replicación* hace referencia a la copia de archivos desde una ubicación a otra. La *replicación de base de datos* de SQL hace referencia a mantener varias bases de datos secundarias sincronizadas con una base de datos principal. 
@@ -67,14 +71,14 @@ order by run_id desc;
 
 Si necesita conservar una instantánea durante más de siete días, puede restaurar un punto de restauración a un nuevo almacenamiento de datos. Cuando finaliza la restauración, SQL Data Warehouse comienza a crear instantáneas en el nuevo almacenamiento de datos. Si no realiza cambios en el nuevo almacenamiento de datos, las instantáneas permanecen vacías y, por tanto, el costo de la instantánea es mínimo. También puede pausar la base de datos para evitar que SQL Data Warehouse cree instantáneas.
 
-### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused?"></a>¿Qué pasa con la retención de mi copia de seguridad mientras el almacenamiento de datos está pausado?
+### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused"></a>¿Qué pasa con la retención de mi copia de seguridad mientras el almacenamiento de datos está pausado?
 SQL Data Warehouse no crea instantáneas y no caduca las copias de seguridad mientras un almacenamiento de datos está en pausa. Y tampoco cambia la antigüedad de la instantánea mientras el almacenamiento de datos está en pausa. La retención de instantáneas se basa en el número de días que el almacenamiento de datos está en línea, no en los días de calendario.
 
 Por ejemplo, si una instantánea comienza el 1 de octubre a las 4 de la tarde y el almacenamiento de datos se detiene el 3 de octubre a kas 4 de la tarde, la instantánea tiene dos días de antigüedad. Cada vez que el almacenamiento de datos vuelve a estar en línea, la instantánea tiene dos días de antigüedad. Si el almacenamiento de datos vuelve a estar en línea el 5 de octubre a las 4 de la tarde, la instantánea tiene dos días de antigüedad y permanece cinco días más.
 
 Cuando el almacenamiento de datos vuelve a estar en línea, SQL Data Warehouse reanuda las nuevas instantáneas y caduca aquellas que tienen más de siete días de datos.
 
-### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse?"></a>¿Cuánto dura el período de retención para un almacenamiento de datos quitado?
+### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse"></a>¿Cuánto dura el período de retención para un almacenamiento de datos quitado?
 Cuando se quita un almacenamiento de datos, este y las instantáneas se guardan durante siete días y luego se quitan. Puede restaurar el almacenamiento de datos a cualquiera de los puntos de restauración guardados.
 
 > [!IMPORTANT]
@@ -112,6 +116,6 @@ El uso principal de copias de seguridad de almacenamiento de datos SQL consiste 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

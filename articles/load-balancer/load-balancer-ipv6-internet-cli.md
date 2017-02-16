@@ -1,5 +1,5 @@
 ---
-title: "Creación de un equilibrador de carga orientado a Internet con IPv6 en Azure Resource Manager con la CLI de Azure | Microsoft Docs"
+title: "Creación de un equilibrador de carga con conexión a Internet con IPv6: CLI de Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet con IPv6 en Azure Resource Manager con la CLI de Azure"
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 6edfe8ee8011200e208117f5e03eac8fa741a548
 
 ---
 
@@ -28,7 +28,7 @@ ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
 > * [CLI de Azure](load-balancer-ipv6-internet-cli.md)
 > * [Plantilla](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
+Azure Load Balancer es un equilibrador de carga de nivel&4; (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 
 ## <a name="example-deployment-scenario"></a>Escenario de implementación de ejemplo
 
@@ -345,6 +345,6 @@ Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

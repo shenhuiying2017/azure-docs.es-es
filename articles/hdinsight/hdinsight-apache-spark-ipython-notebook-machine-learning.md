@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
 
 
 ---
-# <a name="build-machine-learning-applications-to-run-on-apache-spark-clusters-on-hdinsight-linux"></a>Creación de aplicaciones de Aprendizaje automático para ejecutarse en clústeres de Apache Spark en HDInsight Linux
+# <a name="build-machine-learning-applications-to-run-on-apache-spark-clusters-on-hdinsight"></a>Creación de aplicaciones de Machine Learning para ejecutarse en clústeres de Apache Spark en HDInsight
+
 Obtenga información acerca de cómo crear una aplicación de aprendizaje automático con un clúster Apache Spark en HDInsight. En este artículo se muestra cómo usar el cuaderno de Jupyter disponible con el clúster para compilar y probar la aplicación. La aplicación usa los datos de ejemplo de HVAC.csv, que está disponible en todos los clústeres de manera predeterminada.
 
 **Requisitos previos:**
@@ -29,14 +30,14 @@ Obtenga información acerca de cómo crear una aplicación de aprendizaje autom�
 Debe tener lo siguiente:
 
 * Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un clúster Apache Spark en HDInsight Linux. Para instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md). 
+* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
 ## <a name="a-namedataashow-me-the-data"></a><a name="data"></a>Visualización de los datos
 Antes de empezar a crear la aplicación, intentemos comprender la estructura de los datos y el tipo de análisis que se realizará en ellos. 
 
 En este artículo, usamos el archivo de datos **HVAC.csv** de ejemplo que está disponible en la cuenta de Azure Storage que ha asociado con el clúster de HDInsight. Dentro de la cuenta de almacenamiento, el archivo se encuentra en **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Descargue y abra el archivo CSV para hacerse una idea de cuáles son los datos.  
 
-![Instantánea de datos de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Snapshot of the HVAC data")
+![Instantánea de datos de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Instantánea de los datos de HVAC")
 
 Los datos muestran la temperatura objetivo y la temperatura real de un edificio con sistemas HVAC instalados. Supongamos que la columna **System** representa el identificador del sistema y la columna **SystemAge**, el número de años que lleva el sistema HVAC instalado en el edificio.
 
@@ -56,10 +57,10 @@ En esta aplicación se usa una canalización Spark ML para realizar una clasific
    > 
 3. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
    
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 4. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
    
-    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 5. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos que son necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**. 
    
         from pyspark.ml import Pipeline
@@ -78,7 +79,7 @@ En esta aplicación se usa una canalización Spark ML para realizar una clasific
    
     Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
 
-        # List the structure of data for better understanding. Becuase the data will be
+        # List the structure of data for better understanding. Because the data will be
         # loaded as an array, this structure makes it easy to understand what each element
         # in the array corresponds to
 
@@ -156,7 +157,7 @@ En esta aplicación se usa una canalización Spark ML para realizar una clasific
 
     Vuelva atrás y compruebe el resultado en el archivo CSV sin procesar. Por ejemplo, la primera fila del archivo CSV tiene estos datos:
 
-    ![Instantánea de datos de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Snapshot of the HVAC data")
+    ![Instantánea de datos de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Instantánea de los datos de HVAC")
 
     Observe que la temperatura real es menor que la temperatura objetivo, lo que indica que el edificio está frío. Por lo tanto, en la salida de aprendizaje, el valor de **label** en la primera fila es **0.0**, lo que significa que la temperatura del edificio no es cálida.
 
@@ -235,6 +236,6 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, Entre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 12/19/2016
 ms.author: garye;haining
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 490647feb058279da05092622404c131ebc57ccb
+ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
+ms.openlocfilehash: b10cb3446462989caf9cbb856dab07dc1f5ef71e
 
 
 ---
@@ -25,6 +25,9 @@ ms.openlocfilehash: 490647feb058279da05092622404c131ebc57ccb
 El módulo de PowerShell para Aprendizaje automático de Azure es una herramienta eficaz que permite usar Windows PowerShell para administrar áreas de trabajo, experimentos, conjuntos de datos, servicios web y mucho más.
 
 Puede ver la documentación y descargar el módulo, junto con el código fuente completo, en [https://aka.ms/amlps](https://aka.ms/amlps). 
+
+> [!NOTE]
+> El módulo de PowerShell de Azure Machine Learning está actualmente en modo de versión preliminar. Este módulo se seguirá mejorando y ampliando durante este período de versión preliminar. Esté al tanto de más información y noticias en [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) (Blog sobre Cortana Intelligence y Machine Learning).
 
 ## <a name="what-is-the-machine-learning-powershell-module"></a>¿Qué es el módulo de PowerShell de Aprendizaje automático?
 El módulo de PowerShell de Aprendizaje automático es un módulo DLL basado en .NET que permite administrar totalmente áreas de trabajo de Aprendizaje automático de Azure, experimentos, conjuntos de datos, servicios web y puntos de conexión de servicio web desde Windows PowerShell. Junto con el módulo, puede descargar el código fuente completo que incluye un [nivel de API de C#](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs) claramente delimitado. Esto significa que puede hacer referencia a este archivo DLL desde su propio proyecto .NET y administrar Aprendizaje automático de Azure por medio de código. NET. Además, el archivo DLL depende de las API de REST subyacentes que puede aprovechar directamente desde su cliente favorito.
@@ -49,14 +52,17 @@ A continuación, se ofrece un ejemplo rápido de cómo usar PowerShell para ejec
 Para ver un caso de uso más detallado, consulte este artículo sobre cómo usar el módulo de PowerShell para automatizar una tarea muy solicitada: [Creación de varios modelos de aprendizaje automático y puntos de conexión de servicio web a partir de un experimento mediante PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
 
 ## <a name="how-do-i-get-started"></a>¿Cómo empiezo?
-Para empezar a usar PowerShell para Aprendizaje automático, descargue el [paquete de versión](https://github.com/hning86/azuremlps/releases) en GitHub y siga las [instrucciones de instalación](https://github.com/hning86/azuremlps/blob/master/README.md). Debe desbloquear el archivo DLL descargado y descomprimido, y después importarlo en el entorno de PowerShell. La mayoría de los cmdlets requieren que se proporcione el identificador de área de trabajo, el token de autorización del área de trabajo y la región de Azure donde se encuentra el área de trabajo. La manera más sencilla de proporcionar estos datos es mediante un archivo config.json predeterminado, lo que se explica con detalle en las instrucciones de instalación. Por supuesto, también puede clonar el árbol git y proceder a modificar y compilar el código localmente con Visual Studio.
+Para empezar a usar PowerShell para Aprendizaje automático, descargue el [paquete de versión](https://github.com/hning86/azuremlps/releases) en GitHub y siga las [instrucciones de instalación](https://github.com/hning86/azuremlps/blob/master/README.md). Estas instrucciones explican cómo desbloquear el archivo DLL descargado y descomprimido y, después, importarlo en el entorno de PowerShell. La mayoría de los cmdlets requieren que se proporcione el identificador de área de trabajo, el token de autorización del área de trabajo y la región de Azure donde se encuentra el área de trabajo. La forma más sencilla de proporcionarlos es mediante un archivo config.json predeterminado. Las instrucciones también explican cómo configurar este archivo. 
+
+Si lo desea, puede clonar el árbol git, modificar el código y compilarlo localmente mediante Visual Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Se seguirá mejorando y ampliando el módulo de PowerShell durante este período de versión preliminar. Esté al tanto de más información y noticias en [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) (Blog sobre Cortana Intelligence y Aprendizaje automático).
+Puede encontrar la documentación completa para el módulo de PowerShell en [https://aka.ms/amlps](https://aka.ms/amlps). 
+
+Para obtener un ejemplo más detallado extended sobre cómo usar el módulo en un escenario del mundo real, consulte [Creación de varios modelos de Machine Learning y puntos de conexión de servicio web a partir de un experimento mediante PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

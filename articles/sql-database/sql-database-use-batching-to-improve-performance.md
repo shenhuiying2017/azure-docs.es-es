@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: fa364ff88d449ec8efb318d26049c2e046ee42b8
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
 
 
 ---
@@ -236,7 +236,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento del procesam
 > 
 > 
 
-En lotes más pequeños, el uso de parámetros con valores de tabla superó el rendimiento de la clase **SqlBulkCopy** . Sin embargo, el rendimiento con **SqlBulkCopy** fue entre un 12 y un 31% mayor que los parámetros con valores de tabla en las pruebas de 1000 y 10.000 filas. Como los parámetros con valores de tabla, **SqlBulkCopy** es una buena opción para las inserciones por lotes, especialmente cuando se compara con el rendimiento de las operaciones sin lotes.
+En lotes más pequeños, el uso de parámetros con valores de tabla superó el rendimiento de la clase **SqlBulkCopy** . Sin embargo, el rendimiento con**SqlBulkCopy** fue entre un 12 % y un 31 % mayor que los parámetros con valores de tabla en las pruebas de 1000 y 10,000 filas. Como los parámetros con valores de tabla, **SqlBulkCopy** es una buena opción para las inserciones por lotes, especialmente cuando se compara con el rendimiento de las operaciones sin lotes.
 
 Para obtener más información sobre la copia masiva en ADO.NET, consulte [Operaciones de copia masiva en SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
@@ -627,6 +627,6 @@ Este artículo se centra en cómo el diseño de base de datos y las técnicas de
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

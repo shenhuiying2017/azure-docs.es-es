@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: 83d39eb288a3dcda45ab178f5f65de441c2fd5a3
+ms.sourcegitcommit: 2284b12c87eee6a453844e54cdcb2add5874218b
+ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 
 
 ---
@@ -235,7 +235,7 @@ O bien, podríamos agrupar los resultados en función de la hora del día:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observe cómo usamos la función `bin` (también conocida como "`floor`"). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número manejable de valores discretos y `bin`, que realmente es solo la función `floor` de redondeo a la baja, es la forma más sencilla de hacerlo.
+Observe cómo usamos la función `bin` (también conocida como "`floor`"). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número de valores discretos fácil de administrar. `bin`, que es simplemente la conocida función de redondeo `floor`, es la manera más sencilla de hacerlo.
 
 Podemos usar la misma técnica para reducir los intervalos de cadenas:
 
@@ -244,7 +244,7 @@ Podemos usar la misma técnica para reducir los intervalos de cadenas:
 Tenga en cuenta que puede usar `name=` para establecer el nombre de una columna de resultados, en las expresiones de agregación o mediante la cláusula by.
 
 ## <a name="counting-sampled-data"></a>Recuento de datos muestreados
-`sum(itemCount)` es la agregación recomendada para contar eventos. En muchos casos, itemCount == 1, por lo que la función simplemente cuenta el número de filas del grupo. Pero cuando el [muestreo](app-insights-sampling.md) esté en funcionamiento, solo se conservará una fracción de los eventos originales como puntos de datos en Application Insights, por lo que por cada punto de datos que vea, haya `itemCount` eventos .
+`sum(itemCount)` es la agregación recomendada para contar eventos. En muchos casos, itemCount == 1, por lo que la función simplemente cuenta el número de filas del grupo. Pero cuando el [muestreo](app-insights-sampling.md) está en funcionamiento, solo se conserva una fracción de los eventos originales como puntos de datos en Application Insights, de modo que por cada punto de datos que vea, haya eventos `itemCount`.
 
 Por ejemplo, si el muestreo descarta el 75 % de los eventos originales, itemCount ==4 en los registros retenidos; es decir, para cada registro retenido, había cuatro registros originales.
 
@@ -292,7 +292,7 @@ Seleccionar la opción de visualización de gráfico:
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>Varias series
-Varias expresiones en `summarize` crea varias columnas.
+Varias expresiones en la cláusula `summarize` crean varias columnas.
 
 Varias expresiones en la cláusula `by` crea varias filas, una para cada combinación de valores.
 
@@ -334,7 +334,7 @@ Si utiliza una tabla con más de una columna numérica, además de la marca de t
 
 ![Segmentación de un gráfico de análisis](./media/app-insights-analytics-tour/110.png)
 
-Debe seleccionar No dividir para poder seleccionar varias columnas numéricas. No puede dividir por una columna de cadena al mismo tiempo que se muestra más de una columna numérica.
+Debe seleccionar **Don't Split** (No dividir) para poder seleccionar varias columnas numéricas. No se puede dividir por una columna de cadena al mismo tiempo que se muestra más de una columna numérica.
 
 ## <a name="daily-average-cycle"></a>Ciclo medio diario
 ¿Cómo varía el uso a lo largo del día normal?
@@ -421,7 +421,7 @@ También eliminamos el límite superior en la cláusula where con el fin de obte
 De lo que podemos ver que:
 
 * El 5 % de las sesiones tienen una duración de menos de 3 minutos 34 s;
-* El 50 % de las sesiones dura menos de 36 minutos;
+* El 50 % de las sesiones dura menos de 36 minutos;
 * El 5 % de las sesiones dura más de 7 días.
 
 Para obtener un desglose independiente para cada país, simplemente tiene que conservar la columna client_CountryOrRegion por separado en ambos operadores de resumen:
@@ -459,7 +459,7 @@ Es recomendable usar `project` para seleccionar solo las columnas que se necesit
 En las mismas cláusulas, cambiamos el nombre de la columna de marca de tiempo.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): asignación de un resultado a una variable
-Use *let* para separar las partes de la expresión anterior. Los resultados no cambian:
+Use `let` para separar las partes de la expresión anterior. Los resultados no cambian:
 
 ```AIQL
 
@@ -471,7 +471,7 @@ Use *let* para separar las partes de la expresión anterior. Los resultados no c
     | take 30
 ```
 
-> Sugerencia: en el cliente de Analytics, no incluya líneas en blanco entre las partes. Asegúrese de ejecutar todo.
+> Sugerencia: en el cliente de Analytics, no incluya líneas en blanco entre las partes de la consulta. Asegúrese de ejecutar todo.
 >
 >
 
@@ -547,7 +547,7 @@ Puede anclar los resultados a un panel para reunir todos los gráficos y tablas 
 
 ## <a name="combine-with-imported-data"></a>Combinación con datos importados
 
-Los informes de análisis se ven perfectos en el panel, pero a veces desea convertir los datos a una forma más simplificada. Por ejemplo, suponga que los usuarios autenticados se identifican en la telemetría mediante un alias. Le gustaría mostrar sus nombres reales en los resultados. Para ello, solo necesita un archivo CSV que asigna los nombres reales a partir de los alias. 
+Los informes de análisis se ven perfectos en el panel, pero a veces desea convertir los datos a una forma más simplificada. Por ejemplo, suponga que los usuarios autenticados se identifican en la telemetría mediante un alias. Le gustaría mostrar sus nombres reales en los resultados. Para ello, necesita un archivo CSV que asigna los nombres reales a partir de los alias. 
 
 Puede importar un archivo de datos y usarlo como cualquiera de las tablas estándares (solicitudes, excepciones, etc.). Puede consultarla por sí sola o combinarla con otras tablas. Por ejemplo, si tiene una tabla denominada usermap y tiene las columnas `realName` y `userId`, se puede utilizar para traducir el campo `user_AuthenticatedId` en la telemetría de solicitud:
 
@@ -562,7 +562,9 @@ Puede importar un archivo de datos y usarlo como cualquiera de las tablas están
     | summarize count() by realName
 ```
 
-Para importar una tabla, abra **Configuración**, **Orígenes de datos** y siga las instrucciones para agregar un origen. Use esta definición para cargar las tablas.
+Para importar una tabla, en la hoja de esquema, en **Other Data Sources** (Otros orígenes de datos), siga las instrucciones para agregar un nuevo origen de datos, mediante la carga de una muestra de los datos. Luego puede usar esta definición para cargar las tablas. 
+
+La característica de importación está actualmente en versión preliminar, por lo que verá inicialmente un vínculo "Póngase en contacto con nosotros" en "Other data sources" (Otros orígenes de datos). Úselo para suscribirse al programa de versión preliminar y luego el vínculo se reemplazará por un botón "Add new data source" (Agregar nuevo origen de datos). 
 
 
 ## <a name="tables"></a>Tablas
@@ -681,6 +683,6 @@ Contiene los datos de telemetría que ha enviado la aplicación mediante TrackTr
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

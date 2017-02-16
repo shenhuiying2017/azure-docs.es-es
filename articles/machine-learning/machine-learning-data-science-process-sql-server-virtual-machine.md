@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dac57c04453c071279534795464907a67d88a3b0
+ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
+ms.openlocfilehash: 3e565090d751344a8ad3efd6ebdc3f26d5ee55ec
 
 
 ---
@@ -68,7 +68,7 @@ En esta sección, se describen formas de generar características mediante SQL:
 > 
 
 ### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Generación de características basadas en recuentos
-En este documento se muestran dos maneras de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estos pueden entonces combinarse con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
+Los ejemplos siguientes muestran dos formas de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estos pueden entonces combinarse con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -76,7 +76,7 @@ En este documento se muestran dos maneras de generar características de recuent
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
 ### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Generación de características de discretización
-En el ejemplo siguiente se muestra cómo generar características discretizadas mediante la discretización (con 5 discretizaciones) de una columna numérica que puede usarse en su lugar como una característica:
+En el ejemplo siguiente se muestra cómo generar características discretizadas mediante la discretización (con cinco discretizaciones) de una columna numérica que puede usarse en su lugar como una característica:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -94,7 +94,7 @@ Aquí se incluye un breve manual sobre los datos de ubicación de latitud y long
 * La segundo posición decimal tiene un valor de hasta 1,1 km: puede separar un pueblo del siguiente.
 * La tercera posición decimal tiene un valor de hasta 110 m: puede identificar un campo agrícola extenso o campus universitario.
 * La cuarta posición decimal tiene un valor de hasta 11 m: puede identificar una parcela de tierra. Es comparable a la precisión típica de una unidad GPS sin corregir y sin interferencias.
-* La quinta posición decimal tiene un valor de hasta 1,1 m: puede distinguir entre distintos árboles. Solo es posible conseguir una precisión de este nivel con unidades GPS comerciales con corrección diferencial.
+* La quinta posición decimal tiene un valor de hasta 1,1 m: puede distinguir entre distintos árboles. Solo es posible conseguir una precisión de este nivel con unidades GPS comerciales con corrección diferencial.
 * La sexta posición decimal tiene un valor de hasta 0,11 m: puede usarse para diseñar estructuras en detalle, para el diseño de paisajes o la construcción de carreteras. Debería ser más que suficiente para realizar el seguimiento de los movimientos de glaciares y ríos. Esto se consigue al tomar medidas meticulosas con GPS, como GPS corregido de forma diferencial.
 
 La información de ubicación se puede caracterizar como sigue, con diferencias entre la información de región, ubicación y ciudad. Tenga en cuenta que también es posible llamar a un punto de conexión de REST, como la API de mapas de Bing disponible en [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) (Encontrar una ubicación por punto) para obtener la información de la región o el distrito.
@@ -110,7 +110,7 @@ La información de ubicación se puede caracterizar como sigue, con diferencias 
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Las características basadas en ubicación anteriores se pueden usar aún más para generar características de recuento adicionales, tal y como se describió anteriormente. 
+Estas características basadas en ubicación se pueden usar aún más para generar características de recuento adicionales, tal y como se describió anteriormente. 
 
 > [!TIP]
 > Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura (para obtener un ejemplo de cómo obtener esto mediante pyodbc, consulte [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)(Un ejemplo Hola a todos para acceder a SQLServer con python)). Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx).
@@ -118,12 +118,12 @@ Las características basadas en ubicación anteriores se pueden usar aún más p
 > 
 
 ### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
-La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar características, o tener acceso a ellas si ya se han creado, mediante el módulo [Importar datos][import-data] de Azure Machine Learning, como se muestra a continuación:
+La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o tener acceso a las características si ya se han creado, mediante el módulo [Importar datos][import-data] en Azure Machine Learning, como se muestra a continuación:
 
 ![Lectores de azureml][1] 
 
 ## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Uso de un lenguaje de programación como Python
-Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en Blob de Azure mediante Python, como se documenta en [Proceso de datos de Blob de Azure en su entorno de ciencia de datos](machine-learning-data-science-process-data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
+Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en blobs de Azure mediante Python, como se documenta en [Proceso de datos de blobs de Azure en su entorno de ciencia de datos](machine-learning-data-science-process-data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):
 
@@ -136,7 +136,7 @@ La [biblioteca Pandas](http://pandas.pydata.org/) en Python ofrece un amplio con
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Ya puede trabajar con la trama de datos de Pandas como se explica en el artículo [Proceso de datos del blob de Azure con análisis avanzado](machine-learning-data-science-process-data-blob.md).
+Ya puede trabajar con la trama de datos de Pandas como se explica en el artículo [Proceso de datos de blobs de Azure en su entorno de ciencia de datos](machine-learning-data-science-process-data-blob.md).
 
 ## <a name="azure-data-science-in-action-example"></a>Ejemplo de ciencia de datos de Azure en acción
 Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de Azure mediante un conjunto de datos público, consulte [Proceso de ciencia de datos de Azure en acción](machine-learning-data-science-process-sql-walkthrough.md).
@@ -150,6 +150,6 @@ Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

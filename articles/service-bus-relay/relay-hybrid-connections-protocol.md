@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 9919cd4735f1f915ba77d41d8b9e92b3411fef3f
+ms.openlocfilehash: 38d9eca04780493d03bb5ceb79e5b59fab0a93d2
 
 
 ---
@@ -31,7 +31,7 @@ El servicio de retransmisión de Conexiones híbridas conecta dos partes mediant
 Hay un agente de escucha que, primero, indica que está preparado para controlar las conexiones entrantes y, después, las acepta a medida que llegan. Por otro lado, hay un cliente de conexión que se conecta con el agente de escucha, de modo que se espera que se acepte dicha conexión para establecer una ruta de comunicación bidireccional.
 "Conectar", "escuchar" y "aceptar" son los mismos términos que encontrará en la mayoría de las API de socket.
 
-En cualquier modelo de comunicación retransmitida, las partes establecen las conexiones salientes hacia un punto de conexión de servicio, lo que provoca que al "agente de escucha" también se le conozca como "cliente" en el uso coloquial, y también puede causar otras sobrecargas terminológicas. Por tanto, usaremos la siguiente terminología exacta para las conexiones híbridas:
+En cualquier modelo de comunicación retransmitida, las partes establecen las conexiones (Guía del protocolo de conexiones híbridas de Azure Relay) salientes hacia un punto de conexión de servicio, lo que provoca que al "agente de escucha" también se le conozca como "cliente" en el uso coloquial, y también puede causar otras sobrecargas terminológicas. Por tanto, usaremos la siguiente terminología exacta para las conexiones híbridas:
 
 Los programas de ambos extremos de la conexión se denominarán "cliente", ya que se trata de clientes del servicio. El cliente que espera y acepta conexiones es el "agente de escucha" o que asume el "rol de escucha". El cliente que inicia una nueva conexión hacia un agente de escucha a través del servicio se denominará "remitente" o que asume el "rol de remitente".
 
@@ -149,7 +149,7 @@ La URL debe utilizarse tal cual para establecer el socket de aceptación, pero d
 | Parámetro | Obligatorio | Descripción |
 | --- | --- | --- |
 | sb-hc-action |yes |Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=accept`. |
-| {path} |yes |(vea el párrafo siguiente) |
+| {path} |Sí |(vea el párrafo siguiente) |
 | sb-hc-id |No |Vea la descripción anterior del **identificador**. |
 
 `{path}` es la ruta de acceso del espacio de nombres codificado para la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija. 
@@ -231,7 +231,7 @@ Las opciones de los parámetros de cadena de consulta son las siguientes:
 
 | Parámetro | ¿Necesario? | Descripción |
 | --- | --- | --- |
-| sb-hc-action |Sí |Para el rol de agente de escucha, el parámetro tiene que ser `action=connect`. |
+| sb-hc-action |Sí |Para el rol de remitente, el parámetro tiene que ser `action=connect`. |
 | {path} |Sí |(vea el párrafo siguiente) |
 | sb-hc-token |Sí\* |El agente de escucha necesita proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **envío**. |
 | sb-hc-id |No |Un id. opcional que permite realizar el seguimiento de diagnóstico completo y que puede usarlo el agente de escucha durante el protocolo de enlace de aceptación. |
@@ -271,6 +271,6 @@ Si el servicio cierra intencionadamente la conexión de socket web después de h
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

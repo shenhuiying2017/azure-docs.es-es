@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ En esta sección queremos cambiar solo el estilo de los encabezados. Haga clic e
 
 Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family.
 
-> Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad [variables LESS][variables LESS] del tema de bootstrap usado por el portal para editores.
+> Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad variables [LESS][LESS variables] del tema de bootstrap usado por el portal de desarrolladores.
 > 
 > 
 
@@ -87,12 +87,12 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 ## <a name="next-steps"> </a>Pasos siguientes
 * Obtenga información sobre cómo personalizar el contenido de páginas del portal para desarrolladores con las [plantillas del portal para desarrolladores](api-management-developer-portal-templates.md).
 
-[Cambio del texto/logotipo en los encabezados de las páginas]: #change-page-headers
-[Cambio del estilo de los encabezados]: #change-headers-styling
-[Edición de los contenidos de una página]: #edit-page-contents
-[Pasos siguientes]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Portal de Azure clásico]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,10 +103,10 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 
 
 [bootstrap]: http://getbootstrap.com/
-[variables LESS]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

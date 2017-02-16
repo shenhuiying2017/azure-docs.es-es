@@ -1,4 +1,10 @@
-1. Inicie sesión en [Azure Portal][Azure Portal].
+## <a name="create-a-service-namespace"></a>Creación de un espacio de nombres de servicio
+
+Para empezar a usar colas del Bus de servicio en Azure, primero hay que crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación. 
+
+Para crear un espacio de nombres:
+
+1. Inicie sesión en [Azure Portal][Azure portal].
 2. En el panel de navegación izquierdo del portal, haga clic en **Nuevo**, a continuación, haga clic en **Enterprise Integration** y, a continuación, haga clic en **Service Bus**.
 3. En el cuadro de diálogo **Crear un espacio de nombres** , especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 4. Después de asegurarse de que el espacio de nombres está disponible, elija el plan de tarifas (Básico, Estándar o Premium).
@@ -26,8 +32,8 @@
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

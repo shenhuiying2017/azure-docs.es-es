@@ -18,7 +18,7 @@ De forma general, el uso de dispositivos gemelos permite que el back-end de la s
 
 En este tutorial, el back-end de la solución cambia la configuración de la telemetría de un dispositivo de destino y, como consecuencia, la aplicación del dispositivo sigue un proceso con varios pasos para aplicar una actualización de la configuración (por ejemplo, que requiera que se reinicie un módulo de software), algo que en este tutorial se simula con un simple retraso.
 
-El back-end almacena la configuración en las propiedades deseadas del dispositivo gemelo como se indica a continuación:
+El back-end de la solución almacena la configuración en las propiedades deseadas del dispositivo gemelo como se indica a continuación:
 
         {
             ...
@@ -94,6 +94,6 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -2,7 +2,7 @@
 ## [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
 ## [Comparación de Storm con Stream Analytics](stream-analytics-comparison-storm.md)
 
-# Primeros pasos
+# Introducción
 ## [Procesamiento de datos de streaming de IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md)
 
@@ -40,13 +40,14 @@
 ### [One click de PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
 ## [Lenguaje de consulta](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](/rest/api/streamanalytics/)
-## [Notas de la versión](stream-analytics-release-notes.md)
+## [REST](/rest/api/streamanalytics)
+
 
 # Recursos
+## [Notas de la versión](stream-analytics-release-notes.md)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [Precios](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
@@ -57,6 +58,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

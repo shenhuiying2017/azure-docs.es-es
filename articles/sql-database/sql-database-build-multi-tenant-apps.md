@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 8ebd5499-ca03-4e4e-8755-4cb34339285c
 ms.service: sql-database
+ms.custom: benefits
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,16 +17,20 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e24842a32a841b250525c2ee0e07cc01bda7fdfb
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: fb62e82865ac39031f86daa329f93261ec4ffd7b
 
 
 ---
-# <a name="builds-multi-tenant-apps-with-azure-sql-database-with-isolation-and-efficiency"></a>Creación de aplicaciones multiempresa con Base de datos SQL de Azure con aislamiento y eficiencia
+# <a name="build-multi-tenant-apps-with-azure-sql-database-with-isolation-and-efficiency"></a>Creación de aplicaciones multiempresa con SQL Database de Azure con aislamiento y eficiencia
 ## <a name="leverage-elastic-pools-and-build-more-efficient-multi-tenant-apps"></a>Aprovechamiento de grupos elásticos y generación de aplicaciones multiinquilino más eficaces
-Si es un desarrollador de aplicaciones SaaS que está escribiendo una aplicación multiinquilino que maneja muchos clientes, a menudo tiene que sacrificar un cierto grado de rendimiento, administración y seguridad para los clientes. Con los grupos de bases de datos elásticas de Base de datos SQL de Azure, ya no tiene que hacerlo. Estos grupos le ayudan a administrar y supervisar aplicaciones multiinquilino y a obtener los beneficios del aislamiento de un cliente por base de datos. Consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Si es un desarrollador de aplicaciones SaaS que está escribiendo una aplicación multiinquilino que maneja muchos clientes, a menudo tiene que sacrificar un cierto grado de rendimiento, administración y seguridad para los clientes. Con los grupos elásticos de Azure SQL Database, ya no tiene que hacerlo. Estos grupos le ayudan a administrar y supervisar aplicaciones multiinquilino y a obtener los beneficios del aislamiento de un cliente por base de datos. Consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![creación-aplicaciones-multiinquilino](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+>
+>
 
 ## <a name="auto-scaling-you-control"></a>Escalado automático controlado
 Los grupos escalan automáticamente el rendimiento y la capacidad de almacenamiento de las bases de datos elásticas sobre la marcha. Puede controlar el rendimiento que se asigna a un grupo, agregar o quitar bases de datos elásticas a petición y definir el rendimiento de las bases de datos elásticas sin afectar al costo general del grupo. Esto significa que no tiene que preocuparse de administrar el uso de bases de datos individuales.
@@ -45,13 +50,13 @@ Los grupos básicos, estándar y premium le proporcionan una amplia gama de rend
 ## <a name="elastic-tools"></a>Herramientas elásticas
 Además de los grupos elásticos, existen características de Base de datos SQL para ayudar a administrar las actividades operativas entre varias bases de datos:
 
-** Realice consultas e informes entre bases de datos. **  
+**Realice consultas e informes entre bases de datos.**  
 [consulta de bases de datos elásticas](sql-database-elastic-query-overview.md) le permite ejecutar informes o consultas entre las bases de datos del grupo elástico y obtener acceso a datos remotos almacenados en muchas bases de datos del grupo a la vez.
 
-** Ejecute transacciones entre bases de datos. **  
+**Ejecute transacciones entre bases de datos.**  
 [transacciones de base de datos elástica](sql-database-elastic-transactions-overview.md) le permiten ejecutar transacciones que abarcan varias bases de datos en Bases de datos SQL y realizar operaciones (por ejemplo, cuando se procesan las transacciones financieras o al actualizar el inventario y los pedidos en una base de datos).
 
-** Ejecute las mismas operaciones en varias bases de datos. **  
+**Ejecute las mismas operaciones en varias bases de datos.**  
 [trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) ejecutan operaciones administrativas, como volver a generar índices o actualizar los esquemas en cada base de datos del grupo elástico.
 
 Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL.
@@ -68,6 +73,6 @@ Revise la [información general técnica de Base de datos SQL](sql-database-tech
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

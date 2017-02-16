@@ -12,19 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 1/4/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ac624ea4427edf03e4530e879df96fee950ff80
+ms.sourcegitcommit: 9349c6c60801c87726eb9f848706b39b08eb2b5d
+ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>Vista previa: Service Fabric y contenedores
 > [!NOTE]
-> Esta característica es una versión preliminar para Linux y no está disponible actualmente en Windows Server 2016. Estará también disponible como versión preliminar para Windows Server en la próxima versión de Azure Service Fabric después de la disponibilidad general de Windows Server 2016 y se admitirá en versiones posteriores después.
-> 
-> 
+> Esta característica está disponible en versión preliminar para Linux y Windows Server 2016. 
+>   
 
 ## <a name="introduction"></a>Introducción
 Azure Service Fabric es un [orquestador](service-fabric-cluster-resource-manager-introduction.md) de servicios a través de un clúster de máquinas. Se pueden desarrollar servicios de muchas maneras, desde el uso de los [modelos de programación de Service Fabric ](service-fabric-choose-framework.md) hasta la implementación de [archivos ejecutables invitados](service-fabric-deploy-existing-app.md). De forma predeterminada Service Fabric permite implementar y activar estos servicios como procesos. Los procesos proporcionan la activación más rápida y el uso de densidad más alto de los recursos del clúster. Service Fabric puede implementar también servicios en imágenes de contenedor. Lo importantes es que puede mezclar servicios en procesos y servicios en contenedores en la misma aplicación. Conseguirá lo mejor de ambos mundos, según el escenario.
@@ -89,10 +88,10 @@ En este artículo, ha aprendido acerca de los contenedores y que Service Fabric 
 
 [Implementación de un contenedor de Docker en Service Fabric en Linux](service-fabric-deploy-container-linux.md)
 
-[Imagen 1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
+[Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

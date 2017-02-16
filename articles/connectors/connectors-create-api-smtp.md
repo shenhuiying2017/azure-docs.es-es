@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e70351bda39d58b653273a5c3a795a1c6048c2c
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 3a0fdef111fbd4a9f7491e247f2236cf70b89dca
 
 
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Introducción al conector de SMTP
 Conexión a SMTP para envío de correo electrónico.
 
-Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-smtp"></a>Conexión a SMTP
 Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para poder conectarse a SMTP, primero necesita crear una *conexión* a SMTP. Para ello, tendrá que especificar las credenciales que usa habitualmente para acceder al servicio al que desea conectarse. Por lo tanto, en el ejemplo de SMTP, necesitaría las credenciales de su nombre de conexión, la dirección del servidor SMTP y la información de inicio de sesión de usuario para poder crear una conexión a SMTP. [Más información sobre las conexiones]()  
@@ -35,7 +35,7 @@ Para que la aplicación lógica pueda acceder a un servicio, primero debe crear 
 > 
 
 ## <a name="use-an-smtp-trigger"></a>Uso de un desencadenador de SMTP
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 En este ejemplo, como SMTP no tiene un desencadenador propio, usaremos el desencadenador **Salesforce - When an object is created (Salesforce - Cuando se crea un objeto)**. Este desencadenador se activará al crear un objeto de Salesforce. En nuestro ejemplo, vamos a configurarlo para que cada vez que se crea un cliente potencial en Salesforce, se produzca una acción *Enviar correo electrónico* a través del conector SMTP con una notificación sobre el cliente potencial que se está creando.
 
@@ -49,7 +49,7 @@ En este ejemplo, como SMTP no tiene un desencadenador propio, usaremos el desenc
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>Uso de una acción de SMTP
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Ahora que se ha agregado el desencadenador, siga estos pasos para agregar una acción de SMTP que se produzca cuando se crea un cliente potencial en Salesforce.
 
@@ -116,11 +116,11 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 | default |Error en la operación. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 11/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 2d8e851810b4ec5b7ae3f3b17c4aee11d7e51de4
+ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
+ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
 
 
 ---
-
 # <a name="application-gateway-web-application-firewall-preview"></a>Firewall de aplicaciones web de Application Gateway (versión preliminar)
 
 El firewall de aplicaciones web (WAF) es una característica de Azure Application Gateway diseñada para proteger las aplicaciones web que utilizan la puerta de enlace de aplicaciones para funciones estándar de Application Delivery Control (ADC). El firewall de aplicaciones web ofrece protección contra las diez vulnerabilidades web más comunes identificadas por OWASP. Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Disponer de un firewall de aplicaciones web centralizado que ofrezca protección contra los ataques web facilita enormemente la administración de la seguridad y proporciona mayor protección a la aplicación contra amenazas de intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web.
@@ -52,7 +51,7 @@ WAF de Application Gateway se ofrece en una nueva SKU (SKU de WAF) y viene preco
 
 WAF de Application Gateway se puede configurar para ejecutarse en dos modos:
 
-* **Modo de detección**: en este modo, WAF de Application Gateway supervisa y registra todas las alertas de amenazas en un archivo de registro. Debe asegurarse de que el registro de diagnósticos para Application Gateway esté activado mediante la sección Diagnósticos. También debe asegurarse de que el registro de WAF esté seleccionado y activado.
+* **Modo de detección** : en este modo, WAF de Application Gateway supervisa y registra todas las alertas de amenazas en un archivo de registro. Debe asegurarse de que el registro de diagnósticos para Application Gateway esté activado mediante la sección Diagnósticos. También debe asegurarse de que el registro de WAF esté seleccionado y activado.
 * **Modo de prevención** : en este modo, Application Gateway bloquea activamente las intrusiones y los ataques detectados por sus reglas. El atacante recibe una excepción de acceso no autorizado 403 y se termina la conexión. El modo de prevención continúa registrando estos ataques en los registros de WAF.
 
 ## <a name="application-gateway-waf-reports"></a>Informes de WAF de Application Gateway
@@ -87,11 +86,11 @@ Durante la versión preliminar, no existen cargos adicionales por el uso de WAF 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de conocer más sobre las funcionalidades de WAF, consulte [Creación de Application Gateway con el firewall de aplicaciones web mediante el portal](application-gateway-web-application-firewall-portal.md).
+Después de conocer más sobre las funcionalidades de WAF, consulte [cómo configurar el firewall de aplicaciones web en Application Gateway](application-gateway-web-application-firewall-portal.md).
 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

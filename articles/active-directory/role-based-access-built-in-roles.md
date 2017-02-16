@@ -1,5 +1,5 @@
 ---
-title: 'RBAC: roles integrados | Microsoft Docs'
+title: 'Acciones y no acciones: roles en Azure RBAC | Microsoft Docs'
 description: En este tema se describen los roles integrados para el control de acceso basado en roles (RBAC).
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
 
 
 ---
@@ -28,8 +28,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 
 > [!NOTE]
 > Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Use los cmdlets de `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` como corresponda.
-> 
-> 
+>
+>
 
 | Nombre de rol | Description |
 | --- | --- |
@@ -555,7 +555,6 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

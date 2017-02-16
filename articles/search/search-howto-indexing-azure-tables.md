@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
+ms.sourcegitcommit: 714045750ab16364ecd1095f1f346d3da1d4c4a5
+ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
 
 ---
 
@@ -34,7 +34,7 @@ Para configurar la indexación de tablas:
 
 1. Creación de un origen de datos
    * Establezca el parámetro `type` en `azuretable`
-   * Transfiera la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`
+   * Transfiera la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`. Puede obtener la cadena de conexión en Azure Portal; para ello, vaya a la hoja de la cuenta de almacenamiento > **Configuración** > **Claves** (para cuentas de almacenamiento clásicas) o **Configuración** > **Claves de acceso** (para cuentas de almacenamiento de ARM). Tenga en cuenta que Azure Search no admite actualmente credenciales de firma de acceso compartido. Si desea usar SAS, vote por [esta sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc).
    * Especifique el nombre de la tabla con el parámetro `container.name`
    * De manera opcional, especifique una consulta con el parámetro `container.query` . Siempre que sea posible, use un filtro en PartitionKey para obtener el mejor rendimiento posible; cualquier otra consulta dará como resultando un recorrido de tabla completo, el que puede generar un rendimiento deficiente en el caso de tablas de gran tamaño.
 2. Cree un índice de búsqueda con el esquema que corresponde a las columnas de la tabla que desee indexar.
@@ -48,7 +48,7 @@ Para configurar la indexación de tablas:
     {
         "name" : "table-datasource",
         "type" : "azuretable",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
@@ -123,6 +123,6 @@ Si tiene solicitudes o ideas para mejorar las características, póngase en cont
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

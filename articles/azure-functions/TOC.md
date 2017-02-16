@@ -1,6 +1,6 @@
 # Información general
 ## [¿Qué es Azure Functions?](functions-overview.md)
-# Primeros pasos
+# Introducción
 ## [Crear su primera función](functions-create-first-azure-function.md)
 ## [Crear una función de webhook](functions-create-a-web-hook-or-api-function.md)
 ## [Crear una función conectada a Azure](functions-create-an-azure-connected-function.md)
@@ -16,6 +16,7 @@
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
 ### [Trabajo con desencadenadores y enlaces](functions-triggers-bindings.md)
+#### [Enlaces de DocumentDB](functions-bindings-documentdb.md)
 #### [Enlaces de centro de eventos](functions-bindings-event-hubs.md)
 #### [Enlaces HTTP y de webhook](functions-bindings-http-webhook.md)
 #### [Enlaces de Mobile Apps](functions-bindings-mobile-apps.md)
@@ -49,6 +50,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

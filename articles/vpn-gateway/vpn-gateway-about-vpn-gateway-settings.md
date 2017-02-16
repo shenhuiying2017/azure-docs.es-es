@@ -1,10 +1,10 @@
 ---
-title: "Información sobre la configuración de VPN Gateway para puertas de enlace de red virtual | Microsoft Docs"
-description: "Obtenga información sobre la configuración de Puerta de enlace de VPN para Red virtual de Azure."
+title: "Configuración de una puerta de enlace de VPN para las conexiones de Azure entre locales | Microsoft Docs"
+description: "Obtenga información sobre la configuración de VPN Gateway para las puertas de enlace de red virtual de Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc3c8469657b50e4e09a1849d9c63f4ef1e0c414
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: 7a4efebcfc1ed38e9efdac293845f4be632e5b08
 
 
 ---
 # <a name="about-vpn-gateway-settings"></a>Acerca de la configuración de Puerta de enlace de VPN
-Una solución de conexión de puerta de enlace de VPN se basa en la configuración de varios recursos para poder enviar tráfico de red entre redes virtuales y ubicaciones locales. Cada recurso contiene valores de configuración. La combinación de los recursos y la configuración determina el resultado de la conexión.
+Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado entre la red virtual y la ubicación local a través de una conexión pública. También puede utilizar una puerta de enlace de VPN para enviar tráfico entre redes virtuales.
 
-Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN del modelo de implementación de **Resource Manager** . Puede resultarle útil para ver las configuraciones disponibles mediante diagramas de topología de conexión. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md) . 
+Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN para una red virtual creada en el modelo de implementación de **Resource Manager**. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).  
 
 ## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>Tipos de puerta de enlace
 Cada red virtual solo puede tener una puerta de enlace de red de cada tipo. Al crear una puerta de enlace de red virtual, debe asegurarse de que el tipo de puerta de enlace es el correcto para su configuración.
@@ -145,6 +145,6 @@ Consulte [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md) p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

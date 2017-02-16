@@ -2,7 +2,7 @@
 ## [Ediciones](biztalk-editions-feature-chart.md)
 ## [Acerca de Conexiones híbridas](integration-hybrid-connection-overview.md)
 
-# Primeros pasos
+# Introducción
 ## [Creación de Biztalk Services](biztalk-provision-services.md)
 
 # Procedimientos
@@ -22,10 +22,8 @@
 ### [Control de acceso](biztalk-issuer-name-issuer-key.md)
 ## [Solución de problemas](biztalk-troubleshoot-using-ops-logs.md)
 
-# Referencia
-## [Notas de la versión](biztalk-release-notes.md)
-
 # Recursos
+## [Notas de la versión](biztalk-release-notes.md)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Precios](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
@@ -33,6 +31,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

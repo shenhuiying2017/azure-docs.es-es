@@ -3,8 +3,8 @@ title: "Creación de un equilibrador de carga interno mediante la CLI de Azure e
 description: "Información sobre cómo crear un equilibrador de carga interno mediante la CLI de Azure en el modelo de implementación clásica"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 5d1d0f59080827bde2ba9cdd825ba8c498f33751
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: b65d386af78847b7994f7df0b379e30d3e35618c
 
 ---
 
@@ -31,7 +31,7 @@ ms.openlocfilehash: 5d1d0f59080827bde2ba9cdd825ba8c498f33751
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -89,7 +89,7 @@ A continuación se sigue un ejemplo de la salida:
     info:    service internal-load-balancer list command OK
 
 
-## <a name="step-2"></a>Paso 2
+### <a name="step-2"></a>Paso 2
 
 Configurar el conjunto del equilibrador de carga interno al agregar el primer punto de conexión. En este paso se asociará el punto de conexión, la máquina virtual y el puerto de sondeo al conjunto del equilibrador de carga interno.
 
@@ -97,7 +97,7 @@ Configurar el conjunto del equilibrador de carga interno al agregar el primer pu
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 ```
 
-## <a name="step-3"></a>Paso 3
+### <a name="step-3"></a>Paso 3
 
 Comprobar la configuración del equilibrador de carga mediante el `azure vm show` *nombre de la máquina virtual*
 
@@ -182,6 +182,6 @@ Para obtener más información, consulte `azure vm endpoint --help` .
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

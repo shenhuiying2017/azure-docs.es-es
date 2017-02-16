@@ -1,6 +1,6 @@
 ---
-title: Problemas conocidos de Apache Spark en HDInsight | Microsoft Docs
-description: Problemas conocidos de Apache Spark en HDInsight.
+title: "Problemas conocidos del clúster de Apache Spark en Azure HDInsight | Microsoft Docs"
+description: "Problemas conocidos de clústeres de Apache Spark en Azure HDInsight"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/18/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f36307d77bce1f0d6805a225477a61b95865545f
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 
 
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight-linux"></a>Problemas conocidos para el clúster de Apache Spark en HDInsight Linux
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conocidos de clústeres de Apache Spark en HDInsight
+
 En este documento se hace un seguimiento de todos los problemas conocidos de la versión preliminar pública de HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Sesión interactiva con pérdidas de Livy
@@ -31,7 +32,7 @@ Cuando se reinicia Livy con una sesión interactiva (desde Ambari o debido al re
 
 Utilice el procedimiento siguiente para encontrar una solución alternativa para el problema:
 
-1. SSH en el nodo principal. 
+1. SSH en el nodo principal. Para clientes Windows, consulte [Uso de SSH con Hadoop en HDInsight desde Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); para Linux, Unix u OS X, consulte [Uso de SSH con Hadoop en HDInsight desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
 2. Ejecute el siguiente comando para buscar los identificadores de aplicación de los trabajos interactivos iniciados mediante Livy. 
    
         yarn application –list
@@ -71,7 +72,9 @@ Es posible que aparezca un error **`Error loading notebook`** al cargar cuaderno
 
 **Mitigación:**
 
-El hecho de recibir este error no implica que los datos estén dañados o perdidos.  Los cuadernos siguen aún en el disco en `/var/lib/jupyter`y se puede conectar mediante SSH al clúster para acceder ellos. Puede copiar los blocs de notas del clúster en el equipo local (mediante SCP o WinSCP) como copia de seguridad para evitar la pérdida de datos importantes del bloc de notas. A continuación, puede aplicar túneles SSH al nodo principal del puerto 8001 para tener acceso a Jupyter sin pasar por la puerta de enlace.  Desde ahí, puede borrar la salida del bloc de notas y volver a guardarla para minimizar el tamaño del bloc de notas.
+El hecho de recibir este error no implica que los datos estén dañados o perdidos.  Los cuadernos siguen aún en el disco en `/var/lib/jupyter`y se puede conectar mediante SSH al clúster para acceder ellos. Para clientes Windows, consulte [Uso de SSH con Hadoop en HDInsight desde Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); para Linux, Unix u OS X, consulte [Uso de SSH con Hadoop en HDInsight desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+Cuando se haya conectado al clúster mediante SSH, puede copiar sus cuadernos desde el clúster en la máquina local (mediante SCP o WinSCP) como copia de seguridad para impedir la pérdida de datos importantes en el cuaderno. A continuación, puede aplicar túneles SSH al nodo principal del puerto 8001 para tener acceso a Jupyter sin pasar por la puerta de enlace.  Desde ahí, puede borrar la salida del bloc de notas y volver a guardarla para minimizar el tamaño del bloc de notas.
 
 Para evitar que este error ocurra en el futuro, debe seguir algunos procedimientos recomendados:
 
@@ -125,6 +128,6 @@ Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

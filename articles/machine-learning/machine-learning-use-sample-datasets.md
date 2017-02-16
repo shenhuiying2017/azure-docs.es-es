@@ -1,6 +1,6 @@
 ---
-title: Uso de los conjuntos de datos de muestra en Machine Learning Studio | Microsoft Docs
-description: "Descripciones de los conjuntos de datos que se usan en los modelos de muestras incluidos en Estudio de aprendizaje automático. Puede usar estos conjuntos de datos de ejemplo para los experimentos."
+title: Uso de los conjuntos de datos de ejemplo en Machine Learning Studio | Microsoft Docs
+description: Descripciones de los conjuntos de datos que se usan en los modelos de ejemplo incluidos en Machine Learning Studio. Puede usar estos conjuntos de datos de ejemplo para los experimentos.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,29 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a19e10d9bc4c2d0f6579518583f100b5ca76c23
+ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
+ms.openlocfilehash: c4adae8125a6780ddb4c7c64baf4df6aae139104
 
 
 ---
-# <a name="use-the-sample-data-sets-in-azure-machine-learning-studio"></a>Uso de los conjuntos de datos de muestra en Estudio de aprendizaje automático de Azure
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure
 [top]: #machine-learning-sample-datasets
 
-Cuando se crea un área de trabajo nueva en Aprendizaje automático de Azure, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de muestra. Muchos de estos conjuntos de datos de muestra se usan en los modelos de ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/), y otros se incluyen como ejemplos de diversos tipos de datos que se emplean normalmente en el aprendizaje automático.
+Cuando se crea un área de trabajo nueva en Azure Machine Learning, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Cortana Intelligence para Azure](http://gallery.cortanaintelligence.com/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
 
-Algunos de estos conjuntos de datos están disponibles en el almacenamiento de blobs de Azure. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Importar datos][import-data].
+Algunos de estos conjuntos de datos están disponibles en Azure Blob Storage. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Import Data][import-data] (Importar datos).
 
-El resto de estos conjuntos de datos de muestra aparece en **Conjuntos de datos guardados** en la paleta de módulos a la izquierda del lienzo de experimentos al abrir o crear un experimento nuevo en Estudio de aprendizaje automático.
+El resto de estos conjuntos de datos de ejemplo se encuentran disponibles en el área de trabajo en **Saved Datasets** (Conjuntos de datos guardados) en la paleta de módulos a la izquierda del lienzo del experimento cuando abre o crea un experimento nuevo en Machine Learning Studio.
 Para usar cualquiera de estos conjuntos de datos en su propio experimento, arrástrelo a su lienzo de experimentos.
 
-<!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
-
-[sample-experiments]: machine-learning-sample-experiments.md
--->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -61,7 +56,7 @@ Códigos para aeropuertos de EE. UU.<p> </p>Este conjunto de datos contiene una
 <tr>
   <td valign=top>Información sobre los precios de los automóviles (datos sin procesar)</td>
   <td valign=top>
-Información acerca de automóviles por marca y modelo, incluido el precio, características como el número de cilindros y el consumo en relación a la distancia recorrida, así como una puntuación de riesgo para aseguradoras.<p> </p>La puntuación de riesgo se asocia inicialmente con el precio del automóvil y, a continuación, se ajusta para el riesgo real en un proceso que los actuarios conocen como simbología. Un valor de +3 indica que es arriesgado, y un valor de -3 indica que probablemente es bastante seguro.<p> </p><b>Uso:</b> predecir la puntuación de riesgo por características, utilizando una clasificación de regresión o de múltiples variantes. <p> </p><b>Investigación relacionada:</b> Schlimmer, J.C. (1987). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
+Información acerca de automóviles por marca y modelo, incluido el precio, características como el número de cilindros y el consumo en relación a la distancia recorrida, así como una puntuación de riesgo para aseguradoras.<p> </p>La puntuación de riesgo se asocia inicialmente con el precio del automóvil y, a continuación, se ajusta para el riesgo real en un proceso que los actuarios conocen como simbología. Un valor de +3 indica que es arriesgado, y un valor de -3 indica que probablemente es seguro.<p> </p><b>Uso:</b> predecir la puntuación de riesgo por características, utilizando una clasificación de regresión o de múltiples variantes. <p> </p><b>Investigación relacionada:</b> Schlimmer, J.C. (1987). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
@@ -149,7 +144,7 @@ Colección de perfiles energéticos simulados, con base en 12 formas de edificio
 <tr ID=flight-delays-data>
   <td valign=top>Datos de retrasos de vuelos</td>
   <td valign=top>
-Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en TranStats por el Departamento  de Transporte de EE.UU. (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>El conjunto de datos abarca el periodo comprendido entre abril y octubre de 2013. Antes de cargarlo a Estudio de aprendizaje automático de Microsoft Azure, el conjunto de datos se ha procesado como sigue:<ul><li>Se filtró el conjunto de datos para centrarse en los 70 aeropuertos con más tráfico del territorio continental de EE. UU.</li><li>Los vuelos cancelados se etiquetaron como retrasados más de 15 minutos.</li><li>Los vuelos desviados se quitaron de la muestra.</li><li>Se seleccionaron las siguientes columnas: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
+Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en TranStats por el Departamento  de Transporte de EE.UU. (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>El conjunto de datos abarca el periodo comprendido entre abril y octubre de 2013. Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:<ul><li>Se filtró el conjunto de datos para centrarse en los 70 aeropuertos con más tráfico del territorio continental de EE. UU.</li><li>Los vuelos cancelados se etiquetaron como retrasados más de 15 minutos.</li><li>Los vuelos desviados se quitaron de la muestra.</li><li>Se seleccionaron las siguientes columnas: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
 </td>
 </tr>
 
@@ -243,14 +238,14 @@ Registro de explosiones de partículas gamma de alta energía junto con ruido de
 <tr ID=weather-dataset>
   <td valign=top>Conjunto de datos del tiempo</td>
   <td valign=top>
-Observaciones meteorológicas en tierra por hora de la NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">datos combinados del 201304 al 201310</a>).<p> </p>Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo a Estudio de aprendizaje automático de Microsoft Azure, el conjunto de datos se ha procesado como sigue:<ul><li>Se asignaron los identificadores de las estaciones meteorológicas a los identificadores de aeropuerto correspondientes.</li><li>Se excluyeron las estaciones meteorológicas no asociadas a los 70 aeropuertos con mayor tráfico.</li><li>La columna Date se separó en columnas independientes con los valores Year, Month y Day.</li><li>Se seleccionaron las siguientes columnas: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
+Observaciones meteorológicas en tierra por hora de la NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">datos combinados del 201304 al 201310</a>).<p> </p>Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:<ul><li>Se asignaron los identificadores de las estaciones meteorológicas a los identificadores de aeropuerto correspondientes.</li><li>Se excluyeron las estaciones meteorológicas no asociadas a los 70 aeropuertos con mayor tráfico.</li><li>La columna Date se separó en columnas independientes con los valores Year, Month y Day.</li><li>Se seleccionaron las siguientes columnas: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Conjunto de datos de SP 500 de Wikipedia</td>
   <td valign=top>
-Los datos se han extraído de Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) y se basan en artículos de cada empresa del índice S&P 500, almacenados como datos XML.<p> </p>Antes de cargarlo a Estudio de aprendizaje automático de Azure, el conjunto de datos se ha procesado como sigue:<ul><li>Se extrajo el contenido de texto para cada empresa específica.</li><li>Se eliminó el formato wiki.</li><li>Se eliminaron los caracteres no alfanuméricos</li><li>Se convirtió todo el texto a minúscula.</li><li>Se agregaron las categorías de empresas conocidas.</li></ul><p> </p>Tenga en cuenta que no se ha encontrado ningún artículo para algunas empresas, por lo que el número de registros es inferior a 500.
+Los datos se han extraído de Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) y se basan en artículos de cada empresa del índice S&P 500, almacenados como datos XML.<p> </p>Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:<ul><li>Se extrajo el contenido de texto para cada empresa específica.</li><li>Se eliminó el formato wiki.</li><li>Se eliminaron los caracteres no alfanuméricos</li><li>Se convirtió todo el texto a minúscula.</li><li>Se agregaron las categorías de empresas conocidas.</li></ul><p> </p>Tenga en cuenta que no se ha encontrado ningún artículo para algunas empresas, por lo que el número de registros es inferior a 500.
   </td>
 </tr>
 
@@ -282,7 +277,7 @@ Características de ejemplos de aprendizaje en el conjunto de datos de noticias 
 <tr ID=intrusion-detection>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
-Conjunto de datos de la competición de minería de datos y detección de conocimientos KDD Cup 1999 (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>El conjunto de datos se descargó y almacenó en Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) y comprende conjuntos de datos de entrenamiento y pruebas. El conjunto de datos de formación tiene aproximadamente 126.000 filas y 43 columnas, incluidas las etiquetas; 3 columnas forman parte de la información de etiquetas, y 40 columnas, compuestas de características numéricas y de cadena/categóricas, se encuentran disponibles para el entrenamiento del modelo. Los datos de prueba tienen aproximadamente 22.500 ejemplos de prueba (con las mismas 43 columnas en datos de entrenamiento).
+Conjunto de datos de la competición de minería de datos y detección de conocimientos KDD Cup 1999 (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>El conjunto de datos se descargó y almacenó en Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) y comprende conjuntos de datos de entrenamiento y pruebas. El conjunto de datos de entrenamiento tiene aproximadamente 126.000 filas y 43 columnas, incluidas las etiquetas. Tres columnas forman parte de la información de etiquetas, y 40 columnas, compuestas de características numéricas y de cadena/categóricas, se encuentran disponibles para el entrenamiento del modelo. Los datos de prueba tienen aproximadamente 22.500 ejemplos de prueba (con las mismas 43 columnas en datos de entrenamiento).
 
   </td>
 </tr>
@@ -290,7 +285,7 @@ Conjunto de datos de la competición de minería de datos y detección de conoci
 <tr ID=rcv1-v2-topics-qrels>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
   <td valign=top>
-Asignaciones de tema para artículos de prensa en el conjunto de datos de noticias de Reuters RCV1 V2. Un artículo de prensa se puede asignar a varios temas. El formato de cada fila es "<topic name>  <document id> 1". El conjunto de datos contiene 2,6 millones de asignaciones de tema. David proporcionó el conjunto de datos. D. Lewis.
+Asignaciones de tema para artículos de prensa en el conjunto de datos de noticias de Reuters RCV1 V2. Un artículo de prensa se puede asignar a varios temas. El formato de cada fila es "&lt;nombre del tema&gt; &lt;identificador del documento&gt; 1". El conjunto de datos contiene 2,6 millones de asignaciones de tema. David proporcionó el conjunto de datos. D. Lewis.
   </td>
 </tr>
 
@@ -313,6 +308,6 @@ Estos datos se han extraído del concurso de evaluación del rendimiento de los 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

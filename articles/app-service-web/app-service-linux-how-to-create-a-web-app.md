@@ -1,5 +1,5 @@
 ---
-title: "Creación de una aplicación web con App Service en Linux | Microsoft Docs"
+title: "Creación de una aplicación web de Azure que se ejecute en Linux | Microsoft Docs"
 description: "Flujo de creación de aplicaciones web para App Service en Linux."
 keywords: "azure app service, aplicación web, linux, oss"
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
+ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Creación de una aplicación web con App Service en Linux
+# <a name="create-an-azure-web-app-running-on-linux"></a>Creación de una aplicación web de Azure que se ejecute en Linux
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Uso de Azure Portal para crear una aplicación web
 Puede empezar a crear la aplicación web en Linux desde [Azure Portal](https://portal.azure.com) como se muestra en la siguiente imagen:
 
@@ -59,6 +59,6 @@ También puede usar FTP para cargar la aplicación al sitio. En la sección de r
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

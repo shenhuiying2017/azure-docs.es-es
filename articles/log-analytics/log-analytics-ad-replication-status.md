@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
+ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
 
 
 ---
@@ -47,7 +47,7 @@ Si no desea conectar ninguno de los controladores de dominio directamente a OMS,
 3. En el equipo, configure la siguiente clave del Registro:
 
    * Clave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Valor: **IsTarge**
+   * Valor: **IsTarget**
    * Datos del valor: **true**
 
    > [!NOTE]
@@ -115,31 +115,31 @@ También puede hacer clic **Exportar** para exportar los resultados a Excel. De 
 
 ## <a name="ad-replication-status-faq"></a>P+F del Estado de replicación de AD
 **P: ¿Con qué frecuencia se actualizan los datos del Estado de replicación de AD?**
- R: La información se actualiza cada 5 días.
+R: La información se actualiza cada 5 días.
 
 **P: ¿Existe es una manera de configurar la frecuencia de actualización de estos datos?**
- R: De momento, no.
+R: De momento, no.
 
 **P: ¿Tengo que agregar todos mis controladores de dominio a mi área de trabajo de OMS para ver el estado de replicación?**
- R: No, basta con que se agregue un único controlador de dominio. Si tiene varios controladores de dominio en el área de trabajo de OMS, los datos de todos ellos se envían a OMS.
+R: No, basta con que se agregue un único controlador de dominio. Si tiene varios controladores de dominio en el área de trabajo de OMS, los datos de todos ellos se envían a OMS.
 
 **P: No quiero agregar controladores de dominio a mi área de trabajo de OMS. ¿Puedo usar la solución de estado de replicación de AD?**
 R: Sí. Puede configurar el valor de una clave del Registro para habilitar esta opción. Consulte [Para habilitar un controlador que no sea de dominio para enviar datos de AD a OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **P: ¿Cuál es el nombre del proceso que realiza la recopilación de datos?**
- R: AdvisorAssessment.exe
+R: AdvisorAssessment.exe
 
 **P: ¿Cuánto tiempo se tarda en recopilar datos?**
- R: El tiempo de recopilación de datos depende del tamaño del entorno de Active Directory, pero normalmente tarda menos de 15 minutos.
+R: El tiempo de recopilación de datos depende del tamaño del entorno de Active Directory, pero normalmente tarda menos de 15 minutos.
 
 **R: ¿Qué tipo de datos se recopilan?**
- R: La información de replicación se recopila a través de LDAP.
+R: La información de replicación se recopila a través de LDAP.
 
 **P: ¿Se puede configurar el momento en que se recopilan los datos?**
- R: De momento, no.
+R: De momento, no.
 
 **P: ¿Qué permisos necesito para recopilar datos?**
- R: Los permisos de usuario normal para Active Directory son normalmente suficientes.
+R: Los permisos de usuario normal para Active Directory son normalmente suficientes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Solución de problemas de recopilación de datos
 A fin de recopilar datos, el paquete de solución de Estado de replicación de AD requiere que haya al menos un controlador de dominio conectado a su área de trabajo de OMS. Hasta entonces, verá un mensaje que indica que **todavía se están recopilando datos**.
@@ -153,6 +153,6 @@ Si no desea conectar ninguno de los controladores de dominio directamente a OMS 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6dffec166ffe8e04c5d7b701aef009bf7b72d45
+ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
+ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
 
 
 ---
 # <a name="download-the-template-for-a-vm"></a>Descargar la plantilla para una máquina virtual
-Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se crea automáticamente una plantilla de Resource Manager. Puede usar esta plantilla para duplicar rápidamente una implementación. La plantilla contiene información acerca de todos los recursos de un grupo de recursos. En el caso de una máquina virtual, esto significa que la plantilla contiene todo lo que se crea para ayudar a la máquina virtual en ese grupo de recursos, incluidos los recursos de red.
+Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se crea automáticamente una plantilla de Resource Manager. Puede usar esta plantilla para duplicar rápidamente una implementación. La plantilla contiene información acerca de todos los recursos de un grupo de recursos. En el caso de una máquina virtual, significa que la plantilla contiene todo lo que se crea para ayudar a la máquina virtual de ese grupo de recursos, incluidos los recursos de red.
 
 ## <a name="download-the-template-using-the-portal"></a>Descarga de la plantilla mediante el portal
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
@@ -39,7 +39,7 @@ Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se
    * parameters.json
    * template.json
 
-El archivo .json es la plantilla.
+El archivo template.json es la plantilla.
 
 ## <a name="download-the-template-using-powershell"></a>Descarga de la plantilla mediante PowerShell
 También puede descargar el archivo de plantilla .json mediante el cmdlet [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx). Puede usar el parámetro `-path` para proporcionar el nombre de archivo y la ruta de acceso del archivo .json. En este ejemplo se muestra cómo descargar la plantilla para el grupo de recursos denominado **myResourceGroup** en la carpeta **C:\users\public\downloads** del equipo local.
@@ -54,6 +54,6 @@ Para más información sobre la implementación de recursos mediante plantillas,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

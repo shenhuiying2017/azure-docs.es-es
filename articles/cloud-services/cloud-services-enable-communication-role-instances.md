@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
 
 
 ---
@@ -219,7 +219,7 @@ namespace WorkerRole1
 ## <a name="network-traffic-rules-to-control-role-communication"></a>Reglas de tráfico de red para controlar la comunicación entre roles
 Una vez definidos los extremos internos, puede agregar reglas de tráfico de red (basadas en los extremos que haya creado) para controlar el modo en que se comunican las instancias de rol. En el siguiente diagrama verá algunos escenarios comunes para controlar la comunicación entre roles:
 
-![Escenarios de reglas de tráfico de red](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
+![Escenarios de reglas de tráfico de red](./media/cloud-services-enable-communication-role-instances/scenarios.png "Escenarios de reglas de tráfico de red")
 
 En el siguiente ejemplo de código verá las definiciones de rol de los roles que se mostraban en el diagrama anterior. Cada definición de rol incluye, al menos, un extremo interno definido:
 
@@ -375,6 +375,6 @@ Obtenga más información sobre el [modelo](cloud-services-model-and-package.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

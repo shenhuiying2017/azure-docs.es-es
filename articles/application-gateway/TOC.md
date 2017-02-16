@@ -7,7 +7,7 @@
 ## [SSL de un extremo a otro](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Límites de servicio](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-# Primeros pasos
+# Introducción
 ## Creación de una instancia de Application Gateway
 ### Acceso público
 #### [Portal](application-gateway-create-gateway-portal.md)
@@ -18,7 +18,7 @@
 ### Acceso interno
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (clásico)](application-gateway-ilb.md)
-# Cómo
+# Procedimientos
 ## Configuración de firewall de aplicación web
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
@@ -41,26 +41,32 @@
 ## Administrar
 ### [Diagnóstico](application-gateway-diagnostics.md)
 ### [Solución de problemas](application-gateway-troubleshooting-502.md)
-# Referencia
-## [Cmdlets de PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [REST](https://msdn.microsoft.com/library/mt684941)
-## [REST clásico](https://msdn.microsoft.com/library/azure/mt299393)
 
+# Referencia
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST (clásico)](https://msdn.microsoft.com/library/azure/mt299393)
 # Temas relacionados
 ## [ExpressRoute](/azure/expressroute/)
 ## [Red virtual](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Máquinas virtuales](/azure/virtual-machines/)
 ## [Equilibrador de carga](/azure/load-balancer/)
-## [Administrador de tráfico](/azure/traffic-manager/)
-# resources
+## [Traffic Manager](/azure/traffic-manager/)
+# Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)
-## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
+## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Clonación del volumen de StorSimple | Microsoft Docs"
+title: "Clonación del volumen de la serie 8000 de StorSimple | Microsoft Docs"
 description: "Describe los diferentes tipos de clon y cuándo usarlos, y explica cómo se puede usar un conjunto de copia de seguridad para clonar un volumen individual."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/27/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 024b6bceb9eb150e60f68edf916cebacd3552af2
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
 
 
 ---
@@ -66,13 +66,13 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
       > 
       
         ![Asistente para la clonación 1](./media/storsimple-clone-volume-u2/clone1.png) 
-   3. Haga clic en el icono de flecha  ![icono de flecha](./media/storsimple-clone-volume-u2/HCS_ArrowIcon.png)  para ir a la página siguiente.
+   3. Haga clic en el icono de flecha  ![icono de flecha](./media/storsimple-clone-volume-u2/HCS_ArrowIcon.png) para ir a la página siguiente.
 5. En **Especificar los hosts que pueden usar este volumen**:
    
    1. Especifique un registro de control de acceso (ACR) para el clon. Puede agregar un ACR nuevo o elegir uno de la lista.
       
         ![Asistente para la clonación 2](./media/storsimple-clone-volume-u2/clone2.png) 
-   2. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-clone-volume-u2/HCS_CheckIcon.png) para completar la operación.
+   2. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-clone-volume-u2/HCS_CheckIcon.png)para completar la operación.
 6. Se iniciará un trabajo de clonación y se le notificará cuando se haya creado correctamente el clon. Haga clic en **Ver trabajo** para supervisar el trabajo de clonación en la página **Trabajos**. Cuando finalice el trabajo de clonación, verá el mensaje siguiente:
    
     ![Mensaje de clon](./media/storsimple-clone-volume-u2/CloneMsg.png) 
@@ -115,6 +115,6 @@ Necesita comprobar un error de prueba en el entorno de producción. Puede crear 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

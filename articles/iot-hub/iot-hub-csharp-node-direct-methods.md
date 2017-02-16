@@ -1,6 +1,6 @@
 ---
-title: "Uso de métodos directos de IoT Hub de Azure (C#) | Microsoft Docs"
-description: "En este tutorial se muestra cómo usar métodos directos"
+title: "Uso de los métodos directos de IoT Hub de Azure (.NET y Node) | Microsoft Docs"
+description: "Describe cómo usar los métodos directos de IoT Hub de Azure. Usará el SDK de dispositivo IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo, además del SDK de servicio IoT de Azure para .NET con el objetivo de implementar una aplicación de servicio que invoque el método directo."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 
 
 ---
-# <a name="tutorial-use-direct-methods-c"></a>Tutorial: Uso de métodos directos (C#)
+# <a name="use-direct-methods-netnode"></a>Uso de métodos directos (.NET y Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 Al final de este tutorial tendrá una aplicación de consola Node.js y .NET:
 
-* **CallMethodOnDevice.sln**, una aplicación .NET diseñada para ejecutarse desde el back-end, que llama a un método en la aplicación de dispositivo simulado y muestra la respuesta.
+* **CallMethodOnDevice.js**, una aplicación de back-end de .NET, que llama a un método de la aplicación de dispositivo simulado y muestra la respuesta.
 * **SimulatedDevice.js**, una aplicación de Node.js que simula un dispositivo que se conecta a su centro de IoT con la identidad del dispositivo creada anteriormente y responde al método llamado por la nube.
 
 > [!NOTE]
@@ -44,9 +44,9 @@ Para completar este tutorial, necesitará lo siguiente:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Creación de una aplicación de dispositivo simulado
-En esta sección, creará una aplicación de consola de Node.js que responda a un método llamado por el back-end.
+En esta sección, creará una aplicación de consola de Node.js que responda a un método llamado por el back-end de solución.
 
-1. Cree una nueva carpeta vacía denominada **simulateddevice**. En la carpeta **simulateddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+1. Cree una nueva carpeta vacía denominada **simulateddevice**. En la carpeta **simulateddevice**, cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
    
     ```
     npm init
@@ -65,7 +65,7 @@ En esta sección, creará una aplicación de consola de Node.js que responda a u
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{device connection string}** por la cadena conexión que generó en la sección sobre cómo *crear una identidad de dispositivo*:
+5. Agregue una variable **connectionString** y utilícela para crear una instancia de **DeviceClient**. Reemplace **{device connection string}** por la cadena conexión de dispositivo que generó en la sección sobre cómo *crear una identidad de dispositivo*:
    
     ```
     var connectionString = '{device connection string}';
@@ -112,7 +112,7 @@ En esta sección, creará una aplicación de consola de .NET que llame a un mét
    
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#][10]
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **CallMethodOnDevice** y luego seleccione **Administrar paquetes NuGet**.
-3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al paquete NuGet de [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] (SDK de Servicio IoT de Microsoft Azure) y a sus dependencias.
+3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al [paquete NuGet del SDK de dispositivo de IoT de Azure][lnk-nuget-service-sdk] y sus dependencias.
    
     ![Ventana del Administrador de paquetes NuGet][11]
 
@@ -120,7 +120,7 @@ En esta sección, creará una aplicación de consola de .NET que llame a un mét
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión del Centro de IoT que creó en la sección anterior.
+5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión de IoT Hub para el centro que creó en la sección anterior.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -170,7 +170,7 @@ Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, co
 * [Introducción a Iot Hub]
 * [Programación de trabajos en varios dispositivos][lnk-devguide-jobs]
 
-Para aprender a ampliar la solución de IoT y programar llamadas de método en varios dispositivos, consulte el tutorial sobre la [programación y difusión de trabajos][lnk-tutorial-jobs].
+Para información sobre cómo ampliar la solución de IoT y programar llamadas de método en varios dispositivos, consulte el tutorial [Programación de trabajos en varios dispositivos][lnk-tutorial-jobs].
 
 <!-- Images. -->
 [7]: ./media/iot-hub-csharp-node-direct-methods/run-simulated-device.png
@@ -183,7 +183,7 @@ Para aprender a ampliar la solución de IoT y programar llamadas de método en v
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -201,6 +201,6 @@ Para aprender a ampliar la solución de IoT y programar llamadas de método en v
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

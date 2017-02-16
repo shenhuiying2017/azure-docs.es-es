@@ -1,6 +1,6 @@
 ---
-title: "Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Azure Search | Microsoft Docs"
-description: "El planeamiento de la capacidad en Búsqueda de Azure se basa en combinaciones de recursos informáticos de partición y réplica, en las que el precio de cada recurso se factura en unidades de búsqueda facturables."
+title: Planeamiento de la capacidad para Azure Search | Microsoft Docs
+description: "Ajuste los recursos de proceso de réplica y partición en Azure Search, donde el precio de cada recurso se basa en unidades de búsqueda facturables."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc643a4c852b723d030212f01e6ff475c76e1a4
-ms.openlocfilehash: 8fb3011d755dd0330e71005de4df52f59e1f7b95
+ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
+ms.openlocfilehash: c3f547fade400ba35619217dac503ab7ea2fbb40
 
 ---
 
@@ -81,7 +81,7 @@ En la actualidad no hay ningún mecanismo integrado para la recuperación ante d
 ## <a name="increase-query-performance-with-replicas"></a>Aumento del rendimiento de las consultas con réplicas
 La latencia de consultas es un indicador de que se necesitan más réplicas. Por lo general, el primer paso para mejorar el rendimiento de las consultas consiste en agregar más réplicas. Conforme agrega réplicas, se ponen en línea copias adicionales del índice para admitir mayores cargas de trabajo de consultas y equilibrar la carga de las solicitudes por las diversas réplicas.
 
-No ofrecemos estimaciones finales sobre consultas por segundo (QPS); el rendimiento de las consultas depende de la complejidad de la consulta y las cargas de trabajo competitivas. De media, una réplica de las SKU de los niveles Básico o S1 puede dar servicio a unas 15 QPS, pero el rendimiento será mayor o menor en función de la complejidad de la consulta (las consultas por facetas son más complejas) y la latencia de red. Además, es importante reconocer que, aunque la adición de réplicas agregará definitivamente escala y rendimiento, el resultado final no será estrictamente lineal: la adición de 3 réplicas no garantiza el triple rendimiento.
+No ofrecemos estimaciones finales sobre consultas por segundo (QPS); el rendimiento de las consultas depende de la complejidad de la consulta y las cargas de trabajo competitivas. De media, una réplica de las SKU de los niveles Básico o S1 puede dar servicio a unas 15 QPS, pero el rendimiento será mayor o menor en función de la complejidad de la consulta (las consultas por facetas son más complejas) y la latencia de red. Además, es importante reconocer que, aunque la adición de réplicas agregará definitivamente escala y rendimiento, el resultado final no será estrictamente lineal: la adición de&3; réplicas no garantiza el triple rendimiento.
 
 Para obtener información sobre las QPS, incluidos los métodos para estimar el valor de QPS en las cargas de trabajo, consulte [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md).
 
@@ -91,7 +91,7 @@ Las aplicaciones de búsqueda que requieren una actualización de datos casi en 
 Las consultas en índices de mayor tamaño tardan más tiempo en realizarse. Por lo tanto, es posible que con cada aumento incremental de las particiones sea necesario también un aumento menor, pero proporcional, de las réplicas. La complejidad y el volumen de las consultas afectarán a la rapidez con que se ejecuta la consulta.
 
 ## <a name="basic-tier-partition-and-replica-combinations"></a>Nivel básico: combinaciones de particiones y réplicas
-Un servicio del nivel Básico puede tener exactamente 1 partición y hasta 3 réplicas para un límite máximo de 3 SU. El único recurso que puede ajustarse son las réplicas. Se necesita un mínimo de 2 réplicas para lograr una alta disponibilidad en las consultas.
+Un servicio del nivel Básico puede tener exactamente&1; partición y hasta&3; réplicas para un límite máximo de&3; SU. El único recurso que puede ajustarse son las réplicas. Se necesita un mínimo de&2; réplicas para lograr una alta disponibilidad en las consultas.
 
 <a id="chart"></a>
 
@@ -111,17 +111,17 @@ Esta tabla muestra las unidades de búsqueda necesarias para admitir combinacion
 En el sitio web de Azure se explican con detalle la capacidad, los precios y las unidades de búsqueda. Para obtener más información, consulte [Detalles de precios](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> El número de réplicas y particiones se dividirse equitativamente en 12 (en concreto, 1, 2, 3, 4, 6, 12). Esto se debe a que Búsqueda de Azure divide previamente cada índice en 12 particiones para que se pueda repartir en porciones iguales entre todas las particiones. Por ejemplo, si su servicio tiene tres particiones y crea un nuevo índice, cada partición contendrá 4 particiones del índice. La manera en que Azure Search particiona un índice es un detalle de implementación, sujeto a cambios en la futura versión. Aunque el número es 12 hoy, no debe esperar que ese número se siempre 12 en el futuro.
+> El número de réplicas y particiones se dividirse equitativamente en 12 (en concreto, 1, 2, 3, 4, 6, 12). Esto se debe a que Búsqueda de Azure divide previamente cada índice en 12 particiones para que se pueda repartir en porciones iguales entre todas las particiones. Por ejemplo, si su servicio tiene tres particiones y crea un nuevo índice, cada partición contendrá&4; particiones del índice. La manera en que Azure Search particiona un índice es un detalle de implementación, sujeto a cambios en la futura versión. Aunque el número es 12 hoy, no debe esperar que ese número se siempre 12 en el futuro.
 >
 >
 
 ## <a name="billing-formula-for-replica-and-partition-resources"></a>Fórmula de facturación para los recursos de réplica y partición
-La fórmula para calcular cuántas SU se usan para combinaciones concretas es el producto de réplicas y particiones, o (R X P = SU). Por ejemplo, 3 réplicas multiplicadas por 3 particiones se facturan como 9 SU.
+La fórmula para calcular cuántas SU se usan para combinaciones concretas es el producto de réplicas y particiones, o (R X P = SU). Por ejemplo,&3; réplicas multiplicadas por&3; particiones se facturan como&9; SU.
 
 El nivel determina el costo por SU, con una tasa de facturación por unidad más baja para Basic que para Estándar. Las tarifas de cada nivel pueden consultarse en [Buscar Precios](https://azure.microsoft.com/pricing/details/search/).
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

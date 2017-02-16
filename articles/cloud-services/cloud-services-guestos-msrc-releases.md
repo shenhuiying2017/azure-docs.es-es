@@ -12,16 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/1/2016
+ms.date: 1/10/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: f21cf5318cc3fe0a0fc18dec4d85e8bc020a2c8a
-ms.openlocfilehash: 4beac394fbb975b8956ff62a54cc605bacd2a505
+ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
+ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
 
 
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## <a name="january-guest-os"></a>SO invitado de enero
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| MS17-004 | [3216771] |Actualización del Servicio de subsistema de autoridad de seguridad local |2.59 |10 de enero de 2017 |
+
+## <a name="december-guest-os"></a>SO invitado de diciembre
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| MS16-144 |[3204059] |Actualización de seguridad acumulativa para Internet Explorer |2.58, 3.46, 4.39 |13 de diciembre de 2016 |
+| MS16-145 |[3204062] |Actualización de seguridad acumulativa para Microsoft Edge |5.4 |13 de diciembre de 2016 |
+| MS16-146 |[3204066]   |Actualización de seguridad para el componente de gráficos de Microsoft|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-147 |[3204063]   |Actualización de seguridad para Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-149 |[3205655]   |Actualización de seguridad Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-150 |[3205642]   |Actualización de seguridad para el modo de kernel seguro |5.4 |13 de diciembre de 2016 |
+| MS16-151 |[3205651]   |Actualización de seguridad para controladores de modo kernel|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-152 |[3199709]   |Actualización de seguridad para el kernel de Windows |5.4 |13 de diciembre de 2016 |
+| MS16-153 |[3207328] |Actualización de seguridad para el controlador del Sistema de archivos de registro común|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-155 |[3205640]   |Actualización de seguridad para .NET Framework |5.4 |13 de diciembre de 2016 |
+| N/D |[3197868] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de noviembre de 2016 para Windows 7 SP1 y Windows Server 2008 R2 SP1 |2.58 |13 de diciembre de 2016 |
+| N/D |[3197877] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de noviembre de 2016 para Windows Server 2012 |3,46 |13 de diciembre de 2016 |
+| N/D |[3197874] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de noviembre de 2016 para Windows 8.1 y Windows Server 2012 R2 |4.39 |13 de diciembre de 2016 |
 
 ## <a name="november-guest-os"></a>SO invitado de noviembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -382,6 +404,22 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[2999802] |Se imprimen líneas sólidas en lugar de líneas de puntos en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 
+[3216771]: https://technet.microsoft.com/library/security/MS17-004
+
+[3204059]: http://support.microsoft.com/kb/3204059 
+[3204062]: http://support.microsoft.com/kb/3204062 
+[3204066]: http://support.microsoft.com/kb/3204066 
+[3204063]: http://support.microsoft.com/kb/3204063 
+[3205655]: http://support.microsoft.com/kb/3205655 
+[3205642]: http://support.microsoft.com/kb/3205642 
+[3205651]: http://support.microsoft.com/kb/3205651 
+[3199709]: http://support.microsoft.com/kb/3199709 
+[3207328]: http://support.microsoft.com/kb/3207328 
+[3205640]: http://support.microsoft.com/kb/3205640 
+[3197868]: http://support.microsoft.com/kb/3197868 
+[3197877]: http://support.microsoft.com/kb/3197877 
+[3197874]: http://support.microsoft.com/kb/3197874 
+
 [3199057]: http://support.microsoft.com/kb/3199057 
 [3199172]: http://support.microsoft.com/kb/3199172 
 [3199151]: http://support.microsoft.com/kb/3199151 
@@ -683,6 +721,6 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
+ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [CLI de Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Aprenda a usar el Portal de Azure para crear una cuenta de Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para más información acerca de Data Lake Store, consulte la página con [información general de Azure Data Lake Store](data-lake-store-overview.md).
@@ -58,8 +59,8 @@ Vea los vídeos siguientes para empezar a trabajar con el Almacén de Data Lake.
    * **Ubicación**: seleccione la ubicación donde desea crear la cuenta de Data Lake Store.
    * **Configuración de cifrado**. Puede elegir si desea cifrar la cuenta de Data Lake Store. Si elige cifrarla, también puede especificar cómo administrar la clave de cifrado maestra que desea usar para cifrar los datos de la cuenta.
      
-     * (Valor predeterminado) Seleccione **No habilitar el cifrado** en la lista desplegable para que no haya cifrado.
-     * (Opcional) Seleccione **Usar claves administradas por Azure Data Lake** si desea que Azure Data Lake Store administre las claves de cifrado.
+     * (Opcional) Seleccione **No habilitar el cifrado** en la lista desplegable para que no haya cifrado.
+     * (Valor predeterminado) Seleccione **Usar claves administradas por Azure Data Lake** si desea que Azure Data Lake Store administre las claves de cifrado.
        
          ![Cifrado de Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Opcional) Seleccione **Elegir claves en el Almacén de claves de Azure** si desea usar sus propias claves presentes en Azure Key Vault. Con esta opción, también se puede crear una cuenta y claves de Key Vault si no dispone de ellas.
@@ -136,6 +137,6 @@ Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almac�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: f6e7cf0e9e2055df5f8a9fcf9ea49330a91be656
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: add307420b9e16a60b0e57b0ba08188b2509978e
 
 
 ---
@@ -28,7 +28,7 @@ Conéctese a Microsoft Translator para traducir el texto, detectar un idioma, et
 * Compilar el flujo de negocio en función de los datos que obtiene de Microsoft Translator. 
 * Usar acciones para traducir texto, detectar un idioma, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se crea un nuevo archivo en Dropbox, puede convertir el texto del archivo a otro idioma mediante Microsoft Translator.
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Desencadenadores y acciones
 Microsoft Translator incluye las siguientes acciones. No hay desencadenadores.
@@ -125,7 +125,7 @@ No hay parámetros para esta llamada.
 | Nombre |cadena |no |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Volver a la [lista de API](apis-list.md).
 
@@ -135,6 +135,6 @@ Volver a la [lista de API](apis-list.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,19 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: mijiang
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21c05684055a98fecd214fb8291147d3cfefe13a
-
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
 
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
 
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+## <a name="contact-us"></a>Ponerse en contacto con nosotros
 * [¿Cómo se puede hacer una pregunta al equipo de Microsoft Azure API Management?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 * [¿Qué significa que una característica se encuentra en su versión preliminar?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [¿Cómo se puede proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [¿Cómo se puede copiar mi instancia de servicio de API Management en una nueva instancia?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
@@ -144,11 +146,11 @@ Si utiliza el Administrador de credenciales de Git o si está intentando clonar 
 Sí. API Management funciona con Azure ExpressRoute.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>¿Se puede mover un servicio API Management de una suscripción a otra?
-Sí. Para más información, consulte vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../resource-group-move-resources.md).
+Sí. Para más información, consulte vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

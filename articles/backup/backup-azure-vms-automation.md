@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/16/2017
 ms.author: markgal; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: f6a1346b84521806e5523e331b2aeb11648bbe6d
-ms.openlocfilehash: a7d2a73760cd015a5a67551f6f6ada8568ed75b8
+ms.sourcegitcommit: 3a560e836de9cf70bf448b30b091ad92372bce06
+ms.openlocfilehash: 909b16d2e8c72fa29f45e1bdfc778612e00ebbd8
 
 
 ---
@@ -37,7 +37,7 @@ En este artículo se muestra cómo usar cmdlets de Azure PowerShell para realiza
 Este artículo le guiará en el uso de PowerShell para proteger una máquina virtual y restaurar datos a partir de un punto de recuperación.
 
 ## <a name="concepts"></a>Conceptos
-Si no está familiarizado con el servicio de Copia de seguridad de Azure, puede obtener información general al respecto en [¿Qué es la Copia de seguridad de Azure?](backup-introduction-to-azure-backup.md)  Antes de comenzar, asegúrese de que se tratan los aspectos fundamentales sobre los requisitos previos necesarios para trabajar con Copia de seguridad de Azure y las limitaciones de la solución actual de copia de seguridad de máquina virtual.
+Si no está familiarizado con el servicio de Copia de seguridad de Azure, puede obtener información general al respecto en [¿Qué es la Copia de seguridad de Azure?](backup-introduction-to-azure-backup.md) Antes de comenzar, asegúrese de que se tratan los aspectos fundamentales sobre los requisitos previos necesarios para trabajar con Copia de seguridad de Azure y las limitaciones de la solución actual de copia de seguridad de máquina virtual.
 
 Para usar PowerShell de forma eficaz, es preciso conocer la jerarquía de objetos y desde dónde empezar.
 
@@ -199,6 +199,11 @@ PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
+> [!NOTE]
+> Si se encuentra en la nube de Azure Government, use el valor ff281ffe-705c-4f53-9f37-a40e6f2c68f3 para el parámetro **-ServicePrincipalName** en el cmdlet Set-AzureRmKeyVaultAccessPolicy.
+> 
+> 
+
 Para máquinas virtuales basadas en ASM
 
 ```
@@ -230,7 +235,8 @@ WorkloadName     Operation            Status               StartTime            
 V2VM              Backup               InProgress            4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-> [AZURE.NOTE: La zona horaria de los campos StartTime y EndTime en PowerShell es UTC. Sin embargo, cuando la hora se muestra en el Portal de Azure, esta se ajusta a la zona horaria local.
+> [!NOTE]
+> La zona horaria de los campos de StartTime y EndTime en PowerShell es UTC. Sin embargo, cuando la hora se muestra en el Portal de Azure, esta se ajusta a la zona horaria local.
 > 
 > 
 
@@ -323,8 +329,13 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 Una vez que restaure los discos, vaya a la siguiente sección para obtener información sobre la creación de la máquina virtual.
 
-### <a name="create-a-vm-from-restored-disks"></a>Creación de una máquina virtual a partir de discos restaurados
+## <a name="create-a-vm-from-restored-disks"></a>Creación de una máquina virtual a partir de discos restaurados
 Tras haber restaurado los discos, siga estos pasos para crear y configurar la máquina virtual a partir de ellos.
+
+> [!NOTE]
+> Si va a crear máquinas virtuales cifradas mediante discos restaurados, su rol debe poder realizar **Microsoft.KeyVault/vaults/deploy/action**. Si su rol no tiene este permiso, cree un rol personalizado con esta acción. Consulte [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-custom-roles.md) para obtener más detalles.
+> 
+> 
 
 1. Realice una consulta destinada a las propiedades de los discos restaurados para obtener los detalles del trabajo.
    
@@ -384,6 +395,6 @@ Si prefiere usar PowerShell para interactuar con los recursos de Azure, consulte
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

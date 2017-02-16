@@ -1,8 +1,8 @@
 ---
-title: Uso de PowerShell para crear alertas de los servicios de Azure | Microsoft Docs
-description: "Use PowerShell para crear alertas de Azure, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones especificadas."
+title: "Creación de alertas para los servicios de Azure | Microsoft Docs"
+description: "Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones especificadas."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db8ed8980335e2af9654bfe56b4e4c5807674040
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 0a6a6e5b76e03eba113600b5be558daa8c924f0f
 
 
 ---
-# <a name="use-powershell-to-create-alerts-for-azure-services"></a>Uso de PowerShell para crear alertas de los servicios de Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creación de alertas en Azure Monitor para los servicios de Azure - CLI multiplataforma 
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Información general
 En este artículo se muestra cómo configurar alertas de Azure con PowerShell.  
@@ -50,58 +50,58 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 * [Interfaz de la línea de comandos (CLI)](insights-alerts-command-line-interface.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Para información adicional, siempre puede escribir ```get-help``` y, luego, el comando de PowerShell sobre el que desea obtener ayuda.
+Para información adicional, siempre puede escribir ```Get-Help``` y, luego, el comando de PowerShell sobre el que desea obtener ayuda.
 
 ## <a name="create-alert-rules-in-powershell"></a>Creación de reglas de alerta en PowerShell
 1. Inicie sesión en Azure.   
-   
+
     ```PowerShell
     Login-AzureRmAccount
-   
+
     ```
 2. Obtenga una lista de las suscripciones disponibles. Compruebe que trabaja con la suscripción adecuada. Si no es así, establezca la suscripción correcta con la salida de `Get-AzureRmSubscription`.
-   
+
     ```PowerShell
     Get-AzureRmSubscription
     Get-AzureRmContext
     Set-AzureRmContext -SubscriptionId <subscriptionid>
     ```
 3. Para ver las reglas existentes en un grupo de recursos, use el comando siguiente:
-   
+
    ```PowerShell
    Get-AzureRmAlertRule -ResourceGroup <myresourcegroup> -DetailedOutput
    ```
-4. Para crear una regla, primero debe contar con varios datos importantes. 
-   
+4. Para crear una regla, primero debe contar con varios datos importantes.
+
    * El **identificador de recurso** del recursos para el que desea establecer una alerta.
    * Las **definiciones de métricas** disponibles para ese recurso.
-     
-     Una forma de obtener el identificador de recurso es usar Azure Portal. Seleccione el recurso en el portal, suponiendo que ya existe. En la sección *Configuración* de la hoja siguiente, seleccione *Propiedades*. El campo RESOURCE ID está en la hoja siguiente. Otra forma que puede usar es el [Explorador de recursos de Azure](https://resources.azure.com/).
-     
-     El siguiente es un ejemplo de identificador de recurso de una aplic. web:
-     
+
+     Una forma de obtener el identificador de recurso es usar Azure Portal. Seleccione el recurso en el portal, suponiendo que ya existe. En la sección *Configuración* de la hoja siguiente, seleccione *Propiedades*. El campo **RESOURCE ID** está en la hoja siguiente. Otra forma que puede usar es el [Explorador de recursos de Azure](https://resources.azure.com/).
+
+     Este es un ejemplo de identificador de recursos de una aplicación web:
+
      ```
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
      ```
-     
+
      Puede usar `Get-AzureRmMetricDefinition` para ver la lista de todas las definiciones de métricas de un recurso específico.
-     
+
      ```PowerShell
      Get-AzureRmMetricDefinition -ResourceId <resource_id>
      ```
-     
+
      En el ejemplo siguiente se genera una tabla con el nombre y la unidad de esa métrica.
-     
+
      ```PowerShell
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
-     
+
      ```
      Ejecute Get-MetricDefinitions para obtener una lista completa de las opciones disponibles para Get-AzureRmMetricDefinition.
 5. En el ejemplo siguiente se configura una alerta en un recurso de sitio web. La alerta se desencadena cada vez que se recibe constantemente cualquier tráfico durante 5 minutos y nuevamente cuando no se recibe tráfico durante 5 minutos.
-   
+
     ```PowerShell
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
-   
+
     ```
 6. Para crear un webhook o enviar un correo electrónico cuando se desencadene una alerta, debe crear el correo electrónico o los webhooks. Cree la regla inmediatamente después con la etiqueta -Actions, tal como se muestra en el ejemplo siguiente. No puede asociar webhooks o correos electrónicos con reglas ya creadas mediante PowerShell.
 
@@ -114,26 +114,26 @@ Para información adicional, siempre puede escribir ```get-help``` y, luego, el 
 
 
 1. Para crear una alerta que se desencadena según una condición específica en el registro de actividades, use comandos con el siguiente formato:
-   
+
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
     $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://www.contoso.com?token=mytoken
-   
+
     Add-AzureRmLogAlertRule -Name myLogAlertRule -Location "East US" -ResourceGroup myresourcegroup -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup resourcegroupbeingmonitored -Actions $actionEmail, $actionWebhook
     ```
-   
+
     El valor -OperationName corresponde a un tipo de evento del registro de actividades. Los ejemplos incluyen *Microsoft.Compute/virtualMachines/delete* y *microsoft.insights/diagnosticSettings/write*.
-   
+
     Puede usar el comando [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) de PowerShell para obtener una lista de nombresOperación posibles. De manera alternativa, puede usar Azure Portal para consultar el registro de actividades y encontrar operaciones anteriores específicas para las que desea crear una alerta. Las operaciones se muestran en la vista gráfica de registro de los nombres descriptivos. Observe el código JSON de la entrada y extraiga el valor de nombreOperación.   
 2. Observe las reglas individuales para comprobar que las alertas se crearon correctamente.
-   
+
     ```PowerShell
     Get-AzureRmAlertRule -Name myMetricRuleWithWebhookAndEmail -ResourceGroup myresourcegroup -DetailedOutput
-   
+
     Get-AzureRmAlertRule -Name myLogAlertRule -ResourceGroup myresourcegroup -DetailedOutput
     ```
 3. Elimine las alertas. Estos comandos eliminan las reglas que se crearon anteriormente en este artículo.
-   
+
     ```PowerShell
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myrule
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myMetricRuleWithWebhookAndEmail
@@ -149,7 +149,6 @@ Para información adicional, siempre puede escribir ```get-help``` y, luego, el 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

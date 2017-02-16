@@ -1,5 +1,5 @@
 ---
-title: Adaptador de StorSimple para SharePoint | Microsoft Docs
+title: "Instalación del adaptador de StorSimple para SharePoint | Microsoft Docs"
 description: "Describe cómo instalar y configurar o quitar el adaptador de StorSimple para SharePoint en una granja de servidores de SharePoint."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/11/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a108e20c36208fd211e45d180fc77a65e501b191
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 8c7bcc959c15399e8be96eb8f37634d2763a3115
 
 
 ---
@@ -50,7 +50,7 @@ La implementación de RBS en Microsoft Azure StorSimple proporciona los siguient
 * Puede utilizar software de recuperación de datos, como Kroll Ontrack PowerControls, con las instantáneas de StorSimple de datos BLOB para realizar la recuperación a nivel de elemento de contenido de SharePoint. (Este software de recuperación de datos se compra por separado).
 * El adaptador de StorSimple para SharePoint se conecta al portal de administración central de SharePoint, lo que le permite administrar toda la solución de SharePoint desde una ubicación central.
 
-El traslado de contenido BLOB al sistema de archivos puede proporcionar otros ahorros de costos y beneficios. Por ejemplo, al utilizar RBS, puede reducirse la necesidad de costosos almacenamientos de capa 1 y, dado que reduce la base de datos de contenido, RBS puede reducir el número de bases de datos requeridas en la granja de servidores de SharePoint. Sin embargo, otros factores, como los límites de tamaño de bases de datos y la cantidad de contenido no RBS, también pueden afectar los requisitos de almacenamiento. Para obtener más información sobre los costos y beneficios de utilizar RBS, vea [Planeación de RBS (SharePoint Foundation 2010)][4] y [Optar por usar RBS en SharePoint 2013][5].
+El traslado de contenido BLOB al sistema de archivos puede proporcionar otros ahorros de costos y beneficios. Por ejemplo, al utilizar RBS, puede reducirse la necesidad de costosos almacenamientos de capa 1 y, dado que reduce la base de datos de contenido, RBS puede reducir el número de bases de datos requeridas en la granja de servidores de SharePoint. Sin embargo, otros factores, como los límites de tamaño de bases de datos y la cantidad de contenido no RBS, también pueden afectar los requisitos de almacenamiento. Para obtener más información sobre los costos y las ventajas de utilizar RBS, vea [Planeación de RBS (SharePoint Foundation 2010)][4] y [Optar por usar RBS en SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Límites de capacidad y rendimiento
 Antes de considerar la utilización de RBS en la solución de SharePoint, debe conocer los límites probados de rendimiento y capacidad de SharePoint Server 2010 y SharePoint Server 2013, y cómo estos límites se relacionan con el rendimiento aceptable. Para obtener más información, consulte [Restricciones y límites de software de SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
@@ -275,6 +275,6 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ En esta sección, creará un repositorio de Git local que contiene su código de
         git init
    
      ![Nuevo repositorio de Git local](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Ejecute el siguiente comando para agregar un Git remoto para el repositorio de la aplicación de API. 
+3. Si realizó la primera parte de este tutorial y copió la carpeta `ContactList`, es probable que dicha copia incluyera la carpeta `node_modules`. No desea incluir la carpeta `node_modules` en el control de origen, ya que se crea automáticamente durante el proceso de implementación a través del archivo `package.json` y `npm install`. Por consiguiente, agregue un archivo `.gitignore`, para lo que debe ejecutar el comando siguiente en la raíz del directorio del proyecto.
+
+         touch .gitignore
+      
+   Abra el archivo .gitignore y agregue `node_modules` a la primera línea del mismo. Puede confirmar que el control de origen ignora la carpeta `node_modules` si ejecuta `git status` y no ve el directorio en la lista. Hay un (proyecto de GitHub) [https://github.com/github/gitignore/blob/master/Node.gitignore] para que los archivos recomendados se ignoren en un proyecto de NodeJS si se desean agregar más reglas.
+ 
+4. Ejecute el siguiente comando para agregar un Git remoto para el repositorio de la aplicación de API. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Nota**: Reemplace la cadena "YOUR_GIT_CLONE_URL_HERE" por su propia dirección URL de clonación de Git que copió antes. 
-4. Ejecute los comandos siguientes para crear una confirmación que contiene todo el código. 
+5. Ejecute los comandos siguientes para crear una confirmación que contiene todo el código. 
    
         git add .
         git commit -m "initial revision"
    
     ![Salida de confirmación de Git](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Ejecute el comando para insertar el código en Azure. Cuando se le pide una contraseña, escriba la que creó antes en el portal de Azure.
+6. Ejecute el comando para insertar el código en Azure. Cuando se le pide una contraseña, escriba la que creó antes en el portal de Azure.
    
         git push azure master
    
     Esto desencadenará una implementación de la aplicación de API.  
-6. En el explorador, vuelva a la hoja **Implementaciones** para la aplicación de API y verá la implementación que se está produciendo. 
+7. En el explorador, vuelva a la hoja **Implementaciones** para la aplicación de API y verá la implementación que se está produciendo. 
    
     ![Implementación que está ocurriendo](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ Ya ha creado una aplicación de API e implementado código de API Node.js en ell
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

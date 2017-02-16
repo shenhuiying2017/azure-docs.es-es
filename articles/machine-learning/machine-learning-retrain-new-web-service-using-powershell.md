@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f6747a80773cd76b0821edfd2ebcd6af84bed233
+ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
+ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
 
 
 ---
@@ -77,7 +77,7 @@ Para modificar la definición para el modelo entrenado para usar el modelo reci�
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>Actualice la referencia al blob ilearner en JSON
-En los recursos, busque [modelo entrenado], actualice el valor de *uri* en el nodo *locationInfo* con el identificador URI del blob ilearner. El identificador URI se genera mediante la combinación de *BaseLocation* y *RelativeLocation* a partir del resultado de la llamada de reentrenamiento de BES.
+En los recursos, busque [modelo entrenado], actualice el valor de *uri* en el nodo *locationInfo* con el identificador URI del blob ilearner. El identificador URI se genera mediante la combinación de *BaseLocation* y *RelativeLocation* a partir del resultado de la llamada de reentrenamiento de BES. Esto actualiza la ruta de acceso para hacer referencia al nuevo modelo entrenado.
 
      "asset3": {
         "name": "Retrain Samp.le [trained model]",
@@ -93,13 +93,13 @@ En los recursos, busque [modelo entrenado], actualice el valor de *uri* en el no
       },
 
 ## <a name="import-the-json-into-a-web-service-definition"></a>Importe JSON en una definición de servicio web
-Debe utilizar el cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) para convertir el archivo JSON modificado en una definición de servicio web que puede usar para actualizar el experimento predictivo.
+Debe utilizar el cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) para convertir el archivo JSON modificado en una definición de servicio web que puede usar para actualizar la definición del servicio web.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## <a name="update-the-web-service-with-new-web-service-definition"></a>Actualice el servicio web con la nueva definición de servicio web
-Por último, utilice el cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) para actualizar el experimento predictivo.
+Por último, utilice el cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) para actualizar la definición del servicio web.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd
 
@@ -112,6 +112,6 @@ Con el uso de los cmdlets de administración de PowerShell para Machine Learning
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

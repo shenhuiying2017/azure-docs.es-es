@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
-ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -77,7 +77,7 @@ Use la replicación geográfica activa si su aplicación cumple los criterios si
 * El costo adicional por utilizar la replicación geográfica activa es menor que el de la posible responsabilidad financiera y la pérdida de negocio asociada que habría que asumir.
 
 >
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperación de bases de datos tras un error del usuario o la aplicación
@@ -158,6 +158,6 @@ Para ver una explicación de las consideraciones de diseño de las aplicaciones 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,25 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 67e0007c7a40cf59609b1030b7f0ddbee90fa237
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 496aa7754b35877900da020283c8b7efe0e04cef
 
 
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Creación de API en Administración de API de Azure
 En Administración de API, una API representa un conjunto de operaciones que puede invocarse por las aplicaciones cliente. Se crean nuevas API en el portal del publicador y luego se agregan las operaciones deseadas. Una vez agregadas las operaciones, la API se agrega a un producto y se puede publicar. Una vez publicada una API, pueden usarla y suscribirse a ella los desarrolladores.
 
-Esta guía muestra el primer paso del proceso: cómo crear y configurar una nueva API en Administración de API. Para más información sobre cómo agregar operaciones y publicar un producto, consulte [Incorporación de operaciones a una API][Incorporación de operaciones a una API] y [Creación y publicación de un producto][Creación y publicación de un producto].
+Esta guía muestra el primer paso del proceso: cómo crear y configurar una nueva API en Administración de API. Para obtener más información sobre cómo agregar operaciones y publicar un producto, consulte [Incorporación de operaciones a una API][How to add operations to an API] y [Creación y publicación de un producto][How to create and publish a product].
 
 ## <a name="create-new-api"> </a>Creación de una API
 Las API se crean y se configuran en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en el **portal del publicador** en Azure Portal para el servicio API Management.
 
 ![Portal del publicador][api-management-management-console]
 
-> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
+> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance] en el tutorial [Introducción a Azure API Management][Get started with Azure API Management].
 > 
 > 
 
@@ -59,9 +59,9 @@ Puede usar la pestaña **Configuración** para comprobar y editar la configuraci
 
 ![API settings][api-management-api-settings]
 
-Para configurar la autenticación de puerta de enlace para el servicio back-end que implementa la API, seleccione la pestaña **Seguridad** . El menú desplegable **Con credenciales** se puede usar para configurar la **HTTP básica** o **Certificados de cliente**. Para usar la autenticación básica HTTP, solo tiene que escribir las credenciales que quiera. Para información sobre el uso de la autenticación de certificados de cliente, consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure][Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure].
+Para configurar la autenticación de puerta de enlace para el servicio back-end que implementa la API, seleccione la pestaña **Seguridad** . El menú desplegable **Con credenciales** se puede usar para configurar la **HTTP básica** o **Certificados de cliente**. Para usar la autenticación básica HTTP, solo tiene que escribir las credenciales que quiera. Para obtener información sobre el uso de la autenticación de certificados de cliente, consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management][How to secure back-end services using client certificate authentication in Azure API Management].
 
-La pestaña **Seguridad** también se puede usar para configurar la **Autorización de usuario** con OAuth 2.0. Para más información, consulte [Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure][Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure].
+La pestaña **Seguridad** también se puede usar para configurar la **Autorización de usuario** con OAuth 2.0. Para obtener más información, consulte [Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management][How to authorize developer accounts using OAuth 2.0 in Azure API Management].
 
 ![Basic authentication settings][api-management-api-settings-credentials]
 
@@ -70,8 +70,8 @@ Haga clic en **Guardar** para guardar los cambios que efectúe en la configuraci
 ## <a name="next-steps"> </a>Pasos siguientes
 Una vez creada una API y definida la configuración, los pasos siguientes permiten agregar las operaciones a la API, agregar la API a un producto y publicarlo para ponerlo a disposición de los desarrolladores. Para obtener más información, consulte los siguientes artículos.
 
-* [Incorporación de operaciones a una API][Incorporación de operaciones a una API]
-* [Creación y publicación de un producto][Creación y publicación de un producto]
+* [Incorporación de operaciones a una API][How to add operations to an API]
+* [Creación y publicación de un producto][How to create and publish a product]
 
 [api-management-create-api]: ./media/api-management-howto-create-apis/api-management-create-api.png
 [api-management-management-console]: ./media/api-management-howto-create-apis/api-management-management-console.png
@@ -81,22 +81,22 @@ Una vez creada una API y definida la configuración, los pasos siguientes permit
 [api-management-api-summary]: ./media/api-management-howto-create-apis/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-create-apis/api-management-echo-operations.png
 
-[¿Qué es una API?]: #what-is-api
-[Creación de una API]: #create-new-api
-[Definición de la configuración de la API]: #configure-api-settings
-[Configuración de operaciones de API]: #configure-api-operations
-[Pasos siguientes]: #next-steps
+[What is an API?]: #what-is-api
+[Create a new API]: #create-new-api
+[Configure API settings]: #configure-api-settings
+[Configure API operations]: #configure-api-operations
+[Next steps]: #next-steps
 
-[Incorporación de operaciones a una API]: api-management-howto-add-operations.md
-[Creación y publicación de un producto]: api-management-howto-add-products.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
 
-[Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
-[Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure]: api-management-howto-mutual-certificates.md
-[Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure]: api-management-howto-oauth2.md
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

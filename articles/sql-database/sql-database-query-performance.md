@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 174fedeb49b1ce8ca84ff2302314d683fe181fff
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
 
 
 ---
@@ -176,9 +177,9 @@ Hay dos tipos de directivas de retención:
 
 La directiva de capturas se podría establecer como:
 
-* **Todas** : captura todas las consultas.
-* **Automática** : se ignoran las consultas poco frecuentes y las consultas con una duración de ejecución y compilación insignificantes. Los umbrales para la duración del tiempo de ejecución y de compilación y para el recuento de ejecuciones se determinan internamente. Esta es la opción predeterminada.
-* **Ninguna** : el Almacén de consultas deja de capturar nuevas consultas, pero las estadísticas en tiempo de ejecución de las consultas ya capturadas siguen recopilándose.
+* **Todas**: captura todas las consultas.
+* **Automática**: se ignoran las consultas poco frecuentes y las consultas con una duración de ejecución y compilación insignificantes. Los umbrales para la duración del tiempo de ejecución y de compilación y para el recuento de ejecuciones se determinan internamente. Esta es la opción predeterminada.
+* **Ninguna**: el Almacén de consultas deja de capturar nuevas consultas, pero las estadísticas en tiempo de ejecución de las consultas ya capturadas siguen recopilándose.
 
 Se recomienda establecer todas las directivas en AUTO y la directiva de limpieza en 30 días:
 
@@ -228,6 +229,6 @@ Para recomendaciones adicionales sobre cómo mejorar el rendimiento de la base d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

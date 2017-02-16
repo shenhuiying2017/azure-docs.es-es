@@ -1,5 +1,5 @@
 ---
-title: Plantillas vinculadas con Resource Manager | Microsoft Docs
+title: "Conexión de plantillas relacionadas para la implementación de Azure | Microsoft Docs"
 description: "Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 922b08ab343d6aa0fd4b67d720e2f195e9dfac0f
-ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 7bc5e1102b60db0bdf7a8310d0816f65bcfec3a1
 
 
 ---
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Uso de plantillas vinculadas con el Administrador de recursos de Azure
+# <a name="using-linked-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas al implementar recursos de Azure
 Desde dentro de una plantilla de Azure Resource Manager, puede realizar la vinculación con otra plantilla que le permita descomponer la implementación en un conjunto de plantillas con fines específicos y dirigidas. Como ocurre con la descomposición de una aplicación en varias clases de código, la descomposición proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad.  
 
 Puede pasar parámetros de una plantilla principal a una plantilla vinculada de nuevo, y esos parámetros pueden asignarse directamente a parámetros o variables expuestas por la plantilla de llamada. La plantilla vinculada también puede pasar una variable de salida de nuevo a la plantilla de origen, lo que permite un intercambio de datos bidireccional entre las plantillas.
@@ -328,6 +328,6 @@ Se le pide que proporcione el token de SAS como parámetro. Tiene que anteponer 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

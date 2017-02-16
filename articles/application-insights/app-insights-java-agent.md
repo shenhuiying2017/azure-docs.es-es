@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java"
-description: "Supervisión extendida de sitios web de Java con Application Insights"
+title: "Supervisión de rendimiento de aplicaciones web de Java en Azure Application Insights | Microsoft Docs"
+description: "Supervisión extendida del rendimiento y el uso de su sitio web de Java con Application Insights."
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
 
 
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
 
 
-Si ha [instrumentado la aplicación web de Java con Application Insights][java], puede usar el agente de Java para obtener información más clara, sin tener que realizar cambios en el código:
+Si ha [instrumentado la aplicación web de Java con Application Insights][java], puede usar el agente de Java para obtener información más clara, sin tener que realizar cambios de código:
 
 * **Dependencias:** datos sobre las llamadas realizadas por la aplicación a otros componentes, por ejemplo:
   * **Llamadas REST** realizadas a través de HttpClient, OkHttp y RestTemplate (Spring).
@@ -31,7 +31,7 @@ Si ha [instrumentado la aplicación web de Java con Application Insights][java],
 * **Excepciones detectadas:** datos sobre las excepciones que controla el código.
 * **Tiempo de ejecución del método:** datos sobre el tiempo necesario para ejecutar métodos específicos.
 
-Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Java de Application Insights][java]. 
+Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Application Insights para Java][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalación del agente de Application Insights para Java
 1. [Descargue el agente](https://aka.ms/aijavasdk)en la máquina que ejecuta el servidor de Java.
@@ -91,9 +91,9 @@ Debe habilitar la excepción de los informes y los intervalos de método para m�
 De forma predeterminada, `reportExecutionTime` es true y `reportCaughtExceptions` es false.
 
 ## <a name="view-the-data"></a>Visualización de los datos
-En el recurso de Application Insights, aparecen los tiempos de ejecución del método y la dependencia remota agregada [en el icono Rendimiento][métricas].
+En el recurso de Application Insights, aparecen tiempos de ejecución agregados de métodos y dependencias remotos [en el icono Rendimiento][metrics].
 
-Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnóstico].
+Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnostic].
 
 [Más información sobre diagnósticos de problemas de dependencia](app-insights-asp-net-dependencies.md#diagnosis).
 
@@ -105,16 +105,16 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[disponibilidad]: app-insights-monitor-web-app-availability.md
-[diagnóstico]: app-insights-diagnostic-search.md
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[métricas]: app-insights-metrics-explorer.md
-[uso]: app-insights-web-track-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

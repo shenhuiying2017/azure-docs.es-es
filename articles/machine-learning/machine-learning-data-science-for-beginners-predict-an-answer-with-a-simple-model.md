@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
 
 
 ---
@@ -27,7 +27,7 @@ Aprenda a crear un modelo de regresión simple para predecir el precio de un dia
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ A continuación, dibujaremos un eje vertical para registrar el precio y conectar
 
 Ahora vamos a tomar estos datos y los convertimos en un *gráfico de dispersión*. Esta es una excelente forma de ver conjuntos de datos numéricos.
 
-Para el primer punto de datos, dibujamos mentalmente una línea vertical en 1,01 quilates. A continuación, dibujamos mentalmente una línea horizontal en 7366 USD. Donde se encuentran, dibujamos un punto. Esto representa nuestro primer diamante.
+Para el primer punto de datos, dibujamos mentalmente una línea vertical en 1,01 quilates. A continuación, dibujamos mentalmente una línea horizontal en&7366; USD. Donde se encuentran, dibujamos un punto. Esto representa nuestro primer diamante.
 
 Ahora podemos hacer lo mismo con cada diamante de esta lista. Cuando hayamos terminado, esto es lo que obtenemos: una serie de puntos, uno para cada diamante.
 
@@ -136,6 +136,6 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

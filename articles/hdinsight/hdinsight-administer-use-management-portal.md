@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
+ms.openlocfilehash: 55193e8570f480b9c6b2ef9a0785ddb538749cb5
 
 
 ---
@@ -102,10 +102,10 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 
      **Uso**
 
-     ![Botón de clúster HDInsight en el Portal de Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+     ![Uso del clúster de HDInsight en Azure Portal](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
 5. Haga clic en **Configuración**.
 
-    ![Botón de clúster HDInsight en el Portal de Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![Uso del clúster de HDInsight en Azure Portal](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **Propiedades**: muestra las propiedades del clúster.
    * **Identidad AAD de clúster**:
@@ -151,7 +151,7 @@ Vea también [Pausa o apagado de clústeres](#pauseshut-down-clusters).
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
 > [!NOTE]
-> Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.  Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
+> Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.  Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 >
 >
 
@@ -188,10 +188,10 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>the spout "blue-spout" to use 3 executors, and
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>the bolt "yellow-bolt" to use 10 executors
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **Para escalar clústeres**
 
@@ -327,7 +327,7 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 3. En el menú superior, haga clic en **Configuración** y en **Escritorio remoto**.
 4. Especifique los valores de **Expira en**, **Nombre de usuario de Escritorio remoto** y **Contraseña de Escritorio remoto** y haga clic en **Habilitar**.
 
-    ![hdinsight habilitar deshabilitar configurar escritorio remoto](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight habilitar deshabilitar configurar escritorio remoto](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     El valor predeterminado de "Expira el" es de una semana.
 

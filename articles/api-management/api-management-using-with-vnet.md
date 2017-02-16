@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
-ms.author: antonba
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dfbf0e460dc8de13a4a71c1f925c93f6238df5d
+ms.sourcegitcommit: 40d9b0ee5a24e5503de19daa030bf1e8169dec24
+ms.openlocfilehash: 58be070ea5d5f4ea9f6d9453a1adcc23c4b9b2a2
 
 
 ---
@@ -25,10 +25,15 @@ Las redes virtuales de Azure (VNET) le permiten colocar cualquier recurso de Azu
 
 Azure API Management se puede conectar a una red virtual (VNET) para que pueda acceder a servicios de back-end en la red y para que el portal para desarrolladores y la puerta de enlace de la API sean accesibles en la red.
 
+> [!NOTE]
+> Azure API Management admite redes virtuales clásicas y de Azure Resource Manager.
+> 
+> 
+
 ## <a name="enable-vpn"> </a>Habilitar la conexión de VNET
-> La conectividad VNET solo está disponible en los niveles **Premium** y **Desarrollador**. Para cambiar de nivel, abra el servicio API Management en Azure Portal y, después, abra la pestaña **Escala y precios**. En la sección **Plan de tarifa**, seleccione el nivel Premium y haga clic en Guardar.
-> 
-> 
+> [!NOTE]
+> La conectividad de VNET está disponible en los niveles **Premium** y **Desarrollador**. Para cambiar de nivel, abra el servicio API Management en Azure Portal y, después, abra la pestaña **Scale and pricing** (Escala y precios). En la sección **Plan de tarifa**, seleccione el nivel Premium o Developer y haga clic en Guardar.
+>
 
 Para habilitar la conectividad de VNET, abra el servicio API Management en Azure Portal y, después, abra la página **Red virtual**.
 
@@ -44,45 +49,78 @@ Seleccione el tipo de acceso que prefiera:
 
 ![Emparejamiento privado][api-management-vnet-private]
 
-Ahora verá una lista de todas las regiones donde se aprovisiona el servicio Administración de API. Seleccione una VNET y la subred de cada región. La lista se rellena con redes virtuales de ARM y clásicas disponibles en sus suscripciones de Azure que se configuran en la región seleccionada.
+Ahora verá una lista de todas las regiones donde se aprovisiona el servicio Administración de API. Seleccione una VNET y la subred de cada región. La lista se rellena con redes virtuales de Resource Manager y clásicas disponibles en las suscripciones de Azure que se configuran en la región que va a configurar.
+
+> [!NOTE]
+> **Punto de conexión de servicio** en el diagrama anterior incluye la puerta de enlace o proxy, el portal para desarrolladores, el portal para editores, GIT y el punto de conexión de administración directa.
+> **Punto de conexión de administración** en el diagrama anterior es el punto de conexión hospedado en el servicio para administrar la configuración mediante Azure Portal y Powershell.
+> Además, tenga en cuenta que, aunque el diagrama muestra las direcciones IP para sus diversos puntos de conexión, el servicio API Management **solo** responde en sus nombres de host configurados.
+
+> [!IMPORTANT]
+> Al implementar una instancia de Azure API Management en una VNET de Resource Manager, el servicio debe estar en una subred dedicada que no contiene ningún otro recurso excepto instancias de Azure API Management. Si se intenta implementar una instancia de Azure API Management en una subred de VNET de Resource Manager que contiene otros recursos, se producirá un error en la implementación.
+> 
+> 
 
 ![Selección de una VPN][api-management-setup-vpn-select]
 
 Haga clic en **Guardar** en la parte superior de la pantalla. 
 
-> No podrá realizar operaciones de administración en el servicio API Management mientras se está actualizando. La puerta de enlace de API Management y el portal para desarrolladores seguirán estando disponibles.
-> Tenga en cuenta que es probable que la dirección VIP de la instancia de API Management cambie cada vez que se habilite a deshabilite VNET.
-> 
+> [!NOTE]
+> Tenga en cuenta que la dirección VIP de la instancia de API Management cambiará cada vez que se habilita o deshabilita VNET.  
+> La dirección VIP también cambia cuando se mueve API Management de **externo** a **interno** o viceversa.
 > 
 
-## <a name="enable-vnet-powershell"> </a>Habilitar una conexión de VNET con commandlets de PowerShell
-También puede habilitar la conectividad de VNET con el commandlet de PowerShell [Set-AzureRmApiManagementVirtualNetworks](https://msdn.microsoft.com/library/mt619277.aspx).
+
+> [!IMPORTANT] 
+> Si quita API Management de una red virtual o cambia aquella en la que se implementa, la red virtual usada anteriormente puede permanecer bloqueada hasta 4 horas. Durante este periodo no será posible eliminar la red virtual ni implementar un nuevo recurso en ella.
+
+## <a name="enable-vnet-powershell"> </a>Habilitar una conexión de VNET con cmdlets de PowerShell
+También puede habilitar la conectividad de VNET con los cmdlets de PowerShell
+
+* **Crear un servicio de API Management dentro de una red virtual**: use el cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) para crear un servicio de Azure API Management dentro de una VNET.
+
+* **Implementar un servicio existente de API Management dentro de una VNET**: use el cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment) para mover un servicio existente de Azure API Management dentro de una red virtual.
 
 ## <a name="connect-vnet"> </a>Conectar a un servicio web hospedado en una red virtual
 Después de conectar el servicio API Management a la VNET, se accede a los servicios de back-end de la misma forma que a los servicios públicos. Solo tiene que escribir la dirección IP local o el nombre de host (si se ha configurado un servidor DNS para la VNET) del servicio web en el campo **Dirección URL de servicio web** al crear una API o editar una existente.
 
 ![Agregar una API desde VPN][api-management-setup-vpn-add-api]
 
-## <a name="custom-dns"> </a>Configuración del servidor DNS personalizado
-Administración de API depende de varios servicios de Azure. Cuando API Management está hospedado en un VNET con un servidor DNS personalizado, necesita poder resolver los nombres de host de esos servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado. Vea los diagramas en la tabla de puertos siguientes como referencia.
+## <a name="network-configuration-issues"> </a>Problemas comunes de configuración de red
+A continuación se muestra una lista de problemas de errores de configuración comunes que pueden producirse al implementar el servicio de API Management en una red virtual.
 
-## <a name="ports-required"> </a>Puertos necesarios para API Management
-> Si alguno de estos puertos no está disponible, es posible que API Management no funcione correctamente y sea inaccesible. Tener bloqueados uno o varios de estos puertos es el problema más común de una configuración incorrecta cuando se usa Administración de API con una red virtual.
+* **Configuración del servidor DNS personalizado**: el servicio de API Management depende de varios servicios de Azure. Cuando API Management está hospedado en una red virtual con un servidor DNS personalizado, necesita resolver los nombres de host de esos servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado. Vea la siguiente tabla de puertos y otros requisitos de red a efectos de referencia.
+
+> [!IMPORTANT]
+> Se recomienda que, si está utilizando un servidor de DNS personalizado para la red virtual, lo configure **antes** de la implementación de un servicio de API Management en él. En caso contrario, es necesario reiniciar la instancia de CloudService que hospeda el servicio a fin de que integre la nueva configuración de servidor DNS.
 > 
-> 
+
+* **Puertos necesarios para API Management**: el tráfico entrante y saliente en la subred en la que se implementa API Management puede controlarse mediante el [grupo de seguridad de red][Network Security Group]. Si alguno de estos puertos no está disponible, es posible que API Management no funcione correctamente y sea inaccesible. Tener bloqueados uno o varios de estos puertos es otro problema común de una configuración incorrecta cuando se usa API Management con una red virtual.
 
 Cuando la instancia del servicio de Administración de API se hospeda en una red virtual, se usan los puertos de la tabla siguiente.
 
-| Puertos | Dirección | Protocolo de transporte | Propósito | Origen/destino | Tipo de acceso |
+| Puertos de origen/destino | Dirección | Protocolo de transporte | Propósito | Origen/destino | Tipo de acceso |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Entrada |TCP |Comunicación de cliente con Administración de API |INTERNET/VIRTUAL_NETWORK |Externo |
-| 3443 |Entrada |TCP |Administración de puntos de conexión |INTERNET/VIRTUAL_NETWORK |Externa e interna |
-| 80, 443 |Salida |TCP |Dependencia en Azure Storage y Azure Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 1433 |Salida |TCP |Dependencia de Azure SQL |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 9350, 9351, 9352, 9353, 9354 |Salida |TCP |Dependencia de Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 5671 |Salida |AMQP |Dependencia de directiva de registro en Event Hubs |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 6381, 6382, 6383 |Entrante o saliente |UDP |Dependencia de Redis Cache |VIRTUAL_NETWORK/VIRTUAL_NETWORK |Externa e interna |
-| 445 |Salida |TCP |Dependencia del recurso compartido de archivos de Azure para Git |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| 80, 443 / 80, 443 |Entrada |TCP |Comunicación de cliente con Administración de API |INTERNET/VIRTUAL_NETWORK |Externo |
+| * / 3443 |Entrada |TCP |Punto de conexión de administración para Azure Portal y Powershell |INTERNET/VIRTUAL_NETWORK |Externa e interna |
+| 80, 443 / 80, 443 |Salida |TCP |Dependencia en Azure Storage y Azure Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| 1433 / 1433 |Salida |TCP |Dependencia de Azure SQL |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| 9350 - 9354 / 9350 - 9354 |Salida |TCP |Dependencia de Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| 5671 / 5671 |Salida |AMQP |Dependencia de directiva de registro en Event Hubs |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| 6381 - 6383 / 6381 - 6383 |Entrada y salida |UDP |Dependencia de Redis Cache |VIRTUAL_NETWORK/VIRTUAL_NETWORK |Externa e interna |-
+| * / 445 |Salida |TCP |Dependencia del recurso compartido de archivos de Azure para Git |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / * | Entrada |TCP |Equilibrador de carga de la infraestructura de Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externa e interna |
+
+* **Funcionalidad SSL**: para permitir la creación y validación de la cadena de certificados SSL, el servicio API Management necesita conectividad de red saliente a ocsp.msocsp.com, mscrl.microsoft.com y crl.microsoft.com.
+
+* **Configuración de ExpressRoute**: una configuración de cliente común es definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a que el tráfico saliente de Internet fluya a nivel local. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución es definir una, o varias, rutas definidas por el usuario ([UDR][UDRs]) en la subred que contiene el servicio Azure API Management. Una ruta definida por el usuario define las rutas de subred específica que se respetarán en lugar de la ruta predeterminada.
+  Si es posible, se recomienda usar la configuración siguiente:
+ * La configuración de ExpressRoute anuncia 0.0.0.0/0 y, de manera predeterminada, fuerza la tunelización de todo el tráfico saliente a local.
+ * El UDR aplicado a la subred que contiene Azure API Management define 0.0.0.0/0 con un tipo de próximo salto de Internet.
+ El efecto combinado de estos pasos es que el UDR a nivel de subred tiene prioridad sobre la tunelización forzada de ExpressRoute, lo que garantiza el acceso saliente a Internet desde Azure API Management.
+
+>[!WARNING]  
+>Azure API Management no es compatible con las configuraciones de ExpressRoute que **anuncian incorrectamente rutas entre la ruta de acceso entre pares públicos y la ruta de acceso entre pares privados**. Las configuraciones de ExpressRoute con el emparejamiento público configurado recibirán anuncios de ruta de Microsoft para un amplio conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se anuncian incorrectamente en la ruta de acceso entre pares privados, el resultado final es que se forzará incorrectamente la tunelización de todos los paquetes de red salientes desde la subred de la instancia de Azure API Management a la infraestructura de red local del cliente. Este flujo de red interrumpe Azure API Management. La solución a este problema consiste en detener rutas anunciadas entre la ruta de acceso de interconexión pública y la ruta de acceso de interconexión privada.
 
 ## <a name="limitations"> </a>Limitaciones
 * Una subred que contenga instancias de API Management no puede contener otros tipos de recursos de Azure.
@@ -91,9 +129,11 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 * Al usar una red virtual interna, solo estará disponible una dirección IP interna del intervalo indicado en [RFC 1918](https://tools.ietf.org/html/rfc1918), no se puede especificar una dirección IP pública.
 * Para implementaciones de API Management de varias regiones con redes virtuales internas configuradas, los usuarios son responsables de administrar su propio equilibrio de carga, ya que son los propietarios del host DNS.
 
+
 ## <a name="related-content"> </a>Contenido relacionado
-* [Crear una red virtual con una conexión VPN de sitio a sitio con Azure Portal][Crear una red virtual con una conexión VPN de sitio a sitio con Azure Portal]
-* [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure][Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]
+* [Conexión de una red virtual a back-end mediante VPN Gateway][Different topologies to connect to Vpn Gateway]
+* [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure](api-management-howto-api-inspector.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
@@ -102,16 +142,16 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 [api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-private.png
 [api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-public.png
 
-[Habilitación de conexiones VPN]: #enable-vpn
-[Conexión a un servicio web detrás de VPN]: #connect-vpn
-[Contenido relacionado]: #related-content
+[Enable VPN connections]: #enable-vpn
+[Connect to a web service behind VPN]: #connect-vpn
+[Related content]: #related-content
+
+[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
+[UDRs]: ../virtual-network/virtual-networks-udr-overview.md
+[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 
 
-[Crear una red virtual con una conexión VPN de sitio a sitio con Azure Portal]: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
-[Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,7 @@
 ---
-title: "Migración de una base de datos de SQL Server a SQL Database mediante el asistente para la implementación de una base de datos en Microsoft Azure SQL Database | Microsoft Docs"
-description: "Base de datos SQL de Microsoft Azure, migración de bases de datos, Asistente para bases de datos de Microsoft Azure"
+title: "SSMS: Migración de una base de datos de SQL Server a Azure SQL Database | Microsoft Docs"
+description: "En este artículo se muestra cómo usar el Asistente para implementar bases de datos en Base de datos de Microsoft Azure en SQL Server Management Studio para migrar una base de datos de SQL Server compatible directamente al servidor de Azure SQL Database."
+keywords: "Base de datos SQL de Microsoft Azure, migración de bases de datos, Asistente para bases de datos de Microsoft Azure"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 08/24/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 6f0dc3b3df76dcb7a43fcdfad49ddfdb747e0747
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: f4cbfc1a277cbe80edbfbb4dc651adb1972f41b4
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 6f0dc3b3df76dcb7a43fcdfad49ddfdb747e0747
 > 
 > 
 
-El Asistente para implementar bases de datos en base de datos SQL de Microsoft Azure en SQL Server Management Studio migra una [bases de datos de SQL Server compatible](sql-database-cloud-migrate.md) directamente en un servidor de Base de datos SQL de Azure.
+En este artículo se muestra cómo usar el Asistente para implementar bases de datos en Base de datos de Microsoft Azure en SQL Server Management Studio para migrar una [base de datos de SQL Server compatible](sql-database-cloud-migrate.md) directamente al servidor de Azure SQL Database.
 
 ## <a name="use-the-deploy-database-to-microsoft-azure-database-wizard"></a>Uso del Asistente de implementación de bases de datos en la Base de datos de Microsoft Azure
 > [!NOTE]
@@ -51,7 +52,7 @@ El Asistente para implementar bases de datos en base de datos SQL de Microsoft A
 4. En el asistente para la implementación, haga clic en **Siguiente** y en **Conectar** para configurar la conexión con el servidor de SQL Database.
    
    ![Implementación en Azure desde el menú Tareas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
-5. En el cuadro de diálogo Conectar con el servidor, escriba la información de conexión para conectarse a su servidor de Base de datos SQL.
+5. En el cuadro de diálogo Conectar con el servidor, escriba la información de conexión para conectarse a su servidor de Base de datos SQL. Para obtener el nombre de un servidor existente, vaya a [Visualización y actualización de un servidor de Base de datos de SQL Server y su configuración](sql-database-view-update-server-settings.md).
    
     ![Implementación en Azure desde el menú Tareas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 6. Proporcione los siguiente elementos para el archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que crea el asistente durante el proceso de migración:
@@ -79,6 +80,6 @@ El Asistente para implementar bases de datos en base de datos SQL de Microsoft A
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Métricas de diagnóstico del Centro de IoT"
-description: "Información general de las métricas de Azure IoT Hub que permite evaluar el estado general de los recursos"
+title: "Métricas de IoT Hub de Azure | Microsoft Docs"
+description: "Describe cómo usar las métricas de IoT Hub de Azure para evaluar y supervisar el estado general de los centros de IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: e2739f9f47495c4502af3aff95d2d3f3975a881b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 689e3a07fd9bdd82d8c57cbe714562a780a14714
 
 
 ---
-# <a name="introduction-to-diagnostic-metrics"></a>Introducción a las métricas de diagnóstico
-Las métricas de diagnóstico le ofrecen mejores datos sobre el estado de los recursos de Azure en la suscripción de Azure. Las métricas permiten evaluar el estado general del servicio y de los dispositivos conectados a él. Las estadísticas orientadas al usuario son importantes porque ayudan a ver lo que está ocurriendo con su Centro de IoT y ayudan a determinar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+# <a name="iot-hub-metrics"></a>Métricas de IoT Hub
+Las métricas de IoT Hub ofrecen mejores datos sobre el estado de los recursos de Azure en la suscripción de Azure. Las métricas de IoT Hub permiten evaluar el estado general del servicio IoT Hub y de los dispositivos conectados a él. Las estadísticas orientadas al usuario son importantes porque ayudan a ver lo que está ocurriendo con su Centro de IoT y ayudan a determinar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
-Puede habilitar las métricas de diagnóstico desde el Portal de Azure.
+Puede habilitar las métricas de IoT Hub desde Azure Portal.
 
-## <a name="how-to-enable-diagnostic-metrics"></a>Habilitación de las métricas de diagnóstico
+## <a name="how-to-enable-iot-hub-metrics"></a>Cómo habilitar las métricas de IoT Hub
 1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear un centro de IoT en la guía [Introducción][lnk-get-started].
 2. Abra la hoja de su Centro de IoT. Desde allí, haga clic en **Diagnósticos**.
    
@@ -37,27 +37,27 @@ Puede habilitar las métricas de diagnóstico desde el Portal de Azure.
    
     ![][3]
 
-## <a name="metrics-and-how-to-use-them"></a>Las métricas y su uso
+## <a name="iot-hub-metrics-and-how-to-use-them"></a>Las métricas de IoT Hub y su uso
 IoT Hub proporciona varias métricas para ofrecerle una visión general del estado de su centro y el número total de dispositivos conectados. Puede combinar información de varias métricas para conseguir una imagen más amplia del estado del Centro de IoT. La tabla siguiente describe las métricas de las que cada Centro de IoT realiza un seguimiento y cómo se relaciona cada métrica con el estado general del Centro de IoT.
 
 | Métrica | Descripción de la métrica | Para qué se usa la métrica |
 | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |Número de mensajes enviados en todos los dispositivos |Datos de información general sobre el envío de mensajes |
 | d2c.telemetry.ingress.success |Número de mensajes completados correctamente en el centro de IoT |Información general de las recepciones de mensajes completadas correctamente en el centro de IoT |
-| c2d.commands.egress.complete.success |Número de todos los mensajes de comando completados por el dispositivo receptor en todos los dispositivos |Junto con las métricas de abandono y rechazo, ofrece una visión general de la tasa de éxito global de comandos de nube a dispositivo |
+| c2d.commands.egress.complete.success |Número de todos los mensajes de comando completados por el dispositivo receptor en todos los dispositivos |Junto con las métricas de abandono y rechazo, ofrece una visión general de la tasa de éxito global de mensajes de nube a dispositivo |
 | c2d.commands.egress.abandon.success |Número de todos los mensajes abandonados correctamente por el dispositivo receptor en todos los dispositivos |Destaca los posibles problemas si se están abandonando mensajes con una frecuencia superior a la esperada |
 | c2d.commands.egress.reject.success |Número de todos los mensajes rechazados correctamente por el dispositivo receptor en todos los dispositivos |Destaca los posibles problemas si se están rechazando mensajes con una frecuencia superior a la esperada |
 | devices.totalDevices |Promedio, mínimo y máximo de dispositivos registrados en el Centro de IoT |Número de dispositivos registrados en el centro de IoT |
 | devices.connectedDevices.allProtocol |Promedio, mínimo y máximo de dispositivos conectados simultáneamente |Información general sobre el número de dispositivos conectados al centro de IoT |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha visto la información general sobre las métricas de diagnóstico, siga este vínculo para más información acerca de la administración de IoT Hub de Azure:
+Ahora que ha visto la información general sobre las métricas de IoT Hub, siga este vínculo para más información sobre la administración de IoT Hub de Azure:
 
 * [Supervisión de operaciones][lnk-monitor]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía del desarrollador][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 <!-- Links and images -->
@@ -77,6 +77,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

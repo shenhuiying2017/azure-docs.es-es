@@ -12,20 +12,22 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 01/10/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 39907193d006d6060152c9ac737a082d655c2256
+ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
+ms.openlocfilehash: bb37faa10000c0352fcad3d7b2cefadc604716e5
 
 
 ---
+
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres del Bus de servicio mediante una plantilla de Azure Resource Manager
+
 En este artículo se describe cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Service Bus del tipo **Mensajería** con una SKU de nivel básico o estándar. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para más información sobre la creación de plantillas, vea [Creación de plantillas de Azure Resource Manager][Creación de plantillas de Azure Resource Manager].
+Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
 
-Vea la plantilla completa en [Plantilla de espacio de nombres del Bus de servicio][Plantilla de espacio de nombres del Bus de servicio] en GitHub.
+Para ver la plantilla completa, consulte la [plantilla de espacio de nombres de Service Bus][Service Bus namespace template] en GitHub.
 
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación. 
@@ -35,7 +37,7 @@ Vea la plantilla completa en [Plantilla de espacio de nombres del Bus de servici
 > * [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque Service Bus.
+> Para buscar las últimas plantillas, visite la galería [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque "Service Bus".
 > 
 > 
 
@@ -54,7 +56,7 @@ Esta plantilla define los parámetros siguientes.
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 El nombre del espacio de nombres de Bus de servicio que crear.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -66,7 +68,7 @@ El nombre del espacio de nombres de Bus de servicio que crear.
 ### <a name="servicebussku"></a>serviceBusSKU
 El nombre de la [SKU](https://azure.microsoft.com/pricing/details/service-bus/) de Bus de servicio que crear.
 
-```
+```json
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
@@ -83,12 +85,12 @@ El nombre de la [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 
 
 La plantilla define los valores permitidos para este parámetro (Básico, Estándar o Premium) y asigna un valor predeterminado (Estándar) si no se especifica ningún valor.
 
-Para más información sobre los precios de Service Bus, vea [Precios y facturación de Bus de servicio][Precios y facturación de Bus de servicio].
+Para más información sobre los precios de Service Bus, consulte [Precios y facturación de Service Bus][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 La versión de la API de Bus de servicio de la plantilla.
 
-```
+```json
 "serviceBusApiVersion": { 
        "type": "string", 
        "defaultValue": "2015-08-01", 
@@ -101,7 +103,7 @@ La versión de la API de Bus de servicio de la plantilla.
 ### <a name="service-bus-namespace"></a>Espacio de nombres de Bus de servicio
 Crea un espacio de nombres de Bus de servicio estándar de tipo **Mensajería**.
 
-```
+```json
 "resources": [
     {
         "apiVersion": "[parameters('serviceBusApiVersion')]",
@@ -123,12 +125,12 @@ Crea un espacio de nombres de Bus de servicio estándar de tipo **Mensajería**.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-```
+```CLI
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
@@ -138,17 +140,17 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 Ahora que ha creado e implementado recursos con Azure Resource Manager, lea los artículos siguientes para obtener información sobre cómo administrar dichos recursos:
 
 * [Administración de Service Bus con PowerShell](service-bus-powershell-how-to-provision.md)
-* [Administración de recursos de Bus de servicio con el Explorador de Bus de servicio](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Administración de recursos de Bus de servicio con el Explorador de Bus de servicio](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
-[Plantilla de espacio de nombres del Bus de servicio]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Precios y facturación de Bus de servicio]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
-[Uso de Azure PowerShell con Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Uso de la CLI de Azure para Mac, Linux y Windows mediante la administración de recursos de Azure]: ../xplat-cli-azure-resource-manager.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

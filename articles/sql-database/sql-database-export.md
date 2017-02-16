@@ -1,6 +1,6 @@
 ---
-title: Archivar una base de datos de SQL Azure en un archivo BACPAC mediante el Portal de Azure
-description: Archivo de una Azure SQL Database en un archivo BACPAC mediante Azure Portal
+title: "Azure Portal: exportación de una base de datos Azure SQL Database a un archivo BACPAC | Microsoft Docs"
+description: "Exportación de una base de datos Azure SQL Database a un archivo BACPAC mediante Azure Portal"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,20 +16,20 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: df14225e6c2a1b9bf83623df172b9be9b5777add
-ms.openlocfilehash: 33699b00d50c623661292e5a9b21a97726c47611
+ms.sourcegitcommit: c9aea5089d535b63983b93076edd74f15055fa5d
+ms.openlocfilehash: 4eb89c2e6db82ba887a094abf53da835060368b9
 
 
 ---
-# <a name="archive-an-azure-sql-database-to-a-bacpac-file-using-the-azure-portal"></a>Archivar una base datos SQL de Azure en un archivo BACPAC mediante Azure Portal
+# <a name="export-an-azure-sql-database-to-a-bacpac-file-using-the-azure-portal"></a>Exportación de una base de datos Azure SQL Database a un archivo BACPAC mediante Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-export.md)
+> * [Portal de Azure](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 > * [PowerShell](sql-database-export-powershell.md)
 > 
 
-En este artículo encontrará instrucciones para archivar la base de datos SQL de Azure en un archivo BACPAC (guardado en el almacenamiento de blobs de Azure) usando el [Portal de Azure](https://portal.azure.com).
+En este artículo encontrará instrucciones para exportar la base de datos Azure SQL Database a un archivo BACPAC (almacenado en Azure Blob Storage) mediante [Azure Portal](https://portal.azure.com).
 
 Cuando necesite crear un archivo de una base de datos de SQL Azure, puede exportar los datos y el esquema de base de datos a un archivo BACPAC. Un archivo BACPAC es, sencillamente, un archivo ZIP con la extensión BACPAC. Este archivo BACPAC se puede guardar en el almacenamiento de blobs de Azure o en cualquier almacenamiento en una ubicación local y, luego, importarlo a Base de datos SQL de Azure o a una instalación local de SQL Server. 
 
@@ -109,6 +109,6 @@ Abra la hoja de Base de datos SQL correspondiente a la base de datos que desea e
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

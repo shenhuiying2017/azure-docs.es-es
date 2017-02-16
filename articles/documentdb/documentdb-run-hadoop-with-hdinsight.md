@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 35eb6b7c8a2aa3ddfb1723eebdb92dc47a49f65a
 
 
 ---
@@ -37,11 +37,11 @@ Se recomienda comenzar con el vídeo siguiente, donde se realiza una ejecución 
 A continuación, vuelva a este artículo, donde recibirá información detallada sobre cómo ejecutar trabajos de análisis en los datos de DocumentDB.
 
 > [!TIP]
-> Este tutorial presupone que se tiene experiencia previa con Apache Hadoop, Hive o Pig Si no está familiarizado con Apache Hadoop, Hive y Pig, se recomienda consultar la [documentación de Apache Hadoop][apache-hadoop-doc]. Asimismo, el tutorial también presupone que se tiene experiencia previa con DocumentDB además de una cuenta en este servicio. Si no está familiarizado con DocumentDB o no tiene una cuenta de DocumentDB, consulte nuestra página [Introducción][getting-started].
+> Este tutorial presupone que se tiene experiencia previa con Apache Hadoop, Hive o Pig Si no está familiarizado con Apache Hadoop, Hive y Pig, se recomienda consultar la [documentación de Apache Hadoop][apache-hadoop-doc]. Asimismo, el tutorial también presupone que se tiene experiencia previa con DocumentDB además de una cuenta en este servicio. Si no está familiarizado con DocumentDB o no tiene una cuenta en este servicio, consulte nuestra página [Introducción][getting-started].
 >
 >
 
-¿No tiene tiempo para completar el tutorial y solo desea obtener todos los scripts de PowerShell de ejemplo de Hive, Pig y MapReduce? Sin problema. [Aquí están][documentdb-hdinsight-samples]. La descarga también contiene los archivos hpl, pig y java para estos ejemplos.
+¿No tiene tiempo para completar el tutorial y solo desea obtener todos los scripts de PowerShell de ejemplo de Hive, Pig y MapReduce? No hay problema, obténgalos [aquí][documentdb-hdinsight-samples]. La descarga también contiene los archivos hpl, pig y java para estos ejemplos.
 
 ## <a name="a-namenewestversionanewest-version"></a><a name="NewestVersion"></a>Versión más reciente
 <table border='1'>
@@ -63,10 +63,10 @@ A continuación, vuelva a este artículo, donde recibirá información detallada
 Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo siguiente:
 
 * Una cuenta de DocumentDB, una base de datos y una colección con documentos dentro. Para obtener más información, consulte [Introducción a DocumentDB][getting-started]. Importe datos de ejemplo a su cuenta de DocumentDB con la [herramienta de importación de DocumentDB][documentdb-import-data].
-* Capacidad de proceso. Las lecturas y escrituras de HDInsight se tienen en cuenta a la hora de calcular las unidades de solicitud asignadas a las colecciones. Para obtener más información, consulte [Operaciones de capacidad de proceso aprovisionada, unidades de solicitud y base de datos][documentdb-manage-throughput].
-* Capacidad para un procedimiento almacenado adicional dentro de cada colección de salida. Los procedimientos almacenados se utilizan para transferir los documentos resultantes. Para obtener más información, consulte [Colecciones y capacidad de proceso aprovisionada][documentdb-manage-document-storage].
-* Capacidad para los documentos resultantes desde los trabajos de MapReduce, Pig o Hive. Para obtener más información, consulte [Administración del rendimiento y la capacidad de DocumentDB][documentdb-manage-collections].
-* [*Opcional*] Capacidad para una colección adicional. Para obtener más información, consulte [Almacenamiento de documentos aprovisionado y sobrecarga de índice][documentdb-manage-document-storage].
+* Capacidad de proceso. Las lecturas y escrituras de HDInsight se tienen en cuenta a la hora de calcular las unidades de solicitud asignadas a las colecciones.
+* Capacidad para un procedimiento almacenado adicional dentro de cada colección de salida. Los procedimientos almacenados se utilizan para transferir los documentos resultantes.
+* Capacidad para los documentos resultantes desde los trabajos de MapReduce, Pig o Hive.
+* [*Opcional*] Capacidad para una colección adicional.
 
 > [!WARNING]
 > Para evitar que se cree una nueva colección mientras se está realizando cualquier trabajo, puede imprimir los resultados en stdout, guardar la salida en el contenedor WASB o especificar una colección existente. En el caso de que desee especificar una colección existente, se crearán nuevos documentos dentro de la colección y los documentos existentes solo se verán afectados si se produce un conflicto entre los *identificadores*. **El conector sobrescribirá automáticamente los documentos existentes con conflictos de identificador**. Puede desactivar esta característica estableciendo la opción upsert en false. Si upsert es false y se produce un conflicto, se producirá un error en el trabajo de Hadoop y se informará de un error a causa de conflicto de identificadores.
@@ -74,7 +74,7 @@ Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo 
 >
 
 ## <a name="a-nameprovisionhdinsightastep-1-create-a-new-hdinsight-cluster"></a><a name="ProvisionHDInsight"></a>Paso 1: Creación de un nuevo clúster de HDInsight
-En este tutorial, se usa la acción de script de Azure Portal para personalizar el clúster de HDInsight. Así que usaremos Azure Portal para crear el clúster de HDInsight. Para obtener instrucciones sobre cómo usar los cmdlets de PowerShell o el SDK de .NET de HDInsight, consulte el artículo [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-custom-provision].
+En este tutorial, se usa la acción de script de Azure Portal para personalizar el clúster de HDInsight. Así que usaremos Azure Portal para crear el clúster de HDInsight. Para obtener instrucciones sobre cómo usar los cmdlets de PowerShell o el SDK de .NET de HDInsight, consulte el artículo [Personalización de los clústeres de HDInsight mediante la acción de script][hdinsight-custom-provision].
 
 1. Inicie sesión en [Azure Portal][azure-portal].
 2. Haga clic en **+ Nuevo** en la parte superior del panel izquierdo y busque **HDInsight** en la barra de búsqueda superior de la hoja Nuevo.
@@ -201,7 +201,7 @@ En este tutorial, se usa la acción de script de Azure Portal para personalizar 
 
    > [!NOTE]
    > **Una vez más, la denominación de DocumentDB.outputCollections no era un error.** Sí, se pueden agregar varias colecciones como una salida: </br>
-   > "*DocumentDB.outputCollections*"="*\<Nombre de la colección de salida de DocumentDB 1\>*,*\<Nombre de la colección de salida de DocumentDB 2\>*" </br>  Se separan los nombres de la colección sin espacios en blanco, con una sola coma. </br></br>
+   > "*DocumentDB.outputCollections*"="*\<Nombre de la colección de salida de DocumentDB 1\>*,*\<Nombre de la colección de salida de DocumentDB 2\>*" </br> Se separan los nombres de la colección sin espacios en blanco, con una sola coma. </br></br>
    > Documentos se distribuirán en cadena en varias colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
    >
    >
@@ -279,7 +279,7 @@ En este tutorial, se usa la acción de script de Azure Portal para personalizar 
 
    > [!NOTE]
    > Sí, se pueden agregar varias colecciones como una entrada: </br>
-   > "*\<Nombre de la colección de salida de DocumentDB 1\>*,*\<Nombre de la colección de salida de DocumentDB 2\>*"</br>  Se separan los nombres de la colección sin espacios en blanco, con una sola coma. </b>
+   > "*\<Nombre de la colección de salida de DocumentDB 1\>*,*\<Nombre de la colección de salida de DocumentDB 2\>*"</br> Se separan los nombres de la colección sin espacios en blanco, con una sola coma. </b>
    >
    >
 
@@ -301,7 +301,7 @@ En este tutorial, se usa la acción de script de Azure Portal para personalizar 
 
    > [!NOTE]
    > Sí, se pueden agregar varias colecciones como una salida: </br>
-   > "\<Nombre de la colección de salida de DocumentDB 1\>,\<Nombre de la colección de salida de DocumentDB 2\>"</br>  Se separan los nombres de la colección sin espacios en blanco, con una sola coma.</br>
+   > "\<Nombre de la colección de salida de DocumentDB 1\>,\<Nombre de la colección de salida de DocumentDB 2\>"</br> Se separan los nombres de la colección sin espacios en blanco, con una sola coma.</br>
    > Documentos se distribuirán en cadena por las distintas colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
    >
    >
@@ -402,7 +402,7 @@ Para obtener más información, consulte los artículos siguientes:
 * [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce]
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
-* [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-hadoop-customize-cluster]
+* [Personalización de los clústeres de HDInsight mediante la acción de script][hdinsight-hadoop-customize-cluster]
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
@@ -416,9 +416,6 @@ Para obtener más información, consulte los artículos siguientes:
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
 [documentdb-java-application]: documentdb-java-application.md
-[documentdb-manage-collections]: documentdb-manage.md#database-collections
-[documentdb-manage-document-storage]: documentdb-manage.md#provisioned-document-storage-and-index-overhead
-[documentdb-manage-throughput]: documentdb-manage.md#request-units-and-database-operations
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
@@ -435,10 +432,10 @@ Para obtener más información, consulte los artículos siguientes:
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

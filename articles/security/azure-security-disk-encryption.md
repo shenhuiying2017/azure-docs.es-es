@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: krkhan
+ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: ca5b12c90814b9906389a12e8c72e2b4c266483f
-ms.openlocfilehash: 3eb295e0ccec9a9410c0bb64e6ead10202b30289
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: deb3a3544311d0fbd5207f97898fde716f07704c
 
 
 ---
@@ -303,7 +303,7 @@ Utilice la tabla de terminología como referencia para comprender algunos de los
 | CLI |[Interfaz de la línea de comandos de Azure](../xplat-cli-install.md) |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) es el subsistema de cifrado transparente de disco basado en Linux que se usa para habilitar el cifrado de disco en las máquinas virtuales IaaS de Linux |
 | KEK |Clave de cifrado de claves es la clave asimétrica (RSA 2048) que se usa para encapsular el secreto, en caso de que se desee. Se puede proporcionar una clave protegida mediante HSM o una clave protegida mediante software. Para obtener información detallada, consulte la documentación de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| cmdlets de PS |[Cmdlets de Azure PowerShell](../powershell-install-configure.md) |
+| cmdlets de PS |[Cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs) |
 
 ### <a name="setting-and-configuring-azure-key-vault-for-azure-disk-encryption-usage"></a>Establecimiento y configuración del Almacén de claves de Azure para el uso de Cifrado de disco de Azure
 Cifrado de disco de Azure protege las claves de cifrado de disco y los secretos en su Almacén de claves de Azure. Siga los pasos de las secciones siguientes para configurar el almacén de claves para el uso de Cifrado de disco de Azure.
@@ -396,7 +396,7 @@ En la tabla siguiente se describen los detalles de los parámetros de la plantil
 | subnetName |Nombre de la subred en la red virtual a la que debería pertenecer la NIC de la máquina virtual. |
 | vmSize |Tamaño de la máquina virtual. Actualmente, solo se admiten las series A, D y G estándar |
 | keyVaultResourceID |ResourceID que identifica el recurso del almacén de claves en ARM. Se puede obtener mediante el cmdlet de PowerShell: (Get-AzureRmKeyVault -VaultName &lt;suNombreDeKeyVault&gt; -ResourceGroupName &lt;suNombreDeGrupoDeRecursos&gt;).ResourceId |
-| keyVaultSecretUrl |Dirección URL de la clave de cifrado de disco aprovisionada en el almacén de claves |
+| keyVaultSecretUrl |Dirección URL de la clave de cifrado de disco aprovisionada en Key Vault |
 | keyVaultKekUrl |Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave de cifrado de disco generada |
 | vmName |Nombre de la máquina virtual IaaS |
 
@@ -408,9 +408,9 @@ Siga estos pasos para habilitar el cifrado de disco en este escenario con comand
 
 1. Establezca directivas de acceso en el almacén de claves:
    * Establezca la marca 'EnabledForDiskEncryption': `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
-   * Establezca los permisos para la aplicación de Azure AD para escribir los secretos en KeyVault: `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]`
-2. Para habilitar el cifrado en una máquina virtual existente o en ejecución, escriba:  *azure vm enable-disk-encryption --resource-group<resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Obtenga el estado del cifrado: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+   * Establezca los permisos para la aplicación de Azure AD para escribir los secretos en KeyVault: `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+2. Para habilitar el cifrado en una máquina virtual existente o en ejecución, escriba: `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+3. Obtener estado de cifrado: `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 4. Para habilitar el cifrado en una nueva máquina virtual desde el VHD cifrado del cliente, use los siguientes parámetros con el comando "azure vm create":
    * disk-encryption-key-vault-id <disk-encryption-key-vault-id>
    * disk-encryption-key-url <disk-encryption-key-url>
@@ -427,10 +427,10 @@ En la tabla siguiente se puede ver información de los parámetros de las planti
 
 | Parámetro | Descripción |
 | --- | --- |
-| AADClientID |Identificador de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves |
-| AADClientSecret |Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves |
+| AADClientID |Identificador de la aplicación de Azure AD que tiene permisos para escribir secretos en Key Vault |
+| AADClientSecret |Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en Key Vault |
 | keyVaultName |Nombre del Almacén de claves en el que se debe cargar la clave de BitLocker. Se puede obtener mediante el cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
-|  keyEncryptionKeyURL |Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Esto es opcional si selecciona `nokek` en la lista desplegable de UseExistingKek. Si selecciona `kek` en la lista desplegable UseExistingKek, debe proporcionar el valor de keyEncryptionKeyURL |
+| ? keyEncryptionKeyURL |Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Esto es opcional si selecciona `nokek` en la lista desplegable de UseExistingKek. Si selecciona `kek` en la lista desplegable UseExistingKek, debe proporcionar el valor de keyEncryptionKeyURL |
 | volumeType |Tipo de volumen en que se realiza la operación de cifrado Los valores válidos son "SO", "Datos", "Todo" |
 | sequenceVersion |Versión de la secuencia de la operación de BitLocker. Incremente el número de versión cada vez que se realice en una operación de cifrado de disco en la misma máquina virtual. |
 | vmName |Nombre de la máquina virtual en que se va a realizar la operación de cifrado |
@@ -444,10 +444,10 @@ Consulte la **parte 1** y la [parte 2](http://blogs.msdn.com/b/azuresecurity/arc
 Siga estos pasos siguientes para habilitar el cifrado en una máquina virtual IaaS con Windows existente o en ejecución en Azure mediante comandos de la CLI:
 
 1. Establezca directivas de acceso en el almacén de claves:
-   * Establezca ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-   * Establezca permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> <aadClientID>--spn --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
-2. Para habilitar el cifrado en una máquina virtual existente o en ejecución, escriba:  *azure vm enable-disk-encryption --resource-group<resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Obtenga el estado del cifrado: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+   * Establezca la marca 'EnabledForDiskEncryption': `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+   * Establezca los permisos para la aplicación de Azure AD para escribir los secretos en KeyVault: `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+2. Para habilitar el cifrado en una máquina virtual existente o en ejecución: `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+3. Obtener estado de cifrado: `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 4. Para habilitar el cifrado en una nueva máquina virtual desde el VHD cifrado del cliente, use los siguientes parámetros con el comando "azure vm create":
    * disk-encryption-key-vault-id <disk-encryption-key-vault-id>
    * disk-encryption-key-url <disk-encryption-key-url>
@@ -461,10 +461,10 @@ En la tabla siguiente se describen los detalles de los parámetros de las planti
 
 | Parámetro | Descripción |
 | --- | --- |
-| AADClientID |Identificador de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves |
-| AADClientSecret |Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves |
+| AADClientID |Identificador de la aplicación de Azure AD que tiene permisos para escribir secretos en Key Vault |
+| AADClientSecret |Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en Key Vault |
 | keyVaultName |Nombre del Almacén de claves en el que se debe cargar la clave de BitLocker. Se puede obtener mediante el cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
-|  keyEncryptionKeyURL |Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Esto es opcional si selecciona “nokek” en la lista desplegable de UseExistingKek. Si selecciona "kek" en la lista desplegable UseExistingKek, debe proporcionar el valor de keyEncryptionKeyURL. |
+| ? keyEncryptionKeyURL |Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Esto es opcional si selecciona “nokek” en la lista desplegable de UseExistingKek. Si selecciona "kek" en la lista desplegable UseExistingKek, debe proporcionar el valor de keyEncryptionKeyURL. |
 | volumeType |Tipo de volumen en que se realiza la operación de cifrado Los valores válidos admitidos son "SO" o "All" (para RHEL 7.2, CentOS 7.2 y Ubuntu 16.04) y "Data" para todas las otras distribuciones. |
 | sequenceVersion |Versión de la secuencia de la operación de BitLocker. Incremente el número de versión cada vez que se realice en una operación de cifrado de disco en la misma máquina virtual. |
 | vmName |Nombre de la máquina virtual en que se va a realizar la operación de cifrado |
@@ -476,10 +476,10 @@ En la tabla siguiente se describen los detalles de los parámetros de las planti
 El cifrado de disco se puede habilitar en un VHD cifrado del cliente mediante el comando de la CLI que se instala desde [aquí](../xplat-cli-install.md). Siga estos pasos siguientes para habilitar el cifrado en una máquina virtual IaaS con Linux existente o en ejecución en Azure mediante comandos de la CLI:
 
 1. Establezca directivas de acceso en el almacén de claves:
-   * Establezca ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-   * Establezca permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> <aadClientID>--spn --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
-2. Para habilitar el cifrado en una máquina virtual existente o en ejecución, escriba:  *azure vm enable-disk-encryption --resource-group<resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Obtenga el estado del cifrado: “azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”
+   * Establezca la marca 'EnabledForDiskEncryption': `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+   * Establezca los permisos para la aplicación de Azure AD para escribir los secretos en KeyVault: `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+2. Para habilitar el cifrado en una máquina virtual existente o en ejecución: `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+3. Obtener estado de cifrado: `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 4. Para habilitar el cifrado en una nueva máquina virtual desde el VHD cifrado del cliente, use los siguientes parámetros con el comando "azure vm create".
    * *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
    * *disk-encryption-key-url <disk-encryption-key-url>*
@@ -1113,6 +1113,6 @@ Puede descargar esta guía de la [Galería de TechNet](https://gallery.technet.m
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

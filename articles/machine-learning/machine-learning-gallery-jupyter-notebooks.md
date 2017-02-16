@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0d44e625d3898f014a9723ff005c00b3aaedcf1
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
 
 
 ---
@@ -34,7 +34,7 @@ Los cuadernos de notas en la Galería proporcionan tutoriales y explicaciones de
  La página **[Jupyter Notebook](https://gallery.cortanaintelligence.com/notebooks)**
  muestra una lista de los portátiles más populares.
 Haga clic en **Ver todos** para ver todos los blocs de notas.
-Desde esta página, puede examinar todos los blocs de notas en la galería, o puede buscar seleccionando criterios de filtro a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
+Desde esta página, puede examinar todos los cuadernos de la galería. También puede buscar seleccionando criterios de filtrado a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
 
  Haga clic en cualquier bloc de notas para abrir la página de detalles del bloc de notas y obtenga más información. En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo al bloc de notas para invitar a otros usuarios a ver la página.
 
@@ -75,6 +75,6 @@ El bloc de notas se mostrará, junto con los otros blocs de notas, en la página
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

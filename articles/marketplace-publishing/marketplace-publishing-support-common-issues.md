@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 
 
 ---
@@ -101,7 +101,7 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 4. Agregue la dirección de correo electrónico del coadministrador que quiere agregar o quitar.
 5. Seleccione **Guardar**.
 
-## <a name="next-steps-other-support-queries"></a>Siguientes pasos: Otras consultas de soporte técnico
+## <a name="next-steps--other-support-queries"></a>Siguientes pasos: Otras consultas de soporte técnico
 Para los siguientes problemas, registre un problema en [https://portal.azure.com](https://portal.azure.com):
 
 * ¿Cómo se notifica un error de facturación?
@@ -124,6 +124,6 @@ Para los problemas siguientes, cree una solicitud de soporte técnico en [http:/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

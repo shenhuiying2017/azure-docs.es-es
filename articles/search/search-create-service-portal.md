@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.date: 11/29/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: d5800e53349c3f2f6146a7d62381a531537dba90
-ms.openlocfilehash: 990c679bc9937b3a684a7933fb7b8656eb798b69
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 5046b3fc1444e37388505f2662a28486342c8822
 
 
 ---
 # <a name="create-an-azure-search-service-using-the-azure-portal"></a>Creación de un servicio Búsqueda de Azure mediante el Portal de Azure
-Esta guía le llevará por el proceso de crear (o aprovisionar) un servicio Búsqueda de Azure con el [Portal de Azure](https://portal.azure.com/).
+Este artículo le llevará por el proceso de crear (o aprovisionar) un servicio Azure Search con [Azure Portal](https://portal.azure.com/).
 
-En esta guía se asume que ya tiene una suscripción de Azure y puede iniciar sesión en el Portal de Azure.
+En esta artículo se supone que ya tiene una suscripción de Azure y puede iniciar sesión en Azure Portal.
 
 ## <a name="find-azure-search-in-the-azure-portal"></a>Encontrar Búsqueda de Azure en el Portal de Azure
-1. Abra el [Portal de Azure](https://portal.azure.com/) e inicie sesión.
+1. Abra [Azure Portal](https://portal.azure.com/) e inicie sesión.
 2. Haga clic en el signo más ("+") en la esquina superior izquierda.
 3. Seleccione **Web + Móvil**.
 4. Seleccione **Búsqueda de Azure**.
@@ -58,20 +58,20 @@ En este caso, hemos elegido el nivel Estándar para nuestro servicio.
 ![](./media/search-create-service-portal/create-service.png)
 
 ## <a name="scale-your-service"></a>Escalar el servicio
-Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Si ha elegido el nivel Estándar para el servicio Búsqueda de Azure, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas.
+Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Dado que ha elegido el nivel Estándar para el servicio Azure Search, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas. Si ha aprovisionado el servicio gratuito, el escalado no está disponible.
 
 Las ***particiones*** permiten que el servicio almacene y busque en más documentos.
 
 Las ***réplicas*** permiten que el servicio gestione una carga más elevada de consultas de búsqueda: [un servicio requiere dos réplicas para lograr un SLA de solo lectura y tres réplicas para lograr un SLA de lectura y escritura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Vaya a la hoja de administración de su servicio Búsqueda de Azure en el Portal de Azure.
+1. Vaya a la hoja de administración de su servicio Azure Search en Azure Portal.
 2. En la hoja **Configuración**, seleccione **Escala**.
 3. Puede escalar el servicio mediante la adición de particiones o réplicas.
    * Cada nivel de servicio tiene distintos [límites](search-limits-quotas-capacity.md) en el número total de unidades de búsqueda que se permiten en un único servicio (réplicas * particiones = total de unidades de búsqueda).
 
 ![](./media/search-create-service-portal/scale-service.png)
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de aprovisionar un servicio Búsqueda de Azure, estará listo para [definir un índice de Búsqueda de Azure](search-what-is-an-index.md) para que pueda cargar y buscar los datos.
 
 Consulte [Introducción a Búsqueda de Azure en el Portal](search-get-started-portal.md) para un tutorial rápido.
@@ -79,6 +79,6 @@ Consulte [Introducción a Búsqueda de Azure en el Portal](search-get-started-po
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 
