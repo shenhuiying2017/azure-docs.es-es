@@ -55,6 +55,6 @@ Usará SSH o PuTTY para conectarse a la máquina virtual, en función del sistem
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

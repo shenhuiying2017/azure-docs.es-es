@@ -226,6 +226,6 @@ Si debe actualizar la imagen de sistema operativo en las máquinas virtuales del
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

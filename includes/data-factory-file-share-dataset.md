@@ -50,6 +50,6 @@ En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema Sl
 En este ejemplo, year, month, day y time de SliceStart se extraen en variables independientes que se usan en las propiedades folderPath y fileName.
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

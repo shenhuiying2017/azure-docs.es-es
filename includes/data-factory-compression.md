@@ -49,6 +49,6 @@ Cuando se especifica la propiedad `compression` en un JSON del conjunto de datos
 * Leer datos comprimidos con GZIP de un blob de Azure, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un blob de Azure. Defina el conjunto de datos de blob de Azure de entrada con `compression` `type` establecidos en GZIP y el conjunto de datos de salida con `compression` `type` establecido en BZIP2 en este caso.   
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

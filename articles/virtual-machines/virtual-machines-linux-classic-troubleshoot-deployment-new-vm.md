@@ -94,6 +94,6 @@ Si tiene problemas al iniciar una máquina virtual Linux detenida o al cambiar e
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

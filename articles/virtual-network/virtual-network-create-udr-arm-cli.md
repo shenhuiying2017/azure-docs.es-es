@@ -232,6 +232,6 @@ Para habilitar el reenvío IP en la NIC que ha usado **FW1**, siga los pasos sig
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

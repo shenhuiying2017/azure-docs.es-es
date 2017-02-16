@@ -45,7 +45,7 @@ En la sección siguiente se muestra la definición de las rutas definidas por el
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"   
+      "displayName": "UDR - FrontEnd"    
     },
     "properties": {
       "routes": [
@@ -409,6 +409,6 @@ Para implementar la plantilla de ARM mediante la CLI de Azure, complete los sigu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

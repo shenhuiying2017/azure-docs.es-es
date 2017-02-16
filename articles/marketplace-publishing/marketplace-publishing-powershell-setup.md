@@ -37,6 +37,6 @@ El primer comando asocia una cuenta de almacenamiento predeterminada con la susc
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

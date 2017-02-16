@@ -36,6 +36,6 @@ En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

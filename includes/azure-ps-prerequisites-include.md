@@ -6,6 +6,6 @@ Para seguir los pasos de este artículo, tendrá que [instalar y configurar Azur
 > Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../articles/active-directory/sign-up-organization.md).
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

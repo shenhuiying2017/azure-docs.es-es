@@ -39,6 +39,6 @@ Después de haber creado una máquina virtual, es conveniente [agregar un disco 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

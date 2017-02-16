@@ -90,12 +90,12 @@ Para poder compilar y ejecutar scripts U-SQL, debe conectarse a su cuenta de Azu
 
 **Para conectarse a Azure**
 
-1.  Abra la paleta de comandos presionando **CTRL+MAYÚS+P**. 
+1.    Abra la paleta de comandos presionando **CTRL+MAYÚS+P**. 
 2.  Escriba **ADL:Login**.
 
     ![Paleta de comandos de Data Lake Tools para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 
-2.  Siga las instrucciones para iniciar sesión desde la página web. Una vez realizada la conexión, el nombre de cuenta se muestra en la barra de estado en la parte inferior de la ventana.
+2.    Siga las instrucciones para iniciar sesión desde la página web. Una vez realizada la conexión, el nombre de cuenta se muestra en la barra de estado en la parte inferior de la ventana.
 
 > [!NOTE] 
 > Si la cuenta tiene dos factores habilitados, se recomienda utilizar la autenticación de teléfono en lugar de Pin.
@@ -206,11 +206,11 @@ Con Data Lake Tools puede registrar ensamblados de código personalizados para e
 
 **Para registrar un ensamblado**
 
-1.  Presione **CTRL+MAYÚS+P** para abrir la paleta de comando.
-2.  Escriba **ADL:Register Assembly**.
-3.  Seleccione una cuenta de Data Lake Analytics.
-4.  Seleccione una base de datos.
-5.  Especifique la ruta de acceso de ensamblado local.
+1.    Presione **CTRL+MAYÚS+P** para abrir la paleta de comando.
+2.    Escriba **ADL:Register Assembly**.
+3.    Seleccione una cuenta de Data Lake Analytics.
+4.    Seleccione una base de datos.
+5.    Especifique la ruta de acceso de ensamblado local.
 
 El siguiente código de U-SQL muestra cómo llamar a un ensamblado. En el ejemplo, el nombre de ensamblaje es *test*.
 
@@ -235,16 +235,16 @@ Después de haberse conectado a Azure, puede usar los siguientes pasos para acce
 
 **Para acceder a los metadatos de U-SQL**
 
-1.  Presione **CTRL+MAYÚS+P** y escriba **ADL:List Tables**.
-2.  Haga clic en una de las cuentas de Data Lake Analytics.
-3.  Haga clic en una de las bases de datos de Data Lake Analytics.
-4.  Haga clic en uno de los esquemas. Puede ver las tablas.
+1.    Presione **CTRL+MAYÚS+P** y escriba **ADL:List Tables**.
+2.    Haga clic en una de las cuentas de Data Lake Analytics.
+3.    Haga clic en una de las bases de datos de Data Lake Analytics.
+4.    Haga clic en uno de los esquemas. Puede ver las tablas.
 
 ## <a name="additional-features"></a>Características adicionales
 
 Data Lake Tools para VSCode admite las siguientes características:
 
--   Autocompletar de IntelliSense. Las sugerencias aparecen en palabra clave, método, variables, etc. Los distintos iconos representan diferentes tipos de los objetos:
+-    Autocompletar de IntelliSense. Las sugerencias aparecen en palabra clave, método, variables, etc. Los distintos iconos representan diferentes tipos de los objetos:
 
     - Tipo de datos de escala
     - Tipo de datos complejo
@@ -257,12 +257,12 @@ Data Lake Tools para VSCode admite las siguientes características:
  
     ![Tipos de objetos de IntelliSense de Data Lake Tools para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
  
--   Autocompletar de IntelliSense en los metadatos de Data Lake Analytics. Data Lake Tools descarga la información de metadatos de Data Lake Analytics localmente.  La característica IntelliSense rellena automáticamente los objetos, lo que incluye base de datos, esquema, tabla, vista, TVF, procedimientos, ensamblados de C#, desde los metadatos de Data Lake Analytics.
+-    Autocompletar de IntelliSense en los metadatos de Data Lake Analytics. Data Lake Tools descarga la información de metadatos de Data Lake Analytics localmente.  La característica IntelliSense rellena automáticamente los objetos, lo que incluye base de datos, esquema, tabla, vista, TVF, procedimientos, ensamblados de C#, desde los metadatos de Data Lake Analytics.
  
     ![Metadatos de IntelliSense de Data Lake Tools para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 
--   Marcador de error de IntelliSense. Data Lake Tools subraya los errores de edición para U-SQL U y C#. 
--   Aspectos destacados de la sintaxis. Data Lake Tools usa un color diferente para diferenciar variables, palabras clave, tipo de datos, funciones, etc. 
+-    Marcador de error de IntelliSense. Data Lake Tools subraya los errores de edición para U-SQL U y C#. 
+-    Aspectos destacados de la sintaxis. Data Lake Tools usa un color diferente para diferenciar variables, palabras clave, tipo de datos, funciones, etc. 
 
     ![Aspectos destacados de la sintaxis de Data Lake Tools para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
@@ -277,6 +277,6 @@ Data Lake Tools para VSCode admite las siguientes características:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
