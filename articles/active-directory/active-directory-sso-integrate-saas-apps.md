@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [Portal de Azure clásico](active-directory-sso-integrate-saas-apps.md)
-> 
-> 
+>
+>
 
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
@@ -50,8 +50,8 @@ La configuración del inicio de sesión único para una aplicación que ya se us
 
 > [!NOTE]
 > Para configurar el inicio de sesión único para una aplicación existente, debe tener derechos de administrador global tanto en Azure AD como en la aplicación de SaaS.
-> 
-> 
+>
+>
 
 ### <a name="mapping-user-accounts"></a>Asignación de cuentas de usuario
 Normalmente, la identidad de un usuario tiene un identificador único que podría ser una dirección de correo electrónico o un nombre principal de usuario (UPN). Tendrá que vincular (asignar) la identidad de la aplicación de cada usuario a sus respectivas identidades de Azure AD. Hay dos maneras de lograrlo en función del requisito de autenticación de la aplicación.
@@ -72,12 +72,11 @@ Si la aplicación no está en la galería de aplicaciones, puede [agregarla a la
 
 Encontrará más información sobre todos estos problemas en la biblioteca de Azure.com, por ejemplo, [Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

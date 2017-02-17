@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 01/11/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
+ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
 
 
 ---
@@ -39,23 +39,23 @@ Los informes están disponibles 45 días después del cierre del trimestre y se 
 ### <a name="access-payout-reports-in-dev-center"></a>Acceso a los informes de pago en el Centro de desarrollo
 1. Vaya al Centro de desarrollo en https://dev.windows.com/en-us.
 2. Haga clic en **Panel**.
-   
+
     ![LandingPageDashboardHighlight][1]
 3. Haga clic en **Resumen de pagos**.
-   
+
     ![DashboardPayoutSummary][2]
 
 ## <a name="view-your-payout-reports-in-dev-center"></a>Visualización de los informes de pago en el Centro de desarrollo
 El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
 
-* El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente).  Este importe suele ser normalmente 0 $ (a menos que un cliente pague con mucha antelación).
+* El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente).  Este importe suele ser normalmente&0; $ (a menos que un cliente pague con mucha antelación).
 * Haga clic en los vínculos **Ver detalles** de Próximo pago o Pago más reciente para ver una nota sobre esos pagos.
 * Haga clic en **Extractos de pagos** para ver los detalles en Ganancias por aplicación o producto.
 * Haga clic en el vínculo **Ver** para ver extractos individuales.
-  
+
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 * Utilice el filtro **Desglose de ganancias** en la parte inferior del extracto individual para ver varias aplicaciones o productos, si existen.
-  
+
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## <a name="view-your-payout-reports-in-publishing-portal"></a>Visualización de los informes de pagos en el Portal de publicación
@@ -64,7 +64,7 @@ El informe de pago para cada trimestre registra todas las transacciones que se p
 1. Vaya al Portal de publicación en https://publish.windowsazure.com.
 2. En la sección **Editores**, haga clic en **Informes de pago**.
 3. Haga clic en el desplegable para que aparezcan todos los informes de pago trimestrales disponibles.
-   
+
     ![accessingpayoutreport][5]
 
 ### <a name="read-your-payout-reports"></a>Lectura de los informes de pago
@@ -110,6 +110,6 @@ Para otras consultas de soporte técnico, registre un problema en <https://porta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

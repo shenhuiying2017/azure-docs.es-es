@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/09/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: bd3dfe9472e944a127230d3dc0d564d344c4fbec
-ms.openlocfilehash: 2ca5813c12e1358afaa20b4a919de4ee8a355865
+ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
+ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 
 
 ---
@@ -171,10 +171,10 @@ Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedi
 #### <a name="aggregate-defaults"></a>Agregar valores predeterminados
 A continuación figuran valores recomendados para la configuración de ventana e intervalo agregada. AggregateEmotionWindowMs debe ser mayor que AggregateEmotionIntervalMs.
 
-| Valores predeterminados | Mínimos | Máximos |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |
-| AggregateEmotionIntervalMs |0,5 |1 |
+|| Valores predeterminados | Mínimos | Máximos |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0,5 |2 |0,25|
+| AggregateEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Salida de JSON
 Salida de JSON para la emoción agregada (truncada):
@@ -525,6 +525,6 @@ El programa siguiente muestra cómo:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

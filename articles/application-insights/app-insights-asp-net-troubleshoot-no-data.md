@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: b625bd693de1a8e24a0236403c69e500db1aec2d
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: b625bd693de1a8e24a0236403c69e500db1aec2d
 
 *He [instalado el monitor de estado](app-insights-monitor-performance-live-website-now.md) en el servidor web para supervisar las aplicaciones existentes. No se ve ningún resultado.*
 
-* Consulte [Solución de problemas del Monitor de estado](app-insights-monitor-performance-live-website-now.md#troubleshooting). 
+* Consulte [Solución de problemas del Monitor de estado](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
 
 ## <a name="a-nameq01ano-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>No hay ninguna opción "Agregar Application Insights" en Visual Studio
 *Al crear un nuevo proyecto en Visual Studio, o al hacer clic con el botón derecho en un proyecto existente en el Explorador de soluciones, no se ve ninguna opción de Application Insights.*
@@ -187,6 +187,6 @@ La ciudad, región y dimensiones del país proceden de las direcciones IP y no s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

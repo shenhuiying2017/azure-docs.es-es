@@ -3,7 +3,7 @@ title: Tutorial de Power BI para el conector de DocumentDB | Microsoft Docs
 description: Use este tutorial de Power BI para importar JSON, crear informes muy precisos y visualizar datos mediante el conector de DocumentDB y Power BI.
 keywords: tutorial de power bi, visualizar datos, conector de power bi
 services: documentdb
-author: h0n
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
-ms.author: hawong
+ms.date: 02/14/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
+ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
 
 
 ---
@@ -88,7 +88,7 @@ Quiere recuperar los datos de los volcanes de la cuenta DocumentDB y visualizar 
     Deje en blanco el nombre de la base de datos, el nombre de la colección y la instrucción SQL. Esos campos son opcionales.  En su lugar, usaremos el navegador para seleccionar la base de datos y la colección para identificar la procedencia de los datos.
    
     ![Tutorial de Power BI para conector de Power BI de DocumentDB - Ventana de conexión de Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. Si se conecta a este punto de conexión por primera vez, se le pedirá la clave de cuenta.  Puede recuperar la clave del cuadro **Clave principal** de la hoja **[Claves de solo lectura](documentdb-manage-account.md#keys)** de Azure Portal, o bien puede usar la cuenta de demostración; en ese caso, la clave es `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Escriba la clave de cuenta y haga clic en **Conectar**.
+7. Si se conecta a este punto de conexión por primera vez, se le pedirá la clave de cuenta.  Puede recuperar la clave del cuadro **Clave principal** de la hoja **[Claves de solo lectura](documentdb-manage-account.md#keys)** de Azure Portal, o bien puede usar la cuenta de demostración; en ese caso, la clave es `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Escriba la clave de cuenta y haga clic en **Conectar**.
    
     Se recomienda usar la clave de solo lectura al generar informes.  De esta forma, evitará una exposición innecesaria de la clave maestra a posibles riesgos de seguridad. La clave de solo lectura está disponible en la hoja [Claves](documentdb-manage-account.md#keys) de Azure Portal, o bien puede usar la información de la cuenta de demostración proporcionada anteriormente.
    
@@ -216,6 +216,6 @@ Para realizar una actualización programada, haga lo siguiente.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

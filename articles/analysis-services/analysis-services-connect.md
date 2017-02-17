@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: f24024821f522bf89c0d9baf32a427af4636c890
-ms.openlocfilehash: a1dd2b1d7cda42be5ecd3a42f62e6794e15d0be2
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
 
 
 ---
@@ -64,7 +64,7 @@ Antes de establecer la conexión, es necesario obtener el nombre del servidor. E
 
 ## <a name="connect-in-excel"></a>Conexión en Excel
 
-Se admite la conexión al servidor de Azure Analysis Services en Excel mediante Obtener datos en Excel 2016 o Power Query en versiones anteriores. Es obligatorio un [proveedor MSOLAP.7](https://aka.ms/msolap). No se admite la conexión mediante el Asistente para importar tablas en Power Pivot.
+Se admite la conexión al servidor de Azure Analysis Services en Excel mediante Obtener datos en Excel 2016 o Power Query en versiones anteriores. Es obligatorio un [proveedor MSOLAP.7](analysis-services-data-providers.md). No se admite la conexión mediante el Asistente para importar tablas en Power Pivot.
 
 1. En Excel 2016, en la cinta de opciones **Datos**, haga clic en **Obtener datos externos** > **De otros orígenes** > **Desde Analysis Services**.
 2. En el Asistente para la conexión de datos, en **Nombre del servidor**, pegue el nombre del servidor desde el Portapapeles. A continuación, en **Credenciales de inicio de sesión**, seleccione **	Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización, por ejemplo nancy@adventureworks.com,, y la contraseña.
@@ -98,6 +98,6 @@ La autenticación integrada selecciona la memoria caché de credenciales de Azur
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: bc4a892ce1745d54ee4424e04a79a52942650b49
-ms.openlocfilehash: f25942f24c1a2f24050c15908b86489d39ee9a13
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 
 
 ---
@@ -29,7 +29,7 @@ En este artículo se muestra cómo adjuntar discos nuevos y existentes a una má
 * Para un disco nuevo, no es necesario crearlo en primer lugar porque Azure lo crea cuando lo conecta.
 * Para un disco existente, el archivo .vhd debe estar disponible en una cuenta de almacenamiento de Azure. Puede usar uno que ya esté disponible allí, si no está conectado a otra máquina virtual, o cargar su propio archivo .vhd en la cuenta de almacenamiento.
 
-También puede [conectar un disco de datos mediante Powershell](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine).
+También puede [conectar un disco de datos mediante Powershell](virtual-machines-windows-attach-disk-ps.md).
 
 
 ## <a name="find-the-virtual-machine"></a>Búsqueda de la máquina virtual
@@ -98,6 +98,6 @@ Si la aplicación debe usar la unidad D: para almacenar datos, puede [cambiar la
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

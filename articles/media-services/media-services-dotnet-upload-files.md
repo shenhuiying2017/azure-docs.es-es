@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 9dedba5f1126d7d23fab3ebeb98559316a6a5a10
-ms.openlocfilehash: be2e295dfeb979737013ebe23d48b4476ef3d6e2
+ms.sourcegitcommit: 9cd4fa1c5927fb85a406a99bf5d2dacbb0fcbb2f
+ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
 
 
 ---
@@ -298,6 +298,11 @@ En el ejemplo siguiente se llama a la función UploadFile y se especifica el cif
 
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
+## <a name="next-steps"></a>Pasos siguientes
+
+Ahora puede codificar los recursos cargados. Para más información, consulte [Encode an asset using Media Encoder Standard with the Azure portal](media-services-portal-encode.md)(Codificación de recursos mediante el estándar de codificador multimedia con el Portal de Azure).
+
+También puede usar Azure Functions para desencadenar un trabajo de codificación basado en un archivo que llega al contenedor configurado. Para más información, consulte [este ejemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -313,6 +318,6 @@ Ahora que ha cargado un recurso en Media Services, vaya al tema [Obtención de u
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

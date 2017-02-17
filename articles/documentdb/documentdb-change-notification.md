@@ -1,23 +1,9 @@
 ---
-title: Notificaciones de cambios de DocumentDB con Logic Apps | Microsoft Docs
-description: .
-keywords: "notificación de cambio"
-services: documentdb
-author: hedidin
-manager: jhubbard
-editor: mimig
-documentationcenter: 
-ms.assetid: 58925d95-dde8-441b-8142-482b487e4bdd
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
-ms.date: 09/23/2016
-ms.author: b-hoedid
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 115d35bd56918ad8e93a9032cbff6e84a7b70e0c
+ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
+ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
 
 
 ---
@@ -26,7 +12,7 @@ Este artículo procede de una pregunta que vi publicada en uno de los foros de l
 
 He trabajado con BizTalk Server durante muchos años, y este es un escenario muy común cuando se utiliza el [adaptador LOB de WCF](https://msdn.microsoft.com/library/bb798128.aspx). Por lo que decidí ver si podía duplicar esta funcionalidad en DocumentDB para los documentos nuevos o modificados.
 
-En este artículo se ofrece información general sobre los componentes de la solución de notificación de cambio, que incluye un [desencadenador](documentdb-programming.md#trigger) y una [Aplicación lógica](../app-service-logic/app-service-logic-what-are-logic-apps.md). Se proporcionan fragmentos de código importantes en línea y toda la solución está disponible en [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
+En este artículo se ofrece información general sobre los componentes de la solución de notificación de cambio, que incluye un [desencadenador](documentdb-programming.md#trigger) y una [Aplicación lógica](../logic-apps/logic-apps-what-are-logic-apps.md). Se proporcionan fragmentos de código importantes en línea y toda la solución está disponible en [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## <a name="use-case"></a>Caso de uso
 La siguiente historia es un caso de uso para este artículo.
@@ -77,7 +63,7 @@ Los pasos son los siguientes:
 Ahora que tiene una idea de lo que hace el flujo de trabajo, echemos un vistazo a la implementación.
 
 ### <a name="lets-start-with-the-main-logic-app"></a>Comencemos con la Aplicación lógica principal
-Si no está familiarizado con Logic Apps, están disponibles en [Azure Marketplace](https://portal.azure.com/) y puede obtener más información sobre ellas en [¿Qué es Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+Si no está familiarizado con Logic Apps, están disponibles en [Azure Marketplace](https://portal.azure.com/) y puede obtener más información sobre ellas en [¿Qué es Logic Apps?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 Cuando se crea una nueva Aplicación lógica, se le preguntará: **¿cómo le gustaría comenzar?**
 
@@ -829,7 +815,7 @@ Por último, desea poder ver los resultados de la Aplicación lógica en el Port
 
 ```
 
-Esto devuelve el mismo valor que se envía en el cuerpo del correo electrónico. En la siguiente figura se muestra un ejemplo donde "Se encontraron 29 registros".
+Esto devuelve el mismo valor que se envía en el cuerpo del correo electrónico. En la siguiente figura se muestra un ejemplo donde "Se encontraron&29; registros".
 
 ![Results](./media/documentdb-change-notification/logic-app-run.png)
 
@@ -1132,6 +1118,6 @@ Para obtener más información sobre DocumentDB, visite la [ruta de aprendizaje]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

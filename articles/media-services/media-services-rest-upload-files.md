@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
+ms.sourcegitcommit: d58462cbd6578093e00c93c7e2753efc1493441d
+ms.openlocfilehash: 8f17399846eafcac8b86a9b7d7baa7a029005c8c
 
 
 ---
@@ -31,11 +31,11 @@ ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
 En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
 
 > [!NOTE]
-> Al elegir un nombre de archivo de recurso, se aplican las consideraciones siguientes:
+> Se aplican las siguientes consideraciones:
 > 
-> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name **no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 > * La longitud del nombre no debe ser superior a 260 caracteres.
-> 
+> * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) tema para obtener información más detallada acerca de la limitación de tamaño de archivo.
 > 
 
 El flujo de trabajo básico para la carga de activos se divide en las secciones siguientes:
@@ -506,11 +506,13 @@ ContentKey se asocia a uno o varios activos al enviar una solicitud HTTP POST. L
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Ahora puede codificar los recursos cargados. Para más información, consulte [Encode an asset using Media Encoder Standard with the Azure portal](media-services-portal-encode.md)(Codificación de recursos mediante el estándar de codificador multimedia con el Portal de Azure).
 
-## <a name="next-step"></a>Paso siguiente
-Consulte las rutas de aprendizaje de Servicios multimedia.
+También puede usar Azure Functions para desencadenar un trabajo de codificación basado en un archivo que llega al contenedor configurado. Para más información, consulte [este ejemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
@@ -521,6 +523,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

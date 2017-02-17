@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 9919cd4735f1f915ba77d41d8b9e92b3411fef3f
-ms.openlocfilehash: 38d9eca04780493d03bb5ceb79e5b59fab0a93d2
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -31,7 +31,7 @@ El servicio de retransmisión de Conexiones híbridas conecta dos partes mediant
 Hay un agente de escucha que, primero, indica que está preparado para controlar las conexiones entrantes y, después, las acepta a medida que llegan. Por otro lado, hay un cliente de conexión que se conecta con el agente de escucha, de modo que se espera que se acepte dicha conexión para establecer una ruta de comunicación bidireccional.
 "Conectar", "escuchar" y "aceptar" son los mismos términos que encontrará en la mayoría de las API de socket.
 
-En cualquier modelo de comunicación retransmitida, las partes establecen las conexiones (Guía del protocolo de conexiones híbridas de Azure Relay) salientes hacia un punto de conexión de servicio, lo que provoca que al "agente de escucha" también se le conozca como "cliente" en el uso coloquial, y también puede causar otras sobrecargas terminológicas. Por tanto, usaremos la siguiente terminología exacta para las conexiones híbridas:
+En cualquier modelo de comunicación retransmitida, las partes establecen las conexiones salientes hacia un punto de conexión de servicio, lo que provoca que al "agente de escucha" también se le conozca como "cliente" en el uso coloquial, y también puede causar otras sobrecargas terminológicas. Por tanto, usaremos la siguiente terminología exacta para las conexiones híbridas:
 
 Los programas de ambos extremos de la conexión se denominarán "cliente", ya que se trata de clientes del servicio. El cliente que espera y acepta conexiones es el "agente de escucha" o que asume el "rol de escucha". El cliente que inicia una nueva conexión hacia un agente de escucha a través del servicio se denominará "remitente" o que asume el "rol de remitente".
 
@@ -118,7 +118,7 @@ El mensaje contiene un objeto JSON denominado "accept", que define las siguiente
 * **connectHeaders**: todos los encabezados HTTP que ha suministrado el remitente al punto de conexión de Relay, que también incluyen los encabezados Sec-WebSocket-Protocol y Sec-WebSocket-Extensions.
 
 #### <a name="accept-message"></a>Mensaje accept
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -201,7 +201,7 @@ Cuando el token del agente de escucha está a punto de expirar, puede reemplazar
 * **token**: un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **escucha**.
 
 #### <a name="renewtoken-message"></a>Mensaje renewToken
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -271,6 +271,6 @@ Si el servicio cierra intencionadamente la conexión de socket web después de h
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
