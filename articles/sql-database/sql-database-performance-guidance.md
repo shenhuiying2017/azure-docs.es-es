@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Database y rendimiento de bases de datos únicas | Microsoft Docs"
+title: "Rendimiento de Azure SQL Database para bases de datos únicas | Microsoft Docs"
 description: "Este artículo puede ayudarle a determinar qué nivel de servicio elegir para la aplicación. También se recomiendan formas de optimizar la aplicación para obtener el máximo partido de Azure SQL Database."
 services: sql-database
 documentationcenter: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
-ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 2e930dbb8dd2c15162d2ec81a123f57209134554
 
 
 ---
@@ -109,7 +109,10 @@ Nuevamente, estas consultas devuelven un número puntual. Si recopila varias mue
 Para el análisis de SQL Database, puede obtener estadísticas históricas sobre las sesiones. Consulte **sys.resource_stats** y use la columna **active_session_count**. Consulte la siguiente sección para más información sobre el uso de esta vista.
 
 ## <a name="monitor-resource-use"></a>Supervisión del uso de recursos
-Dos vistas pueden ayudarle a supervisar el uso de recursos para una base de datos SQL con respecto a su nivel de servicio:
+
+Puede supervisar el uso de recursos con [Información de rendimiento de consultas de SQL Database](sql-database-query-performance.md) y [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx).
+
+También puede supervisar el uso con estas dos vistas:
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
@@ -438,6 +441,6 @@ Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Implementación del área de trabajo de Machine Learning mediante una plantilla de Azure Resource Manager | Microsoft Docs"
+title: "Implementación de un área de trabajo de Machine Learning mediante Azure Resource Manager | Microsoft Docs"
 description: "Cómo implementar un área de trabajo de Machine Learning de Azure mediante la plantilla de Azure Resource Manager"
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: cf00c0c11f1572c0cca066ac1c0aac2a0f350393
 
 
 ---
@@ -152,6 +152,6 @@ Una vez aprovisionada el área de trabajo, también puede automatizar muchas tar
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Guía de inicio rápido: API de recomendaciones de Machine Learning | Microsoft Docs"
+title: "Inicio rápido: API Recomendaciones de Azure Machine Learning (ver. 1)| Microsoft Docs"
 description: "Recomendaciones de aprendizaje automática de Azure - Guía de inicio rápido"
 services: machine-learning
 documentationcenter: 
@@ -12,22 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/07/2017
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 099090d06163f15a08592e25f6171cfacf24b0f1
-ms.openlocfilehash: bf47dd8f88405f2bed31c621e37531e3641ddc6c
+ms.sourcegitcommit: c5d1812a3bd7e1ad3621ca691339f01729882b08
+ms.openlocfilehash: 67131bbaccff549817bfe5fdf874d609ea22c2bc
 
 
 ---
-# <a name="quick-start-guide-for-the-machine-learning-recommendations-api"></a>Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
+# <a name="quick-start-guide-for-the-machine-learning-recommendations-api-version-1"></a>Guía de inicio rápido para la API Recomendaciones de Machine Learning (versión 1)
+
 > [!NOTE]
-> Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc.
-> Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate)
+> Debe empezar a utilizar el servicio [Cognitive Services de la API de Recomendaciones](https://www.microsoft.com/cognitive-services/recommendations-api) en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc.
+>
+> Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
 > 
 > 
 
-En este documento se describe cómo incorporar su servicio o aplicación para usar las recomendaciones de Aprendizaje automático de Microsoft Azure. Puede encontrar más detalles en la API de recomendaciones de la [galería](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+En este documento se describe cómo incorporar su servicio o aplicación para usar las recomendaciones de Aprendizaje automático de Microsoft Azure. Puede encontrar más detalles sobre Recommendations API en la [galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -48,9 +50,9 @@ Todos los pasos anteriores se realizan a través de la API de recomendaciones de
 ## <a name="limitations"></a>Limitaciones
 * El número máximo de modelos por suscripción es 10.
 * El número máximo de elementos que puede contener un catálogo es 100 000.
-* El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+* El número máximo de puntos de uso que se mantienen es ~&5;&000;&000;. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
 * El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB.
-* El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es ~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
+* El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es ~&2;TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
 
 ## <a name="integration"></a>Integración
 ### <a name="authentication"></a>Autenticación
@@ -151,7 +153,7 @@ Si carga varios archivos de catálogo para el mismo modelo con varias llamadas, 
 | filename |Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (_).<br>Longitud máxima: 50 |
 | apiVersion |1.0 |
 |  | |
-| Cuerpo de la solicitud |Datos del catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Description</th></tr><tr><td>Id. de elemento</td><td>Sí</td><td>Alfanumérico, longitud máxima 50</td><td>Identificador único de un elemento</td></tr><tr><td>Nombre del elemento</td><td>Sí</td><td>Alfanumérico, longitud máxima 255</td><td>Nombre del elemento</td></tr><tr><td>Categoría del elemento</td><td>Sí</td><td>Alfanumérico, longitud máxima 255</td><td>Categoría a la que pertenece este elemento (por ejemplo Libros de cocina, Drama…)</td></tr><tr><td>Descripción</td><td>No</td><td>Alfanumérico, longitud máxima 4000</td><td>Descripción de este elemento</td></tr></table><br>El tamaño máximo de archivo es de 200 MB.<br><br>Ejemplo:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
+| Cuerpo de la solicitud |Datos del catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Description</th></tr><tr><td>Id. de elemento</td><td>yes</td><td>Alfanumérico, longitud máxima 50</td><td>Identificador único de un elemento</td></tr><tr><td>Nombre del elemento</td><td>Sí</td><td>Alfanumérico, longitud máxima 255</td><td>Nombre del elemento</td></tr><tr><td>Categoría del elemento</td><td>Sí</td><td>Alfanumérico, longitud máxima 255</td><td>Categoría a la que pertenece este elemento (por ejemplo Libros de cocina, Drama…)</td></tr><tr><td>Descripción</td><td>No</td><td>Alfanumérico, longitud máxima 4000</td><td>Descripción de este elemento</td></tr></table><br>El tamaño máximo de archivo es de 200 MB.<br><br>Ejemplo:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
 
 **Respuesta**:
 
@@ -341,7 +343,7 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo (distingue mayúsculas de minúsculas) |
-| userDescription |Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
+| userDescription |Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un&20; %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
 | apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
@@ -703,6 +705,6 @@ Este documento se ofrece "tal cual". La información y las opiniones expresadas 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

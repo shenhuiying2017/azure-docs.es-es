@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Backup de Azure DPM | Microsoft Docs"
+title: "Copia de seguridad de cargas de trabajo de DPM en el Portal de Azure clásico | Microsoft Docs"
 description: "Una introducción a la copia de seguridad de servidores DPM mediante el servicio Copia de seguridad de Azure"
 services: backup
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/21/2016
 ms.author: trinadhk;giridham;jimpark;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
 
 
 ---
@@ -27,8 +27,8 @@ ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
 > * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Servidor de copia de seguridad de Azure (clásico)](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM (clásico)](backup-azure-dpm-introduction-classic.md)
-> 
-> 
+>
+>
 
 En este artículo se proporciona una introducción al uso de Copia de seguridad de Microsoft Azure con el objeto de proteger los servidores y las cargas de trabajo de System Center Data Protection Manager (DPM). Cuando lo lea, comprenderá:
 
@@ -55,8 +55,8 @@ Una vez tomada la instantánea, los datos se transfieren por el servicio de Copi
 
 > [!NOTE]
 > Para las máquinas virtuales de Linux, solo es posible la copia de seguridad coherente con archivos.
-> 
-> 
+>
+>
 
 ## <a name="prerequisites"></a>Requisitos previos
 Prepare Copia de seguridad de Azure para crear copias de seguridad de los datos de DPM de la manera siguiente:
@@ -100,12 +100,11 @@ No se admiten los siguientes:
 
 > [!NOTE]
 > A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

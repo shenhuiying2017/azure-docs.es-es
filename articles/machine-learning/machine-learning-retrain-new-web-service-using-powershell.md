@@ -1,5 +1,5 @@
 ---
-title: "Reciclaje de un servicio web nuevo mediante los cmdlets de PowerShell para administración de Machine Learning | Microsoft Docs"
+title: Reciclaje de un nuevo servicio web Azure Machine Learning con PowerShell | Microsoft Docs
 description: "Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
-ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
 
 
 ---
@@ -112,6 +112,6 @@ Con el uso de los cmdlets de administración de PowerShell para Machine Learning
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

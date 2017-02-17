@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 3b7550b10339762882403a42f114d1b18da9e1ab
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
 
 
 ---
@@ -79,6 +79,9 @@ La directiva de contraseñas de Azure AD B2C para cuentas locales se basa en la 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>¿Puedo usar Azure AD Connect para migrar identidades de consumidores almacenadas en mi entorno Active Directory local a Azure AD B2C?
 No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Ofreceremos varias opciones de migración y herramientas listas para usar en el futuro.
 
+### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>¿Mi aplicación puede abrir páginas de Azure AD B2C dentro de un iFrame?
+No, por motivos de seguridad, las páginas de Azure AD B2C, que se proporcionan en el dominio `login.microsftonline.com`, no se pueden abrir dentro de un iFrame. Tiene que redirigir siempre a Azure AD B2C para todas las experiencias de consumidor.
+
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>¿Funciona Azure AD B2C con sistemas CRM, como Microsoft Dynamics?
 Actualmente, no. La integración de estos sistemas está en nuestra hoja de ruta.
 
@@ -124,6 +127,6 @@ Le recomendamos consultar las [limitaciones y restricciones del servicio](active
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

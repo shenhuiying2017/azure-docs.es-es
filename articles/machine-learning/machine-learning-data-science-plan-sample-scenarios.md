@@ -1,5 +1,5 @@
 ---
-title: "Escenarios para la Tecnología y procesos de análisis avanzado (ADAPT) en Azure Machine Learning | Microsoft Docs"
+title: "Identificación de escenarios de análisis avanzados para Azure Machine Learning | Microsoft Docs"
 description: "Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado con el proceso de ciencia de datos en equipos."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
+ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
+ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 
 
 ---
@@ -268,6 +268,6 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

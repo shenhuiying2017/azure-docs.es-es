@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 9cc0081588f54f77a69ded336d063651b12c8dd8
-ms.openlocfilehash: a185e802a2713c6b6d4101477f0fc61bca0bf29c
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
 
 
 ---
@@ -60,6 +60,11 @@ Aquí puede ver un par de casos de uso que puede habilitar mediante el uso de es
 * Permiso para que un usuario pueda permanecer conectado en una aplicación móvil indefinidamente, siempre que esté continuamente activo en la misma. Para ello, establezca el conmutador **Vigencia (en días) de la ventana deslizante del token de actualización** en **Unbounded** (Sin enlazar) en la directiva de inicio de sesión.
 * Cumpla los requisitos de cumplimiento normativo y seguridad de la industria mediante el establecimiento de la vigencia adecuada del token de acceso.
 
+    > [!NOTE]
+    > Estas opciones no están disponibles para las directivas de restablecimiento de contraseña.
+    > 
+    > 
+
 ## <a name="token-compatibility-settings"></a>Configuración de compatibilidad de tokens
 Hemos realizado cambios de formato en notificaciones importantes de los tokens de seguridad emitidos por Azure AD B2C. con el fin de mejorar la compatibilidad del protocolo estándar y para mejorar la interoperabilidad con las bibliotecas de identidades de otros fabricantes. Sin embargo, para no interrumpir las aplicaciones existentes, hemos creado las siguientes propiedades, con el fin de que los clientes puedan optar por recibirlas cuando sea necesario:
 
@@ -87,6 +92,11 @@ Aquí puede ver un par de casos de uso que puede habilitar mediante el uso de es
 * Conformidad con los requisitos de cumplimiento normativo y seguridad de la industria mediante el establecimiento de la duración adecuada de la sesión de la aplicación web.
 * Obligación de volver a autenticar después de un período de tiempo establecido durante la interacción del usuario con una zona de alta seguridad de la aplicación web. 
 
+    > [!NOTE]
+    > Estas opciones no están disponibles para las directivas de restablecimiento de contraseña.
+    > 
+    > 
+
 ## <a name="single-sign-on-sso-configuration"></a>Configuración de inicio de sesión único (SSO)
 Si tiene varias aplicaciones y directivas en el inquilino de B2C, puede administrar las interacciones del usuario a través de ellas con la propiedad **Configuración de inicio de sesión único** . Puede establecer la propiedad en uno de los siguientes valores:
 
@@ -95,9 +105,14 @@ Si tiene varias aplicaciones y directivas en el inquilino de B2C, puede administ
 * **Directiva**: permite mantener una sesión de usuario exclusivamente para una directiva, independientemente de las aplicaciones que la utilicen. Por ejemplo, si el usuario ya ha iniciado sesión y completado un paso de autenticación multifactor (MFA), puede tener acceso a zonas de una mayor seguridad de varias aplicaciones mientras no expire la sesión asociada a la directiva.
 * **Deshabilitado**: obliga al usuario a realizar todo el proceso cada vez que se ejecuta la directiva. Por ejemplo, esto le permitirá que varios usuarios inicien sesión en la aplicación (en un escenario de escritorio compartido), incluso si un único usuario permanece conectado durante todo el tiempo.
 
+    > [!NOTE]
+    > Estas opciones no están disponibles para las directivas de restablecimiento de contraseña.
+    > 
+    > 
 
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO4-->
 
 

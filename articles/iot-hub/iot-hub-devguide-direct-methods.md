@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: fc2d81ce5d1562bcc71584626d8e45a2d788b2e3
+ms.sourcegitcommit: 9c2817129162ab17faadf3c5ecf8ef7dcb370c3c
+ms.openlocfilehash: 2c9c4b59077ea7d31677a5e1c690160bf63633a6
 
 
 ---
@@ -43,7 +43,9 @@ Los métodos directos se implementan en el dispositivo y pueden requerir de ning
 
 Los métodos directos son sincrónicos y se completan correctamente o producen un error tras el período de tiempo de espera (valor predeterminado: 30 segundos; valor máximo: 3600 segundos). Los métodos directos son útiles en escenarios interactivos en los que quiere que un dispositivo actúe únicamente si está conectado y recibiendo comandos, como encender una luz desde un teléfono. En estos escenarios, quiere saber de inmediato si la acción se ha completado o no para que el servicio en la nube pueda actuar lo antes posible en función del resultado. El dispositivo puede devolver un cuerpo de mensaje como resultado del método, pero no es necesario que el método lo haga. No hay ninguna garantía respecto al orden o la semántica de simultaneidad en las llamadas de método.
 
-Las llamadas de método de dispositivo son solo HTTP desde el lado de la nube y solo MQTT desde el lado del dispositivo.
+El método directo es solo HTTP desde el lado de la nube y solo MQTT desde el lado del dispositivo.
+
+La carga útil de solicitudes de método y respuestas es un documento JSON de hasta 8 KB.
 
 ## <a name="reference-topics"></a>Temas de referencia:
 Los siguientes temas de referencia proporcionan más información sobre el uso de métodos directos.
@@ -142,6 +144,6 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

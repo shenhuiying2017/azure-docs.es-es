@@ -1,5 +1,5 @@
 ---
-title: "StorSimple Device Manager: registro de una incidencia de soporte técnico para Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Registro de un vale de soporte técnico a través de StorSimple Device Manager | Microsoft Docs"
 description: "Describe la funcionalidad de diagnóstico de StorSimple Device Manager y explica cómo usarla para solucionar problemas de StorSimple Virtual Array."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: adf6454fef9cfdea60241909453266c79416ac4e
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para registrar una solicitud de soporte técnico para StorSimple Virtual Array
@@ -70,6 +70,6 @@ Aprenda cómo [diagnosticar y solucionar problemas relacionados con StorSimple V
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

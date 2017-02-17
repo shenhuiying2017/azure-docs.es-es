@@ -1,6 +1,6 @@
 ---
-title: H264 Multiple Bitrate 4K | Microsoft Docs
-description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Multiple Bitrate 4K**."
+title: Valores predeterminados de Media Encoder Standard para H264 Multiple Bitrate 4K - Azure | Microsoft Docs
+description: "En el tema se proporciona información general sobre el valor predeterminado de tarea **H264 Multiple Bitrate 4K**."
 author: Juliako
 manager: erikre
 editor: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 41ce4c386e9fa0afe51fdd4ee851613e99097904
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 33aacbaca96bb234e53af47f1d1f019e4271a5cd
 
 
 ---
@@ -441,6 +441,6 @@ ms.openlocfilehash: 41ce4c386e9fa0afe51fdd4ee851613e99097904
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

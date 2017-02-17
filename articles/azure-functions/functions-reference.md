@@ -1,28 +1,28 @@
 ---
-title: Referencia para desarrolladores de Azure Functions | Microsoft Docs
-description: Comprenda los componentes y conceptos de las funciones de Azure que son comunes en todos los lenguajes y enlaces.
+title: "Guía para desarrollar Azure Functions | Microsoft Docs"
+description: "Obtenga información sobre los conceptos y las técnicas de Azure Functions que necesita para desarrollar funciones en Azure, en todos los lenguajes de programación y enlaces."
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
 editor: 
 tags: 
-keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
+keywords: "guía para desarrolladores, Azure functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/20/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 0d13f6ae1b68b27f54ce9ffb10454b35cc6cdf29
-ms.openlocfilehash: a897e725855aa6651898a58ef3830c22b8ae7621
+ms.sourcegitcommit: 0d75654e00e033eab7de97779157c43ee4493a9f
+ms.openlocfilehash: 2032426e473cb859ad60b48684bcf620e314ed6c
 
 
 ---
-# <a name="azure-functions-developer-reference"></a>Referencia para desarrolladores de Funciones de Azure
+# <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
 
 Este artículo presupone que ya ha leído la [información general de Azure Functions](functions-overview.md) y está familiarizado con [conceptos de SDK de WebJobs como desencadenadores, enlaces y el tiempo de ejecución de JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Las funciones de Azure se basan en el SDK de WebJobs. 
@@ -138,6 +138,6 @@ Para obtener más información, consulte los siguientes recursos:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

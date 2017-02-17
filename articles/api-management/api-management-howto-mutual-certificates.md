@@ -1,5 +1,5 @@
 ---
-title: "Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure"
+title: "Asegurar servicios back-end con la autenticación de certificados de cliente - Azure API Management | Microsoft Docs"
 description: "Averigüe cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: de47ff52eac40c4b4c57eef89763b71fd525ffa4
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 2ebe71c96fd9076a48f689041634dbd23d3d8414
 
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure
@@ -156,6 +155,6 @@ Para más información sobre otras formas de proteger el servicio back-end, como
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

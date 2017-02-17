@@ -1,5 +1,5 @@
 ---
-title: "StorSimple Device Manager: administración de recursos compartidos en Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Administración de recursos compartidos de StorSimple Virtual Array | Microsoft Docs"
 description: "Describe el servicio StorSimple Device Manager y explica cómo usarlo para administrar recursos compartidos en StorSimple Virtual Array."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 90b932453c83d15e7e33eb0653f0f7ceaf7eeff4
+ms.sourcegitcommit: 19177fe13db2aefcef7fcf37ea8fef2fa99c728f
+ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar recursos compartidos en StorSimple Virtual Array
@@ -74,9 +74,9 @@ Siga las instrucciones de este tutorial para realizar las siguientes tareas:
 
 1. En la hoja de resumen del servicio StorSimple, haga clic en **+ Agregar recurso compartido**, en la barra de comandos. Se abrirá la hoja **Agregar recurso compartido**.
 
-![Incorporación de un recurso compartido](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Incorporación de un recurso compartido](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-1. En la hoja **Agregar recurso compartido**, haga lo siguiente:
+2. En la hoja **Agregar recurso compartido**, haga lo siguiente:
    
     1. En el campo **Nombre del recurso compartido**, escriba un nombre único para el recurso compartido. El nombre debe ser una cadena que contenga entre 3 y 127 caracteres.
 
@@ -87,8 +87,8 @@ Siga las instrucciones de este tutorial para realizar las siguientes tareas:
     4. En el campo **Capacidad** especifique el tamaño del recurso compartido. Un recurso compartido en capas debe tener entre 500 GB y 20 TB, y uno anclado localmente debe tener entre 50 GB y 2 TB.
 
     5. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o del grupo de usuarios en formato _john@contoso.com_. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
-2. Cuando haya terminado de configurar el recurso compartido, haga clic en **Crear**. Se creará un recurso compartido con la configuración especificada y verá una notificación. De forma predeterminada, se habilitará la copia de seguridad para el recurso compartido.
-3. Para confirmar que el recurso compartido se creó correctamente, vaya a la hoja **Recursos compartidos**. Debería ver el recurso compartido en la lista.
+3. Cuando haya terminado de configurar el recurso compartido, haga clic en **Crear**. Se creará un recurso compartido con la configuración especificada y verá una notificación. De forma predeterminada, se habilitará la copia de seguridad para el recurso compartido.
+4. Para confirmar que el recurso compartido se creó correctamente, vaya a la hoja **Recursos compartidos**. Debería ver el recurso compartido en la lista.
    
     ![Creación de un recurso compartido correcta](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
@@ -146,6 +146,6 @@ Aprenda cómo [clonar un recurso compartido de StorSimple](storsimple-virtual-ar
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

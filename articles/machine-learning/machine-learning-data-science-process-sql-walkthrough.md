@@ -1,5 +1,5 @@
 ---
-title: "Proceso de ciencia de datos en equipos en acción: uso de SQL Server | Microsoft Docs"
+title: "Creación e implementación de un modelo de aprendizaje automático mediante SQL Server en una VM de Azure | Microsoft Docs"
 description: "Tecnología y procesos de análisis avanzado en acción"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/29/2017
 ms.author: fashah;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
 
 
 ---
@@ -48,7 +48,7 @@ La clave única para unir trip\_data and trip\_fare se compone de los campos: me
 ## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Ejemplos de tareas de predicción
 Se formularán tres problemas de predicción basados en *tip\_amount*, a saber:
 
-1. Clasificación binaria: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
+1. Clasificación binaria: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que&0; $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de&0; $ es un ejemplo negativo.
 2. Clasificación con múltiples clases: para predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
    
         Class 0 : tip_amount = $0
@@ -70,7 +70,7 @@ Para configurar el entorno de ciencia de datos de Azure:
 
 1. [Cree una cuenta de almacenamiento](../storage/storage-create-storage-account.md)
 2. [Creación de un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md)
-3. [Aprovisione una máquina virtual de ciencia de datos](machine-learning-data-science-setup-sql-server-virtual-machine.md), que actuará no solo como servidor de SQL Server, sino también como servidor de Blocs de notas de IPython.
+3. [Aprovisione una máquina virtual de ciencia de datos](machine-learning-data-science-setup-sql-server-virtual-machine.md), que proporcionará un servidor de SQL Server y un servidor de Notebook de IPython.
    
    > [!NOTE]
    > Los scripts y Blocs de notas de IPython de ejemplo se descargarán en la máquina virtual de ciencia de datos durante el proceso de instalación. Cuando se complete el script posterior a la instalación de máquina virtual, los ejemplos estarán en la biblioteca de documentos de su máquina virtual:  
@@ -656,6 +656,6 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Sincronización de Azure AD Connect: ejecución por segunda vez del Asistente para la instalación | Microsoft Docs"
+title: "Volver a ejecutar el Asistente para instalación de Azure AD Connect | Microsoft Docs"
 description: "Explica cómo funciona el Asistente para la instalación la segunda vez que lo ejecute."
 keywords: "El Asistente para instalación de Azure AD Connect le permite configurar opciones de mantenimiento la segunda vez que se ejecuta"
 services: active-directory
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 4fb05d21d1a7ac7d9b2f13adfbe1bed8456393c2
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
 
 
 ---
@@ -94,6 +94,6 @@ Para más información sobre esta opción, consulte [Opciones para el inicio de 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

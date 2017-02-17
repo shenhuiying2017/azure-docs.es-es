@@ -1,5 +1,5 @@
 ---
-title: "Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure"
+title: "Administración de cuentas de desarrollador mediante grupos en Azure API Management | Microsoft Docs"
 description: "Obtenga información acerca de cómo administrar cuentas de desarrollador mediante los grupos en Administración de API de Azure."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 2187c94f5deab28159594216545d7b57ef02cb70
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
 
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure
@@ -118,6 +117,6 @@ Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

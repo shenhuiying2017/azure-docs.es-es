@@ -1,5 +1,5 @@
 ---
-title: "Recuperación ante desastres y conmutación por error de dispositivos para Microsoft Azure StorSimple Virtual Array| Microsoft Docs"
+title: "Recuperación ante desastres y conmutación por error de dispositivos para StorSimple Virtual Array | Microsoft Docs"
 description: "Obtenga más información sobre cómo conmutar por error la matriz virtual de StorSimple."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 34de93b8133649aaedc3cb89a8cd478eda92c7aa
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
 
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple
@@ -76,7 +76,7 @@ Antes de comenzar la recuperación ante desastres, el dispositivo realiza unas c
   
   * Nombres de ACR válidos.
   * IQN válido (que no supere 220 caracteres).
-  * Contraseñas CHAP válidas (entre 12 y 16 caracteres).
+  * Contraseñas CHAP válidas (entre&12; y&16; caracteres).
 
 Si se produce un error en cualquiera de las comprobaciones previas anteriores, no puede continuar con la recuperación ante desastres. Resuelva esos problemas y vuelva a intentar la recuperación ante desastres.
 
@@ -182,6 +182,6 @@ Obtenga más información sobre cómo [administrar la matriz virtual de StorSimp
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 
