@@ -182,6 +182,6 @@ Después de crear un índice de Búsqueda de Azure, ya podrá [cargar el conteni
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

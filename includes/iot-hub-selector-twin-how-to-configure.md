@@ -94,6 +94,6 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

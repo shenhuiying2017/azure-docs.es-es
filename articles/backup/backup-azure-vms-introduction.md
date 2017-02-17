@@ -4,7 +4,7 @@ description: "Consideraciones importantes al planear la realización de copias d
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "copias de seguridad de máquinas virtuales, realizar copias de seguridad de máquinas virtuales"
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
 ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
@@ -95,7 +95,7 @@ Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar lo
 ## <a name="total-restore-time"></a>Tiempo total de restauración
 Una operación de restauración consta de dos tareas secundarias principales: copiar datos desde el almacén a la cuenta de almacenamiento del cliente seleccionada y crear la máquina virtual. La copia datos desde el almacén depende de dónde se almacenan internamente las copias de seguridad en Azure y donde se almacena la cuenta de almacenamiento del cliente. El tiempo necesario para copiar los datos depende de:
 * Tiempo de espera en cola: debido a que el servicio está procesando restauraciones desde varios clientes al mismo tiempo, las solicitudes de restauración se ponen en cola.
-* Tiempo de copia de datos: los datos se copian de forma similar al primer proceso de copia de seguridad desde el almacén a la cuenta de almacenamiento del cliente. Si se carga la cuenta de almacenamiento de cliente en la que el servicio de copia de seguridad necesita escribir datos desde el almacén, el tiempo de copiado puede aumentar. Por lo tanto, asegúrese de seleccionar una cuenta de almacenamiento que no se cargue con otras lecturas y escrituras de aplicación durante la restauración para optimizar el tiempo de copia. 
+* Tiempo de copia de datos: los datos se copian de forma similar al primer proceso de copia de seguridad desde el almacén a la cuenta de almacenamiento del cliente. Si se carga la cuenta de almacenamiento de cliente en la que el servicio de copia de seguridad necesita escribir datos desde el almacén, el tiempo de copiado puede aumentar. Por lo tanto, asegúrese de seleccionar una cuenta de almacenamiento que no se cargue con otras lecturas y escrituras de aplicación durante la restauración para optimizar el tiempo de copia.
 
 ## <a name="best-practices"></a>Prácticas recomendadas
 Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para máquinas virtuales:
