@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,17 +43,17 @@ Ahora debe aparecer el nuevo encabezado en todas las páginas del portal para de
 > 
 
 ## <a name="change-headers-styling"> </a>Cambio del estilo de los encabezados
-Los colores, las fuentes, los tamaños, los espacios y otros elementos relacionados con el estilo de cualquier página del portal vienen definidos por las reglas de estilo. Para editar los estilos, haga clic en **Apariencia** en el menú **Portal para desarrolladores** del portal para editores y luego haga clic en **Begin customization** (Comenzar la personalización) para habilitar el editor de estilo.
+Los colores, las fuentes, los tamaños, los espacios y otros elementos relacionados con el estilo de cualquier página del portal vienen definidos por las reglas de estilo. Para editar los estilos, en el **portal para desarrolladores**, abra la barra de herramientas de personalización de la izquierda moviéndose por el icono de personalización y seleccionando "estilos" en la barra de herramientas.
 
-El explorador pasa a una página oculta dentro del portal para desarrolladores que contiene muestras de contenido, con ejemplos de todas las reglas de estilo que se usan en cualquier lugar del sitio. Para abrir el editor de estilo, mueva el cursor sobre la fina línea vertical de color gris que aparece en el extremo izquierdo de la página. En ese momento debería aparecer la barra de herramientas del editor.
+![Botón de la barra de herramientas de personalización][api-management-customization-toolbar-button]
+
+Hay dos formas principales de editar las reglas de estilo: puede buscar en la lista de todas las reglas de estilo usadas en cualquier lugar que se muestre de forma predeterminada y modificar un estilo según sea necesario, o bien elegir **Select an element on the page** (Seleccionar un elemento en la página) y después hacer clic en cualquier parte de la página para ver solo los estilos de ese elemento.
+
+En esta sección queremos cambiar solo el estilo de los encabezados. Haga clic en la opción **Select an element on the page** (Seleccionar un elemento en la página) en la barra de herramientas del editor de estilo. 
 
 ![Customization toolbar][api-management-customization-toolbar]
 
-Existen dos modos principales de edición de reglas de estilo: **Edit all rules** (Editar todas las reglas), que muestra una lista de todas las reglas de estilo que se utilizan en cada una de las partes del sitio, y **Pick element** (Seleccionar elemento), que le permite seleccionar un elemento de la página en la que se encuentra y muestra estilos únicamente para ese elemento.
-
-En esta sección queremos cambiar solo el estilo de los encabezados. Haga clic en la opción **Pick element** (Seleccionar elemento) de la barra de herramientas del editor de estilo y luego en **Select an element to customize** (Seleccionar un elemento para personalizarlo). Los elementos se irán resaltando cuando pase el mouse sobre ellos a fin de indicar qué estilos del elemento empezaría a editar si hiciera clic. Mueva el mouse sobre el texto que representa el nombre de la empresa en el encabezado ("Portal para desarrolladores Fabrikam" si siguió las instrucciones de la sección anterior) y haga clic en él. Aparecerá un conjunto de reglas de estilo con diferentes nombres y categorías dentro del propio editor de estilo.
-
-Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family.
+Los elementos se irán resaltando cuando pase el mouse sobre ellos a fin de indicar qué estilos del elemento empezaría a editar si hiciera clic. Mueva el mouse sobre el texto que representa el nombre de la empresa en el encabezado ("Portal para desarrolladores Fabrikam" si siguió las instrucciones de la sección anterior) y haga clic en él. Aparecerá un conjunto de reglas de estilo con diferentes nombres y categorías dentro del propio editor de estilo. Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family.
 
 > Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad variables [LESS][LESS variables] del tema de bootstrap usado por el portal de desarrolladores.
 > 
@@ -63,7 +63,7 @@ Ahora cambiaremos el color del texto del encabezado. Seleccione la entrada en el
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
-Cuando termine de hacer cambios en los estilos del elemento seleccionado, haga clic en **Obtener vista previa de cambios** para ver los resultados en pantalla. En este momento, solo serán visibles para los administradores. Si desea que todos los usuarios puedan ver estos cambios, haga clic en el botón **Publicar** en el editor de estilo y confirme los cambios.
+Se realiza una vista previa de los cambios en tiempo real, a medida que se llevan a cabo, pero solo son visibles para los administradores. Si desea que todos los usuarios puedan ver estos cambios, haga clic en el botón **Publicar** en el editor de estilo y confirme los cambios.
 
 ![Publish menu][api-management-customization-toolbar-publish-form]
 
@@ -96,6 +96,7 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -107,6 +108,6 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -97,6 +97,28 @@
 #### [Opcional: cambio del comportamiento de LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Solución de problemas](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Introducción a un nodo de Arduino
+### [Introducción a una placa Arduino: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Lección 1: Configuración del dispositivo
+#### [Configuración del dispositivo](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Creación e implementación de la aplicación de intermitencia](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Lección 2: Creación de la instancia de IoT Hub
+#### [Obtención de las herramientas de Azure (Windows 7 o posterior)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Obtención de las herramientas de Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Obtención de las herramientas de Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [Creación de la instancia de IoT Hub y registro de Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Lección 3: Envío de mensajes de dispositivo a nube
+#### [Creación de una cuenta de almacenamiento y una aplicación de función de Azure](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [Ejecución de la aplicación de muestra para enviar mensajes](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Lectura de mensajes que se conservan en el almacenamiento](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Lección 4: Envío de mensajes de nube a dispositivo
+#### [Ejecución de la aplicación de muestra para recibir mensajes](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [Opcional: cambio del comportamiento de LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Solución de problemas](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Introducción al SDK de puerta de enlace (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Introducción al SDK de puerta de enlace (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -219,9 +241,11 @@
 ## [Java (dispositivos)](/java/api/com.microsoft.azure.iothub)
 ## [SDK de IoT de Azure](http://azure.github.io/azure-iot-sdks/)
 ## [SDK de puerta de enlace](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (proveedor de recursos)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (identidades de dispositivos)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (proveedor de recursos)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (identidades de dispositivos)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (dispositivos gemelos)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
+## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (trabajos)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Temas relacionados
 ## [Conjunto de aplicaciones de IoT de Azure](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +264,6 @@
 ## [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

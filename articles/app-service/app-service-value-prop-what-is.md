@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 692a7e0e54dd8ba6b47f79228696b223123dfb9b
+ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
+ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 
 
 ---
@@ -72,7 +72,7 @@ Los planes de App Service definen lo siguiente:
 
 Todas las aplicaciones asignadas a un **plan de App Service** comparten los recursos definidos por él, lo que permite ahorrar costos al hospedar varias aplicaciones.
 
-Su **plan de App Service** puede escalarse de SKU **gratis** y **compartidas** a SKU **básicas**, **estándar** y **Premium**, lo que permite acceder a más recursos y características. Una vez que su plan de App Service se establece en **básico** o superior, también puede controlar la **tamaño** y el recuento de escala de las máquinas virtuales.
+Su **plan de App Service** puede escalarse de SKU **Gratis** y **Compartido** a SKU **Básico**, **Estándar** y **Premium**, lo que permite acceder a más recursos y características. Una vez que su plan de App Service se establece en **básico** o superior, también puede controlar la **tamaño** y el recuento de escala de las máquinas virtuales.
 
 El **SKU** y la **escala** del plan de App Service determina el costo, no el número de aplicaciones hospedadas en él. 
 
@@ -94,6 +94,6 @@ También puede abrir una [cuenta de Azure gratis](https://azure.microsoft.com/pr
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

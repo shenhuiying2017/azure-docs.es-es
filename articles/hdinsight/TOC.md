@@ -77,9 +77,7 @@
 ### [Uso de Phoenix y SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Análisis de tweets en tiempo real](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Creación de clústeres en una red virtual](hdinsight-hbase-provision-vnet.md)
-### [Configuración de la conectividad VPN](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [Configuración de servidores DNS](hdinsight-hbase-geo-replication-configure-dns.md)
-### [Configuración de la replicación geográfica de HBase](hdinsight-hbase-geo-replication.md)
+### [Configuración de la replicación de HBase](hdinsight-hbase-replication.md)
 ### [Desarrollo de una aplicación con Java](hdinsight-hbase-build-java-maven-linux.md)
 ## Uso de Storm
 ### [Implementación y administración de topologías](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +196,6 @@
 ### [Inicio con Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Inicio con Storm](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Inicio con HBase](hdinsight-hbase-tutorial-get-started.md)
-### [Galería de muestras de HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Ejecución de ejemplos de MapReduce en Hadoop](hdinsight-run-samples.md)
 ### [Creación de clústeres de Hadoop](hdinsight-provision-clusters.md)
 #### [Uso de Azure Portal](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -228,6 +225,6 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

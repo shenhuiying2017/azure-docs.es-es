@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/2/2017
+ms.author: markgal;jimpark;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
+ms.openlocfilehash: 084bf86a2f36d8b48344f5a42e18738c5a4ed6d9
 
 
 ---
@@ -45,7 +45,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 **Copia de seguridad coherente con la aplicación**: tanto si va a realizar una copia de seguridad de un servidor de archivos, una máquina virtual o una base de datos SQL, debe saber que un punto de recuperación tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitan correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que le permite volver rápidamente a un estado de ejecución.
 
-**Retención a largo plazo**: cree una copia de seguridad de los datos en Azure durante 99 años. En lugar de pasar las copias de seguridad de disco a cinta y luego trasladar la cinta a una ubicación externa para almacenamiento a largo plazo, puede usar Azure para la retención a corto y largo plazo.
+**Retención a largo plazo**: en lugar de pasar las copias de seguridad de disco a cinta y luego llevar dicha cinta a una ubicación externa para su almacenamiento a largo plazo, puede usar Azure para la retención a corto y largo plazo. Azure no limita la cantidad de tiempo que los datos se conservan en un almacén de Backup o Recovery Services. Los datos se pueden conservar en un almacén tanto tiempo como se desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. Consulte la sección [Copia de seguridad y retención](backup-introduction-to-azure-backup.md#backup-and-retention) de este artículo para obtener una explicación de la forma en que este límite puede afectar a sus necesidades de copia de seguridad.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>¿Qué componentes de Azure Backup debo usar?
 Si no está seguro de qué componentes de Azure Backup vienen bien para sus necesidades, consulte la siguiente tabla para información sobre lo que puede proteger con cada uno. Azure Portal proporciona un asistente, que está integrado en el portal, para guiarle a través de la elección de los componentes para descargar e implementar. El asistente, que forma parte de la creación del almacén de Recovery Services, le lleva por los pasos para seleccionar un objetivo de copia de seguridad y elegir los datos o la aplicación para proteger.
@@ -175,7 +175,7 @@ Si la copia de seguridad de los datos se va a realizar en System Center DPM o en
 #### <a name="network-throttling"></a>Limitación de la red
 El agente de Azure Backup ofrece velocidad moderada de la red, que le permite controlar cómo se usa el ancho de banda de red durante la transferencia de datos. La limitación puede resultar útil si necesita realizar una copia de seguridad de datos durante horas de trabajo, pero no desea que el proceso de copia de seguridad interfiera con otro tráfico de Internet. La limitación en la transferencia de datos se aplica a actividades de copia de seguridad y restauración.
 
-### <a name="backup-and-retention"></a>Copia de seguridad y retención
+## <a name="backup-and-retention"></a>Copia de seguridad y retención
 
 Azure Backup tiene un límite de 9999 puntos de recuperación, también conocidos como copias de seguridad o instantáneas, por cada *instancia protegida*. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo configurada para realizar copias de seguridad en Azure. Para más información, consulte la sección [Descripción de una instancia protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Una instancia está protegida una vez que se ha guardado una copia de seguridad de los datos. La copia de seguridad de los datos es la protección. Si los datos de origen se pierden o dañan, la copia de seguridad puede restaurar los datos de origen. En la tabla siguiente se muestra la frecuencia máxima de copia de seguridad para cada componente. La configuración de la directiva de copia de seguridad determina la rapidez con que se consumen los puntos de recuperación. Por ejemplo, si crea un punto de recuperación cada día, puede conservarlos durante 27 años antes de que se agoten. Si crea un punto de recuperación cada mes, puede conservarlos durante 833 años antes de que se agoten. El servicio Backup no establece un límite de tiempo de expiración para un punto de recuperación.
 
@@ -234,6 +234,6 @@ Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -2,7 +2,7 @@ Asegúrese de que ya haya creado un espacio de nombres de Relay, como se muestra
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el panel de navegación izquierdo del Portal, haga clic en **Relay**.
-3. Seleccione el espacio de nombres en el que desea crear la conexión híbrida. En este caso, es **mynewns1**.
+3. Seleccione el espacio de nombres en el que desea crear la conexión híbrida. En este caso, es **mynewns**.
    
     ![Creación de una conexión híbrida](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
 4. En la hoja del **espacio de nombres Relay**, seleccione **Conexiones híbridas**, después haga clic en **+ Conexión híbrida**.
@@ -15,6 +15,6 @@ Asegúrese de que ya haya creado un espacio de nombres de Relay, como se muestra
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

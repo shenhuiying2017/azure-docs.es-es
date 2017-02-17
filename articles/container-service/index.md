@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Aprenda a usar Container Service para implementar y administrar contenedores de aplicaciones mediante DC/OS, Docker Swarm o Kubernetes. Tutoriales, referencias de API y mucho más."
 translationtype: Human Translation
-ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
-ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
+ms.sourcegitcommit: 2cad92fb6f250b4c28a85bee55c3694966082f44
+ms.openlocfilehash: 134b8d76e92fdb40cb8c4bf39dd2922d47e2bbe9
 
 ---
 
@@ -60,20 +60,8 @@ Aprenda a usar Container Service para implementar y administrar contenedores de 
                 <div class="card">
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
+                        <p><a href="/cli/azure/acs">Versión preliminar de la CLI de Azure 2.0</a></p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Idiomas</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
-                   </div>
                 </div>
             </div>
         </div>
@@ -84,7 +72,7 @@ Aprenda a usar Container Service para implementar y administrar contenedores de 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/containerservices">API de REST</a></p>
+                        <p><a href="/rest/api/compute/containerservices">API DE REST</a></p>
                     </div>
                 </div>
             </div>
@@ -92,16 +80,9 @@ Aprenda a usar Container Service para implementar y administrar contenedores de 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Azure Container Service </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

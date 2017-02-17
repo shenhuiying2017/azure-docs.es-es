@@ -4,11 +4,13 @@
 ## [Seguridad de los datos](security-center-data-security.md)
 ## Escenarios
 ### [Respuesta a los incidentes](security-center-incident-response.md)
+### [Recomendaciones de uso para mejorar la seguridad](security-center-using-recommendations.md)
 
-# Introducción
+# Primeros pasos
 ## [Inicio rápido](security-center-get-started.md)
 ## [Planeamiento y operaciones](security-center-planning-and-operations-guide.md)
-## [Permisos](security-center-permissions.md)
+## [permisos](security-center-permissions.md)
+## [Integración de asociados](security-center-partner-integration.md)
 ## [Preguntas más frecuentes](security-center-faq.md)
 
 # Procedimientos
@@ -19,11 +21,13 @@
 
 ### [Recomendaciones sobre aplicaciones](security-center-application-recommendations.md)
 #### [Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)
+#### [Finalización de la protección de la aplicación](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Recomendaciones de red](security-center-network-recommendations.md)
 #### [Agregación de un firewall de próxima generación](security-center-add-next-generation-firewall.md)
 #### [Habilitar los grupos de seguridad de red](security-center-enable-network-security-groups.md)
 #### [Restringir el acceso a través de puntos de conexión accesibles desde Internet](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Enrutar el tráfico solo a través de NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Recomendaciones sobre el servicio SQL](security-center-sql-service-recommendations.md)
 #### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
@@ -34,9 +38,11 @@
 #### [Aplicar cifrado de discos](security-center-apply-disk-encryption.md)
 #### [Aplicar actualizaciones del sistema](security-center-apply-system-updates.md)
 #### [Habilitación de recolección de datos](security-center-enable-data-collection.md)
+#### [Habilitar el cifrado para la cuenta de almacenamiento](security-center-enable-encryption-for-storage-account.md)
 #### [Habilitar el Agente de máquina virtual](security-center-enable-vm-agent.md)
 #### [Instalación de Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Proporcionar datos de los contactos de seguridad](security-center-provide-security-contact-details.md)
+#### [Reiniciar tras actualizar el sistema](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Corrección de vulnerabilidades del SO](security-center-remediate-os-vulnerabilities.md)
 #### [Resolver alertas de estado de Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Actualizar versión del sistema operativo](security-center-update-os-version.md)
@@ -70,6 +76,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

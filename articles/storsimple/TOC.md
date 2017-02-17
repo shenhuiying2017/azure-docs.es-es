@@ -26,7 +26,8 @@
 
 ## Cómo
 ### [Administración mediante Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Instalación de la actualización más reciente](storsimple-virtual-array-install-update.md)
+#### [Instalación de la actualización más reciente](storsimple-virtual-array-install-update-04.md)
+##### [Instalación de Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Creación y administración de copias de seguridad](storsimple-virtual-array-backup.md)
 #### [Clonación desde copias de seguridad](storsimple-virtual-array-clone.md)
 #### [Conmutación por error y recuperación ante desastres](storsimple-virtual-array-failover-dr.md)
@@ -56,7 +57,8 @@
 ### [Configuración mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md)
 
 ## Notas de la versión
-### [Update 0.3: actual](storsimple-ova-update-03-release-notes.md)
+### [Update 0.4: actual](storsimple-virtual-array-update-04-release-notes.md)
+### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Update 0.2 y 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple serie 8000
@@ -150,6 +152,7 @@
 ### Supervisión
 #### [Uso del panel de servicio](storsimple-service-dashboard.md)
 #### [Uso del panel del dispositivo](storsimple-device-dashboard.md)
+#### [Uso de gráficos de supervisión](storsimple-monitor-device.md)
 #### [Uso de alertas de servicio](storsimple-manage-alerts.md)
 #### [Uso del estado de hardware](storsimple-monitor-hardware-status.md)
 #### [Uso de LED de supervisión](storsimple-monitoring-indicators.md)

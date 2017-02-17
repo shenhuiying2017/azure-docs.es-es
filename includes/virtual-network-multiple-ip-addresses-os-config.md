@@ -39,7 +39,11 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
         ```
 
     Debería ver un archivo .cfg.
-4. Abra el archivo: vi *nombreDeArchivo*.
+4. Abra el archivo:
+
+        ```bash
+        vi eth0.cfg
+        ```
 
     Debería ver las siguientes líneas al final del archivo:
 
@@ -102,32 +106,36 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 
     Debería ver *ifcfg-eth0* como uno de los archivos.
 
-5. Copie el archivo *ifcfg-eth0* y asígnele el nombre *ifcfg-eth0:0* con el siguiente comando:
+5. Para agregar una dirección IP, cree un archivo de configuración, tal y como se muestra a continuación. Tenga en cuenta que debe crearse un archivo para cada configuración de IP.
 
     ```bash
-    cp ifcfg-eth0 ifcfg-eth0:0
+    touch ifcfg-eth0:0
     ```
 
-6. Edite el archivo *ifcfg-eth0:0* con el comando siguiente:
+6. Abra el archivo *ifcfg-eth0:0* con el comando siguiente:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Cambie el dispositivo al nombre adecuado en el archivo, *eth0:0* en este caso, con el siguiente comando:
+7. Agregue contenido al archivo, *eth0:0* en este caso, con el siguiente comando. Asegúrese de actualizar la información en función de su dirección IP.
 
     ```bash
     DEVICE=eth0:0
+        BOOTPROTO=static
+        ONBOOT=yes
+        IPADDR=192.168.101.101
+        NETMASK=255.255.255.0
+
     ```
 
-8. Cambie la línea *IPADDR = suDirecciónIPPrivada* para reflejar la dirección IP.
-9. Guarde el archivo mediante el comando siguiente:
+8. Guarde el archivo mediante el comando siguiente:
 
     ```bash
     :wq
     ```
 
-10. Reinicie los servicios de red y asegúrese de que los cambios sean correctos con los comandos siguientes:
+9. Reinicie los servicios de red y asegúrese de que los cambios sean correctos con los comandos siguientes:
 
     ```bash
     /etc/init.d/network restart
@@ -137,6 +145,6 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
     Debería ver la dirección IP que agregó, *eth0:0*, en la lista que se devuelve.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

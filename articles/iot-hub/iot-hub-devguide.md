@@ -1,6 +1,6 @@
 ---
-title: "Temas de la guía del desarrollador para IoT Hub | Microsoft Docs"
-description: "Guía de desarrollador de Azure IoT Hub que incluye los puntos de conexión de IoT Hub, seguridad, registro de identidad, administración de dispositivos y mensajería"
+title: "Guía del desarrollador de IoT Hub de Azure | Microsoft Docs"
+description: "La Guía del desarrollador de IoT Hub de Azure incluye explicaciones sobre los puntos de conexión, la seguridad, el registro de identidad, la administración de dispositivos, los métodos directos, los dispositivos gemelos, las cargas de archivos, los trabajos, el lenguaje de consultas de IoT Hub y la mensajería."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: e71676834e06b21482196d2a1bd8b4fd7f0d7d32
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 2804e9239d9d4ee127ca539cae49f1dcd54f306c
 
 
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guía del desarrollador del Centro de IoT de Azure
-Azure IoT Hub es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una aplicación back-end.
+IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end.
 
 IoT Hub de Azure le proporciona:
 
@@ -41,11 +41,11 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
 * En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones][devguide-device-twins] se describe el concepto de *dispositivo gemelo* y la funcionalidad que expone, como la sincronización de un dispositivo con su gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
 * En [Invocación de un método directo en un dispositivo][devguide-directmethods] se describe el ciclo de vida de un método directo y proporciona información sobre cómo invocar métodos en un dispositivo desde la aplicación back-end y controlar el método directo en el dispositivo.
 * En [Programación de trabajos en varios dispositivos][devguide-jobs] se describe cómo se programan trabajos en varios dispositivos. En el artículo se describe cómo enviar trabajos que realizan tareas como la ejecución de un método directo y la actualización de un dispositivo mediante un dispositivo gemelo. También describe cómo consultar el estado de un trabajo.
-* En la [reference de puntos de conexión de IoT Hub][devguide-endpoints] se describen los diferentes puntos de conexión que expone cada centro de IoT para las operaciones en tiempo de ejecución y de administración. El artículo también describe cómo puede utilizar una puerta de enlace de campo para habilitar algunos dispositivos para que se conecten a los puntos de conexión de IoT Hub.
+* En la [reference de puntos de conexión de IoT Hub][devguide-endpoints] se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración. El artículo también describe cómo puede utilizar una puerta de enlace de campo para habilitar algunos dispositivos para que se conecten a los puntos de conexión de IoT Hub.
 * En [Referencia: lenguaje de consulta para gemelos y trabajos][devguide-query] se describe el lenguaje de consulta de IoT Hub que permite recuperar información del centro sobre los dispositivos gemelos y los trabajos.
 * En [Referencia: cuotas y limitaciones][devguide-quotas] se resumen las cuotas establecidas en el servicio de IoT Hub y el comportamiento de limitación que puede esperar ver cuando supere la cuota.
 * [Referencia: precios] [precios devguide] proporciona información general sobre diferentes SKU y precios para IoT Hub y detalles adicionales sobre cómo las diversas funcionalidades se miden como mensajes en IoT Hub.
-* En [Referencia: SDK de servicio y de dispositivo][devguide-sdks] se muestran los diversos SDK que puede usar para desarrollar aplicaciones de dispositivo y de servicio que interactúen con el centro de IoT. El artículo incluye vínculos a documentación de la API en línea.
+* En [Referencia: SDK de servicio y de dispositivo][devguide-sdks] se muestran los diversos SDK que puede usar para desarrollar aplicaciones de dispositivo y de servicio que interactúen con el centro de IoT Hub. El artículo incluye vínculos a documentación de la API en línea.
 * En [Referencia: compatibilidad con MQTT de IoT Hub][devguide-mqtt] se proporciona más información acerca de la compatibilidad de IoT Hub con el protocolo MQTT. En el artículo se describe la compatibilidad con el protocolo MQTT integrado en los SDK de IoT de Azure y se proporciona información acerca de cómo utilizar el protocolo MQTT directamente.
 * [Glosario][devguide-glossary], una lista de términos habituales relacionados con IoT Hub.
 
@@ -68,6 +68,6 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -5,7 +5,7 @@ description: "Respuestas a las preguntas más frecuentes sobre el servicio de Co
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: "copia de seguridad y recuperación ante desastres; servicio de copia de seguridad"
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
@@ -14,16 +14,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.date: 2/1/2017
+ms.author: trinadhk;giridham;arunak;markgal;jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
-ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
+ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
+ms.openlocfilehash: 7033b660608897819b629d398450cd32ea7b48fa
 
 
 ---
 # <a name="azure-backup-service--faq"></a>P+F de servicio de Copia de seguridad de Azure
-En este artículo encontrará una lista de las preguntas más frecuentes (y sus correspondientes respuestas) acerca del servicio Copia de seguridad de Azure. Nuestra comunidad responde rápidamente, y si una pregunta se repite a menudo, la agregamos a este artículo. Normalmente, las respuestas proporcionan referencia o información de soporte técnico. Las preguntas acerca de Copia de seguridad de Azure se pueden realizar en la sección Disqus de este artículo o de otros artículos relacionados. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+En este artículo encontrará una lista de las preguntas más frecuentes (y sus correspondientes respuestas) acerca del servicio Copia de seguridad de Azure. Nuestra comunidad responde rápidamente, y si una pregunta se repite a menudo, la agregamos a este artículo. Normalmente, las respuestas proporcionan referencia o información de soporte técnico. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>¿Cuál es la lista de sistemas operativos compatibles desde los que se pueden realizar copias de seguridad en Azure mediante Copia de seguridad de Azure? <br/>
 Azure Backup admite la siguiente lista de sistemas operativos para realizar copias de seguridad: archivos y carpetas y aplicaciones de la carga de trabajo protegidas con el servidor de copia de seguridad de Azure y SCDPM.
@@ -58,7 +58,7 @@ Se recomienda que instale el agente de Copia de seguridad de Azure [más recient
 Sí, las credenciales de almacén expiran a las 48 horas. Si el archivo caduca, inicie sesión en el Portal de Azure y descargue los archivos de credenciales de almacén desde el almacén.
 
 ## <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>¿Hay algún límite del número de almacenes que se pueden crear en cada suscripción de Azure? <br/>
-Sí. A partir de septiembre de 2016, se pueden crear 25 almacenes de copia de seguridad por cada suscripción. Puede crear hasta 25 almacenes de Recovery Services en cada una de las regiones admitidas de Azure Backup por suscripción. Si necesita más almacenes, cree una suscripción.
+Sí. A partir de septiembre de 2016, se pueden crear 25 almacenes de copia de seguridad por cada suscripción. Se pueden crear hasta 25 almacenes de Recovery Services por cada región admitida de Azure Backup por suscripción. Si necesita más almacenes, cree una suscripción.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>¿Hay algún límite en el número de servidores o máquinas que se puede registrar en cada almacén? <br/>
 Sí, se pueden registrar un máximo de 50 máquinas por almacén. Para las máquinas virtuales de IaaS de Azure, el límite es de 200 máquinas virtuales por almacén. Si necesita registrar más máquinas, cree otro almacén.
@@ -68,7 +68,7 @@ Los datos de copia de seguridad se envían al centro de datos del almacén en el
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?<br/>
 Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad configuradas actualmente.
-Registre el nuevo nombre del servidor en el almacén de Backup. Al registrar el nuevo nombre en el almacén, la primera operación de copia de seguridad es *completa*. Si necesita recuperar los datos de una copia de seguridad que se realizó anteriormente en un almacén con el nombre de servidor antiguo, puede utilizar la opción [**Otro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) del **Asistente para recuperar datos**.
+Registre el nuevo nombre del servidor en el almacén de Backup. Al registrar el nuevo nombre en el almacén, la primera operación de copia de seguridad es *completa*. Si necesita recuperar los datos de una copia de seguridad que se realizó anteriormente en un almacén con el nombre de servidor antiguo, puede utilizar la opción [**Otro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) del **Asistente para recuperar datos**.
 
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas? <br/>
 La copia de seguridad no se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
@@ -89,7 +89,6 @@ Se admiten los siguientes tipos:
 * Comprimidos + dispersos
 * Vínculos físicos: no compatibles, se omiten
 * Puntos de repetición: no compatibles, se omiten
-* Cifrados + comprimidos: no compatibles, se omiten
 * Cifrados + dispersos: no compatibles, se omiten
 * Secuencias comprimidas: no compatibles, se omiten
 * Secuencias dispersas: no compatibles, se omiten
@@ -149,8 +148,8 @@ No hay ningún límite en la cantidad de datos de los que se puede hacer una cop
 
 | S.No | Sistema operativo | Tamaño máximo del origen de datos |
 |:---:|:--- |:--- |
-| 1 |Windows Server 2012 o superior |54 400 GB |
-| 2 |Windows 8 o posterior |54 400 GB |
+| 1 |Windows Server 2012 o superior |54&400; GB |
+| 2 |Windows 8 o posterior |54&400; GB |
 | 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
 | 4 |Windows 7 |1700 GB |
 
@@ -277,6 +276,6 @@ La recuperación de máquinas virtuales clásica apunta a un almacén de copia d
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

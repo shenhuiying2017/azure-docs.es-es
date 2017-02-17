@@ -1,4 +1,4 @@
-1. Inicie sesión en [Azure Portal][Azure Portal].
+1. Inicie sesión en [Azure Portal][Azure portal].
 2. En el panel de navegación izquierdo del portal, haga clic en **Nuevo**, después, haga clic en **Enterprise Integration** y, finalmente, haga clic en **Relay**.
 3. En el cuadro de diálogo **Crear un espacio de nombres** , especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 4. En el campo **Suscripción** elija la suscripción de Azure en la que se va a crear el espacio de nombres.
@@ -18,6 +18,8 @@
    
     ![connection-string][connection-string]
 
+5. Repita el paso anterior, copie y pegue el valor de **clave principal** en una ubicación temporal para su uso posterior.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
@@ -25,9 +27,9 @@
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

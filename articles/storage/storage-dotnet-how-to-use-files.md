@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
+ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Introducción a Almacenamiento de archivos de Azure en Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ Para más información acerca de los objetivos de rendimiento y escalabilidad de
 ## <a name="video-using-azure-file-storage-with-windows"></a>Vídeo: Uso del almacenamiento de archivos de Azure con Windows
 Éste es un vídeo que muestra cómo crear y usar recursos compartidos de archivos de Azure en Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -605,7 +605,7 @@ Además, puede hacer referencia al [artículo de solución de problemas de archi
     SAS solo se admite a través de la API de REST o de las bibliotecas de cliente. Si el recurso compartido de archivos se monta a través del protocolo SMB, no se puede usar una SAS para delegar el acceso a su contenido.
 2. **¿Se pueden ver los recursos compartidos de archivos de Azure públicamente en Internet o solos se puede acceder a ellos desde Azure?**
    
-    Mientras el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (*p. ej.*, Windows 8 o Windows Server 2012), el recurso compartido de archivos estará disponible a través de Internet.  
+    Mientras el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (*p. ej.*, Windows 8 o Windows Server 2012), el recurso compartido de archivos estará disponible a través de Internet. Trabaje con su proveedor de ISP local para desbloquear el puerto. Mientras tanto, puede ver los archivos con el Explorador de Storage u otras aplicaciones de terceros como Cloudberry.
 3. **¿Cuenta el tráfico de red entre una máquina virtual de Azure y un número de recursos compartidos de archivos como ancho de banda externo que se carga a la suscripción?**
    
     Si el recurso compartido de archivos y la máquina virtual se encuentran en distintas regiones, el tráfico entre ellos se cargará como ancho de banda externo.
@@ -646,6 +646,12 @@ Además, puede hacer referencia al [artículo de solución de problemas de archi
     
     Puede hacer referencia al [artículo de solución de problemas de archivos de Azure](storage-troubleshoot-file-connection-problems.md) para ver una guía completa de solución de problemas.               
 
+16. **¿Cómo se puede habilitar el cifrado en el servidor para Azure Files?**
+
+    [El cifrado en el lado de servidor](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) está actualmente en versión preliminar. Durante la versión preliminar, la característica solo puede habilitarse para las cuentas de almacenamiento de Azure Resource Manager (ARM) recién creadas.
+    Puede habilitar esta característica en la cuenta de almacenamiento de Azure Resource Manager mediante Azure Portal. A finales de febrero, tenemos previsto habilitar el cifrado en [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [CLI de Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) o [la API de proveedor de recursos de Microsoft Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) para el almacenamiento de archivos. No se aplica ningún cargo adicional por habilitar esta característica. Cuando se habilita Storage Service Encryption para Azure File Storage, los datos se cifran automáticamente. 
+    Encuentre más información sobre Storage Service Encryption. También puede ponerse en contacto con ssediscussions@microsoft.com si tiene preguntas adicionales sobre la versión preliminar.
+
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
 
@@ -657,6 +663,7 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 * [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)
 * [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md)
 * [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md#create-and-manage-file-shares)
+* [Solución de problemas de Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referencia
 * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -670,6 +677,6 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

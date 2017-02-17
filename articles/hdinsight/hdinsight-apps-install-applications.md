@@ -1,6 +1,6 @@
 ---
-title: "Instalación de aplicaciones de Hadoop en HDInsight | Microsoft Docs"
-description: "Obtenga información acerca de cómo instalar aplicaciones de HDInsight en aplicaciones de HDInsight."
+title: "Instalación de aplicaciones de Hadoop de terceros en Azure HDInsight | Microsoft Docs"
+description: Aprenda a instalar aplicaciones de Hadoop de terceros en Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/23/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
-ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 815a9f357ec020ca02ef0b2bb553cb787ef9b131
 
 
 ---
-# <a name="install-hdinsight-applications"></a>Instalación de aplicaciones de HDInsight
-Una aplicación de HDInsight es una aplicación que los usuarios pueden instalar en un clúster de HDInsight basado en Linux. Estas aplicaciones puede desarrollarlas Microsoft, fabricantes de software independientes (ISV) o el propio usuario. En este artículo, aprenderá a instalar una aplicación publicada. Para instalar su propia aplicación, consulte [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md). 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Hadoop de terceros en Azure HDInsight
 
-En la actualidad hay tres aplicaciones publicadas:
+En este artículo, aprenderá a instalar una aplicación de Hadoop de terceros ya publicada en Azure HDInsight. Para obtener instrucciones sobre cómo instalar su propia aplicación, consulte [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
 
+Una aplicación de HDInsight es una aplicación que los usuarios pueden instalar en un clúster de HDInsight basado en Linux. Estas aplicaciones puede desarrollarlas Microsoft, fabricantes de software independientes (ISV) o el propio usuario.  
+
+En la actualidad hay cuatro aplicaciones publicadas:
+
+* **DATAIKU DDS on HDInsight**: Dataiku DSS (Data Science Studio) es un software que permite a los profesionales de datos (científicos de datos, analistas de negocios, desarrolladores, etc.) crear prototipos, compilar e implementar servicios muy específicos que transforman datos sin procesar en predicciones de negocio de gran impacto.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) ofrece a los analistas una forma interactiva de detectar, analizar y visualizar los resultados sobre macrodatos. Reúna más orígenes de datos con facilidad para detectar nuevas relaciones y obtener las respuestas que necesita rápidamente.
 * **Streamsets Data Collector para HDnsight** proporciona un entorno de desarrollo integrado (IDE) con multitud de características que permite diseñar, probar, implementar y administrar canalizaciones de ingesta todos con todos que crean una malla de datos de transmisión y por lotes, e incluyen varias de transformaciones internas de transmisión (sin tener que escribir código personalizado). 
 * **Cask CDAP 3.5 para HDInsight** proporciona la primera plataforma de integración unificada para macrodatos que reduce el tiempo para producción de aplicaciones de datos y lagos de datos en un 80 %. Esta aplicación solo admite con clústeres Standard HBase 3.4.
@@ -42,14 +46,14 @@ En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsig
 **Para instalar una aplicación de HDInsight**
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda.  Si no lo ve, haga clic en **Examinar** y en **Clústeres de HDInsight**.
+2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda.  Si no lo ve, haga clic en **Más servicios** y, después, en **Clústeres de HDInsight**.
 3. Haga clic en un clúster de HDInsight.  Si no tiene ninguno, debe crearlo primero.  Consulte [Crear clúster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Haga clic en **Aplicaciones** en la categoría **Configuraciones**. Puede ver una lista de las aplicaciones instaladas, en caso de que haya alguna.
+4. Haga clic en **Aplicaciones** en la categoría **Configuraciones**. Puede ver una lista de las aplicaciones instaladas, en caso de que haya alguna. Si no encuentra aplicaciones, significa que no hay aplicaciones para esta versión del clúster de HDInsight.
    
-    ![Menú de portal para aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    ![Menú del portal de aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Haga clic en **Agregar** en el menú de la hoja. 
    
-    ![Aplicaciones instaladas para aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+    ![Aplicaciones instaladas en aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
     Verá una lista de las aplicaciones de HDInsight existentes.
    
@@ -89,7 +93,7 @@ El portal muestra una lista de las aplicaciones de HDInsight instaladas para un 
 3. Haga clic en un clúster de HDInsight.
 4. En la hoja **Configuración**, haga clic en **Aplicaciones** en la categoría **General**. En la hoja Aplicaciones instaladas, aparecen todas las aplicaciones instaladas. 
    
-    ![Aplicaciones instaladas para aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    ![Aplicaciones instaladas en aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Haga clic en una de las aplicaciones instaladas para mostrar la propiedad. En la hoja de la propiedad, aparecen los siguientes elementos:
    
    * Nombre de la aplicación: el nombre de la aplicación.
@@ -118,6 +122,6 @@ Consulte [Solución de problemas de instalación](hdinsight-apps-install-custom-
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

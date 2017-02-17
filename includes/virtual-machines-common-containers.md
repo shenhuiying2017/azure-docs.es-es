@@ -1,9 +1,6 @@
+Las soluciones de nube de Azure están integradas en máquinas virtuales (emulación de hardware de equipo físico), para habilitar el empaquetado ágil de implementaciones de software y mejorar la consolidación de los recursos respecto al hardware físico. Los contenedores de [Docker](https://www.docker.com) y el ecosistema de Docker han aumentado considerablemente las formas de desarrollar, distribuir y administrar software distribuido. El código de la aplicación de un contenedor está aislado de la máquina virtual del host y de otros contenedores en la misma máquina virtual. Este aislamiento ofrece más agilidad en el desarrollo e implementación.
 
-
-
-Azure ofrece excelentes soluciones en la nube, integradas en máquinas virtuales &mdash;basadas en la emulación del hardware de un equipo físico&mdash; para habilitar el movimiento ágil de las implementaciones de software y mejorar ostensiblemente la consolidación de los recursos con respecto al hardware físico. En los últimos años, en gran medida gracias al enfoque [Docker](https://www.docker.com) de los contenedores y al ecosistema de Docker, la tecnología de contenedores de Linux ha ampliado considerablemente el número de maneras en que se puede desarrollar y administrar el software distribuido. El código de la aplicación de un contenedor está aislado de la máquina virtual de Azure de host, así como de otros contenedores de la misma máquina virtual, lo que ofrece más agilidad en el desarrollo e implementación en el nivel de la aplicación&mdash;además de la agilidad que ya proporcionan las máquinas virtuales de Azure.
-
-**Pero eso son viejas noticias.** La *nueva* nuevas is that Azure offers you even more Docker goodness:
+Azure ofrece los siguientes valores de Docker:
 
 * [Muchas](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) formas [diferentes](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de crear hosts Docker para que los contenedores se adapten a su situación
 * [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) crea clústeres de hosts de contenedor con orquestadores como **marathon** y **swarm**.
@@ -15,9 +12,9 @@ Y dado que se pueden crear mediante programación máquinas virtuales y contened
 Este artículo no solo explica estos conceptos en un nivel alto, también contiene cientos de vínculos para obtener más información, tutoriales y productos relacionados con el uso del contenedor y el clúster en Azure. Si solo desea los vínculos, están aquí, en las [herramientas para trabajar con contenedores](#tools-for-working-with-azure-vms-and-containers).
 
 ## <a name="the-difference-between-virtual-machines-and-containers"></a>Diferencia entre las máquinas virtuales y los contenedores
-Las máquinas virtuales se ejecutan en un entorno de virtualización de hardware aislado proporcionado por un [hipervisor](http://en.wikipedia.org/wiki/Hypervisor). En Azure, el servicio [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) se encarga de todo: usted solo debe crear las máquinas virtuales, para lo que tiene que elegir el sistema operativo y configurarlo para que se ejecute de la forma que desee&mdash;, o bien cargar la imagen de su máquina virtual personalizada. Las máquinas virtuales son una tecnología "curtida en mil batallas" comprobada, y hay muchas herramientas disponibles para administrar sistemas operativos y para configurar las aplicaciones que instalar y ejecuta. Todo lo que se ejecuta en una máquina virtual se oculta al sistema operativo host y, desde el punto de vista de una aplicación o usuario que se ejecuta dentro de una máquina virtual, la máquina virtual parece ser un equipo físico autónomo.
+Las máquinas virtuales se ejecutan en un entorno de virtualización de hardware aislado proporcionado por un [hipervisor](http://en.wikipedia.org/wiki/Hypervisor). En Azure, el servicio [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) atiende todo esto por usted: simplemente cree máquinas virtuales mediante la elección del sistema operativo y su configuración para ejecutarlo de la forma que desee &mdash;o cargando su propia imagen de máquina virtual personalizada. Las máquinas virtuales son una tecnología "curtida en mil batallas" comprobada, y hay muchas herramientas disponibles para administrar sistemas operativos y para configurar las aplicaciones que instalar y ejecuta. Todo lo que se ejecuta en una máquina virtual se oculta al sistema operativo host y, desde el punto de vista de una aplicación o usuario que se ejecuta dentro de una máquina virtual, la máquina virtual parece ser un equipo físico autónomo.
 
-Los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC)&mdash;que incluye los que se han creado y hospedado mediante herramientas de Docker y hay otros enfoques&mdash;no requieren un hipervisor para proporcionar aislamiento, ni lo usan para tal fin. En su lugar, el host contenedor utiliza las características de aislamiento de sistema de archivos y de proceso del kernel de Linux para exponer el contenedor (y su aplicación) solo determinadas características de kernel y su propio sistema de archivos aislado (como mínimo). Desde el punto de vista de una aplicación que se ejecuta dentro de un contenedor, el contenedor aparece como una instancia única del sistema operativo. Una aplicación contenida no puede ver procesos o cualquier otro recurso situado fuera de su contenedor.
+[Los contenedores Linux](http://en.wikipedia.org/wiki/LXC) &mdash;que incluyen los creados y hospedados mediante herramientas de docker, y también hay otros enfoques&mdash; no requieren ni usan un hipervisor para aislar. En su lugar, el host contenedor utiliza las características de aislamiento de sistema de archivos y de proceso del kernel de Linux para exponer el contenedor (y su aplicación) solo determinadas características de kernel y su propio sistema de archivos aislado (como mínimo). Desde el punto de vista de una aplicación que se ejecuta dentro de un contenedor, el contenedor aparece como una instancia única del sistema operativo. Una aplicación contenida no puede ver procesos o cualquier otro recurso situado fuera de su contenedor.
 
 Puesto que en este modelo de aislamiento y ejecución se comparte el kernel del equipo host Docker y debido a que ahora los requisitos de disco del contenedor no incluyen un sistema operativo completo, el tiempo de inicio del contenedor y la sobrecarga de almacenamiento de disco requerido son muy inferiores.
 
@@ -34,10 +31,10 @@ Bueno, sí&mdash;y no. Los contenedores, al igual que cualquier otra tecnología
 * la rapidez y la confianza con la que se puede probar
 * la rapidez y la confianza con la que se puede implementar
 
-Dicho esto, recuerde que los contenedores se ejecutan en un host de contenedor&mdash;en un sistema operativo, y en Azure eso equivale a una máquina virtual de Azure. Incluso si ya le gusta la idea de los contenedores, va a necesitar una infraestructura de máquina virtual que hospede los contenedores, pero los beneficios consisten en que a los contenedores no les importa en qué máquina virtual se ejecutan (aunque si el contenedor desea un entorno de ejecución Windows o Linux será importante, por ejemplo).
+Dicho esto, recuerde que los contenedores se ejecutan en un host de contenedor &mdash;un sistema operativo, y en Azure lo que significa una máquina virtual de Azure. Incluso si ya le gusta la idea de los contenedores, va a necesitar una infraestructura de máquina virtual que hospede los contenedores, pero los beneficios consisten en que a los contenedores no les importa en qué máquina virtual se ejecutan (aunque si el contenedor desea un entorno de ejecución Windows o Linux será importante, por ejemplo).
 
 ## <a name="what-are-containers-good-for"></a>¿Para qué son buenos los contenedores?
-Son excelentes para muchas cosas, pero favorecen&mdash;al igual que [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash;, la creación de aplicaciones distribuidas de un solo servicio y orientadas a microservicios, en las que el diseño de la aplicación se basa en partes más pequeñas que admiten composición, en lugar de en componentes mayores y que están acoplados más fuertemente.
+Son excelentes para muchas cosas, pero favorecen &mdash;al igual que [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash; la creación de aplicaciones distribuidas de un solo servicio y orientadas a microservicio. En ellas, el diseño de la aplicación está basado en partes más pequeñas que admiten composición en lugar de en componentes más grandes y con acoplamiento más fuerte.
 
 Esto es especialmente cierto en entornos de nube pública como Azure, en los que se alquilan máquinas virtuales cuando y donde lo desea. No sólo obtiene aislamiento y una implementación rápida y herramientas de orquestación, pero puede tomar decisiones de infraestructura de aplicaciones más eficaces.
 
@@ -64,7 +61,7 @@ Los profesionales de TI y de operaciones también se benefician de la combinaci�
 * se puede verificar que el código independiente es idéntico
 * los servicios independientes pueden iniciarse, detenerse y moverse rápidamente entre entornos de producción, pruebas y desarrollo
 
-Características como estas&mdash;existen más&mdash;atraen a las empresas establecidas, en las que las organizaciones de tecnología de la información profesionales tienen la tarea de encajar recursos&mdash;incluidos la potencia de procesamiento pura&mdash;en las tareas requeridas no solo para permanecer en el negocio, sino también para aumentar la satisfacción del cliente y el alcance. Las pequeñas empresas, los ISV y las nuevas empresas tienen exactamente el mismo requisito, pero es posible que lo describan de manera diferente.
+Características como estas &mdash;and existen más&mdash; emocionan a las empresas establecidas, en las que las organizaciones de tecnología de la información profesionales tienen la tarea de encajar recursos &mdash;incluidos la potencia de procesamiento pura&mdash; en las tareas requeridas no solo permanecen en la empresa, sino que aumentan la satisfacción del cliente y el alcance. Las pequeñas empresas, los ISV y las nuevas empresas tienen exactamente el mismo requisito, pero es posible que lo describan de manera diferente.
 
 ## <a name="what-are-virtual-machines-good-for"></a>¿Para qué resultan buenas las máquinas virtuales?
 Las máquinas virtuales son la espina dorsal de la informática en nube, y eso no cambia. Si las máquinas virtuales se inician más lentamente, tienen una mayor superficie de disco y no se asignan directamente a una arquitectura de microservicios, tienen ventajas muy importantes:
@@ -77,7 +74,7 @@ Las máquinas virtuales son la espina dorsal de la informática en nube, y eso n
 El último elemento es importante, porque una aplicación independiente todavía requiere un sistema operativo específico y un tipo de CPU, dependiendo de las llamadas que efectuará la aplicación. Es importante recordar que los contenedores se instalan en máquinas virtuales debido a que contienen las aplicaciones que desea implementar; los contenedores no son reemplazos para máquinas virtuales ni sistemas operativos.
 
 ## <a name="high-level-feature-comparison-of-vms-and-containers"></a>Comparación de características de alto nivel de máquinas virtuales y contenedores
-En la siguiente tabla se describe a muy alto nivel el tipo de diferencias de características que&mdash;sin mucho trabajo adicional&mdash;existen entre las máquinas virtuales y los contenedores de Linux. Tenga en cuenta que es posible que algunas características resulten más o menos deseables dependiendo de las necesidades de su propia aplicación, y que al igual que con todo el software, el trabajo adicional proporciona una mayor compatibilidad de características, especialmente en el área de la seguridad.
+En la siguiente tabla se describe a muy alto nivel el tipo de diferencias de características que &mdash;sin mucho trabajo adicional&mdash; existen entre máquinas virtuales y contenedores de Linux. Tenga en cuenta que es posible que algunas características resulten más o menos deseables dependiendo de las necesidades de su propia aplicación, y que al igual que con todo el software, el trabajo adicional proporciona una mayor compatibilidad de características, especialmente en el área de la seguridad.
 
 | Característica | Máquinas virtuales | Contenedores |
 |:--- | --- | --- |
@@ -90,14 +87,14 @@ En la siguiente tabla se describe a muy alto nivel el tipo de diferencias de car
 ## <a name="creating-and-managing-groups-of-vms-and-containers"></a>Creación y administración de grupos de máquinas virtuales y contenedores
 En este momento, cualquier arquitecto, desarrollador o especialista en operaciones de TI podrá pensar: "Puedo automatizar TODO esto; esta es realmente un centro de datos como servicio".
 
-Tiene razón, puede serlo, y puede haber un número indeterminado de sistemas, muchos de las cuales es posible que ya esté usando, que puedan administrar grupos de máquinas virtuales de Azure e inyectar código personalizado mediante scripts, a menudo con [CustomScriptingExtension para Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension para Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Puede automatizar&mdash;y quizás ya lo haya hecho&mdash; las implementaciones de Azure mediante los scripts de PowerShell o de la CLI de Azure.
+Tiene razón, puede serlo, y puede haber un número indeterminado de sistemas, muchos de las cuales es posible que ya esté usando, que puedan administrar grupos de máquinas virtuales de Azure e inyectar código personalizado mediante scripts, a menudo con [CustomScriptingExtension para Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension para Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Puede automatizar &mdash;y es posible que ya lo haya hecho&mdash; sus implementaciones de Azure mediante PowerShell o scripts de la CLI de Azure.
 
 Estas capacidades a menudo se migran posteriormente a herramientas como [Puppet](https://puppetlabs.com/) y [Chef](https://www.chef.io/) para automatizar la creación y configuración de máquinas virtuales a escala. (Consulte algunos vínculos sobre [cómo usar estas herramientas con Azure](#tools-for-working-with-containers)).
 
 ### <a name="azure-resource-group-templates"></a>Plantillas de grupo de recursos de Azure
 Más recientemente, Azure publicó la API de REST de [Administración de recursos de Azure](../articles/resource-manager-deployment-model.md) y herramientas actualizadas de PowerShell y de la CLI de Azure para que sea más fácil usarlo. Puede implementar, modificar o volver a implementar topologías de toda la aplicación mediante [plantillas de Azure Resource Manager](../articles/resource-group-authoring-templates.md) con la API de administración de recursos de Azure usando:
 
-* [Azure Portal mediante plantillas](https://github.com/Azure/azure-quickstart-templates)&mdash;sugerencia, use el botón "DeployToAzure"
+* [Azure Portal mediante plantillas](https://github.com/Azure/azure-quickstart-templates) &mdash;sugerencia, use el botón "Implementar en Azure"
 * la [CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * los [módulos de Azure PowerShell](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -196,11 +193,11 @@ Configuración, administración del clúster y orquestación de contenedor:
 Desproteja [Docker](https://www.docker.com) y [Contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
 <!--Anchors-->
-[microservicios]: http://martinfowler.com/articles/microservices.html
-[microservicio]: http://martinfowler.com/articles/microservices.html
+[microservices]: http://martinfowler.com/articles/microservices.html
+[microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

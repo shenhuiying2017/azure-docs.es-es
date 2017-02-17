@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/19/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
+ms.sourcegitcommit: 67e50a09d9863fe081115c0f303ac63b2b6113f2
+ms.openlocfilehash: 32a9069f8572ca5c01af9e80dbe92e88727375aa
 
 
 ---
@@ -77,6 +77,8 @@ Antes de poder habilitar y usar los servicios del proxy de la aplicación, debe 
      ![Servicios de conector del proxy de la aplicación (captura de pantalla)](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. Haga clic en **Finalizar** en la ventana de instalación.
 
+Para más información sobre los conectores, consulte [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md) (Descripción de los conectores del proxy de aplicación de Azure AD). 
+
 Si desea tener alta disponibilidad, debe implementar al menos dos conectores. Para implementar más conectores, repita los pasos 2 y 3. Cada conector debe estar registrado de manera independiente.
 
 Si desea desinstalar el conector, desinstale el servicio de conector y el servicio de actualizador. Reinicie el equipo para quitar completamente el servicio.
@@ -89,6 +91,6 @@ Si tiene aplicaciones que están en redes independientes o en diferentes ubicaci
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

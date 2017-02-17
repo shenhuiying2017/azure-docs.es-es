@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -87,6 +87,14 @@ Azure DocumentDB permite crear lógica de aplicaciones como programas con nombre
 
 La ejecución de JavaScript en DocumentDB se modela de acuerdo con los conceptos admitidos por los sistemas de base de datos relacionales, con JavaScript como un reemplazo moderno de Transact-SQL. Toda la lógica de JavaScript se ejecuta en un entorno de transacciones ACID con aislamiento de la instantánea. Durante el transcurso de esta ejecución, si JavaScript lanza una excepción, entonces se cancela toda la transacción.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>¿Hay cursos en línea de DocumentDB?
+
+Sí, en la [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) hay un curso de Azure DocumentDB. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>Pasos siguientes
 ¿Ya tiene una cuenta de Azure? Entonces, puede empezar a trabajar con DocumentDB en [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) mediante la [creación de una cuenta de base de datos de DocumentDB](documentdb-create-account.md).
 
@@ -103,6 +111,6 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

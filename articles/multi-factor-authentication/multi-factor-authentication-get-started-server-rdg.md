@@ -1,22 +1,22 @@
 ---
-title: Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
+title: RDG y Servidor Azure MFA mediante RADIUS | Microsoft Docs
 description: "Se trata de la página de Azure Multi-Factor Authentication que le ayudará en la implementación de la puerta de enlace de escritorio remoto (RD) y el servidor Azure Multi-Factor Authentication mediante RADIUS."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
 
 
 ---
@@ -37,7 +37,7 @@ La puerta de enlace de escritorio remoto usa NPS para enviar la solicitud de RAD
 4. Copie esta directiva para crear una nueva. En la nueva directiva, agregue una condición que haga coincidir el nombre descriptivo del cliente con el nombre descriptivo establecido en el paso 2 anterior para el cliente RADIUS del servidor Azure Multi-Factor Authentication. Cambie el proveedor de autenticación a Equipo Local. Esta directiva garantiza que cuando se recibe una solicitud RADIUS desde el servidor Azure Multi-Factor Authentication, la autenticación se produce localmente en lugar de enviar una solicitud RADIUS al servidor Azure Multi-Factor Authentication que daría lugar a una condición de bucle. Para evitar la condición de bucle, esta nueva directiva debe situarse POR ENCIMA de la directiva original que la reenvía al servidor Multi-Factor Authentication.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Configuración de Azure Multi-Factor Authentication
-- - -
+
 El servidor Azure Multi-Factor Authentication se configura como un proxy RADIUS entre la puerta de enlace de escritorio remoto y NPS.  Debe instalarse en un servidor unido a un dominio independiente del servidor de puerta de enlace de escritorio remoto. Use el procedimiento siguiente para configurar el servidor Azure Multi-Factor Authentication.
 
 1. Abra el servidor Azure Multi-Factor Authentication y haga clic en el icono de autenticación RADIUS. Marque la casilla de verificación Habilitar autenticación RADIUS.
@@ -47,9 +47,14 @@ El servidor Azure Multi-Factor Authentication se configura como un proxy RADIUS 
 
 ![Autenticación Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- Integración de Azure MFA y [aplicaciones web de IIS](multi-factor-authentication-get-started-server-iis.md)
+
+- Obtenga respuestas en las [P+F sobre Azure Multi-Factor Authentication](multi-factor-authentication-faq.md).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

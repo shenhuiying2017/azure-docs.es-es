@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 02/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3f550639f0e48f34200ad480f94524df2cc0b2b6
+ms.sourcegitcommit: 352e1a51787cc369b605fb16b1dfccbb8ff7e12e
+ms.openlocfilehash: 3342516b4f2cf7342761573553901d03e66efc2a
 
 
 ---
@@ -43,6 +43,13 @@ Para obtener información, consulte:
 De hecho, todos los usuarios que haya habilitado para Microsoft Online Services están definidos como cuentas de usuario en una o más instancias de Azure AD. Puede habilitar gratis en estas cuentas funcionalidades de Azure AD, como el acceso a aplicaciones en la nube.
 
 Además, los servicios de pago de Azure AD (por ejemplo, Azure AD Básico, Premium, EMS, etc.) complementan a otros servicios de Online Services, como Office 365 y Microsoft Azure, con completas soluciones de administración y seguridad para empresas.
+
+- - -
+
+- - -
+**P: ¿Existe un informe que muestra cuándo expirarán mis licencias de usuario de Azure AD?**
+
+**R**: No.  Actualmente no está disponible.
 
 - - -
 ## <a name="getting-started-with-hybrid-azure-ad"></a>Introducción a Azure AD híbrido
@@ -161,6 +168,6 @@ Para más información, consulte [Automatización del aprovisionamiento y desapr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

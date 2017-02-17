@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,7 +29,7 @@ Para crear una aplicación que acepte registros e inicios de sesión de consumid
 ## <a name="navigate-to-the-b2c-features-blade"></a>Navegación a la hoja de características B2C
 Si tiene la hoja de características B2C anclada al Panel de inicio, la verá en cuanto inicie sesión en el [Portal de Azure](https://portal.azure.com/) como administrador global del inquilino B2C.
 
-Otra manera de acceder a la hoja es hacer clic en **Examinar** y luego en **Azure AD B2C** en el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com/).
+Otra manera de acceder a la hoja es hacer clic en **Más servicios** y luego buscar **Azure AD B2C** en el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > Necesita ser administrador global del inquilino B2C para poder acceder a la hoja Características B2C. Un administrador global de cualquier otro inquilino o un usuario de cualquier inquilino no puede acceder a dicha hoja.  Puede cambiar a su inquilino B2C usando el selector de inquilinos en la esquina superior derecha del Portal de Azure.
@@ -40,7 +40,7 @@ Otra manera de acceder a la hoja es hacer clic en **Examinar** y luego en **Azur
 1. En la hoja de características B2C del Portal de Azure, haga clic en **Aplicaciones**.
 2. Haga clic en **+Agregar** en la parte superior de la hoja.
 3. Escriba un **Nombre** para la aplicación que la describa a los consumidores. Por ejemplo, puede escribir "Aplicación Contoso B2C".
-4. Si va a escribir una aplicación basada en web, mueva el conmutador **Incluir aplicación web/API web** a **Sí**. Las **Direcciones URL de respuesta** son puntos de conexión en los que Azure AD B2C devolverá los tokens que su aplicación solicite. Por ejemplo, escriba: `https://localhost:44321/`. Si la aplicación web también llamará a algunas API web protegidas por Azure AD B2C, también querrá crear un **secreto de aplicación**; para ello, haga clic en el botón **Generar clave**.
+4. Si va a escribir una aplicación basada en web, mueva el conmutador **Incluir aplicación web/API web** a **Sí**. Las **Direcciones URL de respuesta** son puntos de conexión en los que Azure AD B2C devolverá los tokens que su aplicación solicite. Por ejemplo, escriba: `https://localhost:44316/`. Si la aplicación web también llamará a algunas API web protegidas por Azure AD B2C, también querrá crear un **secreto de aplicación**; para ello, haga clic en el botón **Generar clave**.
    
    > [!NOTE]
    > Un **secreto de aplicación** es una credencial de seguridad importante y debe protegerse correctamente.
@@ -63,6 +63,6 @@ Ahora que tiene una aplicación registrada en Azure AD B2C, puede completar uno 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
