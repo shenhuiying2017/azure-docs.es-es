@@ -1,10 +1,10 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con el firewall de aplicaciones web mediante el portal | Microsoft Docs"
+title: "Creación de una instancia de Azure Application Gateway con el firewall de aplicaciones web | Microsoft Docs"
 description: Aprenda a crear una puerta de enlace de aplicaciones con el firewall de aplicaciones web mediante el portal.
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 
 ---
+
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Creación de una puerta de enlace de aplicaciones con el firewall de aplicaciones web mediante el portal
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones. La aplicación web protege de muchas de las vulnerabilidades web de OWASP Top 10.
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel&7;. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
 La aplicación proporciona numerosas características de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (capa de sockets seguros), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples.
 Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
 
@@ -47,8 +46,6 @@ En el segundo escenario, aprenderá a [crear una puerta de enlace de aplicacione
 
 > [!NOTE]
 > La configuración adicional de la puerta de enlace de aplicaciones, incluidos los sondeos personalizados sobre el estado, las direcciones del grupo de back-end y las reglas se realiza después de que se configura la puerta de enlace de aplicaciones, no durante la implementación inicial.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -79,8 +76,6 @@ La configuración para actualizar una puerta de enlace de aplicaciones existente
 
 > [!NOTE]
 > Para ver los registros del firewall de aplicaciones web, se deben habilitar los diagnósticos y se debe seleccionar ApplicationGatewayFirewallLog. Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el SLA no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. Las puertas de enlace pequeñas no están disponibles cuando se usa el firewall de aplicaciones web.
-> 
-> 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>crear una puerta de enlace de aplicaciones con el firewall de aplicaciones web
 
@@ -114,8 +109,6 @@ La información necesaria para la configuración básica es:
 
 > [!NOTE]
 > Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el SLA no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. No se admiten puertas de enlace pequeñas en escenarios de firewall de aplicaciones web.
-> 
-> 
 
 ### <a name="step-3"></a>Paso 3
 
@@ -212,6 +205,6 @@ Para aprender a configurar la descarga de SSL y eliminar la cara descripción de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

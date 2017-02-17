@@ -1,6 +1,6 @@
 ---
-title: Controlar el estado en las plantillas de Resource Manager | Microsoft Docs
-description: Muestra los enfoques recomendados para usar objetos complejos a fin de compartir datos de estado con plantillas vinculadas y plantillas del Administrador de recursos de Azure
+title: Paso de valores complejos entre plantillas de Azure | Microsoft Docs
+description: Muestra los enfoques recomendados para usar objetos complejos a fin de compartir datos de estado con plantillas vinculadas y plantillas de Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cf2f6a82df28047ba7b50dc2cfd6fc2f0dfad794
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 
 ---
-# <a name="sharing-state-in-azure-resource-manager-templates"></a>Uso compartido del estado en las plantillas del Administrador de recursos de Azure
+# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Uso compartido del estado en y desde las plantillas de Azure Resource Manager
 En este tema se muestran los procedimientos recomendados para administrar y compartir el estado en las plantillas. Los parámetros y variables que se muestran en este tema son ejemplos del tipo de objetos que puede definir para organizar con facilidad sus requisitos de implementación. Desde estos ejemplos, puede implementar sus propios objetos con valores de propiedad que tengan sentido para su entorno.
 
 Este tema forma parte de un artículo más extenso. Para leer el documento completo, descargue [World Class Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Consideraciones sobre las plantillas de Resource Manager de talla mundial y prácticas comprobadas).
@@ -415,6 +415,6 @@ Al definir la máquina virtual, establece **osProfile** a la variable que creó.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

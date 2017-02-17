@@ -1,5 +1,5 @@
 ---
-title: "Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows | Microsoft Docs"
+title: "Uso de Azure PowerShell para habilitar diagnósticos en una máquina virtual Windows | Microsoft Docs"
 services: virtual-machines-windows
 documentationcenter: 
 description: "Aprenda a usar PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows"
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 8c4bc48c6ddb9bc03198f0f6c630b05d987a4b43
+ms.sourcegitcommit: ee413eef16291f98f3d5b1bd54602f167ebe87f7
+ms.openlocfilehash: 795d70951452155ebc58100063c0720a055e1405
 
 
 ---
@@ -201,6 +201,6 @@ La configuración debe actualizarse para incluir lo siguiente:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

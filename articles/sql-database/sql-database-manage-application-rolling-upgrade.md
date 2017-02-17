@@ -1,5 +1,5 @@
 ---
-title: "Soluciones de recuperación ante desastres en la nube: replicación geográfica activa de SQL Database | Microsoft Docs"
+title: 'Actualizaciones graduales de aplicaciones: Azure SQL Database | Microsoft Docs'
 description: "Aprenda a usar la replicación geográfica en Base de datos SQL para admitir las actualizaciones en línea de la aplicación en la nube."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
+ms.sourcegitcommit: 66c37501b053cd9a8b4487c34e8914b75f3058ee
+ms.openlocfilehash: a99d3f9b8df5cfff98e76fe3931304221b2ca6f4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 > 
 > 
 
-Aprenda a usar la [replicación geográfica](sql-database-geo-replication-overview.md) en Base de datos SQL para permitir actualizaciones graduales de la aplicación en la nube. Como la actualización es una operación problemática, pues debe ser parte del diseño y planeamiento de continuidad. En este artículo veremos dos métodos diferentes de organizar el proceso de actualización y comentaremos las ventajas y desventajas de cada opción. Para este artículo, usaremos una aplicación simple que consta de un sitio web conectado a una base de datos independiente como su capa de datos. Nuestro objetivo consiste en actualizar la versión 1 de la aplicación a la versión 2 sin que se observe ningún impacto importante en la experiencia del usuario final. 
+Aprenda a usar la [replicación geográfica](sql-database-geo-replication-overview.md) en Base de datos SQL para permitir actualizaciones graduales de la aplicación en la nube. Como la actualización es una operación problemática, pues debe ser parte del diseño y planeamiento de continuidad. En este artículo veremos dos métodos diferentes de organizar el proceso de actualización y comentaremos las ventajas y desventajas de cada opción. Para este artículo, usaremos una aplicación simple que consta de un sitio web conectado a una base de datos única como su capa de datos. Nuestro objetivo consiste en actualizar la versión 1 de la aplicación a la versión 2 sin que se observe ningún impacto importante en la experiencia del usuario final. 
 
 Al evaluar las opciones de actualización, se deben considerar los factores siguientes:
 
@@ -155,6 +155,6 @@ Las páginas siguientes le ayudarán a comprender las operaciones específicas n
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

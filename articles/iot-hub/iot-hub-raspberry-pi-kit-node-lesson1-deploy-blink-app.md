@@ -1,5 +1,7 @@
 ---
-title: "Creación e implementación de la aplicación de intermitencia | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Conexión de Raspberry Pi (Node) a Azure IoT: Lección 1: Implementación de la aplicación | Microsoft Docs"
 description: "Clone la aplicación Node.js de ejemplo de GitHub y use Gulp para implementar esta aplicación en la placa de Raspberry Pi 3. Esta aplicación de ejemplo hace parpadear el LED conectado a la placa cada dos segundos."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 09554b64f31c909e413f5a93dfd6d74186bf6e21
-ms.openlocfilehash: b9e49d3637b3e3aff1a89e57c125a59877544e01
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -153,6 +155,6 @@ Ha instalado las herramientas necesarias para usar Pi e implementado una aplicac
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

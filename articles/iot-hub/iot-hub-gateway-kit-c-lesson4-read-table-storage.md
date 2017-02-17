@@ -1,6 +1,6 @@
 ---
-title: Lectura de mensajes guardados en Azure Table Storage | Microsoft Docs
-description: "Guarde los mensajes de Intel NUC en IoT Hub, escríbalos en Azure Table Storage y léalos en la nube."
+title: "Dispositivo SensorTag y puerta de enlace de Azure IoT: Lección 4: Table Storage | Microsoft Docs"
+description: "Guarde mensajes de Intel NUC en su IoT Hub, escríbalos en una tabla de Azure Table Storage y, después, léalos desde la nube."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: a1007ac2db53c2c378cf4312b73765ef490e0ad6
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
 
 
 ---
 
-# <a name="read-messages-persisted-in-azure-table-storage"></a>Lectura de los mensajes que se conservan en Azure Table Storage
+# <a name="read-messages-persisted-in-azure-table-storage"></a>Lectura de mensajes guardados en Azure Table Storage
 
 ## <a name="what-you-will-do"></a>Lo que hará
 
@@ -33,19 +33,19 @@ Si tiene problemas, busque soluciones en la [página de solución de problemas](
 
 ## <a name="what-you-will-learn"></a>Lo qué aprenderá
 
-Cómo utilizar la herramienta de Gulp para ejecutar el código de ejemplo para leer mensajes en Azure Table Storage.
+Cómo utilizar la herramienta Gulp para ejecutar el ejemplo de código con la finalidad de leer mensajes en Azure Table Storage.
 
 ## <a name="what-you-need"></a>Lo que necesita
 
 Ha realizado correctamente las tareas siguientes:
 
-- [Creación de una instancia de Azure Function App y una cuenta de Azure Storage](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md).
+- [Creación de una cuenta de almacenamiento de Azure y una Azure Function App](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md).
 - [Ejecución de la aplicación de ejemplo de puerta de enlace](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md).
-- [Lectura de mensajes en IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md).
+- [Lectura de mensajes desde el IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
 
 ## <a name="get-your-azure-storage-connection-strings"></a>Obtener cadenas de conexión de Azure Storage
 
-Al principio de esta lección, creó correctamente una cuenta de Azure Storage. Para obtener la cadena de conexión de la cuenta de Azure Storage, ejecute los siguientes comandos:
+Al principio de esta lección, creó correctamente una cuenta de almacenamiento de Azure. Para obtener la cadena de conexión de la cuenta de almacenamiento de Azure, ejecute los siguientes comandos:
 
 * Enumere todas las cuentas de almacenamiento.
 
@@ -63,7 +63,7 @@ Use iot-gateway como el valor de `{resource group name}` si no ha cambiado el va
 
 ## <a name="configure-the-device-connection"></a>Configuración de la conexión de dispositivos
 
-Actualice el archivo `config-azure.json` para que el código de ejemplo que se ejecuta en el equipo host pueda leer el mensaje en Azure Table Storage. Para configurar la conexión de dispositivos, siga estos pasos:
+Actualice el archivo `config-azure.json` para que el ejemplo de código que se ejecuta en el equipo host pueda leer el mensaje de su instancia de Azure Table Storage. Para configurar la conexión de dispositivos, siga estos pasos:
 
 1. Genere el archivo de configuración del dispositivo `config-azure.json` mediante la ejecución de los comandos siguientes:
 
@@ -76,9 +76,9 @@ Actualice el archivo `config-azure.json` para que el código de ejemplo que se e
 
    ![configuración](media/iot-hub-gateway-kit-lessons/lesson4/config_azure.png)
 
-2. Reemplace `[Azure storage connection string]` con la cadena de conexión de Azure Storage obtenida.
+2. Sustituya `[Azure storage connection string]` por la cadena de conexión de Azure Storage obtenida.
 
-   `[IoT hub connection string]` ya se debe haber reemplazado en la sección [Lectura de mensajes en Azure IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) de la lección 3.
+   `[IoT hub connection string]` ya se debe haber sustituido en la sección [Lectura de mensajes en Azure IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) de la lección&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Lectura de mensajes en Azure Table Storage
 
@@ -98,9 +98,9 @@ Todos los mensajes que se envían y reciben se muestran al instante en la misma 
 
 ## <a name="summary"></a>Resumen
 
-Ha ejecutado el código de ejemplo para leer los mensajes en Azure Table Storage guardados por la instancia de Azure Function App.
+Ha ejecutado el ejemplo de código para leer los mensajes en Azure Table Storage guardados por la aplicación de Azure Functions.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

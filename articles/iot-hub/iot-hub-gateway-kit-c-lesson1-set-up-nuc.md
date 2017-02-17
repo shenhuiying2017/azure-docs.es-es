@@ -1,5 +1,5 @@
 ---
-title: "Configuración de Intel NUC como puerta de enlace de IoT de Azure | Microsoft Docs"
+title: "Dispositivo SensorTag y puerta de enlace de Azure IoT: Lección 1: Configuración de NUC | Microsoft Docs"
 description: "Configure Intel NUC para que funcione como puerta de enlace de IoT entre un sensor e IoT Hub de Azure para recopilar información del sensor y enviarla a IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: ef479f503ac4e911f3a9d311d0f436d95396eedd
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 53e709c5134eec29d71be1d75353d606aa651273
 
 
 ---
@@ -138,6 +138,6 @@ Si tiene problemas, busque soluciones en la [página de solución de problemas](
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

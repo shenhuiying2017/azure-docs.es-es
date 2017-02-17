@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
-ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: 19e8c9de137e10abb563fcd60cf89502dbf94cfd
 
 
 ---
@@ -64,7 +64,7 @@ Existen bases de datos de gráficos especiales que pueden [ejecutarse en Azure](
 
 Además, puede obtenerse con una sola consulta y sin combinaciones. Esto es mucho más sencillo, directo, económico y requiere menos recursos para conseguir un mejor resultado.
 
-Azure DocumentDB se asegura de que todas las propiedades se indexen con su [indexación automática](documentdb-indexing.md), que puede ser incluso [personalizada](documentdb-indexing-policies.md). El enfoque sin esquema nos permite almacenar documentos con estructuras dinámicas y diferentes. Así, por ejemplo, si en el futuro queremos que las publicaciones tengan una lista de categorías o hashtags asociados, DocumentDB gestionará los nuevos documentos con los atributos agregados y sin ningún esfuerzo adicional requerido por nuestra parte.
+Azure DocumentDB se asegura de que todas las propiedades se indexen con su indexación automática, que puede ser incluso [personalizada](documentdb-indexing-policies.md). El enfoque sin esquema nos permite almacenar documentos con estructuras dinámicas y diferentes. Así, por ejemplo, si en el futuro queremos que las publicaciones tengan una lista de categorías o hashtags asociados, DocumentDB gestionará los nuevos documentos con los atributos agregados y sin ningún esfuerzo adicional requerido por nuestra parte.
 
 Los comentarios en una publicación pueden tratarse del mismo modo que otras publicaciones con una propiedad primaria (esto simplifica la asignación de objetos). 
 
@@ -168,7 +168,7 @@ El paso intermedio se denomina usuario: son todos los datos que se usarán en la
 
 El mayor es el usuario extendido. Incluye toda la información crítica del usuario además de otros datos que no es necesario leer rápidamente o cuyo uso es eventual (como el proceso de inicio de sesión). Estos datos pueden almacenarse fuera de DocumentDB, en la base de datos SQL de Microsoft Azure o en tablas de almacenamiento de Azure.
 
-¿Por qué habríamos de dividir el usuario e incluso almacenar esta información en diferentes lugares? Porque el espacio de almacenamiento en DocumentDB [no es infinito](documentdb-limits.md) y, desde el punto de vista del rendimiento, cuanto mayores sean los documentos, más costosas serán las consultas. No sobrecargue los documentos; que tengan la información adecuada para realizar todas las consultas dependientes del rendimiento de la red social, y almacene el resto de la información adicional para escenarios eventuales, como modificaciones del perfil completo, inicios de sesión e incluso minería de datos para análisis de uso e iniciativas de macrodatos. No nos importa que la recopilación de información para minería de datos sea lenta, ya que se ejecuta en la Base de datos SQL de Microsoft Azure. Lo que sí nos importa es que los usuarios tengan una experiencia rápida y ligera. La apariencia de un usuario almacenado en DocumentDB sería la siguiente:
+¿Por qué habríamos de dividir el usuario e incluso almacenar esta información en diferentes lugares? Porque el espacio de almacenamiento en DocumentDB no es infinito y, desde el punto de vista del rendimiento, cuanto mayores sean los documentos, más costosas serán las consultas. No sobrecargue los documentos; que tengan la información adecuada para realizar todas las consultas dependientes del rendimiento de la red social, y almacene el resto de la información adicional para escenarios eventuales, como modificaciones del perfil completo, inicios de sesión e incluso minería de datos para análisis de uso e iniciativas de macrodatos. No nos importa que la recopilación de información para minería de datos sea lenta, ya que se ejecuta en la Base de datos SQL de Microsoft Azure. Lo que sí nos importa es que los usuarios tengan una experiencia rápida y ligera. La apariencia de un usuario almacenado en DocumentDB sería la siguiente:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -200,7 +200,7 @@ Afortunadamente, y gracias a que estamos usando Azure DocumentDB, podemos implem
 
 ¿Por qué es tan fácil?
 
-Azure Search implementa lo que llaman "[indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx)"; es decir, procesos en segundo plano que se enlazan en los repositorios de datos y automáticamente agregan, actualizan o quitan objetos en los índices. Son compatibles con [indexadores de Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores de Blobs de Azure](../search/search-howto-indexing-azure-blob-storage.md) y, afortunadamente, [indexadores de Azure DocumentDB](documentdb-search-indexer.md). La transición de información de DocumentDB a Azure Search es sencilla porque ambos almacenan la información en formato JSON; tan solo debemos [crear nuestro índice](../search/search-create-index-portal.md) y asignar los atributos de los documentos que deseamos indexar. En cuestión de minutos (según el tamaño de los datos), todo el contenido estará disponible para buscarse con la mejor solución de búsqueda como servicio en la infraestructura de nube. 
+Azure Search implementa lo que llaman "[indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx)"; es decir, procesos en segundo plano que se enlazan en los repositorios de datos y automáticamente agregan, actualizan o quitan objetos en los índices. Son compatibles con [indexadores de Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores de Blobs de Azure](../search/search-howto-indexing-azure-blob-storage.md) y, afortunadamente, [indexadores de Azure DocumentDB](../search/search-howto-index-documentdb.md). La transición de información de DocumentDB a Azure Search es sencilla porque ambos almacenan la información en formato JSON; tan solo debemos [crear nuestro índice](../search/search-create-index-portal.md) y asignar los atributos de los documentos que deseamos indexar. En cuestión de minutos (según el tamaño de los datos), todo el contenido estará disponible para buscarse con la mejor solución de búsqueda como servicio en la infraestructura de nube. 
 
 Para obtener más información sobre Búsqueda de Azure, puede consultar la guía [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)(Guía de búsqueda de Hitchhiker).
 
@@ -234,6 +234,6 @@ También puede obtener más información sobre DocumentDB siguiendo la [ruta de 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

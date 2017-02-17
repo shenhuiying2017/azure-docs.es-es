@@ -1,5 +1,5 @@
 ---
-title: "Preparación del equipo host y de IoT Hub Azure | Microsoft Docs"
+title: "Dispositivo SensorTag y puerta de enlace de Azure IoT: Lección 2: Obtención de las herramientas (Ubuntu) | Microsoft Docs"
 description: Instale las herramientas y el software en el equipo host que ejecuta Ubuntu, cree una instancia de IoT Hub y registre el dispositivo en ella.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 3b8aaa4a8e23c69eb1d48574b78598a2e5393166
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 6414a4f37367d8acc0bab9356b8a09aadf13bfc9
 
 
 ---
@@ -124,6 +124,6 @@ Ha instalado todas las herramientas y el software necesarios en el equipo host. 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

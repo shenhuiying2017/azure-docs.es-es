@@ -1,5 +1,5 @@
 ---
-title: Uso de MongoChef con una cuenta de DocumentDB de Azure compatible con los protocolos de MongoDB | Microsoft Docs
+title: Uso de MongoChef para MongoDB con Azure DocumentDB | Microsoft Docs
 description: "Obtenga información acerca de cómo usar MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB, ahora disponible para versión preliminar."
 keywords: MongoChef
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: b1e73ced8f11c06adc509af355ccf47b616a211b
-ms.openlocfilehash: 41b94580277bc07aad2f122b5db9060e2d7938d8
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
 
 
 ---
@@ -118,6 +118,6 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico | Microsoft Docs"
+title: "Conexión de una red virtual de Azure a otra red virtual: modelo clásico | Microsoft Docs"
 description: "Cómo conectar redes virtuales de Azure simultáneamente mediante PowerShell y el Portal de Azure clásico."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 7413827f-233d-4c7c-a133-9c99cf031833
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 863b308125a7a9ae2b9d9104d150bd2474c064b3
 
 
 ---
@@ -60,7 +60,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
   * Si tiene varias suscripciones a Azure, puede conectar cargas de trabajo de distintas suscripciones simultáneamente entre redes virtuales de forma segura.
   * Asimismo, tanto las empresas como los proveedores de servicios pueden habilitar la comunicación entre organizaciones con tecnología VPN segura en Azure.
 
-### <a name="vnet-to-vnet-faq-for-classic-vnets"></a>Preguntas frecuentes de red virtual a red virtual para redes virtuales clásicas
+### <a name="vnet-to-vnet-considerations-for-classic-vnets"></a>Consideraciones de red virtual a red virtual para redes virtuales clásicas
 * Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas.
 * Las redes virtuales pueden estar en la misma región de Azure o en regiones distintas (ubicaciones).
 * Un servicio en la nube o un punto de conexión de equilibrio de carga no puede abarcar varias redes virtuales, aunque estas estén conectadas entre sí.
@@ -200,6 +200,6 @@ Puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentac
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

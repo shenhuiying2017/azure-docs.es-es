@@ -1,5 +1,5 @@
 ---
-title: "Obtención de las herramientas de Azure (Windows 7 o posterior) | Microsoft Docs"
+title: "Conexión de Raspberry Pi (C) a Azure IoT: Lección 2: Herramientas de Azure (Windows) | Microsoft Docs"
 description: "Instale Python y la interfaz de la línea de comandos de Azure (CLI de Azure) en Windows 7 y versiones posteriores."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 59d6edc1af60c9850a97378ac8758f0f245e68d6
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 1ae210489b8d369a5fca33e1824b9dc224ad33d2
 
 
 ---
@@ -75,6 +75,6 @@ Ha instalado la CLI de Azure. La siguiente tarea consiste en crear la identidad 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

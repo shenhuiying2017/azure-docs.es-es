@@ -1,9 +1,9 @@
 ---
-title: "Integración de un servicio en la nube con la red CDN de Azure | Microsoft Docs"
-description: "Un tutorial que le enseña cómo implementar un servicio en la nube que ofrece contenido de un extremo de red CDN de Azure integrado"
+title: "Integración de un servicio en la nube de Azure con la red CDN de Azure | Microsoft Docs"
+description: "Aprenda a implementar un servicio en la nube que ofrece contenido de un punto de conexión de la red CDN de Azure integrado"
 services: cdn, cloud-services
 documentationcenter: .net
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: tysonn
 ms.assetid: b3c0108f-9ec5-43a8-8fd0-40eafbd32637
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d5c371c8753b4ddaffcbf373d078b819fd2d687
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
 
 
 ---
@@ -50,8 +50,8 @@ Este tutorial cuenta con los siguientes requisitos previos:
 > [!NOTE]
 > Para completar este tutorial, deberá tener una cuenta de Azure:
 > 
-> * Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/) - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.
-> * Puede [activar las ventajas de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/) - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.
+> * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.
+> * Puede [activar las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.
 > 
 > 
 
@@ -603,6 +603,6 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

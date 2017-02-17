@@ -145,6 +145,6 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

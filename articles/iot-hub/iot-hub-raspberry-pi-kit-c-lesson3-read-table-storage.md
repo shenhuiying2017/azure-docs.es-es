@@ -1,5 +1,5 @@
 ---
-title: Lectura de mensajes guardados en Azure Storage | Microsoft Docs
+title: "Conexión de Raspberry Pi (C) a Azure IoT: Lección 3: Table Storage | Microsoft Docs"
 description: Supervise los mensajes del dispositivo a la nube a medida que se escriben en Azure Table Storage.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 4e1107400ef08cc3fd955d693c77f332446ecc37
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 41e89f524bf9ae67489ab3a0eb09ceda6b211f15
 
 
 ---
@@ -74,6 +74,6 @@ Ha conseguido conectar Pi a IoT Hub en la nube y utilizar la aplicación de ejem
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

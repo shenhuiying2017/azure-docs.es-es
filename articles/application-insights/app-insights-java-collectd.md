@@ -1,5 +1,5 @@
 ---
-title: "collectd: estadísticas de rendimiento para Java en Linux en Azure Application Insights | Microsoft Docs"
+title: "Supervisión del rendimiento de la aplicación web de Java en Linux: Azure | Microsoft Docs"
 description: "Supervisión del rendimiento de aplicaciones extendida de sitios web de Java con el complemento CollectD para Application Insights."
 services: application-insights
 documentationcenter: java
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
 
 
 ---
@@ -47,7 +47,7 @@ En los equipos de servidor Linux:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Agregue este fragmento de código con la clave de instrumentación del recurso:
 
-```
+```XML
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -56,6 +56,8 @@ En los equipos de servidor Linux:
 ```
 
 A continuación se muestra un archivo de configuración de ejemplo:
+
+```XML
 
     ...
     # collectd plugins
@@ -83,14 +85,15 @@ A continuación se muestra un archivo de configuración de ejemplo:
       # Other plugin configurations ...
       ...
     </Plugin>
-.   ...
+    ...
+```
 
 Configure otros [complementos de collectd](https://collectd.org/wiki/index.php/Table_of_Plugins)que pueden recopilar diversos datos de orígenes diferentes.
 
 Reinicie collectd según su [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualización de los datos en Application Insights
-En el recurso de Application Insights, abra el [Explorador de métricas y agregue gráficos][métricas] mediante la selección de las métricas que desea ver en la categoría Personalizado.
+En el recurso de Application Insights, abra el [Explorador de métricas y agregue gráficos][metrics] seleccionando las métricas que desea ver en la categoría Personalizado.
 
 ![](./media/app-insights-java-collectd/result.png)
 
@@ -114,7 +117,7 @@ Separar directivas con una nueva línea.
 ## <a name="problems"></a>¿Tiene problemas?
 *No veo datos en el portal*
 
-* Abra [Buscar][diagnóstico] para ver si han llegado los eventos sin procesar. A veces tardan más en aparecer en el Explorador de métricas.
+* Abra [Buscar][diagnostic] para ver si han llegado los eventos sin procesar. A veces tardan más en aparecer en el Explorador de métricas.
 * Es posible que deba [establecer excepciones del firewall para los datos salientes](app-insights-ip-addresses.md)
 * Habilite el seguimiento en el complemento Application Insights. Agregue esta línea en `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
@@ -125,18 +128,18 @@ Separar directivas con una nueva línea.
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[disponibilidad]: app-insights-monitor-web-app-availability.md
-[diagnóstico]: app-insights-diagnostic-search.md
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[métricas]: app-insights-metrics-explorer.md
-[uso]: app-insights-web-track-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[usage]: app-insights-web-track-usage.md
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

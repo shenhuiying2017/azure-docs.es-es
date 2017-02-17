@@ -1,9 +1,9 @@
 ---
-title: "Asignación del contenido de Azure Content Delivery Network (CDN) a un dominio personalizado | Microsoft Docs"
-description: "Este tema muestra cómo asignar contenido de la red CDN a un dominio personalizado"
+title: "Asignación de contenido de la red CDN de Azure a un dominio personalizado | Microsoft Docs"
+description: Aprenda a asignar el contenido de la red CDN de Azure a un dominio personalizado.
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 36099a7c52508cd5115a527f5ef6e40fbfd6c323
 
 
 ---
-# <a name="how-to-map-custom-domain-to-content-delivery-network-cdn-endpoint"></a>Cómo asignar un dominio personalizado al punto de conexión de la Red de entrega de contenido (CDN)
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Asignación del contenido de la red CDN de Azure a un dominio personalizado
 Puede asignar un dominio personalizado a un punto de conexión de CDN para utilizar su propio nombre de dominio en direcciones URL para el contenido almacenado en caché, en lugar de utilizar un subdominio de azureedge.net.
 
 Hay dos formas de asignar su dominio personalizado a un punto de conexión de CDN:
@@ -84,6 +84,6 @@ Después de registrar el dominio personalizado mediante uno de los procedimiento
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

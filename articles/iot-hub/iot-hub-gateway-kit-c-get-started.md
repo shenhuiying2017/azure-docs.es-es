@@ -1,5 +1,5 @@
 ---
-title: "Introducción con el kit de inicio de puerta de enlace de IoT de Azure | Microsoft Docs"
+title: "Dispositivo SensorTag y puerta de enlace de Azure IoT: Introducción | Microsoft Docs"
 description: Comience con el kit de inicio de puerta de enlace de IoT, cree el centro de IoT de Azure y conecte SensorTag y la puerta de enlace al centro de IoT
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
-ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
 
 
 ---
@@ -109,6 +109,6 @@ Si tiene algún problema durante las lecciones, puede encontrar soluciones en el
 Visite la [zona de desarrollador del Kit de puerta de enlace de IoT de Intel](http://software.intel.com/iot/microsoft-azure) para obtener más información.
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

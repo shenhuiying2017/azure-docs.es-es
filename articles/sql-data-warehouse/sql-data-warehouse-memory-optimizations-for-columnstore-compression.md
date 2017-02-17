@@ -1,5 +1,5 @@
 ---
-title: "Optimizaciones de memoria: índices de almacén de columnas en Azure SQL Data Warehouse | Microsoft Docs"
+title: "Mejora del rendimiento del índice de almacén de columnas en Azure SQL | Microsoft Docs"
 description: "Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 11/18/2016
 ms.author: shigu;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 4884813a8ea73fe1104dea0b7423420d20a6a743
-ms.openlocfilehash: 847dfe2d32c199cb4e55a8025f903111d87b9c68
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 966d353dd8de46946ff2cdcd1d9cac7cd3e09579
 
 
 ---
@@ -131,6 +131,6 @@ Para descubrir más formas de mejorar el rendimiento en SQL Data Warehouse, cons
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

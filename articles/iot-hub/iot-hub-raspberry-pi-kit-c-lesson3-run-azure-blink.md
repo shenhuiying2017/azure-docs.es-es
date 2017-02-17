@@ -1,5 +1,5 @@
 ---
-title: "Ejecución de una aplicación de ejemplo para enviar mensajes de dispositivo a nube | Microsoft Docs"
+title: "Conexión de Raspberry Pi (C) a Azure IoT: Lección 3: Ejecución del ejemplo | Microsoft Docs"
 description: "Implemente y ejecute una aplicación de ejemplo para Raspberry Pi 3 que envíe mensajes a IoT Hub y haga parpadear el LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 946e80b450fdda244a48e2c4d2aa87a7822be456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 985ba895bfcad1611bebe80a6c2fc8ffed780da5
 
 
 ---
@@ -112,6 +112,6 @@ Ha implementado y ejecutado la nueva aplicación de ejemplo de activación del p
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

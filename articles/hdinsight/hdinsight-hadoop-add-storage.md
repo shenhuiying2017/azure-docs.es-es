@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 697580da9d7c836655ec64745cfb211beabb84f2
-ms.openlocfilehash: 941d5a8dba421dd5f59bb61af35ac654e42d5910
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
 
 
 ---
 
 # <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>Agregar cuentas de almacenamiento de Azure adicionales a HDInsight
 
-Aprenda a usar acciones de script para agregar cuentas de almacenamiento de Azure adicionales a un clúster de HDInsight existente.
+Aprenda a usar acciones de script para agregar cuentas de almacenamiento de Azure adicionales a un clúster de HDInsight existente que usa Linux como sistema operativo.
 
 > [!IMPORTANT]
 > La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para más información sobre cómo agregar cuentas de almacenamiento adicionales durante la creación del clúster, consulte la sección __Uso de almacenamiento adicional__ del documento [Creación de clústeres de HDInsight basados en Linux](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage).
@@ -134,6 +134,6 @@ Si la cuenta de almacenamiento se encuentra en una región distinta a la del cl�
 En este documento ha aprendido a agregar cuentas de almacenamiento adicionales a un clúster de HDInsight existente. Para más información sobre las acciones de script, consulte [Personalización de clústeres de HDInsight basados en Linux mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

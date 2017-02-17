@@ -1,6 +1,6 @@
 ---
-title: Referencia del motor de reglas del motor de Azure Content Delivery Network | Microsoft Docs
-description: "En este tema se describen las características y las condiciones de coincidencia del motor de reglas"
+title: Referencia del motor de reglas de la red CDN de Azure | Microsoft Docs
+description: "Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 61a544f177ab820f1b13ca2bcd4afe623af597af
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
 
 
 ---
-# <a name="azure-content-delivery-network-rules-engine"></a>Motor de reglas de Azure Content Delivery Network
+# <a name="azure-cdn-rules-engine"></a>Motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características y las condiciones de coincidencia disponibles para el [Motor de reglas](cdn-rules-engine.md)de la Red de entrega de contenido (CDN) de Azure.
 
 El motor de reglas de HTTP está diseñado para ser la entidad de certificación final sobre cómo la CDN procesa los tipos específicos de solicitudes.
@@ -83,6 +83,6 @@ Espacio | Normalmente, un carácter de espacio se trata como un carácter litera
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

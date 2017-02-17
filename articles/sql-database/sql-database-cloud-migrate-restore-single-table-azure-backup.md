@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo restaurar una única tabla de la 
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: 340b41bd-9df8-47fb-adfc-03216de38a5e
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dbdcfc9760df41ec1f52406b91cc211fc5ad8ef7
+ms.sourcegitcommit: 9992b6a2bf73fd84c7c47783d1f4f13e10889a81
+ms.openlocfilehash: 8c074243db2ae729c4fd1a483e5ac40fbbebd750
 
 
 ---
@@ -34,7 +34,7 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 2. Restaure una copia de seguridad de su base de datos al punto temporal que desee recuperar; para ello, siga los pasos descritos en [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
    
    > [!NOTE]
-   > El nombre de la base de datos restaurada tendrá el formato nombreBaseDeDatos+MarcaDeTiempo; por ejemplo, **AdventureWorks2012_2016-01-01T22-12Z**. Con este paso no se sobrescribirá el nombre de la base de datos existente en el servidor. Se trata de una medida de seguridad, diseñada para permitirle comprobar la base de datos restaurada antes de deshacerse de su base de datos actual y cambiar el nombre de la base de datos restaurada para su uso en producción.
+   > El nombre de la base de datos restaurada tendrá el formato nombreBaseDeDatos+MarcaDeTiempo; por ejemplo, **AdventureWorks2012_2016-01-01T22-12Z**. Con este paso no se sobrescribe el nombre de la base de datos existente en el servidor. Se trata de una medida de seguridad, diseñada para permitirle comprobar la base de datos restaurada antes de deshacerse de su base de datos actual y cambiar el nombre de la base de datos restaurada para su uso en producción.
    
 ## <a name="copying-the-table-from-the-restored-database-by-using-the-sql-database-migration-tool"></a>Copiar la tabla de la base de datos restaurada mediante la herramienta de migración de Base de datos SQL
 
@@ -84,6 +84,6 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

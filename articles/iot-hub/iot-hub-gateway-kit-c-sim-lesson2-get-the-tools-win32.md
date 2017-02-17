@@ -1,5 +1,5 @@
 ---
-title: "Preparación del equipo host y de Azure IoT Hub | Microsoft Docs"
+title: "Dispositivo simulado y puerta de enlace de Azure IoT: Lección 2: Obtención de las herramientas (Windows) | Microsoft Docs"
 description: Instale las herramientas y el software en el equipo host que ejecuta Windows, cree una instancia de IoT Hub y registre el dispositivo en ella.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: fd00d36e55109dfa4c6ddfab7d92872854696ba0
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: b07c6c383f31f77a78628593a60b7b76a49bca4f
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: fd00d36e55109dfa4c6ddfab7d92872854696ba0
 
 ## <a name="what-you-will-do"></a>Lo que hará
 
-- Instalación de Git, Node.js, Gulp y Python.
+- Instale Git, Node.js, Gulp y Python.
 - Instalación de la interfaz de la línea de comandos de Azure (CLI de Azure) 
 
 Si tiene problemas, busque soluciones en la [página de solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
@@ -38,24 +38,24 @@ Si tiene problemas, busque soluciones en la [página de solución de problemas](
 
 En esta lección, aprenderá lo siguiente:
 
-- Cómo instalar [Git](https://git-scm.com/) y [Node.js](https://nodejs.org/en/).
+- Instalación de [Git](https://git-scm.com/) y [Node.js](https://nodejs.org/en/).
   - Git es un sistema de control de versiones distribuido de código abierto. La aplicación de ejemplo de esta lección se almacena en Git.
   - Node.js es un entorno en tiempo de ejecución de JavaScript con un amplio ecosistema de paquetes.
-- Cómo usar [NPM](https://www.npmjs.com/) para instalar las herramientas de desarrollo de Node.js.
+- Uso de [NPM](https://www.npmjs.com/) para instalar las herramientas de desarrollo de Node.js.
   - La versión mínima necesaria de Node.js es 4.5 LTS.
-  - NPM es uno de los administradores de paquetes de Node.js.
-- Cómo instalar Visual Studio Code.
-  - Visual Studio Code es un editor de código fuente multiplataforma ligero pero eficaz para Windows, Linux y Mac OS. Ofrece un elevado nivel de compatibilidad para la depuración, control de Git insertado, resaltado de sintaxis, función de autocompletar de código inteligente, fragmentos de código y refactorización de código.
+  - NPM es uno de los administradores de paquetes para Node.js.
+- Instalación de Visual Studio Code.
+  - Visual Studio Code es un editor de código fuente multiplataforma ligero pero eficaz para Windows, Linux y macOS. Ofrece un elevado nivel de compatibilidad para la depuración, control de Git insertado, resaltado de sintaxis, función inteligente de autocompletar código, fragmentos de código y refactorización de código.
 - Cómo instalar Python.
-  - Python es un lenguaje de programación muy usado general, destinado a fines generales, interpretado y dinámico.
+  - Python es un lenguaje de programación general, muy usado, destinado a fines genéricos, interpretado y dinámico.
 - Cómo instalar la CLI de Azure.
   - La CLI de Azure proporciona una experiencia de línea de comandos multiplataforma en Azure. De este modo, puede trabajar directamente desde la línea de comandos para aprovisionar y administrar los recursos.
-- Cómo usar la CLI de Azure para crear una instancia de IoT Hub.
+- Uso de la CLI de Azure para crear una instancia de IoT Hub.
 
 ## <a name="what-you-need"></a>Lo que necesita
 
 - Una conexión a Internet para descargar las herramientas y el software.
-- Un equipo de Windows.
+- Un equipo Windows.
 
 ## <a name="install-git-and-nodejs"></a>Instalación de Git y Node.js
 
@@ -66,7 +66,7 @@ Haga clic en los vínculos siguientes para descargar e instalar Git y Node.js LT
 
 ## <a name="install-nodejs-development-tools"></a>Instalación de herramientas de desarrollo de Node.js
 
-[gulp.js](http://gulpjs.com/) se usa para automatizar la implementación y ejecución de scripts.
+Use [gulp.js](http://gulpjs.com/) para automatizar la implementación y ejecución de scripts.
 
 Presione `Windows + R`, escriba `cmd` y presione `Enter` para abrir una ventana del símbolo del sistema y, después, ejecute el siguiente comando:
 
@@ -74,7 +74,7 @@ Presione `Windows + R`, escriba `cmd` y presione `Enter` para abrir una ventana 
 npm install -g gulp
 ```
 
-Si tiene problemas con la instalación, consulte la [guía de solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md) para solucionar problemas habituales.
+Si tiene problemas con la instalación, consulte la [guía de solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md) para solucionar problemas comunes.
 
 > [!Note]
 > Se precisan Node, NPM y Gulp para ejecutar scripts de automatización desarrollados en Node.js.
@@ -114,7 +114,7 @@ Para instalar la CLI de Azure, siga estos pasos:
 
 ## <a name="install-visual-studio-code"></a>Instalación de Visual Studio Code
 
-Usará Visual Studio Code más adelante en este tutorial para editar archivos de configuración.
+Use Visual Studio Code, como se explica más adelante en este tutorial, para editar los archivos de configuración.
 
 [Descargue](https://code.visualstudio.com/docs/setup/windows) e instale Visual Studio Code.
 
@@ -127,6 +127,6 @@ Ha instalado todas las herramientas y el software necesarios en el equipo host. 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

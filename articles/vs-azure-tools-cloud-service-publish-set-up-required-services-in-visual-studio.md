@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53480aca2ebe3f9ef6221fbdcd3b9ec13c03d31a
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
 
 
 ---
@@ -34,11 +34,11 @@ Para publicar un servicio en la nube en Azure, debe crear primero un servicio en
 
 ### <a name="to-create-a-cloud-service-by-using-visual-studio"></a>Para crear un servicio en la nube mediante Visual Studio
 1. Abra el menú contextual del proyecto de Azure y elija **Publicar**.
-   
+
     ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 2. Si no ha iniciado sesión, inicie sesión con su nombre de usuario y contraseña para la cuenta Microsoft o la cuenta de organización asociada a su suscripción de Azure.
 3. Elija el botón **Siguiente** para avanzar a la página **Configuración**.
-   
+
     ![Configuración común del Asistente para la publicación](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
 4. En la lista **Cloud Services**, elija **Crear nuevo**. Aparecerá el cuadro de diálogo **Crear servicios de Azure** .
 5. Escriba el nombre del servicio en la nube. El nombre forma parte de la dirección URL del servicio y, por tanto, debe ser único globalmente. El nombre no distingue mayúsculas de minúsculas.
@@ -57,10 +57,10 @@ Una cuenta de almacenamiento proporciona acceso a los servicios Blob, Cola y Tab
 
 ### <a name="to-create-a-storage-account-by-using-visual-studio"></a>Para crear una cuenta de almacenamiento mediante Visual Studio
 1. En el **Explorador de soluciones**, abra el menú contextual del nodo **Almacenamiento** y elija **Crear cuenta de almacenamiento**.
-   
+
     ![Crear una nueva cuenta de almacenamiento de Azure](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
 2. Seleccione o escriba la siguiente información para la nueva cuenta de almacenamiento en el cuadro de diálogo **Crear cuenta de almacenamiento** .
-   
+
    * Suscripción de Azure a la que desee agregar la cuenta de almacenamiento.
    * Nombre que quiere usar para la nueva cuenta de almacenamiento.
    * La región o el grupo de afinidad (por ejemplo, Oeste de EE. UU. o Asia oriental).
@@ -82,8 +82,8 @@ Después de crear la cuenta de almacenamiento, verá las direcciones URL que pue
 
 > [!NOTE]
 > La clave de acceso secundaria proporciona el mismo acceso a la cuenta de almacenamiento que la clave de acceso principal y se genera como copia de seguridad en caso de que la clave de acceso principal estuviese en peligro. Además, se recomienda volver a generar las claves de acceso de forma periódica. Puede modificar la configuración de una cadena de conexión para que use la clave secundaria mientras se regenera la clave principal y, luego, volver a modificarla para que use la clave principal regenerada mientras se regenera la clave secundaria.
-> 
-> 
+>
+>
 
 ## <a name="configure-your-app-to-use-services-provided-by-the-storage-account"></a>Configuración de la aplicación para que use servicios proporcionados por la cuenta de almacenamiento
 Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento para que use los servicios de almacenamiento de Azure que usted cree. Para ello, puede usar varias configuraciones del servicio en el proyecto de Azure. De forma predeterminada, se crean dos en su proyecto de Azure. Al usar varias configuraciones del servicio, puede utilizar la misma cadena de conexión en el código, pero tiene un valor diferente en la cadena de conexión de cada configuración del servicio. Por ejemplo, puede usar una configuración del servicio para ejecutar y depurar la aplicación localmente con el emulador de almacenamiento de Azure y otra configuración del servicio para publicar la aplicación en Azure. Para obtener más información sobre configuraciones del servicio, consulte [Configuración de un proyecto de Azure mediante varias configuraciones del servicio](vs-azure-tools-multiple-services-project-configurations.md).
@@ -92,33 +92,33 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 1. Abra la solución de Azure en Visual Studio. En el Explorador de soluciones, abra el menú contextual de cada rol del proyecto de Azure que acceda a los servicios de almacenamiento y elija **Propiedades**. Se mostrará una página con el nombre del rol en el editor de Visual Studio. La página muestra los campos de la pestaña **Configuración** .
 2. En las páginas de propiedades del rol, elija **Configuración**.
 3. En la lista **Configuración del servicio** , elija el nombre de la configuración del servicio que quiere editar. Si desea realizar cambios en todas las configuraciones del servicio para este rol, puede elegir **Todas las configuraciones**.  Para más información acerca de cómo actualizar configuraciones del servicio, consulte la sección **Administrar cadenas de conexión para cuentas de almacenamiento** en el tema [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
-4. Para modificar cualquier configuración de la cadena de conexión, elija el botón **...**  situado junto a la configuración. Aparecerá el cuadro de diálogo **Crear cadena de conexión de almacenamiento** .
+4. Para modificar cualquier configuración de la cadena de conexión, elija el botón **...** situado junto a la configuración. Aparecerá el cuadro de diálogo **Crear cadena de conexión de almacenamiento** .
 5. En **Conectar utilizando**, elija la opción **Su suscripción**.
 6. En la lista de **Suscripción** , elija su suscripción. Si la lista de suscripciones no incluye la que desea, elija el vínculo **Descargar configuración de publicación** .
 7. En la lista **Nombre de cuenta** elija el nombre de la cuenta de almacenamiento. Azure Tools obtiene automáticamente las credenciales de la cuenta de almacenamiento mediante el archivo .publishsettings. Para especificar manualmente las credenciales de la cuenta de almacenamiento, elija la opción **Credenciales especificadas manualmente** y continúe con el procedimiento. Puede obtener el nombre de la cuenta de almacenamiento y la clave principal en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885). Si no quiere especificar manualmente la configuración de la cuenta de almacenamiento, elija el botón **Aceptar** para cerrar el cuadro de diálogo.
 8. Elija el vínculo de credenciales **Especificar nombre de cuenta de almacenamiento** .
 9. Escriba el nombre de la cuenta de almacenamiento en **Nombre de cuenta** .
-   
+
    > [!NOTE]
    > Inicie sesión en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885)y elija el botón **Almacenamiento** . El portal muestra una lista de cuentas de almacenamiento. Si elige una cuenta, se abre una página para ella. Puede copiar el nombre de la cuenta de almacenamiento que aparece en esta página. Si usa una versión anterior del Portal clásico, el nombre de la cuenta de almacenamiento aparece en la vista **Cuentas de almacenamiento** . Para copiar este nombre, resáltelo en la ventana **Propiedades** de esta vista y presione las teclas CTRL+C. Para pegar el nombre en Visual Studio, elija el cuadro de texto **Nombre de cuenta** y presione las teclas CTRL+V.
-   > 
-   > 
+   >
+   >
 10. En el cuadro **Clave de cuenta** , escriba la clave principal o cópiela del [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885)y péguela.
      Para copiar esta clave:
-    
+
     1. En la parte inferior de la página de la cuenta de almacenamiento correspondiente, elija el botón **Administrar claves** .
     2. En la página **Administrar claves de acceso** , seleccione el texto de la clave de acceso principal y presione las teclas CTRL+C.
     3. En Azure Tools, pegue la clave en el cuadro **Clave de cuenta** .
     4. Debe seleccionar una de las siguientes opciones para determinar cómo tendrá acceso el servicio a la cuenta de almacenamiento:
-       
+
        * **Usar HTTP**. Se trata de la opción estándar. Por ejemplo: `http://<account name>.blob.core.windows.net`.
        * **Usar HTTPS** para una conexión segura. Por ejemplo: `https://<accountname>.blob.core.windows.net`.
        * **Especificar extremos personalizados** para cada uno de los tres servicios. Luego puede escribir estos extremos en el campo para el servicio específico.
-         
+
          > [!NOTE]
          > Si crea extremos personalizados, puede crear una cadena de conexión más compleja. Cuando se usa este formato de cadena, se pueden especificar extremos de servicio de almacenamiento que incluyan el nombre de dominio personalizado que se registre para la cuenta de almacenamiento con el servicio Blob. También puede conceder acceso solo a los recursos de blob en un contenedor único a través de una firma de acceso compartido. Para obtener más información sobre cómo crear extremos personalizados, consulte [Configuración de las cadenas de conexión de Azure Storage](storage/storage-configure-connection-string.md).
-         > 
-         > 
+         >
+         >
 11. Para guardar estos cambios de la cadena de conexión, elija el botón **Aceptar** y luego el botón **Guardar** de la barra de herramientas. Después de guardar estos cambios, puede obtener el valor de esta cadena de conexión en el código mediante [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Al publicar su aplicación en Azure, elija la configuración del servicio que contiene la cuenta de almacenamiento de Azure para la cadena de conexión. Una vez publicada la aplicación, compruebe que funciona según lo previsto con los servicios de almacenamiento de Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -126,7 +126,6 @@ Para obtener más información acerca de la publicación de aplicaciones en Azur
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

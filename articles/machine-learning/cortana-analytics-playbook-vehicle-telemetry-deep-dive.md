@@ -1,5 +1,5 @@
 ---
-title: "Cuaderno de estrategias de soluciones de análisis de telemetría de vehículo: profundización en la solución | Microsoft Docs"
+title: "Profundización en la predicción del estado de vehículo y los hábitos de conducción - Azure | Microsoft Docs"
 description: "Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 94fba9a2aeaebc460a513928ab76ee63c0da7cc8
-ms.openlocfilehash: 12f16b8cd7d7a4101d423aff737498251d8a5d26
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
 
 
 ---
@@ -60,7 +60,7 @@ Se trata de un conjunto de datos con formato JSON que contiene el esquema siguie
 | Windshield_wiper_status |Indica si el limpiaparabrisas está activado o no |Verdadero o falso |
 | ABS |Indica si el ABS está activado o no |Verdadero o falso |
 | Timestamp |La marca de tiempo del momento en el que se crea el punto de datos |Date |
-| City |La ubicación del vehículo |En esta solución tiene la opción de 4 ciudades: Bellevue, Redmond, Sammamish, Seattle |
+| City |La ubicación del vehículo |En esta solución tiene la opción de&4; ciudades: Bellevue, Redmond, Sammamish, Seattle |
 
 El conjunto de datos de referencia de modelo del vehículo contiene una asignación de VIN al modelo. 
 
@@ -709,6 +709,6 @@ Este documento contiene un desglose detallado de la solución de análisis de te
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

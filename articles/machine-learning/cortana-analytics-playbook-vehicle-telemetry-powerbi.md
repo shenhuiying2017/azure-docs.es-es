@@ -1,5 +1,5 @@
 ---
-title: "Instrucciones de configuración del panel de Power BI para la plantilla de la solución Análisis de telemetría de vehículos | Microsoft Docs"
+title: "Panel de Power BI del estado de vehículo y los hábitos de conducción - Azure | Microsoft Docs"
 description: "Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 66a2375d7560b41f0fddef3c8c32e41917eb1649
-ms.openlocfilehash: 925222e5e11c96b1b8f851dbc3679d0f6b25b99c
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
 
 
 ---
@@ -257,7 +257,7 @@ Cambie el **Título** del gráfico a **“Modelos de vehículo que necesitan man
 
 Haga clic en el área en blanco para agregar una nueva visualización.
 
-Seleccione la visualización **Gráfico de barras 100 % apiladas**, arrastre el campo **city** al área **Eje** y los campos **MaintenanceProbability** y **RecallProbability** al área **Valor**.
+Seleccione la visualización **Gráfico de barras&100; % apiladas**, arrastre el campo **city** al área **Eje** y los campos **MaintenanceProbability** y **RecallProbability** al área **Valor**.
 
 ![Automóviles conectados - Agregar nueva visualización](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4dd.png)
 
@@ -348,7 +348,7 @@ Cuando los tres informes se crean y las visualizaciones correspondientes se ancl
 ![Introduzca las credenciales de la base de datos](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/13-provide-database-credentials.png)
 
 * Haga clic en **Conectar**
-* Repita los pasos anteriores para cada una de las 3 consultas restantes del panel derecho y, después, actualice los detalles de conexión del origen de datos.
+* Repita los pasos anteriores para cada una de las&3; consultas restantes del panel derecho y, después, actualice los detalles de conexión del origen de datos.
 * Haga clic en **Cerrar y cargar**. Los conjuntos de datos de archivos de Power BI Desktop se conectan a tablas de Base de datos SQL de Azure.
 * **Cierre** el archivo de Power BI Desktop
 
@@ -423,6 +423,6 @@ Página 6: Logotipo de Contoso
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

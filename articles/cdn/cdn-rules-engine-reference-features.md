@@ -1,6 +1,6 @@
 ---
-title: "Características del motor de reglas de Azure Content Delivery Network | Microsoft Docs"
-description: "En este tema se describen las características y las condiciones de coincidencia del motor de reglas"
+title: "Características del motor de reglas de la red CDN de Azure | Microsoft Docs"
+description: "Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: a3d8199a9d5d067a4da1e1d40ff99bebc40a5097
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
 
 
 ---
 
-# <a name="features-for-azure-content-delivery-network--cdn-rules-engine"></a>Características del motor de reglas de Azure Content Delivery Network (CDN)
+# <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
 
 La tercera parte de una regla es la característica. Una característica define el tipo de acción que se aplicará al tipo de solicitud identificado con un conjunto de condiciones de coincidencia.
@@ -207,9 +207,11 @@ Disabled|Hace que los servidores perimetrales almacenen en caché los recursos s
 **Comportamiento predeterminado**:
 
 - **HTTP grande:** deshabilitado
+
 <!---
 - **ADN:** Enabled
 --->
+
 ###<a name="cache-control-header-treatment"></a>Tratamiento de encabezados Cache-Control
 **Propósito**: controla la generación de encabezados Cache-Control por parte del servidor perimetral cuando la característica Max-Age externa está activa.
 
@@ -560,7 +562,7 @@ Defina un conjunto de los códigos de estado deseados, delimitados por espacios.
 
 Información importante:
 
-- Habilite también la característica Ignorar no almacenar en caché de origen. Si esa característica no está habilitada, las respuestas 200 OK podrían no almacenarse en caché.
+- Habilite también la característica Ignorar no almacenar en caché de origen. Si esa característica no está habilitada, las respuestas&200; OK podrían no almacenarse en caché.
 - El conjunto de códigos de estados válidos para esta característica son: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 y 505.
 - Esta característica no se puede usar para deshabilitar el almacenamiento en caché de las respuestas que generan un código de estado 200 OK.
 
@@ -966,7 +968,28 @@ Opción|Descripción
  Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
  Esta característica permite que nuestros servidores perimetrales vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Esto significa que el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
 
-**Escenario de ejemplo**
+**Escenario de ejemplo 1**
+
+En este ejemplo, demostraremos cómo redirigir una dirección URL del servidor perimetral CNAME que se resuelve en esta dirección URL de la red CDN base: http://marketing.azureedge.net/brochures/
+
+Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME: http://MyOrigin.azureedge.net/resources/
+
+Esta redirección de URL se puede realizar con la siguiente configuración:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+
+**Escenario de ejemplo 2**
+
+En este ejemplo, se muestra cómo redirigir una URL de servidor perimetral CNAME de MAYÚSCULAS a minúsculas mediante expresiones regulares.
+
+Esta redirección de URL se puede realizar con la siguiente configuración:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+
+
+**Puntos clave:**
+
+- La característica Reescritura de URL define las direcciones URL de solicitud que se reescribirán. Como resultado, no se necesitan otras condiciones de coincidencia. Aunque la condición de coincidencia se definió como "Always", solo se reescribirán las solicitudes que apunten a la carpeta "brochures" en el origen del cliente "marketing".
+
+- Los segmentos de dirección URL que se capturaron de la solicitud se anexan a la nueva dirección URL a través de "$1".
+
+
 
 ###<a name="compatibility"></a>Compatibilidad
 
@@ -998,6 +1021,6 @@ Esta característica incluye los criterios de coincidencia que deben cumplirse p
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver en máquinas virtuales de Azure: guía de planeamiento e implementación | Microsoft Docs"
+title: "SAP NetWeaver en máquinas virtuales de Azure: planeación e implementación | Microsoft Docs"
 description: "SAP NetWeaver en máquinas virtuales de Azure: guía de planeación e implementación"
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 08f82498d46b2e67d55ad7dfb05efdb266e7fc61
-ms.openlocfilehash: 56da763a21da7c55aa0cd295a04fa22b2815d2ac
+ms.sourcegitcommit: 06b8f8cc99809338fcf512fb8e4bbf72721cb243
+ms.openlocfilehash: 433b2bc5d602c1117c2ef2e16399eb6d29b425d7
 
 
 ---
@@ -503,11 +503,11 @@ El almacenamiento no persistente está conectado directamente a las máquinas vi
 La unidad en sí es volátil porque se almacena en el servidor host. Si mueve la máquina virtual en una reimplementación (por ejemplo, debido a mantenimiento en el host o el apagado y reinicio), el contenido de la unidad se pierde. Por tanto, no deben almacenarse datos importantes en esta unidad. El tipo de medios usados para este tipo de almacenamiento es diferente en cada serie de máquinas virtuales. Las características de rendimiento eran las siguientes en junio de 2015:
 
 * A5-A7: rendimiento muy limitado. Solo se recomienda para el archivo de paginación.
-* A8-A11: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
-* Serie D: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
-* Serie DS: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
-* Serie G: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
-* Serie GS: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* A8-A11: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
+* Serie D: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
+* Serie DS: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
+* Serie G: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
+* Serie GS: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
 
 Las afirmaciones anteriores se aplican a los tipos de máquinas virtuales que estén certificados para utilizarse con SAP. Algunas características de DBMS sacan partido a las series de máquinas virtuales con rendimiento y cantidad de IOPS excelentes. Consulte la [Guía de implementación de DBMS][dbms-guide] para más información.
 
@@ -1874,6 +1874,6 @@ Los aspectos más destacados de la alta disponibilidad en los sistemas SAP en Az
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: f6208195fb998d5cb3ca00fa684f814971083cad
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 626db03a7b858d060b01332a67f0b491066a6625
 
 
 ---
@@ -38,7 +38,7 @@ Puede utilizar la sección de contenido de una nueva campaña de cobertura para 
 * Anuncio web: es una notificación que compromete al usuario a echar un vistazo a una vista de texto.
 
 ### <a name="see-also"></a>Consulte también
-* [Cobertura - Guía práctica - Anuncios][Vínculo 3] 
+* [Cobertura - Guía práctica - Anuncios][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Acerca de los anuncios de visualización web:
 Las apariciones del patrón "{deviceid}" en el código HTML o JavaScript que proporcione aquí se reemplazarán automáticamente por el identificador del dispositivo que muestra el anuncio. Se trata de una manera fácil de recuperar identificadores de dispositivo de Azure Mobile Engagement en un servicio web externo hospedado en su oficina.
@@ -110,16 +110,16 @@ Cada repetición del patrón {deviceid} se reemplaza automáticamente por el ide
 Rellene el título, el contenido y los textos del anuncio. Puede dirigirse a una audiencia de una campaña futura basándose en los comentarios de la cobertura sobre cómo respondieron los usuarios a esta campaña. La orientación a la audiencia puede basarse en los comentarios de si solo se ha insertado esta campaña, respondido, ejecutada o terminado.
 
 ### <a name="see-also"></a>Consulte también
-* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Vínculo 28]
+* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ## <a name="content-of-polls"></a>Contenido de sondeos
 ![Reach-Content2][31] 
 
- Rellene el título, la descripción y los textos de los botones del anuncio. A continuación, agregue preguntas y opciones para las respuestas a sus preguntas.
+Rellene el título, la descripción y los textos de los botones del anuncio. A continuación, agregue preguntas y opciones para las respuestas a sus preguntas.
 Puede dirigirse a una audiencia de una campaña futura basándose en los comentarios de la cobertura sobre cómo respondieron los usuarios a esta campaña. La orientación a la audiencia puede basarse en si solo se ha insertado, respondido, ejecutado o terminado esta campaña. La orientación de la audiencia también puede basarse en los comentarios de respuesta de sondeos, donde la pregunta y respuesta se utilizan como criterios.
 
 ### <a name="see-also"></a>Consulte también
-* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Vínculo 28]
+* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ## <a name="content-of-data-pushes"></a>Contenido de las inserciones de datos
 ![Reach-Content3][32] 
@@ -135,7 +135,7 @@ Puede dirigirse a una audiencia de una campaña futura basándose en los comenta
 * Puede dirigirse a una audiencia de una campaña futura basándose en los comentarios de la cobertura sobre cómo respondieron los usuarios a esta campaña. La orientación a la audiencia puede basarse en si solo se ha insertado, respondido, ejecutado o terminado esta campaña.
 
 ### <a name="see-also"></a>Consulte también
-* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Vínculo 28]
+* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>Contenido de los mosaicos (solo en Windows Phone)
 ![Reach-Content4][33]
@@ -145,7 +145,7 @@ La carga de mosaicos es el texto que se mostrará en el mosaico de la aplicació
 La inserción de un mosaico es la versión del servicio de notificaciones de inserción de Microsoft (MPNS) de una inserción nativa para Windows Phone. El tipo de inserción de mosaico es el único tipo de inserción que no tiene una respuesta y, por tanto, la audiencia de las campañas futuras no se puede integrar en los resultados de una campaña de inserción de mosaico. 
 
 ### <a name="see-also"></a>Consulte también
-* [Documentación de la API - API de cobertura - Inserción nativa][Vínculo 4]
+* [Documentación de la API - API de cobertura - Inserción nativa][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -208,39 +208,39 @@ La inserción de un mosaico es la versión del servicio de notificaciones de ins
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Vínculo 1]: mobile-engagement-user-interface.md
-[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
-[Vínculo 3]: mobile-engagement-how-tos.md
-[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
-[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Vínculo 12]: mobile-engagement-user-interface-navigation.md
-[Vínculo 13]: mobile-engagement-user-interface-home.md
-[Vínculo 14]: mobile-engagement-user-interface-my-account.md
-[Vínculo 15]: mobile-engagement-user-interface-analytics.md
-[Vínculo 16]: mobile-engagement-user-interface-monitor.md
-[Vínculo 17]: mobile-engagement-user-interface-reach.md
-[Vínculo 18]: mobile-engagement-user-interface-segments.md
-[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
-[Vínculo 20]: mobile-engagement-user-interface-settings.md
-[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
-[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Vínculo 27]: mobile-engagement-user-interface-reach-campaign.md
-[Vínculo 28]: mobile-engagement-user-interface-reach-criterion.md
-[Vínculo 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

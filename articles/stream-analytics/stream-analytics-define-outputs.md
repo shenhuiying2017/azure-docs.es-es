@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/23/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: e5703e7aa26af81a0bf76ec393f124ddc80bf43c
-ms.openlocfilehash: 76adad7bc7f195b04601368fb715e34f5d3d7782
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
 
 
 ---
@@ -43,8 +43,8 @@ En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y
 <table>
 <tbody>
 <tr>
-<td><B>Nombre de propiedad</B></td>
-<td><B>Description</B></td>
+<td><B>NOMBRE DE LA PROPIEDAD</B></td>
+<td><B>DESCRIPCIÓN</B></td>
 </tr>
 <tr>
 <td>Alias de salida</td>
@@ -212,6 +212,37 @@ Para visualizar un tutorial sobre la configuración de una salida de Power BI y 
 > 
 > 
 
+### <a name="schema-creation"></a>Creación de esquemas
+Azure Stream Analytics crea una tabla y un conjunto de datos de Power BI en nombre del usuario si todavía no existe. En todos los demás casos, la tabla se actualiza con los nuevos valores. Actualmente, existe la limitación de que solo puede existir una tabla dentro de un conjunto de datos.
+
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversión de tipo de datos de ASA a Power BI
+Azure Stream Analytics actualiza el modelo de datos dinámicamente en tiempo de ejecución si cambia el esquema de salida. Se realiza un seguimiento de los cambios de nombre de columna, los cambios de tipo de columna y la adición o eliminación de columnas.
+
+Esta tabla cubre las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) a [tipos de Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) de Power BI si no existen una tabla y un conjunto de datos de POWER BI.
+
+
+De Stream Analytics | A Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | string
+datetime | DateTime
+float | Doble
+Matriz de registro | Tipo cadena, valor constante “IRecord” o “IArray”
+
+### <a name="schema-update"></a>Actualización de esquema
+Stream Analytics deduce el esquema de modelo de datos basándose en el primer conjunto de eventos en la salida. Más adelante, si es necesario, el esquema de modelo de datos se actualiza para dar cabida a los eventos entrantes que pueden encajar en el esquema original.
+
+La consulta `SELECT *` debería evitarse para impedir la actualización de esquema dinámica en las filas. Además de las posibles implicaciones de rendimiento, también podría dar lugar a la indeterminación de la hora que se toma para los resultados. Se deben seleccionar los campos exactos que necesitan mostrarse en el panel de Power BI. Además, los valores de datos deben ser compatibles con el tipo de datos elegido.
+
+
+Anterior o actual | Int64 | string | DateTime | Doble
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | String | string | Doble
+Doble | Doble | string | string | Doble
+string | String | String | String |  | string | 
+DateTime | string | string |  DateTime | String
+
+
 ### <a name="renew-power-bi-authorization"></a>Renovación de la autorización de Power BI
 Tendrá que volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Si Multi-Factor Authentication (MFA) se configura en el inquilino de Azure Active Directory (AAD), también debe renovar la autorización de Power BI cada 2 semanas. Un síntoma de este problema es la ausencia de salidas de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
 
@@ -272,40 +303,17 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 ## <a name="documentdb"></a>DocumentDB
 [DocumentDB de Azure](https://azure.microsoft.com/services/documentdb/) es un servicio de base de datos de documentos NoSQL totalmente administrado que ofrece consultas y transacciones a través de datos sin esquema, rendimiento predecible y confiable y desarrollo rápido.
 
-En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de DocumentDB.
+En la lista siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de DocumentDB.
 
-<table>
-<tbody>
-<tr>
-<td>Nombre de propiedad</td>
-<td>DESCRIPCIÓN</td>
-</tr>
-<tr>
-<td>Nombre de cuenta</td>
-<td>Nombre de la cuenta de DocumentDB.  Esto también puede ser el extremo de la cuenta.</td>
-</tr>
-<tr>
-<td>Clave de cuenta</td>
-<td>Clave de acceso compartido para la cuenta de DocumentDB.</td>
-</tr>
-<tr>
-<td>Base de datos</td>
-<td>Nombre de la base de datos de DocumentDB.</td>
-</tr>
-<tr>
-<td>Patrón de nombre de colección:</td>
-<td>Patrón de nombre de colección para las colecciones que se usará. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0.<BR>Por ejemplo, Las siguientes son entradas válidas:<BR>MyCollection{partition}<BR>MyCollection<BR>Tenga en cuenta que las colecciones deben existir antes de que el trabajo de Análisis de transmisiones se inicie y no se crearán automáticamente.</td>
-</tr>
-<tr>
-<td>Partition Key</td>
-<td>Nombre del campo en los eventos de salida que se utiliza para especificar la clave de partición de salida entre colecciones.</td>
-</tr>
-<tr>
-<td>Id. de documento</td>
-<td>Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.</td>
-</tr>
-</tbody>
-</table>
+* **Alias de salida** : un alias para hacer referencia a esta salida en la consulta ASA.  
+* **Nombre de cuenta** : el nombre o el URI del punto de conexión de la cuenta de DocumentDB.  
+* **Clave de cuenta** : la clave de acceso compartido para la cuenta de DocumentDB.  
+* **Base de datos** : el nombre de la base de datos de DocumentDB.  
+* **Patrón de nombre de colección**: el patrón de nombre de colección para las colecciones que se usarán. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0. Las siguientes entradas de ejemplo son válidas:  
+  1\) MyCollection: debe existir una colección denominada "MyCollection".  
+  2\) MyCollection{partición}: deben existir esas colecciones: "MyCollection0", "MyCollection1", "MyCollection2", etc.  
+* **Clave de partición**: opcional. Solo es necesario si usa un token {partition} en el patrón de nombre de la colección. Nombre del campo en los eventos de salida que se utiliza para especificar la clave de partición de salida entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
+* **Identificador de documento** : opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
 
 ## <a name="get-help"></a>Obtener ayuda
@@ -329,6 +337,6 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

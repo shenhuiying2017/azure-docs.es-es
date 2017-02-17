@@ -1,6 +1,6 @@
 ---
-title: "Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Azure Data Factory | Microsoft Docs"
-description: "Aprenda a crear clústeres de HDInsight bajo demanda con Data Factory de Azure."
+title: "Creación de Azure HDInsight (Hadoop) | con Data Factory | Microsoft Docs"
+description: "Aprenda a crear clústeres de Hadoop en HDInsight mediante Azure Data Factory."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 0a70398010bb06590e981430edabffa889c213ae
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ce32b22d60f89c82f0c416e736f41e3767bd8fc5
 
 
 ---
-# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Data Factory de Azure
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creación de clústeres de Hadoop en HDInsight mediante Azure Data Factory
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. En este artículo, aprenderá cómo usar Data Factory de Azure para crear un [servicio vinculado de HDInsight de Azure bajo demanda](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service), y a usar el clúster para ejecutar un trabajo de Hive. Este es el flujo de nivel alto:
 
@@ -444,6 +444,6 @@ En este artículo, ha aprendido cómo utilizar la Data Factory de Azure para cre
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

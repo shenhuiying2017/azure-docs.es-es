@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
-ms.openlocfilehash: 98688632c6aaba14b71923dc217f6b0368ae76d8
+ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
+ms.openlocfilehash: 4fa808b50b56122976cc176c55937f9443f31097
 
 
 ---
-# <a name="install-and-use-spark-on-hdinsight-hadoop-clusters-using-script-action"></a>Instalación y uso de Spark en clústeres de Hadoop de HDInsight mediante acción de script
+# <a name="install-and-use-spark-on-windows-based-hdinsight-clusters-using-script-action"></a>Instalación y uso de Spark en clústeres de HDInsight basados en Windows mediante acciones de script
+
 > [!IMPORTANT]
-> Este artículo está en desuso. HDInsight ofrece Spark, un tipo de clúster de primera clase para los clústeres basados en Windows, lo que significa que puede crear directamente un clúster de Spark sin modificar un clúster de Hadoop mediante acciones de script. Con el tipo de clúster Spark, se obtiene un clúster de HDInsight versión 3.2 con Spark versión 1.3.1.  Para instalar versiones diferentes de Spark, puede usar la acción de script. HDInsight proporciona un script de acción de script de ejemplo.
+> Este artículo está en desuso. HDInsight ofrece ahora Spark, un tipo de clúster de primera clase para los clústeres basados en Linux, lo que significa que puede crear directamente un clúster de Spark sin modificar un clúster de Hadoop mediante acciones de script. Además, los pasos de este tutorial solo se aplican a clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Obtenga información acerca de cómo instalar Spark en clústeres de HDInsight basados en Windows mediante la acción de script y cómo ejecutar consultas de Spark en clústeres de HDInsight.
 
@@ -297,6 +298,6 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

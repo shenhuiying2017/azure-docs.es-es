@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 587c39920ce658dc70034c15e3e847182a567559
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
 
 
 ---
@@ -44,7 +44,7 @@ El tutorial se puede usar con Visual Studio 2015 pero, antes de ejecutar la apli
 > * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)- Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
 > * Puede [activar las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)- Su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
 >
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 >
 >
 
@@ -256,7 +256,7 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
     No podrá usar la aplicación hasta que establezca las cadenas de conexión en el entorno de Azure en la siguiente sección. Aparecerá una página de error o la página principal, en función de las opciones de creación de la aplicación web y de la base de datos elegidas anteriormente.
 
 ### <a name="configure-the-web-app-to-use-your-azure-sql-database-and-storage-account"></a>Configure la aplicación web para que use una cuenta de almacenamiento y una base de datos SQL de Azure.
-Un procedimiento recomendado de seguridad consiste en [evitar insertar información confidencial como cadenas de conexión en archivos que se almacenen en repositorios de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure proporciona una manera de hacerlo: puede establecer la cadena de conexión y otros valores de configuración en el entorno de Azure, y las API de configuración de ASP.NET recogen estos valores cuando la aplicación se ejecuta en Azure. Puede definir estos valores en Azure con el **Explorador de servidores**, el Portal de Azure, Windows PowerShell o la interfaz de la línea de comandos multiplataforma. Para obtener más información, consulte [Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Un procedimiento recomendado de seguridad consiste en [evitar insertar información confidencial como cadenas de conexión en archivos que se almacenen en repositorios de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure proporciona una manera de hacerlo: puede establecer la cadena de conexión y otros valores de configuración en el entorno de Azure, y las API de configuración de ASP.NET recogen estos valores cuando la aplicación se ejecuta en Azure. Puede definir estos valores en Azure con el **Explorador de servidores**, el Portal de Azure, Windows PowerShell o la interfaz de la línea de comandos multiplataforma. Para obtener más información, consulte [Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 En esta sección se usa el **Explorador de servidores** para definir los valores de cadena de conexión en Azure.
 
@@ -727,6 +727,6 @@ Para obtener más información, consulte [Recursos de documentación de WebJobs 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

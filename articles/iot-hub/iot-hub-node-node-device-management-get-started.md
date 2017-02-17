@@ -1,6 +1,6 @@
 ---
-title: "Introducción a la administración de dispositivos | Microsoft Docs"
-description: "Este tutorial muestra cómo comenzar con la administración de dispositivos en IoT Hub de Azure"
+title: "Introducción a la administración de dispositivos de IoT Hub de Azure (Node) | Microsoft Docs"
+description: "Describe cómo usar la administración de dispositivos de IoT Hub para iniciar un reinicio del dispositivo remoto. Usará los SDK de IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo y un servicio que invoque el método directo."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,30 +15,30 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: e1bb89ba369818d7ba0e92a54a4712033f648187
 
 
 ---
-# <a name="tutorial-get-started-with-device-management"></a>Tutorial: Introducción a la administración de dispositivos
+# <a name="get-started-with-device-management-node"></a>Introducción a la administración de dispositivos (Node)
 ## <a name="introduction"></a>Introducción
 Las aplicaciones en la nube de IoT pueden utilizar primitivos en IoT Hub de Azure, es decir, el doble de dispositivo y métodos directos para iniciar y supervisar de forma remota las acciones de administración de dispositivos en los dispositivos.  Este artículo proporciona las instrucciones y el código para el funcionamiento conjunto de una aplicación en la nube de IoT y un dispositivo para iniciar y supervisar un reinicio del dispositivo remoto con IoT Hub.
 
 Para iniciar y supervisar remotamente las acciones de administración de dispositivos en los dispositivos desde una aplicación basada en la nube y de back-end, use primitivos de Azure IoT Hub como el [dispositivo gemelo][lnk-devtwin] y los [métodos directos][lnk-c2dmethod]. Este tutorial muestra cómo una aplicación de back-end y un dispositivo pueden trabajar juntos para permitirle iniciar y supervisar el reinicio del dispositivo remoto desde IoT Hub.
 
-Utilice un método directo para iniciar acciones de administración de dispositivos (por ejemplo, reinicio, restablecimiento de fábrica y actualización de firmware) desde una aplicación de back-end en la nube. El dispositivo es responsable de:
+Use un método directo para iniciar acciones de administración de dispositivos (por ejemplo, reinicio, restablecimiento de fábrica y actualización de firmware) desde una aplicación back-end en la nube. El dispositivo es responsable de:
 
 * Controlar la solicitud del método enviada desde IoT Hub.
 * Iniciar la acción específica del dispositivo correspondiente en el dispositivo.
-* Proporcionar actualizaciones de estado a través de las propiedades de las que informa a IoT Hub.
+* Proporcionar actualizaciones de estado mediante las propiedades notificadas a IoT Hub.
 
 Puede usar una aplicación de back-end en la nube para ejecutar consultas de dispositivos gemelos para informar sobre el progreso de las acciones de administración de los dispositivos.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
 * Usar Azure Portal para un IoT Hub y una identidad de dispositivo en este.
-* Crear una aplicación de dispositivo simulado con un método directo que permita un reinicio que se pueda llamar desde la nube.
-* Crear una aplicación de consola que llame a un método directo de reinicio en la aplicación de dispositivo simulado a través de su centro de IoT.
+* Crear una aplicación de dispositivo simulado que tenga un método directo que permita un reinicio que se pueda llamar desde la nube.
+* Crear una aplicación de consola de Node.js que llame a un método directo de reinicio en la aplicación de dispositivo simulado mediante su centro de IoT Hub.
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
@@ -60,7 +60,7 @@ En esta sección:
 
 * Creará una aplicación de consola de Node.js que responda a un método directo que se llama desde la nube.
 * Desencadenará un reinicio del dispositivo simulado.
-* Utilizará las propiedades notificadas para habilitar consultas de dispositivos gemelos a fin de identificar los dispositivos y cuándo se reiniciaron por última vez.
+* Usará las propiedades notificadas para permitir consultas de dispositivo gemelo a fin de identificar los dispositivos y cuándo se reiniciaron por última vez.
 
 1. Cree una nueva carpeta vacía denominada "**manageddevice**".  En la carpeta **manageddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
    
@@ -81,7 +81,7 @@ En esta sección:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo.  Reemplace la cadena de conexión por la cadena de conexión del dispositivo.  
+5. Agregue una variable **connectionString** y utilícela para crear una instancia de **cliente**.  Reemplace la cadena de conexión por la cadena de conexión del dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -250,7 +250,7 @@ En este tutorial ha usado un método directo para desencadenar un reinicio remot
 
 Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte:
 
-[Tutorial: Cómo realizar una actualización de firmware][lnk-fwupdate]
+[Tutorial: Realización de una actualización de firmware][lnk-fwupdate]
 
 Para información sobre cómo ampliar la solución de IoT y programar llamadas de método en varios dispositivos, consulte el tutorial [Programación de trabajos en varios dispositivos][lnk-tutorial-jobs].
 
@@ -260,7 +260,7 @@ Para continuar con la introducción a IoT Hub, consulte [Introducción al SDK de
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
@@ -276,6 +276,6 @@ Para continuar con la introducción a IoT Hub, consulte [Introducción al SDK de
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

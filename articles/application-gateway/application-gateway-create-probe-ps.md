@@ -1,10 +1,10 @@
 ---
-title: "Creación de un sondeo personalizado para Application Gateway mediante PowerShell en Resource Manager | Microsoft Docs"
+title: "Creación de un sondeo personalizado para Azure Application Gateway mediante PowerShell | Microsoft Docs"
 description: Aprenda a crear un sondeo personalizado para Puerta de enlace de aplicaciones mediante PowerShell en el Administrador de recursos
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
 
 
 ---
@@ -27,8 +27,6 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 > * [Portal de Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -39,7 +37,7 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 
 ### <a name="step-1"></a>Paso 1
 
-Utilice Login-AzureRmAccount para autenticarse.
+Use `Login-AzureRmAccount` para autenticar.
 
 ```powershell
 Login-AzureRmAccount
@@ -55,7 +53,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>Paso 3
 
-Elección de la suscripción de Azure que se va a usar. <BR>
+Elección de la suscripción de Azure que se va a usar.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -192,11 +190,8 @@ Configure el tamaño de la instancia de la puerta de enlace de aplicaciones.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-
 > [!NOTE]
-> El valor predeterminado de **InstanceCount** es 2, con un valor máximo de 10. El valor predeterminado de **GatewaySize** es Medium. Se puede elegir entre **Standard_Small**, **Standard_Medium** y **Standard_Large**.
-> 
-> 
+> El valor predeterminado de **InstanceCount** es 2, con un valor máximo de 10. El valor predeterminado de **GatewaySize** es Medium. Se puede elegir entre **Standard_Small**, **Standard_Medium** y **Standard_Large**. 
 
 ## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Creación de una puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
 
@@ -256,7 +251,6 @@ Cargue el recurso de puerta de enlace de aplicaciones en una variable de PowerSh
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
-
 ### <a name="step-2"></a>Paso 2
 
 Quite la configuración de sondeo de la puerta de enlace de aplicaciones mediante `Remove-AzureRmApplicationGatewayProbeConfig`.
@@ -313,11 +307,11 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a configurar la descarga de SSL visitando [Configuración de la descarga SSL](application-gateway-ssl-arm.md)
+Aprenda a configurar la descarga de SSL visitando [Configuración de la descarga SSL](application-gateway-ssl-arm.md).
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

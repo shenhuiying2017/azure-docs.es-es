@@ -1,5 +1,5 @@
 ---
-title: "Creación de una entidad de servicio con la CLI de Azure | Microsoft Docs"
+title: "Creación de la identidad de la aplicación de Azure con la CLI de Azure | Microsoft Docs"
 description: "Describe cómo usar la CLI de Azure para crear una aplicación de Active Directory y una entidad de servicio, además de cómo concederle acceso a recursos mediante el control de acceso basado en roles. Muestra cómo autenticar aplicaciones con una contraseña o un certificado."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5181bfc1c68bc2b3fd203b21172ef1e792368070
-ms.openlocfilehash: 13600cccca19e45aa3b74d7199d403051a204113
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
 
 
 ---
@@ -28,7 +28,13 @@ ms.openlocfilehash: 13600cccca19e45aa3b74d7199d403051a204113
 > 
 > 
 
-Cuando tenga una aplicación o un script que necesite acceder a recursos, lo más probable es que no desee ejecutar este proceso con sus credenciales. Es posible que haya elegido permisos diferentes para la aplicación y no desea que la aplicación continúe usando sus credenciales si cambian sus responsabilidades. En su lugar, crea una identidad para la aplicación que incluye credenciales de autenticación y asignaciones de roles. Cada vez que se ejecuta la aplicación, se autentica con estas credenciales. Este tema le muestra cómo usar la [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md) para configurar que una aplicación se ejecute con sus propias credenciales e identidad.
+Cuando haya una aplicación o un script que necesite acceder a recursos, puede configurar una identidad para la aplicación y autenticarla con sus propias credenciales. Este enfoque es preferible a ejecutar la aplicación con sus propias credenciales por los siguientes motivos:
+
+* Puede asignar permisos a la identidad de aplicación que sean diferentes a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer.
+* No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian. 
+* Puede usar un certificado para automatizar la autenticación al ejecutar un script desatendido.
+
+En este tema se muestra cómo usar la [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md) para configurar una aplicación de forma que se ejecute con sus propias credenciales e identidad.
 
 Con la CLI de Azure, tiene dos opciones para autenticar la aplicación de AD:
 
@@ -45,7 +51,7 @@ Quizás se pregunte por qué necesita ambos objetos. Este enfoque tiene más sen
 ## <a name="required-permissions"></a>Permisos necesarios
 Para completar este tema, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Active Directory y asignar la entidad de servicio a un rol. 
 
-El portal representa la forma más sencilla de comprobar si su cuenta tiene los permisos adecuados. Consulte el [artículo que explica cómo comprobar el permiso requerido](resource-group-create-service-principal-portal.md#required-permissions).
+El portal representa la forma más sencilla de comprobar si su cuenta tiene los permisos adecuados. Consulte [Comprobación de los permisos necesarios en el portal](resource-group-create-service-principal-portal.md#required-permissions).
 
 Ahora, continúe en la sección sobre autenticación mediante [contraseña](#create-service-principal-with-password) o [certificado](#create-service-principal-with-certificate).
 
@@ -56,33 +62,40 @@ Vamos a analizar estos pasos.
 
 1. Inicie sesión en su cuenta.
    
-   ```
+   ```azurecli
    azure login
    ```
 2. Tiene dos opciones para crear la aplicación de AD. Puede crear la aplicación de AD y la entidad de servicio en un solo paso, o bien hacerlo por separado. Créela en un solo paso si no tiene que especificar una página principal y los URI del identificador de la aplicación. Hágalo por separado si tiene que establecer estos valores para una aplicación web. En este paso se muestran las dos opciones.
    
    * Para crear la aplicación de AD y la entidad de servicio en un solo paso, proporcione el nombre de la aplicación y una contraseña, tal y como se muestra en el siguiente comando:
      
-     ```
+     ```azurecli
      azure ad sp create -n exampleapp -p {your-password}
      ```
-   * Para crear la aplicación de AD por separado, proporcione el nombre de la aplicación, un URI de la página principal, los URI del identificador y una contraseña, tal y como se muestra en el siguiente comando:
+   * Para crear la aplicación de AD por separado, proporcione la siguiente información:
+
+      * Nombre de la aplicación
+      * Dirección URL de página de inicio de la aplicación
+      * Lista delimitada por comas de identificadores URI que identifican la aplicación
+      * Contraseña
+
+      Como se muestra en el siguiente comando:
      
-     ```
+     ```azurecli
      azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {Your_Password}
      ```
 
        El comando anterior devuelve un valor AppId. Para crear una entidad de servicio, proporcione ese valor como un parámetro en el siguiente comando:
      
-     ```
+     ```azurecli
      azure ad sp create -a {AppId}
      ```
      
-     Si su cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory, verá un mensaje de error que indica Authentication_Unauthorized o No se encontró ninguna suscripción en el context.
+     Si su cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory, verá un mensaje de error que indica "Authentication_Unauthorized" o "No subscription found in the context" (No se encontró ninguna suscripción en el contexto).
      
-     En ambas opciones, se devuelve la nueva entidad de servicio. Cuando se conceden permisos, se requiere el **identificador de objeto**. El GUID que figura en los **nombres de entidad de seguridad de servicio** es necesario para iniciar sesión. Este GUID es el mismo valor que el identificador de la aplicación. En las aplicaciones de ejemplo, a este valor se le conoce como **identificador de cliente**. 
+     En ambas opciones, se devuelve la nueva entidad de servicio. Al conceder permisos, es necesario el valor de `Object Id`. Al iniciar sesión, es necesario el GUID que se muestra con el valor de `Service Principal Names`. Este GUID es el mismo valor que el identificador de la aplicación. En las aplicaciones de ejemplo, a este valor se le conoce como `Client ID`. 
      
-     ```
+     ```azurecli
      info:    Executing command ad sp create
      
      Creating application exampleapp
@@ -95,13 +108,13 @@ Vamos a analizar estos pasos.
        info:    ad sp create command OK
       ```
 
-3. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol **Lector** , que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Para el parámetro **ServicePrincipalName**, indique el valor de **ObjectId** que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
+3. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Para el parámetro `objectid`, proporcione el valor de `Object Id` que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
    
-   ```
+   ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
    ```
    
-     Si su cuenta no tiene permisos suficientes para asignar un rol, verá un mensaje de error. El mensaje indica que la cuenta **no tiene autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write' en el ámbito '/subscriptions/{guid}'**. 
+     Si su cuenta no tiene permisos suficientes para asignar un rol, verá un mensaje de error. El mensaje indica que la cuenta no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write' en el ámbito '/subscriptions/{guid}".
 
 Eso es todo. La aplicación de AD y la entidad de servicio ya están configuradas. La sección siguiente muestra cómo iniciar sesión con las credenciales mediante la CLI de Azure. Si desea usar las credenciales en la aplicación de código, no es necesario continuar con este tema. Puede ir a [Aplicaciones de ejemplo](#sample-applications) para obtener ejemplos de inicio de sesión con su Id. de aplicación y contraseña. 
 
@@ -110,13 +123,13 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
 
 1. Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Active Directory. Para recuperar el identificador del inquilino para la suscripción actualmente autenticada, use:
    
-   ```
+   ```azurecli
    azure account show
    ```
    
      Que devuelve:
    
-   ```
+   ```azurecli
    info:    Executing command account show
    data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
    data:    ID                          : {guid}
@@ -128,18 +141,18 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
    
      Si necesita obtener el identificador del inquilino de otra suscripción, use el siguiente comando:
    
-   ```
+   ```azurecli
    azure account show -s {subscription-id}
    ```
 2. Si tiene que recuperar el identificador de cliente que se utiliza para iniciar sesión, use lo siguiente:
    
-   ```
+   ```azurecli
    azure ad sp show -c exampleapp --json
    ```
    
      El valor que se usa para iniciar sesión es el GUID que figura en los nombres de entidad de seguridad de servicio.
    
-   ```
+   ```azurecli
    [
      {
        "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
@@ -155,18 +168,20 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
    ```
 3. Inicie sesión como la entidad de servicio.
    
-   ```
+   ```azurecli
    azure login -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
    ```
    
     Se le pedirá la contraseña. Proporcione la contraseña que especificó al crear la aplicación de AD.
    
-   ```
+   ```azurecli
    info:    Executing command login
    Password: ********
    ```
 
 Ahora está autenticado como entidad de servicio para la entidad de servicio que ha creado.
+
+Como alternativa, puede invocar operaciones REST desde la línea de comandos para iniciar sesión. De la respuesta de autenticación, puede recuperar el token de acceso para su uso con otras operaciones. Para ver un ejemplo de recuperación del token de acceso mediante la invocación de operaciones REST, consulte [Generación de un token de acceso](resource-manager-rest-api.md#generating-an-access-token).
 
 ## <a name="create-service-principal-with-certificate"></a>Creación de entidad de servicio con certificado
 Estos son los pasos que se realizan en esta sección:
@@ -190,33 +205,40 @@ Para completar estos pasos, debe tener instalado [OpenSSL](http://www.openssl.or
 3. Abra el archivo **examplecert.pem** y busque la secuencia larga de caracteres entre **-----BEGIN CERTIFICATE-----** y **-----END CERTIFICATE-----**. Copie los datos del certificado. Estos datos se pasan como un parámetro al crear la entidad de servicio.
 4. Inicie sesión en su cuenta.
    
-   ```
+   ```azurecli
    azure login
    ```
 5. Tiene dos opciones para crear la aplicación de AD. Puede crear la aplicación de AD y la entidad de servicio en un solo paso, o bien hacerlo por separado. Créela en un solo paso si no tiene que especificar una página principal y los URI del identificador de la aplicación. Hágalo por separado si tiene que establecer estos valores para una aplicación web. En este paso se muestran las dos opciones.
    
    * Para crear la aplicación de AD y la entidad de servicio en un solo paso, proporcione el nombre de la aplicación y los datos del certificado, tal y como se muestra en el siguiente comando:
      
-     ```
+     ```azurecli
      azure ad sp create -n exampleapp --cert-value {certificate data}
      ```
-   * Para crear la aplicación de AD por separado, proporcione el nombre de la aplicación, un URI de la página principal, los URI del identificador y los datos del certificado, tal y como se muestra en el siguiente comando:
-     
-     ```
+   * Para crear la aplicación de AD por separado, proporcione la siguiente información:
+      
+      * Nombre de la aplicación
+      * Dirección URL de página de inicio de la aplicación
+      * Lista delimitada por comas de identificadores URI que identifican la aplicación
+      * Datos del certificado
+
+      Como se muestra en el siguiente comando:
+
+     ```azurecli
      azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value {certificate data}
      ```
      
        El comando anterior devuelve un valor AppId. Para crear una entidad de servicio, proporcione ese valor como un parámetro en el siguiente comando:
      
-     ```
+     ```azurecli
      azure ad sp create -a {AppId}
      ```
      
-     Si su cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory, verá un mensaje de error que indica Authentication_Unauthorized o No se encontró ninguna suscripción en el context.
+     Si su cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory, verá un mensaje de error que indica "Authentication_Unauthorized" o "No subscription found in the context" (No se encontró ninguna suscripción en el contexto).
      
-     En ambas opciones, se devuelve la nueva entidad de servicio. Cuando se conceden permisos, es necesario el identificador de objeto. El GUID que figura en los **nombres de entidad de seguridad de servicio** es necesario para iniciar sesión. Este GUID es el mismo valor que el identificador de la aplicación. En las aplicaciones de ejemplo, a este valor se le conoce como **identificador de cliente**. 
+     En ambas opciones, se devuelve la nueva entidad de servicio. Cuando se conceden permisos, es necesario el identificador de objeto. Al iniciar sesión, es necesario el GUID que se muestra con el valor de `Service Principal Names`. Este GUID es el mismo valor que el identificador de la aplicación. En las aplicaciones de ejemplo, a este valor se le conoce como `Client ID`. 
      
-     ```
+     ```azurecli
      info:    Executing command ad sp create
      
      Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
@@ -227,26 +249,26 @@ Para completar estos pasos, debe tener instalado [OpenSSL](http://www.openssl.or
        data:                      https://www.contoso.org/example
        info:    ad sp create command OK
      ```
-6. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol **Lector** , que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Para el parámetro **ServicePrincipalName**, indique el valor de **ObjectId** que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
+6. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Para el parámetro `objectid`, proporcione el valor de `Object Id` que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
    
-   ```
+   ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
    ```
    
-     Si su cuenta no tiene permisos suficientes para asignar un rol, verá un mensaje de error. El mensaje indica que la cuenta **no tiene autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write' en el ámbito '/subscriptions/{guid}'**. 
+     Si su cuenta no tiene permisos suficientes para asignar un rol, verá un mensaje de error. El mensaje indica que la cuenta no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write' en el ámbito '/subscriptions/{guid}".
 
 ### <a name="provide-certificate-through-automated-azure-cli-script"></a>Proporcionar un certificado a través de un script automatizado de la CLI de Azure
 Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
 
 1. Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Active Directory. Para recuperar el identificador del inquilino para la suscripción actualmente autenticada, use:
    
-   ```
+   ```azurecli
    azure account show
    ```
    
      Que devuelve:
    
-   ```
+   ```azurecli
    info:    Executing command account show
    data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
    data:    ID                          : {guid}
@@ -258,7 +280,7 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
    
      Si necesita obtener el identificador del inquilino de otra suscripción, use el siguiente comando:
    
-   ```
+   ```azurecli
    azure account show -s {subscription-id}
    ```
 2. Para recuperar la huella digital de certificado y quitar los caracteres innecesarios, use el siguiente comando:
@@ -274,13 +296,13 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
    ```
 3. Si tiene que recuperar el identificador de cliente que se utiliza para iniciar sesión, use lo siguiente:
    
-   ```
+   ```azurecli
    azure ad sp show -c exampleapp
    ```
    
      El valor que se usa para iniciar sesión es el GUID que figura en los nombres de entidad de seguridad de servicio.
      
-   ```
+   ```azurecli
    [
      {
        "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
@@ -296,7 +318,7 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
    ```
 4. Inicie sesión como la entidad de servicio.
    
-   ```
+   ```azurecli
    azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
    ```
 
@@ -308,13 +330,13 @@ Para cambiar las credenciales de una aplicación de Active Directory, ya sea por
 
 Para cambiar una contraseña, use:
 
-```
+```azurecli
 azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password p@ssword
 ```
 
 Para cambiar un valor de certificado, use:
 
-```
+```azurecli
 azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
 ```
 
@@ -354,6 +376,6 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entid
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

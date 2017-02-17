@@ -1,5 +1,5 @@
 ---
-title: Salida a una instancia de Azure Redis Cache con Azure Functions desde Azure Stream Analytics | Microsoft Docs
+title: Procesamiento en tiempo real de Stream Analytics para Azure Functions | Microsoft Docs
 description: "Obtenga información sobre cómo usar una función de Azure conectada a una cola del Bus de servicio para rellenar una instancia de Caché en Redis de Azure desde la salida de un trabajo de Análisis de transmisiones."
 keywords: "flujo de datos, caché en redis, cola del bus de servicio"
 services: stream-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e792f8c8b1ffddbd534b1660421e4cc89a63d35a
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
 
 
 ---
@@ -207,6 +207,6 @@ Para mantenerse al día con las noticias y características más recientes, siga
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

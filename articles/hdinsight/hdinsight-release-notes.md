@@ -13,15 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 1/18/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
-ms.openlocfilehash: be590e72e30b4b8cf506a43a9de2e54a0200356d
+ms.sourcegitcommit: 9f1222e797446a5835726a10e5c9e8b535a8cf4d
+ms.openlocfilehash: c1c13f21fff7ba201eb00f6c9f594131a75c44fc
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de la versión de los componentes de Hadoop en HDInsight de Azure
+
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ##<a name="notes-for-11182016-release-of-spark-201-on-hdinsight-35"></a>Notas de la versión del 18/11/2016 de Spark 2.0.1 Spark en HDInsight 3.5
 Spark 2.0.1 ahora está disponible en los clústeres Spark (HDInsight versión 3.5).
@@ -465,14 +468,14 @@ Esta versión contiene las siguientes actualizaciones.
 <td>Corrección para una condición de carrera poco frecuente e intermitente en orden aleatorio de MapReduce en grandes clústeres que provocan errores de tareas ocasionales. Consulte <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a> para más información.</td>
 <td>Núcleo de Hadoop</td>
 <td>Todo</td>
-<td><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE 6361</a></td>
+<td><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE&6361;</a></td>
 </tr>
 <tr>
 <td>Mover al último SDK 2.2 de Azure para Java para HDInsight 3.2</td>
 <td>Se movió a la última versión del SDK de Azure para Java que usa el controlador WASB. El último SDK tiene algunas correcciones y sus notas de la versión están disponibles en https://github.com/Azure/azure-storage-java/blob/master/ChangeLog.txt.</td>
 <td>Núcleo de Hadoop</td>
 <td>Todo</td>
-<td><a href="https://issues.apache.org/jira/browse/HADOOP-11959" target="_blank">HADOOP 11959</a></td>
+<td><a href="https://issues.apache.org/jira/browse/HADOOP-11959" target="_blank">HADOOP&11959;</a></td>
 </tr>
 <tr>
 <td>Mover a HDP 2.1.15 para los clústeres de HDInsight 3.1</td>
@@ -1116,7 +1119,7 @@ Esta versión contiene las siguientes actualizaciones de componentes.
 </tr>
 <tr>
 <td>Cambios en el nombre de archivo JAR de HDP</td>
-<td>En la versión 3.0 del clúster de HDI, hay un par de cambios en los archivos JAR internos instalados por HDP. jetty 6.1.26.jar se ha reemplazado por jetty 6.1.26.hwx.jar. jetty-util-6.1.26.jar se ha reemplazado por jetty-util-6.1.26.hwx.jar. Estos cambios se aplican a los proyectos de Hadoop, Mahout, WebHCat y Oozie.</td>
+<td>En la versión 3.0 del clúster de HDI, hay un par de cambios en los archivos JAR internos instalados por HDP. jetty&6;.1.26.jar se ha reemplazado por jetty&6;.1.26.hwx.jar. jetty-util-6.1.26.jar se ha reemplazado por jetty-util-6.1.26.hwx.jar. Estos cambios se aplican a los proyectos de Hadoop, Mahout, WebHCat y Oozie.</td>
 <td>Hadoop, Mahout, WebHCat, Oozie</td>
 <td>Hadoop, HBase</td>
 <td>N/D</td>
@@ -1526,6 +1529,6 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

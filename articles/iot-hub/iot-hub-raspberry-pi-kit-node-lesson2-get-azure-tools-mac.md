@@ -1,5 +1,5 @@
 ---
-title: "Obtención de las herramientas de Azure (macOS 10.10) | Microsoft Docs"
+title: "Conexión de Raspberry Pi (Node) a Azure IoT: Lección 1: Obtención de las herramientas (Ubuntu) | Microsoft Docs"
 description: "Instale Python y la interfaz de la línea de comandos de Azure (CLI de Azure) en macOS."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7fbf21434952ece22468df6873e10e6f3eae1724
-ms.openlocfilehash: 3bf03cbd56ac72a0be62c1adc769dcbbd9295029
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 9b680e8e7fe9d6b12f050914dffd34c87462daea
 
 
 ---
@@ -78,6 +78,6 @@ Ha instalado la CLI de Azure. La siguiente tarea consiste en crear la identidad 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

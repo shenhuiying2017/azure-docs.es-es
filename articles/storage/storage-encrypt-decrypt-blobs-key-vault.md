@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault | Microsoft Docs'
-description: "Este tutorial le guiará por los pasos para cifrar y descifrar un blob mediante el cifrado del lado cliente de Almacenamiento de Microsoft Azure con Almacén de claves de Azure."
+title: 'Tutorial: Cifrado y descifrado de blobs en Azure Storage con Azure Key Vault | Microsoft Docs'
+description: "Cómo cifrar y descifrar un blob mediante el cifrado del lado cliente de Microsoft Azure Storage con Azure Key Vault."
 services: storage
 documentationcenter: 
 author: adhurwit
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 2d6ebe1a0afb09f0d05e720a0e7afcf135011de7
-ms.openlocfilehash: 401f4a5c8f397b056f814aefe4212e487dfee412
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 0c33742a0212e670072a947a2d2ab8304c77b973
 
 
 ---
@@ -240,6 +240,6 @@ Para obtener la información más reciente sobre Microsoft Azure Storage, vaya a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

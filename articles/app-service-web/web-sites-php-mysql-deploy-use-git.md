@@ -13,16 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1b1da346a253443c0b5eaf6f8a9a5a399923e760
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git
-En este tutorial se muestra cómo crear una aplicación web PHP-MySQL y cómo implementarla en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL][install-mysql]) y [Git][install-git] instalados en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá una aplicación web PHP/MySQL que se ejecutará en Azure.
+En este tutorial se muestra cómo crear una aplicación web PHP-MySQL y cómo implementarla en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]) y [Git][install-git] instalados en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá una aplicación web PHP/MySQL que se ejecutará en Azure.
 
 Aprenderá a:
 
@@ -35,7 +35,7 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 ![Sitio web PHP de Azure][running-app]
 
 ## <a name="set-up-the-development-environment"></a>Configuración del entorno de desarrollo
-En este tutorial se supone que tiene [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git] instalados en el equipo.
+En este tutorial se supone que tiene [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]) y [Git][install-git] instalados en el equipo.
 
 <a id="create-web-site-and-set-up-git"></a>
 
@@ -86,7 +86,7 @@ Registration es una sencilla aplicación PHP que permite registrarse en un event
 
 * **index.php**: muestra un formulario de registro y una tabla que contiene la información de los usuarios inscritos.
 
-Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP y la herramienta de línea de comandos MySQL (parte de MySQL) configurado en la máquina local, además de tener habilitada la [extensión PDO para MySQL][pdo-mysql].
+Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP y la herramienta de línea de comandos MySQL (parte de MySQL) configurados en la máquina local, además de tener habilitada la [extensión PDO para MySQL][pdo-mysql].
 
 1. Conéctese al servidor MySQL remoto usando los valores de `Data Source`, `User Id`, `Password` y `Database` recuperados anteriormente:
    
@@ -234,7 +234,7 @@ Para publicar los cambios de la aplicación, siga estos pasos:
     ![Sitio web PHP de Azure][running-app]
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -243,7 +243,7 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 ## <a name="enable-composer-automation-with-the-composer-extension"></a>Habilitación de la automatización de Composer con la extensión Composer
 De forma predeterminada, el proceso de implementación de git en el Servicio de aplicaciones no responde con composer.json, si tiene uno en el proyecto PHP. Puede habilitar el procesamiento de composer.json durante `git push` si habilita la extensión Composer.
 
-1. En la hoja de aplicación web de PHP, en [Azure portal][management-portal], haga clic en **Herramientas** > **Extensiones**.
+1. En la hoja de la aplicación web de PHP, en [Azure Portal][management-portal], haga clic en **Herramientas** > **Extensiones**.
    
     ![Configuración de la extensión Compositor][composer-extension-settings]
 2. Haga clic en **Agregar** y, luego, en **Compositor**.
@@ -299,6 +299,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

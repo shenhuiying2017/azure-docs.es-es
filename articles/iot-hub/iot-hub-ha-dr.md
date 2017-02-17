@@ -1,5 +1,5 @@
 ---
-title: "Alta disponibilidad y recuperación ante desastres de IoT Hub de Azure | Microsoft Docs"
+title: "Alta disponibilidad y recuperación ante desastres de Azure IoT Hub | Microsoft Docs"
 description: "Describe las características de Azure e IoT Hub que lo ayudarán a crear soluciones de IoT de Azure de alta disponibilidad con funcionalidades de recuperación ante desastres."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: f133300d88b0ffc10b287879ec78f4c63e9ba62d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 76c3187549e1821908263c30e394db26ee6f75e6
 
 
 ---
@@ -29,10 +29,10 @@ Además de la alta disponibilidad dentro de una región, Centro de IoT implement
 | Funcionalidad | RPO |
 | --- | --- |
 | Disponibilidad de servicio para las operaciones de registro y comunicación |Posible pérdida de CName |
-| Datos de identidad en el registro de identidad |Pérdida de datos de 0-5 minutos |
+| Datos de identidad en el registro de identidad |Pérdida de datos de&0;-5 minutos |
 | Mensajes de dispositivo a nube |Se pierden todos los mensajes no leídos |
 | Mensajes de supervisión de operaciones |Se pierden todos los mensajes no leídos |
-| Mensajes de nube a dispositivo |Pérdida de datos de 0-5 minutos |
+| Mensajes de nube a dispositivo |Pérdida de datos de&0;-5 minutos |
 | Cola de comentarios de nube a dispositivo |Se pierden todos los mensajes no leídos |
 
 ## <a name="regional-failover-with-iot-hub"></a>Conmutación por error regional con el Centro de IoT
@@ -62,6 +62,6 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

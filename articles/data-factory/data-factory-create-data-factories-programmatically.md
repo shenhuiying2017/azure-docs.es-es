@@ -1,5 +1,5 @@
 ---
-title: "Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de la factoría de datos | Microsoft Docs"
+title: "Creación de canalizaciones de datos mediante el SDK de Azure .NET | Microsoft Docs"
 description: "Conozca cómo puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de Factoría de datos."
 services: data-factory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: d51c900f7cf69d3852a1699284a459b930eb735e
+ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
+ms.openlocfilehash: 4973a2218ec480fb239e3b32e8f34e3fb14454d0
 
 
 ---
-# <a name="create-monitor-and-manage-azure-data-factories-using-data-factory-net-sdk"></a>Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
+# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creación, supervisión y administración de factorías de datos de Azure mediante el SDK de .NET de Azure Data Factory
 ## <a name="overview"></a>Información general
 Puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de .NET de la factoría de datos. Este artículo contiene un tutorial que puede seguir para crear una aplicación de consola .NET de ejemplo que crea y controla una factoría de datos. Vea la [Referencia de la biblioteca de clases de Factoría de datos](https://msdn.microsoft.com/library/mt415893.aspx) para obtener más información sobre el SDK de .NET de la factoría de datos.
 
@@ -481,6 +481,6 @@ Note down the **SubscriptionId** and **TenantId** values.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

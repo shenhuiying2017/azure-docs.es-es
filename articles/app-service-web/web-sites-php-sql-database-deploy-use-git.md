@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 58791f5362182596de8b792c408e392d8d6cbb95
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7dbb3ab55607e377abc3c91c7ee3e938248a676
 
 
 ---
 # <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>Crear una aplicación web de PHP-SQL e implementarla en el Servicio de aplicaciones de Azure mediante Git
-En este tutorial se muestra cómo crear una aplicación web PHP en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta a Base de datos SQL de Azure y cómo implementarla mediante Git. En este tutorial se supone que tiene [PHP][install-php], [SQL Server Express][install-SQLExpress], los [controladores de Microsoft Drivers para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) y [Git][install-git] instalados en el equipo. Una vez completada esta guía, tendrá una aplicación web PHP-SQL que se ejecutará en Azure.
+En este tutorial se muestra cómo crear una aplicación web PHP en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta a Base de datos SQL de Azure y cómo implementarla mediante Git. En este tutorial se supone que tiene [PHP][install-php], [SQL Server Express][install-SQLExpress], [controladores de Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) y [Git][install-git] instalados en el equipo. Una vez completada esta guía, tendrá una aplicación web PHP-SQL que se ejecutará en Azure.
 
 > [!NOTE]
 > Puede instalar y configurar PHP, SQL Server Express, los controladores de Microsoft para SQL Server para PHP mediante el [instalador de plataforma web de Microsoft](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -40,7 +40,7 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -89,7 +89,7 @@ Registration es una sencilla aplicación PHP que permite registrarse en un event
 * **index.php**: muestra un formulario de registro y una tabla que contiene la información de los usuarios inscritos.
 * **createtable.php**: crea la tabla de Base de datos SQL para la aplicación. Este archivo solo se usará una vez.
 
-Para ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se presupone que tiene PHP y SQL Server Express configurados en la máquina local, además de tener habilitada la [extensión PDO para SQL Server][pdo-sqlsrv].
+Para ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP y SQL Server Express configurados en la máquina local, además de tener habilitada la [extensión PDO para SQL Server][pdo-sqlsrv].
 
 1. Cree una base de datos de SQL Server denominada `registration`. Puede realizar este procedimiento desde el símbolo del sistema `sqlcmd` con estos comandos:
    
@@ -280,6 +280,6 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

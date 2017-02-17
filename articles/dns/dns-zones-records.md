@@ -1,5 +1,5 @@
 ---
-title: Registros y zonas DNS | Microsoft Docs
+title: "Información general sobre registros y zonas DNS - Azure DNS | Microsoft Docs"
 description: "Información general de soporte técnico para hospedar registros y zonas DNS en DNS de Microsoft Azure."
 services: dns
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
-ms.openlocfilehash: 38ff556271a84fbf385dab03a7551b3eb7413c81
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: 4950edd41f58175c675afb7a7ea9f14fe4a59b26
 
 ---
 
@@ -143,6 +143,6 @@ Se aplican los límites predeterminados siguientes cuando se usa DNS de Azure:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

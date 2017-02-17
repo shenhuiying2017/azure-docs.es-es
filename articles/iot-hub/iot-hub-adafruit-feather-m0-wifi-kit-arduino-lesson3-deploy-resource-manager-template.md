@@ -1,5 +1,5 @@
 ---
-title: "Creación de una instancia de Azure Function App y una cuenta de Azure Storage | Microsoft Docs"
+title: "Conexión de Arduino (C) a Azure IoT: Lección 3: Implementación de plantillas | Microsoft Docs"
 description: La instancia de Azure Function App escucha los eventos de Azure IoT Hub, procesa los mensajes entrantes y los escribe en Azure Table Storage.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 946d66cc7ed1173e7b2b92dae90a1ce69ba3c165
-ms.openlocfilehash: 18806dc515a9a8951134d580a2c0664ff503e17c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: cf666d17406a49036082a6a4dd15bad89c04aa8f
 
 
 ---
@@ -88,6 +88,6 @@ Ha creado una instancia de Azure Function App para procesar mensajes de IoT Hub,
 [send-device-to-cloud-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

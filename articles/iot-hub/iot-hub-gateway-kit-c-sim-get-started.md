@@ -1,5 +1,5 @@
 ---
-title: "Introducción al kit de inicio de puerta de enlace de IoT de Azure | Microsoft Docs"
+title: "Dispositivo simulado y puerta de enlace de Azure IoT: Introducción | Microsoft Docs"
 description: Comience con el kit de inicio de puerta de enlace de IoT, cree la instancia de IoT Hub de Azure y conecte la puerta de enlace a la instancia de IoT Hub
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
 
 
 ---
@@ -35,7 +35,7 @@ En este tutorial, empezará por aprender los conceptos básicos sobre cómo trab
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Lección 1: Configuración de NUC
-![Diagrama integral de la lección 1](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
+![Diagrama integral de la lección&1;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
 En esta lección, se configura Intel NUC (Next Unit of Computing) en el kit como una puerta de enlace de IoT de Azure, se instala el paquete del SDK de puerta de enlace de IoT de Azure en NUC y se ejecuta una aplicación de ejemplo para comprobar la funcionalidad de la puerta de enlace.
 
@@ -44,7 +44,7 @@ En esta lección, se configura Intel NUC (Next Unit of Computing) en el kit como
 Vaya a [Configuración de Intel NUC como puerta de enlace de IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md) (Configuración de Intel NUC como una puerta de enlace de IoT).
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Lección 2: Creación de la instancia de IoT Hub
-![Diagrama integral de la lección 2](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
+![Diagrama integral de la lección&2;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
 En esta lección, se instalan las herramientas y el software en el equipo host. Debe crear una cuenta gratuita de Azure, aprovisionar la instancia de IoT Hub de Azure y crear el primer dispositivo en IoT Hub.
 
@@ -109,6 +109,6 @@ Si tiene algún problema durante las lecciones, puede encontrar soluciones en el
 Visite la [zona de desarrollador del Kit de puerta de enlace de IoT de Intel](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) para obtener más información.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

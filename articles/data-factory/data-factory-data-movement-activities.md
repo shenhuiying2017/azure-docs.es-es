@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: ef5c1f296a0a4ee6476db663e85c49c351f826b9
-ms.openlocfilehash: 53a2012a1d928c961cbfbdcea485ae18d776360f
+ms.sourcegitcommit: da98bc3e4dda1a05cba38701c0042f1c023c419a
+ms.openlocfilehash: 40b172356b3171557d6309a6bb2984fba34f485d
 
 
 ---
@@ -66,11 +66,12 @@ Si tiene que realizar operaciones de introducción o extracción de datos en rel
 ### <a name="supported-file-formats"></a>Formatos de archivos admitidos
 La actividad de copia puede **copiar los archivos tal y como están** entre dos almacenes de datos basados en archivos, como Azure Blob, Azure Data Lake Store, Amazon S3, FTP, sistemas de archivos y HDFS. Para ello, puede hacer caso omiso de la [sección de formato](data-factory-create-datasets.md) de las definiciones de conjuntos de datos de entrada y de salida. Los datos se copian de forma eficaz sin procesos de serialización y deserialización.
 
-La actividad de copia también lee y escribe en archivos de formatos especificados: **texto, Avro, ORC, Parquet y JSON**. Puede realizar las siguientes actividades de copia; por ejemplo:
+La actividad de copia también lee y escribe en archivos de formatos especificados (**texto, Avro, ORC, Parquet y JSON**) y admite códecs de compresión (**GZip, Deflate, BZip2 y ZipDeflate**). Puede realizar las siguientes actividades de copia; por ejemplo:
 
-* Copiar datos en formato de texto (CSV) desde Blob de Azure y escribirlos en Base de datos SQL de Azure
-* Copiar archivos en formato de texto (CSV) desde el sistema de archivos local y escribirlos en el Blob de Azure en formato Avro
-* Copiar datos de Base de datos SQL de Azure y escribirlos en el HDFS local en formato ORC
+* Copiar datos en formato de texto comprimido GZip (CSV) desde Blob de Azure y escribirlos en Azure SQL Database.
+* Copiar archivos en formato de texto (CSV) desde el sistema de archivos local y escribirlos en Blob de Azure en formato Avro.
+* Copiar datos en el SQL Server local y escribirlos en Azure Data Lake Store en formato ORC.
+* Copiar archivos comprimidos del sistema de archivos local y, a continuación, descomprimirlos en Azure Data Lake Store.
 
 ## <a name="a-nameglobalaglobally-available-data-movement"></a><a name="global"></a>Movimiento de datos disponible globalmente
 Azure Data Factory solo está disponible en las regiones oeste de EE. UU., este de EE. UU. y Europa del Norte. Sin embargo, el servicio que ofrece la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte la sección [Servicios por región](https://azure.microsoft.com/regions/#services) para conocer la disponibilidad de Data Factory y el movimiento de datos en una región.
@@ -103,10 +104,10 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | . | Oeste de la India | India Central |
 | . | Sur de la India | India Central |
 
+También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para copiar entre almacenes de Azure del Reino Unido, puede especificar `executionLocation` como "Europa del Norte" para transmitir los datos a través de la región Europa del Norte.
 
 > [!NOTE]
-> Si la región del almacén de datos de destino no está en la lista anterior, se producirá un error en la actividad de copia, en lugar de pasar a una región alternativa.
->
+> Si la región del almacén de datos de destino no está en la lista anterior o no se detecta, se producirá un error de forma predeterminada en la actividad de copia, en lugar de pasar a una región alternativa, a menos que se haya especificado `executionLocation`. En el futuro se irá ampliando la lista de regiones admitidas.
 >
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copia de datos entre un almacén de datos local y un almacén de datos en la nube
@@ -193,6 +194,6 @@ La asignación de un determinado sistema de tipo nativo a .NET para el almacén 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

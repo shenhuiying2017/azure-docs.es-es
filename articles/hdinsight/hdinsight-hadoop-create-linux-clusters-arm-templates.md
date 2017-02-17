@@ -1,5 +1,5 @@
 ---
-title: "Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager | Microsoft Docs"
+title: "Creación de Azure HDInsight (Hadoop) mediante plantillas | Microsoft Docs"
 description: "Obtenga información acerca de cómo crear clústeres para Azure HDInsight con plantillas de Azure Resource Manager."
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
-ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 1816b7f5bb95669197891315ca57f93fd779c5c3
 
 
 ---
-# <a name="create-linux-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Creación de clústeres de Hadoop en HDInsight con plantillas de Azure Resource Manager
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Aprenda a crear clústeres de HDInsight con plantillas del Administrador de recursos de Azure. Para obtener más información, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-deploy.md). Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a crear clústeres de HDInsight con plantillas de Azure Resource Manager. Para obtener más información, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-deploy.md). Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ## <a name="prerequisites"></a>Requisitos previos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -59,9 +59,9 @@ Para averiguar el esquema JSON para ciertos elementos, puede seguir el procedimi
 
     El portal creará una plantilla de Resource Manager según la configuración que haya establecido.
 
-   ## <a name="deploy-with-powershell"></a>Implementación con PowerShell
+## <a name="deploy-with-powershell"></a>Implementación con PowerShell
 
-El procedimiento siguiente crea el clúster de HDInsight basado en Linux.
+El procedimiento siguiente crea el clúster de Hadoop en HDInsight:
 
 **Implementación de un clúster mediante una plantilla de Resource Manager**
 
@@ -151,7 +151,7 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 * Para ver una lista de las funciones que puede usar en una plantilla de Azure Resource Manager, consulte [Funciones de la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appx-a-resource-manager-template"></a>Anexo A: Plantilla de Resource Manager
-La siguiente plantilla de Administrador de recursos de Azure crea un clúster de Hadoop basado en Linux con la cuenta de Almacenamiento de Azure dependiente.
+La siguiente plantilla de Azure Resource Manager crea un clúster de Hadoop basado en Linux con la cuenta de almacenamiento de Azure dependiente.
 
 > [!NOTE]
 > El ejemplo incluye información de configuración de la tienda de Hive y Oozie Metastore.  Quite la sección o configúrela antes de usar la plantilla.
@@ -359,6 +359,6 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

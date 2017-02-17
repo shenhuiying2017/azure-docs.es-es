@@ -1,5 +1,5 @@
 ---
-title: "Descripción de los microservicios | Microsoft Docs"
+title: "Introducción a los microservicios en Azure | Microsoft Docs"
 description: "Información general sobre por qué la creación de aplicaciones de nube con un enfoque de microservicios es importante para el desarrollo de aplicaciones modernas y cómo Azure Service Fabric proporciona una plataforma para lograrlo."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/05/2017
-ms.author: mfussell
+ms.date: 02/06/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b6853d83a77658d4d59ff340cfc413be588fe469
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: a2a72da08ccff17407fcdd98783137b091651b47
 
 
 ---
@@ -156,6 +156,6 @@ El objetivo de Service Fabric es reducir las complejidades que conlleva crear ap
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
