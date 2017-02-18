@@ -1,5 +1,5 @@
 ---
-title: "Opcional: Modificación del comportamiento de encendido y apagado del LED | Microsoft Docs"
+title: "Conexión de Raspberry Pi (Node) a Azure IoT: Lección 4: Modificación de la aplicación | Microsoft Docs"
 description: Personalice los mensajes para cambiar el comportamiento de encendido y apagado del LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: dd74474d315c94ae3f2d3e69f8696f9be8508499
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 53c9408bedc6c61cdb0e755b46b3090e8723e271
 
 
 ---
@@ -104,6 +104,6 @@ En esta sección opcional, se explica cómo personalizar los mensajes para que l
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

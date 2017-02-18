@@ -1,5 +1,5 @@
 ---
-title: "Preguntas más frecuentes sobre máquinas virtuales clásicas | Microsoft Docs"
+title: "Preguntas más frecuentes sobre máquinas virtuales Windows clásicas | Microsoft Docs"
 description: "Proporciona respuestas a algunas de las preguntas más comunes sobre las máquinas virtuales de Microsoft Azure creadas con el modelo de implementación clásica."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: eae3601dd9eaea34859d507b873291df5d0c6fb1
+ms.sourcegitcommit: 872965ae70a0f0938f190a99832104cdfed25ef9
+ms.openlocfilehash: d05b0ff22fc20a6a049cc85cd0e401c680364820
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: eae3601dd9eaea34859d507b873291df5d0c6fb1
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

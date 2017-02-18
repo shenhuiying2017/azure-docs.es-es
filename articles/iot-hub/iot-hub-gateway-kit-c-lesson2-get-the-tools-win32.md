@@ -1,5 +1,5 @@
 ---
-title: "Preparación del equipo host y de IoT Hub Azure | Microsoft Docs"
+title: "Dispositivo SensorTag y puerta de enlace de Azure IoT: Lección 2: Obtención de las herramientas (Windows) | Microsoft Docs"
 description: Instale las herramientas y el software en el equipo host que ejecuta Windows, cree una instancia de IoT Hub y registre el dispositivo en ella.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: c2e24522d1485cb8418b5f66ba16ce8c0b9bbca0
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 4a854222be9aaf6733f1c256dd75195927299099
 
 
 ---
@@ -40,7 +40,7 @@ En esta lección, aprenderá lo siguiente:
 
 - Instalación de [Git](https://git-scm.com/) y [Node.js](https://nodejs.org/en/).
   - Git es un sistema de control de versiones distribuido de código abierto. La aplicación de ejemplo de esta lección se almacena en Git.
-  - Node.js es un entorno de tiempo de ejecución de JavaScript con un amplio ecosistema de paquetes.
+  - Node.js es un entorno en tiempo de ejecución de JavaScript con un amplio ecosistema de paquetes.
 - Uso de [NPM](https://www.npmjs.com/) para instalar las herramientas de desarrollo de Node.js.
   - La versión mínima necesaria de Node.js es 4.5 LTS.
   - NPM es uno de los administradores de paquetes para Node.js.
@@ -127,6 +127,6 @@ Ha instalado todas las herramientas y el software necesarios en el equipo host. 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

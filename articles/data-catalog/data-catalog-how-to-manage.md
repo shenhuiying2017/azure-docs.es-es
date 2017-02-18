@@ -1,5 +1,5 @@
 ---
-title: "Administración de recursos de datos | Microsoft Docs"
+title: "Administración de recursos de datos en Azure Data Catalog | Microsoft Docs"
 description: "En este artículo de procedimientos se resalta cómo controlar la visibilidad y la propiedad de los recursos de datos registrados en Catálogo de datos de Azure."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
+ms.openlocfilehash: 45a7b2df88a2edf2bccdfc9d2aaea932f2096f24
 
 
 ---
-# <a name="how-to-manage-data-assets"></a>Cómo administrar recursos de datos
+# <a name="how-to-manage-data-assets-in-azure-data-catalog"></a>Administración de recursos de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción
 **Catálogo de datos de Azure** ofrece funcionalidades de detección de orígenes de datos, permitiendo a los usuarios detectar y comprender fácilmente los orígenes de datos que necesitan para realizar análisis y tomar decisiones. Estas funcionalidades de detección consiguen el mayor impacto cuando todos los usuarios puedan buscar y comprender la gama más amplia de orígenes de datos disponibles. Con esto en mente, el comportamiento predeterminado del Catálogo de datos es que todos los orígenes de datos registrados sean visibles, y detectables, para todos los usuarios del catálogo.
 
@@ -31,8 +31,8 @@ Sin embargo, puede haber situaciones en las que los orígenes de datos solo debe
 
 > [!NOTE]
 > La funcionalidad descrita en este artículo solo está disponible en la edición Estándar del Catálogo de datos de Azure. La edición Gratis no ofrece funcionalidades para poseer y restringir la visibilidad de los recursos de datos.
-> 
-> 
+>
+>
 
 ## <a name="managing-ownership-of-data-assets"></a>Administración de la propiedad de los recursos de datos
 De forma predeterminada, los recursos de datos registrados en Catálogo de datos no tienen propietario; cualquier usuario con permiso para acceder al catálogo puede detectar y anotar estos recursos. Los usuarios pueden tomar posesión de los recursos de datos sin propietario y limitar la visibilidad de los recursos que poseen.
@@ -41,8 +41,8 @@ Cuando un recurso de datos de Catálogo de datos tiene propietario, solo los usu
 
 > [!NOTE]
 > La propiedad del Catálogo de datos solo afecta a los metadatos almacenados en él. No concede ningún permiso en el origen de datos subyacente.
-> 
-> 
+>
+>
 
 ### <a name="taking-ownership"></a>Tomar posesión
 Los usuarios pueden tomar posesión de los recursos de datos mediante la selección de la opción "Tomar posesión" en el portal de Catálogo de datos. No se requiere ningún permiso especial para tomar posesión de un recurso de datos sin propietario; cualquier usuario puede tomar posesión de estos tipos de recursos de datos.
@@ -52,8 +52,8 @@ Si un recurso de datos ya tiene propietario, los usuarios no pueden tomar posesi
 
 > [!NOTE]
 > Es aconsejable tener al menos dos personas como propietarios de cualquier recurso de datos con propietario.
-> 
-> 
+>
+>
 
 ### <a name="removing-owners"></a>Supresión de propietarios
 Al igual que un propietario de recursos puede agregar copropietarios, cualquier propietario de recursos puede quitar a un copropietario.
@@ -65,8 +65,8 @@ Los propietarios de recursos de datos pueden controlar la visibilidad de los rec
 
 > [!NOTE]
 > Siempre que sea posible, los permisos de propiedad y la visibilidad de los recursos deben asignarse a grupos de seguridad y no a usuarios individuales.
-> 
-> 
+>
+>
 
 ## <a name="catalog-administrators"></a>Administradores del Catálogo
 Los administradores del Catálogo de datos son implícitamente copropietarios de todos los recursos del Catálogo. Los propietarios de los recursos no pueden quitar la visibilidad a los administradores del Catálogo y los administradores pueden administrar la propiedad y la visibilidad de todos los recursos de datos en el Catálogo.
@@ -76,7 +76,6 @@ El modelo de micromecenazgo del Catálogo de datos para la detección de recurso
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

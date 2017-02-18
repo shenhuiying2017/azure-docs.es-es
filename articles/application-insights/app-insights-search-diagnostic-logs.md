@@ -1,5 +1,5 @@
 ---
-title: "Registros, excepciones y diagnósticos personalizados para ASP.NET en Application Insights"
+title: "Registros y diagnósticos de ASP.NET en Azure Application Insights | Microsoft Docs"
 description: "Diagnostique los problemas de las aplicaciones web de ASP.NET mediante la búsqueda de solicitudes, excepciones y registros generados con Trace, NLog o Log4Net."
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 04/08/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 68d4b62b4915950dd18b6aa69b43043b4a90d9ff
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
 
 
 ---
 # <a name="logs-exceptions-and-custom-diagnostics-for-aspnet-in-application-insights"></a>Registros, excepciones y diagnósticos personalizados para ASP.NET en Application Insights
-[Application Insights][start] incluye la eficaz herramienta [Búsqueda de diagnóstico][diagnostic] que permite explorar y obtener detalles de los datos de telemetría enviados por el SDK de Application Insights desde su aplicación. El SDK envía numerosos eventos, como las vistas de página de usuario, de forma automática.
+[Application Insights][start] incluye la eficaz herramienta [Búsqueda de diagnóstico][diagnostic], que permite explorar y obtener detalles de los datos de telemetría enviados por el SDK de Application Insights desde su aplicación. El SDK envía numerosos eventos, como las vistas de página de usuario, de forma automática.
 
 También puede escribir código para enviar seguimientos, informes de excepciones y eventos personalizados. Además, si ya usa un marco de registro como log4J, log4net, NLog o System.Diagnostics.Trace, puede capturar esos registros e incluirlos en la búsqueda. Esto permite poner los seguimientos del registro en correlación con las acciones del usuario, las excepciones y otros eventos de forma más fácil.
 
@@ -41,7 +41,7 @@ Los detalles varían de un tipo de aplicación a otro. Puede hacer clic en cualq
 Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
 
 ## <a name="a-nameeventsacustom-events"></a><a name="events"></a>Eventos personalizados
-Los eventos personalizados se muestran tanto en [Búsqueda de diagnóstico][diagnostic] como en [Explorador de métricas][metrics]. Puede enviarlos desde dispositivos, páginas web y aplicaciones de servidor. Se pueden usar con fines de diagnóstico y para [entender los patrones de uso][track].
+Los eventos personalizados se muestran tanto en la [Búsqueda de diagnóstico][diagnostic] como en el [Explorador de métricas][metrics]. Puede enviarlos desde dispositivos, páginas web y aplicaciones de servidor. Se pueden usar con fines de diagnóstico y para [entender los patrones de uso][track].
 
 Un evento personalizado tiene un nombre y también puede incluir propiedades por las que se puede filtrar, junto con medidas numéricas.
 
@@ -96,7 +96,7 @@ Profundice en un evento individual para ver sus propiedades detalladas.
 ![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
 ## <a name="a-namepagesa-page-views"></a><a name="pages"></a> Vistas de página
-La telemetría de la vista de página se envía mediante la llamada trackPageView() en [el fragmento de código de JavaScript que el usuario inserta en sus páginas web][usage]. Su objetivo principal es contribuir a los recuentos de vistas de página que aparecen en la página de información general.
+La telemetría de vista de página se envía mediante la llamada trackPageView() en [el fragmento de código de JavaScript que el usuario inserta en las páginas web][usage]. Su objetivo principal es contribuir a los recuentos de vistas de página que aparecen en la página de información general.
 
 Normalmente se le llama una vez en cada página HTML, pero puede insertar más llamadas: por ejemplo, si tiene una aplicación de una sola página y desea registrar una página nueva cada vez que el usuario obtiene más datos.
 
@@ -217,9 +217,9 @@ Haga clic en cualquier tipo de excepción para ver instancias específicas:
 También puede abrir la Búsqueda de diagnóstico directamente, filtrar por las excepciones y elegir el tipo de excepción que desea ver.
 
 ### <a name="reporting-unhandled-exceptions"></a>Notificación de excepciones no controladas
-Application Insights notifica las excepciones no controladas siempre que sea posible, ya sea de los dispositivos, los [exploradores web][usage] o los servidores web e independientemente las instrumenten por el [Monitor de estado][redfield] o el [SDK de Application Insights][greenbrown]. 
+Application Insights notificará las excepciones no controladas siempre que sea posible, ya sea de los dispositivos, los [exploradores web][usage] o los servidores web e independientemente de que estén instrumentadas por el [Monitor de estado][redfield] o el [SDK de Application Insights][greenbrown]. 
 
-Sin embargo, no siempre puede realizar esta acción, ya que .NET Framework captura las excepciones.  Por lo tanto, para asegurarse de ver todas las excepciones, tendrá que escribir un pequeño controlador de excepciones. El procedimiento más adecuado en cada caso varía en función de la tecnología. Consulte [Telemetría de excepción para ASP.NET][exceptions] para obtener más información. 
+Sin embargo, no siempre puede realizar esta acción, ya que .NET Framework captura las excepciones.  Por lo tanto, para asegurarse de ver todas las excepciones, tendrá que escribir un pequeño controlador de excepciones. El procedimiento más adecuado en cada caso varía en función de la tecnología. Consulte [Telemetría de excepción para ASP.NET][exceptions] para más información. 
 
 ### <a name="correlating-with-a-build"></a>Correlación con una compilación
 Cuando se leen registros de diagnóstico, es probable que el código fuente haya cambiado desde que se implementó el código activo.
@@ -247,7 +247,7 @@ En el inicializador de la aplicación como Global.asax.cs:
     }
 
 ### <a name="a-namerequestsa-server-web-requests"></a><a name="requests"></a> Solicitudes de servidor web
-La telemetría de las solicitudes se envía automáticamente al [instalar el Monitor de estado en el servidor web][redfield] o al [agregar Application Insights a un proyecto web][greenbrown]. También se inserta automáticamente en los gráficos de tiempo de solicitud y respuesta del explorador de métricas y en la página de información general.
+La telemetría de las solicitudes se envía automáticamente al [instalar el monitor de estado en el servidor web][redfield] o al [agregar Application Insights al proyecto web][greenbrown]. También se inserta automáticamente en los gráficos de tiempo de solicitud y respuesta del explorador de métricas y en la página de información general.
 
 Si desea enviar eventos adicionales, puede usar la API de TrackRequest().
 
@@ -284,6 +284,6 @@ Si la aplicación envía una gran cantidad de datos y usa el SDK de Application 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Creación de aplicaciones Spark en Scala con las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ | Microsoft Docs"
+title: Uso del kit de herramientas de Azure para IntelliJ para crear aplicaciones de Scala para Spark | Microsoft Docs
 description: "Obtenga información sobre cómo crear una aplicación independiente Spark para ejecutarla en clústeres de HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 70fbc8f973a341f818cb5958931a199021b7dc46
-ms.openlocfilehash: 4e63cb94d9bd39f0621eb0dc07c60335a91324d8
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 6c513def2abc8c99b84b2eb48848de76e12e69c7
 
 
 ---
@@ -267,6 +267,6 @@ Si tiene sugerencias o comentarios, o si encuentra algún problema al usar esta 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

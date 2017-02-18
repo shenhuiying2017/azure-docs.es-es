@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
+ms.sourcegitcommit: 1f7ec5d53512dcfbff17269802c8889eae0ad744
+ms.openlocfilehash: 5dd69a0b9357a601070765817a814dae3e7e5c05
 
 
 ---
@@ -34,6 +34,11 @@ Hay algunas estrategias distintas para actualizar Azure AD Connect.
 | [Migración oscilante](#swing-migration) |Con dos servidores, puede preparar uno de ellos con la nueva versión o configuración y cambiar el servidor activo cuando esté listo. |
 
 Para conocer los permisos necesarios, consulte los [permisos necesarios para la actualización](active-directory-aadconnect-accounts-permissions.md#upgrade).
+
+> [!NOTE]
+> Una vez que haya habilitado el nuevo servidor de Azure AD Connect para que empiece a sincronizar los cambios en Azure AD, no debe volver a usar DirSync o Sincronización de Azure AD. No se admite el cambio a una versión anterior de Azure AD Connect a los clientes heredados, como DirSync y Sincronización de Azure AD, y puede causar problemas, como la pérdida de datos en Azure AD. 
+> 
+> 
 
 ## <a name="in-place-upgrade"></a>Actualización local
 Una actualización local sirve para migrar de Azure AD Sync o Azure AD Connect. No sirve para DirSync ni para una solución con FIM + el Conector de Azure AD.
@@ -76,7 +81,7 @@ Debe asegurarse de que la configuración sea la misma en ambos servidores:
 * Mismas características opcionales, como la sincronización de contraseña y la escritura diferida de contraseñas.
 
 **Migración de las reglas de sincronización**  
- Para mover una regla de sincronización personalizada, haga lo siguiente:
+Para mover una regla de sincronización personalizada, haga lo siguiente:
 
 1. Abra el **Editor de reglas de sincronización** en el servidor activo.
 2. Seleccione la regla personalizada. Haga clic en **Exportar**. Se abre una ventana del Bloc de notas. Guarde el archivo temporal con una extensión PS1. Lo convierte en un script de PowerShell. Copie el archivo ps1 en el servidor provisional.  
@@ -91,6 +96,6 @@ Obtenga más información sobre la [Integración de las identidades locales con 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 976470e7b28a355cbfa4c5c8d380744eb1366787
-ms.openlocfilehash: f8711ba45339be7ffbeac1ab28823df43db23046
+ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
+ms.openlocfilehash: 60c8296e1287419dedf5b5f01f2ddb7ab86b5d11
 
 ---
 
@@ -62,7 +62,7 @@ Para realizar la indexación de blobs, el origen de datos debe tener las siguien
 
 * **name** es el nombre único del origen de datos dentro del servicio de búsqueda.
 * **type** debe ser `azureblob`.
-* **credentials** proporciona la cadena de conexión de cuenta de almacenamiento como el parámetro `credentials.connectionString`. Puede obtener la cadena de conexión desde Azure Portal: vaya a la hoja de la cuenta de almacenamiento deseada > **Configuración** > **Claves** y use el valor "Cadena de conexión principal" o "Cadena de conexión secundaria".
+* **credentials** proporciona la cadena de conexión de cuenta de almacenamiento como el parámetro `credentials.connectionString`. Consulte [Especificación de credenciales](#Credentials) a continuación para más información.
 * **container** especifica un contenedor en la cuenta de almacenamiento. De manera predeterminada, se pueden recuperar todos los blobs dentro del contenedor. Si solo desea indexar blobs en un directorio virtual determinado, puede especificar ese directorio. Para ello, use el parámetro opcional **query**.
 
 Pasos para crear un origen de datos:
@@ -74,11 +74,25 @@ Pasos para crear un origen de datos:
     {
         "name" : "blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
 Para más información sobre la API de creación de origen de datos, consulte [Crear origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+
+<a name="Credentials"></a>
+#### <a name="how-to-specify-credentials"></a>Especificación de credenciales ####
+
+Puede proporcionar las credenciales para el contenedor de blobs de una de estas maneras: 
+
+- **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Para obtener la cadena de conexión del portal de Azure, vaya a la hoja de la cuenta de almacenamiento > Configuración > Claves (para las cuentas de almacenamiento del modelo clásico) o Configuración > Claves de acceso (para las cuentas de almacenamiento de Azure Resource Manager).
+- Cadena de conexión de la **firma de acceso compartido de la cuenta de almacenamiento** (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores y objetos (en este caso, los blobs).
+-  **Firma de acceso compartido del contenedor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre el contenedor.
+
+Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+> [!NOTE]
+> Si usa credenciales SAS, deberá actualizar las credenciales del origen de datos periódicamente con firmas renovadas para evitar que caduquen. Si las credenciales de SAS expiran, el indexador producirá un mensaje de error similar a `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### <a name="step-2-create-an-index"></a>Paso 2: Creación de un índice
 El índice especifica los campos de un documento, los atributos y otras construcciones que conforman la experiencia de búsqueda.
@@ -158,7 +172,7 @@ Debe considerar detenidamente qué campo extraído se debe asignar al campo de c
 * Si ninguna de las opciones anteriores le sirve, puede agregar una propiedad de metadatos personalizada a los blobs. De todas formas, esta opción requiere que el proceso de carga de blob agregue dicha propiedad de metadatos a todos los blobs. Dado que la clave es una propiedad obligatoria, todos los blobs que no tengan esa propiedad no se indexarán.
 
 > [!IMPORTANT]
-> Si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Search usa automáticamente `metadata_storage_path` como clave y valores de clave de codificaciones de base 64 (la segunda opción anterior).
+> Si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Search usa automáticamente `metadata_storage_path` como clave y valores de clave de codificaciones de base&64; (la segunda opción anterior).
 >
 >
 
@@ -169,7 +183,7 @@ En este ejemplo, vamos a seleccionar el campo `metadata_storage_name` como clave
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
 
-Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y habilitar la codificación de base 64 para las claves para un indexador ya existente:
+Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y habilitar la codificación de base&64; para las claves para un indexador ya existente:
 
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
     Content-Type: application/json
@@ -345,6 +359,6 @@ Si tiene solicitudes o ideas para mejorar las características, remítalas en [U
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

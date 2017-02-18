@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bca182190933253d5b2741b2835983909fb24a1b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
 
 
 ---
@@ -170,7 +170,7 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 [modo de canalización]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Escalación de una aplicación web en el Servicio de aplicaciones de Azure]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
-[Prueba del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Prueba del Servicio de aplicaciones]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 
@@ -180,6 +180,6 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

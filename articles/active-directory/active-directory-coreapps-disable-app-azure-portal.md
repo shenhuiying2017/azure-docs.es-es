@@ -12,29 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33d3d50980341e0810b1222ce1199fa8689d95d0
+ms.sourcegitcommit: c57505d037d991f3c0d720a481393ec2ae6b8069
+ms.openlocfilehash: ef6ae32c1d9b2e417d2a766207575f19aa06feaa
 
 
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory-preview"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en la versión preliminar de Azure Active Directory
-Es fácil deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en la versión preliminar de Azure Active Directory (Azure AD). [¿Qué es la versión preliminar?](active-directory-preview-explainer.md)  Debe tener los permisos adecuados para administrar la aplicación empresarial. En la versión preliminar actual, debe ser administrador global del directorio.
+Es fácil deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en la versión preliminar de Azure Active Directory (Azure AD). [¿Qué es la versión preliminar?](active-directory-preview-explainer.md) Debe tener los permisos adecuados para administrar la aplicación empresarial. En la versión preliminar actual, debe ser administrador global del directorio.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>¿Cómo puedo deshabilitar los inicios de sesión de usuario?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Azure Active Directory** en el cuadro de texto y presione **ENTRAR**.
-3. En la hoja **Azure Active Directory - *nombreDelDirectorio*** (es decir, la hoja de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
-   
+3. En la hoja **Azure Active Directory** -  ***nombreDelDirectorio*** (es decir, la hoja de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
+
     ![Apertura de Enterprise apps (Aplicaciones empresariales)](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
 4. En la hoja **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. Verá una lista de las aplicaciones que puede administrar.
 5. En la hoja **Enterprise applications (Aplicaciones empresariales) - Todas las aplicaciones** , seleccione una aplicación.
 6. En la hoja ***nombreDeLaAplicación*** (es decir, la hoja con el nombre de la aplicación seleccionada en el título), seleccione **Propiedades**.
-   
+
     ![Selección del comando Todas las aplicaciones](./media/active-directory-coreapps-disable-app-azure-portal/select-app.png)
-7. En la hoja ***nombreDeLaAplicación*** **- Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?**, seleccione **No**.
+7. En la hoja ***nombreDeLaAplicación*** - **Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?**, seleccione **No**.
 8. Haga clic en el comando **Guardar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -45,7 +45,6 @@ Es fácil deshabilitar una aplicación empresarial para que ningún usuario pued
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Administración de métricas con el Administrador de recursos de clúster de Azure Service Fabric | Microsoft Docs"
-description: "Aprenda cómo configurar y usar las métricas en Service Fabric."
+title: "Administración de la carga de microservicios de Azure mediante métricas | Microsoft Docs"
+description: "Aprenda cómo configurar y usar las métricas en Service Fabric para administrar el consumo de recursos del servicio."
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -12,21 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ad2588b75e41da25e5c76855849f0086ed3aa14f
+ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
+ms.openlocfilehash: c0e5418574920495bf277f4127b97ff5b07b56ef
 
 
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
-"Métricas" es el término genérico en Service Fabric para los recursos por los que se interesan sus servicios y que proporcionan los nodos del clúster. Por lo general, una métrica es todo lo que desea administrar del rendimiento de los servicios.
+"Métricas" es el término genérico en Service Fabric para los recursos por los que se interesan sus servicios y que proporcionan los nodos del clúster. Por lo general, una métrica es todo lo que desea administrar en relación con el rendimiento de los servicios.
 
-Métricas son, por ejemplo, memoria, disco y uso de CPU. Estas son métricas físicas, recursos que corresponden a los recursos físicos en el nodo que es necesario a administrar. Las métricas también pueden ser lógicas (y suelen serlo), como "MyWorkQueueDepth", cosas definidas por la aplicación y que corresponden a cierto nivel de consumo de recursos (pero que la aplicación realmente no conoce o no sabe cómo medirlas). La mayoría de las métricas que vemos que usan las personas son métricas lógicas. Las razones de ello son varias, pero la más común es que, en la actualidad, muchos de nuestros clientes escriben sus servicios en código administrado, y desde dentro de una instancia de servicio sin estado o un objeto de réplica de servicio con estado determinado es realmente bastante difícil medir y notificar el consumo de los recursos físicos reales. La complejidad de informar sobre sus propias métricas es también el motivo de que proporcionemos algunas métricas predeterminadas listas para su uso.
+Las métricas son, por ejemplo, memoria, disco y uso de CPU. Estas son métricas físicas, recursos que corresponden a los recursos físicos en el nodo que es necesario a administrar. Las métricas también pueden ser (y normalmente son) métricas lógicas. Las métricas lógicas son, por ejemplo, "MyWorkQueueDepth", "MessagesToProcess" o "TotalRecords". Las métricas lógicas se definen para la aplicación y corresponden al consumo de recursos físicos, pero la aplicación no sabe realmente cómo medirlo. Esto es habitual. La mayoría de las métricas que vemos que usan las personas son métricas lógicas. Normalmente esto se debe a que, hoy en día, muchos servicios se escriben en código administrado. Código administrado significa que desde dentro de un proceso de host puede ser difícil medir e informar del consumo de recursos físicos por parte de un solo objeto de servicio. Para reducir la complejidad de la medición y la generación de informes de sus propias métricas, incluimos algunas métricas predeterminadas listas para usar.
 
 ## <a name="default-metrics"></a>Métricas predeterminadas
-Suponga que desea empezar a trabajar y no sabe qué recursos va a consumir o incluso cuáles serán importantes para usted. Por tanto, implementa y crea los servicios sin especificar ninguna métrica. ¡Eso está bien! Nosotros elegiremos algunas métricas por usted. Las métricas predeterminadas que se usarán hoy si no especifica ninguna propia se denominan PrimaryCount, ReplicaCount y Count (algo un poco vago). En la siguiente tabla se muestra la cantidad de carga de cada una de estas métricas que está asociada a cada objeto de servicio:
+Supongamos que desea empezar a trabajar y no sabe qué recursos va a consumir o incluso cuáles serán importantes para usted. Por tanto, implementa y crea los servicios sin especificar ninguna métrica. ¡Eso está bien! Cluster Resource Manager de Service Fabric elige algunas métricas sencillas para usted. Las métricas predeterminadas que usamos cuando no se especifica ninguna se llaman PrimaryCount, ReplicaCount y Count. En la siguiente tabla se muestra la cantidad de carga para cada una de estas métricas que está asociada a cada objeto de servicio:
 
 | Métrica | Carga de instancia sin estado | Carga secundaria con estado | Carga principal con estado |
 | --- | --- | --- | --- |
@@ -34,31 +34,44 @@ Suponga que desea empezar a trabajar y no sabe qué recursos va a consumir o inc
 | ReplicaCount |0 |1 |1 |
 | Recuento |1 |1 |1 |
 
-Entonces, con estas métricas predeterminadas, ¿qué se obtiene? Para cargas de trabajo básicas, obtendrá una distribución del trabajo bastante buena. En el ejemplo siguiente, vera lo que sucede cuando se crea un servicio con estado con tres particiones y un tamaño del conjunto de réplicas de destino de tres, así como un único servicio sin estado con un recuento de tres instancias. Obtendrá algo parecido a esto.
+Entonces, con estas métricas predeterminadas, ¿qué se obtiene? Para cargas de trabajo básicas, obtendrá una distribución del trabajo bastante buena. En el siguiente ejemplo, veamos lo que sucede cuando se crean dos servicios. El primero es un servicio con estado con tres particiones y un conjunto de tres réplicas de destino. El segundo es un servicio sin estado con una partición y un recuento de tres instancias:
 
+<center>
 ![Diseño de clúster con métricas predeterminadas][Image1]
+</center>
 
-En este ejemplo, se ve lo siguiente:
+Esto es lo que obtiene:
 
 * Las réplicas principales para el servicio con estado no están apiladas en un único nodo.
 * Las réplicas de la misma partición no están en el mismo nodo.
-* El número total de réplicas principales y secundarias está bien distribuido en el clúster.
-* La asignación del número total de objetos de servicio (con y sin estado) es uniformemente en cada nodo.
+* El número total de réplicas principales y secundarias está distribuido en el clúster.
+* La asignación del número total de objetos de servicio es uniforme en cada nodo.
 
-¡Bastante bien!  
+¡Bien!
 
-Esto funciona bien hasta que empieza a pensar en ello: ¿cuál es la probabilidad de que el esquema de creación de particiones elegido tenga como resultado una utilización perfectamente uniforme por todas las particiones con el tiempo? Además, ¿cuál es la probabilidad de que la carga en un servicio dado sea constante con el tiempo, o incluso la misma que ahora? La probabilidad de que todas las réplicas sean equivalentes para cualquier carga de trabajo importante es realmente baja, así que si le interesa sacar el máximo partido de su clúster, lo más probable es que quiera comenzar a examinar las métricas personalizadas.
+Esto funciona bien hasta que empieza a ejecutar gran cantidad de cargas de trabajo reales: ¿cuál es la probabilidad de que el esquema de creación de particiones elegido dé como resultado una utilización perfectamente uniforme de todas las particiones? ¿Cuál es la probabilidad de que la carga de un servicio dado sea constante con el tiempo, o incluso la misma que ahora?
 
-De manera realista, podría trabajar perfectamente solo con las métricas predeterminadas, pero eso normalmente significa que la utilización de los clústeres es menor que lo que desearía (ya que la generación de informes no es adaptable y asume que todo es equivalente); en el peor de los casos, también puede generar nodos con programación excesiva, lo que produce problemas de rendimiento. Se puede funcionar mejor con métricas personalizadas e informes de carga dinámica, tema que se aborda a continuación.
+En la práctica, podría trabajar solo con las métricas predeterminadas, pero eso suele significar que el uso del clúster es inferior al que querría. Esto es así porque los informes de métricas predeterminados no son adaptables y presuponen que todo es equivalente. En el peor de los casos, usar solo los valores predeterminados producirá una sobrecarga en los nodos y problemas de rendimiento. Se puede funcionar mejor con métricas personalizadas e informes de carga dinámica, tema que se aborda a continuación. En cualquier carga de trabajo seria, las probabilidades de que todos los servicios sean equivalentes para siempre son bajas. Si está interesado en obtener el máximo partido de su clúster y evitar problemas de rendimiento, empiece a pensar en las métricas personalizadas.
 
 ## <a name="custom-metrics"></a>Métricas personalizadas
-Ya hemos comentado que puede haber métricas físicas y lógicas, y que los usuarios pueden definir sus propias métricas. Estupendo. Pero, ¿cómo? Bueno, es bastante fácil. Simplemente, configure la métrica y la carga inicial predeterminada al crear el servicio; eso es todo. Al crear el servicio, se puede configurar cualquier conjunto de métricas y los valores predeterminados que representan el servicio que se prevé consumir según una instancia de servicio con nombre.
+Las métricas se configuran para cada instancia de servicio con nombre cuando se crea el servicio.
 
-Tenga en cuenta que, al empezar a definir métricas personalizadas, es necesario volver a agregar de forma explícita las métricas predeterminadas si desea usarlas también para equilibrar el servicio. Esto es para que tenga clara la relación entre las métricas predeterminadas y las métricas personalizadas; tal vez le preocupa el consumo de memoria o la profundidad de la cola de trabajo (WorkQueueDepth) más de lo que le interesa la distribución principal.
+Todas las métricas tienen algunas propiedades que la describen: un nombre, una carga predeterminada y un peso.
 
-Suponga que desea configurar un servicio que informará sobre una métrica llamada "Memoria" (además de las métricas predeterminadas). Para la memoria, suponga que ha realizado algunas mediciones básicas y sabe que normalmente una réplica principal de ese servicio ocupa 20 MB de memoria, mientras que las secundarias de ese mismo servicio ocupan 5 MB. Sabe que Memoria es la métrica más importante para administrar el rendimiento de este servicio concreto, pero desea equilibrar las réplicas principales para que la pérdida de algún nodo o dominio defectuoso no use un número de réplicas principales excesivo. Aparte de eso, usará los valores predeterminados.
+* Nombre de la métrica: nombre de la métrica. El nombre de la métrica es un identificador único de la métrica en el clúster desde la perspectiva de Resource Manager.
+* Carga predeterminada: se representa de forma distinta dependiendo de si el servicio es con o sin estado.
+  * Para los servicios sin estado, cada métrica tiene una propiedad única llamada DefaultLoad.
+  * Para servicios con estado, se define lo siguiente:
+    * PrimaryDefaultLoad: cantidad predeterminada de la métrica que este servicio consume cuando es principal.
+    * SecondaryDefaultLoad: cantidad predeterminada de la métrica que este servicio consume cuando es secundario.
+* Weight: importancia de la métrica con relación a las demás métricas de este servicio.
 
-Esto es lo que haría:
+Si define métricas personalizadas y desea usar también las métricas predeterminadas, debe volver a agregarlas de forma explícita. Esto es porque quiere ser claro sobre la relación entre las métricas predeterminadas y las métricas personalizadas. Por ejemplo, quizás le preocupa el consumo de memoria o el valor de WorkQueueDepth mucho más que la distribución principal.
+
+### <a name="defining-metrics-for-your-service---an-example"></a>Definición de las métricas del servicio: ejemplo
+Supongamos que desea configurar un servicio que informa de una métrica llamada "MemoryInMb", y que también quiere usar las métricas predeterminadas. Supongamos también que ha realizado algunas mediciones y sabe que, normalmente, una réplica principal de ese servicio ocupa 20 unidades de "MemoryInMb", mientras que las secundarias ocupan 5. Sabre que la memoria es la métrica más importante en cuanto a la administración del rendimiento de este servicio en concreto, pero desea réplicas principales que estén equilibradas. Es buena idea equilibrar los nodos principales para que la pérdida de un nodo o dominio de error no afecte a la mayoría de las réplicas principales. Aparte de estos pequeños detalles, desea usar las métricas predeterminadas.
+
+Este es el código que debe escribir para crear un servicio con esa configuración de métricas:
 
 Código:
 
@@ -99,103 +112,106 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("MemoryInMb,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
 (Recuerde: si solo desea utilizar las métricas predeterminadas, no necesita tocar la colección de métricas en absoluto ni hacer nada especial al crear el servicio).
 
-Ahora que ha visto cómo definir sus propias métricas, se cubrirán las distintas propiedades que pueden tener las métricas. Ya las ha visto, pero es el momento de hablar acerca de lo que realmente significan. Hay cuatro propiedades diferentes que una métrica puede tener en la actualidad:
-
-* Nombre de la métrica: el nombre de la métrica. Se trata de un identificador único para la métrica en el clúster desde la perspectiva de Resource Manager.
-* Carga predeterminada: se representa de forma distinta dependiendo de si el servicio es con o sin estado.
-  * Para los servicios sin estado, cada métrica tiene una propiedad única que se denomina carga predeterminada
-  * Para servicios con estado, usted define
-    * PrimaryDefaultLoad: la cantidad predeterminada de carga que este servicio aplicará para esta métrica como principal.
-    * SecondaryDefaultLoad: la cantidad predeterminada de carga que este servicio aplicará para esta métrica como réplica secundaria.  
-* Ponderación: la importancia de la métrica en relación a las demás métricas configuradas para este servicio.
+Ahora que hemos visto la introducción y un ejemplo, vamos a analizar cada una de estas opciones de configuración con más detalle y hablaremos sobre su comportamiento.
 
 ## <a name="load"></a>Carga
-Carga es el concepto general de la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico.
+La razón fundamental de la definición de las métricas es la representación de cierta carga. Carga es la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico. Se puede configurar la carga prevista al crear un servicio, al actualizar el servicio después de crearlo, al generar el informe por objeto de servicio, o en todos los casos anteriores.
 
 ## <a name="default-load"></a>Carga predeterminada
-La carga predeterminada es la cantidad de carga que Cluster Resource Manager debe suponer que cada instancia del servicio o réplica de este servicio consumirán hasta que reciba alguna actualización de las instancias o réplicas del servicio reales. Para los servicios más sencillos, es una definición estática que nunca se actualiza dinámicamente y, por tanto, se utilizará mientras dure el servicio. Esto funciona muy bien para un planeamiento simple de la capacidad, porque es exactamente lo que estamos acostumbrados a hacer: dedicar algunos recursos a ciertas cargas de trabajo, pero la ventaja es que al menos ahora se funciona teniendo en mente los microservicios, en los que los recursos en realidad no se asignan estáticamente a cargas de trabajo concretas y en los que las personas no están en el bucle de toma de decisiones.
+Carga predeterminada es cuánta carga consume cada objeto de servicio (instancia o réplica) de este servicio de forma predeterminada. Para los servicios más sencillos, la carga predeterminada es una definición estática que nunca se actualiza y, por tanto, se utiliza mientras dure el servicio. La carga predeterminada funciona bien para escenarios de planeamiento donde se dedican determinadas cantidades de recursos a las distintas cargas de trabajo.
 
-Se permite que los servicios con estado especifiquen la carga predeterminada para sus réplicas principales y secundarias; siendo realistas, para muchos servicios estos números son diferentes debido a las diferentes cargas de trabajo ejecutadas por las réplicas principales y secundarias, y puesto que las principales suelen servir las lecturas y escrituras (así como la mayoría de la carga de procesamiento), la carga predeterminada para una réplica principal es mayor que para las secundarias.
-
-Supongamos que ha estado ejecutando el servicio durante un tiempo y nota que algunas instancias o réplicas consumen muchos más recursos que otras, o bien que el consumo varía a lo largo del tiempo; quizás están asociadas a un cliente determinado o quizás solo corresponden a cargas de trabajo que varían a lo largo del día, como el tráfico de mensajería, las llamadas telefónicas o las transacciones de la bolsa. En cualquier caso, ve que no hay un "número único" que pueda usar para la carga sin que se quede fuera una cantidad considerable durante un tiempo como mínimo. También observa que al quedar fuera de su estimación inicial, Cluster Resource Manager asigna demasiados o demasiado pocos recursos a su servicio y, por tanto, tiene nodos infrautilizados o usados en exceso.
-
-¿Qué debe hacer? Bueno, el servicio podría informar acerca de la carga sobre la marcha.
+Cluster Resource Manager permite a los servicios con estado especificar una carga predeterminada diferente para sus réplicas principales y secundarias, mientras que los servicios sin estado solo pueden especificar un valor. Para los servicios con estado, la carga predeterminada para las réplicas principales y secundarias son normalmente diferentes porque las réplicas realizan diferentes tipos de trabajo en cada rol. Por ejemplo, las réplicas principales atienden normalmente lecturas y escrituras (y la mayoría de la carga de cálculo), mientras que las secundarias no. Se espera que la carga predeterminada de una réplica principal sea mayor que la de las réplicas secundarias, pero las cifras reales dependerán de sus propias medidas.
 
 ## <a name="dynamic-load"></a>Carga dinámica
-Los informes de carga dinámica permiten a las réplicas o instancias ajustar su asignación o el uso de métricas comunicado en el clúster mientras estén vigentes. Normalmente, una instancia o una réplica del servicio pasiva que no realice ningún trabajo informarán de que utilizan poca cantidad de unas métricas en particular, mientras que las réplicas o instancias ocupadas comunicarán que usan más. Este nivel general de rotación en el clúster permite reorganizar las instancias y réplicas del servicio del clúster sobre la marcha para garantizar que reciben los recursos que necesitan; de hecho, los servicios ocupados pueden reclamar recursos de otras réplicas o instancias actualmente pasivas o con menos trabajo. La generación de informes de carga sobre la marcha puede realizarse mediante el método ReportLoad, disponible en ServicePartition como una propiedad en StatefulService base o StatelessService class a través del modelo de programación de Reliable Services. En su servicio, el código sería similar al siguiente:
+Supongamos que lleva un tiempo ejecutando el servicio. Con cierta supervisión, habrá observado lo siguiente:
+
+1. Algunas particiones o instancias de un servicio determinado consumen más recursos que otras.
+2. Algunos servicios tienen cargas que varían con el tiempo.
+
+Hay una gran cantidad de cosas que podrían causar estos tipos de fluctuaciones de la carga. El servicio o la partición puede asociarse con un cliente determinado, o quizás corresponden a cargas de trabajo que varían a lo largo del día. Independientemente del motivo, no hay una sola cifra que se pueda usar para la carga predeterminada. Cualquier valor que elija como carga predeterminada será incorrecto en algún momento. Esto es un problema porque las cargas predeterminadas incorrectas hacen que Cluster Resource Manager asigne excesivos recursos al servicio, o demasiado pocos. Como resultado, tiene nodos sobre o infrautilizados, aunque Cluster Resource Manager piense que el clúster está equilibrado. Las cargas predeterminadas siguen siendo buenas porque proporcionan cierta información, pero no es la historia completa de las cargas de trabajo reales durante la mayoría del tiempo. Este es el motivo por el que Cluster Resource Manager permite que cada objeto de servicio actualice su propia carga en tiempo de ejecución. Esto se llama informes de carga dinámica.
+
+Los informes de carga dinámica permiten a las réplicas o instancias ajustar su asignación o la carga de métricas notificada mientras estén vigentes. Normalmente, una instancia o una réplica del servicio que estaba inactiva y sin realizar ningún trabajo informará de que usó poca cantidad de una métrica determinada. Una réplica o instancia ocupadas indicarían que están usando más.
+
+Los informes por instancia o réplica permiten que Cluster Resource Manager reorganice los objetos de servicio individuales del clúster para asegurarse de que los servicios obtienen los recursos que necesitan. Los servicios ocupados “reclaman” recursos de otras réplicas o instancias que están actualmente inactivas o realizando menos trabajo.
+
+En el servicio confiable, el código para notificar la carga dinámicamente sería similar al siguiente:
 
 Código:
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
 ```
 
-Las instancias y réplicas del servicio solo comunican la carga de las métricas para las que se han configurado. La lista de métricas se establece al crear cada servicio y se puede actualizar después. Si una instancia o una réplica del servicio intenta informar de la carga para una métrica para la que no está configurada, Service Fabric registra el informe pero lo ignora, lo que significa que no se usará al calcular o informar sobre el estado del clúster. Esto es práctico porque permite una mayor experimentación; el código puede medir e informar sobre todo lo que sabe, y el operador puede configurar, modificar y actualizar las reglas de equilibrio de los recursos para ese servicio sobre la marcha, sin tener que cambiar el código. Esto incluye, por ejemplo, deshabilitar una métrica con un informe de errores, reconfigurar las ponderaciones de métricas según el comportamiento o habilitar una nueva métrica solo después de que el código ya se haya implementado y validado mediante otros mecanismos.
+Las instancias y réplicas del servicio solo comunican la carga de las métricas para las que se configuraron cuando se crearon. La lista de métricas que un servicio puede notificar es el mismo conjunto especificado al crear el servicio. La lista de las métricas asociadas con el servicio también puede actualizarse dinámicamente. Si una instancia o una réplica del servicio intenta informar de la carga para una métrica que no está configurada, Service Fabric registra el informe pero lo ignora. Si se notifican otras métricas válidas en la misma llamada de API, dichos informes se aceptan y se utilizan. Esto es útil porque permite una mayor experimentación. El código puede medir y notificar todas las métricas que conoce, y el operador puede especificar y actualizar la configuración de las métricas de ese servicio sin tener que cambiar el código. Por ejemplo, el administrador o el equipo de operaciones podrían deshabilitar una métrica con un informe de errores para un servicio determinado, reconfigurar las ponderaciones de las métricas según el comportamiento, o habilitar una nueva métrica solo después de que el código se haya implementado y validado mediante otros mecanismos.
 
 ## <a name="mixing-default-load-values-and-dynamic-load-reports"></a>Combinación de valores de carga predeterminados e informes de carga dinámica
-¿Tiene sentido tener una carga predeterminada especificada para un servicio que va a notificar la carga dinámicamente? Por supuesto. En este caso, la carga predeterminada actúa como una estimación hasta que los informes reales empiezan a aparecer en la instancia o la réplica del servicio real. Esto es muy útil, ya que proporciona a Cluster Resource Manager algo con lo que trabajar: la estimación de carga predeterminada permite colocar las instancias o réplicas del servicio en el lugar adecuado desde el principio. Cuando no se proporciona información de carga predeterminada, la ubicación de los servicios se realiza aleatoriamente en el momento de su creación y, si las cargas cambian más adelante, Cluster Resource Manager seguramente deba cambiar las cosas de sitio.
+Si la carga predeterminada no es suficiente y se recomiendan los informes de carga dinámicos, ¿se pueden usar ambos? Sí. De hecho, esta es la configuración recomendada. Cuando se establece la carga predeterminado y se usan los informes de carga dinámicos, la carga predeterminada actúa como una estimación hasta que se muestran los informes dinámicos. Esto es útil porque proporciona a Cluster Resource Manager algo con lo que trabajar. La carga predeterminada permite a Cluster Resource Manager colocar los objetos de servicio en un buen lugar cuando se crean. Si no se proporciona ninguna información de carga predeterminada, la ubicación de los servicios es aleatoria. Cuando más tarde llegan los informes de carga, Cluster Resource Manager casi siempre tiene que recolocar los servicios.
 
-Tome el ejemplo anterior y vea lo que sucede cuando se agrega cierta carga personalizada y cuando después de crear el servicio se actualiza dinámicamente. En este ejemplo, se usará "Memoria" como ejemplo y se supondrá que se ha creado inicialmente el servicio con estado con el comando siguiente:
+Vamos a tomar nuestro ejemplo anterior y vemos qué sucede cuando se agregan algunas métricas personalizadas e informes de carga dinámicos. En este ejemplo, utilizamos "Memoria" como una métrica de ejemplo. Suponemos que inicialmente se ha creado el servicio con estado con el comando siguiente:
 
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("MemoryInMb,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
-Ya se habló acerca de esta sintaxis (MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad), pero se hablará más sobre lo que significa el valor específico para Ponderación más adelante.
+Como recordatorio, esta sintaxis es ("MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad").
 
 El aspecto de un diseño del clúster podría ser similar a este:
 
+<center>
 ![Clúster equilibrado con métricas predeterminadas y personalizadas][Image2]
+</center>
 
 Algunas cosas que debe tener en cuenta:
 
-* Puesto que las réplicas o instancias utilizan la carga predeterminada del servicio hasta que informan de su propia carga, se sabe que las réplicas dentro de la partición 1 del servicio con estado no han comunicado su propia carga
+* Puesto que las réplicas o instancias usan la carga predeterminada del servicio hasta que informan de su propia carga, se sabe que las réplicas dentro de la partición 1 del servicio con estado no han comunicado su carga dinámicamente.
 * Las réplicas secundarias dentro de una partición pueden tener su propia carga
-* En general las métricas son bastante buenas, con la diferencia entre la carga máxima y mínima en un nodo (para Memoria, la métrica personalizada que más interesa) de solo un factor de 1,75 (el nodo con mayor carga para la memoria es N3, con la menor es N2 y 28/16 = 1,75); bastante equilibrada.
+* En general, las métricas parecen equilibradas. En el caso de la memoria, la proporción entre la carga máxima y mínima es 1,75 (el nodo con la mayor carga es N3, con la mínima es N2 y 28/16 = 1,75).
 
-Hay algunas cosas que es necesario explicar
+Hay algunas cosas aún que es necesario explicar:
 
-* ¿Qué determinó si una relación de 1,75 era razonable o no? ¿Cómo se sabe que está bastante bien o si hay más trabajo que hacer?
+* ¿Qué determinó si una relación de 1,75 era razonable o no? ¿Cómo sabe Cluster Resource Manager si eso es suficiente o si hay más trabajo que hacer?
 * ¿Cuándo se produce el equilibrio?
 * ¿Qué significa que la ponderación de Memoria es alta?
 
 ## <a name="metric-weights"></a>Pesos de métrica
-Las ponderaciones de métricas son lo que permite que dos servicios diferentes informen de las mismas métricas, pero se vea la importancia de equilibrar esas métricas de manera diferente. Por ejemplo, suponga un motor de análisis en memoria y una base de datos persistente; probablemente ambos se preocupan de la métrica "Memoria", pero el servicio en memoria probablemente no tiene que preocuparse mucho la métrica "Disco", que puede consumir un poco de él, pero no es esencial para el rendimiento del servicio, por lo que probablemente ni siquiera la comunica. Poder realizar un seguimiento de las mismas métricas en diferentes servicios está muy bien, ya que es lo que permite que Cluster Resource Manager realice el seguimiento del consumo real en el clúster, se asegure de que los nodos no exceden su capacidad, etc.
+Es importante poder realizar un seguimiento de las mismas métricas en los diferentes servicios. Esta vista es la que permite que Cluster Resource Manager realice un seguimiento del consumo en el clúster, equilibre el consumo en todos los nodos y se asegure de que los nodos no exceden su capacidad. Sin embargo, los servicios pueden tener vistas diferentes en cuanto a la importancia de la misma métrica. Además, en un clúster con muchas métricas y una gran cantidad de servicios, puede que no existan soluciones perfectamente equilibradas para todas las métricas. ¿Cómo debe controlar Cluster Resource Manager estos casos?
 
-Las ponderaciones de métricas también permiten a Cluster Resource Manager tomar decisiones sobre cómo equilibrar el clúster cuando no hay ninguna respuesta perfecta (lo que supone mucho tiempo). Las métricas pueden tener cuatro niveles diferentes de ponderación: cero, baja, media o alta. Una métrica con una ponderación de cero no aporta nada a la hora de considerar si las cosas están equilibradas o no, pero su carga contribuye a aspectos como la medición de la capacidad.
+La ponderación de las métricas permite a Cluster Resource Manager tomar decisiones sobre cómo equilibrar el clúster cuando no hay ninguna respuesta perfecta. La ponderación de las métricas también permite a Cluster Resource Manager equilibrar servicios específicos de manera diferente. Las métricas pueden tener cuatro niveles diferentes de ponderación: cero, baja, media o alta. Una métrica con una ponderación de cero no aporta nada a la hora de considerar si todo está equilibrado o no, pero su carga contribuye a aspectos como la capacidad.
 
-El verdadero impacto de tener diferentes ponderaciones de métricas en el clúster es que se llega a disposiciones diferentes de los servicios, ya que, en resumen, se ha indicado a Cluster Resource Manager que determinadas métricas son más importantes que otras. Como ya lo sabe, cuando entran en conflicto con otras métricas que tienen distinta ponderación, Cluster Resource Manager puede elegir soluciones que equilibren mejor las métricas mejor ponderadas.
+El impacto real de las diferentes ponderaciones de métricas en el clúster es que Cluster Resource Manager genera diferentes soluciones. Las ponderaciones de las métricas indican a Cluster Resource Manager que ciertas métricas son más importantes que otras. Cuando no hay ninguna solución perfecta, Cluster Resource Manager puede preferir soluciones que equilibren mejor las métricas ponderadas. Si un servicio considera que una métrica no es importante, quizás encuentre que el uso de esa métrica está desequilibrado. Esto permite que otro servicio obtenga una distribución uniforme que es importante para él.
 
-Eche un vistazo a un ejemplo sencillo de algunos informes de carga y cómo ponderaciones de métricas diferentes pueden generar distintas asignaciones en el clúster. En este ejemplo, se puede ver que al cambiar la ponderación relativa de las métricas Resource Manager preferirá determinadas soluciones al crear diferentes disposiciones de los servicios.
+Eche un vistazo a un ejemplo de algunos informes de carga y cómo ponderaciones de métricas diferentes pueden generar distintas asignaciones en el clúster. En este ejemplo, se puede ver que al cambiar la ponderación relativa de las métricas, Cluster Resource Manager preferirá determinadas soluciones y creará diferentes disposiciones de los servicios.
 
+<center>
 ![Ejemplo de ponderación de métricas y su impacto en soluciones de equilibrio][Image3]
+</center>
 
-En este ejemplo hay cuatro servicios diferentes; todos informan de distintos valores para dos métricas diferentes: A y B. En un caso, todos los servicios definen que MetricA es la más importante (ponderación = alta) y MetricB tiene relativamente poca importancia (ponderación = baja); de hecho, se puede ver que Cluster Resource Manager coloca los servicios para que MetricA esté mejor equilibrada (tenga una desviación inferior) que MetricB. En el segundo caso, se invierten las ponderaciones de métricas y se ve que Cluster Resource Manager probablemente intercambiaría los servicios A y B para conseguir una asignación en la que MetricB quede mejor equilibrada que MetricA.
+En este ejemplo, hay cuatro servicios diferentes y todos ellos informan de los valores de dos métricas, MetricA y MetricB. En un caso, todos los servicios definen que MetricA es la más importante (ponderación = alta) y MetricB no es importante (ponderación = baja). En este caso, vemos que Cluster Resource Manager coloca los servicios de modo que MetricA está mejor equilibrada (tiene una desviación estándar menor) que MetricB. En el segundo caso, se invierten las ponderaciones de las métricas. Como resultado, Cluster Resource Manager probablemente intercambiaría los servicios A y B para conseguir una asignación en la que MetricB quede mejor equilibrada que MetricA.
 
 ### <a name="global-metric-weights"></a>Ponderaciones de métricas globales
 Por tanto, si ServiceA define MetricA como la más importante y a ServiceB no le interesa en absoluto, ¿cuál es la ponderación real que se usará?
 
-En realidad hay dos ponderaciones para realizar el seguimiento de cada métrica: la ponderación que el servicio ha definido y la ponderación media global en todos los servicios que se interesan por esa métrica. Se usan estas dos ponderaciones al calcular las puntuaciones de las soluciones que se generan, ya que es importante asegurarse de que un servicio está equilibrado en relación a sus propias prioridades, pero también que el clúster en conjunto está asignado correctamente.
+En realidad, para cada métrica se realiza el seguimiento con varias ponderaciones. El primer conjunto es la ponderación de cada servicio definido para la métrica. La otra ponderación es global, y es el promedio de todos los servicios que informan de esa métrica. Cluster Resource Manager usa ambas ponderaciones para calcular las puntuaciones de las soluciones. Esto se debe a que es importante que un servicio esté equilibrado según sus propias prioridades, pero también que el clúster en su conjunto esté correctamente asignado.
 
-¿Qué ocurriría si no se ha preocupado por el equilibrio global y local? Bueno, no tiene mucho sentido crear soluciones que estén equilibradas globalmente, pero que tengan un equilibrio y una asignación de recursos muy deficientes para los servicios individuales. En el siguiente ejemplo se considerarán las métricas predeterminadas con las que está configurado un servicio con estado: PrimaryCount, ReplicaCount y Count, y veremos qué sucede cuando solo se tiene en cuenta el equilibrio global:
+¿Qué ocurriría si Cluster Resource Manager no se preocupara por el equilibrio global y local? Bueno, no tiene mucho sentido crear soluciones que estén equilibradas globalmente, pero que tengan una asignación de recursos muy deficiente para los servicios individuales. En el siguiente ejemplo, veamos las métricas predeterminadas con las que se configura un servicio con estado, y qué sucede cuando solo se tiene en cuenta el equilibrio global:
 
+<center>
 ![El impacto de una única solución global][Image4]
+</center>
 
-En el ejemplo anterior, en el que solo se analizó el equilibrio global, el clúster en conjunto está equilibrado: todos los nodos tienen el mismo número de réplicas principales y totales. Sin embargo, si examina el impacto real de esta asignación, no es tan bueno: la pérdida de cualquier nodo afecta a una determina carga de trabajo desproporcionadamente, ya que toma todas sus principales. Suponga, por ejemplo, que fuera a perder el primer nodo. Si esto sucediera, se perderían simultáneamente las tres principales para las tres diferentes particiones del servicio Circle. Por el contrario, las particiones de los otros dos servicios (Triangle y Hexagon) perderían una réplica, pero no generarían interrupciones (aparte de tener que recuperar la réplica).
+En el ejemplo de la parte superior, en el que solo se analizó el equilibrio global, el clúster en conjunto está equilibrado. Todos los nodos tienen el mismo número de réplicas principales y el mismo número total de réplicas. Sin embargo, si examina el impacto real de esta asignación, no es tan bueno: la pérdida de cualquier nodo afecta a una determina carga de trabajo desproporcionadamente, porque se lleva todas sus réplicas principales. Por ejemplo, si se produce un error en el primer nodo, se perderían las tres réplicas principales de las tres particiones diferentes del servicio Circle. Por el contrario, las particiones de los otros dos servicios (Triangle y Hexagon) perderían una réplica, pero no generarían interrupciones (aparte de tener que recuperar la réplica).
 
-En el ejemplo inferior se han distribuido las réplicas en función del equilibrio global y por servicio. Al calcular la puntuación de la solución, se asigna la mayor parte de la ponderación a la solución global, pero una parte (configurable) va a garantizar que los servicios también están equilibrados entre ellos todo lo posible. Como resultado, si fuera a perder el mismo primer nodo, verá que la pérdida de las principales (y secundarias) se distribuye entre todas las particiones de todos los servicios y el impacto en cada una es el mismo.
-
-Al tener en cuenta las ponderaciones de métricas, el equilibrio global se calcula en función del promedio de las ponderaciones de métricas configuradas para cada servicio. Un servicio se equilibra con respecto a sus propias ponderaciones de métricas.
+En el ejemplo inferior, Cluster Resource Manager ha distribuido las réplicas en función del equilibrio global y por servicio. Al calcular la puntuación de la solución, ofrece la mayor ponderación a la solución global, y una parte (configurable) a los servicios individuales. El equilibrio global se calcula en función del promedio de las ponderaciones de métricas configuradas para cada servicio. Cada servicio se equilibra según sus propias ponderaciones de métricas. Esto garantiza que los servicios están todo lo equilibrado que es posible, según sus propias necesidades. Como resultado, si se produce un error en el mismo primer nodo, la pérdida de las réplicas principales (y secundarias) se distribuye entre todas las particiones de todos los servicios. El impacto en cada una es el mismo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles en [Más información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md)
+* Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles en [Más información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md).
 * Definir las métricas de desfragmentación es una manera de consolidar la carga en los nodos en lugar de distribuirla. Para saber cómo configurar la desfragmentación, consulte [este artículo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md)
 * Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
@@ -208,6 +224,6 @@ Al tener en cuenta las ponderaciones de métricas, el equilibrio global se calcu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

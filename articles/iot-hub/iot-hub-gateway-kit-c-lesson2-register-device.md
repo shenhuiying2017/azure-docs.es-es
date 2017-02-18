@@ -1,5 +1,5 @@
 ---
-title: "Creación de un Azure IoT Hub y registro del dispositivo | Microsoft Docs"
+title: "Dispositivo SensorTag y puerta de enlace de Azure IoT: Lección 2: Registro del dispositivo | Microsoft Docs"
 description: 
 services: iot-hub
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: 4b878ebe3222c4ab1c41051c659ba8333bf94c32
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a895f18b4cefc01f12613e701c71bd471bb369c3
 
 
 ---
 
-# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Creación de un Azure IoT Hub y registro del dispositivo
+# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Creación de una instancia de Azure IoT Hub y registro del dispositivo
 
 ## <a name="what-you-will-do"></a>Lo que hará
 
 - Crear un grupo de recursos
-- Crear el primer IoT Hub
-- Registre el dispositivo en IoT Hub mediante la CLI de Azure. 
+- Crear su primera instancia de IoT Hub
+- Registrar el dispositivo en IoT Hub mediante la CLI de Azure 
 
 Al registrar el dispositivo en IoT Hub, el servicio Azure IoT Hub genera una clave para que el dispositivo la use cuando se autentique con el servicio. 
 
@@ -38,7 +38,7 @@ Si tiene problemas, busque soluciones en la [página de solución de problemas](
 
 En esta lección, aprenderá lo siguiente:
 
-- Cómo usar la CLI de Azure para crear un IoT Hub.
+- Cómo usar la CLI de Azure para crear una instancia de IoT Hub.
 - Cómo registrar un dispositivo en un IoT Hub.
 
 ## <a name="what-you-need"></a>Lo que necesita
@@ -48,7 +48,7 @@ En esta lección, aprenderá lo siguiente:
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Para crear un IoT Hub, siga estos pasos:
+Para crear una instancia de IoT Hub, siga estos pasos:
 
 1. Inicie sesión en la cuenta de Azure mediante el siguiente comando:
 
@@ -56,7 +56,7 @@ Para crear un IoT Hub, siga estos pasos:
    az login
    ```
 
-   Una vez que la sesión se ha iniciado correctamente, aparecen todas las suscripciones disponibles.
+   Una vez que se haya iniciado sesión correctamente, se mostrarán todas las suscripciones disponibles.
 
 2. Establezca la suscripción predeterminada de Azure que va a usar ejecutando el comando siguiente:
 
@@ -89,12 +89,12 @@ Para crear un IoT Hub, siga estos pasos:
 De forma predeterminada, la herramienta crea la instancia de IoT Hub con el plan de tarifa Gratis. Para más información, consulte los [precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 > [!NOTE]
-> El nombre de su instancia de IoT Hub debe única globalmente. Solamente puede crear una edición F1 de Azure IoT Hub en la suscripción de Azure.
+> El nombre de su instancia de IoT Hub debe única globalmente. Solo puede crear una edición F1 de Azure IoT Hub en su suscripción de Azure.
 
 ## <a name="register-your-device-in-your-iot-hub"></a>Registro del dispositivo en IoT Hub
 
 Todos los dispositivos que envían mensajes al centro de IoT Hub y los reciben de este deben estar registrados con un identificador único.
-Registre el dispositivo IoT Hub mediante la ejecución del comando siguiente:
+Registre el dispositivo en IoT Hub ejecutando el comando siguiente:
 
 ```bash
 az iot device create --device-id mydevice --hub-name {my hub name} --resource-group iot-gateway
@@ -102,12 +102,12 @@ az iot device create --device-id mydevice --hub-name {my hub name} --resource-gr
 
 ## <a name="summary"></a>Resumen
 
-Ha creado un centro de IoT Hub y ha registrado el dispositivo local con una identidad de dispositivo en este centro. Está listo para aprender a configurar y ejecutar una aplicación de ejemplo de puerta de enlace para enviar datos desde el dispositivo físico a la instancia de IoT Hub en la nube.
+Ha creado una instancia de IoT Hub y ha registrado en ella el dispositivo local con una identidad de dispositivo. Está listo para aprender a configurar y ejecutar una aplicación de ejemplo de puerta de enlace para enviar datos desde el dispositivo físico a la instancia de IoT Hub en la nube.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración y ejecución de la aplicación de ejemplo BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

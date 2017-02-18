@@ -1,5 +1,5 @@
 ---
-title: "Creación de una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante el portal | Microsoft Docs"
+title: "Creación de una regla basada en ruta de acceso para Azure Application Gateway mediante Azure Portal | Microsoft Docs"
 description: Aprenda a crear una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante el portal.
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: 2889716d6b5b6079c311d6a7f1eb97b001098b45
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
 
 
 ---
@@ -90,6 +90,6 @@ Para aprender a configurar la descarga de SSL con Puerta de enlace de aplicacion
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

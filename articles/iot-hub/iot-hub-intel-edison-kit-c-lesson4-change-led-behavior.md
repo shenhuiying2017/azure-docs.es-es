@@ -1,5 +1,5 @@
 ---
-title: Cambio del comportamiento de intermitencia del LED con mensajes de IoT Hub de Azure | Microsoft Docs
+title: "Conexión de Intel Edison (C) a Azure IoT: Lección 4: Parpadeo del LED | Microsoft Docs"
 description: Personalice los mensajes para cambiar el comportamiento de encendido y apagado del LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d1c09c8007c373ab3c50a99efb1b3f27b46d90a
-ms.openlocfilehash: 858e68a3794470f51ee505710e16496109c1aa0b
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 278bdf74e2fa8f7074bb8f5ed8eae2d47402b299
 
 
 ---
@@ -115,6 +115,6 @@ En esta sección opcional, se explica cómo personalizar los mensajes para que l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

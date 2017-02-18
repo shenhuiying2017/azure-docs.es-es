@@ -1,6 +1,6 @@
 ---
-title: "Preparación del equipo host y de Azure IoT Hub | Microsoft Docs"
-description: Instale las herramientas y el software en el equipo host que ejecuta Ubuntu, cree un IoT Hub y registre el dispositivo en IoT Hub.
+title: "Dispositivo simulado y puerta de enlace de Azure IoT: Lección 2: Obtención de las herramientas (Ubuntu) | Microsoft Docs"
+description: Instale las herramientas y el software en el equipo host que ejecuta Ubuntu, cree una instancia de IoT Hub y registre el dispositivo en ella.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 6feb4f6fa72aeb3d43211ad8c3973ad2b96671ec
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: f09ad1624f8a7ce4e1b13217d085cfc172d870ca
 
 
 ---
@@ -38,16 +38,16 @@ Si tiene problemas, busque soluciones en la [página de solución de problemas](
 En esta lección, aprenderá lo siguiente:
 
 - Cómo instalar Git y Node.js
-  - Git es un sistema de control de versiones distribuido de código. La aplicación de ejemplo de esta lección se almacena en Git.
+  - Git es un sistema de control de versiones distribuido de código abierto. La aplicación de ejemplo de esta lección se almacena en Git.
   - Node.js es un entorno de tiempo de ejecución de JavaScript con un amplio ecosistema de paquetes.
-- Cómo usar NPM para instalar las herramientas de desarrollo de Node.js.
+- Uso de NPM para instalar las herramientas de desarrollo de Node.js.
   - La versión mínima necesaria de Node.js es 4.5 LTS.
   - NPM es uno de los administradores de paquetes para Node.js.
-- Cómo instalar Visual Studio Code.
-  - Visual Studio Code es un editor de código fuente multiplataforma ligero pero eficaz para Windows, Linux y Mac OS. Ofrece un alto nivel de compatibilidad para la depuración, control de Git insertado, resaltado de sintaxis, completar código inteligente, fragmentos de código y refactorización de código.
+- Instalación de Visual Studio Code.
+  - Visual Studio Code es un editor de código fuente multiplataforma ligero pero eficaz para Windows, Linux y macOS. Ofrece un elevado nivel de compatibilidad para la depuración, control de Git insertado, resaltado de sintaxis, función inteligente de autocompletar código, fragmentos de código y refactorización de código.
 - Instalación de la CLI de Azure
   - La CLI de Azure proporciona una experiencia de línea de comandos multiplataforma en Azure. De este modo, puede trabajar directamente desde la línea de comandos para aprovisionar y administrar los recursos.
-- Cómo usar la CLI de Azure para crear un IoT Hub.
+- Uso de la CLI de Azure para crear una instancia de IoT Hub.
 
 ## <a name="what-you-need"></a>Lo que necesita
 
@@ -58,7 +58,7 @@ En esta lección, aprenderá lo siguiente:
 
 Para instalar Git y Node.js, siga estos pasos:
 
-1. Presione `Ctrl + Alt + T` para abrir un terminal.
+1. Presione `Ctrl + Alt + T` para abrir una ventana de terminal.
 2. Ejecute los comandos siguientes:
 
    ```bash
@@ -72,22 +72,22 @@ Para instalar Git y Node.js, siga estos pasos:
 
 Use [gulp.js](http://gulpjs.com/) para automatizar la implementación y ejecución de scripts.
 
-Para instalar gulp, ejecute el comando siguiente en el terminal:
+Para instalar Gulp, ejecute el comando siguiente en una ventana del terminal:
 
 ```bash
 sudo npm install -g gulp
 ```
 
-Si tiene problemas con la instalación, vea la [guía de solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md) para solucionar problemas comunes.
+Si tiene problemas con la instalación, consulte la [guía de solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md) para solucionar problemas comunes.
 
 > [!Note]
-> Node, NPM y Gulp son necesarios para ejecutar scripts de automatización desarrollados en Node.js.
+> Se precisan Node, NPM y Gulp para ejecutar scripts de automatización desarrollados en Node.js.
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
 
 Para instalar la CLI de Azure, siga estos pasos:
 
-1. Ejecute los siguientes comandos en el terminal:
+1. Ejecute los siguientes comandos en una ventana de terminal:
 
    ```bash
    sudo apt-get update
@@ -111,19 +111,19 @@ Si la instalación se realiza correctamente, verá el siguiente resultado.
 
 ### <a name="install-visual-studio-code"></a>Instalación de Visual Studio Code
 
-Use Visual Studio Code más adelante en este tutorial para editar archivos de configuración.
+Use Visual Studio Code, como se explica más adelante en este tutorial, para editar los archivos de configuración.
 
 [Descargue](https://code.visualstudio.com/docs/setup/linux) e instale Visual Studio Code.
 
 ## <a name="summary"></a>Resumen
 
-Ha instalado todas las herramientas y el software necesarios en el equipo host. La siguiente tarea consiste en utilizar la CLI de Azure para crear un IoT Hub y registrar el dispositivo en IoT Hub.
+Ha instalado todas las herramientas y el software necesarios en el equipo host. La siguiente tarea consiste en utilizar la CLI de Azure para crear una instancia de IoT Hub y registrar el dispositivo en ella.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de un IoT Hub y registro del dispositivo](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+[Creación de una instancia de IoT Hub y registro del dispositivo](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

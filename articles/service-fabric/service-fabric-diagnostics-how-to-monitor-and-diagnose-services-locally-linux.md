@@ -1,5 +1,5 @@
 ---
-title: "Supervisión y diagnóstico local de servicios creados con Service Fabric de Azure | Microsoft Docs"
+title: "Depuración de microservicios de Azure en Linux | Microsoft Docs"
 description: "Aprenda a supervisar y diagnosticar sus servicios creados con Service Fabric de Microsoft Azure en una máquina de desarrollo local."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
-ms.openlocfilehash: 1d02402f8d3d3f501a100c1618bcba595f1fedc0
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
 
 
 ---
@@ -143,6 +143,6 @@ El mismo código de seguimiento que agregó a la aplicación también funciona c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

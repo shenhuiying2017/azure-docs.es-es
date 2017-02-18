@@ -1,6 +1,6 @@
 ---
-title: "Configuración de Intel NUC como puerta de enlace de Azure IoT | Microsoft Docs"
-description: "Configure Intel NUC para que funcione como una puerta de enlace de IoT entre un sensor y Azure IoT Hub para recopilar información del sensor y enviarla a IoT Hub."
+title: "Dispositivo simulado y puerta de enlace de Azure IoT: Lección 1: Configuración de NUC | Microsoft Docs"
+description: "Configure Intel NUC para que funcione como puerta de enlace de IoT entre un sensor e IoT Hub de Azure para recopilar información del sensor y enviarla a IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,27 +16,27 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
 
 
 ---
-# <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configuración de Intel NUC como una puerta de enlace de IoT
+# <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configuración de Intel NUC como puerta de enlace de IoT
 
 ## <a name="what-you-will-do"></a>Lo que hará
 
-- Configure Intel NUC como una puerta de enlace de IoT.
+- Configure Intel NUC como puerta de enlace de IoT.
 - Instale el paquete del SDK de puerta de enlace de IoT de Azure en Intel NUC.
-- Ejecute una aplicación de ejemplo "hola_mundo" en Intel NUC para verificar la funcionalidad de la puerta de enlace.
+- Ejecute una aplicación de ejemplo "hola_mundo" en Intel NUC para comprobar la funcionalidad de la puerta de enlace.
 Si tiene problemas, busque soluciones en la [página de solución de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Lo qué aprenderá
 
 En esta lección, aprenderá lo siguiente:
 
-- Cómo conectar Intel NUC con periféricos.
-- Cómo instalar y actualizar los paquetes necesarios en Intel NUC mediante Smart Package Manager.
-- Cómo ejecutar una aplicación de ejemplo "hola_mundo" para verificar la funcionalidad de la puerta de enlace.
+- Conexión de Intel NUC con periféricos.
+- Instalación y actualización de los paquetes necesarios en Intel NUC mediante Smart Package Manager.
+- Ejecución de una aplicación de ejemplo "hola_mundo" para comprobar la funcionalidad de la puerta de enlace.
 
 ## <a name="what-you-need"></a>Lo que necesita
 
@@ -61,9 +61,9 @@ La imagen siguiente es un ejemplo de Intel NUC conectado con varios periféricos
 
 ## <a name="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh"></a>Conexión al sistema Intel NUC desde el equipo host a través de Secure Shell (SSH)
 
-Aquí necesita teclado y monitor para obtener la dirección IP del dispositivo NUC. Si ya conoce la dirección IP, puede ir al paso 3 de esta sección.
+Aquí necesita un teclado y un monitor para obtener la dirección IP del dispositivo NUC. Si ya conoce la dirección IP, puede ir al paso 3 de esta sección.
 
-1. Encienda Intel NUC presionando el botón de encendido y regístrese en el sistema.
+1. Encienda Intel NUC presionando el botón de encendido e inicie sesión en el sistema.
 
    El nombre de usuario y la contraseña predeterminados son `root`.
 
@@ -71,7 +71,7 @@ Aquí necesita teclado y monitor para obtener la dirección IP del dispositivo N
 
    Este es un ejemplo del resultado del comando.
 
-   ![salida de ifconfig que muestra la dirección IP de NUC](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
+   ![Salida de ifconfig que muestra la dirección IP de NUC](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
    En este ejemplo, el valor que sigue a `inet addr:` es la dirección IP que necesita si tiene previsto conectarse remotamente desde un equipo host a Intel NUC.
 
@@ -85,7 +85,7 @@ Aquí necesita teclado y monitor para obtener la dirección IP del dispositivo N
 
 ## <a name="install-the-azure-iot-gateway-sdk-package"></a>Instalación del paquete del SDK de puerta de enlace de IoT de Azure
 
-El paquete del SDK de puerta de enlace de IoT de Azure contiene los archivos binarios compilados previamente del SDK y sus dependencias. Estos archivos binarios forman el SDK de puerta de enlace de IoT de Azure, el SDK de IoT de Azure y las herramientas correspondientes. El paquete también contiene una aplicación de ejemplo "hola_mundo" que se utiliza para validar la funcionalidad de la puerta de enlace. El SDK es la parte del núcleo de la puerta de enlace. Para instalar el paquete, siga estos pasos:
+El paquete del SDK de puerta de enlace de IoT de Azure contiene los archivos binarios compilados previamente del SDK y sus dependencias. Estos archivos binarios forman el SDK de puerta de enlace de IoT de Azure, el SDK de IoT de Azure y las herramientas correspondientes. El paquete también contiene una aplicación de ejemplo "hello_world" que se utiliza para validar la funcionalidad de la puerta de enlace. El SDK es la parte principal de la puerta de enlace. Para instalar el paquete, siga estos pasos:
 
 1. Agregue el repositorio de la nube de IoT mediante la ejecución de los comandos siguientes en una ventana de terminal:
 
@@ -96,13 +96,13 @@ El paquete del SDK de puerta de enlace de IoT de Azure contiene los archivos bin
 
    El comando `rpm` importa la clave rpm. El comando `smart channel` agrega el canal rpm a Smart Package Manager. Antes de ejecutar el comando `smart update`, verá una salida similar a la siguiente.
 
-   ![rpm y salida de comandos de canal inteligente](media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
+   ![salida de los comandos rpm y de canal inteligente](media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
 
    ```bash
    smart update
    ```
 
-2. Instale el paquete mediante la ejecución del comando siguiente:
+2. Instale el paquete ejecutando el comando siguiente:
 
    ```bash
    smart install packagegroup-cloud-azure -y
@@ -110,13 +110,13 @@ El paquete del SDK de puerta de enlace de IoT de Azure contiene los archivos bin
 
    `packagegroup-cloud-azure` es el nombre del paquete. El comando `smart install` se usa para instalar el paquete.
 
-   Después de instalar el paquete, se espera que Intel NUC funcione como una puerta de enlace.
+   Después de instalar el paquete, Intel NUC debería funcionar como puerta de enlace.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Ejecución de la aplicación de ejemplo "hola_mundo" del SDK de puerta de enlace de IoT de Azure
 
-Vaya a `azureiotgatewaysdk/samples` y ejecute la aplicación de ejemplo "hola_mundo". Esta aplicación de ejemplo crea una puerta de enlace del archivo `hello_world.json` y utiliza los componentes fundamentales de la arquitectura del SDK de puerta de enlace de IoT de Azure para registrar un mensaje de Hola mundo en un archivo cada 5 segundos.
+Vaya a `azureiotgatewaysdk/samples` y ejecute la aplicación de ejemplo "hola_mundo". Esta aplicación de ejemplo crea una puerta de enlace del archivo `hello_world.json` y utiliza los componentes fundamentales de la arquitectura del SDK de puerta de enlace de IoT de Azure para registrar un mensaje de "Hola mundo" en un archivo cada 5 segundos.
 
-Puede ejecutar la aplicación de ejemplo "hola_mundo" mediante la ejecución del comando siguiente:
+Puede ejecutar la aplicación de ejemplo "hola_mundo" ejecutando el comando siguiente:
 
 ```bash
 cd /usr/share/azureiotgatewaysdk/samples/hello_world/
@@ -131,13 +131,13 @@ Si tiene problemas, busque soluciones en la [página de solución de problemas](
 
 ## <a name="summary"></a>Resumen
 
-¡Enhorabuena! Ha terminado de configurar Intel NUC como una puerta de enlace. Ahora está listo para pasar a la lección siguiente para configurar el equipo host, crear una instancia de Azure IoT hub y registrar el dispositivo lógico de la instancia de Azure IoT Hub.
+¡Enhorabuena! Ha terminado de configurar Intel NUC como puerta de enlace. Ahora está listo para pasar a la lección siguiente donde configurará el equipo host, creará una instancia de IoT hub de Azure y registrará el dispositivo lógico de la instancia de IoT Hub de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Preparación del equipo host y de Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+[Preparación del equipo host y de IoT Hub de Azure](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

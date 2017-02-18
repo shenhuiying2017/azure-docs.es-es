@@ -1,5 +1,5 @@
 ---
-title: "Crear clústeres de Hadoop, HBase, Storm o Spark basados Linux en HDInsight con el SDK .NET de HDInsight | Microsoft Docs"
+title: "Creación de un clúster de Azure HDInsight (Hadoop) mediante .NET | Microsoft Docs"
 description: "Aprenda a crear clústeres de Hadoop, HBase, Storm o Spark en Linux para HDInsight con el SDK .NET de HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 349b73e7f80c1762408ebd38d0ba27a395328ddb
-ms.openlocfilehash: 01028e0a6820ef6b78fb57ab853b78eb4ecefb7e
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: cd5ab90167501d5876381e0575042e19a23e702c
 
 
 ---
@@ -385,6 +385,6 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

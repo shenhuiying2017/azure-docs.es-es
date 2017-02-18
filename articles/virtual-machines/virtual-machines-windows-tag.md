@@ -1,5 +1,5 @@
 ---
-title: "Cómo etiquetar una máquina virtual | Microsoft Docs"
+title: "Cómo etiquetar un recurso de máquina virtual Windows en Azure | Microsoft Docs"
 description: "Infórmese acerca del etiquetado de una máquina virtual Azure creada con el modelo de implementación de Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 97efb86f31f75d2214e4169d88b792ab189354ed
+ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
+ms.openlocfilehash: 57b88baeeb5c27cfdf142c77aef37b66bb6640d6
 
 
 ---
@@ -27,7 +27,7 @@ En este artículo se describen diferentes maneras de etiquetar una máquina virt
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-powershell"></a>Etiquetado con PowerShell
-Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso configurar el [entorno de PowerShell con Azure Resource Manager][entorno de PowerShell con Administrador de recursos de Azure]. Una vez completada la configuración, puede colocar etiquetas en los recursos de proceso, red y almacenamiento tanto al crear el recurso a través de PowerShell como después de haberlo creado. En este artículo se centrará en la visualización y edición de etiquetas en máquinas virtuales.
+Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso configurar el [entorno de PowerShell con Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Una vez completada la configuración, puede colocar etiquetas en los recursos de proceso, red y almacenamiento tanto al crear el recurso a través de PowerShell como después de haberlo creado. En este artículo se centrará en la visualización y edición de etiquetas en máquinas virtuales.
 
 En primer lugar, navegue a una máquina virtual a través del cmdlet `Get-AzureRmVM` .
 
@@ -88,23 +88,23 @@ El quinto comando muestra todas las etiquetas en el recurso. Como puede ver, *Lo
         Value        MyLocation
         Name        Location
 
-Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][cmdlets de recursos de Azure].
+Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][Azure Resource Cmdlets].
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para aprender más sobre cómo etiquetar los recursos de Azure, consulte [Información general sobre Azure Resource Manager][Información general sobre Azure Resource Manager] y [Uso de etiquetas para organizar los recursos de Azure][Uso de etiquetas para organizar los recursos de Azure].
-* Para ver cómo las etiquetas pueden ayudarle a administrar el uso de recursos de Azure, consulte [Comprender la factura de Azure][Comprender la factura de Azure] y [Obtención de información sobre el consumo de recursos de Microsoft Azure][Obtención de información sobre el consumo de recursos de Microsoft Azure].
+* Para obtener más información sobre el etiquetado de los recursos de Azure, consulte [Información general de Azure Resource Manager][Azure Resource Manager Overview] y [Uso de etiquetas para organizar los recursos de Azure][Using Tags to organize your Azure Resources].
+* Para ver cómo las etiquetas pueden ayudarle a administrar el uso de los recursos de Azure, consulte [Comprender la factura de Microsoft Azure][Understanding your Azure Bill] y [Obtención de información sobre el consumo de recursos de Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
 
-[entorno de PowerShell con Administrador de recursos de Azure]: ../powershell-azure-resource-manager.md
-[cmdlets de recursos de Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
-[Información general sobre Azure Resource Manager]: ../azure-resource-manager/resource-group-overview.md
-[Uso de etiquetas para organizar los recursos de Azure]: ../resource-group-using-tags.md
-[Comprender la factura de Azure]: ../billing/billing-understand-your-bill.md
-[Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
+[PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
+[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
+[Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
+[Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

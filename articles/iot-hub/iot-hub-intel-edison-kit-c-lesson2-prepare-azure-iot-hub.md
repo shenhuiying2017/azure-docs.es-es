@@ -1,5 +1,5 @@
 ---
-title: "Creación del centro de IoT Hub de Azure y registro de Intel Edison | Microsoft Docs"
+title: "Conexión de Intel Edison (C) a Azure IoT: Lección 2: Registro del dispositivo | Microsoft Docs"
 description: Cree un grupo de recursos, cree una instancia de IoT Hub de Azure y registre Edison en IoT Hub de Azure mediante la CLI de Azure.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: eed6c2b652df689732138fc9ce792728d7752f23
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 9eebae32bf469e0744855ed9f98306bd36eb9671
 
 
 ---
@@ -105,6 +105,6 @@ Ha creado un centro de IoT Hub y ha registrado Edison con una identidad de dispo
 [process-and-store-iot-hub-messages]: iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

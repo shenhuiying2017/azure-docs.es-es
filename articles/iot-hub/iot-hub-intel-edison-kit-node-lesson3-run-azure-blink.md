@@ -1,5 +1,5 @@
 ---
-title: "Ejecución de una aplicación de ejemplo para enviar mensajes de dispositivo a nube a IoT Hub de Azure | Microsoft Docs"
+title: "Conexión de Intel Edison (Node) a Azure IoT: Lección 3: Envío de mensajes | Microsoft Docs"
 description: "Implemente y ejecute una aplicación de ejemplo para Intel Edison que envíe mensajes a IoT Hub y haga parpadear el LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: b158dc91186496d9b8ebd0d4ce0478c7ae45935a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: ddc40f2e3467cb406a7336924f9577d52061c42e
 
 
 ---
@@ -111,6 +111,6 @@ Ha implementado y ejecutado la nueva aplicación de ejemplo de activación del p
 [read-messages-persisted-in-azure-storage]: iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

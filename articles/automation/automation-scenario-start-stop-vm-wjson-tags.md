@@ -1,5 +1,5 @@
 ---
-title: "Uso de etiquetas con formato JSON para crear una programación de inicio y apagado de VM de Azure | Microsoft Docs"
+title: "Uso de etiquetas con formato JSON para programar el estado de la máquina virtual de Azure | Microsoft Docs"
 description: "En este artículo se explica cómo usar cadenas JSON en las etiquetas para automatizar la programación de inicio y apagado de máquinas virtuales."
 services: automation
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2016
+ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0d4098199cec948541eddba8fa88242606e2ec5c
+ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
+ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 
 
 ---
@@ -103,7 +103,7 @@ Información detallada sobre esta estructura:
 
    ![GetSystemTimeZones en PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * Los días de la semana se representan con un valor numérico entre 0 y 6. El valor 0 corresponde al domingo.
+   * Los días de la semana se representan con un valor numérico entre&0; y&6;. El valor&0; corresponde al domingo.
    * La hora de inicio se representa con el atributo **S** y su valor se presenta en un formato de 24 horas.
    * La hora de fin o apagado se representa con el atributo **E** y su valor se presenta en un formato de 24 horas.
 
@@ -244,6 +244,6 @@ El **resumen del trabajo** incluye los mensajes de los flujos de salida, adverte
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

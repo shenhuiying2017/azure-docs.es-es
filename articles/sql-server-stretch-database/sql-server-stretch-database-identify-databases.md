@@ -1,5 +1,5 @@
 ---
-title: "Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor | Microsoft Docs"
+title: "Identificación de bases de datos y tablas para Stretch Database: Azure | Microsoft Docs"
 description: Aprenda a identificar las bases de datos y las tablas que son candidatas a Stretch Database.
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 47b666a7f2178daebc1b2b442fd1bb8cf31e40bb
-ms.openlocfilehash: 3aef66c7b80ee356faedcaaadacd15aea3438714
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: 0f1a7feea79c73d7b80343fcc9898509268d111c
 
 
 ---
@@ -36,10 +36,10 @@ Descargue e instale el Asesor de actualizaciones desde [aquí](http://go.microso
 
 ## <a name="review-the-results"></a>Revisión del resultado
 1. Cuando finalice el análisis, en la hoja **Analyzed databases** (Bases de datos analizadas), seleccione una de las bases de datos que ha analizado para mostrar la hoja **Analysis results** (Resultados del análisis).
-   
+
    En la hoja **Analysis results** (Resultados del análisis) se muestran las tablas recomendadas de la base de datos seleccionada que coinciden con los criterios de recomendación predeterminados.
 2. En la lista de tablas de la hoja **Analysis results** (Resultados del análisis), seleccione una de las tablas recomendadas para mostrar la hoja **Table results** (Resultados de la tabla).
-   
+
    En la hoja **Table results** (Resultados de la tabla) se muestran los problemas de bloqueo de la tabla seleccionada. Para más información sobre los problemas de bloqueo detectados por Stretch Database Advisor, consulte [Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md).
 3. En la lista de problemas de bloqueo en la hoja **Table results** (Resultados de la tabla), seleccione uno de los problemas para mostrar más información sobre el problema seleccionado y las propuestas con los pasos de solución. Implemente los pasos de solución sugeridos si quiere configurar la tabla seleccionada para Stretch Database.
 
@@ -58,7 +58,6 @@ Habilite Stretch Database.
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

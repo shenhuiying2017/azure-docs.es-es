@@ -1,5 +1,5 @@
 ---
-title: "Implementación de varias instancias de recursos | Microsoft Docs"
+title: "Implementación de varias instancias de recursos de Azure | Microsoft Docs"
 description: "Use la operación de copia y matrices en una plantilla del Administrador de recursos de Azure para iterar varias veces al implementar recursos."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 28bda592a685de4b2b938da21c3f3aa0a60e632d
-ms.openlocfilehash: 241a22429e8e0fbd2625292890baf4b2c3d77d81
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
 
 
 ---
-# <a name="create-multiple-instances-of-resources-in-azure-resource-manager"></a>Creación de varias instancias de recursos en el Administrador de recursos de Azure
+# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Implementación de varias instancias de recursos en plantillas de Azure Resource Manager
 En este tema se muestra cómo iterar en la plantilla del Administrador de recursos de Azure para crear varias instancias de un recurso.
 
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex y length
@@ -556,6 +556,6 @@ Ahora, cree la plantilla principal que tiene una instancia estática de la plant
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

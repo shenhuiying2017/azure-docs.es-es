@@ -1,10 +1,10 @@
 ---
-title: "Configuración de la tunelización forzada mediante el modelo de implementación clásica | Microsoft Docs"
+title: "Configuración de la tunelización forzada para conexiones de sitio a sitio de Azure: modelo clásico | Microsoft Docs"
 description: "Cómo redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 33ca336c6ae3ffc68997d21c4d7da9275ff48a00
+ms.sourcegitcommit: 5183fc3b4e7ec3fe6060a6a9551656332300995f
+ms.openlocfilehash: 75cd2b7073d5cda6fc90aa963a9ad321e6992743
 
 
 ---
@@ -119,7 +119,7 @@ Los pasos establecerán *DefaultSiteHQ* como la conexión de sitio predeterminad
         New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
 2. Agregue una ruta predeterminada a la tabla de enrutamiento. 
    
-    El siguiente ejemplo agrega una ruta predeterminada a la tabla de enrutamiento que creó en el paso 1. Tenga en cuenta que la única ruta admitida es el prefijo de destino de 0.0.0.0/0 para el próximo salto VPNGateway.
+    El siguiente ejemplo agrega una ruta predeterminada a la tabla de enrutamiento que creó en el paso 1. Tenga en cuenta que la única ruta admitida es el prefijo de destino de&0;.0.0.0/0 para el próximo salto VPNGateway.
    
         Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 3. Asocie la tabla de enrutamiento a las subredes. 
@@ -163,6 +163,6 @@ Los pasos establecerán *DefaultSiteHQ* como la conexión de sitio predeterminad
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

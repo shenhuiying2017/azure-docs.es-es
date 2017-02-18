@@ -1,6 +1,6 @@
 
 ---
-title: Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0 | Microsoft Docs
+title: "Uso de Azure AD v2.0 para tener acceso a recursos seguros sin la interacción del usuario | Microsoft Docs"
 description: "Compile aplicaciones web mediante la implementación del protocolo de autenticación OAuth 2.0 de Azure AD."
 services: active-directory
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d619f6e98563448859e54ecbb0605df1365246ce
+ms.sourcegitcommit: 08e2e561b6b939de4d829c816c1948361e16f6c4
+ms.openlocfilehash: 2bbfed6e14a77964a32b84ae3f78f3529f13043c
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: d619f6e98563448859e54ecbb0605df1365246ce
 Puede usar la [concesiones de credenciales de cliente de OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), a veces denominada *OAuth de dos días*, para obtener acceso a recursos hospedados en la Web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para interacciones de servidor a servidor que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. A menudo, estos tipos de aplicaciones se conocen como *demonios* o *cuentas de servicio*.
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> No todas las características y escenarios de Azure Active Directory son compatibles con la versión&2;.0 del punto de conexión. Para determinar si debe usar la versión&2;.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -66,7 +66,7 @@ Para usar permisos de aplicación en la aplicación, lleve a cabo los pasos que 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendación: inicie la sesión del usuario en la aplicación
 Habitualmente, cuando compila una aplicación que usa permisos de aplicación, la aplicación requiere una página o vista en la que el administrador aprueba los permisos de la aplicación. Esta página puede ser parte del flujo de inicio de sesión de la aplicación o de la configuración de la aplicación, o bien puede ser un flujo de "conexión" dedicado. En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
-Si inicia la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el usuario antes de pedirle que apruebe los permisos de aplicación. Aunque no es estrictamente necesario, puede ayudarlo a crear una experiencia más intuitiva para los usuarios. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
+Si inicia la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el usuario antes de pedirle que apruebe los permisos de aplicación. Aunque no es estrictamente necesario, puede ayudarlo a crear una experiencia más intuitiva para los usuarios. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión&2;.0](active-directory-v2-protocols.md).
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitud de los permisos de un administrador de directorios
 Cuando esté listo para solicitar permisos al administrador de la organización, puede redirigir al usuario al *punto de conexión de consentimiento del administrador* v2.0.
@@ -211,6 +211,6 @@ Para ver un ejemplo de una aplicación que implementa la concesión de credencia
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Punto de conexión v2.0 de Azure AD | Microsoft Docs"
+title: "¿Qué hay de diferente en el punto de conexión de Azure AD v2.0? | Microsoft Docs"
 description: "Una comparación entre el punto de conexión original de Azure AD y el punto de conexión v2.0."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 8a8f8af9b23c66461385a73f80c148a2fdd652d5
+ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
+ms.openlocfilehash: 9f00013c4eb6c32707489d5f78a5e95b7419bcd2
 
 
 ---
@@ -113,14 +113,14 @@ Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens d
 
 Para más información acerca de OAuth 2.0, refresh_tokens y access_tokens, consulte la [referencia del protocolo v2.0](active-directory-v2-protocols.md).
 
-#### <a name="openid-profile--email"></a>OpenID, perfil y correo electrónico
+#### <a name="openid-profile-and-email"></a>OpenID, perfil y correo electrónico
 En el servicio de Azure Active Directory original, el flujo de inicio de sesión de OpenID Connect más básico proporciona una gran cantidad de información sobre el usuario en el id_token resultante.  Las notificaciones de un id_token pueden incluir el nombre de usuario, el nombre de usuario preferido, la dirección de correo electrónico, el id. de objeto, etc.
 
 Ahora restringimos la información a la que el ámbito `openid` permite acceder a la aplicación.  El ámbito "openid" solo permitirá que el usuario inicie sesión en la aplicación y que esta reciba un identificador específico de aplicación para el usuario.  Si desea obtener información personal identificable (PII) acerca del usuario en la aplicación, esta tendrá que solicitar permisos adicionales al usuario.  Estamos introduciendo dos nuevos ámbitos (`email` y `profile`) que permiten hacerlo.
 
 El ámbito `email` es muy sencillo: permite que la aplicación acceda a la dirección de correo electrónico principal del usuario a través de la notificación `email` en id_token.  El ámbito `profile` ofrece a la aplicación acceso a toda la demás información básica sobre el usuario: su nombre, el nombre de usuario preferido, identificador de objeto y demás.
 
-Esto le permite codificar la aplicación en un modo de divulgación mínima, puede pedir al usuario solo el conjunto de información que la aplicación necesita para hacer su trabajo.  Para obtener más información sobre estos ámbitos, consulte [la referencia de los ámbitos de la versión 2.0](active-directory-v2-scopes.md).
+Esto le permite codificar la aplicación en un modo de divulgación mínima, puede pedir al usuario solo el conjunto de información que la aplicación necesita para hacer su trabajo.  Para obtener más información sobre estos ámbitos, consulte [la referencia de los ámbitos de la versión&2;.0](active-directory-v2-scopes.md).
 
 ## <a name="token-claims"></a>Notificaciones de token
 Las notificaciones en tokens emitidas por el extremo de v2.0 no serán idénticas a los tokens emitidos por los extremos de Azure AD de disponibilidad general; las aplicaciones que migran al nuevo servicio no deben suponer que existirá una notificación concreta en id_tokens o access_tokens.   Los tokens emitidos por el extremo dev2.0 son compatibles con las especificaciones de OAuth 2.0 y OpenID Connect, pero pueden seguir una semántica diferente a la del servicio de Azure AD de disponibilidad general.
@@ -132,6 +132,6 @@ Es necesario tener en cuenta algunas restricciones cuando se usa el punto v2.0. 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

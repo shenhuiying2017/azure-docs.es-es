@@ -1,30 +1,16 @@
 ---
-title: Almacenamiento y rendimiento de DocumentDB | Microsoft Docs
-description: "Más información sobre el almacenamiento de datos y el almacenamiento de documentos DocumentDB y cómo escalar DocumentDB para satisfacer las necesidades de capacidad de la aplicación."
-keywords: almacenamiento de documentos
-services: documentdb
-author: syamkmsft
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: d3c0bae3-1862-4203-9260-e36216a7823d
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/18/2016
-ms.author: syamk
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 8a387dbb4ae5c8ce64c397441613d6d1fc3f08b1
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 27880401ccfca4c2c504eecc1aeb128d40c501a3
 
 
 ---
 # <a name="storage-and-predictable-performance-provisioning-in-documentdb"></a>Almacenamiento y aprovisionamiento de rendimiento predecible en DocumentDB
 Azure DocumentDB es un servicio de bases de datos NoSQL orientado a documentos totalmente administrado y escalable para documentos JSON. Con DocumentDB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los ingenieros de Microsoft operan y supervisan de forma continua DocumentDB para ofrecer disponibilidad, rendimiento y protección de datos universales.  
 
-Para comenzar con DocumentDB, [cree una cuenta de base de datos](documentdb-create-account.md) y una [base de datos de DocumentDB](documentdb-create-database.md) mediante [Azure Portal](https://portal.azure.com/). Las bases de datos de DocumentDB se ofrecen en unidades de rendimiento y almacenamiento respaldado de unidad de estado sólido (SSD). Estas unidades de almacenamiento se aprovisionan mediante la [creación de colecciones de bases de datos](documentdb-create-collection.md) dentro de la cuenta de base de datos, y cada colección tiene capacidad de proceso reservada que se puede escalar o reducir verticalmente en cualquier momento para satisfacer las demandas de la aplicación.
+Para comenzar con DocumentDB, [cree una cuenta de base de datos](documentdb-create-account.md) y, después, una [colección y una base de datos de DocumentDB](documentdb-create-collection.md) mediante [Azure Portal](https://portal.azure.com/). Las bases de datos de DocumentDB se ofrecen en unidades de rendimiento y almacenamiento respaldado de unidad de estado sólido (SSD). Estas unidades de almacenamiento se aprovisionan al crear colecciones de bases de datos, y cada colección tiene capacidad de proceso reservada que se puede escalar o reducir verticalmente en cualquier momento para satisfacer las demandas de la aplicación.
 
 Si la aplicación supera la capacidad de proceso reservada para una o varias colecciones, las solicitudes se limitan en función de la colección. Esto significa que algunas solicitudes de aplicación pueden tener éxito mientras que otras quedarán limitadas.
 
@@ -142,6 +128,6 @@ Para obtener instrucciones sobre cómo supervisar los niveles de rendimiento en 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

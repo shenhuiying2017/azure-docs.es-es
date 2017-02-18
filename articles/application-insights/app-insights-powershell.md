@@ -1,6 +1,6 @@
 ---
-title: "Creación de pruebas de recursos, alertas y disponibilidad de Azure Application Insights en PowerShell | Microsoft Docs"
-description: "Automatice la administración de recursos de Application Insights mediante una plantilla de Azure Resource Manager."
+title: "Automatización de Azure Application Insights con PowerShell | Microsoft Docs"
+description: "Automatice la creación de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 86118ebfcb0c7c55ff414d381645025f41c74eb7
-ms.openlocfilehash: ba52b3dc55d80cc5944f16c238a2ea0d66c94990
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
 
 
 ---
@@ -111,7 +111,7 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
                 "ApplicationId": "[parameters('appName')]",
                 "Name": "[parameters('appName')]",
                 "Flow_Type": "Redfield",
-                "Request_Source": "IbizaAIExtension"
+                "Request_Source": "ARMAIExtension"
               }
             },
             {
@@ -438,6 +438,6 @@ Otros artículos de automatización:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

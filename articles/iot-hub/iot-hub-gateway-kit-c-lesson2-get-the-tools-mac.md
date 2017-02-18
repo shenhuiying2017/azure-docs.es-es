@@ -1,5 +1,5 @@
 ---
-title: "Preparación de su equipo Mac y de IoT Hub de Azure | Microsoft Docs"
+title: "Dispositivo SensorTag y puerta de enlace de Azure IoT: Lección 2: Obtención de las herramientas (macOS) | Microsoft Docs"
 description: Instale herramientas en su equipo Mac, cree una instancia de IoT Hub y registre su dispositivo en ella.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 90b211e1d0b85e2c99ab31a633ddcee9218d4874
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b105cebd5b3e6c5cae726abbf5f2c48c0cd7587
 
 
 ---
@@ -40,7 +40,7 @@ En esta lección, aprenderá lo siguiente:
 
 - Instalación de [Git](https://git-scm.com/) y [Node.js](https://nodejs.org/en/).
   - Git es un sistema de control de versiones distribuido de código abierto. La aplicación de ejemplo de esta lección se almacena en Git.
-  - Node.js es un entorno de tiempo de ejecución de JavaScript con un amplio ecosistema de paquetes.
+  - Node.js es un entorno en tiempo de ejecución de JavaScript con un amplio ecosistema de paquetes.
 - Uso de [NPM](https://www.npmjs.com/) para instalar las herramientas de desarrollo de Node.js.
   - La versión mínima necesaria de Node.js es 4.5 LTS.
   - NPM es uno de los administradores de paquetes para Node.js.
@@ -134,6 +134,6 @@ Ha instalado todas las herramientas y el software necesarios en el equipo Mac. L
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introducción a la integración de registro de Microsoft Azure | Microsoft Docs"
+title: "Integración de registros de recursos de Azure en sistemas SIEM | Microsoft Docs"
 description: "Aprenda sobre la integración de registro de Azure, sus principales funcionalidades y cómo funciona."
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2016
+ms.date: 01/23/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 8bded635f95e640f6a0edba05e5190341ce362c5
-ms.openlocfilehash: d3a8df0bcfbab0afc8eaa5dd13a22fd6b346c443
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 62b5469d06974dfbe1b243091d34e1141416c971
 
 
 ---
@@ -26,7 +26,7 @@ Aprenda sobre la integración de registro de Azure, sus principales funcionalida
 ## <a name="overview"></a>Información general
 Tanto la solución de Plataforma como servicio (PaaS) como la de Infraestructura como servicio (IaaS) hospedadas en Azure generan una gran cantidad de datos en los registros de seguridad. Estos registros contienen información esencial que pueden proporcionar un gran conocimiento sobre las infracciones de directivas, las amenazas internas y externas, los problemas de cumplimiento de las regulaciones y las anomalías de la red, el host y la actividad del usuario.
 
-La integración de registros de Azure le permite integrar registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). La integración de registros de Azure recopila diagnósticos de Azure desde las máquinas virtuales de Windows *(WAD)*, los registros de actividad de Azure, las alertas de Azure Security Center y los registros del proveedor de recursos de Azure. Esta integración proporciona un panel unificado para todos los recursos, tanto locales como en la nube, de forma que puede agregar, correlacionar, analizar y alertar sobre los eventos de seguridad.
+La integración de registros de Azure le permite integrar registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). La integración de registros de Azure recopila diagnósticos de Azure de las máquinas virtuales de Windows *(WAD)*, los registros de actividad de Azure, las alertas de Azure Security Center y los registros del proveedor de recursos de Azure. Esta integración proporciona un panel unificado para todos los recursos, tanto locales como en la nube, de forma que puede agregar, correlacionar, analizar y alertar sobre los eventos de seguridad.
 
 ![Integración de registro de Azure][1]
 
@@ -55,6 +55,6 @@ En este documento, se ha presentado la integración de registros de Azure. Para 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

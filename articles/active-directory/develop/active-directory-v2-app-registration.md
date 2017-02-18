@@ -1,5 +1,5 @@
 ---
-title: Registro de aplicaciones v2.0 | Microsoft Docs
+title: "Registro de una aplicación con el punto de conexión de Azure AD v2.0 mediante el portal | Microsoft Docs"
 description: "Cómo registrar una aplicación con Microsoft para habilitar el inicio de sesión y obtener acceso a servicios de Microsoft con el punto de conexión v2.0"
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 0ca01c2ef66706502e19e5e30f878a509356c94c
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
 
 
 ---
@@ -58,6 +58,6 @@ Ahora que tiene una aplicación de Microsoft, puede completar uno de nuestros tu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

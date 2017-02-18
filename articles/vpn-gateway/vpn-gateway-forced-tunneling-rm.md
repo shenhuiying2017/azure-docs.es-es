@@ -1,10 +1,10 @@
 ---
-title: "Configuración de la tunelización forzada para las conexiones de sitio a sitio mediante el modelo de implementación de Resource Manager | Microsoft Docs"
+title: "Configuración de la tunelización forzada para conexiones de sitio a sitio de Azure: Resource Manager | Microsoft Docs"
 description: "Cómo redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: acfa4642ad26f819189bd871d83718b6f579e32d
+ms.sourcegitcommit: 5183fc3b4e7ec3fe6060a6a9551656332300995f
+ms.openlocfilehash: 5bf02651c6a3fdd1369676e225cb859dab6fa5d8
 
 
 ---
@@ -138,6 +138,6 @@ Antes de comenzar con la configuración, compruebe que dispone de los elementos 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

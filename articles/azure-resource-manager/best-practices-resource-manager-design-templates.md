@@ -1,6 +1,6 @@
 ---
-title: Modelos de plantillas de Resource Manager | Microsoft Docs
-description: "Mostrar patrones de diseño de plantillas del Administrador de recursos de Azure"
+title: "Diseño de plantillas de Azure para soluciones complejas | Microsoft Docs"
+description: "Muestra los procedimientos recomendados para diseñar plantillas de Azure Resource Manager para escenarios complejos"
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c38d7120de7d31f1079dd84bcc073eb2f9618775
-ms.openlocfilehash: c66032ef65a523528e2610f7a2e13595a47d9587
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
 
 
 ---
-# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Prácticas recomendadas para diseñar plantillas de Azure Resource Manager
+# <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Diseño de patrones para plantillas de Azure Resource Manager cuando implementa soluciones complejas
 Con un enfoque flexible basado en plantillas de Azure Resource Manager, puede implementar topologías complejas de forma rápida y coherente. Puede adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes para escenarios o clientes atípicos.
 
 Este tema forma parte de un artículo más extenso. Para leer el documento completo, descargue [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Consideraciones sobre las plantillas de Resource Manager de talla mundial y prácticas comprobadas).
@@ -351,6 +351,6 @@ Si desea publicar la plantilla en Marketplace, establezca distintas copias de la
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

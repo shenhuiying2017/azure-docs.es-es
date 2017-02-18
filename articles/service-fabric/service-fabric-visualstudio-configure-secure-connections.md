@@ -1,5 +1,5 @@
 ---
-title: "Configuración de conexiones seguras admitidas por el clúster de Service Fabric | Microsoft Docs"
+title: "Configuración de conexiones seguras de clúster de Azure Service Fabric | Microsoft Docs"
 description: "Obtenga información sobre cómo usar Visual Studio para configurar conexiones seguras que son compatibles con el clúster de Azure Service Fabric."
 services: service-fabric
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a02d3840555df0d9c16d179023b3bc763274701a
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
 
 
 ---
@@ -74,6 +74,6 @@ Para obtener más información sobre el acceso a los clústeres de Service Fabri
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

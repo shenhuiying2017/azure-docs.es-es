@@ -1,5 +1,5 @@
 ---
-title: "Creación de una instancia de Azure Function App y una cuenta de Azure Storage | Microsoft Docs"
+title: "Conexión de Intel Edison (Node) a Azure IoT: Lección 3: Creación de Function App | Microsoft Docs"
 description: La instancia de Azure Function App escucha los eventos de Azure IoT Hub, procesa los mensajes entrantes y los escribe en Azure Table Storage.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 2a0471afe0be575405bcc8d542c2f1dec6e309a2
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 72d1496fcf353662fa2f7b003ee3757c45b8181e
 
 
 ---
@@ -84,6 +84,6 @@ Ha creado una instancia de Azure Function App para procesar mensajes de IoT Hub,
 [send-device-to-cloud-messages]: iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
