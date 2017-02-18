@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a7d0b98e1c582230c756d1c893d9cc549a5a2893
-ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
 
 
 ---
@@ -50,7 +50,7 @@ A continuación, se muestran las herramientas que se pueden usar:
 
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md): los eventos que se recopilan en Event Hubs se pueden escribir en Azure Data Lake con resultados de Azure Data Lake Store.
 * [Storm de HDInsight de Azure](../hdinsight/hdinsight-storm-write-data-lake-store.md) : se pueden escribir los datos directamente en el Almacén de Data Lake desde el clúster de Storm.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost): se pueden recibir eventos desde Event Hubs y, después, escribirlos en Data Lake Store con el [SDK de .NET para Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md): se pueden recibir eventos desde Event Hubs y, después, escribirlos en Data Lake Store con el [SDK de .NET para Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Datos relacionales
 También se pueden originar datos desde bases de datos relacionales. Durante un tiempo, las bases de datos relacionales recopilan grandes cantidades de datos que pueden proporcionar información clave si se procesan a través de una canalización de macrodatos. Puede usar las herramientas siguientes para mover estos datos al Almacén de Data Lake.
@@ -135,6 +135,6 @@ Puede utilizar una combinación de servicios para crear representaciones visuale
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

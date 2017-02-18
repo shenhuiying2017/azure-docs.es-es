@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a538ceef7d9aeaca0e6f54443f3a5dabd06c22a1
-ms.openlocfilehash: 9914051f5f509a657e91aa66c1efb99ceb9f4817
+ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
+ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
 
 
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>Introducción al Explorador de almacenamiento (versión preliminar)
 ## <a name="overview"></a>Información general
-La versión preliminar del Explorador de almacenamiento de Microsoft Azure es una aplicación independiente que permite trabajar fácilmente con los datos de Almacenamiento de Azure en Windows, OS X y Linux. En este artículo aprenderá las diferentes maneras de conectarse a sus cuentas de Almacenamiento de Azure y de administrarlas.
+El Explorador de Microsoft Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux. En este artículo aprenderá las diferentes maneras de conectarse a cuentas de Azure Storage y de administrarlas.
 
 ![Explorador de almacenamiento de Microsoft Azure (versión preliminar)][15]
 
@@ -30,11 +30,11 @@ La versión preliminar del Explorador de almacenamiento de Microsoft Azure es un
 * [Descargue e instale el Explorador de almacenamiento (versión preliminar)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conexión a una cuenta de almacenamiento o servicio
-El Explorador de almacenamiento (versión preliminar) proporciona innumerables formas de conectar con las cuentas de almacenamiento. Esto incluye la conexión a cuentas de almacenamiento asociadas a las suscripciones de Azure, la conexión a cuentas de almacenamiento y servicios compartidos desde otras suscripciones de Azure e incluso la conexión al almacenamiento local y su administración mediante el Emulador de Azure Storage. Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales y nacionales:
+El Explorador de almacenamiento (versión preliminar) proporciona varias formas de conectarse a cuentas de Storage. Esto incluye la conexión a cuentas de almacenamiento asociadas a las suscripciones de Azure, la conexión a cuentas de almacenamiento y servicios compartidos desde otras suscripciones de Azure e incluso la conexión al almacenamiento local y su administración mediante el Emulador de Azure Storage. Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales y nacionales:
 
 * [Conexión a una suscripción de Azure](#connect-to-an-azure-subscription) : administre recursos de almacenamiento que pertenezcan a su suscripción de Azure.
-* [Trabajo con el almacenamiento de desarrollo local](#work-with-local-development-storage) : administre el almacenamiento local mediante el Emulador de almacenamiento de Azure.
-* [Conexión a almacenamiento externo](#attach-or-detach-an-external-storage-account): administre los recursos de almacenamiento que pertenezcan a otra suscripción de Azure o en nubes de Azure nacionales usando el nombre, la clave y los puntos de conexión de la cuenta de almacenamiento.
+* [Trabajo con el almacenamiento de desarrollo local](#work-with-local-development-storage) : administre el almacenamiento local mediante el Emulador de Azure Storage.
+* [Conexión a almacenamiento externo](#attach-or-detach-an-external-storage-account): administre los recursos de almacenamiento que pertenezcan a otra suscripción de Azure o a nubes de Azure nacionales mediante el nombre, la clave y los puntos de conexión de la cuenta de almacenamiento.
 * [Conexión a una cuenta de almacenamiento mediante SAS](#attach-storage-account-using-sas) : administre los recursos de almacenamiento que pertenezcan a otra suscripción de Azure mediante una SAS.
 * [Conexión de servicio mediante SAS](#attach-service-using-sas) : administre un servicio de almacenamiento específico (contenedor de blobs, cola o tabla) que pertenezca a otra suscripción de Azure mediante una SAS.
 
@@ -47,14 +47,14 @@ El Explorador de almacenamiento (versión preliminar) proporciona innumerables f
 1. En el Explorador de almacenamiento (versión preliminar), seleccione **Configuración de la cuenta de Azure**.
 
     ![Configuración de la cuenta de Azure][0]
-2. Ahora, el panel izquierdo mostrará todas las cuentas de Microsoft en las que ha iniciado sesión. Para conectarse a otra cuenta, seleccione **Agregar una cuenta**y siga los cuadros de diálogo para iniciar sesión con una cuenta de Microsoft que esté asociada con al menos una suscripción activa de Azure.
+2. El panel izquierdo muestra todas las cuentas de Microsoft en las que ha iniciado sesión. Para conectarse a otra cuenta, seleccione **Agregar una cuenta**y siga los cuadros de diálogo para iniciar sesión con una cuenta de Microsoft que esté asociada con al menos una suscripción activa de Azure.
 > [!NOTE]
->Actualmente no está permitido conectarse a Black Forest Azure, Fairfax Azure y Mooncake Azure mediante inicio de sesión. Consulte la sección **Conexión o desconexión de una cuenta de almacenamiento externa** para saber cómo conectarse a cuentas de Azure Storage nacionales.
+>Actualmente no se admite la conexión a Black Forest Azure, Fairfax Azure y Mooncake Azure mediante el inicio de sesión. Consulte la sección **Conexión o desconexión de una cuenta de almacenamiento externa** para saber cómo conectarse a cuentas de Azure Storage nacionales.
 
-3. Una vez que haya iniciado sesión correctamente con una cuenta de Microsoft, el panel izquierdo se llenará con las suscripciones de Azure asociadas a esa cuenta. Elija las suscripciones de Azure con las que desea trabajar y seleccione **Aplicar**. (Al seleccionar **Todas las suscripciones** , se alterna entre todas o ninguna de las suscripciones de Azure que aparecen).
+3. Una vez que haya iniciado sesión correctamente con una cuenta de Microsoft, el panel izquierdo se llena con las suscripciones de Azure asociadas a dicha cuenta. Elija las suscripciones de Azure con las que desea trabajar y seleccione **Aplicar**. (Al seleccionar **Todas las suscripciones** , se alterna entre todas o ninguna de las suscripciones de Azure que aparecen).
 
     ![Selección de suscripciones de Azure][3]
-4. El panel izquierdo mostrará ahora las cuentas de almacenamiento asociadas a las suscripciones de Azure seleccionadas.
+4. El panel izquierdo muestra ahora las cuentas de almacenamiento asociadas a las suscripciones de Azure seleccionadas.
 
     ![Suscripciones de Azure seleccionadas][4]
 
@@ -69,10 +69,10 @@ El Explorador de almacenamiento (versión preliminar) le permite trabajar con al
 1. En el panel izquierdo del Explorador de almacenamiento (versión preliminar), expanda el nodo **Local and Attached (Local y asociados)** > **Cuentas de almacenamiento** > **(Desarrollo)**.
 
     ![Nodo de desarrollo local][21]
-2. Si aún no ha instalado el Emulador de almacenamiento de Azure, se solicitará que lo haga a través de una barra de información. Si se muestra la barra de información, seleccione **Descargar la última versión**e instale el emulador.
+2. Si aún no ha instalado el Emulador de Azure Storage, se le solicita que lo haga a través de una barra de información. Si se muestra la barra de información, seleccione **Descargar la última versión**e instale el emulador.
 
     ![Mensaje para descargar el emulador de Almacenamiento de Azure][22]
-3. Una vez instalado el emulador,podrá crear y trabajar con tablas, colas y blobs locales. Para informarse sobre cómo trabajar con cada tipo de cuenta de almacenamiento, seleccione a continuación el vínculo apropiado:
+3. Una vez que el emulador se ha instalado, puede crear con tablas, colas y blobs locales, y trabajar con ellos. Para aprender a trabajar con cada tipo de cuenta de almacenamiento, seleccione uno de los siguientes vínculos:
 
    * [Administración de recursos de Azure Blob Storage](vs-azure-tools-storage-explorer-blobs.md)
    * Administración de recursos de Almacenamiento de recurso compartido de archivos de Azure; *próximamente*
@@ -83,7 +83,7 @@ El Explorador de almacenamiento (versión preliminar) le permite trabajar con al
 El Explorador de almacenamiento (versión preliminar) permite conectar cuentas de almacenamiento externo, lo que facilita el uso compartido de las cuentas de almacenamiento. En esta sección se explica cómo asociar (y desasociar) cuentas de almacenamiento externo.
 
 ### <a name="get-the-storage-account-credentials"></a>Obtención de las credenciales de la cuenta de almacenamiento
-Para compartir una cuenta de almacenamiento externo, el propietario de la misma tiene que obtener primero las credenciales (nombre de cuenta y clave) de la cuenta, y compartir esa información con la persona que desea asociar a esa cuenta (externa). La obtención de las credenciales de cuenta de almacenamiento puede realizarse a través del Portal de Azure siguiendo estos pasos:
+Para compartir una cuenta de almacenamiento externa, el propietario de la misma debe obtener primero las credenciales (nombre y clave de cuenta) de la misma, y compartir dicha información con la persona que desea asociar a dicha cuenta (externa). La obtención de las credenciales de cuenta de almacenamiento puede realizarse a través del Portal de Azure siguiendo estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Seleccione **Examinar**.
@@ -97,7 +97,7 @@ Para compartir una cuenta de almacenamiento externo, el propietario de la misma 
    ![Claves de acceso][6]
 
 ### <a name="attach-to-an-external-storage-account"></a>Asociación de una cuenta de almacenamiento externo
-Para la asociación a una cuenta de almacenamiento externo, necesitará el nombre y la clave de la cuenta. En la sección *Obtención de las credenciales de la cuenta de almacenamiento* se explica cómo obtener estos valores desde el Portal de Azure. Sin embargo, tenga en cuenta que, en el portal, la clave de cuenta se denomina "clave 1" por lo que en el Explorador de almacenamiento (versión preliminar), cuando se solicita una clave de cuenta, deberá escribir (o pegar) el valor de "clave 1".
+Para la asociación a una cuenta de almacenamiento externa, se necesitan el nombre y la clave de la misma. En la sección *Obtención de las credenciales de la cuenta de almacenamiento* se explica cómo obtener estos valores desde el Portal de Azure. Sin embargo, tenga en cuenta que, en el portal, la clave de cuenta se denomina "clave 1" por lo que en el Explorador de almacenamiento (versión preliminar), cuando se solicita una clave de cuenta, deberá escribir (o pegar) el valor de "clave 1".
 
 1. En el Explorador de almacenamiento (versión preliminar), seleccione **Connect to Azure storage**(Conectar con el almacenamiento de Azure).
 
@@ -112,7 +112,7 @@ Para la asociación a una cuenta de almacenamiento externo, necesitará el nombr
 
    ![Cuadro de diálogo de conexión a Almacenamiento externo][8]
 4. En el cuadro de diálogo **Resumen de conexiones** , compruebe la información. Si desea cambiar algo, seleccione **Atrás** y vuelva a escribir la configuración deseada. Cuando haya terminado, seleccione **Conectar**.
-5. Una vez conectado, se mostrará la cuenta de almacenamiento externo con el texto **(Externa)** junto al nombre de la cuenta.
+5. Una vez conectado, se muestra la cuenta de almacenamiento externa con el texto **(Externa)** junto al nombre de la misma.
 
    ![Resultado de la conexión a una cuenta de almacenamiento externo][9]
 
@@ -138,7 +138,7 @@ Para ilustrar este punto, supongamos que el Usuario A es administrador de una su
 2. En el cuadro de diálogo **Firma de acceso compartido**, especifique el período y los permisos que desee para la cuenta y seleccione **Crear**.
 
     ![Cuadro de diálogo para obtener la SAS][14]
-3. Aparecerá un segundo cuadro de diálogo **Firma de acceso compartido** , que muestra la SAS. Seleccione **Copiar** junto a la **Cadena de conexión** para copiarla en el Portapapeles. Seleccione **Cerrar** para salir del cuadro de diálogo.
+3. Un segundo cuadro de diálogo **Firma de acceso compartido** muestra la SAS. Seleccione **Copiar** junto a la **Cadena de conexión** para copiarla en el Portapapeles. Seleccione **Cerrar** para salir del cuadro de diálogo.
 
 ### <a name="attach-to-the-shared-account-using-the-sas"></a>Asociación a la cuenta compartida con SAS
 1. En el Explorador de almacenamiento (versión preliminar), seleccione **Connect to Azure storage**(Conectar con el almacenamiento de Azure).
@@ -148,7 +148,7 @@ Para ilustrar este punto, supongamos que el Usuario A es administrador de una su
 
    ![Cuadro de diálogo de conexión a Almacenamiento de Azure][24]
 3. En el cuadro de diálogo **Resumen de conexiones** , compruebe la información. Si desea cambiar algo, seleccione **Atrás** y vuelva a escribir la configuración deseada. Cuando haya terminado, seleccione **Conectar**.
-4. Una vez se haya realizado la asociación, se mostrará la cuenta de almacenamiento externo con el texto (SAS) anexado al nombre de cuenta que ha proporcionado.
+4. Una vez conectado, la cuenta de almacenamiento se muestra con el texto (SAS) anexo al nombre de cuenta que especificó.
 
    ![Resultado de asociación a una cuenta mediante SAS][17]
 
@@ -171,7 +171,7 @@ En este contexto, un servicio puede ser un contenedor de blobs, una cola o una t
 
    ![Cuadro de diálogo de conexión a Almacenamiento de Azure][24]
 3. En el cuadro de diálogo **Resumen de conexiones** , compruebe la información. Si desea cambiar algo, seleccione **Atrás** y vuelva a escribir la configuración deseada. Cuando haya terminado, seleccione **Conectar**.
-4. Una vez asociado, el servicio aparecerá en el nodo **(Service SAS)** [(SAS de servicio)].
+4. Una vez asociado, el servicio aparece en el nodo **(Service SAS)** [(SAS de servicio)].
 
    ![Resultado de asociación a un servicio compartido mediante SAS][20]
 
@@ -210,6 +210,6 @@ Para borrar la búsqueda, seleccione el botón **x** en el cuadro de búsqueda.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

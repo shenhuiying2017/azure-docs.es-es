@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Data Lake Store | Microsoft Docs"
-description: "Use el portal para crear una cuenta de Almacén de Data Lake y realizar operaciones básicas en Almacén de Data Lake"
+title: "Uso de Azure Portal como introducción a Data Lake Store | Microsoft Docs"
+description: "Uso de Azure Portal para crear una cuenta de Data Lake Store y realizar operaciones básicas en este"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
-ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 
 
 ---
@@ -51,7 +51,7 @@ Vea los vídeos siguientes para empezar a trabajar con el Almacén de Data Lake.
 2. Haga clic en **NUEVO**, en **Datos y almacenamiento** y en **Azure Data Lake Store**. Lea la información de la hoja **Azure Data Lake Store** y haga clic en **Crear** en la esquina inferior izquierda de la hoja.
 3. En la hoja **Nuevo almacén de Data Lake** , proporcione los valores como se muestra en la captura de pantalla siguiente:
    
-    ![Crear una nueva cuenta de Almacén de Azure Data Lake](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
+    ![Creación de una nueva cuenta de Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Creación de una nueva cuenta de Azure Data Lake")
    
    * **Nombre**. Escriba un nombre único para la cuenta de Data Lake Store.
    * **Suscripción**. Seleccione la suscripción con la que desea crear una cuenta de Data Lake Store.
@@ -62,10 +62,10 @@ Vea los vídeos siguientes para empezar a trabajar con el Almacén de Data Lake.
      * (Opcional) Seleccione **No habilitar el cifrado** en la lista desplegable para que no haya cifrado.
      * (Valor predeterminado) Seleccione **Usar claves administradas por Azure Data Lake** si desea que Azure Data Lake Store administre las claves de cifrado.
        
-         ![Cifrado de Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
+         ![Cifrado de Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Cifrado de Data Lake Store")
      * (Opcional) Seleccione **Elegir claves en el Almacén de claves de Azure** si desea usar sus propias claves presentes en Azure Key Vault. Con esta opción, también se puede crear una cuenta y claves de Key Vault si no dispone de ellas.
        
-         ![Cifrado de Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
+         ![Cifrado de Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Cifrado de Data Lake Store")
        
        Haga clic en **Aceptar** en la hoja **Configuración de cifrado**.
        
@@ -80,7 +80,7 @@ Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta
 
 1. Si ha usado claves de Azure Key Vault, la hoja de la cuenta de Data Lake Store muestra una advertencia en la parte superior. Haga clic en dicha advertencia para abrir la hoja **Configuración de permisos del Almacén de claves**.
    
-    ![Cifrado de Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
+    ![Cifrado de Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Cifrado de Data Lake Store")
 2. La hoja muestra dos opciones para configurar el acceso.
    
    * En la primera opción, haga clic en **Conceder permiso** para configurar el acceso. La primera opción solo está habilitada si el usuario que creó la cuenta de Data Lake Store es también administrador de Azure Key Vault.
@@ -92,30 +92,30 @@ Puede crear carpetas en su cuenta de Almacén de Data Lake para administrar y al
 1. Abra la cuenta de Almacén de Data Lake que acaba de crear. En el panel izquierdo, haga clic en **Examinar** y en **Data Lake Store**; después, en la hoja Data Lake Store, haga clic en el nombre de la cuenta en la que desee crear carpetas. Si ancló la cuenta al Panel de inicio, haga clic en ese icono de cuenta.
 2. En la hoja de su cuenta de Almacén de Data Lake, haga clic en **Explorador de datos**.
    
-    ![Crear carpetas en una cuenta de Almacén de Data Lake](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
+    ![Creación de una cuenta de Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creación de una cuenta de Azure Data Lake Store")
 3. En la hoja de su cuenta de Data Lake Store, haga clic en **Nueva carpeta**, escriba un nombre para la nueva carpeta y después haga clic en **Aceptar**.
    
-    ![Crear carpetas en una cuenta de Almacén de Data Lake](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
+    ![Creación de una cuenta de Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creación de una cuenta de Azure Data Lake Store")
    
     La carpeta recién creada se mostrará en la hoja **Explorador de datos** . Puede crear carpetas anidadas hasta cualquier nivel.
    
-    ![Crear carpetas en una cuenta de Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
+    ![Creación de carpetas en una cuenta de Data Lake Store](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creación de carpetas en una cuenta de Data Lake Store")
 
 ## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Carga de datos en la cuenta de Almacén de Azure Data Lake
 Puede cargar los datos en una cuenta de Almacén de Azure Data Lake directamente en el nivel raíz o en una carpeta que creó en la cuenta. En la siguiente captura de pantalla, siga los pasos para cargar un archivo en una subcarpeta desde la hoja **Explorador de datos** . En esta captura de pantalla, el archivo se carga en una subcarpeta que se muestra en las rutas de navegación (marcada en un cuadro rojo).
 
 Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-![Carga de datos](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
+![Cargar datos](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Cargar datos")
 
 ## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Propiedades y acciones disponibles en los datos almacenados
 Haga clic en el archivo recién agregado para abrir la hoja **Propiedades** . Las propiedades asociadas con el archivo y las acciones que puede realizar en él están disponibles en esta hoja. También puede copiar la ruta de acceso completa del archivo en su cuenta de Almacén de Azure Data Lake, resaltada en el cuadro rojo en la captura de pantalla siguiente.
 
-![Propiedades de los datos](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
+![Propiedades de los datos](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Propiedades de los datos")
 
 * Haga clic en **Vista previa** para obtener una vista previa del archivo, directamente desde el explorador. Además, puede especificar el formato de la vista previa. Haga clic en **Vista previa**, haga clic en **Formato** en la hoja **Vista previa de archivo** y, en la hoja **File Preview Format** (Formato de vista previa de archivo), especifique las opciones, como el número de filas que se muestran, la codificación o el delimitador que se van a usar, etc.
   
-  ![Formato de vista previa de archivo](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
+  ![Formato de vista previa de archivo ](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Formato de vista previa de archivo")
 * Haga clic en **Descargar** para descargar el archivo en el equipo.
 * Haga clic en **Cambiar nombre de archivo** para cambiar el nombre del archivo.
 * Haga clic en **Eliminar archivo** para eliminar el archivo.
@@ -126,7 +126,7 @@ Puede proteger los datos almacenados en su cuenta de Almacén de Azure Data Lake
 ## <a name="delete-azure-data-lake-store-account"></a>Eliminación de la cuenta de Almacén de Azure Data Lake
 Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almacén de Data Lake, haga clic en **Eliminar**. Para confirmar la acción, se le pedirá que escriba el nombre de la cuenta que desea eliminar. Escriba el nombre de la cuenta y después haga clic en **Eliminar**.
 
-![Eliminar cuenta de Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
+![Eliminar cuenta de Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminar cuenta de Data Lake")
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
@@ -137,6 +137,6 @@ Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almac�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

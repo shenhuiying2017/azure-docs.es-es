@@ -4,7 +4,7 @@ description: "En este artículo se describe cómo configurar SSL de extremo a ex
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 6f061810b865e7855877bf08b02e758351f3e63c
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
 
 
 ---
@@ -29,9 +29,7 @@ Application Gateway admite el cifrado de extremo a extremo del tráfico. Para el
 Otra característica que admite la puerta de enlace de aplicaciones es la deshabilitación de determinadas versiones del protocolo SSL. Application Gateway admite la deshabilitación de la siguiente versión del protocolo: **TLSv1.0**, **TLSv1.1** y **TLSv1.2**.
 
 > [!NOTE]
-> SSL 2.0 y SSL 3.0 están deshabilitados de manera predeterminada y no se pueden habilitar. Se considera que no son seguros y no se pueden usar con Application Gateway
-> 
-> 
+> SSL 2.0 y SSL 3.0 están deshabilitados de manera predeterminada y no se pueden habilitar. Se considera que no son seguros y no se pueden usar con Application Gateway.
 
 ![imagen de escenario][scenario]
 
@@ -135,8 +133,6 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 > [!IMPORTANT]
 > Application Gateway no admite el uso de una dirección IP pública creada con una etiqueta de dominio definida. Solo se admite una dirección IP pública con una etiqueta de dominio creada dinámicamente. Si necesita un nombre DNS descriptivo para la puerta de enlace de aplicaciones, se recomienda usar un registro CNAME como alias.
-> 
-> 
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
 
@@ -167,9 +163,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendI
 ```
 
 > [!NOTE]
-> Un nombre de dominio completo (FQDN) es también un valor válido, en lugar de una dirección IP, para los servidores back-end mediante el modificador -BackendFqdns.
-> 
-> 
+> Un nombre de dominio completo (FQDN) es también un valor válido, en lugar de una dirección IP, para los servidores back-end mediante el modificador -BackendFqdns. 
 
 ### <a name="step-4"></a>Paso 4
 
@@ -189,8 +183,6 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 > [!NOTE]
 > En este ejemplo se configura el certificado que se usa para la conexión SSL. Es preciso que el certificado tenga el formato .pfx y que la contraseña tenga entre 4 y 12 caracteres.
-> 
-> 
 
 ### <a name="step-6"></a>Paso 6
 
@@ -206,8 +198,6 @@ Cargue el certificado que se usará en los recursos del grupo de back-end habili
 
 > [!NOTE]
 > El sondeo predeterminado obtiene la clave pública del enlace SSL **predeterminado** en la dirección IP del back-end y compara el valor de la clave pública que recibe con el valor de la clave pública que se proporciona aquí. Es posible que la clave pública recuperada no sea necesariamente el sitio previsto al que el tráfico fluirá **si** se usan encabezados de host y SNI en el back-end. En caso de duda, visite https://127.0.0.1/ en los back-ends para confirmar qué certificado se usa para el enlace SSL **predeterminado**. Utilice la clave pública de dicha solicitud en esta sección. Si usa encabezados de host y SNI en enlaces HTTPS y no recibe una respuesta y un certificado de una solicitud manual de un explorador a https://127.0.0.1/ en los back-ends, debe configurar un enlace SSL de forma predeterminada en los back-ends. Si no lo hace, se producirán errores en los sondeos y el back-end no estará en la lista de permitidos.
-> 
-> 
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -215,8 +205,6 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitel
 
 > [!NOTE]
 > El certificado proporcionado en este paso debe ser la clave pública del certificado pfx presente en el back-end. Exporte el certificado (no el certificado raíz) instalado en el servidor backend en formato .CER y utilícelo en este paso. En este paso se coloca el back-end en la lista de permitidos con la puerta de enlace de aplicaciones.
-> 
-> 
 
 ### <a name="step-8"></a>Paso 8
 
@@ -244,8 +232,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el SLA no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. Las puertas de enlace pequeñas se deben usar para pruebas de desarrollo, no con fines de producción.
-> 
-> 
 
 ### <a name="step-11"></a>Paso 11
 
@@ -337,6 +323,6 @@ Aprenda sobre la protección de la seguridad de las aplicaciones web con el fire
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple como destino de copia de seguridad con Backup Exec | Microsoft Docs
+title: StorSimple serie 8000 como destino de copia de seguridad con Backup Exec | Microsoft Docs
 description: "Describe la configuración del destino de copia de seguridad de StorSimple con Veritas Backup Exec."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 58254054b5978eeef3802f5c4014552f1c871469
-ms.openlocfilehash: d2182d32d0b7ef1b58d1dbfd609f0737f366b081
+ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
+ms.openlocfilehash: db05fb35fdcbcf6691cc3ffc99d201383706592f
 
 ---
 
@@ -526,6 +526,6 @@ En este artículo se ha hecho referencia a los siguientes documentos:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

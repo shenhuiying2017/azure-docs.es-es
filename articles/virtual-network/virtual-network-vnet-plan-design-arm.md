@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 4b8b5ff0b623a517dd4a3bc29dae2d3cdbc471fc
-ms.openlocfilehash: cebcfb39a8072e0a03059360be96313a7339fc30
+ms.sourcegitcommit: ac0d7d9aaf1208c97e0ae797ac7c2b0ffecb88ae
+ms.openlocfilehash: daa0d0a7a0816f16f62904dc0e407105eb25c4ec
 
 
 ---
@@ -32,7 +32,7 @@ Antes de responder las preguntas relacionadas con la planeación que aparecen m�
 * Todo lo que se crea en Azure consta de uno o más recursos. Una máquina virtual (VM) es un recurso, la interfaz de adaptador de red (NIC) que una máquina virtual usa es un recurso, la dirección IP pública que una NIC usa es un recurso, la red virtual a la que se conecta la NIC también lo es.
 * Puede crear recursos dentro de una suscripción y una [región de Azure](https://azure.microsoft.com/regions/#services) . Además, los recursos solo se pueden conectar a una red virtual que existe en la misma región y suscripción en que se encuentran.
 * Puede conectar redes virtuales entre sí mediante una [puerta de enlace de VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)de Azure. También puede conectar de esta manera redes virtuales entre regiones y suscripciones.
-* Puede conectar redes virtuales a la red local mediante una de las [opciones de conectividad](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibles en Azure.
+* Puede conectar redes virtuales a la red local mediante una de las [opciones de conectividad](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) disponibles en Azure.
 * Es posible agrupar distintos recursos en los [grupos de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), lo que permite facilitar la administración del recurso como una unidad. Un grupo de recursos puede contener recursos provenientes de varias regiones, siempre que estos pertenezcan a la misma suscripción.
 
 ### <a name="define-requirements"></a>Definición de los requisitos
@@ -120,7 +120,7 @@ Debe considerar la posibilidad de tener varias subredes en una red virtual en lo
 
 * **No hay direcciones IP privadas suficientes para todas las NIC de una subred**. Si el espacio de direcciones de subred no contiene direcciones IP suficientes para la cantidad de NIC de la subred, deberá crear varias subredes. Tenga en cuenta que Azure reserva 5 direcciones IP privadas desde cada subred que no se pueden usar: la primera y la última dirección del espacio de direcciones (para la dirección de subred y multidifusión) y 3 direcciones que se usarán internamente (para DHCP y DNS).
 * **Seguridad**. Puede usar subredes para separar los grupos de máquinas virtuales entre sí para las cargas de trabajo que tengan una estructura de varios niveles y aplicar distintos [grupos de seguridad de red (NSG)](virtual-networks-nsg.md#subnets) para esa subredes.
-* **Conectividad híbrida**. Puede utilizar puertas de enlace de VPN y circuitos de ExpressRoute para [conectar](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) las redes virtuales entre sí y con sus centros de datos locales. Las puertas de enlace de VPN y los circuitos de ExpressRoute requieren la creación de una subred propia.
+* **Conectividad híbrida**. Puede utilizar puertas de enlace de VPN y circuitos de ExpressRoute para [conectar](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) las redes virtuales entre sí y con sus centros de datos locales. Las puertas de enlace de VPN y los circuitos de ExpressRoute requieren la creación de una subred propia.
 * **Aplicaciones virtuales**. Puede utilizar una aplicación virtual, como un firewall, un acelerador de WAN o una puerta de enlace de VPN en una red virtual de Azure. Cuando lo haga, deberá [enrutar el tráfico](virtual-networks-udr-overview.md) a esas aplicaciones y aislarlas en su propia subred.
 
 ### <a name="subnet-and-nsg-design-patterns"></a>Patrones de diseño de subredes y NSG
@@ -249,10 +249,10 @@ Según esos requisitos, podría agregar usuarios desde el equipo de red al rol *
 * [Implementar una red virtual](virtual-networks-create-vnet-arm-template-click.md) en función de un escenario.
 * Comprender cómo [equilibrar la carga](../load-balancer/load-balancer-overview.md) de las máquinas virtuales IaaS y [administrar el enrutamiento en varias regiones de Azure](../traffic-manager/traffic-manager-overview.md).
 * Obtener más información sobre los [NSG y cómo planear y diseñar](virtual-networks-nsg.md) una solución de NSG.
-* Obtener más información sobre las [opciones de conectividad local y redes virtuales](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site).
+* Obtener más información sobre las [opciones de conectividad local y redes virtuales](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

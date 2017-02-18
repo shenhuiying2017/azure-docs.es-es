@@ -1,28 +1,25 @@
 ---
-title: "Guardado y configuración del servicio Administración de API mediante Git"
+title: "Configuración del servicio API Management con Git - Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo guardar y configurar la configuración del servicio de administración de API mediante Git."
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
-> [!IMPORTANT]
-> La configuración Git de Administración de API está actualmente en versión preliminar. Aunque es completa funcionalmente, es una versión preliminar porque buscamos activamente comentarios acerca de esta característica. Es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes, por lo que recomendamos no depender de la característica en entornos de producción. Si tiene comentarios o preguntas, háganoslo saber en `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -40,7 +37,7 @@ Cuando hace cambios en el servicio mediante el portal para editores, los cmdlets
 
 Los pasos siguientes proporcionan una visión general sobre el proceso de administración de la instancia del servicio de Administración de API mediante Git.
 
-1. Habilitar el acceso de Git en el servicio
+1. Acceso a la configuración de Git en el servicio
 2. Guardar la base de datos de configuración del servicio en el repositorio de Git
 3. Clonar el repositorio de Git en el equipo local
 4. Desplegar el repositorio más reciente en el equipo local, y confirmar e insertar los cambios de nuevo en el repositorio
@@ -48,20 +45,14 @@ Los pasos siguientes proporcionan una visión general sobre el proceso de admini
 
 Este artículo describe cómo habilitar y usar Git para administrar la configuración del servicio y sirve como referencia para los archivos y las carpetas del repositorio Git.
 
-## <a name="to-enable-git-access"></a>Para habilitar el acceso de Git
-Puede ver rápidamente el estado de la configuración Git en el icono de Git, en la esquina superior derecha del portal del editor. En este ejemplo, el acceso de Git no todavía se ha habilitado.
+## <a name="access-git-configuration-in-your-service"></a>Acceso a la configuración de Git en el servicio
+Puede ver rápidamente el estado de la configuración Git en el icono de Git, en la esquina superior derecha del portal del editor. En este ejemplo, el mensaje de estado indica que hay cambios no guardados en el repositorio. Esto es porque la base de datos de configuración del servicio de Administración de API aún no se ha guardado en el repositorio.
 
 ![Estado de Git][api-management-git-icon-enable]
 
 Para ver y configurar las opciones de configuración Git, puede hacer clic en el icono de Git o en el menú **Seguridad** e ir a la pestaña **Repositorio de configuraciones**.
 
 ![Habilitar GIT][api-management-enable-git]
-
-Para habilitar el acceso de Git, active la casilla **Habilitar acceso de Git** .
-
-Tras unos instantes, el cambio se guarda y se muestra un mensaje de confirmación. Tenga en cuenta que el icono de Git cambia de color para indicar que el acceso de Git está habilitado, y ahora el mensaje de estado indica que hay cambios sin guardar en el repositorio. Esto es porque la base de datos de configuración del servicio de Administración de API aún no se ha guardado en el repositorio.
-
-![GIT habilitado][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Los secretos que no se definan como propiedades se almacenarán en el repositorio y permanecerán en su historial hasta que deshabilite y vuelva a habilitar el acceso de Git. Las propiedades proporcionan un lugar seguro para administrar los valores de cadena constante, como los secretos, a través de toda la configuración y las directivas de API, por lo que no tiene que almacenarlos directamente en las instrucciones de directiva. Para obtener más información, consulte [How to use properties in Azure API Management policies](api-management-howto-properties.md)(Uso de propiedades en directivas de Administración de API de Azure).
@@ -321,6 +312,6 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

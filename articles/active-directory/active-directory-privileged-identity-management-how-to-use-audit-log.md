@@ -1,9 +1,9 @@
 ---
-title: "Uso del registro de auditoría | Microsoft Docs"
+title: "Uso del registro de auditoría en Azure AD Privileged Identity Management | Microsoft Docs"
 description: "Obtenga información sobre cómo usar el registro de auditoría en la extensión de Privileged Identity Management de Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 5d13a6dd-1fcb-4e76-82fb-cb2f4f0e4357
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5ac402f1a5f76c02f22a189eec8cada0cc9b4a0f
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: a36231d9326158068e9460ed4594a79c744d3087
 
 
 ---
-# <a name="how-to-use-the-audit-log-in-azure-ad-privileged-identity-management"></a>Uso del registro de auditoría en Privileged Identity Management de Azure AD
+# <a name="using-the-audit-log-in-pim"></a>Uso del registro de auditoría en PIM
 Puede utilizar el registro de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de usuario y las activaciones comprendidas en un período de tiempo determinado. Si quiere ver el historial de auditoría completo de actividad en el inquilino, incluido el administrador, el usuario final y la actividad de sincronización, puede usar los [informes de acceso y uso de Azure Active Directory](active-directory-view-access-usage-reports.md)
 
 ## <a name="navigate-to-the-audit-log"></a>Desplazamiento al registro de auditoría
@@ -62,6 +62,6 @@ Active o desactive la casilla **Rol** situada junto a cada rol que quiera inclui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

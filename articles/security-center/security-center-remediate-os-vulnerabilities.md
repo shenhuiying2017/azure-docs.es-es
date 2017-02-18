@@ -1,6 +1,6 @@
 ---
 title: "Corrección de vulnerabilidades del SO en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center de corregir vulnerabilidades del sistema operativo."
+description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center **Corregir las vulnerabilidades del sistema operativo**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 455b841af8d736c273ddac4a90e024cfa7771c43
+ms.sourcegitcommit: 522496ddcd3cc21501f2390e8cdc158798b6289d
+ms.openlocfilehash: 35d33625badeb0b32079f0487b8bf2a3dd97e141
 
 
 ---
@@ -25,42 +25,42 @@ Azure Security Center analiza a diario las configuraciones del sistema operativo
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Corregir las vulnerabilidades del sistema operativo**.
    ![Corrección de vulnerabilidades del SO][1]
-   
+
     La hoja **Corregir las vulnerabilidades del sistema operativo** abre y enumera las máquinas virtuales con configuraciones del sistema operativo que no coinciden con las reglas de configuración recomendadas.  En cada máquina virtual, la hoja identifica lo siguiente:
-   
+
    * **REGLAS CON ERROR** : número de reglas con errores de configuración del sistema operativo de la máquina virtual.
    * **HORA DE LA ÚLTIMA DETECCIÓN** : fecha y hora en que Azure Security Center realizó el último examen de la configuración del sistema operativo de la máquina virtual.
    * **ESTADO** : estado actual de la vulnerabilidad.
-     
+
      * Abierta: la vulnerabilidad aún no se ha solucionado.
      * En curso: se está aplicando la corrección en la vulnerabilidad; no se requiere ninguna acción de su parte.
      * Resuelta: la vulnerabilidad ya se solucionó (cuando el problema se ha resuelto, la entrada aparece atenuada).
    * **GRAVEDAD** : todas las vulnerabilidades se establecen en un nivel de gravedad Baja; es decir, debe solucionarse, pero no se requiere atención inmediata.
 
-Seleccione una máquina virtual. Una hoja de esa VM se abre y muestra las reglas con error.
+2. Seleccione una máquina virtual. Una hoja de esa VM se abre y muestra las reglas con error.
    ![Reglas de configuración con error][2]
 
-Seleccione una regla. En este ejemplo, seleccionamos **La contraseña debe cumplir los requisitos de complejidad**. Se abre una hoja que describe la regla con errores y el impacto. Revise los detalles y tenga en cuenta cómo se aplicarán las configuraciones del sistema operativo.
+3. Seleccione una regla. En este ejemplo, seleccionamos **La contraseña debe cumplir los requisitos de complejidad**. Se abre una hoja que describe la regla con errores y el impacto. Revise los detalles y tenga en cuenta cómo se aplicarán las configuraciones del sistema operativo.
   ![Descripción de la regla con error][3]
 
   Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. En esta hoja, se proporciona la siguiente información:
 
-* NOMBRE: nombre de la regla.
-* GRAVEDAD: valor de gravedad de CCE, que puede ser Crítico, Importante o Advertencia.
-* CCIED: identificador único de CCE para la regla.
-* DESCRIPCIÓN: descripción de la regla.
-* VULNERABILIDAD: explicación de la vulnerabilidad o el riesgo si no se aplica la regla.
-* IMPACTO: impacto de negocio cuando se aplica la regla.
-* VALOR ESPERADO: valor esperado cuando Azure Security Center analiza la configuración del sistema operativo de la máquina virtual comparándola con la regla.
-* FUNCIONAMIENTO DE LA REGLA: cómo utiliza Azure Security Center la regla durante el análisis de la configuración del sistema operativo de la máquina virtual comparándola con la regla.
-* VALOR REAL: valor devuelto después de analizar la configuración del sistema operativo de la máquina virtual comparándola con la regla.
-* RESULTADO DE LA EVALUACIÓN: resultado del análisis, que puede ser Sin errores o Con errores.
+  - NOMBRE: nombre de la regla.
+  - GRAVEDAD: valor de gravedad de CCE, que puede ser Crítico, Importante o Advertencia.
+  - CCIED: identificador único de CCE para la regla.
+  - DESCRIPCIÓN: descripción de la regla.
+  - VULNERABILIDAD: explicación de la vulnerabilidad o el riesgo si no se aplica la regla.
+  - IMPACTO: impacto de negocio cuando se aplica la regla.
+  - VALOR ESPERADO: valor esperado cuando Azure Security Center analiza la configuración del sistema operativo de la máquina virtual comparándola con la regla.
+  - FUNCIONAMIENTO DE LA REGLA: cómo utiliza Azure Security Center la regla durante el análisis de la configuración del sistema operativo de la máquina virtual comparándola con la regla.
+  - VALOR REAL: valor devuelto después de analizar la configuración del sistema operativo de la máquina virtual comparándola con la regla.
+  - RESULTADO DE LA EVALUACIÓN: resultado del análisis, que puede ser Sin errores o Con errores.
 
 ## <a name="see-also"></a>Consulte también
 En este artículo se muestra cómo implementar la recomendación de Azure Security Center de corregir vulnerabilidades del sistema operativo. Puede revisar el conjunto de reglas de configuración [aquí](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. Visite el sitio de [CCE](http://cce.mitre.org) para obtener más información.
@@ -82,6 +82,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

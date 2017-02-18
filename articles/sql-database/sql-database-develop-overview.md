@@ -12,12 +12,12 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 
 
 ---
@@ -32,6 +32,9 @@ Este artículo le lleva por las consideraciones básicas que debe tener en cuent
 Existen ejemplos de código para diferentes lenguajes de programación y plataformas. Puede encontrar vínculos a los ejemplos de código en: 
 
 * Más información: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
+
+## <a name="tools"></a>Herramientas 
+Puede aprovechar herramientas de código abierto como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) o [VS Code](https://code.visualstudio.com/). Además, Azure SQL Database funciona con herramientas de Microsoft como [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  También puede usar el Portal de administración de Azure, PowerShell y API de REST, que le ayudan a obtener más productividad.
 
 ## <a name="resource-limitations"></a>Limitaciones de recursos
 Base de datos SQL de Azure administra los recursos disponibles para una base de datos mediante dos mecanismos diferentes: Regulación de recursos y Aplicación de límites.
@@ -72,11 +75,10 @@ La escala elástica simplifica el proceso de escalado y reducción horizontal.
 * [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+Descubra todas las [funcionalidades de Base de datos SQL](sql-database-technical-overview.md)
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

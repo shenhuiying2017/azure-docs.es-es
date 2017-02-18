@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/01/2017
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 3feaac838fe89e54a3b561b7572a9eb3393edc4c
-ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
+ms.sourcegitcommit: 5b8d989d950c17d867f30a6fa8a464a8750e2303
+ms.openlocfilehash: 98922addf7aa8bfc77033be29bf137b362378661
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
 
 En este tema se proporcionan detalles sobre **Redactor multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET.
 
-El procesador de multimedia **Redactor multimedia de Azure** está actualmente en versión preliminar. Está disponible en todas las regiones de Azure públicas, así como en los centros de datos de China y el gobierno de Estados Unidos. Actualmente, esta versión preliminar es gratuita. En la versión actual, hay un límite de 10 minutos en la duración del vídeo procesado.
+El procesador de multimedia **Redactor multimedia de Azure** está actualmente en versión preliminar. Está disponible en todas las regiones de Azure públicas, así como en los centros de datos de China y el gobierno de Estados Unidos. Actualmente, esta versión preliminar es gratuita. 
 
 ## <a name="face-redaction-modes"></a>Modos de censura de rostros
 La censura facial funciona detectando caras en cada fotograma de vídeo y realizando un seguimiento del objeto de cara tanto hacia delante como hacia atrás en el tiempo, para que la imagen de la misma persona pueda difuminarse también desde otros ángulos. El proceso de censura automatizada es muy complejo y no siempre genera los resultados deseados al 100 %, por este motivo, Análisis multimedia de Azure le ofrece un par de métodos para modificar el resultado final.
@@ -308,6 +308,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

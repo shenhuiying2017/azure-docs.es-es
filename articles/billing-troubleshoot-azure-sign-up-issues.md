@@ -1,106 +1,13 @@
 ---
-title: "Resolución de problemas de suscripción a Azure | Microsoft Docs"
-description: "Describe cómo solucionar algunos problemas comunes de suscripción a Azure."
-services: 
-documentationcenter: 
-author: JiangChen79
-manager: adpick
-editor: 
-tags: billing,top-support-issue
-ms.assetid: a0907da1-cb2d-41d1-a97f-43841fabe355
-ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
-ms.date: 01/24/2016
-ms.author: cjiang
+redirect_url: /azure/billing/billing-troubleshoot-azure-sign-up-issues
+redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 73c4ff6fdbde09dd08d1bcacf0ec87c7fa43f3b2
-ms.openlocfilehash: 7ded94f432f8e61153ee8dfbf2508b288a4ad5fd
-
+ms.sourcegitcommit: b906eb2d929eb2068ea665af93b31918150550c0
+ms.openlocfilehash: a7a9df2853fdb865cdf6567103177757116aeefe
 
 ---
-# <a name="i-cant-sign-up-for-azure"></a>No puedo suscribirme a Azure
-Si no puede suscribirse a Azure, hay varias cosas que puede comprobar para solucionar el problema.
-
-## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barra de progreso se bloquea en la sección "Comprobación de identidad por tarjeta"
-
-En el proceso de registro Azure, hay una sección denominada "Comprobación de identidad por tarjeta". Si se bloquea la barra de progreso:
-
-![Captura de pantalla de la sección de comprobación de identidad por tarjeta quedándose bloqueada durante el registro](./media/billing-troubleshoot-azure-sign-up-issues/identity-verification-hangs.PNG)
-
-Este problema se produce cuando se bloquean las cookies de terceros para su explorador.
-
-### <a name="suggestion"></a>Sugerencia
-
-1. Permita las cookies de terceros en la configuración del explorador.
-  * En Edge, vaya a Settings (Configuración) -> View advanced settings (Ver configuración avanzada) -> Cookies y seleccione "Don't block cookies" (No bloquear cookies).
-  * En Chrome, vaya a Configuración-> Mostrar configuración avanzada-> Privacidad-> Configuración de contenido y anule la selección de la casilla "Bloquear los datos de sitios y las cookies de terceros".
-2. Actualice la página de registro en Azure y compruebe si se ha resuelto el problema.
-3. Si la actualización no soluciona el problema, salga y reinicie el explorador e inténtelo de nuevo.
-
-## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>No hay mensajes de texto o llamadas durante la comprobación de la cuenta de suscripción
-* Compruebe que su número de teléfono puede recibir SMS.
-* Repase el número de teléfono especificado, incluyendo la selección de código de país en el menú desplegable.
-* Asegúrese de que el teléfono puede recibir mensajes de texto (SMS) si usa la opción "Enviar mensaje de texto" o llamadas de teléfono si elige la alternativa "Llamarme".
-* Si usa un teléfono móvil, asegúrese de que tiene una conexión telefónica buena.
-* Espere hasta cuatro minutos para permitir que el sistema de mensajería entregue el código de texto si elige "Enviar mensaje de texto.".
-* Cuando reciba el mensaje de texto, inserte el código en el cuadro de texto y haga clic en el botón de comprobación para continuar.
-
-### <a name="suggestions"></a>Sugerencias
-* Si no recibe mensajes de texto (SMS) en el teléfono, use el método de verificación alternativo "Llamarme".
-* Si no se puede realizar el paso de comprobación telefónica con los métodos de SMS y "Llamarme", utilice otro número de teléfono.
-* Para el proceso de comprobación telefónica no se puede usar un número de teléfono VOIP.
-
-> [!NOTE]
-> Puede cambiar el número de teléfono preferido en un momento posterior [actualizando la información del perfil](billing-how-to-change-azure-account-profile.md).
->
->
-
-## <a name="credit-card-declined-or-not-accepted"></a>Tarjeta de crédito rechazada o no aceptada
-Asegúrese de que el método de pago que usa en la suscripción es compatible con las activaciones o los pagos de Azure
-
-* No se aceptan tarjetas de crédito o débito virtual y de prepago.
-* Los proveedores de tarjetas de crédito o débito aceptados varían según el país de la cuenta.
-
-### <a name="suggestion"></a>Sugerencia
-Para conocer las causas comunes de problemas de suscripción con una tarjeta de crédito o débito, consulte [Rechazo de la tarjeta de crédito o débito al realizar la suscripción](billing-credit-card-fails-during-azure-sign-up.md).
-
-## <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>No se puede activar un plan de prestaciones de Azure como MSDN, BizSpark, BizSparkPlus o MPN
-Compruebe en el canal de programa de ventajas si tiene derecho al plan elegido:
-
-* MSDN
-  * Compruebe su estado de elegibilidad en la [página de la cuenta de MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  * Si no puede comprobar su estado, póngase en contacto con los [Centros de servicio al cliente de Suscripciones a MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
-* MPN
-  * Inicie sesión en el [portal de MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) y compruebe su estado de idoneidad. Si tiene las [competencias de la plataforma de nube](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) pertinentes, puede ser apto para obtener más ventajas.
-  * Si no puede comprobar su estado, póngase en contacto con el [soporte técnico de MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
-* Bizpark
-  * Inicie sesión en el [portal de BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) y compruebe su estado de idoneidad para BizSpark y BizSpark Plus.
-  * Si no puede comprobar su estado, póngase en contacto con el soporte técnico de BizSpark con el envío de un correo electrónico para [ponerse en contacto con el equipo de BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
-
-### <a name="suggestion"></a>Sugerencia
-Si trató de activar la suscripción a una nueva ventaja y apareció un error durante la suscripción, compruebe que se haya completado la configuración de la suscripción en la [página de suscripción de Azure](http://account.windowsazure.com/Subscriptions). Puede tardar unos minutos para que la suscripción se muestre como activa. Cuando la suscripción se active, recibirá un correo electrónico. Si el estado de suscripción permanece pendiente durante más de cuatro minutos, [póngase en contacto con el soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para obtener ayuda.
-
-## <a name="cant-activate-new-azure-in-open-subscription"></a>No se puede activar una nueva suscripción de Azure bajo licencia Open
-Para activar una nueva suscripción de Azure bajo licencia Open tiene que tener una clave OSA válida, con un mínimo de un token de Azure bajo licencia Open asociado a dicha clave.
-
-### <a name="suggestion"></a>Sugerencia
-Si no tiene una clave OSA, póngase en contacto con uno de los asociados de Microsoft que aparecen en [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
-
-## <a name="cant-activate-azure-free-trial"></a>No se puede activar una evaluación gratuita de Azure
-¿Ha utilizado una suscripción de Azure en el pasado? El contrato de términos de uso de Azure limita la activación de la evaluación gratuita solo para un usuario que es nuevo en Azure. Si tiene cualquier otro tipo de suscripción de Azure, no puede activar una evaluación gratuita.
-
-### <a name="suggestion"></a>Sugerencia
-* Si activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de una suscripción de pago por uso.
-* Compruebe si tiene derecho a una oferta ventajosa. Obtenga más información en la [página Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Los planes de ofertas requieren requisitos previos específicos.
-
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

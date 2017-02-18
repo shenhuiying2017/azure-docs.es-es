@@ -1,5 +1,5 @@
 ---
-title: "Administración de clústeres de Hadoop en HDInsight con Azure Portal | Microsoft Docs"
+title: "Administración de clústeres de Hadoop en HDInsight basados en Windows con el portal Azure | Microsoft Docs"
 description: "Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop."
 services: hdinsight
 documentationcenter: 
@@ -13,24 +13,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
-ms.openlocfilehash: 55193e8570f480b9c6b2ef9a0785ddb538749cb5
+ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
+ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
 
 
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop basados en Windows en HDInsight con el portal de Azure
 
-Con [Azure Portal][azure-portal], puede crear clústeres de Hadoop en Azure HDInsight, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda acceder a la consola de comandos de Hadoop en el clúster.
+Con el [portal de Azure][azure-portal], puede crear clústeres de Hadoop basados en Windows en Azure HDInsight, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
 
-La información de este artículo solo se aplica a los clústeres de HDInsight para Windows. Para obtener información acerca de cómo administrar clústeres para Linux, haga clic en el selector de pestañas anterior.
+La información de este artículo solo se aplica a los clústeres de HDInsight para Windows. Para más información sobre la administración de clústeres basados en Linux, consulte [Administración de clústeres de Hadoop en HDInsight mediante el portal de Azure](hdinsight-administer-use-portal-linux.md).
 
-Haga clic en el selector de pestañas para obtener información sobre cómo crear clústeres de Hadoop en HDInsight con otras herramientas.
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-**Requisitos previos**
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
@@ -92,7 +93,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
      > Esto *solo* afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
      >
      >
-   * **Etiquetas![ (](./media/hdinsight-administer-use-portal-linux/tags.png)icono de etiquetas**): las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+   * **Etiquetas (![icono de etiquetas](./media/hdinsight-administer-use-portal-linux/tags.png))**: las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.
    * **Vistas de Ambari**: se trata de vínculos a la página web de Ambari.
 
      > [!IMPORTANT]
@@ -122,7 +123,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
      >
 6. Haga clic en **Propiedades**.
 
-    Esta es la lista de propiedades:
+    En la sección de propiedades se muestra lo siguiente:
 
    * **Nombre del clúster**: nombre del clúster.
    * **Dirección URL del clúster**.
@@ -269,7 +270,6 @@ Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Apertura de la consola de consulta de HDInsight
 La consola de consulta de HDInsight incluye las siguientes características:
 
-* **Galería de introducción**: para usar la galería, consulte [Información sobre Hadoop con la Galería de introducción de HDInsight de Azure](hdinsight-learn-hadoop-use-sample-gallery.md).
 * **Editor Hive**: interfaz de web de GUI para el envío de trabajos de Hive.  Vea [Ejecución de consultas de Hive mediante la consola de consulta](hdinsight-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
@@ -379,6 +379,6 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

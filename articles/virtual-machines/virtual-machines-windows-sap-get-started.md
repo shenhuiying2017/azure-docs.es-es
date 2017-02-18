@@ -1,5 +1,5 @@
 ---
-title: "Introducción a las soluciones SAP | Microsoft Docs"
+title: "Introducción a SAP en máquinas virtuales Windows en Azure | Microsoft Docs"
 description: "Aprenda sobre las soluciones SAP que se ejecutan en máquinas virtuales (VM) en Microsoft Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 89f5605b23626e426ddc59900c60c29f6d6c1c14
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 581ddd7ac3d612007614ca4f582364dfa16d30f6
 
 
 ---
@@ -393,6 +393,6 @@ Actualización: diciembre de 2016
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

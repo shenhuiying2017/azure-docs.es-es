@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: b79308a3dfd50ac9fa43398cae7cd583a1442fde
+ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
+ms.openlocfilehash: d21bf547c80c533481254a8a9640b5dcef6a66c2
 
 
 ---
@@ -63,7 +63,7 @@ Si desea dar a otro usuario acceso para administrar en el mismo PIM, los roles q
 ## <a name="roles-not-managed-in-pim"></a>Roles no administrados en PIM
 Los roles de Exchange Online o SharePoint Online, excepto los mencionados anteriormente, no están representados en Azure AD y, por lo tanto, no son visibles en PIM. Para obtener más información sobre cómo cambiar las asignaciones de roles específicas de estos servicios de Office 365, consulte [Permisos en Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Las suscripciones de Azure y los grupos de recursos tampoco están representados en Azure AD. Para administrar las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md) y para más información sobre Azure RBAC, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
+Las suscripciones de Azure y los grupos de recursos tampoco están representados en Azure AD. Para administrar las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing/billing-add-change-azure-subscription-administrator.md) y para más información sobre Azure RBAC, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -71,7 +71,7 @@ Las suscripciones de Azure y los grupos de recursos tampoco están representados
 ## <a name="user-roles-and-signing-in"></a>Roles de usuario e inicio de sesión
 En algunos servicios y aplicaciones de Microsoft, asignar a un usuario un rol puede no ser suficiente para permitir que el usuario sea un administrador.
 
-El acceso al Portal de Azure clásico requiere que el usuario sea un administrador de servicios o el coadministrador de una suscripción de Azure, incluso si el usuario necesita administrar las suscripciones de Azure.  Por ejemplo, para administrar la configuración de Azure AD en el portal clásico, el usuario debe ser tanto un administrador global de Azure AD como un coadministrador de suscripción en una suscripción de Azure.  Para obtener más información sobre cómo agregar usuarios a las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md).
+El acceso al Portal de Azure clásico requiere que el usuario sea un administrador de servicios o el coadministrador de una suscripción de Azure, incluso si el usuario necesita administrar las suscripciones de Azure.  Por ejemplo, para administrar la configuración de Azure AD en el portal clásico, el usuario debe ser tanto un administrador global de Azure AD como un coadministrador de suscripción en una suscripción de Azure.  Para obtener más información sobre cómo agregar usuarios a las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 El acceso a Microsoft Online Services puede requerir que se le asigne una licencia al usuario para poder abrir el portal del servicio o realizar tareas administrativas.
 
@@ -92,6 +92,6 @@ El acceso a Microsoft Online Services puede requerir que se le asigne una licenc
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

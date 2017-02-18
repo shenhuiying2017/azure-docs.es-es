@@ -1,5 +1,5 @@
 ---
-title: Directrices de conjuntos de disponibilidad de Azure | Microsoft Docs
+title: "Conjuntos de disponibilidad para máquinas virtuales Windows en Azure| Microsoft Docs"
 description: "Obtenga información sobre las directrices clave de diseño e implementación para implementar conjuntos de disponibilidad en los servicios de infraestructura de Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2e981b0bebbc88fdad23ce8279762fe717e48a4c
-ms.openlocfilehash: 59ef4be4854c4625bed5f9f1f32e7771ccb6979d
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
 
 
 ---
@@ -56,6 +56,6 @@ Diseñe su aplicación para lograr una alta disponibilidad en la capa de almacen
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

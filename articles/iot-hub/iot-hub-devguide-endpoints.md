@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 2a61421121697a63ad2d2a32b197904838564207
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
 
 
 ---
@@ -38,14 +38,14 @@ Esta es una descripción de los puntos de conexión:
   * *Recepción de mensajes de nube a dispositivo*. El dispositivo usa ese punto de conexión para recibir [mensajes de nube a dispositivos][lnk-c2d] dirigidos.
   * *Iniciar cargas de archivos*. Un dispositivo usa este punto de conexión para recibir un URI de SAS de Azure Storage de IoT Hub para [cargar un archivo][lnk-upload].
   * *Recuperación y actualización de las propiedades del dispositivo gemelo*. Un dispositivo usa este punto de conexión para tener acceso a las propiedades del [dispositivo gemelo][lnk-twins].
-  * *Recibir solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos][lnk-methods].
+  * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos][lnk-methods].
     
     Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1][lnk-mqtt], HTTP 1.1 y [AMQP 1.0][lnk-amqp]. Tenga en cuenta que AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
     
     Los puntos de conexión de métodos y dispositivos gemelos están disponibles solo mediante [MQTT v3.1.1][lnk-mqtt].
 * **Puntos de conexión de servicio**. Cada centro de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución puede usar para comunicarse con los dispositivos. Estos puntos de conexión se exponen solo actualmente mediante el protocolo [AMQP][lnk-amqp], excepto para el punto de conexión de la invocación de método que se expone a través de HTTP 1.1.
   
-  * *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con [Azure Event Hubs][lnk-event-hubs]. Un servicio back-end puede usarse para leer todos los [mensajes de dispositivo a nube][lnk-d2c] enviados por los dispositivos. Puede agregar puntos de conexión de enrutamiento personalizados a su IoT Hub además de este punto de conexión.
+  * *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con [Azure Event Hubs][lnk-event-hubs]. Un servicio back-end puede usarse para leer los [mensajes de dispositivo a nube][lnk-d2c] enviados por los dispositivos. Además de este punto de conexión integrado, puede crear puntos de conexión personalizados en el centro de IoT.
   * *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables [de nube a dispositivo][lnk-c2d] y recibir las confirmaciones de entrega o expiración correspondientes.
   * *Recepción de notificaciones de archivos*. Este punto de conexión de mensajería le permite recibir notificaciones del momento en que los dispositivos cargan correctamente un archivo. 
   * *Invocación del método director*. Este punto de conexión permite que un servicio back-end invoque un [método directo][lnk-methods] en un dispositivo.
@@ -54,8 +54,8 @@ En el artículo [SDK IoT de Azure][lnk-sdks] se describen las distintas formas c
 
 Finalmente, es importante tener en cuenta que todos los puntos de conexión de IoT Hub usan el protocolo [TLS][lnk-tls] y ningún punto de conexión se expone en canales sin cifrar o no seguros.
 
-## <a name="custom-routing-endpoints"></a>Puntos de conexión de enrutamiento personalizados
-Puede vincular los servicios de Azure existentes en su suscripción a su IoT Hub para usarlos como puntos de conexión para el enrutamiento de mensajes. Estos puntos de conexión de servicio se usan como "receptores" para las rutas de mensajes. Los dispositivos no pueden escribir directamente en los puntos de conexión adicionales. Para obtener más información sobre las rutas de mensajes, vea la entrada de la guía para desarrolladores sobre [enviar y recibir mensajes con IoT Hub][lnk-devguide-messaging].
+## <a name="custom-endpoints"></a>Puntos de conexión personalizados
+Puede vincular los servicios de Azure existentes en su centro de IoT para usarlos como puntos de conexión para el enrutamiento de mensajes. Estos puntos de conexión hacen de puntos de conexión de servicio y se usan como receptores para las rutas de los mensajes. Los dispositivos no pueden escribir directamente en los puntos de conexión adicionales. Para obtener más información sobre las rutas de mensajes, vea la entrada de la guía para desarrolladores sobre [enviar y recibir mensajes con IoT Hub][lnk-devguide-messaging].
 
 IoT Hub admite actualmente los siguientes servicios de Azure como puntos de conexión adicionales:
 
@@ -63,11 +63,11 @@ IoT Hub admite actualmente los siguientes servicios de Azure como puntos de cone
 * Colas del Bus de servicio
 * Temas de Bus de servicio
 
-IoT Hub necesita acceso de escritura a estos puntos de conexión para que el enrutamiento de mensajes funcione correctamente. Si configura los puntos de conexión a través de Azure Portal, se agregan los permisos necesarios automáticamente. Asegúrese de configurar los servicios para admitir el rendimiento esperado. Es posible que deba supervisar los puntos de conexión adicionales al configurar la solución de IoT por primera vez y, a continuación, realizar los ajustes necesarios para la carga real.
+IoT Hub necesita acceso de escritura a estos puntos de conexión de servicio para que el enrutamiento de mensajes funcione. Si configura los puntos de conexión a través de Azure Portal, se agregan los permisos necesarios automáticamente. Asegúrese de configurar los servicios para admitir el rendimiento esperado. Es posible que deba supervisar los puntos de conexión adicionales al configurar la solución de IoT por primera vez y, a continuación, realizar los ajustes necesarios para la carga real.
 
 Si un mensaje coincide con varias rutas que señalan al mismo punto de conexión, IoT Hub entrega el mensaje a ese punto de conexión solo una vez. Por lo tanto, no es necesario configurar la desduplicación en la cola o tema de Service Bus. En las colas con particiones, la afinidad de partición garantiza el orden de los mensajes. No se admiten las colas con sesiones habilitadas como puntos de conexión. Las colas y temas con particiones que tengan habilitada la desduplicación tampoco se admiten.
 
-Para conocer límites del número de puntos de conexión que se pueden agregar, consulte [Cuotas y limitación][lnk-devguide-quotas].
+Para conocer los límites del número de puntos de conexión que se pueden agregar, consulte [Cuotas y limitación][lnk-devguide-quotas].
 
 ## <a name="field-gateways"></a>Puertas de enlace de campo
 En una solución de IoT, un *puerta de enlace de campo* se encuentra entre los dispositivos y los puntos de conexión de IoT Hub. Suele encontrarse cerca de los dispositivos. Los dispositivos se comunican directamente con la puerta de enlace de campo mediante un protocolo compatible con los dispositivos. La puerta de enlace de campo se conecta al punto de conexión de IoT Hub con un protocolo que es compatible con IoT Hub. Una puerta de enlace de campo puede ser hardware muy especializado o un equipo de bajo consumo que ejecuta software que lleva a cabo el escenario de extremo a extremo al que va destinada la puerta de enlace.
@@ -112,6 +112,6 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

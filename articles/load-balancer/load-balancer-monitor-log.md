@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b7d141e8fc7f7580b5b17b2152dfe418a0ca130e
+ms.sourcegitcommit: ca52a8cfdc4262f55a1fed439f29631966211a00
+ms.openlocfilehash: c605b2f0b49fcc26955e73c931192ada5e407525
 
 ---
 
-# <a name="log-analytics-for-azure-load-balancer-preview"></a>Análisis del registros para el Equilibrador de carga de Azure (vista previa)
+# <a name="log-analytics-for-azure-load-balancer"></a>Análisis del registros para el Equilibrador de carga de Azure
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibradores de carga. Se puede acceder a algunos de estos registros a través del portal. Pueden extraerse todos los registros desde Azure Blob Storage y verse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
 
@@ -29,7 +29,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 * **Registros de sondeo de estado:** puede utilizar este registro para comprobar el estado de mantenimiento del sondeo, cuántas instancias están en línea en el back-end del equilibrador de carga y el porcentaje de máquinas virtuales que reciben tráfico de red del equilibrador de carga. Este registro se escribe en el cambio de evento de estado de sondeo.
 
 > [!IMPORTANT]
->  El análisis de registros actualmente solo funciona para los equilibradores de carga orientados hacia Internet. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> El análisis de registros actualmente solo funciona para los equilibradores de carga orientados hacia Internet. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -148,6 +148,6 @@ Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del regis
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

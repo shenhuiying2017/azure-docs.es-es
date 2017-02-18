@@ -1,5 +1,5 @@
 ---
-title: "Control del enrutamiento y uso de aplicaciones virtuales mediante la CLI de Azure en el modelo de implementación clásica | Microsoft Docs"
+title: "Control de enrutamiento en Azure Virtual Network - CLI - Clásico | Microsoft Docs"
 description: "Aprenda cómo controlar el enrutamiento en redes virtuales mediante la CLI de Azure en el modelo de implementación clásico"
 services: virtual-network
 documentationcenter: na
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
-ms.openlocfilehash: b7508d1ee01c1a5b7773360cabde075553b55ac1
+ms.sourcegitcommit: 71153e46d1695611c8286d2e57b109db9e7ad9df
+ms.openlocfilehash: 4a610a65b33f91f46d011e07c6cb11523d3dae0d
 
 
 ---
@@ -126,7 +126,7 @@ Para crear la tabla de rutas y la ruta necesarias para la subred back-end según
     azure network route-table create -n UDR-BackEnd -l uswest
     ```
 
-2. Ejecute el siguiente comando para crear una ruta en la tabla de rutas para enviar todo el tráfico destinado a la subred front-end (192.168.1.0/24) a la máquina virtual **FW1** (192.168.0.4):
+2. Ejecute el comando siguiente para crear una ruta en la tabla de rutas para enviar todo el tráfico destinado a la subred front-end (192.168.1.0/24) a la VM **FW1** (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
@@ -141,6 +141,6 @@ Para crear la tabla de rutas y la ruta necesarias para la subred back-end según
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Procesamiento de mensajes de dispositivo a la nube de IoT Hub de Azure (Java) | Microsoft Docs
-description: "Cómo procesar mensajes de dispositivo a nube de IoT Hub leyéndolos desde el punto de conexión compatible con Event Hubs de un centro de IoT Hub. Creará una aplicación de servicio de Java que usa una instancia de EventProcessorHost."
+description: "Cómo procesar mensajes de dispositivo a nube de IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 5ede1fdd040b2f59383dda27d6fb26b87c2d7f02
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 616bca96eaff12fa1929605f3480098bd8b867c2
 
 
 ---
@@ -95,7 +95,7 @@ En esta sección, se modifica la aplicación de dispositivo simulado que creó e
     }
     ```
    
-    De este modo, se agrega aleatoriamente la propiedad `"level": "critical"` a los mensajes enviados por el dispositivo simulado, lo que simula un mensaje que requiere una acción inmediata por el back-end de soluciones. La aplicación pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
+    Con este método se agrega aleatoriamente la propiedad `"level": "critical"` a los mensajes que envía el dispositivo simulado, lo que simula un mensaje que requiere una acción inmediata del back-end de aplicaciones. La aplicación pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
    
    > [!NOTE]
    > Puede usar propiedades de mensaje a fin de enrutar mensajes en diferentes escenarios, como el procesamiento en frío, además del ejemplo de procesamiento en caliente que se muestra aquí.
@@ -120,19 +120,19 @@ En esta sección, se crea una cola de Service Bus, se conecta con el IoT Hub y s
 
 1. Cree una cola de Service Bus como se describe en [Introducción a las colas][Service Bus queue]. Tome nota del espacio de nombres y del nombre de la cola.
 
-2. En Azure Portal, abra el IoT Hub y haga clic en **Puntos de conexión**.
+2. En Azure Portal, abra el centro de IoT y haga clic en **Endpoints** (Puntos de conexión).
     
     ![Puntos de conexión en IoT Hub][30]
 
-3. En la hoja de puntos de conexión, haga clic en **Agregar** en la parte superior para agregar la cola al IoT Hub. Ponga al punto de conexión el nombre "CriticalQueue" y use las listas desplegables para seleccionar **cola de Service Bus**, el espacio de nombres de Service Bus en el que reside la cola y el nombre de la cola. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
+3. En la hoja **Endpoints** (Puntos de conexión), haga clic en **Add** (Agregar) en la parte superior para agregar la cola al centro de IoT. Ponga al punto de conexión el nombre **CriticalQueue** y use las listas desplegables para seleccionar **Cola de Service Bus**, el espacio de nombres de Service Bus en el que reside la cola y el nombre de la cola. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
     
     ![Adición de un punto de conexión][31]
     
-4. Ahora haga clic en **Rutas** en su IoT Hub. Haga clic en **Agregar** en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **DeviceTelemetry** como origen de los datos. Escriba `level="critical"` como condición y elija la cola que acaba de agregar como punto de conexión como el punto de conexión de ruta. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
+4. Ahora haga clic en **Routes** (Rutas) en IoT Hub. Haga clic en **Add** (Agregar) en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **DeviceTelemetry** como origen de los datos. Escriba `level="critical"` como condición y elija la cola que acaba de agregar como punto de conexión personalizado como punto de conexión de regla de enrutamiento. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
     
     ![Adición de una ruta][32]
     
-    Asegúrese de que la ruta de reserva se establece en ON. Esta es la configuración predeterminada del IoT Hub.
+    Asegúrese de que la ruta de reserva se establece en **ON** (Activado). Esta es la configuración predeterminada del centro de IoT.
     
     ![Ruta de reserva][33]
 
@@ -230,6 +230,6 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

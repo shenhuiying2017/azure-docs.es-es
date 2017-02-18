@@ -1,5 +1,5 @@
 ---
-title: "¿Qué son los conjuntos de escalado de máquina virtual? | Microsoft Docs"
+title: "Creación de conjuntos de escalado de máquinas virtuales de Azure con la CLI de Azure | Microsoft Docs"
 description: "Obtenga información sobre los conjuntos de escalado de máquina virtual."
 keywords: "máquina virtual Linux,conjuntos de escalado de máquina virtual"
 services: virtual-machines-linux
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/24/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9ee2d1d4e50a5bf4c146c48024aae5f10cea32ef
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 8d274127a4e1947e42b5544c3c1f62c4e48dcee9
 
 
 ---
@@ -50,6 +50,6 @@ Para las plantillas de Azure Resource Manager de ejemplo que usan conjuntos de e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Configuración de MySQL en una máquina virtual Linux | Microsoft Docs"
+title: "Configuración de MySQL en una VM de Linux en Azure | Microsoft Docs"
 description: "Aprenda a instalar la pila de MySQL en una máquina virtual de Linux (sistema operativo de la familia Ubuntu o RedHat) en Azure"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d75d1541671fac02e6373ae880137b76f15ec7ae
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 84722fffc5419f866250d4093250839066c54c46
 
 
 ---
@@ -181,6 +181,6 @@ Buscar más información de uso y sobre MySQL [aquí](https://www.mysql.com/).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

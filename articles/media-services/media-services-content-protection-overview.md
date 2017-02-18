@@ -1,5 +1,5 @@
 ---
-title: "Introducción a la protección de contenido | Microsoft Docs"
+title: "Protección de su contenido con Azure Media Services | Microsoft Docs"
 description: "En este artículo se ofrece información general de protección de contenido con Media Services."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 564a86fbdd64c4d28d26b7e295cca6f3904a3f4a
-ms.openlocfilehash: 04dae4646de23ab128101606cfb19f18a47133ad
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
 
 
 ---
@@ -117,6 +117,6 @@ Los temas siguientes muestran cómo proteger el contenido en el almacenamiento, 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 1e2569a6db330c908fe4087c1bc5a475d3e8a575
-ms.openlocfilehash: 0e1f7719c993dda419e3ebae7d50b91bd5effbc2
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 9a9ae2758aba17f35b7262560f8d980404ecd394
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 0e1f7719c993dda419e3ebae7d50b91bd5effbc2
 
 La CLI de Azure 2.0 (versión preliminar) es de código abierto y multiplataforma, y proporciona un conjunto de comandos para trabajar con la plataforma de Azure. Proporciona muchas de las funciones que se encuentran en el [portal de Azure](https://portal.azure.com), incluido el acceso a datos enriquecidos.
 
-En esta guía, se muestra cómo utilizar la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/get-started-with-az-cli2) para realizar varias tareas trabajando con recursos en su cuenta de Azure Storage. Antes de usar esta guía es aconsejable descargar e instalar la versión de la CLI 2.0 más reciente, o actualizarse a ella.
+En esta guía, se muestra cómo utilizar la [CLI de Azure 2.0 (versión preliminar)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) para realizar varias tareas trabajando con recursos en su cuenta de Azure Storage. Antes de usar esta guía es aconsejable descargar e instalar la versión de la CLI 2.0 más reciente, o actualizarse a ella.
 
 Los ejemplos de la guía se basan en el shell Bash en Ubuntu, pero el resto de las plataformas tienen un comportamiento semejante. 
 
@@ -364,12 +364,12 @@ az storage file copy start \
 ## <a name="next-steps"></a>Pasos siguientes
 Estos son algunos recursos adicionales para obtener más información acerca de cómo trabajar con la CLI de Azure 2.0 (versión preliminar).
 
-* [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) (Introducción a la CLI Azure 2.0 [versión preliminar])
+* [Get started with Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Introducción a la CLI Azure 2.0 [versión preliminar])
 * [Azure CLI 2.0 (Preview) command reference ](/cli/azure)(Referencia de comandos de la CLI de Azure 2.0 [versión preliminar])
 * [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) (CLI de Azure 2.0 [versión preliminar]) en GitHub
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

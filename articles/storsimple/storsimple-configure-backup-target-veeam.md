@@ -1,5 +1,5 @@
 ---
-title: StorSimple como destino de copia de seguridad con Veeam | Microsoft Docs
+title: StorSimple serie 8000 como destino de copia de seguridad con Veeam | Microsoft Docs
 description: "Describe la configuración del destino de copia de seguridad de StorSimple con Veeam."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 154c952058a74ebac372eea2f388565af008a4a8
-ms.openlocfilehash: 652345df4a2940b0b683aa78896745be3f735c92
+ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
+ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
 
 ---
 
@@ -555,6 +555,6 @@ En este artículo se ha hecho referencia a los siguientes documentos:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

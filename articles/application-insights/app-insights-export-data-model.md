@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 
 
 ---
@@ -155,7 +155,7 @@ Una sección de contexto acompaña a todos los tipos de telemetría. No todos es
 | internal.data.id |cadena | |
 
 ## <a name="events"></a>Eventos
-Eventos personalizados generados por [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
+Eventos personalizados generados por [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
 | Ruta de acceso | Tipo | Notas |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor 
 | basicException [0] typeName |cadena | |
 
 ## <a name="trace-messages"></a>Mensajes de seguimiento
-Enviados por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) y por los [adaptadores de registro](app-insights-asp-net-trace-logs.md).
+Enviados por [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) y por los [adaptadores de registro](app-insights-asp-net-trace-logs.md).
 
 | path | Tipo | Notas |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de la
 | remoteDependency [0] urlData.host |cadena |Longitud máxima: 200 |
 
 ## <a name="requests"></a>Solicitudes
-Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.
+Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.
 
 | Ruta de acceso | Tipo | Notas |
 | --- | --- | --- |
@@ -284,7 +284,7 @@ Notifica sobre [pruebas web de disponibilidad](app-insights-monitor-web-app-avai
 | availability [0] dataSizeMetric.name |cadena | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |cadena | |
-| availability [0] durationMetric.value |número |Duración de la prueba. 1e7 = 1 s |
+| availability [0] durationMetric.value |número |Duración de la prueba. 1e7 =&1; s |
 | availability [0] message |cadena |Diagnóstico de errores |
 | availability [0] result |cadena |Sin errores/Error |
 | availability [0] runLocation |cadena |Origen geográfica de la solicitud http |
@@ -354,6 +354,6 @@ Excepto donde se indique lo contrario, las duraciones se representan en décimas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

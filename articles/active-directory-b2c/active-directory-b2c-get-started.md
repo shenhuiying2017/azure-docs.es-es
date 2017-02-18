@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 77b8e707b5743ce2d0b3eb52f75828c9ab0337d9
 
 
 ---
@@ -67,6 +67,14 @@ Use los pasos siguientes para crear un nuevo inquilino de Azure AD B2C. Actualme
    > 
    > 
 
+## <a name="step-4-link-your-azure-ad-b2c-tenant-to-your-azure-subscription"></a>Paso 4: Vincular el inquilino de Azure AD B2C con la suscripción de Azure
+Si planea usar el inquilino de B2C para aplicaciones de producción, debe vincular el inquilino de Azure AD B2C con la suscripción de Azure para pagar los cargos por uso. Lea este [artículo](active-directory-b2c-how-to-enable-billing.md) para más información.
+
+   > [!IMPORTANT]
+   > Si no vincula el inquilino de Azure AD B2C con la suscripción de Azure, aparece un mensaje de advertencia "No Subscription linked to this B2C tenant or the Subscription needs your attention" (No hay ninguna suscripción vinculada con este inquilino de B2C o es necesario revisar la suscripción) en la hoja de características en Azure Portal. Es importante que realice este paso antes de enviar las aplicaciones a producción.
+   > 
+   > 
+
 ## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Fácil acceso a la hoja de características B2C en el Portal de Azure
 Para mejorar la detectabilidad, hemos agregado un acceso directo a la hoja de características de B2C en el Portal de Azure.
 
@@ -82,6 +90,6 @@ Aprenda cómo registrar una aplicación con Azure AD B2C y cómo crear una aplic
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

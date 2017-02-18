@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 7b7bcc8d73796908f02c77f2df2f2a7c96e1ba47
-ms.openlocfilehash: 38388ead8e80217b44ec5d103c35d6eb5c13d0d3
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
 
 
 ---
+
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
 ## <a name="overview"></a>Información general
 
-Después de configurar una instancia de Puerta de enlace de aplicaciones de Azure, uno de los errores que se pueden encontrar los usuarios es "Error de servidor 502: el servidor web recibió una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy". Esto puede ocurrir debido a los siguientes motivos principales:
+Después de configurar una instancia de Puerta de enlace de aplicaciones de Azure, uno de los errores que se pueden encontrar los usuarios es "Error de servidor 502: el servidor web recibió una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy". Este error puede ocurrir debido a los siguientes motivos principales:
 
 * El grupo back-end de la instancia de Application Gateway de Azure no está configurado o está vacío.
 * Ninguna de las máquinas virtuales o instancias del conjunto de escalas de máquina virtual está en buen estado.
@@ -116,11 +117,11 @@ Las sondas de estado personalizadas dotan al comportamiento de sondeo predetermi
 | Propiedad de sondeo | Description |
 | --- | --- |
 | Nombre |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
-| Protocol |Protocolo usado para enviar el sondeo. El sondeo utilizará el protocolo definido en la configuración de HTTP del back-end |
+| Protocol |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
 | Host |Nombre de host para enviar el sondeo. Solo es aplicable cuando se ha configurado un entorno multisitio en Puerta de enlace de aplicaciones. Es diferente al nombre de host de máquina virtual. |
 | Ruta de acceso |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\> |
 | Intervalo |Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos. |
-| Tiempo de espera |Tiempo de espera del sondeo en segundos. El sondeo se marca como error si no se recibe una respuesta válida dentro de este período de tiempo de espera. |
+| Tiempo de espera |Tiempo de espera del sondeo en segundos. Si no se recibe una respuesta válida dentro del período de tiempo de espera, el sondeo se marca como error. |
 | Umbral incorrecto |Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
 
 ### <a name="solution"></a>Solución
@@ -142,7 +143,9 @@ Cuando se recibe una solicitud de usuario, la instancia de Application Gateway a
 
 El servicio Application Gateway permite a los usuarios configurar esta opción mediante BackendHttpSetting que, posteriormente, puede aplicarse a diferentes grupos. Estos grupos back-end pueden tener distintos elementos BackendHttpSetting y, por tanto, diferentes valores configurados para el tiempo de solicitud superado.
 
+```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -151,6 +154,6 @@ Si los pasos anteriores no resuelven el problema, abra una [incidencia de soport
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

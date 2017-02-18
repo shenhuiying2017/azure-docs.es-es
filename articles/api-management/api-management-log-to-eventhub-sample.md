@@ -1,5 +1,5 @@
 ---
-title: "Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope"
+title: "Supervisión de API con Azure API Management, Event Hubs y Runscope | Microsoft Docs"
 description: "Aplicación de ejemplo que muestra la directiva log-to-eventhub que conecta API Management de Azure, Event Hubs de Azure y Runscope para el registro y supervisión de HTTP"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 7fafc85fe2997841b01ded693c532fea527f90de
-ms.openlocfilehash: 678f1aa97a4cfe93f2db569d4ddf20fcaf6fa39f
-
+ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
+ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope
@@ -275,8 +274,8 @@ El servicio de Administración de API de Azure proporciona un lugar ideal para c
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de los centros de eventos de Azure
-  * [Introducción a los centros de eventos de Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Introducción a los centros de eventos de Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
 * Obtener más información acerca de la integración de Administración de API y centros de eventos
   * [Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure](api-management-howto-log-event-hubs.md)
@@ -285,7 +284,6 @@ El servicio de Administración de API de Azure proporciona un lugar ideal para c
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

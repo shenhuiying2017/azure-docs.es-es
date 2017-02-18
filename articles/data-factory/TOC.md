@@ -25,7 +25,7 @@
 
 # Procedimientos
 ## Traslado de datos
-### [Asistente para copia de Data Factory](data-factory-copy-wizard.md)
+### [Asistente para copia de Data Factory](data-factory-azure-copy-wizard.md)
 #### [Carga de 1 TB en 15 minutos](data-factory-load-sql-data-warehouse.md)
 ### [Actividad de copia](data-factory-data-movement-activities.md)
 #### [Guía de ajuste y rendimiento](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Referencia para desarrolladores de Factoría de datos de Azure](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Recursos

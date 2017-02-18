@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 5724a9c66bef01972f41e66a84844aae9b300296
+ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
+ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
 
 
 ---
@@ -26,7 +26,7 @@ A partir de Servicios multimedia de Microsoft Azure  2.2, puede asociar varias c
 * Equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
 * Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
 
-En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante Azure Service Management API de REST. También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia. 
+En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia. 
 
 ## <a name="considerations"></a>Consideraciones
 Al asociar varias cuentas de almacenamiento a su cuenta de Servicios multimedia, se aplican las siguientes consideraciones:
@@ -34,13 +34,33 @@ Al asociar varias cuentas de almacenamiento a su cuenta de Servicios multimedia,
 * Todas las cuentas de almacenamiento asociadas a una cuenta de Servicios multimedia deben estar en el mismo centro de datos que la cuenta de Servicios multimedia.
 * Actualmente, cuando se asocia una cuenta de almacenamiento a la cuenta especificada de Servicios multimedia, no se puede desasociar.
 * La cuenta de almacenamiento principal es la indicada durante el tiempo de creación de cuenta de Servicios multimedia. Actualmente, no puede cambiar la cuenta de almacenamiento predeterminada. 
+* Actualmente, si desea agregar una cuenta de almacenamiento de acceso esporádico a la cuenta de AMS, la cuenta de almacenamiento debe ser de tipo Blob y no estar establecida como principal.
 
 Otras consideraciones:
 
 Los Media Services usan el valor de la propiedad **IAssetFile.Name** al generar direcciones URL para el contenido de streaming (por ejemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad Name no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]". Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
-## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Para asociar una cuenta de almacenamiento con la API de REST de administración de servicios de Azure
-Actualmente, la única manera de asociar varias cuentas de almacenamiento es usando la [API de REST de administración de servicios de Azure](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest). El ejemplo de código en el tema [Cómo usar la API de REST de administración de Media Services](https://msdn.microsoft.com/library/azure/dn167656.aspx) define el método **AttachStorageAccountToMediaServiceAccount** que asocia una cuenta de almacenamiento a la cuenta de Media Services especificada. El código del mismo tema define el método **ListStorageAccountDetails** que muestra todas las cuentas de almacenamiento asociadas a la cuenta de Media Services especificada.
+## <a name="to-attach-storage-accounts"></a>Para asociar cuentas de almacenamiento  
+
+Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), como se muestra en el ejemplo siguiente.
+
+    $regionName = "West US"
+    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+    $resourceGroupName = "SkyMedia-USWest-App"
+    $mediaAccountName = "sky"
+    $storageAccount1Name = "skystorage1"
+    $storageAccount2Name = "skystorage2"
+    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccounts = @($storageAccount1, $storageAccount2)
+    
+    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+
+### <a name="support-for-cool-storage"></a>Compatibilidad con el almacenamiento de acceso esporádico
+
+Actualmente, si desea agregar una cuenta de almacenamiento de acceso esporádico a la cuenta de AMS, la cuenta de almacenamiento debe ser de tipo Blob y no estar establecida como principal.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Para administrar los recursos de Servicios multimedia entre varias cuentas de almacenamiento
 El código siguiente usa el último SDK de Servicios multimedia para realizar las siguientes tareas:
@@ -257,6 +277,6 @@ El código siguiente usa el último SDK de Servicios multimedia para realizar la
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

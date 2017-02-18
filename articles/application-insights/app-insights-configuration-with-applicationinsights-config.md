@@ -1,6 +1,6 @@
 ---
-title: "Configuración del SDK de Application Insights con ApplicationInsights.config o .xml | Microsoft Docs"
-description: "Habilitación o deshabilitación de los módulos de recopilación de datos e incorporación de contadores de rendimiento y otros parámetros"
+title: 'Referencia de ApplicationInsights.config: Azure | Microsoft Docs'
+description: "Habilitación o deshabilitación de los módulos de recopilación de datos e incorporación de contadores de rendimiento y otros parámetros."
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 03/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
 
 
 ---
@@ -37,7 +37,7 @@ Hay un nodo en el archivo de configuración para cada módulo. Para deshabilitar
 ### <a name="dependency-tracking"></a>Seguimiento de dependencia
 [Dependency tracking](app-insights-asp-net-dependencies.md) recopila la telemetría sobre las llamadas que realiza la aplicación a bases de datos y a servicios y bases de datos externos. Para permitir que este módulo funcione en un servidor IIS, deberá [instalar el Monitor de estado][redfield]. Para utilizarlo en aplicaciones web o máquinas virtuales de Azure, [seleccione la extensión Application Insights](app-insights-azure-web-apps.md).
 
-También puede escribir su propio código de seguimiento de dependencias con la [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+También puede escribir su propio código de seguimiento de dependencias con la [API de TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) .
@@ -246,10 +246,10 @@ Si solo desea enviar un conjunto específico de eventos a un recurso diferente, 
 
 ```
 
-Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application Insights][nuevo].
+Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application Insights][new].
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Obtenga más información acerca de la API][api].
+[Más información acerca de la API][api].
 
 <!--Link references-->
 
@@ -258,12 +258,12 @@ Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[nuevo]: app-insights-create-new-resource.md
+[new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

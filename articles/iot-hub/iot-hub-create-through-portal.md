@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
-ms.openlocfilehash: 5a0cd9ac88f30bb5f1ccba43260b86392dba6d7b
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
 
 
 ---
@@ -96,42 +96,42 @@ Puede cambiar la configuración de un Centro de IoT después de crearlo desde la
 ![][10]
 
 ## <a name="endpoints"></a>Puntos de conexión
-Haga clic en **Puntos de conexión** para mostrar una lista de puntos de conexión para el IoT Hub que se está modificando. Hay dos tipos principales de puntos de conexión: los puntos de conexión que están integrados en IoT Hub y los puntos de conexión que se agregaron a IoT Hub después de su creación.
-
-### <a name="built-in-endpoints"></a>Puntos de conexión integrados
-Hay dos puntos de conexión integrados principales: **Comentarios de nube al dispositivo** y **Eventos**.
-
-* Configuración de **comentarios de nube al dispositivo**: esta configuración tiene dos opciones secundarias: **TTL de nube a dispositivo** (período de vida) y **Tiempo de retención** para los mensajes. Cuando se crea el Centro de IoT por primera vez, estas dos opciones se crean con un valor predeterminado de una hora. Para ajustar los valores, use los controles deslizantes o escriba los valores.
-* Configuración de **eventos**: esta configuración tiene varias opciones secundarias, algunas de las cuales se denominan/asignan al crear IoT Hub y solo se pueden copiar en otras opciones secundarias personalizables. Esta configuración se muestra en la siguiente sección.
-
-**Particiones**: este valor se establece cuando se crea el Centro de IoT y se puede cambiar en esta configuración.
-
-**Punto de conexión y nombre compatible del Centro de eventos**: Cuando se crea IoT Hub, se crea internamente un Event Hub al que el usuario podría necesitar acceder en determinadas circunstancias. Este nombre y punto de conexión compatible con Event Hub no se pueden personalizar pero están disponible para su uso mediante el botón **Copiar** .
-
-**Tiempo de retención**: establecido en un día de forma predeterminada, pero se puede personalizar con otros valores en la lista desplegable. Este valor es en días para la configuración Dispositivo a nube y no en horas, como en el caso de la configuración Nube a dispositivo.
-
-**Grupos de consumidores**: Grupos de consumidores es una configuración similar a otros sistemas de mensajería que se puede usar para extraer datos de modos específicos a fin de conectar otras aplicaciones o servicios a un Centro de IoT. Cada Centro de IoT se crea con un grupo de consumidores predeterminado. Sin embargo, puede agregar o eliminar grupos de consumidores en los Centros de IoT.
-
-> [!NOTE]
-> El grupo de consumidores predeterminado no se puede modificar ni eliminar.
-> 
-> 
+Haga clic en **Endpoints** (Puntos de conexión) para mostrar una lista de puntos de conexión para el centro de IoT que está modificando. Hay dos tipos de puntos de conexión: los integrados en el centro de IoT y los que agrega al centro de IoT después de crearlo.
 
 ![][11]
 
+### <a name="built-in-endpoints"></a>Puntos de conexión integrados
+Hay dos puntos de conexión integrados: **Cloud to device feedback** (Comentarios de la nube al dispositivo) y **Events** (Eventos).
+
+* Configuración de **Cloud to device feedback** (Comentarios de la nube al dispositivo): esta configuración tiene dos opciones secundarias: **Cloud to Device TTL** (TTL de nube a dispositivo) (período de vida) y **Retention time** (Tiempo de retención) (en horas) para los mensajes. Al crear por primera vez un centro de IoT, ambas configuraciones tienen el valor predeterminado de una hora. Para ajustar la configuración, use los controles deslizantes o escriba los valores.
+* Configuración de **Events** (Eventos): esta configuración tiene distintas opciones secundarias, algunas de solo lectura. Estas opciones secundarias se describen en la lista siguiente:
+
+    * **Partitions** (Particiones): se establece un valor predeterminado cuando se crea el centro de IoT. Esta opción permite cambiar el número de particiones.
+
+    * **Punto de conexión y nombre compatible del Centro de eventos**: Cuando se crea IoT Hub, se crea internamente un Event Hub al que el usuario podría necesitar acceder en determinadas circunstancias. No se pueden personalizar los valores de nombre y punto de conexión compatibles con el centro de eventos, pero los puede copiar al hacer clic en **Copy** (Copiar).
+
+    * **Retention Time** (Tiempo de retención): se establece en un día de forma predeterminada, pero se puede cambiar gracias a la lista desplegable. Este valor está en días para la configuración del dispositivo a la nube.
+
+    * **Consumer Groups** (Grupos de consumidores): es una configuración similar a otros sistemas de mensajería que se puede usar para extraer datos de modos específicos a fin de conectar otras aplicaciones o servicios a IoT Hub. Cada Centro de IoT se crea con un grupo de consumidores predeterminado. Sin embargo, con esta configuración puede agregar o eliminar grupos de consumidores en los centros de IoT.
+
+    > [!NOTE]
+    > El grupo de consumidores predeterminado no se puede modificar ni eliminar.
+    > 
+    > 
+
 ### <a name="custom-endpoints"></a>Puntos de conexión personalizados
-Puede agregar puntos de conexión personalizados a IoT Hub a través del portal. En la hoja de puntos de conexión, haga clic en **Agregar** en la parte superior de la hoja para abrir la hoja **Agregar punto de conexión**. Escriba la información necesaria en la hoja y, a continuación, haga clic en **Aceptar**. El punto de conexión personalizado aparece entonces en la hoja principal de los puntos de conexión.
+Puede agregar puntos de conexión personalizados al centro de IoT a través del portal. En la hoja **Endpoints** (Puntos de conexión), haga clic en **Add** (Agregar) de la parte superior para abrir la hoja **Add endpoint** (Agregar punto de conexión). Escriba la información necesaria y haga clic en **OK** (Aceptar). El punto de conexión personalizado aparecerá ahora en la hoja principal de **Endpoints** (Puntos de conexión).
 
 ![][13]
 
 Puede leer más sobre los puntos de conexión personalizados en [Referencia: Puntos de conexión de IoT Hub][lnk-devguide-endpoints].
 
 ## <a name="routes"></a>Rutas
-Haga clic en **Rutas** para administrar cómo envía IoT Hub los mensajes del dispositivo a la nube.
+Haga clic en **Routes** (Rutas) para administrar el envío de mensajes del dispositivo a la nube de IoT Hub.
 
 ![][14]
 
-Puede agregar rutas adicionales a IoT Hub; para ello, haga clic en **Agregar** en la parte superior de la hoja, escriba la información necesaria en la hoja y haga clic en **Aceptar**. La ruta aparece entonces en la hoja principal de los puntos de conexión. Puede editar una ruta haciendo clic en ella en la lista de rutas y, a continuación, modificándola. Para habilitar una ruta, haga clic en ella en la lista de rutas y establezca el control de alternancia de habilitar o deshabilitar en **Desactivado**. Haga clic en **Aceptar** en la parte inferior de la hoja para guardar los cambios.
+Puede agregar rutas adicionales al centro de IoT; para ello, haga clic en **Add** (Agregar) de la parte superior de la hoja **Routes*** (Rutas), escriba la información necesaria y haga clic en **OK** (Aceptar). La ruta aparecerá en la lista de la hoja principal de **Routes** (Rutas). Puede editar una ruta al hacer clic en ella en la lista de rutas. Para habilitar una ruta, haga clic en ella en la lista de rutas y establezca el control de alternancia de **habilitar** en **Off** (Desactivado). Haga clic en **OK** (Aceptar) en la parte inferior de la hoja para guardar el cambio.
 
 ![][15]
 
@@ -182,6 +182,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

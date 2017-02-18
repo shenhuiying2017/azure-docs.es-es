@@ -1,5 +1,5 @@
 ---
-title: "Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory | Microsoft Docs"
+title: "Descripción del flujo de concesión implícita de OAuth2 en Azure AD | Microsoft Docs"
 description: "Sepa más de la implementación del flujo de concesión implícita de OAuth2 de Azure Active Directory y vea si es adecuado para su aplicación."
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: vittorib;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: 2b7b40aacaf701be22ba6109e1a6370131f2e737
+ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
+ms.openlocfilehash: 980cac016b37e3744441508b93e5cd504045d638
 
 
 ---
@@ -72,6 +72,6 @@ Si está desarrollando una aplicación web que incluye un back-end y que usa una
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

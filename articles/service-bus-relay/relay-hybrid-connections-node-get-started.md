@@ -1,5 +1,5 @@
 ---
-title: "Introducción a las conexiones híbridas de Relay | Microsoft Docs"
+title: "Introducción a las conexiones híbridas de Azure Relay en un nodo | Microsoft Docs"
 description: "Cómo escribir una aplicación de consola en Node para conexiones híbridas"
 services: service-bus-relay
 documentationcenter: node
@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: e26b6005116c7aacdf42afea6ea39e100a9d8080
-ms.openlocfilehash: 218082e4cedba2c11871d47bcfb7b92688d97f04
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: bee101d19cb5f5fc790b53295069b4d4db247366
 
 
 ---
@@ -75,6 +75,6 @@ Enhorabuena, ha creado una aplicación de conexiones híbridas de extremo a extr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

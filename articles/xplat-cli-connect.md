@@ -17,8 +17,8 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 03d93ac0416a947d43dca66297588c4c5b656a1d
-ms.openlocfilehash: 18ea4ab3ab6b82fd43ee290ece790d61cabf16a4
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
 
 
 ---
@@ -162,12 +162,12 @@ Para cerrar sesión, utilice el comando siguiente:
 Si las suscripciones asociadas a la cuenta solo se autentican con Active Directory, al cerrar sesión se elimina la información de la suscripción del perfil local. Sin embargo, si también se importó un archivo de configuración de publicación para las suscripciones, al cerrar sesión se elimina solo la información relacionada con Active Directory del perfil local.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para usar los comandos de la CLI de Azure, consulte [Comandos de la CLI de Azure en el modo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](virtual-machines-command-line-tools.md).
+* Para usar los comandos de la CLI de Azure, consulte [Comandos de la CLI de Azure en el modo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Si desea obtener más información acerca de la CLI de Azure, descargar el código fuente, informar sobre problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la CLI de Azure](https://github.com/azure/azure-xplat-cli).
 * Si tiene problemas al usar la CLI de Azure o Azure, visite los [Foros de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

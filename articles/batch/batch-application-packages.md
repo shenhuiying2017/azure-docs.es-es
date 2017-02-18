@@ -1,5 +1,5 @@
 ---
-title: "Instalación y administración fáciles de aplicaciones en Lote de Azure | Microsoft Docs"
+title: "Instalación de paquetes de aplicaciones en nodos de proceso - Azure Batch | Microsoft Docs"
 description: "Utilice la característica paquetes de aplicación de Lote de Azure para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Lote."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/21/2016
+ms.date: 01/30/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 8bd78e80347175161053b28e4350fdeb78b3299b
+ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
+ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
 
 
 ---
@@ -251,7 +251,9 @@ Los paquetes que ha especificado para un grupo o tarea se descargan y extraen en
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-Si se especifica una versión predeterminada para una aplicación, puede omitir el sufijo de versión. Por ejemplo, si especifica la versión 2.7 como la versión predeterminada de la aplicación *blender*, las tareas pueden hacer referencia a la siguiente variable de entorno y ejecutarán la versión 2.7:
+Cuando carga un paquete de aplicación, puede especificar una versión predeterminada que implementar en los nodos de proceso. Si ha especificado una versión predeterminada para una aplicación, puede omitir el sufijo de versión al hacer referencia a ella. Puede especificar la versión predeterminada de la aplicación en Azure Portal, en la hoja Aplicaciones, como se muestra en [Carga y administración de aplicaciones](#upload-and-manage-applications).
+
+Por ejemplo, si especifica la versión 2.7 como la versión predeterminada de la aplicación *blender*, las tareas pueden hacer referencia a la siguiente variable de entorno y ejecutarán la versión 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -349,6 +351,6 @@ Con los paquetes de aplicación puede ayudar a los clientes a seleccionar las ap
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

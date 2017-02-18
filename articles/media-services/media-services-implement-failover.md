@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
+ms.sourcegitcommit: 84d42efc54f7dcbde8330360941969a5b0884a1a
+ms.openlocfilehash: ed249f63098a82b935016ccac3e0416951cb1b0a
 
 
 ---
@@ -46,7 +46,6 @@ A continuación, para controlar las posibles interrupciones, puede crear una red
 
 Se aplican las siguientes consideraciones:
 
-* La versión actual del SDK de Servicios multimedia no admite la creación de un localizador con un identificador de localizador especificado. Para llevar a cabo esta tarea, usaremos la API de REST de Servicios multimedia.
 * La versión actual del SDK de Servicios multimedia no admite la generación mediante programación de información de IAssetFile que asociaría un recurso con archivos de recursos. Para llevar a cabo esta tarea, usaremos la API de REST de Servicios multimedia CreateFileInfos. 
 * Los recursos cifrados de almacenamiento (AssetCreationOptions.StorageEncrypted) no se admiten para la replicación (ya que la clave de cifrado será diferente en ambas cuentas de Servicios multimedia). 
 * Si desea aprovechar el empaquetado dinámico, asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución).
@@ -950,6 +949,6 @@ Ahora puede usar un administrador de tráfico para enrutar las solicitudes entre
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

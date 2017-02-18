@@ -1,49 +1,13 @@
 ---
-title: "Rechazo de la tarjeta de crédito al realizar la suscripción de Azure | Microsoft Docs"
-description: "Obtenga información acerca de cómo resolver problemas cuando se rechaza la tarjeta de crédito o débito al intentar suscribirse a Azure."
-services: 
-documentationcenter: 
-author: JiangChen79
-manager: adpick
-editor: 
-tags: billing,top-support-issue
-keywords: "tarjeta de crédito rechazada, tarjeta de débito rechazada, se rechazó su tarjeta de crédito, la tarjeta de crédito no se acepta"
-ms.assetid: 407ef3db-2a64-4a04-a08f-7d1d1c4860c7
-ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
-ms.date: 01/24/2017
-ms.author: cjiang
+redirect_url: /azure/billing/billing-credit-card-fails-during-azure-sign-up
+redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: c5a8d378802dfdc0e0a764399f5bb6655e174619
-ms.openlocfilehash: 1a0a1db8743a1fde37c0d9ecb9afa6b730f69e31
-
+ms.sourcegitcommit: b906eb2d929eb2068ea665af93b31918150550c0
+ms.openlocfilehash: 9d5b90462dd10f1bd19d903fb7f67823d38a916f
 
 ---
-# <a name="your-debit-card-or-credit-card-is-declined-at-azure-sign-up"></a>La tarjeta de débito o crédito se rechazó al suscribirse a Azure
-Si la tarjeta de débito o crédito se rechaza o no se acepta al suscribirse a Azure, puede que tenga que corregir uno de los siguientes problemas.
-
-* **El proveedor de la tarjetas de crédito o débito no se acepta en su país.** Cuando elige una tarjeta, solo ve las opciones que son válidas en el país que selecciona. Póngase en contacto con su banco o emisor de tarjeta para confirmar que la tarjeta de crédito tiene habilitada las transacciones internacionales. Consulte la lista de [países y monedas admitidos](billing-countries-and-currencies.md).
-* **La información de su tarjeta de crédito o débito es inadecuada o está incompleta.** El nombre, la dirección y el código CVV que escriba deben coincidir con exactamente lo que se imprime en la tarjeta.
-* **Está utilizando una tarjeta virtual o de prepago.** Las tarjetas de crédito o débito virtuales o de prepago no se aceptan como opciones de pago para suscripciones de Azure.
-* **La tarjeta está inactiva o bloqueada.** Póngase en contacto con su banco y asegúrese de que la tarjeta está activa y no está bloqueada.
-* **Está intentando activar una segunda evaluación gratuita.** La oferta de evaluación gratuita de Azure está limitada a una activación por usuario. Si ya activó una evaluación gratuita con esta tarjeta de crédito o tenía una suscripción de Azure vinculada a dicha tarjeta, no puede activar una evaluación gratuita. Use otro plan de Azure de [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-Después de actualizar su información de pago, intente suscribirse de nuevo.
-
-## <a name="business-that-doesnt-want-to-pay-by-card-set-up-invoicing"></a>¿Se trata de una empresa que no quiere pagar con tarjeta? Configurar la facturación
-Si representa una empresa, puede pagar su suscripción de Azure con métodos de pago de factura como cheques, cheques urgentes o transferencias electrónicas. No puede cambiar a otra opción de pago después de que esté listo para pagar mediante factura. Para pagar mediante factura, vea [Facturación de Azure](https://azure.microsoft.com/pricing/invoicing/).
-
-## <a name="update-your-credit-card-or-debit-card-information"></a>Actualización de la información de la tarjeta de crédito o débito
-Después de registrarse, [administre su información de pago](billing-how-to-change-credit-card.md) para cambiar o quitar una tarjeta.
-
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

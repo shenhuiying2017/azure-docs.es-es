@@ -1,10 +1,10 @@
 ---
-title: "Conexión de redes virtuales mediante el método de implementación de Resource Manager y Azure Portal | Microsoft Docs"
+title: "Conexión de una red virtual de Azure a otra red virtual: portal | Microsoft Docs"
 description: "Crear una conexión de VPN Gateway entre redes virtuales mediante Resource Manager y Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
-ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
@@ -51,7 +51,7 @@ La conexión de una red virtual a otra es muy parecida a la conexión de una red
 
 Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinan la conectividad entre entornos locales con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
 
-![Acerca de las conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+![Acerca de las conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Acerca de las conexiones")
 
 ### <a name="why-connect-virtual-networks"></a>¿Por qué debería conectarse a redes virtuales?
 Puede que desee conectar redes virtuales por las siguientes razones:
@@ -64,7 +64,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
   
   * Dentro de la misma región, se pueden configurar aplicaciones de niveles múltiples con varias redes virtuales conectadas entre sí para cumplir requisitos administrativos o de aislamiento.
 
-Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo.
+Para más información acerca de las conexiones de red virtual a red virtual, consulte [Consideraciones de red virtual a red virtual](#faq) al final de este artículo.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Configuración de ejemplo
 Al usar estos pasos como un ejercicio, puede utilizar los siguientes valores de ejemplo. En los ejemplos, usamos varios espacios de direcciones para cada red virtual. Sin embargo, las configuraciones de red virtual a red virtual no requieren varios espacios de direcciones.
@@ -155,21 +155,21 @@ Cuando se hayan completado las puertas de enlace de red virtual de TestVNet1 y T
 
 1. En **Todos los recursos**, navegue hasta la puerta de enlace de red virtual de la red virtual. Por ejemplo, **TestVNet1GW**. Haga clic en **TestVNet1GW** para abrir la hoja de la puerta de enlace de la red virtual.
    
-    ![Hoja de conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
+    ![Hoja de conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Hoja de conexiones")
 2. Haga clic en **+ Agregar** para abrir la hoja **Agregar conexión**.
 3. En la hoja **Agregar conexión**, en el campo Nombre, escriba el nombre de la conexión. Por ejemplo, **TestVNet1toTestVNet4**.
    
-    ![Nombre de conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
+    ![Nombre de conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Nombre de conexión")
 4. En **Tipo de conexión**, seleccione **De VNet a VNet** en la lista desplegable.
 5. El valor del campo **Primera puerta enlace de red virtual** se rellena automáticamente porque la conexión se crea desde la puerta de enlace de red virtual especificada.
 6. El campo **Segunda puerta enlace de red virtual** es la puerta de enlace de la red virtual con la que desea crear una conexión. Haga clic en **Elegir otra puerta de enlace de red virtual** para abrir la hoja **Elegir puerta de enlace de red virtual**.
    
-    ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
+    ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Agregar una conexión")
 7. Fíjese en las puertas de enlace de red virtual que se enumeran en esta hoja. Observe que solo se muestran las que se encuentran en su suscripción. Si desea conectarse a una puerta de enlace de red virtual que no está en su suscripción, consulte el [artículo de PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Haga clic en la puerta de enlace de red virtual a la que desea conectarse.
 9. En el campo **Clave compartida**, escriba una clave compartida para la conexión. Dicha clave puede generarla o crearla manualmente. En una conexión de sitio a sitio, la clave del dispositivo local y la de la conexión de puerta de enlace de red virtual serán exactamente iguales. Aquí el concepto es similar, salvo en que en lugar de conectarse a un dispositivo VPN, la conexión se establece con otra puerta de enlace de red virtual.
    
-    ![Clave compartida](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
+    ![Clave compartida](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Clave compartida")
 10. Haga clic en **Aceptar** en la parte inferior de la hoja para guardar los cambios.
 
 ## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Configuración de la conexión TestVNet4
@@ -183,13 +183,13 @@ Compruebe la conexión. Realice las siguientes acciones en todas las puertas de 
 
 Vea las conexiones y compruebe el estado. Una vez creada la conexión, en Estado verá los valores **Correcto** y **Conectado**.
 
-![Correcto](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![Correcto](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Correcto")
 
 Puede hacer doble clic en las conexiones por separado para más información acerca de cada una de ellas.
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Consideraciones de red virtual a red virtual
 Vea los detalles de preguntas más frecuentes para más información acerca de las conexiones de red virtual a red virtual.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
@@ -199,6 +199,6 @@ Una vez completada la conexión, puede agregar máquinas virtuales a las redes v
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -36,8 +36,8 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Direcciones IP públicas (estáticas) |20 | |póngase en contacto con el soporte técnico |
 | Equilibradores de carga (interno y accesibles desde Internet) |100 |póngase en contacto con el soporte técnico |
 | Reglas de equilibrador de carga por equilibrador de carga |150 |150 |
-| IP de front-end pública por equilibrador de carga |5 |póngase en contacto con el soporte técnico |
-| IP de front-end privada por equilibrador de carga |30 |póngase en contacto con el soporte técnico |
+| IP de front-end pública por equilibrador de carga |10 |póngase en contacto con el soporte técnico |
+| IP de front-end privada por equilibrador de carga |10 |póngase en contacto con el soporte técnico |
 | Emparejamientos de redes virtuales por red virtual |10 |50 |
 | Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 |
 
@@ -45,6 +45,6 @@ Si necesita que los límites sean superiores a lo establecido de manera predeter
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

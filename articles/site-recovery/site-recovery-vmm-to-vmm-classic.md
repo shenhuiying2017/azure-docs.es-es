@@ -1,5 +1,5 @@
 ---
-title: "Replicación de máquinas virtuales de Hyper-V (en nubes de VMM) en un sitio de VMM secundario | Microsoft Docs"
+title: "Replicación de máquinas virtuales de Hyper-V en VMM en un sitio secundario (Portal de Azure clásico) | Microsoft Docs"
 description: "En este artículo se describe cómo replicar máquinas virtuales de Hyper-V de nubes VMM en un sitio VMM secundario con Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 985bbff3a5572a0caacf5201390038434f30fabc
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 0c14d1fd457df16483c0f4fefc4f1f82e3df4dd0
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 985bbff3a5572a0caacf5201390038434f30fabc
 > * [Portal de Azure](site-recovery-vmm-to-vmm.md)
 > * [Portal clásico](site-recovery-vmm-to-vmm-classic.md)
 > * [PowerShell: administrador de recursos](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-> 
-> 
+>
+>
 
 El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Site Recovery?](site-recovery-overview.md)
 
@@ -51,7 +51,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 | **VMM** |Necesita al menos un servidor VMM.<br/><br/>El servidor VMM debe ejecutar al menos System Center 2012 SP1 con las últimas actualizaciones acumulativas.<br/><br/>Si desea configurar la protección con un único servidor VMM, necesitará al menos dos nubes configuradas en el servidor.<br/><br/>Si desea implementar la protección con dos servidores VMM, cada servidor debe tener al menos una nube configurada en el servidor VMM principal que desea proteger y otra nube configurada en el servidor VMM secundario que desee utilizar para la protección y la recuperación<br/><br/>Todas las nubes VMM deben tener establecido el perfil de capacidad de Hyper-V.<br/><br/>La nube de origen que quiere proteger debe contener uno o varios grupos host VMM.<br/><br/>Puede obtener más información sobre cómo configurar nubes de VMM en [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM (Tutorial: Creación de nubes privadas) con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) en el blog de Keith Mayer. |
 | **Hyper-V** |Necesita uno o más servidores host de Hyper-V en los grupos host de VMM principales y secundarios, así como una o varias máquinas virtuales en cada servidor host de Hyper-V.<br/><br/>El host y los servidores de Hyper-V de destino deben estar ejecutando al menos Windows Server 2012 con el rol Hyper-V y tener instaladas las actualizaciones más recientes.<br/><br/>Cualquier servidor de Hyper-V que contenga las máquinas virtuales que quiere proteger debe estar ubicado en una nube VMM.<br/><br/>Si está ejecutando Hyper-V en un clúster, tenga en cuenta que ese agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tiene que configurar manualmente el agente de clúster. [Más información](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) en la entrada de blog de Aidan Finn. |
 | **Asignación de red** |Puede configurar la asignación de red para asegurarse de que las máquinas virtuales replicadas se colocan de manera óptima en los servidores host de Hyper-V secundarios tras la conmutación por error y que se pueden conectar a las redes de VM adecuadas. Si no configura la asignación de red, las máquinas virtuales de réplica no se conectarán a ninguna red después de la conmutación por error.<br/><br/>Para configurar la asignación de red durante la implementación, asegúrese de que las máquinas virtuales del servidor host Hyper-V de origen estén conectadas a una red de máquina virtual de VMM. Dicha red debería estar vinculada a una red lógica que esté asociada a la nube.<br/<br/>La nube de destino en el servidor VMM secundario que se utiliza para la recuperación debe tener configurada una red de máquina virtual correspondiente y, a su vez, debe estar vinculada a una red lógica correspondiente que esté asociada a la nube de destino.<br/><br/>[más información](site-recovery-network-mapping.md) sobre la asignación de red. |
-| **Asignación de almacenamiento** |De forma predeterminada cuando se replica una máquina virtual en un servidor host de Hyper-V de origen a un servidor host de Hyper-V de destino, los datos replicados se almacenan en la ubicación predeterminada indicada para el host de Hyper-V de destino en el Administrador de Hyper-V. Para obtener más control sobre dónde se almacenan los datos replicados, puede configurar la asignación de almacenamiento<br/><br/>  Para configurar la asignación de almacenamiento, debe configurar las clasificaciones de almacenamiento en los servidores VMM de origen y de destino antes de comenzar la implementación. [Más información](site-recovery-storage-mapping.md). |
+| **Asignación de almacenamiento** |De forma predeterminada cuando se replica una máquina virtual en un servidor host de Hyper-V de origen a un servidor host de Hyper-V de destino, los datos replicados se almacenan en la ubicación predeterminada indicada para el host de Hyper-V de destino en el Administrador de Hyper-V. Para obtener más control sobre dónde se almacenan los datos replicados, puede configurar la asignación de almacenamiento<br/><br/> Para configurar la asignación de almacenamiento, debe configurar las clasificaciones de almacenamiento en los servidores VMM de origen y de destino antes de comenzar la implementación. [Más información](site-recovery-storage-mapping.md). |
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Paso 1: Creación de un almacén de recuperación del sitio
 1. Inicie sesión en el [Portal de administración](https://portal.azure.com) desde el servidor VMM que desee registrar.
@@ -60,7 +60,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
 5. En **Región** , seleccione la región geográfica del almacén. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](http://go.microsoft.com/fwlink/?LinkId=389880).
 6. Haga clic en **Crear almacén**.
-   
+
     ![Crear almacén](./media/site-recovery-vmm-to-vmm-classic/create-vault.png)
 
 En la barra de estado, compruebe que se ha creado el almacén. El almacén aparecerá como **Activo** en la página principal de Servicios de recuperación.
@@ -69,38 +69,38 @@ En la barra de estado, compruebe que se ha creado el almacén. El almacén apare
 Generación de una clave de registro en el almacén. Después de descargar el proveedor de Azure Site Recovery y de instalarlo en el servidor VMM, usará esta clave para registrar el servidor VMM en el almacén.
 
 1. En la página **Servicios de recuperación** , haga clic en el almacén para abrir la página Inicio rápido. El inicio rápido también se puede abrir en cualquier momento mediante el icono.
-   
+
     ![Icono de inicio rápido](./media/site-recovery-vmm-to-vmm-classic/quick-start-icon.png)
 2. En la lista desplegable, seleccione **Entre dos sitios locales de VMM**.
 3. En **Preparar servidores VMM**, haga clic en **Generar archivo de clave de registro**. El archivo de clave se genera automáticamente y es válido durante 5 días después de su generación. Si no tiene acceso al Portal de Azure desde el servidor VMM, tiene que copiar este archivo en el servidor.
-   
+
     ![Clave de registro](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
 
 ## <a name="step-3-install-the-azure-site-recovery-provider"></a>Paso 3: Instalación del proveedor de Azure Site Recovery
 1. En la página **Inicio rápido**, en **Preparar servidores VMM**, haga clic en **Descargar el proveedor de Microsoft Azure Site Recovery para la instalación en servidores VMM** a fin de obtener la versión más reciente del archivo de instalación del proveedor.
 2. Ejecute este archivo en el servidor VMM de origen.
-   
+
    > [!NOTE]
    > Si VMM está implementado en un clúster y va a instalar el proveedor por primera vez, instálelo en un nodo activo y finalice la instalación para registrar el servidor VMM en el almacén. A continuación, instale el proveedor en los demás nodos. Tenga en cuenta que si está actualizando el proveedor, tiene que actualizarlo en todos los nodos, ya que deben ejecutar la misma versión del proveedor.
-   > 
-   > 
+   >
+   >
 3. El instalador realiza algunas operaciones de **Comprobación de requisitos previos** y solicita permiso para detener el inicio de la instalación del proveedor por parte del servicio VMM. El servicio VMM se reiniciará automáticamente cuando finalice la instalación. Si va a instalarlo en un clúster VMM, se le pedirá que detenga el rol de clúster.
 4. En **Microsoft Update** puede optar por recibir actualizaciones. Con esta configuración habilitada, las actualizaciones del proveedor se instalarán según su directiva de Microsoft Update.
-   
+
     ![Microsoft Updates](./media/site-recovery-vmm-to-vmm-classic/ms-update.png)
 5. La ubicación de instalación está establecida en **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor.
-   
+
     ![InstallLocation](./media/site-recovery-vmm-to-vmm-classic/install-location.png)
 6. Una vez instalado el proveedor, haga clic en **Registrar** para registrar el servidor en el almacén.
-   
+
     ![InstallComplete](./media/site-recovery-vmm-to-vmm-classic/install-complete.png)
 7. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor. Haga clic en *Siguiente*.
-   
+
     ![Registro de servidor](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 8. En **Conexión a Internet** , especifique cómo se conecta a Internet el proveedor que se ejecuta en el servidor VMM. Seleccione **Conectarse con la configuración de proxy existente** para usar la configuración predeterminada de conexión a Internet establecida en el servidor.
-   
+
     ![Configuración de Internet](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
-   
+
    * Si desea utilizar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy.
    * Si utiliza a un proxy personalizado o el proxy predeterminado requiere autenticación, tiene que especificar los detalles del proxy, incluida la dirección y el puerto del proxy.
    * Las siguientes direcciones URL deben ser accesibles desde el servidor VMM y los hosts de Hyper-v
@@ -116,7 +116,7 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 11. En **Nombre del servidor**, especifique un nombre descriptivo para identificar el servidor VMM en el almacén. En una configuración de clúster, especifique el nombre del rol de clúster VMM.
 12. En **Sincronizar metadatos en la nube** seleccione si quiere sincronizar los metadatos de todas las nubes del servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este parámetro sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola de VMM.
 13. Haga clic en **Next** para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se muestra en **Servidores VMM** > **Servidores** en el almacén.
-    
+
     ![Servidores](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### <a name="command-line-installation"></a>Instalación de la línea de comandos
@@ -125,14 +125,14 @@ El proveedor de Azure Site Recovery también puede instalarse desde la línea de
 1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta. Por ejemplo, C:\ASR.
 2. Detenga el servicio System Center Virtual Machine Manager.
 3. Ejecute los siguientes comandos con privilegios de **Administrador** desde el símbolo del sistema para extraer el instalador del proveedor:
-   
+
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 4. Ejecute lo siguiente para instalar el proveedor:
-   
+
         C:\ASR> setupdr.exe /i
 5. Registre el proveedor ejecutando:
-   
+
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
         C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
 
@@ -156,23 +156,23 @@ Una vez que los servidores VMM están registrados, puede configurar la protecci�
 3. En **Destino**, seleccione **VMM**.
 4. En **Ubicación de destino**, seleccione el servidor VMM local que administra la nube que desea utilizar para recuperación.
 5. En **Target cloud**, seleccione la nube de destino que desea utilizar para la conmutación por error de máquinas virtuales en la nube de origen. Observe lo siguiente:
-   
+
    * Recomendamos seleccionar una nube de destino que cumpla con los requisitos de recuperación para las máquinas virtuales que protegerá.
    * Una nube solo puede pertenecer a un único par de nubes, ya sea como nube principal o de destino.
 6. En **Copiar frecuencia**, especifique con qué frecuencia se deben sincronizar los datos entre las ubicaciones de origen y de destino. Observe que esta configuración solo es pertinente cuando el host de Hyper-V ejecuta Windows Server 2012 R2. En el caso de otros servidores, se utiliza una configuración predeterminada de cinco minutos.
 7. En **Puntos de recuperación adicionales**, especifique si desea crear más puntos de recuperación. El valor predeterminado de cero indica que el punto de recuperación más reciente de una máquina virtual principal es el único que se almacena en un servidor host de réplica. Tenga en cuenta que al habilitar varios puntos de recuperación necesita almacenamiento adicional para las instantáneas almacenadas en cada punto de recuperación. De forma predeterminada, los puntos de recuperación se crean cada hora, por lo que cada punto de recuperación contiene datos equivalentes a una hora. El valor del punto de recuperación que asigne a la máquina virtual en la consola VMM no debe ser menor que el valor asignado en la consola de Azure Site Recovery.
 8. En **Frecuencia de las instantáneas coherentes con la aplicación**, especifique la frecuencia de creación de estas instantáneas. Hyper-V usa dos tipos de instantáneas, una instantánea estándar que proporciona una instantánea incremental de toda la máquina virtual y una instantánea coherente con la aplicación que toma una instantánea en un momento concreto de los datos de la aplicación dentro de la máquina virtual. Las instantáneas coherentes con la aplicación utilizan el Servicio de instantáneas de volumen (VSS) para asegurarse de que las aplicaciones se encuentren en un estado coherente cuando se captura la instantánea. Tenga en cuenta que si habilita las instantáneas coherentes con la aplicación, se verá afectado el rendimiento de aplicaciones que se ejecutan en las máquinas virtuales de origen. Asegúrese de que el valor establecido es menor que el número de puntos de recuperación adicionales configurados.
-   
+
     ![Configuración de los valores de protección](./media/site-recovery-vmm-to-vmm-classic/cloud-settings.png)
 9. En **Compresión de transferencia de datos**, especifique si se deben comprimir los datos replicados que se transfieren.
 10. En **Authentication**, especifique cómo se autentica el tráfico entre el servidor host de Hyper-V principal y el servidor host de Hyper-V de recuperación. Seleccione HTTPS a menos que tenga un entorno de Kerberos configurado en funcionamiento. Azure Site Recovery configurará automáticamente los certificados para la autenticación de HTTPS. No se requiere configuración manual. Si selecciona Kerberos, se usará un vale de Kerberos para la autenticación mutua de los servidores host. De forma predeterminada, se abrirán los puertos 8083 y 8084 (para los certificados) en el Firewall de Windows en los servidores hosts de Hyper-V. Observe que esta configuración solo es pertinente para servidores host de Hyper-V que se ejecutan en Windows Server 2012 R2.
 11. En **Puerto**, modifique el número de puerto en el que los equipos host de origen y de destino escuchan el tráfico de replicación. Por ejemplo, puede modificar la configuración si desea aplicar el límite de ancho de banda de red de Calidad de servicio (QoS) para el tráfico de replicación. Compruebe que el puerto no lo está usando ninguna otra aplicación y que está abierto en la configuración del firewall.
 12. En **Método de replicación**, especifique cómo se administrará la replicación inicial de los datos desde la ubicación de origen a la ubicación de destino, antes de que comience la replicación normal:
-    
+
     * **Over the network**: Copiar los datos sobre la red puede ser un proceso lento y que consume muchos recursos. Le recomendamos utilizar esta opción si la nube contiene máquinas virtuales con discos duros virtuales relativamente pequeños y si el sitio principal está conectado al sitio secundario a través de una conexión con un amplio ancho de banda. Puede especificar que la copia se inicie de inmediato, o bien, seleccionar una hora. Si utiliza la replicación de red, le recomendamos programarla evitando las horas de mayor consumo.
     * **Sin conexión**: este método especifica que la replicación inicial se realizará mediante el uso de medios externos. Esta opción resulta útil si desea evitar la degradación del rendimiento de la red o en el caso de ubicaciones geográficamente remotas. Para utilizar este método, especifique la ubicación de exportación en la nube de origen y la ubicación de importación en la nube de destino. Cuando habilita la protección de una máquina virtual, el disco duro virtual se copia en la ubicación de exportación especificada. Usted lo envía al sitio de destino y lo copia en la ubicación de importación. El sistema copia la información importada en las máquinas virtuales de réplica.
 13. Seleccione **Eliminar máquina virtual de réplica** para especificar la máquina virtual de réplica que se debe eliminar si deja de proteger la máquina virtual al seleccionar la opción de **eliminación de la protección de la máquina virtual** en la pestaña de máquinas virtuales de las propiedades de la nube. Con esta configuración deshabilitada, cuando deshabilite la protección, la máquina virtual se elimina de Azure Site Recovery, la configuración de Site Recovery para la máquina virtual se elimina de la consola VMM y la réplica se elimina.
-    
+
     ![Configuración de los valores de protección](./media/site-recovery-vmm-to-vmm-classic/cloud-settings-replica.png)
 
 Tras guardar la configuración, se creará un trabajo que se podrá supervisar en la pestaña **Trabajos** . Todos los servidores host de Hyper-V de la nube de origen VMM se configurarán para la replicación. Puede modificar la configuración de la nube en la pestaña **Configurar** . Si desea modificar la ubicación de destino o la nube de destino, deberá eliminar la configuración de la nube y después volver a configurarla.
@@ -197,10 +197,10 @@ Deberá realizar las siguientes acciones para preparar la replicación inicial s
 1. En la página de inicio rápido, haga clic en **Asignar redes**.
 2. Seleccione el servidor VMM de origen desde el que desea asignar las redes y, a continuación, el servidor VMM de destino al que se asignarán las redes. Se muestra la lista de redes de origen y sus redes de destino asociadas. En el caso de las redes no asignadas, aparece un valor en blanco.
 3. Seleccione una red en **Red en origen** > **Asignar**. El servicio detecta las redes de VM en el servidor de destino y las muestra. Haga clic en el icono de información junto a los nombres de las redes de origen y de destino para ver las subredes para cada de red.
-   
+
     ![Configurar asignación de red](./media/site-recovery-vmm-to-vmm-classic/network-mapping1.png)
 4. En el cuadro de diálogo, seleccione una de las redes de máquina virtual desde el servidor VMM de destino.
-   
+
     ![Selección de una red de destino](./media/site-recovery-vmm-to-vmm-classic/network-mapping2.png)
 5. Al seleccionar una red de destino, se muestran las nubes protegidas que utilizan la red de origen. También se muestran las redes de destino disponibles asociadas a las nubes que se utilizan para protección. Se recomienda que seleccione una red de destino que esté disponible para todas las nubes que esté utilizando para protección. También puede ir al servidor VMM y modificar las propiedades de la nube para agregar la red lógica que corresponde a la red de máquina virtual que desea elegir.
 6. Haga clic en la marca de verificación para completar el proceso de asignación. Un trabajo comienza a realizar un seguimiento del progreso de la asignación. Puede consultarlo en la pestaña **Trabajos** .
@@ -212,7 +212,7 @@ De forma predeterminada cuando se replica una máquina virtual en un servidor ho
 2. Cuando estén definidas las clasificaciones, podrá crear las asignaciones. Para ello, en la página **Inicio rápido** > **Asignar almacenamiento**.
 3. Haga clic en la pestaña **Almacenamiento** > **Asignar clasificaciones de almacenamiento**.
 4. En la pestaña **Asignar clasificaciones de almacenamiento** , seleccione las clasificaciones en los servidores VMM de origen y de destino. Guarde la configuración.
-   
+
     ![Selección de una red de destino](./media/site-recovery-vmm-to-vmm-classic/storage-mapping.png)
 
 ## <a name="step-7-enable-virtual-machine-protection"></a>Paso 7: Habilitación de la protección de máquinas virtuales
@@ -220,16 +220,16 @@ Una vez que los servidores, las nubes y las redes se configuran correctamente, p
 
 1. En la pestaña **Máquinas virtuales**, en la nube en la que se encuentra la máquina virtual, haga clic en **Habilitar la protección** > **Agregar máquinas virtuales**.
 2. En la lista de máquinas virtuales de la nube, seleccione la que desea proteger.
-   
+
     ![Enable virtual machine protection](./media/site-recovery-vmm-to-vmm-classic/enable-protection.png)
 3. Siga el progreso de la acción de habilitación de la protección en la pestaña **Trabajos** , incluida la replicación inicial. La máquina virtual estará preparada para la conmutación por error después de que finalice el trabajo de Finalizar protección. Después de habilitar la protección y replicar las máquinas virtuales, podrá verlas en Azure.
-   
+
     ![Virtual machine protection job](./media/site-recovery-vmm-to-vmm-classic/vm-jobs.png)
 
 > [!NOTE]
 > También puede habilitar la protección de las máquinas virtuales en la consola VMM. Haga clic en **Habilitar protección** en la barra de herramientas de la pestaña **Azure Site Recovery** en las propiedades de la máquina virtual.
-> 
-> 
+>
+>
 
 ### <a name="on-board-existing-virtual-machines"></a>Incorporación de máquinas virtuales existentes
 Si tiene máquinas virtuales en VMM que se replican mediante Réplica de Hyper-V, necesitará incorporarlas para la protección de Azure Site Recovery de la forma siguiente:
@@ -243,10 +243,10 @@ Para probar la implementación puede realizar una prueba de conmutación por err
 ### <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
 1. En la pestaña **Planes de recuperación**, haga clic en **Crear plan de recuperación**.
 2. Especifique un nombre para el plan de recuperación, y los servidores VMM de origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación. Seleccione **Hyper-V** para ver solo las nubes que están configuradas para la replicación de Hyper-V.
-   
+
     ![Crear plan de recuperación](./media/site-recovery-vmm-to-vmm-classic/recovery-plan1.png)
 3. En **Seleccionar máquina virtual**, seleccione grupos de replicación. Se seleccionarán todas las máquinas virtuales asociadas al grupo de replicación y se agregarán al plan de recuperación. Estas máquinas virtuales se agregan al grupo predeterminado del plan de recuperación: grupo 1. Puede agregar más grupos si es necesario. Tenga en cuenta que tras la replicación las máquinas virtuales se iniciarán según el orden de los grupos del plan de recuperación.
-   
+
     ![Agregar máquinas virtuales](./media/site-recovery-vmm-to-vmm-classic/recovery-plan2.png)
 
 Cuando se haya creado un plan de recuperación, aparecerá en la lista de la pestaña **Planes de recuperación** .
@@ -289,7 +289,7 @@ En esta sección se proporciona información adicional de privacidad del servici
 * **Qué hace**: registra el servidor en el servicio para que las máquinas virtuales se puedan proteger.
 * **Información recopilada**: después de registrar el servicio, recopila, procesa y transmite la información del certificado de administración desde el servidor VMM designado para proporcionar recuperación ante desastres con el nombre de servicio del servidor VMM y el nombre de las nubes de máquinas virtuales en el servidor VMM.
 * **Uso de la información**:
-  
+
   * Certificado de administración: se utiliza para ayudar a identificar y autenticar el servidor VMM registrado para el acceso al Servicio. El servicio utiliza la parte de clave pública del certificado para proteger un token al que solo puede obtener acceso el servidor VMM registrado. El servidor debe utilizar este token para obtener acceso a las características del Servicio.
   * Nombre del servidor VMM: el nombre del servidor VMM es necesario para identificar y comunicarse con el servidor VMM adecuado en donde se ubican las nubes.
   * Nombres de nubes del servidor VMM: el nombre de nube es obligatorio cuando se utiliza la característica de emparejar o desemparejar las nubes del servicio descrita a continuación. Si decide emparejar la nube de un centro de datos principal con otra nube en el centro de datos de recuperación, se muestran los nombres de todas las nubes del centro de datos de recuperación.
@@ -324,7 +324,7 @@ El proveedor en el servidor VMM recibe notificación del evento desde el Servici
 
 * **Información recopilada**: el servicio usa la información anterior para rellenar el estado de la información de la acción de conmutación por error en el portal del servicio.
 * **Uso de la información**: el servicio usa la información anterior del modo siguiente:
-  
+
   * Certificado de administración: se utiliza para ayudar a identificar y autenticar el servidor VMM registrado para el acceso al Servicio. El servicio utiliza la parte de clave pública del certificado para proteger un token al que solo puede obtener acceso el servidor VMM registrado. El servidor debe utilizar este token para obtener acceso a las características del Servicio.
   * Nombre del servidor VMM: el nombre del servidor VMM es necesario para identificar y comunicarse con el servidor VMM adecuado en donde se ubican las nubes.
   * Nombres de nubes del servidor VMM: el nombre de nube es obligatorio cuando se utiliza la característica de emparejar o desemparejar las nubes del servicio descrita a continuación. Si decide emparejar la nube de un centro de datos principal con otra nube en el centro de datos de recuperación, se muestran los nombres de todas las nubes del centro de datos de recuperación.
@@ -335,7 +335,6 @@ Cuando haya ejecutado una conmutación por error de prueba para comprobar que su
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

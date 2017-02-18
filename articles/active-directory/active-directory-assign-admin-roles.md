@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a7b22dba766628279b175d73eda3f01866aeba9d
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 3c19c2035b8dc9717dced5164b0214ab8019afd1
 
 
 ---
@@ -25,16 +25,15 @@ Con Azure Active Directory (Azure AD), puede designar administradores independie
 
 Los roles de administrador disponibles son los siguientes:
 
-* **Administrador de facturación**: hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
-* **Administrador global/administrador de la compañía**: tiene acceso a todas las características administrativas. La persona que se suscribe a la cuenta de Azure se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa.
+* **[Administrador de facturación](#billing-administrator)**: realiza compras, administra suscripciones, administra vales de soporte y supervisa el estado del servicio.
+* **[Administrador global o administrador de la compañía](#global-administrator)**: tiene acceso a todas las características administrativas. La persona que se suscribe a la cuenta de Azure se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa.
 
   > [!NOTE]
   > En la API Graph de Microsoft, la API de Azure AD Graph, y Azure AD PowerShell, este rol se identifica como "administrador de la compañía". Es "administrador Global" en [Azure Portal](https://portal.azure.com).
   >
   >
-* **Administrador de cumplimiento**:
+* **Administrador de cumplimiento**: los usuarios con este rol tienen permisos de administración en el [Centro de cumplimiento y seguridad de Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1?ui=en-US&rs=en-US&ad=US&fromAR=1) y el [Centro de administración de Exchange](https://technet.microsoft.com/en-us/library/jj657489(v=exchg.150).aspx), y tienen acceso de lectura de los informes en el Centro de administración de Office 365. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administrador del servicio CRM**: los usuarios con este rol tienen permisos globales en Microsoft CRM Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Aprobador del acceso a la Caja de seguridad del cliente**: cuando el servicio LockBox está habilitado, los usuarios con este rol pueden aprobar solicitudes para el acceso de ingenieros de Microsoft a información de la empresa. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administradores de dispositivos**: los usuarios con este rol se convierten en administradores en todos los dispositivos de Windows 10 que están unidos a Azure Active Directory.
 * **Lectores de directorio**: se trata de un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](active-directory-integrating-applications.md). No se debe asignar a ningún usuario.
 * **Cuentas de sincronización de directorio**: no se usan. Este rol se asigna automáticamente al servicio de Azure AD Connect y no está previsto ni se admite para ningún otro uso.
@@ -43,22 +42,25 @@ Los roles de administrador disponibles son los siguientes:
 * **Administrador de servicios de Intune**: los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administrador del servicio Skype Empresarial**: los usuarios con este rol tienen permisos globales en Microsoft Skype Empresarial, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). Este rol se conocía antes como **administrador de servicios de Lync** .
 * **Autor de invitaciones de invitados**: los usuarios de este rol pueden administrar las invitaciones de los invitados. No incluye otros permisos.
-* **Administrador de contraseñas/administrador de departamento de soporte técnico**: restablece las contraseñas, administra solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas solo para los usuarios y otros administradores de contraseñas.
+* **Administrador de buzones de correo**: este rol solo se usa como parte de la compatibilidad con el correo electrónico de Exchange Online para dispositivos RIM Blackberry. Si su organización no usa el correo electrónico de Exchange Online en dispositivos RIM Blackberry, no utilice este rol.
+* **Compatibilidad con el nivel 1 de asociado**: no lo utilice. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
+* **Compatibilidad con el nivel 2 de asociado**: no lo utilice. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
+* **[Administrador de contraseñas o administrador del departamento de soporte técnico](#password-administrator)**: restablece contraseñas, administra solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas solo para los usuarios y otros administradores de contraseñas.
 
   > [!NOTE]
   > En la API Graph de Microsoft, la API Graph de Azure AD y Azure AD PowerShell, este rol se identifica como "Administrador de soporte técnico".
   >
   >
 * **Administrador del servicio SharePoint**: los usuarios con este rol tienen permisos globales en Microsoft SharePoint Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Administrador de servicios**: administra las solicitudes de servicio y supervisa el estado del servicio.
+* **[Administrador de servicios](#service-administrator)**: administra las solicitudes de servicio y supervisa el estado del servicio.
 
   > [!NOTE]
   > Para asignar el rol de administrador de servicios a un usuario, el administrador global debe asignar primero permisos administrativos al usuario en el servicio, como Exchange Online, y después asignar el rol de administrador de servicios al usuario en el portal de Azure clásico.
   >
   >
-* **Administrador de cuentas de usuario**: restablece contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. Existen algunas limitaciones en los permisos de un administrador de usuarios. Por ejemplo, este no puede eliminar a un administrador global ni puede crear otros administradores. Tampoco puede restablecer las contraseñas de los administradores de facturación, globales y de servicio.
-* **Lector de seguridad**: acceso de solo lectura a varias características de seguridad de Identity Protection Center, Privileged Identity Management, Supervisión de estado del servicio de Office 365 y Centro de seguridad y cumplimiento de Office 365.
-* **Administrador de seguridad**: todos los permisos de solo lectura del rol **Lector seguridad**, además de varios permisos administrativos adicionales para los mismos servicios: Identity Protection Center, Privileged Identity Management, Supervisión de estado del servicio de Office 365 y Centro de seguridad y cumplimiento de Office 365.
+* **[Administrador de cuentas de usuario](#user-administrator)**: restablece contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. Existen algunas limitaciones en los permisos de un administrador de usuarios. Por ejemplo, este no puede eliminar a un administrador global ni puede crear otros administradores. Tampoco puede restablecer las contraseñas de los administradores de facturación, globales y de servicio.
+* **[Lector de seguridad](#security-reader)**: acceso de solo lectura a varias características de seguridad de Identity Protection Center, Privileged Identity Management, la Supervisión del estado del servicio de Office 365 y el Centro de seguridad y cumplimiento de Office 365.
+* **[Administrador de seguridad](#security-administrator)**: todos los permisos de solo lectura del rol **Lector seguridad**, además de varios permisos administrativos adicionales para los mismos servicios: Identity Protection Center, Privileged Identity Management, Supervisión del estado del servicio de Office 365 y Centro de seguridad y cumplimiento de Office 365.
 
 ## <a name="administrator-permissions"></a>Permisos de administrador
 ### <a name="billing-administrator"></a>Administrador de facturación
@@ -113,7 +115,7 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 7. Cuando haya terminado, haga clic en **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
+* Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
 * Para más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Administrar usuarios](active-directory-create-users.md)
@@ -122,6 +124,6 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

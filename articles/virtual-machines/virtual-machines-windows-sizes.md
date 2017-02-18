@@ -1,5 +1,5 @@
 ---
-title: "Tamaños de VM Windows | Microsoft Docs"
+title: "Tamaños de las máquinas virtuales Windows en Azure | Microsoft Docs"
 description: "Enumera los tamaños diferentes disponibles para las máquinas virtuales Windows en Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 02/09/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 539e6a8835bf9f999f8855496e39e06bb58cd848
-ms.openlocfilehash: df95ff234c6922ae9b126aa7818f7bbb7a6e6df0
+ms.sourcegitcommit: 0e1cd22feed61bd41a8f002dc58e2fb0ade1e22e
+ms.openlocfilehash: 3b42be10257440abcb41178592a9d81feed69b11
 
 
 ---
-# <a name="sizes-for-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Linux en Azure
+# <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Windows en Azure
 En este artículo se describen los tamaños y las opciones disponibles para las máquinas virtuales de Azure que puede usar para ejecutar las aplicaciones y cargas de trabajo de Windows. También ofrece consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos.  Este artículo también está disponible para [máquinas virtuales Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!IMPORTANT]
@@ -37,6 +37,6 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -31,6 +31,6 @@ En esta sección se explica la configuración de su entorno de desarrollo, inclu
 1. En el cuadro de diálogo **Azure Storage**, seleccione la cuenta de almacenamiento de Azure deseada con la que desea trabajar y seleccione **Agregar**.
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

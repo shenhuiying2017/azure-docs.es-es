@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -28,7 +28,7 @@ En este tutorial, se usarán las [Herramientas de Python para Visual Studio](htt
 > [!NOTE]
 > La información de este tutorial también está disponible en el siguiente vídeo:
 > 
-> [PTVS 2.1: Django app with MySQL (PTVS 2.1: Aplicación Django con MySQL)][vídeo]
+> [PTVS 2.1: Django app with MySQL][video] (PTVS 2.1: aplicación Django con MySQL)
 > 
 > 
 
@@ -38,7 +38,7 @@ Consulte el [Centro para desarrolladores de Python] para acceder a más artícul
 * Visual Studio 2015
 * [Python 2.7 de 32 bits] o [Python 3.4 de 32 bits]
 * [Python Tools 2.2 para Visual Studio]
-* [Python Tools 2.2 para archivos VSIX de ejemplo de Visual Studio]
+* [archivos VSIX de ejemplo de Python Tools 2.2 para Visual Studio]
 * [Azure SDK y herramientas para VS 2015]
 * Django 1.9 o posterior
 
@@ -47,7 +47,7 @@ Consulte el [Centro para desarrolladores de Python] para acceder a más artícul
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -158,14 +158,14 @@ Para más información, vea el [Centro para desarrolladores de Python](/develop/
 <!--Link references-->
 
 [Centro para desarrolladores de Python]: /develop/python/
-[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
+[Servicios en la nube de Azure]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
 [Portal de Azure]: https://portal.azure.com
-[Herramientas de Python para Visual Studio]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Python Tools 2.2 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[archivos VSIX de ejemplo de Python Tools 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK y herramientas para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
@@ -175,10 +175,10 @@ Para más información, vea el [Centro para desarrolladores de Python](/develop/
 [Proyectos de servicio en la nube]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentación de Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
-[vídeo]: http://youtu.be/oKCApIrS0Lo
+[video]: http://youtu.be/oKCApIrS0Lo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

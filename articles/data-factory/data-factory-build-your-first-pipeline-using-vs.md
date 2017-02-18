@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 749dae73e9c515f91cd197d0652b4fc499cc3b0e
+ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
+ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 
 
 ---
@@ -252,8 +252,6 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
     ```
      En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 
-    En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
-
     El archivo de script de Hive, **partitionweblogs.hql**, está guardado en la cuenta de almacenamiento de Azure (la cuenta se llama **AzureStorageLinkedService1** y se especifica mediante la propiedad scriptLinkedService) y en la carpeta **script** del contenedor **adfgetstarted**.
 
     La sección **defines** se usa para especificar la configuración de tiempo de ejecución que se pasa al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
@@ -298,7 +296,7 @@ Puntos importantes que hay que tener en cuenta:
 
 - Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
     - En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
-        ```PowerShell   
+        ```PowerShell    
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
@@ -528,6 +526,6 @@ En este artículo, creó una canalización con una actividad de transformación 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple como destino de copia de seguridad con NetBackup | Microsoft Docs
+title: StorSimple serie 8000 como destino de copia de seguridad con NetBackup | Microsoft Docs
 description: "Describe la configuración del destino de copia de seguridad de StorSimple con Veritas NetBackup."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 9c7c5966db8c89e48320234e90a6a51c359ea96d
-ms.openlocfilehash: 700498477f9a7bf87e62caffdb157f6d8e0bf4b6
+ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
+ms.openlocfilehash: 2ac7c119e0706f0c5d479aa04a3afc34cc55cf22
 
 ---
 
@@ -582,6 +582,6 @@ En este artículo se ha hecho referencia a los siguientes documentos:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

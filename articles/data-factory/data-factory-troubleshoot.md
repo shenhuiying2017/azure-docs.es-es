@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
+ms.sourcegitcommit: f78081d173bfe255a3ed8016d10a2deec87ac758
+ms.openlocfilehash: 684515213fc2533e56600cacf3bc0a3a33f337c2
 
 
 ---
@@ -34,7 +34,7 @@ Si recibe este error, el proveedor de recursos de Data Factory de Azure no se ha
     Login-AzureRmAccount
     ```
 3. Ejecute el siguiente comando para registrar el proveedor de Data Factory de Azure.
-    
+
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
@@ -109,7 +109,7 @@ Este error suele indicar que la ubicación de la cuenta de almacenamiento especi
 Además, hay una segunda propiedad de JSON additionalLinkedServiceNames, donde puede se especifiquen cuentas de almacenamiento adicionales en HDInsight a petición. Las cuentas de almacenamiento vinculado adicionales deben estar en la misma ubicación que el clúster de HDInsight; de lo contrario, se producirá el mismo error.
 
 ### <a name="problem-custom-net-activity-fails"></a>Problema: La actividad de .NET personalizada produce un error
-Consulte [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#debug-the-pipeline) (Depurar una canalización con una actividad personalizada) para obtener pasos detallados.
+Consulte [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#troubleshoot-failures) (Depurar una canalización con una actividad personalizada) para obtener pasos detallados.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Uso del Portal de Azure para solucionar problemas
 ### <a name="using-portal-blades"></a>Uso de hojas del Portal
@@ -153,6 +153,6 @@ Consulte [Monitor Data Factory pipelines using Azure PowerShell](data-factory-bu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

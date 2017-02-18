@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
 
 
 ---
@@ -81,12 +81,12 @@ Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
 * `description` ofrece una descripción opcional del registrador y puede ser una cadena de longitud cero si lo desea.
 * `credentials` contiene el `name` y `connectionString` del centro de eventos de Azure.
 
-Al realizar la solicitud, si se crea el registrador, se devuelve un código de estado de `201 Created` . 
+Al realizar la solicitud, si se crea el registrador, se devuelve un código de estado de `201 Created` .
 
 > [!NOTE]
 > Para conocer otros posibles códigos de retorno y sus razones, vea [Creación de un registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, vea la documentación de la entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx) .
-> 
-> 
+>
+>
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Configuración de directivas log-to-eventhubs
 Una vez que el registrador está configurado en la administración de API, puede configurar las directivas de log-to-eventhubs para registrar los eventos oportunos. La directiva log-to-eventhubs puede utilizarse en la sección de las directivas de entrada o de salida.
@@ -117,8 +117,8 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de los centros de eventos de Azure
-  * [Introducción a los centros de eventos de Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Introducción a los centros de eventos de Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
 * Obtener más información acerca de la integración de Administración de API y centros de eventos
   * [Referencia de entidad del registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -127,8 +127,8 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 
 ## <a name="watch-a-video-walkthrough"></a>Ver un tutorial en vídeo
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -141,12 +141,6 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 
 
 
-
-
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

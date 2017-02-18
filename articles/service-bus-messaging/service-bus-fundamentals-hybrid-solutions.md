@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus | Microsoft Docs
+title: "Información general de los elementos fundamentales de Azure Service Bus | Microsoft Docs"
 description: "Una introducción a la utilización del Bus de servicio para conectar aplicaciones de Azure a otro software."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8f82ce3494822b13943ad000c24582668bb55fe8
-ms.openlocfilehash: 74d032b37a856b141350fb6a1f73b7067624f926
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 
 
 ---
@@ -119,6 +119,6 @@ Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos víncu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

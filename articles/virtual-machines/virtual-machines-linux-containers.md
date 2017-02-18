@@ -1,5 +1,5 @@
 ---
-title: "Máquinas virtuales y contenedores | Microsoft Docs"
+title: Contenedores en Azure Virtual Machines de Linux | Microsoft Docs
 description: "Describe las máquinas virtuales, los contenedores de Docker y Linux y su uso en grupos en Azure, incluyendo las ventajas de cada uno y los escenarios en los que cada enfoque funciona muy bien."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a523da03305224aedb9ae558846719c3a37b0b5b
+ms.sourcegitcommit: 518777dd312fc0e219dd05e44e26e2822bd9d2cf
+ms.openlocfilehash: 15eab47f914682f82d2d402b7f565adb051fd736
 
 
 ---
-# <a name="virtual-machines-and-containers-in-azure"></a>Máquinas virtuales y contenedores de Azure
+# <a name="virtual-machines-vs-containers-in-azure"></a>Máquinas virtuales frente a contenedores en Azure
 [!INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

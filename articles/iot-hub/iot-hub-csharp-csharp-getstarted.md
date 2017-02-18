@@ -270,6 +270,6 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Implementación de una aplicación creada con ASP.NET en el Azure App Service mediante Visual Studio | Microsoft Docs"
+title: "Implementación de una aplicación ASP.NET en Azure mediante Visual Studio | Microsoft Docs"
 description: "En este tutorial se muestra cómo implementar un proyecto web de ASP.NET en una nueva aplicación web del Servicio de aplicaciones de Azure mediante Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Aparte del tiempo necesario para instalar Azure SDK para. NET, este tutorial tar
 * En este tutorial se asume que ha trabajado con ASP.NET MVC y Visual Studio. Si necesita una introducción, consulte [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)(Introducción a ASP.NET MVC 5).
 * Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear una aplicación de corta duración para iniciarse en el Servicio de aplicaciones (no se requiere tarjeta de crédito ni se establecen compromisos).
+    Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/). Ahí puede crear una aplicación de corta duración para iniciarse en el Servicio de aplicaciones (no se requiere tarjeta de crédito ni se establecen compromisos).
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Configuración del entorno de desarrollo
 Este tutorial está escrito para Visual Studio 2015 con [Azure SDK para. NET](../dotnet-sdk.md) 2.9, o las versiones posteriores. 
@@ -222,6 +222,6 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

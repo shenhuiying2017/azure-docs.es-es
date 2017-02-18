@@ -1,5 +1,5 @@
 ---
-title: "Personalización del portal para desarrolladores para API Management de Azure mediante plantillas | Microsoft Docs"
+title: "Personalización del portal para desarrolladores para API Management mediante plantillas - Azure| Microsoft Docs"
 description: "Obtenga información sobre cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas"
 services: api-management
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: apipm
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 9ddd871a845af1169337480804b216a9a4fc9a06
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
 
 
 ---
@@ -210,6 +210,6 @@ Para obtener información de referencia sobre plantillas del portal para desarro
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

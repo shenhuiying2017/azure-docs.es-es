@@ -17,8 +17,8 @@ ms.workload: data-services
 ms.date: 11/22/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf9ea4bd9fde1cc534c58e32706b659e5d89e4f7
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f8d038a606ce518d2c9ba232049ce5bea02dd4c
 
 
 ---
@@ -35,25 +35,25 @@ ms.openlocfilehash: bf9ea4bd9fde1cc534c58e32706b659e5d89e4f7
 * Conectarse a recursos en Factoría de datos de Azure.
 * Crear una canalización para mover datos de los blobs de Almacenamiento al Almacenamiento de datos SQL.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
 > 
 > 
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Para familiarizarse con Azure Data Factory, consulte [Introducción al servicio Data Factory de Azure][Introducción al servicio Data Factory de Azure].
+Para familiarizarse con Azure Data Factory, vea [Introducción al servicio Azure Data Factory][Introduction to Azure Data Factory].
 
 ### <a name="create-or-identify-resources"></a>Creación o identificación de recursos
 Antes de comenzar este tutorial, debe contar con los siguientes recursos.
 
-* **Blob de Almacenamiento de Azure**: en este tutorial se usa el Blob de Almacenamiento de Azure como origen de datos para la canalización de Data Factory de Azure, así que debe tener uno disponible para almacenar los datos de ejemplo. Si todavía no tiene uno, aprenda a [crear una cuenta de almacenamiento][crear una cuenta de almacenamiento].
-* **SQL Data Warehouse**: en este tutorial los datos se mueven desde Azure Storage Blob hasta SQL Data Warehouse, así que debe tener un almacén de datos en línea que tenga cargados los datos de ejemplo de AdventureWorksDW. Si no dispone de un almacén de datos, aprenda a [aprovisionar uno][Creación de una instancia de Almacenamiento de datos SQL de Azure]. Si tiene un almacén de datos pero no lo ha aprovisionado con los datos de ejemplo, puede [cargarlos manualmente][Carga de datos de ejemplo en SQL Data Warehouse].
-* **Azure Data Factory**: Azure Data Factory realizará la carga actual, así que necesita tener una que pueda usar para crear la canalización del movimiento de datos. Si aún no tiene una, obtenga información sobre cómo crearla en el paso 1 de [Introducción a Azure Data Factory (Data Factory Editor)][Introducción a Azure Data Factory (Data Factory Editor)].
-* **AZCopy**: necesita AZCopy para copiar los datos de ejemplo desde el cliente local hasta el Blob de almacenamiento de Azure. Para conocer las instrucciones de instalación, consulte la [documentación de AZCopy][documentación de AZCopy].
+* **Blob de Almacenamiento de Azure**: en este tutorial se usa el Blob de Almacenamiento de Azure como origen de datos para la canalización de Data Factory de Azure, así que debe tener uno disponible para almacenar los datos de ejemplo. Si todavía no tiene una, aprenda a [Crear una cuenta de almacenamiento][Create a storage account].
+* **SQL Data Warehouse**: en este tutorial los datos se mueven desde Azure Storage Blob hasta SQL Data Warehouse, así que debe tener un almacén de datos en línea que tenga cargados los datos de ejemplo de AdventureWorksDW. Si no dispone de un almacén de datos, aprenda a [aprovisionar uno][Create a SQL Data Warehouse]. Si tiene un almacén de datos pero no lo ha aprovisionado con los datos de ejemplo, puede [cargarlo manualmente][Load sample data into SQL Data Warehouse].
+* **Azure Data Factory**: Azure Data Factory realizará la carga en sí, así que necesita una instancia de Data Factory para crear la canalización del movimiento de datos. Si aún no tiene una, aprenda a crearla en el paso 1 de [Introducción a Azure Data Factory (Data Factory Editor)][Get started with Azure Data Factory (Data Factory Editor)].
+* **AZCopy**: necesita AZCopy para copiar los datos de ejemplo desde el cliente local hasta el Blob de almacenamiento de Azure. Para conocer las instrucciones de instalación, consulte la [documentación de AZCopy][AZCopy documentation].
 
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Paso 1: Copia de los datos de ejemplo en el Blob de almacenamiento de Azure
 Una vez que todos los componentes están listos, ya está preparado para copiar los datos de ejemplo en el Blob de almacenamiento de Azure.
 
-1. [Descargue los datos de ejemplo][Descargue los datos de ejemplo]. Estos datos agregarán otros tres años de datos de ventas a los datos de ejemplo de AdventureWorksDW.
+1. [Descargue los datos de ejemplo][Download sample data]. Estos datos agregarán otros tres años de datos de ventas a los datos de ejemplo de AdventureWorksDW.
 2. Utilice este comando de AZCopy para copiar los tres años de datos en el Blob de almacenamiento de Azure.
 
 ````
@@ -64,7 +64,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 ## <a name="step-2-connect-resources-to-azure-data-factory"></a>Paso 2: Conexión de los recursos a Factoría de datos de Azure
 Ahora que los datos están en su sitio podemos crear la canalización de Factoría de datos de Azure para mover los datos desde el almacenamiento de blobs de Azure a Almacenamiento de datos SQL.
 
-Para empezar, abra el [Portal de Azure][Portal de Azure] y seleccione su instancia de Data Factory en el menú de la izquierda.
+Para empezar, abra [Azure Portal][Azure portal] y seleccione su instancia de Data Factory en el menú de la izquierda.
 
 ### <a name="step-21-create-linked-service"></a>Paso 2.1: Creación del servicio vinculado
 Vincule la cuenta de Almacenamiento de Azure y Almacenamiento de datos SQL a la factoría de datos.  
@@ -143,7 +143,7 @@ Después de crear los servicios vinculados, debemos definir los conjuntos de dat
 ```
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>Paso 3: Creación y ejecución de la canalización
-Por último, vamos a configurar y ejecutar la canalización en Factoría de datos de Azure.  Se trata de la operación que completará el movimiento real de datos.  Puede encontrar una vista completa de las operaciones que se pueden completar con SQL Data Warehouse y Azure Data Factory [aquí][Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory].
+Por último, vamos a configurar y ejecutar la canalización en Factoría de datos de Azure.  Se trata de la operación que completará el movimiento real de datos.  Puede encontrar una vista completa de las operaciones que se pueden completar con SQL Data Warehouse y Azure Data Factory [aquí][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
 
 En la sección 'Crear e implementar', haga clic en 'Más comandos' y, a continuación, en 'Nueva canalización'.  Después de crear la canalización, puede usar el código siguiente para transferir los datos al almacenamiento de datos:
 
@@ -198,40 +198,40 @@ En la sección 'Crear e implementar', haga clic en 'Más comandos' y, a continua
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea lo siguiente para empezar:
 
-* [Ruta de aprendizaje para Data Factory de Azure][Ruta de aprendizaje para Data Factory de Azure].
-* [Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure][Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure]. Este es el tema de referencia principal para el uso de Data Factory de Azure con Almacenamiento de datos SQL de Azure.
+* [Ruta de aprendizaje para Azure Data Factory][Azure Data Factory learning path].
+* [Conector de Azure SQL Data Warehouse][Azure SQL Data Warehouse Connector]. Este es el tema de referencia principal para el uso de Data Factory de Azure con Almacenamiento de datos SQL de Azure.
 
 En estos temas se proporciona información detallada sobre Data Factory de Azure. Se analiza Base de datos SQL de Azure o HDinsight, pero la información también se aplica a Almacenamiento de datos SQL de Azure.
 
-* [Tutorial: Creación de su primera instancia de Data Factory (Introducción)][Tutorial: Creación de su primera instancia de Data Factory (Introducción)] Este es el tutorial principal para el procesamiento de los datos con Azure Data Factory. En él aprenderá a crear su primera canalización que emplea HDInsight para transformar y analizar los registros web mensualmente. Tenga en cuenta que no hay ninguna actividad de copia en este tutorial.
-* [Tutorial: Copia de datos de Almacenamiento de blobs en Base de datos SQL][Tutorial: Copia de datos de Almacenamiento de blobs en Base de datos SQL]. En este tutorial, creará una canalización en Factoría de datos de Azure para copiar datos desde el Blob de almacenamiento de Azure hasta Base de datos SQL Azure.
+* [Tutorial: Introducción a Azure Data Factory][Tutorial: Get started with Azure Data Factory] Este es el tutorial principal para el procesamiento de los datos con Azure Data Factory. En él aprenderá a crear su primera canalización que emplea HDInsight para transformar y analizar los registros web mensualmente. Tenga en cuenta que no hay ninguna actividad de copia en este tutorial.
+* [Tutorial: Copia de datos de Azure Storage Blob en Azure SQL Database][Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]. En este tutorial, creará una canalización en Factoría de datos de Azure para copiar datos desde el Blob de almacenamiento de Azure hasta Base de datos SQL Azure.
 
 <!--Image references-->
 
 <!--Article references-->
-[documentación de AZCopy]: ../storage/storage-use-azcopy.md
-[Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[AZCopy documentation]: ../storage/storage-use-azcopy.md
+[Azure SQL Data Warehouse Connector]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
-[Creación de una instancia de Almacenamiento de datos SQL de Azure]: sql-data-warehouse-get-started-provision.md
-[crear una cuenta de almacenamiento]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Factoría de datos]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Introducción a Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Introducción al servicio Data Factory de Azure]: ../data-factory/data-factory-introduction.md
-[Carga de datos de ejemplo en SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
-[Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
+[Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
+[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial: Copia de datos de Almacenamiento de blobs en Base de datos SQL]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[Tutorial: Creación de su primera instancia de Data Factory (Introducción)]: ../data-factory/data-factory-build-your-first-pipeline.md
+[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Tutorial: Get started with Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Ruta de aprendizaje para Data Factory de Azure]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[Portal de Azure]: https://portal.azure.com
-[Descargue los datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[Azure portal]: https://portal.azure.com
+[Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

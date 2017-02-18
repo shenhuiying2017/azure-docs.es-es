@@ -15,8 +15,8 @@ ms.workload: azure-government
 ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a7e53dcdbf3cecd8a00ad3424ffa0d62cc8fde43
-ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
+ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
+ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
 
 
 ---
@@ -35,7 +35,7 @@ Para más información sobre este servicio y cómo usarlo, consulte la [document
 | [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |N/D |N/D |
 | [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) |GA |N/D | Incluye máquinas virtuales de la serie DS. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | Las cuentas de almacenamiento clásico no son compatibles. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>Variaciones
@@ -85,6 +85,6 @@ Para obtener información complementaria y actualizaciones, suscríbase al <a hr
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

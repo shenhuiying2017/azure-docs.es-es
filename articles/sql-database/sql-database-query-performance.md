@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight de Base de datos SQL de Azure
+title: "Información de rendimiento de consultas para Azure SQL Database | Microsoft Docs"
 description: "La supervisión del rendimiento de las consultas identifica las consultas que más CPU consumen en una base de datos SQL de Azure."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -32,7 +32,6 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Query Performance Insight solo está disponible con Base de datos de SQL Azure V12.
 * Información de rendimiento de consultas requiere que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté activo en la base de datos. Si Almacén de consultas no está en ejecución, el portal le pedirá que lo active.
 
 ## <a name="permissions"></a>Permisos
@@ -229,6 +228,6 @@ Para recomendaciones adicionales sobre cómo mejorar el rendimiento de la base d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

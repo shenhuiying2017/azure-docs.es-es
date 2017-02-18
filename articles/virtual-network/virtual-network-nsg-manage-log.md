@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 87755571f560f0b41baabac0dc2c437b2738e75f
-ms.openlocfilehash: e5f0bdeaf1c29e9f8fc844d4c3d85b1f2595d03b
+ms.sourcegitcommit: 8d370f98a4ef2501afc692af8a19a0625f54b678
+ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
 
 
 ---
@@ -115,10 +115,10 @@ Este registro contiene información acerca de cada regla que se aplica a los rec
 
 ## <a name="view-and-analyze-logs"></a>Visualización y análisis de los registros
 
-Para obtener información sobre cómo ver los datos de registro de actividad, lea el artículo [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Para obtener información sobre cómo ver los datos de registro de diagnóstico, lea el artículo [Información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Si envía datos de diagnóstico a Log Analytics, puede usar la solución [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) (versión preliminar) para obtener una mejor perspectiva. 
+Para obtener información sobre cómo ver los datos de registro de actividad, lea el artículo [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Para obtener información sobre cómo ver los datos de registro de diagnóstico, lea el artículo [Información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Si envía datos de diagnóstico a Log Analytics, puede usar la solución de administración [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) (versión preliminar) para obtener una mejor perspectiva. 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

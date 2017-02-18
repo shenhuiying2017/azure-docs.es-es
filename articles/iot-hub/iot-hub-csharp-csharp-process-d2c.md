@@ -1,6 +1,6 @@
 ---
 title: Procesamiento de mensajes de dispositivo a nube de IoT Hub de Azure mediante rutas (.NET) | Microsoft Docs
-description: "Cómo procesar mensajes de dispositivo a nube de IoT Hub de Azure mediante rutas para enviar mensajes a otros servicios de back-end."
+description: "Cómo procesar mensajes de dispositivo a nube de IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d2da282a849496772fe57b9429fe2a180f37328d
-ms.openlocfilehash: 1ca480c4be2cca2c2558b13d2c3a5e5dea8b561e
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 1ca480c4be2cca2c2558b13d2c3a5e5dea8b561e
 ## <a name="introduction"></a>Introducción
 Azure IoT Hub es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y un back-end de la solución. Otros tutoriales ([Introducción a IoT Hub] y [Envío de mensajes de nube a dispositivo con IoT Hub][lnk-c2d]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub.
 
-Este tutorial se basa en el código que se muestra en el tutorial [Introducción a IoT Hub] y le muestra cómo usar el enrutamiento de mensajes para enviar mensajes del dispositivo a la nube de manera sencilla y basada en la configuración. El tutorial ilustra cómo detectar mensajes que requieren acción inmediata en el back-end de soluciones para su procesamiento posterior. Por ejemplo, un dispositivo puede enviar un mensaje de alarma que desencadena la inserción de una incidencia en un sistema CRM. Por el contrario, los mensajes de punto de datos simplemente se envían a un motor de análisis. Por ejemplo, la telemetría de temperatura de un dispositivo que se almacena para su posterior análisis es un mensaje de punto de datos.
+Este tutorial se basa en el tutorial [Introducción a IoT Hub] y le muestra cómo usar reglas de enrutamiento para enviar mensajes del dispositivo a la nube de manera sencilla y basada en la configuración. El tutorial ilustra cómo detectar mensajes que requieren acción inmediata en el back-end de soluciones para su procesamiento posterior. Por ejemplo, un dispositivo puede enviar un mensaje de alarma que desencadena la inserción de una incidencia en un sistema CRM. Por el contrario, los mensajes de punto de datos simplemente se envían a un motor de análisis. Por ejemplo, la telemetría de temperatura de un dispositivo que se almacena para su posterior análisis es un mensaje de punto de datos.
 
 Al final de este tutorial tendrá tres aplicaciones de consola de .NET:
 
@@ -50,77 +50,79 @@ También se dan por sentados ciertos conocimientos sobre [Azure Storage] y [Azur
 ## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Envío de mensajes interactivos desde una aplicación de dispositivo simulado
 En esta sección, se modifica la aplicación de dispositivo simulado que creó en el tutorial [Introducción a IoT Hub] a fin de enviar ocasionalmente mensajes que requieren un procesamiento inmediato.
 
-- En Visual Studio, en el proyecto **SimulatedDevice**, sustituye el método `SendDeviceToCloudMessagesAsync` por el código siguiente.
-   
-    ```
-    private static async void SendDeviceToCloudMessagesAsync()
+En Visual Studio, en el proyecto **SimulatedDevice**, sustituya el método `SendDeviceToCloudMessagesAsync` por el código siguiente:
+
+```
+private static async void SendDeviceToCloudMessagesAsync()
+    {
+        double avgWindSpeed = 10; // m/s
+        Random rand = new Random();
+
+        while (true)
         {
-            double avgWindSpeed = 10; // m/s
-            Random rand = new Random();
+            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
 
-            while (true)
+            var telemetryDataPoint = new
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                deviceId = "myFirstDevice",
+                windSpeed = currentWindSpeed
+            };
+            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+            string levelValue;
 
-                var telemetryDataPoint = new
-                {
-                    deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
-                };
-                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-                string levelValue;
-
-                if (rand.NextDouble() > 0.7)
-                {
-                    messageString = "This is a critical message";
-                    levelValue = "critical";
-                }
-                else
-                {
-                    levelValue = "normal";
-                }
-                
-                var message = new Message(Encoding.ASCII.GetBytes(messageString));
-                message.Properties.Add("level", levelValue);
-                
-                await deviceClient.SendEventAsync(message);
-                Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-                await Task.Delay(1000);
+            if (rand.NextDouble() > 0.7)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
             }
-        }
-    ```
-   
-     De este modo, se agrega aleatoriamente la propiedad `"level": "critical"` a los mensajes enviados por el dispositivo, lo que simula un mensaje que requiere una acción inmediata por el back-end de soluciones. La aplicación de dispositivo pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
+            else
+            {
+                levelValue = "normal";
+            }
+            
+            var message = new Message(Encoding.ASCII.GetBytes(messageString));
+            message.Properties.Add("level", levelValue);
+            
+            await deviceClient.SendEventAsync(message);
+            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
 
-   > [!NOTE]
-   > Puede usar propiedades de mensaje a fin de enrutar mensajes en diferentes escenarios, como el procesamiento en frío, además del ejemplo de procesamiento en caliente que se muestra aquí.
-   > 
-   > 
-   
-   > [!NOTE]
-   > Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](Control de errores transitorios).
-   > 
-   > 
+            await Task.Delay(1000);
+        }
+    }
+```
+
+Con este método se agrega aleatoriamente la propiedad `"level": "critical"` a los mensajes que envía el dispositivo, lo que simula un mensaje que requiere una acción inmediata del back-end de soluciones. La aplicación de dispositivo pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
+
+> [!NOTE]
+> Puede usar propiedades de mensaje a fin de enrutar mensajes en diferentes escenarios, como el procesamiento en frío, además del ejemplo de procesamiento en caliente que se muestra aquí.
+
+> [!NOTE]
+> Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](Control de errores transitorios).
 
 ## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Adición de una cola a su IoT Hub y enrutamiento de mensajes a ella
-En esta sección, se crea una cola de Service Bus, se conecta con el IoT Hub y se configura el IoT Hub para enviar mensajes a la cola en función de la presencia de una propiedad en el mensaje. Para obtener más información acerca de cómo procesar los mensajes desde las colas de Service Bus, consulte [Introducción a las colas][Service Bus queue].
+En esta sección:
+
+* Creará una cola de Service Bus.
+* La conectará al centro de IoT.
+* Configurará el centro de IoT para enviar mensajes a la cola en función de la presencia propiedades en el mensaje.
+
+Para obtener más información acerca de cómo procesar los mensajes desde las colas de Service Bus, consulte [Introducción a las colas][Service Bus queue].
 
 1. Cree una cola de Service Bus como se describe en [Introducción a las colas][Service Bus queue]. La cola debe estar en la misma suscripción y región que el centro de IoT Hub. Tome nota del espacio de nombres y del nombre de la cola.
 
-2. En Azure Portal, abra el IoT Hub y haga clic en **Puntos de conexión**.
+2. En Azure Portal, abra el centro de IoT y haga clic en **Endpoints** (Puntos de conexión).
     
     ![Puntos de conexión en IoT Hub][30]
 
-3. En la hoja de puntos de conexión, haga clic en **Agregar** en la parte superior para agregar la cola al IoT Hub. Ponga al punto de conexión el nombre "CriticalQueue" y use las listas desplegables para seleccionar **cola de Service Bus**, el espacio de nombres de Service Bus en el que reside la cola y el nombre de la cola. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
+3. En la hoja **Endpoints** (Puntos de conexión), haga clic en **Add** (Agregar) en la parte superior para agregar la cola al centro de IoT. Ponga al punto de conexión el nombre **CriticalQueue** y use las listas desplegables para seleccionar **Cola de Service Bus**, el espacio de nombres de Service Bus en el que reside la cola y el nombre de la cola. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
     
     ![Adición de un punto de conexión][31]
     
-4. Ahora haga clic en **Rutas** en su IoT Hub. Haga clic en **Agregar** en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **DeviceTelemetry** como origen de los datos. Escriba `level="critical"` como condición y elija la cola que acaba de agregar como punto de conexión como el punto de conexión de ruta. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
+4. Ahora haga clic en **Routes** (Rutas) en IoT Hub. Haga clic en **Add** (Agregar) en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **DeviceTelemetry** como origen de los datos. Escriba `level="critical"` como condición y elija la cola que acaba de agregar como punto de conexión personalizado como punto de conexión de regla de enrutamiento. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
     
     ![Adición de una ruta][32]
     
-    Asegúrese de que la ruta de reserva se establece en ON. Esta es la configuración predeterminada del IoT Hub.
+    Asegúrese de que la ruta de reserva se establece en **ON** (Activado). Este valor es la configuración predeterminada para un centro de IoT.
     
     ![Ruta de reserva][33]
 
@@ -226,6 +228,6 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

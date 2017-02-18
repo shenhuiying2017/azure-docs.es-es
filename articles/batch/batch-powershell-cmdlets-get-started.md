@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Azure Batch PowerShell | Microsoft Docs"
+title: "Introducción a PowerShell para Azure Batch | Microsoft Docs"
 description: "Obtenga una rápida introducción a los cmdlets de Azure PowerShell que puede usar para administrar el servicio Lote de Azure"
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
 
 
 ---
@@ -240,6 +240,6 @@ Ahora, las propiedades del grupo están actualizadas en el servicio Batch. Para 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

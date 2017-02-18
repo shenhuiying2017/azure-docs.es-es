@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2f3ea8b6be032b732b5ab1c587843f10387a4efb
-ms.openlocfilehash: 56397e33fb86cd839899a4009f2be95402a09b14
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
 
 
 ---
@@ -83,15 +83,40 @@ Puede usar la consola de administración de directivas de grupo en la máquina v
 2. Haga clic en **Administración de directivas de grupo** para iniciar la consola de Administración de directivas de grupo.
 
     ![Consola de directiva de grupo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
-3. Haga clic para expandir los nodos **Forest: contoso100.com** y **Domains** para ver las directivas de grupo para el dominio administrado. Hay dos objetos de directiva de grupo (GPO) integrados: uno para el contenedor "Equipos del controlador de dominio de AAD" y otro para "Usuarios del controlador de dominio de AAD" del dominio administrado.
+
+## <a name="task-4---customize-built-in-group-policy-objects"></a>Tarea 4: Personalización de objetos de directiva de grupo integrados
+Hay dos objetos de directiva de grupo (GPO) integrados: uno para el contenedor "Equipos del controlador de dominio de AAD" y otro para "Usuarios del controlador de dominio de AAD" del dominio administrado. Puede personalizar estos GPO para configurar la directiva de grupo en el dominio administrado.
+
+1. En la consola **Administración de directivas de grupo**, haga clic para expandir los nodos **Forest: contoso100.com** y **Domains** para ver las directivas de grupo para el dominio administrado.
 
     ![GPO integrados](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. Puede personalizar estos GPO integrados para configurar las directivas de grupo en el dominio administrado. Haga clic en el GPO y haga clic en **Editar... ** para personalizar el GPO integrado. La herramienta Editor de administración de directivas de grupo le permite personalizar el GPO.
+2. Puede personalizar estos GPO integrados para configurar las directivas de grupo en el dominio administrado. Haga clic en el GPO y haga clic en **Editar... ** para personalizar el GPO integrado. La herramienta Editor de administración de directivas de grupo le permite personalizar el GPO.
 
     ![Editar GPO integrado](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-5. Ahora puede usar la consola del **Editor de administración de directivas de grupo** para editar el GPO integrado. Por ejemplo, la captura de pantalla siguiente muestra cómo personalizar el GPO "Equipos del controlador de dominio de AAD" integrado.
+3. Ahora puede usar la consola del **Editor de administración de directivas de grupo** para editar el GPO integrado. Por ejemplo, la captura de pantalla siguiente muestra cómo personalizar el GPO "Equipos del controlador de dominio de AAD" integrado.
 
     ![Personalizar GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+
+## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Tarea 5: Creación de un objeto de directiva de grupo (GPO) personalizado
+Puede crear o importar sus propios objetos de directiva de grupo personalizados. También puede vincular GPO personalizados a una unidad organizativa personalizada que haya creado en el dominio administrado. Para más información sobre la creación de unidades organizativas personalizadas, consulte [Creación de una unidad organizativa en un dominio administrado](active-directory-ds-admin-guide-create-ou.md).
+
+> [!NOTE]
+> Tendrá que ser miembro del grupo "Administradores del controlador de dominio de AAD" para administrar la directiva de grupo en el dominio administrado.
+>
+>
+
+1. En la consola **Administración de directivas de grupo**, haga clic para seleccionar su unidad organizativa (OU) personalizada. Haga clic con el botón derecho en la unidad organizativa y haga clic en **Crear un GPO en este dominio y vincularlo aquí**.
+
+    ![Crear un GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+2. Especifique un nombre para el nuevo GPO y haga clic en **Aceptar**.
+
+    ![Especificar un nombre para el GPO](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
+3. Se crea un GPO y se vincula a la OU personalizada. Haga clic con el botón derecho en el GPO y haga clic en **Editar...** en el menú.
+
+    ![Un GPO recién creado](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+4. Puede personalizar el GPO recién creado con el **Editor de administración de directivas de grupo**.
+
+    ![Personalizar el nuevo GPO](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
 Hay más información sobre el uso de la [Consola de administración de directivas de grupo](https://technet.microsoft.com/library/cc753298.aspx) disponible en Technet.
@@ -104,6 +129,6 @@ Hay más información sobre el uso de la [Consola de administración de directiv
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

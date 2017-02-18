@@ -16,15 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 680bb7dfb401decc554637c0094a06a0a6260288
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 3db8a2b4618c05430a7e0cd7664514abc582078b
 
 
 ---
 # <a name="linux-and-open-source-computing-on-azure"></a>Informática de código abierto y Linux en Azure
 Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales de Linux en el modelo de implementación clásica.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 ## <a name="get-started"></a>Introducción
 * [Introducción a Linux en Azure](virtual-machines-linux-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -104,7 +105,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 * [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual con Linux existente en Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
 
 ## <a name="reference"></a>Referencia
-* [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](../virtual-machines-command-line-tools.md)
+* [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [API de REST de administración de servicios de Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 ## <a name="general-links"></a>Vínculos generales
@@ -163,6 +164,6 @@ Dado que el mundo de DevOps, administración y optimización es bastante extenso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
