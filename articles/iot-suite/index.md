@@ -1,10 +1,23 @@
 ---
+title: "Documentación sobre el Conjunto de aplicaciones de IoT de Azure: tutoriales y referencia de API | Microsoft Docs"
+description: 
+services: iot-suite
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: iot-suite
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ceade1ccba2d1328faf548f43f51b4fa3a5343b0
+ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
+ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
 
 ---
+
 # <a name="iot-suite-documentation"></a>Documentación del Conjunto de aplicaciones de IoT
 
 Comience rápidamente con el Conjunto de aplicaciones de IoT de Microsoft Azure. Utilice soluciones preconfiguradas y acelere el desarrollo de su solución de Internet de las cosas (IoT). Agregue nuevos dispositivos y conéctese a los existentes utilizando los SDK de dispositivo para diversas plataformas, incluidas Linux, Windows y sistemas operativos en tiempo real. Escale fácilmente desde tan solo unos pocos sensores hasta millones de dispositivos conectados simultáneamente y confíe en la disponibilidad global de Azure, sea cual sea el tamaño del proyecto.
@@ -91,6 +104,6 @@ Comience rápidamente con el Conjunto de aplicaciones de IoT de Microsoft Azure.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

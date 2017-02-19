@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentación sobre Azure DNS: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a administrar sus registros DNS con el Sistema de nombres de dominio de Azure. En la documentación, se muestra cómo configurar y administrar zonas y registros DNS para los nombres de dominio."
+services: dns
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1e30c21b967e9862ae24907ac5db56a341c11cf5
-ms.openlocfilehash: a0110b01879360e4558dffed6343da1ef72cfe86
+ms.sourcegitcommit: f415cc458e91085ce315ef7ee5755b96bbcfa170
+ms.openlocfilehash: b9608dc3bafeea5faec8e379c67810113b00ffd9
 
 ---
 # <a name="dns-documentation"></a>Documentación de DNS
@@ -124,7 +135,7 @@ Aprenda a administrar sus registros DNS con el Sistema de nombres de dominio de 
             <div class="card">
                 <div class="cardText">
                     <h3>REST</h3>
-                    <p><a href="/rest/api/dns/">API de REST</a></p>
+                    <p><a href="/rest/api/dns/">API DE REST</a></p>
                 </div>
             </div>
         </div>
@@ -132,16 +143,10 @@ Aprenda a administrar sus registros DNS con el Sistema de nombres de dominio de 
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre DNS </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

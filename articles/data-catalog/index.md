@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentación sobre Azure Data Catalog: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a configurar un catálogo de datos donde su organización pueda encontrar, comprender y consumir orígenes de datos. Tutoriales, referencia de API y otra documentación."
+services: data-catalog
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
-ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
+ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
+ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
 
 ---
 #<a name="data-catalog-documentation"></a>Documentación de Data Catalog
@@ -59,7 +70,7 @@ Aprenda a usar Data Catalog para ayudar a su organización y al equipo a detecta
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datacatalog/">API de REST</a></p>
+                        <p><a href="/rest/api/datacatalog/">API DE REST</a></p>
                     </div>
                 </div>
             </div>
@@ -67,16 +78,10 @@ Aprenda a usar Data Catalog para ayudar a su organización y al equipo a detecta
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Data Catalog </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

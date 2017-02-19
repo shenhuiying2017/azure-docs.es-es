@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentación sobre Azure Traffic Manager: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a administrar el tráfico entrante para obtener un rendimiento óptimo de las aplicaciones. La documentación muestra cómo distribuir el tráfico a los puntos de conexión de servicio de Azure o externos."
+services: traffic-manager
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: traffic-manager
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
+ms.sourcegitcommit: c2835e48c1995264af6614fe74fe1594bae86245
+ms.openlocfilehash: 1dab11c9d6874bba16cc047cfc8b03c82e236a35
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentación de Traffic Manager
@@ -124,6 +135,6 @@ Aprenda a usar Traffic Manager para enrutar el tráfico entrante para optimizar 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

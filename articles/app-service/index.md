@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure App Service: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a usar App Service para crear aplicaciones móviles y web para cualquier plataforma o dispositivo con los tutoriales, los vídeos, las referencias de API y otra documentación."
+services: app-service
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a9afed4d89a2eb114af42ae409ff8ab72899b598
-ms.openlocfilehash: a7ae2c57b4f894165df0f2fd7560f8476ac1db0d
+ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
+ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
 
 ---
 #<a name="app-service-documentation"></a>Documentación de App Service
 
-App Service es una oferta de plataforma como servicio (PaaS) de Microsoft Azure. Cree aplicaciones web y móviles para cualquier plataforma o dispositivo. Integre sus aplicaciones con soluciones SaaS, conecte con aplicaciones locales y automatice los procesos empresariales.
+Aprenda a usar App Service para desarrollar y hospedar aplicaciones móviles y web para cualquier plataforma o dispositivo con los tutoriales, los vídeos, las referencias de API y otra documentación. Aprenda a integrar sus aplicaciones con soluciones SaaS, conectar con aplicaciones locales y automatizar los procesos empresariales.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -120,50 +132,10 @@ App Service es una oferta de plataforma como servicio (PaaS) de Microsoft Azure.
     </li>
 </ul>
 
----
-
-<h2>Referencia</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Recursos</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service%2ftoc.json">Portal de Azure</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service%2ftoc.json">Referencia de App Service</a></p>
-                        <p><a href="/azure/app-service-web/app-service-best-practices?toc=%2fazure%2fapp-service%2ftoc.json">Prácticas recomendadas</a></p>
-                        <p><a href="/azure/app-service-web/websites-webjobs-resources?toc=%2fazure%2fapp-service%2ftoc.json">Recursos de WebJob</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service%2ftoc.json">SDK de WebJobs</a></p>
-                      </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/appservice/">Referencia de API de REST</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de la documentación de App Service </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

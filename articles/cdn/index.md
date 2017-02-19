@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure CDN: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a usar Content Delivery Network (CDN) para entregar contenido de centros de datos globales a cualquier dispositivo. Tutoriales, referencias de API y otra documentación."
+services: cdn
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cdn
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
+ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
+ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
 
 ---
 # <a name="cdn-documentation"></a>Documentación de CDN
 
-Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda que se hospeda en Azure o en cualquier otra ubicación.  Mediante CDN puede almacenar en caché objetos disponibles públicamente cargados desde Azure Blob Storage, una aplicación web, una máquina virtual, una carpeta de la aplicación u otra ubicación HTTP/HTTPS.  CDN se suele usar para entregar contenido estático, como imágenes, hojas de estilo, documentos, archivos, scripts de cliente y páginas HTML.
+Aprenda a usar Content Delivery Network (CDN) para entregar contenido de alto ancho de banda hospedado en Azure o en otros lugares. Los tutoriales, las referencias de API y otra documentación muestran cómo usar CDN para entregar contenido de centros de datos globales a cualquier dispositivo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,16 +121,10 @@ Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución 
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Azure CDN </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,10 @@
-# [Primeros pasos](billing-getting-started.md)
+# Primeros pasos
+## [Prevención de costes inesperados](billing-getting-started.md)
 ## [Registro con la cuenta de Office 365](billing-use-existing-office-365-account-azure-subscription.md)
-## [Límites y cuotas](../azure-subscription-service-limits.md)
+## [Límites y cuotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Procedimientos
 ## Supervisión de uso y costos
-### [Descarga de factura y uso](billing-download-azure-invoice-daily-usage-date.md)
+### [Obtención de factura y uso](billing-download-azure-invoice-daily-usage-date.md)
 ### [Descripción de la factura](billing-understand-your-bill.md)
 ### [Descripción de los cargos de servicios externos](billing-understand-your-azure-marketplace-charges.md)
 ### [Configurar alertas de facturación](billing-set-up-alerts.md)
@@ -32,6 +33,7 @@
 
 # Recursos
 ## [Ponerse en contacto con soporte técnico](../azure-supportability/how-to-create-azure-support-request.md)
+
 
 <!--HONumber=Feb17_HO2-->
 

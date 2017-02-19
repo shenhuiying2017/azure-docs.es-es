@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentación sobre Azure Storage: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a usar Azure Storage: Blob Storage, Table Storage, Queue Storage, File Storage y almacenamiento de disco de máquina virtual en la nube. Tutoriales, referencias de API y otra documentación."
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
+ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
 
 ---
 
@@ -133,6 +144,7 @@ Aprenda a usar Azure Storage, un servicio de almacenamiento en nube que ofrece d
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blobs, colas, tablas y archivos</a></p>
                         <p><a href="/rest/api/storagerp">Proveedor de recursos</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/Export</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">API de REST de datos de almacenamiento</a></p>
                    </div>
                 </div>
             </div>
@@ -144,6 +156,6 @@ Aprenda a usar Azure Storage, un servicio de almacenamiento en nube que ofrece d
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

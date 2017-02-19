@@ -21,16 +21,18 @@
 ### [Adición de un repositorio de artefactos](devtest-lab-add-artifact-repo.md)
 ### [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
 
-## Administración de bases de máquinas virtuales
+## Administración de bases de datos y plantillas de máquinas virtuales
+### [Creación de entornos de varias máquinas virtuales con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
+### [Configuración de imágenes de Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Comparación de imágenes y fórmulas](devtest-lab-comparing-vm-base-image-types.md)
+### [Administración de fórmulas](devtest-lab-manage-formulas.md)
+### [Creación de una imagen personalizada a partir de una máquina virtual](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Creación de una imagen personalizada desde un VHD mediante Azure Portal](devtest-lab-create-template.md)
+### [Creación de una imagen personalizada desde un VHD mediante PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 ### [Carga del archivo VHD mediante AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Carga del archivo VHD mediante PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Carga del archivo VHD mediante el Explorador de Storage](devtest-lab-upload-vhd-using-storage-explorer.md)
-### [Creación de una imagen personalizada desde un VHD mediante Azure Portal](devtest-lab-create-template.md)
-### [Creación de una imagen personalizada desde un VHD mediante PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-### [Creación de una imagen personalizada a partir de una máquina virtual](devtest-lab-create-custom-image-from-vm-using-portal.md)
-### [Configuración de imágenes de Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Administración de fórmulas](devtest-lab-manage-formulas.md)
+
 
 
 # Recursos
@@ -41,6 +43,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

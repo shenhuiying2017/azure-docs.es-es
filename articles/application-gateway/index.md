@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure Application Gateway: tutoriales y referencia de API | Microsoft Docs"
+description: "Obtenga información acerca de cómo implementar un controlador de entrega de aplicaciones en la nube. La documentación muestra cómo configurar el enrutamiento de nivel de aplicación y equilibrio de carga para un servidor front-end web."
+services: application-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e81571dc2d0d52f8b04c7ff99a76d92c784c259e
+ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
+ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
 
 ---
 #<a name="application-gateway-documentation"></a>Documentación de Application Gateway
 
-Azure Application Gateway proporciona un controlador de entrega de aplicaciones (ADC) como servicio.  Permite a los clientes optimizar la productividad de las granjas de servidores web traspasando la carga de la terminación SSL con mayor actividad de la CPU a Application Gateway.  Se trata de un servicio virtual dedicado para su aplicación con escalabilidad y gran disponibilidad, así como un amplio conjunto de funcionalidades de diagnóstico y registro, lo que facilita su administración.
+Obtenga información acerca de cómo implementar Application Gateway, un controlador de entrega de aplicaciones (ADC), como servicio. Los tutoriales, las referencias de API y otra documentación muestran cómo configurar el equilibrio de carga y el enrutamiento de nivel de aplicación que permiten crear sistemas front-end web escalables y de alta disponibilidad.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,18 +160,12 @@ Azure Application Gateway proporciona un controlador de entrega de aplicaciones 
             </div>
         </div>
     </li>
-</ul>   
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Application Gateway </div>
-    </a>
-</div>
+</ul>    
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

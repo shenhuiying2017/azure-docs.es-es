@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentación sobre la seguridad de Azure: tutoriales y referencia de API | Microsoft Docs"
 description: Aprenda a personalizar las opciones de seguridad de los servicios de Azure para cumplir los requisitos de las implementaciones de servicios y datos en la nube.
+services: security
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: security
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
+ms.sourcegitcommit: 92b37ea86e4744a46efd81e4731c7949413011e3
+ms.openlocfilehash: f85d46d513dc4600c09112e1a52e207681da6f38
 
 ---
 # <a name="security-documentation"></a>Documentación de Security
@@ -109,6 +120,6 @@ Aprenda a usar Azure Security para proteger servicios y datos en la nube. Los tu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

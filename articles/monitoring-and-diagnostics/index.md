@@ -1,12 +1,22 @@
 ---
-layout: LandingPage
+title: "Documentación sobre los servicios de supervisión y diagnósticos de Azure: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a usar los servicios de supervisión y diagnóstico para realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias. Referencias de API, procedimientos recomendados y más."
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1db31bcf230b588954e9df00dd55a1b23c8d95cf
-ms.openlocfilehash: 89826ce2901b9b08ef9c9658abb8acd36e3d71fd
+ms.sourcegitcommit: 88bfad219ee0564552ee80da5dc944b7e53320db
+ms.openlocfilehash: aa0837d82f5e938440096cd6d12d80bc42a07528
 
 ---
-
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentación de Monitoring and Diagnostics
 
 Aprenda a usar los servicios de supervisión y diagnóstico de Azure para realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias. Tutoriales, referencias de API, procedimientos recomendados y otra documentación le ayudan a entender los usos de supervisión y diagnóstico y cómo planear e implementar soluciones escalables y confiables.
@@ -164,6 +174,6 @@ Aprenda a usar los servicios de supervisión y diagnóstico de Azure para realiz
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

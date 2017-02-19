@@ -1,5 +1,6 @@
 # Información general
 ## [¿Qué es Azure Container Service?](container-service-intro.md)
+## [Preguntas más frecuentes](container-service-faq.md)
 # Introducción
 ## [Implementación de un clúster de ACS](container-service-deployment.md)
 ## [Implementación en ACS mediante la CLI de Azure 2.0 (versión preliminar)](container-service-create-acs-cluster-cli.md)
@@ -43,6 +44,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

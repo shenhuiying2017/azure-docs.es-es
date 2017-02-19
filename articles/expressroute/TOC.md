@@ -1,14 +1,15 @@
 # Información general
 ## [¿Qué es ExpressRoute?](expressroute-introduction.md)
 ## [Preguntas más frecuentes sobre ExpressRoute](expressroute-faqs.md)
+## [Modelos de conectividad](expressroute-connectivity-models.md)
 ## [Ubicaciones y asociados](expressroute-locations.md)
 ### [Proveedores por ubicación](expressroute-locations-providers.md)
 ### [Ubicaciones por proveedor](expressroute-locations.md)
 
 # Introducción
-## [Circuitos y dominios de enrutamiento](expressroute-circuit-peerings.md)
 ## [Flujos de trabajo](expressroute-workflows.md)
 ## [Requisitos previos](expressroute-prerequisites.md)
+## [Circuitos y dominios de enrutamiento](expressroute-circuit-peerings.md)
 ## [Requisitos de enrutamiento](expressroute-routing.md)
 ## [Optimización del enrutamiento](expressroute-optimize-routing.md)
 ## [Requisitos NAT](expressroute-nat.md)

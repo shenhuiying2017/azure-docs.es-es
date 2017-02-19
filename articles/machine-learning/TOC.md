@@ -1,17 +1,24 @@
 # Información general
+
 ## [¿Qué es Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Machine Learning Studio
-### [¿Qué es Studio?](machine-learning-what-is-ml-studio.md)
-### [Funcionalidad de Studio](machine-learning-studio-overview-diagram.md)
-### [Infografía: Introducción a ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Proceso de ciencia de los datos en equipos
 ### [Información general](http://aka.ms/datascienceprocess)
 ### [Ciclo de vida](data-science-process-overview.md)
 ### [Tutoriales](data-science-process-walkthroughs.md)
+
+## Machine Learning Studio
+### [¿Qué es Studio?](machine-learning-what-is-ml-studio.md)
+### [Funcionalidad de Studio](machine-learning-studio-overview-diagram.md)
+### [Infografía: Introducción a ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Preguntas más frecuentes](machine-learning-faq.md)
 ## [Novedades](machine-learning-whats-new.md)
+
 # Introducción
+
 ## [Creación de su primer experimento](machine-learning-create-experiment.md)
+
 ## Tutorial de ejemplo
 ### [Creación de una solución predictiva](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Creación de un área de trabajo](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: Entrenamiento y evaluación](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5: Implementación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6: Acceso al servicio web](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Ciencia de datos para principiantes
 ### [1: Cinco preguntas](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: ¿Están preparados los datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [Inicio rápido de R](machine-learning-r-quickstart.md)
 
-
 # Procedimientos
+
 ## Configuración de herramientas y utilidades
 ### [Configuración de entornos](machine-learning-data-science-environment-setup.md)
 ### [Configuración de máquinas virtuales](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Solución de problemas](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Implementación con ARM](machine-learning-deploy-with-resource-manager-template.md)
 #### [Creación en otra región](machine-learning-multi-geo.md)
+
 ## Análisis de las necesidades empresariales
 ### [Necesidades técnicas](machine-learning-data-science-plan-your-environment.md)
 ### [Identificación del escenario](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Adquisición y comprensión de datos
 ### Carga de datos en almacenamiento
 #### [Información general](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [Modelos de puntuación](machine-learning-data-science-spark-model-consumption.md)
 ##### [Exploración de datos avanzada](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Uso de Scala y Spark](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## Desarrollo de modelos
 ### Ingeniería y selección de características
 #### [Información general](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [Selección de características de TDSP](machine-learning-data-science-select-features.md)
 ### Creación y entrenamiento de modelos
 #### [Conversión en puntuación](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Administración del ciclo de vida de experimentos](machine-learning-version-control.md)
 #### [Administración de iteraciones](machine-learning-manage-experiment-iterations.md)
 #### [Uso de PowerShell para crear modelos](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Selección de algoritmos
@@ -120,11 +132,11 @@
 ##### [Ejecución de scripts de R](machine-learning-extend-your-experiment-with-r.md)
 ##### [Creación de módulos R personalizados](machine-learning-custom-r-modules.md)
 ##### [Ejecución de scripts de Python](machine-learning-execute-python-scripts.md)
+
 ## Implementación y consumo de modelos
 ### [Información general](machine-learning-deploy-consume-web-service-guide.md)
 ### Implementación de modelos
 #### [Cómo funciona](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Implementación de servicios web nuevos](machine-learning-webservice-deploy-a-web-service.md)
 #### [Implementación de un servicio web](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Uso de datos externos](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Implementación en varias regiones](machine-learning-how-to-deploy-to-multiple-regions.md)
@@ -147,6 +159,7 @@
 #### [Uso de Excel](machine-learning-consuming-from-excel.md)
 #### [Uso del complemento de Excel](machine-learning-excel-add-in-for-web-services.md)
 #### [Uso de una plantilla de aplicaciones web](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Ejemplos
 ### [Experimentos de muestra](machine-learning-sample-experiments.md)
 ### [Conjuntos de datos de ejemplo](machine-learning-use-sample-datasets.md)
@@ -158,10 +171,12 @@
 #### [Uso de SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Referencia
+
 ## [Módulo de PowerShell (nuevo)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [Módulo de PowerShell (clásico)](machine-learning-powershell-module.md)
 ## [Referencia de módulos y algoritmos](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [Referencia de API de REST](/rest/api/machinelearning)
+## [Códigos de error del servicio web](machine-learning-web-service-error-codes.md)
 
 # Temas relacionados
 
@@ -176,6 +191,7 @@
 ### [Tutoriales](machine-learning-gallery-tutorials.md)
 ### [Colecciones](machine-learning-gallery-collections.md)
 ### [Módulos personalizados](machine-learning-gallery-custom-modules.md)
+
 ## Cortana Analytics
 ### API existentes
 #### [Detección de anomalías](machine-learning-apps-anomaly-detection-api.md)
@@ -197,7 +213,7 @@
 ##### [Configuración](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Recursos
-## [Códigos de error de REST de Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Lenguaje de redes neuronales Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -208,6 +224,6 @@
 ## [Obtención de ayuda por chat](machine-learning-live-chat.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

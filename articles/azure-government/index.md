@@ -1,8 +1,20 @@
 ---
+title: "Documentación sobre Azure Government: tutoriales y referencia de API | Microsoft Docs"
+description: 
+services: Azure-government
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: Azure-government
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 93a2c8da64000d03538f73befc167368915c3dbb
+ms.sourcegitcommit: 651e65243a8f5d170b61352e0ab1d57d1a25ad1b
+ms.openlocfilehash: 1dc06fadc9c6b49ff314d5eab53ef1b0b1e91eda
 
 ---
 #<a name="azure-government-documentation"></a>Documentación de Azure Government
@@ -58,7 +70,7 @@ Microsoft Azure Government ofrece una plataforma en la nube que se basa en los p
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Servicios</h3>
+                        <h3>Services</h3>
                         <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">Proceso</a></p>
                         <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">Almacenamiento</a></p>
                         <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">Base de datos</a></p>
@@ -73,16 +85,10 @@ Microsoft Azure Government ofrece una plataforma en la nube que se basa en los p
 </ul>
     
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Azure Government </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 
