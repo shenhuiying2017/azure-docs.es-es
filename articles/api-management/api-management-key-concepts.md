@@ -1,5 +1,5 @@
 ---
-title: "Conceptos clave de Administración de API"
+title: "Información general y conceptos clave de Azure API Management | Microsoft Docs"
 description: "Obtenga información acerca de las API, los productos, los roles, los grupos y otros conceptos clave de Administración de API."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
-ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
 
 ---
 # <a name="what-is-api-management"></a>¿Qué es Administración de API?
@@ -25,7 +24,7 @@ La Administración de API ayuda a las organizaciones a publicar API para desarro
 
 Vea el siguiente vídeo para más información sobre Administración de API de Azure y aprender a usarla para agregar características a su API, incluido el control de acceso, limitación de tasa, supervisión, registro de eventos y almacenamiento en caché de respuestas, con el mínimo esfuerzo por su parte.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -132,6 +131,6 @@ Para más información acerca de Administración de API, vea la siguiente presen
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

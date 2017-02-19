@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: integración de las identidades locales con Azure Active Directory. | Microsoft Docs"
+title: "Conexión de Active Directory con Azure Active Directory | Microsoft Docs"
 description: "Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para las aplicaciones de Office 365, Azure y SaaS integradas con Azure AD."
 keywords: "introducción a Azure AD Connect, información general de Azure AD Connect, qué es Azure AD Connect, instalación de active directory"
 services: active-directory
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/13/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 1d79c703133ce568c3d87821364af2fac7686bff
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: fe52867519aa65cabb62a876d5bfe57310b90fd6
 
 
 ---
-# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Integración de las identidades locales con Azure Active Directory
+# <a name="connect-active-directory-with-azure-active-directory"></a>Conexión de Active Directory con Azure Active Directory
 Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD. Este tema le guiará a través del planeamiento, implementación y pasos de la operación. Se ofrece una colección de vínculos a temas relacionados con esta área.
 
 > [!IMPORTANT]
@@ -159,6 +159,6 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

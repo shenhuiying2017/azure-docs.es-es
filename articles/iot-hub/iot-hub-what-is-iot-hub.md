@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
-ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 249f2dcd852c771d0c48aa223a4596992e5ce3d7
 
 
 ---
@@ -59,7 +59,7 @@ Además de un amplio conjunto de opciones de comunicación [del dispositivo a la
 
 * **Dispositivos gemelos**. Con los [dispositivos gemelos][lnk-twins] puede almacenar, sincronizar y consultar metadatos e información de estado de los dispositivos. Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a IoT Hub. 
 * **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia [clave de seguridad][lnk-devguide-security] para permitirle conectarse a IoT Hub. El [registro de identidades de IoT Hub][lnk-devguide-identityregistry] almacena identidades y claves en una solución. Un back-end de soluciones puede agregar dispositivos individuales para permitir o denegar listas que permitan controlar por completo el acceso a los dispositivos.
-* **Enrutamiento de mensajes de dispositivo a nube a servicios de Azure según reglas declarativas**. IoT Hub permite definir rutas de mensajes basadas en reglas de mensaje para controlar dónde el centro envía mensajes de dispositivo a nube. Las reglas de mensaje no requieren que se escriba ningún código y pueden sustituir a los distribuidores de mensajes personalizados posteriores a la ingesta.
+* **Enrutamiento de mensajes de dispositivo a nube a servicios de Azure según reglas declarativas**. IoT Hub permite definir rutas de mensajes basadas en reglas de enrutamiento para controlar dónde el centro envía mensajes de dispositivo a nube. Las reglas de enrutamiento no requieren que se escriba ningún código y pueden sustituir a los distribuidores de mensajes personalizados posteriores a la ingesta.
 * **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esta funcionalidad de supervisión permite que la solución de IoT identifique los problemas de conectividad, como los dispositivos que intentan conectarse con credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
 * **Amplio conjunto de bibliotecas de dispositivos**. Los [SDK de dispositivo IoT de Azure][lnk-device-sdks] están disponibles y son compatibles con varios lenguajes y plataformas: C para muchas distribuciones de Linux, Windows y sistemas operativos en tiempo real. Los SDK de dispositivos IoT de Azure admiten lenguajes administrados como C#, Java y JavaScript.
 * **Extensibilidad y protocolos de IoT**. Si la solución no puede usar las bibliotecas de dispositivos, el Centro de IoT expone un protocolo público que permite a los dispositivos usar los protocolos MQTT v3.1.1, HTTP 1.1 o AMQP 1.0 de forma nativa. También puede ampliar el Centro de IoT para ofrecer soporte para protocolos personalizados mediante:
@@ -91,7 +91,7 @@ El sector de la telefonía móvil ha usado el patrón de comunicación asistida 
 IoT Hub es compatible con la ruta de acceso de emparejamiento público de ExpressRoute.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para aprender a enviar mensajes desde un dispositivo y recibirlos desde IoT Hub, y para saber cómo configurar rutas de mensajes a su centro de IoT, consulte [Envío y recepción de mensajes con IoT Hub][lnk-send-messages].
+Para aprender a enviar mensajes desde un dispositivo y recibirlos desde IoT Hub, y para saber cómo configurar rutas de mensajes, consulte [Envío y recepción de mensajes con IoT Hub][lnk-send-messages].
 
 Para saber cómo IoT Hub posibilita la administración de dispositivos basada en estándares para administrar, configurar y actualizar sus dispositivos de forma remota, consulte [Información general sobre la administración de dispositivos con IoT Hub][lnk-device-management].
 
@@ -127,6 +127,6 @@ Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutori
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d59a749a19bc5b3a57cc7e62c056d454c51c4204
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 99c5ea06a0970c360eb711a8b10894d416146693
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: d59a749a19bc5b3a57cc7e62c056d454c51c4204
 En este documento se explica cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudarle a aprender más sobre una amenaza que ha generado una alerta de seguridad.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>¿Qué es un informe de inteligencia frente a amenazas?
-La detección de amenazas de Security supervisa la información de seguridad de sus recursos de Azure, la red y las soluciones de asociados relacionadas. Después, analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas. Este proceso forma parte de las [funcionalidades de detección](security-center-detection-capabilities.md) de Security Center. 
+La detección de amenazas de Security supervisa la información de seguridad de sus recursos de Azure, la red y las soluciones de asociados relacionadas. Después, analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas. Este proceso forma parte de las [funcionalidades de detección](security-center-detection-capabilities.md) de Security Center.
 
-Cuando Security Center identifica una amenaza, desencadena una [alerta de seguridad](security-center-managing-and-responding-alerts.md), que contiene información detallada sobre un evento determinado, junto con sugerencias para remediarlo. Para ayudar a los equipos de respuesta a incidentes a investigar y solucionar las amenazas, Security Center incluye un informe de inteligencia frente a amenazas que contiene información sobre la amenaza detectada, y además: 
+Cuando Security Center identifica una amenaza, desencadena una [alerta de seguridad](security-center-managing-and-responding-alerts.md), que contiene información detallada sobre un evento determinado, junto con sugerencias para remediarlo. Para ayudar a los equipos de respuesta a incidentes a investigar y solucionar las amenazas, Security Center incluye un informe de inteligencia frente a amenazas que contiene información sobre la amenaza detectada, y además:
 
 * Identidad o asociaciones del atacante (si esta información está disponible)
 * Objetivos de los atacantes
@@ -38,29 +38,29 @@ Cuando Security Center identifica una amenaza, desencadena una [alerta de seguri
 
 > [!NOTE]
 > La cantidad de información de cualquier informe determinado variará; el nivel de detalle se basa en la actividad y el predominio del malware.
-> 
-> 
+>
+>
 
 Security Center tiene tres tipos de informes de amenazas, que pueden variar según el ataque. Los informes disponibles son:
 
 * **Informe de grupo de actividad**: proporciona información detallada sobre los atacantes, sus objetivos y las tácticas que empelan.
-* **Informe de campaña**: se centra en los detalles de campañas de ataque específicas. 
+* **Informe de campaña**: se centra en los detalles de campañas de ataque específicas.
 * **Informe de resumen de amenazas**: cubre todos los elementos de los dos informes anteriores.
 
-Este tipo de información es muy útil durante los procesos de [respuesta a incidentes](security-center-incident-response.md), donde hay una investigación en curso para comprender el origen del ataque, las motivaciones del atacante y lo que se debe hacer para mitigar este problema más adelante. 
+Este tipo de información es muy útil durante los procesos de [respuesta a incidentes](security-center-incident-response.md), donde hay una investigación en curso para comprender el origen del ataque, las motivaciones del atacante y lo que se debe hacer para mitigar este problema más adelante.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>¿Cómo acceder al informe de inteligencia frente a amenazas?
 Puede revisar las alertas actuales en el icono **Alertas de seguridad** . Abra Azure Portal y siga los pasos siguientes para ver más detalles sobre cada alerta:
 
 1. En el panel Security Center, verá el icono **Alertas de seguridad** .
 2. Haga clic en el icono para abrir la hoja **Alertas de seguridad** que contiene información más detallada sobre las alertas y haga clic en la alerta de seguridad sobre la que quiere más información.
-   
+
     ![Alertas de seguridad](./media/security-center-threat-report/security-center-threat-report-fig1.png)
 3. En este caso, la hoja **Suspicious process executed** (Proceso sospechoso ejecutado) muestra los detalles sobre la alerta, como se puede ver en la siguiente ilustración:
-   
+
     ![Detalles de alerta de seguridad](./media/security-center-threat-report/security-center-threat-report-fig2.png)
 4. La cantidad de información disponible para cada alerta de seguridad variará según el tipo de alerta. En el campo **INFORMES** hay un vínculo al informe de inteligencia frente a amenazas. Haga clic en él. Aparecerá otra ventana del explorador con el archivo PDF.
-   
+
    ![Selección de almacenamiento](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
 Desde aquí puede descargar el PDF de este informe y leer más sobre el problema de seguridad que se ha detectado para actuar en función de la información proporcionada.
@@ -78,7 +78,6 @@ En este documento, ha aprendido cómo los informes de inteligencia frente a amen
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
-ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Si tiene Visual Studio 2013, puede [descargar el último SDK de Azure para Visua
 
 ## <a name="create-the-visual-studio-project"></a>Creación del proyecto de Visual Studio
 1. Abra Visual Studio y haga clic en **Archivo**, **Nuevo**, **Proyecto**.
-2. Expanda el nodo **Visual C#** en la lista **Plantillas**, seleccione **Nube** y haga clic en **Aplicación web ASP.NET**. Asegúrese de que se selecciona **.NET Framework 4.5.2** .  Escriba **ContosoTeamStats** en el cuadro de texto **Nombre** y haga clic en **Aceptar**.
+2. Expanda el nodo **Visual C#** en la lista **Plantillas**, seleccione **Nube** y haga clic en **Aplicación web ASP.NET**. Asegúrese de que se selecciona **.NET Framework 4.5.2** o superior.  Escriba **ContosoTeamStats** en el cuadro de texto **Nombre** y haga clic en **Aceptar**.
    
     ![Crear proyecto][cache-create-project]
 3. Seleccione **MVC** como tipo de proyecto. Desactive la casilla **Host en la nube** . En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web del Servicio de aplicaciones desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
@@ -852,6 +852,6 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

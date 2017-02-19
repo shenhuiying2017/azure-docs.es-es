@@ -1,4 +1,4 @@
-En Azure Portal, puede ver el estado de la conexión de una puerta de enlace de una red virtual clásica navegando a la conexión. Hay varias formas de hacerlo. Los pasos siguientes muestran una manera de navegar a su conexión y realizar las comprobaciones necesarias.
+En Azure Portal, puede ver el estado de la conexión de una instancia de VPN Gateway de la red virtual clásica navegando a la conexión. Los pasos siguientes muestran una manera de navegar a su conexión y realizar las comprobaciones necesarias.
 
 1. En [Azure Portal](http://portal.azure.com), haga clic en **Todos los recursos** y navegue a la red virtual clásica.
 2. En la hoja de la red virtual, haga clic en **Información general** para acceder a la sección **Conexiones VPN** de la hoja.
@@ -12,6 +12,6 @@ En Azure Portal, puede ver el estado de la conexión de una puerta de enlace de 
 
     ![Más información del estado de la conexión](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Más información del estado de la conexión")
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

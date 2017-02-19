@@ -16,7 +16,7 @@ Se puede encontrar un conjunto de plantillas de ejemplo para los conjuntos de es
 
 En las páginas de detalle de estas plantillas, verá un botón que vincula con la característica de implementación del portal. Para implementar el conjunto de escala de máquinas virtuales, haga clic en el botón y después rellene los parámetros que son necesarios en el portal. Si no está seguro de si un recurso admite mayúsculas o la mezcla de mayúsculas y minúsculas, es más seguro usar siempre los valores de parámetro en minúsculas. Aquí hay también una práctica disección de vídeo de una plantilla del conjunto de escala de máquinas virtuales:
 
-[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>Escalado y reducción verticales de un conjunto de escala de máquinas virtuales
 Para aumentar o disminuir el número de máquinas virtuales en un conjunto de escalado de máquinas virtuales, basta con cambiar la propiedad *capacity* y volver a implementar la plantilla. Esta sencillez facilita la escritura de su propia capa de escalado personalizada si quiere definir eventos personalizados de escalado que no sean compatibles con el escalado automático de Azure.
@@ -64,7 +64,7 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Preguntas más frecuentes sobre los conjuntos de escala de máquinas virtuales
 **P.** ¿Cuántas máquinas virtuales puede tener en un conjunto de escala de máquinas virtuales?
 
-**R.** 100 si usa imágenes de plataforma que se puedan distribuir entre varias cuentas de almacenamiento. Si usa imágenes personalizadas, hasta 40, porque las imágenes personalizadas se limitan a una única cuenta de almacenamiento durante la vista previa.
+**R.** &100; si usa imágenes de plataforma que se puedan distribuir entre varias cuentas de almacenamiento. Si usa imágenes personalizadas, hasta 40, porque las imágenes personalizadas se limitan a una única cuenta de almacenamiento durante la vista previa.
 
 **P** ¿Qué otros límites de recursos existen para los conjuntos de escala de máquinas virtuales?
 
@@ -118,6 +118,6 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

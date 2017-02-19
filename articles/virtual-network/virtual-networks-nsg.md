@@ -1,10 +1,10 @@
 ---
-title: Grupos de seguridad de red | Microsoft Docs
+title: Grupos de seguridad de red en Azure | Microsoft Docs
 description: "Aprenda cómo aislar y controlar el flujo de tráfico dentro de las redes virtuales mediante el firewall distribuido de Azure y los grupos de seguridad de red."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
-ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
+ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
+ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
 
 
 ---
-# <a name="network-security-groups"></a>Grupos de seguridad de red
+# <a name="control-network-traffic-flow-with-network-security-groups"></a>Control del flujo de tráfico de red con grupos de seguridad de red
 
 Un grupo de seguridad de red (NSG) contiene una enumeración de las reglas de la lista de control de acceso (ACL), que permiten o deniegan el tráfico de red a sus instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de ACL se aplican a todas las instancias de VM de esa subred. Además, se puede restringir más el tráfico a una máquina virtual individual asociando un NSG directamente a esa máquina virtual.
 
@@ -93,8 +93,8 @@ Como se muestra en las siguientes reglas predeterminadas, el tráfico que se ori
 ## <a name="associating-nsgs"></a>Asociación de grupos de seguridad de red 
 Puede asociar un grupo de seguridad de red a máquinas virtuales, NIC y subredes, según el modelo de implementación que use.
 
-* **Asociación de un grupo de seguridad de red a una máquina virtual (solo implementaciones clásicas).**  Al asociar un grupo de seguridad de red a una VM, las reglas de acceso de red del grupo de seguridad de red se aplican a todo el tráfico que entra en la VM y sale de esta. 
-* **Asociación de un grupo de seguridad de red a una NIC (solo implementaciones del Administrador de recursos).**  Al asociar un grupo de seguridad de red a una NIC, las reglas de acceso de red del grupo de seguridad de red se aplican solo a esa NIC. Esto significa que en una máquina virtual con varias NIC, el que un grupo de seguridad de red se aplique a una sola NIC no afecta al tráfico enlazado a otras NIC. 
+* **Asociación de un grupo de seguridad de red a una máquina virtual (solo implementaciones clásicas).** Al asociar un grupo de seguridad de red a una VM, las reglas de acceso de red del grupo de seguridad de red se aplican a todo el tráfico que entra en la VM y sale de esta. 
+* **Asociación de un grupo de seguridad de red a una NIC (solo implementaciones del Administrador de recursos).** Al asociar un grupo de seguridad de red a una NIC, las reglas de acceso de red del grupo de seguridad de red se aplican solo a esa NIC. Esto significa que en una máquina virtual con varias NIC, el que un grupo de seguridad de red se aplique a una sola NIC no afecta al tráfico enlazado a otras NIC. 
 * **Asociación de un grupo de seguridad de red a una subred (todas las implementaciones).** Al asociar un grupo de seguridad de red a una subred, las reglas de acceso de red del grupo de seguridad de red se aplican a todos los recursos IaaS y PaaS de la subred. 
 
 Puede asociar grupos de seguridad de red diferentes a una máquina virtual (o NIC, según el modelo de implementación) y a la subred a la que está enlazada una NIC o máquina virtual. Cuando esto sucede, todas las reglas de acceso de red se aplican al tráfico, por prioridad en cada grupo de seguridad de red, en el orden siguiente:
@@ -261,6 +261,6 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Resource Manager y Azure Portal | Microsoft Docs"
-description: "Cómo crear una red virtual con el modelo de implementación de Resource Manager y conectarla a la red local mediante una conexión de puerta de enlace de VPN de sitio a sitio."
+title: "Conexión de la red local a una red virtual de Azure: VPN de sitio a sitio: Portal | Microsoft Docs"
+description: "Pasos para crear una conexión de IPsec desde la red local a una red virtual de Azure a través de la red pública de Internet. Estos pasos le ayudarán a crear una conexión de VPN Gateway de sitio a sitio entre locales mediante el portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 827a4db7-7fa5-4eaf-b7e1-e1518c51c815
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: f0491df77418c4d7c79beff87302b64ddc3fa9be
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: f0491df77418c4d7c79beff87302b64ddc3fa9be
 
 Este artículo lo guía por la creación de una red virtual y una conexión VPN Gateway de sitio a sitio a una red local mediante el modelo de implementación de Azure Resource Manager y el Azure Portal. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
 
-![Diagrama](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
+![Diagrama de la conexión entre locales de VPN Gateway de sitio a sitio](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modelos y métodos de implementación para las conexiones de sitio a sitio
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -130,6 +130,6 @@ Puede comprobar la conexión de VPN en el portal, o bien mediante el uso de Powe
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

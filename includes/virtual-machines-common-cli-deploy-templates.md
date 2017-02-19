@@ -42,12 +42,18 @@ Ahora [inicie sesión de manera interactiva en su cuenta de Azure](../articles/x
 
 La cuenta puede tener más de una suscripción. Puede enumerar las suscripciones escribiendo `azure account list`, que podría ser algo similar a lo siguiente:
 
-```azure cli azure account list info:    Executing command account list data:    Name                              Id                                    Tenant Id                            Current data:    --------------------------------  ------------------------------------  ------------------------------------  ------- data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
+```azurecli
+azure account list
+info:    Executing command account list
+data:    Name                              Id                                    Tenant Id                            Current
+data:    --------------------------------  ------------------------------------  ------------------------------------  -------
+data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true
+data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
+Puede establecer la suscripción de Azure actual escribiendo lo siguiente. Use el nombre de la suscripción o el identificador que tiene los recursos que desea administrar.
 
 ```azurecli
 azure account set <subscription name or ID> true
@@ -115,8 +121,8 @@ En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de A
 | MicrosoftSQLServer |WS2012R2 SQL2014 |Enterprise-Optimized-for-OLTP |12.0.2430 |
 | Canonical |UbuntuServer |12.04.5-LTS |12.04.201504230 |
 | Canonical |UbuntuServer |14.04.2-LTS |14.04.201503090 |
-| Microsoft Windows Server |Windows Server |Centro de datos de 2012 |3.0.201503 |
-| Microsoft Windows Server |Windows Server |Centro de datos de 2012-R2 |4.0.201503 |
+| Microsoft Windows Server |Windows Server |Centro de datos de&2012; |3.0.201503 |
+| Microsoft Windows Server |Windows Server |Centro de datos de&2012;-R2 |4.0.201503 |
 | Microsoft Windows Server |Windows Server |Windows-Server-Technical-Preview |5.0.201504 |
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |1.0.141204 |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
@@ -1302,6 +1308,6 @@ Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm** , con
 Para ver más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) e [Implementación de marcos de aplicaciones conocidos mediante plantillas de Azure Resource Manager](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
