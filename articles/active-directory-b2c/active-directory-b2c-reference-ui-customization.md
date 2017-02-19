@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 8294842893742dcbc7a987421b454ceb7691450c
+ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
+ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 
 ---
@@ -340,7 +340,7 @@ Si piensa usar la característica de personalización de la interfaz de usuario 
 
 * No copie el contenido predeterminado de Azure AD B2C ni intente modificarlo. Es preferible generar su propio contenido de HTML5 desde cero y usar la plantilla predeterminada como referencia.
 * En todas las páginas (excepto en las páginas de error) que sirven las directivas de inicio de sesión, registro y edición de perfiles, las hojas de estilo que proporcione tendrán que reemplazar las hojas de estilo predeterminadas que agregamos a estas páginas en los fragmentos de <head> . En todas las páginas que sirven las directivas de inicio de sesión, registro y contraseña, y las páginas de error de todas las directivas, tendrá que aportar todo el estilo usted mismo.
-* Por motivos de seguridad, no le permitimos incluir cualquier código JavaScript en su contenido. La mayor parte de lo que necesita debería estar disponible de fábrica. De no ser así, utilice [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar una nueva funcionalidad.
+* Por motivos de seguridad, no le permitimos incluir cualquier código JavaScript en su contenido. La mayor parte de lo que necesita debería estar disponible de fábrica. De no ser así, utilice [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) para solicitar una nueva funcionalidad.
 * Versiones de explorador admitidas:
   * Internet Explorer 11, 10, Edge
   * Compatibilidad limitada con Internet Explorer 9, 8
@@ -349,6 +349,6 @@ Si piensa usar la característica de personalización de la interfaz de usuario 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

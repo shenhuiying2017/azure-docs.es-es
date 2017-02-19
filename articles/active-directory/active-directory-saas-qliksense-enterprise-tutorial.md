@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: ce18993832ce4953a1c3b21707206cdd06580edd
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 00dcedb09ea63b4337b2b730746fb2f5a1f27e64
 
 
 ---
@@ -183,7 +183,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     
     d. En el campo **SAML entity ID** (Id. de entidad SAML), escriba el mismo valor que especificó en el campo de URI de host SAML.
     
-    e. **SAML IdP metadata** (Metadatos de IdP de SAML) es el archivo que se editó anteriormente en la sección de **modificación de los metadatos de federación desde la configuración de Azure AD**.  **Antes de cargar los metadatos de IdP, hay que editar el archivo** para quitar información y, de este modo, garantizar que la conexión entre Azure AD y el servidor de Qlik se realice sin problemas.  **Consulte las instrucciones anteriores si aún no ha modificado el archivo.**   Si ya lo ha hecho, haga clic en el botón Examinar y seleccione el archivo de metadatos editado para cargarlo en la configuración de proxy virtual.
+    e. **SAML IdP metadata** (Metadatos de IdP de SAML) es el archivo que se editó anteriormente en la sección de **modificación de los metadatos de federación desde la configuración de Azure AD**.  **Antes de cargar los metadatos de IdP, hay que editar el archivo** para quitar información y, de este modo, garantizar que la conexión entre Azure AD y el servidor de Qlik se realice sin problemas.  **Consulte las instrucciones anteriores si aún no ha modificado el archivo.**  Si ya lo ha hecho, haga clic en el botón Examinar y seleccione el archivo de metadatos editado para cargarlo en la configuración de proxy virtual.
     
     f. Escriba el nombre de atributo o la referencia de esquema del atributo SAML que representa el **id. de usuario** que Azure AD enviará al servidor de Qlik Sense.  La información de referencia del esquema está disponible en las pantallas de la aplicación de Azure que aparecen tras el proceso de configuración.  Para usar el atributo de nombre, **escriba: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
     
@@ -202,7 +202,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     
     ![QlikSense][qs13]
     
-    a. La lista blanca de Host identifica los nombres de host que se aceptan al conectarse al servidor de Qlik Sense.  **Escriba el nombre de host que especificarán los usuarios al conectarse al servidor de Qlik sentido.**  El nombre de host es el mismo valor que el URI de host SAML, pero sin "https://".
+    a. La lista blanca de Host identifica los nombres de host que se aceptan al conectarse al servidor de Qlik Sense.  **Escriba el nombre de host que especificarán los usuarios al conectarse al servidor de Qlik sentido.** El nombre de host es el mismo valor que el URI de host SAML, pero sin "https://".
 15. Haga clic en el botón Aplicar.
     
     ![QlikSense][qs14]
@@ -375,6 +375,6 @@ Al hacer clic en el icono de Qlik Sense Enterprise del panel de acceso, debería
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

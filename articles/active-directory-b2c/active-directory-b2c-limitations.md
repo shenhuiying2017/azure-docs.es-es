@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 0f0805c8363226b6fab6463c668d750e8e7c9265
+ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
+ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
 
 
 ---
@@ -27,9 +27,6 @@ Hay varias características y funcionalidades de Azure Active Directory (Azure A
 Si surgen problemas durante la [creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started.md), consulte [Creación de un inquilino de Azure AD o de Azure AD B2C: problemas y soluciones](active-directory-b2c-support-create-directory.md) para saber qué hacer.
 
 Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C existente y volver a crearlo con el mismo nombre de dominio. Es necesario crear un inquilino de B2C con otro nombre de dominio.
-
-## <a name="note-about-b2c-tenant-quotas"></a>Nota sobre las cuotas de inquilinos B2C
-De forma predeterminada, el número de usuarios de un inquilino B2C está limitado a 50 000 usuarios. Si necesita aumentar la cuota del inquilino B2C, póngase en contacto con el soporte técnico.
 
 ## <a name="branding-issues-on-verification-email"></a>Problemas de personalización de marca en el mensaje de confirmación
 El correo electrónico de comprobación predeterminado contiene información de personalización de marca de Microsoft. Lo quitaremos en el futuro. Por ahora, puede quitarla mediante la [característica de personalización de marca corporativa](../active-directory/active-directory-add-company-branding.md).
@@ -133,6 +130,6 @@ Esto se debe al tamaño de los códigos de autorización proporcionados por Azur
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

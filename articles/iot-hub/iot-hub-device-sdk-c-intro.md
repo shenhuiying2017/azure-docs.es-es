@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 02907ef15742cda456fd0c5f10b777b11aa7c35e
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 0033f1cc036e1eef63f0728be8d5d73c8dbbccf6
 
 
 ---
@@ -30,7 +30,7 @@ Existe una amplia gama de plataformas en las que se ha probado el SDK (consulte 
 En este artículo se presentarán la arquitectura del SDK de dispositivo IoT de Azure para C. Demostraremos cómo inicializar la biblioteca de dispositivos, enviar eventos al Centro de IoT y como recibir mensajes de él. La información de este artículo debería ser suficiente para comenzar a usar el SDK, pero también se proporcionan referencias a información adicional sobre las bibliotecas.
 
 ## <a name="sdk-architecture"></a>Arquitectura del SDK
-Puede encontrar el [**SDK de dispositivo IoT de Azure para C**](https://github.com/Azure/azure-iot-sdk-c) en el repositorio de GitHub y ver los detalles de la API en la [referencia de la API de C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Puede encontrar el [**SDK de dispositivo IoT de Azure para C**](https://github.com/Azure/azure-iot-sdk-c) en el repositorio de GitHub y ver los detalles de la API en la [referencia de la API de C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 Encontrará la versión más reciente de las bibliotecas en la bifurcación **principal** del repositorio:
 
@@ -466,6 +466,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

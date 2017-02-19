@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bda882273b6aeddcfa9ed7ba272bc08e620b666e
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: 2518f368c7251d5d1b8ea0b46b99ac356fee29ab
 
 
 ---
@@ -25,24 +25,24 @@ Azure Active Directory (Azure AD) es una completa solución de administración d
 
 > [!NOTE]
 > Para usar Azure Active Directory, necesita una cuenta de Azure. Si aún no tiene ninguna, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/pricing/free-trial/).
-> 
-> 
+>
+>
 
 Dentro de Azure AD, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio, o recursos externos al directorio, como las aplicaciones SaaS, servicios de Azure y sitios de SharePoint o publicados en modo local. Existen cuatro formas de asignar a un usuario derechos de acceso a un recurso:
 
 1. Asignación directa
-   
+
     El propietario de un recurso puede entonces asignar directamente usuarios al mismo.
 2. Pertenencia a grupos
-   
+
     El propietario de un recurso puede asignarle un grupo y, al hacerlo, conceder acceso al recurso a los miembros de ese grupo. El propietario del grupo puede administrar entonces la pertenencia dicho grupo. El propietario del recurso delega efectivamente en el propietario del grupo el permiso para asignar a usuarios a sus recursos.
 3. Basado en reglas
-   
+
     El propietario del recurso puede usar una regla para indicar a qué usuarios se les debe asignar acceso a un recurso. El resultado de la regla depende de los atributos utilizados en dicha regla y de sus valores para usuarios específicos; si se hace así, el propietario del recurso delega efectivamente los derechos de administración de acceso en el origen de autoridad de los atributos usados en la regla. El propietario del recurso sigue pudiendo administrar la regla propiamente dicha y determina qué atributos y valores proporcionan acceso a su recurso.
 4. Autoridad externa
-   
+
     El acceso a un recurso se deriva de un origen externo, por ejemplo, un grupo que se sincroniza desde un origen de autoridad, como un directorio local o una aplicación de SaaS como WorkDay. El propietario del recurso asigna al grupo para proporcionar acceso al recurso y el origen externo administra a los miembros del grupo.
-   
+
    ![Información general del diagrama de administración del acceso](./media/active-directory-access-management-groups/access-management-overview.png)
 
 ## <a name="watch-a-video-that-explains-access-management"></a>Vea un vídeo que explica la administración del acceso
@@ -51,8 +51,8 @@ Puede ver un breve vídeo que explica más detalladamente este tema:
 **Azure AD: Introducción a las pertenencias dinámicas para grupos**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups/player]
-> 
-> 
+>
+>
 
 ## <a name="how-does-access-management-in-azure-active-directory-work"></a>¿Cómo funciona la administración de acceso en Azure Active Directory?
 En el centro de la solución de administración de acceso de Azure AD se encuentra el grupo de seguridad. Usar un grupo de seguridad para administrar el acceso a los recursos es un paradigma conocido, lo que permite contar con una forma flexible y fácil de entender de proporcionar acceso a un recurso para el grupo de usuarios previsto. El propietario de los recursos (o el administrador del directorio) puede asignar un grupo para proporcionar determinados derechos de acceso a los recursos que posee. Los miembros del grupo recibirán el derecho de acceso y el propietario del recurso puede delegar en otra persona el derecho de administrar la lista de miembros de un grupo, por ejemplo, un administrador de departamento o un administrador de soporte técnico.
@@ -70,7 +70,7 @@ El propietario de un grupo también puede hacer que ese grupo esté disponible p
 * [Sincronización de un grupo local con Azure mediante Azure AD Connect](active-directory-aadconnect.md)
 * [Administración de propietarios de un grupo](active-directory-accessmanagement-managing-group-owners.md)
 
-## <a name="next-steps-for-access-management"></a>Pasos siguientes para administración de accesos
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha comprendido los conceptos básicos de la administración de accesos, presentamos algunas capacidades avanzadas adicionales disponibles en Azure Active Directory para administrar el acceso a sus aplicaciones y recursos.
 
 * [Uso de atributos para crear reglas avanzadas](active-directory-accessmanagement-groups-with-advanced-rules.md)
@@ -81,7 +81,6 @@ Ahora que ha comprendido los conceptos básicos de la administración de accesos
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
