@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: a1a292716a501adbc048ef68b9f567865ef991b2
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 0649f36f55696d2c9a9d31a9f87bc3b34373f273
 
 
 ---
@@ -28,12 +28,11 @@ Si tiene pensado entregar activos cifrados, uno de los pasos del flujo de trabaj
 
 En este tema se explica por qué y cómo crear y configurar directivas de entrega de recursos.
 
-> [!NOTE]
-> Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> Además, el recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable.
-> 
-> 
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+>
+>Además, para poder usar el empaquetado dinámico y el cifrado dinámico, el recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable.
+
 
 Puede aplicar diferentes directivas al mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth Streaming y cifrado de sobre AES a MPEG DASH y HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción a esta regla se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
 
@@ -348,6 +347,6 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

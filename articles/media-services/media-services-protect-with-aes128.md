@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: fb244491ec243399393320d0dbefb078273448d9
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 5b81c3cdabe7b02a2049d7d1a5e227f5886bdbad
 
 
 ---
@@ -42,10 +42,6 @@ Para aprovechar las ventajas del cifrado dinámico, debe disponer de un recurso 
 
 Este tema será útil para los desarrolladores que trabajan en aplicaciones que proporcionan contenido multimedia protegido. Se describe cómo configurar el servicio de entrega de claves con directivas de autorización para que solo los clientes autorizados puedan recibir las claves de cifrado. También se describe cómo usar el cifrado dinámico.
 
-> [!NOTE]
-> Para empezar a usar el cifrado dinámico, primero debe obtener al menos una unidad de escalado (también conocida como unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Flujo de trabajo de cifrado dinámico AES-128 y del servicio de entrega de claves
 
@@ -81,6 +77,11 @@ Para obtener información detallada, consulte [Carga de archivos en una cuenta d
 
 ## <a name="a-idencodeassetaencode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Codificación del activo que contiene el archivo con Adaptive Bitrate MP4 Set.
 Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md) .
+
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+>
+>Además, para poder usar el empaquetado dinámico y el cifrado dinámico, el recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable.
 
 Para obtener instrucciones sobre cómo codificar, consulte [Codificación de un recurso mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -631,6 +632,6 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

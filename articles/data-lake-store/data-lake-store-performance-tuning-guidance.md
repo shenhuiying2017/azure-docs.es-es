@@ -1,6 +1,6 @@
 ---
-title: "Directrices para la optimización del rendimiento de Data Lake Store | Microsoft Docs"
-description: "Directrices para la optimización del rendimiento de Data Lake Store"
+title: "Directrices para la optimización del rendimiento de Azure Data Lake Store | Microsoft Docs"
+description: "Directrices para la optimización del rendimiento de Azure Data Lake Store"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 30e6dd65fa2643fdf7ec65601d6391891d48566c
-ms.openlocfilehash: 1238f834edc9452a6a9791d9f3db8d8d50a975a7
+ms.sourcegitcommit: af11866fc812cd8a375557b7bf9df5cdc9bba610
+ms.openlocfilehash: f0d0c05c08ce198e2702c76ad35b348107c664c7
 
 
 ---
@@ -86,10 +86,10 @@ Azure Data Lake Store está mejor optimizado para el rendimiento cuando hay más
 
     | Carga de trabajo               | Parámetro para establecer tareas                                                         |
     |--------------------|------------------------------------------------------------------------------------|
-    | Spark en HDInisight       | <ul><li>Num-executors</li><li>Memoria del ejecutor</li><li>Executor-cores</li></ul> |
-    | Hive en HDInsight    | hive.tez.container.size         |
-    | MapReduce en HDInsight            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-    | Storm en HDInsight| <ul><li>Número de procesos de trabajo</li><li>Número de instancias de ejecutor de spout</li><li>Número de instancias de ejecutor de bolt </li><li>Número de tareas de spout</li><li>Número de tareas de bolt</li></ul>|
+    | [Spark en HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Memoria del ejecutor</li><li>Executor-cores</li></ul> |
+    | [Hive en HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
+    | [MapReduce en HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+    | [Storm en HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de procesos de trabajo</li><li>Número de instancias de ejecutor de spout</li><li>Número de instancias de ejecutor de bolt </li><li>Número de tareas de spout</li><li>Número de tareas de bolt</li></ul>|
 
 ## <a name="see-also"></a>Consulte también
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
@@ -97,6 +97,6 @@ Azure Data Lake Store está mejor optimizado para el rendimiento cuando hay más
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

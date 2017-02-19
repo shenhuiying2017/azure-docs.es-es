@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 31c630088b6dc7481068e8050972b693f4dcaf71
+ms.sourcegitcommit: 5a46b53f42fce7577485517e9d345cf2ad3f0926
+ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
 
 
 ---
@@ -38,7 +38,7 @@ Para obtener acceso a la red RDMA de Azure para el tráfico de MPI de Windows, l
 * **MPI** : Microsoft MPI (MS-MPI) 2012 R2 o versiones posteriores, MPI Intel Library 5.x.
 
   Las implementaciones de MPI compatibles usan la interfaz Microsoft Network Direct para comunicarse entre las instancias. 
-* **Extensión de máquina virtual HpcVmDrivers**: en las máquinas virtuales compatibles con RDMA, es necesario agregar la extensión HpcVmDrivers a las máquinas virtuales para instalar los controladores de dispositivos de red de Windows necesarios para la conectividad RDMA. (En los servicios en la nube y en algunas implementaciones de máquinas virtuales, la extensión HpcVmDrivers se agrega automáticamente). Si tiene que agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azureps-cmdlets-docs) para Azure Resource Manager.
+* **Extensión de máquina virtual HpcVmDrivers**: en las máquinas virtuales compatibles con RDMA, es necesario agregar la extensión HpcVmDrivers a las máquinas virtuales para instalar los controladores de dispositivos de red de Windows necesarios para la conectividad RDMA. (En algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDrivers se agrega automáticamente). Si tiene que agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azureps-cmdlets-docs) para Azure Resource Manager.
 
   Para obtener información sobre la extensión HpcVmDrivers más reciente:
 
@@ -67,6 +67,6 @@ Para más información y ver listas de comprobación para usar instancias de pro
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

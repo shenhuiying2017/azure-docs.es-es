@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
 
 
 ---
@@ -28,6 +28,9 @@ Para ello, puede realizar estas tareas:
 * Codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptable) (esto se encargará de las condiciones de calidad y red).
 * Usar el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Microsoft Azure Media Services para volver a empaquetar de forma dinámica la transmisión en distintos protocolos (esto se encargará del streaming en dispositivos diferentes). Media Services admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG-DASH.
 
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+
 En este artículo se ofrece información general sobre importantes conceptos de entrega de contenido.
 
 Para comprobar los problemas conocidos, consulte [esta sección](media-services-deliver-content-overview.md#known-issues).
@@ -35,14 +38,11 @@ Para comprobar los problemas conocidos, consulte [esta sección](media-services-
 ## <a name="dynamic-packaging"></a>Empaquetado dinámico
 Gracias al empaquetado dinámico de Media Services, podrá entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos compatibles con Media Services (MPEG-DASH, HLS y Smooth Streaming) sin tener que volver a realizar el empaquetamiento en estos formatos de streaming. Recomendamos entregar el contenido con empaquetado dinámico.
 
-Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
-
-* Codifique el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable.
-* Obtenga, al menos, la unidad de streaming a petición del punto de conexión de streaming desde el que planea entregar el contenido. Para más información, consulte [Escalado de unidades reservadas de streaming a petición](media-services-portal-manage-streaming-endpoints.md).
+Para aprovechar el empaquetado dinámico, tiene que codificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable.
 
 Gracias al empaquetado dinámico, puede almacenar y pagar los archivos en un solo formato de almacenamiento. Servicios multimedia creará y publicará la respuesta adecuada según las solicitudes.
 
-Además de proporcionar acceso a las funcionalidades de empaquetado dinámico, las unidades reservadas de streaming a petición con capacidad de salida dedicada pueden adquirirse en incrementos de 200 Mbps. De manera predeterminada, el streaming a petición está configurado en un modelo de instancia compartido en el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición.
+Empaquetado dinámico está disponible para puntos de conexión de streaming estándar y premium. 
 
 Para obtener más información, consulte [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
@@ -66,7 +66,7 @@ Los localizadores tienen fecha de expiración. El Portal de Azure establece una 
 > 
 > 
 
-Para actualizar la fecha de caducidad de un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Para actualizar la fecha de caducidad de un localizador, use las API de [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
 Los localizadores no están diseñados para administrar el control de acceso por usuario. Puede conceder derechos de acceso diferentes a usuarios individuales con las soluciones de administración de derechos digitales (DRM). Para obtener más información, consulte [Protección de archivos multimedia](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
@@ -78,9 +78,9 @@ Las tecnologías de velocidad de bits adaptable permiten a las aplicaciones para
 Para proporcionar direcciones URL de streaming a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador brinda la ruta de acceso de base al recurso que contiene el contenido que desea transmitir. Sin embargo, para poder transmitir este contenido, es necesario modificar aún más esta ruta de acceso. Para crear una dirección URL completa al archivo de manifiesto del streaming, debe concatenar el valor de la ruta de acceso del localizador y el nombre de archivo del manifiesto (filename.ism). Luego, anexe **/Manifiest** y un formato adecuado (si corresponde) a la ruta de acceso del localizador.
 
 > [!NOTE]
-> También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS.
+> También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. Tenga en cuenta que, actualmente, AMS no admite SSL con dominios personalizados.  
 > 
-> 
+
 
 Solo puede transmitir por SSL si se creó el punto de conexión de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre de 2014, la dirección URL contendrá streaming.mediaservices.windows.net. Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo punto de conexión de streaming para transmitir el contenido a través de SSL.
 
@@ -143,9 +143,13 @@ Se aplican las siguientes consideraciones:
 * Se producirá un error en una descarga que no se haya completado en 12 horas.
 
 ## <a name="streaming-endpoints"></a>Puntos de conexión de streaming
-Un punto de conexión de streaming representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para su posterior distribución. La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Servicios multimedia. También puede controlar la capacidad del servicio de punto de conexión de streaming para administrar las necesidades crecientes de ancho de banda ajustando las unidades reservadas de streaming. Debe asignar al menos una unidad reservada para las aplicaciones en un entorno de producción. Para más información, consulte [Escalado de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 
-## <a name="known-issues"></a>esta sección
+Un punto de conexión de streaming representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para su posterior distribución. La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Servicios multimedia. Existen dos tipos de puntos de conexión de streaming: **estándar** y **premium**. Para obtener más información, consulte [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Información general de puntos de conexión de streaming).
+
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+
+## <a name="known-issues"></a>Problemas conocidos
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Cambios en la versión de manifiesto de Smooth Streaming
 Antes de la versión de servicio de julio de 2016, cuando los recursos producidos por el flujo de trabajo del Codificador multimedia estándar, el Codificador multimedia premium o el Codificador multimedia de Azure heredado se transmitieron mediante el empaquetado dinámico, el manifiesto de Smooth Streaming devuelto podría ajustarse a la versión 2.0. En la versión 2.0, las duraciones de fragmentos no utilizan las llamadas "etiquetas de repetición". Por ejemplo:
 
@@ -184,6 +188,6 @@ Es posible que algunos de los clientes heredados de Smooth Streaming no admitan 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

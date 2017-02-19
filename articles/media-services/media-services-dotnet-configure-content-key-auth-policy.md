@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 39f4f0b7e9bbe28a36471558c8535ee9f3cd17ff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
 
 
 ---
@@ -45,7 +45,7 @@ Para obtener más información, consulte
 [Uso de ACS de Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>Se aplican algunas consideraciones:
-* Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
+* Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming debe estar en estado **Running** (En ejecución). 
 * El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
 * Cargue y codifique sus recursos con la opción **AssetCreationOptions.StorageEncrypted** .
 * Si planea tener varias claves de contenido que requieran la misma configuración de directiva, se recomienda encarecidamente crear una sola directiva de autorización y volverla a utilizar con varias claves de contenido.
@@ -59,11 +59,16 @@ La restricción open significa que el sistema entregará la clave a cualquier pe
 
 En el ejemplo siguiente se crea una directiva de autorización abierta y se agrega a la clave de contenido.
 
-static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Crear ContentKeyAuthorizationPolicy con restricciones abiertas // y crear directivas de autorización IContentKeyAuthorizationPolicy policy = _context.
-ContentKeyAuthorizationPolicies.
-CreateAsync("Directiva de autorización abierta").Result;
-
-List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>();
+    static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
+    {
+        // Create ContentKeyAuthorizationPolicy with Open restrictions
+        // and create authorization policy
+        IContentKeyAuthorizationPolicy policy = _context.
+        ContentKeyAuthorizationPolicies.
+        CreateAsync("Open Authorization Policy").Result;
+        
+        List<ContentKeyAuthorizationPolicyRestriction> restrictions =
+            new List<ContentKeyAuthorizationPolicyRestriction>();
 
         ContentKeyAuthorizationPolicyRestriction restriction =
             new ContentKeyAuthorizationPolicyRestriction
@@ -424,6 +429,6 @@ Ahora que ha configurado la directiva de autorización de la clave de contenido,
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

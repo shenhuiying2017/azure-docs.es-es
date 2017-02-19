@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 
 
 ---
@@ -34,7 +34,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
-* [CLI de Azure 0.10.4][lnk-CLI-install] o una versión posterior. Si ya tiene la CLI de Azure, puede validar la versión actual en el símbolo del sistema con el comando siguiente:
+* [CLI de Azure 0.10.4][lnk-CLI-install] o una versión posterior. Si ya tiene la CLI de Azure instalada, puede validar la versión actual en el símbolo del sistema con el comando siguiente:
   ```
     azure --version
   ```
@@ -49,25 +49,25 @@ Para completar este tutorial, necesitará lo siguiente:
 > 
 
 ## <a name="set-your-azure-account-and-subscription"></a>Definición de su cuenta y suscripción de Azure
-1. En el símbolo del sistema, escriba el siguiente comando para iniciar sesión
+1. En el símbolo del sistema, escriba el siguiente comando para iniciar sesión:
    
    ```
     azure login
    ```
    Utilice el explorador web sugerido y el código de autenticación.
-2. Si tiene varias suscripciones de Azure, la conexión a Azure le dará acceso a todas las suscripciones de Azure asociadas a sus credenciales. Podrá ver las suscripciones de Azure, así como cuál es la predeterminada, mediante el comando.
+2. Si tiene varias suscripciones de Azure, la conexión a Azure le concede acceso a todas las suscripciones asociadas a sus credenciales. Puede ver las suscripciones de Azure, y determinar cuál es la predeterminada, mediante el comando:
    
    ```
     azure account list 
    ```
 
-   Para establecer el contexto de la suscripción en el que desea ejecutar el resto de los comandos, use
+   Para establecer el contexto de la suscripción en el que desea ejecutar el resto de los comandos, use:
 
    ```
     azure account set <subscription name>
    ```
 
-3. Si no tiene un grupo de recursos, puede crear uno denominado **exampleResourceGroup** 
+3. Si no tiene un grupo de recursos, puede crear uno denominado **exampleResourceGroup**:
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
@@ -88,21 +88,21 @@ Parámetros obligatorios:
     - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
     - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
 ```
-Para ver todos los parámetros de creación disponibles, puede usar el comando de ayuda en el símbolo del sistema
+Para ver todos los parámetros de creación disponibles, puede usar el comando de ayuda en el símbolo del sistema:
 
 ```
     azure iothub create -h 
 ```
 Ejemplo rápido:
 
- Para crear un Centro de IoT denominado **exampleIoTHubName** en el grupo de recursos **exampleResourceGroup** simplemente ejecute el siguiente comando
+ Para crear un IoT Hub denominado **exampleIoTHubName** en el grupo de recursos **exampleResourceGroup**, ejecute el siguiente comando:
 
 ```
     azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
-> Este comando de la CLI de Azure crea un IoT Hub Estándar S1 por el que se le cobrará. Puede eliminar el Centro de IoT **exampleIoTHubName** con el siguiente comando 
+> Este comando de la CLI de Azure crea un IoT Hub Estándar S1 por el que se le cobrará. Puede eliminar el IoT Hub denominado **exampleIoTHubName** con el siguiente comando:
 > 
 > ```
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -133,6 +133,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

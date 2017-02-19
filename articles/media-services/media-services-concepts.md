@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: d96a1b951bafd1739dff4ac236757ab2f6ca150b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: d94b3c59ba23220f7cb377ada8fa2231eaa9838b
 
 
 ---
@@ -25,9 +25,9 @@ En este tema se proporciona información general sobre los conceptos más import
 
 ## <a name="a-idassetsaassets-and-storage"></a><a id="assets"></a>Activos y almacenamiento
 ### <a name="assets"></a>Recursos
-Un [recurso](https://msdn.microsoft.com/library/azure/hh974277.aspx) contiene archivos digitales (como vídeos, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos) y metadatos de estos archivos. Una vez que los archivos digitales se cargan en un recurso, se pueden utilizar en los flujos de trabajo de codificación y streaming en Servicios multimedia.
+Un [recurso](https://docs.microsoft.com/rest/api/media/operations/asset) contiene archivos digitales (como vídeos, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos) y metadatos de estos archivos. Una vez que los archivos digitales se cargan en un recurso, se pueden utilizar en los flujos de trabajo de codificación y streaming en Servicios multimedia.
 
-Un recurso se asigna a un contenedor de blobs en la cuenta de almacenamiento de Azure y los archivos del recurso se almacenan como blobs en ese contenedor.
+Un recurso se asigna a un contenedor de blobs en la cuenta de Azure Storage y los archivos del recurso se almacenan como blobs en bloques en ese contenedor. Azure Media Services no admite los blobs en páginas.
 
 Cuando se decide qué contenido multimedia cargar y almacenar en un recurso, se aplican las siguientes consideraciones:
 
@@ -35,7 +35,7 @@ Cuando se decide qué contenido multimedia cargar y almacenar en un recurso, se 
 * Un recurso no puede contener varias representaciones o ediciones de un archivo audiovisual. Un ejemplo de uso inadecuado de un recurso sería intentar almacenar más de un episodio de televisión, anuncio o varios ángulos de cámara desde una sola producción dentro de un recurso. Almacenar varias representaciones o ediciones de un archivo audiovisual en un recurso puede generar dificultades en el envío de trabajos de codificación, en la transmisión y protección de la entrega del recurso más adelante en el flujo de trabajo.  
 
 ### <a name="asset-file"></a>Archivo de recursos
-Un [AssetFile](https://msdn.microsoft.com/library/azure/hh974275.aspx) representa un archivo de vídeo o audio real almacenado en un contenedor de blobs. Un archivo de recursos siempre está asociado con un recurso y un recurso puede contener uno o varios archivos. La tarea de Servicios multimedia produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
+Un [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa un archivo de vídeo o audio real almacenado en un contenedor de blobs. Un archivo de recursos siempre está asociado con un recurso y un recurso puede contener uno o varios archivos. La tarea de Servicios multimedia produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
 
 La instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
 
@@ -57,7 +57,7 @@ Para entregar a un recurso cifrado de almacenamiento, debe configurar la directi
 **EnvelopeEncryptedProtected** : utilice esta opción si desea proteger HTTP Live Streaming (HLS) cifrado (o cargar uno ya protegido) con estándar de cifrado avanzado (AES). Tenga en cuenta que si carga HLS ya cifrado con AES, se debe haber cifrado con Transform Manager.
 
 ### <a name="access-policy"></a>Directiva de acceso
-Un [AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx) define los permisos (como lectura, escritura y lista) y la duración de acceso a un recurso. Normalmente pasaría un objeto AccessPolicy a un localizador que luego se usaría para tener acceso a los archivos contenidos en un recurso.
+Un [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) define los permisos (como lectura, escritura y lista) y la duración de acceso a un recurso. Normalmente pasaría un objeto AccessPolicy a un localizador que luego se usaría para tener acceso a los archivos contenidos en un recurso.
 
 ### <a name="blob-container"></a>Contenedor de blobs
 Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los contenedores de blobs se usan en Servicios multimedia como punto limítrofe para el control de acceso y localizadores de firma de acceso compartido (SAS) en los recursos. Una cuenta de almacenamiento de Azure puede contener una cantidad ilimitada de contenedores de blobs. un contenedor puede almacenar un número ilimitado de blobs.
@@ -68,7 +68,7 @@ Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los 
 > 
 
 ### <a name="a-idlocatorsalocators"></a><a id="locators"></a>Localizadores
-Los [localizador](https://msdn.microsoft.com/library/azure/hh974308.aspx)es proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Se usa una directiva de acceso para definir los permisos y la duración en que un cliente tiene acceso a un recurso determinado. Los localizadores pueden tener de varias a una relación con una directiva de acceso, de manera tal que distintos localizadores pueden proporcionar distintas horas de inicio y tipos de conexión a distintos clientes, mientras que todos usan la misma configuración de permiso y duración; sin embargo, debido a una restricción en la directiva de acceso compartido definida por los servicios de almacenamiento de Azure, no puede tener más de cinco localizadores únicos asociados con un recurso determinado a la vez. 
+Los [localizador](https://docs.microsoft.com/rest/api/media/operations/locator)es proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Se usa una directiva de acceso para definir los permisos y la duración en que un cliente tiene acceso a un recurso determinado. Los localizadores pueden tener de varias a una relación con una directiva de acceso, de manera tal que distintos localizadores pueden proporcionar distintas horas de inicio y tipos de conexión a distintos clientes, mientras que todos usan la misma configuración de permiso y duración; sin embargo, debido a una restricción en la directiva de acceso compartido definida por los servicios de almacenamiento de Azure, no puede tener más de cinco localizadores únicos asociados con un recurso determinado a la vez. 
 
 Servicios multimedia admite dos tipos de localizadores: los localizadores OnDemandOrigin, que se usan para hacer streaming de elementos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o para descargarelementos  multimedia de manera progresiva, y los localizadores SAS URL, que se usan para cargar o descargar archivos multimedia hacia y desde el almacenamiento de Azure. 
 
@@ -78,9 +78,9 @@ Observe que el permiso de lista (AccessPermissions.List) no se debe usar al crea
 Todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Una cuenta de Servicios multimedia se puede asociar con una o más cuentas de almacenamiento. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 500 TB por cuenta de almacenamiento.  Servicios multimedia proporciona herramientas del nivel de SDK que le permiten administrar varias cuentas de almacenamiento y equilibrar la carga de la distribución de sus recursos durante la carga a estas cuentas según métricas o una distribución aleatoria. Para obtener más información, consulte Uso de [Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Trabajos y tareas
-Un [trabajo](https://msdn.microsoft.com/library/azure/hh974289.aspx) se usa normalmente para procesar (por ejemplo, indexar o codificar) una presentación de audio/vídeo. Si procesa varios vídeos, cree un trabajo para cada vídeo que se va a codificar.
+Un [trabajo](https://https://docs.microsoft.com/rest/api/media/operations/job) se usa normalmente para procesar (por ejemplo, indexar o codificar) una presentación de audio/vídeo. Si procesa varios vídeos, cree un trabajo para cada vídeo que se va a codificar.
 
-Un trabajo contiene metadatos acerca del procesamiento que se realizará. Cada trabajo contiene una o varias [tareas](https://msdn.microsoft.com/library/azure/hh974286.aspx)que especifican una tarea de procesamiento atómica, sus recursos de entrada, recursos de salida, un procesador de multimedia y su configuración asociada. Las tareas dentro de un trabajo se pueden encadenar en conjunto, donde el recurso de salida de una de las tareas se indica como el recurso de entrada de la tarea siguiente. De este modo, un trabajo puede contener todos los procesos necesarios para una presentación multimedia.
+Un trabajo contiene metadatos acerca del procesamiento que se realizará. Cada trabajo contiene una o varias [tareas](https://docs.microsoft.com/rest/api/media/operations/task)que especifican una tarea de procesamiento atómica, sus recursos de entrada, recursos de salida, un procesador de multimedia y su configuración asociada. Las tareas dentro de un trabajo se pueden encadenar en conjunto, donde el recurso de salida de una de las tareas se indica como el recurso de entrada de la tarea siguiente. De este modo, un trabajo puede contener todos los procesos necesarios para una presentación multimedia.
 
 ## <a name="a-idencodingaencoding"></a><a id="encoding"></a>Codificación
 Servicios multimedia de Azure ofrece varias opciones para la codificación de medios en la nube.
@@ -90,10 +90,7 @@ Los códecs son el software que implementa los algoritmos de compresión/descomp
 
 Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Media Services (MPEG-DASH, HLS y Smooth Streaming) sin tener que volver a realizar el empaquetamiento en estos formatos de streaming.
 
-Para aprovecharse de los [paquetes dinámicos](media-services-dynamic-packaging-overview.md), deberá hacer lo siguiente:
-
-* Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
-* Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-portal-manage-streaming-endpoints.md).
+Para aprovechar el [empaquetado dinámico](media-services-dynamic-packaging-overview.md), tiene que modificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable y tener al menos un punto de conexión de streaming estándar o premium en estado iniciado.
 
 Servicios multimedia admite los siguientes codificadores a petición que se describen en este artículo:
 
@@ -105,18 +102,18 @@ Para obtener información acerca de los codificadores compatibles, consulte [Cod
 ## <a name="live-streaming"></a>Streaming en directo
 En Servicios multimedia de Azure, un canal representa una canalización para procesar contenido de streaming en directo. Los canales reciben el flujo de entrada en directo de dos maneras posibles:
 
-* Un codificador local en directo envía contenido RTMP o Smooth Streaming (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias tomadas pasan a través de canales sin más procesamiento. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+* Un codificador local en directo envía contenido RTMP o Smooth Streaming (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision y Tricaster. Las secuencias recopiladas pasan a través de canales sin más procesamiento ni codificación. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 * Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado)) se envía al canal habilitado para realizar la codificación en directo con Servicios multimedia. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
 ### <a name="channel"></a>Canal
-En Servicios multimedia, los [canal](https://msdn.microsoft.com/library/azure/dn783458.aspx)es son los responsables de procesar el contenido de streaming en vivo. Un canal proporciona un extremo de entrada (dirección URL de introducción) que luego se brinda a un transcodificador en vivo. El canal recibe flujos de entrada en vivo desde el transcodificador en vivo y las deja a disposición del streaming a través de uno o más StreamingEndpoints. Los canales también proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de mayor procesamiento y entrega.
+En Servicios multimedia, los [canal](https://docs.microsoft.com/rest/api/media/operations/channel)es son los responsables de procesar el contenido de streaming en vivo. Un canal proporciona un extremo de entrada (dirección URL de introducción) que luego se brinda a un transcodificador en vivo. El canal recibe flujos de entrada en vivo desde el transcodificador en vivo y las deja a disposición del streaming a través de uno o más StreamingEndpoints. Los canales también proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de mayor procesamiento y entrega.
 
 Puede obtener la dirección URL de introducción y la dirección URL de vista previa cuando crea el canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado iniciado. Cuando está listo para comenzar a insertar datos desde un transcodificador en vivo al canal, este debe estar iniciado. Una vez que el transcodificar en vivo comienza a introducir datos, puede tener una vista previa de la transmisión.
 
 Cada cuenta de Servicios multimedia puede contener varios canales, varios programas y varios StreamingEndpoints. Según las necesidades de ancho de banda y seguridad, los servicios de StreamingEndpoint pueden dedicarse a uno o más canales. Puede extraer cualquier StreamingEndpoint de cualquier canal.
 
 ### <a name="program"></a>Programa
-Un [programa](https://msdn.microsoft.com/library/azure/dn783463.aspx) le permite controlar la publicación y almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
+Un [programa](https://docs.microsoft.com/rest/api/media/operations/program) le permite controlar la publicación y almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
 Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la propiedad **ArchiveWindowLength** . Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas.
 
 ArchiveWindowLength también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
@@ -159,16 +156,23 @@ Para más información, consulte los siguientes artículos.
 Cuando se trabaja con Servicios multimedia, es aconsejable codificar los archivos intermedios en una conjunto MP4 de velocidad de bits adaptable y, a continuación, convertir el conjunto en el formato deseado con el [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>punto de conexión de streaming
-Un StreamingEndpoint representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproductor de cliente o a una red de entrega de contenido (CDN) para su posterior distribución (Servicios multimedia de Azure ahora proporciona la integración de CDN de Azure). La secuencia de salida de un servicio de StreamingEndpoint puede ser una secuencia en vivo o un recurso de vídeo bajo demanda en su cuenta de Servicios multimedia. Además, puede controlar la capacidad del servicio StreamingEndpoint para manejar las crecientes necesidades de ancho de banda mediante el ajuste de las unidades de escalado (también conocidas como unidades de streaming). Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Las unidades de escalado proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y funcionalidad adicional que actualmente incluye el uso de empaquetado dinámico.
+Un StreamingEndpoint representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproductor de cliente o a una red de entrega de contenido (CDN) para su posterior distribución (Servicios multimedia de Azure ahora proporciona la integración de CDN de Azure). La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Los clientes de Media Services eligen un punto de conexión de streaming **estándar** o uno o varios puntos de conexión de streaming **premium**, según sus necesidades. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. 
 
-Se recomienda utilizar el cifrado dinámico o el empaquetado dinámico. Para usar estas características, debe tener al menos una unidad de streaming para el extremo desde el que va a realizar la transmisión. Para más información, consulte [Escalado de unidades de streaming](media-services-portal-manage-streaming-endpoints.md).
+El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Los puntos de conexión de streaming estándar ofrecen la flexibilidad de entregar el contenido a prácticamente todos los dispositivos a través de empaquetado dinámico en HLS, MPEG-DASH y Smooth Streaming, así como cifrado dinámico para Microsoft PlayReady, Google Widevine, Apple Fairplay y AES128.  También se adaptan a tamaños de audiencias desde muy pequeñas a muy grandes con miles de personas visualizando simultáneamente a través de la integración de la red CDN de Azure. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajustan a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda, se recomienda asignar unidades de escalado (conocidas también como unidades de streaming premium).
+
+Se recomienda utilizar el cifrado dinámico o el empaquetado dinámico.
+
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+
+Para obtener más información, consulte [este tema](media-services-portal-manage-streaming-endpoints.md) .
 
 De forma predeterminada, puede disponer de hasta 2 canales en streaming en su cuenta de Servicios multimedia. Para solicitar un límite superior, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 
 Solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
 
 ### <a name="asset-delivery-policy"></a>Directiva de entrega de recursos
-Uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar [directivas de entrega para los recursos ](https://msdn.microsoft.com/library/azure/dn799055.aspx)que desea transmitir. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
+Uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar [directivas de entrega para los recursos ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que desea transmitir. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
 
 Si tiene un recurso cifrado de almacenamiento, antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Por ejemplo, para entregar el recurso cifrado con clave de cifrado del estándar de cifrado avanzado (AES), defina el tipo de directiva en DynamicEnvelopeEncryption. Para quitar el cifrado de almacenamiento y transmitir el recurso sin cifrar, establezca el tipo de directiva en NoDynamicEncryption.
 
@@ -184,9 +188,9 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>Direcciones URL de streaming
 Transmisión del contenido a los clientes. Para proporcionar direcciones URL de streaming a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso que contiene el contenido que desea transmitir. Sin embargo, para poder transmitir este contenido, es necesario modificar aún más esta ruta de acceso. Para construir una dirección URL completa al archivo de manifiesto del streaming, debe concatenar el valor de la ruta de acceso del localizador y el nombre de archivo del manifiesto (filename.ism). Luego, anexe /Manifiesto y un formato adecuado (si corresponde) a la ruta de acceso del localizador.
 
-También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS.
+También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. Tenga en cuenta que, actualmente, AMS no admite SSL con dominios personalizados.  
 
-Tenga en cuenta que solo puede transmitir por SSL si se creó el extremo de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los extremos de streaming creados después del 10 de septiembre, la dirección URL contendrá "streaming.mediaservices.windows.net" (el formato nuevo). Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo extremo de streaming para transmitir el contenido a través de SSL.
+Tenga en cuenta que solo puede transmitir por SSL si se creó el extremo de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre, la dirección URL contendrá "streaming.mediaservices.windows.net" (el formato nuevo). Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo extremo de streaming para transmitir el contenido a través de SSL.
 
 En la siguiente lista se describen distintos formatos de streaming y aparecen ejemplos:
 
@@ -223,6 +227,6 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
