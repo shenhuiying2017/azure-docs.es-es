@@ -8,14 +8,16 @@ El almacenamiento está limitado por el espacio en disco o e *número máximo* d
 | Tamaño de la partición |N/D |2 GB |25 GB |100 GB* |200 GB |200 GB |
 | Réplicas |N/D |3 |12 |12 |12 |12 |
 | Índices máximos |3 |5 |50 |200 |200 |1000 GB por partición o 3000 por servicio |
+| Indexadores máximos |3 |5 |50 |200 |200 |Indexador incompatible |
+| Orígenes de datos máximos |3 |5 |50 |200 |200 |Indexador incompatible |
 | Número máximo de documentos |10.000 |1 millón |15 millones por partición, 180 millones por servicio |60 millones por partición, 720 millones por servicio |120 millones por partición, 1400 millones por servicio |1 millón por índice, 200 millones por partición |
-| Consultas por segundo (QPS) estimadas |N/D |~ 3 por réplica |~ 15 por réplica |~ 60 por réplica |~ 60 por réplica |>60 por réplica |
+| Consultas por segundo (QPS) estimadas |N/D |~&3; por réplica |~&15; por réplica |~&60; por réplica |~&60; por réplica |>60 por réplica |
 
 <sup>1</sup> Las versiones gratuitas y preliminares de los SKU no incluyen contratos de nivel de servicio (SLA). Los Acuerdo de Nivel de Servicio se aplican cuando una SKU pasa a estar disponible de manera general.
 
 <sup>2</sup> S3 HD tiene un límite máximo de 3 particiones, que es inferior al límite de partición para S3. El límite inferior de la partición se impone porque el número de índice para S3 HD es mucho más alto. Como existen límites de servicio en ambos recursos informáticos (almacenamiento y procesamiento) y el contenido (índices y documentos), el límite de contenido se alcanza primero.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

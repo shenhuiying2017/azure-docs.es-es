@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/19/2017
+ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
-ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
+ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
+ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
 
 
 ---
@@ -78,7 +78,7 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
    ![Captura de pantalla del menú en el que se ha hecho clic con el botón derecho para el proyecto](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. En la pestaña **Nuget** haga clic en **Examinar** y escriba **azure documentdb** en el cuadro de búsqueda.
 7. En los resultados, busque **Microsoft.Azure.DocumentDB.Core** y haga clic en **Instalar**.
-   El identificador del paquete de la biblioteca de cliente de DocumentDB es [Microsoft.Azure.DocumentDB:Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
+   El identificador del paquete de la biblioteca de cliente de DocumentDB para .NET Core es [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Si su destino es una versión de .NET Framework (como net461) incompatible con este paquete de .NET Core Nuget, utilice [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB), compatible con todas las versiones de .NET Framework a partir de .NET Framework 4.5.
 
 Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir algo de código. Puede buscar un proyecto con código completo de este tutorial en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
@@ -113,7 +113,7 @@ Seguidamente, diríjase al [Portal de Azure](https://portal.azure.com) para recu
 
 En el Portal de Azure, navegue a la cuenta de DocumentDB y, después, haga clic en **Claves**.
 
-Copie el URI desde el Portal y péguelo en `<your endpoint URI>` en el archivo program.cs. Después, copie la CLAVE PRINCIPAL del Portal y péguela en `<your key>`. Si está usando el Emulador de Azure DocumentDB, utilice `https://localhost:443` como punto de conexión y la clave de autorización definida correctamente en la sección [Desarrollo con el Emulador de DocumentDB](documentdb-nosql-local-emulator.md).
+Copie el URI desde el Portal y péguelo en `<your endpoint URI>` en el archivo program.cs. Después, copie la CLAVE PRINCIPAL del Portal y péguela en `<your key>`. Si está usando el Emulador de Azure DocumentDB, utilice `https://localhost:8081` como punto de conexión y la clave de autorización definida correctamente en la sección [Desarrollo con el Emulador de DocumentDB](documentdb-nosql-local-emulator.md).
 
 ![Captura de pantalla del Portal de Azure usada por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves.][keys]
 
@@ -562,6 +562,6 @@ Para restaurar las referencias al SDK de .NET Core para DocumentDB en Visual Stu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 02/14/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ed6eebd8a0c11158f9812edfc15b29a70ccc905
+ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
+ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
 
 
 ---
@@ -51,8 +51,16 @@ También puede obtener más información sobre el proceso de instalación leyend
 
 > [!NOTE]
 > Si el comportamiento del agente de Azure Security Center no es correcto, debe reiniciar la máquina virtual de destino, ya que no hay ningún comando para detener e iniciar al agente.
-> 
-> 
+
+
+Si sigue experimentando problemas con la recopilación de datos, puede completar los pasos siguientes para desinstalar al agente:
+
+1. En **Azure Portal**, seleccione la máquina virtual que experimenta problemas de recopilación de datos y haga clic en **Extensiones**.
+2. Haga clic con el botón derecho en **Microsoft.Azure.Security.Monitoring** y seleccione **Desinstalar**.
+
+![Eliminación del agente](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+
+La extensión Supervisión de seguridad de Azure debería reinstalarse automáticamente en unos minutos.
 
 ## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Solución de problemas de instalación del agente de supervisión en Linux
 Al solucionar problemas de instalación del agente de máquina virtual en un sistema Linux, debe asegurarse de que la extensión se descargó en /var/lib/waagent/. Puede ejecutar el comando siguiente para comprobar si se ha instalado:
@@ -68,8 +76,12 @@ En un sistema de trabajo debería ver una conexión con el proceso mdsd en TCP 2
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Solución de problemas al cargar el panel
+
+Si experimenta problemas al cargar el panel de Security Center, asegúrese de que el usuario que registra la suscripción a Security Center (es decir, el primer usuario que abrió Security Center con la suscripción) y el usuario que desearía activar la recopilación de datos son *propietarios* o *colaboradores* en la suscripción. A partir de ese momento, los usuarios *lectores* en la suscripción también podrán ver el panel, las alertas, las recomendaciones y las directivas.
+
 ## <a name="contacting-microsoft-support"></a>Contacto con el soporte técnico de Microsoft
-Algunos problemas pueden identificarse mediante las instrucciones proporcionadas en este artículo; también puede encontrar otros en el [foro](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)público de Security Center. Sin embargo, si necesita más información para solucionar el problema, puede abrir una nueva solicitud de soporte técnico mediante el Portal de Azure, como se indica a continuación: 
+Algunos problemas pueden identificarse mediante las instrucciones proporcionadas en este artículo; también puede encontrar otros en el [foro](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)público de Security Center. Sin embargo, si necesita más información para solucionar el problema, puede abrir una nueva solicitud de soporte técnico mediante **Azure Portal**, como se indica a continuación: 
 
 ![Soporte técnico de Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -86,6 +98,6 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

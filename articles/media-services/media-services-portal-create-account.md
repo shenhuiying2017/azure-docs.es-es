@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
+ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
+ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
 
 
 ---
@@ -59,7 +59,7 @@ Los pasos de esta sección muestran cómo crear una cuenta de AMS.
    
     ![Creación de Servicios multimedia](./media/media-services-create-account/media-services-new3.png)
    
-   1. En **Nombre de la cuenta**, especifique el nombre de la cuenta nueva de AMS. El nombre de la cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
+   1. En **Nombre de la cuenta**, especifique el nombre de la cuenta nueva de AMS. El nombre de la cuenta de Media Services debe estar compuesto totalmente de minúsculas o de números, sin espacios, y con una longitud de entre 3 y 24 caracteres.
    2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
    3. En **Grupo de recursos**seleccione el recurso nuevo o uno ya existente.  Un grupo de recursos es una colección de recursos que comparten ciclos de vida, permisos y directivas. Obtenga más información [aquí](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Media Services. Esta región se utilizará para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable. 
@@ -103,6 +103,6 @@ Ya puede cargar archivos en su cuenta de AMS. Para más información, consulte [
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

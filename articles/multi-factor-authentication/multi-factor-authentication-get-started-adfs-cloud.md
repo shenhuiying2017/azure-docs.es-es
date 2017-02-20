@@ -1,6 +1,6 @@
 ---
-title: Proteger los recursos de nube con Azure MFA y AD FS
-description: "En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS 2.0 en la nube."
+title: "Protección de los recursos en la nube con Azure MFA y AD FS | Microsoft Docs"
+description: "En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS&2;.0 en la nube."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
-Si su organización está federada con Azure Active Directory, use Azure Multi-Factor Authentication o Servicios de federación de Active Directory para proteger los recursos a los que se accede mediante Azure AD. Utilice los siguientes procedimientos para proteger recursos de Azure Active Directory mediante Azure Multi-Factor Authentication o Servicios de federación de Active Directory.
+Si su organización está federada con Azure Active Directory, use Azure Multi-Factor Authentication o los servicios de federación de Active Directory (AD FS) para proteger los recursos a los que se accede mediante Azure AD. Utilice los siguientes procedimientos para proteger recursos de Azure Active Directory mediante Azure Multi-Factor Authentication o Servicios de federación de Active Directory.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Protección de los recursos de Azure AD mediante AD FS
-Para proteger los recursos en la nube, habilite una cuenta para los usuarios y configure una regla de notificaciones. Siga este procedimiento para realizar los pasos:
+Para proteger los recursos de la nube, configure una regla de notificaciones para que los servicios de federación de Active Directory emitan la notificación multipleauthn cuando un usuario realice correctamente la verificación en dos pasos. Esta notificación se transmitirá a Azure AD. Siga este procedimiento para realizar los pasos:
 
-1. Utilice los pasos descritos en [Activación de autenticación multifactor para usuarios](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) para habilitar una cuenta.
-2. Inicie la consola de administración de AD FS.
-   ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Vaya a **Relaciones de confianza para usuario autenticado** y haga clic con el botón derecho en las relaciones de confianza para usuario autenticado. Seleccione **Editar reglas de notificación...**
-4. Haga clic en **Agregar regla...**
-5. En la lista desplegable, seleccione **Enviar notificaciones con una regla personalizada** y haga clic en **Siguiente**.
-6. Escriba un nombre para la regla de notificación.
-7. En Regla personalizada: agregue el siguiente texto:
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. Abra Administración de AD FS.
+2. A la izquierda, seleccione **Relaciones de confianza para usuario autenticado**.
+3. Haga clic con el botón derecho en **Plataforma de identidad de Microsoft Office 365** y seleccione **Editar reglas de notificaciones…**
 
-    Notificación correspondiente.
+   ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Haga clic en **Aceptar** y, a continuación, en **Finalizar**. Cierre la consola de administración de AD FS.
+4. En Reglas de transformación de emisión, haga clic en **Agregar regla**.
 
-Los usuarios ya pueden completar el inicio de sesión mediante el método local (como una tarjeta inteligente).
+   ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Pasar por una notificación entrante o filtrarla** en la lista desplegable y haga clic en **Siguiente**.
+
+   ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Asigne un nombre a la regla. 
+7. Seleccione **Referencias de métodos de autenticación** como tipo de notificación entrante.
+8. Seleccione **Pasar a través todos los valores de notificaciones**.
+    ![Asistente para agregar regla de notificación de transformación](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Haga clic en **Finalizar** Cierre la consola de administración de AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Direcciones IP de confianza para usuarios federados
 Las direcciones IP de confianza permiten a los administradores omitir la verificación en dos pasos para una dirección IP específica o para usuarios federados que tienen solicitudes que se originan dentro de su propia intranet. En las secciones siguientes se describe cómo configurar IP fiables de Azure Multi-Factor Authentication con usuarios federados y omitir la verificación en dos pasos cuando una solicitud se origina en una intranet de usuarios federados. Esto se consigue configurando AD FS para usar un paso a través o filtrar una plantilla de notificación entrante con el tipo de notificación dentro de la red corporativa.
@@ -56,7 +53,7 @@ Las direcciones IP de confianza permiten a los administradores omitir la verific
 En este ejemplo se utiliza Office 365 para las relaciones de confianza para usuario autenticado .
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Configurar las reglas de notificaciones de AD FS
-Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. Se crearán dos reglas de notificaciones, una para el tipo de notificación dentro de la red corporativa y otra adicional para mantener a nuestros usuarios con la sesión iniciada.
+Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. Cree dos reglas de notificaciones, una para el tipo de notificación dentro de la red corporativa y otra adicional para mantener a nuestros usuarios con la sesión iniciada.
 
 1. Abra Administración de AD FS.
 2. A la izquierda, seleccione **Relaciones de confianza para usuario autenticado**.
@@ -100,6 +97,6 @@ Ahora que las notificaciones están listas, podemos configurar direcciones IP de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

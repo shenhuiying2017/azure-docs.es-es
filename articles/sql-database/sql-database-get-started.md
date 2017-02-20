@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 535b16490bb601070c7d2a7135f3d69aa898be1f
-ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
@@ -39,9 +39,9 @@ En este tutorial de inicio rápido, aprenderá cómo:
 * [Eliminar una base de datos](sql-database-get-started.md#delete-a-single-database) 
 
 
-Cuando termine este tutorial de inicio rápido, tendrá una base de datos de ejemplo y una base de datos vacía en ejecución en un grupo de recursos de Azure y estarán conectadas a un servidor lógico. También tendrá reglas de firewall de nivel de servidor twp configuradas para que la entidad de seguridad de nivel de servidor pueda iniciar sesión en el servidor desde dos direcciones IP especificadas. 
+En este tutorial de inicio rápido va a crear una base de datos de ejemplo y una base de datos vacía en ejecución en un grupo de recursos de Azure y que estarán conectadas a un servidor lógico. También va a crear dos reglas de firewall de nivel de servidor configuradas para que la entidad de seguridad de nivel de servidor pueda iniciar sesión en el servidor desde dos direcciones IP especificadas. Por último, aprenderá a consultar una base de datos en Azure Portal y cómo conectarse y consultar con SQL Server Management Studio. 
 
-**Tiempo estimado**: este tutorial le llevará aproximadamente 30 minutos (si ya cumple los requisitos previos).
+**Tiempo estimado**: este tutorial dura aproximadamente 30 minutos (si ya cumple los requisitos previos).
 
 > [!TIP]
 > Puede realizar estas mismas tareas con [C#](sql-database-get-started-csharp.md) o [PowerShell](sql-database-get-started-powershell.md).
@@ -88,7 +88,7 @@ Siga los pasos de este procedimiento para crear un nuevo servidor lógico con Az
     ![nuevo nombre de servidor](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > El nombre completo del nuevo servidor será <nombreDeSuServidor >.database.windows.net.
+    > El nombre completo del nuevo servidor tiene el formato <nombreDeSuServidor>.database.windows.net.
     >
     
 4. En el cuadro de texto de inicio de sesión del administrador del servidor, proporcione un nombre de usuario para el inicio de sesión de autenticación de SQL para este servidor. Este inicio de sesión se conoce como el inicio de sesión de la entidad de seguridad del servidor. Una marca de verificación verde indica que ha proporcionado un nombre válido.
@@ -118,7 +118,7 @@ Siga los pasos de este procedimiento para crear un nuevo servidor lógico con Az
 
 ## <a name="view-the-logical-server-properties"></a>Ver las propiedades de servidor lógico
 
-Siga los pasos de este procedimiento para ver las propiedades del servidor con Azure Portal. Necesitará el nombre completo del servidor para conectarse a este servidor en un procedimiento posterior. 
+Siga los pasos de este procedimiento para ver las propiedades del servidor con Azure Portal. Necesita el nombre completo del servidor para conectarse a este servidor en un procedimiento posterior. 
 
 1. En Azure Portal, haga clic en **Más servicios**.
 
@@ -196,7 +196,7 @@ Siga los pasos de este procedimiento para conectarse con el servidor lógico de 
 
 ## <a name="create-a-database-with-sample-data"></a>Crear una base de datos con datos de ejemplo
 
-Siga los pasos de este procedimiento para crear una base de datos con datos de ejemplo con Azure Portal. Creará esta base de datos conectada al servidor lógico que creó anteriormente. Si el nivel de servicio Básico no está disponible en la región en la que se creó el servidor, elimínelo y vuelva a crearlo en otra región. Para ver los pasos de eliminación, consulte el último procedimiento en este tutorial.
+Siga los pasos de este procedimiento para crear una base de datos con datos de ejemplo con Azure Portal. Crea esta base de datos conectada al servidor lógico que creó anteriormente. Si el nivel de servicio Básico no está disponible en la región en la que se creó el servidor, elimínelo y vuelva a crearlo en otra región. Para ver los pasos de eliminación, consulte el último procedimiento en este tutorial.
 
 1. En Azure Portal, haga clic en **Bases de datos SQL**, en la hoja predeterminada.
 
@@ -275,7 +275,8 @@ Siga los pasos de este procedimiento para consultar la base de datos con el edit
 
    ```select * from sys.objects```
 
-    ![consulta del editor de consultas](./media/sql-database-get-started/query-editor-query.png) 10. Haga clic en **Ejecutar**.
+    ![consulta del editor de consultas](./media/sql-database-get-started/query-editor-query.png)
+10.  Haga clic en **Ejecutar**.
 11. Revise los resultados de la consulta en el panel **Resultados**.
 
     ![resultados del editor de consultas](./media/sql-database-get-started/query-editor-results.png)
@@ -372,6 +373,6 @@ Ahora que ha completado este tutorial, hay otros tutoriales que quizás desee ex
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

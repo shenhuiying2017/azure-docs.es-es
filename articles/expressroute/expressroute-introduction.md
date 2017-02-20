@@ -1,10 +1,10 @@
 ---
-title: "Introducción a ExpressRoute | Microsoft Docs"
-description: "Esta página proporciona información general del servicio ExpressRoute, incluido cómo funciona una conexión ExpressRoute."
+title: "Introducción a ExpressRoute: Ampliación de la red local a Azure mediante una conexión privada dedicada | Microsoft Docs"
+description: "Esta introducción técnica sobre ExpressRoute explica cómo funciona una conexión de ExpressRoute a la hora de ampliar su red local a Azure mediante una conexión privada dedicada."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 02/09/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
+ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
+ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
 
 
 ---
 # <a name="expressroute-technical-overview"></a>Información técnica de ExpressRoute
-Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet.
+Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y CRM Online. 
 
-![](./media/expressroute-introduction/expressroute-basic.png)
+La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet. Para información sobre cómo conectar la red a Microsoft mediante ExpressRoute, consulte [ExpressRoute connectivity models](expressroute-connectivity-models.md) (Modelos de conectividad de ExpressRoute).
 
-**Entre las ventajas clave se incluyen la siguientes:**
+![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
+
+## <a name="key-benefits"></a>Ventajas principales
 
 * Conectividad de nivel 3 entre su red local y Microsoft Cloud a través de un proveedor de conectividad. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un intercambio de Ethernet.
 * Conectividad de servicios en la nube de Microsoft en todas las regiones dentro de la región geopolítica.
@@ -35,26 +37,9 @@ Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de
 * El tiempo de actividad de conexión [SLA](https://azure.microsoft.com/support/legal/sla/).
 * QoS y compatibilidad para varias clases de servicio para aplicaciones especiales, como Skype Empresarial.
 
-Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
+Para más información, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>¿Cómo puedo conectar mi red a Microsoft mediante ExpressRoute?
-Puede crear una conexión entre su red local y Microsoft Cloud de tres maneras diferentes
-
-### <a name="co-located-at-a-cloud-exchange"></a>Ubicación compartida en un intercambio en la nube
-Si está colocado en la misma instalación con un intercambio en la nube, puede solicitar conexiones cruzadas virtuales a Microsoft Cloud a través del intercambio de Ethernet del proveedor de la ubicación compartida. Los proveedores de ubicación compartida pueden ofrecer conexiones cruzadas de nivel 2, o conexiones cruzadas de nivel 3 administradas entre la infraestructura en la instalación de ubicación compartida y Microsoft Cloud.
-
-### <a name="point-to-point-ethernet-connections"></a>Conexiones Ethernet de punto a punto
-Puede conectar sus centros de datos locales u oficinas a Microsoft Cloud a través de vínculos de Ethernet de punto a punto. Los proveedores de Ethernet de punto a punto pueden ofrecer conexiones de nivel 2 o de nivel 3 administradas entre el sitio y Microsoft Cloud.
-
-### <a name="any-to-any-ipvpn-networks"></a>Redes de conectividad universal (IPVPN)
-Puede integrar la WAN con Microsoft Cloud. Los proveedores IPVPN (normalmente VPN MPLS) ofrecen conectividad universal entre los centros de datos y las sucursales. Microsoft Cloud puede estar conectada a la WAN de forma que parezca otra sucursal más. Los proveedores de WAN normalmente ofrecen una conectividad de nivel 3 administrada. Las características y capacidades de ExpressRoute son todas idénticas en todos los modelos de conectividad anteriores. 
-
-Los proveedores de conectividad pueden ofrecer uno o varios modelos de conectividad. Puede trabajar en conjunción con su proveedor de conectividad para elegir el modelo que mejor le convenga.
-
-![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
-
-## <a name="expressroute-features"></a>Características de ExpressRoute
-ExpressRoute admite las siguientes características y funcionalidades. 
+## <a name="features"></a>Características
 
 ### <a name="layer-3-connectivity"></a>Conectividad de nivel 3
 Microsoft usa el protocolo de enrutamiento dinámico estándar del sector (BGP) para intercambiar las rutas entre su red local, las instancias de Azure y las direcciones públicas de Microsoft.  Establecemos varias sesiones BGP con su red para perfiles de tráfico diferentes. Puede encontrar más información en el artículo [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md) .
@@ -76,7 +61,7 @@ También puede visitar la página [P+F de ExpressRoute](expressroute-faqs.md) pa
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>Conectividad a todas las regiones dentro de una región geopolítica
 Puede conectarse a Microsoft en una de nuestras [ubicaciones de configuración entre pares](expressroute-locations.md) y tener acceso a todas las regiones dentro de la región geopolíticas. 
 
-Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en Europa septentrional y Europa occidental. Consulte el artículo [Asociados de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md) para obtener información general sobre las regiones geopolíticas, regiones de Microsoft Cloud asociadas y las correspondientes ubicaciones de configuración entre pares de ExpressRoute.
+Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en Europa septentrional y Europa occidental. Consulte el artículo [Asociados de ExpressRoute y ubicaciones de emparejamiento](expressroute-locations.md) para información general sobre las regiones geopolíticas, las regiones de Microsoft Cloud asociadas y las correspondientes ubicaciones de emparejamiento de ExpressRoute.
 
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Conectividad global con el complemento ExpressRoute Premium
 Puede habilitar la característica de complemento ExpressRoute Premium para ampliar la conectividad a través de límites geopolíticos. Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en todas las regiones del mundo (excluidas las nubes nacionales). Puede tener acceso a los servicios implementados en Sudamérica o Australia del mismo modo que accede a las regiones de Europa septentrional y occidental.
@@ -87,7 +72,7 @@ ExpressRoute tiene un ecosistema de proveedores de conectividad y asociados inte
 ### <a name="connectivity-to-national-clouds"></a>Conectividad con nubes nacionales
 Microsoft administra entornos de nube aislados para regiones geopolíticas y segmentos de clientes especiales. Acuda a la página [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md) para obtener una lista de nubes y proveedores nacionales.
 
-### <a name="supported-bandwidth-options"></a>Opciones de ancho de banda compatibles
+### <a name="bandwidth-options"></a>Opciones de ancho de banda
 Puede comprar los circuitos ExpressRoute para una amplia gama de anchos de banda. A continuación se enumera la lista de anchos de banda admitidos. Asegúrese de consultar con su proveedor de conectividad para determinar la lista de anchos de banda admitidos que proporcionan.
 
 * 50 Mbps
@@ -100,10 +85,10 @@ Puede comprar los circuitos ExpressRoute para una amplia gama de anchos de banda
 * 10 Gbps
 
 ### <a name="dynamic-scaling-of-bandwidth"></a>Escalado dinámico del ancho de banda
-Tiene la posibilidad de aumentar el ancho de banda del circuito ExpressRoute (dentro de lo posible) sin necesidad de eliminar sus conexiones. 
+Puede aumentar el ancho de banda del circuito ExpressRoute (dentro de lo posible) sin necesidad de eliminar sus conexiones. 
 
 ### <a name="flexible-billing-models"></a>Modelos flexibles de facturación
-Puede elegir el modelo de facturación que mejor le convenga. Elija entre los modelos de facturación enumerados a continuación. Consulte la página [P+F de ExpressRoute](expressroute-faqs.md) para obtener información más detallada. 
+Puede elegir el modelo de facturación que mejor le convenga. Elija entre los modelos de facturación enumerados a continuación. Para más información, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
 * **Datos ilimitados**. El circuito ExpressRoute se cobra según un precio mensual, y todas las transferencias de datos entrantes y salientes están incluidas de forma gratuita. 
 * **Datos medidos**. El circuito ExpressRoute se cobra según un precio mensual. Todas las transferencias de datos de entrada son gratuitas. Las transferencias de datos de salida se cobran de acuerdo a un precio por GB de transferencia de datos. Las tasas de transferencia de datos varían según la región.
@@ -113,18 +98,18 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
   * Número de vínculos de red virtual por circuito ExpressRoute ampliado de 10 a un límite superior, que depende del ancho de banda del circuito.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+* Información acerca de los [Modelos de conectividad de ExpressRoute](expressroute-connectivity-models.md).
 * Obtenga información acerca de las conexiones ExpressRoute y dominios de enrutamiento. Consulte [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 * Busque un proveedor de servicios. Consulte [Asociados de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md).
 * Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 * Consulte los requisitos de [enrutamiento](expressroute-routing.md), [NAT](expressroute-nat.md) y [QoS](expressroute-qos.md).
 * Configure su conexión ExpressRoute.
-  * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
-  * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
-  * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
+  * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configuración del enrutamiento](expressroute-howto-routing-portal-resource-manager.md)
+  * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

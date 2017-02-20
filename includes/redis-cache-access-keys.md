@@ -1,4 +1,4 @@
-Para establecer conexión con la instancia de Caché en Redis de Azure, los clientes de dicha caché necesitan el nombre de host, los puertos y las claves. Es posible que algunos clientes utilicen nombres ligeramente diferentes para estos elementos. Para recuperar estos elementos, busque la memoria caché con [Examinar](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) en [Azure Portal](https://portal.azure.com) y haga clic en **Configuración** o en **Todas las opciones**. 
+Para establecer conexión con la instancia de Caché en Redis de Azure, los clientes de dicha caché necesitan el nombre de host, los puertos y las claves. Es posible que algunos clientes utilicen nombres ligeramente diferentes para estos elementos. Para recuperar estos elementos, busque la memoria caché con [Examinar](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) en [Azure Portal](https://portal.azure.com) y haga clic en el elemento que desee en el **menú de recursos**. 
 
 ![Configuración de caché en Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
@@ -14,6 +14,6 @@ Para recuperar las claves de acceso, haga clic en **Claves de acceso**.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
