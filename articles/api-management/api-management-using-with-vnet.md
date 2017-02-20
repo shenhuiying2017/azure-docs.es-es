@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 40d9b0ee5a24e5503de19daa030bf1e8169dec24
-ms.openlocfilehash: 58be070ea5d5f4ea9f6d9453a1adcc23c4b9b2a2
+ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
+ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
 
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Las redes virtuales de Azure (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre las redes virtuales de Azure, vea: [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-Azure API Management se puede conectar a una red virtual (VNET) para que pueda acceder a servicios de back-end en la red y para que el portal para desarrolladores y la puerta de enlace de la API sean accesibles en la red.
+Azure API Management se puede implementar dentro de la red virtual (VNET), por lo que puede tener acceso a los servicios back-end dentro de la red. El portal para desarrolladores y la puerta de enlace de API pueden configurarse para que sea accesible desde Internet o solo dentro de la red virtual.
 
 > [!NOTE]
 > Azure API Management admite redes virtuales clásicas y de Azure Resource Manager.
@@ -101,12 +101,14 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 
 | Puertos de origen/destino | Dirección | Protocolo de transporte | Propósito | Origen/destino | Tipo de acceso |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 / 80, 443 |Entrada |TCP |Comunicación de cliente con Administración de API |INTERNET/VIRTUAL_NETWORK |Externo |
+| * / 80, 443 |Entrada |TCP |Comunicación de cliente con Administración de API |INTERNET/VIRTUAL_NETWORK |Externo |
 | * / 3443 |Entrada |TCP |Punto de conexión de administración para Azure Portal y Powershell |INTERNET/VIRTUAL_NETWORK |Externa e interna |
-| 80, 443 / 80, 443 |Salida |TCP |Dependencia en Azure Storage y Azure Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 1433 / 1433 |Salida |TCP |Dependencia de Azure SQL |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 9350 - 9354 / 9350 - 9354 |Salida |TCP |Dependencia de Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 5671 / 5671 |Salida |AMQP |Dependencia de directiva de registro en Event Hubs |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / 80, 443 |Salida |TCP |Dependencia en Azure Storage y Azure Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / 1433 |Salida |TCP |Dependencia de Azure SQL |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / 11000 - 11999 |Salida |TCP |Dependencia de Azure SQL V12 |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / 14000 - 14999 |Salida |TCP |Dependencia de Azure SQL V12 |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / 9350 - 9354 |Salida |TCP |Dependencia de Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / 5671 |Salida |AMQP |Dependencia de directiva de registro en Event Hubs |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | 6381 - 6383 / 6381 - 6383 |Entrada y salida |UDP |Dependencia de Redis Cache |VIRTUAL_NETWORK/VIRTUAL_NETWORK |Externa e interna |-
 | * / 445 |Salida |TCP |Dependencia del recurso compartido de archivos de Azure para Git |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / * | Entrada |TCP |Equilibrador de carga de la infraestructura de Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externa e interna |
@@ -152,6 +154,6 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 
