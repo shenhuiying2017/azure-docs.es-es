@@ -15,8 +15,8 @@ ms.workload: backup-recovery
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 74d1eee9ea0f1e74e7193ecba22f6d1c28cf831d
-ms.openlocfilehash: d4587f93fb791c7fbb7575f3be1451172ee7865e
+ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
+ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
 
 ---
 
@@ -36,7 +36,7 @@ En este artículo se supone que ya creó:
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos del servidor de configuración
 El software del servidor de configuración se debe implementar en una máquina virtual de VMware de alta disponibilidad. En la siguiente tabla se muestran los requisitos mínimos de hardware, software y red para un servidor de configuración.
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
 > El servidor de configuración no admite los servidores proxy basados en HTTPS.
@@ -96,7 +96,7 @@ Seleccione **+vCenter** para comenzar a conectar un servidor vCenter de VMware o
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Configure el entorno de destino](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) en Azure.
+[Configure el entorno de destino](./site-recovery-prepare-target-vmware-to-azure.md) en Azure.
 
 
 

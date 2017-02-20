@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 5c5c6aa4b6408da7b0c1511ac5fa79af5076f979
-ms.openlocfilehash: 268e5eabe88c46b2fab51debb25179a8a65be469
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
 
 
 ---
@@ -163,7 +163,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un WSFC
    | SQL Server | 1433 | Puerto normal para las instancias predeterminadas de SQL Server. Si usó una imagen de la galería, este puerto se abre automáticamente. 
    | Sondeo de mantenimiento | 59999 | Cualquier puerto TCP abierto. En un paso posterior, configure el [sondeo de mantenimiento](#probe) del equilibrador de carga y el clúster para usar este puerto.  
 
-1. Agregue almacenamiento a la máquina virtual. Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+1. Agregue almacenamiento a la máquina virtual. Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../../storage/storage-premium-storage.md).
 
    Ambas máquinas virtuales necesitan al menos dos discos de datos.
 
