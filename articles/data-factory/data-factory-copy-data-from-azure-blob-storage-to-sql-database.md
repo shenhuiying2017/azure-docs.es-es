@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 19436167ad8e82f47b147efc65c635d9bf2d2ae5
-ms.openlocfilehash: 0072e1db4758447445b97021e1624c2210fbd0a7
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 70c38f155874c5d9254260c684fea23e22dd59fd
 
 
 ---
@@ -61,7 +61,7 @@ Para realizar este tutorial necesitará el nombre de cuenta y la clave de cuenta
 3. En la hoja **Cuentas de almacenamiento**, seleccione la **cuenta de almacenamiento de Azure** que desea usar en este tutorial.
 4. Seleccione **Claves de acceso** en **CONFIGURACIÓN**.
 5. Haga clic en el botón **copiar** (imagen) que se encuentra junto al cuadro de texto **Nombre de cuenta de almacenamiento** y guárdelo y péguelo en algún lugar (por ejemplo: en un archivo de texto).
-6. Repita el paso anterior para copiar o anotar la **clave 1**.
+6. Repita el paso anterior para copiar o anotar la **clave&1;**.
 
     ![Clave de acceso de almacenamiento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Haga clic en **X**para cerrar todas las hojas.
@@ -123,8 +123,12 @@ Ha completado los requisitos previos. Puede crear una factoría de datos de una 
 * [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
+> [!NOTE]
+> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. No transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> Puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md). 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

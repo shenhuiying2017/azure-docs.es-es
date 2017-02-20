@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
+ms.sourcegitcommit: 9acbddcf1f15b9dcf61c3f9fe2ea3ff42bc19e7d
+ms.openlocfilehash: 75dcd784ee5cd3599f0bfc37b490c597524068f9
 
 
 ---
@@ -526,6 +526,13 @@ Por ejemplo, para invocar **SetAirResistance** , puede enviar este mensaje a un 
 
 El nombre de la acción debe coincidir exactamente con una acción definida en el modelo. Los nombres de los parámetros deben coincidir también. Tenga en cuenta que existe una distinción de mayúsculas y minúsculas. **Name** y **Parameters** van siempre en mayúsculas. Asegúrese de que las mayúsculas y minúsculas coincidan en el nombre de la acción y los parámetros del modelo. En este ejemplo, el nombre de la acción es "SetAirResistance" y no "setairresistance".
 
+Las otras dos acciones **TurnFanOn** y **TurnFanOff** se pueden invocar mediante el envío de estos mensajes a un dispositivo:
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 En esta sección se describe todo lo que necesita saber al enviar eventos y recibir mensajes con la biblioteca de **serializador** . Antes de continuar, vamos a examinar algunos parámetros que puede configurar que controlan lo grande que es su modelo.
 
 ## <a name="macro-configuration"></a>Configuración de macros
@@ -672,6 +679,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

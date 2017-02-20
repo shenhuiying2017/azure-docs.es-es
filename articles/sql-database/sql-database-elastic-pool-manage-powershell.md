@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Administración de un grupo elástico de Azure SQL Database | Microsoft Docs"
+title: "PowerShell: Creación y administración de un grupo elástico de Azure SQL | Microsoft Docs"
 description: "Aprenda a usar PowerShell para administrar un grupo elástico."
 services: sql-database
 documentationcenter: 
@@ -16,52 +16,72 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 9c6800c54f545d5ae70e9e8c2a3234cb3acecb83
-ms.openlocfilehash: 355baefc2ef50000ddb5a1241d9d28c201deffa1
+ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
+ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-pool-with-powershell"></a>Supervisión y administración de un grupo elástico con PowerShell
-> [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-elastic-pool-manage-portal.md)
-> * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-> * [C#](sql-database-elastic-pool-manage-csharp.md)
-> * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
->
->
 
-Administre un [grupo elástico](sql-database-elastic-pool.md) mediante cmdlets de PowerShell.
+# <a name="create-and-manage-an-elastic-pool-with-powershell"></a>Creación y administración de un grupo elástico con PowerShell
+En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con PowerShell.  También puede crear y administrar un grupo elástico de Azure en [Azure Portal](https://portal.azure.com/), la API de REST o [C#][Creación y administración de un grupo elástico con C#](sql-database-elastic-pool-manage-csharp.md). También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
-Para ver los códigos de error comunes, consulte [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md).
+[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-Se pueden encontrar valores para los grupos en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+## <a name="create-an-elastic-pool"></a>Creación de un grupo elástico
+El cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) crea un grupo elástico. Los valores de eDTU por grupo, DTU mín. y máx. están limitados por el valor de nivel de servicio (basic, standard o premium). Consulte la sección [Límites de almacenamiento y de eDTU para grupos elásticos y bases de datos agrupadas](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
-## <a name="prerequisites"></a>Requisitos previos
-* Azure PowerShell 1.0 o posterior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+    New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+
+## <a name="create-a-pooled-database-in-an-elastic-pool"></a>Creación de una base de datos agrupada en un grupo elástico
+Use el cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) y establezca el parámetro **ElasticPoolName** en el grupo de destino. Para mover una base de datos existente a un grupo elástico, consulte [Movimiento de una base de datos a un grupo elástico](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
+
+    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+### <a name="complete-script"></a>Completar script
+Este script crea un grupo de recursos de Azure y un servidor. Cuando se le solicite, proporcione un nombre de usuario y una contraseña de administrador para el nuevo servidor (no las credenciales de Azure).
+
+    $subscriptionId = '<your Azure subscription id>'
+    $resourceGroupName = '<resource group name>'
+    $location = '<datacenter location>'
+    $serverName = '<server name>'
+    $poolName = '<pool name>'
+    $databaseName = '<database name>'
+
+    Login-AzureRmAccount
+    Set-AzureRmContext -SubscriptionId $subscriptionId
+
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
+    New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+
+    New-AzureRmSqlElasticPool -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+
+    New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -ElasticPoolName $poolName -MaxSizeBytes 10GB
+
+## <a name="create-an-elastic-pool-and-add-multiple-pooled-databases"></a>Creación de un grupo elástico y adición de varias bases de datos agrupadas
+La creación de varias bases de datos en un grupo elástico puede tardar tiempo cuando se realiza mediante el portal o los cmdlets de PowerShell que crean una base de datos única cada vez. Para automatizar la creación de un grupo elástico, consulte [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Movimiento de una base de datos a un grupo elástico
-Puede mover una base de datos dentro o fuera de un grupo con el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
+Puede mover una base de datos dentro o fuera de un grupo elástico con el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
 
     Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## <a name="change-performance-settings-of-a-pool"></a>Cambio de la configuración de rendimiento de un grupo
+## <a name="change-performance-settings-of-an-elastic-pool"></a>Cambio de la configuración de rendimiento de un grupo elástico
 Cuando el rendimiento se ve afectado, puede cambiar la configuración del grupo para adaptarse al crecimiento. Utilice el cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Establezca el parámetro -Dtu en las eDTU por grupo. Consulte los posibles valores en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).  
 
     Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
 
-
 ## <a name="get-the-status-of-pool-operations"></a>Obtención del estado de las operaciones de los grupos
-El proceso de crear grupos puede llevar tiempo. Puede realizar un seguimiento del estado de las operaciones del grupo, como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx).
+La creación de un grupo elástico puede llevar tiempo. Puede realizar un seguimiento del estado de las operaciones del grupo, como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx).
 
     Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
 
-
-## <a name="get-the-status-of-moving-an-elastic-database-into-and-out-of-a-pool"></a>Obtención del estado entrada o salida de un grupo de una base de datos elástica
+## <a name="get-the-status-of-moving-a-database-into-and-out-of-an-elastic-pool"></a>Obtención del estado del movimiento de una base de datos dentro y fuera de un grupo elástico
 El proceso de mover bases de datos puede llevar tiempo. Realice un seguimiento del estado del movimiento mediante el cmdlet [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687\(v=azure.300\).aspx).
 
     Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## <a name="get-resource-usage-data-for-a-pool"></a>Obtención de datos de uso de recursos para un grupo
+## <a name="get-resource-usage-data-for-an-elastic-pool"></a>Obtención de datos de uso de recursos para un grupo elástico
 Métricas que se pueden recuperar como porcentaje del límite del grupo de recursos:   
 
 | Nombre de métrica | Descripción |
@@ -80,34 +100,31 @@ Métricas que se pueden recuperar como porcentaje del límite del grupo de recur
 
 **Métricas de períodos de retención y granularidad:**
 
-* Los datos se devolverán con una granularidad de 5 minutos.  
+* Los datos se devuelven con una granularidad de 5 minutos.  
 * La retención de datos es de 35 días.  
 
-Este cmdlet y la API limita el número de filas que se pueden recuperar en una llamada a 1000 filas (aproximadamente 3 días de datos con una granularidad de 5 minutos). Sin embargo, este comando se puede llamar varias veces con distintos intervalos de tiempo de inicio y fin para recuperar más datos.
+Este cmdlet y la API limitan el número de filas que se pueden recuperar en una llamada a 1000 filas (aproximadamente 3 días de datos con una granularidad de 5 minutos). Sin embargo, este comando se puede llamar varias veces con distintos intervalos de tiempo de inicio y fin para recuperar más datos.
 
 Para recuperar las métricas, siga estos pasos:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
 
-
-## <a name="get-resource-usage-data-for-an-elastic-database"></a>Obtención de datos de uso de recursos de una base de datos elástica
-Estas API son las mismas que las actuales (versión&12;) que se usan para supervisar el uso de recursos de una sola base de datos, excepto por la diferencia semántica siguiente.
-
-Para esta API, las métricas recuperadas se expresan como un porcentaje de la capacidad por cantidad máxima de eDTU (o una equivalente a la métrica subyacente como CPU, E/S etc.) establecido para ese grupo. Por ejemplo, el 50 % de uso de cualquiera de estas métricas indica que el consumo de recursos específicos es del 50 % del límite de capacidad por cada base de datos de dicho recurso del grupo principal.
+## <a name="get-resource-usage-data-for-a-database-in-an-elastic-pool"></a>Obtención de datos de uso de recursos de una base de datos en un grupo elástico
+Estas API son las mismas que las API actuales (V12) que se utilizan para supervisar el uso de recursos de una base de datos única, salvo por la diferencia semántica siguiente: las métricas recuperadas se expresan como un porcentaje del eDTU máximo por base de datos (o límite equivalente para la métrica subyacente como CPU o E/S) establecido para ese grupo. Por ejemplo, el 50 % de uso de cualquiera de estas métricas indica que el consumo de recursos específicos es del 50 % del límite de capacidad por cada base de datos de dicho recurso del grupo principal.
 
 Para recuperar las métricas, siga estos pasos:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
-## <a name="add-an-alert-to-a-pool-resource"></a>Adición de una alerta a un grupo de recursos
-Puede agregar reglas de alerta a recursos para enviar notificaciones por correo electrónico o cadenas de alertas a [puntos de conexión de URL](https://msdn.microsoft.com/library/mt718036.aspx) cuando un recurso alcanza el umbral de utilización establecido. Use el cmdlet Add-AzureRmMetricAlertRule.
+## <a name="add-an-alert-to-an-elastic-pool-resource"></a>Adición de una alerta a un recurso de grupos elásticos
+Puede agregar reglas de alerta a un grupo elástico para enviar notificaciones por correo electrónico o cadenas de alertas a [puntos de conexión de URL](https://msdn.microsoft.com/library/mt718036.aspx) cuando un grupo elástico alcanza el umbral de utilización establecido. Use el cmdlet Add-AzureRmMetricAlertRule.
 
 > [!IMPORTANT]
-> La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
+> La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un período inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un período (WindowSize) de 30 minutos o más.
 >
 >
 
-En este ejemplo se agrega una alerta para recibir una notificación cuando el consumo de eDTU de un grupo supere un umbral determinado.
+En este ejemplo se agrega una alerta para recibir una notificación cuando el consumo de eDTU de un grupo elástico supere un umbral determinado.
 
     # Set up your resource ID configurations
     $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
@@ -128,15 +145,15 @@ En este ejemplo se agrega una alerta para recibir una notificación cuando el co
     # Create an alert rule for DTU_consumption_percent
     Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 
-## <a name="add-alerts-to-all-databases-in-a-pool"></a>Adición de alertas a todas las bases de datos de un grupo
+## <a name="add-alerts-to-all-databases-in-an-elastic-pool"></a>Adición de alertas a todas las bases de datos de un grupo elástico
 Puede agregar reglas de alerta a todas las bases de datos de un grupo elástico para enviar notificaciones por correo electrónico o cadenas de alerta a [puntos de conexión de URL](https://msdn.microsoft.com/library/mt718036.aspx) cuando un recurso alcanza el umbral de utilización establecido por la alerta.
 
 > [!IMPORTANT]
-> La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
+> La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un período inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un período (WindowSize) de 30 minutos o más.
 >
 >
 
-En este ejemplo se agrega una alerta a cada una de las bases de datos de un grupo para recibir una notificación cuando el consumo de DTU de esas bases de datos supere un umbral determinado.
+En este ejemplo se agrega una alerta a cada una de las bases de datos de un grupo elástico para recibir una notificación cuando el consumo de DTU de esas bases de datos supere un umbral determinado.
 
     # Set up your resource ID configurations
     $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
@@ -151,7 +168,7 @@ En este ejemplo se agrega una alerta a cada una de las bases de datos de un grup
     # Create an email action
     $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
 
-    # Get resource usage metrics for a database in an elastic database for the specified time interval.
+    # Get resource usage metrics for a database in an elastic pool for the specified time interval.
     foreach ($db in $dbList)
     {
     $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
@@ -166,12 +183,10 @@ En este ejemplo se agrega una alerta a cada una de las bases de datos de un grup
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
     }
 
-
-
 ## <a name="collect-and-monitor-resource-usage-data-across-multiple-pools-in-a-subscription"></a>Recopilación y supervisión de los datos de uso de recursos entre varios grupos de una suscripción
-Si hay un gran número de bases de datos en una suscripción, es complicado supervisar cada grupo elástico por separado. En su lugar, se pueden combinar las consultas de T-SQL y los cmdlets de PowerShell de Base de datos SQL para recopilar datos de uso de recursos de varios grupos y sus bases de datos para la supervisión y el análisis del uso de recursos. Puede encontrar una [implementación de ejemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) de un conjunto similar de scripts de PowerShell en el repositorio de ejemplos de SQL Server de GitHub junto con documentación sobre lo que hace y cómo se utiliza.
+Si hay muchas bases de datos en una suscripción, es complicado supervisar cada grupo elástico por separado. En su lugar, se pueden combinar las consultas de T-SQL y los cmdlets de PowerShell de Base de datos SQL para recopilar datos de uso de recursos de varios grupos y sus bases de datos para la supervisión y el análisis del uso de recursos. Puede encontrar una [implementación de ejemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) de un conjunto similar de scripts de PowerShell en el repositorio de ejemplos de SQL Server de GitHub junto con documentación sobre lo que hace y cómo se utiliza.
 
-Para utilizar esta implementación de ejemplo siga los pasos enumerados a continuación.
+Para utilizar esta implementación de ejemplo siga estos pasos.
 
 1. Descargue los [scripts y la documentación](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
 2. Modifique los scripts para su entorno. Especifique uno o más servidores en los que se alojan los grupos elásticos.
@@ -186,7 +201,7 @@ En un nivel alto, los scripts realizan lo siguiente:
 
 Para supervisar el estado de los grupos elásticos y de las bases de datos en tales grupos, se pueden analizar las métricas recopiladas en la base de datos de telemetría. El script también instala una función de valores de tabla (TVF) predefinida en la base de datos de telemetría para ayudar a agregar las métricas para un período de tiempo especificado. Por ejemplo, los resultados de la función TVF pueden utilizarse para mostrar "los N grupos elásticos que presentan el máximo uso de eDTU en un período de tiempo determinado". Opcionalmente, puede utilizar herramientas de análisis como Excel o Power BI para consultar y analizar los datos recopilados.
 
-## <a name="example-retrieve-resource-consumption-metrics-for-a-pool-and-its-databases"></a>Ejemplo: recuperación de métricas de consumo de recursos de un grupo y de sus bases de datos
+### <a name="example-retrieve-resource-consumption-metrics-for-an-elastic-pool-and-its-databases"></a>Ejemplo: recuperación de métricas de consumo de recursos de un grupo elástico y de sus bases de datos
 En este ejemplo se recuperan las métricas de consumo de un grupo elástico determinado y de todas sus bases de datos. Se da formato a los datos recopilados y se escriben en un archivo .csv. El archivo puede consultarse con Excel.
 
     $subscriptionId = '<Azure subscription id>'          # Azure subscription ID
@@ -202,14 +217,14 @@ En este ejemplo se recuperan las métricas de consumo de un grupo elástico dete
     $startTime = '4/27/2016 00:00:00'  # start time in UTC
     $endTime = '4/27/2016 01:00:00'    # end time in UTC
 
-    # Construct the pool resource ID and retrive pool metrics at 5 minute granularity.
+    # Construct the pool resource ID and retrive pool metrics at 5-minute granularity.
     $poolResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticPools/' + $poolName
     $poolMetrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
 
     # Get the list of databases in this pool.
     $dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
 
-    # Get resource usage metrics for a database in an elastic database for the specified time interval.
+    # Get resource usage metrics for a database in an elastic pool for the specified time interval.
     $dbMetrics = @()
     foreach ($db in $dbList)
     {
@@ -245,8 +260,6 @@ En este ejemplo se recuperan las métricas de consumo de un grupo elástico dete
     # Format and output database metrics
     Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.csv
 
-
-
 ## <a name="latency-of-elastic-pool-operations"></a>Latencia de las operaciones de grupos elásticos
 * El cambio del número mínimo de eDTU por base de datos o del máximo de eDTU por base de datos suele completarse en cinco minutos o menos.
 * El cambio de eDTU por grupo depende de la cantidad total de espacio que usen todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para cambiar las eDTU de grupo por grupo es de 3 horas o menos.
@@ -261,10 +274,10 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md) : los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
-* Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
+* Consulte [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md): use herramientas elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

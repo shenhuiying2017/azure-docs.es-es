@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
+ms.sourcegitcommit: e82d677c9d53ec5d28a40a7def4b911081765ca5
+ms.openlocfilehash: 0a249d63df35f9c3334a658672777e9b1359265e
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 Aprenda a establecer la coherencia global, trabajar con claves y eliminar una cuenta de DocumentDB en el Portal de Azure.
 
 ## <a name="a-idconsistencyamanage-documentdb-consistency-settings"></a><a id="consistency"></a>Administración de la configuración de coherencia de DocumentDB
-La selección del nivel de coherencia adecuado depende de la semántica de su aplicación. Debe familiarizarse con los niveles de coherencia disponibles en DocumentDB consultando [Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB][consistency]. DocumentDB ofrece garantías de coherencia, disponibilidad y rendimiento, en cada nivel de coherencia disponible para la cuenta de base de datos. La configuración de la cuenta de base de datos con un nivel de coherencia alto requiere que los datos estén confinados en una sola región de Azure y que no estén disponibles globalmente. Por otro lado, los niveles de coherencia moderados: uso vinculado, sesión o posible, le permiten asociar un número cualquiera de regiones de Azure con su cuenta de base de datos. Estos sencillos pasos le muestran cómo seleccionar el nivel de coherencia predeterminado para la cuenta de base de datos. 
+La selección del nivel de coherencia adecuado depende de la semántica de su aplicación. Para familiarizarse con los niveles de coherencia disponibles en DocumentDB, consulte [Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB][consistency]. DocumentDB ofrece garantías de coherencia, disponibilidad y rendimiento, en cada nivel de coherencia disponible para la cuenta de base de datos. La configuración de la cuenta de base de datos con un nivel de coherencia alto requiere que los datos estén confinados en una sola región de Azure y que no estén disponibles globalmente. Por otro lado, los niveles de coherencia moderados: uso vinculado, sesión o posible, le permiten asociar un número cualquiera de regiones de Azure con su cuenta de base de datos. Estos sencillos pasos le muestran cómo seleccionar el nivel de coherencia predeterminado para la cuenta de base de datos. 
 
 ### <a name="to-specify-the-default-consistency-for-a-documentdb-account"></a>Para especificar la coherencia predeterminada de una cuenta de DocumentDB:
 1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
@@ -77,7 +77,7 @@ Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de Document
 > 
 > 
 
-## <a name="get-the-connection-string"></a>Obtener la cadena de conexión
+## <a name="get-the--connection-string"></a>Obtener la cadena de conexión
 Realice lo siguiente para recuperar la cadena de conexión: 
 
 1. En el [Azure Portal](https://portal.azure.com), obtenga acceso a su cuenta de DocumentDB.
@@ -87,12 +87,12 @@ Realice lo siguiente para recuperar la cadena de conexión:
 Si está utilizando la cadena de conexión en la [herramienta de migración de base de datos de DocumentDB](documentdb-import-data.md), anexe el nombre de la base de datos al final de la cadena de conexión. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a name="a-iddeletea-delete-a-documentdb-account"></a><a id="delete"></a> Eliminación de una cuenta de DocumentDB
-Para quitar de Azure Portal una cuenta de DocumentDB que ya no usa, ejecute el comando **Eliminar cuenta** en la hoja **Cuenta de DocumentDB**.
+Para quitar una cuenta de DocumentDB que ya no usa en Azure Portal, haga clic con el botón derecho en el nombre de cuenta y haga clic en **Eliminar cuenta**.
 
 ![Eliminación de una cuenta de DocumentDB en el Portal de Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de DocumentDB que quiere eliminar.
-2. En la hoja **Cuenta de DocumentDB**, haga clic en **Más** y, después, en **Eliminar cuenta**. O bien, haga clic en el nombre de la base de datos y haga clic en **Eliminar cuenta**.
+2. En la hoja **Cuenta de DocumentDB**, haga clic en la cuenta y, después, en **Eliminar cuenta**. 
 3. En la hoja de confirmación que aparece, escriba el nombre de la cuenta de DocumentDB para confirmar que quiere eliminarla.
 4. Haga clic en el botón **Eliminar** .
 
@@ -119,6 +119,6 @@ Para obtener más información sobre DocumentDB, consulte la documentación corr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

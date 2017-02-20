@@ -1,5 +1,5 @@
 ---
-title: "Tutorial de HBase: Introducción a HBase en Hadoop | Microsoft Docs"
+title: "Tutorial de HBase: Introducción a clústeres de HBase basados en Windows en Hadoop | Microsoft Docs"
 description: "Siga este tutorial de HBase para empezar a usar Apache HBase con Hadoop en HDInsight. Cree tablas desde el shell de HBase y consúltelas mediante Hive."
 keywords: apache hbase,hbase,shell de hbase,tutorial de hbase
 services: hdinsight
@@ -13,25 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 501c44ff8db2b825b58d98b9b89219ec9fff8b7c
-ms.openlocfilehash: 6384d7b0f4851ce4d1612857203e7c3c1381d6fc
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 59aee407be91279276ec6eaafed608e354030676
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-windows-based-hadoop-in-hdinsight"></a>Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Apache Hive. Para obtener información general de HBase, consulte [Información general de HBase de HDInsight][hdinsight-hbase-overview].
 
-La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información acerca de los clústeres basados en Windows, utilice el Selector de pestañas de la parte superior de la página para cambiar.
-
-> [!NOTE]
-> HBase (versión 0.98.0) en HDInsight basado en Windows solo está disponible para su uso con clústeres de HDInsight 3.1 (basados en Apache Hadoop y YARN 2.4.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
-> 
-> 
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información sobre el uso de clústeres basados en Linux, consulte [Tutorial de HBase: Introducción al uso de Apache HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -82,11 +77,11 @@ Actualmente, hay dos formas de tener acceso a HBase. En esta sección se trata e
 
 Para la mayoría de las personas, los datos aparecen en formato tabular:
 
-![datos tabulares de hbase de hdinsight][img-hbase-sample-data-tabular]
+![Datos tabulares de HBase de HDInsight][img-hbase-sample-data-tabular]
 
 En HBase, que es una implementación de BigTable, los mismos datos tienen un aspecto similar al siguiente:
 
-![datos bigtable de hbase de hdinsight][img-hbase-sample-data-bigtable]
+![Datos de HDInsight HBase BigTable][img-hbase-sample-data-bigtable]
 
 Tendrá más sentido cuando termine el siguiente procedimiento.  
 
@@ -110,7 +105,7 @@ Tendrá más sentido cuando termine el siguiente procedimiento.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![shell de hbase de hadoop de hdinsight][img-hbase-shell]
+    ![Shell de HDInsight Hadoop HBase][img-hbase-shell]
 6. Obtenga una sola fila
    
         get 'Contacts', '1000'
@@ -329,6 +324,6 @@ Para más información, consulte:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

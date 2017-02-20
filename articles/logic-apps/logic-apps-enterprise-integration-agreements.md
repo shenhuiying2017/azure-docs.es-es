@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre asociados y Enterprise Integration Pack | Microsoft Docs"
-description: "Sepa cómo usar partners con las Aplicaciones lógicas y Enterprise Integration Pack"
+title: "Contratos de comunicación B2B: Azure Logic Apps | Microsoft Docs"
+description: "Creación de contratos para que los asociados se puedan comunicar en escenarios B2B de Azure Logic Apps y Enterprise Integration Pack"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,65 +13,72 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
-ms.author: deonhe
+ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: 383dad6470e51b7033ada543bc85967ac001b3c2
-ms.openlocfilehash: 15c70f8b83e8d74e078140d92feadaa67916d4f1
+ms.sourcegitcommit: 8dd90542440322e6d57406cd950fa0a13bd4fe1d
+ms.openlocfilehash: 1068b5bd5f2c86de0c82f5a96cb2718645c0a3d3
 
 
 ---
-# <a name="learn-about-agreements-and-enterprise-integration-pack"></a>Información sobre contratos y Enterprise Integration Pack
-## <a name="overview"></a>Información general
-Los contratos son la piedra angular de las comunicaciones de negocio a negocio (B2B) que permiten a las entidades empresariales comunicarse de perfectamente mediante protocolos estándar del sector.  
+# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contratos de asociados para la comunicación B2B con Azure Logic Apps y Enterprise Integration Pack
 
-## <a name="what-is-an-agreement"></a>¿Qué es un contrato?
-Un contrato, a lo que respecta el Enterprise Integration Pack, es una disposición de las comunicaciones entre los socios comerciales B2B. Un contrato se basa en la comunicación que los socios desean lograr y es específico del protocolo o el transporte.
+Los contratos son la piedra angular de las comunicaciones de negocio a negocio (B2B) que permiten a las entidades empresariales comunicarse perfectamente mediante protocolos estándar del sector. Al habilitar escenarios B2B para aplicaciones lógicas con Enterprise Integration Pack, un contrato es una disposición de las comunicaciones entre los socios comerciales B2B. Este contrato se basa en la comunicación que los asociados desean establecer y es específico del protocolo o transporte.
 
-Integración de Enterprise admite tres estándares de transporte/protocolo:  
+La integración de Enterprise admite estos estándares de protocolo o transporte:
 
 * [AS2](logic-apps-enterprise-integration-as2.md)
 * [X12](logic-apps-enterprise-integration-x12.md)
 * [EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
 ## <a name="why-use-agreements"></a>Por qué usar contratos
-Algunas de las ventajas comunes del uso de contratos son las siguientes:
 
-* Permite que distintas organizaciones y empresas puedan intercambiar información en un formato conocido.  
-* Mejora la eficacia al realizar transacciones B2B  
-* Fácil de crearlos, administrarlos y utilizarlos al crear aplicaciones de Enterprise Integration  
+Estas son algunas de las ventajas más comunes de usar contratos:
+
+* Permite que distintas organizaciones y empresas puedan intercambiar información en un formato conocido.
+* Mejora la eficacia al realizar transacciones B2B
+* Fácil de crearlos, administrarlos y utilizarlos al crear aplicaciones de Enterprise Integration
 
 ## <a name="how-to-create-agreements"></a>Creación de contratos
-* [Creación de un contrato AS2](logic-apps-enterprise-integration-as2.md)   
-* [Creación de un contrato X12](logic-apps-enterprise-integration-x12.md)   
-* [Creación de un contrato EDIFACT](logic-apps-enterprise-integration-edifact.md)  
+
+* [Creación de un contrato AS2](logic-apps-enterprise-integration-as2.md)
+* [Creación de un contrato X12](logic-apps-enterprise-integration-x12.md)
+* [Creación de un contrato EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
 ## <a name="how-to-use-an-agreement"></a>Uso de contratos
-Después de crear un contrato, puede usarlo a través de Azure Portal para crear [Logic Apps](logic-apps-what-are-logic-apps.md "Información sobre Logic Apps") con características de B2B.
+
+Puede crear [aplicaciones lógicas](logic-apps-what-are-logic-apps.md "Más información sobre Logic Apps") con funcionalidades de B2B mediante el uso de un contrato que hay creado.
 
 ## <a name="how-to-edit-an-agreement"></a>Edición de contratos
-Puede editar cualquier acuerdo siguiendo estos pasos:  
 
-1. Seleccione la cuenta de integración que contiene el contrato que desea modificar.  
-2. Seleccione el icono **Agreements** (Contratos)  
-3. Seleccione el contrato que desee modificar en la hoja **Agreements** (Contratos)  
-4. Seleccione **Editar** desde el menú anterior   
-5. Realice los cambios en el menú de edición que aparece y, a continuación, seleccione el botón **Aceptar** para guardar los cambios  
+Puede editar cualquier acuerdo siguiendo estos pasos:
+
+1. Seleccione la cuenta de integración que contiene el contrato que desea actualizar.
+
+2. Seleccione el icono de **contratos**.
+
+3. En la hoja **Contratos**, seleccione el contrato.
+
+4. Elija **Editar**. Realice los cambios.
+
+5. Elija **Aceptar** para guardar los cambios.
 
 ## <a name="how-to-delete-an-agreement"></a>Eliminación de una cuenta
-Puede eliminar cualquier contrato siguiendo estos pasos desde dentro de la cuenta de integración que contiene el contrato que desea eliminar:   
 
-1. Seleccione el icono **Agreements** (Contratos)  
-2. Seleccione el contrato que desee eliminar en la hoja **Agreements** (Contratos)  
-3. Seleccione **Eliminar** desde el menú anterior  
-4. Confirme que realmente desea eliminar el contrato  
-5. Tenga en cuenta que el contrato ya no aparece en la hoja Agreements (Contratos)  
+Puede eliminar cualquier acuerdo siguiendo estos pasos:
+
+1. Seleccione la cuenta de integración que contiene el contrato que desea eliminar.
+2. Seleccione el icono de **contratos**.
+3. En la hoja **Contratos**, seleccione el contrato.
+4. Elija **Eliminar**.
+5. Confirme que desea eliminar el contrato seleccionado.
+
+    La hoja de contratos ya no muestra el contrato que se eliminó.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de un contrato AS2](logic-apps-enterprise-integration-as2.md)  
+* [Creación de un contrato AS2](logic-apps-enterprise-integration-as2.md)
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

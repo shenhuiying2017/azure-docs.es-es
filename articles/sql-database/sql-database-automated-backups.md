@@ -14,101 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2016
-ms.author: sashan;carlrab;barbkess
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: f6bb6e1c81cafe5f0e5c43c99ab15a0483742868
+ms.sourcegitcommit: 2a51e12d16795204b2ec68d66755b020ab6a6490
+ms.openlocfilehash: 10c70d478d638a4938b7978d9b2188617b7f61e9
 
 
 ---
 # <a name="learn-about-sql-database-backups"></a>Más información sobre las copias de seguridad de SQL Database
-<!------------------
-This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
-
-Metadata guidelines
-
-pageTitle
-    60 characters or less. Includes name of the feature - primary benefit. Not the same as H1. Its 60 characters or fewer including all characters between the quotes and the Microsoft Azure site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
-
-TEMPLATE GUIDELINES for feature topics
-
-The Feature Topic is a one-pager (ok, sometimes longer) that explains a capability of the product or service. It explains what the capability is and characteristics of the capability.  
-
-It is a "learning" topic, not an action topic.
-
-DO explain this:
-    � Definition of the feature terminology.  i.e., What is a database backup?
-    � Characteristics and capabilities of the feature. (How the feature works)
-    � Common uses with links to overview topics that recommend when to use the feature.
-    � Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    � Next Steps with links to related overviews, features, and tasks.
-
-DON'T explain this:
-    � How to steps for using the feature (Tasks)
-    � How to solve business problems that incorporate the feature (Overviews)
-
-GUIDELINES for the H1 
-
-    The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
-
-    To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
-
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
-GUIDELINES for introduction
-
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
-
-    If the introduction is short enough, your article can pop to the top in Google Instant Answers.
-
-    In this example:
-
-Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
-    SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
-
-Sentence #2 Explains why I should care about this.  
-    Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
-
--------------------->
 
 SQL Database crea automáticamente copias de seguridad de la base de datos y usa almacenamiento con redundancia geográfica con acceso de lectura de Azure (RA-GRS) para ofrecer redundancia geográfica. Estas copias de seguridad se crean automáticamente y sin cargos adicionales. No es necesario hacer nada para que se produzcan. Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Si desea conservar las copias de seguridad en su propio contenedor de almacenamiento, puede configurar una directiva de retención de copias de seguridad a largo plazo. Para obtener más información, consulte el tema sobre la [retención a largo plazo](sql-database-long-term-retention.md).
 
-<!-- This image needs work, so not putting it in right now.
-
-This diagram shows SQL Database running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure uses geo-replication to copy the database backups to a paired data center in the US West region.
-
-![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
-
--->
-
-<!---------------
-GUIDELINES for the first ## H2.
-
-    The first ## describes what the feature encompasses and how it is used. It points to related task articles.
-
-    For consistency, being the heading with "What is ... "
------------------>
-
 ## <a name="what-is-a-sql-database-backup"></a>¿Qué es una copia de seguridad de SQL Database?
-<!-- 
-    Explains what a SQL Database backup is and answers an important question that people want to know.
--->
-
-
-<!----------------- 
-    Explains first component of the backup feature
------------------->
 
 SQL Database emplea tecnología de SQL Server para crear copias de seguridad [completas](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciales](https://msdn.microsoft.com/library/ms175526.aspx) y del [registro de transacciones](https://msdn.microsoft.com/library/ms191429.aspx). Por lo general, las copias de seguridad del registro de transacciones se producen cada 5-10 minutos, y la frecuencia depende del nivel de rendimiento y de la cantidad de actividad de la base de datos. Las copias del registro de transacciones, junto con las completas y diferenciales, permiten restaurar una base de datos a un momento específico en el mismo servidor que hospede la base de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
 
-<!--------------- 
-    Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
@@ -122,22 +42,12 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 > Para ver un tutorial, consulte [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación mediante PowerShell](sql-database-get-started-backup-recovery.md).
 >
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-<!--------------- 
-    Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 > [!NOTE]
 > En Azure Storage, el término *replicación* hace referencia a la copia de archivos desde una ubicación a otra. La *replicación de base de datos* de SQL hace referencia a mantener varias bases de datos secundarias sincronizadas con una base de datos principal. 
 > 
 > 
 
-<!----------------
-    The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
-------------------->
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>¿Cuánto almacenamiento de copia de seguridad se incluye sin costo?
 SQL Database proporciona hasta un 200 % de almacenamiento de base de datos aprovisionado máximo, para que pueda almacenar copias de seguridad, sin costos adicionales. Por ejemplo, si tiene una instancia de base de datos de tipo Estándar con un tamaño de base de datos aprovisionado de 250 GB, tendrá 500 GB para almacenar copias de seguridad sin costos adicionales. Si la base de datos supera el almacenamiento de copias de seguridad proporcionado, puede reducir el período de retención; para ello, póngase en contacto con el soporte técnico de Azure. Otra opción consiste en pagar por un almacenamiento de copias de seguridad adicional que se facturará según la tarifa estándar de almacenamiento redundante geográficamente con acceso de lectura (RA-GRS). 
 
@@ -149,10 +59,6 @@ La replicación geográfica del almacenamiento de copias de seguridad se produce
 ## <a name="how-long-do-you-keep-my-backups"></a>¿Cuánto tiempo se mantienen las copias de seguridad?
 Cada copia de seguridad de SQL Database tiene un período de retención que se basa en el [nivel de servicio](sql-database-service-tiers.md) de la base de datos. El período de retención de una base de datos es el siguiente:
 
-<!------------------
-
-    Using a list so the information is easy to find when scanning.
-------------------->
 
 * Nivel de servicio Básico: 7 días.
 * Nivel de servicio Estándar: 35 días
@@ -178,49 +84,6 @@ Una vez que agregue la directiva de LTR a una base de datos mediante Azure Porta
 > Para ver un tutorial, consulte [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación mediante PowerShell](sql-database-get-started-backup-recovery.md).
 >
 
-<!-------------------
-OPTIONAL section
-## Best practices 
---------------------->
-
-<!-------------------
-OPTIONAL section
-## General remarks
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Limitations and restrictions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Metadata
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Performance
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Permissions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Security
---------------------->
-
-<!-------------------
-GUIDELINES for Next Steps
-
-    The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
-
-    You don't need to repeat links you have already given them.
---------------------->
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Para descubrir otras soluciones de continuidad empresarial de Azure SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](sql-database-business-continuity.md).
@@ -230,6 +93,6 @@ GUIDELINES for Next Steps
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e3b97726bf92cbb21c48cfb0fbe8d4f20db177d5
-ms.openlocfilehash: a0529aa584841c24afc5aa0d34a7ff1505a7732e
+ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
+ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
 
 
 ---
@@ -43,6 +43,8 @@ Antes de empezar este artículo, debe tener lo siguiente:
      
        ![Portal de Azure botón clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       Si no ve el clúster de HDInsight, haga clic en **Más servicios** en la parte inferior de la lista y, a continuación, haga clic en **Clústeres de HDInsight** en la sección **Inteligencia y análisis**.
+
 ## <a name="create-clusters"></a>Creación de clústeres
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -56,14 +58,14 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
    
     ![Azure Portal: aspectos básicos del clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-    **Menú de información general**:
+    **Menú de información general:**
 
-   * **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux.
+   * **Panel**: abre el panel del clúster, que es la web de Ambari para clústeres basados en Linux.
    * **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
    * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
    * **Eliminar**: elimina el clúster.
 
-    **Menú de la izquierda**
+    **Menú de la izquierda:**
    
    * **Registros de actividad**: consultar y mostrar registros de actividad.
    * **Access Control (IAM)**: usar las asignaciones de roles.  Vea [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
@@ -315,6 +317,6 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: ankshah; kraman
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: f96c0b7b7edcd19a041c803e268a2dc4bf25b137
+ms.sourcegitcommit: 08cac64a6b08266f78bca03f1139a13e9686ebc3
+ms.openlocfilehash: 819602cda932ea698287724e307ebbd73f1af988
 
 
 ---
@@ -31,14 +31,14 @@ De forma predeterminada, una cuenta de base de datos de DocumentDB es accesible 
 ![Diagrama que muestra el proceso de conexión para el control de acceso basado en IP](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
 
 ## <a name="connections-from-cloud-services"></a>Conexiones desde servicios en la nube
-En Azure, los servicios en la nube son una forma muy común de hospedar lógica de servicio de nivel intermedio mediante DocumentDB. Para permitir el acceso a una cuenta de base de datos de DocumentDB desde un servicio en la nube, la dirección IP pública del servicio en la nube se debe agregar a la lista de direcciones IP permitidas asociada con dicha cuenta; para ello, [póngase en contacto con el servicio técnico de Azure](#configure-ip-policy).  De esta forma se garantiza que todas las instancias de rol de servicios en la nube tengan acceso a la cuenta de base de datos de DocumentDB. Puede recuperar las direcciones IP para los servicios de nube en Azure Portal, como se muestra en la siguiente captura de pantalla. 
+En Azure, los servicios en la nube son una forma muy común de hospedar lógica de servicio de nivel intermedio mediante DocumentDB. Para permitir el acceso a una cuenta de base de datos de DocumentDB desde un servicio en la nube, la dirección IP pública del servicio en la nube se debe agregar a la lista de direcciones IP permitidas asociada a dicha cuenta mediante la [configuración de la directiva de control de acceso a la dirección IP](#configure-ip-policy).  De esta forma se garantiza que todas las instancias de rol de servicios en la nube tengan acceso a la cuenta de base de datos de DocumentDB. Puede recuperar las direcciones IP para los servicios de nube en Azure Portal, como se muestra en la siguiente captura de pantalla.
 
 ![Captura de pantalla con la dirección IP pública de un servicio en la nube que se muestra en Azure Portal](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
 
 Al escalar horizontalmente su servicio de nube mediante la adición de instancias de rol adicionales, esas nuevas instancias tendrán acceso automáticamente a la cuenta de base de datos de DocumentDB que forman parte del mismo servicio en la nube.
 
 ## <a name="connections-from-virtual-machines"></a>Conexiones desde máquinas virtuales
-También se pueden usar [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) o [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para hospedar servicios de nivel intermedio mediante DocumentDB.  Para configurar la cuenta de base de datos de DocumentDB para con el fin de permitir el acceso desde máquinas virtuales, se deben configurar direcciones IP públicas de máquina virtual o un conjunto de escalado de máquinas virtuales como una de las direcciones IP permitidas para su cuenta de base de datos de DocumentDB; para ello, [póngase en contacto con el soporte técnico de Azure](#configure-ip-policy). Puede recuperar las direcciones IP para máquinas virtuales en Azure Portal, como se muestra en la captura de pantalla siguiente.
+También se pueden usar [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) o [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para hospedar servicios de nivel intermedio mediante DocumentDB.  Para configurar la cuenta de base de datos de DocumentDB con el fin de permitir el acceso desde máquinas virtuales, se deben configurar direcciones IP públicas de máquina virtual o un conjunto de escalado de máquinas virtuales como una de las direcciones IP permitidas para dicha cuenta mediante la [configuración de la directiva de control de acceso a la dirección IP](#configure-ip-policy). Puede recuperar las direcciones IP para máquinas virtuales en Azure Portal, como se muestra en la captura de pantalla siguiente.
 
 ![Captura de pantalla con una dirección IP pública de una máquina virtual que se muestra en Azure Portal](./media/documentdb-firewall-support/documentdb-public-ip-addresses-dns.png)
 
@@ -66,6 +66,6 @@ Para más información sobre las sugerencias de rendimiento relacionadas con la 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

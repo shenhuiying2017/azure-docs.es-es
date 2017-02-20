@@ -1,22 +1,9 @@
 ---
-title: "Migración de la cuenta de DocumentDB S1 | Microsoft Docs"
-description: Aproveche las ventajas del aumento de rendimiento de su cuenta S1 de DocumentDB con tan solo unos cambios en el Portal de Azure.
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
-ms.assetid: 6f373fb6-b0d9-4745-b17c-88e8bc5f906a
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-performance-levels
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: f8190faec63c51fd3e6c69c16e2e1041ac67304e
-ms.openlocfilehash: 36c13458d17651b911ea60d6460e4342f40e87a1
+ms.sourcegitcommit: 94ae24e605f99e23766702a3954db567bb64bb51
+ms.openlocfilehash: 1c055187405b9c858676b2b80e4bc5c4157ef580
 
 
 ---
@@ -32,7 +19,7 @@ Para aprovechar la mayor capacidad de proceso de la cuenta de Azure DocumentDB, 
       ![Captura de pantalla de las hojas Configuración y Elija un plan de tarifa de DocumentDB](./media/documentdb-supercharge-your-account/documentdb-change-performance.png)
 5. Haga lo siguiente, como se muestra en le captura de pantalla anterior: 
 
- - En la hoja nueva, use el menú desplegable para seleccionar la colección con el plan de tarifa S1, S2 o S3. 
+ - En la nueva hoja, use el menú desplegable para seleccionar la colección con el plan de tarifa S1, S2 o S3. 
  - Haga clic en **Plan de tarifa S1**, **S2** o **S3**.
  - En la hoja **Elegir su nivel de precios**, haga clic en **Estándar** y luego haga clic en **Seleccionar** para guardar el cambio.
    
@@ -51,6 +38,6 @@ Aprenda más sobre cómo crear particiones de datos y conseguir el escalado glob
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

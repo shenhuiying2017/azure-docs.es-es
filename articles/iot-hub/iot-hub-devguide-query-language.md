@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e6d559a78fbd73be1dd5e745496515ce71404cad
-ms.openlocfilehash: ea7000d3e56c5132dba3f144c7bad671d0e3054a
+ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
+ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
 
 
 ---
@@ -246,15 +246,31 @@ Con las [rutas de dispositivo a la nube][lnk-devguide-messaging-routes], puede c
 La ruta [condición][lnk-query-expressions] utiliza el mismo lenguaje de consultas de IoT Hub como condiciones en consultas gemelas y de trabajo. Las condiciones de ruta se evalúan en las propiedades del mensaje suponiendo la siguiente representación JSON:
 
         {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": ""
+
             "userProperty1": "",
             "userProperty2": ""
         }
+
+Las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
+Siempre se accede a las propiedades de usuario con su nombre. Si sucede que un nombre de propiedad de usuario coincide con el de una propiedad del sistema (como `$to`), se recuperará la propiedad de usuario con la expresión `$to`.
+Siempre puede acceder a la propiedad del sistema mediante corchetes `{}`: por ejemplo, puede usar la expresión `{$to}` para acceder a la propiedad del sistema `to`. Los nombres de propiedad entre corchetes siempre permiten recuperar la propiedad del sistema correspondiente.
 
 Recuerde que los nombres de propiedad no distinguen mayúsculas de minúsculas.
 
 > [!NOTE]
 > Todas las propiedades de mensaje son cadenas. Las propiedades del sistema, como se describen en la [guía del desarrollador][lnk-devguide-messaging-format], no están disponibles para su uso en las consultas.
->
 >
 
 Por ejemplo, si utiliza una propiedad `messageType`, puede enrutar toda la telemetría a un punto de conexión y todas las alertas a otro punto de conexión. Puede escribir la siguiente expresión para enrutar la telemetría:
@@ -458,6 +474,6 @@ Aprenda a ejecutar consultas en sus aplicaciones mediante los [SDK IoT de Azure 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Sugerencias de rendimiento para DocumentDB | Microsoft Docs
+title: 'Sugerencias de rendimiento: Azure DocumentDB NoSQL | Microsoft Docs'
 description: "Conozca las opciones de configuración de cliente para mejorar el rendimiento de las bases de datos de Azure DocumentDB."
 keywords: "cómo mejorar el rendimiento de la base de datos"
 services: documentdb
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/19/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 5b4efb2d6dedb43436745f5e8055cae44e4a58ac
+ms.sourcegitcommit: 532cfeb5115feb7558018af73968576dac17ff88
+ms.openlocfilehash: 28ca2d86f5008ee26376d76f3411cac05ffdfde4
 
 
 ---
@@ -37,6 +37,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
    2. Modo directo
 
       El modo de puerta de enlace se admite en todas las plataformas de SDK y es el valor predeterminado configurado.  Si la aplicación se ejecuta dentro de una red corporativa con restricciones de firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el puerto HTTPS estándar y un único punto de conexión. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen o escriben datos en DocumentDB.   Por este motivo, el modo directo ofrece mejor rendimiento debido al número menor de saltos de red.
+<a id="use-tcp"></a>
 2. **Directiva de conexión: uso del protocolo TCP**
 
     Al aprovechar el modo directo, hay dos opciones de protocolo disponibles:
@@ -111,7 +112,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación del cliente debe retroceder de acuerdo con la limitación para el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos. Se incluye compatibilidad con la directiva de reintentos en la versión 1.8.0 y superior de DocumentDB, [.NET](documentdb-sdk-dotnet.md) y [Java](documentdb-sdk-java.md), y en la versión 1.9.0 y superior de [Node.js](documentdb-sdk-node.md) y [Python](documentdb-sdk-python.md) y en todas las versiones compatibles de los SDK de [.NET Core](documentdb-sdk-dotnet-core.md). Para más información, consulte [Superación de los límites de rendimiento reservados](documentdb-request-units.md#RequestRateTooLarge) y [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Escalado horizontal de la carga de trabajo de cliente**
 
-    Si va a realizar pruebas en niveles de alto rendimiento (>50 000 RU/s), la aplicación cliente puede volverse un cuello de botella debido a que la máquina limita el uso de CPU o de la red. Si llega a este punto, puede seguir insertando la cuenta de DocumentDB mediante la escala horizontal de las aplicaciones cliente en varios servidores.
+    Si va a realizar pruebas en niveles de alto rendimiento (>50&000; RU/s), la aplicación cliente puede volverse un cuello de botella debido a que la máquina limita el uso de CPU o de la red. Si llega a este punto, puede seguir insertando la cuenta de DocumentDB mediante la escala horizontal de las aplicaciones cliente en varios servidores.
 8. **Almacenamiento en caché de los identificadores URI de documentos para una latencia menor en las operaciones de lectura**
 
     Siempre que sea posible, almacene en caché los identificadores URI para obtener el mejor rendimiento en las operaciones de lectura.
@@ -128,6 +129,18 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 10. **Aumento del número de subprocesos y tareas**
 
     Consulte [Aumento del número de subprocesos y tareas](#increase-threads) en la sección Redes.
+    
+11. **Uso del proceso de host de 64 bits**
+
+    El SDK de DocumentDB funciona en un proceso de host de 32 bits; sin embargo, si utilizas consultas entre particiones, se recomienda un proceso de host de 64 bits para un mejor rendimiento. De forma predeterminada, el siguiente tipo de aplicaciones tiene un proceso de host de 32 bits; para cambiar a 64 bits, siga estos pasos según el tipo de aplicación:
+    
+    - Para aplicaciones ejecutables, esto puede hacerse desactivando la opción **Preferencia de 32 bits** de la ventana **Propiedades del proyecto**, en la pestaña **Generar**. 
+    
+    - Para proyectos de prueba basados en VSTest, puede hacerlo seleccionando **Prueba**->**Configuración de pruebas**->**Arquitectura del procesador predeterminada como X64**, en la opción de menú **Prueba de Visual Studio**.
+    
+    - Para aplicaciones web de ASP.NET implementadas localmente, se puede hacer seleccionando **Usar la versión de 64 bits de IIS Express para proyectos y sitios web**, en **Herramientas**->**Opciones**->**Proyectos y soluciones**->**Proyectos Web**.
+    
+    - Para aplicaciones web de ASP.NET implementadas en Azure, se puede hacer eligiendo la **Plataforma de 64 bits** en **Configuración de la aplicación** en Azure Portal.
 
 ## <a name="indexing-policy"></a>Directiva de indexación
 1. **Uso de la indexación diferida para lograr tasas de ingesta más rápidas a horas punta**
@@ -173,9 +186,10 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
              }
 
     El cargo de solicitud devuelto en este encabezado es una fracción de la capacidad de proceso aprovisionada (es decir, 2000 RU/segundo). Por ejemplo, si la consulta anterior devuelve 1000 documentos de 1 KB, el costo de la operación será 1000. Por lo tanto, al cabo de un segundo, el servidor respetará solo dos de estas solicitudes antes de limitar las que vengan a continuación. Para más información, consulte [Unidades de solicitud](documentdb-request-units.md) y la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
+<a id="429"></a>
 2. **Administración de la limitación de velocidad y la tasa de solicitudes demasiado grande**
 
-    Cuando un cliente intenta superar la capacidad de proceso reservada para una cuenta, no habrá ninguna degradación del rendimiento en el servidor y no se utilizará capacidad de proceso más allá del nivel reservado. El servidor finalizará de forma preventiva la solicitud con RequestRateTooLarge (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms para indicar la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
+    Cuando un cliente intenta superar la capacidad de proceso reservada para una cuenta, no habrá ninguna degradación del rendimiento en el servidor y no se utilizará ninguna capacidad de proceso más allá del nivel reservado. El servidor finalizará de forma preventiva la solicitud con RequestRateTooLarge (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms para indicar la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
@@ -197,6 +211,6 @@ Para más información sobre cómo diseñar la aplicación para escalarla y obte
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

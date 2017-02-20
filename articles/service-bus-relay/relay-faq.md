@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/02/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 22781ec965decbfd33923478794a76692151c363
+ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
+ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
 
 
 ---
 # <a name="relay-faq"></a>Preguntas más frecuentes sobre Relay
-En este artículo se responden algunas preguntas frecuentes sobre Relay de Microsoft Azure. También puede visitar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios y el soporte técnico de Azure.
+
+En este artículo se responden algunas preguntas frecuentes sobre [Relay de Microsoft Azure](https://azure.microsoft.com/services/service-bus/). También puede visitar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios y el soporte técnico de Azure.
 
 ## <a name="general-questions"></a>Preguntas generales
 ### <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
-El [servicio Relay](relay-what-is-it.md) de Azure facilita las aplicaciones híbridas, ya que permite exponer de forma segura los servicios que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa.
+El [servicio Relay de Azure](relay-what-is-it.md) facilita las aplicaciones híbridas, ya que permite exponer de forma segura los servicios que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa.
 
 ### <a name="what-is-a-relay-namespace"></a>¿Qué es el espacio de nombres de Relay?
-Un [espacio de nombres](relay-create-namespace-portal.md) proporciona un contenedor con un ámbito para el desvío de recursos de Relay en la aplicación. Es necesario crear uno para usar Relay y es uno de los primeros pasos a realizar para empezar.
+Un [espacio de nombres](relay-create-namespace-portal.md) proporciona un contenedor con un ámbito para el desvío de recursos de Relay en la aplicación. Es necesario crear un espacio de nombres para usar Relay y es uno de los primeros pasos que hay que realizar para empezar.
 
 ### <a name="what-happened-to-the-previously-named-relay-service"></a>¿Qué ha ocurrido con el servicio anteriormente llamado Relay?
-El servicio anteriormente llamado **Relay** se conoce ahora como *WCF Relay*. Este servicio se puede seguir usando de la manera habitual. Conexiones híbridas es una versión actualizada de un servicio trasplantado de BizTalk. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
+El servicio anteriormente llamado Service Bus **Relay** se conoce ahora como *WCF Relay*. Este servicio se puede seguir usando de la manera habitual. Conexiones híbridas es una versión actualizada de un servicio trasplantado de BizTalk. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
 
 ## <a name="pricing"></a>Precios
 En esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Microsoft Azure. Para obtener más información sobre los precios de Relay, consulte [Precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -86,7 +87,7 @@ Un espacio de nombres de Relay solo puede tener entre 6 y 50 caracteres.
 
 ## <a name="subscription-and-namespace-management"></a>Administración de suscripción y espacio de nombres
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>¿Cómo se migra un espacio de nombres a otra suscripción de Azure?
-Puede utilizar los comandos de PowerShell (los encontrará [aquí](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription)) para mover un espacio de nombres de una suscripción de Azure a otra. Para ejecutar la operación, el espacio de nombres tiene que estar ya activo. Además, el usuario que ejecuta los comandos tiene que ser administrador en las suscripciones de origen y de destino.
+Puede utilizar los comandos de PowerShell (los encontrará [aquí](../service-bus-messaging/service-bus-powershell-how-to-provision.md)) para mover un espacio de nombres de una suscripción de Azure a otra. Para ejecutar la operación, el espacio de nombres tiene que estar ya activo. Además, el usuario que ejecuta los comandos tiene que ser administrador en las suscripciones de origen y de destino.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>¿Cuáles son algunas de las excepciones generadas por las API de Relay de Azure y sus acciones sugeridas?
@@ -109,6 +110,6 @@ Sí. El cliente de Relay establece conexiones al servicio de Relay mediante nomb
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

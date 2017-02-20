@@ -1,6 +1,6 @@
 ---
-title: "Creación de un grupo de consumidores del espacio de nombres de Azure Event Hubs mediante una plantilla | Microsoft Docs"
-description: "Creación de un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager"
+title: "Creación de un espacio de nombres y un grupo de consumidores de Azure Event Hubs mediante una plantilla | Microsoft Docs"
+description: "Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager"
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 42ee0c02cfd419286b223738a539089570376929
+ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
+ms.openlocfilehash: 0085e71eb44b95f6eb5308f1974379ad3a74984b
 
 
 ---
@@ -141,6 +141,13 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
+## <a name="next-steps"></a>Pasos siguientes
+Para más información acerca de Event Hubs, visite los vínculos siguientes:
+
+* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Creación de un Centro de eventos](event-hubs-create.md)
+* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
@@ -149,6 +156,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Preguntas más frecuentes sobre la Base de datos SQL de Azure"
+title: "Preguntas más frecuentes sobre Azure SQL Database | Microsoft Docs"
 description: "Respuestas a las preguntas más comunes que los clientes preguntan sobre las bases de datos en la nube y Base de datos SQL de Azure, el sistema de administración de bases de datos relacionales (RDBMS) de Microsoft y bases de datos como un servicio en la nube."
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 12/19/2016
+ms.date: 02/06/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: aba60bf5108a4e5ad95e3c634b9fcbca7393c700
+ms.sourcegitcommit: ff3ea3564d3cde5369f87d5f5102176229686acb
+ms.openlocfilehash: 6b828f7256c27aab567428706cd38c38b2f896eb
 
 
 ---
 # <a name="sql-database-faq"></a>Preguntas más frecuentes sobre la Base de datos SQL
+
+## <a name="what-is-the-current-version-of-sql-database"></a>¿Cuál es la versión actual de SQL Database?
+La versión actual de SQL Database es V12. Se ha retirado la versión V11.
+
+## <a name="what-is-the-sla-for-sql-database"></a>¿Qué es el Acuerdo de Nivel de Servicio para SQL Database?
+Garantizamos que al menos el 99,99 % del tiempo los clientes tendrán conectividad entre su base de datos única o elástica de Microsoft Azure SQL Database Básico, Estándar o Premium y nuestra puerta de enlace de Internet. Para más información, consulte [Acuerdo de Nivel de Servicio](http://azure.microsoft.com/support/legal/sla/).
+
+## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>¿Cómo se puede restablecer la contraseña para el administrador del servidor?
+En [Azure Portal](https://portal.azure.com) haga clic en **Servidores SQL Server**, seleccione el servidor en la lista y luego haga clic en **Restablecer contraseña**.
+
+## <a name="how-do-i-manage-databases-and-logins"></a>¿Cómo se administran las bases de datos e inicios de sesión?
+Consulte [Administrar bases de datos e inicios de sesión](sql-database-manage-logins.md).
+
+## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>¿Cómo asegurarse de que solo se permiten las direcciones IP autorizadas para acceder al servidor?
+Vea [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md).
+
 ## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>¿Cómo aparece el uso que hago de la Base de datos SQL en la factura?
 SQL Database se factura con tarifas por horas predecibles basadas en el nivel de servicio + nivel de rendimiento para bases de datos únicas o en eDTU por grupo elástico. El uso real se procesa y se prorratea por horas, por lo que su factura podría mostrar fracciones de una hora. Por ejemplo, si una base de datos existe durante 12 horas al mes, la factura mostrará un uso de 0,5 días. Además, los niveles de servicio y de nivel de rendimiento, así como las eDTU por grupo se desglosan en la factura para que pueda ver más fácilmente el número de días que usó la base de datos para cada elemento, por mes.
 
@@ -48,13 +64,14 @@ Los grupos elásticos se facturan según las características siguientes:
 
 * Los grupos elásticos se facturan desde su creación, incluso si no contiene ninguna base de datos.
 * Los grupos elásticos se facturan por horas. Se trata de la misma frecuencia de medición que la de los niveles de rendimiento de las bases de datos únicas.
-* Si se cambia el tamaño de un grupo elástico a una nueva cantidad de eDTU, el grupo no se factura según la nueva cantidad de eDTU hasta que la operación de cambio de tamaño se complete. Esto sigue el mismo patrón que el cambio de nivel de rendimiento de las bases de datos únicas.
+* Si se cambia el tamaño de un grupo elástico a un nuevo número de eDTU, el grupo no se factura según la nueva cantidad de eDTU hasta que la operación de cambio de tamaño se complete. Esto sigue el mismo patrón que el cambio de nivel de rendimiento de las bases de datos únicas.
 * El precio de un grupo elástico se basa en el número de eDTU del grupo. El precio de un grupo elástico es independiente del número y el uso de las bases de datos elásticas de dentro de él.
 * El precio se calcula por (número de eDTU de grupo) x (precio unitario por eDTU).
 
 El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario de eDTU para una base de datos única del mismo nivel de servicio. Para obtener información detallada, vea [Precios de bases de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 
 Para comprender los niveles de servicio y de eDTU, consulte [Opciones de base de datos SQL y el rendimiento](sql-database-service-tiers.md).
+
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>¿Cómo se muestra en mi factura el uso de la replicación geográfica activa en un grupo elástico?
 A diferencia de las bases de datos únicas, el uso de [replicación geográfica activa](sql-database-geo-replication-overview.md) con bases de datos elásticas no afecta a la facturación.  Solo se cobrarán las eDTU aprovisionadas para cada uno de los grupos (grupo principal y grupo secundario).
 
@@ -106,6 +123,6 @@ Exponemos el retraso de replicación en tiempo real entre la base de datos princ
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Referencia para desarrolladores de NodeJS de Azure Functions | Microsoft Docs
-description: "Cómo desarrollar Funciones de Azure con NodeJS."
+title: Referencia para desarrolladores de JavaScript para Azure Functions | Microsoft Docs
+description: "Cómo desarrollar Azure Functions con JavaScript."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,22 +15,22 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6f558761f85bd0f9f4e8be38192df1c1ccf16c4e
-ms.openlocfilehash: d4d43e646734d3496cd9d35d1d7aa6a39852533a
+ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
+ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
 
 
 ---
-# <a name="azure-functions-nodejs-developer-reference"></a>Referencia para desarrolladores de NodeJS de Funciones de Azure
+# <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 > [!div class="op_single_selector"]
 > * [Script de C#](functions-reference-csharp.md)
 > * [Script de F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-La experiencia de Node/JavaScript para Azure Functions facilita la exportación de una función en que se transmite un objeto `context` para comunicarse con el sistema en tiempo de ejecución, y recibir y enviar datos por medio de enlaces.
+La experiencia de JavaScript para Azure Functions facilita la exportación de una función en que se transmite un objeto `context` para comunicarse con el sistema en tiempo de ejecución, y recibir y enviar datos por medio de enlaces.
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
@@ -198,6 +198,6 @@ Para obtener más información, consulte los siguientes recursos:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

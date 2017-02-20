@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/28/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
-ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
+ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
+ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
 
 
 ---
@@ -43,7 +43,7 @@ Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico 
 ![Modelo jerárquico de recursos de DocumentDB][1]  
 **Modelo jerárquico de recursos**   
 
-Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción de Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados. Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.  
+Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos de base de datos](documentdb-create-account.md) con su suscripción de Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados. Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.  
 
 | Recurso | Description |
 | --- | --- |
@@ -70,7 +70,7 @@ Los recursos como cuentas de base de datos, bases de datos, colecciones, usuario
     <tbody>
         <tr>
             <td valign="top"><p><strong>Propiedad</strong></p></td>
-            <td valign="top"><p><strong>¿Configurable por el usuario o generado por el sistema?</strong></p></td>
+            <td valign="top"><p><strong>¿Configurable por el usuario o generada por el sistema?</strong></p></td>
             <td valign="top"><p><strong>Propósito</strong></p></td>
         </tr>
         <tr>
@@ -137,7 +137,7 @@ Como parte del aprovisionamiento y control de una cuenta de base de datos, puede
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
-            <td valign="top"><p><strong>Nombre de propiedad</strong></p></td>
+            <td valign="top"><p><strong>Nombre de la propiedad</strong></p></td>
             <td valign="top"><p><strong>Descripción</strong></p></td>
         </tr>
         <tr>
@@ -464,6 +464,6 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

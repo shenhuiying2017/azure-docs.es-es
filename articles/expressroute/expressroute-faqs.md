@@ -1,10 +1,10 @@
 ---
-title: P+F de ExpressRoute
+title: "Preguntas más frecuentes acerca de Azure ExpressRoute | Microsoft Docs"
 description: "P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 02/01/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9f26fd3796a45d6a4a782f80632e09a6390f1dbe
-ms.openlocfilehash: ae2dbb8524acba44f83397b7340ca98433b34de6
+ms.sourcegitcommit: 899fbfb63633286a1065546b1f262cbc1d7d39c4
+ms.openlocfilehash: d11d57a352138e43f7a7e9d2ec91663361be6f95
 
 
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 ## <a name="what-is-expressroute"></a>¿Qué es ExpressRoute?
-ExpressRoute es un servicio de Azure que permite crear conexiones privadas entre los centros de datos de Microsoft y la infraestructura local o en una instalación de coubicación. Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, y ofrecen más confiabilidad, velocidad y seguridad, y una menor latencia que las conexiones a Internet típicas.
+ExpressRoute es un servicio de Azure que permite crear conexiones privadas entre los centros de datos de Microsoft y la infraestructura local o en una instalación de coubicación. Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, ofrecen una mayor confiabilidad, seguridad y velocidad con una menor latencia que las conexiones a Internet típicas.
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>¿Cuáles son las ventajas de usar ExpressRoute y conexiones de red privada?
-Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, y ofrecen más confiabilidad, velocidad y seguridad, y latencias coherentes e inferiores en comparación con las conexiones a Internet típicas. En algunos casos, el uso de conexiones ExpressRoute para transferir datos entre los dispositivos locales y Azure también puede aportar beneficios económicos importantes.
+Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, ofrecen una mayor confiabilidad, seguridad y velocidad con una latencia menor y más coherente que las conexiones a Internet típicas. En algunos casos, el uso de conexiones ExpressRoute para transferir datos entre los dispositivos locales y Azure también puede aportar beneficios económicos importantes.
 
 ### <a name="what-microsoft-cloud-services-are-supported-over-expressroute"></a>¿Qué servicios en la nube de Microsoft son compatibles con ExpressRoute?
 ExpressRoute admite la mayoría de los servicios de Microsoft Azure hoy en día, incluido Office 365.  Busque pronto actualizaciones de disponibilidad general.
@@ -46,7 +46,7 @@ No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de s
 Sí. Los circuitos ExpressRoute están configurados para admitir casos en los que puede aumentar hasta dos veces el límite de ancho de banda adquirido sin coste adicional. Consulte con su proveedor de servicios si son compatibles con esta capacidad.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>¿Es posible usar la misma conexión de red privada con Red virtual y otros servicios de Azure simultáneamente?
-Sí. Un circuito ExpressRoute, una vez que el programa de instalación le permita acceder a los servicios en una red virtual y otros servicios de Azure simultáneamente. Se conectará a redes virtuales a través de la ruta de acceso de emparejamiento privado y otros servicios a través de la ruta de acceso de emparejamiento público.
+Sí. Un circuito ExpressRoute, una vez configurado, le permitirá acceder a los servicios de una red virtual y a otros servicios de Azure simultáneamente. Se conectará a redes virtuales a través de la ruta de acceso de emparejamiento privado y a otros servicios a través de la ruta de acceso de emparejamiento público.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>¿ExpressRoute ofrece un contrato de nivel de servicio (SLA)?
 Consulte la [página de SLA de ExpressRoute](https://azure.microsoft.com/support/legal/sla/) para obtener más información.
@@ -201,7 +201,7 @@ La tabla siguiente muestran los límites de ExpressRoute y el número de redes v
 Las características de ExpressRoute Premium pueden habilitarse cuando la característica está habilitada y se puede apagar actualizando el estado del circuito. Puede habilitar ExpressRoute Premium en tiempo de creación de circuito o puede llamar al cmdlet de PowerShell o de la API del circuito dedicado de actualización para habilitar ExpressRoute Premium.
 
 ### <a name="how-do-i-disable-expressroute-premium"></a>¿Cómo deshabilito ExpressRoute Premium?
-Puede deshabilitar ExpressRoute Premium llamando al cmdlet de Powershell/API del circuito dedicado de actualización. Debe asegurarse de que ha escalado las necesidades de conectividad para que cumplan con los límites predeterminados antes de deshabilitar ExpressRoute Premium. Se producirá un error en la solicitud para deshabilitar ExpressRoute Premium si se realiza la escalación de uso más allá de los límites predeterminados.
+Puede deshabilitar ExpressRoute premium mediante una llamada a la API del circuito dedicado de actualización o a un cmdlet de PowerShell. Debe asegurarse de que ha escalado sus necesidades de conectividad para cumplir con los límites predeterminados antes de deshabilitar ExpressRoute premium. Se producirá un error en la solicitud para deshabilitar ExpressRoute Premium si se realiza la escalación de uso más allá de los límites predeterminados.
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>¿Puedo elegir y seleccionar las características que quiero del conjunto de características Premium?
 No. No podrá seleccionar las características que necesita. Habilitaremos todas las características cuando active ExpressRoute Premium.
@@ -250,6 +250,6 @@ Sí. [Dynamics 365 for Operations](https://www.microsoft.com/en-us/dynamics365/o
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

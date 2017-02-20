@@ -1,10 +1,10 @@
 
 ---
 title: Uso de certificados con Enterprise Integration Pack | Microsoft Docs
-description: "Sepa cómo usar certificados con las Aplicaciones lógicas y Enterprise Integration Pack."
+description: Uso de certificados con Enterprise Integration Pack | Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: padmavc
 manager: anneta
 editor: cgronlun
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
-ms.author: deonhe
+ms.date: 02/03/2016
+ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: a1baafa9a2b4552ad711615e5e0abb0180a0d562
-ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
+ms.sourcegitcommit: c8cfe5fb933cf9056b971d3e524f3c9ebc910215
+ms.openlocfilehash: b494d5abfdd4045776b408cbb8ec99ee3905cf72
 
 
 ---
@@ -37,9 +37,9 @@ A veces, hay que conservar la confidencialidad de las comunicaciones B2B. Enterp
 * Cifrando el contenido de los mensajes
 * Firmando digitalmente los mensajes  
 
-## <a name="how-do-you-upload-certificates"></a>¿Cómo se cargan certificados?
-### <a name="public-certificates"></a>Certificados públicos
-Para usar un *certificado público* en las Aplicaciones lógicas con funcionalidades B2B, antes hay que cargarlo en la cuenta de integración. Para usar un *certificado autofirmado*, primero debe cargarlo en [Azure Key Vault](../key-vault/key-vault-get-started.md "Información sobre el Almacén de claves").
+## <a name="upload-a-public-certificate"></a>Carga de un certificado público
+
+Para usar un *certificado público* en las Aplicaciones lógicas con funcionalidades B2B, antes hay que cargarlo en la cuenta de integración.  
 
 Después de cargar un certificado, estará disponible para que pueda proteger los mensajes B2B al definir sus propiedades en los [contratos](logic-apps-enterprise-integration-agreements.md) que cree.  
 
@@ -61,8 +61,9 @@ A continuación, figuran los pasos detallados para cargar certificados públicos
 9. Seleccione el icono de **Certificados** . Debería ver el certificado que acaba de agregar.  
 ![Consulta del nuevo certificado](media/logic-apps-enterprise-integration-certificates/certificate-4.png)  
 
-### <a name="private-certificates"></a>Certificados privados
-Puede cargar certificados privados en la cuenta de integración siguiendo estos pasos:  
+## <a name="upload-a-private-certificate"></a>Carga de un certificado privado
+
+Para usar un *certificado privado* en las aplicaciones lógicas con funcionalidades B2B, puede cargar un certificado privado en su cuenta de integración realizando los pasos siguientes
 
 1. [Cargue la clave privada en Key Vault](../key-vault/key-vault-get-started.md "Información acerca de Key Vault") y especifique un **nombre de clave**. 
    
@@ -100,6 +101,6 @@ A continuación, figuran los pasos detallados para cargar certificados privados 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

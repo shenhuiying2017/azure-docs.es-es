@@ -4,7 +4,7 @@ description: "Obtenga más información sobre los requisitos de software y red d
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6a01ed44d08c06e35c66a842a27b46775ec97a3a
-ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
+ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
+ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
@@ -40,13 +40,13 @@ Los requisitos de software incluyen información sobre los exploradores web comp
 | **Hipervisor** | **Versión** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 y posterior |
-| VMware ESXi |Versión 5.5 y versiones posteriores. |
+| VMware ESXi |Versión&5;.5 y versiones posteriores. |
 
 ### <a name="virtual-device-requirements"></a>Requisitos de los dispositivos virtuales
 | **Componente** | **Requisito** |
 | --- | --- |
 | Número mínimo de procesadores virtuales (núcleos) |4 |
-| Cantidad mínima de memoria (RAM) |8 GB |
+| Cantidad mínima de memoria (RAM) |8 GB <br> Para un servidor de archivos, 8 GB para menos de 2 millones de archivos y 16 GB para 2-4 millones de archivos|
 | Espacio en disco<sup>1</sup> |Disco de sistema operativo: 80 GB  <br></br>Disco de datos: de 500 GB a 8 TB |
 | Número mínimo de interfaces de red |1 |
 | Ancho de banda mínimo de Internet<sup>2</sup> |5 Mbps |
@@ -131,6 +131,6 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

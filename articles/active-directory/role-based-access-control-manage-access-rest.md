@@ -1,5 +1,5 @@
 ---
-title: "Administración del control de acceso basado en rol con la API de REST"
+title: Control de acceso basado en rol con REST de Azure AD | Microsoft Docs
 description: "Administración del control de acceso basado en rol con la API de REST"
 services: active-directory
 documentationcenter: na
@@ -12,21 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 
 
 ---
-# <a name="managing-role-based-access-control-with-the-rest-api"></a>Administración del control de acceso basado en rol con la API de REST
+# <a name="manage-role-based-access-control-with-the-rest-api"></a>Administración del control de acceso basado en rol con la API de REST
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API DE REST](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 El control de acceso basado en rol (RBAC) del Portal de Azure y la API de Azure Resource Manager le ayudan a administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
@@ -43,13 +41,13 @@ Use el método **GET** con el identificador URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Reemplace *{api-version}* por 2015-07-01.
 3. Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de asignación de roles:
-   
+
    * Lista de las asignaciones de roles únicamente para el ámbito especificado, sin incluir las asignaciones de roles en ámbitos secundarios: `atScope()`    
    * Lista de las asignaciones de roles para solo un usuario, un grupo o una aplicación determinados: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Lista de asignaciones de roles para un usuario específico, incluidas las heredadas de grupos | `assignedTo('{objectId of user}')`
@@ -93,7 +91,7 @@ Use el método **GET** con el identificador URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -134,7 +132,7 @@ Use el método **PUT** con el URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el ámbito en el que quiere crear las asignaciones de roles. Cuando se crea una asignación de roles en un ámbito primario, todos los ámbitos secundarios heredan la misma asignación de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -192,7 +190,7 @@ Use el método **DELETE** con el URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el ámbito en el que quiere crear las asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -233,13 +231,13 @@ Use el método **GET** con el identificador URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el ámbito cuya lista de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Reemplace *{api-version}* por 2015-07-01.
 3. Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de roles:
-   
+
    * Enumerar los roles disponibles para asignar en el ámbito especificado y cualquiera de sus ámbitos secundarios: `atScopeAndBelow()`
    * Buscar un rol con un nombre para mostrar exacto: `roleName%20eq%20'{role-display-name}'`. Use la forma con codificación URL del nombre para mostrar exacto del rol. Por ejemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -316,7 +314,7 @@ Use el método **GET** con el identificador URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -396,7 +394,7 @@ Use el método **PUT** con el URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el primer elemento *AssignableScope* del rol personalizado. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles.
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -499,7 +497,7 @@ Use el método **PUT** con el URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el primer elemento *AssignableScope* del rol personalizado. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -547,7 +545,7 @@ Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 | properties.type |Sí |String |Establézcalo en "CustomRole". |
 | properties.permissions.actions |yes |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado actualizado concede acceso. |
 | properties.permissions.notActions |No |String[] |Matriz de cadenas de acción que especifica las operaciones a las que el rol personalizado actualizado no concede acceso. |
-| properties.assignableScopes |Sí |String[] |Matriz de ámbitos en los que se puede usar el rol personalizado actualizado. |
+| properties.assignableScopes |yes |String[] |Matriz de ámbitos en los que se puede usar el rol personalizado actualizado. |
 
 ### <a name="response"></a>Respuesta
 Código de estado: 201
@@ -602,7 +600,7 @@ Use el método **DELETE** con el URI siguiente:
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 1. Reemplace *{scope}* por el ámbito en el que quiere eliminar la definición de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
-   
+
    * Suscripción: /subscriptions/{subscription-id}  
    * Grupo de recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -649,12 +647,12 @@ Código de estado: 200
 
 ```
 
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

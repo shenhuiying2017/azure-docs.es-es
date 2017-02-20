@@ -12,11 +12,11 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/09/2017
+ms.date: 02/02/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 888a818bc0ea1804366dcb3932ac0e3f7b5802c6
-ms.openlocfilehash: 51341d933525ef77d1f9ab604b212854b447ebc5
+ms.sourcegitcommit: 8c0b167423fd18e069ea5112ac39b18d3ca71805
+ms.openlocfilehash: 63197d66ec7f6e68e7be9ed44694cddec15aaa11
 
 
 ---
@@ -64,7 +64,7 @@ HDInsight incluye una opción de R Server que se integra en el clúster de HDIns
 
    
 
-5. Seleccione **Credenciales** y escriba un valor en **Nombre de usuario de inicio de sesión del clúster** y **Contraseña de inicio de sesión de clúster**.
+5. Seleccione **Credenciales** y escriba los valores correspondientes en **Nombre de usuario de inicio de sesión del clúster** y **Contraseña de inicio de sesión de clúster**.
 
     Especifique un valor en **Nombre de usuario de SSH**.  SSH se usa para conectarse de forma remota al clúster con un cliente de **Secure Shell (SSH)**. Puede especificar el usuario SSH en este cuadro de diálogo o una vez creado el clúster (pestaña de configuración del clúster). R Server está configurado para esperar el **nombre de usuario de SSH** "remoteuser".  Si utiliza un nombre de usuario diferente, tendrá que realizar un paso adicional después de crear el clúster.
 
@@ -94,23 +94,24 @@ HDInsight incluye una opción de R Server que se integra en el clúster de HDIns
 
 6. Seleccione **Origen de datos** para seleccionar un origen de datos como la ubicación principal del sistema de archivos HDFS utilizado por el clúster. Seleccione una cuenta de Azure Storage nueva o existente o una cuenta de almacenamiento de Data Lake existente.
 
-   1. Si selecciona una cuenta de Azure Storage, seleccione una cuenta de almacenamiento existente mediante **Seleccionar cuenta de almacenamiento** y seleccione la cuenta o cree una con el vínculo **Crear nueva** en la sección **Seleccionar cuenta de almacenamiento**.
+   1. Si selecciona una cuenta de Azure Storage, puede seleccionar una cuenta de almacenamiento existente en **Seleccionar cuenta de almacenamiento** y, una vez allí, seleccionar la cuenta. O puede crear una nueva cuenta mediante el vínculo **Crear nueva** en la sección **Seleccionar cuenta de almacenamiento**.
 
       > [!NOTE]
-      > Si selecciona **Nuevo**, debe escribir un nombre para la nueva cuenta de almacenamiento. Si el nombre está aceptado, aparecerá una marca de comprobación verde.
+      > Si selecciona **Nueva**, debe escribir un nombre para la nueva cuenta de almacenamiento. Si el nombre está aceptado, aparecerá una marca de comprobación verde.
 
       Se usará el nombre del clúster de forma predeterminada en **Contenedor predeterminado**. Déjelo como valor.
 
-      Si se ha seleccionado una nueva opción de cuenta de almacenamiento, seleccione **Ubicación** para seleccionar la región en la que crear la cuenta de almacenamiento.
-
+      Si se ha seleccionado una nueva opción de cuenta de almacenamiento, aparecerá un aviso para seleccionar la **ubicación**, es decir, la región en la que desea crear la cuenta de almacenamiento.  
+   
+         ![Hoja Origen de datos](./media/hdinsight-getting-started-with-r/datastore.png)  
+   
       > [!IMPORTANT]
       > Seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben estar en la misma región.
 
-   2. Si selecciona el uso de un Data Lake Store existente, seleccione la cuenta de almacenamiento ADLS que usar y agregue la identidad de ADD de clúster al clúster para permitir el acceso al almacén.  Para más información sobre este proceso, consulte [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
+   2. Si selecciona el uso de un Data Lake Store existente, seleccione la cuenta de almacenamiento ADLS que desea usar y agregue la identidad de ADD de clúster al clúster para permitir el acceso al almacén. Para más información sobre este proceso, consulte [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
       Use el botón **Seleccionar** para guardar la configuración del origen de datos.
 
-       ![Hoja Origen de datos](./media/hdinsight-getting-started-with-r/datastore.png)
 
 7. Seleccione **Planes de tarifa de nodo** para mostrar información sobre los nodos que se crearán para este clúster. A menos que sepa que necesitará un clúster de mayor tamaño, deje el número de nodos de trabajo en el valor predeterminado de `4`. El costo estimado del clúster se mostrará en la hoja.
 
@@ -138,7 +139,7 @@ HDInsight incluye una opción de R Server que se integra en el clúster de HDIns
 
    
 
-9. Después de revisar las selecciones, es el momento de crear el clúster. Seleccione **Anclar a Panel de inicio** y, luego, **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure.
+9. Después de revisar las selecciones, es el momento de crear el clúster. Seleccione **Anclar a Panel de inicio** y, luego, **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de Azure Portal.
 
    Podrá observar que hay también un vínculo para **Opciones de automatización**. Al hacer clic en este vínculo se mostrarán los scripts que pueden utilizarse para automatizar la creación de un clúster con la configuración seleccionada. Estos scripts también están disponibles en la entrada de Azure Portal para el clúster una vez que se ha creado.
 
@@ -153,7 +154,7 @@ HDInsight incluye una opción de R Server que se integra en el clúster de HDIns
 
 ## <a name="connect-to-rstudio-server"></a>Conexión a RStudio Server
 
-Si ha elegido incluir RStudio Server community edition en la instalación, puede acceder al inicio de sesión de RStudio por dos métodos diferentes.
+Si ha elegido incluir RStudio Server community edition en la instalación, puede acceder al inicio de sesión de RStudio a través de dos métodos diferentes.
 
 1. Puede ir a la dirección URL siguiente (donde **CLUSTERNAME** es el nombre del clúster que creó): 
 
@@ -485,6 +486,118 @@ Acciones de script son scripts de Bash que se usan para realizar cambios en la c
      
 4. Seleccione **Crear** para ejecutar el script. Una vez que finalice el script, los paquetes de R estarán disponibles en todos los nodos de trabajo.
 
+## <a name="using-microsoft-r-server-operationalization"></a>Uso de la operacionalización de Microsoft R Server
+Cuando se complete el modelado de datos, podrá hacer operativo el modelo para realizar predicciones. Para configurar la operacionalización de Microsoft R Server realice los pasos siguientes.
+
+En primer lugar, use ssh en el nodo perimetral. Por ejemplo: ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
+
+Después de utilizar ssh, cambie el directorio al siguiente directorio y use sudo en el dll de dotnet tal y como se muestra a continuación.
+
+```
+    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
+    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+```
+
+Para configurar la operacionalización de Microsoft R Server con una configuración One-box, haga lo siguiente:
+
+* Seleccione "1. Configure R Server for Operationalization” (Configurar R Server para operacionalización)
+* Seleccione “A. One-box (web + compute nodes)” [One-box (web y nodos de proceso)]
+* Escriba una contraseña para el usuario **administrador**
+
+![operacionalización one box](./media/hdinsight-hadoop-r-server-get-started/admin-util-one-box-.png)
+
+Como paso opcional, puede realizar comprobaciones de diagnóstico mediante la ejecución de una prueba de diagnóstico tal y como se muestra a continuación.
+
+* Seleccione “6. Ejecutar pruebas de diagnóstico”
+* Seleccione “A. Configuración de pruebas”
+* Escriba el nombre de usuario = "admin" y la contraseña del paso de configuración anterior
+* Confirme el estado general = pass
+* Salga de la utilidad de administración
+* Salga de SSH
+
+![Diagnóstico de operacionalización](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+En esta fase, la configuración de la operacionalización está completa. Ahora puede usar el paquete de 'mrsdeploy' en RClient para conectarse a la operacionalización en el nodo perimetral y empezar a usar características como la [ejecución remota](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) y los [servicios web](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Dependiendo de si el clúster se configura en una red virtual o no, puede que necesite configurar la tunelización de reenvío del puerto mediante el inicio de sesión SSH, como se explica a continuación:
+
+### <a name="rserver-cluster-on-virtual-network"></a>RServer Cluster en una red virtual
+
+Asegúrese de que se permite el tráfico a través del puerto 12800 al nodo perimetral. De este modo, puede usar el nodo perimetral para conectarse a la característica de operacionalización.
+
+```
+library(mrsdeploy)
+
+remoteLogin(
+    deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
+
+Si no se puede conectar remoteLogin() al nodo perimetral, pero sí puede SSH en este, debe comprobar si se ha configurado correctamente la regla para permitir el tráfico en el puerto 12800 o no. Si el problema continúa, puede utilizar una solución alternativa mediante la configuración de la tunelización de reenvío del puerto a través de SSH.
+
+### <a name="rserver-cluster-not-set-up-on-virtual-network"></a>RServer Cluster no configurado en una red virtual
+
+Si el clúster no está configurado en la red virtual O si tiene problemas con la conectividad a través de la red virtual, puede utilizar la tunelización de reenvío del puerto de SSH como se explica a continuación:
+
+```
+ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+```
+
+En Putty, también se puede configurar.
+
+![conexión ssh de putty](./media/hdinsight-hadoop-r-server-get-started/putty.png)
+
+Una vez que la sesión SSH esté activa, el tráfico del puerto 12800 de la máquina se reenviará al puerto 12800 del nodo perimetral mediante la sesión de SSH. Asegúrese de utilizar `127.0.0.1:12800` en el método remoteLogin(). Esto iniciará sesión en la operacionalización del nodo perimetral mediante el reenvío de puerto.
+
+```
+library(mrsdeploy)
+
+remoteLogin(
+    deployr_endpoint = "http://127.0.0.1:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
+
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>¿Cómo escalar los nodos de proceso de la característica de operacionalización de Microsoft R Server en nodos de trabajo de HDInsight?
+ 
+ 
+### <a name="decommission-the-worker-nodes"></a>Retirada de los nodos de trabajo
+Microsoft R Server no se administra actualmente mediante Yarn. Si los nodos de trabajo no se retiran, el administrador de recursos de Yarn no funcionará según lo previsto ya que no reconocerá los recursos que utiliza el servidor. Para evitar esto, se recomienda la retirada de los nodos de trabajo en los que desea escalar los nodos de proceso.
+ 
+Pasos para retirar los nodos de trabajo:
+ 
+* Inicie sesión en la consola de Ambari del clúster HDI y haga clic en la pestaña "hosts"
+* Seleccione los nodos de trabajo (los que se van a retirar), haga clic en "Acciones" > "Hosts seleccionados" > "Hosts" > haga clic en "Activar modo de mantenimiento". Por ejemplo, en la siguiente captura de pantalla, hemos seleccionado wn3 y wn4 para su retirada.  
+   
+   ![retirar nodos de trabajo](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
+
+* Seleccione "Acciones" > "Hosts seleccionados" > "DataNodes" > haga clic en "Retirar"
+* Seleccione "Acciones" > "Hosts seleccionados" > "NodeManagers" > haga clic en "Retirar"
+* Seleccione "Acciones" > "Hosts seleccionados" > "DataNodes" > haga clic en "Detener"
+* Seleccione "Acciones" > "Hosts seleccionados" > "NodeManagers" > haga clic en "Detener"
+* Seleccione "Acciones" > "Hosts seleccionados" > "Hosts" > haga clic en "Detener todos los componentes"
+* Anulación de la selección de los nodos de trabajo y selección de los nodos principales
+* Seleccione "Acciones" > "Hosts seleccionados" > "Hosts" > haga clic en "Reiniciar todos los componentes"
+ 
+ 
+### <a name="configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Configuración de los nodos de proceso en cada nodo de trabajo retirado
+ 
+* SSH en cada nodo de trabajo retirado
+* Ejecute la utilidad de administración mediante `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`
+* Escriba "1" para seleccionar la opción "1. Configure R Server for Operationalization” (Configurar R Server para operacionalización)
+* Escriba "c" para seleccionar la opción "C. Nodo de proceso". Esto configurará el nodo de proceso en el nodo de trabajo.
+* Salga de la utilidad de administración
+ 
+### <a name="add-compute-nodes-details-on-web-node"></a>Incorporación de detalles de nodos de proceso en el nodo web
+Una vez que se han configurado todos los nodos de trabajo retirados para ejecutar nodos de proceso, vuelva al nodo perimetral y agregue las direcciones IP de los nodos de trabajo retirados a la configuración del nodo web de Microsoft R Server:
+ 
+* Uso de SSH en el nodo perimetral
+* Ejecute `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`
+* Busque la sección de "identificadores URI" y agregue la dirección IP del nodo de trabajo y los detalles del puerto.
+
+![línea de comandos para retirar nodos de trabajo](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo crear un nuevo clúster de HDInsight que incluya un servidor de R y los aspectos básicos del uso de la consola de R desde una sesión de SSH, use las siguientes opciones para descubrir otras formas de trabajar con el servidor de R en HDInsight.
 
@@ -495,6 +608,6 @@ Ahora que sabe cómo crear un nuevo clúster de HDInsight que incluya un servido
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

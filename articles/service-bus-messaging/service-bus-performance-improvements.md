@@ -1,6 +1,6 @@
 ---
-title: Procedimientos recomendados para mejorar el rendimiento mediante Service Bus | Microsoft Docs
-description: "Describe cómo usar el Bus de servicio de Azure para optimizar el rendimiento al intercambiar mensajes asincrónicos."
+title: Procedimientos recomendados para mejorar el rendimiento mediante Azure Service Bus | Microsoft Docs
+description: "Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
+ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
+ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
-En este tema se describe cómo usar la mensajería de Azure Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte del tema se describen los distintos mecanismos que se ofrecen para ayudar a mejorar el rendimiento. La segunda parte proporciona orientación sobre cómo usar el Bus de servicio de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
+En este artículo se describe cómo usar la [mensajería de Azure Service Bus](https://azure.microsoft.com/services/service-bus/) para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte del tema se describen los distintos mecanismos que se ofrecen para ayudar a mejorar el rendimiento. La segunda parte proporciona orientación sobre cómo usar el Bus de servicio de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
 
 En todo este tema, el término "cliente" hace referencia a cualquier entidad que acceda a Service Bus. Un cliente puede asumir el rol de un remitente o receptor. El término "remitente" se usa para referirse a cualquier cliente de una cola o un tema de Service Bus que envía mensajes a una cola o un tema de Service Bus. El término "receptor" hace referencia a cualquier cliente de una cola o suscripción de Service Bus que recibe mensajes de una cola o suscripción de Service Bus.
 
 En estas secciones se presentan algunos conceptos que el Bus de servicio usa para ayudar a mejorar el rendimiento.
 
 ## <a name="protocols"></a>Protocolos
-Service Bus permite a los clientes enviar y recibir mensajes a través de tres protocolos
+Service Bus permite a los clientes enviar y recibir mensajes a través de uno de estos tres protocolos:
 
 1. Advanced Message Queuing Protocol (AMQP)
 2. Protocolo de mensajería de Service Bus (SBMP)
-3. HTTP
+3. http
 
 AMQP y SBMP son más eficaces, ya que mantienen la conexión a Service Bus, siempre y cuando exista la fábrica de mensajería. También implementa el procesamiento por lotes y la captura previa. A menos que se mencione explícitamente, en todo el contenido de este tema se asume que se usa AMQP o SBMP.
 
@@ -44,7 +44,7 @@ Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Es
 
 * **Operaciones asincrónicas**: el cliente programa las operaciones mediante la realización de operaciones asincrónicas. La siguiente solicitud se inicia antes de que se complete la anterior. A continuación, se proporciona un ejemplo de operación asincrónica de envío:
   
-  ```
+ ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
   BrokeredMessage m2 = new BrokeredMessage(body);
   
@@ -62,7 +62,7 @@ Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Es
   
   Esto es un ejemplo de operación asincrónica de recepción:
   
-  ```
+  ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   
@@ -93,7 +93,7 @@ De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Pued
 
 Para deshabilitar el procesamiento por lotes, establezca la propiedad [BatchFlushInterval][BatchFlushInterval] en **TimeSpan.Zero**. Por ejemplo:
 
-```
+```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
 mfs.TokenProvider = tokenProvider;
 mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
@@ -107,7 +107,7 @@ Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bu
 
 Cuando se crea una cola, un tema o una suscripción nuevos, el acceso al almacén de procesamiento por lotes está habilitado de manera predeterminada. Para deshabilitar el acceso al almacén de procesamiento por lotes, establezca la propiedad [EnableBatchedOperations][EnableBatchedOperations] en **false** antes de crear la entidad. Por ejemplo:
 
-```
+```csharp
 QueueDescription qd = new QueueDescription();
 qd.EnableBatchedOperations = false;
 Queue q = namespaceManager.CreateQueue(qd);
@@ -116,11 +116,11 @@ Queue q = namespaceManager.CreateQueue(qd);
 El acceso al almacén de procesamiento por lotes no afecta al número de operaciones de mensajería facturables y es una propiedad de una cola, un tema o una suscripción. Es independiente del modo de recepción y del protocolo que se usa entre un cliente y el servicio Bus de servicio.
 
 ## <a name="prefetching"></a>Captura previa
-La captura previa permite que el cliente de cola o suscripción cargue más mensajes desde el servicio cuando realice una operación de recepción. El cliente almacena estos mensajes en una memoria caché local. El tamaño de la memoria caché lo determinan las propiedades [QueueClient.PrefetchCount][QueueClient.PrefetchCount] o [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Cada cliente con la captura previa habilitada mantiene su propia memoria caché. La memoria caché no se comparte entre los clientes. Si el cliente inicia una operación de recepción y su memoria caché está vacía, el servicio transmite un lote de mensajes. El tamaño del lote equivale al tamaño de la memoria caché o a 256 kB, con preferencia por el menor valor. Si el cliente inicia una operación de recepción y la memoria caché contiene un mensaje, el mensaje se recupera de la memoria caché.
+La captura previa permite que el cliente de cola o suscripción cargue más mensajes desde el servicio cuando realice una operación de recepción. El cliente almacena estos mensajes en una memoria caché local. El tamaño de la memoria caché lo determinan las propiedades [QueueClient.PrefetchCount][QueueClient.PrefetchCount] o [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Cada cliente con la captura previa habilitada mantiene su propia memoria caché. La memoria caché no se comparte entre los clientes. Si el cliente inicia una operación de recepción y su memoria caché está vacía, el servicio transmite un lote de mensajes. El tamaño del lote equivale al tamaño de la memoria caché o a 256 KB, con preferencia por el menor valor. Si el cliente inicia una operación de recepción y la memoria caché contiene un mensaje, el mensaje se recupera de la memoria caché.
 
 Cuando se lleva a cabo la captura previa de un mensaje, el servicio bloquea dicho mensaje. De esta manera, se impide que otro receptor reciba el mensaje con captura previa. Si el receptor no puede completar el mensaje antes de que expire el bloqueo, el mensaje pasa a estar disponible para otros receptores. La copia de captura previa del mensaje permanece en la memoria caché. El receptor que consume la copia en caché expirada recibirá una excepción cuando intente completar dicho mensaje. De forma predeterminada, el bloqueo del mensaje expira tras 60 segundos. Este valor puede ampliarse a 5 minutos. Para evitar el consumo de mensajes expirados, el tamaño de la memoria caché debe ser siempre menor que el número de mensajes que un cliente puede consumir en el intervalo de tiempo de espera de bloqueo.
 
-Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] es el que se obtiene de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores del generador. Por ejemplo, una factoría crea 3 receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20\*3\*10 = 600. De forma predeterminada, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] se establece en 0, lo que significa que no se realiza la captura previa de ningún mensaje adicional desde el servicio.
+Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] es el que se obtiene de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores del generador. Por ejemplo, una factoría crea 3 receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20 X 3 X 10 = 600. De forma predeterminada, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] se establece en 0, lo que significa que no se realiza la captura previa de ningún mensaje adicional desde el servicio.
 
 La captura previa de los mensajes aumenta el rendimiento general de una cola o una suscripción porque reduce el número total de operaciones de mensajes o recorridos de ida y vuelta. Sin embargo, capturar el primer mensaje tardará más tiempo (debido al aumento del tamaño del mensaje). Recibir mensajes con captura previa será más rápido porque el cliente ya ha descargado estos mensajes.
 
@@ -131,7 +131,7 @@ La captura previa no afecta al número de operaciones de mensajería facturables
 ## <a name="express-queues-and-topics"></a>Colas y temas exprés
 Las entidades exprés permiten escenarios con un alto rendimiento y una latencia reducida. Con las entidades exprés, si se envía un mensaje a una cola o un tema, este no se guarda de inmediato en el almacén de mensajería. En su lugar, se almacena en la memoria caché. Si un mensaje permanece en la cola durante más de unos segundos, se escribe automáticamente en almacenamiento estable, lo que lo protege contra la pérdida debida a una interrupción. La escritura del mensaje en una memoria caché aumenta el rendimiento y reduce la latencia porque no se accede al almacenamiento estable en el momento en que se envía el mensaje. Los mensajes que se consumen en unos segundos no se escriben en el almacén de mensajería. En el ejemplo siguiente se crea un tema exprés.
 
-```
+```csharp
 TopicDescription td = new TopicDescription(TopicName);
 td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
@@ -142,7 +142,7 @@ Si se envía un mensaje que contiene información importante y que no debe perde
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso de colas o temas con particiones
 De forma interna, Service Bus usa el mismo nodo y almacén de mensajería para procesar y almacenar todos los mensajes de una entidad de mensajería (cola o tema). Por otra parte, una cola o un tema con particiones se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas con particiones no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][EnablePartitioning] en **true** como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
-```
+```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
 qd.EnablePartitioning = true;
@@ -150,14 +150,14 @@ namespaceManager.CreateQueue(qd);
 ```
 
 ## <a name="use-of-multiple-queues"></a>Uso de varias colas
+
 Si no se pueden usar una cola o un tema con particiones, o si una única cola o tema con particiones no pueden procesar la carga esperada, debe usar varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
 
-## <a name="development--testing-features"></a>Características de implementación y pruebas
-Service Bus tiene una característica que se utiliza específicamente para desarrollo que **nunca debe utilizarse en configuraciones de producción**.
+## <a name="development-and-testing-features"></a>Características de desarrollo y pruebas
 
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+Service Bus tiene una característica que se utiliza específicamente para desarrollo que **nunca debe utilizarse en configuraciones de producción**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
-* Cuando se agregan nuevas reglas o filtros al tema, EnableFilteringMessagesBeforePublishing puede utilizarse para comprobar que la nueva expresión de filtro funciona según lo esperado.
+Cuando se agregan nuevas reglas o filtros al tema, se puede utilizar [TopicDescription.EnableFilteringMessagesBeforePublishing][] para comprobar que la nueva expresión de filtro funciona según lo esperado.
 
 ## <a name="scenarios"></a>Escenarios
 En las secciones siguientes, se describen escenarios habituales de mensajería y se explica la configuración preferida del Bus de servicio. Las tasas de rendimiento se clasifican como pequeñas (menos de 1 mensaje/segundo), moderadas (1 mensaje/segundo o más, pero menos de 100 mensajes/segundo) y altas (100 mensajes/segundo o más). El número de clientes se clasifica como pequeño (5 o menos), moderado (más de 5 pero un máximo de 20) y grande (más de 20).
@@ -243,21 +243,22 @@ Para maximizar el rendimiento, haga lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo optimizar el rendimiento de Service Bus, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[PeekLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[ReceiveAndDelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[BatchFlushInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx
-[EnableBatchedOperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx
-[QueueClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx
-[SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
-[ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
-[EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

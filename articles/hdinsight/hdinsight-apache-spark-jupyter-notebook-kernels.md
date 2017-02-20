@@ -13,64 +13,64 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: bb47fa4e876322a0e3e36d4da657fba4be84d6f2
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: fc39933ac8d9f3c46023a5852df036b87e559647
 
 
 ---
-# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight"></a>Kernels disponibles para cuadernos de Jupyter con clústeres de Apache Spark en HDInsight
+# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Kernels para cuadernos de Jupyter con clústeres de Apache Spark en HDInsight 
 
-El clúster Apache Spark en HDInsight (Linux) incluye cuadernos de Jupyter que puede usar para probar las aplicaciones. Un kernel es un programa que ejecuta e interpreta el código. Los clústeres Spark en HDInsight proporcionan dos kernels que puede utilizar con el cuaderno de Jupyter. Dichos componentes son:
+Los clústeres de HDInsight Spark proporcionan dos kernels que se pueden utilizar con el cuaderno de Jupyter Notebook para probar las aplicaciones de Spark. Un kernel es un programa que ejecuta e interpreta el código. Los dos kernels son:
 
-1. **PySpark** (para aplicaciones escritas con Python)
-2. **Spark** (para aplicaciones escritas con Scala)
+- **PySpark** (para aplicaciones escritas con Python)
+- **Spark** (para aplicaciones escritas con Scala)
 
-En este artículo, obtendrá información sobre cómo usar estos kernels y cuáles son los beneficios que obtiene de uso.
+En este artículo, aprenderá a usar estos kernels y las ventajas de utilizarlos.
 
 **Requisitos previos:**
 
 Debe tener lo siguiente:
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-use-the-kernels"></a>¿Cómo puedo usar los kernels?
-1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
-2. En la hoja del clúster Spark, haga clic en **Panel de clúster** y, luego, en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter
+1. En [Azure Portal](https://portal.azure.com/), abra el clúster.  Consulte [Enumeración y visualización de clústeres](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) para obtener instrucciones. El clúster se abre en una nueva hoja del portal.
+2. Desde la sección **Vínculos rápidos**, haga clic en **Paneles de clúster** para abrir la hoja **Paneles de clúster**.  Si no ve la sección **Vínculos rápidos**, haga clic en **Introducción** en el menú izquierdo de la hoja.
 
+    ![Paneles de clúster](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Paneles de clúster") 
+3. Haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+   
    > [!NOTE]
    > También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace **CLUSTERNAME** por el nombre del clúster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Cree un nuevo cuaderno con los kernels nuevos. Haga clic en **New** (Nuevo) y en **Pyspark** o **Spark**. Debe utilizar el kernel de Spark para aplicaciones de Scala y kernel PySpark para aplicaciones de Python.
+   > 
+   > 
+3. Haga clic en **Nuevo**y, a continuación, haga clic en **Pyspark** o **Spark** para crear un nuevo cuaderno. Debe utilizar el kernel de Spark para aplicaciones de Scala y kernel PySpark para aplicaciones de Python.
+   
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Crear un nuevo cuaderno de Jupyter") 
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Crear un nuevo cuaderno de Jupyter")
 4. Esto debería abrir un nuevo cuaderno con el kernel seleccionado.
 
-## <a name="why-should-i-use-the-pyspark-or-spark-kernels"></a>¿Por qué debo usar los kernels de PySpark o Spark?
+## <a name="choose-between-the-kernels"></a>Elección entre los kernels
 Utilizar los nuevos kernels aporta un par de beneficios.
 
-1. **Contextos preestablecidos**. Gracias a los kernels de **PySpark** o **Spark** que se incluyen en los cuadernos de Jupyter Notebook, no necesita establecer de forma explícita los contextos de Spark o Hive para poder empezar a trabajar con la aplicación que está desarrollando, ya que están disponibles de forma predeterminada. Estos contextos son:
-
+- **Contextos preestablecidos**. Gracias a los kernels de **PySpark** o **Spark**, no necesita establecer de forma explícita los contextos de Spark o Hive para poder empezar a trabajar con las aplicaciones, ya que están disponibles de forma predeterminada. Estos contextos son:
+   
    * **sc** : para el contexto Spark
    * **sqlContext** : para el contexto Hive
 
     Por tanto, no tiene que ejecutar instrucciones como la siguiente para definir los contextos:
 
-        ###################################################
-        # <a name="you-do-not-need-to-run-this-with-the-new-kernels"></a>NO ES NECESARIO EJECUTARLO CON LOS NUEVOS KERNELS
-        ###################################################
-        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
+      sc = SparkContext('yarn-client')  sqlContext = HiveContext(sc)
 
     En su lugar, puede utilizar directamente los contextos preestablecidos en la aplicación.
 
-1. **Instrucciones mágicas de celda**. El kernel PySpark proporciona algunas "instrucciones mágicas" predefinidas, que son comandos especiales que se pueden llamar con `%%` (por ejemplo, `%%MAGIC` <args>). El comando mágico debe ser la primera palabra de una celda de código y permitir varias líneas de contenido. La palabra mágica debe ser la primera palabra en la celda. Si se agrega algo antes de la palabra mágica, incluso comentarios, se producirá un error.     Para obtener más información sobre instrucciones mágicas, vaya [aquí](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
-
+- **Instrucciones mágicas de celda**. El kernel PySpark proporciona algunas "instrucciones mágicas" predefinidas, que son comandos especiales que se pueden llamar con `%%` (por ejemplo, `%%MAGIC` <args>). El comando mágico debe ser la primera palabra de una celda de código y permitir varias líneas de contenido. La palabra mágica debe ser la primera palabra en la celda. Si se agrega algo antes de la palabra mágica, incluso comentarios, se producirá un error.     Para obtener más información sobre instrucciones mágicas, vaya [aquí](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+   
     La tabla siguiente muestra las diferentes instrucciones mágicas disponibles a través de los kernels.
 
    | Instrucción mágica | Ejemplo | Description |
@@ -157,7 +157,7 @@ El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo.
 * [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -169,6 +169,6 @@ El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
