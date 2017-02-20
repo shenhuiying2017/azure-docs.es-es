@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 02/09/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 142aa206431d05505c7990c5e5b07b3766fb0a37
-ms.openlocfilehash: 0b5458c64226007b058bcd185b3880f72cf9613c
+ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
+ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
 
 
 ---
@@ -30,7 +30,7 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 
 * Guardarlos en una [**cuenta de almacenamiento**](monitoring-archive-diagnostic-logs.md) para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante **Configuración de diagnóstico**.
 * [Transmitirlos a **centros de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
-* Analizarlos con [Log Analytics de OMS](../log-analytics/log-analytics-azure-storage-json.md)
+* Analizarlos con [Log Analytics de OMS](../log-analytics/log-analytics-azure-storage.md)
 
 El espacio de nombres del centro de eventos o la cuenta de almacenamiento no tiene que estar en la misma suscripción que el recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
 
@@ -45,16 +45,16 @@ Estas configuraciones se establecen con facilidad mediante la hoja Diagnósticos
 
 > [!WARNING]
 > Los registros de diagnóstico y las métricas para recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) usan [un mecanismo diferente para la configuración y la selección de salidas](../azure-diagnostics.md).
-> 
-> 
+>
+>
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Cómo habilitar la recopilación de registros de diagnóstico
 La recopilación de registros de diagnóstico se puede habilitar como parte de la creación de un recurso o después de crear un recurso mediante la hoja del recurso en el Portal. También puede habilitar los registros de diagnóstico en cualquier momento mediante comandos de Azure PowerShell o de la CLI, o con la API de REST de Azure Monitor.
 
 > [!TIP]
 > Es posible que estas instrucciones no se apliquen directamente a cada recurso. Consulte los vínculos de esquema al final de esta página para ver los pasos especiales que se pueden aplicar a determinados tipos de recursos.
-> 
-> 
+>
+>
 
 [Este artículo muestra cómo puede usar una plantilla de recursos para habilitar Configuración de diagnóstico al crear un recurso.](monitoring-enable-diagnostic-logs-using-template.md)
 
@@ -63,7 +63,7 @@ Puede habilitar los registros de diagnóstico en Azure Portal al crear tipos de 
 
 1. Vaya a **Nuevo** y elija el recurso que le interesa.
 2. Después de establecer la configuración básica y seleccionar un tamaño, en la hoja **Configuración**, en **Supervisión**, seleccione **Habilitado** y elija una cuenta de almacenamiento donde almacenar los registros de diagnóstico. Cuando envíe diagnósticos a una cuenta de almacenamiento, se le cobra según las tarifas de datos normales relativas a almacenamiento y transacciones.
-   
+
    ![Habilitar los registros de diagnóstico durante la creación de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3. Haga clic en **Aceptar** y cree el recurso.
 
@@ -71,7 +71,7 @@ Para los recursos que no son de proceso, puede habilitar los registros de diagn�
 
 1. Vaya a la hoja del recurso y abra la hoja **Diagnósticos** .
 2. Haga clic en **Activado** y seleccione una cuenta de almacenamiento o un centro de eventos.
-   
+
    ![Habilitar los registros de diagnóstico después de la creación de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3. En **Registros**, seleccione qué **categorías de registro** desea recopilar o transmitir.
 4. Haga clic en **Guardar**.
@@ -81,19 +81,25 @@ Para habilitar los registros de diagnóstico con cmdlets de Azure PowerShell, us
 
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
 
+```powershell
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+```
 
 El identificador de la cuenta de almacenamiento es el identificador de recurso para la cuenta de almacenamiento a la que desea enviar los registros.
 
 Para habilitar el streaming de registros de diagnóstico a un centro de eventos, use este comando:
 
+```powershell
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+```
 
 El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
 Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
 
+```powershell
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+```
 
 Puede obtener el identificador de recurso de su área de trabajo de Log Analytics con el comando siguiente:
 
@@ -108,19 +114,25 @@ Para habilitar los registros de diagnóstico con la CLI de Azure, use los siguie
 
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
 
+```azurecli
     azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+```
 
 El identificador de la cuenta de almacenamiento es el identificador de recurso para la cuenta de almacenamiento a la que desea enviar los registros.
 
 Para habilitar el streaming de registros de diagnóstico a un centro de eventos, use este comando:
 
+```azurecli
     azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+```
 
 El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
 Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
 
+```azurecli
     azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+```
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.
 
@@ -144,8 +156,8 @@ Al hacer clic en un recurso, se mostrarán todos los registros que se han almace
 
 > [!NOTE]
 > Los registros de diagnóstico solo aparecerán en esta vista y estarán disponibles para su descarga si ha configurado las opciones de diagnóstico para guardarlos en una cuenta de almacenamiento.
-> 
-> 
+>
+>
 
 Al hacer clic en el vínculo de **Configuración de diagnóstico**, se abrirá la hoja Configuración de diagnóstico, donde puede habilitar, deshabilitar o modificar la configuración para el recurso seleccionado.
 
@@ -161,12 +173,13 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 | Búsqueda de Azure |[Habilitación y uso de Análisis de tráfico de búsqueda](../search/search-traffic-analytics.md) |
 | Almacén de Data Lake |[Acceso a los registros de diagnóstico de Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Análisis de Data Lake |[Acceso a los registros de diagnóstico de Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Aplicaciones lógicas |No hay ningún esquema disponible. |
+| Aplicaciones lógicas |[Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Azure Batch |[Registros de diagnósticos de Azure Batch](../batch/batch-diagnostics.md) |
 | Automatización de Azure |[Log Analytics para Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Centro de eventos |No hay ningún esquema disponible. |
+| Centros de eventos |[Registros de diagnóstico de Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Stream Analytics |[Registros de diagnósticos de trabajos](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | SERVICE BUS |No hay ningún esquema disponible. |
-| Análisis de transmisiones |No hay ningún esquema disponible. |
+
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 |Tipo de recurso|Categoría|Nombre para mostrar de categoría|
@@ -185,7 +198,6 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventos de seguimiento de la cuenta de integración|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Evento de grupo de seguridad de red|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de reglas de grupo de seguridad de red|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de flujo de reglas de grupo de seguridad de red|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta de equilibrador de carga|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Estado de mantenimiento de sondeo de equilibrador de carga|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Registro de acceso de Application Gateway|
@@ -204,7 +216,6 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
