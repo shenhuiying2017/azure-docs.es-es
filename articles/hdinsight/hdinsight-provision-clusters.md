@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
@@ -22,8 +22,6 @@ ms.openlocfilehash: f014b92516879a0255dda3736bf5af6142555d92
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight"></a>Creación de clústeres de Hadoop basados en Windows en HDInsight
-
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Un clúster de Hadoop se compone de varias máquinas virtuales (nodos) que se usan para el procesamiento distribuido de tareas en el clúster. Azure abstrae de los detalles de implementación de la instalación y la configuración de nodos individuales, por lo que tiene que proporcionar información de configuración general. En este artículo, obtendrá información sobre estas opciones de configuración.
 
