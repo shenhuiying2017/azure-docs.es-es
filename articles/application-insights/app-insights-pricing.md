@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: b1691d78e4914bd5cf9c75e32f36afceb997a622
+ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
+ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
 
 
 ---
@@ -40,7 +40,8 @@ El plan Básico es el predeterminado cuando se crea un nuevo recurso de Applicat
 
 * En el plan Básico, se le cobrará por volumen de datos: el número de bytes de telemetría que reciba Application Insights. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que reciba Application Insights de su aplicación.
 * El primer GB de cada aplicación es gratuito, por lo que si solo está experimentando o desarrollando, lo más probable es que no tenga que pagar nada.
-* La [exportación continua](app-insights-export-telemetry.md) y el [conector de Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) se encuentran disponibles a cambio de un cargo adicional por cada GB en el plan Básico, aunque son características gratuitas hasta principios de marzo de 2017.
+* Los datos de la [secuencia de métricas en directo](app-insights-live-stream.md) no cuentan para calcular los precios.
+* La [exportación continua](app-insights-export-telemetry.md) se encuentra disponible a cambio de un cargo adicional por cada GB en el plan Básico, aunque es una característica gratuita hasta principios de marzo de 2017.
 
 ### <a name="enterprise-plan"></a>Plan Enterprise
 
@@ -49,6 +50,7 @@ El plan Básico es el predeterminado cuando se crea un nuevo recurso de Applicat
  * Un *nodo* es un servidor físico o virtual o una instancia de rol de plataforma como servicio que hospeda su aplicación.
  * Los equipos de desarrollo, los exploradores cliente y los dispositivos móviles no se cuentan como nodos.
  * Si su aplicación presenta varios componentes que envían telemetría, como un servicio web y un trabajo de back-end, se cuentan por separado.
+ * Los datos de la [secuencia de métricas en directo](app-insights-live-stream.md) no cuentan para calcular los precios.
 * En una suscripción, se cobra por nodo y no por aplicación. Si tiene cinco nodos que envían telemetría de 12 aplicaciones, se le cobrará por 5 nodos.
 * Aunque los cargos se presupuestan mensualmente, solo se le cobrarán las horas en las que un nodo envíe telemetría de una aplicación. El cargo por hora es el cargo mensual presupuestado partido por 744 (el número de horas en un mes de 31 días).
 * Se proporciona una asignación de volumen de datos de 200 MB por día para cada nodo detectado (con una granularidad de horas). Las asignaciones de datos no utilizadas no se guardarán de un día para otro.
@@ -66,7 +68,7 @@ El plan Básico es el predeterminado cuando se crea un nuevo recurso de Applicat
 
 * El comportamiento concreto del recuento de nodos depende del SDK de Application Insights que esté usando su aplicación. 
   * En la versión 2.2 del SDK y posteriores, tanto el [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) como el [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) de Application Insights notificará a cada aplicación host como un nodo. Por ejemplo, el nombre del equipo del servidor físico y los hosts de las máquinas virtuales o el nombre de la instancia, en el caso de servicios en la nube.  Las aplicaciones que usan [.NET Core](https://dotnet.github.io/) y el Core SDK de Application Insights constituyen la única excepción. En este caso, solo se indicará un nodo para todos los hosts porque el nombre de host no se encuentra disponible. 
-  * Para las versiones anteriores del SDK, el [Web SDK}(https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comportará del mismo modo que las versiones más nuevas. Sin embargo ,el [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) solo notificará un nodo, con independencia del número real de hosts de la aplicación. 
+  * Para las versiones anteriores del SDK, el [SDK Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comportará del mismo modo que las versiones más nuevas. Sin embargo, [SDK Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) solo notificará un nodo, con independencia del número real de hosts de la aplicación. 
   * Tenga en cuenta que si su aplicación está usando el SDK para establecer roleInstance en un valor personalizado, ese mismo valor se usará para determinar el recuento de nodos de forma predeterminada. 
   * Si utiliza una nueva versión del SDK con una aplicación que se ejecuta desde equipos cliente o dispositivos móviles, es posible que el recuento de nodos devuelva un número muy grande (del gran número de equipos cliente o dispositivos móviles). 
 
@@ -98,7 +100,7 @@ Hay tres formas en que se limita el volumen de envío de datos:
 
 * **Límite diario.** De forma predeterminada, se establece en 500 GB/día. Cuando la aplicación alcanza el límite, se envía un correo electrónico y se descartan los datos hasta el final del día. Para cambiarlo, use la hoja Data Volume Management (Administración del volumen de datos).
 * **[Muestreo](app-insights-sampling.md).** Este mecanismo puede reducir la cantidad de telemetría enviada desde las aplicaciones de servidor y de cliente, con mínima distorsión de las métricas.
-* La **limitación** restringe la velocidad de datos a 16 000 eventos por segundo, promediados durante 1 minuto. 
+* La **limitación** restringe la velocidad de datos a 32 000 eventos por segundo, promediados durante 1 minuto. 
 
 
 *¿Qué ocurre si mi aplicación supera el porcentaje de limitación?*
@@ -174,6 +176,6 @@ Las aplicaciones existentes pueden seguir usando los planes de tarifa antiguos h
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

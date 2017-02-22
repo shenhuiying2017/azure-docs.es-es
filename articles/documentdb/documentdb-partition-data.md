@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ec72d5df2fc220638773286e76c25b4b013cce63
-ms.openlocfilehash: 4f96f7392442c31888b79d0284b6d2d58d292e86
+ms.sourcegitcommit: 876e0fd12d045bba85d1e30d4abfcb8ce421213a
+ms.openlocfilehash: ed58e623ff74a21df25fc93346e571edec7b40da
 
 
 ---
@@ -134,7 +134,7 @@ En la tabla siguiente se enumeran las diferencias entre trabajar con colecciones
         <tr>
             <td valign="top"><p>Procesamiento mínimo</p></td>
             <td valign="top"><p>400 unidades de solicitud por segundo</p></td>
-            <td valign="top"><p>10 000 unidades de solicitud por segundo</p></td>
+            <td valign="top"><p>2 500 unidades de solicitud por segundo</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Procesamiento máximo</p></td>
@@ -174,11 +174,11 @@ Para este ejemplo, elegimos `deviceId` por dos motivos: en primer lugar, sabemos
 
 
 > [!NOTE]
-> Para crear colecciones con particiones, debe especificar un valor de rendimiento superior a 10 000 unidades de solicitud por segundo. Puesto que el procesamiento se da en múltiplos de 100, este debe ser 10 100 o superior.
+> Para crear colecciones con particiones mediante el SDK, debe especificar un valor de rendimiento igual o superior a 10 100 unidades de solicitud por segundo. Para establecer un valor de rendimiento entre 2500 y 10 000 para las colecciones con particiones, debe usar temporalmente Azure Portal, ya que estos nuevos valores más bajos no están disponibles aún en el SDK.
 > 
 > 
 
-Este método realiza una llamada API de REST a DocumentDB, tras lo cual el servicio proporciona un número de particiones que está determinado en función del procesamiento que se solicite. Puede cambiar el procesamiento de una colección a medida que evolucionen sus necesidades de rendimiento. Consulte [Niveles de rendimiento](documentdb-performance-levels.md) para obtener más detalles.
+Este método realiza una llamada API de REST a DocumentDB, tras lo cual el servicio proporciona un número de particiones que está determinado en función del procesamiento que se solicite. Puede cambiar el procesamiento de una colección a medida que evolucionen sus necesidades de rendimiento. 
 
 ### <a name="reading-and-writing-documents"></a>Lectura y escritura de documentos
 Ahora, insertemos los datos en DocumentDB. La clase de ejemplo siguiente contiene una lectura de dispositivo y una llamada a CreateDocumentAsync para insertar una nueva lectura de dispositivo en una colección.
@@ -294,7 +294,7 @@ Cuando una aplicación que usa colecciones con partición única necesita mayor 
 Para migrar desde una colección de partición única a una colección con varias particiones
 
 1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para más información.
-2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 10 000 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para más información.
+2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 2 500 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para más información.
 
 ![Migración de datos a una colección con particiones en DocumentDB][3]  
 
@@ -329,7 +329,7 @@ Uno de los casos de uso más común de DocumentDB es el registro y telemetría. 
 
 * Si el caso de uso implica una pequeña tasa de escrituras que se acumulan durante un largo período de tiempo, y necesita consultar por intervalos de marcas de tiempo y otros filtros, el uso de un resumen de la marca de tiempo (por ejemplo, la fecha) como clave de partición es un buen enfoque. Esto le permite consultar todos los datos para una fecha desde una sola partición. 
 * Si la carga de trabajo tiene muchas operaciones de escritura, lo que normalmente es más común, debe usar una clave de partición que no se base en la marca de tiempo para que DocumentDB pueda distribuir escrituras uniformemente en varias particiones. En este caso, un nombre de host, identificador de proceso, identificador de actividad u otra propiedad con cardinalidad elevada, es una buena elección. 
-* Un tercer enfoque es un híbrido donde tenga varias colecciones, una para cada día o mes, y la clave de partición sea una propiedad pormenorizada como nombre de host. Esto tiene la ventaja de que se pueden establecer distintos niveles de rendimiento en función de la ventana de tiempo; por ejemplo, la colección para el mes actual se aprovisiona con un mayor procesamiento ya que sirve lecturas y escrituras, mientras que los meses anteriores se aprovisionan con menor procesamiento ya que solo sirven lecturas.
+* Un tercer enfoque es un híbrido donde tenga varias colecciones, una para cada día o mes, y la clave de partición sea una propiedad pormenorizada como nombre de host. Esto tiene la ventaja de que se pueden establecer distintos niveles de rendimiento en función de la ventana de tiempo; por ejemplo, la colección para el mes actual se aprovisiona con un mayor rendimiento ya que sirve lecturas y escrituras, mientras que los meses anteriores se aprovisionan con menor rendimiento ya que solo sirven lecturas.
 
 ### <a name="partitioning-and-multi-tenancy"></a>Creación de particiones y arquitectura multiempresa
 Si se desea implementar una aplicación multiempresa con DocumentDB, hay dos modelos principales para hacerlo: una clave de una partición por inquilino y una colección por inquilino. Estas son las ventajas y desventajas de cada uno:
@@ -354,6 +354,6 @@ En este artículo hemos descrito el funcionamiento de las particiones en Azure D
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

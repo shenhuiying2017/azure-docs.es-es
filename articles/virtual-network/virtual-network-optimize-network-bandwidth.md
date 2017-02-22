@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2017
 ms.author: steveesp
 translationtype: Human Translation
-ms.sourcegitcommit: 6af1fdb533e0c5da56232b1aa2d9b8d1c08ad9fd
-ms.openlocfilehash: eb3c64fa467a3dcd90b6b240b61816522534cb68
+ms.sourcegitcommit: 50be31e179bf52e009596fbc68339dfb5a1aa1e4
+ms.openlocfilehash: d53b1cae9845be32bd053ef196203ea83df06b10
 
 
 ---
@@ -32,21 +32,21 @@ Las máquinas virtuales que usan el ajuste de escala en lado de recepción (RSS)
 1. Escriba el comando `Get-NetAdapterRss` de PowerShell para ver si RSS está habilitado para un adaptador de red. En la siguiente salida de ejemplo que devuelve `Get-NetAdapterRss`, RSS no está habilitado.
 
     ```powershell
-    Name                    :Ethernet
-    InterfaceDescription            : Microsoft Hyper-V Network Adapter
+    Name                    : Ethernet
+    InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
 2. Escriba el siguiente comando para habilitar RSS:
 
     ```powershell
-    Get-NetAdapter | % {Enable-NetAdapterRss -Name \$\_.Name}
+    Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
     El comando anterior no tiene ninguna salida. El comando cambió la configuración de NIC, lo que ha provocado una pérdida temporal de la conectividad durante aproximadamente un minuto. Durante la pérdida de conectividad aparece un cuadro de diálogo de reconexión. La conectividad se suele restaurar al tercer intento.
 3. Confirme que RSS está habilitado en la máquina virtual, para lo que debe volver a escribir el comando `Get-NetAdapterRss`. Si se realiza correctamente, se devuelve la siguiente salida de ejemplo:
 
     ```powershell
     Name                    :Ethernet
-    InterfaceDescription            : Microsoft Hyper-V Network Adapter
+    InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : True
     ```
 
@@ -57,9 +57,12 @@ De manera predeterminada, en las máquinas virtuales Linux de Azure RSS está si
 ### <a name="ubuntu"></a>Ubuntu
 
 Para obtener la optimización, primero realice la actualización a la última versión compatible en enero de 2017, que es:
-
-"Publisher": "Canonical", "Offer": "UbuntuServer", "Sku": "16.04.0-LTS", "Version": "16.04.201609071"
-
+```json
+"Publisher": "Canonical",
+"Offer": "UbuntuServer",
+"Sku": "16.04.0-LTS",
+"Version": "16.04.201609071"
+```
 Una vez que la actualización se complete, escriba los comandos siguientes para obtener el kernel más reciente:
 
 ```bash
@@ -77,14 +80,19 @@ Comando opcional:
 ### <a name="centos"></a>CentOS
 
 Para obtener la optimización, primero realice la actualización a la última versión compatible en enero de 2017, que es:
-
-"Publisher": "OpenLogic", "Offer": "CentOS",* "Sku": "7.3", "Version": "latest"
-
+```json
+"Publisher": "OpenLogic",
+"Offer": "CentOS",
+"Sku": "7.3",
+"Version": "latest"
+```
 Una vez que la actualización se complete, instale los servicios de integración de Linux (LIS) más recientes.
-La optimización del rendimiento se realiza en LIS a partir de la versión 4.1.3. Escriba el siguiente comando para instalar LIS:
+La optimización del rendimiento se realiza en LIS a partir de la versión 4.1.3. Escriba los siguientes comandos para instalar LIS:
 
 ```bash
-sudo yum install microsoft-hyper-v-4.1.3 kmod-microsoft-hyper-v-4.1.3*
+sudo yum update
+sudo reboot
+sudo yum install microsoft-hyper-v-4.1.3 kmod-microsoft-hyper-v-4.1.3
 ```
 
 ### <a name="red-hat"></a>Red Hat
@@ -102,13 +110,13 @@ cd lis4.1.3
 wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
 tar xvzf lis-rpms-4.1.3.tar.gz
 cd LISISO
-install.sh  \#or upgrade.sh if previous LIS was previously installed
+install.sh  #or upgrade.sh if previous LIS was previously installed
 ```
-
+ 
 Para más información acerca de la versión 4.1 de los servicios de integración de Linux para Hyper-V, consulte la [página de descarga](https://www.microsoft.com/download/details.aspx?id=51612).
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

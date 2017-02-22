@@ -1,5 +1,5 @@
 ---
-title: "Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management | Microsoft Docs"
+title: "Implementación de la recuperación ante desastres mediante copias de seguridad y restauración en Azure API Management | Microsoft Docs"
 description: "Obtenga información acerca de cómo usar las tareas de copias de seguridad y restauración para llevar a cabo la recuperación ante desastres en Administración de API de Azure."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
-
+ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
+ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Administración de API de Azure
@@ -30,7 +29,7 @@ Esta guía muestra cómo autenticar las solicitudes del Administrador de recurso
 > [!NOTE]
 > El proceso de copia de seguridad y restauración de una instancia del servicio de administración de API para recuperación ante desastres también puede utilizarse para replicar las instancias de servicio de administración de API para escenarios como almacenamiento provisional.
 >
-> Tenga en cuenta que cada copia de seguridad expira después de 7 días. Si intenta restaurar una copia de seguridad una vez transcurrido el período de expiración de 7 días, se producirá un error en la restauración con un mensaje `Cannot restore: backup expired` .
+> Tenga en cuenta que cada copia de seguridad expira después de 30 días. Si intenta restaurar una copia de seguridad una vez transcurrido el período de expiración de 30 días, se producirá un error en la restauración con un mensaje `Cannot restore: backup expired`.
 >
 >
 
@@ -149,7 +148,7 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 
 * El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
 * Mientras se crea la copia de seguridad, **no realice ninguna operación de administración del servicio** (por ejemplo, una actualización o degradación de SKU o un cambio de nombre de dominio).
-* La restauración de una **copia de seguridad se garantiza solo durante 7 días** a partir del momento en que esta se crea.
+* La restauración de una **copia de seguridad se garantiza solo durante 30 días** a partir del momento en que esta se crea.
 * Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][Azure API Management REST API] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
 * La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda crear las copias de seguridad de forma periódica y también a petición tras realizar cambios importantes en el servicio Administración de API.
 * Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) mientras se está realizando la copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
@@ -214,6 +213,6 @@ Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del pr
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

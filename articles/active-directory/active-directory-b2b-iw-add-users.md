@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d9ffd4176e87b6b5ada882ff09f507665bda7b1d
-ms.openlocfilehash: 7bad8269c3756979fe48d130a0cdfb02ceafad86
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 5622ab215fd7fea4c24ad00ea7132d12ecabbcd5
 
 
 ---
@@ -40,15 +40,10 @@ Los trabajadores de la información pueden agregar del mismo modo usuarios de co
 > [!NOTE]
 No puede agregar usuarios de colaboración B2B a un grupo dinámico o a uno que se ha sincronizado con la instancia local de Active Directory.
 
-## <a name="add-without-invitation"></a>Opción para agregar sin invitación
 
-Si el autor de la invitación pertenece a un rol que tiene privilegios de enumeración en el directorio de la organización del asociado, desde la que está agregando usuarios, los usuarios invitados se agregan a la organización invitadora sin necesidad de invitaciones.
+## <a name="next-steps"></a>Pasos siguientes
 
-Este es el escenario en el que resulta más útil:
-1. Un usuario de la organización anfitriona (por ejemplo, WoodGrove) invita a un usuario de la organización asociada (por ejemplo, Sam@litware.com)) como invitado.
-2. El administrador de la organización anfitriona configura directivas que permiten a Sam identificar y agregar otros usuarios de la organización del asociado (Litware).
-4. Ahora, Sam puede agregar otros usuarios de Litware al directorio, los grupos o las aplicaciones de WoodGrove sin necesidad de canjear invitaciones. Si Sam tiene los privilegios de enumeración adecuados en Litware, se hará automáticamente.
-
+Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 
 * [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](active-directory-b2b-admin-add-users.md)
@@ -57,12 +52,13 @@ Este es el escenario en el que resulta más útil:
 * [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
 * [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory](active-directory-b2b-faq.md)
-* [Personalización y API de colaboración B2B de Active Directory Azure](active-directory-b2b-api.md)
+* [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
+* [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

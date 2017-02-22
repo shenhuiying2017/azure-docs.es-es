@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
 
 
 ---
@@ -83,10 +83,6 @@ Antes de seguir los procedimientos, debe disponer de lo siguiente:
 
 * Un clúster de HBase implementado en una red virtual de Azure con una máquina virtual DNS.  Para obtener instrucciones, consulte [Creación de clústeres de HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > Debe instalar un servidor DNS en la red virtual. Para conocer las instrucciones, consulte [Configuración de DNS entre dos redes virtuales de Azure](hdinsight-hbase-geo-replication-configure-dns.md).
-  >
-  >
 * Obtenga el sufijo DNS específico de la conexión del clúster de HBase. Para obtenerlo, establezca RDP en el clúster y, a continuación, ejecute IPConfig.  El sufijo DNS es similar a:
 
         myhbase.b7.internal.cloudapp.net
@@ -295,6 +291,6 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight.  Par
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

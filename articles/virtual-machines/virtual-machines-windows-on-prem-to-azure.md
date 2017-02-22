@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: acf3ffe9e5c61b0214e459d2a2b4a74b50bf8cff
-ms.openlocfilehash: 02ea473f8b776ee466acea140416660a4e971577
+ms.sourcegitcommit: ccde5cf9a45c79cfd441633722960007aad46088
+ms.openlocfilehash: fe00166c443d8db678ec46cfd8b66c327176ddcf
 
 
 ---
@@ -58,7 +58,7 @@ Esta sección puede ayudarlo a tomar la mejor decisión sobre los tipos de disco
 
 ### <a name="location"></a>Ubicación
 
-Elija una ubicación donde Azure Managed Disks esté disponible. Si va a migrar a Managed Disks Premium, asegúrese que Premium Storage también está disponible en la región a la que planea migrar. Consulte [Servicios de Azure por región](https://azure.microsoft.com/regions/#services) para información actualizada sobre las ubicaciones disponibles.
+Elija una ubicación donde Azure Managed Disks esté disponible. Si va a migrar a Managed Disks Premium, asegúrese que Premium Storage también está disponible en la región a la que planea migrar. Consulte [Servicios de Azure por región](https://azure.microsoft.com/regions/#services) para obtener información actualizada sobre las ubicaciones disponibles.
 
 ### <a name="vm-sizes"></a>Tamaños de VM
 
@@ -103,6 +103,7 @@ Revise el [precio de Managed Disks](https://azure.microsoft.com/en-us/pricing/de
 - Antes de cargar los VHD en Azure, debe consultar [Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
-<!--HONumber=Feb17_HO2-->
+
+<!--HONumber=Feb17_HO3-->
 
 
