@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 199f07ce705036c3d8f9d56115b5df9c8c52dc45
 
 
 ---
@@ -236,10 +236,10 @@ cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-Cuando haya una copia de todo el repositorio del SDK de puerta de enlace de IoT en el Raspberry Pi 3, puede crear el SDK desde la carpeta que lo contiene con el comando siguiente:
+Cuando haya una copia completa del repositorio del SDK de puerta de enlace de IoT en el dispositivo Raspberry Pi 3, puede crear el SDK desde la carpeta que lo contiene con el comando siguiente:
 
 ```
-./tools/build.sh --skip-unittests
+./tools/build.sh
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configuración y ejecución del ejemplo de BLE en el Raspberry Pi 3
@@ -429,11 +429,11 @@ Presione el botoncito del dispositivo SensorTag para que se pueda detectar antes
 Cuando ejecute el ejemplo, puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que la puerta de enlace remite desde el dispositivo SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
-El módulo BLE también admite instrucciones de envío de Azure IoT Hub al dispositivo. Puede usar el [Explorador de dispositivos ](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador de IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE.
+El módulo BLE también admite instrucciones de envío de Azure IoT Hub al dispositivo. Puede usar el [Explorador de dispositivos ](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) o el [Explorador de IoT Hub](https://github.com/Azure/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE.
 Si está utilizando el dispositivo SensorTag de Texas Instruments, a continuación, puede activar el LED rojo o verde, o timbre mediante el envío de comandos desde IoT Hub. Para ello, en primer lugar, envíe los siguientes dos mensajes JSON en orden. A continuación, puede enviar cualquiera de los comandos para activar las luces o timbre.
 
-1 Restablecer todos los LED y el timbre (desactivarlos)
-  
+1. Restablezca todos los LED y el timbre (desactívelos):
+
     ```json
     {
       "type": "write_once",
@@ -441,7 +441,8 @@ Si está utilizando el dispositivo SensorTag de Texas Instruments, a continuaci�
       "data": "AA=="
     }
     ```
-2 Configurar E/S como "remoto"
+    
+2. Configure E/S como "remoto":
   
     ```json
     {
@@ -450,7 +451,10 @@ Si está utilizando el dispositivo SensorTag de Texas Instruments, a continuaci�
       "data": "AQ=="
     }
     ```
-* Encender el LED rojo
+    
+A continuación, puede enviar cualquiera de los comandos siguientes para activar las luces o timbre.
+
+* Active el LED rojo:
   
     ```json
     {
@@ -459,7 +463,8 @@ Si está utilizando el dispositivo SensorTag de Texas Instruments, a continuaci�
       "data": "AQ=="
     }
     ```
-* Encender el LED verde
+
+* Active el LED verde:
   
     ```json
     {
@@ -468,7 +473,8 @@ Si está utilizando el dispositivo SensorTag de Texas Instruments, a continuaci�
       "data": "Ag=="
     }
     ```
-* Encender el timbre
+
+* Active el timbre:
   
     ```json
     {
@@ -501,6 +507,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

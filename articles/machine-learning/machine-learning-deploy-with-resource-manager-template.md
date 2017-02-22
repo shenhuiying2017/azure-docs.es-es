@@ -1,5 +1,5 @@
 ---
-title: "Implementación del área de trabajo de Machine Learning mediante una plantilla de Azure Resource Manager | Microsoft Docs"
+title: "Implementación de un área de trabajo de Machine Learning mediante Azure Resource Manager | Microsoft Docs"
 description: "Cómo implementar un área de trabajo de Machine Learning de Azure mediante la plantilla de Azure Resource Manager"
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72ec470c5539ad2e239836aa91d7afe43341b19a
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: cf00c0c11f1572c0cca066ac1c0aac2a0f350393
 
 
 ---
@@ -139,7 +139,7 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 Una vez aprovisionada el área de trabajo, también puede automatizar muchas tareas de Estudio de aprendizaje automático de Microsoft Azure mediante el [módulo de PowerShell para Aprendizaje automático de Azure](http://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md). 
+* Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
 * Eche un vistazo al [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Vea este vídeo acerca de [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
@@ -152,6 +152,6 @@ Una vez aprovisionada el área de trabajo, también puede automatizar muchas tar
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

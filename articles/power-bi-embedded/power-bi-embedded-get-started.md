@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -41,7 +41,7 @@ Vamos a ver cuáles son los pasos necesarios para crear una **colección de áre
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. En **Datos y análisis**, haga clic en **Power BI Embedded**.
-4. En la hoja **Creación**, escriba la información necesaria. En **Precios**, consulte los [precios de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. En la **hoja Colección de áreas de trabajo de Power BI**, escriba la información necesaria. En **Precios**, consulte los [precios de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Haga clic en **Crear**.
@@ -68,6 +68,10 @@ Copie estas claves y almacénelas de forma segura en la aplicación. Es muy impo
 Aunque se muestran dos claves, solo se necesita una cada vez. La segunda clave se proporciona para que pueda regenerar periódicamente las claves sin interrumpir el acceso al servicio.
 
 Ahora que tiene una instancia de Power BI para la aplicación y las **claves de acceso**, puede importar un informe en la propia aplicación. Antes de aprender a importar un informe, en la sección siguiente se describe la creación de conjuntos de datos e informes de Power BI para insertar en una aplicación.
+
+## <a name="working-with-workspaces"></a>Trabajo con áreas de trabajo
+
+Después de haber creado la colección de áreas de trabajo, debe crear un área de trabajo que hospede los informes y conjuntos de datos. Para crear un área de trabajo, debe usar la [API de REST de Post Workspace](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Creación de conjuntos de datos e informes de Power BI para insertar en una aplicación
 Ahora que ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662). Por otro lado, si desea empezar a trabajar rápidamente, también puede descargar el [archivo PBIX con un ejemplo de análisis de minoristas](http://go.microsoft.com/fwlink/?LinkID=780547).
@@ -109,6 +113,6 @@ En los pasos anteriores, ha creado una colección de áreas de trabajo y su prim
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

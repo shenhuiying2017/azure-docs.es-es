@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2016
+ms.date: 01/09/2017
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 738c6ecb40118491dd2e833443c91891e99941d3
+ms.sourcegitcommit: 5f62eef58c8a334013b000176f74cc8f7652f688
+ms.openlocfilehash: 312d1f417df612eee46bb078d784576a438ba0ab
 
 
 ---
@@ -178,7 +178,7 @@ Tenga en cuenta los siguientes puntos cuando se diseña un esquema de partición
 * **Siempre que sea posible, mantenga los datos para las operaciones de base de datos más habituales juntos en cada partición para minimizar las operaciones de acceso a datos entre particiones**. Realizar consultas en varias particiones puede llevar más tiempo que efectuar consultas solo dentro de una sola partición, pero la optimización de las particiones para un conjunto de consultas puede afectar adversamente a otros conjuntos de consultas. Cuando la realización de consultas en varias particiones sea inevitable, minimice el tiempo de consulta mediante la ejecución de consultas en paralelo y la adición de los resultados en la aplicación. Es posible que no sea posible aplicar este planteamiento en algunos casos, como cuando es necesario obtener un resultado de una consulta y usarlo en la consulta siguiente.
 * **Si las consultas hacen uso de datos de referencia relativamente estáticos, como tablas de códigos postales o listas de productos, considere la posibilidad de replicar estos datos en todas las particiones para reducir la necesidad de realizar diferentes operaciones de búsqueda en las distintas particiones**. Este enfoque también puede reducir la probabilidad de que los datos de referencia se conviertan en un conjunto de datos excesivamente activo que soporte un tráfico intenso desde las diferentes partes del sistema. Sin embargo, la sincronización de los cambios que pudieran producirse en estos datos de referencia conlleva un costo asociado.
 * **Siempre que sea posible, minimice los requisitos de integridad referencial en las particiones verticales y funcionales**. En estos esquemas, la propia aplicación es responsable de mantener la integridad referencial entre las particiones cuando se actualizan y consumen datos. Las consultas que deben combinar los datos de varias particiones se ejecutan más lentamente que las consultas que solo combinan datos de la misma partición porque la aplicación normalmente necesita realizar consultas consecutivas basadas en una clave y, a continuación, en una clave externa. En su lugar, considere la posibilidad de replicar o anular la normalización de los datos pertinentes. Para minimizar el tiempo de consulta donde son necesarias las combinaciones entre particiones, ejecute consultas en paralelo en las particiones y combine los datos dentro de la aplicación.
-* **Tenga en cuenta el efecto que podría tener el esquema de creación de particiones en la coherencia de los datos en las particiones.**  Evalúe si realmente es necesaria una alta coherencia. En su lugar, un enfoque común en la nube es implementar la coherencia eventual. Los datos de cada partición se actualizan por separado, y la lógica de aplicación garantiza que todas las actualizaciones se completen correctamente. También controla las incoherencias que pueden surgir de la consulta de datos mientras se esté ejecutando una operación finalmente coherente. Para obtener más información acerca la implementación de la coherencia eventual, consulte [Data consistency primer](Información básica sobre la coherencia de datos).
+* **Tenga en cuenta el efecto que podría tener el esquema de creación de particiones en la coherencia de los datos en las particiones.** Evalúe si realmente es necesaria una alta coherencia. En su lugar, un enfoque común en la nube es implementar la coherencia eventual. Los datos de cada partición se actualizan por separado, y la lógica de aplicación garantiza que todas las actualizaciones se completen correctamente. También controla las incoherencias que pueden surgir de la consulta de datos mientras se esté ejecutando una operación finalmente coherente. Para obtener más información acerca la implementación de la coherencia eventual, consulte [Data consistency primer](Información básica sobre la coherencia de datos).
 * **Tenga en cuenta cómo buscan las consultas la partición correcta**. Si una consulta debe analizar todas las particiones para localizar los datos necesarios, habrá un impacto significativo en el rendimiento, incluso cuando se ejecuten varias consultas en paralelo. Las consultas utilizadas con las estrategias de creación de particiones verticales y funcionales pueden especificar las particiones de manera natural. Sin embargo, cuando se utiliza la creación de particiones horizontal, encontrar un elemento puede resultar difícil porque cada partición tiene el mismo esquema. Una solución típica de particionamiento consiste en mantener una asignación que puede usarse para buscar la ubicación de la partición para elementos específicos de datos. Esta asignación puede implementarse en la lógica de particionamiento de la aplicación o mantenerse por el almacén de datos si admite el particionamiento transparente.
 * **Cuando se utiliza una estrategia de partición horizontal, considere la posibilidad de reequilibrar periódicamente las particiones**. Esto ayuda a distribuir los datos uniformemente por tamaño y por carga de trabajo para minimizar las zonas excesivamente activas, maximizar el rendimiento de las consultas y evitar las limitaciones de almacenamiento físico. Sin embargo, esta es una tarea compleja que requiere a menudo el uso de una herramienta personalizada o un proceso.
 * **Si se replica cada partición, se proporciona protección adicional frente a errores**. Si se produce un error en una única réplica, las consultas se pueden dirigir hacia una copia de trabajo.
@@ -380,14 +380,7 @@ Los documentos se organizan en colecciones. Puede agrupar documentos relacionado
 
 Las colecciones de documentos proporcionan un mecanismo natural para dividir los datos de una base de datos única. Internamente, una base de datos DocumentDB puede abarcar varios servidores e intentar distribuir la carga al distribuir colecciones entre servidores. La manera más sencilla de implementar las particiones es crear una colección para cada partición.
 
-> [!NOTE]
-> Cada base de datos de DocumentDB tiene un *nivel de rendimiento* que determina la cantidad de recursos que obtiene. Los niveles de rendimiento están asociados a un límite de velocidad de *unidad de solicitud*. El límite de velocidad de unidad de solicitud especifica el volumen de los recursos reservados y disponibles para el uso exclusivo de esa colección. El costo de una colección depende del nivel de rendimiento seleccionado para esa colección. Cuanto mayor sea el nivel re rendimiento (y el límite de velocidad de la unidad de solicitud), mayor será el costo. Puede ajustar el nivel de rendimiento de una colección mediante el Portal de Azure. Para obtener más información, consulte la página [Niveles de rendimiento en DocumentDB] en el sitio web de Microsoft.
->
->
-
 Todas las bases de datos se crean en el contexto de una cuenta de DocumentDB. Una sola cuenta de DocumentDB puede contener varias bases de datos, y especifica en qué región se crean las bases de datos. Cada cuenta DocumentDB también impone su propio control de acceso. Puede utilizar cuentas de DocumentDB para localizar geográficamente particiones (colecciones dentro de bases de datos) cerca de los usuarios que necesitan tener acceso a ellas y aplicar restricciones de modo que solo esos usuarios puedan conectarse.
-
-Cada cuenta DocumentDB tiene una cuota que limita el número de bases de datos, las colecciones que puede contener y la cantidad de almacenamiento de documentos disponible. Estos límites están sujetos a cambios, pero se describen en la página [Límites y cuotas de DocumentDB] en el sitio web de Microsoft. Teóricamente, es posible que si se implementa un sistema donde todas las particiones pertenecen a la misma base de datos, se podría alcanzar el límite de capacidad de almacenamiento de información de la cuenta.
 
 En este caso, puede que necesite crear bases de datos y cuentas de DocumentDB adicionales y distribuir las particiones en estas bases de datos. Sin embargo, aunque es poco probable que alcance la capacidad de almacenamiento de una base de datos, es recomendable utilizar varias bases de datos. El motivo es que cada base de datos tiene su propio conjunto de usuarios y permisos, y puede utilizar este mecanismo para aislar el acceso a las colecciones en función de cada una de las bases de datos.
 
@@ -405,12 +398,10 @@ Es responsabilidad de la aplicación cliente dirigir las solicitudes a la partic
 
 A la hora de decidir cómo particionar los datos con una base de datos de DocumentDB, tenga en cuenta los siguientes puntos:
 
-* **Los recursos disponibles para una base de datos DocumentDB están sujetos a las limitaciones de cuota de la cuenta DocumentDB**. Cada base de datos puede contener un número de colecciones (de nuevo, hay un límite) y cada colección está asociada a un nivel de rendimiento que rige el límite de velocidad de RU (rendimiento reservado) para esa colección. Para obtener más información, visite la página [Límites y cuotas de DocumentDB] en el sitio web de Microsoft.
 * **Cada documento debe tener un atributo que pueda usarse para identificar de manera única dicho documento dentro de la colección en la que se encuentra**. Este atributo es diferente de la clave de partición, que define en qué colección se encuentra el documento. Una colección puede contener un gran número de documentos. En teoría, solo está limitada por la longitud máxima del identificador del documento. El identificador del documento puede contener hasta 255 caracteres.
 * **Todas las operaciones de un documento se realizan en el contexto de una transacción. Las transacciones en las bases de datos de DocumentDB se limitan a la colección que contiene el documento.** Si se produce un error en una operación, se revierte el trabajo que ha realizado. Mientras se realiza una operación sobre un documento, los cambios realizados están sujetos a aislamiento a nivel de instantánea. Este mecanismo garantiza que si, por ejemplo, se produce un error en una solicitud para crear un nuevo documento, otro usuario que consulte la base de datos al mismo tiempo no verá un documento parcial que luego se elimine.
 * **Las consultas de base de datos de DocumentDB también se limitan al nivel de colección**. Una sola consulta solo puede recuperar datos de una colección. Si necesita recuperar datos de varias colecciones, debe consultar cada colección individualmente y combinar los resultados en el código de aplicación.
 * **Las bases de datos de DocumentDB admiten elementos programables que pueden almacenarse en una colección junto con los documentos**. Estos incluyen procedimientos almacenados, funciones definidas por el usuario y desencadenadores (escritos en JavaScript). Estos elementos pueden tener acceso a cualquier documento en la misma colección. Además, estos elementos se ejecutan dentro del ámbito de la transacción de ambiente (en el caso de un desencadenador que se activa como resultado de una operación de crear, eliminar o reemplazar realizada en un documento), o iniciando una nueva transacción (en el caso de un procedimiento almacenado que se ejecuta como resultado de una solicitud de cliente explícita). Si el código de un elemento programable produce una excepción, la transacción se revierte. Puede usar procedimientos almacenados y desencadenadores para mantener la integridad y la coherencia entre los documentos, pero estos documentos deben formar parte de la misma colección.
-* **Debe procurar que las colecciones que desea almacenar en las bases de datos de una cuenta de DocumentDB no superen los límites de rendimiento definidos por los niveles de rendimiento de las colecciones**. Estos límites se describen en la página [Más información sobre almacenamiento de documentos y capacidad en DocumentDB] en el sitio web de Microsoft. Si prevé alcanzar estos límites, considere la posibilidad de dividir las colecciones entre bases de datos en diferentes cuentas de DocumentDB para reducir la carga de cada colección.
 
 ## <a name="partitioning-strategies-for-azure-search"></a>Estrategias de creación de particiones para Búsqueda de Azure
 La función de búsqueda de datos suele ser el método principal de navegación y exploración proporcionado por muchas aplicaciones web. Permite a los usuarios encontrar recursos rápidamente (por ejemplo, los productos de una aplicación de comercio electrónico) según determinadas combinaciones de criterios de búsqueda. El servicio de Búsqueda de Azure proporciona capacidades de búsqueda de texto completo a través de contenido web e incluye características como las consultas sugeridas de escritura anticipada basadas en coincidencias cercanas y en la navegación por facetas. Se puede encontrar una descripción completa de estas funciones en la página [¿Qué es Búsqueda de Azure?] en el sitio web de Microsoft.
@@ -547,7 +538,6 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 * La página [Realizar transacciones con grupos de entidades] del sitio web de Microsoft proporciona información detallada sobre la implementación de operaciones transaccionales sobre las entidades almacenadas en Almacenamiento de tablas de Azure.
 * El artículo [Guía de diseño de la tabla de almacenamiento de Azure] del sitio web de Microsoft contiene información detallada sobre la creación de particiones de datos en Almacenamiento de tablas de Azure.
 * La página [Uso de la red CDN en Azure] del sitio web de Microsoft describe cómo replicar los datos almacenados en Almacenamiento de blobs de Azure mediante el uso de la Red de entrega de contenido (CDN) de Azure.
-* La página [Más información sobre almacenamiento de documentos y capacidad en DocumentDB] del sitio web de Microsoft contiene información sobre cómo Azure DocumentDB asigna recursos a bases de datos.
 * La página [¿Qué es Búsqueda de Azure?] del sitio web de Microsoft proporciona una descripción completa de las funciones disponibles con el servicio Búsqueda de Azure.
 * La página [Límites de servicio en la Búsqueda de Azure] del sitio web de Microsoft contiene información sobre la capacidad de cada instancia del servicio Búsqueda de Azure.
 * La página [Tipos de datos admitidos (Búsqueda de Azure)] del sitio web de Microsoft resume los tipos de datos que puede usar en los documentos y los índices en los que se pueden hacer búsquedas.
@@ -564,15 +554,13 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 [Data consistency primer]: http://aka.ms/Data-Consistency-Primer
 [Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
 [Data Types]: http://redis.io/topics/data-types
-[Límites y cuotas de DocumentDB]: documentdb/documentdb-limits.md
 [Información general de las características de Base de datos elástica]: sql-database/sql-database-elastic-scale-introduction.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
-[Más información sobre almacenamiento de documentos y capacidad en DocumentDB]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Consultas a través de particiones múltiples]: sql-database/sql-database-elastic-scale-multishard-querying.md
 [Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
-[Niveles de rendimiento en DocumentDB]: documentdb/documentdb-performance-levels.md
+[Performance levels in DocumentDB]: documentdb/documentdb-performance-levels.md
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Tutorial de clúster Redis]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Windows Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
@@ -588,6 +576,6 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

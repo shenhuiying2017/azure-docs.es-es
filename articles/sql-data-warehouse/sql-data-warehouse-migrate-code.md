@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ff5ad648d429da433170301205eafb850be5d81
+ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
+ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
 
 
 ---
@@ -26,12 +26,11 @@ Al migrar el código desde otra base de datos a Almacenamiento de datos SQL, es 
 ## <a name="common-t-sql-limitations"></a>Limitaciones comunes de T-SQL
 En la lista siguiente se resumen las características más comunes que no se admiten en Almacenamiento de datos SQL de Azure. Los vínculos siguientes le llevan a soluciones alternativas para la característica no admitida:
 
-* [ANSI JOINS en UPDATE][ANSI JOINS en UPDATE]
-* [ANSI JOINS en DELETE][ANSI JOINS en DELETE]
-* [instrucción MERGE][instrucción MERGE]
+* [ANSI JOINS en UPDATE][ANSI joins on updates]
+* [ANSI JOINS en DELETE][ANSI joins on deletes]
+* [Instrucción MERGE][merge statement]
 * combinaciones entre bases de datos
-* [cursores][cursores]
-* [SELECT..INTO][SELECT..INTO]
+* [Cursores][cursors]
 * [INSERT..EXEC][INSERT..EXEC]
 * cláusula OUTPUT
 * funciones insertadas definidas por el usuario
@@ -46,11 +45,11 @@ En la lista siguiente se resumen las características más comunes que no se adm
 * trabajo con COMMIT/ROLLBACK
 * SAVE TRANSACTION
 * contextos de ejecución (EXECUTE AS)
-* [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS]
-* [anidación de niveles más allá de 8][anidación de niveles más allá de 8]
-* [actualización a través de vistas][actualización a través de vistas]
-* [uso de SELECT para la asignación de variables][uso de SELECT para la asignación de variables]
-* [No escriba ningún tipo de datos MAX en cadenas de SQL dinámico][No escriba ningún tipo de datos MAX en cadenas de SQL dinámico]
+* [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][group by clause with rollup / cube / grouping sets options]
+* [anidación de niveles más allá de 8][nesting levels beyond 8]
+* [actualización a través de vistas][updating through views]
+* [uso de SELECT para la asignación de variables][use of select for variable assignment]
+* [No escriba ningún tipo de datos MAX en cadenas de SQL dinámico][no MAX data type for dynamic SQL strings]
 
 Afortunadamente, la mayoría de estas limitaciones se puede solucionar. Los artículos de desarrollo correspondientes antes mencionados incluyen explicaciones.
 
@@ -77,7 +76,7 @@ Estas son algunas de las limitaciones de las expresiones de tabla comunes en Alm
 * Cuando se usa en instrucciones preparadas por sp_prepare, las CTE comportarán del mismo modo que otras instrucciones SELECT en PDW. Sin embargo, si las CTE se usan como parte de las CETAS preparadas por sp_prepare, el comportamiento puede diferir de SQL Server y de otras instrucciones PDW debido a la manera en que se implementa el enlace para sp_prepare. Si SELECT que hace referencia a la CTE está usando una columna incorrecta que no existe en la CTE, sp_prepare pasará sin detectar el error, pero el error se generará durante sp_execute en su lugar.
 
 ## <a name="recursive-ctes"></a>CTE recursivas
-Las CTE recursivas no se admiten en Almacenamiento de datos SQL.  La migración de CTE recursivas puede ser bastante completa y el mejor proceso es desglosarla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo de la [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS].
+Las CTE recursivas no se admiten en Almacenamiento de datos SQL.  La migración de CTE recursivas puede ser bastante completa y el mejor proceso es desglosarla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funciones de sistema no compatibles
 También hay algunas funciones del sistema que no son compatibles. Algunas de las principales que normalmente se usan en almacenamiento de datos son:
@@ -115,24 +114,23 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver una lista completa de todas las instrucciones de T-SQL admitidas, consulte [Temas de Transact-SQL][Temas de Transact-SQL].
+Para ver una lista completa de todas las instrucciones de T-SQL admitidas, vea [Temas de Transact-SQL][Transact-SQL topics].
 
 <!--Image references-->
 
 <!--Article references-->
-[ANSI JOINS en UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
-[ANSI JOINS en DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
-[instrucción MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[merge statement]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
 [INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[Temas de Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
+[Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[cursores]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
-[cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS]: ./sql-data-warehouse-develop-group-by-options.md
-[anidación de niveles más allá de 8]: ./sql-data-warehouse-develop-transactions.md
-[actualización a través de vistas]: ./sql-data-warehouse-develop-views.md
-[uso de SELECT para la asignación de variables]: ./sql-data-warehouse-develop-variable-assignment.md
-[No escriba ningún tipo de datos MAX en cadenas de SQL dinámico]: ./sql-data-warehouse-develop-dynamic-sql.md
+[cursors]: ./sql-data-warehouse-develop-loops.md
+[group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
+[nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
+[updating through views]: ./sql-data-warehouse-develop-views.md
+[use of select for variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
+[no MAX data type for dynamic SQL strings]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
@@ -140,6 +138,6 @@ Para ver una lista completa de todas las instrucciones de T-SQL admitidas, consu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

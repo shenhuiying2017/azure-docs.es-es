@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
+ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
+ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
 
 
 ---
@@ -162,7 +162,7 @@ Los segmentos diarios comienzan a las **6:00** en lugar de a medianoche, que es 
 ### <a name="how-can-i-rerun-a-slice"></a>¿Cómo puedo volver a ejecutar un segmento?
 Puede volver a ejecutar un segmento de una de las siguientes maneras:
 
-* Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Nueva ejecución de ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#performing-batch-actions) para ver instrucciones.   
+* Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Nueva ejecución de ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para ver instrucciones.   
 * Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento en Azure Portal.
 * Ejecute el cmdlet **Set-AzureRmDataFactorySliceStatus** con el estado **En espera** para el segmento.   
 
@@ -203,6 +203,6 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

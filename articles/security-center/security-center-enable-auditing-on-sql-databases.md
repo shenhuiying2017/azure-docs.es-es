@@ -1,6 +1,6 @@
 ---
 title: "Habilitación de la auditoría en bases de datos SQL en Azure Security Center | Microsoft Docs"
-description: "En este documento, mostramos cómo implementar la recomendación **Habilitar la auditoría en bases de datos SQL** de Azure Security Center."
+description: "En este documento se muestra cómo implementar la recomendación **Habilitar la auditoría en bases de datos SQL** de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0084e4e3ffd7284e237a9ed8544b191e1fb55a53
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
 
 
 ---
@@ -29,15 +29,18 @@ Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al se
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Habilitar la auditoría en bases de datos SQL**.  Se abrirá la hoja **Habilitar la auditoría en bases de datos SQL** .
-   ![Enable auditing on SQL databases][1]
+
+   ![Habilitación de la auditoría en bases de datos SQL][1]
 2. Seleccione una base de datos SQL en donde habilitar la auditoría. Se abre la hoja **Auditoría y detección de amenazas**.
+
    ![Detección de amenazas y auditoría][2]
 3. En la hoja **Auditoría y detección de amenazas**, seleccione **Activar** en **Auditoría**.
+
    ![Activación de la detección de amenazas y auditoría][3]
 4. Siga los pasos de [Introducción a Detección de amenazas de Base de datos SQL](../sql-database/sql-database-threat-detection-get-started.md) para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
 
@@ -63,6 +66,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

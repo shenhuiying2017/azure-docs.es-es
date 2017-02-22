@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: bcfa97c08cb55aba1ab69e67843abb81805a8884
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: c4a58abe5018f15a1067e46e47010b963dfd530e
 
 
 ---
@@ -46,8 +46,8 @@ Uno de los dos [modelos de implementación](resource-manager-deployment-model.md
 [Interfaz de la línea de comandos](xplat-cli-install.md) que se puede utilizar para administrar los servicios de Azure desde Windows, OSX y equipos con Linux.
 
 ### <a name="a-namepowershellaazure-powershell"></a><a name="powershell"></a>Azure PowerShell.
-[Interfaz de la línea de comandos](powershell-install-configure.md) para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. En las guías de los recursos de Azure se detalla con qué modelo o modelos se puede implementar cada recurso.   
-Consulte también [Instalación y configuración de Azure PowerShell](powershell-install-configure.md)
+[Interfaz de la línea de comandos](/powershell/azureps-cmdlets-docs) para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. En las guías de los recursos de Azure se detalla con qué modelo o modelos se puede implementar cada recurso.   
+Consulte también [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ### <a name="a-namearm-modelaazure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modelo de implementación de Azure Resource Manager
 Uno de los dos [modelos de implementación](resource-manager-deployment-model.md) utilizados para implementar recursos en Microsoft Azure (el otro es el modelo de implementación clásica). Algunos recursos de Azure pueden implementarse solo en uno de los dos modelos, mientras que otros pueden hacerlo en cualquiera de ellos. Orientación sobre cada uno de los modelos con los que se pueden implementar los recursos de Azure.
@@ -147,6 +147,6 @@ Consulte también [Información general sobre redes virtuales](virtual-network/v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

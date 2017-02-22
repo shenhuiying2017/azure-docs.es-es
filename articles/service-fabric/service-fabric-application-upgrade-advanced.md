@@ -1,5 +1,5 @@
 ---
-title: "Actualización de la aplicación de Service Fabric: temas avanzados | Microsoft Docs"
+title: "Temas avanzados de actualización de aplicación | Microsoft Docs"
 description: "En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 01/05/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
+ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
+ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
 
 
 ---
@@ -24,13 +24,13 @@ ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Adición o eliminación de servicios durante la actualización de una aplicación
 Si se agrega un nuevo servicio a una aplicación que ya está implementada y publicada como una actualización, el nuevo servicio se agrega a la aplicación implementada.  Dicha actualización no afecta a ninguno de los servicios que ya formaban parte de la aplicación. Sin embargo, tendrá que iniciarse una instancia del servicio que se agregó para que el nuevo servicio esté activo (mediante el cmdlet `New-ServiceFabricService` ).
 
-También se pueden quitar servicios de una aplicación como parte de una actualización. Sin embargo, se deben detener todas las instancias actuales del servicio se va a eliminar antes de continuar con la actualización (mediante el cmdlet `Remove-ServiceFabricService` ). 
+También se pueden quitar servicios de una aplicación como parte de una actualización. Sin embargo, se deben detener todas las instancias actuales del servicio se va a eliminar antes de continuar con la actualización (mediante el cmdlet `Remove-ServiceFabricService` ).
 
 ## <a name="manual-upgrade-mode"></a>Modo de actualización manual
 > [!NOTE]
 > El modo manual no supervisado debe considerarse solo si la actualización presenta errores o si se suspende. El modo supervisado es el modo de actualización recomendado para las aplicaciones de Service Fabric.
-> 
-> 
+>
+>
 
 Azure Service Fabric ofrece varios modos de actualización para admitir clústeres de desarrollo y producción. Las opciones de implementación elegidas pueden ser diferentes para distintos entornos.
 
@@ -55,7 +55,7 @@ Casos en los que usar un paquete de diferencias sería una buena opción:
 * Se prefiere un paquete de diferencias cuando tiene un paquete de aplicación grande que hace referencia a varios archivos del manifiesto de servicio o varios paquetes de código, configuración o datos.
 * Asimismo, se prefiere un paquete de diferencias cuando dispone de un sistema de implementación que genera el diseño de compilación directamente desde el proceso de compilación de su aplicación. En este caso, aunque el código no ha cambiado, los ensamblados recién creados obtienen una suma de comprobación diferente. Para usar un paquete de aplicación completo, sería necesario que actualizara la versión de todos los paquetes de código. Con un paquete de diferencias, solo proporciona los archivos que cambiaron y los archivos de manifiesto cuya versión ha cambiado.
 
-Cuando se actualiza una aplicación mediante Visual Studio, el paquete de diferencias se publica automáticamente. Para crear manualmente un paquete de diferencias, se deben actualizar el manifiesto de aplicación y los manifiestos de servicio, pero solo los paquetes modificados deben incluirse en el paquete de aplicación final. 
+Cuando se actualiza una aplicación mediante Visual Studio, el paquete de diferencias se publica automáticamente. Para crear manualmente un paquete de diferencias, se deben actualizar el manifiesto de aplicación y los manifiestos de servicio, pero solo los paquetes modificados deben incluirse en el paquete de aplicación final.
 
 Por ejemplo, comencemos con la siguiente aplicación (se proporcionan los números de versión para facilitar la comprensión):
 
@@ -102,7 +102,6 @@ Solucione problemas habituales en las actualizaciones de aplicaciones consultand
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

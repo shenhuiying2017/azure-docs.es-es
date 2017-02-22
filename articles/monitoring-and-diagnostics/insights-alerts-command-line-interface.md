@@ -1,8 +1,8 @@
 ---
-title: "Uso de la interfaz de la línea de comandos (CLI) multiplataforma para crear alertas de los servicios de Azure | Microsoft Docs"
-description: "Use la interfaz de la línea de comandos para crear alertas de Azure, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones especificadas."
+title: "Creación de alertas para servicios de Azure - CLI multiplataforma | Microsoft Docs"
+description: "Desencadene correos electrónicos y notificaciones, llame a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones especificadas."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1bb722726fd44972887fdcff2b33a15725914d2
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
 
 
 ---
-# <a name="use-the-cross-platform-command-line-interface-cli-to-create-alerts-for-azure-services"></a>Uso de la interfaz de la línea de comandos (CLI) multiplataforma para crear alertas de los servicios de Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creación de alertas en Azure Monitor para servicios de Azure - CLI multiplataforma
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo configurar alertas de Azure con la interfaz de la línea de comandos (CLI).
+En este artículo se muestra cómo configurar alertas de Azure con la interfaz de la línea de comandos (CLI) multiplataforma.
 
 > [!NOTE]
 > Azure Monitor es el nuevo nombre de lo que se conocía como "Azure Insights" hasta el 25 de septiembre de 2016. Sin embargo, los espacios de nombres y, por tanto, los siguientes comandos aún contienen el término "insights".
-> 
-> 
+>
+>
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
@@ -73,74 +73,74 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
     ```
 
 1. Para ver las reglas existentes en un grupo de recursos, use el formato siguiente **azure insights alerts rule list** *[opciones] &lt;grupoRecursos&gt;*
-   
+
    ```console
    azure insights alerts rule list myresourcegroupname
-   
+
    ```
 2. Para crear una regla, primero debe contar con varios datos importantes.
-   
+
    * El **identificador de recurso** del recursos para el que desea establecer una alerta.
    * Las **definiciones de métricas** disponibles para ese recurso.
-     
+
      Una forma de obtener el identificador de recurso es usar Azure Portal. Seleccione el recurso en el portal, suponiendo que ya existe. En la sección *Configuración* de la hoja siguiente, seleccione *Propiedades*. El campo *RESOURCE ID* está en la hoja siguiente. Otra forma que puede usar es el [Explorador de recursos de Azure](https://resources.azure.com/).
-     
+
      El siguiente es un ejemplo de identificador de recurso de una aplic. web:
-     
+
      ```console
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
      ```
-     
+
      Para obtener una lista de las métricas disponibles y las unidades de esas métricas para el ejemplo de recurso anterior, use el siguiente comando de CLI:  
-     
+
      ```console
      azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M
      ```
-     
-     *PT1M* es la granularidad de la medida disponible (intervalos de 1 minuto). El uso de distintas granularidades le brinda opciones de métricas diferentes.
+
+     *PT1M* es la granularidad de la medida disponible (intervalos de&1; minuto). El uso de distintas granularidades le brinda opciones de métricas diferentes.
 3. Para crear una regla de alerta basada en métricas, use un comando con el siguiente formato:
-   
+
     **azure insights alerts rule metric set** *[opciones] &lt;nombreRegla&gt; &lt;ubicación&gt; &lt;grupoRecursos&gt; &lt;tamañoVentana&gt; &lt;operador&gt; &lt;umbral&gt; &lt;idRecursoObjetivo&gt; &lt;nombreMétrica&gt; &lt;horaInserciónOperador&gt;*
-   
+
     En el ejemplo siguiente se configura una alerta en un recurso de sitio web. La alerta se desencadena cada vez que se recibe constantemente cualquier tráfico durante 5 minutos y nuevamente cuando no se recibe tráfico durante 5 minutos.
-   
+
     ```console
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
-   
+
     ```
 4. Para crear un webhook o enviar un correo electrónico cuando se active una alerta, debe crear el correo electrónico o los webhooks. Cree la regla inmediatamente después. No puede asociar webhooks o correos electrónicos con reglas ya creadas mediante la CLI.
-   
+
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
-   
+
     azure insights alerts actions webhook create https://www.contoso.com
-   
+
     azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
 5. Para crear una alerta que se activa según una condición específica en el registro de actividades, use este formato:
-   
+
     **insights alerts rule log set** *[opciones] &lt;nombreRegla&gt; &lt;ubicación&gt; &lt;grupoRecursos&gt; &lt;nombreOperación&gt;*
-   
+
     Por ejemplo:
-   
+
     ```console
     azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
     ```
-   
+
     El valor nombreOperación corresponde a un tipo de evento de una entrada del registro de actividades. Los ejemplos incluyen *Microsoft.Compute/virtualMachines/delete* y *microsoft.insights/diagnosticSettings/write*.
-   
+
     Puede usar el comando [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) de PowerShell para obtener una lista de nombresOperación posibles. De manera alternativa, puede usar Azure Portal para consultar el registro de actividades y encontrar operaciones anteriores específicas para las que desea crear una alerta. Las operaciones se muestran en la vista gráfica de registro de los nombres descriptivos. Observe el código JSON de la entrada y extraiga el valor de nombreOperación.   
 6. Observe una regla individual para comprobar que las alertas se crearon correctamente.
-   
+
     ```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
     ```
 7. Para eliminar reglas, use un comando con este formato:
-   
+
     **insights alerts rule delete** [opciones] &lt;grupoRecursos&gt; &lt;nombreRegla&gt;
-   
+
     Estos comandos eliminan las reglas que se crearon anteriormente en este artículo.
-   
+
     ```console
     azure insights alerts rule delete myresourcegroup myrule
     azure insights alerts rule delete myresourcegroup myrulewithwebhookandemail
@@ -156,7 +156,6 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

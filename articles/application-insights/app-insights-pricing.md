@@ -1,130 +1,145 @@
 ---
-title: Administración de precios y cuotas para Application Insights
-description: Elija el plan de precios que necesite.
+title: "Administración de precios y volúmenes de datos de Application Insights | Microsoft Docs"
+description: "Administre los volúmenes de telemetría y supervise los costos en Application Insights."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2016
+ms.date: 01/13/2017
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
+ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
+
 
 ---
-# Administración de precios y cuotas para Application Insights
-*Application Insights se encuentra en su versión de vista previa.*
+# <a name="manage-pricing-and-data-volume-in-application-insights"></a>Administración de precios y volúmenes de datos de Application Insights
 
-Los [precios][pricing] de [Application Insights para Visual Studio][start] se basan en el volumen de datos por aplicación. Hay un nivel Gratis sustancial en el que se pueden disfrutar la mayoría de las características con algunas limitaciones.
+
+Los precios para [Azure Application Insights][start] se basan en el volumen de datos por aplicación. Lo más probable es que sea gratuito en el caso de una baja utilización durante el desarrollo o para una aplicación pequeña, porque hay una provisión mensual de 1 GB de datos de telemetría.
 
 Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure.
 
-[Consulte el esquema de precios][pricing].
+Hay dos planes de precios. El plan predeterminado se conoce como Básico. Puede elegir el plan Enterprise, que tiene un cargo diario, pero permite que determinadas características adicionales como la [exportación continua](app-insights-export-telemetry.md).
 
-## Revisión del plan de cuotas y precios para el recurso de Application Insights
-Puede abrir la hoja Cuota + Precios de la configuración del recurso de la aplicación.
+Si tiene preguntas sobre cómo funciona los precios para Application Insights, no dude en publicar una pregunta en nuestro [foro](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-![Elija Configuración, Cuota + Precios.](./media/app-insights-pricing/01-pricing.png)
+## <a name="the-pricing-plans"></a>Los planes de precios
 
-Su elección del esquema de precios afecta a:
+Consulte la [página de precios de Application Insights][pricing] para ver los precios actuales en su moneda.
 
-* [Cuota mensual](#monthly-quota): la cantidad de telemetría que puede analizar cada mes.
-* [Velocidad de datos](#data-rate): la velocidad máxima a la que se pueden procesar los datos de su aplicación.
-* [Exportación continua](#continuous-export): si se pueden exportar datos a otras herramientas y servicios.
+### <a name="basic-plan"></a>Plan Básico
 
-Estos límites se establecen por separado para cada recurso de Application Insights.
+El plan Básico es el predeterminado cuando se crea un nuevo recurso de Application Insights y bastará para la mayoría de los clientes.
 
-### Evaluación gratuita de Premium
-Al crear un nuevo recurso de Application Insights, este se inicia en el nivel Gratis.
+* En el plan Básico, se le cobrará por volumen de datos: el número de bytes de telemetría que reciba Application Insights. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que reciba Application Insights de su aplicación.
+* El primer GB de cada aplicación es gratuito, por lo que si solo está experimentando o desarrollando, lo más probable es que no tenga que pagar nada.
+* Los datos de la [secuencia de métricas en directo](app-insights-live-stream.md) no cuentan para calcular los precios.
+* La [exportación continua](app-insights-export-telemetry.md) se encuentra disponible a cambio de un cargo adicional por cada GB en el plan Básico, aunque es una característica gratuita hasta principios de marzo de 2017.
 
-En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 días. Esto le ofrecerá las ventajas del nivel Premium. Después de 30 días, la suscripción cambiará automáticamente al nivel en que se encontrase previamente, a menos que se elija explícitamente otro nivel. Puede seleccionar el nivel que desee en cualquier momento durante el período de evaluación, pero podrá seguir optando a la evaluación gratuita hasta el final del período de 30 días.
+### <a name="enterprise-plan"></a>Plan Enterprise
 
-## Cuota mensual
-* En cada mes natural, la aplicación puede enviar hasta una cantidad especificada de telemetría a Application Insights. Actualmente la cuota para el plan de tarifa gratuito es de 5 millones de puntos de datos al mes y mucho más para los demás esquemas; puede comprar más si alcanza la cuota. Consulte el [esquema de precios][pricing] para ver los números reales.
-* La cuota depende del nivel de precios que haya elegido.
-* La cuota se cuenta a partir de la medianoche UTC del primer día de cada mes.
-* El gráfico de puntos de datos muestra el uso que se ha hecho de la cuota en este mes.
-* La cuota se mide en *puntos de datos.* Un único punto de datos es una llamada a uno de los métodos de seguimiento, independientemente de si se llama explícitamente en el código o por uno de los módulos de telemetría estándar. Puede tener varias propiedades asociadas y métricas.
-* Los puntos de datos se generan por:
-  * [Módulos de SDK](app-insights-configuration-with-applicationinsights-config.md) que recopilan datos de forma automática, por ejemplo, para informar de una solicitud o un bloqueo, o para medir el rendimiento.
-  * Las llamadas a [API](app-insights-api-custom-events-metrics.md) `Track...` escritas, como `TrackEvent` o `trackPageView`.
-  * [Las pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md) que configuró.
-* Durante la depuración, puede ver los puntos de datos que se envían desde la aplicación en la ventana de salida de Visual Studio. Los eventos de cliente se pueden ver abriendo que la pestaña de red en el panel de depuración del explorador (normalmente F12).
-* Los *datos de la sesión* no se cuentan en la cuota. Esto incluye los recuentos de datos de usuarios, sesiones, entorno y dispositivo.
-* Si desea contar puntos de datos por inspección, puede encontrarlos en diversos lugares:
-  * Cada elemento que ve en la [búsqueda de diagnósticos](app-insights-diagnostic-search.md), que incluye solicitudes HTTP, excepciones, seguimientos de registros, vistas de página, eventos de dependencia y eventos personalizados.
-  * Cada medida sin procesar de una [métrica](app-insights-metrics-explorer.md), como un contador de rendimiento. (Los puntos que se ven en los gráficos normalmente son agregados de varios puntos de datos sin procesar).
-  * Cada punto de un gráfico de disponibilidad web es también un agregado de varios puntos de datos.
-* También puede inspeccionar puntos de datos individuales en el origen durante la depuración:
-  * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida.
-  * Para ver los puntos de datos de cliente, abra panel de depuración del explorador (normalmente F12) y abra la ficha Red.
-* La velocidad de datos se puede reducir (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling.md). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
+* En el plan Enterprise, su aplicación puede usar todas las características de Application Insights. La [exportación continua](app-insights-export-telemetry.md) y el [conector de Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) se encuentran disponibles sin ningún cargo adicional en el plan Enterprise.
+* En dicho plan, se paga por nodo que envíe telemetría desde cualquier aplicación. 
+ * Un *nodo* es un servidor físico o virtual o una instancia de rol de plataforma como servicio que hospeda su aplicación.
+ * Los equipos de desarrollo, los exploradores cliente y los dispositivos móviles no se cuentan como nodos.
+ * Si su aplicación presenta varios componentes que envían telemetría, como un servicio web y un trabajo de back-end, se cuentan por separado.
+ * Los datos de la [secuencia de métricas en directo](app-insights-live-stream.md) no cuentan para calcular los precios.
+* En una suscripción, se cobra por nodo y no por aplicación. Si tiene cinco nodos que envían telemetría de 12 aplicaciones, se le cobrará por 5 nodos.
+* Aunque los cargos se presupuestan mensualmente, solo se le cobrarán las horas en las que un nodo envíe telemetría de una aplicación. El cargo por hora es el cargo mensual presupuestado partido por 744 (el número de horas en un mes de 31 días).
+* Se proporciona una asignación de volumen de datos de 200 MB por día para cada nodo detectado (con una granularidad de horas). Las asignaciones de datos no utilizadas no se guardarán de un día para otro.
+ * Si elige el plan Enterprise, cada suscripción recibe una asignación de datos diaria en función del número de nodos que envíen telemetría a los recursos de Application Insights de esa suscripción. De modo que, si tiene 5 nodos enviando datos todos los días, tendrá una asignación global de 1 GB para todos los recursos de Application Insights de esa suscripción. No importa si algunos nodos envían más datos que otros, porque los datos incluidos se comparten entre todos los nodos. Si, un día determinado, los recursos de Application Insights reciben más datos de los que se incluyen en la asignación de datos diaria para esta suscripción, se aplicarán los cargos de datos por encima del límite por cada GB. 
+ * La asignación de datos diaria se calcula como el número de horas del día (de acuerdo con UTC) que cada nodo envía telemetría dividido entre 24 por 200 MB. Es decir, si tiene 4 nodos enviando telemetría durante 15 de las 24 horas del día, los datos incluidos para ese día serán ((4 x 15) / 24) x 200 MB = 500 MB. A un precio de 2,30 USD por GB en el caso de uso por encima del límite de datos, el cargo sería de 1,15 USB si los nodos envían 1 GB de datos ese día.
+ * Tenga en cuenta que la asignación diaria del plan Enterprise no se comparte con las aplicaciones para las que haya elegido la opción Básica y que las asignaciones no utilizadas no se guardan de un día a otro. 
+* Estos son algunos de los ejemplos de cómo determinar el número concreto de nodos:
+| Escenario                               | Número de nodos total diario |
+|:---------------------------------------|:----------------:|
+| 1 aplicación está usando 3 instancias de Azure App Service y 1 servidor virtual. | 4 |
+| 3 aplicaciones que se ejecutan en 2 máquinas virtuales, y los recursos de Application Insights de estas aplicaciones se encuentran en la misma suscripción y en el plan Enterprise. | 2 | 
+| 4 aplicaciones cuyos recursos de Application Insights se encuentran en la misma suscripción. Cada aplicación ejecuta 2 instancias durante 16 horas de poca actividad y 4 durante 8 horas de máxima actividad. | 13,33 | 
+| Servicios en la nube con 1 rol de trabajo y 1 rol web; cada uno ejecuta 2 instancias. | 4 | 
+| Clúster de Service Fabric de 5 nodos que ejecuta 50 microservicios; cada uno de estos últimos ejecuta 3 instancias. | 5|
 
-### Superávit
-Si una aplicación envía más de la cuota mensual, puede:
+* El comportamiento concreto del recuento de nodos depende del SDK de Application Insights que esté usando su aplicación. 
+  * En la versión 2.2 del SDK y posteriores, tanto el [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) como el [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) de Application Insights notificará a cada aplicación host como un nodo. Por ejemplo, el nombre del equipo del servidor físico y los hosts de las máquinas virtuales o el nombre de la instancia, en el caso de servicios en la nube.  Las aplicaciones que usan [.NET Core](https://dotnet.github.io/) y el Core SDK de Application Insights constituyen la única excepción. En este caso, solo se indicará un nodo para todos los hosts porque el nombre de host no se encuentra disponible. 
+  * Para las versiones anteriores del SDK, el [SDK Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comportará del mismo modo que las versiones más nuevas. Sin embargo, [SDK Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) solo notificará un nodo, con independencia del número real de hosts de la aplicación. 
+  * Tenga en cuenta que si su aplicación está usando el SDK para establecer roleInstance en un valor personalizado, ese mismo valor se usará para determinar el recuento de nodos de forma predeterminada. 
+  * Si utiliza una nueva versión del SDK con una aplicación que se ejecuta desde equipos cliente o dispositivos móviles, es posible que el recuento de nodos devuelva un número muy grande (del gran número de equipos cliente o dispositivos móviles). 
 
-* Pagar por datos adicionales. Consulte el [esquema de precios][pricing] para obtener más información. Puede elegir esta opción de antemano. Esta opción no está disponible en el nivel de precios Gratis.
-* Actualización del nivel de precios
-* No haga nada. Los datos de la sesión seguirán registrándose, pero otros datos no aparecerán en la búsqueda de diagnóstico o en el explorador de métricas.
+### <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
-## ¿Cuántos datos estoy enviando?
-El gráfico de la parte inferior de la hoja de precios muestra el volumen del punto de datos de la aplicación con grupos en función del tipo de punto de datos. (También puede crear este gráfico en el Explorador de métricas).
+Se realiza un cargo adicional para las [pruebas web de varios pasos](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Es decir, pruebas web que realizan una secuencia de acciones. 
 
-![En la parte inferior de la hoja de precios.](./media/app-insights-pricing/03-allocation.png)
+No hay ningún cargo aparte para las "pruebas de ping" de una sola página. La telemetría de las pruebas de ping y de las de varios pasos se carga junto con el resto de la telemetría de su aplicación.
 
-Haga clic en el gráfico para obtener más detalles, o arrastre el puntero por él y haga clic en (+) para ver el detalle de un intervalo de tiempo.
+## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Revisión del plan de precios y cálculo de los costos para el recurso de Application Insights
+Abra la hoja Características y precios en el recurso de Application Insights para su aplicación.
 
-El gráfico muestra el volumen de datos que llega al servicio Application Insights, después del [muestreo](app-insights-sampling.md).
+![Elija el precio.](./media/app-insights-pricing/01-pricing.png)
 
-Si el volumen de datos alcanza su cuota mensual, aparecerá una anotación en el gráfico.
+**a.** Revise el volumen de datos para el mes. Esto incluye todos los datos recibidos y retenidos (después de cualquier [muestreo](app-insights-sampling.md) de las aplicaciones de servidor y cliente, y de las pruebas de disponibilidad.
 
-## Velocidad de datos
-Además de la cuota mensual, estos valores limitan la velocidad de los datos. Para el [plan de tarifa][pricing] gratuito, el límite es de 200 puntos de datos por segundo de promedio durante 5 minutos, y para los niveles de pago es de 500/s de promedio durante 1 minuto.
+**b.** Se realiza un cargo adicional para las [pruebas web de varios pasos](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (Esto no incluye pruebas de disponibilidad simples, que se incluyen en la carga de volumen de datos).
 
-Hay tres depósitos que se cuentan por separado:
+**c.** Habilite el plan Enterprise.
 
-* [Llamadas a TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) y [registros capturados](app-insights-asp-net-trace-logs.md)
-* [Excepciones](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 puntos/s.
-* Toda la demás telemetría (vistas de páginas, sesiones, solicitudes, dependencias, métricas, eventos personalizados, resultados de prueba web).
+**d.** Haga clic en las opciones de administración de datos para ver el volumen de datos del último mes, establecer un límite diario o configurar un muestreo de ingesta.
 
-*¿Qué ocurre si mi aplicación supera la tasa por segundo?*
+Los cargos de Application Insights se agregarán a la factura de Azure. Puede ver los detalles de su factura de Azure en la sección de facturación del portal de Azure o en el [Portal de facturación de Azure](https://account.windowsazure.com/Subscriptions). 
 
-* El volumen de datos que su aplicación envía se evalúa cada minuto. Si se supera la tasa por segundo promediada por minuto, el servidor rechazará algunas solicitudes. Algunas versiones del SDK intentan volver a enviarlas y generan una sobrecarga durante varios minutos; otras, como el SDK de JavaScript, simplemente quitan los datos rechazados.
+![En el menú lateral, elija Facturación.](./media/app-insights-pricing/02-billing.png)
+
+## <a name="data-rate"></a>Velocidad de datos
+Hay tres formas en que se limita el volumen de envío de datos:
+
+* **Límite diario.** De forma predeterminada, se establece en 500 GB/día. Cuando la aplicación alcanza el límite, se envía un correo electrónico y se descartan los datos hasta el final del día. Para cambiarlo, use la hoja Data Volume Management (Administración del volumen de datos).
+* **[Muestreo](app-insights-sampling.md).** Este mecanismo puede reducir la cantidad de telemetría enviada desde las aplicaciones de servidor y de cliente, con mínima distorsión de las métricas.
+* La **limitación** restringe la velocidad de datos a 32 000 eventos por segundo, promediados durante 1 minuto. 
+
+
+*¿Qué ocurre si mi aplicación supera el porcentaje de limitación?*
+
+* El volumen de datos que su aplicación envía se evalúa cada minuto. Si se supera la tasa por segundo promediada por minuto, el servidor rechazará algunas solicitudes. El SDK almacena los datos en el búfer e intenta volver a enviarlos, lo que genera un sobrevoltaje durante varios minutos. Si su aplicación envía de forma consistente un volumen de datos que supera la tasa de limitación, es posible que algunos se eliminen. (Los SDK de ASP.NET, Java y JavaScript intentan volver a enviarlos de esta manera; otros SDK pueden simplemente eliminar los datos limitados.)
 
 Si se produce la limitación, verá una notificación de advertencia que indica que esto ha sucedido.
 
 *¿Cómo puedo saber cuántos puntos de datos envía mi aplicación?*
 
-* Abra Configuración/cuotas y precios para ver el gráfico de volumen de datos.
+* Abra la hoja de precios para ver el gráfico de volumen de datos.
 * O bien, en el Explorador de métricas, agregue un nuevo gráfico y seleccione **Volumen de punto de datos** como su métrica. Active la agrupación y agrupe por **Tipo de datos**.
 
-## Reducción de la velocidad de datos
-Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
+## <a name="to-reduce-your-data-rate"></a>Reducción de la velocidad de datos
+Estas son algunas cosas que puede hacer para reducir el volumen de datos:
 
-* Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda.
+* Reduzca el límite de volumen diario. El valor predeterminado es 500 GB/día.
+* Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda. En las aplicaciones de servidor, funciona automáticamente.
 * [Limite el número de llamadas AJAX que se pueden notificar](app-insights-javascript.md#detailed-configuration) en cada vista de página o desactive los informes de AJAX.
 * Desactivar los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
-* Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+* Divida la telemetría para separar las claves de instrumentación. 
+* Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
-## Muestreo
-El [muestreo](app-insights-sampling.md) es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos.
+## <a name="sampling"></a>muestreo
+[Sampling](app-insights-sampling.md)es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos. 
 
 El muestreo es una manera efectiva de reducir los gastos y permanecer dentro de la cuota mensual. El algoritmo de muestreo conserva elementos relacionados con la telemetría, de modo que, por ejemplo, al usar la búsqueda se puede buscar la solicitud relacionada con una excepción determinada. El algoritmo también conserva recuentos correctos, para que pueda ver en el Explorador de métricas los valores correctos de tasas de solicitudes, tasas de excepciones y otros recuentos.
 
 Existen varias formas de muestreo.
 
-* El [muestreo adaptable](app-insights-sampling.md) es el predeterminado para el SDK de ASP.NET, que ajusta automáticamente el volumen de telemetría que envía la aplicación. Funciona automáticamente en el SDK de la aplicación web, de modo que se reduce el tráfico de telemetría en la red.
-* El *muestreo de ingesta* es una opción alternativa que funciona en el momento en que la telemetría procedente de su aplicación entra en el servicio Application Insights. No afecta al volumen de telemetría que envía la aplicación, pero reduce el volumen que retiene el servicio. Puede utilizarlo para reducir la cuota que utiliza la telemetría de exploradores y otros SDK.
+* [Adaptive sampling](app-insights-sampling.md) es el predeterminado para el SDK de ASP.NET, que ajusta automáticamente el volumen de telemetría que envía la aplicación. Funciona automáticamente en el SDK de la aplicación web, de modo que se reduce el tráfico de telemetría en la red. 
+* *muestreo de ingesta* es una opción alternativa que funciona en el momento en que la telemetría procedente de su aplicación entra en el servicio Application Insights. No afecta al volumen de telemetría que envía la aplicación, pero reduce el volumen que retiene el servicio. Puede utilizarlo para reducir la cuota que utiliza la telemetría de exploradores y otros SDK.
 
-Para establecer el muestreo de ingesta, establezca el control en la hoja Quotas + Pricing (Cuotas y precios):
+Para establecer el muestreo de ingesta, establezca el control en la hoja de precios:
 
 ![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> El valor que aparece en el icono Muestras retenidas indica solo el valor que ha establecido para el muestreo de ingesta. No muestra la frecuencia de muestreo que está funcionando en el SDK de la aplicación.
+> El valor que aparece en el icono Muestras retenidas indica solo el valor que ha establecido para el muestreo de ingesta. No muestra la frecuencia de muestreo que está funcionando en el SDK de la aplicación. 
 > 
 > Si ya se ha muestreado la telemetría entrante en el SDK, no se aplica el muestreo de ingesta.
 > 
@@ -136,22 +151,20 @@ Para conocer la frecuencia de muestreo real independientemente de dónde se ha a
     | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
     | render areachart 
 
-En cada registro retenido, `itemCount` indica el número de registros originales que representa, equivale a 1 + el número de registros descartados anteriores.
+En cada registro retenido, `itemCount` indica el número de registros originales que representa, equivale a 1 + el número de registros descartados anteriores. 
 
-## Revisión de la factura de su suscripción a Azure
-Los cargos de Application Insights se agregarán a la factura de Azure. Puede ver los detalles de su factura de Azure en la sección de facturación del portal de Azure o en el [Portal de facturación de Azure](https://account.windowsazure.com/Subscriptions).
 
-![En el menú lateral, elija Facturación.](./media/app-insights-pricing/02-billing.png)
+## <a name="transition-from-the-old-pricing-tiers"></a>Transición desde los planes de tarifa anteriores
 
-## Límites de los nombres
-1. Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación.
-2. Las [propiedades][apiproperties] se pueden usar en los filtros y agruparse solo cuando tengan menos de 100 valores únicos para cada propiedad. Cuando el número de valores únicos sea superior a 100, podrá seguir buscando la propiedad, pero no podrá utilizarlos en los filtros ni agruparlos.
-3. Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". Los valores originales pueden seguir usándose para buscar texto completo y filtrar.
+Las aplicaciones existentes pueden seguir usando los planes de tarifa antiguos hasta febrero de 2017. Llegado ese momento, la mayoría de las aplicaciones se moverán automáticamente al plan Básico. Aquellas que usen la exportación continua o el conector de OMS Log Analytics se moverán al plan Empresa.
 
-Si se percata de que la aplicación supera estos límites, plantéese la posibilidad de dividir los datos entre diferentes claves de instrumentación: es decir, [cree nuevos recursos de Application Insights](app-insights-create-new-resource.md) y envíe parte de los datos a las nuevas claves de instrumentación. Es posible que descubra que el resultado está mejor estructurado. Puede usar los [paneles](app-insights-dashboards.md#dashboards) para colocar las métricas diferentes en la misma pantalla, por lo que este enfoque no limita su capacidad de comparar distintas métricas.
 
-## Resumen de límites
-[!INCLUDE [límites-de-application-insights](../../includes/application-insights-limits.md)]
+## <a name="limits-summary"></a>Resumen de límites
+[!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Muestreo](app-insights-sampling.md)
 
 <!--Link references-->
 
@@ -162,4 +175,7 @@ Si se percata de que la aplicación supera estos límites, plantéese la posibil
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+<!--HONumber=Feb17_HO2-->
+
+

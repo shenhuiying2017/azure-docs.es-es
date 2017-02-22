@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
+ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
 
 
 ---
@@ -29,7 +29,7 @@ Puede configurar pruebas web para cualquier punto de conexión HTTP o HTTPS que 
 Existen dos tipos de prueba web:
 
 * [Prueba de ping de la dirección URL](#create): una prueba sencilla que se puede crear en el portal de Azure.
-* [Prueba web de varios pasos](#multi-step-web-tests): que se crea en Visual Studio Ultimate o Visual Studio Enterprise y se carga en el portal.
+* [Prueba web de varios pasos](#multi-step-web-tests): que se crea en Visual Studio Enterprise y se carga en el portal.
 
 Puede crear hasta 10 pruebas web por recurso de aplicación.
 
@@ -122,7 +122,7 @@ Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a
 Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los pasos del escenario deben incluirse como un script en el archivo .webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Grabar un escenario
-Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
+Utilice Visual Studio Enterprise para grabar una sesión web.
 
 1. Cree un proyecto de prueba de rendimiento web.
 
@@ -239,7 +239,7 @@ En la hoja Información general, abra **Configuración**, **Pruebas de rendimien
 Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas de éxito.
 
 ## <a name="automation"></a>Automatización
-* [Use scripts de PowerShell para configurar una prueba web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automáticamente.
+* [Use scripts de PowerShell para configurar una prueba web](app-insights-powershell.md#add-an-availability-test) automáticamente.
 * Configure un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
 
 ## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
@@ -294,6 +294,6 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

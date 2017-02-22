@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 55f5eb09e13dd645369486affba338759ec6c1d5
 
 
 ---
@@ -34,7 +34,7 @@ Para examinar las colecciones en la galería, abra la [galería](http://gallery.
  La página **[Colecciones](https://gallery.cortanaintelligence.com/collections)**
  muestra una lista de las colecciones agregadas recientemente y más populares.
 Haga clic en **Ver todos** para ver todas las colecciones.
-Desde esta página, puede examinar todas las colecciones en la galería, o puede buscar seleccionando criterios de filtro a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
+Desde esta página, puede examinar todas las colecciones de la Galería. También puede buscar seleccionando criterios de filtrado a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
 
  Haga clic en cualquier colección para abrir la página de detalles de la colección y leer más información sobre ella.
 En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo al experimento para invitar a otros usuarios a ver la página.
@@ -54,20 +54,20 @@ Siga estos pasos para crear una colección y contribuir con ella a la Galería d
 
 1. Inicie sesión en la galería con su cuenta Microsoft.
 
-* Haga clic en la imagen en la parte superior de la ventana y después haga clic en su nombre
+2.  Haga clic en la imagen en la parte superior de la ventana y después haga clic en su nombre
   
     ![Haga clic en el nombre de cuenta](media/machine-learning-gallery-collections/click-account-name.png)
 
-1. Haga clic en **Nuevo elemento**
+3. Haga clic en **Nuevo elemento**
    
     ![Haga clic en "Nuevo elemento"](media/machine-learning-gallery-collections/click-new-item.png)
-2. Seleccione **Colección** para **Tipo de elemento** y luego asigne un nombre a la colección, un breve resumen, una descripción y algunas etiquetas que ayuden a los usuarios a encontrarla
+4. Seleccione **Colección** para **Tipo de elemento** y luego asigne un nombre a la colección, un breve resumen, una descripción y algunas etiquetas que ayuden a los usuarios a encontrarla
    
     ![Especifique información para la nueva colección](media/machine-learning-gallery-collections/create-collection-page-1.png)
-3. Haga clic en **Siguiente**: puede cargar un archivo de imagen o seleccionar una imagen de archivo que se encuentre con la colección; elija algo que ayude a los usuarios identificar el contenido y el propósito de la colección
+5. Haga clic en **Siguiente**: puede cargar un archivo de imagen o seleccionar una imagen de archivo que se encuentre con la colección; elija algo que ayude a los usuarios identificar el contenido y el propósito de la colección
    
     ![Especifique información para la nueva colección](media/machine-learning-gallery-collections/create-collection-page-2.png)
-4. Haga clic en **Siguiente**: puede decidir si la colección es **Pública** (la puede ver cualquier persona) o **No enumerada** (solo las personas con un vínculo directo pueden ver la colección)
+6. Haga clic en **Siguiente**: puede decidir si la colección es **Pública** (la puede ver cualquier persona) o **No enumerada** (solo las personas con un vínculo directo pueden ver la colección)
    
    > [!IMPORTANT]
    > Una vez establecida una colección en **Pública**, no se puede establecer en **No enumerada**.
@@ -75,7 +75,7 @@ Siga estos pasos para crear una colección y contribuir con ella a la Galería d
    > 
    
     ![Seleccione Público o No enumerado](media/machine-learning-gallery-collections/create-collection-page-3.png)
-5. Haga clic en **Crear**
+7. Haga clic en **Crear**
 
 Con ello, la colección pasa a formar parte de la Galería de Cortana Intelligence. Se mostrará en la página de la cuenta bajo la ficha **Colección**.
 
@@ -104,6 +104,6 @@ Mientras edita la colección, también puede cambiar el orden de los elementos m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

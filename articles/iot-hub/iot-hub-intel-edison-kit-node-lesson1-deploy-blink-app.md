@@ -1,5 +1,5 @@
 ---
-title: "Implementación de la aplicación de intermitencia en el kit de inicio de IoT de Azure | Microsoft Docs"
+title: "Conexión de Intel Edison (Node) a Azure IoT: Lección 1: Implementación de la aplicación | Microsoft Docs"
 description: "Clone la aplicación de C de ejemplo de GitHub y ejecute Gulp para implementar esta aplicación en la placa Intel Edison. Esta aplicación de ejemplo hace parpadear el LED conectado a la placa cada dos segundos."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 4184a56cc1dacb1868a5cc74d291341c07a0bb5c
-ms.openlocfilehash: 532ccc6f602b0bd66308af184b3e972edf4b735a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 182e63d40986b61a12885799b1b33bb570437a3c
 
 
 ---
@@ -119,6 +119,6 @@ Ha instalado las herramientas necesarias para usar Edison e implementado una apl
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

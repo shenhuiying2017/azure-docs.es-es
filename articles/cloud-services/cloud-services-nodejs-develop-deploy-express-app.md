@@ -12,17 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ba4c04880913996b9744cdf2a3d19e9bedf36c16
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
 
 
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Compilación de una aplicación web Node.js mediante Express en un servicio en la nube de Azure
 Node.js incluye un conjunto mínimo de funcionalidad en el tiempo de ejecución del núcleo.
-Los desarrolladores suelen utilizar módulos de terceros para proporcionar funcionalidad adicional al desarrollar una aplicación Node.js. En este tutorial, aprenderá a crear una nueva aplicación mediante el módulo [Express][Express], que proporciona un marco MVC para la creación de aplicaciones web Node.js.
+Los desarrolladores suelen utilizar módulos de terceros para proporcionar funcionalidad adicional al desarrollar una aplicación Node.js. En este tutorial, aprenderá a crear una nueva aplicación mediante el módulo [Express][Express], que proporciona un marco MVC para la creación de aplicaciones web de Node.js.
 
 Captura de pantalla de la aplicación completa:
 
@@ -96,7 +96,7 @@ Modifique ahora la vista para visualizar el mensaje "Welcome to Express in Azure
    
    ![El contenido del archivo index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade es el motor de vistas predeterminado que utilizan las aplicaciones Express. Para más información acerca del motor de vistas Jade, consulte [http://jade-lang.com][http://jade-lang.com].
+   Jade es el motor de vistas predeterminado que utilizan las aplicaciones Express. Para más información sobre el motor de vistas de Jade, consulte [http://jade-lang.com][http://jade-lang.com].
 2. Modifique la última línea de texto para anexarla **en Azure**.
    
    ![El archivo index.jade, la última línea muestra: Bienvenido a \#{title} en Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
@@ -119,7 +119,7 @@ Una vez finalizada la operación de implementación, el explorador abrirá y mos
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-[Aplicación web Node.js]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
 
@@ -127,6 +127,6 @@ Para más información, vea el [Centro para desarrolladores de Node.js](/develop
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

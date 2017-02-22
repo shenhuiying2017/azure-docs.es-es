@@ -1,6 +1,6 @@
 ---
-title: "Regresión lineal multivariada | Microsoft Docs"
-description: "Regresión lineal multivariada"
+title: "(En desuso) Regresión lineal multivariada - Azure | Microsoft Docs"
+description: "(En desuso) Regresión lineal multivariada"
 services: machine-learning
 documentationcenter: 
 author: jaymathe
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 01d90591f61920769dbdca360f69156281145517
+ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
+ms.openlocfilehash: 96780fccdf887548b0f6e525736f1d507cf30486
 
 
 ---
-# <a name="multivariate-linear-regression"></a>Regresión lineal multivariada
+# <a name="deprecated-multivariate-linear-regression"></a>(En desuso) Regresión lineal multivariada
+
+> [!NOTE]
+> Microsoft DataMarket está en proceso de retirada y esta API está en desuso. 
+> 
+> Puede encontrar muchos experimentos y API de ejemplo útiles en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com). Para más información sobre la Galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Suponga que tiene un conjunto de datos y desea predecir rápidamente una variable dependiente (y) para cada individuo (i) en función de las variables independientes. La regresión lineal es una técnica estadística popular utilizada para tales predicciones. En este caso, se supone que la variable dependiente y es un valor continuo.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -121,6 +128,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

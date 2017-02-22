@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e2e81139152549eaa40d788c80cfdd2388b2d55d
-ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
 
 
 ---
@@ -34,7 +34,7 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
 * Páginas web
   * Llamadas AJAX
 
-También puede escribir sus propias llamadas de SDK para supervisar otras dependencias, en el código de cliente y servidor, que usan la [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+También puede escribir sus propias llamadas de SDK para supervisar otras dependencias, en el código de cliente y servidor, que usan la [API de TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## <a name="set-up-dependency-monitoring"></a>Configuración de la supervisión de dependencias
 El [SDK de Application Insights](app-insights-asp-net.md) recopila automáticamente información de dependencias parciales. Para obtener datos completos, instale al agente adecuado para el servidor host.
@@ -74,7 +74,7 @@ Haga clic en los gráficos de resumen o los elementos de tabla para buscar repet
 Los **número de errores** se muestran en la hoja **Errores**. Un error es cualquier código de retorno que no está en el intervalo 200-399, o bien uno desconocido.
 
 > [!NOTE]
-> **¿El porcentaje de errores es 100?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
+> **¿El porcentaje de errores es&100;?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
 >
 >
 
@@ -172,7 +172,7 @@ Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de
 ## <a name="custom-dependency-tracking"></a>Seguimiento de dependencias personalizadas
 El módulo de seguimiento de dependencias estándar detecta automáticamente las dependencias externas, como bases de datos y API de REST. Pero tal vez quieras que se traten algunos componentes adicionales de la misma manera.
 
-Puede escribir código que envíe la información de dependencia usando la misma [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) que usan los módulos estándar.
+Puede escribir código que envíe la información de dependencia usando la misma [API de TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency) que usan los módulos estándar.
 
 Por ejemplo, si compila el código con un ensamblado que no escribió usted mismo, podría cronometrar todas las llamadas al ensamblado para averiguar cómo contribuye a los tiempos de respuesta. Para que estos datos se muestren en los gráficos de dependencia en Application Insights, envíelos mediante `TrackDependency`.
 
@@ -209,6 +209,6 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

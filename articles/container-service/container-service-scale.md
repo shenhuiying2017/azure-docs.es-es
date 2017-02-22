@@ -1,6 +1,6 @@
 ---
-title: "Escalado del clúster de ACS con la CLI de Azure | Microsoft Docs"
-description: "Cómo escalar el clúster de Azure Container Service mediante la CLI de Azure."
+title: "Escalado del clúster de Azure Container Service | Microsoft Docs"
+description: "Cómo escalar el clúster de Azure Container Service mediante la CLI de Azure o el portal de Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,130 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/10/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb
+ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
+ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
 
 
 ---
-# <a name="scale-an-azure-container-service"></a>Escalado de Azure Container Service
-Se pueden escalar horizontalmente los nodos de Azure Container Service (ACS) mediante la herramienta CLI de Azure. Cuando se utiliza la CLI de Azure para escalar, la herramienta devuelve un nuevo archivo de configuración que representa el cambio que se aplica al contenedor.
+# <a name="scale-an-azure-container-service-cluster"></a>Escalado de un clúster de Azure Container Service
+Después de [implementar un clúster de Azure Container Service](container-service-deployment.md), tendrá que cambiar el número de nodos de agente. Por ejemplo, puede que necesite más agentes para poder ejecutar más aplicaciones o instancias de contenedor. 
 
-## <a name="about-the-command"></a>Acerca del comando
-La CLI de Azure debe estar en modo Azure Resource Manager para que pueda interactuar con los contenedores de Azure. Cambie al modo Resource Manager mediante una llamada a `azure config mode arm`. El comando `acs` tiene un comando secundario denominado `scale` que realiza todas las operaciones de escalado para un servicio de contenedor. Ejecute `azure acs scale --help` para obtener ayuda acerca de los distintos parámetros que se usan en el comando de escalado, que genera algo parecido a esto:
+Puede cambiar el número de nodos de agente en el clúster mediante el portal de Azure o la CLI de Azure 2.0 (versión preliminar). La CLI de Azure 2.0 (versión preliminar) es la [CLI de próxima generación](/cli/azure/old-and-new-clis) del modelo de implementación de Resource Manager.
+
+> [!NOTE]
+> Actualmente, no se admite el escalado de nodos de agente en un clúster de Kubernetes del servicio de contenedores.
+
+
+## <a name="scale-with-the-azure-portal"></a>Escalado con el portal de Azure
+
+1. En el [portal de Azure](https://portal.azure.com), busque **servicios de contenedores** y, luego, haga clic en el servicio de contenedores que quiere modificar.
+2. En la hoja **Container service** (Servicio de contenedores), haga clic en **Agentes**.
+3. En **VM Count** (Recuento de VM), escriba el número deseado de nodos de agente.
+
+    ![Escalado de un grupo en el portal](./media/container-service-scale/container-service-scale-portal.png)
+
+4. Para guardar la configuración, haga clic en **Save** (Guardar).
+
+
+
+## <a name="scale-with-the-azure-cli-20-preview"></a>Escalado de la CLI de Azure 2.0 (versión preliminar)
+
+Asegúrese de que [ha instalado](/cli/azure/install-az-cli2) la CLI de Azure 2.0 (versión preliminar) más reciente y que ha iniciado sesión en una cuenta de Azure (`az login`).
+
+
+### <a name="see-the-current-agent-count"></a>Consulta del recuento actual de agentes
+Para ver el número de agentes actualmente en el clúster, ejecute el comando `az acs show`. Esta acción muestra la configuración del clúster. Por ejemplo, el comando siguiente muestra la configuración del servicio de contenedores llamada `containerservice-myACSName` en el grupo de recursos `myResourceGroup`:
 
 ```azurecli
-azure acs scale --help
-
-help:    The operation to scale a container service.
-help:
-help:    Usage: acs scale [options] <resource-group> <name> <new-agent-count>
-help:
-help:    Options:
-help:      -h, --help                               output usage information
-help:      -v, --verbose                            use verbose output
-help:      -vv                                      more verbose with debug output
-help:      --json                                   use json output
-help:      -g, --resource-group <resource-group>    resource-group
-help:      -n, --name <name>                        name
-help:      -o, --new-agent-count <new-agent-count>  New agent count
-help:      -s, --subscription <subscription>        The subscription identifier
-help:
-help:    Current Mode: arm (Azure Resource Management)
+az acs show -g myResourceGroup -n containerservice-myACSName
 ```
 
-## <a name="use-the-command-to-scale"></a>Use el comando para escalar
-Para escalar un servicio de contenedor, primero necesitará conocer el **grupo de recursos** y **el nombre del Azure Container Service (ACS)**, además de especificar el nuevo número de agentes. Con una cantidad mayor o menor, puede reducir o aumentar verticalmente, respectivamente.
+El comando devuelve el número de agentes en el valor `Count` bajo `AgentPoolProfiles`.
 
-Quizá quiera conocer el recuento actual de agentes para un servicio de contenedor antes de escalar. Utilice el comando `azure acs show <resource group> <ACS name>` para devolver la configuración de ACS. Anote el resultado de <mark>Count</mark>.
 
-#### <a name="see-current-count"></a>Consulta del recuento actual
-```azurecli
-azure acs show containers-test containerservice-containers-test
+### <a name="use-the-az-acs-scale-command"></a>Uso del comando az acs scale
+Para cambiar el números de nodos de agente, ejecute el comando `az acs scale` y proporcione el **grupo de recursos**, el **nombre del servicio de contenedores** y el **nuevo recuento de agentes** deseado. Con un número mayor o menor, puede reducir o aumentar verticalmente, respectivamente.
 
-info:    Executing command acs show
-data:
-data:     Id                 : /subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test
-data:     Name               : containerservice-containers-test
-data:     Type               : Microsoft.ContainerService/ContainerServices
-data:     Location           : westus
-data:     ProvisioningState  : Succeeded
-data:     OrchestratorProfile
-data:       OrchestratorType : DCOS
-data:     MasterProfile
-data:       Count            : 1
-data:       DnsPrefix        : myprefixmgmt
-data:       Fqdn             : myprefixmgmt.westus.cloudapp.azure.com
-data:     AgentPoolProfiles
-data:       #0
-data:         Name           : agentpools
-data:         <mark>Count          : 1</mark>
-data:         VmSize         : Standard_D2
-data:         DnsPrefix      : myprefixagents
-data:         Fqdn           : myprefixagents.westus.cloudapp.azure.com
-data:     LinuxProfile
-data:       AdminUsername    : azureuser
-data:       Ssh
-data:         PublicKeys
-data:           #0
-data:             KeyData    : ssh-rsa <ENCODED VALUE>
-data:     DiagnosticsProfile
-data:       VmDiagnostics
-data:         Enabled        : true
-data:         StorageUri     : https://<storageid>.blob.core.windows.net/
-```  
-
-#### <a name="scale-to-new-count"></a>Escalado a un recuento nuevo
-Como probablemente ya está claro, puede escalar el servicio de contenedor mediante una llamada a `azure acs scale` y al proporcionar los valores de **resource group**, **ACS name** y **agent count**. Al escalar un servicio de contenedor, la CLI de Azure devuelve una cadena JSON que representa la nueva configuración del servicio de contenedor, incluido el nuevo recuento de agentes.
+Por ejemplo, para cambiar el número de agentes en el clúster anterior a 10, escriba el siguiente comando:
 
 ```azurecli
-azure acs scale containers-test containerservice-containers-test 10
+azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+```
 
-info:    Executing command acs scale
-data:    {
-data:        id: '/subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test',
-data:        name: 'containerservice-containers-test',
-data:        type: 'Microsoft.ContainerService/ContainerServices',
-data:        location: 'westus',
-data:        provisioningState: 'Succeeded',
-data:        orchestratorProfile: { orchestratorType: 'DCOS' },
-data:        masterProfile: {
-data:            count: 1,
-data:            dnsPrefix: 'myprefixmgmt',
-data:            fqdn: 'myprefixmgmt.westus.cloudapp.azure.com'
-data:        },
-data:        agentPoolProfiles: [
-data:            {
-data:                name: 'agentpools',
-data:                <mark>count: 10</mark>,
-data:                vmSize: 'Standard_D2',
-data:                dnsPrefix: 'myprefixagents',
-data:                fqdn: 'myprefixagents.westus.cloudapp.azure.com'
-data:            }
-data:        ],
-data:        linuxProfile: {
-data:            adminUsername: 'azureuser',
-data:            ssh: {
-data:                publicKeys: [
-data:                    { keyData: 'ssh-rsa <ENCODED VALUE>' }
-data:                ]
-data:            }
-data:        },
-data:        diagnosticsProfile: {
-data:            vmDiagnostics: { enabled: true, storageUri: 'https://<storageid>.blob.core.windows.net/' }
-data:        }
-data:    }
-info:    acs scale command OK
-``` 
+La CLI de Azure 2.0 (vista previa) devuelve una cadena JSON que representa la nueva configuración del servicio de contenedor, incluido el nuevo recuento de agentes.
+
+Para obtener más opciones de comando, ejecute `az acs scale --help`.
+
+
+## <a name="scaling-considerations"></a>Consideraciones sobre escalado
+
+
+* El número de nodos de agente debe estar entre 1 y 100, ambos inclusive. 
+
+* Su cuota de núcleos puede limitar el número de nodos de agente en un clúster.
+
+* Las operaciones de escalado de nodos de agente se aplican a un conjunto de escalado de máquinas virtuales de Azure que contiene el grupo de agentes. En un clúster de DC/OS, solo los nodos de agente del grupo privado se escalan mediante las operaciones mostradas en este artículo.
+
+* En función del orquestador que implemente en el clúster, puede escalar por separado el número de instancias de un contenedor que se ejecute en el clúster. Por ejemplo, en un clúster de DC/OS, use la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md) para cambiar el número de instancias de una aplicación de contenedor.
+
+* Actualmente, no se admite el escalado automático de nodos de agente en un clúster de servicio de contenedores.
+
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implementar un clúster](container-service-deployment.md)
+* Consulte [más ejemplos](container-service-create-acs-cluster-cli.md) de uso de comandos de la CLI de Azure 2.0 (versión preliminar) con Azure Container Service.
+* Aprenda más sobre los [grupos de agentes de DC/OS](container-service-dcos-agents.md) en Azure Container Service.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

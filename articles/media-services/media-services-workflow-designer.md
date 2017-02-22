@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;johndeu;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 
 ---
@@ -35,7 +35,7 @@ Entre los flujos de trabajo de ejemplo que puede crear se incluyen:
 Esta herramienta también se puede usar para modificar cualquiera de nuestros [flujos de trabajo publicados](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Para obtener una copia de la herramienta del diseñador de flujo de trabajo, póngase en contacto con mepd@microsoft.com.
+> Para obtener su copia de la herramienta Diseñador de flujo de trabajo, póngase en contacto con mepd@microsoft.com.
 > 
 > 
 
@@ -53,7 +53,7 @@ El vídeo del día 1 trata de:
 * Flujos de trabajo básicos: "Hello World"
 * Creación de varios archivos MP4 de salida para usarlos con streaming de Servicios multimedia de Azure
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
@@ -64,7 +64,7 @@ El vídeo del día 2 trata de:
 * Flujos de trabajo con lógica avanzada
 * Fases de gráfico
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ El vídeo del día 3 trata de:
 * Restricciones con el codificador actual
 * Preguntas y respuestas
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 
@@ -95,6 +95,6 @@ Si necesita soporte o tiene alguna pregunta sobre cómo crear flujos de trabajo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

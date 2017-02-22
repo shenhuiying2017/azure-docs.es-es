@@ -1,6 +1,6 @@
 ---
-title: Ejemplos de servicios web Machine Learning creados con R | Microsoft Docs
-description: "Encuentre un útil conjunto de ejemplos de servicios creados con código R y Aprendizaje automático de Azure, y publicados en Azure Marketplace."
+title: (en desuso) Ejemplos de servicios web Machine Learning creados con R - Azure | Microsoft Docs
+description: "(en desuso) Encuentre un útil conjunto de ejemplos de servicios creados con código R y Machine Learning y publicados en Azure Marketplace."
 keywords: "csharp, código r, ejemplos de servicios web"
 services: machine-learning
 documentationcenter: 
@@ -12,16 +12,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c3e94cf69d55de9c31a48de35e86a1ae9149a63
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 303fb71faf73d4a1b6d17b4ca66b83b15157332b
 
 
 ---
-# <a name="web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>Ejemplos de servicios web con R en Aprendizaje automático de Azure y publicados en Microsoft Azure Marketplace
+# <a name="deprecated-web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>(en desuso) Ejemplos de servicios web con R en Azure Machine Learning y publicados en Microsoft Azure Marketplace
+
+> [!NOTE]
+> Microsoft DataMarket está en proceso de retirada y estas API están en desuso. 
+> 
+> Puede encontrar muchos experimentos y API de ejemplo útiles en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com). Para más información sobre la Galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 En este artículo se crearon servicios web de ejemplo mediante Aprendizaje automático de Azure y se publicaron en Azure Marketplace. Cada ejemplo de servicio web tiene un documento exhaustivo asociado, donde se integran conjuntos de datos de ejemplo para probar los servicios y se explica cómo el usuario puede crear un servicio similar. 
 
 Con Estudio de aprendizaje automático de Azure, los usuarios pueden escribir código de R y, con tan solo hacer algunos clics, publicarlo como un servicio web para que lo consuman aplicaciones y dispositivos en todo el mundo. 
@@ -47,10 +54,10 @@ Un usuario trabaja con un modelo genérico que se puede aplicar a los datos de u
 * [Previsión - Media móvil integrada autorregresiva (ARIMA)](machine-learning-r-csharp-arima.md)
 * [Análisis de supervivencia](machine-learning-r-csharp-survival-analysis.md)
 
-## <a name="scenario-2-trained-model-specific-data"></a>Escenario 2: modelo entrenado - datos específicos
+## <a name="scenario-2-trained-model--specific-data"></a>Escenario 2: modelo entrenado - datos específicos
 Un usuario tiene datos que proporcionan útiles predicciones a través del código R, como un ejemplo grande de cuestionarios de personalidad agrupados mediante un algoritmo k-means para predecir el tipo de personalidad del usuario o los datos de encuestas de salud que pueden utilizarse para predecir el riesgo de que un individuo padezca cáncer de pulmón mediante un paquete de análisis de supervivencia basado en R. El usuario publica los datos a través de un servicio web que predice el resultado del nuevo usuario.
 
-## <a name="scenario-3-trained-model-generic-data"></a>Escenario 3: modelo entrenado - datos genéricos
+## <a name="scenario-3-trained-model--generic-data"></a>Escenario 3: modelo entrenado - datos genéricos
 Un usuario tiene datos genéricos (por ejemplo, un conjunto de texto) que permiten crear y aplicar de manera general un servicio web en diferentes tipos de escenarios y casos de uso.
 
 * [Análisis de opiniones basado en léxico](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
@@ -72,6 +79,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

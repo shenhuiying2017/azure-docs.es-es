@@ -1,5 +1,5 @@
 ---
-title: "Administración de la potencia de proceso en Azure SQL Data Warehouse (REST) | Microsoft Docs"
+title: "Pausa, reanudación y escalado con REST en Azure SQL Data Warehouse | Microsoft Docs"
 description: Tareas de PowerShell para administrar la potencia de proceso. Escalado de los recursos de proceso ajustando DWU. Pausar y reanudar recursos de proceso para ahorrar costos.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcf7fa98ce35e330e88d9263cc71ce85e592be3a
+ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
+ms.openlocfilehash: 56651c2eb2f702b2ec51070b25239f1acb415289
 
 
 ---
@@ -30,23 +30,13 @@ ms.openlocfilehash: dcf7fa98ce35e330e88d9263cc71ce85e592be3a
 > 
 > 
 
-Escale el rendimiento mediante el escalado horizontal de los recursos de proceso y la memoria para satisfacer las necesidades cambiantes de la carga de trabajo. Ahorre costes reduciendo el escalado de los recursos fuera de horas punta o pausando el proceso por completo. 
-
-Esta colección de tareas usa el Portal de Azure para:
-
-* Escalado de proceso
-* Pausa del proceso
-* Reanudación del proceso
-
-Para más información, consulte el artículo de [Manage compute power overview][Manage compute power overview].
-
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
 
 ## <a name="scale-compute-power"></a>Escalado de la potencia de proceso
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Para cambiar las DWU, utilice la API de REST [Crear o actualizar base de datos][Crear o actualizar base de datos]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
+Para cambiar las DWU, utilice la API de REST [Create or Update Database][Create or Update Database]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/MyServer/databases/MySQLDW?api-version=2014-04-01-preview HTTP/1.1
@@ -75,7 +65,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="resume-compute"></a>Reanudación del proceso
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Para iniciar una base de datos, utilice la API de REST [Reanudar la base de datos][Reanudar la base de datos]. El siguiente ejemplo inicia una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1. 
+Para iniciar una base de datos, utilice la API de REST [Resume Database][Resume Database]. El siguiente ejemplo inicia una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1. 
 
 ```
 POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
@@ -84,25 +74,25 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para otras tareas de administración, consulte [Introducción a la administración][Introducción a la administración].
+Para otras tareas de administración, consulte [Información general de administración][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Introducción a la administración]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
-[Reanudar la base de datos]: https://msdn.microsoft.com/library/azure/mt718820.aspx
-[Crear o actualizar base de datos]: https://msdn.microsoft.com/library/azure/mt163685.aspx
+[Resume Database]: https://msdn.microsoft.com/library/azure/mt718820.aspx
+[Create or Update Database]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 
 <!--Other Web references-->
 
-[Portal de Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

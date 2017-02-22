@@ -1,5 +1,5 @@
 ---
-title: "Vinculación de una red virtual a un circuito ExpressRoute a través del modelo de implementación clásica y PowerShell | Microsoft Docs"
+title: "Vinculación de una red virtual a un circuito ExpressRoute mediante PowerShell y Azure clásico | Microsoft Docs"
 description: "Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación clásica y PowerShell."
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
-ms.openlocfilehash: 1c0891c79081f068fd6e4a60a05a6b58ebdc9598
+ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
+ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vinculación de una red virtual a un circuito ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conexión de una red virtual a un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portal de Azure: Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell: administrador de recursos](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell: clásico](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Clásico: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -36,7 +37,7 @@ Este artículo le ayudará a vincular redes virtuales a circuitos ExpressRoute d
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
-1. Necesitará la versión más reciente de los módulos de Azure PowerShell. Puede descargar los módulos de PowerShell más recientes desde la sección de PowerShell en la [página de descargas de Azure](https://azure.microsoft.com/downloads/). Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
+1. Necesitará la versión más reciente de los módulos de Azure PowerShell. Puede descargar los módulos de PowerShell más recientes desde la sección de PowerShell en la [página de descargas de Azure](https://azure.microsoft.com/downloads/). Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Debe revisar los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 3. Tiene que tener un circuito ExpressRoute activo.
    * Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-classic.md) y haga que el proveedor de conectividad habilite el circuito.
@@ -73,7 +74,7 @@ El propietario del circuito tiene la capacidad de modificar y revocar las autori
 
 **Creación de una autorización**
 
-El propietario del circuito autoriza a los administradores de otras suscripciones para que usen el circuito especificado. En el ejemplo siguiente, el administrador del circuito (TI de Contoso) permite que el administrador de otra suscripción (Dev-Test), cree un vínculo de hasta 2 redes virtuales al circuito. El administrador de TI de Contoso lo permite especificando el identificador de Microsoft de Dev-Test. El cmdlet no envía correo electrónico al identificador de Microsoft especificado. El propietario del circuito debe notificar de forma explícita al propietario de la otra suscripción que la autorización se ha completado.
+El propietario del circuito autoriza a los administradores de otras suscripciones para que usen el circuito especificado. En el ejemplo siguiente, el administrador del circuito (TI de Contoso) permite que el administrador de otra suscripción (Dev-Test), cree un vínculo de hasta&2; redes virtuales al circuito. El administrador de TI de Contoso lo permite especificando el identificador de Microsoft de Dev-Test. El cmdlet no envía correo electrónico al identificador de Microsoft especificado. El propietario del circuito debe notificar de forma explícita al propietario de la otra suscripción que la autorización se ha completado.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 
@@ -162,6 +163,6 @@ Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressR
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

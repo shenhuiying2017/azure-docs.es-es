@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: ef4d5bb9b8b25d940aca26117d759a4152639730
-ms.openlocfilehash: bc8009e0ba0b604c995ce24f883eb03d586d667b
+ms.sourcegitcommit: dfc2af63c7acb1fef47abb329a385cd7448d2186
+ms.openlocfilehash: 6bbffcfd8acc531fd70c9db90a9f57d8db942002
 
 
 ---
@@ -52,6 +52,8 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 ## <a name="next-steps"></a>Pasos siguientes
 * Empiece a crear servicios sin y con estado con los modelos de programación [Reliable Services](service-fabric-reliable-services-quick-start.md) y [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
 * Obtenga más información sobre los [patrones y escenarios](service-fabric-patterns-and-scenarios.md).
+* Obtenga información sobre los [casos prácticos de los clientes](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
+).
 * Vea también los siguientes temas:
   * [Quiero información acerca de los microservicios](service-fabric-overview-microservices.md)
   * [Estado de servicio](service-fabric-concepts-state.md)
@@ -64,6 +66,6 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

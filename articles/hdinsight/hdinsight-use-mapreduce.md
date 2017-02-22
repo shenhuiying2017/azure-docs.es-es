@@ -196,6 +196,6 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

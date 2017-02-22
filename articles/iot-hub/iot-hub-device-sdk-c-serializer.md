@@ -1,6 +1,6 @@
 ---
 title: 'SDK de dispositivo IoT de Azure para C: serializador | Microsoft Docs'
-description: "Más información sobre la biblioteca de serializador en el SDK de dispositivos IoT de Azure para C"
+description: "Describe cómo usar la biblioteca de serializador del SDK de dispositivo IoT de Azure para C con el fin de crear aplicaciones para dispositivos que se comunican con un centro de IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 98015b39687bcd1425093b28f67d768fe73e7091
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
 
 
 ---
-# <a name="microsoft-azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre el serializador
+# <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
 En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivo IoT de Azure**. A este le siguió un artículo que proporcionaba una descripción más detallada de [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). En este artículo terminaremos de analizar el SDK y proporcionaremos una descripción más detallada del componente que queda: la biblioteca de **serializador** .
 
 En el artículo de introducción se describía cómo usar la biblioteca de **serializador** para enviar eventos al Centro de IoT y recibir mensajes de él. En este artículo ampliaremos esta discusión con una explicación más completa de cómo modelar los datos con el macrolenguaje de **serializador** . También incluiremos en él más detalles sobre cómo la biblioteca serializa los mensajes (y, en algunos casos, cómo se puede controlar el comportamiento de serialización). Asimismo, describiremos algunos parámetros que se pueden modificar que determinan el tamaño de los modelos que se crean.
@@ -29,7 +29,7 @@ Terminaremos examinando de nuevo algunos de los temas tratados en artículos ant
 
 Todo lo que se describe en este artículo se basa en los ejemplos del SDK del **serializador** . Si desea continuar, consulte las aplicaciones **simplesample\_amqp** y **simplesample\_http** que se incluyen en el SDK de dispositivo IoT de Azure para C.
 
-Puede encontrar el **SDK de dispositivo IoT de Azure para C** en el repositorio de [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks) en GitHub y ver los detalles de la API en la [referencia de la API de C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Puede encontrar el [**SDK de dispositivo IoT de Azure para C**](https://github.com/Azure/azure-iot-sdk-c) en el repositorio de GitHub y ver los detalles de la API en la [referencia de la API de C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## <a name="the-modeling-language"></a>El lenguaje de modelado
 En el [artículo de introducción](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el lenguaje de modelado del **SDK de dispositivo IoT de Azure para C** mediante el ejemplo proporcionado en la aplicación **simplesample\_amqp**:
@@ -67,13 +67,13 @@ Se admiten los siguientes tipos de datos en modelos creados con la biblioteca de
 | Tipo | Description |
 | --- | --- |
 | double |número de punto flotante de doble precisión |
-| int |entero de 32 bits |
+| int |entero de&32; bits |
 | float |número de punto flotante de precisión simple |
 | long |entero largo |
-| int8\_t |entero de 8 bits |
-| int16\_t |entero de 16 bits |
-| int32\_t |entero de 32 bits |
-| int64\_t |entero de 64 bits |
+| int8\_t |entero de&8; bits |
+| int16\_t |entero de&16; bits |
+| int32\_t |entero de&32; bits |
+| int64\_t |entero de&64; bits |
 | booleano |boolean |
 | ascii\_char\_ptr |Cadena ASCII |
 | EDM\_DATE\_TIME\_OFFSET |desplazamiento de fecha y hora |
@@ -526,14 +526,21 @@ Por ejemplo, para invocar **SetAirResistance** , puede enviar este mensaje a un 
 
 El nombre de la acción debe coincidir exactamente con una acción definida en el modelo. Los nombres de los parámetros deben coincidir también. Tenga en cuenta que existe una distinción de mayúsculas y minúsculas. **Name** y **Parameters** van siempre en mayúsculas. Asegúrese de que las mayúsculas y minúsculas coincidan en el nombre de la acción y los parámetros del modelo. En este ejemplo, el nombre de la acción es "SetAirResistance" y no "setairresistance".
 
+Las otras dos acciones **TurnFanOn** y **TurnFanOff** se pueden invocar mediante el envío de estos mensajes a un dispositivo:
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 En esta sección se describe todo lo que necesita saber al enviar eventos y recibir mensajes con la biblioteca de **serializador** . Antes de continuar, vamos a examinar algunos parámetros que puede configurar que controlan lo grande que es su modelo.
 
 ## <a name="macro-configuration"></a>Configuración de macros
 Si está usando la biblioteca de **serializador**, una parte importante del SDK que se debe tener en cuenta se encuentra en la biblioteca azure-c-shared-utility.
-Si ha clonado el repositorio Azure-iot-sdks desde GitHub con la opción recursiva, encontrará esta biblioteca de utilidad compartida aquí:
+Si ha clonado el repositorio Azure-iot-sdk-c desde GitHub con la opción --recursive, encontrará esta biblioteca de utilidad compartida aquí:
 
 ```
-.\\c\\azure-c-shared-utility
+.\\c-utility
 ```
 
 Si no ha clonado la biblioteca, podrá encontrarla [aquí](https://github.com/Azure/azure-c-shared-utility).
@@ -658,7 +665,7 @@ Por lo demás, todas las demás características enumeradas anteriormente funcio
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se describen en detalle los aspectos únicos de la biblioteca de **serializador** contenida en el **SDK de dispositivo IoT de Azure para C**. Con la información proporcionada, habrá comprendido perfectamente cómo usar los modelos para enviar eventos y recibir mensajes del Centro de IoT.
 
-Con esto también concluye la serie de tres partes sobre cómo desarrollar aplicaciones con el **SDK de dispositivo IoT de Azure para C**. Esta información debería ser suficiente no solo para ayudarle en sus primeros pasos sino también para proporcionarle una comprensión profunda de cómo funcionan las API. Para obtener información adicional, existen algunos ejemplos en el SDK que no se tratan aquí. Por lo demás, la [documentación del SDK](https://github.com/Azure/azure-iot-sdks) es un buen recurso para conseguir información adicional.
+Con esto también concluye la serie de tres partes sobre cómo desarrollar aplicaciones con el **SDK de dispositivo IoT de Azure para C**. Esta información debería ser suficiente no solo para ayudarle en sus primeros pasos sino también para proporcionarle una comprensión profunda de cómo funcionan las API. Para obtener información adicional, existen algunos ejemplos en el SDK que no se tratan aquí. Por lo demás, la [documentación del SDK](https://github.com/Azure/azure-iot-sdk-c) es un buen recurso para conseguir información adicional.
 
 Para más información acerca del desarrollo para IoT Hub, consulte los [SDK de IoT Hub][lnk-sdks].
 
@@ -672,6 +679,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

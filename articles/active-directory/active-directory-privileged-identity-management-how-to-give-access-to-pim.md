@@ -1,9 +1,9 @@
 ---
-title: "Concesión de acceso a PIM | Microsoft Docs"
+title: "Concesión de acceso para Privileged Identity Management - Azure | Microsoft Docs"
 description: "Aprenda a agregar roles a los usuarios con la extensión Privileged Identity Management de Azure Active Directory para que así puedan administrar PIM."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: 81deb3b31a4483b8c0031cf3571e5c5752db39ac
 
 
 ---
-# <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Concesión de acceso para administrar Privileged Identity Management de Azure AD
+# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Concesión de acceso para administrar Azure AD Privileged Identity Management
 El administrador global que habilita Privileged Identity Management (PIM) de Azure AD para una organización, obtiene automáticamente asignaciones de roles y acceso a PIM. Nadie más obtiene acceso de escritura de forma predeterminada, ni siquiera otros administradores globales. Otros administradores globales, administradores de seguridad y lectores de seguridad tienen acceso de solo lectura a PIM de Azure AD. Para proporcionar acceso a PIM, el primer usuario puede asignar a otros el rol **Administrador de rol con privilegios** . Esta asignación se debe realizar desde dentro de PIM y no se puede cambiar mediante PowerShell u otros portales.
 
 > [!NOTE]
@@ -63,6 +63,6 @@ Antes de eliminar a alguien del rol de administrador de roles con privilegios, a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

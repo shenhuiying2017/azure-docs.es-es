@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 388d733b52d32d77fa441c4045d4bce863c41866
-ms.openlocfilehash: 7558c41cbc9cde6748e1706a095598ea03e9ab6a
+ms.sourcegitcommit: 614038da2384b3efa48cd46ade347392ffef9d44
+ms.openlocfilehash: 2cb7b5aff47a81ae53d1ce68426b085eba4c96fc
 
 
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-En esta guía se muestra cómo actuar en algunos escenarios comunes mediante el [SDK de iOS de Azure Mobile Apps][1]. Si está familiarizado con Aplicaciones móviles de Azure, complete primero [Inicio rápido de Aplicaciones móviles de Azure] para crear un back-end, crear una tabla y descargar un proyecto de Xcode para iOS pregenerada. En esta guía, nos centramos en el SDK de iOS de cliente. Para obtener más información sobre el SDK de servidor para el back-end, consulte los procedimientos del SDK de servidor.
+Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de iOS de Azure Mobile Apps][1]. Si está familiarizado con Aplicaciones móviles de Azure, complete primero [Inicio rápido de Aplicaciones móviles de Azure] para crear un back-end, crear una tabla y descargar un proyecto de Xcode para iOS pregenerada. En esta guía, nos centramos en el SDK de iOS de cliente. Para obtener más información sobre el SDK de servidor para el back-end, consulte los procedimientos del SDK de servidor.
 
 ## <a name="reference-documentation"></a>Documentación de referencia
 La documentación de referencia para el SDK de cliente de iOS se encuentra aquí: [Referencia de cliente de iOS de Azure Mobile Apps][2].
@@ -497,7 +497,7 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Por seguridad, se eliminan todas las etiquetas de la solicitud.  Para agregar etiquetas a las instalaciones o a las plantillas de las instalaciones, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure][4].  Para enviar notificaciones mediante estas plantillas registradas, use las [API de Notification Hubs][3].
+Por seguridad, se eliminan todas las etiquetas de la solicitud.  Para agregar etiquetas a las instalaciones o a las plantillas de las instalaciones, consulte [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps][4].  Para enviar notificaciones mediante estas plantillas registradas, trabaje con [API de Notification Hubs][3].
 
 ## <a name="a-nameerrorsahow-to-handle-errors"></a><a name="errors"></a>Gestión de errores
 Al realizar una llamada a un back-end móvil de Azure App Service, el bloque de finalización contiene un parámetro `NSError` . En caso de producirse un error, este parámetro no será nulo. En su código, debe marcar este parámetro y administrar el error según sea necesario, como se muestra en los fragmentos de código anteriores.
@@ -533,7 +533,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="a-nameadalahow-to-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Autenticación de usuarios con la biblioteca de autenticación de Active Directory
 Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Se prefiere la autenticación de flujo de cliente mediante un SDK de proveedor de identidades al uso del método `loginWithProvider:completion:` .  Este tipo de autenticación proporciona una experiencia de usuario más nativa y permite realizar más personalizaciones.
 
-1. Configure su back-end de la aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de App Service para usar el inicio de sesión de Azure Active Directory][7] . Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa. Para iOS, se recomienda que el URI de redireccionamiento tenga el formato `<app-scheme>://<bundle-id>`. Para más información, consulte la [guía de inicio rápido de iOS para ADAL][8].
+1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Azure Active Directory][7]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa. Para iOS, se recomienda que el URI de redireccionamiento tenga el formato `<app-scheme>://<bundle-id>`. Para más información, consulte la [guía de inicio rápido de iOS para ADAL][8].
 2. Instale ADAL mediante Cocoapods. Edite el podfile para incluir la siguiente definición; sustituya **YOUR-PROJECT** por el nombre de su proyecto de Xcode:
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -615,8 +615,8 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
 ## <a name="a-namefacebook-sdkahow-to-authenticate-users-with-the-facebook-sdk-for-ios"></a><a name="facebook-sdk"></a>Autenticación de usuarios con SDK de Facebook para iOS
 Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en su aplicación con Facebook.  Es preferible usar la autenticación de flujo de cliente al método `loginWithProvider:completion:` .  Este tipo de autenticación proporciona una experiencia de usuario más nativa y permite realizar más personalizaciones.
 
-1. Configure el back-end de la aplicación móvil para el inicio de sesión en Facebook siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Facebook][9].
-2. Instale el SDK de Facebook para iOS siguiendo el documento [Primeros pasos con el SDK de Facebook para iOS][10]. En lugar de crear una aplicación, puede agregar la plataforma iOS en el registro existente.
+1. Configure el back-end de aplicación móvil para el inicio de sesión en Facebook siguiendo el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Facebook][9].
+2. Instale el SDK de Facebook para iOS siguiendo la documentación [SDK de Facebook para iOS: primeros pasos][10]. En lugar de crear una aplicación, puede agregar la plataforma iOS en el registro existente.
 3. La documentación de Facebook incluye algún código de Objective-C en el delegado de la aplicación. Si utiliza **Swift**, puede usar las siguientes traducciones para AppDelegate.swift:
 
         // Add the following import to your bridging header:
@@ -807,7 +807,7 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
                [[GIDSignIn sharedInstance] signIn];
         }
 
-   **SWIFT**:
+   **Swift**:
 
        // ...
        func authenticate() {
@@ -818,54 +818,54 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 
 <!-- Anchors. -->
 
-[¿Qué es Mobile Services?]: #what-is
-[Conceptos]: #concepts
-[Configuración y requisitos previos]: #Setup
-[Creación del cliente de Mobile Services]: #create-client
-[Creación de una referencia de tabla]: #table-reference
-[Consulta de datos desde un servicio móvil]: #querying
-[Filtro de datos devueltos]: #filtering
-[Ordenar datos devueltos]: #sorting
-[Devolver datos en páginas]: #paging
-[Seleccionar columnas específicas]: #selecting
-[Enlace de datos a la interfaz de usuario]: #binding
-[Inserción de datos en un servicio móvil]: #inserting
-[Modificación de datos en un servicio móvil]: #modifying
-[Autenticación de usuarios]: #authentication
-[Almacenamiento de tokens de autenticación en la memoria caché]: #caching-tokens
-[Carga de imágenes y archivos de gran tamaño]: #blobs
-[Gestión de errores]: #errors
-[Diseño de pruebas unitarias]: #unit-testing
-[Personalización del cliente]: #customizing
-[Personalización de encabezados de solicitud]: #custom-headers
-[Personalización de la serialización de tipos de datos]: #custom-serialization
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[Setup and Prerequisites]: #Setup
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #table-reference
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Bind data to the user interface]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching-tokens
+[How to: Upload images and large files]: #blobs
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
 [Next Steps]: #next-steps
-[Uso de MSQuery]: #query-object
+[How to: Use MSQuery]: #query-object
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-ios-get-started.md
 
-[Adición de Mobile Services a una aplicación existente]: /develop/mobile/tutorials/get-started-data
-[Introducción a Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Validación y modificación de datos en Mobile Services mediante scripts de servidor]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
-[SDK de Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Autenticación]: /develop/mobile/tutorials/get-started-with-users-ios
-[SDK de iOS]: https://developer.apple.com/xcode
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[iOS SDK]: https://developer.apple.com/xcode
 
-[Control de tokens expirados]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[SDK de Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permisos]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
-[Autorización del servicio]: mobile-services-javascript-backend-service-side-authorization.md
-[Uso de scripts para autorizar a usuarios]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [esquema dinámico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[Acceso a parámetros personalizados]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Creación de una tabla]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[Objeto NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI para administrar tablas de Mobile Services]: ../virtual-machines-command-line-tools.md#Mobile_Tables
-[Controlador de conflictos]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
+[Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
@@ -882,6 +882,6 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Scripts personalizados en máquinas virtuales Windows mediante el uso de plantillas | Microsoft Docs"
-description: "Automatización de tareas de configuración de máquinas virtuales Windows mediante la extensión de script personalizado con plantillas de administrador de recursos"
+title: "Extensión de script personalizado de Azure para Windows | Microsoft Docs"
+description: "Automatización de tareas de configuración de máquinas virtuales Windows mediante la extensión de script personalizado"
 services: virtual-machines-windows
 documentationcenter: 
-author: kundanap
+author: neilpeterson
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,70 +13,130 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/29/2016
-ms.author: kundanap
+ms.date: 01/17/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: ac63fd346f158d52b359f2d6b398d0d00ea0c67e
+ms.sourcegitcommit: f9ea0d14a99a7881b816606058e5ad72a0fef499
+ms.openlocfilehash: 01adbd43c5c77c3a80c5141e06a2ab14a49b8454
 
 
 ---
-# <a name="windows-vm-custom-script-extensions-with-azure-resource-manager-templates"></a>Uso de las extensiones de script personalizadas para máquinas virtuales Windows con plantillas de Azure Resource Manager
-[!INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+# <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
-## <a name="template-example-for-a-windows-vm"></a>Ejemplo de plantilla para una máquina virtual de Windows
-Defina el siguiente recurso en la sección Recurso de la plantilla.
+La extensión de script personalizado descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage o GitHub, o se pueden proporcionar a Azure Portal en el tiempo de ejecución de la extensión. La extensión de script personalizado se integra con las plantillas de Azure Resource Manager y también se puede ejecutar mediante la CLI de Azure, PowerShell, Azure Portal o la API de REST de máquina virtual de Azure.
 
-       {
-       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "MyCustomScriptExtension",
-       "apiVersion": "2015-05-01-preview",
-       "location": "[parameters('location')]",
-       "dependsOn": [
-           "[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"
-       ],
-       "properties": {
-           "publisher": "Microsoft.Compute",
-           "type": "CustomScriptExtension",
-           "typeHandlerVersion": "1.7",
-           "autoUpgradeMinorVersion":true,
-           "settings": {
-               "fileUris": [
-               "http://Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
-           ],
-           "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File start.ps1"
-         }
-       }
-     }
+En este documento se detalla cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y se detallan también los pasos para solucionar problemas en los sistemas Windows.
 
-En el ejemplo anterior, reemplace la dirección URL de archivo y el nombre de archivo por sus propios valores.
-Una vez creada la plantilla, puede implementarla con Azure Powershell.
+## <a name="prerequisites"></a>Requisitos previos
 
-Si desea mantener de forma privada las direcciones URL y los parámetros del script, puede establecer la dirección URL del script como **privada**. Si la dirección URL del script está establecida como **privada**, solo se puede acceder a ella con un nombre de cuenta de almacenamiento y una clave, enviados como configuración protegida. También se pueden proporcionar los parámetros del script como configuración protegida con la versión 1.7 o posterior de la extensión de script personalizado.
+### <a name="operating-system"></a>Sistema operativo
 
-## <a name="template-example-for-a-windows-vm-with-protected-settings"></a>Ejemplo de plantilla para una máquina virtual Windows con configuración protegida
-        {
+La extensión de script personalizado para Windows se puede ejecutar en Windows Server 2008 R2, 2012, 2012 R2 y 2016.
+
+### <a name="script-location"></a>Ubicación del script
+
+El script debe almacenarse en Azure Storage o en cualquier otra ubicación a la que se pueda tener acceso a través de una dirección URL válida.
+
+### <a name="internet-connectivity"></a>Conectividad de Internet
+
+La extensión de script personalizado para Windows requiere que la máquina virtual de destino esté conectada a Internet. 
+
+## <a name="extension-schema"></a>Esquema de extensión
+
+El siguiente JSON muestra el esquema para la extensión de script personalizado. La extensión requiere una ubicación de script (Azure Storage u otra ubicación con dirección URL válida) y un comando para ejecutar. Si usa Azure Storage como origen del script, se requiere un nombre y una clave de cuenta de Azure Storage. Estos elementos se deben tratar como datos confidenciales y se deben especificar en la configuración protegida de las extensiones. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino.
+
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+        "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+        "displayName": "config-app"
+    },
+    "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.7",
+        "typeHandlerVersion": "1.8",
+        "autoUpgradeMinorVersion": true,
         "settings": {
-        "fileUris": [
-        "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
-        ]
+            "fileUris": [
+                "script location"
+            ]
         },
         "protectedSettings": {
-        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
-        "storageAccountName": "yourStorageAccountName",
-        "storageAccountKey": "yourStorageAccountKey"
+            "commandToExecute": "myExecutionCommand",
+            "storageAccountName": "myStorageAccountName",
+            "storageAccountKey": "myStorageAccountKey"
         }
-        }
-Para más información sobre el esquema de las versiones más recientes de la extensión de script personalizado, consulte [Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    }
+}
+```
 
-Para obtener ejemplos de configuración de aplicación en una máquina virtual con la extensión de script personalizado, consulte la [extensión de script personalizado en una máquina virtual Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/).
+### <a name="property-values"></a>Valores de propiedad
+
+| Nombre | Valor / ejemplo |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.Compute |
+| type | extensions |
+| typeHandlerVersion | 1.8 |
+| fileUris (p. ej.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
+| commandToExecute (p. ej.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
+| storageAccountName (p. ej.) | examplestorageacct |
+| storageAccountKey (p. ej.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+
+## <a name="template-deployment"></a>Implementación de plantilla
+
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar la extensión de script personalizado durante la implementación de una plantilla de Azure Resource Manager. Aquí ([GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)) puede encontrar una plantilla de ejemplo que incluye la extensión de script personalizado.
+
+## <a name="powershell-deployment"></a>Implementación de PowerShell
+
+El comando `Set-AzureRmVMCustomScriptExtension` se puede usar para agregar la extensión de script personalizado a una máquina virtual existente. Para más información, consulte [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+
+```powershell
+Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+-VMName myVM `
+-Location myLocation `
+-FileUri myURL `
+-Run 'myScript.ps1' `
+-Name DemoScriptExtension
+```
+
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+
+### <a name="troubleshoot"></a>Solución de problemas
+
+Los datos sobre el estado de las implementaciones de extensiones pueden recuperarse desde Azure Portal y mediante el módulo Azure PowerShell. Para ver el estado de implementación de las extensiones de una VM determinada, ejecute el comando siguiente.
+
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```
+
+El resultado de la ejecución de las extensiones se registra en los archivos que se encuentran en el siguiente directorio de la máquina virtual de destino.
+
+```cmd
+C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
+```
+
+El propio script se descarga en el siguiente directorio de la máquina virtual de destino.
+
+```cmd
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
+```
+
+### <a name="support"></a>Soporte técnico
+
+Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/en-us/support/options/) y seleccione Obtener soporte. Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

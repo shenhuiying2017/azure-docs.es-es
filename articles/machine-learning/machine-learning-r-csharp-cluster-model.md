@@ -1,6 +1,6 @@
 ---
-title: "Modelo de clúster | Microsoft Docs"
-description: "Modelo de clúster"
+title: "(obsoleto) Modelo de clústeres - Azure | Microsoft Docs"
+description: "(obsoleto) Modelo de clústeres"
 services: machine-learning
 documentationcenter: 
 author: FrancescaLazzeri
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: lazzeri
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8206107550173959021ea69ac533aa046f7e12e3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 84c94b83878f851c2ac281fe33afe53e02f8456c
 
 
 ---
-# <a name="cluster-model"></a>Modelo de clúster
+# <a name="deprecated-cluster-model"></a>(obsoleto) Modelo de clústeres
+
+> [!NOTE]
+> Microsoft DataMarket está en proceso de retirada y esta API está en desuso. 
+> 
+> Puede encontrar muchos experimentos y API de ejemplo útiles en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com). Para más información sobre la Galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 ¿Cómo podemos predecir grupos de comportamientos de los titulares de tarjetas de crédito para reducir el riesgo de impago al que están expuestos los emisores de dichas tarjetas? ¿Cómo podemos definir grupos de rasgos de personalidad de empleados con el fin de mejorar su rendimiento en el trabajo? ¿Cómo pueden clasificar los médicos a los pacientes en grupos en función de las características de sus enfermedades? En principio, todas estas preguntas pueden responderse mediante el análisis del clúster.   
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -80,7 +87,7 @@ Hay varias maneras de consumir el servicio de forma automática ( [aquí](http:/
 > 
 > 
 
-En Azure Machine Learning se creó un nuevo experimento en blanco y se extrajeron dos módulos [Ejecutar scripts R][execute-r-script] en el área de trabajo. El esquema de datos se creó con un módulo [Ejecutar script R][execute-r-script] sencillo. A continuación, el esquema de datos se vinculó a la sección del modelo de clúster, que también se creó con un comando [Ejecutar script R][execute-r-script]. En el comando [Ejecutar script R][execute-r-script] utilizado para el modelo de clúster, el servicio web utiliza la función "k-means", que está preintegrada en el comando [Ejecutar script R][execute-r-script] de Azure Machine Learning.    
+En Machine Learning de Azure se creó un nuevo experimento en blanco y se extrajeron dos módulos [Ejecutar scripts R][execute-r-script] en el área de trabajo. El esquema de datos se creó con un módulo [Ejecutar script R][execute-r-script] sencillo. A continuación, el esquema de datos se vinculó a la sección del modelo de clúster, que también se creó con un comando [Ejecutar script R][execute-r-script]. En el comando [Ejecutar script R][execute-r-script] utilizado para el modelo de clúster, el servicio web utiliza la función "k-means", que está preintegrada en el comando [Ejecutar script R][execute-r-script] de Machine Learning de Azure.    
 
 ![Flujo de experimento][3]
 
@@ -134,6 +141,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

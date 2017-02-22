@@ -19,6 +19,7 @@
 ## [Conexión de la aplicación lógica a la solución de supervisión remota](iot-suite-logic-apps-tutorial.md)
 ## [Personalización de una solución preconfigurada](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Uso de telemetría dinámica con la solución de supervisión remota](iot-suite-dynamic-telemetry.md)
+## [Creación de una regla personalizada en la solución de supervisión remota](iot-suite-custom-rule.md)
 ## [Información de dispositivos en la solución de supervisión remota](iot-suite-remote-monitoring-device-info.md)
 
 # Referencia
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

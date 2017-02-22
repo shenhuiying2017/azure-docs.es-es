@@ -1,5 +1,5 @@
 
-## <a id="add-push"></a>Incorporación de notificaciones de inserción a la aplicación
+## <a name="a-idadd-pushaadd-push-notifications-to-app"></a><a id="add-push"></a>Incorporación de notificaciones de inserción a la aplicación
 * En QSAppDelegate.m, importe el SDK de iOS y QSTodoService.h:
 
 ```
@@ -56,4 +56,7 @@
         }
 ```
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

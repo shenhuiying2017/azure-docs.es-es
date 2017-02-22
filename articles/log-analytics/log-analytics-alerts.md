@@ -1,5 +1,5 @@
 ---
-title: Alertas de Log Analytics | Microsoft Docs
+title: "Creación de alertas en Log Analytics (OMS) | Microsoft Docs"
 description: "Las alertas de Log Analytics identifican información importante en el repositorio de OMS y pueden avisarle proactivamente de problemas o invocar acciones para intentar corregirlos.  En este artículo se describe cómo crear una regla de alerta y los detalles de las distintas acciones que pueden realizar."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/25/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
+ms.sourcegitcommit: 9fe104a1ea26afa2817aedaa8ed77d042404cda6
+ms.openlocfilehash: 9a62ed7540de05b1db7610e12f2671d33fc8049d
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
 Las alertas de Log Analytics identifican información importante en el repositorio de OMS.  Las reglas de alertas ejecutan automáticamente búsquedas de registros según una programación y crean un registro de alerta si los resultados coinciden con determinados criterios.  Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle proactivamente de la alerta o invocar otro proceso.   
 
 ![Alertas de Log Analytics](media/log-analytics-alerts/overview.png)
+
+>[!NOTE]
+> Para más información sobre las reglas de alerta para unidades métricas que actualmente están disponibles en la versión preliminar pública, consulte [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/) (Nuevo tipo de reglas de alerta para unidades métricas en la versión preliminar pública).
 
 ## <a name="creating-an-alert-rule"></a>Creación de una regla de alerta
 Para crear una regla de alerta, primero debe crear una búsqueda de registros para los registros que deben invocar la alerta.  El botón **Alerta** estará entonces disponible para que pueda crear y configurar la regla de alerta.
@@ -43,7 +46,7 @@ Para crear una regla de alerta, primero debe crear una búsqueda de registros pa
 | Nombre |Nombre único para identificar la regla de alerta. |
 | Gravedad |Gravedad de la alerta que se crea mediante esta regla. |
 | Consulta de búsqueda |Seleccione **Use current search query** (Usar consulta de búsqueda actual) para utilizar la consulta actual o seleccionar una búsqueda guardada de la lista.  La sintaxis de la consulta se proporciona en el cuadro de texto, desde donde puede modificarla si fuera necesario. |
-| Período de tiempo |Especifica el intervalo de tiempo para la consulta.  La consulta devuelve solo los registros que se crearon dentro de este intervalo de tiempo actual.  Puede ser cualquier valor entre 5 minutos y 24 horas.  Debe ser mayor que la frecuencia de alertas o igual a este valor.  <br><br>  Por ejemplo, si el período de tiempo se establece en 60 minutos, y la consulta se ejecuta a las 13:15, se devolverán solo los registros que se crearon entre las 12:15 y las 13:15. |
+| Período de tiempo |Especifica el intervalo de tiempo para la consulta.  La consulta devuelve solo los registros que se crearon dentro de este intervalo de tiempo actual.  Puede ser cualquier valor entre 5 minutos y 24 horas.  Debe ser mayor que la frecuencia de alertas o igual a este valor.  <br><br> Por ejemplo, si el período de tiempo se establece en 60 minutos, y la consulta se ejecuta a las 13:15, se devolverán solo los registros que se crearon entre las 12:15 y las 13:15. |
 | **Programación** | |
 | Umbral |Criterios para la creación de una alerta.  Una alerta se crea si el número de registros devueltos por la consulta coincide con este criterio. |
 | Frecuencia de alertas |Especifica con qué frecuencia se debe ejecutar la consulta.  Puede ser cualquier valor entre 5 minutos y 24 horas.  Debe ser igual que el período de tiempo o inferior a este valor. |
@@ -60,6 +63,7 @@ Para crear una regla de alerta, primero debe crear una búsqueda de registros pa
 | Seleccionar un runbook |Seleccione el runbook para iniciar entre los runbooks de la cuenta de automatización configurada en la solución de Automatización. |
 | Ejecutar en |Seleccione **Azure** para ejecutar el runbook en la nube de Azure.  Seleccione **Hybrid Worker** para ejecutar el runbook en un [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) de su entorno local. |
 
+
 ## <a name="manage-alert-rules"></a>Administración de reglas de alerta
 Puede obtener una lista de todas las reglas de alerta en el menú **Alertas** de la **configuración** de Log Analytics.  
 
@@ -74,22 +78,30 @@ Puede realizar varias acciones desde esta vista.
 * Edite una regla de alerta haciendo clic en el icono de lápiz junto a ella.
 * Quite una regla de alerta haciendo clic en el icono **X** que está a su lado. 
 
-## <a name="setting-time-windows"></a>Configuración de período de tiempo
+## <a name="setting-time-windows-and-thresholds"></a>Configuración de umbrales y períodos de tiempo
+
+>[!NOTE]
+> Para más información sobre las reglas de alerta para unidades métricas que actualmente están disponibles en la versión preliminar pública, consulte [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/) (Nuevo tipo de reglas de alerta para unidades métricas en la versión preliminar pública).
+ 
 ### <a name="event-alerts"></a>Alertas de eventos
-Los eventos incluyen orígenes de datos como registros de eventos de Windows, Syslog y registros personalizados.  Es posible que desee crear una alerta cuando se cree un evento de error concreto, o cuando se creen varios eventos de error dentro de un período de tiempo determinado.
+Los eventos incluyen orígenes de datos como registros de eventos de Windows, Syslog y registros personalizados.  Es posible que desee crear una alerta cuando se genere un evento de error concreto o cuando se generen varios eventos de error durante un período de tiempo establecido.
 
 Para generar una alerta en un solo evento, determine que el número de resultados sea mayor que 0 y que la frecuencia y el período de tiempo sean de 5 minutos.  De ese modo, se ejecutará la consulta cada 5 minutos y se buscará la aparición de un evento único creado en el tiempo transcurrido desde la última vez ejecución de la consulta.  Una frecuencia mayor puede retrasar el tiempo entre la recopilación del evento y la creación de la alerta.
 
 Algunas aplicaciones pueden registrar un error ocasional que no tiene por qué haber generado necesariamente una alerta.  Por ejemplo, la aplicación puede volver a intentar realizar el proceso que creó el evento de error y completarlo correctamente la vez siguiente.  En este caso, es posible que no desee crear la alerta a menos que se creen varios eventos en un período de tiempo determinado.  
 
-En algunos casos, quizá quiera crear una alerta sin que haya un evento.  Por ejemplo, un proceso puede registrar eventos regulares para indicar que está funcionando correctamente.  Si no se registra uno de estos eventos dentro de un período de tiempo determinado, debe crearse una alerta.  En este caso, tendría que establecer el umbral en un valor *inferior a 1*.
+En algunos casos, quizá quiera crear una alerta sin que haya un evento.  Por ejemplo, un proceso puede registrar eventos regulares para indicar que está funcionando correctamente.  Si no se registra uno de estos eventos dentro de un período de tiempo determinado, debe crearse una alerta.  En este caso, tendría que establecer el umbral en un valor **less than 1** (menor que 1).
 
 ### <a name="performance-alerts"></a>Alertas de rendimiento
-[Los datos de rendimiento](log-analytics-data-sources-performance-counters.md) se almacenan como registros en el repositorio de OMS de manera similar a los eventos.  El valor en cada registro es la media calculada sobre los últimos 30 minutos.  Si desea que se cree la alerta cuando un contador de rendimiento supere un umbral determinado, ese umbral debe incluirse en la consulta.
+[Los datos de rendimiento](log-analytics-data-sources-performance-counters.md) se almacenan como registros en el repositorio de OMS de manera similar a los eventos.  Si desea que se cree la alerta cuando un contador de rendimiento supere un umbral determinado, ese umbral debe incluirse en la consulta.
 
-Por ejemplo, si desea que se genere una alerta cuando el procesador se ejecute a más del 90 % durante 30 minutos, se utilizaría una consulta como *Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90* y el umbral de la regla de alerta sería *mayor que 0*.  
+Por ejemplo, si quiere emitir una alerta cuando el rendimiento del procesador supere el 90 %, puede utilizar una consulta como la siguiente con el umbral de la regla de alerta **greater than 0** (mayor que 0).
 
- Puesto que los [registros de rendimiento](log-analytics-data-sources-performance-counters.md) se agregan cada 30 minutos, independientemente de la frecuencia de recopilación de cada contador, un período de tiempo inferior a 30 minutos puede que no devuelva ningún registro.  El establecimiento del período de tiempo en 30 minutos garantizará la obtención de un único registro para cada origen conectado que representa el promedio en ese tiempo.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+
+Si quiere emitir una alerta cuando el rendimiento medio del procesador supere el 90 % durante un determinado período de tiempo, puede utilizar una consulta como la siguiente con el [comando measure](log-analytics-search-reference.md#commands) y con el umbral de la regla de alerta **greater than 0** (mayor que 0). 
+
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 ## <a name="alert-actions"></a>Acciones de alerta
 Además de crear un registro de alertas, puede configurar la regla de alerta para ejecutar automáticamente una o varias acciones.  Las acciones pueden avisarle proactivamente de la alerta o invocar algún proceso que intente corregir el problema detectado.  En las secciones siguientes se describen las acciones que están actualmente disponibles.
@@ -212,6 +224,6 @@ Hay otros tipos de registros de alerta creados por la [solución de Administraci
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

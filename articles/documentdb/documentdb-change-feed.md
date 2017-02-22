@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 12/13/2016
-ms.author: b-hoedid
+ms.date: 01/25/2017
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: b22e75264345bc9d155bd1abc1fdb6e978dfad04
-ms.openlocfilehash: bafc50750381616ecf30c4e41090f342d82007f9
+ms.sourcegitcommit: f2586eae5ef0437b7665f9e229b0cc2749bff659
+ms.openlocfilehash: 894856c6386b26610ca5078238a88adcdd2d9a03
 
 
 ---
@@ -47,7 +47,7 @@ La fuente de cambios permite el procesamiento eficaz de grandes conjuntos de dat
 
 ![Canalización Lambda basada en Azure DocumentDB para ingesta y consulta](./media/documentdb-change-feed/lambda.png)
 
-Puede usar DocumentDB para recibir y almacenar datos de eventos de dispositivos, sensores, infraestructuras y aplicaciones y luego procesarlos en tiempo real con [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+Puede usar DocumentDB para recibir y almacenar datos de eventos de dispositivos, sensores, infraestructuras y aplicaciones y luego procesarlos en tiempo real con [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
 Dentro de aplicaciones web y móviles, puede realizar el seguimiento de eventos, como cambios en el perfil del cliente, preferencias o ubicación para desencadenar determinadas acciones como enviar notificaciones push a sus dispositivos mediante [Azure Functions](../azure-functions/functions-bindings-documentdb.md) o [App Services](https://azure.microsoft.com/services/app-service/). Si usa DocumentDB para compilar un juego, puede usar la fuente de cambios para, por ejemplo, implementar marcadores en tiempo real basados en las puntuaciones de los juegos completados.
 
@@ -74,7 +74,7 @@ DocumentDB proporciona contenedores elásticos de almacenamiento y capacidad de 
 ### <a name="readdocumentfeed-api"></a>ReadDocumentFeed API
 Examinemos brevemente cómo funciona ReadDocumentFeed. DocumentDB admite la lectura de una fuente de documentos dentro de una colección mediante la API `ReadDocumentFeed`. Por ejemplo, la siguiente solicitud devuelve una página de documentos dentro de la colección `serverlogs`. 
 
-    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
+    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/serverlogs HTTP/1.1
     x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
     authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
     Cache-Control: no-cache
@@ -172,20 +172,24 @@ Esta solicitud devuelve la siguiente respuesta que contiene metadatos sobre los 
     <tr>
         <td>minInclusive</td>
         <td>El valor de hash de clave de partición mínimo para el intervalo de claves de partición. Solo para uso interno.</td>
-    </tr>       
+    </tr>        
 </table>
 
 Puede realizar esta tarea mediante uno de los [SDK de DocumentDB](documentdb-sdk-dotnet.md) admitidos. Por ejemplo, el fragmento de código siguiente muestra cómo recuperar intervalos de claves de partición en. NET.
 
+    string pkRangesResponseContinuation = null;
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-    FeedResponse<PartitionKeyRange> response;
 
     do
     {
-        response = await client.ReadPartitionKeyRangeFeedAsync(collection);
-        partitionKeyRanges.AddRange(response);
+        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+            collectionUri, 
+            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
+        partitionKeyRanges.AddRange(pkRangesResponse);
+        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     }
-    while (response.ResponseContinuation != null);
+    while (pkRangesResponseContinuation != null);
 
 DocumentDB admite la recuperación de documentos por intervalo de claves de partición mediante el establecimiento del encabezado `x-ms-documentdb-partitionkeyrangeid` opcional. 
 
@@ -254,24 +258,31 @@ Este es un ejemplo de solicitud para devolver todos los cambios incrementales re
     Accept: application/json
     Host: mydocumentdb.documents.azure.com
 
-Los cambios están ordenados por tiempo dentro de cada valor de clave de partición del intervalo de claves de partición. No hay ningún orden garantizado entre valores de clave de partición. Si hay más resultados que pueden caber en una sola página, puede leer la página siguiente de resultados reenviando la solicitud con el encabezado `If-None-Match` con un valor igual a la etiqueta `etag` de la respuesta anterior. Si varios documentos se actualizaron de manera transaccional dentro de un procedimiento almacenado o un desencadenador, todos se devolverán dentro de la misma página de respuesta.
+Los cambios están ordenados por tiempo dentro de cada valor de clave de partición del intervalo de claves de partición. No hay ningún orden garantizado entre valores de clave de partición. Si hay más resultados que pueden caber en una sola página, puede leer la página siguiente de resultados reenviando la solicitud con el encabezado `If-None-Match` con un valor igual a la etiqueta `etag` de la respuesta anterior. Si varios documentos se han insertado o actualizado de manera transaccional dentro de un procedimiento almacenado o un desencadenador, todos se devolverán dentro de la misma página de respuesta.
 
-El SDK de .NET SDK proporciona las clases auxiliares `CreateDocumentChangeFeedQuery` y `ChangeFeedOptions` para acceder a los cambios realizados en una colección. El fragmento de código siguiente muestra cómo recuperar todos los cambios desde el principio con el SDK de .NET desde un solo cliente.
+> [!NOTE]
+> Con la fuente de cambios, se pueden devolver más elementos en una página que los especificados en `x-ms-max-item-count` en el caso de que varios documentos se inserten o actualicen en los procedimientos almacenados o desencadenadores. 
+
+El SDK de .NET proporciona las clases auxiliares [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) y [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) para acceder a los cambios realizados en una colección. El fragmento de código siguiente muestra cómo recuperar todos los cambios desde el principio con el SDK de .NET desde un solo cliente.
 
     private async Task<Dictionary<string, string>> GetChanges(
         DocumentClient client,
         string collection,
         Dictionary<string, string> checkpoints)
     {
+        string pkRangesResponseContinuation = null;
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-        FeedResponse<PartitionKeyRange> pkRangesResponse;
 
         do
         {
-            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+                collectionUri, 
+                new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
             partitionKeyRanges.AddRange(pkRangesResponse);
+            pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
         }
-        while (pkRangesResponse.ResponseContinuation != null);
+        while (pkRangesResponseContinuation != null);
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
@@ -334,6 +345,7 @@ En este artículo se proporciona un tutorial sobre la compatibilidad con la fuen
 * Comience con la codificación con los [SDK](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) de DocumentDB.
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

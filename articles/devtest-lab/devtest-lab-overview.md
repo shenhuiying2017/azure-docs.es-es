@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 668cd65309eefee8094103686734f12a8db52715
+ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
+ms.openlocfilehash: 2f31d8bf78d63e207d5f26ad37c5cf7bd2bac5bb
 
 
 ---
@@ -35,7 +35,7 @@ Los desarrolladores y evaluadores están buscando la manera de resolver los retr
 
 Azure DevTest Labs es un servicio que ayuda a los desarrolladores y evaluadores a crear rápidamente entornos de Azure al tiempo que se optimizan los recursos y se controlan los costos. Puede probar la versión más reciente de la aplicación aprovisionando rápidamente entornos de Windows y Linux mediante plantillas y artefactos reutilizables. Integre fácilmente la canalización de la implementación con DevTest Labs para aprovisionar entornos a petición. Escale verticalmente las pruebas de carga mediante el aprovisionamiento de varios agentes de prueba y cree entornos previamente aprovisionados con fines de capacitación y demostración.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/What-is-Azure-DevTest-Labs/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
 > 
 > 
 
@@ -47,6 +47,6 @@ Azure DevTest Labs es un servicio que ayuda a los desarrolladores y evaluadores 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de temas de Service Bus con Node.js | Microsoft Docs
+title: Uso de los temas y las suscripciones de Service Bus de Azure con Node.js | Microsoft Docs
 description: "Aprenda a usar los temas y las suscripciones de Service Bus en Azure desde una aplicación Node.js."
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+ms.sourcegitcommit: 56094202673416320e5a8801ee2275881ccfc8fb
+ms.openlocfilehash: 4e28b47a1ce1a3bf69a57382a5ec6c2a8a161efe
 
 
 ---
@@ -28,7 +28,7 @@ En esta guía se describe cómo usar los temas y las suscripciones de Service Bu
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Servicio en la nube de Node.js] (con Windows PowerShell) o Sitio web con WebMatrix.
+Cree una aplicación Node.js vacía. Para obtener instrucciones sobre cómo crear una aplicación Node.js, vea [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell) o Sitio web con WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
 Para usar el Bus de servicio, descargue el paquete Node.js de Azure. Este paquete incluye un conjunto de bibliotecas que se comunican con los servicios REST del Bus de servicio.
@@ -55,27 +55,27 @@ Para usar el Bus de servicio, descargue el paquete Node.js de Azure. Este paquet
 ### <a name="import-the-module"></a>Importación del módulo
 Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente en la parte superior del archivo **server.js** de la aplicación:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión del Bus de servicio
 El módulo Azure lee las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al espacio de nombres. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio en la nube de Azure, consulte [Servicio en la nube de Node.js con Storage][Servicio en la nube de Node.js con Storage].
+Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio en la nube de Azure, consulte [Servicio de nube de Node.js con Storage][Node.js Cloud Service with Storage].
 
-Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure clásico][Portal de Azure clásico] para un sitio web de Azure, consulte [Aplicación web de Node.js con Storage][Aplicación web de Node.js con Storage].
+Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure clásico][Azure classic portal] para un sitio web de Azure, consulte [Aplicación web Node.js con Storage][Node.js Web Application with Storage].
 
-## <a name="create-a-topic"></a>un tema
+## <a name="create-a-topic"></a>Creación de un tema
 El objeto **ServiceBusService** le permite trabajar con temas. El siguiente código crea un objeto **ServiceBusService**. Agréguelo cerca de la parte superior del archivo **server.js** , tras la instrucción para importar el módulo azure:
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 Al llamar a **createTopicIfNotExists** en el objeto **ServiceBusService**, se devuelve el tema especificado (si existe) o se crea un nuevo tema con el nombre especificado. El código siguiente utiliza **createTopicIfNotExists** para crear un tema llamado "MyTopic" o conectarse al tema con ese nombre:
 
-```
+```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
     if(!error){
         // Topic was created or exists
@@ -86,7 +86,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 
 **createServiceBusService** también admite opciones adicionales, lo que permite invalidar la configuración predeterminada de los temas, como el período de vida de los mensajes o el tamaño máximo de los temas. En el siguiente ejemplo se establece el tamaño máximo de los temas en 5 GB y el valor del período de vida en 1 minuto:
 
-```
+```javascript
 var topicOptions = {
         MaxSizeInMegabytes: '5120',
         DefaultMessageTimeToLive: 'PT1M'
@@ -102,13 +102,13 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ### <a name="filters"></a>Filtros
 Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas utilizando **ServiceBusService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Después de realizar el preprocesamiento en las opciones de solicitud, el método llama a `next` y pasa una devolución de llamada con la signatura siguiente:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -116,8 +116,10 @@ En esta devolución de llamada y después de procesar **returnObject** (la respu
 
 Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Azure para Node.js: **ExponentialRetryPolicyFilter** y **LinearRetryPolicyFilter**. Con el siguiente código se crea un objeto **ServiceBusService** que utiliza el filtro **ExponentialRetryPolicyFilter**:
 
-    var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```javascript
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
 ## <a name="create-subscriptions"></a>Creación de suscripciones
 Las suscripciones a temas también se crean con el objeto **ServiceBusService**. A las suscripciones se les asigna un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que se entregan a su cola virtual.
@@ -130,7 +132,7 @@ Las suscripciones a temas también se crean con el objeto **ServiceBusService**.
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
 El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "AllMessages" que usa el filtro predeterminado **MatchAll**.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
     if(!error){
         // subscription created
@@ -141,7 +143,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ### <a name="create-subscriptions-with-filters"></a>Creación de suscripciones con filtros
 También se pueden crear filtros que permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada.
 
-El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Es posible agregar filtros a una suscripción mediante el método **createRule** del objeto **ServiceBusService**. Este método permite agregar nuevos filtros a una suscripción existente.
 
@@ -152,7 +154,7 @@ Es posible agregar filtros a una suscripción mediante el método **createRule**
 
 En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
     if(!error){
         // subscription created
@@ -187,7 +189,7 @@ var rule={
 
 Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción denominada `LowMessages` con un filtro **SqlFilter** que solo selecciona los mensajes cuyo valor de la propiedad **messagenumber** sea menor o igual a 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
     if(!error){
         // subscription created
@@ -229,7 +231,7 @@ Los objetos **BrokeredMessage** cuentan con un conjunto de propiedades estándar
 
 En el siguiente ejemplo se demuestra cómo enviar cinco mensajes de prueba a “MyTopic”. Observe que el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (lo que determinará qué suscripciones lo reciben):
 
-```
+```javascript
 var message = {
     body: '',
     customProperties: {
@@ -260,7 +262,7 @@ Una vez que la aplicación termina de procesar el mensaje (o lo almacena de form
 
 En el ejemplo que aparece a continuación, se indica cómo se pueden recibir y procesar los mensajes usando **receiveSubscriptionMessage**. En el ejemplo, primero se recibe un mensaje y se elimina de la suscripción "LowMessages" y, luego, se recibe un mensaje de la suscripción "HighMessages" con el parámetro **isPeekLock** establecido en true. A continuación, se elimina el mensaje utilizando **deleteMessage**:
 
-```
+```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -289,42 +291,46 @@ También hay otro tiempo de expiración asociado a un mensaje bloqueado en la su
 En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
-Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure clásico][Portal de Azure clásico] o mediante programación.
+Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure clásico][Azure classic portal] o mediante programación.
 En el ejemplo siguiente se muestra cómo eliminar el tema denominado `MyTopic`:
 
-    serviceBusService.deleteTopic('MyTopic', function (error) {
-        if (error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteTopic('MyTopic', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});
+```
 
 Al eliminar un tema también se eliminan todas las suscripciones que estén registradas con él. También se pueden eliminar las suscripciones de forma independiente. El ejemplo siguiente muestra cómo eliminar una suscripción denominada `HighMessages` del tema `MyTopic`:
 
-    serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
-        if(error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
+    if(error) {
+        console.log(error);
+    }
+});
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
-* Consulte [Colas, temas y suscripciones][Colas, temas y suscripciones].
+* Vea [Colas, temas y suscripciones][Queues, topics, and subscriptions].
 * Referencia de API para [SqlFilter][SqlFilter].
-* Visite el repositorio del [SDK de Azure para Node][SDK de Azure para Node] en GitHub.
+* Visite el repositorio del [SDK de Azure para Node][Azure SDK for Node] en GitHub.
 
-[SDK de Azure para Node]: https://github.com/Azure/azure-sdk-for-node
-[Portal de Azure clásico]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
-[Servicio en la nube de Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
+[Azure classic portal]: https://manage.windowsazure.com
+[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Servicio en la nube de Node.js con Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Aplicación web de Node.js con Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

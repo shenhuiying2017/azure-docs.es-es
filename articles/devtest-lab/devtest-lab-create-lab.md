@@ -58,6 +58,6 @@ Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener e
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

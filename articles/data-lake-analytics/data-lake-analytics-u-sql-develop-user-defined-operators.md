@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 88a00c2b0a5aac85bbcaef5b21b10f44121c7d38
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ef0fa131cc665df68e13ee7be58330f571f3ac90
 
 
 ---
-# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Azure Data Lake
+# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Azure Data Lake Analytics
 Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Análisis de Data Lake. Desarrollará un operador personalizado para convertir los nombres de los países.
+
+Para obtener instrucciones sobre cómo desarrollar ensamblados de propósito general para U-SQL, consulte [Desarrollo de ensamblados U-SQL para trabajos de Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado
 * SDK de Microsoft Azure para .NET versión 2.5 o posterior.  Instálelo usando el instalador de plataforma web.
-* Una cuenta de Análisis de Data Lake.  Consulte [Introducción a Análisis de Azure Data Lake mediante el portal de Azure](data-lake-analytics-get-started-portal.md).
+* Una cuenta de Análisis de Data Lake.  [Introducción a Azure Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md).
 * Realice el tutorial [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 * Conéctese a Azure.
 * Descargue los datos de origen y consulte [Introducción al lenguaje U-SQL de Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md). 
@@ -144,6 +146,6 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

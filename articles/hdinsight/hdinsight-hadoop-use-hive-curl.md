@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 90e7998a7ab427b7b429a6330792c27ee851608e
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 0842cbcceb7ac96d4283efdd6c178b08dd728254
 
 
 ---
@@ -30,13 +30,12 @@ Curl se usa para mostrar cómo se puede interactuar con HDInsight usando solicit
 
 > [!NOTE]
 > Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte [Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
-* Un clúster de Hadoop en HDInsight (basado en Linux o Windows)
+* Un clúster de Hadoop en HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -110,7 +109,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
      Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo.
      
        {"id":"job_1415651640909_0026"}
-3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fue `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
+3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fuese `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
    
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
    
@@ -149,14 +148,17 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
    * **STORED AS ORC** : almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
    * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
    * **SELECT**: selecciona todas las filas de la nueva tabla **errorLogs**.
-6. Use el identificador de trabajo devuelto para revisar el estado del trabajo. Una vez realizado correctamente, use la CLI de Azure para Mac, Linux y Windows tal como se describió anteriormente para descargar y ver los resultados. La salida debe contener tres líneas, todas las cuales contienen **[ERROR]**.
+
+6. Use el identificador de trabajo devuelto para revisar el estado del trabajo. Una vez que lo haya realizado correctamente, use la CLI de Azure tal como se describió anteriormente para descargar y ver los resultados. La salida debe contener tres líneas, todas las cuales contienen **[ERROR]**.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumen
+
 Tal como se demostró en este documento, puede usar una solicitud HTTP sin procesar para ejecutar, supervisar y ver los resultados de los trabajos de Hive en su clúster de HDInsight.
 
 Para obtener más información sobre la interfaz REST utilizada en este artículo, consulte la referencia de <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat</a>.
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
+
 Si desea obtener información general sobre Hive con HDInsight:
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
@@ -168,8 +170,7 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
-* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -200,6 +201,6 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

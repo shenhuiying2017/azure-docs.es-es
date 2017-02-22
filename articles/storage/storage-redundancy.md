@@ -1,5 +1,5 @@
 ---
-title: "Replicación de Azure Storage | Microsoft Docs"
+title: "Replicación de datos en Azure Storage | Microsoft Docs"
 description: "Los datos de su cuenta de almacenamiento de Microsoft Azure se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)."
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8253e4c58cf9f1900a6e76885af3abac32c78cb0
+ms.sourcegitcommit: 349be81b5d1d5ccc1510360974b4e3b10471cf7f
+ms.openlocfilehash: 13cd31bdce89ae898a6e22a1d27b5aed819ccc0a
 
 
 ---
@@ -77,13 +77,13 @@ El almacenamiento con redundancia geográfica (GRS) replica sus datos a una regi
 
 En el caso de una cuenta de almacenamiento con GRS habilitado, una actualización primero se envía a la región principal, donde se replica tres veces. A continuación, la actualización se replica de manera asincrónica en la región secundaria, donde también se replica tres veces.
 
-Con GRS las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento, como se ha describe con LRS.
+Con GRS, las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento, como se describe con LRS.
 
 Consideraciones:
 
 * Como la replicación asincrónica implica un retraso, ante la eventualidad de un desastre regional es posible que los cambios que todavía no se hayan replicado en la región secundaria se pierdan si no es posible recuperar los datos de la región primaria.
-* La réplica no está disponible a menos que Microsoft inicie la conmutación por error para la región secundaria.
-* Si una aplicación desea leer de la región secundaria, el usuario debe habilitar RA-GRS.
+* La réplica no está disponible a menos que Microsoft inicie la conmutación por error para la región secundaria. Si Microsoft inicia una conmutación por error en la región secundaria, tendrá acceso de lectura y escritura a esos datos una vez completada la conmutación por error. Para más información, consulte la [guía de recuperación ante desastres](storage-disaster-recovery-guidance.md). 
+* Si una aplicación desea leer desde la región secundaria, el usuario debe habilitar RA-GRS.
 
 Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La región secundaria se determina según la región principal y no es posible cambiarla. La siguiente tabla muestra los emparejamientos de la región principal y la secundaria.
 
@@ -112,8 +112,8 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 | Gobierno de EE. UU. - Virginia |Gobierno de EE. UU. - Iowa |
 | Centro de Canadá |Este de Canadá |
 | Este de Canadá |Centro de Canadá |
-| Oeste de Reino Unido |Sur del Reino Unido 2 |
-| Sur del Reino Unido 2 |Oeste de Reino Unido |
+| Oeste de Reino Unido |Sur del Reino Unido&2; |
+| Sur del Reino Unido&2; |Oeste de Reino Unido |
 | Centro de Alemania |Noreste de Alemania |
 | Noreste de Alemania |Centro de Alemania |
 | Oeste de EE. UU. 2 |Centro occidental de EE.UU. |
@@ -129,9 +129,12 @@ Cuando habilita el acceso de solo lectura a los datos en la región secundaria, 
 Consideraciones:
 
 * La aplicación tiene que administrar el punto de conexión con el que interactúa al usar RA-GRS.
+* Como la replicación asincrónica implica un retraso, ante la eventualidad de un desastre regional es posible que los cambios que todavía no se hayan replicado en la región secundaria se pierdan si no es posible recuperar los datos de la región primaria.
+* Si Microsoft inicia la conmutación por error en la región secundaria, tendrá acceso de lectura y escritura a esos datos una vez completada la conmutación por error. Para más información, consulte la [guía de recuperación ante desastres](storage-disaster-recovery-guidance.md). 
 * RA-GRS está pensado para fines de alta disponibilidad. Para instrucciones sobre escalabilidad, revise la [lista de comprobación de rendimiento](storage-performance-checklist.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
+* [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md)
 * [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md)
@@ -141,6 +144,6 @@ Consideraciones:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

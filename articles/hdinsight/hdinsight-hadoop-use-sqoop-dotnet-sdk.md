@@ -1,5 +1,5 @@
 ---
-title: Uso de Sqoop de Hadoop en HDInsight | Microsoft Docs
+title: "Ejecución de trabajos de Sqoop mediante .NET y Azure HDInsight | Microsoft Docs"
 description: "Obtenga información sobre cómo utilizar el SDK de .NET de HDInsight para ejecutar trabajos de Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de Hadoop y una base de datos SQL de Azure."
 editor: cgronlun
 manager: jhubbard
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 027ac136d4c4f242c75e8a25605ace646624d64d
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9cadb72e065f82de8e007b38e909d2bc07d18126
 
 
 ---
@@ -124,6 +124,6 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,7 @@
 ---
-title: "Creación e implementación de la aplicación de intermitencia | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Conexión de Raspberry Pi (Node) a Azure IoT: Lección 1: Implementación de la aplicación | Microsoft Docs"
 description: "Clone la aplicación Node.js de ejemplo de GitHub y use Gulp para implementar esta aplicación en la placa de Raspberry Pi 3. Esta aplicación de ejemplo hace parpadear el LED conectado a la placa cada dos segundos."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: aee1ef8c4275f64865ff830739fc818d6bf02bd2
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -124,7 +126,7 @@ Para configurar la conexión de dispositivos, siga estos pasos:
 ¡Enhorabuena! Ha creado correctamente la primera aplicación de ejemplo para Pi.
 
 ## <a name="deploy-and-run-the-sample-application"></a>Implementación y ejecución de la aplicación de ejemplo
-### <a name="install-nodejs-and--on-pi"></a>Instalación de Node.js en Pi
+### <a name="install-nodejs-and-npm-on-pi"></a>Instalación de Node.js y NPM en Pi
 Instale Node.js y NPM en Pi ejecutando el comando siguiente:
 
 ```bash
@@ -153,6 +155,6 @@ Ha instalado las herramientas necesarias para usar Pi e implementado una aplicac
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

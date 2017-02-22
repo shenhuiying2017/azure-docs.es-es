@@ -1,6 +1,6 @@
 ---
-title: "Análisis de sentimiento basado en léxico | Microsoft Docs"
-description: "Análisis de opiniones basado en léxico"
+title: "(obsoleto) Análisis de sentimiento basado en léxico - Azure | Microsoft Docs"
+description: "(obsoleto) Análisis de sentimiento basado en léxico"
 services: machine-learning
 documentationcenter: 
 author: pengxia
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/16/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: pengxia
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c702fda88e0af40084958b1ad51e7156c7f4aee3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 02a6005c47734419903f324f6fb60440f9d62664
 
 
 ---
-# <a name="lexicon-based-sentiment-analysis"></a>Análisis de opiniones basado en léxico
+# <a name="deprecated-lexicon-based-sentiment-analysis"></a>(obsoleto) Análisis de sentimiento basado en léxico
+
+> [!NOTE]
+> Microsoft DataMarket está en proceso de retirada y esta API está en desuso. 
+> 
+> Puede encontrar muchos experimentos y API de ejemplo útiles en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com). Para más información sobre la Galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 ¿Cómo puede medir las opiniones de los usuarios y actitudes de marcas o temas de redes sociales en línea, como publicaciones en Facebook, tweets, revisiones, etc.? El análisis de opiniones proporciona un método para analizar esas preguntas.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -79,7 +86,7 @@ La entrada es "Hoy es un buen día". El resultado es "1", que indica la idea pos
 > 
 > 
 
-Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. En la siguiente ilustración se muestra el flujo de experimento del análisis de opiniones basado en léxico. El archivo “sent_dict.csv” es el léxico de subjetividad de MPQA y está establecido como una de las entradas de [Execute R Script (Ejecutar script R)][execute-r-script]. Otra entrada es una revisión muestreada del conjunto de datos de revisión de Amazon para pruebas, donde se realizan la selección, la modificación del nombre de columna y las operaciones de separación. Usamos un paquete de hash para almacenar el léxico de subjetividad en la memoria y acelerar el proceso de cálculo de la puntuación. Todo el texto se acortará con el paquete "tm" y se comparará con la palabra del diccionario de opiniones. Por último, se calculará una puntuación agregando la ponderación de cada palabra subjetiva del texto. 
+Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. En la siguiente ilustración se muestra el flujo de experimento del análisis de opiniones basado en léxico. El archivo "sent_dict.csv" es el léxico de subjetividad de MPQA y está establecido como una de las entradas de [Ejecutar scripts R][execute-r-script]. Otra entrada es una revisión muestreada del conjunto de datos de revisión de Amazon para pruebas, donde se realizan la selección, la modificación del nombre de columna y las operaciones de separación. Usamos un paquete de hash para almacenar el léxico de subjetividad en la memoria y acelerar el proceso de cálculo de la puntuación. Todo el texto se acortará con el paquete "tm" y se comparará con la palabra del diccionario de opiniones. Por último, se calculará una puntuación agregando la ponderación de cada palabra subjetiva del texto. 
 
 ### <a name="experiment-flow"></a>Flujo de experimento:
 ![flujo de experimento][2]
@@ -158,6 +165,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Migración de grupos de afinidad a una red virtual regional"
-description: "Más información acerca de la migración de grupos de afinidad a una red virtual regional"
+title: "Migración de una red virtual de Azure de un grupo de afinidad a una región | Clásico | Microsoft Docs"
+description: "Obtenga información sobre cómo migrar una red virtual de un grupo de afinidad a una región."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 198a726229f4950906e79272da6913f1a1afd15d
+ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
+ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
 
 
 ---
-# <a name="how-to-migrate-from-affinity-groups-to-a-regional-virtual-network-vnet"></a>Migración de grupos de afinidad a una red virtual regional
+# <a name="how-to-migrate-a-virtual-network-from-an-affinity-group-to-a-region"></a>Migración de una red virtual de un grupo de afinidad a una región
 Puede utilizar un grupo de afinidad para asegurarse de que los recursos creados en el mismo grupo de afinidad son hospedados físicamente por servidores que están cerca, lo que permite que estos recursos se comuniquen con mayor rapidez. En el pasado, los grupos de afinidad eran un requisito para crear redes virtuales. En ese momento, el servicio de administrador de red que administraba redes virtuales solo podía trabajar en un conjunto de servidores físicos o unidad de escalado. Mejoras arquitectónicas han aumentado el ámbito de administración de red a una región.
 
 Como resultado de estas mejoras de arquitectura, los grupos de afinidad ya no se recomiendan ni son necesarios para las redes virtuales. El uso de grupos de afinidad para redes virtuales se reemplaza por regiones. Las redes virtuales que están asociadas a las regiones se denominan redes virtuales regionales.
@@ -74,6 +74,6 @@ Una vez implementada una máquina virtual, se implementa en una sola unidad de e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

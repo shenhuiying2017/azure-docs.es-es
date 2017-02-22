@@ -15,9 +15,9 @@
 ## [Xamarin.Android](mobile-engagement-xamarin-android-get-started.md)
 ## [Xamarin.iOS](mobile-engagement-xamarin-ios-get-started.md)
 
-# Cómo
+# Procedimientos
 ## Planeamiento y diseño
-### [procedimientos recomendados](mobile-engagement-getting-started-best-practices.md)
+### [Procedimientos recomendados](mobile-engagement-getting-started-best-practices.md)
 ### [Conceptos](mobile-engagement-concepts.md)
 ### [Definición de la estrategia de interacción](mobile-engagement-define-your-mobile-engagement-strategy.md)
 ### Escenarios
@@ -117,20 +117,23 @@
 
 # Referencia
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# Temas relacionados
 ## Contenido del SDK
 ### [SDK de Android](mobile-engagement-android-sdk-content.md)
 ### [SDK de iOS](mobile-engagement-ios-sdk-content.md)
 ### [SDK de aplicaciones universales de Windows](mobile-engagement-windows-store-sdk-content.md)
 ### [SDK de Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
+
+# Recursos
 ## Notas de la versión
 ### [SDK de Android](mobile-engagement-android-release-notes.md)
 ### [SDK de iOS](mobile-engagement-ios-release-notes.md)
 ### [SDK web](mobile-engagement-web-release-notes.md)
 ### [SDK de aplicaciones universales de Windows](mobile-engagement-windows-store-release-notes.md)
 ### [SDK de Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
-
-
-# Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [Aplicaciones de demostración de ejemplo](mobile-engagement-demo-apps.md)
 ## [Ejemplo de API de .NET](mobile-engagement-dotnet-sdk-service-api.md)
@@ -146,6 +149,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

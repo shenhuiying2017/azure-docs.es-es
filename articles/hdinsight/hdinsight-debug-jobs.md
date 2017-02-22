@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc5c3eb66f1f87dec9b0236be85a4fc96c598db3
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
 
 
 ---
@@ -116,7 +116,7 @@ Para obtener más información sobre los registros de aplicación, consulte [Sim
 
 ## <a name="view-cluster-health-and-job-logs"></a>Visualización de los registros de trabajo y del estado del clúster
 ### <a name="access-hadoop-ui"></a>Acceder a la interfaz de usuario de Hadoop
-En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**.
+En Azure Portal, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**.
 
 ![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
@@ -125,7 +125,7 @@ Cuando se le pida, escriba las credenciales de administrador para el clúster. E
 ![Inicie la IU de Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
 ### <a name="access-the-yarn-ui"></a>Acceder a la interfaz de usuario de Yarn
-En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consulta que se abre, haga clic en **IU de YARN**.
+En Azure Portal, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consulta que se abre, haga clic en **IU de YARN**.
 
 Puede utilizar la IU de YARN para hacer lo siguiente:
 
@@ -136,12 +136,12 @@ Puede utilizar la IU de YARN para hacer lo siguiente:
 * **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
 
 ### <a name="access-the-hbase-ui"></a>Acceder a la interfaz de usuario de HBase
-En el Portal de Azure, haga clic en un nombre de clúster de HBase de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **Interfaz de usuario de HBase**.
+En Azure Portal, haga clic en un nombre de clúster de HBase de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **Interfaz de usuario de HBase**.
 
 ## <a name="hdinsight-error-codes"></a>Códigos de error de HDInsight
 Con los mensajes de error incluidos en esta sección pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio con Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error.
 
-Algunos de estos mensajes de error también podrían aparecer en el Portal de Azure cuando se usa para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia. 
+Algunos de estos mensajes de error también podrían aparecer en el portal de Azure cuando se utiliza para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia. 
 
 ### <a name="a-idatleastonesqlmetastoremustbeprovidedaatleastonesqlmetastoremustbeprovided"></a><a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Descripción**: proporcione los datos de la base de datos SQL de Azure de al menos un componente a fin de utilizar la configuración personalizada para las tiendas de metadatos de Hive y Oozie.
@@ -331,6 +331,6 @@ Algunos de estos mensajes de error también podrían aparecer en el Portal de Az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

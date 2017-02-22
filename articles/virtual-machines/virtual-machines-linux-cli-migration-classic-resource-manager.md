@@ -1,9 +1,9 @@
 ---
-title: "Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure | Microsoft Docs"
+title: "Migración de VM a Resource Manager mediante la CLI de Azure | Microsoft Docs"
 description: "Este artículo le guía por los pasos de migración de recursos compatible con la plataforma desde el modelo de implementación clásica hasta Azure Resource Manager mediante la CLI de Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
-ms.author: cynthn
+ms.date: 02/21/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fa3dacd0b5e2ad97cd751395d58ef3afe92aee3
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
 
 
 ---
@@ -163,6 +163,6 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7488faa54481f0f524c2274e7e2575bf0fc02690
+ms.sourcegitcommit: 1738899a271045e37cdcedaaf862553f29ec92f1
+ms.openlocfilehash: b1c06135cf8628197fb9601affd6a7131b41d0ca
 
 
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Importación de datos en Estudio de aprendizaje automático de Azure desde otro experimento
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Habrá ocasiones en las que querrá tomar un resultado intermedio de un experimento y usarlo como parte de otro experimento.  Para ello, guarde el módulo como un conjunto de datos:
+Habrá ocasiones en las que querrá tomar un resultado intermedio de un experimento y usarlo como parte de otro experimento. Para ello, guarde el módulo como un conjunto de datos:
 
 1. Haga clic en la salida del módulo que desea guardar como conjunto de datos.
 2. Haga clic en **Guardar como conjunto de datos**.
@@ -36,6 +36,6 @@ Cuando termine de guardar, el conjunto de datos estará disponible para usarlo d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,23 +1,26 @@
-
 ---
-title: Administración de entidades de Media Services con la API de REST| Microsoft Docs
-description: Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST.
+title: "Administración de entidades de Media Services con REST| Microsoft Docs"
+description: "Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST."
 author: juliako
 manager: dwrede
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 95262a32-0f2a-4286-b9e2-1a1ca6399b5b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/09/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
+ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+
 
 ---
-# <a name="managing-media-services-entities-with-rest-api"></a>Administración de entidades de Servicios multimedia con la API de REST
+# <a name="managing-media-services-entities-with-rest"></a>Administración de entidades de Media Services con REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
@@ -26,15 +29,17 @@ ms.author: juliako
 
 Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. Por este motivo, puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo como haría con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
 
-* Incorporación de entidades 
-* Consulta de entidades 
-* Enumeración de grandes colecciones de entidades
-* Actualización de entidades 
-* Eliminación de entidades 
+En este tema se muestra cómo administrar entidades de Azure Media Services con REST.
+
+
+>[!NOTE]
+> A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Por ejemplo, el 1 de abril de 2017, todos los registros de trabajo de la cuenta que sean anteriores al 31 de diciembre de 2016 se eliminarán automáticamente. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe en este tema.
+
+## <a name="considerations-when-working-with-ams-rest"></a>Consideraciones para trabajar con REST de AMS
+
+Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 
 > [!NOTE]
-> Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
-> 
 > Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 > 
 > Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
@@ -175,6 +180,9 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

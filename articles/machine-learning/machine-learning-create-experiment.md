@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -33,7 +33,7 @@ Le mostraremos cómo usar Studio por primera vez para crear un experimento de ap
 >
 >Si está familiarizado con el aprendizaje automático, la serie de vídeos [Ciencia de datos para principiantes](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) podría ser un buen lugar para comenzar. Esta serie de vídeos es una excelente introducción al aprendizaje automático mediante el uso de conceptos y lenguaje cotidianos.
 >
->Si conoce el aprendizaje automático pero busca información más general sobre Machine Learning Studio y los algoritmos de aprendizaje automático que contiene, aquí se indican unos buenos recursos:
+>Si está familiarizado con el aprendizaje automático pero busca información más general sobre Machine Learning Studio y los algoritmos de aprendizaje automático que contiene, aquí se indican algunos buenos recursos:
 >
 - [¿Qué es Estudio de aprendizaje automático?](machine-learning-what-is-ml-studio.md) - Esta es una descripción de alto nivel de Studio.
 - [Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](machine-learning-basics-infographic-with-algorithm-examples.md): esta infografía es útil si quiere aprender más sobre los diferentes tipos de algoritmos de aprendizaje automático que se incluyen con Machine Learning Studio.
@@ -95,7 +95,9 @@ Aquí se muestra cómo obtener el conjunto de datos en el experimento.
 
 1. Cree un experimento nuevo; para ello, haga clic en **+NUEVO** en la parte inferior de la ventana de Machine Learning Studio, seleccione **EXPERIMENTO** y luego **Experimento en blanco**.
 
-2. El experimento recibe un nombre predeterminado que puede ver en la parte superior del lienzo. Seleccione este texto y cambie su nombre por algo significativo, por ejemplo, **predicción de precios de automóviles**.
+2. El experimento recibe un nombre predeterminado que puede ver en la parte superior del lienzo. Seleccione este texto y cambie su nombre por algo significativo, por ejemplo, **predicción de precios de automóviles**. No es necesario que el nombre sea único.
+
+    ![Renombrar el experimento][rename-experiment]
 
 2. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Escriba **automobile** en el cuadro de búsqueda de la parte superior de esta paleta para encontrar el conjunto de datos llamado **Automobile price data (Raw)** (Datos de precios de automóviles [sin formato]). Arrastre este conjunto de datos al lienzo del experimento.
 
@@ -111,7 +113,7 @@ Para ver la apariencia de estos datos, haga clic en el puerto de salida, en la p
 
 > [!TIP]
 > Los conjuntos de datos y los módulos tienen puertos de entrada y de salida representados por pequeños círculos: los puertos de entrada arriba y los puertos de salida abajo.
-Para crear un flujo de datos por su experimento, deberá conectar estos puertos.
+Para crear un flujo de datos a través del experimento, se conectará un puerto de salida de un módulo a un puerto de entrada de otro.
 En cualquier momento, puede hacer clic en el puerto de salida de un conjunto de datos o de un módulo para ver el aspecto de los datos en ese punto del flujo de datos.
 
 En este conjunto de datos de ejemplo, cada instancia de un automóvil aparece como una fila y las variables asociadas a cada automóvil como columnas. Dadas las variables para un automóvil determinado, vamos a intentar predecir el precio de la columna del extremo derecho (columna 26, llamada "precio").
@@ -169,7 +171,7 @@ Primero agregaremos un módulo que quite completamente la columna **normalized-l
     <br/>
     ***Establecer el modo de limpieza en "Quitar la fila entera" para el módulo "Limpiar los datos que faltan"***
 
-4. Ejecute el experimento haciendo clic en **EJECUTAR** en el lienzo de experimentos.
+4. Ejecute el experimento haciendo clic en **EJECUTAR** en la parte inferior de la página.
 
     Cuando el experimento finalice, todos los módulos tendrán una marca de verificación verde para indicar que se han completado correctamente. Observe también el estado **Ejecución finalizada** en la esquina superior derecha.
 
@@ -326,7 +328,7 @@ Ahora que ha completado el primer tutorial de aprendizaje automático y tiene su
 Para ver un ejemplo de cómo comparar varios modelos en un único experimento, consulte [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Comparar regresores) en la [galería de Cortana Intelligence](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
-    > Para copiar cualquier iteración del experimento, use el botón **GUARDAR COMO** situado bajo el lienzo del experimento. Puede ver todas las iteraciones del experimento haciendo clic en **VER HISTORIAL DE EJECUCIÓN** en el lienzo. Para más información, consulte [Administración de iteraciones de experimentos en Azure Machine Learning Studio][runhistory].
+    > Para copiar cualquier iteración del experimento, use el botón **GUARDAR COMO** situado en la parte inferior de la página. Puede ver todas las iteraciones del experimento haciendo clic en **VER HISTORIAL DE EJECUCIÓN** en la parte inferior de la página. Para más información, consulte [Administración de iteraciones de experimentos en Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -340,6 +342,7 @@ Para ver un ejemplo de cómo comparar varios modelos en un único experimento, c
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Para ver un ejemplo de cómo comparar varios modelos en un único experimento, c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 11/01/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 
 
 ---
@@ -42,7 +42,7 @@ Un **origen de datos** especifica los datos que es necesario indexar, las creden
 Actualmente se admiten los siguientes orígenes de datos:
 
 * **Azure SQL Database** y **SQL Server en máquinas virtuales de Azure**. Para obtener un tutorial dirigido, consulte [este artículo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **DocumentDB de Azure**. Para obtener un tutorial de destino, consulte [este artículo](../documentdb/documentdb-search-indexer.md). 
+* **DocumentDB de Azure**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-index-documentdb.md). 
 * **Almacenamiento de blobs de Azure**, incluidos los siguientes formatos de documento: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP y archivos de texto sin formato (incluido JSON). Para obtener un tutorial dirigido, consulte [este artículo](search-howto-indexing-azure-blob-storage.md).
 * **Azure Table Storage**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-indexing-azure-tables.md).
 
@@ -411,7 +411,7 @@ Un indexador puede especificar varios parámetros que afectan a su comportamient
 
 * `maxFailedItems` : el número de elementos que es posible que no se indexen antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0. La operación [Obtener el estado del indexador](#GetIndexerStatus) devuelve información acerca de los elementos no indexados. 
 * `maxFailedItemsPerBatch` : el número de elementos que es posible que no se indexen en cada lote antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0.
-* `base64EncodeKeys`: especifica si las claves de documento estarán codificadas en base 64. Búsqueda de Azure impone restricciones en los caracteres que pueden estar presentes en una clave del documento. Sin embargo, los valores de los datos de origen pueden contener caracteres que no son válidos. Si es necesario indexar estos valores como claves del documento, este indicador puede establecerse en true. El valor predeterminado es `false`.
+* `base64EncodeKeys`: especifica si las claves de documento estarán codificadas en base&64;. Búsqueda de Azure impone restricciones en los caracteres que pueden estar presentes en una clave del documento. Sin embargo, los valores de los datos de origen pueden contener caracteres que no son válidos. Si es necesario indexar estos valores como claves del documento, este indicador puede establecerse en true. El valor predeterminado es `false`.
 * `batchSize`: especifica el número de elementos que se leen desde el origen de datos y se indizan como un único lote para mejorar el rendimiento. El valor predeterminado depende del tipo de origen de datos: es 1000 para Azure SQL y DocumentDB, y 10 para Azure Blob Storage.
 
 **Asignaciones de campos**
@@ -799,6 +799,6 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,16 +12,53 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b8ca8430765ef2377d2ef693a67951cff08534e
+ms.sourcegitcommit: 68655fff239bfd76f93ab9177d161d9534cbb901
+ms.openlocfilehash: 150113dda95ab021dd7ad8696b5886373ba982b8
 
 
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Create Table As Select (CTAS) en Almacenamiento de datos SQL
-Create table as select o `CTAS` es una de las características más importantes de T-SQL disponibles. Se trata de una operación completamente en paralelo que crea una nueva tabla basada en la salida de una instrucción SELECT. `CTAS` es el modo más sencillo y rápido de crear una copia de una tabla. Si lo prefiere, puede considerarla como una versión supercargada de `SELECT..INTO` . Este documento incluye ejemplos y procedimientos recomendados para `CTAS`.
+Create table as select o `CTAS` es una de las características más importantes de T-SQL disponibles. Se trata de una operación completamente en paralelo que crea una nueva tabla basada en la salida de una instrucción SELECT. `CTAS` es el modo más sencillo y rápido de crear una copia de una tabla. Este documento incluye ejemplos y procedimientos recomendados para `CTAS`.
+
+## <a name="selectinto-vs-ctas"></a>SELECT..INTO frente a CTAS
+Puede considerar `CTAS` como una versión muy cargada de `SELECT..INTO`.
+
+Aquí tiene un ejemplo de una instrucción `SELECT..INTO` sencilla:
+
+```sql
+SELECT *
+INTO    [dbo].[FactInternetSales_new]
+FROM    [dbo].[FactInternetSales]
+```
+
+En el ejemplo anterior, `[dbo].[FactInternetSales_new]` se crearía como una tabla ROUND_ROBIN distribuida con un ÍNDICE CLUSTERED COLUMNSTORE en ella, ya que se trata de los valores predeterminados de tabla en Azure SQL Data Warehouse.
+
+`SELECT..INTO`, sin embargo, no permite cambiar el método de distribución o el tipo de índice como parte de la operación. Aquí es donde `CTAS` entra en juego.
+
+La conversión de esto a `CTAS` es bastante simple:
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_new]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN
+,   CLUSTERED COLUMNSTORE INDEX
+)
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+;
+```
+
+Con `CTAS` puede cambiar la distribución de los datos de tabla, así como el tipo de tabla. 
+
+> [!NOTE]
+> Si solo intenta cambiar el índice en la operación `CTAS` y la tabla de origen presenta una distribución hash, la operación `CTAS` ofrece mejores resultados si mantiene el mismo tipo de datos y de columna de distribución. Esto evitará el movimiento cruzado de los datos de distribución durante la operación que es más eficaz.
+> 
+> 
 
 ## <a name="using-ctas-to-copy-a-table"></a>Uso de CTAS para copiar una tabla
 Quizás uno de los usos más comunes de `CTAS` es el de crear una copia de una tabla, con el fin de poder cambiar el DDL. Por ejemplo, si originalmente creó la tabla como `ROUND_ROBIN` y ahora quiere convertirla en una tabla distribuida en una columna, `CTAS` le permitiría cambiar la columna de distribución. `CTAS` también se puede usar para cambiar las particiones, el indexado o los tipos de columnas.
@@ -88,50 +125,19 @@ DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas.  Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos.  Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][Estadísticas] en el grupo de temas relacionados con el desarrollo.
+> Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas.  Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos.  Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][Statistics] en el grupo de temas relacionados con el desarrollo.
 > 
 > 
 
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>Uso de CTAS para solucionar características no admitidas
 `CTAS` para solucionar algunas de las características no admitidas que se indican a continuación. A menudo, esto puede resultar ser una situación ventajosa para todos dado que no solo el código será compatible sino que con frecuencia se ejecutará más rápido en Almacenamiento de datos SQL. El motivo es su diseño completamente en paralelo. Algunas situaciones que se pueden solucionar con CTAS incluyen:
 
-* SELECT..INTO
 * ANSI JOINS en UPDATE
 * ANSI JOINS en DELETE
 * Instrucción MERGE
 
 > [!NOTE]
 > Intente pensar: "primero CTAS". Si cree que puede resolver un problema mediante `CTAS` , este puede ser el mejor enfoque, incluso si como consecuencia escribe más datos.
-> 
-> 
-
-## <a name="selectinto"></a>SELECT..INTO
-Puede encontrar que `SELECT..INTO` aparece en varios lugares de la solución.
-
-Aquí tiene un ejemplo de una instrucción `SELECT..INTO` :
-
-```sql
-SELECT *
-INTO    #tmp_fct
-FROM    [dbo].[FactInternetSales]
-```
-
-La conversión de esto a `CTAS` es bastante simple:
-
-```sql
-CREATE TABLE #tmp_fct
-WITH
-(
-    DISTRIBUTION = ROUND_ROBIN
-)
-AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-;
-```
-
-> [!NOTE]
-> CTAS actualmente requiere que se especifique una columna de distribución.  Si no intenta cambiar la columna de distribución de forma intencionada, los `CTAS` funcionarán con la mayor rapidez si selecciona una columna de distribución que se encuentre en el mismo lugar que la tabla subyacente, porque, de este modo, se evita el movimiento de los datos.  Si crea una tabla pequeña en la que el rendimiento no es determinante, puede especificar `ROUND_ROBIN` para que no sea necesario tomar una decisión sobre una columna de distribución.
 > 
 > 
 
@@ -431,14 +437,14 @@ Por lo tanto, puede ver que la coherencia de los tipos y el mantenimiento de las
 Consulte MSDN para obtener más información sobre el uso de [CTAS][CTAS]. Es una de las instrucciones más importantes de Almacenamiento de datos SQL. Asegúrese de que la comprende perfectamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
+Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
-[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
+[development overview]: sql-data-warehouse-overview-develop.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
@@ -447,6 +453,6 @@ Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

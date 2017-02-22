@@ -1,5 +1,5 @@
 ---
-title: "Integración e implementación continuas de aplicaciones de Docker de varios contenedores en Azure Container Service | Microsoft Docs"
+title: CI/CD con Azure Container Service y DC/OS | Microsoft Docs
 description: "Cómo automatizar completamente la creación e implementación de una aplicación de Docker de varios contenedores en un clúster de Azure Container Service que ejecuta DC/OS."
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 71fdc7b13fd3b42b136b4907c3d747887fde1a19
-ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d
+ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
+ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
 
 
 ---
@@ -47,15 +47,18 @@ Vamos a ver algunos aspectos claves de la aplicación y el flujo de implementaci
 ## <a name="create-an-azure-container-service-cluster-configured-with-dcos"></a>Creación de un clúster de Azure Container Service configurado con DC/OS
 
 >[!IMPORTANT]
-> Para crear un clúster seguro, se pasa el archivo de claves públicas de SSH al llamar a `az acs create`. Puede hacer que la versión 2.0 de la CLI de Azure genere las claves automáticamente y las pase al mismo tiempo mediante la opción `--generate-ssh-keys`, o bien, puede pasar la ruta de acceso a las claves mediante la opción `--ssh-key-value` (la ubicación predeterminada en Linux es `~/.ssh/id_rsa.pub` y en Windows `%HOMEPATH%\.ssh\id_rsa.pub`, pero se puede cambiar). Para crear archivos de claves públicas y privadas de SSH en Linux, consulte el artículo sobre la [creación de claves SSH en Linux y Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). Para crear archivos de claves públicas y privadas de SSH en Windows, consulte el artículo sobre la [creación de claves SSH en Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para crear un clúster seguro, se pasa el archivo de claves públicas de SSH al llamar a `az acs create`. Puede hacer que la versión 2.0 de la CLI de Azure genere las claves automáticamente y las pase al mismo tiempo mediante la opción `--generate-ssh-keys`, o bien, puede pasar la ruta de acceso a las claves mediante la opción `--ssh-key-value` (la ubicación predeterminada en Linux es `~/.ssh/id_rsa.pub` y en Windows `%HOMEPATH%\.ssh\id_rsa.pub`, pero se puede cambiar).
+<!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
+> Para crear archivos de claves públicas y privadas de SSH en Linux, consulte el artículo sobre la [creación de claves SSH en Linux y Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para crear archivos de claves públicas y privadas de SSH en Windows, consulte el artículo sobre la [creación de claves SSH en Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. En primer lugar, escriba el comando [az login](/cli/azure/#login) en una ventana de terminal para iniciar sesión en su suscripción de Azure con la CLI de Azure: 
 
     `az login`
 
-1. Cree un grupo de recursos en el que se colocará el clúster mediante [az resource group create](/cli/azure/resource/group#create):
+1. Cree un grupo de recursos en el que se colocará el clúster mediante [az group create](/cli/azure/group#create):
     
-    `az resource group create --name myacs-rg --location westus`
+    `az group create --name myacs-rg --location westus`
 
     Puede que desee especificar la [región del centro de datos de Azure](https://azure.microsoft.com/regions) más cercana. 
 
@@ -325,26 +328,26 @@ Elimine el clúster de ACS:
 1. Busque el grupo de recursos que contiene el clúster de ACS.
 1. Abra la interfaz de usuario de la hoja del grupo de recursos y haga clic en **Eliminar** en la barra de comandos de la hoja.
 
-Elimine Azure Container Registry:
-1. En Azure Portal, busque la instancia de Azure Container Registry y elimínela. 
+Elimine Azure Container Registry: en Azure Portal, busque la instancia de Azure Container Registry y elimínela. 
 
 La [cuenta de Visual Studio Team Services ofrece un nivel de acceso básico gratuito para los cinco primeros usuarios](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), pero se pueden eliminar las definiciones de compilación y versión.
-1. Elimine la definición de la compilación de VSTS:
+
+Elimine la definición de la compilación de VSTS:
         
-    * Abra la dirección URL de la definición de compilación en el explorador y haga clic en el vínculo **Definiciones de compilación** (junto al nombre de la definición de compilación que está viendo actualmente).
-    * Haga clic en el menú de acción al lado de la definición de compilación que desea eliminar y seleccione **Eliminar definición**.
+1. Abra la dirección URL de la definición de compilación en el explorador y haga clic en el vínculo **Definiciones de compilación** (junto al nombre de la definición de compilación que está viendo actualmente).
+2. Haga clic en el menú de acción al lado de la definición de compilación que desea eliminar y seleccione **Eliminar definición**.
 
-    ![Eliminación de la definición de compilación en VSTS](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
+`![Eliminación de la definición de compilación en VSTS](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
-1. Elimine la definición de la versión en VSTS:
+Elimine la definición de la versión en VSTS:
 
-    * Abra la dirección URL de la definición de la versión en el explorador.
-    * En la lista Definición de versiones, situada en la parte izquierda, haga clic en la lista desplegable situada junto a la definición de la versión que desea eliminar y seleccione **Eliminar**.
+1. Abra la dirección URL de la definición de la versión en el explorador.
+2. En la lista Definición de versiones, situada en la parte izquierda, haga clic en la lista desplegable situada junto a la definición de la versión que desea eliminar y seleccione **Eliminar**.
 
-    ![Eliminación de la definición de la versión en VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
+`![Eliminación de la definición de la versión en VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4f2b61e7c97beb7556bffca89c3608aaee831ddc
 
 
 ---
@@ -36,7 +36,7 @@ Consulte la [ayuda de cmdlets de Azure RemoteApp](https://msdn.microsoft.com/lib
 
 ## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configuración de los cmdlets de Azure para usar su suscripción
 - - -
-Siga [esta guía](../powershell-install-configure.md) para poder usar los cmdlets en su suscripción de Azure.
+Siga [esta guía](/powershell/azureps-cmdlets-docs) para poder usar los cmdlets en su suscripción de Azure.
 
 Puede usar estos pasos para una introducción rápida:
 
@@ -118,6 +118,6 @@ Otros cmdlets de RemoteApp:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

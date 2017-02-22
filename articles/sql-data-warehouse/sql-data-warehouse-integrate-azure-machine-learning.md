@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f30cfab50407e31ccad61888d7de40e4f0fcba24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 30dcbe33b359afc3f118effce07f6574bb35d5d5
 
 
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
-Aprendizaje automático de Azure es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, consulte la [introducción a Machine Learning en Azure][introducción a Machine Learning en Azure].  Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Tutorial para crear un experimento].
+Aprendizaje automático de Azure es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].  Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Create experiment tutorial].
 
-En este artículo, aprenderá cómo hacer lo siguiente utilizando el [Estudio de aprendizaje automático de Azure][Estudio de aprendizaje automático de Azure]:
+En este artículo, aprenderá cómo hacer lo siguiente utilizando [Azure Machine Learning Studio][Azure Machine Learning Studio]:
 
 * Leer datos de la base de datos para crear, entrenar y puntuar un modelo predictivo
 * Escribir datos en la base de datos
@@ -42,7 +42,7 @@ Busque el módulo Lector en la paleta de conjuntos de datos y módulos que apare
 Seleccione el módulo Lector y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el origen de datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Portal de Azure][Portal de Azure].
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Azure Portal][Azure portal].
 
 ![][server_name]
 
@@ -78,7 +78,7 @@ Ahora puede utilizar este conjunto de datos para:
 
 ![][model]
 
-Para aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático, siga el [Tutorial para crear un experimento][Tutorial para crear un experimento].
+Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Create experiment tutorial].
 
 ## <a name="write-data-to-azure-sql-data-warehouse"></a>Escritura de datos en Almacenamiento de datos SQL de Azure
 Escribiremos el conjunto de resultados en la tabla ProductPriceForecast de la base de datos AdventureWorksDW.
@@ -92,7 +92,7 @@ Busque el módulo Redactor en la paleta de conjuntos de datos y módulos que apa
 Seleccione el módulo Redactor y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el destino de los datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Portal de Azure][Portal de Azure].
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Azure Portal][Azure portal].
 3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar.
 4. Nombre de la cuenta de usuario del servidor: escriba el nombre de usuario de una cuenta con permisos de escritura para la base de datos.
 5. Contraseña de la cuenta de usuario de servidor: proporcione la contraseña de la cuenta de usuario especificada.
@@ -109,7 +109,7 @@ Seleccione el módulo Redactor y rellene el panel de propiedades.
 2. Cuando el experimento finalice, todos los módulos tendrán una marca de verificación verde para indicar que se han implementado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -123,20 +123,20 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Article references-->
 
-[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
-[Tutorial para crear un experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Create experiment tutorial]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Introduction to machine learning on Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
-[Portal de Azure]: https://portal.azure.com/
+[Azure Machine Learning Studio]: https://studio.azureml.net/Home
+[Azure portal]: https://portal.azure.com/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-[Documentación de Azure Machine Learning]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

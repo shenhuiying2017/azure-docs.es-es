@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e37687e44fa80f59a3e95ec0e3051290bd9c0c0
+ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
+ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
 
 
 ---
@@ -41,7 +41,7 @@ Se trata de actualizaciones no perturbadoras que se pueden instalar cuando el di
 > 
 > 
 
-* Para obtener más información acerca de cómo instalar las actualizaciones normales mediante el Portal de Azure clásico, consulte [Instalar actualizaciones normales mediante el Portal de Azure clásico(#install-regular-updates-via-the-azure-classic-portal).
+* Para más información acerca de cómo instalar actualizaciones normales a través del Portal de Azure clásico, consulte [Instalar actualizaciones normales a través del Portal de Azure clásico](#install-regular-updates-via-the-azure-classic-portal).
 * También puede instalar actualizaciones normales a través de Windows PowerShell para StorSimple. Para obtener más información, consulte [Instalación de actualizaciones normales a través de Windows PowerShell para StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Actualizaciones en modo de mantenimiento
@@ -122,6 +122,6 @@ Si se restablece la configuración de fábrica de un dispositivo, se pierden tod
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

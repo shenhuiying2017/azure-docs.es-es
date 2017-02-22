@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e8b484ec7eff26919d4fb3869baf9f358c2522cb
-ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
+ms.sourcegitcommit: b520b4672dd403981d218c9855c3beb09ef55021
+ms.openlocfilehash: 6da28e6273d92445e4b14ea22752a6e59b1dd93a
 
 
 ---
@@ -41,9 +41,14 @@ Un cliente utiliza un token de acceso para acceder a un recurso protegido. Solo 
 ### <a name="refresh-tokens"></a>Tokens de actualización
 Cuando un cliente adquiere un token de acceso para acceder a un recurso protegido, recibe un token de actualización y un token de acceso. El token de actualización se usa para obtener nuevos pares de tokens de acceso/actualización cuando el token de acceso actual expira. Los tokens de actualización están vinculados a combinaciones de usuario y cliente. Se pueden revocar y su validez se comprueba cada vez que se usan.
 
-Es importante diferenciar entre clientes públicos y confidenciales. Los clientes confidenciales son aplicaciones que pueden almacenar de forma segura una contraseña de cliente, lo que les permite comprobar que las solicitudes proceden de la aplicación cliente y no de un individuo malintencionado. Como estos flujos son más seguros, las vigencias predeterminadas de los tokens de actualización emitidos a estos flujos son más altas y no se pueden cambiar mediante directiva.
+Es importante diferenciar entre clientes públicos y confidenciales. Para más información sobre los diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
-Debido a las limitaciones del entorno en el que se ejecutan las aplicaciones, los clientes públicos no pueden almacenar de forma segura una contraseña de cliente. Se pueden establecer directivas sobre los recursos para evitar que los tokens de actualización de clientes públicos anteriores a un período especificado obtengan un nuevo par de tokens de acceso/actualización (tiempo máximo de inactividad del token de actualización).  Además, se pueden usar directivas para establecer un período de tiempo más allá del cual los tokens de actualización ya no se aceptan (antigüedad máxima del token de actualización).  El ajuste de la vigencia del token de actualización le permite controlar cuándo y con qué frecuencia es necesario que el usuario vuelva a escribir las credenciales en lugar de volver a autenticarse de forma silenciosa al usar una aplicación cliente pública.
+#### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Vigencia de los tokens de actualización de cliente confidencial
+Los clientes confidenciales son aplicaciones que pueden almacenar de forma segura una contraseña de cliente (secreto), lo que les permite comprobar que las solicitudes proceden de la aplicación cliente y no de un individuo malintencionado. Por ejemplo, una aplicación web es un cliente confidencial ya que puede almacenar un secreto de cliente en el servidor web y, por tanto, este secreto no se expone. Como estos flujos son más seguros, las vigencias predeterminadas de los tokens de actualización emitidos a estos flujos son más altas y no se pueden cambiar mediante directiva.
+
+#### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Vigencia de los tokens de actualización de cliente público 
+
+Los clientes públicos no pueden almacenar de forma segura una contraseña (secreto) de cliente. Por ejemplo, una aplicación de iOS o Android no puede ofuscar un secreto del propietario del recurso y, como tal, se considera a la aplicación un cliente público.  Se pueden establecer directivas sobre los recursos para evitar que los tokens de actualización de clientes públicos anteriores a un período especificado obtengan un nuevo par de tokens de acceso/actualización (tiempo máximo de inactividad del token de actualización).  Además, se pueden usar directivas para establecer un período de tiempo más allá del cual los tokens de actualización ya no se aceptan (antigüedad máxima del token de actualización).  El ajuste de la vigencia del token de actualización le permite controlar cuándo y con qué frecuencia es necesario que el usuario vuelva a escribir las credenciales en lugar de volver a autenticarse de forma silenciosa al usar una aplicación cliente pública.
 
 ### <a name="id-tokens"></a>Tokens de identificador
 Los tokens de identificador se pasan a clientes nativos y sitios web y contienen información del perfil de un usuario. Un token de identificador se enlaza a una combinación específica de usuario y cliente. Los tokens de identificador se consideran válidos hasta que expiran.  Normalmente, una aplicación web relaciona la vigencia de la sesión de un usuario en la aplicación con la vigencia del token de identificador emitido para el usuario.  El ajuste de la vigencia del token de identificador le permite controlar la frecuencia con la que la aplicación web expirará la sesión de la aplicación y requerirá que el usuario se vuelva a autenticar en Azure AD (de forma silenciosa o interactiva).
@@ -449,6 +454,6 @@ Quita la directiva de la entidad de servicio especificada.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

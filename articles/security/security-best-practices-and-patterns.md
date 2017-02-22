@@ -1,28 +1,33 @@
 ---
 title: Patrones y procedimientos recomendados de seguridad en Azure | Microsoft Docs
-description: El artículo proporciona una introducción acerca de los patrones y procedimientos recomendados de seguridad de Azure, así como una lista exclusiva de procedimientos recomendados de seguridad para los distintos recursos de Azure.
+description: "El artículo proporciona una introducción acerca de los patrones y procedimientos recomendados de seguridad de Azure, así como una lista exclusiva de procedimientos recomendados de seguridad para los distintos recursos de Azure."
 services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
+ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+
 
 ---
-# Patrones y procedimientos recomendados de seguridad en Azure
-Actualmente se pueden consultar los siguientes artículos de patrones y procedimientos recomendados de seguridad de Azure. Asegúrese de visitar este sitio periódicamente para estar al tanto de las novedades de nuestra lista actualizada de patrones y procedimientos recomendados de seguridad de Azure:
+# <a name="azure-security-best-practices-and-patterns"></a>Patrones y procedimientos recomendados de seguridad en Azure
+Actualmente se pueden consultar los siguientes artículos de patrones y procedimientos recomendados de seguridad de Azure. Asegúrese de visitar este sitio periódicamente para estar al tanto de las novedades de nuestra lista actualizada de patrones y procedimientos recomendados de seguridad de Azure:  
 
 * [Procedimientos recomendados de seguridad de la red de Azure](azure-security-network-security-best-practices.md)
 * [Procedimientos recomendados de cifrado y seguridad de datos en Azure](azure-security-data-encryption-best-practices.md)
 * [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](azure-security-identity-management-best-practices.md)
 * [Procedimientos recomendados de seguridad de Internet de las cosas](azure-security-iot-best-practices.md)
+* [Prácticas recomendadas de seguridad de IaaS de Azure] (azure-security-iaas.md)
 * [Procedimientos recomendados para actualizaciones de software en IaaS de Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 * [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure (Implementación de una arquitectura de red híbrida segura en Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
@@ -43,4 +48,8 @@ Para cada procedimiento recomendado, explicaremos:
 
 Esperamos incluir muchos más artículos sobre arquitectura de seguridad de Azure y procedimientos recomendados. Si hay algún tema que le gustaría que incluyéramos, háganoslo saber en el área de discusión en la parte inferior de esta página.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO4-->
+
+

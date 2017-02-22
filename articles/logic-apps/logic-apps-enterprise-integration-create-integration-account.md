@@ -1,77 +1,76 @@
 ---
-title: "Información general sobre las cuentas de integración y Enterprise Integration Pack | Microsoft Docs"
-description: "Aprenda todo lo que necesita saber sobre las cuentas de integración, Enterprise Integration Pack y las Aplicaciones lógicas."
+title: "Creación, vinculación, eliminación o movimiento de una cuenta de integración en Azure Logic Apps | Microsoft Docs"
+description: "Creación de una cuenta de integración y vinculación de la misma a Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2016
-ms.author: deonhe
+ms.date: 01/27/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: ce2f01045195b9881bc1b3c337c453d10cd39540
+ms.sourcegitcommit: dca762854f22721de76f69cbc28c0377d563fe28
+ms.openlocfilehash: e26271a1291fc76e3ea8f93a7aa9ab8c811ff604
 
 
 ---
-# <a name="overview-of-integration-accounts"></a>Información general sobre las cuentas de integración
-## <a name="what-is-an-integration-account"></a>¿Qué es una cuenta de integración?
-Una cuenta de integración es una cuenta de Azure que permite a las aplicaciones de Enterprise Integration Pack administrar artefactos, incluidos esquemas, asignaciones, certificados, partners y contratos. Todas las aplicaciones de integración que cree tendrán que utilizar una cuenta de integración para acceder, por ejemplo, a un esquema, una asignación o un certificado.
+
+# <a name="what-is-an-integration-account"></a>¿Qué es una cuenta de integración?
+Una cuenta de integración permite a las aplicaciones de integración empresarial administrar artefactos, incluidos esquemas, asignaciones, certificados, asociados y contratos. Cualquier aplicación de integración que se crea, utiliza una cuenta de integración para tener acceso a estos esquemas, mapas, certificados, etc.
 
 ## <a name="create-an-integration-account"></a>Creación de una cuenta de integración
-1. Seleccione **Examinar**   
+1. Seleccione **Examinar**:   
    ![](./media/logic-apps-enterprise-integration-accounts/account-1.png)  
-2. Escriba **integration** en el cuadro de búsqueda del filtro y seleccione **Integration Accounts** (Cuentas de integración) en la lista de resultados     
+2. Escriba **integración** en el cuadro de búsqueda del filtro y seleccione **Cuentas de integración** en la lista de resultados:     
    ![](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
-3. En el menú de la parte superior de la página, haga clic en el botón *Agregar*      
+3. En el menú de la parte superior de la página, haga clic en el botón *Agregar*:      
    ![](./media/logic-apps-enterprise-integration-accounts/account-3.png)  
 4. Escriba el **nombre**, seleccione la **suscripción** que desea usar, cree una nuevo **grupo de recursos** o seleccione uno existente, seleccione la **ubicación** en que se hospedará la cuenta de integración, seleccione un **plan de tarifa** y, luego, haga clic en el botón **Crear**.   
    
    En este momento, la cuenta de integración se aprovisionará en la ubicación seleccionada. Este proceso debería tardar un 1 minuto como máximo.    
    ![](./media/logic-apps-enterprise-integration-accounts/account-4.png)  
-5. Actualice la página. Verá que la nueva cuenta de integración aparece en la lista. Felicidades.  
+5. Actualice la página. Verá que la nueva cuenta de integración aparece en la lista:  
    ![](./media/logic-apps-enterprise-integration-accounts/account-5.png) 
 
-## <a name="how-to-link-an-integration-account-to-a-logic-app"></a>¿Cómo se vincula una cuenta de integración a una Aplicación lógica?
-Para que las Aplicaciones lógicas puedan acceder a las asignaciones, los esquemas, los contratos y otros artefactos de su cuenta de integración, antes debe vincularla a su Aplicación lógica.
+A continuación, vincule la cuenta de integración que acaba de crear a la aplicación lógica. 
 
-### <a name="here-are-the-steps-to-link-an-integration-account-to-a-logic-app"></a>A continuación, figuran los pasos para vincular una cuenta de integración a una Aplicación lógica.
-#### <a name="prerequisites"></a>Requisitos previos
+## <a name="link-an-integration-account-to-a-logic-app"></a>Vinculación de una cuenta de integración a una aplicación lógica
+Para que las aplicaciones lógicas puedan acceder a las asignaciones, los esquemas, los contratos y otros artefactos de la cuenta de integración, vincule esta a la aplicación lógica.
+
+#### <a name="prereqs"></a>Requisitos previos
 * Tener una cuenta de integración
-* Disponer de una Aplicación lógica
+* Tener una aplicación lógica
 
-> [!NOTE]
-> Antes de empezar, asegúrese de que la cuenta de la integración y la Aplicación lógica se encuentran en la **misma ubicación de Azure** .
-> 
-> 
+> [!NOTE] 
+> Antes de empezar, asegúrese de que la cuenta de integración y la aplicación lógica se encuentran en la **misma ubicación de Azure**.
 
-1. Seleccione el vínculo **Settings** (Configuración) del menú de la aplicación lógica  
+1. Seleccione el vínculo **Configuración** en el menú de la aplicación lógica:  
    ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)   
-2. Seleccione el elemento **Integration Account** (Cuenta de integración) en la hoja Settings (Configuración)  
+2. Seleccione el elemento **Cuenta de integración** en la hoja Configuración:  
    ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-2.png)   
-3. Seleccione la cuenta de integración que desee vincular a su aplicación lógica en el cuadro de lista desplegable **Select an Integration account** (Seleccione una cuenta de integración)  
+3. Seleccione la cuenta de integración que desee vincular a la aplicación lógica en el cuadro de lista desplegable **Seleccione una cuenta de integración**:  
    ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-3.png)   
-4. Guarde el trabajo  
+4. Guarde el trabajo:  
    ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-4.png)   
-5. Verá una notificación que indica que la cuenta de integración se ha vinculado a su Aplicación lógica y que todos los artefactos de la cuenta de integración están ahora disponibles en la Aplicación lógica.  
+5. Verá una notificación que indica que la cuenta de integración se ha vinculado a la aplicación lógica y que todos los artefactos de la cuenta de integración están ahora disponibles en dicha aplicación:  
    ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)   
 
-Ahora que la cuenta de integración se ha vinculado a la Aplicación lógica, puede acceder a esta última y usar los conectores B2B, como los de validación XML, codificación y descodificación de archivo sin formato o transformación, para crear aplicaciones con características B2B.  
+Ahora que la cuenta de integración está vinculada a la aplicación lógica, puede usar los conectores de B2B dentro de las aplicaciones lógicas. Algunos conectores B2B comunes incluyen validación XML y codificación y descodificación de archivos planos.  
 
 ## <a name="how-to-delete-an-integration-account"></a>¿Cómo se elimina una cuenta de integración?
-1. Seleccione **Examinar**  
+1. Seleccione **Examinar**:  
    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
-2. Escriba **integration** en el cuadro de búsqueda del filtro y seleccione **Integration Accounts** (Cuentas de integración) en la lista de resultados     
+2. Escriba **integración** en el cuadro de búsqueda del filtro y seleccione **Cuentas de integración** en la lista de resultados:     
    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
-3. Seleccione la **cuenta de integración** que desee eliminar  
+3. Seleccione la **cuenta de integración** que desee eliminar:  
    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Haga clic en el vínculo **Delete** (Eliminar) del menú   
+4. Haga clic en el vínculo **Eliminar** del menú:   
    ![](./media/logic-apps-enterprise-integration-accounts/delete.png)  
 5. Confirme la selección.    
 
@@ -79,17 +78,15 @@ Ahora que la cuenta de integración se ha vinculado a la Aplicación lógica, pu
 Puede mover fácilmente una cuenta de integración a una nueva suscripción y a un grupo de recursos. Siga estos pasos si tiene que mover su cuenta de integración:
 
 > [!IMPORTANT]
-> Tendrá que actualizar todos los scripts para utilizar los nuevos id. de recurso después de mover una cuenta de integración.
-> 
-> 
+> Tiene que actualizar todos los scripts para utilizar los nuevos identificadores de recurso después de mover una cuenta de integración.
 
-1. Seleccione **Examinar**  
+1. Seleccione **Examinar**:  
    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
-2. Escriba **integration** en el cuadro de búsqueda del filtro y seleccione **Integration Accounts** (Cuentas de integración) en la lista de resultados     
+2. Escriba **integración** en el cuadro de búsqueda del filtro y seleccione **Cuentas de integración** en la lista de resultados:     
    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
-3. Seleccione la **cuenta de integración** que desee eliminar  
+3. Seleccione la **cuenta de integración** que desee eliminar:  
    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Haga clic en el vínculo **Move** (Mover) del menú   
+4. Haga clic en el vínculo **Mover** del menú:   
    ![](./media/logic-apps-enterprise-integration-accounts/move.png)  
 5. Confirme la selección.    
 
@@ -99,6 +96,6 @@ Puede mover fácilmente una cuenta de integración a una nueva suscripción y a 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

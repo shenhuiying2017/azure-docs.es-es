@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/10/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: a3d79c2df96c21d1af77c8ea1f53a2cc4e28343e
-ms.openlocfilehash: 30b1a9144e06db92ba12030dfe37a83e79d62857
+ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
+ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
 
 
 ---
@@ -72,9 +72,9 @@ Hay tres maneras de obtener el archivo de instalación de OMS Gateway.
 
 ### <a name="oms-portal"></a>Portal de OMS
 
-1.  Inicie sesión en su área de trabajo de OMS.
-2.  Seleccione **Configuración** > **Orígenes conectados** > **Servidores Windows**.
-3.  Haga clic en **Descargar OMS Gateway**.
+1.    Inicie sesión en su área de trabajo de OMS.
+2.    Seleccione **Configuración** > **Orígenes conectados** > **Servidores Windows**.
+3.    Haga clic en **Descargar OMS Gateway**.
 
 
 ### <a name="azure-portal"></a>Portal de Azure
@@ -100,11 +100,11 @@ Requisitos previos: .Net Framework 4.5, Windows Server 2012 R2 SP1 y versiones p
 4. En la página de dirección del proxy y puerto:
    1. Escriba el número de puerto TCP que se va a usar para la puerta de enlace. El programa de instalación abre este número de puerto del firewall de Windows. El valor predeterminado es 8080.
       El intervalo válido del número de puerto es 1 - 65535. Si el valor especificado no se encuentra en este intervalo, aparece un mensaje de error.
-   2. Opcionalmente, si el servidor en que está instalada la puerta de enlace necesita un proxy, escriba la dirección del proxy al que debe conectarse la puerta de enlace. Por ejemplo, `http://myorgname.corp.contoso.com:80`. Si está en blanco, la puerta de enlace intentará conectarse a Internet directamente. De lo contrario, la puerta de enlace se conecta al proxy. Si el servidor proxy requiere autenticación, escriba el nombre de usuario y la contraseña.
+   2. Opcionalmente, si el servidor en que está instalada la puerta de enlace necesita un proxy, escriba la dirección del proxy al que debe conectarse la puerta de enlace. Por ejemplo, `http://myorgname.corp.contoso.com:80`. Si está en blanco, la puerta de enlace intentará conectarse a Internet directamente. De lo contrario, la puerta de enlace se conecta al proxy. Si el servidor proxy requiere autenticación, escriba el nombre de usuario y la contraseña.  
        ![Configuración del proxy en el Asistente de la puerta de enlace](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Haga clic en **Siguiente**
 5. Si Microsoft Update no está habilitado, aparecerá la página de Microsoft Update, donde puede elegir habilitarlo. Elija la opción que desee y haga clic en **Siguiente**. De lo contrario, continúe con el paso siguiente.
-6. En la página de la carpeta de destino, deje la carpeta predeterminada **%ProgramFiles%\OMS Gateway** o escriba la ubicación en la que desea instalar la puerta de enlace y haga clic en **Siguiente**.
+6. En la página de la carpeta de destino, deje la carpeta predeterminada %ProgramFiles%\OMS Gateway o escriba la ubicación en la que desea instalar la puerta de enlace y haga clic en **Siguiente**.
 7. En la página Ready to install OMS Gateway Preparado para instalar OMS Gateway, haga clic en **Instalar**. Puede aparecer un Control de cuentas de usuario que solicite permiso para realizar la instalación. Si aparece, haga clic en **Sí**.
 8. Una vez completada la instalación, haga clic en **Finalizar**. Para comprobar que el servicio se ejecuta, abra el complemento services.msc y compruebe que **OMS Gateway** aparece en la lista de servicios.  
     ![Servicios: OMS Gateway](./media/log-analytics-oms-gateway/gateway-service.png)
@@ -280,6 +280,6 @@ También puede dejar sus comentarios acerca de OMS o Log Analytics en el [foro d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 889f68c774bc9da8465e597afe0508d69b060574
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 6e0efe18c1170ef3b5a9b894888e926b31432e07
 
 
 ---
@@ -34,7 +34,7 @@ Para examinar módulos personalizados en la galería, abra la [galería](http://
  La página **[Módulos personalizados](https://gallery.cortanaintelligence.com/customModules)**
  muestra una lista de los módulos más conocidos.
 Haga clic en **Ver todos** para ver todos los módulos personalizados.
-Desde esta página, puede examinar todos los módulos personalizados en la galería, o puede buscar seleccionando criterios de filtro a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
+Desde esta página, puede examinar todos los módulos personalizados de la Galería. También puede buscar seleccionando criterios de filtrado a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
 
 ### <a name="comment-and-share"></a>Comentario y recurso compartido
  Haga clic en cualquier módulo personalizado para abrir la página de detalles del módulo y leer información sobre lo que hace el módulo y cómo utilizarlo. En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo al módulo personalizado para invitar a otros usuarios a ver la página.
@@ -88,6 +88,6 @@ El módulo personalizado se copia en el área de trabajo y se coloca en la palet
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

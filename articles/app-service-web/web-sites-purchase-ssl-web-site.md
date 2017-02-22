@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ec30d3a0c00adef585e3cf22c682830a7d5cce4
+ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
+ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
 
 
 ---
@@ -107,18 +107,8 @@ En este paso, aprenderá a almacenar un certificado SSL que adquirió en el Alma
 ## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Paso 2: Comprobar la propiedad del dominio
 En este paso, aprenderá a comprobar la verificación de la propiedad del dominio para un certificado SSL para el que acaba de hacer un pedido. 
 
-1. Haga clic en **"Paso 2: Comprobar"** desde la hoja **"Configuración del certificado"**. Los certificados del Servicio de aplicaciones admiten 4 tipos de comprobación de dominio.
+1. Haga clic en **"Paso 2: Comprobar"** desde la hoja **"Configuración del certificado"**. Los certificados App Service Certificate admiten 3 tipos de comprobación de dominio.
    
-   * **Comprobación del Servicio de aplicaciones** 
-     
-     * Este es el proceso más conveniente si ya tiene **el dominio personalizado asignado a las aplicaciones de App Service**. Este método mostrará una lista con todas las aplicaciones del Servicio de aplicaciones que cumplen este criterio. 
-        Por ejemplo, en este caso, **contosocertdemo.com** es un dominio personalizado que se asigna a la aplicación de App Service llamado **"ContosoCertDemo"**, por lo que es la única aplicación de App Service enumerada aquí. Si hubiera una implementación en varias regiones, la enumeraría en todas las regiones.
-       
-        El método de verificación SOLO está disponible para compras de certificado de tipo Estándar (Básico). Para los certificados comodín, omita esta opción y pase a la opción B, C o D siguiente.
-     * Haga clic en el botón **“Comprobar”** para completar este paso.
-     * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
-     
-     ![insertar imagen de comprobación del Servicio de aplicaciones](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
    * **Comprobación del dominio** 
      
      * Este es el proceso más conveniente **SOLO SI** ha **[adquirido el dominio personalizado desde Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
@@ -131,15 +121,7 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
      * Si necesita volver a enviar el correo electrónico de comprobación, haga clic en el botón **"Reenviar correo electrónico"** .
    * **Comprobación manual**    
      
-     1. **Comprobación de página web HTML**
-        
-        * Cree un archivo HTML llamado **{Token de comprobación de dominio}**.html (puede copiar el token desde la hoja de estado de comprobación de dominio).
-        * El contenido de este archivo debe ser exactamente el mismo nombre de **Token de comprobación de dominio**.
-        * Cargue este archivo en la raíz del servidor web que hospeda el dominio.
-        * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
-          
-          Por ejemplo, si va a comprar un certificado estándar de contosocertdemo.com con el Token de comprobación de dominio **"cAGgQrKc"**, entonces una solicitud web hecha a **"http://contosocertdemo.com/cAGgQrKc.html"** debe devolver **cAGgQrKc.**
-     2. **Comprobación del registro TXT de DNS**
+      **Comprobación del registro TXT de DNS**
         
         * Mediante el administrador de DNS, cree un registro TXT en el subdominio **"DZC"** con valor igual al **token de comprobación de dominio.**
         * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
@@ -200,13 +182,13 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 * [Portal de administración de Azure](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

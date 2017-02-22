@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre la seguridad de red de Azure | Microsoft Docs"
-description: " Este artículo permite comprender de forma sencilla la oferta de Microsoft Azure en el área de la seguridad de red. Proporcionamos explicaciones básicas de los conceptos y requisitos fundamentales de la seguridad de red, así como información sobre lo que puede ofrecer Azure en cada una de estas áreas. "
+title: Conceptos y requisitos de seguridad de red en Azure| Microsoft Docs
+description: " Este artículo permite comprender de forma sencilla la oferta de Microsoft Azure en el área de la seguridad de red. Proporcionamos explicaciones básicas de los conceptos y requisitos fundamentales de la seguridad de red, así como información sobre lo que puede ofrecer Azure en cada una de estas áreas.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f62d964dc5da9200a9f1944c00a4983e8d01b997
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
 
 
 ---
@@ -270,6 +270,6 @@ Más información:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

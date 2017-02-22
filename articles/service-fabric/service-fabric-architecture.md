@@ -1,5 +1,5 @@
 ---
-title: Arquitectura de Service Fabric | Microsoft Docs
+title: Arquitectura de Azure Service Fabric | Microsoft Docs
 description: "Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube. En este artículo se muestra la arquitectura de Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/09/2016
 ms.author: rsinha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 911e1cedd944d22f9e13c1ec784bae0efb0947e2
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: c485e8a3d12e7d2dcbfd6304a67aaa4fc2838b3f
 
 
 ---
@@ -66,6 +66,6 @@ La capacidad de prueba es un conjunto de herramientas diseñadas de manera espec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

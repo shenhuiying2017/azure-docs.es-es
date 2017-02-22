@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -45,7 +45,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 **Copia de seguridad coherente con la aplicación**: tanto si va a realizar una copia de seguridad de un servidor de archivos, una máquina virtual o una base de datos SQL, debe saber que un punto de recuperación tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitan correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que le permite volver rápidamente a un estado de ejecución.
 
-**Retención a largo plazo**: cree una copia de seguridad de los datos en Azure durante 99 años. En lugar de pasar las copias de seguridad de disco a cinta y luego trasladar la cinta a una ubicación externa para almacenamiento a largo plazo, puede usar Azure para la retención a corto y largo plazo.
+**Retención a largo plazo**: en lugar de pasar las copias de seguridad de disco a cinta y luego llevar dicha cinta a una ubicación externa para su almacenamiento a largo plazo, puede usar Azure para la retención a corto y largo plazo. Azure no limita la cantidad de tiempo que los datos se conservan en un almacén de Backup o Recovery Services. Los datos se pueden conservar en un almacén tanto tiempo como se desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. Consulte la sección [Copia de seguridad y retención](backup-introduction-to-azure-backup.md#backup-and-retention) de este artículo para obtener una explicación de la forma en que este límite puede afectar a sus necesidades de copia de seguridad.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>¿Qué componentes de Azure Backup debo usar?
 Si no está seguro de qué componentes de Azure Backup vienen bien para sus necesidades, consulte la siguiente tabla para información sobre lo que puede proteger con cada uno. Azure Portal proporciona un asistente, que está integrado en el portal, para guiarle a través de la elección de los componentes para descargar e implementar. El asistente, que forma parte de la creación del almacén de Recovery Services, le lleva por los pasos para seleccionar un objetivo de copia de seguridad y elegir los datos o la aplicación para proteger.
@@ -107,6 +107,15 @@ Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de
 
 ### <a name="restore-premium-storage-vms"></a>Restauración de máquinas virtuales de almacenamiento premium
 Las máquinas virtuales de Premium Storage se pueden restaurar a cualquier almacenamiento premium o normal. El proceso habitual de restauración consiste en restaurar un punto de recuperación de la máquina virtual de almacenamiento premium a almacenamiento premium. Sin embargo, puede ser más rentable restaurar un punto de recuperación de la máquina virtual de almacenamiento premium a almacenamiento estándar. Este tipo de restauración se puede utilizar si necesita un subconjunto de archivos de la máquina virtual.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Uso de máquinas virtuales de disco administrado con Azure Backup
+Azure Backup protege las máquinas virtuales de disco administrado. Los discos administrados le liberan de la administración de cuentas de almacenamiento de máquinas virtuales simplifican en gran medida el aprovisionamiento de las máquinas virtuales.
+
+### <a name="back-up-managed-disk-vms"></a>Copia de seguridad de máquinas virtuales de disco administrado
+La copia de seguridad de las máquinas virtuales en discos administrados no difiere de la de máquinas virtuales de Resource Manager. Puede hacer una copia de seguridad directamente desde la vista de la máquina virtual o desde la vista de almacén de Recovery Services. Se admite la copia de seguridad de máquinas virtuales en discos administrados a través de colecciones de RestorePoint basadas en discos administrados. Actualmente Azure Backup no es compatible con la copia de seguridad de máquinas virtuales de disco administrado que cifradas mediante Azure Disk Encryption (ADE).
+
+### <a name="restore-managed-disk-vms"></a>Restauración de máquinas virtuales de disco administrado
+Azure Backup le permite restaurar una máquina virtual completa con discos administrados o de restauración administrada a una cuenta de almacenamiento de Resource Manager. Aunque los discos creados durante la restauración los administra Azure, la cuenta de almacenamiento creada como parte de este proceso es similar a cualquier otra de Resource Manager y se espera que la administre el cliente.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>¿Cuáles son las características de cada componente de Backup?
 En las secciones siguientes se proporcionan tablas que resumen la disponibilidad o la compatibilidad de diversas características de cada componente de Azure Backup. Consulte la siguiente información de cada tabla para obtener ayuda o información adicional.
@@ -175,7 +184,7 @@ Si la copia de seguridad de los datos se va a realizar en System Center DPM o en
 #### <a name="network-throttling"></a>Limitación de la red
 El agente de Azure Backup ofrece velocidad moderada de la red, que le permite controlar cómo se usa el ancho de banda de red durante la transferencia de datos. La limitación puede resultar útil si necesita realizar una copia de seguridad de datos durante horas de trabajo, pero no desea que el proceso de copia de seguridad interfiera con otro tráfico de Internet. La limitación en la transferencia de datos se aplica a actividades de copia de seguridad y restauración.
 
-### <a name="backup-and-retention"></a>Copia de seguridad y retención
+## <a name="backup-and-retention"></a>Copia de seguridad y retención
 
 Azure Backup tiene un límite de 9999 puntos de recuperación, también conocidos como copias de seguridad o instantáneas, por cada *instancia protegida*. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo configurada para realizar copias de seguridad en Azure. Para más información, consulte la sección [Descripción de una instancia protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Una instancia está protegida una vez que se ha guardado una copia de seguridad de los datos. La copia de seguridad de los datos es la protección. Si los datos de origen se pierden o dañan, la copia de seguridad puede restaurar los datos de origen. En la tabla siguiente se muestra la frecuencia máxima de copia de seguridad para cada componente. La configuración de la directiva de copia de seguridad determina la rapidez con que se consumen los puntos de recuperación. Por ejemplo, si crea un punto de recuperación cada día, puede conservarlos durante 27 años antes de que se agoten. Si crea un punto de recuperación cada mes, puede conservarlos durante 833 años antes de que se agoten. El servicio Backup no establece un límite de tiempo de expiración para un punto de recuperación.
 
@@ -234,6 +243,6 @@ Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

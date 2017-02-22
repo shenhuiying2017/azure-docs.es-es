@@ -252,6 +252,6 @@ En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS de
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

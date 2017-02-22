@@ -1,5 +1,5 @@
 ---
-title: "Guía de solución de problemas de ExpressRoute: obtención de tablas ARP | Microsoft Docs"
+title: "Obtención de tablas ARP: Implementación clásica: Solución de problemas de Azure ExpressRoute | Microsoft Docs"
 description: "En esta página se proporcionan instrucciones para obtener tablas ARP para un circuito ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 49f7eae7184fda3ea73c8a85e354d0e41df039c7
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
 
 
 ---
-# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>Guía de solución de problemas de ExpressRoute: obtención de tablas ARP en el modelo de implementación clásica
+# <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obtención de tablas ARP en el modelo de implementación clásica
 > [!div class="op_single_selector"]
 > * [PowerShell: administrador de recursos](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell: clásico](expressroute-troubleshooting-arp-classic.md)
@@ -172,6 +172,6 @@ La tabla ARP de un emparejamiento se puede usar para validar la configuración y
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

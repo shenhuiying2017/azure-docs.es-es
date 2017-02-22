@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre Enterprise Integration Pack | Microsoft Docs"
-description: "Utilice las características de Enterprise Integration Pack para posibilitar escenarios de integración y proceso empresariales mediante el Servicio de aplicaciones de Microsoft Azure."
+title: "Conversión de datos XML con transformaciones: Azure Logic Apps | Microsoft Docs"
+description: "Crear transformaciones o mapas para convertir datos XML de un formato a otro en las aplicaciones lógicas mediante el SDK de Enterprise Integration"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: cca850073040cde0fb6f035f041419ac777bb0a2
+ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
+ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
 
 
 ---
@@ -75,6 +75,6 @@ Ahora puede probar la transformación realizando una solicitud al punto de conex
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

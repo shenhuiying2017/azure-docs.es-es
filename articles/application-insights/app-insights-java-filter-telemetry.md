@@ -13,8 +13,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b18b1d4c2a3b9e1bba36bce2f38917501e641c4f
-ms.openlocfilehash: 29dab5bc8eb76200f03a32b9299b4d89b247ab36
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: cd09b7c5d45d07a3fbcc5d6f0c02400dcd36d61b
 
 
 ---
@@ -29,7 +29,7 @@ Los filtros de serie incluyen:
 * Respuestas rápidas, es decir, las solicitudes a las que la aplicación responde rápidamente
 * Nombres de eventos específicos
 
-> [!NOTE] 
+> [!NOTE]
 > Los filtros sesgan las métricas de la aplicación. Por ejemplo, puede decidir que, para diagnosticar respuestas lentas, hay que establecer un filtro para descartar los tiempos de respuesta rápidos. Pero debe tener en cuenta que los tiempos de respuesta promedio notificados por Application Insights serán más lentos que la velocidad real y que el recuento de las solicitudes será menor que el recuento real.
 > Si puede resultar un problema, use el [muestreo](app-insights-sampling.md) en su lugar.
 
@@ -66,7 +66,7 @@ En ApplicationInsights.xml, agregue una sección `TelemetryProcessors` como la d
 
            <!-- Exclude telemetry from availability tests and bots -->
            <Processor type="SyntheticSourceFilter">
-                <!-- Optional: specify which synthetic sources, 
+                <!-- Optional: specify which synthetic sources,
                      comma-separated
                      - default is all synthetics -->
                 <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
@@ -115,7 +115,7 @@ En ApplicationInsights.xml, agregue una sección `TelemetryProcessors` como la d
            </Processor>
 ```
 
-* `DurationThresholdInMS`: la duración se refiere al tiempo dedicado a cargar la página. Si está establecido el tiempo, no se notifican las páginas que se cargan más rápido que en este momento. 
+* `DurationThresholdInMS`: la duración se refiere al tiempo dedicado a cargar la página. Si está establecido el tiempo, no se notifican las páginas que se cargan más rápido que en este momento.
 * `NotNeededNames`: lista de nombres de página separados por comas.
 * `NotNeededUrls`: lista de fragmentos de URL separados por comas. Por ejemplo, `"home"` filtra todas las páginas que tienen "inicio" en la dirección URL.
 
@@ -160,7 +160,7 @@ Filtre la telemetría para orígenes sintéticos específicos:
 
 ### <a name="telemetry-event-filter"></a>Filtro de eventos de telemetría
 
-Filtra los eventos personalizados (registrados mediante [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)).
+Filtra los eventos personalizados (registrados mediante [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -176,7 +176,7 @@ Filtra los eventos personalizados (registrados mediante [TrackEvent()](app-insig
 
 ### <a name="trace-telemetry-filter"></a>Filtro de telemetría de seguimiento
 
-Filtra los seguimientos de registros (registrados mediante [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) o un [recopilador de plataforma de registro](app-insights-java-trace-logs.md)).
+Filtra los seguimientos de registros (registrados mediante [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) o un [recopilador de plataforma de registro](app-insights-java-trace-logs.md)).
 
 ```XML
 
@@ -212,7 +212,7 @@ En el código, cree una clase que implemente `TelemetryProcessor`:
        private final String successful;
 
        /* Initializers for the parameters, named "setParameterName" */
-       public void setNotNeeded(String successful) 
+       public void setNotNeeded(String successful)
        {
           this.successful = successful;
        }
@@ -266,7 +266,6 @@ En ApplicationInsights.xml:
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

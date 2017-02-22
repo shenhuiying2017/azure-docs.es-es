@@ -12,7 +12,6 @@ Gracias por su interés en la documentación de Azure.
 * [Organización del repositorio](#repository-organization)
 * [Uso de GitHub, GIT y este repositorio](#use-github-git-and-this-repository)
 * [Uso de Markdown para dar formato al tema](#how-to-use-markdown-to-format-your-topic)
-* [Comentarios, sugerencias y soporte técnico](./contributor-guide/feedback-and-comments.md)
 * [Más recursos](#more-resources)
 * [Índice de todos los artículos de la guía del colaborador](contributor-guide/contributor-guide-index.md) (abre una nueva página)
 
@@ -27,7 +26,7 @@ Este proyecto ha adoptado el [Microsoft Open Source Code of Conduct](https://ope
 
 ## <a name="about-your-contributions-to-azure-content"></a>Acerca de su colaboración en el contenido de Azure
 ### <a name="minor-corrections"></a>Correcciones menores
-Las correcciones menores o aclaraciones que se envían para la documentación y los ejemplos de código de este repositorio se rigen por los [Términos de uso del sitio docs.microsoft.com](/enterprise-mobility-security/termsofuse).
+Las correcciones menores o aclaraciones que se envían para la documentación y los ejemplos de código de este repositorio se rigen por los [Términos de uso del sitio docs.microsoft.com](https://docs.microsoft.com/legal/termsofuse).
 
 ### <a name="larger-submissions"></a>Aportaciones mayores
 Si envía una solicitud de incorporación de cambios con cambios importantes o nuevos en la documentación y los ejemplos de código, pondremos un comentario en GitHub para solicitarle que acepte el contrato de licencia de colaboración (CLA, por sus siglas en inglés) si no es un empleado de Microsoft. Necesitamos que rellene el formulario en línea para aceptar su solicitud de incorporación de cambios.
@@ -87,6 +86,6 @@ Consulte en el [índice de la guía del colaborador](contributor-guide/contribut
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

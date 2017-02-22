@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
 
 
 ---
@@ -377,7 +377,7 @@ Además de las características disponibles normalmente en las ediciones Free, B
 * [Autenticación basada en certificados en iOS](active-directory-certificate-based-authentication-ios.md)
 * [Autenticación basada en certificados en Android](active-directory-certificate-based-authentication-android.md)
 
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 * [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)

@@ -67,7 +67,7 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
    > El nombre del certificado puede ser diferente, pero tendrá el prefijo de **Apple Development iOS Push Services (Servicios inserción de desarrollo de Apple iOS):**.
    > 
    > 
-10. En Acceso a llaves, haga clic con el botón derecho en el nuevo certificado de inserción que acaba de crear, en la categoría **Certificados** . Haga clic en **Exportar**, asigne un nombre al archivo, seleccione el formato **.p12** y, luego, haga clic en **Guardar**.
+10. En Acceso a llaves, pulse la tecla Ctrl y haga clic en el nuevo certificado push que acaba de crear, en la categoría **Certificados**. Haga clic en **Exportar**, asigne un nombre al archivo, seleccione el formato **.p12** y, luego, haga clic en **Guardar**.
     
     Recuerde el nombre de archivo y la ubicación del certificado de inserción p12 exportado. Se usará para habilitar la autenticación con APNS mediante su carga en el Portal de Azure clásico.
 
@@ -91,6 +91,6 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Ubicaciones de ExpressRoute | Microsoft Docs
-description: "Este artículo ofrece una introducción detallada de ubicaciones en la que se ofrecen los servicios e información sobre cómo conectarse a regiones de Azure."
+title: 'Ubicaciones y proveedores de conectividad: Azure ExpressRoute | Microsoft Docs'
+description: "Este artículo ofrece una introducción detallada de ubicaciones en la que se ofrecen los servicios e información sobre cómo conectarse a regiones de Azure. Se ordenan por ubicación."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
@@ -12,15 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
-ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
-
+ms.sourcegitcommit: 040598d55939685e50a3fb7006e27e27097f9224
+ms.openlocfilehash: ee64f3bb764d19e60022b5fe9b3ffc75c9b51d77
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
+
+> [!div class="op_single_selector"]
+> * [Ubicaciones por proveedor](expressroute-locations.md)
+> * [Proveedores por ubicación](expressroute-locations-providers.md)
+
+
 Las tablas de este artículo proporcionan información acerca de los proveedores de conectividad de ExpressRoute, la cobertura geográfica de ExpressRoute, los Servicios en la nube de Microsoft compatibles a través de ExpressRoute y los integradores de sistemas de ExpressRoute (SI).
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Proveedores de conectividad ExpressRoute
@@ -35,37 +40,37 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
-| **Norteamérica** |Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá. |Atlanta, Chicago, Dallas, Las Vegas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Las Vegas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec ciudad, Toronto |
 | **Sudamérica** |Sur de Brasil |São Paulo |
 | **Europa** |Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Dublín, Londres, Newport(Wales)+, París |
 | **Asia** |Este de Asia y Sudeste de Asia |Hong Kong y Singapur |
 | **Japón** |Oeste de Japón y Este de Japón |Osaka, Tokyo |
 | **Australia** |Este de Australia y Sudeste de Australia |Melbourne, Sidney |
 | **India** |India occidental, India central, India del Sur |Chennai, Mumbai |
+| **Corea del Sur** |Corea Central, Corea del Sur |Busan, Seúl |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiones y límites geopolíticos para nubes nacionales
 En la tabla siguiente se proporciona información sobre las regiones y los límites geopolíticos para nubes nacionales.
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- | --- |
-| **Nube del gobierno de Estados Unidos** |Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia |Chicago, Dallas, Nueva York, Washington DC |
+| **Nube del gobierno de Estados Unidos** |Iowa Gob. EE. UU., Virginia Gob. EE. UU., centro de US DoD, este de US DoD  |Chicago, Dallas, Nueva York, Silicon Valley, Washington DC |
 | **China** |Este de China, Norte de China |Beijing, Shanghai |
 | **Alemania** |Centro de Alemania, Alemania oriental |Berlín+, Fráncfort |
 
 No se admite la conectividad entre las regiones geopolíticas en el SKU de ExpressRoute estándar. Debe habilitar el complemento premium de ExpressRoute para admitir conectividad global. No se admite la conectividad con entornos de nube nacionales. Puede trabajar con su proveedor de conectividad si surge tal necesidad.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Ubicaciones del proveedor de conectividad
-> [!div class="op_single_selector"]
-> * [Ubicaciones por proveedor](expressroute-locations.md#locations)
-> * [Proveedores por ubicación](expressroute-locations-providers.md#locations)
-> 
-> 
+
+La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de servicios para cada ubicación. Si desea ver los proveedores de servicios y las ubicaciones en las que pueden prestar servicio, consulte [Ubicaciones por proveedor de servicios](expressroute-locations.md#locations). 
+
 
 ### <a name="production-azure"></a>Azure para producción
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
-| **Ámsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor y Verizon |
+| **Ámsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor y Verizon |
 | **Atlanta** |Equinix |
+| **Busán** |LG CNS+, Sejong Telecom |
 | **Chennai** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications y Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
@@ -75,16 +80,18 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Las Vegas** |Level 3 Communications+ y Megaport |
 | **Los Ángeles** |CoreSite, Equinix, Megaport, NTT y Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC y Telstra Corporation |
-| **Nueva York** |Equinix, Megaport y Zayo Group |
+| **Nueva York** |CoreSite, Equinix, Megaport y Zayo Group |
 | **Newport (Gales)** |Datos de última generación |
-| **Montreal** |Cologix+ |
+| **Montreal** |Cologix |
 | **Mumbai (Bombay)** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications y Softbank |
 | **París** |Interxion, Equinix+ |
+| **Quebec ciudad** | Megaport |
 | **São Paulo** |Equinix, Telefónica |
 | **Seattle** |Equinix, Level 3 Communications y Megaport |
+| **Seúl** |KINX, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon y Zayo Group |
-| **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications y Verizon |
 | **Sidney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation y Verizon |
 | **Tokio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet iniciativa Japón Inc. - IIJ, NTT comunicaciones, Softbank y Verizon |
 | **Toronto** |Bell Canada, Cologix, Equinix, Megaport y Zayo Group |
@@ -98,8 +105,9 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications y Verizon |
-| **Dallas** |Equinix, Verizon |
+| **Dallas** |Equinix, Megaport y Verizon |
 | **Nueva York** |Equinix, Level 3 Communications+ y Verizon |
+| **Silicon Valley** | Equinix |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications y Verizon |
 
 ### <a name="china"></a>China
@@ -113,7 +121,7 @@ Para más información, consulte [ExpressRoute en China](http://www.windowsazure
 ### <a name="germany"></a>Alemania
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
-| **Berlín** |Colt+, e-shelter |
+| **Berlín** |Colt+, e-shelter y Megaport+ |
 | **Fráncfort** |Colt, Equinix e Interxion |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Conectividad a través de proveedores de servicios no enumerados
@@ -134,12 +142,14 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 
 | **Ubicación** | **Exchange** | **Proveedores de conectividad** |
 | --- | --- | --- |
-| **Londres** | Equinix | Exponencial E |
+| **Ámsterdam** | Equinix | Eurofiber |
+| **Londres** | Equinix | Exponential E, HSO |
 | **Nueva York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapur** |Equinix |1CLOUDSTAR |
-| **Sidney** | Megaport | Macquarie |
+| **Sidney** | Megaport | Macquarie Telecom Group|
+| **Tokio** | Equinix | ARTERIA Networks Corporation |
 | **Washington DC** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Integradores de sistemas de ExpressRoute
@@ -148,9 +158,10 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 | **Continente** | **Integradores de sistemas** |
 | --- | --- |
 | **Asia** |Avanade Inc. y OneAs1a |
-| **Europa** |Avanade Inc. y Dotnet Solutions |
-| **EE. UU.** |Avanade Inc., Equinix Professional Services, Perficient y Project Leadership |
-
+| **Australia** | IT Consultancy |
+| **Europa** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
+| **Norteamérica** |Avanade Inc., Equinix Professional Services, Perficient y Project Leadership |
+| **Sudamérica** |Avanade Inc. |
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 * Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
@@ -160,6 +171,6 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

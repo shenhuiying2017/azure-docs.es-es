@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure Active Directory Domain Services: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda cómo usar Active Directory Domain Services para unir máquinas virtuales de Azure a un dominio sin usar controladores de dominio y cómo administrarlas con directivas de grupo."
+services: active-directory-ds
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-ds
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
+ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentación acerca de Active Directory Domain Services
 
-Azure AD Domain Services (DS) proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directiva de grupo, LDAP o autenticación Kerberos/NTLM, que son totalmente compatibles con Windows Server Active Directory.  Este servicio permite a los usuarios implementar una amplia variedad de soluciones informáticas de una manera ágil.
+Aprenda cómo usar Active Directory Domain Services para unir máquinas virtuales de Azure a un dominio sin usar controladores de dominio. Tutoriales y otra documentación le muestran cómo administrar máquinas virtuales mediante directivas de grupo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -156,18 +168,9 @@ Azure AD Domain Services (DS) proporciona servicios de dominio administrados com
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación acerca de Active Directory Domain Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

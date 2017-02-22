@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b6b5b7ab2d48f7f15a437f807db2485f55376bd2
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
 
 
 ---
@@ -143,7 +143,7 @@ Use el cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Carga de un disco duro virtual con la herramienta de línea de comandos para Mac y Linux
-Con la [Herramienta de línea de comandos de Linux](../virtual-machines-command-line-tools.md), utilice lo siguiente: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
+Con la [Herramienta de línea de comandos de Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), utilice lo siguiente: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## <a name="see-also"></a>Consulte también
 * [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
@@ -152,6 +152,6 @@ Con la [Herramienta de línea de comandos de Linux](../virtual-machines-command-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -49,11 +49,11 @@
                 await RefreshTodoItems();
             }
         }
-4. En el proyecto de aplicación de la Tienda Windows, abra el archivo de proyecto MainPage.xaml y agregue el siguiente elemento **Botón** inmediatamente antes del elemento que define el botón **Guardar**:
+4. En el proyecto de la aplicación de la Tienda Windows, abra el archivo de proyecto MainPage.xaml y agregue el siguiente elemento **Botón** inmediatamente antes del elemento que define el botón **Guardar**:
    
         <Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
-5. En el proyecto de la aplicación de la Tienda de Windows Phone, agregue el siguiente elemento **Button** a **ContentPanel**, después del elemento **TextBlock**:
+5. En el proyecto de la aplicación de la Tienda de Windows Phone, agregue el siguiente elemento **Button** de **ContentPanel** después del elemento **TextBlock**:
    
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
             Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
@@ -75,9 +75,13 @@
         }
    
     Si el método **OnActivated** ya existe, agregue el bloque de código `#if...#endif`.
-7. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión e inicie sesión** en la aplicación con el proveedor de identidad que haya elegido.
+7. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión e inicie sesión** en la aplicación con el proveedor de identidad que haya elegido. 
    
-       Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores, y podrá consultar su back-end y realizar actualizaciones de los datos.
-8. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.
+       When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
+8. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio**y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.  
 
-<!---HONumber=AcomDC_1203_2015-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

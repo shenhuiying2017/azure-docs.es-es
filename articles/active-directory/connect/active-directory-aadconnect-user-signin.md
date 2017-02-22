@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bddd581b5164b03ccba75370cd89a7831101cf37
-ms.openlocfilehash: 5b77d16c4a373936dfa5fbba35bc3dc4c9a37e78
+ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
+ms.openlocfilehash: 7e821117e62eda286cefb59a5ded85b2f99f3ef7
 
 
 ---
@@ -97,7 +97,7 @@ Si ya ha configurado el inicio de sesión en la nube con una versión anterior d
 ### <a name="understanding-user-principal-name"></a>Descripción del nombre principal de usuario
 En Active Directory, el sufijo UPN predeterminado es el nombre DNS del dominio en el que se creó la cuenta de usuario. En la mayoría de los casos, se trata del nombre de dominio registrado como dominio de empresa en Internet. Sin embargo, puede agregar más sufijos UPN usando Dominios y confianzas de Active Directory.
 
-El UPN del usuario tiene el formato username@domain. Por ejemplo, para un dominio de Active Directory como "contoso.com", el usuario John podría tener un UPN 'john@contoso.com'. El UPN del usuario se basa en la especificación RFC 822. Aunque el UPN y el correo electrónico comparten el mismo formato, el valor de UPN para un usuario puede o no ser igual a la dirección de correo electrónico del usuario.
+El UPN del usuario tiene el formato username@domain. Por ejemplo, para un dominio de Active Directory denominado "contoso.com", un usuario llamado Héctor puede tener el UPN 'john@contoso.com'. El UPN del usuario se basa en la especificación RFC 822. Aunque el UPN y el correo electrónico comparten el mismo formato, el valor de UPN para un usuario puede o no ser igual a la dirección de correo electrónico del usuario.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Nombre principal de usuario en Azure AD
 El Asistente para Azure AD Connect usará el atributo userPrincipalName o le permiten especificar el atributo (en la instalación personalizada) para su uso local como nombre principal de usuario en Azure AD. Este es el valor que se usará para iniciar sesión en Azure AD. Si el valor del atributo de nombre principal del usuario no corresponde a un dominio comprobado en Azure AD, a continuación, Azure AD lo reemplazará con un valor predeterminado ".onmicrosoft.com".
@@ -178,6 +178,6 @@ Más información sobre el tema [Azure AD Connect: Conceptos de diseño](active-
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Roles personalizados en RBAC de Azure | Microsoft Docs
+title: "Creación de roles personalizados para Azure RBAC | Microsoft Docs"
 description: "Aprenda a definir roles personalizados con Control de acceso basado en roles de Azure para administrar las identidades de manera más precisa en la suscripción de Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: kgremban
+manager: femila
 editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: 2ac01c010979fca0bb3df5d003dd639cd7819651
 
 
 ---
@@ -84,8 +84,8 @@ Use la propiedad **NotActions** si el conjunto de operaciones que quiere permiti
 
 > [!NOTE]
 > Si un usuario tiene asignado un rol que excluye una operación en **NotActions**y se le asigna un segundo rol que sí concede acceso a la misma operación, el usuario podrá realizar dicha operación. **NotActions** no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones permitidas cuando es necesario excluir operaciones específicas.
-> 
-> 
+>
+>
 
 ## <a name="assignablescopes"></a>Ámbitos asignables
 La propiedad **AssignableScopes** del rol personalizado especifica los ámbitos (suscripciones, grupos de recursos o recursos) dentro de los que dicho rol personalizado está disponible para su asignación. Puede permitir que el rol personalizado esté disponible para su asignación solamente en las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario con el resto de las suscripciones o grupos de recursos.
@@ -98,8 +98,8 @@ Ejemplos de ámbitos asignables válidos son:
 
 > [!NOTE]
 > Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
-> 
-> 
+>
+>
 
 ## <a name="custom-roles-access-control"></a>Control de acceso de roles personalizados
 La propiedad **AssignableScopes** del rol personalizado también controla quién puede ver, modificar y eliminar el rol.
@@ -122,7 +122,6 @@ La propiedad **AssignableScopes** del rol personalizado también controla quién
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,7 @@
 ---
-title: "Implementación y administración de copias de seguridad para Windows Server o cliente de Windows mediante PowerShell | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell"
+
+title: Uso de PowerShell para administrar las copias de seguridad de Windows Server en Azure | Microsoft Docs
+description: Implemente y administre las copias de seguridad de Windows Server mediante PowerShell.
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -13,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+ms.author: saurse;markgal;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
+ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
+ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Clásico](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 En este artículo se muestra cómo usar PowerShell para configurar la Copia de seguridad de Azure en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 
@@ -43,8 +44,8 @@ Si desea utilizar scripts escritos para los entornos de 0.9.8, de 1.0 o posterio
 ## <a name="create-a-backup-vault"></a>Creación de un almacén de copia de seguridad
 > [!WARNING]
 > La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 Puede crear un nuevo almacén de copia de seguridad mediante el cmdlet **New-AzureRMBackupVault** . El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
@@ -123,8 +124,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>Configuración de redes
 Cuando la conectividad de la máquina de Windows a Internet se realiza a través de un servidor proxy, también se puede proporcionar la configuración del proxy al agente. En este ejemplo, no hay ningún servidor proxy y por tanto se borra explícitamente cualquier información relacionada con el proxy.
@@ -151,8 +152,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>Realizar copias de seguridad de archivos y carpetas
 Todas las copias de seguridad de servidores y clientes de Windows en Copia de seguridad de Azure se rigen por una directiva. La directiva consta de tres partes:
@@ -607,7 +608,6 @@ Para obtener más información sobre Copia de seguridad de Azure para Windows Se
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

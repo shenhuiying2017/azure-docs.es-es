@@ -1,5 +1,5 @@
 ---
-title: "Restauración de SQL Data Warehouse | Microsoft Docs"
+title: "Restauración de un almacén de datos de Azure: local y con redundancia geográfica | Microsoft Docs"
 description: "Información general de las opciones de restauración de bases de datos para recuperar una base de datos en Almacenamiento de datos SQL de Azure."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2147967edc1dadcc8bda5e5a33bbdedd62a22b4f
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
 
 
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauración de SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Información general][Información general]
+> * [Información general][Overview]
 > * [Portal][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
@@ -90,8 +90,8 @@ Para realizar una restauración del almacenamiento de datos, efectúa esta últi
 <!--Image references-->
 
 <!--Article references-->
-[Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL]: ../sql-database/sql-database-business-continuity.md
-[Información general]: ./sql-data-warehouse-restore-database-overview.md
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
@@ -103,6 +103,6 @@ Para realizar una restauración del almacenamiento de datos, efectúa esta últi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

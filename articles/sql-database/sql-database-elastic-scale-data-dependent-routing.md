@@ -1,6 +1,6 @@
 ---
-title: Enrutamiento dependiente de los datos | Microsoft Docs
-description: "Cómo usar la clase ShardMapManager en aplicaciones .NET para el enrutamiento dependiente de los datos, una característica de bases de datos elásticas para Base de datos SQL de Azure"
+title: Enrutamiento dependiente de los datos con Azure SQL Database | Microsoft Docs
+description: "Cómo usar la clase ShardMapManager en aplicaciones .NET para el enrutamiento dependiente de los datos, una característica de las bases de datos con particiones en Azure SQL Database"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
+ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
+ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
 
 
 ---
@@ -90,7 +90,7 @@ Un procedimiento recomendado para el desarrollo de aplicaciones de acceso a dato
 
 El control de errores transitorios puede coexistir naturalmente con el patrón de Enrutamiento dependiente de los datos. El requisito clave es volver a intentar la solicitud de acceso a los datos completa, incluido el bloque **using** que obtuvo la conexión de enrutamiento dependiente de los datos. El ejemplo anterior se podría reescribir de la siguiente manera (observe el cambio resaltado). 
 
-### <a name="example--data-dependent-routing-with-transient-fault-handling"></a>Ejemplo: enrutamiento dependiente de los datos con control de errores temporales
+### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Ejemplo: enrutamiento dependiente de los datos con control de errores transitorios
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
@@ -130,6 +130,6 @@ Para desasociar una partición, o volver a adjuntar una partición, consulte [Us
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

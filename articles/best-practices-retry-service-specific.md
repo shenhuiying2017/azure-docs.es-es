@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
+ms.sourcegitcommit: e7f09966e2b15735081cf2ac4d244a7ae8b92df8
+ms.openlocfilehash: 397bbc7d556338ff347d59d000fe7442acda560a
 
 
 ---
@@ -1041,11 +1041,11 @@ Al obtener acceso a los servicios de Azure o de terceros, tenga en cuenta lo sig
 * Considere el uso de un marco de reintento como el bloque de aplicaciones de control de errores transitorios para administrar reintentos si el servicio de destino o el cliente no tiene ningún mecanismo de reintento integrado. Esto le ayudará a implementar un comportamiento de reintento coherente y puede proporcionar una estrategia de reintento predeterminada adecuados para el servicio de destino. Sin embargo, puede que necesite crear código de reintento personalizado para los servicios que tienen un comportamiento no estándar, que no dependen de excepciones para indicar errores transitorios o si desea usar una respuesta de **respuesta de reintento** para administrar el comportamiento de reintento.
 * La lógica de detección transitoria dependerá de la API de cliente real que use para invocar las llamadas REST. Algunos clientes, como los de la clase **HttpClient** más reciente no producirán excepciones para las solicitudes completadas con un código de estado HTTP no correcto. Esto mejora el rendimiento, pero impide el uso del bloque de aplicaciones de control de errores transitorios. En este caso podría encapsular la llamada a la API de REST con código que produce excepciones para códigos de estado HTTP no correctos que, a continuación, pueden ser procesados por el bloque. Como alternativa, puede usar un mecanismo diferente para controlar los reintentos.
 * El código de estado HTTP devuelto desde el servicio puede ayudar a indicar si el error es transitorio. Puede que necesite examinar las excepciones generadas por un cliente o el marco de trabajo de reintento para obtener acceso al código de estado o para determinar el tipo de excepción equivalente. Los siguientes códigos HTTP normalmente indican que un reintento es adecuado:
-  * Tiempo de espera de solicitud 408
-  * Error de servidor interno 500
-  * Puerta de enlace incorrecta 502
-  * Servicio no disponible 503
-  * Tiempo de espera de puerta de enlace 504
+  * Tiempo de espera de solicitud&408;
+  * Error de servidor interno&500;
+  * Puerta de enlace incorrecta&502;
+  * Servicio no disponible&503;
+  * Tiempo de espera de puerta de enlace&504;
 * Si la lógica de reintento se basa en excepciones, las siguientes suelen indican un error transitorio donde no se pudo establecer ninguna conexión:
   * WebExceptionStatus.ConnectionClosed
   * WebExceptionStatus.ConnectFailure
@@ -1084,7 +1084,7 @@ El bloque de aplicaciones de control de errores transitorios tiene las siguiente
 
 | **Estrategia** | **Configuración** | **Valor predeterminado** | **Significado** |
 | --- | --- | --- | --- |
-| **Exponencial** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 segundo<br /><br />30 segundos<br /><br />10 segundos<br /><br />true |Número de reintentos.<br />Tiempo de interrupción mínimo. Se usará como intervalo entre reintentos el máximo de este valor o la interrupción procesada.<br />Tiempo de interrupción mínimo. Se usará el mínimo de este valor o la interrupción calculada como intervalo entre reintentos.<br />El valor utilizado para calcular una diferencia aleatoria para el retraso exponencial entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
+| **Exponencial** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 segundo<br /><br />30 segundos<br /><br />10 segundos<br /><br />true |Número de reintentos.<br />Tiempo de interrupción máximo. Se usará como intervalo entre reintentos el máximo de este valor o la interrupción procesada.<br />Tiempo de interrupción mínimo. Se usará el mínimo de este valor o la interrupción calculada como intervalo entre reintentos.<br />El valor utilizado para calcular una diferencia aleatoria para el retraso exponencial entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 | **Incremental** |retryCount<br />initialInterval<br />incremento<br /><br />fastFirstRetry<br /> |10<br />1 segundo<br />1 segundo<br /><br />true |Número de reintentos.<br />El intervalo inicial que se aplicará para el primer reintento.<br />El valor de tiempo incremental que se usará para calcular el retraso progresivo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 | **Lineal (intervalo fijo)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 segundo<br />true |Número de reintentos.<br />El retraso entre los reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 
@@ -1101,6 +1101,6 @@ Para obtener ejemplos del uso del bloque de aplicaciones de control de errores t
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

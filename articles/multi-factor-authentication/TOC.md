@@ -6,7 +6,7 @@
 ## [Elección del lugar de implementación](multi-factor-authentication-get-started.md)
 ## [MFA en la nube](multi-factor-authentication-get-started-cloud.md)
 ## [MFA local](multi-factor-authentication-get-started-server.md)
-## [MFA para usuarios de Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [MFA para usuarios de Office&365;](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 ## [Procedimientos de seguridad recomendados](multi-factor-authentication-security-best-practices.md)
 
 # Cómo
@@ -14,6 +14,7 @@
 ### [Creación de un proveedor de autenticación](multi-factor-authentication-get-started-auth-provider.md)
 ### [Configuración de opciones](multi-factor-authentication-whats-next.md)
 ### [Informes de MFA](multi-factor-authentication-manage-reports.md)
+### [Uso de servidores de directivas de red existentes](multi-factor-authentication-nps-extension.md)
 ### Azure MFA local
 #### [Instalación del portal de usuarios](multi-factor-authentication-get-started-portal.md)
 #### [Configuraciones de VPN avanzadas](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [Aplicaciones web de IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Puerta de enlace de Escritorio remoto](multi-factor-authentication-get-started-server-rdg.md)
 
-## Desarrollo 
+## Desarrollo
 ### [Integración en aplicaciones personalizadas (SDK)](multi-factor-authentication-sdk.md)
 
 ## Solución de problemas
@@ -46,6 +47,6 @@
 ### [Formular pregunta](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Cantidad máxima de eDTU por base de datos | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
+\* Las bases de datos agrupadas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor. El almacenamiento máximo por grupo hace referencia al almacenamiento máximo de los archivos de datos en el grupo y no incluye el espacio utilizado por los archivos de registro.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

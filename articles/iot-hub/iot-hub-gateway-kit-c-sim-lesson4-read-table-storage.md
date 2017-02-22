@@ -1,5 +1,5 @@
 ---
-title: Lectura de mensajes guardados en Azure Table Storage | Microsoft Docs
+title: "Dispositivo simulado y puerta de enlace de Azure IoT: Lección 4: Table Storage | Microsoft Docs"
 description: "Guarde mensajes de Intel NUC en su IoT Hub, escríbalos en una tabla de Azure Table Storage y, después, léalos desde la nube."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: e229c919db797133d3dc30fc65b482e5135f7cc5
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: b12e16a5a532448cf2e939cfcad322225b9ee811
 
 
 ---
@@ -65,7 +65,7 @@ Use `iot-gateway` como el valor de `{resource group name}` si no lo cambió en l
 
 Actualice el archivo `config-azure.json` para que el ejemplo de código que se ejecuta en el equipo host pueda leer el mensaje de su instancia de Azure Table Storage. Para configurar la conexión de dispositivos, siga estos pasos:
 
-1. Abra el archivo de configuración del dispositivo `config-azure.json` mediante la ejecución de los comandos siguientes:
+1. Genere el archivo de configuración del dispositivo `config-azure.json` mediante la ejecución de los comandos siguientes:
 
    ```bash
    # For Windows command prompt
@@ -78,7 +78,7 @@ Actualice el archivo `config-azure.json` para que el ejemplo de código que se e
 
 2. Sustituya `[Azure storage connection string]` por la cadena de conexión de Azure Storage obtenida.
 
-   `[IoT hub connection string]` ya se debe haber sustituido en la sección [Lectura de mensajes en Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) de la lección 3.
+   `[IoT hub connection string]` ya se debe haber sustituido en la sección [Lectura de mensajes en Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) de la lección&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Lectura de mensajes en Azure Table Storage
 
@@ -88,7 +88,7 @@ Ejecute la aplicación de ejemplo de puerta de enlace y lea mensajes en Azure Ta
 gulp run --table-storage
 ```
 
-IoT Hub desencadena la aplicación de Azure Functions para guardar el mensaje en Azure Table Storage cuando llegue un mensaje nuevo.
+IoT Hub desencadena la instancia de Azure Function App para guardar el mensaje en Azure Table Storage cuando llega un mensaje nuevo.
 El comando `gulp run` ejecuta la aplicación de ejemplo de puerta de enlace que envía mensajes a IoT Hub. Con el parámetro `table-storage`, también genera un proceso secundario para recibir el mensaje guardado en Azure Table Storage.
 
 Todos los mensajes que se envían y reciben se muestran al instante en la misma ventana de consola del equipo host. La instancia de la aplicación de ejemplo se cerrará automáticamente en 40 segundos.
@@ -102,6 +102,6 @@ Ha ejecutado el ejemplo de código para leer los mensajes en Azure Table Storage
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

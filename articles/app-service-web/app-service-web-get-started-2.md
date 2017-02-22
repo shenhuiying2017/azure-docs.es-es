@@ -1,5 +1,5 @@
 ---
-title: "Incorporación de funcionalidad a su primera aplicación web"
+title: "Incorporación de funcionalidades a la primera aplicación web | Microsoft Docs"
 description: "Agregue características interesantes a su primera aplicación web en unos minutos."
 services: app-service\web
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Incorporación de funcionalidad a su primera aplicación web
-En [Implementación de su primera aplicación web en Azure en 5 minutos](app-service-web-get-started-cli-nodejs.md), implementó una aplicación web de ejemplo en [Azure App Service](../app-service/app-service-value-prop-what-is.md). En este artículo, agregará rápidamente funcionalidad muy interesante a su aplicación web implementada. En unos minutos, aprenderá a:
+En [Implementación de su primera aplicación web en Azure en&5; minutos](app-service-web-get-started-cli-nodejs.md), implementó una aplicación web de ejemplo en [Azure App Service](../app-service/app-service-value-prop-what-is.md). En este artículo, agregará rápidamente funcionalidad muy interesante a su aplicación web implementada. En unos minutos, aprenderá a:
 
 * aplicar autenticación para los usuarios
 * escalar la aplicación automáticamente
@@ -52,9 +52,9 @@ Ahora, veamos lo fácil que es agregar autenticación a su aplicación (lea más
     Una vez realizado el cambio correctamente, verá que el indicador de notificación cambia a verde y aparece un mensaje descriptivo.
 6. De nuevo en la hoja del portal de su aplicación, haga clic en el vínculo **URL** (o **Examinar** en la barra de menús). El vínculo es una dirección HTTP.  
     ![Autenticar, ir a dirección URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
-     Pero, una vez que la aplicación se abre en una nueva pestaña, el cuadro Dirección URL redirecciona varias veces y termina en la aplicación con una dirección HTTPS. Lo que está viendo es que ya ha iniciado sesión en la suscripción de Azure y se le autentica de forma automática en la aplicación.  
+    Pero, una vez que la aplicación se abre en una nueva pestaña, el cuadro Dirección URL redirecciona varias veces y termina en la aplicación con una dirección HTTPS. Lo que está viendo es que ya ha iniciado sesión en la suscripción de Azure y se le autentica de forma automática en la aplicación.  
     ![Autenticar, sesión iniciada](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
-     Si ahora abre una sesión sin autenticar en un explorador diferente, verá una pantalla de inicio de sesión cuando vaya a la misma dirección URL.  
+    Si ahora abre una sesión sin autenticar en un explorador diferente, verá una pantalla de inicio de sesión cuando vaya a la misma dirección URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Si nunca ha hecho nada con Azure Active Directory, el directorio predeterminado podría no tener ningún usuario de Azure AD. En ese caso, probablemente la única cuenta aquí es la cuenta de Microsoft con su suscripción de Azure. Por eso se inició sesión automáticamente en la aplicación en el mismo explorador antes.
    Puede usar la misma cuenta Microsoft para iniciar sesión también en esta página de inicio de sesión.
@@ -157,6 +157,6 @@ Averigüe también qué más puede hacer con la aplicación que ha implementado.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: exportación de telemetría a Base de datos SQL desde Application Insights"
+title: "Exportación a SQL desde Azure Application Insights | Microsoft Docs"
 description: "Exportación continua de datos de Application Insights a mediante el Análisis de transmisiones"
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: abaeb614e304c4ae78e6a1d43d19c99698e50494
+ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
+ms.openlocfilehash: fa9b09833f61e372738ff74022ac9fd6a288847f
 
 
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Tutorial: exportación a SQL desde Application Insights mediante Análisis de transmisiones
-En este artículo se muestra cómo mover los datos de telemetría desde [Azure Application Insights][start] a una Azure SQL Database con la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+En este artículo se muestra cómo trasladar los datos de telemetría desde [Azure Application Insights][start] a una instancia de Azure SQL Database mediante la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 La Exportación continua traslada los datos de telemetría a Almacenamiento de Azure en formato JSON. Analizaremos los objetos JSON mediante Análisis de transmisiones de Azure y crearemos filas en una tabla de base de datos.
 
@@ -41,7 +41,7 @@ Primeros pasos:
 ## <a name="create-storage-in-azure"></a>Creación de almacenamiento en Azure
 La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
-1. Cree una cuenta de almacenamiento en su suscripción en el [Azure Portal][portal].
+1. Cree una cuenta de almacenamiento en su suscripción en [Azure Portal][portal].
    
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento. Seleccione Clásico y elija Crear. Proporcione un nombre de almacenamiento.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 2. Crear un contenedor
@@ -82,7 +82,7 @@ La exportación continua siempre envía los datos a una cuenta de almacenamiento
 Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en usar Stream Analytics para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
 
 ## <a name="create-an-azure-sql-database"></a>Creación de una Base de datos SQL de Azure
-De nuevo, empiece desde su suscripción en [Azure Portal][portal], cree la base de datos (y un servidor, excepto si ya tiene uno) donde escribirá los datos.
+De nuevo, empiece desde su suscripción en [Azure Portal][portal], cree la base de datos (y un servidor, a menos que ya tenga uno) donde escribirá los datos.
 
 ![Nuevo, Datos, SQL.](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -278,6 +278,6 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

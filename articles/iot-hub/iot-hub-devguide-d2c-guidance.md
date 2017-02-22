@@ -1,6 +1,6 @@
 ---
-title: "Guía de comunicación de dispositivo a nube de Azure IoT Hub | Microsoft Docs"
-description: "Guía del desarrollador de Azure IoT Hub: una guía sobre cuándo usar mensajes de dispositivo a nube, propiedades notificadas o carga de archivos."
+title: Opciones de dispositivo a la nube de IoT Hub de Azure | Microsoft Docs
+description: "Guía del desarrollador: una guía sobre cuándo usar mensajes de dispositivo a nube, propiedades notificadas o carga de archivos para comunicaciones de nube a dispositivo."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: 6d5608cd86e3f042a7d63bd4e43e75a06141dfab
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 8c3479e29b55eacc30842ffdfee23b4a00a13126
 
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Guía de comunicación de dispositivo a nube
-Al enviar información desde la aplicación del dispositivo al back-end, IoT Hub presenta tres opciones:
+Al enviar información desde la aplicación del dispositivo al back-end de solución, IoT Hub presenta tres opciones:
 
 * [Mensajes de dispositivo a nube (D2C)][lnk-d2c], para telemetría y alertas de series temporales;
 * [Propiedades notificadas][lnk-twins], para notificar información de estado del dispositivo, como funcionalidades disponibles, condiciones y estado de los flujos de trabajo de ejecución prolongada (por ejemplo, configuración y actualizaciones de software);
@@ -38,7 +38,7 @@ Esta es una comparación detallada de las distintas opciones de comunicación de
 | Protocol | Disponible en todos los protocolos. | Actualmente solo está disponible cuando se usa MQTT. | Disponible cuando se usa cualquier protocolo, pero hace falta HTTP en el dispositivo. |
 
 > [!NOTE]
-> Es posible que una aplicación deba enviar información como alertas o series temporales de telemetría y también permitir que esté disponible en el dispositivo gemelo. En esos casos, la aplicación de dispositivo puede enviar un mensaje D2C y notificar un cambio de propiedad, o el back-end puede almacenar la información en las etiquetas del dispositivo gemelo cuando recibe un mensaje. Dado que los mensajes D2C permiten una capacidad de proceso mucho mayor que las actualizaciones de dispositivos gemelos, en ocasiones es aconsejable evitar actualizar el dispositivo gemelo con cada mensaje D2C.
+> Es posible que una aplicación deba enviar información como alertas o series temporales de telemetría y también permitir que esté disponible en el dispositivo gemelo. En esos casos, la aplicación de dispositivo puede enviar un mensaje D2C y notificar un cambio de propiedad, o el back-end de solución puede almacenar la información en las etiquetas del dispositivo gemelo cuando recibe un mensaje. Dado que los mensajes D2C permiten una capacidad de proceso mucho mayor que las actualizaciones de dispositivos gemelos, en ocasiones es aconsejable evitar actualizar el dispositivo gemelo con cada mensaje D2C.
 > 
 > 
 
@@ -50,6 +50,6 @@ Esta es una comparación detallada de las distintas opciones de comunicación de
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

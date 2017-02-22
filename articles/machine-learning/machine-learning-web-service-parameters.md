@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 07e124f41662759cc93efa2ee0c24f6a367573ac
+ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
+ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
 
 
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Usar parámetros de servicio web de Aprendizaje automático de Azure
 Se crea un servicio web de Aprendizaje automático de Azure mediante la publicación de un experimento que contiene módulos con parámetros configurables. En algunos casos, puede que desee cambiar el comportamiento del módulo mientras se está ejecutando el servicio web. Los *parámetros del servicio web* le permiten realizar esta tarea. 
 
-Un ejemplo común es la configuración del módulo [Importar datos][reader] para que el usuario del servicio web publicado pueda especificar un origen de datos diferente al acceder al servicio web. También puede configurar el módulo [Exportar datos][writer] para que se pueda especificar un destino diferente. Algunos otros ejemplos incluyen cambiar el número de bits del módulo [Feature Hashing][feature-hashing] (Hash de características) o el número de características deseadas para el módulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selección de características basada en filtros). 
+Un ejemplo común es la configuración del módulo [Importar datos][reader] para que el usuario del servicio web publicado pueda especificar un origen de datos diferente al obtener acceso al servicio web. También puede configurar el módulo [Exportar datos][writer] para que se pueda especificar un destino diferente. Algunos otros ejemplos incluyen cambiar el número de bits del [hash de características][feature-hashing] o el número de características deseadas para el módulo [Selección de características basada en filtros][filter-based-feature-selection]. 
 
 Puede definir parámetros de servicio web y asociarlos con uno o más parámetros de módulo en el experimento, y puede especificar si son obligatorios u opcionales. El usuario del servicio web puede entonces proporcionar valores para estos parámetros cuando llama el servicio web. 
 
@@ -44,9 +44,9 @@ La documentación de API del servicio web incluye información para el usuario d
 > 
 
 ## <a name="example"></a>Ejemplo
-Por ejemplo, supongamos que tenemos un experimento con un módulo [Export Data][writer] (Exportar datos) que envía información a Azure Blob Storage. Definiremos un parámetro del servicio web denominado "Ruta de acceso de Blob" que permite al usuario del servicio web cambiar la ruta de acceso al almacenamiento de blobs cuando se tenga acceso al servicio.
+Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar datos][writer] que envía información a Azure Blob Storage. Definiremos un parámetro del servicio web denominado "Ruta de acceso de Blob" que permite al usuario del servicio web cambiar la ruta de acceso al almacenamiento de blobs cuando se tenga acceso al servicio.
 
-1. En Machine Learning Studio, haga clic en el módulo [Export Data][writer] (Exportar datos) para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
+1. En Machine Learning Studio, haga clic en el módulo [Exportar datos][writer] para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
 2. Especifique el tipo de almacenamiento:
    
    * En **Especifique el destino de los datos**, seleccione Almacenamiento de blobs de Azure.
@@ -59,7 +59,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Export Data][
    
    Seleccione "Establecer como parámetro del servicio web".
    
-   Se agregará una entrada en **Parámetros del servicio web** en la parte inferior del panel Propiedades con el nombre "Ruta de acceso que comienza con el contenedor de blobs". Este es el parámetro de servicio web que está ahora asociado con este parámetro del módulo [Export Data][writer] (Exportar datos).
+   Se agregará una entrada en **Parámetros del servicio web** en la parte inferior del panel Propiedades con el nombre "Ruta de acceso que comienza con el contenedor de blobs". Este es el parámetro de servicio web que está ahora asociado con este parámetro del módulo [Exportar datos][writer].
 4. Para cambiar el nombre del parámetro del servicio web, haga clic en el nombre, escriba "Ruta de acceso de blobs" y presione la tecla **Intro** . 
 5. Para proporcionar un valor predeterminado para el parámetro del servicio web, haga clic en el icono a la derecha del nombre, seleccione "Proporcionar valor predeterminado", escriba un valor (por ejemplo, "container1/output1.csv") y presione la tecla **Intro** .
    
@@ -67,7 +67,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Export Data][
 6. Haga clic en **Ejecutar**. 
 7. Haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar un servicio web [clásico]) o **Deploy Web Service [New]** (Implementar un servicio web [nuevo]) para actualizar el servicio web.
 
-El usuario del servicio web puede especificar ahora un nuevo destino para el módulo [Export Data][writer] (Exportar datos) al obtener acceso al servicio web.
+El usuario del servicio web puede especificar ahora un nuevo destino para el módulo [Exportar datos][writer] al obtener acceso al servicio web.
 
 ## <a name="more-information"></a>Más información
 Para obtener un ejemplo más detallado, vea la entrada [Parámetros del servicio web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) en el [Blog de Machine Learning](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
@@ -88,6 +88,6 @@ Para más información sobre el acceso a un servicio web de Aprendizaje automát
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

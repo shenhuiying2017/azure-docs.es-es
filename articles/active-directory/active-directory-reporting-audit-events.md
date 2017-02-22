@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/14/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
+ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
+ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
 
 
 ---
@@ -44,8 +44,6 @@ El Informe de auditoría de Azure Active Directory ayuda a los clientes a identi
 | Agregar grupo |Se crea un grupo en el directorio. |
 | Actualizar grupo |Se actualiza un grupo del directorio. Para ver las propiedades del grupo que se actualizaron, consulte [Propiedades de grupo auditadas](#update-group-attributes) en la sección siguiente |
 | Eliminar grupo |Se elimina un grupo del directorio. |
-| Agregar miembro a grupo |Se agrega un miembro a un grupo del directorio. |
-| Quitar miembro de grupo |Se quita un miembro de un grupo del directorio. |
 | CreateGroupSettings |Configuración de grupo creada. |
 | UpdateGroupSettings |Configuración de grupo actualizada. Para ver las opciones de la configuración del grupo que se actualizaron, consulte [Propiedades de grupo auditadas](#update-group-attributes) en la sección siguiente. |
 | DeleteGroupSettings |Configuración de grupo eliminada. |
@@ -63,21 +61,6 @@ El Informe de auditoría de Azure Active Directory ayuda a los clientes a identi
 | Agregar entrada de delegación |Se crea [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) en el directorio. |
 | Establecer entrada de delegación |Se actualiza [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) en el directorio. |
 | Quitar entrada de delegación |Se elimina [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) en el directorio. |
-| **Eventos de rol** | |
-| Agregar miembro de rol a Rol |Agregó un usuario a un rol del directorio. |
-| Quitar miembro de rol de Rol |Quitó un usuario de un rol del directorio. |
-| Establecer la información de contacto de la compañía |Establecer preferencias de contacto a nivel de compañía. Incluye direcciones de correo electrónico para marketing, así como  notificaciones técnicas sobre Microsoft Online Services. |
-| Agregar entrada de delegación |Se crea [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) en el directorio. |
-| Establecer entrada de delegación |Se actualiza [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) en el directorio. |
-| Quitar entrada de delegación |Se elimina [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) en el directorio. |
-| AddSevicePrincipalOwner |Propietario agregado a entidad de servicio. |
-| RemoveSevicePrincipalOwner |Propietario quitado de entidad de servicio. |
-| AddApplication |Agregar aplicación. |
-| UpdateApplication |Actualizar aplicación. Para ver las opciones de la configuración de la aplicación que se actualizaron, consulte [Propiedades de aplicación auditadas](#update-application-attributes) en la sección siguiente |
-| DeleteApplication |Eliminar aplicación. |
-| RestoreApplication |Restaurar aplicación. |
-| AddApplicationOwner |Agregar propietario a aplicación. |
-| RemoveApplicationOwner |Quitar propietario de aplicación. |
 | **Eventos de rol** | |
 | Agregar miembro de rol a Rol |Agregó un usuario a un rol del directorio. |
 | Quitar miembro de rol de Rol |Quitó un usuario de un rol del directorio. |
@@ -346,6 +329,6 @@ Los registros de auditoría son un control necesario para muchas regulaciones de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,12 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentación sobre Azure Machine Learning: tutoriales y referencia de API | Microsoft Docs"
 description: "Documentación, vídeos y modelos de ejemplo de Machine Learning, un servicio en la nube para especialistas en datos y desarrolladores que usan análisis predictivo en aplicaciones."
-author: garyericson
-ms.date: 01/18/2017
-ms.author: garye
+services: machine-learning
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: machine-learning
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
+ms.sourcegitcommit: f33e230cc32b9da3129a0be720a7be0bb463e096
+ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentación de Azure Machine Learning
@@ -124,6 +132,7 @@ Vea cómo los especialistas en datos y los desarrolladores usan Machine Learning
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/machinelearning">Referencia de API de REST</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-web-service-error-codes">Códigos de error del servicio web</a></p>
                     </div>
                 </div>
             </div>
@@ -135,6 +144,6 @@ Vea cómo los especialistas en datos y los desarrolladores usan Machine Learning
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

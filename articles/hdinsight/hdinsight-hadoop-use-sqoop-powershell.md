@@ -1,5 +1,5 @@
 ---
-title: Uso de Sqoop de Hadoop en HDInsight | Microsoft Docs
+title: "Ejecución de trabajos de Sqoop con PowerShell y Azure HDInsight | Microsoft Docs"
 description: "Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y exportación en Sqoop entre un clúster de Hadoop y una base de datos SQL de Azure."
 editor: cgronlun
 manager: jhubbard
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 08f91860ef5cc44d15621e2c465e0510e2f1c5bd
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 12bcff92f7d2f877fa90b35fddf88266488c5f78
 
 
 ---
@@ -179,6 +179,6 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

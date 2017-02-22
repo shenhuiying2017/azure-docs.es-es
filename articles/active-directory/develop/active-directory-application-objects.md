@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: bryanla;mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
+ms.sourcegitcommit: 8f70d9aeb0a407cdb76a5ce25eb620be58bb2659
+ms.openlocfilehash: f453dcafe629c871dc29742208e4864454f4c57e
 
 
 ---
@@ -27,7 +27,7 @@ A veces, el significado del término "aplicación" de Azure Active Directory (Az
 El concepto de aplicación de Azure AD es más amplio que simplemente una parte del software. Es un término conceptual, que hace referencia no solo al software de la aplicación, sino también a su registro (también conocido como configuración de identidad) con Azure AD, que permite participar en las "conversaciones" de autenticación y autorización en tiempo de ejecución. Por definición, una aplicación puede funcionar en un rol de [cliente](active-directory-dev-glossary.md#client-application) (al consumir un recurso), un rol de [servidor de recursos](active-directory-dev-glossary.md#resource-server) (al exponer las API a los clientes), o incluso ambos. El protocolo de conversación se define mediante un [flujo de concesión de autorizaciones de OAuth 2.0](active-directory-dev-glossary.md#authorization-grant), con el objetivo de permitir que el cliente o recurso acceda o proteja los datos de un recurso respectivamente. Ahora vamos a profundizar un poco más y ver cómo representa una aplicación internamente el modelo de aplicaciones de Azure AD. 
 
 ## <a name="application-registration"></a>Registro de la aplicación
-Al registrar una aplicación en el [Portal de Azure clásico][AZURE-Classic-Portal], se crean dos objetos en el inquilino de Azure AD: un objeto de aplicación y un objeto de entidad de servicio.
+Al registrar una aplicación en [Azure Portal][AZURE-Portal], se crean dos objetos en el inquilino de Azure AD: un objeto de aplicación y un objeto de entidad de servicio.
 
 #### <a name="application-object"></a>Objeto de aplicación
 Una aplicación de Azure AD se *define* por su único objeto de aplicación, que reside en el inquilino de Azure AD donde se registró la aplicación, conocido como inquilino "principal" de la aplicación. El objeto de aplicación proporciona información relacionada con la identidad de una aplicación y es la plantilla desde la que *proceden* sus correspondientes objetos de entidad de servicio para su uso en tiempo de ejecución. 
@@ -69,10 +69,10 @@ Se puede acceder al objeto de entidad de servicio de la aplicación a través de
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.com
+[AZURE-Classic-Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

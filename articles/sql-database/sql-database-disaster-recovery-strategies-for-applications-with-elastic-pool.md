@@ -16,13 +16,13 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc256d2a164445a4ebbbaec9876d3fa86b56f65c
+ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
+ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
 
 
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pool"></a>Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL
-A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos pueden ocurrir y lo harán. Base de datos SQL proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos independientes admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de Base de datos SQL.
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de SQL Database
+A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos pueden ocurrir y lo harán. Base de datos SQL proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos únicas admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de Base de datos SQL.
 
 Para los fines de este artículo, usaremos el patrón de aplicaciones de ISV de SaaS canónico:
 
@@ -33,7 +33,7 @@ En el resto del artículo, trataremos las estrategias de recuperación ante desa
 ## <a name="scenario-1-cost-sensitive-startup"></a>Escenario 1. Inicio sensible al costo
 <i>Acabo de crear una empresa y me preocupan sobremanera los costos.  Quiero simplificar la implementación y administración de la aplicación y estoy dispuesto a tener un contrato de nivel de servicio limitado para clientes individuales. Sin embargo, quiero garantizar que nunca se quede sin conexión toda la aplicación.</i>
 
-Para satisfacer el requisito de simplicidad, debe implementar todas las bases de datos de inquilino en un grupo elástico de la región de Azure de su elección e implementar las bases de datos de administración como bases de datos de replicación geográfica independiente. Para la recuperación ante desastres de los inquilinos, use la restauración geográfica, que se incluye sin costo adicional. Para garantizar la disponibilidad de las bases de datos de administración, deben ser replicadas geográficamente en otra región (paso 1). El costo en curso de la configuración de recuperación ante desastres en este escenario es igual al costo total de las bases de datos secundarias. En el siguiente diagrama se ilustra esta configuración.
+Para satisfacer el requisito de simplicidad, debe implementar todas las bases de datos de inquilino en un grupo elástico de la región de Azure de su elección e implementar las bases de datos de administración como bases de datos únicas de replicación geográfica. Para la recuperación ante desastres de los inquilinos, use la restauración geográfica, que se incluye sin costo adicional. Para garantizar la disponibilidad de las bases de datos de administración, deben ser replicadas geográficamente en otra región (paso 1). El costo en curso de la configuración de recuperación ante desastres en este escenario es igual al costo total de las bases de datos secundarias. En el siguiente diagrama se ilustra esta configuración.
 
 ![En la Ilustración 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
@@ -71,7 +71,7 @@ Para admitir este escenario, debe separar los inquilinos de versiones de prueba 
 
 ![Ilustración 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Al igual que en el primer escenario, las bases de datos de administración estarán bastante activas, por tanto puede utilizar una base de datos de replicación geográfica independiente para ello (1). Esto garantiza un rendimiento predecible para las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región en la que residen los principales de las bases de datos de administración será la región principal y la región en la que residen los secundarios de las bases de datos de administración será la región de recuperación ante desastres.
+Al igual que en el primer escenario, las bases de datos de administración estarán bastante activas, por tanto puede utilizar una base de datos única de replicación geográfica para ello (1). Esto garantiza un rendimiento predecible para las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región en la que residen los principales de las bases de datos de administración será la región principal y la región en la que residen los secundarios de las bases de datos de administración será la región de recuperación ante desastres.
 
 Las bases de datos de inquilino de los clientes con versiones de pago tendrán bases de datos activas en el grupo aprovisionado "de pago" de la región principal. Debe aprovisionar un grupo secundario con el mismo nombre en la región de recuperación ante desastres. Cada inquilino estará replicado geográficamente en el grupo secundario (2). Esto permitirá una recuperación rápida de todas las bases de datos de inquilino mediante la conmutación por error. 
 
@@ -116,7 +116,7 @@ Para garantizar el menor tiempo de recuperación durante las interrupciones en l
 
 ![Ilustración 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Al igual que en los escenarios anteriores, las bases de datos de administración estarán bastante activas, por tanto debe configurarlas como bases de datos de replicación geográfica independiente (1). Esto garantiza un rendimiento predecible de las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región A podría ser la región principal de las bases de datos de administración y la región B se podría usar para la recuperación de las bases de datos de administración.
+Al igual que en los escenarios anteriores, las bases de datos de administración estarán bastante activas, por tanto debe configurarlas como bases de datos únicas de replicación geográfica (1). Esto garantiza un rendimiento predecible de las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región A podría ser la región principal de las bases de datos de administración y la región B se podría usar para la recuperación de las bases de datos de administración.
 
 Las bases de datos de inquilino de los clientes de versiones de pago también se replicarán geográficamente pero las principales y secundarias se dividen entre la región A y la región B (2). De este modo las bases de datos principales de inquilino afectadas por la interrupción puede conmutar por error a otra región y estar disponibles. La otra mitad de las bases de datos de inquilino no se verá afectada. 
 
@@ -176,6 +176,6 @@ Este artículo se centra en las estrategias de recuperación ante desastres para
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

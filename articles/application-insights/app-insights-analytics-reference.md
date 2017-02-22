@@ -11,17 +11,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
 
 
 ---
 # <a name="reference-for-analytics"></a>Referencia para Analytics
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
+Fuentes adicionales de información:
+
+* Hay mucho material de referencia disponible a medida que escribe. Comience a escribir una consulta y se le sugerirán posibles opciones.
+* [La página del tutorial](app-insights-analytics-tour.md) ofrece una introducción paso a paso a las características del lenguaje.
 * La [hoja de referencia rápida de los usuarios de SQL](https://aka.ms/sql-analytics) traduce las expresiones más comunes.
 * [Use una versión de prueba de Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo) si su aplicación aún no envía datos a Application Insights.
  
@@ -29,7 +33,7 @@ ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
 ## <a name="index"></a>Índice
 **Let** [let](#let-clause)
 
-**Consultas y operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Consultas y operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Agregaciones** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -364,6 +368,70 @@ traces
     Age = now() - timestamp
 ```
 
+### <a name="find-operator"></a>Operador find
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+Busca filas que coinciden con un predicado a través de un conjunto de tablas.
+
+**Sintaxis**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**Argumentos**
+
+* *Table1* Un nombre de tabla o consulta. Puede ser una tabla definida por let, pero no una función. Un nombre de tabla se comporta mejor que una consulta.
+* *Predicado* una expresión booleana que se evalúa en cada fila de las tablas especificadas.
+* *Column1* La opción `project` le permite especificar qué columnas deben aparecer siempre en la salida. 
+
+**Resultado**
+
+De forma predeterminada, la tabla de salida contiene:
+
+* `source_`: Un indicador de la tabla de origen para cada fila.
+* Las columnas mencionadas explícitamente en el predicado
+* Las columnas no vacías comunes a todas las tablas de entrada.
+* `pack_`: Una bolsa de propiedades que contiene los datos de las otras columnas.
+
+Tenga en cuenta que puede cambiar este formato con cambios en los datos de entrada o el predicado. Para especificar un conjunto fijo de columnas, utilice `project`.
+
+**Ejemplo**
+
+Obtenga todas las solicitudes y excepciones, excepto aquellas de pruebas de disponibilidad y robots:
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Busque todas las solicitudes y excepciones del Reino Unido, excepto aquellas de pruebas de disponibilidad y robots:
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+Busque la telemetría más reciente en cualquier campo que contenga el término "test":
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**Consejos de rendimiento**
+
+* Agregue condiciones basadas en tiempo al predicado `where`.
+* Use cláusulas `let` en lugar de escribir consultas alineadas.
+
+
 
 ### <a name="join-operator"></a>Operador join
     Table1 | join (Table2) on CommonColumn
@@ -387,10 +455,10 @@ Una tabla con:
 
 * Una columna por cada columna en cada una de las dos tablas, incluidas las claves coincidentes. Si hay conflictos de nombres las columnas de la derecha se cambiarán automáticamente de nombre.
 * Una fila por cada correspondencia entre las tablas de entrada. Una coincidencia es una fila seleccionada de una tabla que tiene el mismo valor para todos los campos `on` que una fila en la otra tabla. 
-* `Kind` sin especificar.
+* `Kind` sin especificar o `= innerunique`
   
     Solo se compara una fila del lado izquierdo para cada valor de la clave `on` . La salida contiene una fila por cada coincidencia de esta fila con filas de la derecha.
-* `Kind=inner`
+* `kind=inner`
   
      Hay una fila en la salida por cada combinación de filas coincidentes de la izquierda y la derecha.
 * `kind=leftouter` (o `kind=rightouter` o `kind=fullouter`)
@@ -399,8 +467,10 @@ Una tabla con:
 * `kind=leftanti`
   
      Devuelve todos los registros del lado izquierdo que no tienen coincidencias en el derecho. La tabla resultante solo tiene las columnas del lado izquierdo. 
+* `kind=leftsemi` (o `leftantisemi`)
 
-Si hay varias filas con los mismos valores para esos campos, obtendrá filas para todas las combinaciones.
+    Devuelve una fila de la tabla izquierda si existe (o no) una coincidencia en la tabla derecha. El resultado no incluye datos de la tabla derecha.
+
 
 **Sugerencias**
 
@@ -836,9 +906,8 @@ Las filas de entrada están organizadas en grupos que tienen los mismos valores 
 
 El resultado tiene tantas filas como el número de combinaciones distintivas de los valores de `by` . Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
 
-**Nota:**
-
-Aunque puede proporcionar expresiones arbitrarias para las expresiones de agregación y las de agrupación, resulta más eficaz usar nombres de columna simples, o bien aplicar `bin()` a una columna numérica.
+> [!NOTE]
+> Aunque puede proporcionar expresiones arbitrarias para las expresiones de agregación y las de agrupación, resulta más eficaz usar nombres de columna simples, o bien aplicar `bin()` a una columna numérica.
 
 ### <a name="take-operator"></a>Operador take
 Alias de [limit](#limit-operator)
@@ -937,13 +1006,13 @@ Esta versión más eficaz, produce el mismo resultado. Filtra cada tabla antes d
 ```AIQL
 
     exceptions
-    | where Timestamp > ago(1d)
+    | where Timestamp > ago(12h)
     | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(1d))
+       (Command | where Timestamp > ago(12h))
     | summarize dcount(UserId)
 ```
 
-### <a name="forcing-an-order-of-results"></a>Modificar el orden de los resultados
+#### <a name="forcing-an-order-of-results"></a>Modificar el orden de los resultados
 
 La unión no garantiza un orden específico en las filas de resultados.
 Para obtener el mismo orden cada vez que ejecute la consulta, anexe una columna de etiqueta a cada tabla de entrada:
@@ -953,6 +1022,9 @@ Para obtener el mismo orden cada vez que ejecute la consulta, anexe una columna 
     let r3 = (pageViews | count | extend tag = 'r3');
     r1 | union r2,r3 | sort by tag
 
+#### <a name="see-also"></a>Consulte también
+
+Tenga en cuenta el [operador join](#join-operator) como alternativa.
 
 ### <a name="where-operator"></a>Operador where
      requests | where resultCode==200
@@ -964,11 +1036,13 @@ Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 **Sintaxis**
 
     T | where Predicate
+    T | where * has Term
 
 **Argumentos**
 
 * *T* : la entrada tabular cuyos registros se van a filtrar.
 * *Predicate:* una `boolean` [expresión](#boolean) sobre las columnas de *T*. Se evalúa para cada fila en *T*.
+* *Término*: Una cadena que debe coincidir con la totalidad de una palabra en una columna.
 
 **Devuelve**
 
@@ -1621,7 +1695,7 @@ Alias `floor`.
 
 El múltiplo más cercano de *roundTo* por debajo de *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **Ejemplos**
 
@@ -1705,14 +1779,14 @@ La función de raíz cuadrada.
 
 ### <a name="toint"></a>toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
 ### <a name="tolong"></a>tolong
-    tolong(20.7) == 21 // conversion from double
+    tolong(20.7) == 20 // conversion from double
     tolong(20.4) == 20 // conversion from double
     tolong("  123  ")  // parse string
     tolong(a[0])       // cast from dynamic
@@ -2607,6 +2681,6 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

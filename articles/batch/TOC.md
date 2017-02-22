@@ -2,7 +2,7 @@
 ## [¿Qué es Azure Batch?](batch-technical-overview.md)
 ## [Descripción de las características](batch-api-basics.md)
 ## [Cuotas y límites](batch-quota-limit.md)
-# Primeros pasos
+# Introducción
 ## [Crear una cuenta de Batch](batch-account-create-portal.md)
 ## [Tutorial de .NET para Batch](batch-dotnet-get-started.md)
 ## [Tutorial de Python para Batch](batch-python-tutorial.md)
@@ -25,12 +25,12 @@
 ### [Registros de diagnósticos de Batch](batch-diagnostics.md)
 
 # Referencia
-## [Cmdlets de PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
-## [Java](https://docs.microsoft.com/java/api)
-## [API de .NET](https://docs.microsoft.com/dotnet/api)
-## [SDK de Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [.NET](/dotnet/api/microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [SDK de Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
+## [REST](/rest/api/batchservice)
 
 # Temas relacionados
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
@@ -48,6 +48,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Obtención de las herramientas de Azure para el kit de inicio de IoT de Azure (macOS 10.10) | Microsoft Docs"
+title: "Conexión de Arduino a Azure IoT: Lección 2: Herramientas de Azure (macOS) | Microsoft Docs"
 description: "Instale Python la interfaz de la línea de comandos de Azure (CLI de Azure) en Mac OS."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: de7d031a05110ccbd2d5ab18a7735a91df2bd05e
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: ad8ee9d524dcb096ac7db4bb23ec16d56518742b
 
 
 ---
@@ -87,6 +87,6 @@ Ha instalado la CLI de Azure. La siguiente tarea consiste en crear la identidad 
 [create-your-iot-hub-and-register-your-arduino-board]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

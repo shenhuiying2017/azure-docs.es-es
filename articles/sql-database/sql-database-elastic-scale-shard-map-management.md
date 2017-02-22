@@ -1,5 +1,5 @@
 ---
-title: "Administración de mapas de particiones | Microsoft Docs"
+title: Escalado horizontal de una base de datos Azure SQL Database | Microsoft Docs
 description: "Cómo usar ShardMapManager, la biblioteca de cliente de bases de datos elásticas"
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3c2cb9a99bb28c2530e1c58ec8ad2fd16b9cc97c
+ms.sourcegitcommit: eb5483e497ef1c1a239f207a034eb8c67f485a39
+ms.openlocfilehash: c7a46ebf0df6db92d2e66c7523e00c0a574ebf56
 
 
 ---
@@ -294,7 +294,7 @@ Estos métodos funcionan en conjunto como los bloques de creación disponibles p
     El servidor y la base de datos que representa la partición de destino deben existir ya para que estas operaciones se ejecuten. Estos métodos no tienen ningún efecto en las propias bases de datos, solo en los metadatos del mapa de particiones.
 * Para crear o quitar puntos o intervalos que se asignan a las particiones, use **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**, **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** de la [clase RangeShardMapping](https://msdn.microsoft.com/library/azure/dn807318.aspx) y **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** de la [clase ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx)
   
-    Pueden asignarse muchos puntos o intervalos distintos a la misma partición. Estos métodos solo afectan a los metadatos, no afectan a los datos que puedan existir ya en particiones. Si es necesario quitar datos de la base de datos para mantener la coherencia con operaciones de **DeleteMapping** , deberá realizar esas operaciones por separado pero conjuntamente con el uso de estos métodos.  
+    Pueden asignarse muchos puntos o intervalos distintos a la misma partición. Estos métodos solo afectan a los metadatos, no a los datos que puedan existir ya en particiones. Si es necesario quitar datos de la base de datos para mantener la coherencia con operaciones de **DeleteMapping** , deberá realizar esas operaciones por separado pero conjuntamente con el uso de estos métodos.  
 * Para dividir en dos los intervalos existentes o combinar en uno los intervalos adyacentes, use **[SplitMapping](https://msdn.microsoft.com/library/azure/dn824205.aspx)** y **[MergeMappings](https://msdn.microsoft.com/library/azure/dn824201.aspx)**.  
   
     Tenga en cuenta que las operaciones de división y combinación **no cambian la partición a la que se asignan los valores de clave**. Una división divide un rango existente en dos partes, pero deja ambas partes como asignadas a la misma partición. Una combinación opera en dos intervalos adyacentes que ya están asignados a la misma partición, fusionándolos en un solo intervalo.  El movimiento de puntos o intervalos propiamente dichos entre particiones debe coordinarse mediante **UpdateMapping** junto con el movimiento de datos real.  Puede utilizar el servicio de **División y combinación** que forma parte de la vista previa de Escalado elástico para coordinar los cambios de mapas de particiones con el movimiento de datos, cuando se requiere movimiento. 
@@ -325,6 +325,6 @@ Sin embargo, para escenarios que requieren movimiento de datos, se necesita la h
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

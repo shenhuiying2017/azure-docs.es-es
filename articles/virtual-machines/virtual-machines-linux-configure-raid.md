@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 02/02/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2d8caf829d59262ab4802745e61fe6745376001a
+ms.sourcegitcommit: 6d1f26e462e011a2226ac5a14c7dc3360d0c6f36
+ms.openlocfilehash: f06703d4082e55d571367fe61221d657b3e30a58
 
 
 ---
@@ -132,7 +132,7 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11 y openSUSE**: habilite boot.md y cree mdadm.conf.
+    c. **SLES 11**: habilitar boot.md y crear mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -167,7 +167,7 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
     ```
    
-    O en **SLES 11 y openSUSE**:
+    O bien, en **SLES 11**:
 
     ```bash
     /dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
@@ -210,8 +210,37 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
     Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`".  En Ubuntu, este parámetro puede agregarse a la variable `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
 
 
+## <a name="trimunmap-support"></a>Compatibilidad con TRIM y UNMAP
+Algunos kernels de Linux admiten operaciones TRIM/UNMAP para descartar bloques no usados del disco. Estas operaciones son especialmente útiles en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. El descarte de páginas puede suponer un ahorro de dinero si crea archivos grandes y, a continuación, los elimina.
+
+> [!NOTE]
+> Es posible que RAID no pueda emitir comandos de descartar si el tamaño del fragmento de la matriz se establece en un valor inferior al predeterminado (512 kB). Esto se debe a que la granularidad de UNMAP del host también es de 512 kB. Si ha modificado el tamaño del fragmento de la matriz a través del parámetro `--chunk=` de mdadm, el kernel puede pasar por alto las solicitudes de TRIM y UNMAP.
+
+Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual Linux. Como es habitual, consulte la documentación de distribución para ver el enfoque recomendado:
+
+- Use la opción de montaje `discard` en `/etc/fstab`, por ejemplo:
+
+    ```bash
+    UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
+    ```
+
+- En algunos casos, la opción `discard` podría tener afectar al rendimiento. Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
+
+    **Ubuntu**
+
+    ```bash
+    # sudo apt-get install util-linux
+    # sudo fstrim /data
+    ```
+
+    **RHEL/CentOS**
+    ```bash
+    # sudo yum install util-linux
+    # sudo fstrim /data
+    ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Feb17_HO1-->
 
 

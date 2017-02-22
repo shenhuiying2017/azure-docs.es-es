@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -39,7 +39,7 @@ Para obtener más información sobre las bases de datos de Azure SQL, consulte e
 
 ## <a name="what-features-are-supported"></a>¿Qué características se admiten?
 
-En las siguientes tablas se enumeran las características principales de Azure SQL Database y SQL Server, se especifica su compatibilidad y se proporciona un vínculo para obtener más información sobre la característica en cada plataforma. En el caso de las características de Transact-SQL, visite el vínculo de la tabla de la categoría de la característica. Consulte también [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Diferencias de Transact-SQL de Azure SQL Database) para entender mejor los motivos de la falta de compatibilidad con ciertos tipos de características.
+En las tablas siguientes se enumeran las características principales de Azure SQL Database y SQL Server, se especifica su compatibilidad y se proporciona un vínculo para más información sobre la característica en cada plataforma. En el caso de las características de Transact-SQL, visite el vínculo de la tabla de la categoría de la característica. Consulte también [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Diferencias de Transact-SQL de Azure SQL Database) para entender mejor los motivos de la falta de compatibilidad con ciertos tipos de características.
 
 Seguimos agregando características a la V12. Por lo tanto, le recomendamos que visite nuestra página web Actualizaciones del servicio para Azure y que use los filtros:
 
@@ -47,7 +47,7 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 * Filtrado a Disponibilidad general [Anuncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para características de Base de datos SQL.
 
 > [!TIP]
-> Para comprobar la compatibilidad con Azure SQL Database de una base de datos existente, consulte el artículo que explica cómo [validar la compatibilidad de Azure SQL Database](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> Para comprobar la compatibilidad con Azure SQL Database, consulte [Migración de una base de datos de SQL Server a Azure](sql-database-cloud-migrate.md).
 >
 
 | **Característica** | **SQL Server** | **Azure SQL Database** | 
@@ -157,10 +157,10 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 - Para conocer los detalles sobre la compatibilidad y las diferencias de Transact-SQL, consulte [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Diferencias de Transact-SQL de Azure SQL Database).
 - En el siguiente vínculo, encontrará información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**. Para obtener una descripción general de los niveles de servicio, consulte [Niveles de servicio de la Base de datos SQL](sql-database-service-tiers.md).
 - Para obtener información general sobre la seguridad, consulte [Introducción a la seguridad de Azure SQL Database](sql-database-security-overview.md).
-- Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
+- Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md).
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

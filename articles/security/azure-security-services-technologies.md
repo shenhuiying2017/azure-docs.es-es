@@ -4,7 +4,7 @@ description: "El artículo proporciona una lista exclusiva de las tecnologías y
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/02/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 354648461adf77ccf753cf24721ab7dd82b34d3c
-ms.openlocfilehash: 5d2d8503657269a7792667603e8b23d0183561ff
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
 
 
 ---
@@ -25,7 +25,7 @@ En nuestras conversaciones con los clientes de Azure actuales y futuros, se nos 
 
 Somos conscientes de que, al evaluar las opciones técnicas de los proveedores de servicios en la nube, es útil tener esa lista para profundizar más cuando le venga bien.
 
-A continuación se proporciona nuestro esfuerzo inicial para proporcionar una lista. Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. La lista se clasifica por categorías y la lista de categorías también crecerá con el tiempo. Asegúrese de que consultar esta página periódicamente para mantenerse informado sobre nuestros servicios relacionados con la seguridad y las tecnologías. 
+A continuación se proporciona nuestro esfuerzo inicial para proporcionar una lista. Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. La lista se clasifica por categorías y la lista de categorías también crecerá con el tiempo. Asegúrese de que consultar esta página periódicamente para mantenerse informado sobre nuestros servicios relacionados con la seguridad y las tecnologías.
 
 ## <a name="azure-security---general"></a>Seguridad de Azure: general
 * [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)
@@ -38,7 +38,7 @@ A continuación se proporciona nuestro esfuerzo inicial para proporcionar una li
 * [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](../storage/storage-service-encryption.md)
 * [Documentación de StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)
 * [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](../storage/storage-client-side-encryption.md)
-* [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
+* [Firmas de acceso compartido, Parte&1;: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
 * [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md)
 * [Introducción a Almacenamiento de archivos de Azure en Windows](../storage/storage-dotnet-how-to-use-files.md)
 * [Análisis de almacenamiento](https://msdn.microsoft.com/library/hh343270.aspx)
@@ -46,18 +46,18 @@ A continuación se proporciona nuestro esfuerzo inicial para proporcionar una li
 ## <a name="azure-database-security"></a>Seguridad de la Base de datos de Azure
 * [Cómo configurar un firewall de base de datos SQL de Azure](../sql-database/sql-database-firewall-configure.md)
 * [Azure SQL Cell Level Encryption](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](../sql-database/sql-database-security-guidelines.md)
-* [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](../sql-database/sql-database-security-guidelines.md)
+* [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](../sql-database/sql-database-control-access.md)
+* [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](../sql-database/sql-database-control-access.md)
 * [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Cifrar una columna de datos](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Cifrado de datos transparente con Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Introducción a la auditoría de bases de datos SQL](../sql-database/sql-database-auditing-get-started.md)
+* [Introducción a la auditoría de bases de datos SQL](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Administración de identidades y acceso de Azure
 * [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](../active-directory/role-based-access-control-configure.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
-* [Servicios de dominio de Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory-ds/)
+* [Servicios de dominio de Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Copia de seguridad y recuperación ante desastres
@@ -75,7 +75,6 @@ A continuación se proporciona nuestro esfuerzo inicial para proporcionar una li
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

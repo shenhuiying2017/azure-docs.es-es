@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: e42736725bb3636115a6c81aea1f929612a351fe
+ms.sourcegitcommit: f73cbfec2ce2e41589b84997891ff0b60266c9b2
+ms.openlocfilehash: 10a10e138c9c8ed8c15136bf1d6565edc57758b5
 
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms"></a>Acerca de las máquinas virtuales de la serie H y A de proceso intensivo
-Aquí se proporciona información general y algunas consideraciones sobre el uso de las series H de Azure más recientes y los antiguos tamaños A8, A9, A10 y A11, también conocidos como instancias de *proceso intensivo* . Este artículo se centra en el uso de estos tamaños con las máquinas virtuales con Linux. Este artículo también está disponible para [máquinas virtuales con Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aquí se proporciona información general y algunas consideraciones sobre el uso de las series H de Azure más recientes y los antiguos tamaños A8, A9, A10 y A11, también conocidos como instancias de *proceso intensivo* . Este artículo se centra en el uso de estos tamaños con las máquinas virtuales con Linux. Este artículo también está disponible para [máquinas virtuales con Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+
+Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
@@ -49,7 +51,7 @@ Puede crear clústeres de máquinas virtuales con Linux compatibles con RDMA que
   * **SLES 12 SP1 para la imagen de HPC** : instale los paquetes de Intel MPI distribuidos en la máquina virtual; para ello, ejecute el comando siguiente:
     
           sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-  * **SLES 12 para la imagen de HPC** : debe registrarse independientemente para descargar e instalar Intel MPI. Consulte la [guía de instalación de la Biblioteca de Intel MPI](https://software.intel.com/sites/default/files/managed/7c/2c/intelmpi-2017-installguide-linux.pdf).
+  * **SLES 12 para la imagen de HPC** : debe registrarse independientemente para descargar e instalar Intel MPI. Para obtener instrucciones, consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/en-us/intel-mpi-library/documentation).
   * **Imágenes de HPC basadas en CentOS**: Intel MPI 5.1 ya está instalado.  
     
     Se necesita configuración adicional del sistema para ejecutar trabajos MPI en máquinas virtuales en clúster. Por ejemplo, en un clúster de máquinas virtuales, debe establecer la confianza entre los nodos de proceso. Para configuraciones típicas, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
@@ -130,6 +132,6 @@ done
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

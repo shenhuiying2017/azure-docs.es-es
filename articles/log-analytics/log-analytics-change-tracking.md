@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/18/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
+ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
+ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
 
 
 ---
 # <a name="change-tracking-solution-in-log-analytics"></a>Solución de seguimiento de cambios de Log Analytics
-Este artículo le ayudará a usar la solución Seguimiento de cambios de configuración en Log Analytics para identificar fácilmente los cambios de su entorno. La solución realiza un seguimiento de los cambios en el software, los Servicios de Windows, los demonios de Linux y los paquetes Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos. También puede configurar la solución para realizar un seguimiento de los cambios aplicados en archivos de Windows específicos.
+Este artículo le ayudará a usar la solución de seguimiento de cambios de Log Analytics para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux; en los archivos y servicios de Windows, y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
-La solución se instala para actualizar el tipo de agente que ha instalado. Los cambios en los demonios de Linux, los Servicios de Windows y el software instalados en los servidores supervisados se leen y, a continuación, los datos se envían al servicio de Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Cuando se detectan cambios, se muestran los servidores con los cambios en el panel de seguimiento de cambios. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
+La solución se instala para actualizar el tipo de agente que ha instalado. Los cambios en los demonios de Linux, los Servicios de Windows y el software instalados en los servidores supervisados se leen y, a continuación, los datos se envían al servicio de Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
@@ -63,12 +63,12 @@ La siguiente tabla muestra los métodos de recopilación de datos y otros detall
 
 | plataforma | Agente directo | Agente de SCOM | Agente Linux | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows y Linux |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |cada hora |
+| Windows y Linux |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) | Entre 15 minutos y 1 hora, según el tipo de cambio. |
 
 ## <a name="use-change-tracking"></a>Uso de seguimiento de cambios
 Una vez instalada la solución, puede ver el resumen de los cambios para los servidores supervisados mediante el icono **Seguimiento de cambios** en la página **Información general** de OMS.
 
-![imagen del icono de seguimiento de cambios](./media/log-analytics-change-tracking/oms-changetracking-tile.png)
+![imagen del icono de seguimiento de cambios](./media/log-analytics-change-tracking/change-tracking-tile.png)
 
 Puede ver los cambios en la infraestructura y, a continuación, profundizar en los detalles de las siguientes categorías:
 
@@ -79,9 +79,9 @@ Puede ver los cambios en la infraestructura y, a continuación, profundizar en l
 * Cambios de servicio de Windows para servidores individuales
 * Cambios de demonios de Linux
 
-![imagen del panel de seguimiento de cambios](./media/log-analytics-change-tracking/oms-changetracking01.png)
+![imagen del panel de seguimiento de cambios](./media/log-analytics-change-tracking/change-tracking-dash01.png)
 
-![imagen del panel de seguimiento de cambios](./media/log-analytics-change-tracking/oms-changetracking02.png)
+![imagen del panel de seguimiento de cambios](./media/log-analytics-change-tracking/change-tracking-dash02.png)
 
 ### <a name="to-view-changes-for-any-change-type"></a>Para ver los cambios de algún tipo de cambio
 1. En la página **Información general**, haga clic en el icono **Seguimiento de cambios**.
@@ -93,6 +93,6 @@ Puede ver los cambios en la infraestructura y, a continuación, profundizar en l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "  Publicación de contenido con Azure Portal | Microsoft Docs"
+title: "  Publicación de contenido con Azure Portal | Microsoft Docscs"
 description: "Este tutorial lo guiará a través de los pasos de publicación de contenidos con el Portal de Azure."
 services: media-services
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96a8342dc782a9270a6de5b67387c35ea45b860e
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
 
 
 ---
@@ -62,7 +62,7 @@ Para obtener más información, consulte la [introducción a la entrega de conte
 > 
 > 
 
-Para actualizar la fecha de caducidad de un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Para actualizar la fecha de caducidad de un localizador, use las API de [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Uso del portal para publicar un recurso
 Para usar el portal para publicar un recurso, haga lo siguiente:
@@ -90,7 +90,6 @@ Se aplican algunas consideraciones:
 * Asegúrese de que se ha publicado el vídeo.
 * El **Reproductor multimedia** reproduce desde el punto de conexión de streaming predeterminado. Si desea reproducir desde un punto de conexión de streaming que no esté predeterminado, haga clic para copiar la dirección URL y use otro reproductor. Por ejemplo, el [Reproductor de Servicios multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * Debe estar ejecutándose el punto de conexión de streaming desde el que está realizando una operación de streaming.  
-* Para transmitir por secuencias desde un punto de conexión de streaming, debe agregar, al menos, una unidad de streaming. Para obtener más información, consulte [este tema](media-services-portal-scale-streaming-endpoints.md) .   
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte las rutas de aprendizaje de Servicios multimedia.
@@ -103,6 +102,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

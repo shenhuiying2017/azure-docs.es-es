@@ -179,6 +179,6 @@ Este artículo explica cómo implementar WebJobs con Visual Studio. Para más in
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

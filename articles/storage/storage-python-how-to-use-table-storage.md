@@ -170,7 +170,7 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de ta
 * [Blog del equipo de almacenamiento de Azure]
 * [SDK de Almacenamiento de Microsoft Azure para Python]
 
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
 

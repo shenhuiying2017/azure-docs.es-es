@@ -1,6 +1,6 @@
 ---
 title: 'Azure Portal: reglas de firewall de nivel de servidor en Azure SQL Database | Microsoft Docs'
-description: Aprenda a configurar las reglas de firewall de nivel de servidor para direcciones IP que acceden a instancias de Azure SQL Server mediante Azure Portal.
+description: Aprenda a configurar las reglas de firewall de nivel de servidor de las direcciones IP que acceden a instancias de Azure SQL Server mediante Azure Portal.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -12,23 +12,16 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/28/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 1939b69ee806d9091a21f3b21a276175d5a19a62
 
 
 ---
 # <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Creación y administración de reglas de firewall de nivel de servidor en Azure SQL Database mediante Azure Portal
-> [!div class="op_single_selector"]
-> * [Información general](sql-database-firewall-configure.md)
-> * [Portal de Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [API DE REST](sql-database-configure-firewall-settings-rest.md)
-> 
 
 Las reglas de firewall de nivel de servidor permiten a los administradores tener acceso a un servidor de SQL Database desde una dirección IP o intervalo de direcciones IP especificado. También puede usar reglas de firewall de nivel de servidor para usuarios cuando tenga muchas bases de datos con los mismos requisitos de acceso y no quiera dedicar tiempo a configurar individualmente cada una de ellas. Microsoft recomienda usar reglas de firewall de nivel de base de datos siempre que sea posible a fin de mejorar la seguridad y aumentar la portabilidad de la base de datos. Para obtener información general acerca de los firewalls de SQL Database, consulte [Introducción a las reglas de firewall de SQL Database](sql-database-firewall-configure.md).
 
@@ -50,8 +43,8 @@ Haga clic en **Guardar** para guardar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver un tutorial de introducción, consulte [Tutorial de SQL Database: crear un servidor, una regla de firewall de nivel de servidor, una base de datos de ejemplo, una regla de firewall de nivel de base de datos y conectar con SQL Server](sql-database-get-started.md).
-- Para una introducción al tutorial de seguridad, consulte [Introducción a la seguridad](sql-database-get-started-security.md)
+- Para ver un tutorial sobre el aprovisionamiento y conexión de un servidor con los firewall de nivel de servidor, consulte [Tutorial: aprovisionamiento y acceso a una instancia de Azure SQL Database mediante Azure Portal y SQL Server Management Studio](sql-database-get-started.md).
+- Para ver un tutorial sobre los firewall de nivel de base de datos y autenticación de SQL Server, consulte [Autenticación y autorización de SQL](sql-database-control-access-sql-authentication-get-started.md).
 - Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Para saber cómo crear más usuarios que puedan conectarse a bases de datos, consulte [Autorización y autenticación de SQL Database: concesión de acceso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +57,6 @@ Haga clic en **Guardar** para guardar los cambios.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

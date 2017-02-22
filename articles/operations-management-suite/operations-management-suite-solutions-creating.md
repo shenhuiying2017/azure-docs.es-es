@@ -4,7 +4,7 @@ description: "Las soluciones de administración amplían la funcionalidad de Ope
 services: operations-management-suite
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
+ms.sourcegitcommit: fc8b76bf996060e226ac3f508a1ecffca6fc3c98
+ms.openlocfilehash: caa2f96d452174ebb13c5cbf67737f20e2a2134d
 
 
 ---
@@ -261,13 +261,14 @@ Puede obtener los detalles y ejemplos de recursos que son comunes en las solucio
 Antes de implementar su solución de administración, se recomienda que la pruebe mediante [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  Esto validará su archivo de solución y le ayudará a identificar los problemas antes de intentar implementarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
+* [Incorporación de búsquedas y alertas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) a la solución de administración.
+* [Incorporación de vistas](operations-management-suite-solutions-resources-views.md) a la solución de administración.
+* [Incorporación de runbooks de Automation y otros recursos](operations-management-suite-solutions-resources-automation.md) a la solución de administración.
 * Obtenga más información en [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.
-* Vea los detalles para [agregar vistas a una solución de administración](operations-management-suite-solutions-resources-views.md).
-* Vea los detalles para [agregar recursos de Automation a una solución de administración](operations-management-suite-solutions-resources-automation.md).
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

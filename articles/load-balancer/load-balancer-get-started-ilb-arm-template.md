@@ -1,5 +1,5 @@
 ---
-title: "Creación de un equilibrador de carga interno mediante una plantilla en el Administrador de recursos | Microsoft Docs"
+title: "Creación de un equilibrador de carga interno: plantilla de Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo crear un equilibrador de carga interno mediante una plantilla en el Administrador de recursos"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 03fdb734fee778ac5dbee4fb8417cb68c5267173
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: da1a0bb7982b02daa89144c3f5c3f257f14c06c9
 
 ---
 
@@ -85,6 +85,6 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

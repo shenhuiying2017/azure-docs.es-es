@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
+ms.date: 1/11/2017
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: dbaa242b8969ad04c92e7a527f4cd585bc3763cb
-ms.openlocfilehash: bb2ae9d94a8f1e02a81ff46bdc29e6f9787ebf31
+ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
+ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
 
 
 ---
@@ -35,14 +35,16 @@ Las preguntas y respuestas se organizan en las siguientes categorías
 ## <a name="questions-about-creating-a-locally-pinned-volume"></a>Preguntas sobre la creación de un volumen anclado localmente
 **P.** ¿Cuál es el tamaño máximo de un volumen anclado localmente que puedo crear en los dispositivos de la serie 8000?
 
-**R.** Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 22,5 TB o volúmenes en capas de hasta 500 TB.
+**A** En dispositivos que ejecutan la actualización 3.0 de la serie StorSimple 8000, puede aprovisionar volúmenes anclados localmente hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 22,5 TB o volúmenes en capas de hasta 500 TB.    
+En dispositivos que ejecutan la actualización 2.x de la serie StorSimple 8000, puede aprovisionar volúmenes anclados localmente hasta 8 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 20 TB o volúmenes en capas de hasta 500 TB.   
 
-**P.** Hace poco, actualicé mi dispositivo 8100 a Update 2 y cuando trato de crear un volumen anclado localmente, el tamaño máximo disponible es solo de 6 TB, no de 8,5 TB. ¿Por qué no puedo crear un volumen de 8,5 TB?
+**P.** Hace poco, actualicé mi dispositivo 8100 a Update 2.0 y cuando trato de crear un volumen anclado localmente, el tamaño máximo disponible es solo de 6 TB, no de 8 TB. ¿Por qué no puedo crear un volumen de 8 TB?
 
-**R.** Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. Si el dispositivo ya tiene volúmenes en capas, el espacio disponible para crear un volumen anclado localmente será proporcionalmente inferior a este límite máximo. Por ejemplo, si ya se han aprovisionado 100 TB de volúmenes en capas en el dispositivo 8100 (la mitad de la capacidad en capas), el tamaño máximo de un volumen local que puede crear en el dispositivo 8100 disminuirá a 4 TB (la mitad de la capacidad máxima de los volúmenes anclados localmente).
+**R** Si el dispositivo ejecuta la actualización 2.0, puede aprovisionar volúmenes anclados localmente hasta 8 TB O volúmenes en capas de hasta 200 TB en el dispositivo 8100. Si el dispositivo ya tiene volúmenes en capas, el espacio disponible para crear un volumen anclado localmente será proporcionalmente inferior a este límite máximo. Por ejemplo, si ya se han aprovisionado 100 TB de volúmenes en capas en el dispositivo 8100 (la mitad de la capacidad en capas), el tamaño máximo de un volumen local que puede crear en el dispositivo 8100 disminuirá a 4 TB (la mitad de la capacidad máxima de los volúmenes anclados localmente).
 
-Puesto que parte del espacio en el dispositivo local se utiliza para hospedar el espacio de trabajo de los volúmenes en capas, el espacio disponible para crear un volumen anclado localmente se reducirá si el dispositivo tiene volúmenes en capas. Por el contrario, la creación de un volumen anclado localmente reducirá el espacio disponible proporcionalmente para volúmenes en capas. La tabla siguiente resume la capacidad en capas disponible en los dispositivos 8100 y 8600 cuando se crean volúmenes anclados localmente.
+Puesto que parte del espacio en el dispositivo local se utiliza para hospedar el espacio de trabajo de los volúmenes en capas, el espacio disponible para crear un volumen anclado localmente se reducirá si el dispositivo tiene volúmenes en capas. Por el contrario, la creación de un volumen anclado localmente reducirá el espacio disponible proporcionalmente para volúmenes en capas. En las tablas siguientes se resume la capacidad en capas disponible en los dispositivos 8100 y 8600 cuando se crean volúmenes anclados localmente.
 
+####<a name="update-30"></a>Actualización 3.0 
 | Capacidad aprovisionada de los volúmenes anclados localmente | Capacidad disponible para aprovisionar para volúmenes en capas: 8100 | Capacidad disponible para aprovisionar para volúmenes en capas: 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
@@ -52,6 +54,17 @@ Puesto que parte del espacio en el dispositivo local se utiliza para hospedar el
 | 10 TB |N/D |277,8 TB |
 | 15 TB |N/D |166,7 TB |
 | 22,5 TB |N/D |0 TB |
+
+####<a name="update-2x"></a>Actualización 2.x  
+ | Capacidad aprovisionada de los volúmenes anclados localmente | Capacidad disponible para aprovisionar para volúmenes en capas: 8100 | Capacidad disponible para aprovisionar para volúmenes en capas: 8600 |  
+ | --- | --- | --- |  
+ | 0 |200 TB |500 TB |  
+ | 1 TB |25 TB |475 TB |  
+ | 4 TB |100 TB |400 TB |  
+ | 8 TB |0 TB |300 TB |  
+ | 10 TB |N/A |250 TB |  
+ | 15 TB |N/D |125 TB |  
+ | 20 TB |N/D |0 TB |   
 
 **P.** ¿Por qué la creación de volúmenes anclados localmente es una operación de larga duración? 
 
@@ -205,6 +218,6 @@ Más información acerca de las [conmutación por error y la recuperación ante 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

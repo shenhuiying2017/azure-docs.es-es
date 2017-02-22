@@ -247,6 +247,6 @@ Al hacer clic en el icono de Birst Agile Business Analytics en el panel de acces
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

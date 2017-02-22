@@ -15,8 +15,8 @@ ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6de24842669e29ea7d6796f63fa2a8ae36930531
+ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
+ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
 
 
 ---
@@ -43,7 +43,7 @@ La hoja Estado de los recursos en el Portal de Azure proporciona información de
 Una vez que haya iniciado sesión en el Portal de Azure, hay dos maneras de obtener acceso a la hoja de Estado de los recursos: 
 
 ### <a name="open-the-resource-blade"></a>Abrir la hoja del recurso
-Abra la hoja de recursos para un recurso determinado. En la hoja Configuración que se abre junto a la hoja del recurso, haga clic en Estado de los recursos para abrir la hoja Estado de los recursos. 
+Abra la hoja de recursos para un recurso determinado. En la hoja de la izquierda que se abre junto a la hoja del recurso, haga clic en Resource Health en Soporte y solución de problemas para abrir la hoja Resource Health. 
 
 ![Hoja de Estado de los recursos](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
@@ -54,7 +54,7 @@ Abra la hoja de ayuda y soporte técnico haciendo clic en el signo de interrogac
 
 ![Ayuda y soporte técnico](./media/resource-health-overview/HelpAndSupport.png)
 
-Al hacer clic en el icono se abrirá la hoja de la suscripción de Estado de los recursos que mostrará una lista de todos los recursos en su suscripción. Junto a cada recurso hay un icono que indica su estado. Al hacer clic en cada recurso se abrirá la hoja de Estado de los recursos.
+En la hoja de la izquierda que se abre junto a la hoja Ayuda y soporte técnico, haga clic en Resource Health en Soporte y solución de problemas. Al hacer clic en el icono se abrirá la hoja de la suscripción de Resource Health, que mostrará una lista de todos los recursos en su suscripción. Junto a cada recurso hay un icono que indica su estado. Al hacer clic en cada recurso se abrirá la hoja de Estado de los recursos.
 
 **Icono Estado de los recursos**
 
@@ -110,6 +110,6 @@ Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en en
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

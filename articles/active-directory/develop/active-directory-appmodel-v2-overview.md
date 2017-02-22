@@ -1,5 +1,5 @@
 ---
-title: "Introducción a la versión 2.0 de los puntos de conexión | Microsoft Docs"
+title: "Recursos para el punto de conexión de Azure AD v2.0 | Microsoft Docs"
 description: "Introducción a la creación de aplicaciones con inicio de sesión de cuentas de Microsoft y de Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 245655ac4feed23cb91890d6a4dd2fa5d23cf54f
-ms.openlocfilehash: 30b9f44cdde09d69f41ed9fb42f63786f08c4040
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: d3571d3d842ac908200c7e6b437b40d3c370b38d
 
 
 ---
@@ -39,8 +39,8 @@ Elija su plataforma favorita de la lista siguiente para compilar una aplicación
 ## <a name="whats-new"></a>Novedades
 La información conceptual que aquí se describe será útil para entender qué se puede y no se puede hacer con el punto de conexión v2.0.
 
-* Obtenga información sobre los [tipos de aplicaciones que puede compilar con la versión 2.0 del punto de conexión](active-directory-v2-flows.md).
-* Conozca las [limitaciones y restricciones](active-directory-v2-limitations.md) de la versión 2.0 del punto de conexión.
+* Obtenga información sobre los [tipos de aplicaciones que puede compilar con la versión&2;.0 del punto de conexión](active-directory-v2-flows.md).
+* Conozca las [limitaciones y restricciones](active-directory-v2-limitations.md) de la versión&2;.0 del punto de conexión.
 * Hace poco, agregamos compatibilidad para los [ámbitos restringidos a administradores](active-directory-v2-scopes.md) y la [concesión de credenciales de cliente de OAuth2](active-directory-v2-protocols-oauth-client-creds.md).  Le animamos a que pruebe estas características.
 
 ## <a name="reference"></a>Referencia
@@ -50,7 +50,7 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 * Obtenga ayuda acerca de Stack Overflow con las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 * [Referencia de protocolos de v2.0](active-directory-v2-protocols.md)
 * [Referencia de los tokens de v2.0](active-directory-v2-tokens.md)
-* [Referencia de la biblioteca de la versión 2.0](active-directory-v2-libraries.md)
+* [Referencia de la biblioteca de la versión&2;.0](active-directory-v2-libraries.md)
 * [Ámbitos y consentimiento en el punto de conexión v2.0](active-directory-v2-scopes.md)
 * [Portal de registro para aplicaciones de Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
 * [Referencia de API de REST de Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
@@ -59,6 +59,6 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

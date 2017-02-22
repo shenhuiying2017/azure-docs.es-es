@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
+ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
 
 
 ---
@@ -119,7 +119,7 @@ Este conjunto de comandos de PowerShell crea una máquina virtual para un servid
 
 * Utilice la imagen de Windows Server 2012 R2 Datacenter.
 * Es una máquina virtual extra pequeña.
-* Tiene como nombre contoso-test.
+* Tiene el nombre Contoso100-test.
 * Se une automáticamente al dominio administrado contoso100.
 * Se agrega a la misma red virtual que el dominio administrado.
 
@@ -160,6 +160,6 @@ Ese es el script de ejemplo completo para crear la máquina virtual de Windows y
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

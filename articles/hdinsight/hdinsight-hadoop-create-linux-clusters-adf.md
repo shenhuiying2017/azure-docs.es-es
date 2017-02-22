@@ -1,6 +1,6 @@
 ---
-title: "Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Azure Data Factory | Microsoft Docs"
-description: "Aprenda a crear clústeres de HDInsight bajo demanda con Data Factory de Azure."
+title: "Creación de Azure HDInsight (Hadoop) | con Data Factory | Microsoft Docs"
+description: "Aprenda a crear clústeres de Hadoop en HDInsight mediante Azure Data Factory."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 060bcf7cfac365e93b988cda0f402df6ba605dfc
-ms.openlocfilehash: 4dcc519e74cf1a5fbc7be3ddbd506fcbc25ed882
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ce32b22d60f89c82f0c416e736f41e3767bd8fc5
 
 
 ---
-# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Data Factory de Azure
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creación de clústeres de Hadoop en HDInsight mediante Azure Data Factory
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. En este artículo, aprenderá cómo usar Data Factory de Azure para crear un [servicio vinculado de HDInsight de Azure bajo demanda](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service), y a usar el clúster para ejecutar un trabajo de Hive. Este es el flujo de nivel alto:
 
@@ -73,7 +73,7 @@ Puede utilizar hasta tres cuentas de almacenamiento en este escenario:
 * la cuenta de almacenamiento para los datos de entrada
 * la cuenta de almacenamiento para los datos de salida
 
-Para simplificar el tutorial, utilizará una cuenta de almacenamiento para los 3 objetivos. El script de ejemplo de Azure PowerShell y la CLI de Azure de esta sección realiza las siguientes tareas:
+Para simplificar el tutorial, utilizará una cuenta de almacenamiento para los&3; objetivos. El script de ejemplo de Azure PowerShell y la CLI de Azure de esta sección realiza las siguientes tareas:
 
 1. Inicie sesión en Azure.
 2. Cree un grupo de recursos de Azure.
@@ -198,7 +198,7 @@ Si necesita ayuda con este script de PowerShell, vea [Uso de Azure PowerShell co
 7. Abra la carpeta y compruebe los archivos en las carpetas.
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
-Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL preparados, está listo para crear Data Factory. Existen varios métodos para crear Data Factory. Utilizará Azure Portal para llamar a una plantilla de Resource Manager personalizada en este tutorial. También puede llamar a la plantilla de Resource Manager desde la [CLI de Azure](../resource-group-template-deploy-cli.md) y [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Para otros métodos de creación de Data Factory, vea [Tutorial: creación de la  primera Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
+Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL preparados, está listo para crear Data Factory. Existen varios métodos para crear Data Factory. Utilizará Azure Portal para llamar a una plantilla de Resource Manager personalizada en este tutorial. También puede llamar a la plantilla de Resource Manager desde la [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) y [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Para otros métodos de creación de Data Factory, vea [Tutorial: creación de la  primera Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 La plantilla de Resource Manager de nivel superior contiene lo siguiente:
 
@@ -227,7 +227,7 @@ La plantilla de Resource Manager de nivel superior contiene lo siguiente:
 
 Un recurso de Data Factory denominado *hdinsight-hive-on-demand* (el nombre no se muestra en la captura de pantalla). Data Factory solo se admite actualmente en la región Oeste de EE. UU. y de Europa del Norte.
 
-El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
+El recurso *hdinsight-hive-on-demand* contiene&4; recursos:
 
 * Un servicio vinculado a la cuenta de almacenamiento que se usará como la cuenta de almacenamiento para HDInsight de forma predeterminada, almacenamiento de datos de entrada y almacenamiento de datos de salida.
 * Un servicio vinculado al clúster de HDInsight que se va a crear:
@@ -358,7 +358,7 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
 
     ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
-    Si profundiza en la lista, verá 3 carpetas de enero, febrero y marzo. Además, hay un registro para cada mes.
+    Si profundiza en la lista, verá&3; carpetas de enero, febrero y marzo. Además, hay un registro para cada mes.
 
     ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
@@ -444,6 +444,6 @@ En este artículo, ha aprendido cómo utilizar la Data Factory de Azure para cre
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

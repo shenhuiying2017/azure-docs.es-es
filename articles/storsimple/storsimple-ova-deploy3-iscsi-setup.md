@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5d3d1c9afd8023b201ff37318a3905b5fe791a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
 
 
 ---
-# <a name="deploy-storsimple-virtual-array-set-up-your-virtual-device-as-an-iscsi-server"></a>Implementar una matriz virtual de StorSimple: Configurar el dispositivo virtual como servidor iSCSI
+# <a name="deploy-storsimple-virtual-array--set-up-your-virtual-device-as-an-iscsi-server"></a>Implementar una matriz virtual de StorSimple: Configurar el dispositivo virtual como servidor iSCSI
 ![flujo del proceso de configuración de iSCSI](./media/storsimple-ova-deploy3-iscsi-setup/iscsi4.png)
 
 ## <a name="overview"></a>Información general
@@ -58,27 +58,27 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 3. Lo llevará a la página de **inicio** . En esta página se describen los distintos parámetros necesarios para configurar y registrar el dispositivo virtual en el servicio StorSimple Manager. Tenga en cuenta que las opciones **Configuración de red**, **Configuración de proxy web** y **Configuración horaria** son opcionales. Los únicos parámetros obligatorios son **Configuración del dispositivo** y **Configuración de la nube**.
    
     ![Página de inicio](./media/storsimple-ova-deploy3-iscsi-setup/image5.png)
-4. En la página **Configuración de red** en **Interfaces de red**, DATA 0 se configurará automáticamente. Cada interfaz de red se establece de forma predeterminada para obtener la dirección IP automáticamente (DHCP). Por lo tanto, una dirección IP, una subred y una puerta de enlace se asignarán automáticamente (tanto para IPv4 como para IPv6).
+4. En la página **Configuración de red** de **Interfaces de red**, se configurará automáticamente DATA 0. Cada interfaz de red se establece de forma predeterminada para obtener la dirección IP automáticamente (DHCP). Por lo tanto, una dirección IP, una subred y una puerta de enlace se asignarán automáticamente (tanto para IPv4 como para IPv6).
    
     Mientras planea implementar el dispositivo como servidor iSCSI (para aprovisionar el almacenamiento en bloque), se recomienda que deshabilite la opción **Get IP address automatically** (Obtener una dirección IP automáticamente) y configure direcciones IP estáticas.
    
     ![Página de configuración de red](./media/storsimple-ova-deploy3-iscsi-setup/image6.png)
    
     Si agrega más de una interfaz de red durante el aprovisionamiento del dispositivo, se pueden configurar aquí. Tenga en cuenta que puede configurar la interfaz de red como IPv4 únicamente o como IPv4 e IPv6. No se admiten las configuraciones de solo IPv6.
-5. Los servidores DNS son necesarios porque se utilizan cuando el dispositivo intenta comunicarse con sus proveedores de servicios de almacenamiento en la nube o para resolver el dispositivo por nombre si se configura como servidor de archivos. En la página **Configuración de red** en **Servidores DNS**:
+5. Los servidores DNS son necesarios porque se utilizan cuando el dispositivo intenta comunicarse con sus proveedores de servicios de almacenamiento en la nube o para resolver el dispositivo por nombre si se configura como servidor de archivos. En la página **Configuración de red** de **Servidores DNS**:
    
    1. Se configurarán automáticamente un servidor DNS principal y secundario. Si decide configurar direcciones IP estáticas, puede especificar servidores DNS. Para lograr la alta disponibilidad, se recomienda que configure un servidor DNS principal y uno secundario.
    2. Haga clic en **Apply**. Esto aplicará y validará la configuración de red.
 6. En la página **Device settings** (Configuración de dispositivo):
    
    1. Asigne un **nombre** exclusivo al dispositivo. Este nombre puede tener de 1 a 15 caracteres y puede contener letras, números y guiones.
-   2. Haga clic en el icono de **servidor iSCSI** ![icono de servidor iSCSI](./media/storsimple-ova-deploy3-iscsi-setup/image7.png) para el **Tipo** de dispositivo que está creando. Un servidor iSCSI le permitirá aprovisionar el almacenamiento en bloque.
+   2. Haga clic en el icono de **servidor iSCSI** ![icono de servidor iSCSI](./media/storsimple-ova-deploy3-iscsi-setup/image7.png) del **tipo** de dispositivo que va a crear. Un servidor iSCSI le permitirá aprovisionar el almacenamiento en bloque.
    3. Especifique si desea que este dispositivo esté unido al dominio. Si el dispositivo es un servidor iSCSI, la unión al dominio es opcional. Si decide no unir el servidor iSCSI a un dominio, haga clic en **Apply**(Aplicar), espere a que la configuración se aplique y, a continuación, vaya al paso siguiente.
       
-       Si desea unir el dispositivo a un dominio. Escriba un **Nombre de dominio** y, después, haga clic en **Aplicar**.
+       Si desea unir el dispositivo a un dominio. Escriba un **nombre de dominio** y, después, haga clic en **Aplicar**.
       
       > [!NOTE]
-      > Si une el servidor iSCSI a un dominio, asegúrese de que su matriz virtual esté en su propia unidad organizativa (UO) de Microsoft Azure Active Directory y de que no se le aplique ningún objeto de directiva de grupo (GPO).
+      > Si une el servidor iSCSI a un dominio, asegúrese de que su matriz virtual esté en su propia unidad organizativa (UO) de Microsoft Azure Active Directory y de que no se le aplica ningún objeto de directiva de grupo (GPO).
       > 
       > 
    4. Aparece un cuadro de diálogo. Escriba las credenciales del dominio en el formato especificado. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). Se comprobarán las credenciales del dominio. Verá un mensaje de error si las credenciales son incorrectas.
@@ -163,7 +163,7 @@ Siga estos pasos en el Portal de Azure clásico para crear un volumen.
    4. Especifique la capacidad aprovisionada para el volumen. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si va a crear un volumen en capas, el tamaño debe estar entre 500 GB y 5 TB. Para un volumen anclado localmente, especifique un tamaño de volumen de 50 GB a 500 GB. Use la capacidad disponible como guía para aprovisionar un volumen. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar un volumen anclado localmente o en capas.
       
        ![Configuración básica](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
-   5. Haga clic en el icono de flecha  ![icono de flecha](./media/storsimple-ova-deploy3-iscsi-setup/image18.png)  para ir a la página siguiente.
+   5. Haga clic en el icono de flecha  ![icono de flecha](./media/storsimple-ova-deploy3-iscsi-setup/image18.png) para ir a la página siguiente.
 3. En la página **Configuración adicional** , agregue un nuevo registro de control de acceso (ACR):
    
    1. Proporcione un **Nombre** para el ACR.
@@ -214,7 +214,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 12. Asigne una letra de unidad al volumen y luego haga clic en **Siguiente**.
     
     ![asistente para nuevo volumen 2](./media/storsimple-ova-deploy3-iscsi-setup/image30.png)
-13. Especifique los parámetros para formatear el volumen. **En Windows Server, solo se admite NTFS.**  Establezca el AUS en 64K. Proporcione una etiqueta para el volumen. Es una práctica recomendada que este nombre sea idéntico al nombre de volumen proporcionado en el dispositivo virtual StorSimple. Haga clic en **Siguiente**.
+13. Especifique los parámetros para formatear el volumen. **En Windows Server, solo se admite NTFS.** Establezca el AUS en 64K. Proporcione una etiqueta para el volumen. Es una práctica recomendada que este nombre sea idéntico al nombre de volumen proporcionado en el dispositivo virtual StorSimple. Haga clic en **Siguiente**.
     
     ![asistente para nuevo volumen 3](./media/storsimple-ova-deploy3-iscsi-setup/image31.png)
 14. Compruebe los valores para el volumen y luego haga clic en **Finalizar**.
@@ -246,6 +246,6 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

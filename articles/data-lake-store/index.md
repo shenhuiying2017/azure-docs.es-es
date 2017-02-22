@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentación sobre Azure Data Lake Store: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda cómo configurar, administrar y acceder a un repositorio de Data Lake de gran escala, compatible con Hadoop, para analizar datos de cualquier tamaño, tipo y velocidad de ingesta."
+services: data-lake-store
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-store
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
-ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
+ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
+ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
 
 ---
 # <a name="data-lake-store-documentation"></a>Documentación de Data Lake Store
@@ -195,7 +206,7 @@ Aprenda cómo usar Data Lake Store para crear un repositorio de gran escala comp
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakestore">API de REST</a></p>
+                        <p><a href="/rest/api/datalakestore">API DE REST</a></p>
                     </div>
                 </div>
             </div>
@@ -203,15 +214,9 @@ Aprenda cómo usar Data Lake Store para crear un repositorio de gran escala comp
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Azure Data Lake Store </div>
-    </a>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

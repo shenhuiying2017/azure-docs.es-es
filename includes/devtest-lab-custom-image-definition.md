@@ -1,0 +1,6 @@
+En Azure DevTest Labs, las imágenes personalizadas le permiten crear máquinas virtuales rápidamente sin tener que esperar a que todo el software necesario esté instalado en la máquina de destino. Las imágenes personalizadas le permiten instalar previamente todo el software que necesita en un archivo VHD y luego usar dicho archivo para crear la máquina virtual. Dado que el software ya está instalado, la máquina virtual se tarda mucho menos tiempo en crear. Además, las imágenes personalizadas pueden usarse para clonar máquinas virtuales; para ello, cree una imagen personalizada a partir de una máquina virtual y, después, cree máquinas virtuales basadas en esa imagen personalizada.
+
+
+<!--HONumber=Jan17_HO2-->
+
+

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
 
 
 ---
@@ -32,6 +32,7 @@ Microsoft Azure Media Services (AMS) le permite proteger su contenido multimedia
 AMS proporciona un servicio para proporcionar licencias de DRM y claves sin cifrado de AES a clientes autorizados. Azure Portal le permite crear una **directiva de autorización de licencias o claves** para todos los tipos de cifrado.
 
 En este artículo se muestra cómo configurar las directivas de protección de contenido con Azure Portal. El artículo también muestra cómo aplicar el cifrado dinámico a los recursos.
+
 
 > [!NOTE]
 > Si utiliza el Portal de Azure clásico para crear directivas de protección, es posible que las directivas no aparezcan en [Azure Portal](https://portal.azure.com/). Sin embargo, siguen existiendo todavía las directivas antiguas. Puede examinarlas mediante el SDK de .NET de Azure Media Services o la herramienta [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) (para ver las directivas, haga clic con el botón derecho en el recurso -> Mostrar información (F4) -> haga clic en la pestaña de claves de contenido -> haga clic en la clave). 
@@ -93,10 +94,7 @@ Para habilitar el cifrado de FairPlay, debe proporcionar el certificado de la ap
 ![Proteger contenido](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>Aplicación del cifrado dinámico al recurso
-Para aprovecharse del cifrado dinámico, deberá hacer lo siguiente:
-
-* Codifique el archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa.
-* Obtenga, al menos, la unidad de streaming a petición del punto de conexión de streaming desde el que planea entregar el contenido. Para más información, consulte [Escalado de unidades reservadas de streaming a petición](media-services-portal-manage-streaming-endpoints.md).
+Para aprovechar las ventajas del cifrado dinámico, debe codificar el archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Seleccione el recurso que desea cifrar.
 Para ver todos sus recursos, seleccione **Configuración** > **Recursos**.
@@ -137,6 +135,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2016
+ms.date: 12/14/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09c1df79e9a4af666cdd46da115b9af78dd27d72
+ms.sourcegitcommit: e6033f089152c27713f98f12634c53012f5ff070
+ms.openlocfilehash: 04cfafc9e7a037d915f63723fd0b67a07954460b
 
 
 ---
@@ -26,7 +26,7 @@ En lugar de crear sus propios runbooks y módulos en Automatización de Azure, d
 Puede obtener runbooks en la [Galería de Runbook](#runbooks-in-runbook-gallery) y módulos en la [Galería de PowerShell](#modules-in-powerShell-gallery).  También puede contribuir a la comunidad si comparte los escenarios que desarrolle.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbooks en la Galería de runbooks
-La [Galería de Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) ofrece diversos runbooks de Microsoft y la comunidad que se pueden importar a Azure Automation. Puede descargar un Runbook de la galería que se hospeda en el [Centro de scripts de TechNet](http://gallery.technet.microsoft.com/)o puede importar Runbooks directamente desde la galería del Portal de Azure (o desde su versión clásica).
+La [Galería de Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) ofrece diversos runbooks de Microsoft y la comunidad que se pueden importar a Azure Automation. Puede descargar un Runbook de la galería que se hospeda en el [Centro de scripts de TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload)o puede importar Runbooks directamente desde la galería del Portal de Azure (o desde su versión clásica).
 
 Solo se puede importar directamente desde la Galería de Runbooks mediante el Portal de Azure (o su versión clásica). No se puede llevar a cabo esta función mediante Windows PowerShell.
 
@@ -125,6 +125,6 @@ Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/24
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

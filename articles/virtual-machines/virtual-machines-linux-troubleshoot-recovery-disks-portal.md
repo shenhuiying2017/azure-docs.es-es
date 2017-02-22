@@ -1,6 +1,6 @@
 ---
 
-title: "Uso de una máquina virtual Linux de solución de problemas en el portal | Microsoft Docs"
+title: "Uso de una máquina virtual Linux de solución de problemas en Azure Portal | Microsoft Docs"
 description: "Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal."
 services: virtual-machines-linux
 documentationCenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
-ms.openlocfilehash: 4edfcbfb011c2296ad499d4ff62a07f0c388432a
+ms.sourcegitcommit: 341dcec8c45b380286e2bb96c57afc7740605d16
+ms.openlocfilehash: c4ae1c80b854e84fe94a52e2872bec2c24b4580f
 
 
 ---
@@ -179,6 +179,6 @@ Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de
 Para más información sobre el uso de Resource Manager, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

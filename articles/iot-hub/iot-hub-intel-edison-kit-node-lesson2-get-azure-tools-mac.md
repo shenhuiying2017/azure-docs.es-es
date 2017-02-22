@@ -1,5 +1,5 @@
 ---
-title: "Obtención de las herramientas de Azure para el kit de inicio de IoT de Azure (macOS 10.10) | Microsoft Docs"
+title: "Conexión de Intel Edison (Node) a Azure IoT: Lección 2: Herramientas de Azure (macOS) | Microsoft Docs"
 description: "Instale Python la interfaz de la línea de comandos de Azure (CLI de Azure) en Mac OS."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65fa0b6a8f0bc9d7131b1ab04e7ef9111a6a88ea
-ms.openlocfilehash: 556726a27e7529bbe87280e9f0419d91fc3189c3
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: a060d4ef335aaab490b2786b6378831b62de3bde
 
 
 ---
@@ -84,6 +84,6 @@ Ha instalado la CLI de Azure. La siguiente tarea consiste en crear la identidad 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

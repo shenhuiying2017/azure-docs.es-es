@@ -1,41 +1,36 @@
-
 ---
-title: Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
-description: Obtenga información acerca de cómo administrar los recursos y las entidades relacionadas con el SDK de Servicios multimedia para .NET.
+title: "Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET"
+description: "Obtenga información acerca de cómo administrar los recursos y las entidades relacionadas con el SDK de Servicios multimedia para .NET."
 author: juliako
-manager: dwrede
-editor: ''
+manager: erikre
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 1bd8fd42-7306-463d-bfe5-f642802f1906
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/12/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 3a8f878502f6a7237212b467b2259fcbb48000ff
+ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
+
 
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-.net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
 > 
 > 
 
-Este tema muestra cómo llevar a cabo las siguientes tareas de administración de Servicios multimedia:
+En este tema se muestra cómo administrar entidades de Azure Media Services con. NET. 
 
-* Obtención de una referencia de recurso 
-* Obtención de una referencia de trabajo 
-* Lista de todos los recursos 
-* Lista de trabajos y recursos 
-* Lista de todas las directivas de acceso 
-* Enumerar todos los localizadores
-* Enumeración de grandes colecciones de entidades
-* Eliminación de un recurso 
-* Eliminación de un trabajo 
-* Eliminación de una directiva de acceso 
+>[!NOTE]
+> A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Por ejemplo, el 1 de abril de 2017, todos los registros de trabajo de la cuenta que sean anteriores al 31 de diciembre de 2016 se eliminarán automáticamente. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe en este tema.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Consulte [Configuración del entorno](media-services-set-up-computer.md)
@@ -55,24 +50,6 @@ En el ejemplo de código siguiente se usa una consulta Linq para obtener una ref
         IAsset asset = assetInstance.FirstOrDefault();
 
         return asset;
-    }
-
-## <a name="get-a-job-reference"></a>Obtención de una referencia de trabajo
-Cuando se trabaja con tareas de procesamiento en el código de Servicios multimedia, a menudo necesitará obtener una referencia a un trabajo existente basado en un identificador. En el ejemplo de código siguiente se muestra cómo obtener una referencia a un objeto IJob de la colección de trabajos.
-Advertencia Puede ser necesario obtener una referencia de trabajo cuando se inicia un trabajo de codificación que tarda mucho en ejecutarse y debe comprobar el estado del trabajo en un subproceso. En casos como éste, cuando el método devuelve un subproceso, deberá recuperar una referencia actualizada a un trabajo.
-
-    static IJob GetJob(string jobId)
-    {
-        // Use a Linq select query to get an updated 
-        // reference by Id. 
-        var jobInstance =
-            from j in _context.Jobs
-            where j.Id == jobId
-            select j;
-        // Return the job reference as an Ijob. 
-        IJob job = jobInstance.FirstOrDefault();
-
-        return job;
     }
 
 ## <a name="list-all-assets"></a>Lista de todos los recursos
@@ -112,6 +89,26 @@ A medida que crece el número de recursos de almacenamiento, resulta útil mostr
 
         // Display output in console.
         Console.Write(builder.ToString());
+    }
+
+## <a name="get-a-job-reference"></a>Obtención de una referencia de trabajo
+
+Cuando se trabaja con tareas de procesamiento en el código de Servicios multimedia, a menudo necesitará obtener una referencia a un trabajo existente basado en un identificador. En el ejemplo de código siguiente se muestra cómo obtener una referencia a un objeto IJob de la colección de trabajos.
+
+Puede ser necesario obtener una referencia de trabajo cuando se inicia un trabajo de codificación que tarda mucho en ejecutarse y debe comprobar el estado del trabajo en un subproceso. En casos como éste, cuando el método devuelve un subproceso, deberá recuperar una referencia actualizada a un trabajo.
+
+    static IJob GetJob(string jobId)
+    {
+        // Use a Linq select query to get an updated 
+        // reference by Id. 
+        var jobInstance =
+            from j in _context.Jobs
+            where j.Id == jobId
+            select j;
+        // Return the job reference as an Ijob. 
+        IJob job = jobInstance.FirstOrDefault();
+
+        return job;
     }
 
 ## <a name="list-jobs-and-assets"></a>Lista de trabajos y recursos
@@ -211,6 +208,45 @@ En el ejemplo de código siguiente se muestra cómo enumerar todas las directiva
 
         }
     }
+    
+## <a name="limit-access-policies"></a>Directivas de limitación del acceso 
+
+>[!NOTE]
+> Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). 
+
+Por ejemplo, puede crear un conjunto genérico de directivas con el siguiente código que se ejecutaría solo una vez en la aplicación. Puede registrar identificadores en un archivo de registro para usarlo más adelante:
+
+    double year = 365.25;
+    double week = 7;
+    IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
+    IAccessPolicy policy100Year = _context.AccessPolicies.Create("Hundred Years", TimeSpan.FromDays(year * 100), AccessPermissions.Read);
+    IAccessPolicy policyWeek = _context.AccessPolicies.Create("One Week", TimeSpan.FromDays(week), AccessPermissions.Read);
+
+    Console.WriteLine("One year policy ID is: " + policyYear.Id);
+    Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
+    Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+
+Luego, puede usar los identificadores existentes en un código similar al siguiente:
+
+    const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
+
+
+    // Get the standard policy for 1 year read only
+    var tempPolicyId = from b in _context.AccessPolicies
+                       where b.Id == policy1YearId
+                       select b;
+    IAccessPolicy policy1Year = tempPolicyId.FirstOrDefault();
+
+    // Get the existing asset
+    var tempAsset = from a in _context.Assets
+                where a.Id == assetID
+                select a;
+    IAsset asset = tempAsset.SingleOrDefault();
+
+    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+        policy1Year,
+        DateTime.UtcNow.AddMinutes(-5));
+    Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 
 ## <a name="list-all-locators"></a>Enumerar todos los localizadores
 Un localizador es una dirección URL que proporciona una ruta de acceso directo para tener acceso a un recurso, junto con los permisos para el recurso definidos por la directiva de acceso asociada del localizador. Cada activo puede tener una colección de objetos ILocator asociados a él en su propiedad Locators. El contexto de servidor también tiene una colección de localizadores que contiene todos los localizadores.
@@ -294,6 +330,7 @@ En el ejemplo siguiente se elimina un recurso.
 
 ## <a name="delete-a-job"></a>Eliminación de un trabajo
 Para eliminar un trabajo, debe comprobar el estado del trabajo, como se indica en la propiedad State. Los trabajos finalizados o cancelados pueden eliminarse, mientras que los trabajos que se encuentran en otros estados, por ejemplo, en cola, programado o en proceso, se deben cancelar primero y, a continuación, se pueden eliminar.
+
 En el ejemplo de código siguiente se muestra un método para eliminar un trabajo; para ello, comprueba el estado de los trabajos y, a continuación, los elimina cuando el estado es finalizado o cancelado. Este código depende de la sección anterior de este tema para obtener una referencia a un trabajo: Obtención de una referencia de trabajo.
 
     static void DeleteJob(string jobId)
@@ -367,6 +404,9 @@ En el ejemplo de código siguiente se muestra cómo obtener una referencia a una
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

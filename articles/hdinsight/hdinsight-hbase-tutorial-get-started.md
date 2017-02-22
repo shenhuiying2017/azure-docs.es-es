@@ -1,5 +1,5 @@
 ---
-title: "Tutorial de HBase: Introducción a HBase en Hadoop | Microsoft Docs"
+title: "Tutorial de HBase: Introducción a clústeres de HBase basados en Windows en Hadoop | Microsoft Docs"
 description: "Siga este tutorial de HBase para empezar a usar Apache HBase con Hadoop en HDInsight. Cree tablas desde el shell de HBase y consúltelas mediante Hive."
 keywords: apache hbase,hbase,shell de hbase,tutorial de hbase
 services: hdinsight
@@ -13,25 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da4d723e343b47187fd6fef3b7a6eab649ef8a41
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 59aee407be91279276ec6eaafed608e354030676
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-windows-based-hadoop-in-hdinsight"></a>Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Apache Hive. Para obtener información general sobre HBase, consulte [Información general de HBase de HDInsight][hdinsight-hbase-overview].
+Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Apache Hive. Para obtener información general de HBase, consulte [Información general de HBase de HDInsight][hdinsight-hbase-overview].
 
-La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información acerca de los clústeres basados en Windows, utilice el Selector de pestañas de la parte superior de la página para cambiar.
-
-> [!NOTE]
-> HBase (versión 0.98.0) en HDInsight basado en Windows solo está disponible para su uso con clústeres de HDInsight 3.1 (basados en Apache Hadoop y YARN 2.4.0). Para ver información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
-> 
-> 
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información sobre el uso de clústeres basados en Linux, consulte [Tutorial de HBase: Introducción al uso de Apache HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -49,7 +44,7 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 
 **Para crear un clúster de HBase mediante el Portal de Azure, siga estos pasos:**
 
-1. Inicie sesión en el [Azure Portal][azure-management-portal].
+1. Inicie sesión en [Azure Portal][azure-management-portal].
 2. Haga clic en **Nuevo** o en **+** en la esquina superior izquierda, en **Datos y análisis**, y en **HDInsight**.
 3. Escriba los siguientes valores:
    
@@ -82,17 +77,17 @@ Actualmente, hay dos formas de tener acceso a HBase. En esta sección se trata e
 
 Para la mayoría de las personas, los datos aparecen en formato tabular:
 
-![datos tabulares de hbase de hdinsight][img-hbase-sample-data-tabular]
+![Datos tabulares de HBase de HDInsight][img-hbase-sample-data-tabular]
 
 En HBase, que es una implementación de BigTable, los mismos datos tienen un aspecto similar al siguiente:
 
-![datos bigtable de hbase de hdinsight][img-hbase-sample-data-bigtable]
+![Datos de HDInsight HBase BigTable][img-hbase-sample-data-bigtable]
 
 Tendrá más sentido cuando termine el siguiente procedimiento.  
 
 **Para usar el shell de HBase, siga estos pasos:**
 
-1. Use RDP para conectarse a su clúster de HBase en HDInsight. Para consultar las instrucciones de RDP, consulte [Administración de clústeres en HDInsight mediante Azure Portal][hdinsight-manage-portal].
+1. Use RDP para conectarse a su clúster de HBase en HDInsight. Para consultar las instrucciones de RDP, vea [Administración de clústeres en HDInsight mediante Azure Portal][hdinsight-manage-portal].
 2. En la sesión de RDP, haga clic en el acceso directo de la **línea de comandos de Hadoop** situada en el escritorio.
 3. Abra del shell de HBase:
    
@@ -110,14 +105,14 @@ Tendrá más sentido cuando termine el siguiente procedimiento.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![shell de hbase de hadoop de hdinsight][img-hbase-shell]
+    ![Shell de HDInsight Hadoop HBase][img-hbase-shell]
 6. Obtenga una sola fila
    
         get 'Contacts', '1000'
    
     Verá los mismos resultados que con el comando de análisis porque solo hay una fila.
    
-    Para más información acerca del esquema de las tablas de HBase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
+    Para obtener más información sobre el esquema de tabla de Hbase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
 7. Salga del shell
    
         exit
@@ -139,7 +134,7 @@ Se ha cargado un archivo de datos de ejemplo en un contenedor de blobs público,
     4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almacenamiento si lo desea. Para obtener instrucciones, consulte[ Carga de datos para trabajos de Hadoop en HDInsight][hdinsight-upload-data].
+Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almacenamiento si lo desea. Para obtener instrucciones, consulte [Carga de datos para trabajos de Hadoop en HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > Este procedimiento usa la tabla HBase de contactos que creó en el último procedimiento.
@@ -292,12 +287,12 @@ En este tutorial de HBase para HDInsight, ha aprendido a aprovisionar un clúste
 
 Para más información, consulte:
 
-* [Información general de HBase para HDInsight][hdinsight-hbase-overview].
+* [Información general de HBase de HDInsight][hdinsight-hbase-overview].
   HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
-* [Crear clústeres de HBase en red Virtual de Azure][hdinsight-hbase-provision-vnet].
+* [Creación de clústeres de HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet].
   Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
-* [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md). Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
-* [Análisis de opinión en Twitter en tiempo real con HBase en HDInsight][hbase-twitter-sentiment].
+* [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-replication.md). Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
+* [Análisis de sentimiento de Twitter con HBase en HDInsight][hbase-twitter-sentiment].
   Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real con HBase en un clúster de Hadoop en HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
@@ -329,6 +324,6 @@ Para más información, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

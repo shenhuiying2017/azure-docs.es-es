@@ -1,6 +1,6 @@
 ---
-title: "Qué ha ocurrido a mi proyecto WebApi (servicio conectado a Azure Active Directory de Visual Studio) | Microsoft Docs"
-description: Describe lo que sucede a la WebApi de su proyecto de MVC cuando se conecta a Azure AD mediante Visual Studio.
+title: Cambios realizados en un proyecto de WebApi al conectarse a Azure AD | Microsoft Docs
+description: Se describe lo que sucede al proyecto de WebApi al conectarse a Azure AD mediante Visual Studio.
 services: active-directory
 documentationcenter: 
 author: TomArcher
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a60bdc8d6977943e156fdcf0f29228af3c394a99
-ms.openlocfilehash: e35b18344acf7afedc422760c8a59e6fba17728f
+ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
+ms.openlocfilehash: aa055ead3dc039745f48f268fe456ae5dab5bf36
 
 
 ---
@@ -112,6 +112,6 @@ La aplicación Azure Active Directory se actualizó para incluir el permiso *Lee
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

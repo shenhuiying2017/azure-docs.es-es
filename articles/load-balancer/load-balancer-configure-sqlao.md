@@ -1,6 +1,6 @@
 ---
 title: "Configuración de Load Balancer para SQL always on | Microsoft Docs"
-description: "Configuración del equilibrador de carga para trabajar con SQL always on y cómo puede sacar provecho de powershell para crear el equilibrador de carga para la implementación de SQL"
+description: "Configuración del equilibrador de carga para trabajar con SQL Always On y cómo puede sacar provecho de PowerShell para crear el equilibrador de carga para la implementación de SQL"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: 75f05f003b691ee6464168453fa7935f1fae166e
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
 
 ---
 
@@ -55,7 +55,7 @@ Figura 1 - SQL AlwaysOn configurado con equilibrador de carga accesible desde In
 
     En el ejemplo anterior, tiene 2 máquinas virtuales llamadas "sqlsvc1" y "sqlsvc2" que se ejecutan en el servicio en la nube "Sqlsvc". Después de crear el ILB con el conmutador `DirectServerReturn`, agregue los puntos de conexión de carga equilibrada al ILB para permitir que SQL configure los agentes de escucha para los grupos de disponibilidad.
 
-Para más información sobre SQL AlwaysOn, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](../virtual-machines/virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Para más información sobre SQL AlwaysOn, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## <a name="see-also"></a>Otras referencias
 [Introducción a la configuración de un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
@@ -68,6 +68,6 @@ Para más información sobre SQL AlwaysOn, consulte [Configuración de un equili
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

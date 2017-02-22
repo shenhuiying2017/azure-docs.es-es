@@ -1,5 +1,5 @@
 ---
-title: "Administración de extensiones de máquina virtual | Microsoft Docs"
+title: "Administración de extensiones de máquina virtual basada en Linux | Microsoft Docs"
 description: "Describe cómo agregar, buscar, actualizar y quitar extensiones para máquinas virtuales de Azure, en el modelo de implementación clásico."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 4cef8ac3cf2dd7ecbb7a520daa42799bdcb9eb80
+ms.sourcegitcommit: 7ee387dde3f910fac2fe9195681c8fb8a0443d41
+ms.openlocfilehash: 9f491566fafd431e363873653240b0d5e727d91d
 
 
 ---
@@ -32,6 +32,6 @@ Describe cómo encontrar, agregar, modificar o quitar extensiones de VM con máq
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

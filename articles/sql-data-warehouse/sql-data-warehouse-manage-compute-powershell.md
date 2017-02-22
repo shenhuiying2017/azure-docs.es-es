@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a4cde433850ab3627f870b51f5a897c6f846c2f0
 
 
 ---
@@ -29,16 +29,6 @@ ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Escale el rendimiento mediante el escalado horizontal de los recursos de proceso y la memoria para satisfacer las necesidades cambiantes de la carga de trabajo. Ahorre costes reduciendo el escalado de los recursos fuera de horas punta o pausando el proceso por completo.
-
-Esta colección de tareas usa el Portal de Azure para:
-
-* Escalado de proceso
-* Pausa del proceso
-* Reanudación del proceso
-
-Para obtener más información, consulte [Manage compute power overview][Manage compute overview] (Administración de la eficacia de los procesos (información general)).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Instalar la versión más reciente de Azure PowerShell
@@ -141,6 +131,6 @@ Para otras tareas de administración, consulte [Información general de administ
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

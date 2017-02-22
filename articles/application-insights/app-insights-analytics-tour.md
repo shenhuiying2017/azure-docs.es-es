@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: 83d39eb288a3dcda45ab178f5f65de441c2fd5a3
+ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
+ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
 
 
 ---
@@ -91,7 +91,7 @@ Veamos las solicitudes que devuelven un código de resultado determinado:
 ```AIQL
 
     requests
-    | where resultCode  == "404" 
+    | where resultCode  == "404"
     | take 10
 ```
 
@@ -114,7 +114,7 @@ Buscar solicitudes incorrectas:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` tiene una cadena de tipo, por lo que debemos [convertirlo](app-insights-analytics-reference.md#casts) para una comparación numérica.
+`resultCode` tiene una cadena de tipo, por lo que debemos [convertirlo](app-insights-analytics-reference.md#casts) para una comparación numérica.
 
 ## <a name="time-range"></a>Intervalo de tiempo
 
@@ -128,26 +128,26 @@ Reemplace el intervalo de tiempo mediante la escritura de cualquier consulta que
 
     // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(3d)  // Override the time range 
+    | where timestamp > ago(3d)  // Override the time range
     | top 5 by duration
 ```
 
-La característica de intervalo de tiempo es equivalente a una cláusula "where" insertada después de cada mención de una de las tablas de origen. 
+La característica de intervalo de tiempo es equivalente a una cláusula "where" insertada después de cada mención de una de las tablas de origen.
 
-`ago(3d)` significa "hace tres días". Otras unidades de tiempo son horas (`2h`, `2.5h`), minutos (`25m`) y segundos (`10s`). 
+`ago(3d)` significa "hace tres días". Otras unidades de tiempo son horas (`2h`, `2.5h`), minutos (`25m`) y segundos (`10s`).
 
 Otros ejemplos:
 
 ```AIQL
 
     // Last calendar week:
-    requests 
-    | where timestamp > startofweek(now()-7d) 
-        and timestamp < startofweek(now()) 
+    requests
+    | where timestamp > startofweek(now()-7d)
+        and timestamp < startofweek(now())
     | top 5 by duration
 
     // First hour of every day in past seven days:
-    requests 
+    requests
     | where timestamp > ago(7d) and timestamp % 1d < 1h
     | top 5 by duration
 
@@ -212,7 +212,7 @@ Las marcas de tiempo siempre se expresan en formato UTC. Por lo que si se encuen
 
 ```AIQL
 
-    requests 
+    requests
     | top 10 by timestamp desc
     | extend localTime = timestamp - 8h
 ```
@@ -235,7 +235,7 @@ O bien, podríamos agrupar los resultados en función de la hora del día:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observe cómo usamos la función `bin` (también conocida como "`floor`"). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número manejable de valores discretos y `bin`, que realmente es solo la función `floor` de redondeo a la baja, es la forma más sencilla de hacerlo.
+Observe cómo usamos la función `bin` (también conocida como "`floor`"). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número de valores discretos fácil de administrar. `bin`, que es simplemente la conocida función de redondeo `floor`, es la manera más sencilla de hacerlo.
 
 Podemos usar la misma técnica para reducir los intervalos de cadenas:
 
@@ -244,7 +244,7 @@ Podemos usar la misma técnica para reducir los intervalos de cadenas:
 Tenga en cuenta que puede usar `name=` para establecer el nombre de una columna de resultados, en las expresiones de agregación o mediante la cláusula by.
 
 ## <a name="counting-sampled-data"></a>Recuento de datos muestreados
-`sum(itemCount)` es la agregación recomendada para contar eventos. En muchos casos, itemCount == 1, por lo que la función simplemente cuenta el número de filas del grupo. Pero cuando el [muestreo](app-insights-sampling.md) esté en funcionamiento, solo se conservará una fracción de los eventos originales como puntos de datos en Application Insights, por lo que por cada punto de datos que vea, haya `itemCount` eventos .
+`sum(itemCount)` es la agregación recomendada para contar eventos. En muchos casos, itemCount ==&1;, por lo que la función simplemente cuenta el número de filas del grupo. Pero cuando el [muestreo](app-insights-sampling.md) está en funcionamiento, solo se conserva una fracción de los eventos originales como puntos de datos en Application Insights, de modo que por cada punto de datos que vea, haya eventos `itemCount`.
 
 Por ejemplo, si el muestreo descarta el 75 % de los eventos originales, itemCount ==4 en los registros retenidos; es decir, para cada registro retenido, había cuatro registros originales.
 
@@ -292,7 +292,7 @@ Seleccionar la opción de visualización de gráfico:
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>Varias series
-Varias expresiones en `summarize` crea varias columnas.
+Varias expresiones en la cláusula `summarize` crean varias columnas.
 
 Varias expresiones en la cláusula `by` crea varias filas, una para cada combinación de valores.
 
@@ -318,14 +318,14 @@ Convierte un valor booleano en una cadena que se utiliza como discriminador:
 ```AIQL
 
     // Bounce rate: sessions with only one page view
-    requests 
-    | where notempty(session_Id) 
+    requests
+    | where notempty(session_Id)
     | where tostring(operation_SyntheticSource) == "" // real users
-    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
-               by session_Id 
-    | extend isbounce= pagesInSession == 1 
-    | summarize count() 
-               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp)
+               by session_Id
+    | extend isbounce= pagesInSession == 1
+    | summarize count()
+               by tostring(isbounce), bin (sessionEnd, 1h)
     | render timechart
 ```
 
@@ -334,7 +334,7 @@ Si utiliza una tabla con más de una columna numérica, además de la marca de t
 
 ![Segmentación de un gráfico de análisis](./media/app-insights-analytics-tour/110.png)
 
-Debe seleccionar No dividir para poder seleccionar varias columnas numéricas. No puede dividir por una columna de cadena al mismo tiempo que se muestra más de una columna numérica.
+Debe seleccionar **Don't Split** (No dividir) para poder seleccionar varias columnas numéricas. No se puede dividir por una columna de cadena al mismo tiempo que se muestra más de una columna numérica.
 
 ## <a name="daily-average-cycle"></a>Ciclo medio diario
 ¿Cómo varía el uso a lo largo del día normal?
@@ -343,7 +343,7 @@ Contar solicitudes por el módulo de tiempo un día, discretizadas en horas:
 
 ```AIQL
 
-    requests 
+    requests
     | where timestamp > ago(30d)  // Override "Last 24h"
     | where tostring(operation_SyntheticSource) == "" // real users
     | extend hour = bin(timestamp % 1d , 1h)
@@ -421,7 +421,7 @@ También eliminamos el límite superior en la cláusula where con el fin de obte
 De lo que podemos ver que:
 
 * El 5 % de las sesiones tienen una duración de menos de 3 minutos 34 s;
-* El 50 % de las sesiones dura menos de 36 minutos;
+* El 50 % de las sesiones dura menos de 36 minutos;
 * El 5 % de las sesiones dura más de 7 días.
 
 Para obtener un desglose independiente para cada país, simplemente tiene que conservar la columna client_CountryOrRegion por separado en ambos operadores de resumen:
@@ -449,7 +449,7 @@ Para encontrar las excepciones relacionadas con una solicitud que devolvió una 
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```
@@ -459,7 +459,8 @@ Es recomendable usar `project` para seleccionar solo las columnas que se necesit
 En las mismas cláusulas, cambiamos el nombre de la columna de marca de tiempo.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): asignación de un resultado a una variable
-Use *let* para separar las partes de la expresión anterior. Los resultados no cambian:
+
+Use `let` para separar las partes de la expresión anterior. Los resultados no cambian:
 
 ```AIQL
 
@@ -471,23 +472,37 @@ Use *let* para separar las partes de la expresión anterior. Los resultados no c
     | take 30
 ```
 
-> Sugerencia: en el cliente de Analytics, no incluya líneas en blanco entre las partes. Asegúrese de ejecutar todo.
->
+> [!Tip] 
+> En el cliente de Analytics, no incluya líneas en blanco entre las partes de la consulta. Asegúrese de ejecutar todo.
 >
 
-### <a name="functions"></a>Functions 
+Use `toscalar` para convertir una celda de tabla única en un valor:
+
+```AIQL
+let topCities =  toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City));
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+
+
+### <a name="functions"></a>Funciones
 
 Use *Let* para definir una función:
 
 ```AIQL
 
-    let usdate = (t:datetime) 
+    let usdate = (t:datetime)
     {
-      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
       bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
     };
     requests  
-    | extend PST = usdate(timestamp-8h) 
+    | extend PST = usdate(timestamp-8h)
 ```
 
 ## <a name="accessing-nested-objects"></a>Acceso a objetos anidados
@@ -547,22 +562,24 @@ Puede anclar los resultados a un panel para reunir todos los gráficos y tablas 
 
 ## <a name="combine-with-imported-data"></a>Combinación con datos importados
 
-Los informes de análisis se ven perfectos en el panel, pero a veces desea convertir los datos a una forma más simplificada. Por ejemplo, suponga que los usuarios autenticados se identifican en la telemetría mediante un alias. Le gustaría mostrar sus nombres reales en los resultados. Para ello, solo necesita un archivo CSV que asigna los nombres reales a partir de los alias. 
+Los informes de análisis se ven perfectos en el panel, pero a veces desea convertir los datos a una forma más simplificada. Por ejemplo, suponga que los usuarios autenticados se identifican en la telemetría mediante un alias. Le gustaría mostrar sus nombres reales en los resultados. Para ello, necesita un archivo CSV que asigna los nombres reales a partir de los alias.
 
 Puede importar un archivo de datos y usarlo como cualquiera de las tablas estándares (solicitudes, excepciones, etc.). Puede consultarla por sí sola o combinarla con otras tablas. Por ejemplo, si tiene una tabla denominada usermap y tiene las columnas `realName` y `userId`, se puede utilizar para traducir el campo `user_AuthenticatedId` en la telemetría de solicitud:
 
 ```AIQL
 
     requests
-    | where notempty(user_AuthenticatedId) 
+    | where notempty(user_AuthenticatedId)
     | project userId = user_AuthenticatedId
       // get the realName field from the usermap table:
-    | join kind=leftouter ( usermap ) on userId 
+    | join kind=leftouter ( usermap ) on userId
       // count transactions by name:
     | summarize count() by realName
 ```
 
-Para importar una tabla, abra **Configuración**, **Orígenes de datos** y siga las instrucciones para agregar un origen. Use esta definición para cargar las tablas.
+Para importar una tabla, en la hoja de esquema, en **Other Data Sources** (Otros orígenes de datos), siga las instrucciones para agregar un nuevo origen de datos, mediante la carga de una muestra de los datos. Luego puede usar esta definición para cargar las tablas.
+
+La característica de importación está actualmente en versión preliminar, por lo que verá inicialmente un vínculo "Póngase en contacto con nosotros" en "Other data sources" (Otros orígenes de datos). Úselo para suscribirse al programa de versión preliminar y luego el vínculo se reemplazará por un botón "Add new data source" (Agregar nuevo origen de datos).
 
 
 ## <a name="tables"></a>Tablas
@@ -578,7 +595,7 @@ Buscar solicitudes con más errores:
 ![Contar solicitudes segmentadas por nombre](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Tabla de eventos personalizados
-Si utiliza [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) para enviar sus propios eventos, puede leerlo desde esta tabla.
+Si utiliza [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) para enviar sus propios eventos, puede leerlo desde esta tabla.
 
 Veamos un ejemplo en el que el código de aplicación contiene estas líneas:
 
@@ -600,7 +617,7 @@ Extraer las medidas y dimensiones de los eventos:
 ![Mostrar la tasa de eventos personalizados](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Tabla de métricas personalizadas
-Si utiliza [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) para enviar sus propios valores de métrica, encontrará los resultados en la transmisión **customMetrics**. Por ejemplo:  
+Si utiliza [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para enviar sus propios valores de métrica, encontrará los resultados en la transmisión **customMetrics**. Por ejemplo:  
 
 ![Métricas personalizadas en Application Insights Analytics](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -653,16 +670,16 @@ Contiene los resultados de las llamadas que su aplicación realiza a las bases d
 Llamadas AJAX desde el explorador:
 
 ```AIQL
-    
-    dependencies | where client_Type == "Browser" 
+
+    dependencies | where client_Type == "Browser"
     | take 10
 ```
 
 Llamadas de dependencia desde el servidor:
 
 ```AIQL
-    
-    dependencies | where client_Type == "PC" 
+
+    dependencies | where client_Type == "PC"
     | take 10
 ```
 
@@ -681,6 +698,6 @@ Contiene los datos de telemetría que ha enviado la aplicación mediante TrackTr
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

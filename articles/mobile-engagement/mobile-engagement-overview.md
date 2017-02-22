@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 Azure Mobile Engagement es una plataforma de participación de usuarios de software como servicio (SaaS) que proporciona información orientada a datos en el uso de las aplicaciones, segmentación de usuarios en tiempo real y habilita las notificaciones push dependientes de contexto y la mensajería en la aplicación.
 
 ### <a name="overview-video"></a>Vídeo de información general
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Mobile-Engagement-Overview/player]
+> [! VÍDEO https://channel9.msdn.com/Blogs/Azure/Azure-Mobile-Engagement-Overview/player]
 > 
 > 
 
@@ -41,7 +41,7 @@ Esto aporta ventajas a los desarrolladores de aplicaciones porque llegan a sus c
 ## <a name="open-apis-and-ease-of-integration"></a>API abiertas y facilidad de integración
 Al proporcionar API y SDK abiertas que facilitan la integración, puede aprovechar los datos de su CRM, CMS u otros sistemas de back-end existentes. Esto le permite ser más específico al dirigirse a su audiencia y proteger sus inversiones.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Protección de datos y privacidad en todo el mundo
+## <a name="data-protection--privacy-across-the-globe"></a>Protección de datos y privacidad en todo el mundo
 Desde siempre, Microsoft tiene un compromiso con la privacidad, que es una parte integral del ciclo vida del producto y del servicio. Trabajamos para ser transparentes en nuestras prácticas de privacidad, ofrecemos a nuestros clientes opciones de privacidad significativas y administramos los datos que almacenamos de manera responsable. Al igual que con todos los servicios de Azure, Mobile Engagement no comparte ni vende información derivada de la propiedad de los clientes. Mobile Engagement está disponible internacionalmente7, lo que permite respetar la legislación de protección de datos específica de cada región o país.
 
 ### <a name="next-steps"></a>Pasos siguientes:
@@ -54,6 +54,6 @@ Desde siempre, Microsoft tiene un compromiso con la privacidad, que es una parte
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

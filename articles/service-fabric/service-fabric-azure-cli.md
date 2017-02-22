@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: d61b7a9c8199b15c8bb24e7146ea93a2f67fb0a7
 
 
 ---
@@ -98,16 +98,16 @@ Si el certificado tiene entidades de certificación (CA), debe agregar el parám
 ```
 Si tiene varias entidades de certificación, use una coma como delimitador.
 
-Si el nombre común del certificado no coincide con el punto de conexión de la conexión, puede usar el parámetro `--strict-ssl` para omitir la comprobación como se muestra en el siguiente comando: 
+Si el nombre común del certificado no coincide con el punto de conexión de la conexión, puede usar el parámetro `--strict-ssl-false` para omitir la comprobación como se muestra en el siguiente comando: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-Si desea omitir la comprobación de la entidad de certificación, puede agregar el parámetro --reject-unauthorized como se muestra en el siguiente comando: 
+Si desea omitir la comprobación de la entidad de certificación, puede agregar el parámetro --reject-unauthorized-false como se muestra en el siguiente comando: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 Después de conectarse, debería poder ejecutar otros comandos de la CLI para interactuar con el clúster. 
@@ -168,6 +168,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Consulte la [documentación de OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) para obtener más información.
 
+<a id="troubleshooting"></a>
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>La copia del paquete de aplicación no se realiza correctamente
 Compruebe si `openssh` está instalado. De forma predeterminada, el escritorio Ubuntu no lo tiene instalado. Instálelo con el comando siguiente:
@@ -203,6 +204,6 @@ Configurar el entorno de desarrollo e implementar una aplicación de Service Fab
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

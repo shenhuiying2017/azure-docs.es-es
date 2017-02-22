@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7d60b453fec2ce4c78179419362eee30ab7cb2
-ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
+ms.sourcegitcommit: 3c3db5ba37844f6a77eece2f20bdce080d0ab8b7
+ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
 
 
 ---
@@ -48,7 +48,7 @@ La implementación de una plantilla le permite crear rápida y coherentemente re
 
 |Nombre|Descripción|
 |---|---|
-|adminUsername|Nombre de usuario de administrador. El nombre de usuario debe cumplir con los [requisitos de nombre de usuario de Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
+|adminUsername|Nombre de usuario de administrador. El nombre de usuario debe cumplir con los [requisitos de nombre de usuario de Azure](../virtual-machines/virtual-machines-windows-faq.md).|
 |adminPassword|Contraseña de administrador: la contraseña de administrador debe cumplir con los [requisitos de contraseña de Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|Nombre DNS para PublicIPAddressName1. El nombre DNS se resolverá como una de las direcciones IP públicas asignadas a la máquina virtual. El nombre debe ser único dentro de la región de Azure (ubicación) en la que crea la máquina virtual.|
 |dnsLabelPrefix1|Nombre DNS para PublicIPAddressName2. El nombre DNS se resolverá como una de las direcciones IP públicas asignadas a la máquina virtual. El nombre debe ser único dentro de la región de Azure (ubicación) en la que crea la máquina virtual.|
@@ -67,9 +67,26 @@ Puede usar Azure Portal, PowerShell o la interfaz de la línea de comandos (CLI)
 
 Para implementar la plantilla mediante Azure Portal, complete los siguientes pasos:
 
-1. Regístrese para la versión preliminar enviando un correo electrónico a [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto. No complete los pasos restantes:
-    - Hasta después de recibir una notificación por correo electrónico de que se le acepta en la versión preliminar.
-    - Sin seguir las instrucciones del correo electrónico que reciba. 
+1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Esta operación puede tardar unos minutos.
+
 2. Modifique la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 3. Implemente la plantilla con uno de los métodos siguientes:
     - **Seleccionar la plantilla en el portal:** complete los pasos descritos en el artículo [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template). Elija la plantilla preexistente denominada *101-vm-varios-ipconfig*.
@@ -114,6 +131,6 @@ Para implementar la plantilla mediante la CLI de Azure 1.0, complete los siguien
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 ### <a name="create-a-new-android-project"></a>Creación de un nuevo proyecto de Android
 1. En Android Studio, inicie un nuevo proyecto de Android Studio.
    
-     ![Android Studio: nuevo proyecto][13]
+   ![Android Studio: nuevo proyecto][13]
 2. Elija el factor de forma **Teléfono y tableta** y el **SDK mínimo** que desea admitir. A continuación, haga clic en **Siguiente**.
    
-     ![Android Studio: flujo de trabajo de creación de proyecto][14]
+   ![Android Studio: flujo de trabajo de creación de proyecto][14]
 3. Elija **Empty Activity** (Actividad vacía) para la actividad principal, haga clic en **Next** (Siguiente) y, luego, en **Finish** (Finalizar).
 
 ### <a name="add-google-play-services-to-the-project"></a>Incorporación de los servicios de Google Play al proyecto
@@ -619,13 +619,14 @@ Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecuci
 #### <a name="running-the-application"></a>Ejecución de la aplicación
 1. Ejecute la aplicación y observe que el Id. de registro se informa para un registro correcto.
    
-       ![Testing on Android - Channel registration][18]
+      ![Prueba en Android: registro de canal][18]
 2. Escriba un mensaje de notificación que se enviará a todos los dispositivos Android registrados con el centro.
    
-       ![Testing on Android - sending a message][19]
+      ![Prueba en Android - envío de un mensaje][19]
+
 3. Presione **Enviar notificación**. Los dispositivos en los que se ejecute la aplicación mostrarán un instancia de `AlertDialog` con el mensaje de notificación push. Los dispositivos en que la aplicación no esté en ejecución, pero que anteriormente se hayan registrado para recibir notificaciones push, recibirán una notificación en el administrador de notificaciones de Android. Para verlas, deslice el dedo hacia abajo desde la esquina superior izquierda.
    
-       ![Testing on Android - notifications][21]
+      ![Prueba en Android - notificaciones][21]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Se recomienda seguir el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
@@ -671,6 +672,6 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

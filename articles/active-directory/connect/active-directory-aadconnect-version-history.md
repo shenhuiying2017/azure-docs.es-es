@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/07/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bddd581b5164b03ccba75370cd89a7831101cf37
-ms.openlocfilehash: c7abb31a222a5e817dc7b4f73c9cf54ce4d26255
+ms.sourcegitcommit: 60f41890912eee3be364f5b3a47ded71991ee342
+ms.openlocfilehash: 780fb6d69dab0b27e13f1e358be048f834dfc185
 
 
 ---
@@ -34,30 +34,51 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte el tema de [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade)
 Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## <a name="113800"></a>1.1.380.0
+Fecha de publicación: diciembre de 2016
+
+**Problema corregido:**
+
+* Se ha corregido el problema por el cual la regla de notificación de issuerid para AD FS falta en esta compilación.
+
+>[!NOTE]
+>Esta compilación no estará disponible para los clientes a través de la característica de actualización automática de Azure AD Connect.
+
 ## <a name="113710"></a>1.1.371.0
 Fecha de publicación: diciembre de 2016
+
+**Problema conocido:**
+
+* La regla de notificación de issuerid para AD FS falta en esta compilación. La regla de notificación de issuerid es necesaria si se está realizando una federación de varios dominios con Azure AD. Si utiliza Azure AD Connect para administrar la implementación de AD FS local, la actualización a esta compilación quitará la regla de notificación de issuerid existente de la configuración de AD FS. Puede solucionar el problema agregando la regla de notificación de issuerid después de la instalación o actualización. Para obtener más información sobre cómo agregar la regla de notificación de issuerid, consulte el artículo [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) (Compatibilidad con varios dominios para la federación con Azure AD).
 
 **Problema corregido:**
 
 * La instalación o actualización de Azure AD Connect generará un error si el puerto 9090 no está abierto para las conexiones salientes.
 
+>[!NOTE]
+>Esta compilación no estará disponible para los clientes a través de la característica de actualización automática de Azure AD Connect.
+
 ## <a name="113700"></a>1.1.370.0
 Fecha de publicación: diciembre de 2016
+
+**Problemas conocidos**:
+
+* La regla de notificación de issuerid para AD FS falta en esta compilación. La regla de notificación de issuerid es necesaria si se está realizando una federación de varios dominios con Azure AD. Si utiliza Azure AD Connect para administrar la implementación de AD FS local, la actualización a esta compilación quitará la regla de notificación de issuerid existente de la configuración de AD FS. Puede solucionar el problema agregando la regla de notificación de issuerid después de la instalación o actualización. Para obtener más información sobre cómo agregar la regla de notificación de issuerid, consulte el artículo [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) (Compatibilidad con varios dominios para la federación con Azure AD).
+* El puerto 9090 debe estar abierto para las conexiones salientes a fin de completar la instalación.
 
 **Nuevas características:**
 
 * Autenticación de paso a través (versión preliminar)
-
-
-**Problemas conocidos:**
-
-* El puerto 9090 debe estar abierto para las conexiones salientes a fin de completar la instalación.
 
 >[!NOTE]
 >Esta compilación no estará disponible para los clientes a través de la característica de actualización automática de Azure AD Connect.
 
 ## <a name="113430"></a>1.1.343.0
 Publicado: noviembre de 2016
+
+**Problema conocido:**
+
+* La regla de notificación de issuerid para AD FS falta en esta compilación. La regla de notificación de issuerid es necesaria si se está realizando una federación de varios dominios con Azure AD. Si utiliza Azure AD Connect para administrar la implementación de AD FS local, la actualización a esta compilación quitará la regla de notificación de issuerid existente de la configuración de AD FS. Puede solucionar el problema agregando la regla de notificación de issuerid después de la instalación o actualización. Para obtener más información sobre cómo agregar la regla de notificación de issuerid, consulte el artículo [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) (Compatibilidad con varios dominios para la federación con Azure AD).
 
 **Problemas corregidos:**
 
@@ -356,6 +377,6 @@ Obtenga más información sobre la [Integración de las identidades locales con 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c3b7c3524ad14b585906c6cebb5a7546c4776c43
+ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
+ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 
 ---
@@ -43,7 +43,7 @@ A diferencia de otros servicios, donde las opciones de IU son limitadas o solo e
 Funciona de la siguiente manera: Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/) para cargar el contenido de una dirección URL que especifique en una directiva. Puede especificar diferentes direcciones URL para distintas páginas. El código combina elementos de IU de Azure AD B2C con el contenido cargado desde la dirección URL y muestra la página al consumidor. Todo lo que necesita hacer es:
 
 1. Crear contenido HTML5 con formato correcto que incluya un elemento `<div id="api"></div>` (es preciso que sea elemento vacío) ubicado en algún lugar de `<body>`. Ese elemento marca el lugar en el que se inserta el contenido de Azure AD B2C.
-2. Hospedar el contenido en un punto de conexión HTTPS (donde se permite CORS).
+2. Hospedar el contenido en un punto de conexión HTTPS (donde se permite CORS). Tenga en cuenta que debe habilitar los métodos de solicitud GET y OPTIONS al configurar CORS.
 3. Aplicar estilo a los elementos de la interfaz de usuario en que se inserta Azure AD B2C.
 
 ## <a name="test-out-the-ui-customization-feature"></a>Prueba de la característica de personalización de la interfaz de usuario
@@ -72,7 +72,7 @@ A continuación se muestra el contenido HTML más básico que se puede utilizar 
 ```
 
 ## <a name="the-core-ui-elements-in-each-type-of-page"></a>Principales elementos de la interfaz de usuario en cada tipo de página
-En las secciones siguientes encontrará ejemplos de fragmentos de HTML5 que Azure AD B2C combina en el elemento `<div id="api"></div>` que se encuentra en su contenido. **No inserte estos fragmentos en el contenido de HTML 5.**  El servicio Azure AD B2C los inserta en tiempo de ejecución. Use estos ejemplos para diseñar sus propias hojas de estilo.
+En las secciones siguientes encontrará ejemplos de fragmentos de HTML5 que Azure AD B2C combina en el elemento `<div id="api"></div>` que se encuentra en su contenido. **No inserte estos fragmentos en el contenido de HTML 5.** El servicio Azure AD B2C los inserta en tiempo de ejecución. Use estos ejemplos para diseñar sus propias hojas de estilo.
 
 ### <a name="azure-ad-b2c-content-inserted-into-the-identity-provider-selection-page"></a>El contenido de Azure AD B2C insertado en la "página de selección de proveedores de identidades"
 Esta página contiene una lista de proveedores de identidades que el usuario puede elegir durante el registro o el inicio de sesión. Estos son los proveedores de identidades sociales como Facebook y Google+ o las cuentas locales (basadas en una dirección de correo electrónico o un nombre de usuario).
@@ -340,20 +340,15 @@ Si piensa usar la característica de personalización de la interfaz de usuario 
 
 * No copie el contenido predeterminado de Azure AD B2C ni intente modificarlo. Es preferible generar su propio contenido de HTML5 desde cero y usar la plantilla predeterminada como referencia.
 * En todas las páginas (excepto en las páginas de error) que sirven las directivas de inicio de sesión, registro y edición de perfiles, las hojas de estilo que proporcione tendrán que reemplazar las hojas de estilo predeterminadas que agregamos a estas páginas en los fragmentos de <head> . En todas las páginas que sirven las directivas de inicio de sesión, registro y contraseña, y las páginas de error de todas las directivas, tendrá que aportar todo el estilo usted mismo.
-* Por motivos de seguridad, no le permitimos incluir cualquier código JavaScript en su contenido. La mayor parte de lo que necesita debería estar disponible de fábrica. De no ser así, utilice [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar una nueva funcionalidad.
+* Por motivos de seguridad, no le permitimos incluir cualquier código JavaScript en su contenido. La mayor parte de lo que necesita debería estar disponible de fábrica. De no ser así, utilice [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) para solicitar una nueva funcionalidad.
 * Versiones de explorador admitidas:
-  * Internet Explorer 11
-  * Internet Explorer 10
-  * Internet Explorer 9 (limitado)
-  * Internet Explorer 8 (limitado)
-  * Google Chrome 43.0
-  * Google Chrome 42.0
-  * Mozilla Firefox 38.0
-  * Mozilla Firefox 37.0
+  * Internet Explorer 11, 10, Edge
+  * Compatibilidad limitada con Internet Explorer 9, 8
+  * Google Chrome 42.0 y versiones posteriores
+  * Mozilla Firefox 38.0 y versiones posteriores
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

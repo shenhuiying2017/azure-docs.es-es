@@ -1,5 +1,5 @@
 ---
-title: "Creación de una máquina virtual con MySQL | Microsoft Docs"
+title: "Creación de una máquina virtual de Azure clásico con MySQL | Microsoft Docs"
 description: "Cree una máquina virtual de Azure que ejecute la Base de datos MySQL y Windows Server 2012 R2 con el modelo de implementación clásica."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 5d08c629fc6e94b43b73c74d8485f6aee695cf4a
+ms.sourcegitcommit: 0937d80011d0ae7015c08d99b06934fda85930b0
+ms.openlocfilehash: d17c92bd239360e0bfddd61a57a9f481f64ff05d
 
 
 ---
@@ -74,7 +74,7 @@ Siga estos pasos para instalar, configurar y ejecutar la versión de la comunida
 18. Escriba la contraseña raíz que especificó en el paso 11 y se mostrará un símbolo del sistema donde puede emitir comandos para configurar MySQL. Para obtener detalles de los comandos y la sintaxis, consulte [Manuales de referencia de MySQL](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
     
     ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
-19. También puede configurar los ajustes predeterminados de configuración del servidor, como los directorios y unidades de datos y de base, con las entradas en el archivo C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini. Para más información, consulte [5.1.2 Server Configuration Defaults](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html) (Valores predeterminados de configuración de Server 5.1.2).
+19. También puede configurar los ajustes predeterminados de configuración del servidor, como los directorios y unidades de datos y de base, con las entradas en el archivo C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini. Para más información, consulte [5.1.2 Server Configuration Defaults](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html) (Valores predeterminados de configuración de Server&5;.1.2).
 
 ## <a name="configure-endpoints"></a>Configuración de extremos
 Si desea que el servicio de MySQL Server esté disponible para los equipos de cliente de MySQL en Internet, debe configurar un extremo del puerto TCP en el que escucha el servicio MySQL Server y crear una regla adicional de Firewall de Windows. Es el puerto TCP 3306 a menos que se especifique uno diferente en la página **Tipos y redes** (paso 10 del procedimiento anterior).
@@ -120,6 +120,6 @@ Para obtener más información sobre la ejecución de MySQL, consulte la [docume
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

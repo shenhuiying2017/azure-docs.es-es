@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
-ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
 
 
 ---
@@ -403,7 +403,7 @@ Para realizar la importación en una sola colección, escriba el nombre de la co
 2. Puede usar una sintaxis abreviada: colección[3] generará el mismo conjunto de colecciones que el paso 1.
 3. Se pueden proporcionar varias sustituciones. Por ejemplo, colección[0-1] [0-9] 20 nombres de colección con ceros delante (colección01,... 02... 03).
 
-Una vez especificados los nombres de las colecciones, elija la capacidad de proceso deseada de la colección (de 400 RU a 250 000 RU). Para conseguir el mejor rendimiento en la importación, elija una mayor capacidad de proceso. Para obtener más información sobre los niveles de rendimiento, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md). Cualquier importación a colecciones con una capacidad de proceso de >10&000; RU requerirá una clave de partición. Si decide tener más de 250 000 RU, consulte [Solicitud de aumento de los límites de la cuenta de DocumentDB](documentdb-increase-limits.md).
+Una vez especificados los nombres de las colecciones, elija la capacidad de proceso deseada de la colección (de 400 RU a 250 000 RU). Para conseguir el mejor rendimiento en la importación, elija una mayor capacidad de proceso. Para obtener más información sobre los niveles de rendimiento, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md). Cualquier importación a colecciones con una capacidad de proceso de >10&000; RU requerirá una clave de partición. Si elige tener más de 250 000 RU, debe registrar una solicitud en el portal para que le aumenten su cuenta.
 
 > [!NOTE]
 > La configuración de la capacidad de proceso solo se aplica a la creación de colecciones. Si la colección especificada ya existe, no se modificará su capacidad de proceso.
@@ -526,6 +526,6 @@ A continuación, elija si desea registrar todos los mensajes de error, los crít
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

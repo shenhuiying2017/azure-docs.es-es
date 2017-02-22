@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/05/2016
+ms.date: 1/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 31d80e58071383aee22772e224c90289a610c0b3
+ms.sourcegitcommit: b70d2d709d0940964c4220b798207adaf3551d36
+ms.openlocfilehash: d31e987e636b178b5aa05722ff08707a6e53c3cf
 
 
 ---
@@ -78,86 +78,7 @@ Si ha realizado la conmutación por error a Azure, las máquinas virtuales está
 * **Enrutamiento de solicitudes de cliente**: Site Recovery funciona con el Administrador de tráfico de Azure para enrutar las solicitudes de cliente a la aplicación después de la conmutación por error.
 
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
-Al ejecutar una prueba de conmutación por error se le pedirá que seleccione la configuración de red de las máquinas de réplica de prueba. Tiene varias opciones.  
-
-| **Opción de conmutación por error de prueba** | **Descripción** | **Verificación de la conmutación por error** | **Detalles** |
-| --- | --- | --- | --- |
-| **Conmutación por error a Azure, sin red** |No seleccione una red de Azure de destino. |La conmutación por error comprueba que la máquina virtual de prueba se inicia como se esperaba en Azure. |Todas las máquinas virtuales de prueba de un plan de recuperación se agregan en un único servicio en la nube y pueden conectarse entre sí.<br/><br/>Los equipos no se conectan a una red después de Azure después de la conmutación por error.<br/><br/>Los usuarios pueden conectarse a las máquinas de prueba con una dirección IP pública. |
-| **Conmutación por error a Azure, con red** |Seleccione una red de Azure de destino. |La conmutación por error comprueba que las máquinas de prueba están conectadas a la red. |Cree una red de Azure aislada de la red de producción de Azure y configure la infraestructura de la máquina virtual replicada para que funcione según lo previsto.<br/><br/>La subred de la máquina virtual de prueba se basa en la subred con la que se espera que se conecte la máquina virtual conmutada por error en caso de que se produzca una conmutación por error planeada o no planeada. |
-| **Conmutación por error a un sitio secundario de VMM, sin red** |No seleccione una red de máquina virtual. |La conmutación por error comprueba que se crean las máquinas de prueba.<br/><br/>La máquina virtual de prueba se creará en el mismo host en el que existe la máquina virtual de réplica. No se agregará a la nube en la que se encuentra la máquina virtual de réplica. |<p>El equipo que ha conmutado por error no se conectará a ninguna red.<br/><br/>La máquina puede conectarse a una red de máquina virtual una vez creada. |
-| **Conmutación por error a un sitio secundario de VMM, con red** |Seleccione una red de máquina virtual existente. |La conmutación por error comprueba que se crean las máquinas virtuales. |La máquina virtual de prueba se creará en el mismo host en el que existe la máquina virtual de réplica. No se agregará a la nube en la que se encuentra la máquina virtual de réplica.<br/><br/>Creación de una red de máquina virtual que esté aislada de la red de producción<br/><br/>Si utiliza una red basada en VLAN, se recomienda crear una red lógica independiente (no se utiliza en producción) en VMM para este propósito. Esta red lógica se utiliza para crear redes de máquinas virtuales con el fin de probar la conmutación por error.<br/><br/>La red lógica debe asociarse con al menos uno de los adaptadores de red de todos los servidores de Hyper-V que hospedan máquinas virtuales.<br/><br/>En el caso de las redes lógicas de VLAN, los sitios de red que agregue a la red lógica deben aislarse.<br/><br/>Si utiliza una red lógica basada en virtualización de red de Windows, Azure Site Recovery crea automáticamente redes de máquinas virtuales aisladas. |
-| **Conmutación por error a un sitio secundario de VMM, crear red** |Se creará automáticamente una red de prueba temporal en función de la configuración especificada en **Red lógica** y de sus sitios de red relacionados. |La conmutación por error comprueba que se crean las máquinas virtuales. |Utilice esta opción si el plan de recuperación usa más de una red de VM. Si utiliza redes de virtualización de red de Windows, esta opción permite crear automáticamente redes de máquinas virtuales con la misma configuración (subredes y grupos de direcciones IP) en la red de la máquina virtual de réplica. Estas redes de máquinas virtuales se limpian automáticamente una vez completada la conmutación por error de prueba.</p><p>La máquina virtual de prueba se creará en el mismo host en el que existe la máquina virtual de réplica. No se agregará a la nube en la que se encuentra la máquina virtual de réplica. |
-
-> [!NOTE]
-> La dirección IP que se asigna a una máquina virtual durante la conmutación por error de prueba es la misma dirección IP que obtendría al realizar una conmutación por error planeada o no planeada (siempre que la dirección IP esté disponible en la red de conmutación por error de prueba). Si la misma dirección IP no está disponible en la red de conmutación por error de prueba, la máquina virtual obtendrá otra dirección IP disponible en la red de conmutación por error de prueba.
->
->
-
-### <a name="run-a-test-failover-from-on-premises-to-azure"></a>Ejecución de una conmutación por error de prueba de local a Azure
-En este procedimiento se describe cómo ejecutar una conmutación por error de prueba para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina en la pestaña **Máquinas virtuales** .
-
-1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Test Conmutación por error**.
-2. En la página **Confirmar conmutación por error de prueba** , especifique cómo se conectarán las máquinas de réplica a una red de Azure tras la conmutación por error.
-3. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor.
-4. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . Debe poder ver la máquina de réplica de prueba en el Portal de Azure.
-5. Puede tener acceso a las máquinas de réplica en Azure desde el sitio local. Para ello, inicie una conexión RDP a la máquina virtual. El puerto 3389 deberá estar abierto en el punto de conexión de la máquina virtual.
-6. Al terminar, cuando la conmutación por error alcance la fase **Pruebas completadas**, haga clic en **Prueba completada** para finalizar.
-7. En **Notas** , registre y guarde las observaciones asociadas a la conmutación por error de prueba.
-8. Haga clic en **La conmutación por error de prueba se ha completado** para limpiar automáticamente el entorno de prueba. Una vez completada esta acción, la conmutación por error de prueba mostrará el estado**Completa** .
-
-> [!NOTE]
-> Si una conmutación por error de prueba continúa durante más de dos semanas, se forzará su finalización. Se eliminarán todos los elementos o las máquinas virtuales creados automáticamente durante la conmutación por error de prueba.
->
->
-
-### <a name="run-a-test-failover-from-a-primary-on-premises-site-to-a-secondary-on-premises-site"></a>Ejecute una conmutación por error de prueba de un sitio local principal a un sitio local secundario
-Deberá realizar varias tareas para ejecutar una conmutación por error de prueba, como realizar una copia del controlador de dominio e incluir servidores DHCP y DNS de prueba en el entorno de prueba. Puede hacerlo de dos maneras:
-
-* Si desea ejecutar una conmutación por error de prueba con una red existente, prepare Active Directory, DHCP y DNS en esa red.
-* Si desea ejecutar una conmutación por error de prueba con la opción de creación automática de redes de máquina virtual, agregue un paso manual antes de Grupo-1 en el plan de recuperación que va a usar para la conmutación por error de prueba y, a continuación, agregue los recursos de infraestructura a la red creada automáticamente antes de ejecutar la conmutación por error de prueba.
-
-#### <a name="things-to-note"></a>Puntos a tener en cuenta
-* Cuando se replica a un sitio secundario, no es necesario que el tipo de red que utiliza la máquina de réplica coincida con el tipo de red lógica que se usa para la conmutación por error de prueba; sin embargo, es posible que algunas combinaciones no funcionen. Si la réplica utiliza DHCP y aislamiento basado en VLAN, la red de máquina virtual para la réplica no necesita un grupo de direcciones IP estáticas. Por lo tanto, el uso de virtualización de red de Windows para la conmutación por error de prueba no funcionaría porque no hay grupos de direcciones disponibles. Además, la prueba de conmutación por error no funcionará si la red de réplica está configurada en Sin aislamiento y la red de prueba es de virtualización de red de Windows. Esto se debe a que una red sin aislamiento no tiene las subredes necesarias para crear una red de virtualización de red de Windows.
-* La manera en que las máquinas virtuales de réplica se conectan a las redes de máquinas virtuales asignadas después de la conmutación por error depende de cómo se configura la red de máquina virtual en la consola VMM:
-  * **Red de máquina virtual configurada sin aislamiento o con aislamiento de VLAN**: si se ha definido DHCP para la red de máquina virtual, la máquina virtual de réplica se conectará al identificador de VLAN utilizando la configuración especificada para el sitio de red en la red lógica asociada. La máquina virtual recibirá su dirección IP del servidor DHCP disponible. No es necesario definir un grupo de direcciones IP estáticas para la red de máquina virtual de destino. Si se utiliza un grupo de direcciones IP estáticas para la red de máquina virtual, la máquina virtual de réplica se conectará al identificador de VLAN mediante la configuración especificada para el sitio de red en la red lógica asociada. La máquina virtual recibirá su dirección IP del grupo definido para la red de máquina virtual. Si no se ha definido un grupo de direcciones IP estáticas en la red de máquina virtual de destino, se producirá un error en la asignación de direcciones IP. El grupo de direcciones IP debe crearse en los servidores VMM de origen y de destino que se van a usar para la protección y la recuperación.
-  * **Red de máquina virtual con virtualización de red de Windows**: si se establece una red de máquina virtual con esta configuración, debe definirse un grupo estático para la red de máquina virtual de destino, independientemente de si la red de máquina virtual de origen se ha configurado para utilizar DHCP o un grupo de direcciones IP estáticas. Si define DHCP, el servidor VMM de destino actuará como servidor DHCP e indicará una dirección IP del grupo definido para la red de máquina virtual de destino. Si se define el uso de un grupo de direcciones IP estáticas para el servidor de origen, el servidor VMM de destino asignará una dirección IP del grupo. En ambos casos, se producirá un error en la asignación de direcciones IP si no se define un grupo de direcciones IP estáticas.
-
-#### <a name="run-test"></a>Ejecución de la prueba
-En este procedimiento se describe cómo ejecutar una conmutación por error de prueba para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina virtual o un único servidor físico en la pestaña **Máquinas virtuales** .
-
-1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Test Conmutación por error**.
-2. En la página **Confirmar conmutación por error de prueba** , especifique cómo se deben conectar las máquinas virtuales a las redes después de la conmutación por error de prueba.
-3. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . Cuando la conmutación por error alcance la fase **Completar pruebas**, haga clic en **Completar prueba** para terminar la conmutación por error de prueba.
-4. Haga clic en **Notas** para registrar y guardar las observaciones asociadas a la conmutación por error de prueba.
-5. Cuando haya terminado, compruebe que las máquinas virtuales se inician correctamente.
-6. Una vez que compruebe que las máquinas virtuales se inician correctamente, complete la conmutación por error de prueba para limpiar el entorno aislado. Si seleccionó la creación automática de redes de máquina virtual, la limpieza elimina todas las máquinas virtuales de prueba y las redes de prueba.
-
-> [!NOTE]
-> Si una conmutación por error de prueba continúa durante más de dos semanas, se forzará su finalización. Se eliminarán todos los elementos o las máquinas virtuales creados automáticamente durante la conmutación por error de prueba.
->
->
-
-#### <a name="prepare-dhcp"></a>Preparación de DHCP
-Si las máquinas virtuales implicadas en la conmutación por error de prueba usan DHCP, se debe crear un servidor DHCP de prueba dentro de la red aislada que se crea para la conmutación por error de prueba.
-
-### <a name="prepare-active-directory"></a>Preparación de Active Directory
-Para ejecutar una conmutación por error de prueba con el fin de probar la aplicación, necesitará una copia del entorno de Active Directory de producción en el entorno de prueba. Examine la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obtener más información. 
-
-### <a name="prepare-dns"></a>Preparación de DNS
-Prepare un servidor DNS para la conmutación por error de prueba de la forma siguiente:
-
-* **DHCP**: si las máquinas virtuales usan DHCP, debe actualizarse la dirección IP del DNS de prueba en el servidor DHCP de prueba. Si utiliza un tipo de red de virtualización de red de Windows, el servidor VMM actúa como servidor DHCP. Por lo tanto, la dirección IP de DNS debe actualizarse en la red de conmutación por error de prueba. En este caso, las máquinas virtuales se registrarán a sí mismas en el servidor DNS correspondiente.
-* **Dirección estática**: si las máquinas virtuales utilizan una dirección IP estática, la dirección IP del servidor DNS de prueba debe actualizarse en la red de conmutación por error de prueba. Es  posible que deba actualizar el DNS con la dirección IP de las máquinas virtuales de prueba. Puede usar el siguiente script de ejemplo para este propósito:
-
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+Consulte el documento [Conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md) si ejecuta una conmutación por error de prueba en Azure. Consulte el documento [Conmutación por error de prueba en VMM](site-recovery-test-failover-vmm-to-vmm.md) si ejecuta una conmutación por error de prueba a otro sitio local administrado por un servidor VMM.  
 
 ## <a name="run-a-planned-failover-primary-to-secondary"></a>Ejecución de una conmutación por error planeada (de principal a secundario)
  En este procedimiento se describe cómo ejecutar una conmutación por error planeada para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina virtual en la pestaña **Máquinas virtuales** .
@@ -201,7 +122,11 @@ En este procedimiento se describe cómo ejecutar una conmutación por error no p
 
     - **Sincronizar datos solo durante la conmutación por error (descarga completa)**: utilice esta opción si ha estado trabajando en Azure durante mucho tiempo. Esta opción es más rápida, ya que se prevé que la mayoría del disco ha cambiado y no queremos dedicar tiempo al cálculo de la suma de comprobación. Realiza una descarga del disco. También es útil cuando se ha eliminado la máquina virtual local.
 
-    > [AZURE.NOTE] Se recomienda utilizar esta opción si ha estado trabajando con Azure durante un tiempo (un mes o más) o la máquina virtual se ha eliminado. Esta opción no realiza los cálculos de suma de comprobación.
+    > [!NOTE] 
+    > Se recomienda utilizar esta opción si ha estado trabajando con Azure durante un tiempo (un mes o más) o la máquina virtual se ha eliminado. Esta opción no realiza los cálculos de suma de comprobación.
+    >
+    >
+
 
 1. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM.
 2. De forma predeterminada se utiliza el último punto de recuperación, pero en **Cambiar punto de recuperación** puede especificar un punto de recuperación diferente.
@@ -235,6 +160,6 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

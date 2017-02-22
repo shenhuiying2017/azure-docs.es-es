@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 98165704fe2699f8ff8a90edb7af8ad10b4d296c
+ms.sourcegitcommit: c6c716c4dce810f190ed66d633524472ba665256
+ms.openlocfilehash: 60d74f1a8dff6441aa461cdc740b5aadc6b77be3
 
 
 ---
@@ -55,7 +55,7 @@ En dicho escenario, puede conectarse mediante la máquina virtual **Nombre** (ta
 ### <a name="connect-to-sql-server-over-the-internet"></a>Conexión a SQL Server a través de Internet
 Si quiere conectarse a su motor de base de datos de SQL Server desde Internet, debe crear un extremo de máquina virtual para la comunicación TCP entrante. Este paso de la configuración de Azure dirige el tráfico del puerto TCP de entrada a un puerto TCP al que puede tener acceso la máquina virtual.
 
-Para conectarse a través de internet, debe usar el nombre DNS de la máquina virtual y el número de puerto del punto de conexión de la máquina virtual (configurado más adelante en este artículo). Para buscar el nombre DNS, vaya al Portal de Azure y seleccione **Máquinas virtuales (clásico)**. Después, seleccione la máquina virtual. El **nombre DNS** se muestra en la sección **Información general**.
+Para conectarse a través de internet, debe usar el nombre DNS de la máquina virtual y el número de puerto del punto de conexión de la máquina virtual (configurado más adelante en este artículo). Para buscar el nombre DNS, vaya a Azure Portal y seleccione **Máquinas virtuales (clásico)**. Después, seleccione la máquina virtual. El **nombre DNS** se muestra en la sección **Información general**.
 
 Por ejemplo, piense en una máquina virtual clásica denominada **mysqlvm** con un nombre DNS de **mysqlvm7777.cloudapp.net** y un punto de conexión de la máquina virtual de **57500**. Suponiendo que la conectividad se ha configurado correctamente, la cadena de conexión siguiente podría usarse para tener acceso a la máquina virtual desde cualquier lugar de Internet:
 
@@ -112,6 +112,6 @@ Para ver otros temas sobre la ejecución de SQL Server en las máquinas virtuale
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

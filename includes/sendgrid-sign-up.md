@@ -61,7 +61,7 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 [Características de SendGrid]: http://sendgrid.com/features
 [Portal de administración de Azure]: https://manage.windowsazure.com
 [Introducción a SendGrid]: http://sendgrid.com/docs
-[SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[Proceso de aprovisionamiento de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [todas las API]: https://sendgrid.com/docs/API_Reference/index.html
 
 

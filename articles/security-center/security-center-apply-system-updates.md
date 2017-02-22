@@ -1,6 +1,6 @@
 ---
 title: "Aplicación de actualizaciones del sistema en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar las recomendaciones de **Aplicar actualizaciones del sistema** y **Reiniciar tras actualizar el sistema** de Azure Security Center."
+description: "En este documento se muestra cómo implementar las recomendaciones **Aplicar actualizaciones del sistema** y **Reiniciar tras actualizar el sistema** de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 51501cc5e344c321652982a3a7f448d84f892392
+ms.sourcegitcommit: 53f4898f31ef19a39e1448235ed14c8fc7df7b3b
+ms.openlocfilehash: 50cdea437db5387813c6a3905d14b6904d2aba34
 
 
 ---
@@ -25,23 +25,30 @@ Azure Security Center supervisa diariamente las máquinas virtuales Windows y Li
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Aplicar actualizaciones del sistema**.
+
    ![Aplicar actualizaciones del sistema][1]
 2. Se abre la hoja **Aplicar actualizaciones del sistema** con una lista de las máquinas virtuales en las que faltan actualizaciones del sistema. Seleccione una máquina virtual.
+
    ![Seleccionar una máquina virtual][2]
 3. Se abre una hoja que muestra una lista de las actualizaciones que faltan en esa máquina virtual. Seleccione una actualización del sistema. En este ejemplo, vamos a seleccionar KB3156016.
+
    ![Actualizaciones de seguridad que faltan][3]
+
 4. Siga los pasos de la hoja **Actualización de seguridad** para aplicar la actualización que falta.
-   ![Security update][4]
+
+   ![Actualización de seguridad][4]
 
 ## <a name="reboot-after-system-updates"></a>Reiniciar tras actualizar el sistema
 1. Vuelva a la hoja **Recomendaciones** . Se genera una nueva entrada después de aplicar las actualizaciones del sistema, denominada **Reiniciar tras actualizar el sistema**. Esta entrada permite saber que tiene que reiniciar la máquina virtual para completar el proceso de aplicación de las actualizaciones del sistema.
+
    ![Reiniciar tras actualizar el sistema][5]
 2. Seleccione **Reiniciar tras actualizar el sistema**. Se abre la hoja **Hay un reinicio pendiente para completar las actualizaciones del sistema** que muestra una lista de máquinas virtuales que deben reiniciarse para completar el proceso de aplicación de actualizaciones del sistema.
+
    ![Reinicio pendiente][6]
 
 Reinicie la máquina virtual de Azure para completar el proceso.
@@ -67,6 +74,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

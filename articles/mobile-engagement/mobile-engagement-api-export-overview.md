@@ -1,3 +1,4 @@
+
 ---
 title: "Información general de API de exportación de Mobile Engagement"
 description: "Aprender los conceptos básicos sobre la exportación de datos sin procesar generados por los dispositivos del usuario para aprovecharlos en sus propias herramientas."
@@ -15,8 +16,8 @@ ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c17a1cb33616ad297d0fad9b8ea674de75bd8fb
+ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
+ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
 
 
 ---
@@ -63,6 +64,9 @@ Para exportar datos desde Mobile Engagement, tendrá que crear un **trabajo de e
 * El tipo de exportación (instantánea o histórico)
 * El tipo de datos,
 * El **contenedor de Almacenamiento de Azure** (incluida una SAS válida con acceso de escritura) donde se escribirá el resultado de la exportación.
+* Por ejemplo, el parámetro de la dirección URL del contenedor podría ser https://[StorageAccountName].blob.core.windows.net/[ContainerName]?[SASWritePermissionsToken]  
+
+Aquí le mostramos un ejemplo real. https://testazmeexport.blob.core.windows.net/test1234azme?sv=2015-12-11&ss=b&srt=sco&sp=rwdlac&se=2016-12-17T04:59:26Z&st=2016-12-16T20:59:26Z&spr=https&sig=KRF3aVWjp2NEJDzjlmoplmu0M9HHlLdkBWRPAFmw90Q%3D
 
 Tenga en cuenta que el trabajo puede tardar varios minutos en iniciarse y después, su ejecución, puede durar desde unos pocos segundos para las aplicaciones pequeñas hasta varias horas para aplicaciones con una gran cantidad de usuarios o actividades.
 
@@ -73,6 +77,6 @@ Cuando el trabajo se complete CORRECTAMENTE, el archivo de datos resultante esta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

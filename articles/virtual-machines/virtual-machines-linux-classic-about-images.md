@@ -1,5 +1,5 @@
 ---
-title: "Acerca de las imágenes de Linux para máquinas virtuales | Microsoft Docs"
+title: "Acerca de las imágenes de VM de Linux en Azure | Microsoft Docs"
 description: "Obtenga información acerca de cómo se usan las imágenes de Linux con máquinas virtuales en Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 0c2c9a68be71b929e52b94209f0ef63e6763b49f
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 480211dd13ddc6af348f4179a3c36fd62d7374fc
 
 
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Acerca de las imágenes para las máquinas virtuales Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para más información sobre las imágenes mediante el modelo de Resource Manager, consulte [aquí](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre las imágenes mediante el modelo de Resource Manager, consulte [aquí](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 
@@ -39,6 +38,6 @@ También puede [cargar su propia imagen](virtual-machines-linux-classic-create-u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

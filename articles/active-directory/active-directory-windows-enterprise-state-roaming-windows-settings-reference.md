@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
+ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
 
 
 ---
@@ -67,13 +67,7 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Datos de la aplicación**: las aplicaciones individuales pueden sincronizar datos |sincronización copia de seguridad |sincronización copia de seguridad |interno |
 | **Lista de aplicaciones**: lista de aplicaciones instaladas |X |backup |Otros |
 | **Bluetooth**: toda la configuración de Bluetooth |X |X | |
-| **Símbolo del sistema**: toda la configuración de línea de comandos |sync |X | |
-| **Cortana**: activar o desactivar |X |X | |
-| **Cortana**: habilitar Cortana en la pantalla de bloqueo |X |X | |
-| **Cortana**: nombre de usuario |sync |sync |interno |
-| **Cortana**: leer SMS en voz alta |X |sync |interno |
-| **Cortana**: Búsqueda segura |X |sync |interno |
-| **Cortana**: buscar información sobre vuelos, etc. |X |sync |interno |
+| **Símbolo del sistema**: configuración predeterminada del símbolo del sistema. |sync |X | |
 | **Credenciales**: Caja de seguridad de credenciales |sync |sync |contraseña |
 | **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |language |
 | **Fecha, hora y región**: formato de 24 horas |sync |X |language |
@@ -95,8 +89,8 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Explorador de Edge**: lista de lectura |sync |sync |interno |
 | **Explorador Edge**: favoritos |sync |sync |interno |
 | **Explorador Edge**: el resto de la configuración de Edge |X |X | |
-| **Contraste alto**: activar o desactivar |sync |sync |Facilidad de acceso |
-| **Contraste alto**: configuración de temas |sync |X | |
+| **Contraste alto**: activar o desactivar |sync |X |Facilidad de acceso |
+| **Contraste alto**: configuración de temas |sync |X |Facilidad de acceso |
 | **Internet Explorer**: abrir pestañas (dirección URL y título) |sync |sync |Internet Explorer |
 | **Internet Explorer**: lista de lectura |sync |sync |Internet Explorer |
 | **Internet Explorer**: direcciones URL escritas |sync |sync |Internet Explorer |
@@ -113,8 +107,8 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Idioma**: QWERTY chino simplificado - habilitar clasificación dinámica del candidato |sync |X |language |
 | **Idioma**: QWERTY chino simplificado - juego de caracteres de chino simplificado |sync |X |language |
 | **Idioma**: QWERTY chino simplificado - juego de caracteres de chino tradicional |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - pinyin aproximado |sync |sync |language |
-| **Idioma**: QWERTY chino simplificado - pares aproximados |sync |sync |language |
+| **Idioma**: QWERTY chino simplificado - pinyin aproximado |sync |backup |Idioma |
+| **Idioma**: QWERTY chino simplificado - pares aproximados |sync |backup |Idioma |
 | **Idioma**: QWERTY chino simplificado - pinyin completo |sync |X |language |
 | **Idioma**: QWERTY chino simplificado - pinyin doble |sync |X |language |
 | **Idioma**: QWERTY chino simplificado - corrección automática de lectura |sync |X |language |
@@ -122,8 +116,8 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Idioma**: QWERTY chino simplificado - tecla de modificador C/E, Ctrl |sync |X |language |
 | **Idioma**: chino simplificado WUBI - modo de entrada de carácter único |sync |X |language |
 | **Idioma**: WUBI chino simplificado - mostrar la codificación restante del candidato |sync |X |language |
-| **Idioma**: WUBI chino simplificado - pitido cuando la codificación 4 no sea válida |sync |X |language |
-| **Idioma**: Bopomofo chino simplificado - incluir CJK Ext-A |sync |X |language |
+| **Idioma**: WUBI chino simplificado - pitido cuando la codificación 4 no sea válida |sync |X |Idioma |
+| **Idioma**: Bopomofo chino simplificado, incluir CJK Ext-A |sync |X |language |
 | **Idioma**: IME japonés - escritura predictiva y palabras personalizadas |sync |sync |language |
 | **Idioma**: IME coreano (KOR) |X |X |language |
 | **Idioma**: reconocimiento de escritura a mano |X |X |language |
@@ -147,11 +141,11 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Narrador**: insertar cursor a continuación del narrador (activado de forma predeterminada) |sync |X |Facilidad de acceso |
 | **Narrador**: habilitar resaltado visual del cursor del narrador (activado de forma predeterminada) |sync |X |Facilidad de acceso |
 | **Narrador**: reproducir indicaciones de sonido (activado de forma predeterminada) |sync |X |Facilidad de acceso |
-| **Narrador**: activar teclas del teclado táctil al levantar el dedo (desactivado de forma predeterminada) |sync |sync |Facilidad de acceso |
+| **Narrador**: activar teclas del teclado táctil al levantar el dedo (desactivado de forma predeterminada) |sync |X |Facilidad de acceso |
 | **Facilidad de acceso**: establecer el grosor del cursor intermitente |sync |X |Facilidad de acceso |
 | **Facilidad de acceso**: quitar imágenes de fondo (desactivado de forma predeterminada) |sync |X |Facilidad de acceso |
 | **Encendido y suspensión**: todas las configuraciones |X |X | |
-| **Iniciar personalización de la pantalla**: color del sistema |sync |sync |Tema |
+| **Personalización de la pantalla de inicio**: color de acento (solo teléfono). |X |sync |Tema |
 | **Escritura**: diccionario ortográfico |sync |backup |language |
 | **Escritura**: autocorrección de palabra escrita incorrectamente |sync |backup |language |
 | **Escritura**: resaltar palabras incorrectas |sync |backup |language |
@@ -169,10 +163,10 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 * [Habilitación de Enterprise State Roaming en Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Preguntas más frecuentes sobre itinerancia de datos y configuración](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

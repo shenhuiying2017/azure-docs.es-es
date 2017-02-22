@@ -1,121 +1,180 @@
 ---
-title: "Incorporación del conector de Dynamics CRM Online a Logic Apps | Microsoft Docs"
-description: "Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El proveedor de conexión de Dynamics CRM Online proporciona una API para trabajar con entidades de Dynamics CRM Online."
+title: "Incorporación del conector de Dynamics 365 (en línea) a Azure Logic Apps | Microsoft Docs"
+description: "Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El proveedor de conexión Dynamics 365 (en línea) proporciona una API para trabajar con entidades de Dynamics 365 (en línea)."
 services: logic-apps
+cloud: Azure Stack
 documentationcenter: 
-author: MandiOhlinger
+author: Mattp123
 manager: anneta
-editor: 
-tags: connectors
 ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
 ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 11/07/2016
-ms.author: mandia
+ms.date: 02/10/2017
+ms.author: matp
 translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: a1ea6c09621aeeb1e98bbbf5edf1d5deb5e4b721
+ms.sourcegitcommit: fa426f474f4efd4023da5dfd9954dacf96f635ab
+ms.openlocfilehash: 99d5379ad1e6965dd9ed88de456cc850d7e40d5a
 
 
 ---
-# <a name="get-started-with-the-dynamics-crm-online-connector"></a>Introducción al conector de Dynamics CRM Online
-Conéctese a Dynamics CRM Online para crear un nuevo registro, actualizar un elemento y mucho más. Con CRM Online, puede hacer lo siguiente:
+# <a name="create-a-logic-app-with-the-dynamics-365-connector"></a>Creación de una aplicación lógica con el conector Dynamics 365
 
-* Compilar el flujo de negocio en función de los datos que obtiene de CRM Online. 
-* Usar acciones para eliminar registros, obtener entidades y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se actualice un elemento en CRM, puede enviar un correo electrónico mediante Office 365.
+Con Logic Apps puede conectarse a Dynamics 365 (en línea) y crear flujos de negocio útiles que crean nuevos registros, actualizan elementos o devuelven una lista de registros. Con el conector de Dynamics 365, puede:
 
-En este tema se muestra cómo usar el conector de Dynamics CRM Online en una aplicación lógica y también se enumeran los desencadenadores y las acciones.
+* Compilar el flujo de negocio en función de los datos que obtiene de Dynamics 365 (en línea).
+* Usar acciones que obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se actualice un elemento en Dynamics 365 (en línea), puede enviar un correo electrónico mediante Office 365.
 
-> [!NOTE]
-> Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas.
-> 
-> 
+En este tema se muestra cómo crear una aplicación lógica que crea una tarea en Dynamics 365 cada vez que se crea un nuevo cliente potencial en Dynamics 365.
 
-Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-what-are-logic-apps.md) y [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+## <a name="prerequisites"></a>Requisitos previos
+* Una cuenta de Azure.
+* Una cuenta de Dynamics 365 (en línea).
 
-## <a name="connect-to-dynamics-crm-online"></a>Conexión a Dynamics CRM Online
-Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a Dynamics, primero necesita una *conexión* de Dynamics CRM Online. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que desea conectarse. Por lo tanto, con Dynamics CRM Online, escriba las credenciales de la cuenta de Dynamics CRM Online para crear la conexión.
+## <a name="walkthrough-create-a-task-whenever-a-new-lead-is-created-in-dynamics-365"></a>Tutorial: Creación de una tarea cuando se crea un nuevo cliente potencial en Dynamics 365
+1.    [Inicie de sesión en Azure](https://portal.azure.com).
+2.    Escriba*Logic Apps* en el cuadro de **Búsqueda** y, a continuación, presione ENTRAR.
+3.    En el área de servicio de Logic App, haga clic en **Agregar**.
 
-### <a name="create-the-connection"></a>Creación de la conexión
-> [!INCLUDE [Steps to create a connection to Dynamics CRM Online Connection Provider](../../includes/connectors-create-api-crmonline.md)]
-> 
-> 
+  ![Agregar LogicApp](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-## <a name="use-a-trigger"></a>Uso de un desencadenador
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. Los desencadenadores "sondean" el servicio en el intervalo y la frecuencia que desee. [Más información sobre los desencadenadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+4.    Completar los campos **Nombre**, **Suscripción**, **Grupo de recursos**, y **Ubicación** para crear el objeto de aplicación lógica y, a continuación, haga clic en **crear**.
 
-1. En la aplicación lógica, escriba "dynamics" para obtener una lista de los desencadenadores:  
-   
-    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-2. Seleccione **Dynamics CRM Online - When a record is created**. Si ya existe una conexión, seleccione una organización y una entidad de la lista desplegable.
-   
-    ![](./media/connectors-create-api-crmonline/select-organization.png)
-   
-    Si se le solicita que inicie sesión, escriba los datos de inicio de sesión para crear la conexión. En la sección [Creación de la conexión](connectors-create-api-crmonline.md#create-the-connection) de este tema se enumeran los pasos. 
-   
-   > [!NOTE]
-   > En este ejemplo, la aplicación lógica se ejecuta cuando se crea un evento. Para ver los resultados de este desencadenador, agregue otra acción que envíe un correo electrónico. Por ejemplo, agregue la acción *Send an email* (Enviar un correo electrónico) en Office 365 que le envía un correo electrónico cuando se agrega un nuevo registro. 
-   > 
-   > 
-3. Seleccione el botón **Editar** y defina los valores de **Frecuencia** e **Intervalo**. Por ejemplo, si desea que el desencadenador sondee cada 15 minutos, establezca el valor de **Frecuencia** en **Minuto** y el de **Intervalo** en **15**. 
-   
-    ![](./media/connectors-create-api-crmonline/edit-properties.png)
-4. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+5.    Seleccione la nueva aplicación lógica. Cuando reciba la notificación **Implementación correcta**, haga clic en **Actualizar**.
 
-## <a name="use-an-action"></a>Uso de una acción
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+6.    En Herramientas de desarrollo, haga clic en **Diseñador de aplicación lógica** y, a continuación, en la lista de plantillas disponibles haga clic en **LogicApp en blanco**.
 
-1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
-   
-    ![](./media/connectors-create-api-crmonline/add-action.png)
-2. Elija **Add an action**(Agregar una acción).
-3. En el cuadro de texto, escriba "dynamics" para obtener una lista de todas las acciones disponibles.
-   
-    ![](./media/connectors-create-api-crmonline/dynamics-actions.png)
-4. En nuestro ejemplo, elija **Dynamics CRM Online - Update a record** (Dynamics CRM Online: actualizar un registro). Si ya existe una conexión, elija las propiedades **Organization name** (Nombre de la organización), **Entity Name** (Nombre de la entidad) y otras propiedades:  
-   
-    ![](./media/connectors-create-api-crmonline/sample-action.png)
-   
-    Si se le solicita la información de conexión, escriba los detalles para crear la conexión. Estas propiedades se describen en la sección [Creación de la conexión](connectors-create-api-crmonline.md#create-the-connection) de este tema. 
-   
-   > [!NOTE]
-   > En este ejemplo se actualiza un registro existente en CRM Online. Para actualizar el registro puede utilizar la salida de otro desencadenador. Por ejemplo, agregue el desencadenador SharePoint *When an existing item is modified* (SharePoint: cuando se modifica un elemento ya existente). A continuación, agregue la acción CRM Online *Update a record* (CRM Online: actualizar un registro) que utiliza los campos de SharePoint para actualizar el registro existente en CRM Online. 
-   > 
-   > 
-5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+7.    Escriba *Dynamics 365*. En la lista hay varios desencadenadores de Dynamics 365, haga clic en **Dynamics 365 – Al crear un registro**.
+
+8.    Si se le pide que inicie sesión en Dynamics 365, hágalo ahora.
+
+9.    Escriba la información a continuación en los detalles del desencadenador.
+
+  * **Nombre de la organización**. Seleccione la instancia de Dynamics 365 a la que desea que la aplicación lógica escuche.
+
+  * **Nombre de entidad**. Seleccione la entidad a la que desea escuchar, que actuará como un desencadenador para iniciar la aplicación lógica. En este tutorial está seleccionado **Leads**.
+
+  * **¿Con qué frecuencia quiere comprobar elementos?** Estos valores configuran la frecuencia con la que la aplicación lógica busca actualizaciones relacionadas con el desencadenador. El valor predeterminado es comprobar si hay actualizaciones cada tres minutos.
+
+    * **Frecuencia**. Seleccione segundos, minutos, horas o días.
+
+    * **Intervalo**. Escriba un número que indica el número de segundos, minutos, horas o días a pasar antes de la siguiente comprobación.
+
+    ![Detalles del desencadenador de aplicación lógica](./media/connectors-create-api-crmonline/trigger-details.png)
+
+10.    Haga clic en **Nuevo paso** y, a continuación, en **Agregar una acción**.
+
+11.    Escriba *Dynamics 365* y en la lista, haga clic en **Dynamics 365 – crear un nuevo registro**.
+
+12.    Escriba la siguiente información.
+  * **Nombre de la organización**. Seleccione la instancia de Dynamics 365 en la que desea que el flujo cree un registro. Tenga en cuenta que no tiene que ser la misma instancia desde la que se desencadena el evento.
+  * **Nombre de entidad**. Seleccione la entidad que desea que cree un registro cuando se desencadene el evento. En este tutorial está seleccionado **Tasks**.
+
+13.    Aparece un cuadro de Asunto. Al hacer clic en el cuadro, aparece un panel de contenido dinámico donde puede seleccionar cualquiera de los siguientes campos.
+  * **Apellido**. Al seleccionar este campo, se inserta el apellido del cliente potencial en el campo de Asunto de la tarea, cuando se cree el registro de tareas.
+  * **Tema**. Al seleccionar este campo, se inserta el campo Tema del cliente potencial en el campo de Asunto de la tarea, cuando se cree el registro de tareas.
+Haga clic en **Tema** para agregarlo al cuadro **Asunto**.
+
+  ![Creación de detalles del nuevo registro en la aplicación lógica](./media/connectors-create-api-crmonline/create-record-details.png)
+
+14.    Haga clic en **Guardar** en la barra de herramientas del Diseñador de aplicación lógica.
+
+  ![Guardado en la barra de herramientas del Diseñador de aplicación lógica](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+
+15.    Para iniciar la aplicación lógica, haga clic en **Ejecutar**.
+
+  ![Guardado en la barra de herramientas del Diseñador de aplicación lógica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+
+16. Ahora cree un registro de cliente potencial en Dynamics 365 para Ventas y podrá ver el flujo en acción.
+
+## <a name="using-advanced-options"></a>Uso de las opciones avanzadas
+Cuando agregue un paso a una aplicación lógica, hacer clic en **Mostrar opciones avanzadas** permite controlar cómo se filtran los datos en el paso mediante la incorporación de una consulta de filtro o de organizar por.
+
+Por ejemplo, puede usar una consulta de filtro para recuperar solo cuentas activas y organizar por el nombre de cuenta. Para ello, escriba la consulta de filtro OData **statuscode eq 1** y seleccione **Nombre de cuenta** desde el panel de contenido dinámico. Para más información consulte: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) y [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+
+  ![Opciones avanzadas de LogicApp](./media/connectors-create-api-crmonline/advanced-options.png)
+
+### <a name="best-practices-when-using-advanced-options"></a>Procedimientos recomendados al usar las opciones avanzadas
+Tenga en cuenta que cuando agregue un valor a un campo, el tipo de campo tiene que coincidir, tanto si escribe el valor como si lo selecciona en el contenido dinámico que se muestra.
+
+Tipo de campo  |Modo de uso  |Dónde encontrarlo  |Nombre  |Tipo de datos  
+---------|---------|---------|---------|---------
+Campos de texto|Los campos de texto requieren una sola línea de texto o contenido dinámico que sea un campo de tipo texto. Algunos ejemplos son los campos de categoría y subcategoría.|Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |categoría |Línea de texto única.       
+Campos numéricos enteros | Algunos campos requieren un número entero o un contenido dinámico que sea un campo de tipo numérico entero. Algunos ejemplos son Porcentaje completado y Duración. |Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |percentcomplete |Número entero         
+Campos de fecha | Algunos campos, requieren una fecha escrita en formato mm/dd/aaaa o contenido dinámico que sea un campo de tipo de fecha. Algunos ejemplos son fecha de creación, fecha de inicio, inicio real, último periodo de retención, finalización real y fecha de vencimiento. | Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |createdon |Fecha y hora         
+Campos que requieren un identificador de registro y un tipo de búsqueda |Algunos campos que hacen referencia a otro registro de entidad requieren el identificador de registro y el tipo de búsqueda. |Configuración > Personalizaciones > Personalizar el sistema > Entidades > Cuenta > Campos  | accountid   | Clave principal
+
+### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Más ejemplos de campos que requieren tanto un identificador de registro como un tipo de búsqueda
+Ampliando la tabla anterior, aquí tiene más ejemplos de campos que no funcionan con valores seleccionados de la lista de contenido dinámica. En su lugar, estos campos requieren tanto un identificador de registro como un tipo de búsqueda especificados en los campos en PowerApps.  
+*  Propietario y Tipo de propietario. El campo Propietario tiene que ser un usuario válido o un identificador de registro de equipo. El Tipo de propietario tiene que ser **systemusers** o **equipos**.
+* Cliente y Tipo de cliente. El campo Cliente tiene que ser una cuenta válida o un identificador de registro de contacto. El Tipo de propietario tiene que ser **cuentas** o **contactos**.
+* Referente a y Tipo referente a. El campo Referente a tiene que ser un identificador de registro válido, como una cuenta o un identificador de registro de contacto. El Tipo referente a tiene que ser el tipo de búsqueda para el registro, como **cuentas** o **contactos**.
+
+El siguiente ejemplo de acción de creación de tarea agrega un registro de cuenta que corresponde al identificador de registro, agregándolo al campo Referente a de la tarea.
+
+  ![Identificador de registro de flujo y tipo de cuenta](./media/connectors-create-api-crmonline/recordid-type-account.png)
+
+Este ejemplo también asigna la tarea a un usuario específico basado en el identificador de registro. del usuario.
+  ![Identificador de registro de flujo y tipo de cuenta](./media/connectors-create-api-crmonline/recordid-type-user.png)
+
+Para obtener un identificador de registro, consulte la sección *Localización del identificador de registro* a continuación.
+
+## <a name="find-the-record-id"></a>Localización del identificador de registro
+1. Abra un registro, como un registro de cuenta.
+
+2. En la barra de herramientas de acciones, haga clic en el **emergente** ![registro emergente](./media/connectors-create-api-crmonline/popout-record.png).
+O bien, en la barra de herramientas de acciones, haga clic en **ENVIAR UN VÍNCULO** para copiar la dirección URL completa en el programa de correo electrónico predeterminado.
+
+3. El identificador de registro se muestra entre los caracteres codificados %7b y %7d de la dirección URL.
+
+  ![Identificador de registro de flujo y tipo de cuenta](./media/connectors-create-api-crmonline/recordid.png)
+
+## <a name="troubleshooting"></a>Solución de problemas
+Para solucionar problemas de un paso con errores en una aplicación de lógica, vea los detalles de estado del evento.
+
+1. En el área de Logic Apps, haga clic en su aplicación lógica y, a continuación, en **Información general**. Se muestra el área de resumen, que proporciona el estado de ejecución de la aplicación lógica. Si hay ejecuciones que hayan fallado, haga clic en el evento con error para el que desea ver más información.
+
+  ![Paso 1 de solución de problemas de LogicApp](./media/connectors-create-api-crmonline/tshoot1.png)
+
+2. Haga clic en el paso con errores para expandirlo.
+
+  ![Paso 2 de solución de problemas de LogicApp](./media/connectors-create-api-crmonline/tshoot2.png)
+
+3. Se muestran los detalles del paso que pueden ayudar a solucionar la causa del error.
+
+    ![Paso 2 de solución de problemas de LogicApp](./media/connectors-create-api-crmonline/tshoot3.png)
+
+Para más información sobre cómo solucionar problemas de las aplicaciones lógicas, consulte [Diagnóstico de errores de aplicaciones lógicas](../logic-apps/logic-apps-diagnosing-failures.md).
 
 ## <a name="technical-details"></a>Detalles técnicos
 ## <a name="triggers"></a>Desencadenadores
 | Desencadenador | Descripción |
 | --- | --- |
-| [When a record is created](connectors-create-api-crmonline.md#when-a-record-is-created) |Desencadena un flujo cuando se crea un objeto en CRM. |
-| [When a record is updated](connectors-create-api-crmonline.md#when-a-record-is-updated) |Desencadena un flujo cuando se modifica un objeto en CRM. |
-| [When a record is deleted](connectors-create-api-crmonline.md#when-a-record-is-deleted) |Desencadena un flujo cuando se elimina un objeto en CRM. |
+| When a record is created |Desencadena un flujo cuando se crea un objeto en Dynamics 365. |
+| When a record is updated |Desencadena un flujo cuando se modifica un objeto en Dynamics 365. |
+| When a record is deleted |Desencadena un flujo cuando se elimina un objeto en Dynamics 365. |
 
 ## <a name="actions"></a>Acciones
 | Acción | Descripción |
 | --- | --- |
-| [List records](connectors-create-api-crmonline.md#list-records) |Esta operación obtiene los registros de una entidad. |
-| [Create a new record](connectors-create-api-crmonline.md#create-a-new-record) |Esta operación crea un nuevo registro de una entidad. |
-| [Get record](connectors-create-api-crmonline.md#get-record) |Esta operación obtiene el registro especificado de una entidad. |
-| [Delete a record](connectors-create-api-crmonline.md#delete-a-record) |Esta operación elimina un registro de una colección de entidades. |
-| [Update a record](connectors-create-api-crmonline.md#update-a-record) |Esta operación actualiza un registro existente de una entidad. |
+| List records |Esta operación obtiene los registros de una entidad. |
+| Crear un nuevo registro |Esta operación crea un nuevo registro de una entidad. |
+| Get record |Esta operación obtiene el registro especificado de una entidad. |
+| Delete a record |Esta operación elimina un registro de una colección de entidades. |
+| Actualización de un registro |Esta operación actualiza un registro existente de una entidad. |
 
 ### <a name="trigger-and-action-details"></a>Detalles de los desencadenadores y las acciones
 En esta sección podrá consultar los detalles específicos acerca de los desencadenadores y las acciones, como las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
 
 #### <a name="when-a-record-is-created"></a>When a record is created
-Desencadena un flujo cuando se crea un objeto en CRM. 
+Desencadena un flujo cuando se crea un objeto en Dynamics 365.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
-| $skip |Omitir conteo |Número de entradas para omitir (valor predeterminado = 0) |
-| $top |Número máximo de entradas |Número máximo de entradas para obtener (valor predeterminado = 256) |
 | $filter |Consulta de filtro |Consulta de filtro de ODATA para restringir la devolución de entradas |
 | $orderby |Ordenar por |Consulta orderBy de ODATA para especificar el orden de las entradas |
 
@@ -129,16 +188,12 @@ ItemsList
 | value |array |
 
 #### <a name="when-a-record-is-updated"></a>When a record is updated
-Desencadena un flujo cuando se modifica un objeto en CRM. 
+Desencadena un flujo cuando se modifica un objeto en Dynamics 365.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
-| $skip |Omitir conteo |Número de entradas para omitir (valor predeterminado = 0) |
-| $top |Número máximo de entradas |Número máximo de entradas para obtener (valor predeterminado = 256) |
-| $filter |Consulta de filtro |Consulta de filtro de ODATA para restringir la devolución de entradas |
-| $orderby |Ordenar por |Consulta orderBy de ODATA para especificar el orden de las entradas |
 
 Un asterisco (*) significa que la propiedad es obligatoria.
 
@@ -150,16 +205,13 @@ ItemsList
 | value |array |
 
 #### <a name="when-a-record-is-deleted"></a>When a record is deleted
-Desencadena un flujo cuando se elimina un objeto en CRM. 
+Desencadena un flujo cuando se elimina un objeto en Dynamics 365.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
-| $skip |Omitir conteo |Número de entradas para omitir (valor predeterminado = 0) |
-| $top |Número máximo de entradas |Número máximo de entradas para obtener (valor predeterminado = 256) |
-| $filter |Consulta de filtro |Consulta de filtro de ODATA para restringir la devolución de entradas |
-| $orderby |Ordenar por |Consulta orderBy de ODATA para especificar el orden de las entradas |
+
 
 Un asterisco (*) significa que la propiedad es obligatoria.
 
@@ -171,14 +223,12 @@ ItemsList
 | value |array |
 
 #### <a name="list-records"></a>List records
-Esta operación obtiene los registros de una entidad. 
+Esta operación obtiene los registros de una entidad.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
-| $skip |Omitir conteo |Número de entradas para omitir (valor predeterminado = 0) |
-| $top |Número máximo de entradas |Número máximo de entradas para obtener (valor predeterminado = 256) |
 | $filter |Consulta de filtro |Consulta de filtro de ODATA para restringir la devolución de entradas |
 | $orderby |Ordenar por |Consulta orderBy de ODATA para especificar el orden de las entradas |
 
@@ -192,11 +242,11 @@ ItemsList
 | value |array |
 
 #### <a name="create-a-new-record"></a>Crear un nuevo registro
-Esta operación crea un nuevo registro de una entidad. 
+Esta operación crea un nuevo registro de una entidad.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
 
 Un asterisco (*) significa que la propiedad es obligatoria.
@@ -205,11 +255,11 @@ Un asterisco (*) significa que la propiedad es obligatoria.
 Ninguno.
 
 #### <a name="get-record"></a>Get record
-Esta operación obtiene el registro especificado de una entidad. 
+Esta operación obtiene el registro especificado de una entidad.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
 | id* |Identificador de elementos |Especifica el identificador del registro |
 
@@ -219,22 +269,22 @@ Un asterisco (*) significa que la propiedad es obligatoria.
 Ninguno.
 
 #### <a name="delete-a-record"></a>Delete a record
-Esta operación elimina un registro de una colección de entidades. 
+Esta operación elimina un registro de una colección de entidades.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
 | id* |Identificador de elementos |Especifica el identificador del registro |
 
 Un asterisco (*) significa que la propiedad es obligatoria.
 
 #### <a name="update-a-record"></a>Actualización de un registro
-Esta operación actualiza un registro existente de una entidad. 
+Esta operación actualiza un registro existente de una entidad.
 
 | Nombre de propiedad | Nombre para mostrar | Description |
 | --- | --- | --- |
-| dataset* |Nombre de la organización |Nombre de la organización en CRM como Contoso |
+| dataset* |Nombre de la organización |Nombre de la organización de Dynamics 365 como Contoso |
 | table* |Nombre de entidad |Nombre de la entidad |
 | id* |Identificador del registro |Especifica el identificador del registro |
 
@@ -244,7 +294,7 @@ Un asterisco (*) significa que la propiedad es obligatoria.
 Ninguno.
 
 ## <a name="http-responses"></a>Respuestas HTTP
-Las acciones y los desencadenadores pueden devolver uno o varios de los siguientes códigos de estado HTTP: 
+Las acciones y los desencadenadores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
 
 | Nombre | Descripción |
 | --- | --- |
@@ -258,8 +308,7 @@ Las acciones y los desencadenadores pueden devolver uno o varios de los siguient
 | default |Error en la operación. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
-
+Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 
 
 

@@ -191,6 +191,6 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

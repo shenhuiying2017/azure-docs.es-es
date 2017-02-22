@@ -1,45 +1,49 @@
 ---
-title: 'Salidas de Stream Analytics: opciones para almacenamiento y análisis | Microsoft Docs'
-description: Aprenda a seleccionar el destino de las opciones de salida de datos de Stream Analytics, lo que incluye Power BI para los resultados de análisis.
-keywords: transformación de datos, resultados del análisis, opciones de almacenamiento de datos
+title: "Salidas de Stream Analytics: opciones para almacenamiento y análisis | Microsoft Docs"
+description: "Aprenda a seleccionar el destino de las opciones de salida de datos de Stream Analytics, lo que incluye Power BI para los resultados de análisis."
+keywords: "transformación de datos, resultados del análisis, opciones de almacenamiento de datos"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
+
 
 ---
-# Salidas de Stream Analytics: opciones para almacenamiento y análisis
+# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Salidas de Stream Analytics: opciones para almacenamiento y análisis
 Al crear un trabajo de Stream Analytics, tenga en cuenta cómo se consumirán los datos resultantes. ¿Cómo se van a ver los resultados del trabajo de Stream Analytics y dónde se almacenarán?
 
 Para habilitar diversos patrones de aplicación, Análisis de transmisiones de Azure ofrece distintas opciones para el almacenamiento y la visualización de los resultados del trabajo. Esto facilita la visualización de la salida del trabajo y proporciona flexibilidad en el consumo y almacenamiento de la salida del trabajo para el almacenamiento de datos y otros fines. Todos los elementos de salida que se configuren en el trabajo deben existir antes de que se inicie el trabajo y los eventos empiecen a fluir. Por ejemplo, si usa el almacenamiento de blobs como salida, el trabajo no creará una cuenta de almacenamiento automáticamente. Debe crearla el usuario antes de que se inicie el trabajo ASA.
 
-## Almacén de Azure Data Lake
-Análisis de transmisiones admite el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esta solución de almacenamiento permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos. En este momento, la creación y la configuración de salidas del Almacén de Data Lake solo se admiten en el Portal de Azure clásico. Además, Análisis de transmisiones debe tener autorización para acceder al Almacén de Data Lake. En el [artículo sobre la salida de Data Lake](stream-analytics-data-lake-output.md) se especifica información sobre la autorización y cómo registrarse para la vista previa del Almacén de Data Lake (en caso necesario).
+## <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+Análisis de transmisiones admite el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esta solución de almacenamiento permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos. Además, Análisis de transmisiones debe tener autorización para acceder al Almacén de Data Lake. En el [artículo sobre la salida de Data Lake](stream-analytics-data-lake-output.md)se especifica información sobre la autorización y cómo registrarse en Data Lake Store (en caso necesario).
 
-### Creación de una instancia de Azure Data Lake Store
-Al seleccionar Data Lake Storage como salida en el Portal de administración de Azure, se le pedirá que autorice una conexión a una instancia existente de Data Lake Store.
+### <a name="authorize-an-azure-data-lake-store"></a>Creación de una instancia de Azure Data Lake Store
+Al seleccionar Data Lake Storage como salida en el Portal de administración de Azure, se le pedirá que autorice una conexión a una instancia existente de Data Lake Store.  
 
-![Autorizar el Almacén de Azure Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
+![Autorizar el Almacén de Azure Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 A continuación, rellene las propiedades para la salida de Data Lake Store tal como se muestra a continuación:
 
-![Autorizar el Almacén de Azure Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
+![Autorizar el Almacén de Azure Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y su descripción necesarios para crear una salida del Almacén de Data Lake.
 
 <table>
 <tbody>
 <tr>
-<td><B>NOMBRE DE PROPIEDAD</B></td>
+<td><B>NOMBRE DE LA PROPIEDAD</B></td>
 <td><B>DESCRIPCIÓN</B></td>
 </tr>
 <tr>
@@ -51,7 +55,7 @@ En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y
 <td>El nombre de la cuenta de Data Lake Storage donde va a enviar la salida. Se le mostrará una lista desplegable de cuentas del Almacén de Data Lake a las que el usuario cuya sesión se ha iniciado en el portal tiene acceso.</td>
 </tr>
 <tr>
-<td>Patrón del prefijo de la ruta de acceso [<I>opcional</I>]</td>
+<td>Patrón de prefijo de la ruta [<I>opcional</I>]</td>
 <td>La ruta de acceso utilizada para escribir sus archivos en la cuenta del Almacén de Data Lake especificada. <BR>{date}, {time}<BR>Ejemplo 1: carpeta1/registros/{date}/{time}<BR>Ejemplo 2: carpeta1/registros/{date}</td>
 </tr>
 <tr>
@@ -81,13 +85,13 @@ En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y
 </tbody>
 </table>
 
-### Renovación de la autorización del Almacén de Data Lake
+### <a name="renew-data-lake-store-authorization"></a>Renovación de la autorización del Almacén de Data Lake
 Tendrá que volver a autenticar la cuenta de Data Lake Store si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo.
 
-![Autorizar el Almacén de Azure Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+![Autorizar el Almacén de Azure Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
-## Base de datos SQL
-Puede usarse [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Análisis de transmisiones se escribirán en una tabla existente en una Base de datos SQL de Azure. Tenga en cuenta que el esquema de tabla debe coincidir exactamente con los campos y los tipos de salida del trabajo. También es posible especificar [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como la salida mediante la opción de salida de SQL Database (se trata de una característica de versión preliminar). En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de Base de datos SQL.
+## <a name="sql-database"></a>Base de datos SQL
+[Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Análisis de transmisiones se escribirán en una tabla existente en una Base de datos SQL de Azure.  Tenga en cuenta que el esquema de tabla debe coincidir exactamente con los campos y los tipos de salida del trabajo. También es posible especificar [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como la salida mediante la opción de salida de SQL Database (se trata de una característica de versión preliminar). En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de Base de datos SQL.
 
 | Nombre de propiedad | Description |
 | --- | --- |
@@ -103,16 +107,16 @@ Puede usarse [Base de datos SQL de Azure](https://azure.microsoft.com/services/s
 > 
 > 
 
-## Almacenamiento de blobs
-Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube. Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](../storage/storage-dotnet-how-to-use-blobs.md).
+## <a name="blob-storage"></a>Almacenamiento de blobs
+Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube.  Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de blob.
 
 <table>
 <tbody>
 <tr>
-<td>NOMBRE DE PROPIEDAD</td>
-<td>DESCRIPCIÓN</td>
+<td>Nombre de propiedad</td>
+<td>Description</td>
 </tr>
 <tr>
 <td>Alias de salida</td>
@@ -144,7 +148,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 </tr>
 <tr>
 <td>Formato de serialización de eventos</td>
-<td>Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro.</td>
+<td>Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro.</td>
 </tr>
 <tr>
 <td>Codificación</td>
@@ -161,8 +165,8 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 </tbody>
 </table>
 
-## Centro de eventos
-[Centros de eventos](https://azure.microsoft.com/services/event-hubs/) es un servicio de introducción de eventos de publicación-suscripción altamente escalable. Puede recopilar millones de eventos por segundo. Un uso del Centro de eventos como salida es cuando la salida de un trabajo de Análisis de transmisiones es la entrada de otro trabajo de streaming.
+## <a name="event-hub"></a>Centro de eventos
+[Centros de eventos](https://azure.microsoft.com/services/event-hubs/) es un servicio de introducción de eventos de publicación-suscripción altamente escalable. Puede recopilar millones de eventos por segundo.  Un uso del Centro de eventos como salida es cuando la salida de un trabajo de Análisis de transmisiones es la entrada de otro trabajo de streaming.
 
 Hay unos cuantos parámetros que son necesarios para configurar los flujos de datos del Centro de eventos como salida.
 
@@ -174,51 +178,82 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 | Nombre de la directiva del centro de eventos |La directiva de acceso compartido, que se puede crear en la pestaña Configuración de Centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | Clave de la directiva de centro de eventos |La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Bus de servicio. |
 | Columna Clave de partición [opcional] |Esta columna contiene la clave de partición para la salida del Centro de eventos. |
-| Formato de serialización de eventos |Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
+| Formato de serialización de eventos |Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro. |
 | Codificación |Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
 | Delimitador |Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato |Solo se aplica para el tipo JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. |
 
-## Power BI
-Puede usarse [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
+## <a name="power-bi"></a>Power BI
+[Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
 
-### Autorización de una cuenta de Power BI
-1. Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.
+### <a name="authorize-a-power-bi-account"></a>Autorización de una cuenta de Power BI
+1. Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
    
-   ![Autorización de un usuario de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
-2. Cree una cuenta nueva si no aún no tiene una y después haga clic en Autorizar ahora. Aparecerá una pantalla similar a la siguiente.
+   ![Autorización de un usuario de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+2. Cree una cuenta nueva si no aún no tiene una y después haga clic en Autorizar ahora.  Aparecerá una pantalla similar a la siguiente.  
    
-   ![Cuenta de Power BI de Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)
+   ![Cuenta de Power BI de Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 3. En este paso, proporcione la cuenta profesional o educativa para la autorización de la salida de Power BI. Si aún no se ha registrado en Power BI, elija Registrarse ahora. La cuenta profesional o educativa que use para Power BI podría ser diferente de la cuenta de suscripción de Azure en la que ha iniciado sesión.
 
-### Configuración de las propiedades de salida de Power BI
+### <a name="configure-the-power-bi-output-properties"></a>Configuración de las propiedades de salida de Power BI
 Cuando la cuenta de Power BI esté autenticada, puede configurar las propiedades de la salida de Power BI. La tabla siguiente muestra la lista de nombres de propiedad y su descripción para configurar la salida de Power BI.
 
 | Nombre de propiedad | Description |
 | --- | --- |
 | Alias de salida |Es el nombre descriptivo usado en las consultas para dirigir la salida de la consulta a esta salida de Power BI. |
-| Área de trabajo de grupo |Para habilitar el uso compartido de datos con otros usuarios de Power BI, puede seleccionar grupos dentro de su cuenta de Power BI o elegir "Mi área de trabajo" si no quiere escribir en un grupo. Actualizar un grupo existente requiere renovar la autenticación de Power BI. |
+| Área de trabajo de grupo |Para habilitar el uso compartido de datos con otros usuarios de Power BI, puede seleccionar grupos dentro de su cuenta de Power BI o elegir "Mi área de trabajo" si no quiere escribir en un grupo.  Actualizar un grupo existente requiere renovar la autenticación de Power BI. |
 | Nombre del conjunto de datos |Proporcione un nombre del conjunto de datos que desea que tenga la salida de Power BI. |
 | Nombre de la tabla |Proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos. |
 
-Para visualizar un tutorial sobre la configuración de una salida de Power BI y un panel, consulte el artículo [Análisis de transmisiones de Azure y Power BI](stream-analytics-power-bi-dashboard.md).
+Para visualizar un tutorial sobre la configuración de una salida de Power BI y un panel, consulte el artículo [Azure Stream Analytics y Power BI](stream-analytics-power-bi-dashboard.md).
 
 > [!NOTE]
 > No cree explícitamente el conjunto de datos y la tabla en el panel de Power BI. El conjunto de datos y la tabla se rellenarán automáticamente cuando se inicie el trabajo y este inicie el bombeo de la salida en Power BI. Observe que si la consulta de trabajo no genera ningún resultado, el conjunto de datos y la tabla no se creará. Tenga en cuenta asimismo que si Power BI ya cuenta con un conjunto de datos y una tabla con el mismo nombre que el proporcionado en este trabajo de Análisis de transmisiones, se sobrescribirán los datos existentes.
 > 
 > 
 
-### Renovación de la autorización de Power BI
+### <a name="schema-creation"></a>Creación de esquemas
+Azure Stream Analytics crea una tabla y un conjunto de datos de Power BI en nombre del usuario si todavía no existe. En todos los demás casos, la tabla se actualiza con los nuevos valores. Actualmente, existe la limitación de que solo puede existir una tabla dentro de un conjunto de datos.
+
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversión de tipo de datos de ASA a Power BI
+Azure Stream Analytics actualiza el modelo de datos dinámicamente en tiempo de ejecución si cambia el esquema de salida. Se realiza un seguimiento de los cambios de nombre de columna, los cambios de tipo de columna y la adición o eliminación de columnas.
+
+Esta tabla cubre las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) a [tipos de Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) de Power BI si no existen una tabla y un conjunto de datos de POWER BI.
+
+
+De Stream Analytics | A Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | string
+datetime | DateTime
+float | Doble
+Matriz de registro | Tipo cadena, valor constante “IRecord” o “IArray”
+
+### <a name="schema-update"></a>Actualización de esquema
+Stream Analytics deduce el esquema de modelo de datos basándose en el primer conjunto de eventos en la salida. Más adelante, si es necesario, el esquema de modelo de datos se actualiza para dar cabida a los eventos entrantes que pueden encajar en el esquema original.
+
+La consulta `SELECT *` debería evitarse para impedir la actualización de esquema dinámica en las filas. Además de las posibles implicaciones de rendimiento, también podría dar lugar a la indeterminación de la hora que se toma para los resultados. Se deben seleccionar los campos exactos que necesitan mostrarse en el panel de Power BI. Además, los valores de datos deben ser compatibles con el tipo de datos elegido.
+
+
+Anterior o actual | Int64 | string | DateTime | Doble
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | String | string | Doble
+Doble | Doble | string | string | Doble
+string | String | String | String |  | string | 
+DateTime | string | string |  DateTime | String
+
+
+### <a name="renew-power-bi-authorization"></a>Renovación de la autorización de Power BI
 Tendrá que volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Si Multi-Factor Authentication (MFA) se configura en el inquilino de Azure Active Directory (AAD), también debe renovar la autorización de Power BI cada 2 semanas. Un síntoma de este problema es la ausencia de salidas de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
 
-  ![Error de token de actualización de Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
+  ![Error de token de actualización de Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
-Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida de Power BI. Haga clic en el vínculo "Renovar autorización" y reinicie el trabajo desde la hora en que se detuvo por última vez para evitar la pérdida de datos.
+Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida de Power BI.  Haga clic en el vínculo "Renovar autorización" y reinicie el trabajo desde la hora en que se detuvo por última vez para evitar la pérdida de datos.
 
-  ![Autorización de renovación de Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
+  ![Autorización de renovación de Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
-## Almacenamiento de tablas
-El [almacenamiento de tablas de Azure](../storage/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
+## <a name="table-storage"></a>Almacenamiento de tablas
+[Azure Table Storage](../storage/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
 
@@ -230,10 +265,10 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Nombre de la tabla |El nombre de la tabla. La tabla se creará si no existe. |
 | Partition Key |El nombre de la columna de salida que contiene la clave de partición. La clave de partición es un identificador único de la partición dentro de una tabla determinada que constituye la primera parte de la clave principal de la entidad. Es un valor de cadena que puede tener un tamaño de hasta 1 KB. |
 | Row Key |El nombre de la columna de salida que contiene la clave de la fila. La clave de fila es un identificador único de una identidad dentro de una partición determinada. Forma la segunda parte de la clave principal de la entidad. La clave de fila es un valor de cadena que puede tener un tamaño de hasta 1 KB. |
-| Tamaño de lote |El número de registros para una operación por lotes. Normalmente, el valor predeterminado es suficiente para la mayoría de los trabajos. Consulte [Especificaciones de la operación por lotes de tablas](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obtener más información sobre la modificación de esta configuración. |
+| Tamaño de lote |El número de registros para una operación por lotes. Normalmente, el valor predeterminado es suficiente para la mayoría de los trabajos. Consulte [Especificaciones de la operación por lotes de tablas](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para más información sobre la modificación de esta configuración. |
 
-## Colas del Bus de servicio
-Las [colas de Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más consumidores de la competencia. Normalmente, se espera que los receptores reciban y procesen los mensajes en el orden temporal en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
+## <a name="service-bus-queues"></a>Colas del Bus de servicio
+[Colas del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más consumidores de la competencia. Normalmente, se espera que los receptores reciban y procesen los mensajes en el orden temporal en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de cola.
 
@@ -244,12 +279,12 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Nombre de la cola |El nombre de la cola del Bus de servicio |
 | Nombre de la directiva de colas |Al crear una cola, también puede crear directivas de acceso compartidas en la pestaña Configurar cola. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | Clave de la directiva de colas |La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Bus de servicio. |
-| Formato de serialización de eventos |Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
+| Formato de serialización de eventos |Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro. |
 | Codificación |Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
 | Delimitador |Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato |Solo se aplica para el tipo JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. |
 
-## Temas de Bus de servicio
+## <a name="service-bus-topics"></a>Temas de Bus de servicio
 Mientras que las colas de Service Bus proporcionan un método de comunicación individual del remitente al receptor, los [temas de Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) proporcionan una forma de comunicación de uno a muchos.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
@@ -261,53 +296,30 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Nombre del tema |Los temas son entidades de mensajería, similares a los centros de eventos y las colas. Están diseñados para recopilar secuencias de eventos de una serie de diferentes dispositivos y servicios. Cuando se crea un tema, se proporciona también un nombre específico. Los mensajes enviados a un tema no estarán disponibles a menos que se cree una suscripción, así que asegúrese de que hay una o más suscripciones en el tema. |
 | Nombre de la directiva de temas |Al crear un tema, también puede crear directivas de acceso compartido en la pestaña Configurar tema. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | Clave de la directiva de temas |La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Bus de servicio. |
-| Formato de serialización de eventos |Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
+| Formato de serialización de eventos |Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro. |
 | Codificación |Si el formato CSV o JSON, debe especificarse una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
 | Delimitador |Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 
-## DocumentDB
+## <a name="documentdb"></a>DocumentDB
 [DocumentDB de Azure](https://azure.microsoft.com/services/documentdb/) es un servicio de base de datos de documentos NoSQL totalmente administrado que ofrece consultas y transacciones a través de datos sin esquema, rendimiento predecible y confiable y desarrollo rápido.
 
-En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de DocumentDB.
+En la lista siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de DocumentDB.
 
-<table>
-<tbody>
-<tr>
-<td>NOMBRE DE PROPIEDAD</td>
-<td>DESCRIPCIÓN</td>
-</tr>
-<tr>
-<td>Nombre de cuenta</td>
-<td>Nombre de la cuenta de DocumentDB. Esto también puede ser el extremo de la cuenta.</td>
-</tr>
-<tr>
-<td>Clave de cuenta</td>
-<td>Clave de acceso compartido para la cuenta de DocumentDB.</td>
-</tr>
-<tr>
-<td>Base de datos</td>
-<td>Nombre de la base de datos de DocumentDB.</td>
-</tr>
-<tr>
-<td>Patrón de nombre de colección:</td>
-<td>Patrón de nombre de colección para las colecciones que se usará. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0.<BR>Por ejemplo, Las siguientes son entradas válidas:<BR>MyCollection{partition}<BR>MyCollection<BR>Tenga en cuenta que las colecciones deben existir antes de que el trabajo de Análisis de transmisiones se inicie y no se crearán automáticamente.</td>
-</tr>
-<tr>
-<td>Partition Key</td>
-<td>Nombre del campo en los eventos de salida que se utiliza para especificar la clave de partición de salida entre colecciones.</td>
-</tr>
-<tr>
-<td>Id. de documento</td>
-<td>Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.</td>
-</tr>
-</tbody>
-</table>
+* **Alias de salida** : un alias para hacer referencia a esta salida en la consulta ASA.  
+* **Nombre de cuenta** : el nombre o el URI del punto de conexión de la cuenta de DocumentDB.  
+* **Clave de cuenta** : la clave de acceso compartido para la cuenta de DocumentDB.  
+* **Base de datos** : el nombre de la base de datos de DocumentDB.  
+* **Patrón de nombre de colección**: el patrón de nombre de colección para las colecciones que se usarán. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0. Las siguientes entradas de ejemplo son válidas:  
+  1\) MyCollection: debe existir una colección denominada "MyCollection".  
+  2\) MyCollection{partición}: deben existir esas colecciones: "MyCollection0", "MyCollection1", "MyCollection2", etc.  
+* **Clave de partición**: opcional. Solo es necesario si usa un token {partition} en el patrón de nombre de la colección. Nombre del campo en los eventos de salida que se utiliza para especificar la clave de partición de salida entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
+* **Identificador de documento** : opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
 
-## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Obtener ayuda
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
 
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
@@ -323,4 +335,8 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Jan17_HO4-->
+
+

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9921bce954186ba5d3fa21312aa596dcddfe827f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f4ae3395c44f175603556711bfe2f90f0f987c94
 
 
 ---
@@ -27,8 +27,8 @@ Se envía una notificación de correo electrónico en la primera repetición dia
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Proporcionar detalles de contacto de seguridad**.
@@ -36,7 +36,7 @@ Se envía una notificación de correo electrónico en la primera repetición dia
 2. Se abre la hoja **Proporcionar detalles de contacto de seguridad**. Seleccione la suscripción de Azure sobre la que desea proporcionar información de contacto.
    ![Proporcionar detalles de contacto de seguridad][2]
 3. Se abre una segunda hoja **Proporcionar datos de los contactos de seguridad** .
-   
+
    * Escriba la dirección de correo electrónico del contacto de seguridad o direcciones separadas por comas. No hay un límite en el número de direcciones de correo electrónico que se pueden escribir.
    * Escriba un número de teléfono internacional de seguridad.
    * Para recibir correos electrónicos de alertas de gravedad alta, active la opción **Send me emails about alert**(Enviar correos electrónicos de alertas).
@@ -60,6 +60,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

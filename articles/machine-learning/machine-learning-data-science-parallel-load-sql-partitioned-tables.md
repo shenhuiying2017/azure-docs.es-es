@@ -1,5 +1,5 @@
 ---
-title: "Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Microsoft Docs"
+title: "Creación y optimización de tablas para importación en paralelo rápida de datos en SQL Server en una VM de Azure | Microsoft Docs"
 description: "Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
 
 
 ---
@@ -24,11 +24,9 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
 En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante *tablas y vistas con particiones*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Crear una nueva base de datos y un conjunto de grupos de archivos
-* [Crear una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
-* Agregar grupos de archivos de base de datos a la base de datos que contendrá los archivos físicos con particiones
-  
-  Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nueva o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
-* Agregar uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos
+* [Cree una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx), si todavía no existe.
+* Agregue grupos de archivos de base de datos a la base de datos que contendrá los archivos físicos con particiones. Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nueva o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos.
+* Agregue uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos.
   
   > [!NOTE]
   > Especifique el grupo de archivos de destino que contiene los datos de esta partición y los nombres de archivo de las bases de datos físicas donde se almacenarán los datos del grupo de archivos.
@@ -76,7 +74,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Sugerencia: Para comprobar los intervalos en vigor en cada partición según el esquema de función, ejecute la consulta siguiente:
+  Para comprobar los intervalos en vigor en cada partición según el esquema de función, ejecute la consulta siguiente:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
@@ -185,6 +183,6 @@ Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

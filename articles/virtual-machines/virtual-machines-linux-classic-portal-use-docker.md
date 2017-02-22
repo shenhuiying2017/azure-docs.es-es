@@ -166,6 +166,6 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

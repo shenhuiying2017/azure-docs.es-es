@@ -7,6 +7,7 @@ manager: jhubbard
 author: torsteng
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b86649db4afb6208212647c4858fe25ed2398170
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 21b2c50e79a8a60e7ffe94f7d41dfe3048ec5174
 
 
 ---
@@ -54,12 +55,12 @@ Una consulta elástica facilita el acceso a toda una colección de bases de dato
 
 **Ilustración 1** Consulta de bases de datos elásticas usada en la capa de datos de escala horizontal
 
-![ Consulta de bases de datos elásticas usada en la capa de datos de escala horizontal][1]
+![Consulta de bases de datos elásticas usada en la capa de datos de escala horizontal][1]
 
 Los escenarios de clientes para la consulta elástica se caracterizan por las siguientes topologías:
 
 * **Particiones verticales: consultas entre bases de datos** (topología 1): los datos se particionan en vertical entre varias bases de datos en una capa de datos. Normalmente, los distintos conjuntos de tablas residen en bases de datos diferentes. Esto significa que el esquema es diferente en las distintas bases de datos. Por ejemplo, todas las tablas de inventario se encuentran en una base de datos mientras que todas las relacionadas con la contabilidad se encuentran en otra. En los casos de uso habituales con esta topología, se requiere uno para realizar una consulta o compilar informes en todas las tablas de varias bases de datos.
-* **Particiones horizontales: Particionamiento** (topología 2): los datos se particionan en horizontal para distribuir las filas en una capa de datos de escala horizontal. Con este enfoque, el esquema es idéntico en todas las bases de datos participantes. Este enfoque también se denomina simplemente "particionamiento". El particionamiento se puede realizar y administrar mediante 1) las bibliotecas de herramientas de bases de datos elásticas o 2) el particionamiento automático. Se usa una consulta elástica para realizar consultas o compilar informes en muchas particiones.
+* **Particiones horizontales: Particionamiento** (topología 2): los datos se particionan en horizontal para distribuir las filas en una capa de datos de escala horizontal. Con este enfoque, el esquema es idéntico en todas las bases de datos participantes. Este enfoque también se denomina simplemente "particionamiento". El particionamiento se puede realizar y administrar mediante&1;) las bibliotecas de herramientas de bases de datos elásticas o&2;) el particionamiento automático. Se usa una consulta elástica para realizar consultas o compilar informes en muchas particiones.
 
 > [!NOTE]
 > Consulta de Base de datos elástica funciona mejor para escenarios de informes ocasionales, en los que la mayor parte del procesamiento se puede realizar en la capa de datos. Para grandes cargas de trabajo de informes o escenarios de almacenamiento de datos con consultas más complejas, considere también usar [Almacenamiento de datos SQL de Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -67,7 +68,7 @@ Los escenarios de clientes para la consulta elástica se caracterizan por las si
 > 
 
 ## <a name="elastic-database-query-topologies"></a>Topologías de consulta de Base de datos elástica
-### <a name="topology-1-vertical-partitioning-cross-database-queries"></a>Topología 1: Particionamiento vertical: consultas entre bases de datos
+### <a name="topology-1-vertical-partitioning---cross-database-queries"></a>Topología 1: Particionamiento vertical (consultas entre bases de datos)
 Para empezar a codificar, consulte la [introducción a la consulta entre bases de datos (creación de particiones verticales)](sql-database-elastic-query-getting-started-vertical.md).
 
 Se puede usar una consulta elástica para hacer que los datos en una base de datos SQLDB estén disponibles para otras bases de datos SQLDB. Esto permite que las consultas desde una base de datos hagan referencia a las tablas de cualquier otra base de datos SQLDB remota. El primer paso consiste en definir un origen de datos externo para cada base de datos remota. El origen de datos externo se define en la base de datos local desde la que desee obtener acceso a las tablas que residen en la base de datos remota. No es necesario realizar cambios en la base de datos remota. En los escenarios típicos de particionamiento vertical en los que las diferentes bases de datos tienen esquemas distintos, se pueden usar consultas elásticas para implementar casos de uso habituales, como el acceso a datos de referencia y la consulta entre bases de datos.
@@ -76,20 +77,20 @@ Se puede usar una consulta elástica para hacer que los datos en una base de dat
 
 **Ilustración 2** Particionamiento vertical: usar una consulta elástica para consultar datos de referencia
 
-![ Particionamiento vertical: usar una consulta elástica para consultar datos de referencia][3]
+![Particionamiento vertical: usar una consulta elástica para consultar datos de referencia][3]
 
 **Consulta entre bases de datos**: las consultas elásticas hacen posibles los casos de uso que requieren realizar consultas en varias bases de datos SQLDB. En la ilustración 3, se muestran cuatro bases de datos diferentes: CRM, Inventory, HR y Products. Las consultas realizadas en una de las bases de datos también necesitan acceder a una de las otras bases de datos o a todas ellas. Mediante una consulta elástica, puede configurar la base de datos para este caso ejecutando unas pocas instrucciones DDL sencillas en cada una de las cuatro bases de datos. Después de esta configuración única, el acceso a una tabla remota es tan sencillo como hacer referencia a una tabla local desde las consultas T-SQL o las herramientas de BI. Se recomienda este enfoque si las consultas remotas no devuelven resultados de gran tamaño.
 
 **Ilustración 3** Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos
 
-![ Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos][4]
+![Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos][4]
 
-### <a name="topology-2-horizontal-partitioning-sharding"></a>Topología 2: Particiones horizontales (particionamiento)
+### <a name="topology-2-horizontal-partitioning---sharding"></a>Topología 2: Particiones horizontales (particionamiento)
 El uso de una consulta elástica para realizar tareas de informes en una capa de datos particionada, es decir, con particiones horizontales, requiere un [mapa de particiones de bases de datos elásticas](sql-database-elastic-scale-shard-map-management.md) para representar las bases de datos de la capa de datos. Normalmente, se usa un solo mapa de particiones en este escenario y una base de datos dedicada con capacidades de consulta elástica sirve de punto de entrada para las consultas de informes. Esta base de datos dedicada es la única que necesita acceder al mapa de particiones. La ilustración 4 muestra esta topología y su configuración con la base de datos de consulta elástica y el mapa de particiones. Las bases de datos en la capa de datos pueden ser de cualquier edición o versión de Base de datos SQL de Azure. Para obtener más información acerca de la biblioteca de cliente de bases de datos elásticas y crear mapas de particiones, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
 
 **Ilustración 4** Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas
 
-![ Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas][5]
+![Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas][5]
 
 > [!NOTE]
 > La base de datos dedicada para la consulta de bases de datos elásticas debe ser una base de datos SQL v12. No existen restricciones en propias particiones.
@@ -173,6 +174,6 @@ Aquí dispone de más información acerca de los escenarios de particionamiento 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

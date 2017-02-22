@@ -1,6 +1,6 @@
 ---
-title: Diferencia en la prueba de proporciones | Microsoft Docs
-description: Diferencia en la prueba de proporciones
+title: (obsoleto) Diferencia en la prueba de proporciones - Azure | Microsoft Docs
+description: (obsoleto) Diferencia en la prueba de proporciones
 services: machine-learning
 documentationcenter: 
 author: aniedea
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: aniedea
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b45b4689e6254afd603d434dc0b21dad90addd95
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 18023b5057d1eeca88a341d62cbeb543102b3abf
 
 
 ---
-# <a name="difference-in-proportions-test"></a>Diferencia en la prueba de proporciones
+# <a name="deprecated-difference-in-proportions-test"></a>(obsoleto) Diferencia en la prueba de proporciones
+
+> [!NOTE]
+> Microsoft DataMarket está en proceso de retirada y esta API está en desuso. 
+> 
+> Puede encontrar muchos experimentos y API de ejemplo útiles en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com). Para más información sobre la Galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 ¿Las dos proporciones son diferentes desde el punto de vista estadístico? Supongamos que un usuario desea comparar dos películas para determinar si una película tiene una mayor proporción de "me gusta" en comparación con la otra. Con un ejemplo grande, podría haber una diferencia significativa estadísticamente entre las proporciones 0,50 y 0,51. Con un ejemplo pequeño, es posible que no haya suficientes datos para determinar si estas proporciones son realmente diferentes. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -129,6 +136,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: H264 Single Bitrate 4x3 SD | Microsoft Docs
+title: 'Valores predeterminados de Media Encoder Standard para H264 Single Bitrate 4x3 SD: Azure | Microsoft Docs'
 description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Single Bitrate 4x3 SD**."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: da0670e4ad623902557eab53394cf2a98a8b45bf
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
   
  En este tema se muestra el valor predeterminado `H264 Single Bitrate 4x3 SD` en formato XML y JSON.  
   
- Este valor predeterminado genera un único archivo MP4 con una velocidad de bits de 18 000 kbps y audio AAC estéreo. Para información detallada sobre el perfil, la velocidad de bits, la frecuencia de muestreo, etc., de este valor predeterminado, examine el código XML o JSON definido más adelante. Para obtener explicaciones de lo que cada elemento significa en estos nombres predeterminados y los valores válidos para cada elemento, vea el tema sobre el [esquema de Media Encoder Standard](media-services-mes-schema.md).  
+ Este valor predeterminado genera un único archivo MP4 con una velocidad de bits de 1800 kbps y audio AAC estéreo. Para información detallada sobre el perfil, la velocidad de bits, la frecuencia de muestreo, etc., de este valor predeterminado, examine el código XML o JSON definido más adelante. Para obtener explicaciones de lo que cada elemento significa en estos nombres predeterminados y los valores válidos para cada elemento, vea el tema sobre el [esquema de Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -118,6 +118,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO4-->
 
 

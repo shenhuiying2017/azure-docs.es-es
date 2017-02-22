@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure Cloud Services: tutoriales y referencia de API | Microsoft Docs"
+description: "Los tutoriales, las referencias de API y otra documentación muestran cómo usar Cloud Services para hospedar y ejecutar API y aplicaciones de nube escalables de alta disponibilidad."
+services: cloud-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cloud-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
+ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
+ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
 
 ---
-#<a name="cloud-services-documentation"></a>Documentación de Cloud Services
+# <a name="cloud-services-documentation"></a>Documentación de Cloud Services
 
-Cloud Services es un ejemplo de implementación de plataforma como servicio (PaaS). Está diseñado para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. Con Cloud Services, sacará partido de la virtualización y mantendrá a la vez el control de la máquina virtual para configurar, aplicar revisiones e instalar software.  
+Aprenda a usar Cloud Services para hospedar y ejecutar API y aplicaciones de nube escalables de alta disponibilidad.  Los tutoriales, las referencias de API y otra documentación muestran cómo administrar hosts de máquina virtual, y cómo configurar, aplicar revisiones e instalar software.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,61 +98,39 @@ Cloud Services es un ejemplo de implementación de plataforma como servicio (Paa
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Idiomas</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de Cloud Services</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">API DE REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Esquemas</h3>
-                        <p>Esquema de definición de Cloud Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Esquema de configuración de Cloud Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de Cloud Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

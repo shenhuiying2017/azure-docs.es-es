@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 11/24/2016
 ms.author: pajosh
 translationtype: Human Translation
-ms.sourcegitcommit: 9b3686a5dfb4fa2cc1f5711830f90fc44b036673
-ms.openlocfilehash: bd8e7ea5663df4c75e8c1a549b5b8d0207770c93
+ms.sourcegitcommit: 4a846e86fa8cefbee04e1e30078a0d2aabdd834d
+ms.openlocfilehash: 1b7df71f103e8284bdcc7bc3a27fe44815b12305
 
 
 ---
 # <a name="security-features-for-protecting-hybrid-backups-using-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 Cada vez más clientes tienen problemas de seguridad como malware, ransomware, intrusión etc. Estos problemas de seguridad provocan la pérdida de datos y el costo por infracción de seguridad no para de aumentar. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. Este artículo trata sobre cómo habilitar y sacar provecho de estas características mediante el agente de Microsoft Azure Recovery Services y el servidor de copia de seguridad de Microsoft Azure. Estas características se han basado en tres pilares de seguridad:
 
-1. **Prevención**: se agrega una capa adicional de autenticación cada vez que se realiza una operación crítica, como cambiar la frase de contraseña. Esta validación se realiza para asegurarse de que dichas operaciones solo pueden realizarlas usuarios que tengan credenciales de Azure válidas. 
+1. **Prevención**: se agrega una capa adicional de autenticación cada vez que se realiza una operación crítica, como cambiar la frase de contraseña. Esta validación se realiza para asegurarse de que dichas operaciones solo pueden realizarlas usuarios que tengan credenciales de Azure válidas.
 2. **Alerta**: se envía una notificación por correo electrónico al administrador de suscripciones cada vez que se realiza una operación crítica, como eliminar datos de copia de seguridad. Este correo electrónico garantiza que el usuario recibe una notificación oportunamente acerca de dichas acciones.
-3. **Recuperación**: los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos, aunque se produzca un ataque. Además, se mantiene el mayor número de puntos de recuperación mínimos para protegerse contra datos dañados. 
+3. **Recuperación**: los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos, aunque se produzca un ataque. Además, se mantiene el mayor número de puntos de recuperación mínimos para protegerse contra datos dañados.
 
 > [!NOTE]
 > Las características de seguridad solo se deben habilitar si se usa: <br/>
@@ -36,33 +36,33 @@ Cada vez más clientes tienen problemas de seguridad como malware, ransomware, i
 > * Una vez habilitadas, obtendrá las características de seguridad de todos los equipos del agente de Azure Recovery Services (MARS) y servidores de copia de seguridad de Azure registrados en el almacén. <br/>
 > * La habilitación a esta configuración es una acción única, por lo que una vez que se habiliten estas características no será posible deshabilitarlas. <br/>
 > * Esta característica solo está disponible para el almacén de Recovery Services.
-> 
-> 
+>
+>
 
 ## <a name="enabling-security-features"></a>Habilitación de características de seguridad
 Los usuarios que crean un almacén de Recovery Services podrán hacer uso de todas las características de seguridad. En el caso de un almacén de Recovery Services existente, se deben usar los pasos siguientes para habilitar estas características:
 
 1. Inicie sesión en Azure Portal con las credenciales de Azure
-2. Escriba Recovery Services en el menú del concentrador para navegar a la lista de Recovery Services. 
-   
+2. Escriba Recovery Services en el menú del concentrador para navegar a la lista de Recovery Services.
+
     ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
-   
-    Aparece la lista de almacenes de Servicios de recuperación. Seleccione un almacén en ella. 
-   
+
+    Aparece la lista de almacenes de Servicios de recuperación. Seleccione un almacén en ella.
+
     Se abre el panel del almacén seleccionado.
 3. En la lista de elementos que aparece en el almacén, haga clic en **Propiedades** en **Configuración**.
-   
+
     ![Abrir las propiedades del almacén](./media/backup-azure-security-feature/vault-list-properties.png)
 4. Haga clic en **Actualizar** en **Configuración de seguridad**.
-   
+
     ![Abrir configuración de seguridad](./media/backup-azure-security-feature/security-settings-update.png)
-   
+
     El vínculo de actualización abre la hoja Configuración de seguridad, donde puede habilitar estas características y ver el resumen de la característica.
-5. Seleccione un valor en el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) para confirmar si ha habilitado [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal. 
-   
+5. Seleccione un valor en el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) para confirmar si ha habilitado [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
+
    Como parte de las características de seguridad, cuando se realizan operaciones críticas en Azure Backup, es preciso escribir el PIN de seguridad que se encuentra en Azure Portal. La habilitación de Azure Multi-Factor Authentication agrega una capa de seguridad, lo que garantiza que solo los usuarios autorizados con credenciales válidas de Azure y autenticados desde un segundo dispositivos pueden acceder a Azure Portal y realizar dichas operaciones críticas.
 6. Utilice el botón de alternancia para realizar la **habilitación** y haga clic en el botón **Guardar** de la parte superior para guardar la configuración de seguridad, como se muestra en la ilustración. **Habilitar** solo se puede seleccionar después de seleccionar un valor en la lista desplegable "Have you configured Azure Multi-Factor Authentication?" (¿Ha configurado Azure Multi-Factor Authentication?).
-   
+
     ![Habilitación de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings.png)
 
 ## <a name="recovering-deleted-backup-data"></a>Recuperación de datos de copia de seguridad eliminados
@@ -70,8 +70,8 @@ Como medida de seguridad, Azure Backup conserva los datos de copia de seguridad 
 
 Para los usuarios del **agente de Microsoft Recovery Services (MARS)**:
 
-1. Si la máquina en la que se realizaron las copias de seguridad aún está disponible, use [Recover data to the same machine](backup-azure-restore-windows-server.md#recover-data-to-the-same-machine) (Recuperar los datos en el mismo equipo) en MARS para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Recover data to the same machine](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) (Recuperar los datos en otro equipo) para usar otro equipo MARS para obtener estos datos.
+1. Si la máquina en la que se realizaron las copias de seguridad aún está disponible, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-the-same-machine) (Recuperar los datos en el mismo equipo) en MARS para realizar la recuperación desde todos los puntos de recuperación antiguos.
+2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) (Recuperar los datos en otro equipo) para usar otro equipo MARS para obtener estos datos.
 
 Para los usuarios del **servidor de copia de seguridad de Azure**:
 
@@ -82,13 +82,13 @@ Para los usuarios del **servidor de copia de seguridad de Azure**:
 Como parte de esta característica, se han agregado comprobaciones para asegurarse de que los usuarios válidos son los únicos que pueden realizar varias operaciones.
 
 ### <a name="authentication-to-perform-critical-operations"></a>Autenticación para realizar operaciones críticas
-Como parte de la adición de una capa adicional de autenticación para las operaciones críticas, se le solicita que escriba el PIN de seguridad al realizar las operaciones Detener la protección con eliminación de datos y Cambio de la frase de contraseña. 
+Como parte de la adición de una capa adicional de autenticación para las operaciones críticas, se le solicita que escriba el PIN de seguridad al realizar las operaciones Detener la protección con eliminación de datos y Cambio de la frase de contraseña.
 
 Para recibir el PIN de seguridad, siga estos pasos:
 
 1. Inicie sesión en Azure Portal.
 2. Navegue hasta el almacén del servicio de recuperación > Configuración > Propiedades.
-3. Haga clic en **Generar** en PIN de seguridad. La generación del vínculo abre una hoja, que contiene el PIN de seguridad que se va a escribir en la interfaz de usuario del agente de Azure Recovery Services. 
+3. Haga clic en **Generar** en PIN de seguridad. La generación del vínculo abre una hoja, que contiene el PIN de seguridad que se va a escribir en la interfaz de usuario del agente de Azure Recovery Services.
     Este PIN solo es válido durante 5 minutos y se genera automáticamente después de ese período.
 
 ### <a name="maintaining-minimum-retention-range"></a>Mantenimiento del intervalo de retención mínimo
@@ -111,6 +111,6 @@ Las características de seguridad que se mencionan en este artículo proporciona
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

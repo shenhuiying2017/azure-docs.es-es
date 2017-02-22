@@ -1,7 +1,11 @@
 
 > [!IMPORTANT]
-> La cuenta de almacenamiento debe ubicarse en el mismo centro de datos que el clúster de HDInsight. Para centros de datos disponibles, vea el menú **Regiones** en la [página de precios HDInsight](/pricing/details/hdinsight/).
+> La cuenta de almacenamiento debe ubicarse en el mismo centro de datos que el clúster de HDInsight. Para saber qué centros de datos están disponibles, vea el menú **Regiones** de la [página de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

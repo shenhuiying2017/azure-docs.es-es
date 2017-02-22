@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 93048e5789480fbb3c5d2ac6e799685fbf6f888f
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
 
 ---
 
@@ -27,8 +27,8 @@ Puede automatizar las operaciones para crear, eliminar o actualizar zonas, conju
 
 Normalmente, el acceso a recursos de Azure mediante programación se concede mediante una cuenta dedicada en lugar de por medio de sus propias credenciales de usuario. Estas cuentas dedicadas se denominan cuentas de 'entidad de servicio'. Para usar el proyecto de ejemplo del SDK de DNS de Azure, primero debe crear una cuenta de entidad de servicio y asignarle los permisos correctos.
 
-1. Siga [estas instrucciones](../resource-group-authenticate-service-principal.md) para crear una cuenta de entidad de servicio (en el proyecto de ejemplo del SDK de DNS de Azure se asume una autenticación basada en contraseña).
-2. Cree un grupo de recursos ([aquí se explica cómo](../resource-group-template-deploy-portal.md)).
+1. Siga [estas instrucciones](../azure-resource-manager/resource-group-authenticate-service-principal.md) para crear una cuenta de entidad de servicio (en el proyecto de ejemplo del SDK de DNS de Azure se asume una autenticación basada en contraseña).
+2. Cree un grupo de recursos ([aquí se explica cómo](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Use RBAC de Azure para conceder a la cuenta de entidad de servicio permisos de 'Colaborador de zona DNS' al grupo de recursos ([aquí le decimos cómo](../active-directory/role-based-access-control-configure.md)).
 4. Si va a usar el proyecto de ejemplo del SDK de DNS de Azure, edite el archivo 'program.cs' de la manera siguiente:
 
@@ -168,6 +168,6 @@ Descargue el [proyecto de ejemplo del SDK de .NET de DNS de Azure](https://www.m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

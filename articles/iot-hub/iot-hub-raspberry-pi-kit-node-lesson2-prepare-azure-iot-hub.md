@@ -1,5 +1,7 @@
 ---
-title: "Creación de un centro de IoT Hub de Azure y registro de Raspberry Pi 3 | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Conexión de Raspberry Pi (Node) a Azure IoT: Lección 2: Registro del dispositivo | Microsoft Docs"
 description: Cree un grupo de recursos, cree un centro de IoT Hub de Azure y registre Pi en este centro mediante la CLI de Azure.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 1f22ab6a97427f3be521c69e308386ad0b1b286b
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: add684549056a824e5534d071a5d0215e27f7a0e
 
 
 ---
@@ -103,6 +105,6 @@ Ha creado un centro de IoT Hub y ha registrado Pi con una identidad de dispositi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

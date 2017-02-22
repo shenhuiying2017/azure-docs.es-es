@@ -1,6 +1,6 @@
 ---
-title: "Uso de Apache Spark para crear aplicaciones de aprendizaje automático en HDInsight | Microsoft Docs"
-description: "Instrucciones paso a paso para usar cuadernos con Apache Spark para crear aplicaciones de aprendizaje automático"
+title: "Uso de la biblioteca MLlib en Spark para crear aplicaciones de aprendizaje automático en Azure HDInsight | Microsoft Docs"
+description: "Instrucciones paso a paso para usar la biblioteca MLlib en Apache Spark para crear aplicaciones de aprendizaje automático"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 4c07f5857a2dff149faaa0086eb8c54ee291d7bc
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: d39f9b4f55f93745afea48a4b581d76e57a824c3
 
 
 ---
-# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight-linux"></a>Aprendizaje automático: análisis predictivo de datos de inspección de alimentos mediante MLlib con un clúster de Apache Spark en HDInsight Linux
+# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Aprendizaje automático: análisis predictivo de datos de inspección de alimentos mediante MLlib con un clúster de Apache Spark en HDInsight
+
 > [!TIP]
 > Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio Bloc de notas. Para realizar el tutorial desde un cuaderno, debe crear un clúster Spark, iniciar un cuaderno de Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y ejecutar el cuaderno **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** en la carpeta **Python**.
 >
@@ -62,10 +63,10 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
    >
 1. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 1. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 1. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar a crear la aplicación de aprendizaje automático importando los tipos necesarios para este escenario. Para ello, coloque el cursor en la celda y presione **MAYÚS + ENTRAR**.
 
         from pyspark.ml import Pipeline
@@ -178,9 +179,9 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
 
     Debe ver algo parecido a lo siguiente:
 
-    ![Resultado de la consulta SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL query output")
+    ![Salida de la consulta SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Salida de la consulta SQL")
 
-    Para obtener más información sobre la función mágica `%%sql` , así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+    Para obtener más información sobre la función mágica `%%sql` , así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 1. También puede utilizar Matplotlib, una biblioteca que se usa para construir la visualización de datos, para crear un gráfico. Dado que el gráfico debe crearse a partir de la trama de datos localmente persistente **countResultsdf**, el fragmento de código debe comenzar con la instrucción mágica `%%local`. Esto garantiza que el código se ejecuta localmente en el servidor de Jupyter.
 
         %%local
@@ -361,6 +362,6 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

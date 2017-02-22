@@ -1,3 +1,4 @@
+
 # Información general
 ## [¿Qué es DocumentDB?](documentdb-introduction.md)
 ## [Conceptos principales](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Particionamiento y escalado](documentdb-partition-data.md)
 ### [Coherencia](documentdb-consistency-levels.md)
 ### [NoSQL frente a SQL](documentdb-nosql-vs-sql.md)
+### [Escrituras y lecturas rentables](documentdb-key-value-store-cost.md)
 
 ## Administrar
 ### [Importación de datos](documentdb-import-data.md)
@@ -40,14 +42,13 @@
 ### [Personalización de índices](documentdb-indexing-policies.md)
 ### [Acceso seguro a datos](documentdb-secure-access-to-data.md)
 ### [Copia de seguridad y restauración](documentdb-online-backup-and-restore.md)
-### [Niveles de rendimiento](documentdb-performance-levels.md)
+### [Retirada de S1, S2, S3](documentdb-performance-levels.md)
 ### [Unidades de solicitud](documentdb-request-units.md)
 ### Azure CLI
 #### [Crear una cuenta](documentdb-automation-resource-manager-cli.md)
 #### [Agregar o quitar regiones](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Compatibilidad de firewall](documentdb-firewall-support.md)
-### [Potenciación de una cuenta](documentdb-supercharge-your-account.md)
 
 ## Desarrollo
 ### [SQL query](documentdb-sql-query.md)
@@ -71,6 +72,7 @@
 ## Uso del portal
 ### [Creación de una cuenta de base de datos](documentdb-create-account.md)
 ### [Creación de una colección](documentdb-create-collection.md)
+### [Establecimiento del rendimiento](documentdb-set-throughput.md)
 ### [Adición de replicación global](documentdb-portal-global-replication.md)
 ### [Adición y edición de documentos](documentdb-view-json-document-explorer.md)
 ### [Consulta de documentos](documentdb-query-collections-query-explorer.md)
@@ -88,9 +90,10 @@
 ### [Integración con Azure Search](../search/search-howto-index-documentdb.md)
 ### [Movimiento de datos con Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Análisis de datos en tiempo real con Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Obtención de notificaciones con Logic Apps](documentdb-change-notification.md)
+### [Cambio del registro HL7 FHIR mediante Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Procesamiento de datos de sensores en tiempo real](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualización de datos con Power BI](documentdb-powerbi-visualize.md)
+### [Aprovechamiento del controlador ODBC para la visualización de datos](documentdb-nosql-odbc-driver.md)
 
 
 # Referencia
@@ -123,6 +126,6 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

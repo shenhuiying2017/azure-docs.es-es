@@ -1,6 +1,6 @@
 ---
-title: "Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Linux | Microsoft Docs"
-description: "Introducción al uso de ejemplos de MapReduce con HDInsight basado en Linux. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo."
+title: "Ejecución de ejemplos de MapReduce de Hadoop en HDInsight | Microsoft Docs"
+description: "Introducción al uso de ejemplos de MapReduce con HDInsight. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,22 +13,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: b3c56871ec23c7595d18006943be19c38d2fb5c9
 
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>Ejecución de ejemplos de Hadoop en HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos de MapReduce que sirven para familiarizarse con la ejecución de trabajos de MapReduce de Hadoop. En este documento, aprenderá acerca de los ejemplos disponibles y verá cómo se ejecutan algunos de ellos.
+Los clústeres de HDInsight proporcionan un conjunto de ejemplos de MapReduce que sirven para familiarizarse con la ejecución de trabajos de MapReduce de Hadoop. En este documento, aprenderá acerca de los ejemplos disponibles y verá cómo se ejecutan algunos de ellos.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Suscripción a Azure**: consulte [Obtener una versión de evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+
+
 * **Un clúster de HDInsight basado en Linux**: consulte [Introducción al uso de Hadoop con Hive en HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **Un cliente SSH**: para obtener información sobre el uso de SSH con HDInsight, consulte los siguientes artículos:
   
   * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -65,7 +70,7 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 **Código fuente**: el código fuente de estos ejemplos se incluye en el clúster de HDInsight en **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**.
 
 > [!NOTE]
->  `2.2.4.9-1` en la ruta de acceso es la versión de Hortonworks Data Platform para el clúster de HDInsight y puede cambiar cuando se actualice HDInsight.
+> `2.2.4.9-1` en la ruta de acceso es la versión de Hortonworks Data Platform para el clúster de HDInsight y puede cambiar cuando se actualice HDInsight.
 > 
 > 
 
@@ -137,7 +142,7 @@ Existe una forma determinada de construir rompecabezas sudoku para que no se rep
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
->  `2.2.4.9-1` de la ruta de acceso cambie cuando se actualice el clúster de HDInsight.
+> `2.2.4.9-1` de la ruta de acceso cambie cuando se actualice el clúster de HDInsight.
 > 
 > 
 
@@ -170,7 +175,7 @@ Use el siguiente comando para ejecutar este ejemplo. Se usan 16 asignaciones con
 
 El valor devuelto debería asemejarse a **3,14159155000000000000**. Como referencia, las primeras 10 posiciones decimales de pi son 3,1415926535.
 
-## <a name="10gb-greysort"></a>Greysort de 10 GB
+## <a name="10gb-greysort"></a>Greysort de&10; GB
 GraySort es un tipo de banco de pruebas cuya métrica es la velocidad de ordenación (TB/minuto) que se logra después de ordenar enormes volúmenes de datos, normalmente 100 TB como mínimo.
 
 Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
@@ -224,6 +229,6 @@ En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

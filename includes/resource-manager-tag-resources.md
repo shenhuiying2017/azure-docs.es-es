@@ -1,24 +1,29 @@
-1. Para agregar etiquetas a los recursos y los grupos de recursos existentes, seleccione el icono de etiqueta. 
+1. Para ver las etiquetas de un recurso o grupo de recursos, seleccione el icono **Etiquetas**. 
    
-     ![Parte de etiquetas en hojas de recursos y grupos de recursos](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Verá una lista de etiquetas que su organización ya ha aplicado a los recursos. Si no ha aplicado etiquetas anteriormente, la lista está vacía. Para agregar una etiqueta, especifique un nombre y valor y presione Entrar. Después de agregar algunas etiquetas, verá opciones de Autocompletar según los valores y nombres de etiquetas preexistentes. Estas opciones de Autocompletar garantizan una taxonomía coherente entre los recursos y evitan errores comunes, como errores ortográficos.
-   
-     ![Recursos de etiqueta con pares de nombre/valor](./media/resource-manager-tag-resources/tag-resources.png)
-3. Para ver la taxonomía de etiquetas en el portal, seleccione **Más servicios** y **Etiquetas**.
+     ![Seleccione las etiquetas en las hojas de recurso y de grupo de recursos](./media/resource-manager-tag-resources/select-tag-icon.png)
+2. Verá las etiquetas existentes para el recurso. Si no ha aplicado etiquetas anteriormente, la lista está vacía. 
+
+     ![Mostrar las etiquetas existentes en las hojas de recurso y de grupo de recursos](./media/resource-manager-tag-resources/existing-tags.png)
+3. Para agregar una etiqueta, escriba una clave y un valor o seleccione uno existente en el menú desplegable. Seleccione **Guardar**.
+
+     ![Agregar nueva etiqueta](./media/resource-manager-tag-resources/tag-resources.png)
+3. Para ver todos los recursos con un valor de etiqueta, seleccione **>** (Más servicios) y filtre por **Etiquetas**. Seleccione **Etiquetas** entre las opciones disponibles.
    
      ![Buscar etiquetas mediante el centro de exploración](./media/resource-manager-tag-resources/browse-tags.png)
-4. Verá un resumen de las etiquetas en la suscripción.
+4. Verá un resumen de las etiquetas de sus suscripciones.
    
      ![Mostrar todas las etiquetas](./media/resource-manager-tag-resources/tag-taxonomy.png)
 5. Seleccione cualquiera de estas etiquetas para ver los recursos y los grupos de recursos con esa etiqueta.
    
      ![Mostrar recursos etiquetados](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Ancle las etiquetas más importantes al panel para un acceso rápido.
+6. Seleccione **Anclar hoja al panel** para un acceso rápido.
    
-     ![Anclar etiquetas al Panel de inicio](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Anclar etiquetas al panel](./media/resource-manager-tag-resources/pin-tag.png)
+7. Puede seleccionar la etiqueta anclada desde el panel para ver los recursos que contienen esa etiqueta.
+
+     ![Anclar etiquetas al panel](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

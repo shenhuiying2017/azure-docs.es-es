@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e828e4a24a1a320deaf7c0ef3a0f53ba722565b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6f08f986e66e40211f60beef6ebd00bb041a8ada
 
 
 ---
@@ -97,10 +97,10 @@ Después de estos cuatro primeros meses, los resultados reflejan un buen rendimi
 [2]: ./media/mobile-engagement-media-scenario/push-scenarios.png
 
 <!--Link references-->
-[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks (Enlace del cuaderno de estrategias de medios)
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

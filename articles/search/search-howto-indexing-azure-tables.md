@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
+ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
+ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
 
 ---
 
@@ -34,7 +34,7 @@ Para configurar la indexación de tablas:
 
 1. Creación de un origen de datos
    * Establezca el parámetro `type` en `azuretable`
-   * Transfiera la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`
+   * Transfiera la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`. Consulte [Especificación de credenciales](#Credentials) a continuación para más información.
    * Especifique el nombre de la tabla con el parámetro `container.name`
    * De manera opcional, especifique una consulta con el parámetro `container.query` . Siempre que sea posible, use un filtro en PartitionKey para obtener el mejor rendimiento posible; cualquier otra consulta dará como resultando un recorrido de tabla completo, el que puede generar un rendimiento deficiente en el caso de tablas de gran tamaño.
 2. Cree un índice de búsqueda con el esquema que corresponde a las columnas de la tabla que desee indexar.
@@ -48,11 +48,25 @@ Para configurar la indexación de tablas:
     {
         "name" : "table-datasource",
         "type" : "azuretable",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
 Para más información sobre la API de creación de origen de datos, consulte [Crear origen de datos](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+
+<a name="Credentials"></a>
+#### <a name="how-to-specify-credentials"></a>Especificación de credenciales ####
+
+Puede proporcionar las credenciales para la tabla de una de estas maneras: 
+
+- **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Para obtener la cadena de conexión del portal de Azure, vaya a la hoja de la cuenta de almacenamiento > Configuración > Claves (para las cuentas de almacenamiento del modelo clásico) o Configuración > Claves de acceso (para las cuentas de almacenamiento de Azure Resource Manager).
+- Cadena de conexión de la **firma de acceso compartido de la cuenta de almacenamiento** (SAS): `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores (en este caso, tablas) y objetos (filas de tabla).
+-  **Firma de acceso compartido de tabla**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre la tabla.
+
+Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+> [!NOTE]
+> Si usa credenciales SAS, deberá actualizar las credenciales del origen de datos periódicamente con firmas renovadas para evitar que caduquen. Si las credenciales de SAS expiran, el indexador producirá un mensaje de error similar a `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### <a name="create-index"></a>Creación de índice
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
@@ -123,6 +137,6 @@ Si tiene solicitudes o ideas para mejorar las características, póngase en cont
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

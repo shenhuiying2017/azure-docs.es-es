@@ -1,5 +1,5 @@
 ---
-title: "Creación de entidad de servicio en el portal | Microsoft Docs"
+title: "Creación de la identidad de la aplicación de Azure en el portal | Microsoft Docs"
 description: "Describe cómo crear una nueva aplicación de Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en roles en el Administrador de recursos de Azure para administrar el acceso a los recursos."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4312002b311ec17f175f6eb6bc45fbe1ce7c7a01
-ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 
 
 ---
@@ -28,7 +28,13 @@ ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
 >
 >
 
-Si tiene una aplicación que necesita tener acceso a ciertos recursos o modificarlos, puede configurar una aplicación de Active Directory (AD) y asignarle los permisos requeridos. En este tema se muestra cómo realizar tales pasos a través del portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
+Si tiene una aplicación que necesita tener acceso a ciertos recursos o modificarlos, puede configurar una aplicación de Active Directory (AD) y asignarle los permisos requeridos. Este enfoque es preferible a ejecutar la aplicación con sus propias credenciales por los siguientes motivos:
+
+* Puede asignar permisos a la identidad de aplicación que sean diferentes a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer.
+* No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian. 
+* Puede usar un certificado para automatizar la autenticación al ejecutar un script desatendido.
+
+En este tema se muestra cómo realizar tales pasos a través del portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
  
 ## <a name="required-permissions"></a>Permisos necesarios
 Para completar este tema, debe tener permisos suficientes para registrar una aplicación en su instancia de Active Directory y asignar la aplicación a un rol en su suscripción de Azure. Vamos a asegurarnos de que tiene los permisos adecuados para realizar esos pasos.
@@ -157,9 +163,19 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
      ![buscar aplicación](./media/resource-group-create-service-principal-portal/search-app.png)
 9. Seleccione **Aceptar** para finalizar la asignación del rol. Verá la aplicación en la lista de usuarios asignados a un rol para ese ámbito.
 
-La aplicación está ahora configurada en Active Directory. Tiene un id. y una clave para usar en el inicio de sesión con la aplicación. La aplicación se asigna a un rol que le proporciona determinadas acciones que puede realizar. También puede examinar las aplicaciones de ejemplo para aprender a realizar tareas en el código de la aplicación.
+## <a name="log-in-as-the-application"></a>Inicio de sesión con la aplicación
 
-## <a name="sample-applications"></a>Aplicaciones de ejemplo
+La aplicación está ahora configurada en Active Directory. Tiene un id. y una clave para usar en el inicio de sesión con la aplicación. A la aplicación se le asigna un rol que le proporciona determinadas acciones que puede realizar. 
+
+Para iniciar sesión a través de PowerShell, consulte [Proporcione credenciales a través de PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+
+Para iniciar sesión a través de la CLI de Azure, consulte [Proporcionar credenciales a través de la CLI de Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
+
+Para obtener el token de acceso para operaciones REST, consulte [Creación de la solicitud](/rest/api/#create-the-request).
+
+Examine las siguientes aplicaciones de ejemplo para aprender a iniciar sesión mediante el código de la aplicación.
+
+### <a name="sample-applications"></a>Aplicaciones de ejemplo
 Las aplicaciones de ejemplo siguientes muestran cómo iniciar con la aplicación de AD.
 
 **.NET**
@@ -194,6 +210,6 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar con la aplicación
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

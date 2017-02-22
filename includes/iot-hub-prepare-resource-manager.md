@@ -44,6 +44,6 @@ Ahora ha terminado de crear la aplicación de Azure AD que le permitirá autenti
 [lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

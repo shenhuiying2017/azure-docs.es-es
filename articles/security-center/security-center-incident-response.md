@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Security Center para dar respuesta a incidentes | Microsoft Docs
+title: Respuesta a los incidentes de seguridad con Azure Security Center | Microsoft Docs
 description: "En este documento se explica cómo usar Azure Security Center en un escenario de respuesta a incidentes."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c02d49ec80d8694adb4e9378327c206872c88bb9
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -52,7 +52,7 @@ En este escenario, nos vamos a centrar en los roles de las siguientes personas q
 
 Judy se encarga de las operaciones de seguridad. Entre sus responsabilidades están:
 
-* Supervisar y responder a amenazas de seguridad durante las 24 horas.
+* Supervisar y responder a amenazas de seguridad durante las&24; horas.
 * Remitirlas al propietario de la carga de trabajo en la nube o al analista de seguridad, según sea necesario.
 
 Sam es un analista de seguridad y sus responsabilidades incluyen:
@@ -78,13 +78,13 @@ Judy ha iniciado sesión en Azure Portal y está trabajando en la consola de Sec
 
 1. Hace clic en el icono **Alertas de seguridad** y accede a la hoja **Alertas de seguridad**.
     ![Hoja Alertas de seguridad](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > En este escenario, Judy va a realizar una evaluación de la alerta de actividad SQL malintencionada, como se muestra en la ilustración anterior.
-   > 
-   > 
+   >
+   >
 2. Hace clic en la alerta **Actividad SQL malintencionada** y revisa los recursos atacados en la hoja **Actividad SQL malintencionada**:  ![Detalles del incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png).
-   
+
     En esta hoja, Judy puede tomar notas relativas a los recursos atacados, cuántas veces ocurrió este ataque y cuándo se detectó.
 3. Hace clic en el **recurso atacado** para más información acerca de este ataque.
 
@@ -103,7 +103,6 @@ Es muy importante que su organización forme un equipo antes de que se produzca 
 
 
 
-
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

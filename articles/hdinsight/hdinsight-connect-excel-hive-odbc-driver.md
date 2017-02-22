@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 1f0b951e7b3ffc328604ce799590d478da36915d
 
 
 ---
@@ -96,7 +96,7 @@ En los pasos siguientes se describe cómo importar datos desde una tabla de Hive
 5. Vuelva a escribir la contraseña para el clúster en el asistente y, a continuación, haga clic en **Probar** para comprobar la configuración, si procede.
 6. Haga clic en **Aceptar** para cerrar el cuadro de diálogo de prueba.
 7. Haga clic en **Aceptar**. Espere a que se abra el cuadro de diálogo **Seleccionar base de datos y tabla** . Esta operación puede tardar unos segundos.
-8. Seleccione la tabla que desea importar y, a continuación, haga clic en **Siguiente**. *hivesampletable* es una tabla de Hive de muestra integrada en los clústeres de HDInsight.  Puede seleccionarla si no ha creado ninguna. Para obtener más información sobre cómo ejecutar consultas de Hive y crear tablas de Hive, consulte [Uso de Hive con HDInsight][hdinsight-use-hive].
+8. Seleccione la tabla que desea importar y, a continuación, haga clic en **Siguiente**. *hivesampletable* es una tabla de Hive de muestra integrada en los clústeres de HDInsight.  Puede seleccionarla si no ha creado ninguna. Para más información acerca de cómo ejecutar consultas de Hive y crear tablas de Hive, consulte [Uso de Hive con HDInsight][hdinsight-use-hive].
 9. Haga clic en **Finalizar**
 10. En el cuadro de diálogo **Importar datos** , puede cambiar o especificar la consulta. Para ello, haga clic en **Propiedades**. Esta operación puede tardar unos segundos.
 11. Haga clic en la pestaña **Definición** y, a continuación, anexe **LIMIT 200** a la instrucción select de Hive en el cuadro de texto **Texto de comando**. La modificación limitará el conjunto de registros devueltos a 200.
@@ -109,7 +109,7 @@ En los pasos siguientes se describe cómo importar datos desde una tabla de Hive
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se proporciona información acerca de cómo usar Microsoft Hive ODBC Driver para recuperar datos del servicio HDInsight en Excel. De manera similar, puede recuperar datos del servicio HDInsight en la Base de datos SQL. Es posible cargar datos en un servicio HDInsight. Para obtener más información, consulte:
 
-* [Análisis de la información de retraso de vuelos con HDInsighth][hdinsight-analyze-flight-data]
+* [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
 * [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]
 
@@ -129,6 +129,6 @@ En este artículo se proporciona información acerca de cómo usar Microsoft Hiv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

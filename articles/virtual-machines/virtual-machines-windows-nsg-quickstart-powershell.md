@@ -1,5 +1,5 @@
 ---
-title: Apertura de puertos para una VM con PowerShell | Microsoft Docs
+title: Apertura de puertos para una VM con Azure PowerShell | Microsoft Docs
 description: "Aprenda a abrir un puerto o crear un punto de conexión a la máquina virtual Windows con el modelo de implementación de Azure Resource Manager y Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 78336671467db146ca4a2c54c2b422cd1dce2865
+ms.sourcegitcommit: 91c2e6f53f8ba490d2943a60c7ad519d856707b9
+ms.openlocfilehash: 0d57a27c0862b09e2628520a1e50a0cc56a55881
 
 
 ---
@@ -91,6 +91,6 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

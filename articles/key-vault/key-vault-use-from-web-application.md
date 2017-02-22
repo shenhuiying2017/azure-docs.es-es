@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 01/07/2017
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d41a332d0d4265bc2802be65c7f89aa07e46ae97
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 
 
 ---
@@ -113,10 +113,10 @@ Ahora tenemos el código para llamar a la API de Almacén de claves y recuperar 
     // I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
-    var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
+    var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
     //I put a variable in a Utils class to hold the secret for general  application use.
-    Utils.EncryptSecret = sec;
+    Utils.EncryptSecret = sec.Value;
 
 
 
@@ -142,29 +142,26 @@ Tome nota de la fecha de finalización y la contraseña del archivo .pfx (en est
 
 Para más información sobre cómo crear un certificado de prueba, vea [Procedimientos para crear su propio certificado de prueba](https://msdn.microsoft.com/library/ff699202.aspx)
 
-**Asociar el certificado a una aplicación de Azure AD** Ahora que tiene un certificado, tendrá que asociarlo a una aplicación de Azure AD. Pero actualmente el Portal de administración de Azure no lo admite. Por consiguiente, tendrá que usar Powershell. A continuación verá los comandos que debe ejecutar:
+**Asociar el certificado a una aplicación de Azure AD** Ahora que tiene un certificado, tendrá que asociarlo a una aplicación de Azure AD. Actualmente, Azure Portal no admite este flujo de trabajo; esto puede realizarse a través de PowerShell. Ejecute los siguientes comandos para asociar el certificado con la aplicación de Azure AD:
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-
-    PS C:\> $x509.Import("C:\data\KVWebApp.cer")
-
-    PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
-
-    PS C:\> $now = [System.DateTime]::Now
+    $x509.Import("C:\data\KVWebApp.cer")
+    $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+    $now = [System.DateTime]::Now
 
     # this is where the end date from the cert above is used
-    PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
+    $yearfromnow = [System.DateTime]::Parse("2016-07-31")
 
-    PS C:\> $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 
-    PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
+    $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-    PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+    Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
     # get the thumbprint to use in your app settings
-    PS C:\>$x509.Thumbprint
+    $x509.Thumbprint
 
-Después de ejecutar estos comandos, podrá ver la aplicación en Azure AD. Si no ve la aplicación al principio, busque "Aplicaciones que tiene mi compañía", en lugar de "Aplicaciones que usa mi compañía".
+Después de ejecutar estos comandos, podrá ver la aplicación en Azure AD. Al buscar, asegúrese de que seleccionar "Aplicaciones que tiene mi compañía" en lugar de "Aplicaciones que usa mi compañía" en el cuadro de diálogo de búsqueda.
 
 Para obtener más información acerca de los objetos Application y los objetos  ServicePrincipal de Azure AD, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md)
 
@@ -243,6 +240,6 @@ Para conocer las referencias de programación, consulte [Referencia de la API de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

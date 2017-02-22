@@ -1,5 +1,6 @@
 | **Recurso** | **Límite predeterminado** | **Límite máximo** |
 | --- | --- | --- |
+| Cuentas de Lote por región y suscripción |3 |50 |
 | Núcleos por cuenta de lotes |20 | |N/A<sup>1</sup> |
 | Trabajos y programaciones de trabajos <sup>2</sup> por cuenta de Lote |20 | |10.000 |
 | Grupos por cuenta de Lote |20 |5000 |
@@ -9,7 +10,6 @@
 <sup>2</sup> Incluye trabajos activos y programaciones de trabajos activos de una sola ejecución. No se limitan los trabajos completados y las programaciones de trabajos.
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

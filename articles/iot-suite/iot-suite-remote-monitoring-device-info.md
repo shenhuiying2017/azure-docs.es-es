@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9138fc1da6c45e2aa874e3e26c4a65ceb248d8f1
-ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 
 
 ---
@@ -28,14 +28,14 @@ La solución preconfigurada de supervisión remota del Conjunto de aplicaciones 
 * Cómo la solución administra los metadatos de dispositivo.
 
 ## <a name="context"></a>Context
-La solución preconfigurada de supervisión remota utiliza [Azure IoT Hub][lnk-iot-hub] para que los dispositivos puedan enviar datos a la nube. IoT Hub contiene un [registro de identidad del dispositivo][lnk-identity-registry] para controlar el acceso a IoT Hub. Este registro es diferente del *Registro de dispositivos* específico de la solución de supervisión remota que almacena los metadatos de información de dispositivo. La solución de supervisión remota utiliza una base de datos de [DocumentDB][lnk-docdb] para implementar el registro de dispositivos y almacenar los metadatos de información de los dispositivos. En el documento [Microsoft Azure IoT Reference Architecture][lnk-ref-arch] (Arquitectura de referencia de IoT de Microsoft Azure) se describe la función que desempeña el registro de dispositivos en una solución típica de IoT.
+La solución preconfigurada de supervisión remota usa [Azure IoT Hub][lnk-iot-hub] para que los dispositivos puedan enviar datos a la nube. IoT Hub incluye un [registro de identidad del dispositivo][lnk-identity-registry] para controlar el acceso a dicho IoT Hub. Este registro es diferente del *Registro de dispositivos* específico de la solución de supervisión remota que almacena los metadatos de información de dispositivo. La solución de supervisión remota emplea una base de datos de [DocumentDB][lnk-docdb] para implementar su registro de dispositivos y almacenar los metadatos de información de dispositivo. En el documento sobre la [arquitectura de referencia de IoT de Microsoft Azure][lnk-ref-arch] se describe la función del registro de dispositivos en una solución típica de IoT.
 
 > [!NOTE]
 > La solución preconfigurada de supervisión remota mantiene sincronizado el Registro de identidad del dispositivo con el Registro de dispositivos. Ambos utilizan el mismo id. de dispositivo para identificar de forma única cada dispositivo conectado a su centro de IoT.
 > 
 > 
 
-La [administración de dispositivos con IoT Hub][lnk-dm-preview] agrega características a IoT Hub similares a las características de administración de la información de los dispositivos que se describen en este artículo. En este momento, la solución de supervisión remota solo hace uso de las características de IoT Hub disponibles con carácter general (GA).
+La [administración de dispositivos con IoT Hub][lnk-dm-preview] agrega características a IoT Hub similares a las de administración de la información de los dispositivos que se describen en este artículo. En este momento, la solución de supervisión remota solo hace uso de las características de IoT Hub disponibles con carácter general (GA).
 
 ## <a name="device-information-metadata"></a>Metadatos de información de dispositivo
 Un documento JSON de metadatos de información de dispositivo almacenado en la base de datos de DocumentDB del Registro de dispositivos tiene la siguiente estructura:
@@ -72,7 +72,7 @@ Un documento JSON de metadatos de información de dispositivo almacenado en la b
 * **id**: el identificador único de DocumentDB para este documento de dispositivo.
 
 > [!NOTE]
-> La información de dispositivo también puede incluir metadatos para describir la telemetría que envía el dispositivo al Centro de IoT. La solución de supervisión remota utiliza estos datos de telemetría para personalizar la presentación de la [telemetría dinámica][lnk-dynamic-telemetry] en el panel.
+> La información de dispositivo también puede incluir metadatos para describir la telemetría que envía el dispositivo al Centro de IoT. La solución de supervisión remota utiliza estos metadatos de telemetría para personalizar cómo se muestra en el panel la [telemetría dinámica][lnk-dynamic-telemetry].
 > 
 > 
 
@@ -92,10 +92,10 @@ Si hace clic en **Editar** en el panel **Detalles del dispositivo** del portal d
 
 Puede usar el portal de solución para quitar un dispositivo de la solución. Cuando se quita un dispositivo, la solución elimina los metadatos de información de dispositivo del Registro de dispositivos de la solución y quita la entrada del dispositivo del Registro de identidad del dispositivo del Centro de IoT. Para poder quitar un dispositivo, debe deshabilitarlo.
 
-![Eliminación de dispositivos][img-device-remove]
+![Quitar dispositivo][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Procesamiento de mensajes de información de dispositivo
-Los mensajes de información de dispositivo enviados por un dispositivo son distintos de los mensajes de telemetría. Los mensajes de información de dispositivo incluyen información como las propiedades del dispositivo, los comandos a los que un dispositivo puede responder y el historial de comandos. El propio Centro de IoT no conoce los metadatos contenidos en un mensaje de información de dispositivo y procesa el mensaje de la misma manera que cualquier mensaje del dispositivo a la nube. En la solución de supervisión remota, hay un trabajo de [Azure Stream Analytics][lnk-stream-analytics] (ASA) que lee los mensajes de IoT Hub. El trabajo **DeviceInfo** de Stream Analytics filtra los mensajes que contienen **"ObjectType": "DeviceInfo"** y los reenvía a la instancia del host **EventProcessorHost**, que se ejecuta en un trabajo web. La lógica de la instancia de **EventProcessorHost** utiliza el identificador de dispositivo para encontrar el registro de DocumentDB del dispositivo específico y actualizarlo. El Registro de dispositivos incluye ahora información como las propiedades, los comandos y el historial de comandos del dispositivo.
+Los mensajes de información de dispositivo enviados por un dispositivo son distintos de los mensajes de telemetría. Los mensajes de información de dispositivo incluyen información como las propiedades del dispositivo, los comandos a los que un dispositivo puede responder y el historial de comandos. El propio Centro de IoT no conoce los metadatos contenidos en un mensaje de información de dispositivo y procesa el mensaje de la misma manera que cualquier mensaje del dispositivo a la nube. En la solución de supervisión remota, un trabajo de [Azure Stream Analytics][lnk-stream-analytics] (ASA) lee los mensajes de IoT Hub. El trabajo **DeviceInfo** de Stream Analytics filtra los mensajes que contienen **"ObjectType": "DeviceInfo"** y los reenvía a la instancia del host **EventProcessorHost**, que se ejecuta en un trabajo web. La lógica de la instancia de **EventProcessorHost** utiliza el identificador de dispositivo para encontrar el registro de DocumentDB del dispositivo específico y actualizarlo. El Registro de dispositivos incluye ahora información como las propiedades, los comandos y el historial de comandos del dispositivo.
 
 > [!NOTE]
 > Un mensaje de información de dispositivo es un mensaje estándar del dispositivo a la nube. La solución distingue entre mensajes de información de dispositivo y mensajes de telemetría mediante consultas ASA.
@@ -248,7 +248,7 @@ En el ejemplo siguiente, se muestra el registro de información de dispositivo J
 }
 ```
 
-A continuación se muestra el mensaje **DeviceInfo** de JSON que el dispositivo ha enviado para actualizar los metadatos de información de dispositivo:
+El siguiente ejemplo muestra el mensaje **DeviceInfo** de JSON que el dispositivo ha enviado para actualizar los metadatos de información de dispositivo:
 
 ```
 { "ObjectType":"DeviceInfo",
@@ -267,7 +267,7 @@ Ahora que ya ha terminado de aprender cómo personalizar las soluciones preconfi
 
 * [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
 * [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
-* [Seguridad de IoT desde el principio][lnk-security-groundup]
+* [Seguridad de Internet de las cosas desde el principio][lnk-security-groundup]
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
@@ -288,6 +288,6 @@ Ahora que ya ha terminado de aprender cómo personalizar las soluciones preconfi
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

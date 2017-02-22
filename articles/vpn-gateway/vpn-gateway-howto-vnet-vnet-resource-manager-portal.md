@@ -1,10 +1,10 @@
 ---
-title: "Conexión de redes virtuales mediante el método de implementación de Resource Manager y Azure Portal | Microsoft Docs"
+title: "Conexión de una red virtual de Azure a otra red virtual: portal | Microsoft Docs"
 description: "Crear una conexión de VPN Gateway entre redes virtuales mediante Resource Manager y Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-using-the-azure-portal"></a>Configuración de una conexión de red virtual a red virtual mediante Azure Portal
+# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Configuración de una conexión de red virtual a red virtual mediante Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -35,22 +35,23 @@ Al usar Azure Portal para conectar redes virtuales, estas deben estar en la mism
 
 ![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 La siguiente tabla muestra los modelos de implementación disponibles actualmente y los métodos para las configuraciones de red virtual a red virtual. Cuando aparezca algún artículo con pasos de configuración, creamos un vínculo directo a él desde esta tabla.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Emparejamiento de VNET
+**Emparejamiento de VNET**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>Acerca de conexiones de red virtual a red virtual
+## <a name="about-vnet-to-vnet-connections"></a>Acerca de conexiones de red virtual a red virtual
 La conexión de una red virtual a otra es muy parecida a la conexión de una red virtual a una ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN de Azure para proporcionar un túnel seguro con IPsec/IKE. Las redes virtuales que se conecten pueden estar en regiones y suscripciones distintas.
 
 Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinan la conectividad entre entornos locales con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
 
-![Acerca de las conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+![Acerca de las conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Acerca de las conexiones")
 
 ### <a name="why-connect-virtual-networks"></a>¿Por qué debería conectarse a redes virtuales?
 Puede que desee conectar redes virtuales por las siguientes razones:
@@ -63,7 +64,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
   
   * Dentro de la misma región, se pueden configurar aplicaciones de niveles múltiples con varias redes virtuales conectadas entre sí para cumplir requisitos administrativos o de aislamiento.
 
-Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo.
+Para más información acerca de las conexiones de red virtual a red virtual, consulte [Consideraciones de red virtual a red virtual](#faq) al final de este artículo.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Configuración de ejemplo
 Al usar estos pasos como un ejercicio, puede utilizar los siguientes valores de ejemplo. En los ejemplos, usamos varios espacios de direcciones para cada red virtual. Sin embargo, las configuraciones de red virtual a red virtual no requieren varios espacios de direcciones.
@@ -122,6 +123,7 @@ Si ya dispone de una red virtual, compruebe que la configuración sea compatible
 
 ## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Incorporación de un espacio de direcciones adicional y creación de subredes
 Una vez que la red virtual se haya creado, puede agregar un espacio de direcciones adicional y crear subredes.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Creación de una subred de puerta de enlace
@@ -153,21 +155,21 @@ Cuando se hayan completado las puertas de enlace de red virtual de TestVNet1 y T
 
 1. En **Todos los recursos**, navegue hasta la puerta de enlace de red virtual de la red virtual. Por ejemplo, **TestVNet1GW**. Haga clic en **TestVNet1GW** para abrir la hoja de la puerta de enlace de la red virtual.
    
-    ![Hoja de conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
+    ![Hoja de conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Hoja de conexiones")
 2. Haga clic en **+ Agregar** para abrir la hoja **Agregar conexión**.
 3. En la hoja **Agregar conexión**, en el campo Nombre, escriba el nombre de la conexión. Por ejemplo, **TestVNet1toTestVNet4**.
    
-    ![Nombre de conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
+    ![Nombre de conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Nombre de conexión")
 4. En **Tipo de conexión**, seleccione **De VNet a VNet** en la lista desplegable.
 5. El valor del campo **Primera puerta enlace de red virtual** se rellena automáticamente porque la conexión se crea desde la puerta de enlace de red virtual especificada.
 6. El campo **Segunda puerta enlace de red virtual** es la puerta de enlace de la red virtual con la que desea crear una conexión. Haga clic en **Elegir otra puerta de enlace de red virtual** para abrir la hoja **Elegir puerta de enlace de red virtual**.
    
-    ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
+    ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Agregar una conexión")
 7. Fíjese en las puertas de enlace de red virtual que se enumeran en esta hoja. Observe que solo se muestran las que se encuentran en su suscripción. Si desea conectarse a una puerta de enlace de red virtual que no está en su suscripción, consulte el [artículo de PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Haga clic en la puerta de enlace de red virtual a la que desea conectarse.
 9. En el campo **Clave compartida**, escriba una clave compartida para la conexión. Dicha clave puede generarla o crearla manualmente. En una conexión de sitio a sitio, la clave del dispositivo local y la de la conexión de puerta de enlace de red virtual serán exactamente iguales. Aquí el concepto es similar, salvo en que en lugar de conectarse a un dispositivo VPN, la conexión se establece con otra puerta de enlace de red virtual.
    
-    ![Clave compartida](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
+    ![Clave compartida](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Clave compartida")
 10. Haga clic en **Aceptar** en la parte inferior de la hoja para guardar los cambios.
 
 ## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Configuración de la conexión TestVNet4
@@ -181,23 +183,22 @@ Compruebe la conexión. Realice las siguientes acciones en todas las puertas de 
 
 Vea las conexiones y compruebe el estado. Una vez creada la conexión, en Estado verá los valores **Correcto** y **Conectado**.
 
-![Correcto](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![Correcto](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Correcto")
 
 Puede hacer doble clic en las conexiones por separado para más información acerca de cada una de ellas.
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnettovnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Consideraciones de red virtual a red virtual
 Vea los detalles de preguntas más frecuentes para más información acerca de las conexiones de red virtual a red virtual.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentación sobre máquinas virtuales](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

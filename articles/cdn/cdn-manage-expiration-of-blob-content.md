@@ -1,9 +1,9 @@
 ---
-title: "Administración de la expiración del contenido de Azure Storage Blob en la red CDN de Azure | Microsoft Docs"
+title: "Administración de la expiración de Azure Storage Blob en la red CDN de Azure | Microsoft Docs"
 description: "Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de CDN de Azure."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 49eb28ad017d2422295171f534292d0880b9acf8
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
 
 
 ---
-# <a name="manage-expiration-of-azure-storage-blob-content-in-azure-cdn"></a>Administración de la expiración del contenido de los blobs de Almacenamiento de Azure en la red CDN de Azure
+# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Administración de la expiración de Azure Storage Blob en la red CDN de Azure
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Storage Blob service](cdn-manage-expiration-of-blob-content.md)
@@ -41,7 +41,7 @@ ms.openlocfilehash: 49eb28ad017d2422295171f534292d0880b9acf8
 Este tutorial muestra varias maneras de establecer el TTL de un blob en Almacenamiento de Azure.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) es una de las maneras más rápidas y más eficaces de administrar los servicios de Azure.  Utilice el cmdlet `Get-AzureStorageBlob` para obtener una referencia al blob y, a continuación, establezca la propiedad `.ICloudBlob.Properties.CacheControl`. 
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) es una de las maneras más rápidas y más eficaces de administrar los servicios de Azure.  Utilice el cmdlet `Get-AzureStorageBlob` para obtener una referencia al blob y, a continuación, establezca la propiedad `.ICloudBlob.Properties.CacheControl`. 
 
 ```powershell
 # Create a storage context
@@ -122,6 +122,6 @@ Puede comprobar fácilmente el TTL de los blobs.  Mediante las [herramientas par
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

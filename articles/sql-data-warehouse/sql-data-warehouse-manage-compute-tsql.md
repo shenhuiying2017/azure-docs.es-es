@@ -1,5 +1,5 @@
 ---
-title: "Administración de la potencia de proceso en Azure SQL Data Warehouse (REST) | Microsoft Docs"
+title: "Pausa, reanudación y escalado con T-SQL en Azure SQL Data Warehouse | Microsoft Docs"
 description: Tareas de Transact-SQL (T-SQL) para el escalado horizontal del rendimiento ajustando DWU. Ahorre costes reduciendo el escalado fuera de horas punta.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
+ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
+ms.openlocfilehash: f93e5802141b16862f5e37126196069bd32c1f19
 
 
 ---
@@ -29,17 +29,6 @@ ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Escale el rendimiento mediante el escalado horizontal de los recursos de proceso y la memoria para satisfacer las necesidades cambiantes de la carga de trabajo. Ahorre costes reduciendo el escalado de los recursos fuera de horas punta o pausando el proceso por completo. 
-
-Esta colección de tareas usa T-SQL para:
-
-* Ver la configuración de DWU actual
-* Cambiar recursos de proceso ajustando DWU
-
-Para pausar o reanudar una base de datos, elija una de las otras opciones de plataforma en la parte superior de este artículo.
-
-Para más información sobre esto, vea [Manage compute power overview][Manage compute power overview].
 
 <a name="current-dwu-bk"></a>
 
@@ -80,13 +69,13 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para otras tareas de administración, vea [Introducción a la administración][Introducción a la administración].
+Para otras tareas de administración, consulte [Información general de administración][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Límites de capacidad de servicio]: ./sql-data-warehouse-service-capacity-limits.md
-[Introducción a la administración]: ./sql-data-warehouse-overview-manage.md
+[Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
 [Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
@@ -96,10 +85,10 @@ Para otras tareas de administración, vea [Introducción a la administración][I
 
 <!--Other Web references-->
 
-[Azure Portal]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

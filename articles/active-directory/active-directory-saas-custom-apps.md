@@ -142,6 +142,6 @@ Nota: Para cargar un logotipo de icono de la aplicación, pulse el botón **Carg
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

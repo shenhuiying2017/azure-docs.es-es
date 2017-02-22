@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: v-shysun
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 298c5289a9e58127de208c26fd8bbbbdfd715024
+ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
+ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
 
 
 ---
@@ -37,12 +37,12 @@ Puede cambiar el [nivel de servicio](sql-database-service-tiers.md) de una base 
 >
 
 ## <a name="steps-to-improve-database-performance-with-more-resources"></a>Pasos para mejorar el rendimiento de la base de datos con más recursos
-1. Para las bases de datos independientes, puede [cambiar los niveles de servicio](sql-database-scale-up.md) a petición para mejorar el rendimiento de la base de datos.
+1. Para las bases de datos independientes, puede [cambiar los niveles de servicio](sql-database-service-tiers.md) a petición para mejorar el rendimiento de la base de datos.
 2. Para varias bases de datos, considere el uso de [grupos elásticos](sql-database-elastic-pool-guidance.md) para escalar recursos automáticamente.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

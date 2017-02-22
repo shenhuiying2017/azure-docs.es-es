@@ -12,18 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 628dfc48c00e61fe5c4883f6237a44e0f1309f0e
+ms.sourcegitcommit: 50d8db29ccce1244387f1fe0e3e42e610575e483
+ms.openlocfilehash: bc8c54b51f9eee653fbe84351081dcef562e62d4
 
 
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
-Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluido el nuevo nivel Premium.
-
-El nivel Premium de Azure Redis Cache incluye características como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la persistencia en una instancia de Caché en Redis de Azure premium.
+Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la persistencia en una instancia de Caché en Redis de Azure premium.
 
 Para obtener información sobre otras características de caché Premium, consulte [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md).
 
@@ -32,16 +30,9 @@ La persistencia de Redis le permite conservar los datos almacenados en Redis. Ta
 
 Caché en Redis de Azure ofrece persistencia de Redis usando el [modelo RDB](http://redis.io/topics/persistence), donde los datos se almacenan en una cuenta de almacenamiento de Azure. Cuando se configura la persistencia, Caché en Redis de Azure conserva una instantánea de la memoria caché de Redis en un formato binario de Redis en el disco según una frecuencia de copia de seguridad configurable. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con la instantánea más reciente.
 
-La persistencia se puede configurar desde la hoja **Nueva caché en Redis** durante la creación de la caché y en la hoja **Configuración** para las memorias caché Premium existentes.
+La persistencia se puede configurar desde la hoja **Nueva caché en Redis** durante la creación de la caché y en el **menú Recursos** para las memorias caché Premium existentes.
 
-## <a name="create-a-premium-cache"></a>Crear una caché Premium
-Para crear una caché y configurar la persistencia, inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Nuevo**->**Datos y almacenamiento**>**Caché en Redis**.
-
-![Creación de una caché en Redis][redis-cache-new-cache-menu]
-
-Para configurar la persistencia, seleccione primero una de las cachés **Premium** en la hoja **Elija su plan de tarifa**.
-
-![Elija su plan de tarifa][redis-cache-premium-pricing-tier]
+[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Una vez se selecciona un plan de tarifa premium, haga clic en **Persistencia de Redis**.
 
@@ -50,7 +41,7 @@ Una vez se selecciona un plan de tarifa premium, haga clic en **Persistencia de 
 En la siguiente sección se describe cómo configurar la persistencia de Redis en su nueva caché premium. Una vez configurada la persistencia de Redis, haga clic en **Crear** para crear su nueva caché premium con persistencia de Redis.
 
 ## <a name="configure-redis-persistence"></a>Configurar la persistencia de Redis
-La persistencia de Redis se configura en la hoja **Persistencia de datos de Redis** . Para nuevas caché, a esta hoja se obtiene acceso durante el proceso de creación de la caché, como se describe en la sección anterior. Para las memorias caché existentes, a la hoja **Redis data persistence** (Persistencia de datos de Redis) se accede desde la hoja **Settings (Configuración)** de la caché.
+La persistencia de Redis se configura en la hoja **Persistencia de datos de Redis** . Para nuevas caché, a esta hoja se obtiene acceso durante el proceso de creación de la caché, como se describe en la sección anterior. Para las memorias caché existentes, a la hoja **Redis data persistence** (Persistencia de datos de Redis) se accede desde el **menú Recursos** de la caché.
 
 ![Configuración de Redis][redis-cache-settings]
 
@@ -61,7 +52,7 @@ Para configurar el intervalo de copia de seguridad, seleccione una **Frecuencia 
 Haga clic en **Cuenta de almacenamiento** para seleccionar la cuenta de almacenamiento que quiere usar y, en el cuadro desplegable **Clave de almacenamiento**, elija la **clave principal** o la **clave secundaria** que se va a utilizar. Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Almacenamiento Premium** porque el almacenamiento premium tiene un mayor rendimiento. 
 
 > [!IMPORTANT]
-> Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a elegir la clave que quiera en la lista desplegable **Clave de almacenamiento** .
+> Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave que quiera en la lista desplegable **Clave de almacenamiento**.
 > 
 > 
 
@@ -116,6 +107,6 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

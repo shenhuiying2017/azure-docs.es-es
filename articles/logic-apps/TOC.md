@@ -23,6 +23,7 @@
 ### [Aplicaciones lógicas como puntos de conexión invocables](logic-apps-http-endpoint.md)
 ### [Bucles, ámbitos y desagrupación](logic-apps-loops-and-scopes.md)
 ### [Seleccionar la API personalizada](logic-apps-custom-hosted-api.md)
+### [Uso de la instrucción switch](logic-apps-switch-case.md)
 ### [Control de excepciones](logic-apps-exception-handling.md)
 ### [Escenario de control de excepciones](logic-apps-scenario-error-and-exception-handling.md)
 ### [Tipos de contenido de control](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
 
 
 ---
@@ -36,10 +36,10 @@ Antes de seguir con esta guía y crear un índice, ya debe haber [creado un serv
 
 Tenga en cuenta que todo el código de ejemplo de este artículo está escrito en C#. El código fuente completo se puede encontrar [en GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificación de la clave de API de administración del servicio de Búsqueda de Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio de Búsqueda de Azure
 Ahora que ha aprovisionado un servicio de Búsqueda de Azure, está casi preparado para emitir solicitudes en el punto de conexión de servicio mediante el SDK para .NET. En primer lugar, tiene que obtener una de las claves de API de administrador que se generaron para aprovisionar el servicio de búsqueda. El SDK para .NET enviará esta clave de API en cada solicitud al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-1. Para buscar las claves de API del servicio, debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
+1. Para buscar las claves de API del servicio, inicie sesión en [Azure Portal](https://portal.azure.com/)
 2. Vaya a la hoja de servicio de Búsqueda de Azure
 3. Haga clic en el icono "Claves"
 
@@ -52,7 +52,7 @@ Para crear un índice, puede usar su clave de administración principal o la sec
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. Creación de una instancia de la clase SearchServiceClient
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Creación de una instancia de la clase SearchServiceClient
 Para empezar a usar el SDK de .NET para Búsqueda de Azure, tendrá que crear una instancia de la clase `SearchServiceClient` . Esta clase tiene varios constructores. El que desea tiene el nombre del servicio de búsqueda y un objeto `SearchCredentials` como parámetros. `SearchCredentials` incluye su clave de API.
 
 El código que aparece a continuación crea un nuevo `SearchServiceClient` con valores para el nombre de servicio de búsqueda y la clave de API que se almacenan en el archivo de configuración de la aplicación (`app.config` o `web.config`):
@@ -73,7 +73,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index"></a>III. Definición del índice de Azure Search
+## <a name="define-your-azure-search-index"></a>Definición del índice de Azure Search
 Una única llamada al método `Indexes.Create` creará el índice. Este método toma como parámetro un objeto `Index` que define el índice de Búsqueda de Azure. Tiene que crear un objeto `Index` e inicializarlo de la forma siguiente:
 
 1. Establezca la propiedad `Name` del objeto `Index` en el nombre del índice.
@@ -156,7 +156,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="iv-create-the-index"></a>IV. creación del índice
+## <a name="create-the-index"></a>creación del índice
 Ahora que tiene un objeto `Index` inicializado, puede crear el índice simplemente realizando una llamada a `Indexes.Create` en el objeto `SearchServiceClient`:
 
 ```csharp
@@ -176,12 +176,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de crear un índice de Búsqueda de Azure, ya podrá [cargar el contenido en el índice](search-what-is-data-import.md) y empezar la búsqueda de los datos.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

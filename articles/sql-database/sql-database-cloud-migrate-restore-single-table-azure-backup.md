@@ -4,19 +4,20 @@ description: "Obtenga información sobre cómo restaurar una única tabla de la 
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: 340b41bd-9df8-47fb-adfc-03216de38a5e
 ms.service: sql-database
+ms.custom: migrate and move
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f792ad3da0037c55a41e50710cedcbcdf8ef0d74
+ms.sourcegitcommit: 9992b6a2bf73fd84c7c47783d1f4f13e10889a81
+ms.openlocfilehash: 8c074243db2ae729c4fd1a483e5ac40fbbebd750
 
 
 ---
@@ -26,27 +27,34 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 ## <a name="preparation-steps-rename-the-table-and-restore-a-copy-of-the-database"></a>Pasos de preparación: cambiar el nombre de la tabla y restaurar una copia de la base de datos
 1. Identifique la tabla en la base de datos SQL de Azure que desee reemplazar por la copia restaurada. Use Microsoft SQL Management Studio para cambiar el nombre de la tabla. Por ejemplo, cambie el nombre de la tabla como &lt;nombre de la tabla&gt;_old.
    
-    **Nota** Para evitar que se bloquee, asegúrese de que no haya ninguna actividad ejecutándose en la tabla a la que le está cambiando el nombre. Si encuentra algún problema, realice este procedimiento durante una ventana de mantenimiento.
+   > [!NOTE]
+   > Para evitar que se bloquee, asegúrese de que no haya ninguna actividad ejecutándose en la tabla a la que le está cambiando el nombre. Si encuentra algún problema, realice este procedimiento durante una ventana de mantenimiento.
+   >
+
 2. Restaure una copia de seguridad de su base de datos al punto temporal que desee recuperar; para ello, siga los pasos descritos en [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
    
-    **Notas**:
+   > [!NOTE]
+   > El nombre de la base de datos restaurada tendrá el formato nombreBaseDeDatos+MarcaDeTiempo; por ejemplo, **AdventureWorks2012_2016-01-01T22-12Z**. Con este paso no se sobrescribe el nombre de la base de datos existente en el servidor. Se trata de una medida de seguridad, diseñada para permitirle comprobar la base de datos restaurada antes de deshacerse de su base de datos actual y cambiar el nombre de la base de datos restaurada para su uso en producción.
    
-   * El nombre de la base de datos restaurada tendrá el formato nombreBaseDeDatos+MarcaDeTiempo; por ejemplo, **AdventureWorks2012_2016-01-01T22-12Z**. Con este paso no se sobrescribirá el nombre de la base de datos existente en el servidor. Se trata de una medida de seguridad, diseñada para permitirle comprobar la base de datos restaurada antes de deshacerse de su base de datos actual y cambiar el nombre de la base de datos restaurada para su uso en producción.
-   * En todos los niveles de rendimiento, del Basic al Premium, el servicio realiza una copia de seguridad automática, con métricas variables de retención de copia de seguridad, dependiendo del nivel:
-
-| Restauración de BD | Nivel Basic | Niveles Standard | Niveles Premium |
-|:--- |:--- |:--- |:--- |
-| Restauración a un momento dado |Cualquier punto de restauración en 7 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en 35 días |
-
 ## <a name="copying-the-table-from-the-restored-database-by-using-the-sql-database-migration-tool"></a>Copiar la tabla de la base de datos restaurada mediante la herramienta de migración de Base de datos SQL
+
 1. Descargue e instale el [Asistente para migración de Base de datos SQL](https://sqlazuremw.codeplex.com).
 2. Abra el Asistente para migración de SQL Database; en la página **Select Process** (Seleccionar proceso), seleccione **Base de datos en la sección Analyze/Migrate** (Analizar o migrar) y, después, haga clic en **Siguiente**.
+
    ![Asistente para migración de Base de datos SQL: seleccionar proceso](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
+
 3. En el cuadro de diálogo **Conectar con el servidor** , aplique la configuración siguiente:
-   * **Nombre del servidor**: su instancia de SQL Azure.
-   * **Autenticación**: **Autenticación de SQL Server**. Escriba sus credenciales de inicio de sesión.
-   * **Base de datos**: **Master DB (List all databases)** [BD maestra (Enumerar todas las bases de datos)].
-   * **Nota** De forma predeterminada, el asistente guarda la información de inicio de sesión. Si no quiere que lo haga, seleccione **Forget Login Information (No recordar la información de inicio de sesión)**.
+
+   * Nombre del servidor: **su servidor SQL**
+   * Autenticación: **Autenticación de SQL Server**
+   * Inicio de sesión: **sus datos de inicio de sesión**
+   * Contraseña: **su contraseña**
+   * **Master DB (List all databases)** [BD maestra (Enumerar todas las bases de datos)]
+   
+   > [!NOTE]
+   > De forma predeterminada, el asistente guarda la información de inicio de sesión. Si no quiere que lo haga, seleccione **Forget Login Information (No recordar la información de inicio de sesión)**.
+   >
+   
      ![Asistente para migración de base de datos SQL: seleccionar origen, paso 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
 4. En el cuadro de diálogo **Seleccionar origen**, seleccione el nombre de la base de datos que ha restaurado en la sección **Pasos de preparación** como el origen y, después, haga clic en **Siguiente**.
    
@@ -67,7 +75,8 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 9. Haga clic en **Conectar**, seleccione la base de datos de destino a la que desea mover la tabla y, después, haga clic en **Siguiente**. Esto debe finalizar con la ejecución del script generado anteriormente, y debería ver una copia de la tabla que se ha movido recientemente en la base de datos de destino.
 
 ## <a name="verification-step"></a>Paso de comprobación
-1. Consulte y pruebe la tabla copiada recientemente para asegurarse de que los datos estén intactos. Tras la confirmación, puede deshacerse de la tabla a la que ha cambiado el nombre en la sección **Pasos de preparación**. (por ejemplo, &lt;nombre de la tabla&gt;_old).
+
+- Consulte y pruebe la tabla copiada recientemente para asegurarse de que los datos estén intactos. Tras la confirmación, puede deshacerse de la tabla a la que ha cambiado el nombre en la sección **Pasos de preparación**. (por ejemplo, &lt;nombre de la tabla&gt;_old).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
@@ -75,6 +84,6 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

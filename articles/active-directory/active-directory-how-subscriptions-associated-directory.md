@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ Por ejemplo, aquí un usuario con una cuenta Microsoft inicia sesión en el Port
 
 > [!NOTE]
 > Para iniciar sesión en el Portal de Azure clásico, msmith@hotmail.com debe tener una suscripción a Azure. La cuenta debe ser de administrador de servicios o coadministrador de la suscripción.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Para administrar ambos directorios en el Portal de Azure clásico, siga estos pa
 
 > [!NOTE]
 > Solo se pueden completar estos pasos cuando un usuario inicie sesión con una cuenta Microsoft. Si el usuario ha iniciado sesión con una cuenta profesional o educativa, la opción **Usar directorio existente** no estará disponible porque se puede autenticar una cuenta profesional o educativamente únicamente mediante su directorio particular (es decir, el directorio donde se almacena la cuenta profesional o educativa, y cuyo propietario sea el trabajo o la escuela).
-> 
-> 
+>
+>
 
 1. Inicie sesión en el Portal de Azure clásico con su cuenta Microsoft.
 2. Haga clic en **Nuevo** > **App Services** > **Active Directory** > **Directorio** > **Creación personalizada**.
@@ -116,7 +116,7 @@ Para administrar ambos directorios en el Portal de Azure clásico, siga estos pa
 7. Inicie sesión de nuevo en el Portal de Azure clásico con la cuenta Microsoft. Ambos directorios aparecerán en la extensión de Active Directory.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
+* Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
 * Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md)
 * [Registro en Azure como una organización](sign-up-organization.md)
@@ -128,6 +128,6 @@ Para administrar ambos directorios en el Portal de Azure clásico, siga estos pa
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

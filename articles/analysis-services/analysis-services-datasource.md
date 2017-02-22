@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
+ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
+ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
 
 
 ---
@@ -31,11 +31,16 @@ O bien, si tiene un modelo DirectQuery conectarse a orígenes de datos locales, 
 ## <a name="data-source-providers"></a>Proveedores de orígenes de datos
 Los siguientes proveedores de orígenes de datos se admiten en los modelos de datos en memoria o DirectQuery cuando se conecta a orígenes de datos locales o en la nube:
 
-|  | **Origen de datos** | **En memoria** | **DirectQuery** |
-| --- | --- | --- | --- |
-| **Nube** |Almacenamiento de datos SQL de Azure |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server |
+### <a name="cloud"></a>Nube
+| **Origen de datos** | **En memoria** | **DirectQuery** |
+|  --- | --- | --- |
+| Almacenamiento de datos SQL de Azure |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server |
 | Base de datos SQL de Azure |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
-| **Local** (mediante puerta de enlace) |SQL Server |SQL Server Native Client 11.0 |Proveedor de datos .NET Framework para SQL Server |
+
+### <a name="on-premises-via-gateway"></a>Local (mediante una puerta de enlace)
+|**Origen de datos** | **En memoria** | **DirectQuery** |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0 |Proveedor de datos .NET Framework para SQL Server |
 | SQL Server |Proveedor OLE DB de Microsoft para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
 | SQL Server |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
 | Oracle |Proveedor OLE DB de Microsoft para Oracle |Proveedor de datos de Oracle para .NET | |
@@ -45,7 +50,7 @@ Los siguientes proveedores de orígenes de datos se admiten en los modelos de da
 | Analytics Platform System |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
 
 > [!NOTE]
-> Asegúrese de que están instalados proveedores de 64 bits cuando se utiliza la puerta de enlace local.
+> Asegúrese de que estén instalados proveedores de 64 bits cuando se use la puerta de enlace local.
 > 
 > 
 
@@ -75,6 +80,6 @@ Si tiene orígenes de datos locales, asegúrese de instalar la [puerta de enlace
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a39a8aaeb2bc3603e5fd2404f061697c98c0ff2f
+ms.sourcegitcommit: fd4603d7bcbd1d243c6dd37d810040ff0ee1b3ae
+ms.openlocfilehash: e61a9fad0c241da30a615e03aa18c6fbb03baf35
 
 
 ---
@@ -27,14 +27,14 @@ El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas 
 Security Center se ofrece en dos niveles:
 
 * El **nivel gratuito** está habilitado automáticamente en todas las suscripciones de Azure. El nivel gratuito permite ver el estado de seguridad de los recursos de Azure, la directiva de seguridad básica, recomendaciones de seguridad y la integración con productos y servicios de seguridad de asociados.
-* En el **nivel Estándar** se agregan funciones de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de evaluación de amenazas. Hay disponible una **prueba gratuita de 90 días** para el nivel Estándar.
+* En el **nivel Estándar** se agregan funciones de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de evaluación de amenazas. Hay disponible una **prueba gratuita de&90; días** para el nivel Estándar.
 
 Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
 > [!NOTE]
 > Security Center usa Azure Storage para guardar los datos de seguridad generados en los nodos protegidos. Los costos asociados con este almacenamiento no se incluyen en el precio del servicio y se cobrarán por separado según las [tarifas normales de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Se aplicarán cargos de almacenamiento incluso durante la prueba.
-> 
-> 
+>
+>
 
 ## <a name="try-standard-free-for-90-days"></a>Pruebe el nivel Estándar de forma gratuita durante 90 días
 Hay disponible una prueba gratuita de 90 días para el nivel Estándar. Para obtener la prueba gratuita del nivel Estándar, seleccione el icono **Directiva** en la hoja **Security Center**. Seleccione la suscripción que quiera actualizar al nivel Estándar. En la hoja **Directiva de seguridad**, seleccione **Plan de tarifa**. En la hoja **Seleccione su plan de tarifa**, seleccione **Estándar: prueba gratuita**.
@@ -86,6 +86,6 @@ Para comprobar que la recopilación de datos está habilitada, seleccione el ico
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

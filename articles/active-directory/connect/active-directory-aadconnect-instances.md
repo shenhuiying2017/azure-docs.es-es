@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 9eae913bfe26a2e395658462352a92bd16eebb65
+ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
+ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
 
 
 ---
@@ -26,21 +26,20 @@ Azure AD Connect se utiliza habitualmente con la instancia mundial de Azure AD y
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Germany
 [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) es una nube soberana operada por un administrador de datos alemán.
 
-Esta nube se encuentra actualmente en versión preliminar. Muchos de los escenarios que normalmente puede hacer por usted mismo, como comprobar los dominios, tiene que realizarlos el operador. Póngase en contacto con su representante local de Microsoft para más información acerca de cómo participar en la versión preliminar.
-
 | Direcciones URL para abrir en el servidor proxy |
 | --- |
 | \*.microsoftonline.de |
 | \*.windows.net |
 | +Listas de revocación de certificados |
 
-Al iniciar sesión en el directorio de Azure AD tiene que usar una cuenta en el dominio onmicrosoft.de.
+Al iniciar sesión en el inquilino de Azure AD tiene que usar una cuenta en el dominio onmicrosoft.de.
 
 Características que actualmente no están presentes en Microsoft Cloud Germany:
 
-* Azure AD Connect Health no está disponible.
-* Las actualizaciones automáticas no están disponibles.
-* El servicio de escritura diferida de contraseñas no está disponible.
+* **Azure AD Connect Health** no está disponible.
+* Las **actualizaciones automáticas** no están disponibles.
+* El servicio de **escritura diferida de contraseñas** no está disponible.
+* Otros servicios de Azure AD Premium no están disponibles.
 
 ## <a name="microsoft-azure-government-cloud"></a>Microsoft Azure Government Cloud
 [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/) es una nube para el gobierno de Estados Unidos.
@@ -53,25 +52,25 @@ Esta nube ha sido compatible con versiones anteriores de DirSync. A partir de la
 | \*.gov.us.microsoftonline.com |
 | +Listas de revocación de certificados |
 
-Azure AD Connect no podrá detectar automáticamente que el directorio de Azure AD se encuentra en esta nube. En su lugar, tiene realizar las siguientes acciones al instalar Azure AD Connect.
+Azure AD Connect no puede detectar automáticamente que el inquilino de Azure AD se encuentra en la nube de administración pública. En su lugar, tiene realizar las siguientes acciones al instalar Azure AD Connect.
 
 1. Inicie la instalación de Azure AD Connect.
-2. Tan pronto como vea la primera página en donde se supone que tiene que aceptar el CLUF, no continúe y deje que el Asistente para la instalación se continúe ejecutando.
+2. Cuando vea la primera página en donde se supone que tiene que aceptar el CLUF, no continúe y deje que el Asistente para instalación se continúe ejecutando.
 3. Inicie regedit y cambie la clave del registro `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` al valor `2`.
-4. Vuelva al Asistente para la instalación de Azure AD Connect, acepte el CLUF y continúe. Durante la instalación, asegúrese de usar la ruta de acceso de instalación de **configuración personalizada** (y no la instalación rápida). Luego continúe la instalación normalmente.
+4. Vuelva al Asistente para instalación de Azure AD Connect, acepte el CLUF y continúe. Durante la instalación, asegúrese de usar la ruta de acceso de instalación de **configuración personalizada** (y no la instalación rápida). Luego continúe la instalación normalmente.
 
 Características que actualmente no están presentes en Microsoft Azure Government Cloud:
 
-* Azure AD Connect Health no está disponible.
-* Las actualizaciones automáticas no están disponibles.
-* El servicio de escritura diferida de contraseñas no está disponible.
+* **Azure AD Connect Health** no está disponible.
+* Las **actualizaciones automáticas** no están disponibles.
+* El servicio de **escritura diferida de contraseñas** no está disponible.
+* Otros servicios de Azure AD Premium no están disponibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 7b7d3b87e1285993d744e74d01f5192732b70e77
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
 En este artículo se describe cómo puede usar la actividad de copia de Data Factory de Azure para copiar datos de una base de datos de Cassandra local en cualquier almacén de datos que aparezca en la columna Receptores de la sección [Almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
 En la actualidad, Data Factory solo permite mover datos de una base de datos de Cassandra a [almacenes de datos receptores admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats), pero no permite mover datos de otros almacenes de datos a una base de datos de Cassandra.
+
+## <a name="supported-versions"></a>Versiones compatibles
+Este conector de Cassandra admite la versión 2.x de Cassandra.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para que el servicio Data Factory de Azure pueda conectarse a la base de datos de Cassandra local, debe instalar lo siguiente:
@@ -325,6 +328,6 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

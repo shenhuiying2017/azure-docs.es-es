@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 002e7fe3a0573898fff2552264a318d528eec25c
+ms.sourcegitcommit: 808343035c2554a3cd01cf3fe0ef6ebba2c54e23
+ms.openlocfilehash: 5b4443a8746bc8c88e2c5b58068c200aafc4beea
 
 
 ---
@@ -52,20 +52,9 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual.
 1. Una vez que se reinicia la máquina virtual, vuelva a iniciar sesión en ella.
 2. Haga clic en el menú **Inicio**, escriba**diskmgmt.msc** y presione Entrar. Se iniciará la Administración de discos.
 3. Haga clic con el botón derecho en **D**, la unidad de almacenamiento temporal, y seleccione **Cambiar la letra y rutas de acceso de unidad**.
-4. En Letra de unidad, seleccione la unidad **G** y haga clic en **Aceptar**. 
+4. En Letra de unidad, seleccione una unidad nueva como, por ejemplo, **T** y haga clic en**Aceptar**. 
 5. Haga clic con el botón derecho en el disco de datos y seleccione **Cambiar la letra y rutas de acceso de unidad**.
 6. En Letra de unidad, seleccione la unidad **D** y haga clic en**Aceptar**. 
-7. Haga clic con el botón derecho en **G**, la unidad de almacenamiento temporal, y seleccione**Cambiar la letra y rutas de acceso de unidad**.
-8. En Letra de unidad, seleccione la unidad**E** y haga clic en**Aceptar**. 
-
-> [!NOTE]
-> Si la máquina virtual tiene otros discos o unidades, use el mismo método para reasignar las letras de unidad de los demás discos y unidades. La configuración de disco puede estar en las siguientes ubicaciones:  
-> 
-> * C: disco del sistema operativo  
-> * D: disco de datos  
-> * E: disco temporal
-> 
-> 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Devolver el archivo pagefile.sys a la unidad de almacenamiento temporal
 1. Haga clic con el botón derecho en el menú **Inicio** y seleccione **Sistema**.
@@ -74,7 +63,7 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual.
 4. Seleccione la pestaña **Opciones avanzadas** .
 5. En la sección **Memoria virtual**, seleccione **Cambiar**.
 6. Seleccione la unidad del sistema operativo **C**, haga clic en **Sin archivo de paginación** y luego en **Establecer**.
-7. Seleccione la unidad de almacenamiento temporal **E**, haga clic en **Tamaño administrado por el sistema** y, a continuación, haga clic en **Establecer**.
+7. Seleccione la unidad de almacenamiento temporal **T**, haga clic en **Tamaño administrado por el sistema** y, a continuación, en **Establecer**.
 8. Haga clic en **Apply**. Aparecerá una advertencia que indica que se debe reiniciar el equipo para que los cambios entren en vigor.
 9. Reinicie la máquina virtual.
 
@@ -84,6 +73,6 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

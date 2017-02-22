@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 91e19b321026840a062078d7af2a55967fb3904b
-ms.openlocfilehash: 417c545e34f1d652594c8527a3c8b0a845a4e8fa
+ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
+ms.openlocfilehash: 996fc80ff926117dc12180efe1949b3dbeba3f91
 
 
 ---
@@ -28,9 +28,7 @@ Azure Functions es una experiencia de proceso a petición basada en eventos que 
 En este tema se muestra cómo utilizar Azure Portal para crear una sencilla función de Azure de Node.js, "hello world", invocada por un desencadenador de HTTP. Antes de poder crear una función en Azure Portal, debe crear explícitamente una aplicación de función en Azure App Service. Para que la aplicación de función se cree de forma automática, consulte el [otro tutorial de inicio rápido de Azure Functions](functions-create-first-azure-function.md), que es una experiencia de inicio rápido más sencilla e incluye un vídeo.
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
-Una aplicación de función hospeda la ejecución de sus funciones en Azure. Siga estos pasos para crear una aplicación de función en Azure Portal.
-
-Una aplicación de función hospeda la ejecución de sus funciones en Azure. Si ya no tiene una cuenta de Azure, consulte la experiencia [Probar Functions](https://functions.azure.com/try) o [cree una cuenta gratis de Azure](https://azure.microsoft.com/free/). 
+Una aplicación de función hospeda la ejecución de sus funciones en Azure. Si ya no tiene una cuenta de Azure, consulte la experiencia [Probar Functions](https://functions.azure.com/try) o [cree una cuenta gratis de Azure](https://azure.microsoft.com/free/). Siga estos pasos para crear una aplicación de función en Azure Portal.
 
 1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 2. Haga clic en **+Nuevo**  >  **Compute** > **Function App**, seleccione su **Suscripción**, escriba un **Nombre de la aplicación** único, que identifica la aplicación de función, y especifique la siguiente configuración:
@@ -42,6 +40,8 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Si 
    * **Cuenta de almacenamiento**: cada aplicación de función requiere una cuenta de almacenamiento. Puede elegir una cuenta de almacenamiento existente o crear una. 
      
      ![Creación de una aplicación de función en Azure Portal](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
+
+    Tenga en cuenta que debe especificar un **nombre de aplicación** válido, que contenga solo letras, números y guiones. El carácter de subrayado (**_**) no se permite.
 
 3. Haga clic en **Crear** para aprovisionar e implementar la nueva función de aplicación.  
 
@@ -57,35 +57,16 @@ Mediante estos pasos se crea una función desde el inicio rápido de Azure Funct
 2. (Opcional) En este momento del inicio rápido, puede realizar un recorrido rápido de las características de Azure Functions en el portal.    Después de haber realizado u omitido el recorrido, podrá probar la nueva función mediante el desencadenador de HTTP.
 
 ## <a name="test-the-function"></a>Prueba de la función
-Puesto que los inicios rápidos de Azure Functions contienen código funcional, puede probar la nueva función inmediatamente.
-
-1. En la pestaña **Desarrollar**, revise la ventana **Código** y observe que este código Node.js espera una solicitud HTTP con un valor de *nombre* pasado en el cuerpo del mensaje o en una cadena de consulta. Cuando se ejecuta la función, este valor se devuelve en el mensaje de respuesta.
-   
-2. Haga clic en **Probar** para mostrar el panel de solicitud de prueba HTTP integrado para la función.
- 
-    ![](./media/functions-create-first-azure-function-azure-portal/function-app-develop-tab-testing.png)
-
-2. En el cuadro de texto **Cuerpo de la solicitud**, cambie el valor de la propiedad *name* a su nombre y haga clic en **Ejecutar**. Verá que una solicitud HTTP de prueba desencadena la ejecución, la información se escribe en los registros de streaming y se muestra la respuesta "hello" en **Salida**. 
-
-3. Para desencadenar la ejecución de la misma función desde otra ventana o pestaña del explorador, copie el valor de la **dirección URL de función** de la pestaña **Desarrollar** y péguelo en la barra de direcciones. Después, agregue el valor de la cadena de consulta `&name=yourname` a la dirección URL y presione Entrar. La misma información se escribe en los registros y el explorador muestra la respuesta "hello" como antes.
+[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Este inicio rápido demuestra una ejecución sencilla de una función desencadenada de HTTP básica. Para más información sobre el uso de Azure Functions en sus aplicaciones, consulte los temas siguientes:
-
-* [Azure Functions developer reference](functions-reference.md)  
-   contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
-* [Prueba de Azure Functions](functions-test-a-function.md)  
-   describe las diversas herramientas y técnicas para probar sus funciones.
-* [How to scale Azure Functions](functions-scale.md)  
-  Trata los planes de servicio disponibles con Azure Functions, incluido el plan de App Service basado en el consumo, y cómo elegir el plan adecuado. 
-* [¿Qué es Servicios de aplicaciones de Azure?](../app-service/app-service-value-prop-what-is.md)  
-   Azure Functions aprovecha la plataforma Azure App Service para obtener una funcionalidad básica, como implementaciones, variables de entorno y diagnósticos. 
+[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Consultas de lista eficaces en Lote de Azure | Microsoft Docs
+title: "Diseño de consultas de lista eficaces: Azure Batch | Microsoft Docs"
 description: "Mejore el rendimiento filtrando las consultas cuando solicite información en recursos de Batch, como grupos, trabajos, tareas y nodos de proceso."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 62487d3d26ba66ce2ba88ae1a71858d68e68544c
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: 4e127422e2ad4644aa028cdb987ca5bafa101868
 
 
 ---
@@ -292,6 +292,6 @@ El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y for
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

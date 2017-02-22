@@ -16,25 +16,16 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fa3f1215c809fe2b45293c56cdca4496fa352afb
+ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
+ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
 
 
 ---
-# <a name="ports-beyond-1433-for-adonet-45-and-sql-database-v12"></a>Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12
-En este tema se describen los cambios que la Base de datos SQL V12 de Azure aporta el comportamiento de conexión de los clientes que usan ADO.NET 4.5 o una versión posterior.
+# <a name="ports-beyond-1433-for-adonet-45"></a>Puertos más allá de 1433 para ADO.NET 4.5
+En este tema se describe el comportamiento de conexión de Azure SQL Database para clientes que usan ADO.NET 4.5 o una versión posterior.
 
-## <a name="v11-of-sql-database-port-1433"></a>V11 de la Base de datos SQL: puerto 1433
-Cuando su programa de cliente usa ADO.NET 4.5 para conectarse y consultar con la Base de datos SQL V11, la secuencia interna es la siguiente:
-
-1. ADO.NET intenta conectarse a la Base de datos SQL.
-2. ADO.NET usa el puerto 1433 para llamar a un módulo de middleware y el middleware se conecta a la base de datos SQL.
-3. La Base de datos SQL devuelve su respuesta al middleware, que la reenvía a ADO.NET para el puerto 1433.
-
-**Terminología:** describimos la secuencia anterior indicando que ADO.NET interactúa con Base de datos SQL mediante la *ruta de proxy*. Si no hay ningún middleware implicado diríamos que se usó la *ruta directa* .
-
-## <a name="v12-of-sql-database-outside-vs-inside"></a>V12 de Base de datos SQL: fuera frente a dentro
-Para las conexiones a V12 debemos preguntar si el programa cliente se ejecuta *fuera* o *dentro* del límite de la nube de Azure. En las subsecciones se describen dos escenarios comunes.
+## <a name="outside-vs-inside"></a>Fuera o dentro
+Para las conexiones a Azure SQL Database, debemos preguntar si el programa cliente se ejecuta *fuera* o *dentro* del límite de la nube de Azure. En las subsecciones se describen dos escenarios comunes.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fuera:* el cliente se ejecuta en el equipo de escritorio
 El puerto 1433 es el único puerto que debe estar abierto en su equipo de escritorio que hospeda su aplicación de cliente de la Base de datos SQL.
@@ -64,11 +55,6 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
 * ADO.NET 4.0 admite el protocolo TDS 7.3, pero no 7.4.
 * ADO.NET 4.5 y versiones posteriores admite el protocolo TDS 7.4.
 
-#### <a name="sql-database-v11-and-v12"></a>Base de datos SQL V11 y V12
-En este tema se resaltan las diferencias de conexión de cliente entre la Base de datos SQL V11 y V12.
-
-*Nota*: La instrucción de Transact-SQL `SELECT @@version;` devuelve un valor que comienza por un número como '11.' o '12.' que coincide con el nombre de nuestra versión de V11 y V12 de SQL Database.
-
 ## <a name="related-links"></a>Vínculos relacionados
 * ADO.NET 4.6 se publicó el 20 de julio de 2015. Hay un anuncio de blog del equipo de .NET disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 * ADO.NET 4.5 se publicó el 15 de julio de 2012. Hay un anuncio de blog del equipo de .NET disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
@@ -82,6 +68,6 @@ En este tema se resaltan las diferencias de conexión de cliente entre la Base d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

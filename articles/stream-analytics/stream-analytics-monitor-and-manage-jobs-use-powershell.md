@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9616197bd2b1587290b3beb14cb883e2dba8fb4e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 69a976f1f019cb89780d00c6bc730fae30e92378
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 9616197bd2b1587290b3beb14cb883e2dba8fb4e
 Aprenda a supervisar y administrar los recursos de Análisis de transmisiones con los cmdlets de Azure PowerShell y el scripting de PowerShell que se encargan de ejecutar las tareas básicas de Análisis de transmisiones.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Requisitos previos para ejecutar cmdlets de Azure PowerShell en Análisis de transmisiones
-* Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).  
+* Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 
 Azure PowerShell 0.9.8:  
 
@@ -64,9 +64,9 @@ Azure PowerShell 1.0:
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Cmdlets de PowerShell de Azure en Análisis de transmisiones
 Se pueden usar los siguientes cmdlets de PowerShell de Azure para supervisar y administrar trabajos de Análisis de transmisiones de Azure. Tenga en cuenta que Azure PowerShell tiene versiones diferentes. 
-**En los ejemplos que se muestran el primer comando es para Azure PowerShell 0.9.8 y el segundo para Azure PowerShell 1.0.**  Los comandos de Azure PowerShell 1.0 siempre tendrán incluido "AzureRM" en el comando.
+**En los ejemplos que se muestran el primer comando es para Azure PowerShell 0.9.8 y el segundo para Azure PowerShell 1.0.** Los comandos de Azure PowerShell 1.0 siempre tendrán incluido "AzureRM" en el comando.
 
-### <a name="get-azurestreamanalyticsjob-get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
+### <a name="get-azurestreamanalyticsjob--get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
 Muestra todos los trabajos de Stream Analytics definidos en la suscripción de Azure o en el grupo de recursos especificado, u obtiene información del trabajo sobre un trabajo específico en un grupo de recursos.
 
 **Ejemplo 1**
@@ -105,7 +105,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell devuelve información sobre el trabajo StreamingJob de Análisis de transmisiones del grupo de recursos StreamAnalytics-Default-Central-US.
 
-### <a name="get-azurestreamanalyticsinput-get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
+### <a name="get-azurestreamanalyticsinput--get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
 Muestra todas las entradas que se definen en un determinado trabajo de Análisis de transmisiones u obtiene información sobre una entrada concreta.
 
 **Ejemplo 1**
@@ -132,7 +132,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell devuelve información sobre la entrada denominada EntryStream que se define en el trabajo StreamingJob.
 
-### <a name="get-azurestreamanalyticsoutput-get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
+### <a name="get-azurestreamanalyticsoutput--get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
 Muestra todas las salidas que se definen en un determinado trabajo de Análisis de transmisiones u obtiene información sobre una salida concreta.
 
 **Ejemplo 1**
@@ -159,7 +159,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell devuelve información sobre la salida denominada Output que se define en el trabajo StreamingJob.
 
-### <a name="get-azurestreamanalyticsquota-get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
+### <a name="get-azurestreamanalyticsquota--get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
 Obtiene información sobre la cuota de unidades de streaming de una región determinada.
 
 **Ejemplo 1**
@@ -174,7 +174,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell devuelve información sobre la cuota de unidades de streaming y su uso en la región Centro de EE. UU.
 
-### <a name="get-azurestreamanalyticstransformation-getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
+### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
 Obtiene información sobre una transformación específica definida en un trabajo de Análisis de transmisiones.
 
 **Ejemplo 1**
@@ -189,7 +189,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell devuelve información sobre la transformación denominada StreamingJob en el trabajo StreamingJob.
 
-### <a name="new-azurestreamanalyticsinput-new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
+### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 Crea otra entrada en un trabajo de Análisis de transmisiones o actualiza una determinada entrada existente.
 
 El nombre de la entrada puede especificarse en el archivo .JSON o en la línea de comandos. Si se especifican ambos, el nombre en la línea de comandos debe coincidir con el que aparece en el archivo.
@@ -236,7 +236,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell reemplaza la definición del origen de entrada existente denominado EntryStream por la definición del archivo.
 
-### <a name="new-azurestreamanalyticsjob-new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
+### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
 Crea un trabajo de Análisis de transmisiones en Microsoft Azure o actualiza la definición de un determinado trabajo existente.
 
 El nombre del trabajo puede especificarse en el archivo .JSON o en la línea de comandos. Si se especifican ambos, el nombre en la línea de comandos debe coincidir con el que aparece en el archivo.
@@ -245,7 +245,7 @@ Si especifica un nombre de trabajo que ya existe y no especifica el parámetro �
 
 Si especifica el parámetro –Force y el nombre de un trabajo existente, la definición del trabajo se reemplazará sin pedir confirmación.
 
-Para obtener información detallada sobre la estructura de archivos JSON y el contenido, consulte la sección [Crear el trabajo de Análisis de transmisiones][msdn-rest-api-create-stream-analytics-job] de la [Biblioteca de referencia de API de REST de administración de Stream Analytics][stream.analytics.rest.api.reference].
+Para obtener información detallada sobre la estructura de archivos JSON y el contenido, consulte la sección [Creación de trabajo de Stream Analytics][msdn-rest-api-create-stream-analytics-job] de la [Biblioteca de referencia de API de REST de administración de Stream Analytics][stream.analytics.rest.api.reference].
 
 **Ejemplo 1**
 
@@ -271,7 +271,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell reemplaza la definición del trabajo de StreamingJob.
 
-### <a name="new-azurestreamanalyticsoutput-new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
+### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
 Crea una salida en un trabajo de Análisis de transmisiones o actualiza una salida existente.  
 
 El nombre de la salida puede especificarse en el archivo .JSON o en la línea de comandos. Si se especifican ambos, el nombre en la línea de comandos debe coincidir con el que aparece en el archivo.
@@ -280,7 +280,7 @@ Si especifica una salida que ya existe y no especifica el parámetro –Force, e
 
 Si especifica el parámetro –Force y el nombre de una salida existente, la salida se reemplazará sin pedir confirmación.
 
-Para obtener información detallada sobre la estructura de archivos JSON y el contenido, consulte la sección [Creación de salida (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] de la [Biblioteca de referencia de API de REST de administración de Stream Analytics][stream.analytics.rest.api.reference].
+Para obtener información detallada sobre la estructura de archivos JSON y el contenido, consulte la sección [Creación de salida (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] de la [Biblioteca de referencia de API de REST de adde Stream Analytics][stream.analytics.rest.api.reference].
 
 **Ejemplo 1**
 
@@ -306,7 +306,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell reemplaza la definición de "output" en el trabajo StreamingJob.
 
-### <a name="new-azurestreamanalyticstransformation-new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
+### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 Crea una transformación en un trabajo de Análisis de transmisiones o actualiza la transformación existente.
 
 El nombre de la transformación puede especificarse en el archivo .JSON o en la línea de comandos. Si se especifican ambos, el nombre en la línea de comandos debe coincidir con el que aparece en el archivo.
@@ -315,7 +315,7 @@ Si especifica una transformación que ya existe y no se especifica el parámetro
 
 Si especifica el parámetro –Force y el nombre de una transformación existente, la transformación se reemplazará sin pedir confirmación.
 
-Para obtener información detallada sobre la estructura de archivos JSON y el contenido, consulte la sección [Creación de transformación (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] de la [Biblioteca de referencia de API de REST de administración de Stream Analytics][stream.analytics.rest.api.reference].
+Para obtener información detallada sobre la estructura de archivos JSON y el contenido, consulte la sección [Creación de transformación ((Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] de la [Biblioteca de referencia de API de REST de administración de Stream Analytics][stream.analytics.rest.api.reference].
 
 **Ejemplo 1**
 
@@ -341,7 +341,7 @@ Azure PowerShell 1.0:
 
  Este comando de PowerShell reemplaza la definición de StreamingJobTransform en el trabajo StreamingJob.
 
-### <a name="remove-azurestreamanalyticsinput-remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
+### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
 Elimina de forma asincrónica una entrada específica desde un trabajo de Análisis de transmisiones en Microsoft Azure.  
 Si especifica el parámetro –Force, la entrada se eliminará sin confirmación.
 
@@ -357,7 +357,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell elimina la entrada EventStream en el trabajo StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsjob-remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
+### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 Elimina de forma asincrónica un trabajo específico de Análisis de transmisiones en Microsoft Azure.  
 Si especifica el parámetro –Force, el trabajo se eliminará sin confirmación.
 
@@ -373,7 +373,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell elimina el trabajo StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsoutput-remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
+### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
 Elimina de forma asincrónica un resultado concreto de un trabajo de Análisis de transmisiones en Microsoft Azure.  
 Si especifica el parámetro –Force, la salida se eliminará sin confirmación.
 
@@ -389,7 +389,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell elimina la salida Output en el trabajo StreamingJob.  
 
-### <a name="start-azurestreamanalyticsjob-start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
+### <a name="start-azurestreamanalyticsjob--start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
 Implementa e inicia un trabajo de Análisis de transmisiones de Microsoft Azure de forma asincrónica.
 
 **Ejemplo 1**
@@ -404,7 +404,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell inicia el trabajo StreamingJob con una hora de inicio de salida personalizada establecida en el 12 de diciembre de 2012, 12:12:12 UTC.
 
-### <a name="stop-azurestreamanalyticsjob-stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
+### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
 Detiene la ejecución de un trabajo de Análisis de transmisiones en Microsoft Azure y desasigna recursos que se usaban de forma asincrónica. La definición del trabajo y los metadatos seguirán estando disponible en su suscripción a través de Azure Portal y de las API de administración, para que el trabajo se pueda editar y reiniciar. No se realizará ningún cobro por un trabajo en estado Detenido.
 
 **Ejemplo 1**
@@ -419,7 +419,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell detiene el trabajo StreamingJob.  
 
-### <a name="test-azurestreamanalyticsinput-test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
+### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
 Comprueba la capacidad de Análisis de transmisiones para conectarse a una entrada especificada.
 
 **Ejemplo 1**
@@ -434,7 +434,7 @@ Azure PowerShell 1.0:
 
 Este comando de PowerShell comprueba el estado de conexión de la entrada EntryStream en StreamingJob.  
 
-### <a name="test-azurestreamanalyticsoutput-test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
 Comprueba la capacidad de Análisis de transmisiones para conectarse a una salida especificada.
 
 **Ejemplo 1**
@@ -476,6 +476,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

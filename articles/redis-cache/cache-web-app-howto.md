@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/19/2016
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
-ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Si tiene Visual Studio 2013, puede [descargar el último SDK de Azure para Visua
 
 ## <a name="create-the-visual-studio-project"></a>Creación del proyecto de Visual Studio
 1. Abra Visual Studio y haga clic en **Archivo**, **Nuevo**, **Proyecto**.
-2. Expanda el nodo **Visual C#** en la lista **Plantillas**, seleccione **Nube** y haga clic en **Aplicación web ASP.NET**. Asegúrese de que se selecciona **.NET Framework 4.5.2** .  Escriba **ContosoTeamStats** en el cuadro de texto **Nombre** y haga clic en **Aceptar**.
+2. Expanda el nodo **Visual C#** en la lista **Plantillas**, seleccione **Nube** y haga clic en **Aplicación web ASP.NET**. Asegúrese de que se selecciona **.NET Framework 4.5.2** o superior.  Escriba **ContosoTeamStats** en el cuadro de texto **Nombre** y haga clic en **Aceptar**.
    
     ![Crear proyecto][cache-create-project]
 3. Seleccione **MVC** como tipo de proyecto. Desactive la casilla **Host en la nube** . En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web del Servicio de aplicaciones desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
@@ -804,7 +804,7 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [introducción a ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) en el sitio de [ASP.NET](http://asp.net/).
-* Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración[](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)HealthClinic.biz 2015 Connect](https://github.com/Microsoft/HealthClinic.biz).
+* Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
   * Para ver más guías rápidas de la demostración de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Más información sobre el enfoque [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542) en Entity Framework que se utiliza en este tutorial.
 * Más información sobre las [aplicaciones web del Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md).
@@ -852,6 +852,6 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

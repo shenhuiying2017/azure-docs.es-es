@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e20618b60f8bb517618a994cdb5c2fde18c10e43
+ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
+ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
 
 
 ---
@@ -64,14 +64,6 @@ Si desea usar el almacenamiento de blobs de Azure para hospedar el contenido de 
 6. Asigne un **Nombre** al contenedor (por ejemplo, "b2c") y seleccione **Blob** como **Tipo de acceso**. Haga clic en **Aceptar**.
 7. El contenedor que creó aparecerá en la lista de la hoja **Blobs** . Anote la dirección URL del contenedor; por ejemplo, debería ser similar a `https://contoso.blob.core.windows.net/b2c`. Cierre la hoja **Blobs** .
 8. En la hoja de la cuenta de almacenamiento, haga clic en **Claves** y anote los valores de los campos **Nombre de la cuenta de almacenamiento** y **Clave de acceso primaria**.
-9. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-10. Haga clic en **+ Nuevo** > **Datos y almacenamiento** > **Cuenta de almacenamiento**. Necesitará una suscripción de Azure para crear una cuenta de Almacenamiento de blobs de Azure. Puede registrarse para obtener una evaluación gratuita en el [sitio web de Azure](https://azure.microsoft.com/pricing/free-trial/).
-11. Seleccione **Blob Storage** en **Tipo de cuenta** y deje las restantes opciones con su valor predeterminado.  Puede editar los valores de Grupo de recursos y Ubicación si lo desea.  Haga clic en **Crear**.
-12. Regrese al panel de inicio y haga clic en la cuenta de almacenamiento que acaba de crear.
-13. En la sección **Resumen**, haga clic en **+Contenedor**.
-14. Asigne un **Nombre** al contenedor (por ejemplo, "b2c") y seleccione **Blob** como **Tipo de acceso**. Haga clic en **OK**.
-15. Abra las **propiedades** del contenedor y anote la dirección URL del contenedor; será similar a `https://contoso.blob.core.windows.net/b2c`. Cierre la hoja del contenedor.
-16. En la hoja de la cuenta de almacenamiento, haga clic en el **icono de llave** y anote los valores de los campos **Nombre de la cuenta de almacenamiento** y **Clave de acceso primaria**.
 
 > [!NOTE]
 > **Clave de acceso primaria** es una credencial de seguridad importante.
@@ -98,6 +90,6 @@ Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para volve
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

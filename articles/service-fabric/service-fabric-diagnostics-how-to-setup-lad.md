@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/28/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
 > 
 > 
 
-Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas, ya estén en sus servicios, sus aplicaciones o en el propio clúster. Uno de los métodos para cargar y recopilar registros es usar la extensión de Diagnósticos de Azure que carga los registros en Almacenamiento de Azure. Puede leer los eventos desde el almacenamiento y colocarlos en un producto como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) u otra solución de análisis de registro.
+Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas, ya estén en sus servicios, sus aplicaciones o en el propio clúster. Uno de los métodos para cargar y recopilar registros es usar la extensión de Diagnósticos de Azure, que carga registros en Azure Storage, Azure Application Insights o Azure Event Hubs. También puede leer los eventos de almacenamiento o Event Hubs y colocarlos en un producto como [Log Analytics](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registro. [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) tiene integrado un servicio de análisis y búsqueda de registros integral.
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Orígenes de registros que puede recopilar
 * **Registros de Service Fabric:** emitidos por la plataforma mediante [LTTng](http://lttng.org) y cargados en la cuenta de almacenamiento. Los registros pueden ser eventos operativos o eventos de tiempo de ejecución que la plataforma emite. Estos registros se almacenan en la ubicación que el manifiesto de clúster especifica. (Para obtener los detalles de la cuenta de almacenamiento, busque la etiqueta **AzureTableWinFabETWQueryable** y busque **StoreConnectionString**).
@@ -52,6 +52,6 @@ Compruebe la [documentación de LTTng](http://lttng.org/docs) y el [uso de LAD](
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

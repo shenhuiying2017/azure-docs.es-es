@@ -1,7 +1,7 @@
 ---
-title: 'Las cinco preguntas de la ciencia de datos: Ciencia de datos para principiantes | Microsoft Docs'
+title: 'Las cinco preguntas de la ciencia de datos: Ciencia de datos para principiantes (Azure) | Microsoft Docs'
 description: "Obtenga una introducción rápida a la ciencia de datos en Ciencia de datos para principiantes, cinco vídeos breves que comienzan con Las cinco preguntas a las que responde la ciencia de datos."
-keywords: "realizar ciencia de datos,ciencia de datos para principiantes,tipos de preguntas, preguntas de ciencia de datos,vídeo de ciencia de datos"
+keywords: "realizar ciencia de datos,ciencia de datos para principiantes,aspectos básicos de ciencia de datos,preguntas de ciencia de datos,vídeo de ciencia de datos, introducción a la ciencia de datos"
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
+ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
+ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
 
 
 ---
@@ -27,8 +27,8 @@ Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de 
 Este primer vídeo trata de los tipos de preguntas que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Otros vídeos de la serie
 *Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos de aproximadamente 25 minutos en total. Vea los cuatro vídeos:
@@ -55,7 +55,7 @@ Puede sorprenderle, pero *solo hay cinco preguntas a las que responde la ciencia
 * ¿Cuánto? o ¿cuántos?
 * ¿Cómo está organizado?
 * ¿Qué debo hacer a continuación?
-  
+
   Cada una de estas preguntas se responde mediante una familia de métodos de aprendizaje automático independientes, denominados algoritmos.
 
 Resulta útil pensar en un algoritmo como una receta y los datos como los ingredientes. Un algoritmo indica cómo combinar y mezclar los datos para obtener una respuesta. Los equipos son similares a una batidora. Llevan a cabo una gran parte del trabajo duro del algoritmo y lo hacen bastante rápido.
@@ -143,7 +143,6 @@ Eso es todo: las cinco preguntas a las que puede responder la ciencia de datos.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/03/2017
 ms.author: andrela
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c66726e199e897b08825798031caf20de181d5a1
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: cbd13711911b67ace7ef43676b4c52aa93744bcb
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: c66726e199e897b08825798031caf20de181d5a1
 En este tema se muestra cómo conectarse a una base de datos SQL de Azure y consultarla mediante Ruby. Puede ejecutar esta muestra desde las plataformas Windows, Ubuntu Linux o Mac.
 
 ## <a name="step-1-configure-development-environment"></a>Paso 1: Configuración del entorno de desarrollo
-[Requisitos previos para usar el controlador de Ruby TinyTDS para SQL Server](https://msdn.microsoft.com/library/mt711041.aspx)
+[Requisitos previos para usar el controlador de Ruby TinyTDS para SQL Server](https://docs.microsoft.com/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/)
 
 ## <a name="step-2-create-a-sql-database"></a>Paso 2: Creación de una base de datos SQL
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo.  Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
@@ -36,11 +36,11 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 [!INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 ## <a name="step-4-run-sample-code"></a>Paso 4: ejecución de código de muestra
-[Proof of Concept connecting to SQL using Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
+[Proof of Concept connecting to SQL using Ruby](https://docs.microsoft.com/sql/connect/ruby/step-3-proof-of-concept-connecting-to-sql-using-ruby/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
-* Puede encontrar más información en [Microsoft Ruby Driver para SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
+* Puede encontrar más información en [Microsoft Ruby Driver para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
@@ -49,6 +49,6 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

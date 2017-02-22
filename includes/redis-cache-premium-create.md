@@ -1,9 +1,9 @@
-Para crear una caché premium, inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Nuevo** > **Datos y almacenamiento** > **Caché en Redis**.
+Para crear una caché premium, inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Nuevo** > **Bases de datos** > **Redis Cache**.
 
 ![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure. Para obtener más información, consulte [Creación de una caché](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure. Para más información sobre cómo crear una instancia de Azure Redis Cache, consulte [Creación de una caché](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 
@@ -13,6 +13,6 @@ Para configurar las características premium, primero seleccione uno de los plan
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

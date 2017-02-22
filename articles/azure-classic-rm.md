@@ -7,6 +7,7 @@ author: telmosampaio
 manager: carmonm
 editor: 
 tags: azure-resource-manager,azure-service-management
+redirect_url: ./azure-resource-manager/resource-manager-deployment-model
 ms.assetid: 18a235d8-38ac-4886-9e56-b3855c73ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -16,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b08630777e9cb66e3baae24ad9befc93a47e65db
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 0843651c8fcddbc171bb485ce9c96b53b170881d
 
 
 ---
@@ -54,7 +55,7 @@ Azure tiene dos portales:
 Algunos recursos y características solo se pueden crear y configurar en un portal o en el otro. Algunos recursos o características (todavía) no se pueden crear ni configurar en ninguno de los portales, solo pueden configurarse con PowerShell, la CLI o ambos. La documentación sobre cada recurso de Azure describe detalladamente el método con el que se puede crear. 
 
 ## <a name="powershell"></a>PowerShell
-Con [PowerShell](powershell-install-configure.md) puede usar una línea de comandos o crear scripts para crear y configurar recursos de Azure desde un equipo Windows.  Cada uno de los recursos de Azure tiene [cmdlets de Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), [cmdlets de Service Management](https://msdn.microsoft.com/library/azure/dn708504.aspx) o ambos.  Algunos recursos y características solo se pueden crear y configurar con PowerShell o la CLI. Según el recurso, al usar cmdlets de PowerShell del Administrador de recursos puede tener dos opciones para crear y configurar recursos de Azure:
+Con [PowerShell](/powershell/azureps-cmdlets-docs) puede usar una línea de comandos o crear scripts para crear y configurar recursos de Azure desde un equipo Windows.  Cada uno de los recursos de Azure tiene [cmdlets de Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), [cmdlets de Service Management](https://msdn.microsoft.com/library/azure/dn708504.aspx) o ambos.  Algunos recursos y características solo se pueden crear y configurar con PowerShell o la CLI. Según el recurso, al usar cmdlets de PowerShell del Administrador de recursos puede tener dos opciones para crear y configurar recursos de Azure:
 
 * **Solo cmdlets de PowerShell:** puede crear y configurar cada recurso de Azure individualmente con los cmdlets para cada recurso. Puede hacerlo desde una línea de comandos o mediante la inclusión de varios comandos en un script de PowerShell que puede almacenar y modificar para crear versiones.
 * **Cmdlets de PowerShell con una plantilla del Administrador de recursos de Azure:** puede usar PowerShell para crear recursos de Azure con una plantilla del Administrador de recursos de Azure. Las plantillas se pueden guardar y modificar para crear versiones. Lea el artículo [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md) para obtener más información. Existen varias [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para soluciones comunes que también se pueden descargar y modificar.
@@ -69,6 +70,6 @@ Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

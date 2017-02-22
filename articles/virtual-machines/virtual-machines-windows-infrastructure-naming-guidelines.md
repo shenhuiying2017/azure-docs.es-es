@@ -1,5 +1,5 @@
 ---
-title: Directrices de nomenclatura de la infraestructura | Microsoft Docs
+title: 'Directrices de nomenclatura de la infraestructura de Azure: Windows| Microsoft Docs'
 description: "Obtenga información sobre las directrices clave de diseño e implementación para asignar nombres a los servicios de infraestructura de Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ad6e170a52d29cb85ec6de57a39f08b30c25b03
+ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
+ms.openlocfilehash: 866265bfa2eb7bcfebd8c73e14d3344a150aaf09
 
 
 ---
-# <a name="infrastructure-naming-guidelines"></a>Infrastructure naming guidelines (Directrices de nomenclatura de la infraestructura)
+# <a name="azure-infrastructure-naming-guidelines"></a>Directrices de nomenclatura de la infraestructura de Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artículo se centra en describir cómo enfocar convenciones de nomenclatura para todos sus diversos recursos de Azure a fin de crear un conjunto de recursos lógico y fácilmente identificable en su entorno.
@@ -42,10 +42,10 @@ Debe existir una buena convención de nomenclatura antes de crear cualquier elem
 
 Puede seguir un conjunto específico de convenciones de nomenclatura definidas para toda la organización, o bien para una suscripción o cuenta específica de Azure. Aunque es fácil para las personas de una organización establecer reglas implícitas al trabajar con recursos de Azure, cuando un equipo necesita trabajar en un proyecto en Azure ese modelo no se adapta bien.
 
-Debe acordar por adelantado el conjunto de convenciones de nomenclatura. Existen algunas consideraciones sobre las convenciones de nomenclatura que trascienden los conjuntos de reglas.
+Debe acordar por adelantado el conjunto de convenciones de nomenclatura. Existen algunas consideraciones sobre las convenciones de nomenclatura que trascienden estos conjuntos de reglas.
 
 ## <a name="affixes"></a>Afijos
-A medida que se dispone a definir una convención de nomenclatura, se toma una decisión sobre si el afijo estará:
+A medida que se dispone a definir una convención de nomenclatura, se toma una decisión sobre si el afijo está:
 
 * Al principio del nombre (prefijo)
 * Al final del nombre (sufijo)
@@ -95,7 +95,7 @@ En los casos en que una máquina virtual se crea a partir de un archivo de image
 Se recomienda que el nombre de la máquina virtual de Azure sea el mismo que el del equipo del sistema operativo subyacente.
 
 ## <a name="storage-account-names"></a>Nombres de cuentas de almacenamiento
-Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. Sólo puede utilizar minúsculas y números. Para obtener más información, vea [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) . Además, el nombre de la cuenta de almacenamiento, en combinación con core.windows.net, debe ser un nombre DNS único y válido globalmente. Por ejemplo, si la cuenta de almacenamiento se llama mystorageaccount, los siguientes nombres DNS deben ser únicos:
+Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. Sólo puede utilizar minúsculas y números. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account). Además, el nombre de la cuenta de almacenamiento, en combinación con core.windows.net, debe ser un nombre DNS único y válido globalmente. Por ejemplo, si la cuenta de almacenamiento se llama mystorageaccount, los siguientes nombres DNS deben ser únicos:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
@@ -107,6 +107,6 @@ Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

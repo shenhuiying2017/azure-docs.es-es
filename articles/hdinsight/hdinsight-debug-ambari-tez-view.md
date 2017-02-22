@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1099d742e555bcc7b7730409c85c10778967678
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 0c288989a2b1662bcbec6fd2c74dffaefedc82b8
 
 
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar vistas de Ambari para depurar trabajos de Tez en HDInsight
 La interfaz de usuario web de Ambari para HDInsight contiene una vista de Tez que puede usarse para comprender y depurar los trabajos que usan Tez como motor de ejecución. La vista de Tez permite visualizar el trabajo como un gráfico de elementos conectados, profundizar en cada elemento y recuperar las estadísticas y la información de registro.
 
-> [!NOTE]
-> La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre la depuración de trabajos de Tez con HDInsight basado en Windows, consulte [Use the Tez UI to debug Tez jobs on Windows-based HDInsight](hdinsight-debug-tez-ui.md)(Usar la interfaz de usuario de Tez para depurar trabajos de Tez en HDInsight basado en Windows).
-> 
-> 
+> [!IMPORTANT]
+> Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Un clúster de HDInsight basado en Linux Para obtener información sobre cómo crear un clúster, consulte [Introducción al uso de HDInsight basado en Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
@@ -133,6 +131,6 @@ Para obtener más información sobre el uso de Ambari con HDInsight, consulte [A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -118,7 +118,7 @@ El mensaje contiene un objeto JSON denominado "accept", que define las siguiente
 * **connectHeaders**: todos los encabezados HTTP que ha suministrado el remitente al punto de conexión de Relay, que también incluyen los encabezados Sec-WebSocket-Protocol y Sec-WebSocket-Extensions.
 
 #### <a name="accept-message"></a>Mensaje accept
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -149,7 +149,7 @@ La URL debe utilizarse tal cual para establecer el socket de aceptación, pero d
 | Parámetro | Obligatorio | Descripción |
 | --- | --- | --- |
 | sb-hc-action |yes |Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=accept`. |
-| {path} |yes |(vea el párrafo siguiente) |
+| {path} |Sí |(vea el párrafo siguiente) |
 | sb-hc-id |No |Vea la descripción anterior del **identificador**. |
 
 `{path}` es la ruta de acceso del espacio de nombres codificado para la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija. 
@@ -201,7 +201,7 @@ Cuando el token del agente de escucha está a punto de expirar, puede reemplazar
 * **token**: un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **escucha**.
 
 #### <a name="renewtoken-message"></a>Mensaje renewToken
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -231,7 +231,7 @@ Las opciones de los parámetros de cadena de consulta son las siguientes:
 
 | Parámetro | ¿Necesario? | Descripción |
 | --- | --- | --- |
-| sb-hc-action |Sí |Para el rol de agente de escucha, el parámetro tiene que ser `action=connect`. |
+| sb-hc-action |Sí |Para el rol de remitente, el parámetro tiene que ser `action=connect`. |
 | {path} |Sí |(vea el párrafo siguiente) |
 | sb-hc-token |Sí\* |El agente de escucha necesita proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **envío**. |
 | sb-hc-id |No |Un id. opcional que permite realizar el seguimiento de diagnóstico completo y que puede usarlo el agente de escucha durante el protocolo de enlace de aceptación. |
@@ -271,6 +271,6 @@ Si el servicio cierra intencionadamente la conexión de socket web después de h
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

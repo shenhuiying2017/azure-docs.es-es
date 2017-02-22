@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: 2734e28cf078cb692d5132a0fe3736a3fd10e899
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
 
 
 ---
@@ -35,7 +35,7 @@ Si está respondiendo a un usuario que solicita un restablecimiento de contrase�
 4. En el cuadro de diálogo Restablecer contraseña, haga clic en **Restablecer**.
 5. Seleccione la marca de verificación para finalizar el restablecimiento de la contraseña.
 
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Adición de nuevos usuarios a Azure Active Directory](active-directory-create-users.md)
 * [Administración de Azure AD](active-directory-administer.md)
 * [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)
@@ -43,6 +43,6 @@ Si está respondiendo a un usuario que solicita un restablecimiento de contrase�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

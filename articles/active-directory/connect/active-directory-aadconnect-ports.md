@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: puertos | Microsoft Docs'
+title: "La identidad híbrida requería puertos y protocolos - Azure | Microsoft Docs"
 description: "Esta página es una página de referencia técnica para puertos que deben estar abiertos para Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 954c3d138b0fde54c1866135a20f0fc5ff05b85d
+ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
+ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 
 
 ---
@@ -77,9 +77,9 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 |Protocolo|Número de puerto|Descripción
 | --- | --- | ---
 |HTTP|80|Habilita el tráfico HTTP saliente para la validación de seguridad, como SSL.
-|HTTPS|443| Habilita la autenticación de usuario en Azure AD.
-|HTTPS|10100–10120| Habilita las respuestas del conector a Azure AD. 
-|Azure Service Bus|9352, 5671|  Habilita la comunicación entre el conector hacia el servicio de Azure para las solicitudes entrantes
+|HTTPS|443|    Habilita la autenticación de usuario en Azure AD.
+|HTTPS|10100–10120|    Habilita las respuestas del conector a Azure AD. 
+|Azure Service Bus|9352, 5671|    Habilita la comunicación entre el conector hacia el servicio de Azure para las solicitudes entrantes
 |HTTPS|9350|    Opcional; posibilita un mejor rendimiento de las solicitudes entrantes.
 |HTTPS|8080/443|    Habilita la secuencia de arranque del conector y la actualización automática del conector
 |HTTPS|9090|    Habilita el registro de conector (solo es necesario para el proceso de registro del conector)
@@ -102,6 +102,6 @@ Para ver una lista de puntos de conexión, consulte [la sección de requisitos p
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

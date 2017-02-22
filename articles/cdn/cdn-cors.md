@@ -3,7 +3,7 @@ title: Uso de la red CDN de Azure con CORS | Microsoft Docs
 description: "Descubra cómo usar la red de entrega de contenido (CDN) de Azure con el Uso compartido de recursos entre orígenes (CORS)."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
@@ -12,33 +12,47 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e4f7e947ab3e9ee67224edc9cad07d82524af2b7
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
 
 
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de la red CDN de Azure con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
-CORS (Uso compartido de recursos entre orígenes) es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Para reducir la posibilidad de ataques de scripts de sitios, todos los exploradores web modernos implementan una restricción de seguridad que se conoce como [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Esto impide que una página web llame a las API de un dominio distinto.  CORS aporta un modo seguro de permitir que un dominio (el dominio de origen) llame a las API de otro dominio.
+CORS (Uso compartido de recursos entre orígenes) es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Para reducir la posibilidad de ataques de scripts de sitios, todos los exploradores web modernos implementan una restricción de seguridad que se conoce como [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Esto impide que una página web llame a las API de un dominio distinto.  CORS aporta un modo seguro de permitir que un origen (el dominio de origen) llame a las API de otro origen.
 
 ## <a name="how-it-works"></a>Cómo funciona
-1. El explorador envía la solicitud OPTIONS con un encabezado HTTP **Origin** . El valor de este encabezado es el dominio del que proviene la página primaria. Cuando una página de https://www.contoso.com intenta acceder a datos de un usuario en el dominio fabrikam.com, se envía el siguiente encabezado de solicitud a fabrikam.com: 
-   
+Hay dos tipos de solicitudes de CORS, *solicitudes sencillas* y *solicitudes complejas.*
+
+### <a name="for-simple-requests"></a>Para solicitudes sencillas:
+
+1. El explorador envía la solicitud de CORS con un encabezado de solicitud HTTP de **origen** adicional. El valor de este encabezado es el origen del que proviene la página primaria, que se define como la combinación de *protocolo,* *dominio,* y *puerto.*  Cuando una página de https://www.contoso.com intenta acceder a datos de un usuario en el origen fabrikam.com, se envía el siguiente encabezado de solicitud a fabrikam.com:
+
    `Origin: https://www.contoso.com`
+
 2. El servidor puede responder con lo siguiente:
-   
+
    * Un encabezado **Access-Control-Allow-Origin** en la respuesta, que indica cuál de los sitios de origen se permite. Por ejemplo:
-     
+
      `Access-Control-Allow-Origin: https://www.contoso.com`
-   * Una página de error si el servidor no admite la solicitud de origen cruzado.
+
+   * Un código de error HTTP como el 403 si el servidor no permite la solicitud de origen cruzado después de comprobar el encabezado de origen
+
    * Un encabezado **Access-Control-Allow-Origin** con un carácter comodín que permite todos los dominios:
-     
+
      `Access-Control-Allow-Origin: *`
 
-En el caso de las solicitudes HTTP complejas, se efectúa una solicitud "previa" primero para determinar si se cuenta con permisos antes de enviar la solicitud completa.
+### <a name="for-complex-requests"></a>Para solicitudes complejas:
+
+Una solicitud compleja es una solicitud de CORS en la que es necesario que el explorador envíe una *solicitud preparatoria* (es decir, un sondeo preliminar) antes de enviar la solicitud de CORS real. La solicitud preparatoria solicita el permiso de servidor si la solicitud de CORS original puede continuar y es una solicitud `OPTIONS` a la misma dirección URL.
+
+> [!TIP]
+> Para obtener más detalles sobre los flujos de CORS y los errores comunes, consulte la [guía de CORS para las API de REST](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
+>
+>
 
 ## <a name="wildcard-or-single-origin-scenarios"></a>Escenarios de origen único o carácter comodín
 En la red CDN de Azure, CORS funcionará automáticamente sin ninguna configuración adicional, cuando el encabezado **Access-Control-Allow-Origin** esté establecido en un carácter comodín (*) o en un solo origen.  La red CDN copiará en caché la primera respuesta, y las solicitudes siguientes usarán el mismo encabezado.
@@ -85,6 +99,6 @@ En los perfiles estándar de la red CDN de Azure, el único mecanismo para permi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

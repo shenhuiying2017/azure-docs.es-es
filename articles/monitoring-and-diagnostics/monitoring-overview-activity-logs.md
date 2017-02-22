@@ -12,22 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 1/27/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
+ms.sourcegitcommit: 6b6ec7c3f915b249e735a81d964bbd23ba3f2818
+ms.openlocfilehash: 5f6e7fcb4ea4185ef2f1b5ea0275388641c561e9
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Información general sobre el registro de actividad de Azure
-El **registro de actividad de Azure** es un registro que proporciona información sobre las operaciones realizadas en recursos de su suscripción. El registro de actividad se conocía antes como "Registros de auditoría" o "Registros operativos", ya que notifica eventos del plano de control para las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET).
+El **registro de actividad de Azure** es un registro que proporciona información sobre las operaciones realizadas en recursos de su suscripción. El registro de actividad se conocía antes como "Registros de auditoría" o "Registros operativos", ya que notifica eventos del plano de control para las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las de los recursos que usan el modelo Clásico/"RDFE".
 
 El registro de actividad se diferencia de los [registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md)en que estos últimos son emitidos por un solo recurso. Estos registros proporcionan datos sobre el funcionamiento de ese recurso, en lugar de las operaciones en ese recurso.
 
 Puede recuperar los eventos del registro de actividad mediante Azure Portal, la CLI, los cmdlets de PowerShell y la API de REST de Azure Monitor.
 
 Vea este vídeo [sobre la introducción del registro de actividad](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
+
+> [!WARNING]
+> El registro de actividad de Azure sirve principalmente para las actividades que se producen en Azure Resource Manager, no para las que utilizan el modelo Clásico/RDFE. Tenga en cuenta que algunos tipos de recursos clásicos tienen un proveedor de recursos de servidor proxy en Azure Resource Manager (p. ej., Microsoft.ClassicCompute). Si un usuario interactúa con un tipo de recurso clásico a través de Azure Resource Manager con estos proveedores de recursos de servidor proxy, las operaciones aparecerán en el registro de actividad. Si un usuario interactúa con un tipo de recurso clásico en el portal clásico o fuera de los servidores proxy de Azure Resource Manager, las acciones del usuario solo se grabarán en el registro de operaciones, al que solo se puede acceder desde el portal clásico.
+>
+>
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Qué se puede hacer con el registro de actividad
 Estas son algunas de las cosas que puede hacer con el registro de actividad:
@@ -239,6 +244,6 @@ Cada evento del registro de actividad tiene un blob JSON similar al siguiente:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

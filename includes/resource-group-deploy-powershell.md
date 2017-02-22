@@ -1,4 +1,4 @@
-## Implementación con PowerShell
+## <a name="how-to-deploy-with-powershell"></a>Implementación con PowerShell
 1. Inicie sesión en su cuenta de Azure.
    
           Add-AzureAccount
@@ -31,7 +31,7 @@
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 5. Para crear una implementación nueva para el grupo de recursos, ejecute el comando **New-AzureResourceGroupDeployment** y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario. 
    
-   Tiene las opciones siguientes para proporcionar valores de parámetro:
+   Tiene las opciones siguientes para proporcionar valores de parámetro: 
    
    * Use parámetros en línea.
      
@@ -59,4 +59,8 @@
    
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

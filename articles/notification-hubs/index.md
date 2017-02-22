@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentación sobre Azure Notification Hubs: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a enviar notificaciones push desde cualquier servidor back-end a cualquier dispositivo móvil con Notification Hubs. Tutoriales, referencias de API y otra documentación."
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
+ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
+ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
 
 ---
+
 #<a name="notification-hubs-documentation"></a>Documentación de Notification Hubs
 
 Aprenda a usar Notification Hubs, un motor de notificaciones push multiplataforma y escalable, para enviar rápidamente millones de mensajes. Los tutoriales, las referencias de API y otra documentación muestran cómo configurar y enviar notificaciones push desde servidores back-end a cualquier dispositivo móvil. 
@@ -205,6 +217,6 @@ Aprenda a usar Notification Hubs, un motor de notificaciones push multiplataform
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2016
+ms.date: 01/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6ec1e341bc87475251161521e808dcbb821c2939
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 240ae97458747099bde6807bf13e0ce6fd9452d1
 
 
 ---
@@ -24,6 +24,10 @@ ms.openlocfilehash: 6ec1e341bc87475251161521e808dcbb821c2939
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
 
 Los componentes de Service Fabric usan este modelo de mantenimiento avanzado para informar de su estado actual. Este mismo mecanismo puede usar para informar del mantenimiento de las aplicaciones. Si invierte en informes sobre el mantenimiento de alta calidad, que capturan sus condiciones personalizadas, puede detectar y corregir problemas de la aplicación en ejecución mucho más fácilmente.
+
+En el siguiente vídeo de Microsoft Virtual Academy también se describe el modelo de estado de Service Fabric y cómo se utiliza: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 > [!NOTE]
 > El subsistema de mantenimiento se inició para cubrir la necesidad de actualizaciones supervisadas. Service Fabric proporciona actualizaciones supervisadas de clúster y de aplicación, que garantizan una disponibilidad completa, sin tiempo de inactividad y con una intervención del usuario mínima o nula. Para lograr estos objetivos, la actualización comprueba el mantenimiento según las directivas de actualización configuradas y solo permite que la actualización continúe cuando dicho mantenimiento respeta los umbrales deseados. De lo contrario, la actualización se revierte automáticamente o se pausa para ofrecer a los administradores una oportunidad de solucionar los problemas. Para más información sobre la actualización de aplicaciones, consulte [este artículo](service-fabric-application-upgrade.md).
@@ -41,7 +45,7 @@ Las entidades de mantenimiento son un reflejo las entidades de Service Fabric (p
 Las entidades de mantenimiento y la jerarquía permiten depurar, supervisar y realizar informes tanto del clúster como de las aplicaciones. El modelo de mantenimiento proporciona una representación *pormenorizada* y precisa del mantenimiento de las numerosas piezas móviles del clúster.
 
 ![Entidades de mantenimiento.][1]
- Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
+Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -318,6 +322,6 @@ El modelo de mantenimiento se usa mucho para la supervisión y el diagnóstico, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

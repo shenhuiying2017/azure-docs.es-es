@@ -4,7 +4,7 @@ description: "Consideraciones importantes al planear la realización de copias d
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "copias de seguridad de máquinas virtuales, realizar copias de seguridad de máquinas virtuales"
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.date: 12/08/2016
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: f61bba12edc94a55d781ced373d12e7ce4a09818
+ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
+ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
 
 
 ---
@@ -53,9 +53,9 @@ En esta tabla se describen los tipos de coherencia y las condiciones en las que 
 
 | Coherencia | Con base en VSS | Explicación y detalles |
 | --- | --- | --- |
-| Coherencia de las aplicaciones |Sí |Se trata del tipo de coherencia ideal para las cargas de trabajo de Microsoft ya que garantiza que:<ol><li> la máquina virtual *arranca*. <li>No hay *daños*. <li>No hay *pérdida de datos*.<li> Los datos son coherentes con la aplicación que usa los datos, implicando a la aplicación en el momento de realizar la copia de seguridad, mediante VSS.</ol>  La mayoría de cargas de trabajo de Microsoft tienen escritores VSS que realizan acciones específicas de carga de trabajo relacionadas con la coherencia de los datos. Por ejemplo, Microsoft SQL Server tiene un escritor VSS que garantiza que las escrituras en el archivo de registro de transacciones y en la base de datos se realizan correctamente.<br><br> En las copias de seguridad de máquina virtual de Azure, la obtención de un punto de recuperación coherente con la aplicación significa que la extensión de copia de seguridad pudo invocar el flujo de trabajo VSS y completarlo *correctamente* antes de que se tomase la instantánea de la máquina virtual. Naturalmente, esto significa que también se han invocado los escritores VSS de todas las aplicaciones de la máquina virtual de Azure.<br><br>(Aprenda los [conceptos básicos de VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) y profundice en los detalles de [cómo funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). |
-| Coherencia del sistema de archivos |Sí, para equipos basados en Windows |Hay dos escenarios en los que el punto de recuperación puede ser *coherente con el sistema de archivos*:<ul><li>Copias de seguridad de máquinas virtuales Linux en Azure, ya que Linux no tiene una plataforma equivalente a VSS.<li>Error de VSS durante la copia de seguridad de máquinas virtuales Windows en Azure.</li></ul> En ambos casos, lo mejor que se puede hacer es asegurarse de que: <ol><li> la máquina virtual *arranca*. <li>No hay *daños*.<li>No hay *pérdida de datos*.</ol>  Las aplicaciones deben implementar su propio mecanismo de "reparación" en los datos restaurados. |
-| Coherencia de bloqueos |No |Esta situación es equivalente a aquellos casos en que una máquina experimenta un "bloqueo" (a través de un restablecimiento parcial o completo). Esto suele ocurrir cuando la máquina virtual de Azure se apaga en el momento de realizar la copia de seguridad. En las copias de seguridad de máquina virtual de Azure, la obtención de un punto de recuperación coherente con el bloqueo significa que Copia de seguridad de Azure no ofrece ninguna garantía sobre la coherencia de los datos en el medio de almacenamiento, ni desde la perspectiva del sistema operativo ni desde la perspectiva de la aplicación. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. <br/> <br/>  Aunque no hay ninguna garantía, en la mayoría de los casos el sistema operativo se iniciará. Normalmente, esto va seguido de un procedimiento de comprobación de disco como chkdsk para corregir los errores por daños. Se perderán los datos o las escrituras en memoria que no se hayan vaciado completamente en el disco. Normalmente, la aplicación sigue con su propio mecanismo de comprobación en caso de que se deba realizar una reversión de datos. <br><br>Por ejemplo, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes. Cuando los datos se reparten en varios discos virtuales (por ejemplo, volúmenes distribuidos), un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la corrección de los datos. |
+| Coherencia de las aplicaciones |Sí |Se trata del tipo de coherencia ideal para las cargas de trabajo de Microsoft ya que garantiza que:<ol><li> la máquina virtual *arranca*. <li>No hay *daños*. <li>No hay *pérdida de datos*.<li> Los datos son coherentes con la aplicación que usa los datos, implicando a la aplicación en el momento de realizar la copia de seguridad, mediante VSS.</ol> La mayoría de cargas de trabajo de Microsoft tienen escritores VSS que realizan acciones específicas de carga de trabajo relacionadas con la coherencia de los datos. Por ejemplo, Microsoft SQL Server tiene un escritor VSS que garantiza que las escrituras en el archivo de registro de transacciones y en la base de datos se realizan correctamente.<br><br> En las copias de seguridad de máquina virtual de Azure, la obtención de un punto de recuperación coherente con la aplicación significa que la extensión de copia de seguridad pudo invocar el flujo de trabajo VSS y completarlo *correctamente* antes de que se tomase la instantánea de la máquina virtual. Naturalmente, esto significa que también se han invocado los escritores VSS de todas las aplicaciones de la máquina virtual de Azure.<br><br>(Aprenda los [conceptos básicos de VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) y profundice en los detalles de [cómo funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). |
+| Coherencia del sistema de archivos |Sí, para equipos basados en Windows |Hay dos escenarios en los que el punto de recuperación puede ser *coherente con el sistema de archivos*:<ul><li>Copias de seguridad de máquinas virtuales Linux en Azure, ya que Linux no tiene una plataforma equivalente a VSS.<li>Error de VSS durante la copia de seguridad de máquinas virtuales Windows en Azure.</li></ul> En ambos casos, lo mejor que se puede hacer es asegurarse de que: <ol><li> la máquina virtual *arranca*. <li>No hay *daños*.<li>No hay *pérdida de datos*.</ol> Las aplicaciones deben implementar su propio mecanismo de "reparación" en los datos restaurados. |
+| Coherencia de bloqueos |No |Esta situación es equivalente a aquellos casos en que una máquina experimenta un "bloqueo" (a través de un restablecimiento parcial o completo). Esto suele ocurrir cuando la máquina virtual de Azure se apaga en el momento de realizar la copia de seguridad. En las copias de seguridad de máquina virtual de Azure, la obtención de un punto de recuperación coherente con el bloqueo significa que Copia de seguridad de Azure no ofrece ninguna garantía sobre la coherencia de los datos en el medio de almacenamiento, ni desde la perspectiva del sistema operativo ni desde la perspectiva de la aplicación. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. <br/> <br/> Aunque no hay ninguna garantía, en la mayoría de los casos el sistema operativo se iniciará. Normalmente, esto va seguido de un procedimiento de comprobación de disco como chkdsk para corregir los errores por daños. Se perderán los datos o las escrituras en memoria que no se hayan vaciado completamente en el disco. Normalmente, la aplicación sigue con su propio mecanismo de comprobación en caso de que se deba realizar una reversión de datos. <br><br>Por ejemplo, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes. Cuando los datos se reparten en varios discos virtuales (por ejemplo, volúmenes distribuidos), un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la corrección de los datos. |
 
 ## <a name="performance-and-resource-utilization"></a>Rendimiento y uso de recursos
 Al igual que el software de copia de seguridad que se implementa de forma local, debe planear las necesidades de capacidad y utilización de recursos al realizar la copia de seguridad de máquinas virtuales en Azure. Los [límites de Almacenamiento de Azure](../azure-subscription-service-limits.md#storage-limits) definirán cómo se estructuran las implementaciones de máquinas virtuales para obtener un rendimiento máximo con un impacto mínimo en las cargas de trabajo en ejecución.
@@ -83,7 +83,7 @@ Para cada disco cuya copia de seguridad se realiza, Copia de seguridad de Azure 
 | Operación de copia de seguridad | Mejor rendimiento |
 | --- | --- |
 | Copia de seguridad inicial |160 Mbps |
-| Copia de seguridad incremental (DR) |640 Mbps  <br><br>  Este rendimiento puede reducirse considerablemente si hay mucha renovación de código dispersa en el disco del que es necesario hacer una copia de seguridad |
+| Copia de seguridad incremental (DR) |640 Mbps  <br><br> Este rendimiento puede reducirse considerablemente si hay mucha renovación de código dispersa en el disco del que es necesario hacer una copia de seguridad |
 
 ## <a name="total-vm-backup-time"></a>Tiempo total de copia de seguridad de máquinas virtuales
 Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar los datos, hay otras operaciones que contribuyen al tiempo total necesario para la copia de seguridad de una máquina virtual:
@@ -92,13 +92,18 @@ Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar lo
 * Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
 * Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad o de Servicios de recuperación podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
 
+## <a name="total-restore-time"></a>Tiempo total de restauración
+Una operación de restauración consta de dos tareas secundarias principales: copiar datos desde el almacén a la cuenta de almacenamiento del cliente seleccionada y crear la máquina virtual. La copia datos desde el almacén depende de dónde se almacenan internamente las copias de seguridad en Azure y donde se almacena la cuenta de almacenamiento del cliente. El tiempo necesario para copiar los datos depende de:
+* Tiempo de espera en cola: debido a que el servicio está procesando restauraciones desde varios clientes al mismo tiempo, las solicitudes de restauración se ponen en cola.
+* Tiempo de copia de datos: los datos se copian de forma similar al primer proceso de copia de seguridad desde el almacén a la cuenta de almacenamiento del cliente. Si se carga la cuenta de almacenamiento de cliente en la que el servicio de copia de seguridad necesita escribir datos desde el almacén, el tiempo de copiado puede aumentar. Por lo tanto, asegúrese de seleccionar una cuenta de almacenamiento que no se cargue con otras lecturas y escrituras de aplicación durante la restauración para optimizar el tiempo de copia.
+
 ## <a name="best-practices"></a>Prácticas recomendadas
 Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para máquinas virtuales:
 
-* No programe la copia de seguridad de más de cuatro máquinas virtuales clásicas desde el mismo servicio en la nube al mismo tiempo. Si quiere realizar la copia de seguridad de varias máquinas virtuales desde el mismo servicio en la nube, sugerimos escalonar las horas de inicio de cada una de ellas con una hora de diferencia.
-* No programa la copia de seguridad de más de 40 máquinas virtuales implementadas con Resource Manager al mismo tiempo.
+* No programe la copia de seguridad de más de 10 máquinas virtuales clásicas desde el mismo servicio en la nube al mismo tiempo. Si quiere realizar la copia de seguridad de varias máquinas virtuales desde el mismo servicio en la nube, sugerimos escalonar las horas de inicio de cada una de ellas con una hora de diferencia.
+* No programa la copia de seguridad de más de 40 máquinas virtuales implementadas al mismo tiempo.
 * Programe copias de seguridad de máquinas virtuales durante las horas de menos actividad, de forma que el servicio Copia de seguridad utilice IOPS para transferir datos de la cuenta de almacenamiento del cliente al almacén de copia de seguridad o de Servicios de recuperación.
-* Asegúrese de que una directiva distribuya las máquinas virtuales entre distintas cuentas de almacenamiento. Se recomienda que una sola directiva proteja hasta 20 discos como máximo de una única cuenta de almacenamiento. Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
+* Asegúrese de que una directiva se aplique en máquinas virtuales entre distintas cuentas de almacenamiento. Se recomienda que la misma programación de copia de seguridad proteja hasta 20 discos como máximo de una única cuenta de almacenamiento. Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
 * No restaure una máquina virtual que se ejecuta en almacenamiento Premium en la misma cuenta de almacenamiento. Si el proceso de la operación de restauración coincide con la operación de copia de seguridad, se reduce el número de IOPS disponible para copia de seguridad.
 * Se recomienda ejecutar cada máquina virtual Premium en una cuenta de almacenamiento Premium distinta para garantizar el rendimiento óptimo de las copias de seguridad.
 
@@ -136,6 +141,6 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

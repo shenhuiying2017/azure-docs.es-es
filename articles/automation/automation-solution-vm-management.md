@@ -4,7 +4,7 @@ description: "Las soluciones de administración de máquinas virtuales inician y
 services: automation
 documentationCenter: 
 authors: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 83b9f84ed017b4777b70777c653cc24ca19ab648
-ms.openlocfilehash: aadd8ec3d4d6d70c8ba7c28cd00fa21379b48929
+ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
+ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
 
 ---
 
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Inicio o detención de máquinas virtuales fuera de las horas de trabajo [versión preliminar] en Automation
 
-La solución de inicio y detención de máquinas virtuales fuera de las horas de trabajo (versión preliminar) inicia y detiene las máquinas virtuales de Azure Resource Manager y del modelo de implementación clásico, y proporciona información detallada sobre el éxito de los trabajos de Automation que inician y detienen las máquinas virtuales con Log Analytics de OMS.  
+La solución de inicio y detención de máquinas virtuales fuera de las horas de trabajo (versión preliminar) inicia y detiene las máquinas virtuales de Azure Resource Manager y proporciona información detallada sobre el éxito de los trabajos de Automation que inician y detienen las máquinas virtuales con Log Analytics de OMS.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -79,8 +79,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica la suscripción
 
 Schedule | Description|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Programación del Runbook StartByResourceGroup, que realiza el inicio de máquinas virtuales administradas por esta solución.|
-StopByResourceGroup-Schedule-MS-Mgmt | Programación del Runbook StopByResourceGroup, que realiza el cierre de las máquinas virtuales administradas por esta solución.|
+StartByResourceGroup-Schedule-MS-Mgmt | Programación del Runbook StartByResourceGroup, que realiza el inicio de máquinas virtuales administradas por esta solución. Cuando se crea, el valor predeterminado es la zona horaria UTC.|
+StopByResourceGroup-Schedule-MS-Mgmt | Programación del Runbook StopByResourceGroup, que realiza el cierre de las máquinas virtuales administradas por esta solución. Cuando se crea, el valor predeterminado es la zona horaria UTC.|
 
 ### <a name="credentials"></a>Credenciales
 
@@ -116,7 +116,7 @@ Realice los pasos siguientes para agregar la solución de inicio y detención de
 
 8. Por último, en la hoja **Agregar solución**, seleccione **Configuración** Aparece la hoja **Parámetros**.  En la hoja **Parámetros**, se le pide que:  
    - Especifique los **nombres de grupo de recursos de destino**, que es un nombre de grupo de recursos que contiene las máquinas virtuales que se administrarán mediante esta solución.  Puede especificar más de un nombre y separarlos con punto y coma (los valores distinguen mayúsculas de minúsculas).  Se puede usar un carácter comodín si quiere dirigirse a las máquinas virtuales de todos los grupos de recursos de la suscripción.
-   - Seleccione una **programación** que sea una fecha y una hora periódicas para iniciar y detener las máquinas virtuales en los grupos de recursos de destino.  
+   - Seleccione una **programación** que sea una fecha y una hora periódicas para iniciar y detener las máquinas virtuales en los grupos de recursos de destino.  De forma predeterminada, la programación se configura en la zona horaria UTC y no se podrá seleccionar una región diferente.  Si desea volver a configurar la programación de la zona horaria concreta después de configurar la solución, consulte el siguiente artículo [Modificación de la programación de inicio y apagado](#modifying-the-startup-and-shutdown-schedule).    
 
 10. Cuando haya completado la configuración de los valores iniciales necesarios para la solución, seleccione **Crear**.  Todas las configuraciones se validarán y se intentará implementar la solución en su suscripción.  Este proceso puede tardar varios segundos en completarse y puede realizar el seguimiento de su progreso en **Notificaciones** en el menú. 
 
@@ -247,6 +247,6 @@ No se eliminarán la cuenta de Automation ni el área de trabajo de OMS como par
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

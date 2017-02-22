@@ -1,6 +1,6 @@
 ---
-title: "Administración de conjuntos de registros y registros de DNS mediante Azure Portal | Microsoft Docs"
-description: "Administración de conjuntos de registros y registros de DNS al hospedar el dominio en DNS de Azure."
+title: "Administración del conjunto de registros de DNS y registros con Azure DNS | Microsoft Docs"
+description: Azure DNS proporciona la funcionalidad de administrar registros y conjuntos de registros de DNS al hospedar un dominio.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: db14074ba4f3b5b675f608b76c496c84f7c22945
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
 
 ---
 
@@ -105,11 +105,11 @@ Los registros NS y SOA creados automáticamente se administran de forma diferent
 
 ### <a name="modify-soa-records"></a>Modificación de registros SOA
 
-No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el ápice de zona (nombre = "@").), pero puede modificar cualquiera de los parámetros del registro SOA (excepto Host) y del TTL del conjunto de registros.
+No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el vértice de zona (nombre = "@"). Sin embargo, puede modificar cualquiera de los parámetros del registro SOA (excepto "Host") y del conjunto de registros TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificación de los registros NS en el vértice de zona
 
-No puede agregar, eliminar ni modificar los registros en el conjunto de registros NS creado automáticamente en el vértice de zona (nombre = "@").). El único cambio permitido es la modificación del TTL del conjunto de registros.
+No puede agregar, eliminar ni modificar los registros del conjunto de registros NS creado automáticamente en el vértice de zona (nombre = "@")). El único cambio permitido es la modificación del TTL del conjunto de registros.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminación de conjuntos de registros SOA o NS
 
@@ -123,6 +123,6 @@ No se pueden eliminar conjuntos de registros SOA ni NS en el vértice de zona (n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

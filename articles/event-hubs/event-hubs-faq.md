@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: a584086e459c5446a814bbca3e50ac343fa9201e
-ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
+ms.sourcegitcommit: fceb8f6c8f28e84eb8926586257cf39dc0cd14d4
+ms.openlocfilehash: 4977daeecd9e206906c2e0b3b95b63d4d55cb859
 
 
 ---
@@ -79,11 +79,15 @@ El soporte técnico para los Centros de eventos está disponible a través de lo
 
 Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) .
 
-## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre los Centros de eventos, consulte los siguientes artículos:
+## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-* [Información general sobre Event Hubs][Event Hubs overview].
-* Una [aplicación de ejemplo completa que usa Event Hubs][sample application that uses Event Hubs].
+Event Hubs admite dos tipos de [registros de diagnóstico](event-hubs-diagnostic-logs.md): los registros de errores de archivo y los registros operativos. Ambos, se representan en JSON y se pueden activar a través de Azure Portal.
+
+## <a name="next-steps"></a>Pasos siguientes
+Para más información acerca de Event Hubs, visite los vínculos siguientes:
+
+* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Creación de un Centro de eventos](event-hubs-create.md)
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -91,6 +95,6 @@ Para obtener más información sobre los Centros de eventos, consulte los siguie
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: c1c23ab46d9b4e43154a62080cb8865b246489f9
-ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a86b041424ce1757fd45c7a39350f4c4e66ee265
 
 
 ---
@@ -30,22 +30,13 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 >
 >
 
-Escale el rendimiento mediante el escalado horizontal de los recursos de proceso y la memoria para satisfacer las necesidades cambiantes de la carga de trabajo. Ahorre costes reduciendo el escalado de los recursos fuera de horas punta o pausando el proceso por completo.
-
-Esta colección de tareas usa el Portal de Azure para:
-
-* Escalado de proceso
-* Pausa del proceso
-* Reanudación del proceso
-
-Para más información, consulte el artículo de [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)][Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)].
 
 ## <a name="scale-compute-power"></a>Escalado de la potencia de proceso
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 Para cambiar los recursos de proceso:
 
-1. Abra [Portal de Azure][Portal de Azure] y la base de datos, y haga clic en **Escalar**.
+1. Abra [Azure Portal][Azure portal], abra la base de datos y haga clic en **Escalar**.
 
     ![Haga clic en Escala][1]
 2. En la hoja Escalar, mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
@@ -62,7 +53,7 @@ Para cambiar los recursos de proceso:
 
 Para pausar una base de datos:
 
-1. Abra [Portal de Azure][Portal de Azure] y la base de datos. Tenga en cuenta que el estado sea **En línea**.
+1. Abra [Azure Portal][Azure portal] y la base de datos. Tenga en cuenta que el estado sea **En línea**.
 
     ![Estado En línea][6]
 2. Para suspender los recursos de proceso y memoria, haga clic en **Pausar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
@@ -80,7 +71,7 @@ Para pausar una base de datos:
 
 Para reanudar una base de datos:
 
-1. Abra [Portal de Azure][Portal de Azure] y la base de datos. Tenga en cuenta que el estado sea **En pausa**.
+1. Abra [Azure Portal][Azure portal] y la base de datos. Tenga en cuenta que el estado sea **En pausa**.
 
     ![Base de datos de pausa][4]
 2. Para reanudar la base de datos, haga clic en **Iniciar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
@@ -94,7 +85,7 @@ Para reanudar una base de datos:
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, consulte el artículo de [Introducción a la administración][Introducción a la administración].
+Para más información, consulte [Introducción a la administración][Management overview].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -106,18 +97,18 @@ Para más información, consulte el artículo de [Introducción a la administrac
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Introducción a la administración]: ./sql-data-warehouse-overview-manage.md
-[Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[Portal de Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

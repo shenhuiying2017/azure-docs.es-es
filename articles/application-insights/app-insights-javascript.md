@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -44,7 +44,7 @@ Si no tiene uno, créelo:
 
 ![Seleccione Nuevo, Servicios para desarrolladores, Application Insights.](./media/app-insights-javascript/01-create.png)
 
-*¿Tiene ya alguna pregunta?* [Más información sobre cómo crear un recurso](app-insights-create-new-resource.md).
+*¿Tiene ya alguna pregunta?* [Creación de recursos en Application Insights](app-insights-create-new-resource.md).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Agregar el script de SDK a la aplicación o la página web
 En Inicio rápido, obtenga el script para páginas web:
@@ -129,17 +129,17 @@ El gráfico muestra el promedio de todas las cargas de páginas en la aplicació
 
 Observe que el recuento de vistas de página y la desviación estándar. Si el número de páginas es muy bajo, el problema no afecta mucho a los usuarios. Una desviación estándar alta (en comparación con el mismo promedio) indica mucha variación entre las mediciones individuales.
 
-**Amplíe la información de una dirección URL y una vista de página.**  Haga clic en cualquier nombre de página para ver una hoja de gráficos de explorador filtrada solo para esa dirección URL y, a continuación, en una instancia de una vista de página.
+**Amplíe la información de una dirección URL y una vista de página.** Haga clic en cualquier nombre de página para ver una hoja de gráficos de explorador filtrada solo para esa dirección URL y, a continuación, en una instancia de una vista de página.
 
 ![](./media/app-insights-javascript/35.png)
 
 Haga clic en `...` para obtener una lista completa de las propiedades del evento, o bien inspeccione las llamadas Ajax y los eventos relacionados. Las llamadas Ajax lentas afectan al tiempo total de carga de la página si son sincrónicas. Entre los eventos relacionados se incluyen las solicitudes del servidor para la misma dirección URL (si ha configurado Application Insights en el servidor web).
 
-**Evolución del rendimiento de la página en el tiempo.**  De nuevo en la hoja de exploradores, cambie la cuadrícula de tiempo de carga de la vista de página en un gráfico de líneas para ver si hay picos en momentos concretos:
+**Evolución del rendimiento de la página en el tiempo.** De nuevo en la hoja de exploradores, cambie la cuadrícula de tiempo de carga de la vista de página en un gráfico de líneas para ver si hay picos en momentos concretos:
 
 ![Haga clic en el encabezado de la cuadrícula y seleccione un nuevo tipo de gráfico](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segmentación mediante otras dimensiones.**  ¿Puede que las páginas sean más lentas a la hora de cargarse en un determinado explorador, sistema operativo del cliente o ubicación del usuario? Agregue un nuevo gráfico y experimente con la dimensión **Group-by** (Agrupar por).
+**Segmentación mediante otras dimensiones.** ¿Puede que las páginas sean más lentas a la hora de cargarse en un determinado explorador, sistema operativo del cliente o ubicación del usuario? Agregue un nuevo gráfico y experimente con la dimensión **Group-by** (Agrupar por).
 
 ![](./media/app-insights-javascript/21.png)
 
@@ -170,7 +170,7 @@ Haga clic en cualquier fila para obtener detalles concretos.
 Haga clic en `...` para obtener la telemetría completa de una llamada Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>¿No se han notificado llamadas Ajax?
-Las llamadas AJAX incluyen todas las llamadas HTTP realizadas desde el script de la página web. Si no se han notificado, compruebe que el fragmento de código no establece los [parámetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` o `maxAjaxCallsPerView`.
+Las llamadas Ajax incluyen todas las llamadas HTTP/HTTPS realizadas desde el script de una página web. Si no se han notificado, compruebe que el fragmento de código no establece los [parámetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` o `maxAjaxCallsPerView`.
 
 ## <a name="browser-exceptions"></a>Excepciones de explorador
 En la hoja de exploradores, hay un gráfico de resumen de excepciones y una cuadrícula de tipos de excepción más abajo en la hoja.
@@ -193,7 +193,7 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 > 
 > 
 
-También puede usar el potente [lenguaje de consulta de Analytics](app-insights-analytics-tour.md) para buscar vistas de página.
+También puede usar el potente [lenguaje de consulta de Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) para buscar vistas de página.
 
 ### <a name="page-view-properties"></a>Propiedades de la vista de página
 * **Duración de vista de página** 
@@ -230,6 +230,6 @@ El nombre de la página puede contener los mismos caracteres que una dirección 
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

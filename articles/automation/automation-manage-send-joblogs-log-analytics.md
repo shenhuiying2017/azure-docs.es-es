@@ -1,5 +1,5 @@
 ---
-title: "Reenvío de estados de trabajos y de transmisiones de trabajos de Automation a Log Analytics (OMS) | Microsoft Azure"
+title: "Reenvío de datos del trabajo de Azure Automation a Log Analytics de OMS | Microsoft Docs"
 description: "Este artículo muestra cómo enviar el estado de un trabajo y transmisiones de trabajo del runbook a Log Analytics de Microsoft Operations Management Suite para ofrecer mayor información y administración."
 services: automation
 documentationcenter: 
@@ -12,141 +12,191 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 22a8a7541da572445ab0d6a822b56bd9a03339b7
+ms.sourcegitcommit: d7cba9126c11418f8ccafb1ace0816a9a9cc3b6d
+ms.openlocfilehash: babfda8735699b9f9991bffd22a8d2d9847ae759
 
 
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Reenvío del estado de un trabajo y de transmisiones de trabajos de Automatización a Log Analytics (OMS)
-Automatización puede enviar el estado de un trabajo del runbook y de transmisiones de trabajos al área de trabajo devLog Analytics de Microsoft Operations Management Suite (OMS).  Aunque esta información se puede ver en el Portal de Azure o con PowerShell por estado de trabajo individual o todos los trabajos de una cuenta de Automatización concreta, cualquier cosa avanzada que se realice para admitir sus requisitos operativos requiere que cree scripts de PowerShell personalizados.  Ahora con Log Anaytics puede:
+Automatización puede enviar el estado de un trabajo del runbook y de transmisiones de trabajos al área de trabajo devLog Analytics de Microsoft Operations Management Suite (OMS).  Los registros de trabajo y flujos de trabajo están visibles en Azure Portal, o con PowerShell, para los trabajos individuales y esto permite llevar a cabo investigaciones simples. Ahora con Log Analytics puede:
 
 * Obtener información sobre los trabajos de Automatización
-* Desencadenar un correo electrónico o una alerta en función de en el estado de trabajo del runbook (por ejemplo, error o en suspensión)
+* Desencadenador de un correo electrónico o una alerta en función del estado de trabajo del runbook (por ejemplo, error o en suspensión)
 * Escribir consultas avanzadas en las transmisiones de trabajos
 * Correlacionar trabajos en cuentas de Automatización
 * Visualizar el historial de trabajos a lo largo del tiempo     
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Requisitos previos y consideraciones de implementación
-Para empezar a enviar los registros de Automatización a Log Analytics, debe tener lo siguiente:
+Para empezar a enviar los registros de Automation a Log Analytics, necesita:
 
-1. Una suscripción de OMS. Para más información, consulte [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md)(Introducción a Log Analytics).  
+1. La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+2. Un área de trabajo de Log Analytics. Para más información, consulte [Introducción a Log Analytics](../log-analytics/log-analytics-get-started.md). 
+3. El valor de ResourceId de su cuenta de Azure Automation
 
-   > [!NOTE]
-   > Es preciso que el área de trabajo de OMS y la cuenta de Automatización deben estar en la misma suscripción de Azure, y en orden para esta configuración funcione correctamente.
-   >
-   >
-2. Una [cuenta de Almacenamiento de Azure](../storage/storage-create-storage-account.md).  
+Para encontrar el valor de ResourceId de la cuenta de Azure Automation y el área de trabajo de Log Analytics, ejecute el PowerShell siguiente:
 
-   > [!NOTE]
-   > La cuenta de Almacenamiento *debe* estar en la misma región que la cuenta de Automatización.
-   >
-   >
-3. Azure PowerShell con la versión 1.0.8 o posterior de los cmdlets de Visión operativa. Para obtener información acerca de esta versión y cómo instalarla, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs).
-4. Azure Diagnostic y Log Analytics de PowerShell.  Para obtener información acerca de esta versión y cómo instalarla, consulte [Azure Diagnostic y Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
-5. Descargar el script de PowerShell **Enable-AzureDiagnostics.ps1** de la [Galería de PowerShell](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/1.0/DisplayScript). Este script configurará lo siguiente:
-   * Una cuenta de almacenamiento que contenga el estado de un trabajo del runbook y datos de transmisión para una cuenta de Automatización que especifique.
-   * Habilite la recopilación de estos datos de su cuenta de Automatización para almacenarlos en una cuenta de Almacenamiento de blobs de Azure en formato JSON.
-   * Configure la recopilación de datos de su cuenta de Almacenamiento de blobs para Log Analytics de OMS.
-   * Habilite la solución Log Analytics de Automatización en su área de trabajo de OMS.   
+```powershell
+# Find the ResourceId for the Automation Account
+Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 
-El script **Enable-AzureDiagnostics.ps1** requiere los siguientes parámetros durante la ejecución:
+# Find the ResourceId for the Log Analytics workspace
+Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+```
 
-* *AutomationAccountName* : el nombre de la cuenta de Automatización.
-* *LogAnalyticsWorkspaceName* : el nombre del área de trabajo de OMS.
+Si tiene varias cuentas de Automation, o áreas de trabajo, en la salida de los comandos anteriores, busque el *nombre* que tiene que configurar y copie el valor para *ResourceId*.
 
-Para buscar los valores de *AutomationAccountName*, en Azure Portal seleccione su cuenta de Automation en la hoja **Cuenta de Automatización** y seleccione **Toda la configuración**.  En la hoja **Toda la configuración**, en **Configuración de la cuenta**, seleccione **Propiedades**.  En la hoja **Propiedades**, puede anotar estos valores.<br> ![Propiedades de una cuenta de Automatización](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)(Introducción a Log Analytics).
+Si necesita encontrar el *nombre* de la cuenta de Automation, en Azure Portal seleccione su cuenta de Automation en la hoja **Cuenta de Automation** y seleccione **Toda la configuración**.  En la hoja **Toda la configuración**, en **Configuración de la cuenta**, seleccione **Propiedades**.  En la hoja **Propiedades**, puede anotar estos valores.<br> ![Propiedades de una cuenta de Automatización](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)(Introducción a Log Analytics).
 
-## <a name="setup-integration-with-log-analytics"></a>Configuración de la integración con Log Analytics
+## <a name="set-up-integration-with-log-analytics"></a>Configuración de la integración con Log Analytics
 1. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio**.  
-2. Desde el shell de la línea de comandos de PowerShell, navegue hasta la carpeta que contiene el script que descargó y ejecútelo cambiando los valores de los parámetros - *AutomationAccountName* y *- LogAnalyticsWorkspaceName*.
+2. Copie y pegue el código PowerShell siguiente, y edite el valor para `$workspaceId` y `$automationAccountId`.  Si está trabajando en la nube de Azure Government, debe establecer el valor booleano de `$GovCloud` en *$True* o *1* cuando lo ejecute.     
 
-   > [!NOTE]
-   > Se le solicitará que se autentique en Azure después de ejecutar el script.  **Debe** iniciar sesión con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.   
-   >
-   >
+```powershell
+[cmdletBinding()]
+    Param
+    (
+        [Parameter(Mandatory=$true)]
+        [bool]$GovCloud = $False
+    )
 
-        .\Enable-AzureDiagnostics -AutomationAccountName <NameofAutomationAccount> `
-        -LogAnalyticsWorkspaceName <NameofOMSWorkspace> `
-3. Tras ejecutar este script, deberá ver registros en Log Analytics unos 30 minutos después de que se escriban nuevos datos de diagnóstico en el almacenamiento.  Si los registros no están disponibles después de ese tiempo, consulte la sección sobre solución de problemas de [JSON files in blob storage](../log-analytics/log-analytics-azure-storage-json.md#troubleshooting-configuration-for-azure-diagnostic-logs)(Archivos JSON de Almacenamiento de blobs).
+#Check to see if we need to log into Commercial or Government cloud.
+If ($GovCloud -eq $False) {
+    Login-AzureRmAccount
+}Else{
+    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
+}
+# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+
+Set-AzureRmDiagnosticSetting -ResourceId "AzureAutomation" -WorkspaceId $workspaceId -Enabled $true
+
+```
+
+Después de ejecutar este script, verá los registros de Log Analytics a los 10 minutos de escribir los nuevos JobLogs o JobStreams.
+
+Para ver los registros, ejecute la consulta siguiente: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Comprobación de la configuración
-Para confirmar que el script configuró correctamente su cuenta de Automatización y el espacio de trabajo de OMS, se pueden realizar los siguientes pasos en PowerShell.  Antes de hacerlo, para buscar los valores del nombre del espacio de trabajo de OMS y el nombre del grupo de recursos, en Azure Portal navegue hasta Log Analytics (OMS) y en la hoja Log Analytics (OMS), anote el valor de **Nombre** y **Grupo de recursos**.<br> ![Lista de espacios de trabajo de Log Analytics de OMS](media/automation-manage-send-joblogs-log-analytics/oms-la-workspaces-list-blade.png) Estos dos valores los usaremos al comprobar la configuración del espacio de trabajo de OMS mediante el cmdlet de PowerShell [Get AzureRmOperationalInsightsStorageInsight](https://msdn.microsoft.com/library/mt603567.aspx).
+Para confirmar que la cuenta de Automation está enviando registros a su área de trabajo de Log Analytics, compruebe que los diagnósticos están establecidos correctamente en la cuenta de Automation con el código PowerShell siguiente:
 
-1. En el Portal de Azure, navegue hasta Cuentas de Almacenamiento y busque la siguiente cuenta de almacenamiento, que utiliza la convención de nomenclatura *AutomationAccountNameomsstorage*.  Poco después de que se complete un trabajo del Runbook verá que se han creado dos contenedores de blobs (**insights-logs-joblogs** y **insights-logs-jobstreams**).  
-2. En PowerShell, ejecute el siguiente código de PowerShell, pero cambie los valores de los parámetros **ResourceGroupName** y **WorkspaceName** que copió o anotó antes.  
+```powershell
+[cmdletBinding()]
+    Param
+    (
+        [Parameter(Mandatory=$true)]
+        [bool]$GovCloud = $False
+    )
 
-   Login-AzureRmAccount Get-AzureRmSubscription -SubscriptionName 'SubscriptionName' | Set-AzureRmContext Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName "OMSResourceGroupName" ` -Workspace "OMSWorkspaceName"
+#Check to see if we need to log into Commercial or Government cloud.
+If ($GovCloud -eq $False) {
+    Login-AzureRmAccount
+}Else{
+    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
+}
+# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-   Esto devolverá la información del almacenamiento del área de trabajo de OMS especificada.  Deseamos confirmar que la información del almacenamiento de la cuenta de Automation que especificamos antes existe y que el objeto **State** muestra el valor **OK**.<br> ![Resultados del cmdlet Get-AzureRmOperationalInsightsStorageInsights](media/automation-manage-send-joblogs-log-analytics/automation-posh-getstorageinsights-results.png)(Introducción a Log Analytics).
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+
+Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
+En la salida asegúrese de que:
++ En *Registros*, el valor de *Habilitado* es *True*.
++ El valor de *WorkspaceId* se establece en el valor de ResourceId de su área de trabajo de Log Analytics.
+
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
-Automation crea dos tipos de registros en el repositorio de OMS.
+Diagnósticos de Azure Automation crea dos tipos de registros en Log Analytics. 
 
 ### <a name="job-logs"></a>Registros de trabajo
-| Propiedad | Description |
+| Propiedad | Descripción |
 | --- | --- |
-| Hora |Fecha y hora en que se ejecuta el trabajo de Runbook. |
-| resourceId |Especifica el tipo de recurso en Azure.  Para Automation, el valor es la cuenta de Automation asociada al Runbook. |
-| operationName |Especifica el tipo de operación realizada en Azure.  Para Automation, el valor será Job. |
-| resultType |El estado del trabajo de Runbook.  Los valores posibles son:<br>Started<br>Stopped<br>Suspended<br>Con error<br>- Correcto |
-| resultDescription |Describe el estado de resultado del trabajo de Runbook.  Los valores posibles son:<br>- Se inicia el trabajo<br>- Error del trabajo<br>- Trabajo completado |
+| TimeGenerated |Fecha y hora en que se ejecuta el trabajo de Runbook. |
+| RunbookName_s |El nombre del Runbook. |
+| Caller_s |La persona que inicia la operación.  Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados. |
+| Tenant_g | GUID que identifica al inquilino para el llamador. |
+| JobId_g |GUID que es el identificador del trabajo de Runbook. |
+| ResultType |El estado del trabajo de Runbook.  Los valores posibles son:<br>Started<br>Stopped<br>Suspended<br>Con error<br>- Correcto |
+| Categoría | Clasificación del tipo de datos.  Para Automation, el valor será JobLogs. |
+| nombreOperación | Especifica el tipo de operación realizada en Azure.  En Automation, el valor es Job. |
+| Recurso | Nombre de la cuenta de Automation |
+| SourceSystem | Cómo Log Analytics ha recopilado los datos. Siempre *Azure* para Diagnósticos de Azure. |
+| ResultDescription |Describe el estado de resultado del trabajo de Runbook.  Los valores posibles son:<br>- Se inicia el trabajo<br>- Error del trabajo<br>- Trabajo completado |
 | CorrelationId |GUID que es el identificador de correlación del trabajo de Runbook. |
-| Categoría |Clasificación del tipo de datos.  Para Automation, el valor será JobLogs. |
-| RunbookName |El nombre del Runbook. |
-| JobId |GUID que es el identificador del trabajo de Runbook. |
-| Autor de llamada |La persona que inicia la operación.  Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados. |
+| ResourceId |Especifica el identificador de recursos de la cuenta de Azure Automation del runbook. |
+| SubscriptionId | El identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
+| ResourceGroup | Nombre del grupo de recursos de la cuenta de Automation. |
+| ResourceProvider | MICROSOFT.AUTOMATION |
+| ResourceType | AUTOMATIONACCOUNTS |
+
 
 ### <a name="job-streams"></a>Flujos de trabajo
-| Propiedad | Description |
+| Propiedad | Descripción |
 | --- | --- |
-| Hora |Fecha y hora en que se ejecuta el trabajo de Runbook. |
-| resourceId |Especifica el tipo de recurso en Azure.  Para Automation, el valor es la cuenta de Automation asociada al Runbook. |
-| operationName |Especifica el tipo de operación realizada en Azure.  Para Automation, el valor será Job. |
-| resultType |El estado del trabajo de Runbook.  Valores posibles son:<br>- En curso |
-| resultDescription |Incluye la secuencia de salida del Runbook. |
+| TimeGenerated |Fecha y hora en que se ejecuta el trabajo de Runbook. |
+| RunbookName_s |El nombre del Runbook. |
+| Caller_s |La persona que inicia la operación.  Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados. |
+| StreamType_s |El tipo de flujo de trabajo. Los valores posibles son:<br>progreso<br>- Salida<br>Warning (Advertencia)<br>Error<br>DEBUG<br>- Detallado |
+| Tenant_g | GUID que identifica al inquilino para el llamador. |
+| JobId_g |GUID que es el identificador del trabajo de Runbook. |
+| ResultType |El estado del trabajo de Runbook.  Los valores posibles son:<br>- In Progress |
+| Categoría | Clasificación del tipo de datos.  Para Automation, el valor es JobStreams. |
+| nombreOperación | Especifica el tipo de operación realizada en Azure.  En Automation, el valor es Job. |
+| Recurso | Nombre de la cuenta de Automation |
+| SourceSystem | Cómo Log Analytics ha recopilado los datos. Siempre *Azure* para Diagnósticos de Azure. |
+| ResultDescription |Incluye la secuencia de salida del Runbook. |
 | CorrelationId |GUID que es el identificador de correlación del trabajo de Runbook. |
-| Categoría |Clasificación del tipo de datos.  Para Automation, el valor es JobStreams. |
-| RunbookName |El nombre del Runbook. |
-| JobId |GUID que es el identificador del trabajo de Runbook. |
-| Autor de llamada |La persona que inicia la operación.  Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados. |
-| StreamType |El tipo de flujo de trabajo. Los valores posibles son:<br>progreso<br>- Salida<br>Warning (Advertencia)<br>Error<br>DEBUG<br>- Detallado |
+| ResourceId |Especifica el identificador de recursos de la cuenta de Azure Automation del runbook. |
+| SubscriptionId | El identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
+| ResourceGroup | Nombre del grupo de recursos de la cuenta de Automation. |
+| ResourceProvider | MICROSOFT.AUTOMATION |
+| ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Visualización de registros de Automatización en Log Analytics
-Ahora que ha iniciado el envío de los registros de los trabajos de Automatización a Log Analytics, veamos lo que puede hacer con dichos registros en OMS.   
+Ahora que ha iniciado el envío de los registros de los trabajos de Automation a Log Analytics, veamos lo que puede hacer con dichos registros en Log Analytics.
+
+Para ver los registros, ejecute la consulta siguiente: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envío de un correo electrónico cuando se produce un error en un trabajo del runbook o se suspende
 Uno de nuestros principales clientes pregunta por la capacidad para enviar un correo electrónico o un mensaje de texto cuando aparece algún problema en un trabajo del runbook.   
 
-Para crear una regla de alertas, lo primero es crear una búsqueda de registros de los registros del trabajo del runbook que deben invocar la alerta.  El botón **Alerta** estará disponible para que pueda crear y configurar la regla de alertas.
+Para crear una regla de alertas, lo primero es crear una búsqueda de registros de los registros del trabajo del runbook que deben invocar la alerta.  Haga clic en el botón **Alerta** para crear y configurar la regla de alerta.
 
-1. En la página de información general de OMS, haga clic en **Búsqueda de registros**.
-2. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba lo siguiente en el campo de consulta: `Category=JobLogs (ResultType=Failed || ResultType=Suspended)`.  También puede agrupar por RunbookName, para lo que debe usar: `Category=JobLogs (ResultType=Failed || ResultType=Suspended) | measure Count() by RunbookName_s`.   
+1. En la página de información general de Log Analytics, haga clic en **Búsqueda de registros**.
+2. Cree una consulta de búsqueda de registros para la alerta escribiendo la siguiente búsqueda en el campo de consulta: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`. También puede agrupar por el valor de RunbookName mediante: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`.   
 
-   Si ha configurado registros de más de una cuenta de Automatización o suscripción a su área de trabajo, también le puede interesar agrupar las alertas por suscripción o cuenta de Automatización.  El nombre de la cuenta de Automatización puede derivarse del campo Resource (Recurso) en la búsqueda de JobLogs.  
-3. Haga clic en **Alerta** en la parte superior de la página para abrir la pantalla **Agregar regla de alerta**.  Para más información sobre las opciones para configurar la alerta, consulte [Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
+   Si ha configurado registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation.  El nombre de la cuenta de Automatización puede derivarse del campo Resource (Recurso) en la búsqueda de JobLogs.  
+3. Para abrir la pantalla **Agregar regla de alerta**, haga clic en **Alerta** en la parte superior de la página. Para más información sobre las opciones para configurar la alerta, consulte [Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Búsqueda de todos los trabajos que se han completado con errores
-Además de las alertas basadas en errores, es probable que desee saber cuándo un trabajo del runbook ha tenido un error que no conlleva su terminación (PowerShell genera una secuencia de error, pero los errores de no terminación no provocan errores en los trabajos ni que estos se suspendan).    
+Además de las alertas al producirse errores, puede saber cuando un trabajo de runbook tiene un error de no terminación. En estos casos, PowerShell genera un flujo de errores, pero los errores de no terminación no causan la suspensión ni producirán un error en el trabajo.    
 
-1. En el portal de OMS, haga clic en **Log Search**(Búsqueda de registros).
-2. En el campo de consulta, escriba `Category=JobStreams StreamType_s=Error | measure count() by JobId_g` y luego haga clic en **Buscar**.
+1. En el área de trabajo de Log Analytics, haga clic en **Búsqueda de registros**.
+2. En el campo de consulta, escriba `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` y luego haga clic en **Buscar**.
 
 ### <a name="view-job-streams-for-a-job"></a>Visualización de las transmisiones de un trabajo
 Cuando se depura un trabajo, también se pueden examinar sus transmisiones.  La siguiente consulta muestra todas las transmisiones de un solo trabajo con GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:   
 
-`Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`
+`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`
 
 ### <a name="view-historical-job-status"></a>Visualización del estado del historial de trabajos
 Por último, puede desear visualizar el historial de trabajos con el paso del tiempo.  Esta consulta se puede usar para buscar el estado de los trabajos con el paso del tiempo.
 
-`Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day`  
+`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
 <br> ![Gráfico del historial de trabajos de OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Resumen
-Mediante el envío del estado de un trabajo de Automatización y los datos de transmisión a Log Analytics, puede obtener una mejor información del estado de los trabajos de Automatización mediante la configuración de alertas para avisarle cuando haya un problema y paneles personalizados que usen consultas avanzadas para visualizar los resultados del runbook, el estado del trabajo del runbook y otros indicadores clave o métricas relacionados.  Esto le ayudará a proporcionar mayor visibilidad de las operaciones y solucionar las incidencias más rápidamente.  
+Al enviar el estado de trabajo y los datos de flujo de Automation a Log Analytics, puede obtener más información del estado de los trabajos de Automation mediante lo siguiente:
++ Establecimiento de alertas que le notificarán cuando haya un problema
++ Uso de vistas personalizadas y de consultas de búsqueda para visualizar los resultados de runbook, el estado del trabajo de runbook y otras métricas o indicadores clave relacionados.  
+
+Log Analytics proporciona mayor visibilidad operativa para los trabajos de Automation y pueden ayudar a resolver incidentes con más rapidez.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para aprender a crear diferentes consultas de búsqueda y a revisar los registros de trabajos de Automatización con Log Analytics, consulte [Búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md)
@@ -156,6 +206,6 @@ Mediante el envío del estado de un trabajo de Automatización y los datos de tr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

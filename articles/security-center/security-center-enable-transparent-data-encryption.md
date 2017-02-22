@@ -1,6 +1,6 @@
 ---
 title: "Habilitación del Cifrado de datos transparente en Azure Security Center | Microsoft Docs"
-description: "En este documento, mostramos cómo implementar la recomendación **Habilitar el Cifrado de datos transparente** del Azure Security Center."
+description: "En este documento se muestra cómo implementar la recomendación **Habilitar el Cifrado de datos transparente** de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
+ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
+ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
 
 
 ---
@@ -27,8 +27,8 @@ Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al se
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Habilitar el cifrado de datos transparente**.
@@ -37,9 +37,9 @@ Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al se
    ![Selección de la base de datos SQL en la que habilitar TDE][2]
 3. En la hoja **Cifrado de datos transparente**, seleccione **Activar** en Cifrado de datos y seleccione **Guardar** en la cinta de opciones superior de la hoja.
    ![Activación de TDE][3]
-   
+
    Una vez que el TDE esté habilitado en la base de datos SQL seleccionada, el **Estado de cifrado** cambiará a **Cifrado**.    
-   
+
    ![Estado de cifrado][4]
 
 ## <a name="see-also"></a>Consulte también
@@ -66,6 +66,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

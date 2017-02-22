@@ -1,5 +1,5 @@
 ---
-title: "Vinculación de recursos en Azure Resource Manager | Microsoft Docs"
+title: "Vinculación de recursos relacionados en soluciones de Azure | Microsoft Docs"
 description: "Creación de un vínculo entre los recursos en distintos grupos de recursos en Azure Resource Manager."
 services: azure-resource-manager
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 87d19e4680a6da6be6da55eeab80ee7739361f8c
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2750e971ae281e498e9c505e1cd2790cefbfbc78
 
 
 ---
-# <a name="linking-resources-in-azure-resource-manager"></a>Vinculación de recursos en el Administrador de recursos de Azure
+# <a name="link-related-resources-from-different-resource-groups"></a>Vinculación de recursos relacionados de distintos grupos de recursos
 Durante la implementación, puede marcar un recurso como dependiente de otro, pero dicho ciclo de vida finaliza en la implementación. Después de la implementación, no hay ninguna relación identificada entre los recursos dependientes. Resource Manager proporciona una característica denominada vinculación de recursos para establecer relaciones persistentes entre los recursos.
 
 Con la vinculación de recursos se pueden documentar las relaciones que abarcan varios grupos de recursos. Por ejemplo, es frecuente que una base de datos con su propio ciclo de vida resida en un grupo de recursos, y una aplicación con un ciclo de vida diferente en un grupo de recursos distinto. La aplicación se conecta a la base de datos, por lo que desea marcar un vínculo entre la aplicación y la base de datos. 
@@ -76,6 +76,6 @@ Para obtener más ejemplos, incluido cómo recuperar información acerca de los 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

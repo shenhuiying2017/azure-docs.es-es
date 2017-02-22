@@ -1,5 +1,5 @@
 ---
-title: "Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager | Microsoft Docs"
+title: "Migración de recursos clásicos a Azure Resource Manager: información general | Microsoft Docs"
 description: "Este artículo le guía a través de la migración compatible con la plataforma de recursos del modelo clásico a Azure Resource Manager"
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
+ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
+ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
 
 
 ---
@@ -138,6 +138,8 @@ Seleccione la red virtual o el servicio hospedado (si no es una red virtual) que
 
 * Si no se puede migrar el recurso, la plataforma de Azure indica todas las razones de que no sea compatible con la migración.
 
+Al validar los servicios de almacenamiento, encontrará la cuenta migrada en un grupo de recursos que tiene el mismo nombre que su cuenta de almacenamiento con "-Migrated" anexado.  Por ejemplo, si la cuenta de almacenamiento se denomina "mystorage", encontrará el recurso habilitado para ARM en un grupo de recursos denominado "mystorage-Migrated" y contendrá una cuenta de almacenamiento denominada "mystorage".
+
 ### <a name="prepare"></a>Preparación
 La operación de preparación es el secundo paso del proceso de migración. El objetivo de este paso es simular la transformación de los recursos de IaaS de clásicos a recursos de Resource Manager y presentarla en paralelo para que la visualice.
 
@@ -250,6 +252,6 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

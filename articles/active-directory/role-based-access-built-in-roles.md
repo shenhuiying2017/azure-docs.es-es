@@ -1,5 +1,5 @@
 ---
-title: 'RBAC: roles integrados | Microsoft Docs'
+title: 'Acciones y no acciones: roles en Azure RBAC | Microsoft Docs'
 description: En este tema se describen los roles integrados para el control de acceso basado en roles (RBAC).
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+ms.sourcegitcommit: becd7fbcfa094257408ed96eda0c62deefceb44d
+ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 
 
 ---
@@ -28,14 +28,17 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 
 > [!NOTE]
 > Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Use los cmdlets de `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` como corresponda.
-> 
-> 
+>
+>
 
 | Nombre de rol | Description |
 | --- | --- |
 | [Colaborador de servicio de administración de API](#api-management-service-contributor) |Puede administrar servicios de administración de API |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) |Puede administrar los componentes de Application Insights |
 | [Operador de automatización](#automation-operator) |Puede iniciar, detener, suspender y reanudar trabajos |
+| [Colaborador de copias de seguridad](#backup-contributor) | Puede administrar copias de seguridad en el almacén de Recovery Services |
+| [Operador de copias de seguridad](#backup-operator) | Puede administrar copias de seguridad, excepto su eliminación, en el almacén de Recovery Services |
+| [Lector de copias de seguridad](#backup-reader) | Puede ver todos los servicios de administración de copias de seguridad  |
 | [Colaborador de BizTalk](#biztalk-contributor) |Puede administrar los servicios de BizTalk |
 | [Colaborador de ClearDB MySQL DB](#cleardb-mysql-db-contributor) |Puede administrar bases de datos ClearDB MySQL |
 | [Colaborador](#contributor) |Puede administrar todo el contenido, excepto el acceso |
@@ -117,6 +120,98 @@ Puede iniciar, detener, suspender y reanudar trabajos
 | Microsoft.Resources/deployments/* |Crear y administrar implementaciones de grupos de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
+
+### <a name="backup-contributor"></a>Colaborador de copias de seguridad
+Puede administrar todas las acciones de administración de copias de seguridad, excepto la creación del almacén de Recovery Services y la concesión de acceso a otros usuarios
+
+| **Acciones** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Leer redes virtuales |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Administrar los resultados de la operación de administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Crear y administrar contenedores de copias de seguridad dentro de tejidos de copia de seguridad del almacén de Recovery Services |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Crear y administrar trabajos de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabajos de copia de seguridad a un archivo de Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Crear y administrar metadatos relacionados con la administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Crear y administrar resultados de operaciones de administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/* | Crear y administrar directivas de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Crear y administrar elementos de los que se puede realizar una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Crear y administrar elementos de los que se ha realizado una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Crear y administrar contenedores que incluyen elementos de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Crear y administrar certificados relacionados con copias de seguridad en el almacén de Recovery Services |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Crear y administrar información ampliada relacionada con el almacén | 
+| Microsoft.RecoveryServices/Vaults/read | Leer almacenes de Recovery Services |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Administrar la operación de detección para capturar contenedores recién creados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Crear y administrar identidades registradas |
+| Microsoft.RecoveryServices/Vaults/usages/* | Crear y administrar el uso del almacén de Recovery Services |
+| Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |
+| Microsoft.Storage/storageAccounts/read | Leer cuentas de almacenamiento |
+| Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
+
+### <a name="backup-operator"></a>Operador de copias de seguridad
+Puede administrar todas las acciones de administración de copias de seguridad, excepto la eliminación de copias de seguridad y la concesión de acceso a otros usuarios
+
+| **Acciones** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Leer redes virtuales |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Leer resultados de la operación de administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Leer los resultados de la operación en los contenedores de protección |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Realizar la operación de copia de seguridad a petición en un elemento del que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Leer el resultado de la operación realizada en un elemento del que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | Leer el estado de la operación realizada en un elemento del que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Leer elementos de los que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Leer punto de recuperación de un elemento del que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Realizar una operación de restauración con un punto de recuperación de un elemento del que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Crear un elemento de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Leer contenedores que incluyen un elemento de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Crear y administrar trabajos de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabajos de copia de seguridad a un archivo de Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Leer metadatos relacionados con la administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Crear y administrar resultados de operaciones de administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Leer resultados de las operaciones realizadas en directivas de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read | Leer directivas de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Crear y administrar elementos de los que se puede realizar una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Leer elementos de los que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Leer contenedores de los que se ha hecho una copia de seguridad, que incluyen elementos de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Leer información ampliada relacionada con el almacén | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Escribir información ampliada relacionada con el almacén | 
+| Microsoft.RecoveryServices/Vaults/read | Leer almacenes de Recovery Services |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Administrar la operación de detección para capturar contenedores recién creados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Leer resultados de la operación realizada en elementos registrados del almacén |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Leer elementos registrados del almacén |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Escribir elementos registrados en el almacén |
+| Microsoft.RecoveryServices/Vaults/usages/read | Leer uso del almacén de Recovery Services |
+| Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |
+| Microsoft.Storage/storageAccounts/read | Leer cuentas de almacenamiento |
+| Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+### <a name="backup-reader"></a>Lector de copias de seguridad
+Puede supervisar la administración de copias de seguridad en el almacén de Recovery Services
+
+| **Acciones** | |
+| --- | --- |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | Leer resultados de la operación de administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | Leer los resultados de la operación en los contenedores de protección |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Leer el resultado de la operación realizada en un elemento del que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | Leer el estado de la operación realizada en un elemento del que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | Leer elementos de los que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | Leer contenedores que incluyen un elemento de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Leer resultados de los trabajos de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupJobs/read  | Leer trabajos de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabajos de copia de seguridad a un archivo de Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Leer metadatos relacionados con la administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Leer resultados de la operación de administración de copias de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Leer resultados de las operaciones realizadas en directivas de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Leer directivas de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Leer elementos de los que se ha hecho una copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Leer contenedores de los que se ha hecho una copia de seguridad, que incluyen elementos de copia de seguridad |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Leer información ampliada relacionada con el almacén |
+| Microsoft.RecoveryServices/Vaults/read  | Leer almacenes de Recovery Services |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Leer el resultado de una operación de detección para capturar contenedores recién creados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Leer resultados de la operación realizada en elementos registrados del almacén |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Leer elementos registrados del almacén |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Leer uso del almacén de Recovery Services |
 
 ### <a name="biztalk-contributor"></a>Colaborador de BizTalk
 Puede administrar los servicios de BizTalk
@@ -555,7 +650,6 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

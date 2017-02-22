@@ -1,6 +1,6 @@
 ---
 title: "Información general sobre Azure Functions | Microsoft Docs"
-description: "Entender cómo utilizar las funciones de Azure para optimizar las cargas de trabajo asincrónicas en minutos"
+description: "Entender cómo utilizar las funciones de Azure para optimizar las cargas de trabajo asincrónicas en minutos."
 services: functions
 documentationcenter: na
 author: mattchenderson
@@ -77,15 +77,15 @@ Puede encontrar todos los detalles de precios en la [página de Precios de Funci
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de su primera función de Azure](functions-create-first-azure-function.md)  
-   Comience de inmediato y cree su primera función mediante el inicio rápido de Funciones de Azure. 
+  Comience de inmediato y cree su primera función mediante el inicio rápido de Funciones de Azure. 
 * [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)  
-   Proporciona información técnica sobre el tiempo de ejecución de Funciones de Azure y una referencia para las funciones de codificación y la definición de enlaces y desencadenadores.
+  Proporciona información técnica sobre el tiempo de ejecución de Funciones de Azure y una referencia para las funciones de codificación y la definición de enlaces y desencadenadores.
 * [Prueba de Funciones de Azure](functions-test-a-function.md)  
-   describe las diversas herramientas y técnicas para probar sus funciones.
+  describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
   Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
 * [¿Qué es Servicios de aplicaciones de Azure?](../app-service/app-service-value-prop-what-is.md)  
-   Funciones de Azure aprovecha la plataforma de Servicio de aplicaciones de Azure para obtener funcionalidad básica como implementaciones, variables de entorno y diagnósticos. 
+  Funciones de Azure aprovecha la plataforma de Servicio de aplicaciones de Azure para obtener funcionalidad básica como implementaciones, variables de entorno y diagnósticos. 
 
 
 

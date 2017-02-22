@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 10/06/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 57faf185f88a56cf1b5b871a4a2d7ab6c8ca3dd6
+ms.sourcegitcommit: 37ab64cb40def50342eb31c240aa301e9d751055
+ms.openlocfilehash: 6fa33715484a4bb371148410b43c5ac606744160
 
 
 ---
-# <a name="deploy-azure-resources-using-c"></a>Implementación de recursos de Azure mediante C
+# <a name="deploy-azure-resources-using-c"></a>Implementación de recursos de Azure mediante C# #
 En este artículo se muestra cómo crear recursos de Azure con C#.
 
 En primer lugar, debe asegurarse de que ha terminado estas tareas:
 
 * Instalar [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * Comprobar la instalación de [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-* Obtener un [token de autenticación](../resource-group-authenticate-service-principal.md)
+* Obtener un [token de autenticación](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 Tardará unos 30 minutos en realizar estos pasos.
 
@@ -456,26 +456,28 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 1. Para eliminar el grupo de recursos, agregue este método a la clase Program:
    
-     public static async void DeleteResourceGroupAsync(
-   
-       TokenCredentials credential,
-       string groupName,
-       string subscriptionId)
-     {
-   
-       Console.WriteLine("Deleting resource group...");
-       var resourceManagementClient = new ResourceManagementClient(credential)
-         { SubscriptionId = subscriptionId };
-       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-     }
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
+
 2. Para llamar al método que ha agregado anteriormente, agregue este código al método Main:
    
-     DeleteResourceGroupAsync(
-   
-       credential,
-       groupName,
-       subscriptionId);
-     Console.ReadLine();
+   ```   
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## <a name="step-5-run-the-console-application"></a>Paso 5: Ejecutar la aplicación de la consola
 1. Para ejecutar la aplicación de consola, haga clic en **Iniciar** en Visual Studio y, a continuación, inicie sesión en Azure AD con el mismo nombre de usuario y contraseña que utiliza con su suscripción.
@@ -493,6 +495,6 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

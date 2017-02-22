@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 611099e8c28584e091f9dc6c07eebf7e397092ea
+ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
+ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
 
 
 ---
@@ -33,6 +33,10 @@ Una ventaja de este enfoque es que ofrece un nivel de separación entre el códi
 **Si pasa información confidencial en el comando de extensión de script personalizado (por ejemplo, una contraseña), asegúrese de especificar `commandToExecute` en el atributo `protectedSettings` de la extensión de script personalizado en lugar del atributo `settings`**.
 
 * Creación de una imagen de máquina virtual personalizada que incluya tanto el sistema operativo como la aplicación en un solo disco duro virtual. Aquí el conjunto de escalado consta de un conjunto de máquinas virtuales que se copian desde una imagen creada por el usuario, y que este tiene que mantener. Este enfoque no requiere ninguna configuración adicional en momento de la implementación de máquina virtual. De todas formas, en la versión `2016-03-30` de los conjuntos de escalado de máquina virtual (y versiones anteriores), los discos del sistema operativo para las máquinas virtuales en el conjunto de escalado se limitan a una única cuenta de almacenamiento. Por lo tanto, puede tener un máximo de 40 máquinas virtuales en un conjunto de escalado, en lugar del límite de 100 máquinas virtuales por escalado de las imágenes de plataforma. Consulte [Introducción al diseño de conjuntos de escalado](virtual-machine-scale-sets-design-overview.md) para obtener más información.
+
+    >[!NOTE]
+    >La versión `2016-04-30-preview` de la API de conjuntos de escalado de máquinas virtuales admite el uso de Azure Managed Disks para el disco del sistema operativo y los discos de datos adicionales. Para obtener más información, consulte [Managed Disks Overview](../storage/storage-managed-disks-overview.md) (Información general de Managed Disks) y [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md) (Uso de datos de discos conectados). 
+
 * Implementación de una plataforma o una imagen personalizada que es básicamente un host de contenedor, e instalación de la aplicación como uno o varios contenedores que se administran con un orquestador o una herramienta de administración de configuración. La ventaja de este enfoque es que se abstrae la infraestructura de nube de la capa de aplicación, y se pueden mantener por separado.
 
 ## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>¿Qué pasa cuando un conjunto de escalado de máquina virtual escala horizontalmente?
@@ -42,6 +46,7 @@ Cuando se agregan una o más máquinas virtuales a un conjunto de escalado aumen
 Para las actualizaciones en los conjuntos de escalado de máquina virtual, hay tres enfoques principales que se derivan de los tres métodos de implementación de aplicación anteriores:
 
 * Actualización con extensiones de máquina virtual. Cualquiera de las extensiones de máquina virtual que están definidas para un conjunto de escalado de máquina virtual se ejecuta cada vez que se implementa una nueva máquina virtual, se restablece la imagen inicial de una máquina virtual ya existente o se actualiza una extensión de máquina virtual. Si necesita actualizar la aplicación, una solución viable es actualizar una aplicación directamente a través de extensiones: simplemente actualice la definición de la extensión. Una forma sencilla de hacerlo es cambiar el fileUris para que apunte al nuevo software.
+
 * El enfoque de la imagen personalizada inmutable. Al integrar la aplicación (o los componentes de la aplicación) en una imagen de máquina virtual, se puede centrar en crear una canalización confiable para automatizar la compilación, prueba e implementación de las imágenes. Puede diseñar la arquitectura para facilitar el intercambio rápido de un conjunto de escalado de ensayo a producción. Un buen ejemplo de este enfoque es el [trabajo de controlador Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
 
 Packer y Terraform también son compatibles con Azure Resource Manager, por lo que también puede definir sus imágenes "como código" y compilarlas en Azure, luego usar el disco duro virtual en el conjunto de escalado. Sin embargo, hacerlo así sería problemático para las imágenes de Marketplace, donde los scripts de extensiones o los personalizados se vuelven más importantes ya que los bits de Marketplace no se manipulan directamente.
@@ -51,13 +56,11 @@ Packer y Terraform también son compatibles con Azure Resource Manager, por lo q
 Las máquinas virtuales de conjunto de escalado, se convierten así en un sustrato estable para los contenedores y solo requieren seguridad ocasional así como actualizaciones relacionadas con el sistema operativo. Como se ha mencionado, Azure Container Service es un buen ejemplo de la adopción de este enfoque y la creación de un servicio a su alrededor.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>¿Cómo aplicar una actualización de sistema operativo a través de dominios de actualización?
-Suponga que desea actualizar la imagen de sistema operativo al tiempo que mantiene el conjunto de escalado de máquina virtual en ejecución. Una manera de hacerlo es actualizar las imágenes de máquina virtual en las máquinas virtuales una por una. Puede hacerlo con PowerShell o la CLI de Azure. Hay comandos diferentes para actualizar el modelo de conjunto de escalado de máquina virtual (cómo se define su configuración) y para emitir llamadas de "actualización manual" en máquinas virtuales individuales.
-
-[Aquí](https://github.com/gbowerman/vmsstools) encontrará un ejemplo de script de Python que automatiza el proceso de actualización de un conjunto de escalado de máquina virtual por dominios de actualización uno por uno. (Advertencia: se trata más de una prueba de concepto que de una solución reforzada lista para producción, puede ser conveniente añadirle alguna comprobación de errores etc.)
+Suponga que desea actualizar la imagen de sistema operativo al tiempo que mantiene el conjunto de escalado de máquina virtual en ejecución. Una manera de hacerlo es actualizar las imágenes de máquina virtual en las máquinas virtuales una por una. Puede hacerlo con PowerShell o la CLI de Azure. Hay comandos diferentes para actualizar el modelo de conjunto de escalado de máquinas virtuales (cómo se define su configuración) y para emitir llamadas de "actualización manual" en máquinas virtuales concretas. En el documento de Azure [Actualización de un conjunto de escalado de máquinas virtuales](./virtual-machine-scale-sets-upgrade-scale-set.md) también se proporciona más información sobre qué opciones hay disponibles para realizar actualizaciones del sistema operativo en un conjunto de escalado de máquinas virtuales.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

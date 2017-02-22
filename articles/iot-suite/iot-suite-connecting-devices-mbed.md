@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: a70eb51e7ebbc79e1aab4176d154dbef754368c1
 
 
 ---
@@ -25,12 +25,12 @@ ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="build-and-run-the-c-sample-solution"></a>Compilación y ejecución de la solución de ejemplo de C
-En las instrucciones siguientes se describen los pasos para conectar un dispositivo [Freescale FRDM-K64F habilitado para mbed][lnk-mbed-home] a la solución de supervisión remota.
+Las instrucciones siguientes describen los pasos para conectar un dispositivo [Freescale FRDM-K64F habilitado para mbed][lnk-mbed-home] a la solución de supervisión remota.
 
 ### <a name="connect-the-mbed-device-to-your-network-and-desktop-machine"></a>Conexión del dispositivo mbed a la máquina de escritorio y a la red
 1. Conecte el dispositivo mbed a la red mediante un cable Ethernet. Este paso es necesario porque la aplicación de ejemplo requiere acceso a Internet.
-2. Para conectar el dispositivo mbed al equipo PC de escritorio, vea [Introducción a mbed][lnk-mbed-getstarted].
-3. Si el equipo PC de escritorio ejecuta Windows, vea [Configuración del equipo][lnk-mbed-pcconnect] para configurar el acceso del puerto serie al dispositivo mbed.
+2. Vea [Introducción a mbed][lnk-mbed-getstarted] para conectar el dispositivo de mbed al equipo de escritorio.
+3. Si el equipo de escritorio está ejecutando Windows, vea [Configuración del equipo][lnk-mbed-pcconnect] para configurar el acceso al puerto serie para el dispositivo mbed.
 
 ### <a name="create-an-mbed-project-and-import-the-sample-code"></a>Crear un proyecto de mbed e importar el código de ejemplo
 1. En el explorador web, vaya al [sitio para desarrolladores](https://developer.mbed.org/)mbed.org. Si aún no se ha registrado, verá una opción para crear una cuenta (es gratuita). De lo contrario, inicie sesión con las credenciales de su cuenta. Luego haga clic en **Compilador** en la esquina superior derecha de la página. Al realizar esta acción, se mostrará la interfaz *Área de trabajo*.
@@ -64,10 +64,14 @@ En las instrucciones siguientes se describen los pasos para conectar un disposit
     ![][9]
 
 ### <a name="walk-through-the-code"></a>Recorrido del código
-Si quiere conocer cómo funciona el programa, en esta sección se describen algunas partes importantes del código de ejemplo. Si desea ejecutar el código, vaya a [Compilar y ejecutar el programa](#buildandrun).
+Si quiere conocer cómo funciona el programa, en esta sección se describen algunas partes importantes del código de ejemplo. Si solo desea ejecutar el código, vaya a [Compilar y ejecutar el programa](#buildandrun).
 
 #### <a name="defining-the-model"></a>Definición del modelo
-En este ejemplo se usa la biblioteca [serializer][lnk-serializer] para definir un modelo que especifica los mensajes que el dispositivo puede enviar y recibir de IoT Hub. En este ejemplo, el espacio de nombres **Contoso** define un modelo **Thermostat** que especifica los datos de telemetría de **Temperature**, **ExternalTemperature** y **Humidity**, además de los metadatos, como el id. de dispositivo, las propiedades del dispositivo y los comandos a los que responde el dispositivo:
+Este ejemplo utiliza la biblioteca [serializer][lnk-serializer] para definir un modelo que especifica los mensajes. El dispositivo puede enviar a IoT Hub y recibir desde ahí. En este ejemplo, el espacio de nombres **Contoso** define un modelo de **termostato** que especifica:
+
+- Los datos de telemetría sobre **Temperature** (Temperatura), **ExternalTemperature** (Temperatura externa) y **Humidity** (Humedad).
+- Metadatos como el identificador de dispositivo y las propiedades del dispositivo.
+- Los comandos a los que responde el dispositivo:
 
 ```
 BEGIN_NAMESPACE(Contoso);
@@ -204,6 +208,6 @@ Como referencia, este es un **comando** de ejemplo recibido del Centro de IoT:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

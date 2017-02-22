@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: vturecek;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97bfd27368c2f317e4edadb38a0685d92ad92b9a
+ms.sourcegitcommit: 7a79b19bf51c89e19ad67421978dacccddeb5119
+ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
 
 
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar la aplicación de Service Fabric con Visual Studio
+> [!div class="op_single_selector"]
+> * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
+> * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
+>
+
+
 ## <a name="debug-a-local-service-fabric-application"></a>Depurar una aplicación de Service Fabric local
 Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Service Fabric de Azure en un clúster de desarrollo del equipo local. Visual Studio puede implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación.
 
@@ -156,6 +162,6 @@ También puede trasmitir seguimientos directamente desde un nodo de clúster rem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

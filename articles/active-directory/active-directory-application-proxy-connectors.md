@@ -1,22 +1,22 @@
 ---
-title: "Uso de conectores del proxy de aplicación de Azure AD | Microsoft Docs"
+title: "Conectores del proxy de aplicación de Azure AD: portal clásico | Microsoft Docs"
 description: "Explica cómo crear y administrar grupos de conectores en el Proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c6c16cd2adb22e58a2e5834f5b56aacfa084e407
+ms.sourcegitcommit: 7ed296a6773763f7aaae55e9a1667efca7d9e590
+ms.openlocfilehash: d84eaf5abc80270325e34ec6b5d1ee3edfac637a
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: c6c16cd2adb22e58a2e5834f5b56aacfa084e407
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-application-proxy-connectors.md)
-> 
-> 
+>
+>
 
 Los grupos de conectores son útiles para diversos escenarios, por ejemplo:
 
@@ -71,7 +71,6 @@ Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

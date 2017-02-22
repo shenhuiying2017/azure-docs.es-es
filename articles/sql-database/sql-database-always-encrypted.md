@@ -1,6 +1,6 @@
 ---
-title: "Always Encrypted: protección de datos confidenciales en Azure SQL Database con cifrado de base de datos | Microsoft Docs"
-description: "Proteger datos confidenciales en la base de datos SQL en cuestión de minutos."
+title: "Always Encrypted: Azure SQL Database: almacén de certificados de Windows | Microsoft Docs"
+description: "En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de base de datos mediante el asistente de Always Encrypted en SQL Server Management Studio (SSMS). También muestra cómo almacenar las claves de cifrado en el almacén de certificados de Windows."
 keywords: cifrar datos, cifrado sql, cifrado de base de datos, datos confidenciales, Always Encrypted
 services: sql-database
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 66044ef8353e61f0de5afb8c61d91335ecd6dcbb
+ms.sourcegitcommit: cffa8955cf044398e526b1ad6158eefebbf91b3b
+ms.openlocfilehash: 9cd3d1b2da7f941673003b566cd92b0eb9acf6f4
 
 
 ---
@@ -526,6 +526,6 @@ Después de crear una base de datos que usa Always Encrypted, es posible que qui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

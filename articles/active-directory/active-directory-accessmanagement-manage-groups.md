@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 > * [Portal de Azure](active-directory-groups-create-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 Una de las características de la administración de usuarios de Azure Active Directory (Azure AD) es la capacidad para crear grupos de usuarios. Los grupos se usan para realizar tareas de administración, como asignar licencias o permisos a varios usuarios a la vez. También puede usarlos para asignar permiso de acceso a:
 
@@ -73,13 +73,13 @@ Cuando los atributos de un usuario cambian, el sistema evalúa todas las reglas 
 
 > [!NOTE]
 > Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. Actualmente, las pertenencias a grupos anidados no son compatibles con la asignación basada en grupos a aplicaciones.
-> 
+>
 > La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
-> 
+>
 > * Al administrador que administra la regla en un grupo
 > * Todos los miembros del grupo
-> 
-> 
+>
+>
 
 **Para habilitar la pertenencia dinámica para un grupo**
 
@@ -103,7 +103,6 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

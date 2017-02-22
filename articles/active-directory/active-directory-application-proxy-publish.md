@@ -1,26 +1,31 @@
 ---
 title: "Publicación de aplicaciones mediante el proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Publicar aplicaciones locales mediante en la nube con el proxy de aplicación de Azure AD."
+description: "Publicar aplicaciones locales en la nube con el proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.date: 11/30/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ba28b2708045a216e1b9fdd7601010b2b554737
+ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
+ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
 
 
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](application-proxy-publish-azure-portal.md)
+> * [Portal de Azure clásico](active-directory-application-proxy-publish.md)
+
 Proxy de aplicación de Azure AD permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. En este punto, ya debe tener [habilitado el Proxy de aplicación en el Portal de Azure clásico](active-directory-application-proxy-enable.md). Este artículo le guiará por los pasos necesarios para publicar las aplicaciones que se ejecutan en una red local y proporcionar acceso remoto seguro desde fuera de la red. Después de completar este artículo, estará listo para configurar la aplicación con los requisitos de seguridad o información personalizada.
 
 > [!NOTE]
@@ -101,6 +106,6 @@ Para ver las últimas noticias y actualizaciones, consulte el [blog Application 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

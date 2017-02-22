@@ -1,6 +1,6 @@
 ---
-title: "Soluciones de recuperación ante desastres en la nube: replicación geográfica activa de SQL Database | Microsoft Docs"
-description: "Obtenga información acerca de cómo diseñar soluciones de recuperación ante desastres en la nube para planificar la continuidad del negocio mediante la replicación geográfica de la copia de seguridad de datos de la aplicación con la Base de datos SQL de Azure."
+title: "Diseño de aplicaciones para recuperación ante desastres: Azure SQL Database | Microsoft Docs"
+description: "Aprenda sobre el diseño de aplicaciones para la recuperación ante desastres de Azure SQL Database mediante la replicación geográfica."
 keywords: "recuperación ante desastres en la nube, soluciones de recuperación ante desastres, copia de seguridad de datos de aplicación, planificación de continuidad del negocio"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: data-management
 ms.date: 07/20/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5afcde0df03cb953eb8387cc8beea8851f36c516
+ms.sourcegitcommit: 7e607debe47efb6a22ca6fa47a40554d13d29359
+ms.openlocfilehash: dd56a8d1ee428b1845ed80f0b899cc73c2c4b7f6
 
 
 ---
-# <a name="design-an-application-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL
+# <a name="application-design-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Diseño de aplicaciones para la recuperación ante desastres en la nube mediante replicación geográfica activa en SQL Database
 > [!NOTE]
 > La [replicación geográfica activa](sql-database-geo-replication-overview.md) ahora está disponible para todas las bases de datos en todos los niveles.
 >
@@ -187,6 +187,6 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -9,6 +9,6 @@ Las ofertas de software como servicio, como Office 365 y Dynamics 365, se crearo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

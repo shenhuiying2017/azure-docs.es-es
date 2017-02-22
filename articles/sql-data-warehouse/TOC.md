@@ -6,17 +6,14 @@
 
 # Introducción
 
-## Creación de Almacenamiento de datos SQL
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
-## [procedimientos recomendados](sql-data-warehouse-best-practices.md)
+## [Tutorial para principiantes](sql-data-warehouse-get-started-tutorial.md)
+## [Procedimientos recomendados](sql-data-warehouse-best-practices.md)
 ## [Administración](sql-data-warehouse-overview-manage.md)
 ## [Obtención de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md)
 
 # Procedimientos
 
-## Creación de copias de seguridad y restauración de datos
+## Copia de seguridad y restauración
 
 ### [Introducción a la copia de seguridad](sql-data-warehouse-backups.md)
 ### [Introducción a la restauración](sql-data-warehouse-restore-database-overview.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalación de Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Crear
+### [Portal de Azure](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Desarrollo
 
@@ -78,6 +80,7 @@
 
 ### [Información general](sql-data-warehouse-overview-load.md)
 ### [Datos de ejemplo](sql-data-warehouse-load-sample-databases.md)
+### [Almacén de Azure Data Lake](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP desde SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
@@ -103,7 +106,7 @@
 ### [Información general](sql-data-warehouse-manage-compute-overview.md)
 ### [Portal de Azure](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [API DE REST](sql-data-warehouse-manage-compute-rest-api.md)
+### [API de REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 
 ## Rendimiento
@@ -145,6 +148,6 @@
 ### [Administración de datos](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

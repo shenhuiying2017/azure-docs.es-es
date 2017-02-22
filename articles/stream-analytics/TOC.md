@@ -2,7 +2,7 @@
 ## [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
 ## [Comparación de Storm con Stream Analytics](stream-analytics-comparison-storm.md)
 
-# Primeros pasos
+# Introducción
 ## [Procesamiento de datos de streaming de IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md)
 
@@ -17,19 +17,22 @@
 
 ## Desarrollo
 ### [Patrones de consultas comunes](stream-analytics-stream-analytics-query-patterns.md)
+### [Herramientas para Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Creación de entradas](stream-analytics-define-inputs.md)
 ### [Creación de salidas](stream-analytics-define-outputs.md)
 ### [Uso datos de referencia](stream-analytics-use-reference-data.md)
-### [Uso de Azure Redis Cache como destino](stream-analytics-functions-redis.md)
+### [Uso de Azure Functions como destino](stream-analytics-functions-redis.md)
 ### [Uso de Data Lake Store como destino](stream-analytics-data-lake-output.md)
 ### [Uso de DocumentDB como destino](stream-analytics-documentdb-output.md)
 ### [Análisis de datos con Power BI](stream-analytics-power-bi-dashboard.md)
+### [Integración de UDF de JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Integración de la API de REST y Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Uso del SDK .NET de administración](stream-analytics-dotnet-management-sdk.md)
 ### [Funciones de ventana](stream-analytics-window-functions.md)
 
 ## Administrar
 ### [Supervisión de trabajos](stream-analytics-monitoring.md)
+### [Registros de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 ### [Supervisión de trabajos mediante programación](stream-analytics-monitor-jobs.md)
 ### [Supervisión de trabajos con PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Escala para aumentar el rendimiento](stream-analytics-scale-jobs.md)
@@ -40,13 +43,14 @@
 ### [One click de PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
 ## [Lenguaje de consulta](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](/rest/api/streamanalytics/)
-## [Notas de la versión](stream-analytics-release-notes.md)
+## [REST](/rest/api/streamanalytics)
+
 
 # Recursos
+## [Notas de la versión](stream-analytics-release-notes.md)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [Precios](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
@@ -57,6 +61,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

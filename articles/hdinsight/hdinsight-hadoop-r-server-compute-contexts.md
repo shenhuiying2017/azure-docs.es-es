@@ -12,30 +12,30 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2016
+ms.date: 01/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3743a1c9539f6e0077448aff4470cb8f5363ef2f
-ms.openlocfilehash: ac1e2c269d59d9e3262c385450a4912de0c9debe
+ms.sourcegitcommit: 841e70fa3a80bbeb7e2281246bac2f99c0de899f
+ms.openlocfilehash: 169743012b1f50d67d5eafdb279e706719752eb8
 
 
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)
-Microsoft R Server en Azure HDInsight proporciona las últimas funcionalidades de análisis basadas en R. Emplea los datos que se almacenan en HDFS en un contenedor en su cuenta de [Almacenamiento de blobs de Azure](../storage/storage-introduction.md "Almacenamiento de blobs de Azure storage") o el sistema de archivos local de Linux. Como R Server se basa en el lenguaje R de código abierto integrado, las aplicaciones basadas en R que se crean pueden aprovechar los más de 8000 paquetes de R de código abierto. También pueden aprovechar las rutinas de [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), un paquete de análisis de macrodatos de Microsoft que se incluye con R Server.  
+Microsoft R Server en Azure HDInsight proporciona las últimas funcionalidades de análisis basadas en R. Emplea los datos que se almacenan en HDFS en un contenedor en su cuenta de almacenamiento de [Azure Blob](../storage/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como R Server se basa en el lenguaje R de código abierto integrado, las aplicaciones basadas en R que se crean pueden aprovechar los más de 8000 paquetes de R de código abierto. También pueden aprovechar las rutinas de [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), un paquete de análisis de macrodatos de Microsoft que se incluye con R Server.  
 
 El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar funciones distribuidas paralelizadas de ScaleR en los diferentes núcleos del servidor de nodo perimetral. También tiene la opción de ejecutarlas en estos nodos del clúster utilizando los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de proceso de un nodo perimetral
-En general, el script de R que se ejecuta en el nodo perimetral de R Server lo hace dentro del intérprete de R de ese nodo. La excepción son esos pasos que llaman a una función ScaleR. Las llamadas a ScaleR se ejecutan en un entorno de proceso determinado por la manera en que define el contexto de proceso de ScaleR.  Al ejecutar el script de R desde un nodo perimetral, los valores posibles del contexto de proceso son secuencial local (‘local’), paralelo local (‘localpar’), Map Reduce y Spark.
+En general, el script de R que se ejecuta en el nodo perimetral de R Server lo hace dentro del intérprete de R de ese nodo. Las excepciones son esos pasos que llaman a una función ScaleR. Las llamadas a ScaleR se ejecutan en un entorno de proceso determinado por la manera en que define el contexto de proceso de ScaleR.  Al ejecutar el script de R desde un nodo perimetral, los valores posibles del contexto de proceso son secuencial local (‘local’), paralelo local (‘localpar’), Map Reduce y Spark.
 
 Las opciones local y localpar solo difieren en cómo se ejecutan las llamadas de rxExec. Las dos ejecutan otras llamadas a función de rx de manera paralela en todos los núcleos disponibles, a menos que se especifique lo contrario mediante el uso de la opción numCoresToUse de ScaleR; por ejemplo, rxOptions(numCoresToUse=6). A continuación, se resumen las distintas opciones de contexto de proceso.
 
-| Contexto de proceso | Cómo definir | Contexto de ejecución |
-| --- | --- | --- |
-| Secuencial local |rxSetComputeContext(‘local’) |Ejecución en paralelo en los núcleos del servidor de nodo perimetral, excepto las llamadas de rxExec que se ejecutan en serie |
-| Paralelo local |rxSetComputeContext(‘localpar’) |Ejecución paralelizada en los núcleos del servidor de nodo perimetral |
-| Spark |RxSpark() |Ejecución distribuida paralelizada vía Spark en los nodos del clúster de HDI |
-| MapReduce |RxHadoopMR() |Ejecución distribuida paralelizada vía MapReduce en los nodos del clúster de HDI |
+| Contexto de proceso  | Cómo definir                      | Contexto de ejecución                        |
+| ---------------- | ------------------------------- | ---------------------------------------- |
+| Secuencial local | rxSetComputeContext(‘local’)    | Ejecución en paralelo en los núcleos del servidor de nodo perimetral, excepto las llamadas de rxExec que se ejecutan en serie |
+| Paralelo local   | rxSetComputeContext(‘localpar’) | Ejecución paralelizada en los núcleos del servidor de nodo perimetral |
+| Spark            | RxSpark()                       | Ejecución distribuida paralelizada vía Spark en los nodos del clúster de HDI |
+| MapReduce       | RxHadoopMR()                    | Ejecución distribuida paralelizada vía MapReduce en los nodos del clúster de HDI |
 
 Suponiendo que quiera la ejecución paralelizada con fines de rendimiento, tiene tres opciones. La opción que elija dependerá de la naturaleza de su trabajo de análisis y del tamaño y la ubicación de los datos.
 
@@ -55,7 +55,7 @@ Con estos principios, las siguientes son algunas reglas generales para seleccion
 * Si la cantidad de datos que se va a analizar es pequeña o mediana y requiere análisis repetido, cópielos en el sistema de archivos local, impórtelos a XDF y analícelos mediante local o localpar.
 
 ### <a name="hadoop-spark"></a>Hadoop Spark
-* Si la cantidad de datos que se va a analizar es grande, impórtelos a XDF en HDFS (a no ser que el almacenamiento sea un problema), y analícelos mediante ’Spark’.
+* Si la cantidad de datos que se va a analizar es grande, impórtelos a Spark DataFrame mediante RxHiveData o RxParquetData, o a XDF en HDFS (a no ser que el almacenamiento sea un problema), y analícelos mediante "Spark".
 
 ### <a name="hadoop-map-reduce"></a>Hadoop MapReduce
 * Úselo solo si detecta un problema insuperable con el contexto de procesos de Spark, ya que generalmente será más lento.  
@@ -65,19 +65,19 @@ Para más información sobre los contextos de proceso de ScaleR y ver algunos ej
 
     > ?rxSetComputeContext
 
-También puede consultar el documento ScaleR Distributed Computing Guide (Guía de informática distribuida de ScaleR) que se encuentra disponible en la biblioteca [MSDN de R Server](https://msdn.microsoft.com/library/mt674634.aspx "Servidor de R en MSDN") .
+También puede consultar el documento "[ScaleR Distributed Computing Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)" (Guía de informática distribuida de ScaleR) que se encuentra disponible en la biblioteca [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server en MSDN").
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a crear un nuevo clúster de HDInsight que incluye R Server. También ha aprendido los conceptos básicos del uso de la consola de R desde una sesión de SSH. Ahora puede leer los artículos siguientes para descubrir otras formas de trabajar con R Server en HDInsight:
 
 * [Información general sobre R Server en Hadoop](hdinsight-hadoop-r-server-overview.md)
 * [Introducción a R Server en Hadoop](hdinsight-hadoop-r-server-get-started.md)
-* [Incorporación de RStudio Server a HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Instalación de RStudio con R Server en HDInsight (si no está instalado durante la creación del clúster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Opciones de Azure Storage para R Server en HDInsight](hdinsight-hadoop-r-server-storage.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure API Management: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a usar API Management para publicar las API de forma segura y a escala. La documentación le muestra cómo crear modernas puertas de enlace de API para los servicios back-end existentes."
+services: api-management
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: api-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
+ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 ---
 # <a name="api-management-documentation"></a>Documentación de API Management
 
-La Administración de API ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos para liberar el potencial de sus datos y servicios.  Administración de API proporciona las capacidades esenciales para garantizar un programa API exitoso a través de compromisos con desarrolladores, conocimiento de los negocios, análisis, seguridad y protección.
+Aprenda a usar API Management para publicar API mediante desarrolladores externos, asociados y empleados, a escala y de forma segura. Tutoriales, referencias de API y otra documentación le muestran cómo crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +41,7 @@ La Administración de API ayuda a las organizaciones a publicar API para desarro
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,51 +98,55 @@ La Administración de API ayuda a las organizaciones a publicar API para desarro
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Cmdlet de PowerShell de Resource Manager de API Management</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">PowerShell clásico</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de API Management</p>
+                        <p><a href="/rest/api/apimanagement/">API DE REST</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">API de REST (original)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Otros</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Directivas</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Plantillas</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de API Management </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

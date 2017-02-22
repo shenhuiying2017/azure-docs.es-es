@@ -1,5 +1,5 @@
 ---
-title: "Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark de HDInsight | Microsoft Docs"
+title: "Depuración de trabajos que se ejecutan en un clúster de Apache Spark en Azure HDInsight | Microsoft Docs"
 description: "Usar la interfaz de usuario de YARN, la de Spark y el servidor de historial de Spark para realizar un seguimiento y depurar trabajos que se ejecutan en un clúster de Spark en HDInsight de Azure"
 services: hdinsight
 documentationcenter: 
@@ -13,22 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 849e883a707cd84564a5cfae76f31494057ab181
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: d6d7c0d112778172633fa068a119ba075c0fd900
 
 
 ---
-# <a name="track-and-debug-jobs-running-on-apache-spark-cluster-in-hdinsight-linux"></a>Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight Linux
+# <a name="track-and-debug-jobs-running-on-apache-spark-cluster-in-hdinsight"></a>Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight
+
 En este artículo aprenderá a realizar un seguimiento y a depurar los trabajos de Spark mediante la interfaz de usuario de YARN, la de Spark y el servidor de historial de Spark. En este artículo, se iniciará un trabajo de Spark mediante un cuaderno disponible con el clúster de Spark, **Aprendizaje automático: análisis predictivo en datos de inspección de alimentos con MLLib**. Puede utilizar los pasos siguientes para realizar el seguimiento de una aplicación que haya enviado mediante cualquier otro enfoque, por ejemplo, **spark-submit**.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Debe tener lo siguiente:
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Debería haber iniciado la ejecución del cuaderno, **[Aprendizaje automático: análisis predictivo en datos de inspección de alimentos con MLLib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Para obtener instrucciones sobre cómo ejecutar este cuaderno, siga el vínculo.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Seguimiento de una aplicación en la interfaz de usuario de YARN
@@ -132,6 +133,6 @@ Cuando se completa un trabajo, se conserva la información sobre este en el serv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

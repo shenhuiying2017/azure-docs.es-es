@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 14997080496adfd363fee249c858ed9a0b553066
+ms.sourcegitcommit: 64650bf7baf46b0f5473deb1a9b4ec329979d153
+ms.openlocfilehash: 0fc78521abb0fce2a38b14d1411dad42b3580df2
 
 
 ---
+
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Qué hacer si se produce una interrupción del servicio de Almacenamiento de Azure
 En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre estén disponibles. A veces, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas en una o varias regiones. Para ayudarlo a gestionar estos raros imprevistos, ofrecemos la siguiente guía general para los servicios de Almacenamiento de Azure.
 
@@ -54,7 +55,9 @@ Ahora hablaremos de dos aspectos relativos a la experiencia de conmutación por 
 * La conmutación por error geográfica de almacenamiento solo la activa el equipo de almacenamiento de Azure. El cliente no tiene que hacer nada.
 * Los puntos de conexión de los servicios de almacenamiento que disponga para blobs, tablas, colas y archivos seguirán siendo los mismos después de la conmutación por error; la entrada DNS deberá actualizarse para cambiar de la región primaria a la secundaria.
 * Antes de la conmutación por error geográfica y durante este proceso, no tendrá acceso de escritura a la cuenta de almacenamiento debido a las repercusiones del desastre. Sin embargo, sí que podrá seguir realizando operaciones de lectura en la base de datos secundaria si la cuenta de almacenamiento se ha configurado como RA-GRS.
-* Cuando se haya completado la conmutación por error geográfica y se propaguen los cambios de DNS, se reanudará el acceso de lectura y escritura de la cuenta de almacenamiento. Puede consultar la ["hora de la última conmutación por error geográfica" de la cuenta de almacenamiento](https://msdn.microsoft.com/library/azure/ee460802.aspx) para obtener más información.
+* Cuando se haya completado la conmutación por error geográfica y se propaguen los cambios de DNS, se reanudará el acceso de lectura y escritura de la cuenta de almacenamiento. Esto apunta a lo que solía ser el punto de conexión secundario. 
+* Tenga en cuenta que tendrá acceso de escritura si tiene GRS o RA-GRS configurado para la cuenta de almacenamiento. 
+* Puede consultar la ["hora de la última conmutación por error geográfica" de la cuenta de almacenamiento](https://msdn.microsoft.com/library/azure/ee460802.aspx) para obtener más información.
 * Después de la conmutación por error, la cuenta de almacenamiento volverá a estar completamente funcional, pero con un rendimiento reducido, ya que se hospeda realmente en una región de independiente donde no se pueden realizar replicaciones geográficas. Para mitigar este riesgo, se restaurará la región primaria original y, luego, se realizará una conmutación por error geográfica para restaurar el estado original. Si la región primaria original es irrecuperable, asignamos otra región secundaria.
   Para obtener más información sobre la infraestructura de replicación geográfica de Almacenamiento de Azure, consulte el artículo del blog del equipo de almacenamiento que trata sobre las [opciones de redundancia y RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
@@ -66,9 +69,11 @@ Para hacer una copia de seguridad de los datos de almacenamiento de forma perió
 * Tablas: use [AzCopy](storage-use-azcopy.md) para exportar los datos de tabla en otra cuenta de almacenamiento de otra región.
 * Archivos: use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) para copiar los archivos en otra cuenta de almacenamiento de otra región.
 
+Para información sobre cómo crear aplicaciones que aprovechan totalmente la característica RA-GRS, consulte [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

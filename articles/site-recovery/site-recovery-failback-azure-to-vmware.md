@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/05/2016
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: ef381ef234608e0ccbf7f3814bd1f23816100d25
-ms.openlocfilehash: 3d78ec39d75da4118cc06f49ece3aa852eefd538
+ms.sourcegitcommit: 1663126f43b8e1cd3e68b9e9b2bbbb67298bb8c1
+ms.openlocfilehash: 893e2f64377b9b00596dfdc00e6eba36c024fa66
 
 
 ---
@@ -57,7 +57,7 @@ Si ha conmutado por error una máquina virtual de VMware, puede conmutar por rec
 
 * Si ha conmutado por error servidores físicos, la conmutación por recuperación siempre es a una nueva máquina virtual de VMware.
   * Antes de aplicar la conmutación por recuperación a una máquina física, tenga en cuenta lo siguiente:
-    * La máquina física protegida volverá como una virtual cuando se conmute por recuperación de Azure a VMware. No se puede realizar la conmutación por recuperación en las máquinas Windows Server 2008 R2 SP1, si están protegidas y conmutadas por error a Azure.
+    * La máquina física protegida volverá como una virtual cuando se conmute por recuperación de Azure a VMware. Si las máquinas físicas de Windows Server 2008 R2 SP1 están protegidas y conmutan por error a Azure, no se puede realizar la conmutación por recuperación. Las máquinas WS2008R2SP1 que se inicien como máquinas virtuales locales podrán realizar la conmutación por recuperación.
     * Asegúrese detectar al menos un servidor de destino maestro junto con los hosts ESX/ESXi necesarios para la conmutación por recuperación.
 * Si conmuta por recuperación a la máquina virtual original, se necesita lo siguiente:
   
@@ -103,7 +103,7 @@ Si ha protegido las máquinas como recursos clásicos (es decir, la máquina vir
    
     ![](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
    
-   1. El nombre de la imagen es *Microsoft Azure Site Recovery Process Server V2*(Servidor de procesos de Microsoft Azure Site Recovery, versión 2). Asegúrese de seleccionar *Clásico* como el modelo de implementación.
+   1. El nombre de la imagen es *Microsoft Azure Site Recovery Process Server V2*(Servidor de procesos de Microsoft Azure Site Recovery, versión&2;). Asegúrese de seleccionar *Clásico* como el modelo de implementación.
       
        ![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
    2. Instale el servidor de procesos según los pasos [especificados aquí](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)
@@ -237,7 +237,7 @@ Al finalizar el proceso por el que se vuelve a proteger, la máquina virtual se 
 4. Si utiliza las ediciones gratuitas de ESXi 5.5 o vSphere Hypervisor 6, la conmutación por error se llevará a cabo correctamente, pero la conmutación por recuperación, no. Tendrá que actualizar el software con una licencia de evaluación para habilitar la conmutación por recuperación.
 5. Si no se puede acceder a CS desde el servidor de procesos, puede comprobar la conectividad del servidor de procesos en CS mediante Telnet en la máquina CS (puerto 443). También puede tratar de hacer ping en CS desde la máquina PS. Un servidor PS debe tener también un latido cuando está conectado a CS.
 6. Si está tratando de realizar la conmutación por recuperación en un vCenter alternativo, asegúrese de que se detecta el nuevo vCenter, además del servidor de destino maestro. Como un síntoma típico, verá que los almacenes de datos no están accesibles ni visibles en el cuadro de diálogo de reprotección.
-7. Las máquinas WS2008R2SP1 protegidas como máquinas físicas o virtuales locales no se pueden conmutar por recuperación desde Azure a un entorno local.
+7. Las máquinas WS2008R2SP1 protegidas como máquinas físicas locales no pueden conmutar por recuperación desde Azure a un entorno local.
 
 ## <a name="failing-back-with-expressroute"></a>Conmutación por recuperación con ExpressRoute
 Puede conmutar por recuperación a través de una conexión VPN o de Azure ExpressRoute. Si desea usar ExpressRoute, tenga en cuenta lo siguiente:
@@ -248,6 +248,6 @@ Puede conmutar por recuperación a través de una conexión VPN o de Azure Expre
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

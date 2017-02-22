@@ -1,6 +1,6 @@
 ---
-title: "Preguntas más frecuentes de Cloud Services | Microsoft Docs"
-description: "Preguntas más frecuentes acerca de los Servicios en la nube."
+title: "Preguntas más frecuentes sobre roles de Azure Cloud Services | Microsoft Docs"
+description: "Preguntas más frecuentes sobre Azure Cloud Services. Responde a algunas preguntas comunes sobre certificados, roles web y roles de trabajo."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: f7bad9a46132dec43f73e561362c9e6441a5c1c0
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
 
 
 ---
@@ -28,9 +28,9 @@ En este artículo se responden algunas preguntas frecuentes sobre Servicios en l
 * **My**  
   Certificado de aplicación con clave privada (\*.pfx, \*.p12).
 * **CA**  
-   Todos los certificados intermedios van a este almacén (entidades de certificación de directivas y secundarias).
+  Todos los certificados intermedios van a este almacén (entidades de certificación de directivas y secundarias).
 * **ROOT**  
-   El almacén de entidades de certificación raíz, por lo que la mayoría de certificados de entidades de certificación raíz van aquí.
+  El almacén de entidades de certificación raíz, por lo que la mayoría de certificados de entidades de certificación raíz van aquí.
 
 ### <a name="i-cant-remove-expired-certificate"></a>No se puede quitar el certificado expirado
 Azure impide quitar un certificado mientras está en uso. Debe eliminar la implementación que utiliza el certificado o actualizar la implementación con un certificado diferente o renovado.
@@ -71,6 +71,6 @@ En primer lugar, asegúrese de que la instancia de máquina virtual para la que 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

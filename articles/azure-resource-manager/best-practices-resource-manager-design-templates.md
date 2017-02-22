@@ -1,6 +1,6 @@
 ---
-title: Modelos de plantillas de Resource Manager | Microsoft Docs
-description: "Mostrar patrones de diseño de plantillas del Administrador de recursos de Azure"
+title: "Diseño de plantillas de Azure para soluciones complejas | Microsoft Docs"
+description: "Muestra los procedimientos recomendados para diseñar plantillas de Azure Resource Manager para escenarios complejos"
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -12,16 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1af799b60c3e6053db302168faede1f7d90249b3
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
 
 
 ---
-# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Prácticas recomendadas para diseñar plantillas de Azure Resource Manager
-En nuestro trabajo con empresas, integradores de sistemas (SI), proveedores de servicios en la nube (CSV) y equipos de proyectos de software de código abierto (OSS), a menudo es necesario implementar rápidamente entornos, cargas de trabajo o unidades de escalado. Estas implementaciones deben ser respaldadas, seguir prácticas de demostrada eficacia y cumplir las directivas identificadas. Con un enfoque flexible basado en plantillas de Azure Resource Manager, puede implementar topologías complejas de forma rápida y coherente. Puede adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes para escenarios o clientes atípicos.
+# <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Diseño de patrones para plantillas de Azure Resource Manager cuando implementa soluciones complejas
+Con un enfoque flexible basado en plantillas de Azure Resource Manager, puede implementar topologías complejas de forma rápida y coherente. Puede adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes para escenarios o clientes atípicos.
 
 Este tema forma parte de un artículo más extenso. Para leer el documento completo, descargue [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Consideraciones sobre las plantillas de Resource Manager de talla mundial y prácticas comprobadas).
 
@@ -32,7 +32,7 @@ Las plantillas combinan las ventajas del Administrador de recursos de Azure suby
 * Aplicar control de acceso basado en rol (RBAC) para conceder el acceso adecuado a usuarios, grupos y servicios.
 * Usar asociaciones de etiquetas para simplificar tareas como resúmenes de facturación.
 
-Este artículo proporciona información detallada sobre escenarios de consumo, arquitectura y patrones de implementación identificados durante nuestras sesiones de diseño e implementaciones de plantillas reales con los clientes del equipo de asesoría de clientes de Azure (AzureCAT). Lejos de ser académicos, estos enfoques son prácticas probadas obtenidas mediante el desarrollo de plantillas para 12 de las principales tecnologías de software de código abierto basadas en Linux, como por ejemplo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis y Nagios. La mayoría de estas plantillas fueron desarrolladas con un conocido proveedor de una distribución dada y se han visto influidas por los requisitos de los clientes de empresa e integradores de sistemas de Microsoft durante proyectos recientes.
+Este artículo proporciona información detallada sobre escenarios de consumo, arquitectura y patrones de implementación identificados durante nuestras sesiones de diseño e implementaciones de plantillas reales con los clientes del equipo de asesoría de clientes de Azure (AzureCAT). Lejos de ser académicos, estos enfoques son prácticas probadas obtenidas mediante el desarrollo de plantillas para 12 de las principales tecnologías de software de código abierto basadas en Linux, como por ejemplo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis y Nagios. 
 
 Este artículo comparte estas prácticas de demostrada eficacia con el fin de ayudarle a diseñar plantillas del Administrador de recursos de Azure de talla mundial.  
 
@@ -46,7 +46,7 @@ Si su equipo desarrolla software para respaldar su negocio, las plantillas propo
 
 Puede usar las plantillas tal y como están o ampliarlas o componerlas para adaptarlas a sus necesidades. El uso de etiquetado dentro de las plantillas permite proporcionar un resumen de facturación con diversas vistas como equipo, proyecto, individuo y educación.
 
-Las empresas a menudo desean que los equipos de desarrollo de software creen una plantilla para la implementación coherente de una solución, pero que al mismo tiempo ofrezcan restricciones para que determinados elementos dentro de ese entorno permanezcan fijos y no se puedan invalidar. Por ejemplo, un banco puede requerir que una plantilla incluya RBAC, de modo que un programador no pueda revisar una solución bancaria para enviar datos a una cuenta de almacenamiento personal.
+Las empresas a menudo quieren que los equipos de desarrollo de software creen una plantilla para la implementación coherente de una solución. La plantilla facilita las restricciones para que determinados elementos dentro de ese entorno permanezcan fijos y no se puedan invalidar. Por ejemplo, un banco puede requerir que una plantilla incluya RBAC, de modo que un programador no pueda revisar una solución bancaria para enviar datos a una cuenta de almacenamiento personal.
 
 ### <a name="corporate-it"></a>Grupos de TI corporativos
 Las organizaciones de TI corporativa suelen usar plantillas para ofrecer capacidad en la nube y funcionalidades hospedadas en la nube.
@@ -59,7 +59,7 @@ Por ejemplo, puede que necesite proporcionar entornos de desarrollo, prueba o pr
 #### <a name="cloud-hosted-capabilities"></a>Funcionalidades hospedadas en la nube
 Puede usar plantillas para respaldar las funcionalidades hospedadas en la nube, como paquetes de software individuales u ofertas compuestas que se ofrecen a las líneas de negocio internas. Un ejemplo de una oferta compuesta sería el análisis como servicio: análisis, visualización y otras tecnologías, proporcionado en una configuración optimizada y conectada en una topología de red predefinida.
 
-Las funcionalidades hospedadas en la nube resultan afectadas por las consideraciones sobre seguridad y roles establecidas por la oferta de capacidad en la nube en la que se crean, tal y como se describió anteriormente. Estas funcionalidades se ofrecen tal y como están o como un servicio administrado. En este último caso, se requieren roles con acceso limitado para permitir el acceso en el entorno con fines de administración.
+Las funcionalidades hospedadas en la nube se ven afectadas por las consideraciones sobre seguridad y roles establecidas por la oferta de capacidad en la nube en la que se basan. Estas funcionalidades se ofrecen tal y como están o como un servicio administrado. En este último caso, se requieren roles con acceso limitado para permitir el acceso en el entorno con fines de administración.
 
 ## <a name="cloud-service-vendors"></a>Proveedores de servicios en la nube
 Después de hablar con muchos CSV, hemos identificado varios enfoques que puede adoptar para implementar servicios para los clientes, junto con los requisitos asociados.
@@ -67,8 +67,8 @@ Después de hablar con muchos CSV, hemos identificado varios enfoques que puede 
 ### <a name="csv-hosted-offering"></a>Oferta hospeda por el CSV
 Si hospeda su oferta en su propia suscripción de Azure, dos son los enfoques de hospedaje más comunes: realizar una implementación distinta para cada cliente o implementar unidades de escalado que respalden una infraestructura compartida usada para todos los clientes.
 
-* **Implementaciones distintas para cada cliente.**  Las implementaciones distintas por cliente requieren topologías fijas de diferentes configuraciones conocidas. Dichas implementaciones pueden tener diferentes tamaños de máquinas virtuales, un número variable de nodos y distintas cantidades de almacenamiento asociado. El etiquetado de las implementaciones se usa en el resumen de facturación de cada cliente. RBAC puede habilitarse para permitir a los clientes acceso a aspectos de su entorno de nube.
-* **Unidades de escalado en entornos multiempresa compartidos.**  Una plantilla puede representar una unidad de escalado en entornos multiempresa. En este caso, se usa la misma infraestructura para respaldar a todos los clientes. Las implementaciones representan un grupo de recursos que proporcionan un nivel de capacidad para la oferta hospedada, como el número de usuarios y el número de transacciones. Estas unidades de escalado se aumentan o disminuyen según exija la demanda.
+* **Implementaciones distintas para cada cliente.** Las implementaciones distintas por cliente requieren topologías fijas de diferentes configuraciones conocidas. Dichas implementaciones pueden tener diferentes tamaños de máquinas virtuales, un número variable de nodos y distintas cantidades de almacenamiento asociado. El etiquetado de las implementaciones se usa en el resumen de facturación de cada cliente. RBAC puede habilitarse para permitir a los clientes acceso a aspectos de su entorno de nube.
+* **Unidades de escalado en entornos multiempresa compartidos.** Una plantilla puede representar una unidad de escalado en entornos multiempresa. En este caso, se usa la misma infraestructura para respaldar a todos los clientes. Las implementaciones representan un grupo de recursos que proporcionan un nivel de capacidad para la oferta hospedada, como el número de usuarios y el número de transacciones. Estas unidades de escalado se aumentan o disminuyen según exija la demanda.
 
 ### <a name="csv-offering-injected-into-customer-subscription"></a>Oferta de CSV insertada en la suscripción del cliente
 Puede que quiera implementar su software en suscripciones propiedad de los clientes finales. Puede usar plantillas para realizar distintas implementaciones en la cuenta de Azure de un cliente.
@@ -83,7 +83,7 @@ Dentro de los proyectos de código abierto, las plantillas del Administrador de 
 
 En las secciones siguientes se identifican los aspectos que debe tener en cuenta antes de diseñar la solución.
 
-## <a name="identifying-what-is-outside-and-inside-of-a-vm"></a>Identificación de lo que está dentro y fuera de una máquina virtual
+## <a name="identifying-what-is-outside-and-inside-a-vm"></a>Identificación de lo que está dentro y fuera de una máquina virtual
 Al diseñar la plantilla, resulta útil examinar los requisitos en términos de lo que está fuera y dentro de las máquinas virtuales:
 
 * Fuera significa las máquinas virtuales y otros recursos de la implementación, como la topología de red, el etiquetado, las referencias a los certificados o secretos y el control de acceso basado en rol. Todos estos recursos forman parte de la plantilla.
@@ -104,7 +104,7 @@ Algunos ejemplos comunes de actividades que haría "dentro de la caja" serían:
 * Ejecutar scripts nativos (Windows PowerShell, bash, etc.)
 
 ### <a name="desired-state-configuration-dsc"></a>Configuración de estado deseado (DSC)
-Considerando el estado interno de las máquinas virtuales más allá de la implementación, querrá asegurarse de que esta implementación no se "desvía" de la configuración que ha definido y comprobado en el control de código fuente. Este enfoque garantiza que los desarrolladores o el personal de operaciones no realizan cambios ad hoc en un entorno que no estén investigado, probando o registrando en el control de código fuente. Esto es importante, ya que los cambios manuales no están en el control de código fuente ni forman parte de la implementación estándar, y afectarán a futuras implementaciones automatizadas del software.
+Considerando el estado interno de las máquinas virtuales más allá de la implementación, querrá asegurarse de que esta implementación no se "desvía" de la configuración que ha definido y comprobado en el control de código fuente. Este enfoque garantiza que los desarrolladores o el personal de operaciones no realizan cambios ad hoc en un entorno que no estén investigado, probando o registrando en el control de código fuente. Este control es importante porque los cambios manuales no están en el control de código fuente. Tampoco forman parte de la implementación estándar y afectarán a futuras implementaciones automatizadas del software.
 
 Dejando a un lado los empleados internos, la configuración de estado deseado también es importante desde el punto de vista de la seguridad. Los piratas informáticos intentan periódicamente poner en peligro y aprovechar las vulnerabilidades de los sistemas de software. Cuando lo consiguen, suelen instalar archivos y cambiar de algún modo el estado de un sistema en peligro. Con la configuración de estado deseado, puede identificar diferencias entre el estado deseado y real y restaurar una configuración conocida.
 
@@ -122,7 +122,7 @@ Un ámbito de funcionalidad se centra en la implementación y configuración de 
 ### <a name="end-to-end-solution-scope"></a>Ámbito de solución completa
 Un ámbito de solución completa va más allá de una funcionalidad única; se centra en la entrega de una solución completa compuesta por varias funcionalidades.  
 
-Una plantilla con ámbito de solución se manifiesta como un conjunto de una o varias plantillas con ámbito de funcionalidad con recursos, lógica y estado deseado específicos de una solución. Un ejemplo de una plantilla con ámbito de solución es una plantilla de solución de la canalización de datos completa. La plantilla puede mezclar el estado y la topología específica de la solución con varias plantillas de solución con ámbito de funcionalidad, como Kafka, Storm y Hadoop.
+Una plantilla con ámbito de solución se manifiesta como un conjunto de una o varias plantillas con ámbito de funcionalidad con recursos, lógica y estado deseado específicos de una solución. Un ejemplo de una plantilla con ámbito de solución es una plantilla de solución de la canalización de datos completa. La plantilla puede mezclar la topología y el estado específicos de la solución con varias plantillas de solución con ámbito de funcionalidad, como Kafka, Storm y Hadoop.
 
 ## <a name="choosing-free-form-vs-known-configurations"></a>Elección de configuraciones conocidas frente a forma libre
 Es posible que inicialmente piense que una plantilla debe ofrecer a los clientes la máxima flexibilidad, pero son muchos los aspectos a tener en cuenta a la hora de decidir si usar configuraciones de forma libre o conocidas. En esta sección se identifican los requisitos clave de los clientes y las consideraciones técnicas que conforman el enfoque compartido en este documento.
@@ -132,11 +132,11 @@ A primera vista, las configuraciones de forma libre parecen idóneas. Permiten s
 
 En [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Tamaños de máquinas virtuales Windows en Azure), se identifican los distintos tipos y tamaños de máquina virtual disponibles, y cada número de discos durables (2, 4, 8, 16 o 32) que se pueden conectar. Cada disco conectado proporciona 500 IOPS, y se pueden agrupar múltiplos de estos discos por un multiplicador de ese número de IOPS. Por ejemplo, se pueden agrupar 16 discos para proporcionar 8000 IOPS. La agrupación se realiza con la configuración del sistema operativo, usando espacios de almacenamiento de Microsoft Windows o una matriz redundante de discos independientes (RAID) en Linux.
 
-Una configuración de forma libre permite la selección de un número de instancias de máquina virtual, un número de diferentes tipos y tamaños de VM para esas instancias, un número de discos que puede variar según el tipo de máquina virtual y uno o más scripts para configurar el contenido de la máquina virtual.
+Una configuración de forma libre permite la selección de varias instancias de máquina virtual, diferentes tipos y tamaños de VM para esas instancias, varios discos para el tipo de máquina virtual y uno o más scripts para configurar el contenido de la máquina virtual.
 
 Es frecuente que una implementación pueda tener varios tipos de nodos, como nodos maestros y de datos, por lo que esta flexibilidad se proporciona a menudo para cada tipo de nodo.
 
-Cuando empiece a implementar clústeres de cierta importancia, comenzará a trabajar con múltiplos de todos ellos. Si fuera a implementara un clúster de Hadoop, por ejemplo, con 8 nodos maestros y 200 nodos de datos y agrupara 4 discos conectados en cada nodo principal y 16 discos conectados por nodo de datos, habría 208 máquinas virtuales y 3232 discos para administrar.
+Conforme empiece a implementar clústeres de cierta importancia, comenzará a trabajar con estos escenarios complejos. Si fuera a implementara un clúster de Hadoop, por ejemplo, con 8 nodos maestros y 200 nodos de datos y agrupara 4 discos conectados en cada nodo principal y 16 discos conectados por nodo de datos, habría 208 máquinas virtuales y 3232 discos para administrar.
 
 Una cuenta de almacenamiento limita las solicitudes anteriores por encima de su límite identificado de 20 000 transacciones por segundo, por lo que debe examinar el particionamiento de la cuenta de almacenamiento y usar cálculos para determinar el número adecuado de cuentas de almacenamiento que hacen posible esta topología. Dada la gran variedad de combinaciones que admite el enfoque de forma libre, se requieren cálculos dinámicos para determinar el particionamiento adecuado. El lenguaje de plantillas del Administrador de recursos de Azure no proporciona actualmente funciones matemáticas, por lo que debe realizar estos cálculos en el código y generar una plantilla única codificada de forma rígida con los detalles correspondientes.
 
@@ -163,7 +163,7 @@ Las ofertas de productos basadas en los tamaños de camiseta, como Comunidad o E
 
 También puede adaptarse a los clientes con variantes únicas usando plantillas basadas en JSON. Cuando se trabaja con clientes atípicos, puede incorporar la planeación adecuada y las consideraciones sobre desarrollo, soporte técnico y costos.
 
-En función de los escenarios de consumo de plantillas del cliente, de los requisitos identificados al principio de este documento y de nuestra experiencia práctica en la creación de numerosas plantillas, identificamos un patrón para la descomposición de plantillas.
+En función de los escenarios de consumo de plantillas del cliente y de los requisitos identificados al principio de este documento, identificamos un patrón para la descomposición de plantillas.
 
 ## <a name="capacity-and-capability-scoped-solution-templates"></a>Plantillas de soluciones con ámbito de capacidad y de funcionalidad
 La descomposición proporciona un enfoque modular hacia el desarrollo de plantillas que admite la reutilización, la extensibilidad, la prueba y el uso de herramientas. En esta sección se proporcionan detalles sobre cómo se puede aplicar un enfoque de descomposición a plantillas con un ámbito de capacidad o de funcionalidad.
@@ -318,7 +318,7 @@ Como las plantillas con ámbito de solución completa también pueden tener norm
 
 La plantilla de recursos de configuración conocida se vincula a una o varias plantillas de solución con ámbito de funcionalidad que sean pertinentes para la solución completa y con las plantillas de recursos de miembros que sean necesarias para ella.
 
-Como el tamaño de camiseta de la solución puede ser diferente al de la plantilla individual con ámbito de funcionalidad, se usan variables dentro de la plantilla de recursos de configuración conocida para proporcionar los valores adecuados para las plantillas de solución con ámbito de funcionalidad de nivel inferior a fin de implementar el tamaño de camiseta adecuado.
+Como el tamaño de camiseta de la solución puede ser diferente al de la plantilla individual con ámbito de funcionalidad, se usan variables dentro de la Plantilla de recursos de configuración conocida para proporcionar los valores adecuados para las plantillas de solución con ámbito de funcionalidad de nivel inferior a fin de implementar el tamaño de camiseta adecuado.
 
 ![Completa](./media/best-practices-resource-manager-design-templates/end-to-end.png)
 
@@ -337,7 +337,7 @@ Primero se modifican los parámetros de la plantilla principal para quitar el pa
 
 Aunque los distintos tipos de implementaciones se asignan a la plantilla de recursos de configuración conocida, también necesitan los recursos comunes y la configuración encontrada en la plantilla de recursos compartidos y, posiblemente, los de las plantillas de recursos opcionales.
 
-Si desea publicar la plantilla en Marketplace, simplemente establezca distintas copias de la plantilla principal que reemplaza el parámetro de entrada anteriormente disponible de tshirtSize por una variable incrustada dentro de la plantilla.
+Si desea publicar la plantilla en Marketplace, establezca distintas copias de la plantilla principal que reemplace el parámetro de entrada anteriormente disponible de tshirtSize por una variable incrustada dentro de la plantilla.
 
 ![Marketplace](./media/best-practices-resource-manager-design-templates/marketplace.png)
 
@@ -351,6 +351,6 @@ Si desea publicar la plantilla en Marketplace, simplemente establezca distintas 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

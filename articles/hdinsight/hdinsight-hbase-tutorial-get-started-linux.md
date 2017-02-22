@@ -1,5 +1,5 @@
 ---
-title: "Tutorial de HBase: Introducción a clústeres de HBase basados en Linux en Hadoop | Microsoft Docs"
+title: "Introducción a HBase en Azure HDInsight | Microsoft Docs"
 description: "Siga este tutorial de HBase para empezar a usar Apache HBase con Hadoop en HDInsight. Cree tablas desde el shell de HBase y consúltelas mediante Hive."
 keywords: apache hbase,hbase,shell de hbase,tutorial de hbase
 services: hdinsight
@@ -13,20 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+ms.sourcegitcommit: 0a09f1511778623b21a26042a752009ae2208ba6
+ms.openlocfilehash: 415f6f71642726aeb8477f067bd406a57717ff2a
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Linux
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>Tutorial de HBase: Introducción al uso de Apache HBase en HDInsight
 
-Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar tablas mediante Hive. Para obtener información general sobre HBase, consulte [Información general de HBase de HDInsight][hdinsight-hbase-overview].
-
-La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para más información acerca de los clústeres basados en Windows, utilice el Selector de pestañas de la parte superior de la página para cambiar.
+Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar tablas mediante Hive. Para obtener información general de HBase, consulte [Información general de HBase de HDInsight][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -45,7 +42,7 @@ El siguiente procedimiento usa una plantilla de Azure Resource Manager para crea
 
 1. Haga clic en la imagen siguiente para abrir la plantilla en el Portal de Azure. La plantilla se encuentra en un contenedor de blobs público. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. En la hoja **Implementación personalizada**, escriba lo siguiente:
    
    * **Suscripción**: seleccione la suscripción de Azure que se usará para crear este clúster.
@@ -74,7 +71,7 @@ Para la mayoría de las personas, los datos aparecen en formato tabular:
 
 En HBase, que es una implementación de BigTable, los mismos datos tienen un aspecto similar al siguiente:
 
-![Datos bigtable de HBase de HDInsight][img-hbase-sample-data-bigtable]
+![Datos de HDInsight HBase BigTable][img-hbase-sample-data-bigtable]
 
 Tendrá más sentido cuando termine el siguiente procedimiento.  
 
@@ -95,14 +92,14 @@ Tendrá más sentido cuando termine el siguiente procedimiento.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![shell de hbase de hadoop de hdinsight][img-hbase-shell]
+    ![Shell de HDInsight Hadoop HBase][img-hbase-shell]
 4. Obtenga una sola fila
    
         get 'Contacts', '1000'
    
     Verá los mismos resultados que con el comando de análisis porque solo hay una fila.
    
-    Para más información acerca del esquema de las tablas de HBase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
+    Para más información acerca del esquema de tabla de Hbase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
 5. Salga del shell
    
         exit
@@ -113,18 +110,18 @@ HBase incluye varios métodos de carga de datos en las tablas.  Para obtener má
 
 Se ha cargado un archivo de datos de ejemplo en un contenedor de blobs público, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  El contenido del archivo de datos es:
 
-    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
     3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almacenamiento si lo desea. Para obtener instrucciones, consulte[ Carga de datos para trabajos de Hadoop en HDInsight][hdinsight-upload-data].
+Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almacenamiento si lo desea. Para obtener instrucciones, consulte [Carga de datos para trabajos de Hadoop en HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > Este procedimiento usa la tabla HBase de contactos que ha creado en el último procedimiento.
@@ -142,10 +139,18 @@ Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almac
 ## <a name="use-hive-to-query-hbase"></a>Utilización de Hive para consultar HBase
 Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta sección se crea una tabla de Hive que se asigna a la tabla de HBase y se usa para consultar los datos en la tabla de HBase.
 
+> [!NOTE]
+> Si Hive y HBase están en clústeres diferentes de la misma red virtual, es necesario usar cuórum de Zookeeper al invocar la shell de Hive:
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. Abra **PuTTY**y conéctese al clúster.  Consulte las instrucciones del procedimiento anterior.
 2. Abra el shell de Hive.
    
        hive
+       
 3. Ejecute el siguiente script de HiveQL para crear una tabla de Hive que se asigne a la tabla de HBase. Antes de ejecutar esta instrucción, asegúrese de haber creado la tabla de ejemplo a la que se hace referencia aquí en HBase mediante el shell de HBase.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -199,7 +204,7 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
-        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
     Debe codificar en base64 los valores especificados en el modificador -d.  En el ejemplo:
@@ -221,53 +226,21 @@ Para más información sobre Rest de HBase, consulte la [guía de referencia de 
 ## <a name="check-cluster-status"></a>Comprobar el estado del clúster
 HBase en HDInsight se incluye con una interfaz de usuario web para la supervisión de clústeres. Mediante la interfaz de usuario web, puede solicitar estadísticas o información acerca de las regiones.
 
-SSH también se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se enrutará al recurso solicitado como si se hubiese originado en el nodo principal del clúster de HDInsight. Para más información, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**Para acceder a la interfaz de usuario maestra de HBase**
 
-**Para establecer una sesión de tunelización de SSH**
+1. Abra la interfaz de usuario web de Ambari en https://&lt;nombre_de_cluster>.azurehdinsight.net.
+2. Haga clic en **HBase** en el menú izquierdo.
+3. Haga clic en **Quick links** (Vínculos rápidos) en la parte superior de la página, seleccione el vínculo del nodo Zookeeper activo y, después, haga clic en **HBase Master UI** (Interfaz de usuario maestra de HBase).  La interfaz de usuario se abre en otra pestaña del explorador:
 
-1. Abra **PuTTY**.  
-2. Si especificó una clave SSH al crear la cuenta de usuario durante el proceso de creación, debe realizar el siguiente paso para seleccionar la clave privada que se usará al autenticarse en el clúster:
-   
-    En **Category** (Categoría), expanda **Connection** (Conexión), **SSH** y seleccione **Auth** (Autenticar). Finalmente, haga clic en **Browse** (Examinar) y seleccione el archivo .ppk que contiene su clave privada.
-3. En **Category** (Categoría), haga clic en **Session** (Sesión).
-4. Entre las opciones básicas para su pantalla de sesión de PuTTY, escriba los siguientes valores:
-   
-   * **Nombre de host**: dirección de SSH de su servidor de HDInsight en el campo del nombre de host (o dirección IP). La dirección SSH es el nombre de su clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, *mycluster-ssh.azurehdinsight.net*.
-   * **Puerto**: 22. El puerto ssh del nodo principal es el 22.  
-5. En la sección **Category** (Categoría) a la izquierda del cuadro de diálogo, expanda **Connection** (Conexión), **SSH** y, después, haga clic en **Tunnels** (Túneles).
-6. Proporcione la siguiente información en el formulario Opciones que controlan el desvío de puertos SSH:
-   
-   * **Source port** : el puerto en el cliente que desea desviar. Por ejemplo, 9876.
-   * **Dynamic** : habilita el enrutamiento dinámico del proxy SOCKS.
-7. Haga clic en **Agregar** para agregar la configuración.
-8. Haga clic en **Abrir** , en la parte inferior del cuadro de diálogo, para abrir una conexión SSH.
-9. Cuando se le solicite, inicie sesión en el servidor usando una cuenta de SSH. Esto establecerá una sesión SSH y habilitará el túnel.
+  ![Interfaz de usuario maestra de HBase de HDInsight](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**Para encontrar el FQDN de los zookeepers con Ambari**
+  La interfaz de usuario maestra de HBase contiene las siguientes secciones:
 
-1. Vaya a https://<ClusterName>.azurehdinsight.net/.
-2. Escriba las credenciales de la cuenta de usuario de clúster dos veces.
-3. En el menú izquierdo, haga clic en **zookeeper**.
-4. Haga clic en uno de los tres vínculos **Servidor de ZooKeeper** en la lista de resumen.
-5. Copie el **Nombre de host**. Por ejemplo, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
-
-**Para configurar un programa de cliente (Firefox) y comprobar el estado del clúster**
-
-1. Abra Firefox.
-2. Haga clic en el botón **Abrir menú**
-3. Haga clic en **Opciones**.
-4. Haga clic en **Avanzadas**, en **Red** y, luego, en **Configuración**.
-5. Seleccione **Configuración manual del proxy**.
-6. Escriba los siguientes valores:
-   
-   * **Host de Socks**: localhost
-   * **Puerto**: use el mismo puerto que configuró en la tunelización SSH de Putty.  Por ejemplo, 9876.
-   * **SOCKS v5**: (seleccionado)
-   * **DNS remoto**: (seleccionado)
-7. Haga clic en **Aceptar** para guardar los cambios.
-8. Vaya a http://&lt;FQDN de un ZooKeeper>:60010/master-status.
-
-En un clúster de alta disponibilidad, encontrará un vínculo al nodo maestro de HBase activo actual que hospeda la interfaz de usuario web.
+  - servidores regionales
+  - maestros de copia de seguridad
+  - tables
+  - tareas
+  - atributos de software
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
@@ -310,6 +283,6 @@ Para obtener más información, consulte:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

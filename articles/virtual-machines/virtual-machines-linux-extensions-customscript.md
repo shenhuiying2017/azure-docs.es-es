@@ -1,5 +1,5 @@
 ---
-title: "Scripts personalizados en máquinas virtuales Linux | Microsoft Docs"
+title: "Ejecución de scripts personalizados en VM de Linux en Azure | Microsoft Docs"
 description: "Automatización de tareas de configuración de máquinas virtuales Linux mediante la extensión de script personalizado"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bf6c1423ca2f88d7a881c87cf1e7d42302c33a9c
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 09c1ace33461eff30fbd4b277e1397934fe5a98a
 
 
 ---
@@ -185,7 +185,7 @@ La extensión de script personalizado de Azure se puede ejecutar en tiempo de im
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh
+        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
       ]              
     },
     "protectedSettings": {
@@ -207,7 +207,7 @@ Cuando la extensión de script personalizado se ejecuta, el script se crea o se 
 La extensión de script de Azure genera un registro, que se encuentra aquí.
 
 ```bash
-/var/log/azure/customscript/handler.log
+/var/log/azure/custom-script/handler.log
 ```
 
 El estado de ejecución de la extensión de script personalizado también se puede recuperar con la CLI de Azure.
@@ -234,6 +234,6 @@ Para más información sobre otras extensiones de script de máquina virtual, co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

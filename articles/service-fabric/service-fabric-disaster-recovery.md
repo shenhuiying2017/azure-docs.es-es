@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/29/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3e8fe622bdd6ecba01bc08b26a243c592c3c8b
+ms.sourcegitcommit: 6dc2a6dbf4b26363f1ad714baec8d48045aa97b6
+ms.openlocfilehash: 81d818afb1a15db646a20b4001493d9df7e24d27
 
 
 ---
@@ -41,7 +41,7 @@ Puede visualizar el diseño del clúster en los dominios de error mediante el ma
 > 
 
 ### <a name="geographic-distribution"></a>Distribución geográfica
-Actualmente, [hay 26 regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
+Actualmente, [hay 30 regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
 
 ## <a name="dealing-with-failures"></a>Gestión de los errores
 Hay varios tipos de errores que pueden afectar al clúster, cada uno con su propia solución. Los veremos en orden de probabilidad de que ocurran.
@@ -55,7 +55,7 @@ Si bien los dominios de error reducen considerablemente el riesgo de errores de 
 En general, mientras la mayoría de los nodos permanezcan disponibles, el clúster seguirá funcionando, no obstante con menos capacidad, dado que las réplicas con estado se empaquetan en un conjunto más pequeño de máquinas y hay menos instancias sin estado disponibles para repartir la carga.
 
 #### <a name="quorum-loss"></a>Pérdida de quórum
-Si la mayoría de las réplicas de la partición de un servicio con estado deja de funcionar, esa partición pasa a un estado conocido como "pérdida de cuórum". En este punto, Service Fabric deja de permitir que se escriba en esa partición para asegurarse de que conserva un estado coherente y confiable. De hecho, hemos elegido aceptar un período de falta de disponibilidad para tener la seguridad de que no se informa a los clientes de que sus datos se han guardado cuando no es el caso. Tenga en cuenta que si ha optado por permitir lecturas desde réplicas secundarias para ese servicio con estado, puede seguir realizando esas operaciones de lectura mientras se encuentre en este estado. Una partición permanece en pérdida de cuórum hasta que esté disponible un número suficiente de réplicas o hasta que el administrador del clúster fuerce al sistema a seguir adelante mediante la [Repair-ServiceFabricPartition API][repair-partition-ps].
+Si la mayoría de las réplicas de la partición de un servicio con estado deja de funcionar, esa partición pasa a un estado conocido como "pérdida de cuórum". En este punto, Service Fabric deja de permitir que se escriba en esa partición para asegurarse de que conserva un estado coherente y confiable. De hecho, hemos elegido aceptar un período de falta de disponibilidad para tener la seguridad de que no se informa a los clientes de que sus datos se han guardado cuando no es el caso. Tenga en cuenta que si ha optado por permitir lecturas desde réplicas secundarias para ese servicio con estado, puede seguir realizando esas operaciones de lectura mientras se encuentre en este estado. Una partición permanece en pérdida de cuórum hasta que esté disponible un número suficiente de réplicas o hasta que el administrador del clúster fuerce al sistema a seguir adelante mediante la [API Repair-ServiceFabricPartition][repair-partition-ps].
 
 > [!WARNING]
 > Si se realiza una acción de reparación mientras la réplica principal está inactiva, se producirá una pérdida de datos.
@@ -109,6 +109,6 @@ Entre las causas de pérdida de datos, los defectos en el código de los servici
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

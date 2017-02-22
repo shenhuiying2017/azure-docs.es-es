@@ -1,6 +1,6 @@
 ---
-title: "Supervisión y administración de un grupo de bases de datos elásticas con Azure Portal | Microsoft Docs"
-description: "Obtenga más información sobre cómo usar la inteligencia integrada de la Base de datos SQL y el Portal de Azure con el objetivo de administrar y supervisar un grupo de bases de datos elásticas escalables, así como identificar su tamaño más adecuado, con el objetivo de optimizar el rendimiento de las bases de datos y administrar los costos."
+title: "Azure Portal: Creación y administración de un grupo elástico de SQL Database | Microsoft Docs"
+description: "Aprenda a usar la inteligencia integrada de Azure Portal y SQL Database para administrar y supervisar un grupo elástico escalable, así como para identificar su tamaño más adecuado, con el objetivo de optimizar el rendimiento de las bases de datos y administrar los costes."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
@@ -17,19 +17,107 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: c17cedb24dacc6aeefa02a963b4dffcf22e246ec
-ms.openlocfilehash: 285be87188be8fa426e42d6ec43cd066100f423d
+ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
+ms.openlocfilehash: 40f04d92acce3096baec251824cb23a70b52ff83
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-the-azure-portal"></a>Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure
-> [!div class="op_single_selector"]
-> * [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
-> * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-> * [C#](sql-database-elastic-pool-manage-csharp.md)
-> * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
+# <a name="create-and-manage-an-elastic-pool-with-the-azure-portal"></a>Creación y administración de un grupo elástico con Azure Portal
+En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con [Azure Portal](https://portal.azure.com/). También puede crear y administrar un grupo elástico de Azure en [PowerShell](sql-database-elastic-pool-manage-powershell.md), la API de REST o [C#][Creación y administración de un grupo elástico con C#](sql-database-elastic-pool-manage-csharp.md). También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+
+## <a name="create-an-elastic-pool"></a>Creación de un grupo elástico 
+
+Hay dos maneras de crear un grupo elástico. Puede partir de cero si conoce la configuración deseada del grupo, o comenzar con una recomendación del servicio. Base de datos SQL es una base de datos inteligente que recomienda la configuración de grupo elástico más rentable, en función de los datos de telemetría de uso pasados de las bases de datos.
+
+Puede crear varios grupos a un servidor, pero no puede agregar bases de datos de servidores diferentes al mismo grupo. 
+
+> [!NOTE]
+> Los grupos elásticos están disponibles con carácter general (GA) en todas las regiones de Azure excepto oeste de la India, donde actualmente se encuentran en versión preliminar.  La disponibilidad general de grupos elásticos en esta región se producirá tan pronto como sea posible.
 >
 >
+
+### <a name="step-1-create-an-elastic-pool"></a>Paso 1: Crear un grupo elástico
+
+Crear un grupo elástico a partir de una hoja de **servidor** que ya existe en el portal es la forma más sencilla de mover bases de datos existentes a un grupo elástico.
+
+> [!NOTE]
+> También puede crear un grupo elástico si busca **grupo elástico de SQL** en **Marketplace** o hace clic en **+Agregar** en la hoja para examinar **Grupos elásticos de SQL**. Puede especificar un servidor nuevo o existente por medio de este flujo de trabajo de aprovisionamiento de grupo.
+>
+>
+
+1. En [Azure Portal](http://portal.azure.com/), haga clic en **Más servicios** **>** **Servidores SQL Server** y, luego, en el servidor que contiene las bases de datos que desea agregar a un grupo elástico.
+2. Haga clic en **Grupo nuevo**.
+
+    ![Adición de un grupo a un servidor](./media/sql-database-elastic-pool-create-portal/new-pool.png)
+
+    **O**
+
+    Quizá vea un mensaje que indica que existen grupos elásticos recomendados para el servidor (solo V12). Haga clic en el mensaje para ver los grupos recomendados según la telemetría de uso histórica de base de datos y, después, en el nivel para ver más detalles y personalizar el grupo. Consulte [Descripción de las recomendaciones de grupos](#understand-pool-recommendations) más adelante en este tema para ver cómo se realiza la recomendación.
+
+    ![grupo recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
+
+3. Aparece la hoja del **grupo elástico**, que es donde va a especificar la configuración del grupo. Si hizo clic en **Grupo nuevo** en el paso anterior, el plan de tarifa es **Estándar** de forma predeterminada y aún no hay bases de datos seleccionadas. Puede crear un grupo vacío o especificar un conjunto de bases de datos existentes de ese servidor para moverlas al grupo. Si va a crear un grupo recomendado, ya estarán llenos el plan de tarifa recomendado, la configuración de rendimiento y la lista de bases de datos, aunque todavía puede hacer cambios.
+
+    ![Configuración de grupos elásticos](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
+
+4. Especifique un nombre para el grupo elástico o deje el valor predeterminado.
+
+### <a name="step-2-choose-a-pricing-tier"></a>Paso 2: Elegir un plan de tarifa
+
+El plan de tarifa del grupo determina las características disponibles para las bases de datos elásticas del grupo, además de la cantidad máxima de eDTU (eDTU MÁX.) y el almacenamiento (GB) disponibles para cada base de datos. Para más detalles, consulte Niveles de servicio.
+
+Para cambiar el plan de tarifa del grupo, haga clic en **Plan de tarifa**, en el plan de tarifa que prefiera y en **Seleccionar**.
+
+> [!IMPORTANT]
+> Después de elegirlo y hacer clic en **Aceptar** en el último paso para confirmar los cambios, no podrá cambiar el plan de tarifa del grupo. Para cambiar el plan de tarifa de un grupo elástico existente, cree un grupo elástico en el plan de tarifa que quiera y migre las bases de datos al nuevo grupo.
+>
+>
+
+![Seleccione un nivel de precios.](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
+
+### <a name="step-3-configure-the-pool"></a>Paso 3: Configurar el grupo
+
+Después de establecer el plan de tarifa, haga clic en Configurar grupo donde agregar bases de datos, establezca las eDTU y el almacenamiento (GB del grupo) y el lugar en que se establecen las eDTU mínima y máxima para las bases de datos elásticas del grupo.
+
+1. Haga clic en **Configurar grupo**
+2. Seleccione las bases de datos que desea agregar al grupo. Este paso es opcional al crear el grupo. Se pueden agregar bases de datos una vez creado el grupo.
+    Para agregar bases de datos, haga clic en **Agregar base de datos**, en las bases de datos que quiera agregar y en el botón **Seleccionar**.
+
+    ![Agregar bases de datos](./media/sql-database-elastic-pool-create-portal/add-databases.png)
+
+    Si está trabajando con bases de datos que tienen suficiente telemetría de historial de uso, el gráfico **Estimated eDTU and GB usage** (Uso estimado de eDTU y GB) y el gráfico de barras **Actual eDTU usage** (Uso real de eDTU) se actualizan para ayudarle a tomar decisiones de configuración. Además, el servicio puede proporcionar un mensaje de recomendación que le ayuda a ajustar el tamaño correcto del grupo. Consulte [Recomendaciones dinámicas](#dynamic-recommendations).
+
+3. Use los controles de la página **Configurar grupo** para explorar las opciones y configurar el grupo. Consulte los [límites de los grupos elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) para ver más información sobre los límites de cada nivel de servicio y las [consideraciones sobre precios y rendimiento para los grupos elásticos](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo elástico. Para más información sobre la configuración del grupo, consulte las [propiedades del grupo elástico](sql-database-elastic-pool.md#elastic-pool-properties).
+
+    ![Configuración de grupos elásticos](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
+
+4. Haga clic en **Seleccionar** in the **Configure Pool** después de cambiar la configuración.
+5. Haga clic en **Aceptar** para crear el grupo.
+
+
+## <a name="understand-elastic-pool-recommendations"></a>Descripción de las recomendaciones de grupos elásticos
+
+El servicio Base de datos SQL evalúa el historial de uso y recomienda uno o varios grupos cuando sea más económico que usar bases de datos únicas. Cada recomendación se configura con un subconjunto único de las bases de datos del servidor que mejor se ajustan al grupo.
+
+![grupo recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+
+La recomendación de grupo consta de:
+
+- Un plan de tarifa del grupo (Basic, Standard o Premium).
+- Las **eDTU del grupo** adecuadas (también denominadas eDTU máx. por grupo)
+- Las **eDTU máx.** y **eDTU mín.** por base de datos
+- La lista de bases de datos recomendadas para el grupo
+
+> ![IMPORTANTE] El servicio tiene en cuenta los últimos 30 días de telemetría al recomendar grupos. Para que una base de datos se considere una candidata para un grupo elástico, debe tener una existencia mínima de 7 días. Las bases de datos que ya están en un grupo elástico no se consideran candidatas para las recomendaciones de grupos elásticos.
+>
+
+El servicio evalúa las necesidades de recursos y la rentabilidad de mover las bases de datos únicas de cada nivel de servicio a grupos del mismo nivel. Por ejemplo, se evalúan todas las bases de datos Standard en un servidor para que quepan en un bloque de bases de datos elásticas Standard. Esto significa que el servicio no hace recomendaciones entre niveles como, por ejemplo, mover una base de datos Standard a un grupo Premium.
+
+Después de agregar las bases de datos al grupo, las recomendaciones se generarán dinámicamente basándose en el historial de uso de las bases de datos que se han seleccionado. Estas recomendaciones se muestran en el gráfico de uso de eDTU y GB, y en un mensaje emergente de recomendación en la parte superior de la hoja **Configurar grupo**. Estas recomendaciones están pensadas para ayudarle a crear un grupo elástico optimizado para sus bases de datos concretas.
+
+![Recomendaciones dinámicas](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
+
+## <a name="manage-and-monitor-an-elastic-pool"></a>Administración y supervisión de un grupo elástico
 
 Puede utilizar Azure Portal para supervisar y administrar un grupo elástico y las bases de datos de este. En el portal, puede supervisar el uso de un grupo elástico y las bases de datos dentro de ese grupo. También puede realizar un conjunto de cambios en el grupo elástico y enviar todos los cambios a la vez. Estos cambios incluyen agregar o quitar bases de datos, cambiar la configuración del grupo elástico o cambiar la configuración de la base de datos.
 
@@ -37,23 +125,19 @@ El siguiente gráfico muestra un grupo elástico de ejemplo. La vista incluye:
 
 *  Los gráficos para supervisar el uso de recursos del grupo elástico y las bases de datos contenidas en el grupo.
 *  El botón **Configurar grupo** para realizar cambios en el grupo elástico.
-*  El botón **Crear base de datos** , que crea una base de datos y la agrega al grupo elástico actual.
+*  El botón **Crear base de datos** que crea una base de datos y la agrega al grupo elástico actual.
 *  Los trabajos elásticos que le ayudarán a administran un gran número de bases de datos mediante la ejecución de scripts de Transact SQL en todas las bases de datos de una lista.
 
 ![Vista Grupo][2]
 
-Para trabajar con los pasos de este artículo, necesitará SQL server en Azure con, al menos, una base de datos y un grupo elástico. Si no tiene ningún grupo elástico, consulte [Creación de un nuevo grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md); si no tiene ninguna base de datos, consulte el [tutorial de base de datos SQL](sql-database-get-started.md).
-
-## <a name="elastic-pool-monitoring"></a>Supervisión de grupo elástico
-
 Puede ir a un grupo concreto para ver su utilización de recursos. De forma predeterminada, el grupo está configurado para mostrar el almacenamiento y el uso de eDTU durante la última hora. El gráfico puede configurarse para mostrar métricas diferentes en varias ventanas de tiempo.
 
-1. Seleccione un grupo con el que desea trabajar.
+1. Seleccione un grupo elástico con el que trabajar.
 2. En **Supervisión de grupo elástico** hay un gráfico con la etiqueta **Uso de recursos**. Haga clic en el gráfico.
 
     ![Supervisión de grupo elástico][3]
 
-    Se abre la hoja **Métrica** , donde se muestra una vista detallada de las métricas especificadas en la ventana de tiempo especificada.   
+    Se abre la hoja **Métrica**, donde se muestra una vista detallada de las métricas especificadas en la ventana de tiempo especificada.   
 
     ![Cuadro de métricas][9]
 
@@ -65,7 +149,7 @@ Puede editar el gráfico y la hoja de métricas para mostrar otras métricas, co
 
     ![Haga clic en Editar.][6]
 
-2. En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora, hoy o última semana) o haga clic en **personalizado** para seleccionar cualquier intervalo de fechas dentro de las últimas dos semanas. Seleccione el tipo de gráfico (de barras o líneas) y, después, seleccione los recursos que se supervisarán.
+2. En la hoja **Editar gráfico**, seleccione un intervalo de tiempo (última hora, hoy o última semana) o haga clic en **personalizado** para seleccionar cualquier intervalo de fechas dentro de las últimas dos semanas. Seleccione el tipo de gráfico (de barras o líneas) y, después, seleccione los recursos que se supervisarán.
 
    > [!Note]
    > Solo las métricas con la misma unidad de medida se pueden mostrar en el gráfico al mismo tiempo. Por ejemplo, si selecciona el "porcentaje de eDTU", solo podrá seleccionar otras métricas con porcentaje como unidad de medida.
@@ -77,8 +161,7 @@ Puede editar el gráfico y la hoja de métricas para mostrar otras métricas, co
 
 3. y, a continuación, haga clic en **Aceptar**.
 
-
-## <a name="elastic-database-monitoring"></a>Supervisión de la base de datos elástica
+## <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>Administración y supervisión de bases de datos en un grupo elástico
 
 También se pueden supervisar bases de datos individuales en caso de un problema potencial.
 
@@ -96,7 +179,7 @@ También se pueden supervisar bases de datos individuales en caso de un problema
 
     ![Clic en Editar gráfico](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
 
-2. En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora o 24 horas) o haga clic en **Personalizado** para seleccionar otro día dentro de las últimas dos semanas que se mostrará.
+2. En la hoja **Editar gráfico**, seleccione un intervalo de tiempo (última hora o 24 horas) o haga clic en **Personalizado** para seleccionar otro día dentro de las últimas dos semanas que se mostrará.
 
     ![Clic en Personalizado](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
 
@@ -111,12 +194,12 @@ En la lista de bases de datos en la hoja **Database Resource Utilization** (Uso 
 ![Búsqueda de las bases de datos que se supervisarán][7]
 
 
-## <a name="add-an-alert-to-a-pool-resource"></a>Adición de una alerta a un grupo de recursos
+## <a name="add-an-alert-to-an-elastic-pool-resource"></a>Adición de una alerta a un recurso de grupos elásticos
 
-Puede agregar reglas a los recursos que envían correos electrónicos a personas o cadenas de alerta a puntos de conexión de URL cuando el recurso alcanza un umbral de uso que establezca.
+Puede agregar reglas a un grupo elástico que envía correos electrónicos a personas o cadenas de alerta a puntos de conexión de URL cuando el grupo elástico alcanza un umbral de uso que establezca.
 
 > [!IMPORTANT]
-> La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
+> La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un período (WindowSize) de 30 minutos o más.
 >
 >
 
@@ -130,8 +213,6 @@ Puede agregar reglas a los recursos que envían correos electrónicos a personas
 
 4. Elija una **condición** (mayor que, menor que, etc.) y un **umbral**.
 5. Haga clic en **Aceptar**.
-
-
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Movimiento de una base de datos a un grupo elástico
 
@@ -176,43 +257,33 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
     ![Haga clic en Guardar](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
-## <a name="change-performance-settings-of-a-pool"></a>Cambio de la configuración de rendimiento de un grupo
+## <a name="change-performance-settings-of-an-elastic-pool"></a>Cambio de la configuración de rendimiento de un grupo elástico
 
-Cuando supervise el uso de recursos de un grupo, es posible que descubra que son necesarios algunos ajustes. Quizás el grupo necesita un cambio en los límites de almacenamiento o rendimiento. Posiblemente desee cambiar la configuración de la base de datos en el grupo. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md) para obtener más información.
+Cuando supervise el uso de recursos de un grupo elástico, es posible que descubra que son necesarios algunos ajustes. Quizás el grupo necesita un cambio en los límites de almacenamiento o rendimiento. Posiblemente desee cambiar la configuración de la base de datos en el grupo. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md) para más información.
 
-**Para cambiar los límites de almacenamiento o eDTU por grupo y las eDTU por base de datos:**
+Para cambiar los límites de almacenamiento o eDTU por grupo y las eDTU por base de datos:
 
 1. Abra la hoja **Configurar grupo** .
 
-    En **Configuración del grupo de bases de datos elásticas**, utilice el control deslizante para cambiar la configuración del grupo.
+    En **Configuración de grupo elástico**, utilice el control deslizante para cambiar la configuración del grupo.
 
     ![Uso de recursos de grupos elásticos](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
 2. Cuando se cambia la configuración, la pantalla muestra el coste estimado mensual del cambio.
 
-    ![Actualización de un grupo y nuevo costo mensual](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
+    ![Actualización de un grupo elástico y nuevo coste mensual](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
+## <a name="latency-of-elastic-pool-operations"></a>Latencia de las operaciones de grupos elásticos
+* El cambio del número mínimo de eDTU por base de datos o del máximo de eDTU por base de datos suele completarse en cinco minutos o menos.
+* El cambio de eDTU por grupo depende de la cantidad total de espacio que usen todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para cambiar las eDTU de grupo por grupo es de 3 horas o menos.
 
-## <a name="create-and-manage-elastic-jobs"></a>Creación y administración de trabajos elásticos
+## <a name="next-steps"></a>Pasos siguientes
 
-Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualquier número de bases de datos en el grupo. Puede crear tareas o administrar trabajos existentes mediante el portal.
-
-![Creación y administración de trabajos elásticos][5]
-
-
-Antes de usar los trabajos, instale los componentes de trabajos elásticos y especifique sus credenciales. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md).
-
-Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
-
-
-
-## <a name="additional-resources"></a>Recursos adicionales
-
-- [Grupo elástico de bases de datos SQL](sql-database-elastic-pool.md)
-- [Creación de un grupo de bases de datos elásticas con el portal](sql-database-elastic-pool-create-csharp.md)
-- [Creación de un grupo de bases de datos elásticas con PowerShell](sql-database-elastic-pool-create-powershell.md)
-- [Creación de un grupo de bases de datos elásticas con C#](sql-database-elastic-pool-create-csharp.md)
-- [Consideraciones de precio y rendimiento para grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md)
+- Para entender qué es un grupo elástico, consulte [Grupo elástico de SQL Database](sql-database-elastic-pool.md).
+- Para una guía sobre cómo usar grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md).
+- Para usar trabajos elásticos para ejecutar scripts de Transact-SQL con cualquier número de bases de datos en el grupo, consulte [Introducción a los trabajos elásticos](sql-database-elastic-jobs-overview.md).
+- Para consultar en cualquier número de bases de datos del grupo, consulte [Introducción a las consultas elásticas](sql-database-elastic-query-overview.md).
+- Para más información sobre las transacciones de cualquier número de bases de datos del grupo, consulte [Transacciones elásticas](sql-database-elastic-transactions-overview.md).
 
 
 <!--Image references-->
@@ -228,6 +299,6 @@ Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elast
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 02/03/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3c97604b17636f011ddb2acda40fbc77afeab590
-ms.openlocfilehash: 9f7e9008f29b2b1a3a0422133e15871c4ce7cca8
-
+ms.sourcegitcommit: 110bf7df8753ec83a5a8b4219891700b462d4eb1
+ms.openlocfilehash: 339301772b1ee3bf22e543d4d4183adda5b54c2e
 
 ---
+
 # <a name="social-media-analysis-real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de los medios sociales: análisis en tiempo real de la opinión en Twitter en Análisis de transmisiones de Azure
 Aprenda a crear una solución de análisis de sentimiento para análisis de redes sociales al poner eventos en tiempo real de Twitter en Azure Event Hubs. Escribirá una consulta de Azure Stream Analytics para analizar los datos. Después, almacenará los resultados para un examen posterior o usará un panel y [Power BI](https://powerbi.com/) para ofrecer perspectivas en tiempo real.
 
@@ -45,6 +45,7 @@ Use los pasos siguientes para crear un centro de eventos.
 4. En **DIRECTIVAS DE ACCESO COMPARTIDO**, cree una nueva directiva con permisos para **ADMINISTRAR**.
 
    ![Directivas de acceso compartido en las que puede crear una nueva directiva con permisos para Administrar.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+
 5. Haga clic en **GUARDAR** en la parte inferior de la página.
 6. Vaya al **PANEL**, haga clic en **INFORMACIÓN DE CONEXIÓN** en la parte inferior de la página y luego copie y guarde la información de conexión. (Utilice el icono de copia que aparece bajo el icono de búsqueda).
 
@@ -65,18 +66,23 @@ Siga estos pasos para configurar la aplicación:
    [Pasos para generar un token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
    Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.  
-3. Reemplace los valores de EventHubConnectionString y EventHubName en el archivo TwitterClient.exe.config con la cadena de conexión y el nombre de su centro de eventos. La cadena de conexión que ha copiado anteriormente proporciona la cadena de conexión y el nombre de su centro de eventos, así que no se olvide de separar y colocar cada una de ellas en el campo correcto. Por ejemplo, considere la siguiente cadena de conexión:
 
-     Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
-
+3. Reemplace los valores de EventHubConnectionString y EventHubName en el archivo TwitterClient.exe.config con la cadena de conexión y el nombre de su centro de eventos. La cadena de conexión que ha copiado anteriormente proporciona la cadena de conexión y el nombre de su centro de eventos, así que no se olvide de separar y colocar cada una de ellas en el campo correcto. Por ejemplo, considere la siguiente cadena de conexión:  
+   
+   `Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
+   
    El archivo TwitterClient.exe.config debe contener la configuración como en el ejemplo siguiente:
-
-     add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"   add key="EventHubName" value="yourhub"
-
+   
+   ```
+     add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
+     add key="EventHubName" value="yourhub"
+   ```
+   
    Es importante tener en cuenta que el texto "EntityPath =" **no** aparece en el valor de EventHubName.
+   
 4. *Opcional:* ajuste las palabras clave que se buscarán.  De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle".  Puede ajustar los valores de twitter_keywords en el archivo **TwitterClient.exe.config**, si quiere.
 5. Ejecute TwitterClient.exe para iniciar la aplicación. Verá los eventos Tweet con los valores de **CreatedAt**, **Topic** y **SentimentScore** que se envían al centro de eventos.
-
+   
    ![Análisis de opinión: valores de SentimentScore enviados a un centro de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
@@ -88,30 +94,35 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, podemos 
 
    * **NOMBRE DEL TRABAJO**: escriba un nombre del trabajo.
    * **REGIÓN**: seleccione la región donde desea ejecutar el trabajo. Considere la posibilidad de colocar el trabajo y el centro de eventos en la misma región para garantizar un mejor rendimiento y asegurarse de no pagar la transferencia de datos entre regiones.
-   * **CUENTA DE ALMACENAMIENTO**: elija la cuenta de almacenamiento de Azure que quiera usar para almacenar los datos de supervisión de todos los trabajos de Stream Analytics que se ejecutan en esta región. Tiene la opción de elegir una cuenta de almacenamiento existente o crear uno nuevo.
-3. Haga clic en **ANÁLISIS DE TRANSMISIONES** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones.  
-   ![Icono de servicio de Análisis de transmisiones](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+   * **CUENTA DE ALMACENAMIENTO**: elija la cuenta de almacenamiento de Azure que quiera usar para almacenar los datos de supervisión de todos los trabajos de Stream Analytics que se ejecutan en esta región. Tiene la opción de elegir una cuenta de almacenamiento existente o crear uno nuevo.   
 
+3. Haga clic en **ANÁLISIS DE TRANSMISIONES** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones.  
+   
+   ![Icono de servicio de Análisis de transmisiones](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+   
    Se mostrará el nuevo trabajo con el estado **CREADO**. Tenga en cuenta que el botón **INICIO** en la parte inferior de la página está deshabilitado. Debe configurar la entrada, la salida y la consulta del trabajo antes de iniciar el trabajo.
 
+
 ### <a name="specify-job-input"></a>Especificación de la entrada del trabajo
+
 1. En su trabajo de Stream Analytics, haga clic en **ENTRADAS** en la parte superior de la página y luego haga clic en **AGREGAR ENTRADA**. El cuadro de diálogo que se abre le guiará a través de una serie de pasos para configurar la entrada.
 2. Haga clic en **FLUJO DE DATOS** y luego haga clic con el botón derecho.
 3. Haga clic en **CENTRO DE EVENTOS** y luego haga clic con el botón derecho.
-4. Escriba o seleccione los valores siguientes en la tercera página:
-
+4. Escriba o seleccione los valores siguientes en la tercera página:  
+   
    * **ALIAS DE ENTRADA**: escriba un nombre descriptivo para esta entrada del trabajo, como *TwitterStream*. Tenga en cuenta que se usará este nombre en la consulta más adelante.
-     **CENTRO DE EVENTOS**: si el Centro de eventos que ha creado está en la misma suscripción que el trabajo de Stream Analytics, seleccione el espacio de nombres en el que está el Centro de eventos.
-
-     Si el Centro de eventos está en otra suscripción, haga clic en **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **ESPACIO DE NOMBRES DE SERVICE BUS**, **NOMBRE DE CENTRO DE EVENTOS**, **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**, **CLAVE DE DIRECTIVA DE CENTRO DE EVENTOS** y **RECUENTO DE PARTICIONES DE CENTRO DE EVENTOS**.
+   * **CENTRO DE EVENTOS**: si el Centro de eventos que ha creado está en la misma suscripción que el trabajo de Stream Analytics, seleccione el espacio de nombres en el que está el Centro de eventos.
+      * Si el Centro de eventos está en otra suscripción, haga clic en **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **ESPACIO DE NOMBRES DE SERVICE BUS**, **NOMBRE DE CENTRO DE EVENTOS**, **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**, **CLAVE DE DIRECTIVA DE CENTRO DE EVENTOS** y **RECUENTO DE PARTICIONES DE CENTRO DE EVENTOS**.
    * **NOMBRE DE CENTRO DE EVENTOS**: seleccione el nombre del Centro de eventos.
    * **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**: seleccione la directiva del Centro de eventos que ha creado anteriormente en este tutorial.
    * **GRUPO DE CONSUMIDORES DEL CENTRO DE EVENTOS**: escriba el nombre del grupo de consumidores que ha creado anteriormente en este tutorial.
+   
 5. Haga clic con el botón derecho.
-6. Especifique los siguientes valores:
-
+6. Especifique los siguientes valores:  
+   
    * **FORMATO DEL SERIALIZADOR DE EVENTOS**: JSON
    * **CODIFICACIÓN**: UTF8
+  
 7. Haga clic en el botón de **COMPROBACIÓN** para agregar este origen y comprobar que Stream Analytics puede conectarse correctamente al Centro de eventos.
 
 ### <a name="specify-job-query"></a>Especificación de la consulta de trabajo
@@ -128,43 +139,63 @@ Para validar la consulta con datos de trabajo reales, puede usar la característ
 Para empezar, haremos una consulta de paso a través simple que proyecta todos los campos de un evento.
 
 1. Haga clic en **CONSULTA** en la parte superior de la página de trabajo de Stream Analytics.
-2. En el editor de código, reemplace la plantilla de consulta inicial por lo siguiente:
-
-     SELECT * FROM TwitterStream
-
+2. En el editor de código, reemplace la plantilla de consulta inicial por lo siguiente:  
+   
+   `SELECT * FROM TwitterStream`
+   
    Asegúrese de que el nombre del origen de entrada coincida con el nombre de la entrada que ha especificado anteriormente.
+   
 3. Haga clic en **Prueba** en el editor de consultas.
 4. Vaya a su archivo .json de ejemplo.
 5. Haga clic en el botón de **COMPROBACIÓN** y vea los resultados debajo de la definición de consulta.
-
+   
    ![Resultados mostrados a continuación de la definición de consulta](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sentiment-by-topic.png)
-
+   
 #### <a name="count-of-tweets-by-topic-tumbling-window-with-aggregation"></a>Recuento de tweets por tema: ventana de saltos de tamaño constante con agregación
 Para comparar el número de menciones entre temas, se usará una [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obtener el recuento de menciones por tema cada cinco segundos.
 
-1. Cambie la consulta en el editor de código a:
-
-     SELECT System.Timestamp as Time, Topic, COUNT(*)   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY TUMBLINGWINDOW(s, 5), Topic
-
+1. Cambie la consulta en el editor de código a:  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*)
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY TUMBLINGWINDOW(s, 5), Topic
+   ```
+   
    Esta consulta usa la palabra clave **TIMESTAMP BY** para especificar un campo de marca de tiempo en la carga que se usará en el cálculo temporal. Si no se ha especificado este campo, la operación de ventana se realizará usando el tiempo de cada evento llegado al Centro de eventos.  Obtenga más información en la sección "Tiempo de llegada frente a tiempo de aplicación" de [Referencia de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
-
+   
    Esta consulta tiene acceso a una marca de tiempo para el final de cada ventana con la propiedad **System.Timestamp**.
+   
 2. Haga clic en **Volver a ejecutar** en el editor de consultas para ver los resultados de la consulta.
 
 #### <a name="identify-trending-topics-sliding-window"></a>Identificación de tendencias: ventana deslizante
 Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para los fines de este tutorial, buscaremos temas que se mencionen más de 20 veces en los últimos cinco segundos con una [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
-1. Cambie la consulta en el editor de código por:   SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY SLIDINGWINDOW(s, 5), topic   HAVING COUNT(*) > 20
-2. Haga clic en **Volver a ejecutar** en el editor de consultas para ver los resultados de la consulta.
-
+1. Cambie la consulta en el editor de código a:  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY SLIDINGWINDOW(s, 5), topic
+     HAVING COUNT(*) > 20
+   ```
+   
+2. Haga clic en **Volver a ejecutar** en el editor de consultas para ver los resultados de la consulta.  
+   
    ![Resultado de la consulta de ventana deslizante](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
-
+   
 #### <a name="count-of-mentions-and-sentiment-tumbling-window-with-aggregation"></a>Recuento de menciones y opinión: ventana de saltos de tamaño constante con agregación
 La consulta final que probaremos usa una **ventana de saltos** para obtener el número de menciones, promedio, mínimo, máximo y desviación estándar de la puntuación de la opinión de cada tema cada cinco segundos.
 
-1. Cambie la consulta en el editor de código a:
+1. Cambie la consulta en el editor de código a:  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
+     Max(SentimentScore), STDEV(SentimentScore)
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY TUMBLINGWINDOW(s, 5), Topic
+   ```     
 
-     SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),   Max(SentimentScore), STDEV(SentimentScore)   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY TUMBLINGWINDOW(s, 5), Topic
 2. Haga clic en **Volver a ejecutar** en el editor de consultas para ver los resultados de la consulta.
 3. Esta es la consulta que usaremos para nuestro panel.  Haga clic en **GUARDAR** en la parte inferior de la página.
 
@@ -180,15 +211,16 @@ Siga estos pasos para crear un contenedor para Blob Storage si aún no tiene nin
 ## <a name="specify-job-output"></a>Especificación de la salida del trabajo
 1. En su trabajo de Stream Analytics, haga clic en **SALIDA** en la parte superior de la página y luego haga clic en **AGREGAR SALIDA**. El cuadro de diálogo que se abre le guiará a través de varios pasos para configurar la salida.
 2. Haga clic en **BLOB STORAGE** y luego haga clic con el botón derecho.
-3. Escriba o seleccione los valores siguientes en la tercera página:
-
+3. Escriba o seleccione los valores siguientes en la tercera página:   
+   
    * **Alias de salida**: escriba un nombre descriptivo para esta salida de trabajo.
    * **SUSCRIPCIÓN**: si el almacenamiento Blob Storage que ha creado está en la misma suscripción que el trabajo de Stream Analytics, haga clic en **Usar la cuenta de almacenamiento de la suscripción actual**. Si el almacenamiento está en otra suscripción, haga clic en **Usar la cuenta de almacenamiento de otra suscripción** y especifique manualmente la información de **CUENTA DE ALMACENAMIENTO**, **CLAVE DE CUENTA DE ALMACENAMIENTO** y **CONTENEDOR**.
    * **Cuenta de almacenamiento**: seleccione el nombre de la cuenta de almacenamiento
    * **Contenedor**: seleccione el nombre del contenedor
    * **PREFIJO DE NOMBRE DE ARCHIVO**: escriba un prefijo de archivo que se usará al escribir la salida de blob.
+  
 4. Haga clic con el botón derecho.
-5. Especifique los siguientes valores:
+5. Especifique los siguientes valores:  
    * **FORMATO DEL SERIALIZADOR DE EVENTOS**: JSON
    * **CODIFICACIÓN**: UTF8
 6. Haga clic en el botón de **COMPROBACIÓN** para agregar este origen y comprobar que Stream Analytics puede conectarse correctamente a la cuenta de almacenamiento.
@@ -217,6 +249,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

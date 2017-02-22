@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/12/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: f8d515c6a8b1332ccb338cb5ec2c16daa5725281
-ms.openlocfilehash: c8bdd686deff888c9029b88ceeb32c147398eca2
+ms.sourcegitcommit: 4b7912b48ef37eac3148582d1d635d8a4c4a4b44
+ms.openlocfilehash: 8ee5dfea961984bd01a24815b9d3c94f486a57d7
 
 
 ---
@@ -32,8 +32,8 @@ Puede designar uno o más equipos del centro de datos para que actúen como un t
 No hay ningún requisito de firewall de entrada para admitir Trabajos híbridos de runbook. El agente que se encuentra en el equipo local inicia toda la comunicación con Automatización de Azure en la nube. Cuando se inicia un runbook, Automatización de Azure crea una instrucción que el agente recupera. El agente baja el runbook y todos los parámetros antes de ejecutarlo.  También recuperará todos los [recursos](http://msdn.microsoft.com/library/dn939988.aspx) que usa el runbook desde Automatización de Azure.
 
 > [!NOTE]
-> Hybrid Runbook Worker no admite actualmente la aplicación de [configuraciones de DSC](automation-dsc-overview.md) en el equipo que hospeda este rol.
-><br><br>
+> Para administrar la configuración de los servidores que admiten el rol de Hybrid Runbook Worker con la configuración de estado deseado (DSC), debe agregarlos como nodos de DSC.  Para obtener más información acerca de su incorporación para la administración con DSC, consulte [Incorporación de máquinas para administrarlas con DSC de Azure Automation](automation-dsc-onboarding.md).           
+><br>
 >Actualmente, si habilita la [solución de administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md), los equipos Windows conectados a su área de trabajo OMS se configurarán automáticamente como Hybrid Runbook Worker para admitir los Runbooks que forman parte de esta solución.  Sin embargo, no se registran con ningún grupo de Hybrid Worker que haya creado en la cuenta de Automation, y no puede agregarlos a un grupo de Hybrid Worker para ejecutar sus propios runbooks.  Si un equipo con Windows ya está designado como Hybrid Runbook Worker y está conectado al área de trabajo OMS, debe quitarlo del área de trabajo OMS antes de agregar la solución con el fin de impedir que los runbooks dejen de funcionar según lo previsto.  
 
 
@@ -136,7 +136,7 @@ Cuando agrega un agente a Operations Management Suite, la solución Automation i
 Abra una sesión de PowerShell en modo de Administrador y ejecute el comando siguientes para importar el módulo.
 
     cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-    Import-Module .\HybridRegistration.psd1
+    Import-Module HybridRegistration.psd1
 
 A continuación, ejecute el cmdlet **Add-HybridRunbookWorker** con la siguiente sintaxis:
 
@@ -246,11 +246,11 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
 * Presenta características avanzadas, como Runbooks gráficos que no están disponibles en SMA.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre los distintos métodos que se pueden utilizar para iniciar un runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
+* Para más información sobre los distintos métodos que se pueden utilizar para iniciar un runbook, consulte [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md).  
 * Para entender los diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Automatización de Azure mediante el editor de texto, consulte [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

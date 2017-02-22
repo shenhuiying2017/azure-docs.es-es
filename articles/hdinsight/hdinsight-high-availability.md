@@ -13,17 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1f40d6119d5fefc48c1e12d510423f996239fe14
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: dd28e295df7acead773f9076d790e0e96b66adb9
 
 
 ---
 # <a name="availability-and-reliability-of-windows-based-hadoop-clusters-in-hdinsight"></a>Disponibilidad y confiabilidad de clústeres de Hadoop basados en Windows en HDInsight
-> [!NOTE]
-> Los pasos usados en este documento son específicos de los clústeres de HDInsight basados en Windows. Si va a usar un clúster basado en Linux, consulte [Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md) para tener información específica de Linux.
+> [!IMPORTANT]
+> Los pasos usados en este documento son específicos de los clústeres de HDInsight basados en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Si va a usar un clúster basado en Linux, consulte [Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md) para tener información específica de Linux.
 >
 >
 
@@ -58,7 +58,7 @@ Para determinar qué nodo principal está activo y comprobar el estado de los se
 En la captura de pantalla, el nodo principal activo es *headnode0*.
 
 ## <a name="access-log-files-on-the-secondary-head-node"></a>Acceso a los archivos de registro en el nodo principal secundario
-Para acceder a registros de trabajo en el nodo principal secundario en el caso de que haya pasado a ser el nodo principal, la exploración de la interfaz de usuario de la herramienta de seguimiento de trabajos todavía funciona como lo hace para el nodo activo primario. Para acceder a la herramienta de seguimiento de trabajos, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) tal y como se describió en la sección anterior. Una vez que se haya conectado de forma remota al clúster, haga doble clic en el icono **Estado de nodo de nombres de Hadoop** del escritorio y, a continuación, haga clic en **Registros del nodo de nombres** para obtener el directorio de registros del nodo principal secundario.
+Para acceder a registros de trabajo en el nodo principal secundario en el caso de que haya pasado a ser el nodo principal, la exploración de la interfaz de usuario de la herramienta de seguimiento de trabajos todavía funciona como lo hace para el nodo activo primario. Para acceder a la herramienta de seguimiento de trabajos, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) tal y como se describió en la sección anterior. Una vez que se haya conectado al clúster mediante RDP, haga doble clic en el icono **Estado de nodo de nombres de Hadoop** del escritorio y, a continuación, haga clic en **Registros del nodo de nombres** para obtener el directorio de registros del nodo principal secundario.
 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
@@ -106,6 +106,6 @@ Para el SDK, la historia es similar. La creación y aprovisionamiento de un clú
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

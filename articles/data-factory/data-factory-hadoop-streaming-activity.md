@@ -1,6 +1,6 @@
 ---
-title: Actividad de streaming de Hadoop
-description: "Aprenda cómo puede usar la actividad de streaming de Hadoop en una factoría de datos de Azure para ejecutar programas de streaming de Hadoop en un clúster de HDInsight suyo propio o a petición."
+title: "Transformación de datos mediante Hadoop Streaming Activity - Azure | Microsoft Docs"
+description: "Aprenda cómo puede usar Hadoop Streaming Activity en Azure Data Factory para transformar datos mediante la ejecución de programas de Hadoop Streaming en un clúster de HDInsight propio o a petición."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 58c0e0cfd862bc421c3b4a9ad042283a22656460
+ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
+ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
 
 
 ---
-# <a name="hadoop-streaming-activity"></a>Actividad de streaming de Hadoop
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
@@ -224,6 +224,6 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

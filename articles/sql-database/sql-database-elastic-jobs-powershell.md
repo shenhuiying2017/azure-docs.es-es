@@ -1,5 +1,5 @@
 ---
-title: "Creación y administración de trabajos de base de datos elástica mediante PowerShell"
+title: "Creación y administración de trabajos elásticos mediante PowerShell | Microsoft Docs"
 description: PowerShell usada para administrar grupos de Base de datos SQL de Azure
 services: sql-database
 documentationcenter: 
@@ -7,7 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
 
 
 ---
-# <a name="create-and-manage-a-sql-database-elastic-database-jobs-using-powershell-preview"></a>Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
+# <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creación y administración de trabajos elásticos de SQL Database mediante PowerShell (versión preliminar)
 > [!div class="op_single_selector"]
-> * [Portal de Azure](sql-database-elastic-jobs-create-and-manage.md)
+> * [Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
 > 
 > 
@@ -358,7 +358,7 @@ Recuperar todas las ejecuciones de trabajos de nivel superior, incluidas las eje
 Recuperar todas las ejecuciones de trabajos secundarios de un identificador de ejecución de trabajos proporcionado, incluidas las ejecuciones de trabajos inactivos:
 
     $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
 
 Recuperar todas las ejecuciones de trabajos creadas con una combinación de programación y trabajo, incluidos los trabajos inactivos:
 
@@ -372,13 +372,13 @@ Recuperar todos los trabajos que se destinan a un mapa de particiones especifica
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
     $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Recuperar todos los trabajos que se destinan a una colección personalizada especificada, incluidos los trabajos inactivos:
 
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Recuperar la lista de ejecuciones de tareas de trabajos dentro de la ejecución de un trabajo específico:
 
@@ -484,7 +484,7 @@ Para desencadenar la eliminación del trabajo, use el [**cmdlet Remove-AzureSqlJ
     Remove-AzureSqlJob -JobName $jobName
 
 ## <a name="to-create-a-custom-database-target"></a>Para crear una base de datos de destino personalizada
-Puede definir bases de datos de destino personalizadas para la ejecución directa o para su inclusión en un grupo personalizado de bases de datos. Por ejemplo, como los **grupos de bases de datos elásticas** todavía no se admiten directamente mediante las API de PowerShell, puede crear una base de datos personalizada como destino y una colección de bases de datos personalizada como destino que englobe todas las bases de datos del grupo.
+Puede definir bases de datos de destino personalizadas para la ejecución directa o para su inclusión en un grupo personalizado de bases de datos. Por ejemplo, como los **grupos elásticos** todavía no se admiten directamente mediante las API de PowerShell, puede crear una base de datos personalizada como destino y una colección de bases de datos personalizada como destino que englobe todas las bases de datos del grupo.
 
 Establecimiento de las siguientes variables para que reflejen la información de base de datos que se quiera:
 
@@ -586,7 +586,7 @@ Use [New-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346069.aspx) y
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger
     -ScheduleName $scheduleName
-    –JobName $jobName
+    -JobName $jobName
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Para quitar una asociación programada y detener la ejecución de un trabajo a la hora programada
@@ -652,6 +652,6 @@ Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de Apache Phoenix y SQuirreL en HDInsight | Microsoft Docs
+title: "Uso de Apache Phoenix y SQuirreL con clústeres de Azure HDInsight basados en Windows | Microsoft Docs"
 description: "Aprenda a usar Apache Phoenix en HDInsight y cómo instalar y configurar SQuirreL en su estación de trabajo para conectarse a un clúster de HBase en HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
 
 
 ---
@@ -26,9 +26,12 @@ Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en HDInsight y cómo
 > [!NOTE]
 > Para obtener información de la versión de Phoenix en HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md).
 >
-> La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información sobre el uso de Phoenix en HDInsight basado en Linux, consulte [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md)(Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDinsight).
+
+> [!IMPORTANT]
+> Los pasos de este tutorial solo se aplican a clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para más información sobre el uso de Phoenix en HDInsight basado en Linux, consulte [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md)(Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDinsight).
 >
->
+
+
 
 ## <a name="use-sqlline"></a>Uso de SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) es una utilidad de línea de comandos para ejecutar SQL.
@@ -56,7 +59,7 @@ Antes de usar SQLLine, debe tener lo siguiente:
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     Los comandos usados en el ejemplo:
 
@@ -80,10 +83,6 @@ Antes de seguir los procedimientos, debe disponer de lo siguiente:
 
 * Un clúster de HBase implementado en una red virtual de Azure con una máquina virtual DNS.  Para obtener instrucciones, consulte [Creación de clústeres de HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > Debe instalar un servidor DNS en la red virtual. Para conocer las instrucciones, consulte [Configuración de DNS entre dos redes virtuales de Azure](hdinsight-hbase-geo-replication-configure-dns.md).
-  >
-  >
 * Obtenga el sufijo DNS específico de la conexión del clúster de HBase. Para obtenerlo, establezca RDP en el clúster y, a continuación, ejecute IPConfig.  El sufijo DNS es similar a:
 
         myhbase.b7.internal.cloudapp.net
@@ -203,7 +202,7 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
   > [!NOTE]
   > La carpeta de instalación predeterminada es C:\Archivos de programa\squirrel-sql-3.6.  Para poder escribir en esta ruta de acceso, el programa de instalación debe disponer de privilegios de administrador. Puede abrir un símbolo del sistema como administrador, ir a la carpeta bin de Java y, luego, ejecutar el siguiente comando:
   >
-  >     java.exe -jar [the path of the SQuirreL jar file]
+  >     java.exe -jar [la ruta de acceso del archivo jar de SQuirreL]
 5. Haga clic en **Aceptar** para confirmar la creación del directorio de destino.
 6. El valor predeterminado es instalar los paquetes Standard y Base.  Haga clic en **Siguiente**.
 7. Haga clic en **Siguiente** dos veces y, a continuación, en **Hecho**.
@@ -292,6 +291,6 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight.  Par
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

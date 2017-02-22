@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 *Tengo problemas con la configuración de:*
 
 * [Aplicación .NET](app-insights-asp-net-troubleshoot-no-data.md)
-* [Supervisión de una aplicación que ya se está ejecutando](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [Supervisión de una aplicación que ya se está ejecutando](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Diagnóstico de Azure](app-insights-azure-diagnostics.md)
 * [Aplicaciones web de Java](app-insights-java-troubleshoot.md)
 * [Otras plataformas](app-insights-platforms.md)
@@ -40,7 +40,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 
 ## <a name="is-it-free"></a>¿Es gratis?
 
-Sí, para su uso experimental. En el plan de precios predeterminado, la aplicación puede enviar una determinado asignación de datos cada mes de forma gratuita. La asignación disponible es lo suficientemente amplia como para abarcar el desarrollo y la publicación de una aplicación para un número reducido de usuarios. Puede establecer un límite para evitar que se procese más de una determinada cantidad de datos.
+Sí, para su uso experimental. En el plan de precios básico, la aplicación puede enviar una determinada asignación de datos cada mes de forma gratuita. La asignación disponible es lo suficientemente amplia como para abarcar el desarrollo y la publicación de una aplicación para un número reducido de usuarios. Puede establecer un límite para evitar que se procese más de una determinada cantidad de datos.
 
 Debe utilizar el plan Enterprise para obtener determinadas características, como Exportación continua. Se cobrará un importe diario.
 
@@ -51,20 +51,20 @@ Debe utilizar el plan Enterprise para obtener determinadas características, com
 Los detalles dependen del tipo de proyecto. Para una aplicación web:
 
 * Agregue estos archivos al proyecto:
-  
+
   * ApplicationInsights.config.
   * ai.js
 * Instale estos paquetes de NuGet:
-  
+
   * *API de Application Insights* : la API central.
   * *API de Application Insights para aplicaciones web* : se usa para enviar la telemetría del servidor.
   * *API de Application Insights para aplicaciones JavaScript* : se usa para enviar la telemetría del cliente.
-    
+
     El paquete incluye estos ensamblados:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Inserta elementos en:
-  
+
   * Web.config
   * packages.config
 * (Solo nuevos proyectos: si [agrega Application Insights a un proyecto existente][start], tiene que hacerlo manualmente). Inserte fragmentos de código en el código de cliente y servidor para inicializarlos con el identificador de recursos de Application Insights. Por ejemplo, en una aplicación MVC, el código se inserta en la página maestra Views/Shared/_Layout.cshtml.
@@ -90,7 +90,7 @@ Consulte [Privacidad y retención de los datos][data].
 | Qué debería ver | Cómo conseguirlo | Razones para quererlo |
 | --- | --- | --- |
 | Gráficos de disponibilidad |[Pruebas web](app-insights-monitor-web-app-availability.md) |Saber que la aplicación web funciona |
-| Rendimiento de la aplicación de servidor: tiempos de respuesta, etc. |[Agregue Application Insights a su proyecto](app-insights-asp-net.md) o [instale el Monitor de estado de Application Insights en un servidor](app-insights-monitor-performance-live-website-now.md) (o escriba su propio código para [realizar un seguimiento de las dependencias](app-insights-api-custom-events-metrics.md#track-dependency)). |Detectar problemas de rendimiento |
+| Rendimiento de la aplicación de servidor: tiempos de respuesta, etc. |[Agregue Application Insights a su proyecto](app-insights-asp-net.md) o [instale el Monitor de estado de Application Insights en un servidor](app-insights-monitor-performance-live-website-now.md) (o escriba su propio código para [realizar un seguimiento de las dependencias](app-insights-api-custom-events-metrics.md#trackdependency)). |Detectar problemas de rendimiento |
 | Telemetría de dependencia |[Instalar el Monitor de estado de Application Insights en el servidor](app-insights-monitor-performance-live-website-now.md) |Diagnosticar problemas con las bases de datos u otros componentes externos |
 | Obtener seguimientos de pila de las excepciones |[Insertar llamadas TrackException en el código](app-insights-search-diagnostic-logs.md#exceptions) (aunque algunas se notifican automáticamente) |Detectar y diagnosticar excepciones |
 | Buscar seguimientos del registro |[Agregar un adaptador de registro](app-insights-search-diagnostic-logs.md) |Diagnosticar excepciones, problemas de rendimiento |
@@ -113,6 +113,6 @@ Puede [escribir scripts de PowerShell](app-insights-powershell.md) para crear y 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

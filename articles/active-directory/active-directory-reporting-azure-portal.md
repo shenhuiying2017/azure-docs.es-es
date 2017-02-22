@@ -12,20 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
+ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
+ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
 
 
 ---
 # <a name="azure-active-directory-reporting---preview"></a>Informes de Azure Active Directory - versión preliminar
-> [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-reporting-azure-portal.md)
-> * [Portal de Azure clásico](active-directory-reporting-guide.md)
-> 
-> 
+
 
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -48,15 +44,15 @@ Con la información proporcionada por el informe de inicio de sesión del usuari
 
 El punto de entrada a los datos es el gráfico de inicio de sesión del usuario en la sección **Introducción** de **Usuarios y grupos**.
 
- ![Informes](./media/active-directory-reporting-azure-portal/05.png "Reporting")
+ ![Informes](./media/active-directory-reporting-azure-portal/05.png "Informes")
 
 El gráfico de inicio de sesión de usuario muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
 
-![Informes](./media/active-directory-reporting-azure-portal/02.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/02.png "Informes")
 
 Al hacer clic en un día en el gráfico de inicio de sesión, obtendrá una lista detallada de las actividades de inicio de sesión.
 
-![Informes](./media/active-directory-reporting-azure-portal/03.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/03.png "Informes")
 
 Cada fila de la lista de actividades de inicio de sesión le ofrece la información detallada acerca del inicio de sesión seleccionado como:
 
@@ -75,27 +71,27 @@ Con una vista centrada en la aplicación de los datos de inicio de sesión, pued
 
 El punto de entrada a los datos son las tres aplicaciones principales de su organización en el informe de los últimos 30 días en la sección **Introducción** en **Aplicaciones empresariales**.
 
- ![Informes](./media/active-directory-reporting-azure-portal/06.png "Reporting")
+ ![Informes](./media/active-directory-reporting-azure-portal/06.png "Informes")
 
 Agregaciones semanales del gráfico de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
 
-![Informes](./media/active-directory-reporting-azure-portal/78.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/78.png "Informes")
 
 Si lo desea, puede establecer el foco en una aplicación específica.
 
-![Informes](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Informes")
 
 Al hacer clic en un día del gráfico de uso de la aplicación, obtendrá una lista detallada de las actividades de inicio de sesión.
 
-![Informes](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Informes")
 
 La opción **Inicios de sesión** ofrece una descripción completa de todos los eventos de inicio de sesión para sus aplicaciones.
 
-![Informes](./media/active-directory-reporting-azure-portal/85.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/85.png "Informes")
 
 Con el selector de columnas, puede seleccionar los campos de datos que quiere mostrar.
 
-![Informes](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/column_chooser.png "Informes")
 
 ### <a name="filtering-sign-ins"></a>Filtrado de inicios de sesión
 Puede filtrar inicios de sesión para limitar la cantidad de datos que se muestran con los siguientes campos:
@@ -106,12 +102,12 @@ Puede filtrar inicios de sesión para limitar la cantidad de datos que se muestr
 * Nombre del cliente
 * Estado de inicio de sesión
 
-![Informes](./media/active-directory-reporting-azure-portal/293.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/293.png "Informes")
 
 Otro método para filtrar las entradas de las actividades de inicio de sesión consiste en buscar entradas específicas.
 El método de búsqueda le permite definir el ámbito de los inicios de sesión en torno a **usuarios**, **grupos** o **aplicaciones** específicos.
 
-![Informes](./media/active-directory-reporting-azure-portal/84.png "Reporting")
+![Informes](./media/active-directory-reporting-azure-portal/84.png "Informes")
 
 ## <a name="audit-logs"></a>Registros de auditoría
 Los registros de auditoría de Azure Active Directory proporcionan registros de las actividades del sistema para cumplimiento.
@@ -126,15 +122,15 @@ Para obtener una lista completa de las actividades de informe de auditoría, con
 
 El punto de entrada a todos los datos de auditoría es **Registros de auditoría** en la sección **Actividad** de **Azure Active Directory**.
 
-![Auditoría](./media/active-directory-reporting-azure-portal/61.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/61.png "Auditoría")
 
 Un registro de auditoría tiene una vista de lista que muestra los actores (quién), las actividades (qué) y los destinos.
 
-![Auditoría](./media/active-directory-reporting-azure-portal/345.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/345.png "Auditoría")
 
 Si hace clic en un elemento de la vista de lista, puede obtener más detalles acerca de él.
 
-![Auditoría](./media/active-directory-reporting-azure-portal/873.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/873.png "Auditoría")
 
 ### <a name="users-and-groups-audit-logs"></a>Registros de auditoría de los usuarios y grupos
 Con los informes de auditoría basadas en grupos y usuarios, puede obtener respuestas a preguntas como:
@@ -150,7 +146,7 @@ Con los informes de auditoría basadas en grupos y usuarios, puede obtener respu
 
 Si desea revisar los datos de auditoría relacionados con usuarios y grupos, puede buscar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de **Usuarios y grupos**.
 
-![Auditoría](./media/active-directory-reporting-azure-portal/93.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/93.png "Auditoría")
 
 ### <a name="application-audit-logs"></a>Registros de auditoría de la aplicación
 Con los informes de auditoría basadas en aplicaciones, puede obtener respuestas a preguntas tales como:
@@ -163,7 +159,7 @@ Con los informes de auditoría basadas en aplicaciones, puede obtener respuestas
 
 Si desea revisar los datos de auditoría relacionados con las aplicaciones, puede buscar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de **Aplicaciones empresariales**.
 
-![Auditoría](./media/active-directory-reporting-azure-portal/134.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/134.png "Auditoría")
 
 ### <a name="filtering-audit-logs"></a>Filtrado de registros de auditoría
 Puede filtrar inicios de sesión para limitar la cantidad de datos que se muestran con los siguientes campos:
@@ -173,7 +169,7 @@ Puede filtrar inicios de sesión para limitar la cantidad de datos que se muestr
 * Tipo de actividad
 * Actividad
 
-![Auditoría](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/356.png "Auditoría")
 
 El contenido de la lista **Tipo de actividad** está asociado a su punto de entrada para esta hoja.  
 Si el punto de entrada es Azure Active Directory, esta lista contiene todos los tipos posibles de actividad:
@@ -186,16 +182,16 @@ Si el punto de entrada es Azure Active Directory, esta lista contiene todos los 
 * Directiva
 * Otros
 
-![Auditoría](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/825.png "Auditoría")
 
 Las actividades de la lista están clasificadas por tipo de actividad.
 Por ejemplo, si tiene **Grupo** seleccionado como **Tipo de actividad**, la lista **Actividad** solo contiene las actividades relacionadas con grupos.   
 
-![Auditoría](./media/active-directory-reporting-azure-portal/654.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/654.png "Auditoría")
 
 Otro método para filtrar las entradas del registro de auditoría es buscar entradas específicas.
 
-![Auditoría](./media/active-directory-reporting-azure-portal/237.png "Auditing")
+![Auditoría](./media/active-directory-reporting-azure-portal/237.png "Auditoría")
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).
@@ -203,6 +199,6 @@ Consulte la [guía de informes de Azure Active Directory](active-directory-repor
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Circuitos ExpressRoute y dominios de enrutamiento | Microsoft Docs
+title: Circuitos y dominios de enrutamiento de Azure ExpressRoute | Microsoft Docs
 description: "Esta página proporciona información general sobre los circuitos ExpressRoute y los dominios de enrutamiento."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
+ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 
 
 ---
@@ -43,7 +43,7 @@ Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento: públi
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="private-peering"></a>Emparejamiento privado
-Los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual, pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure. Puede configurar una conectividad bidireccional entre la red principal y las redes virtuales de Azure (VNet). De esta forma, se puede conectar a máquinas virtuales y servicios en la nube directamente en sus direcciones IP privadas.  
+Los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual, pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure. Puede configurar una conectividad bidireccional entre la red principal y las redes virtuales de Azure (VNet). De esta forma se puede conectar a máquinas virtuales y servicios en la nube directamente en sus direcciones IP privadas.  
 
 Puede conectar más de una red virtual al dominio de emparejamiento privado. Revise la [página de P+G](expressroute-faqs.md) para obtener información sobre los límites y las limitaciones. Para obtener información actualizada sobre los límites, visite la página [Suscripción de Azure y límites, cuotas y restricciones de servicio](../azure-subscription-service-limits.md) .  Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento.
 
@@ -52,7 +52,7 @@ Se ofrecen servicios como Azure Storage, SQL Databases, y Websites en direccione
 
 La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Una vez que se habilita el emparejamiento público, podrá conectarse a todos los servicios de Azure. No se permite elegir de forma selectiva servicios para los que anunciemos rutas. Puede revisar la lista de prefijos que anunciamos mediante este emparejamiento en la página [Intervalos de direcciones IP de centro de datos de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653) . La página se actualiza semanalmente.
 
-Puede definir filtros de ruta personalizados dentro de la red para usar solo las rutas que necesita. Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento. Puede definir filtros de ruta personalizados dentro de la red para usar solo las rutas que necesita. 
+Puede definir filtros de ruta personalizados dentro de la red para usar solo las rutas que necesita. Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento. 
 
 Revise la [página de P+F](expressroute-faqs.md) para obtener más información sobre los servicios compatibles a través del dominio de enrutamiento de emparejamiento público. 
 
@@ -89,6 +89,6 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

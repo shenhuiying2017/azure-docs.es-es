@@ -1,6 +1,6 @@
 ---
-title: "Creación de clústeres Hadoop, HBase o Storm en Linux en HDInsight con cURL y la API de REST de Azure | Microsoft Docs"
-description: "Aprenda a crear clústeres de HDInsight basados en Linux mediante cURL, plantillas del Administrador de recursos de Azure y la API de REST de Azure. Puede especificar el tipo de clúster (Hadoop, HBase o Storm) o usar scripts para instalar componentes personalizados."
+title: "Creación de Azure HDInsight (Hadoop) mediante cURL y REST | Microsoft Docs"
+description: "Aprenda a crear clústeres de HDInsight mediante cURL, plantillas de Azure Resource Manager y la API de REST de Azure. Puede especificar el tipo de clúster (Hadoop, HBase o Storm) o usar scripts para instalar componentes personalizados."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,22 +16,19 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
-ms.openlocfilehash: 491f8540e8e53f366327ed80caff2e1e360132fc
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a4dc3d4599cfe2c6dd7580c423987f6173a9c5ba
 
 
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-curl-and-the-azure-rest-api"></a>Creación de clústeres basados en Linux en HDInsight con cURL y la API de REST de Azure
+# <a name="create-hdinsight-clusters-using-curl-and-the-azure-rest-api"></a>Creación de clústeres de HDInsight mediante cURL y la API de REST de Azure
 
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-La API de REST de Azure permite realizar operaciones de administración de servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight basados en Linux. En este documento, obtendrá información sobre cómo crear plantillas del Administrador de recursos de Azure para configurar un clúster de HDInsight y el almacenamiento asociado y luego usar cURL para implementar la plantilla en la API de REST de Azure para crear un clúster de HDInsight.
+La API de REST de Azure permite realizar operaciones de administración en servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight. En este documento, obtendrá información sobre cómo crear plantillas del Administrador de recursos de Azure para configurar un clúster de HDInsight y el almacenamiento asociado y luego usar cURL para implementar la plantilla en la API de REST de Azure para crear un clúster de HDInsight.
 
 > [!IMPORTANT]
-> Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
->
-> Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -267,6 +264,11 @@ Por ejemplo, lo siguiente es una combinación de los archivos de plantilla y de 
 
 Este ejemplo se usará en los pasos de este documento. Debe reemplazar los marcadores de posición *value* de la sección **Parameters** al final del documento con los valores que desee usar para el clúster.
 
+> [!IMPORTANT]
+> La plantilla usa el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+>
+> Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
 ## <a name="login-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
 
 Siga los pasos documentados en [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Introducción a la CLI de Azure 2.0). y conéctese a su suscripción con el comando `az login`.
@@ -412,6 +414,6 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

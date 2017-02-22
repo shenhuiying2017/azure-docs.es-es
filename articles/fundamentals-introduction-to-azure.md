@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a3e09e63f3952ad8b7229397f22c8d2f86ce6614
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
 
 
 ---
@@ -152,7 +152,7 @@ El Almacenamiento de blobs se utiliza por muchas otras características de Azure
 
 Una aplicación que almacena vídeo, archivos masivos u otra información de tipo binario puede utilizar blobs como método de almacenamiento sencillo y barato. Los Blobs suelen utilizarse junto con otros servicios como la Red de entrega de contenido, de la que hablaremos más adelante.  
 
-### <a name="import-export"></a>Importación / Exportación
+### <a name="import--export"></a>Importación / Exportación
 ![Azure Import Export Service](./media/fundamentals-introduction-to-azure/ImportExportIntroNew.png)  
 
 *Ilustración: Importación y exportación de Azure ofrece la posibilidad de enviar una unidad de disco duro física a o desde Azure para la importación o exportación de datos masivos más rápida y barata.*  
@@ -519,7 +519,7 @@ Para distribuir lo que produce, una aplicación puede utilizar CDN de Azure, otr
 
 **Referencias**
 
-Para obtener una imagen de cómo funciona Servicios multimedia, descargue el [póster de Servicios multimedia de Azure][póster de Servicios multimedia de Azure].
+Para obtener una imagen de cómo funciona Servicios multimedia, descargue el [póster de Azure Media Services][Azure Media Services Poster].
 
 ## <a name="commerce"></a>Comercio
 El surgimiento del software como servicio está transformando el modo en que creamos las aplicaciones. Y también está transformando el modo en que las vendemos. Dado que una aplicación SaaS reside en la nube, tiene sentido que sus clientes potenciales deban buscar soluciones en línea. Y este cambio se aplica tanto a los datos como a las aplicaciones. ¿Por qué no buscar en la nube conjuntos de datos comercialmente disponibles? Microsoft aborda ambas cuestiones con [Azure Marketplace](https://azure.microsoft.com/marketplace/).
@@ -536,10 +536,10 @@ SendGrid es una aplicación de la Tienda Azure que le permite enviar correo elec
 ## <a name="getting-started"></a>Introducción
 Ahora que ha captado la idea general, el siguiente paso es programar su primera aplicación de Azure. Elija su lenguaje, [obtenga el SDK adecuado](/downloads/)y ¡a por ello!. La informática en nube es el nuevo estándar, comience ya.
 
-[póster de Servicios multimedia de Azure]: http://azure.microsoft.com/documentation/infographics/media-services/
+[Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

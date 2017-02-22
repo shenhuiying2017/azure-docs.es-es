@@ -12,33 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dcb28a67ef21728d9b21159f356ed122e0b7a1be
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: b3ff0e93ee144e98dec69c0678c3b467db1e0bc0
 
 
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Análisis de registros de telemetría de Application Insights con Spark en HDInsight
+
 [Application Insights de Visual Studio](../application-insights/app-insights-overview.md) es un servicio de análisis que supervisa sus aplicaciones web. Los datos de telemetría que genera Application Insights pueden exportarse al Almacenamiento de Azure para que HDInsight los analice.
 
 En este documento, aprenderá a usar HDInsight para analizar los datos de telemetría de Application Insight con Apache Spark.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 * Una suscripción de Azure.
+
 * Una aplicación configurada para usar Application Insights. 
+
 * Experiencia en la creación de un clúster de HDInsight basado en Linux. Si no está familiarizado con la creación de un clúster, consulte [Creación de Spark en HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) para obtener más información.
   
-  > [!NOTE]
-  > Este documento no es un tutorial para crear un nuevo clúster. En su lugar, hace referencia a otros documentos que proporcionan información sobre cómo crear un clúster que tenga acceso a los datos de telemetría.
-  > 
-  > 
+  > [!IMPORTANT]
+  > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Un navegador web. Se utiliza para ejecutar análisis interactivamente mediante un cuaderno de Jupyter Notebook.
 
 Se ha utilizado lo siguiente para el desarrollo y pruebas de este documento:
 
 * Los datos de telemetría de Application Insights se han generado mediante una [aplicación web Node.js configurada para usar Application Insights](../application-insights/app-insights-nodejs.md).
+
 * Se usó un clúster de Spark en HDInsight versión 3.4 basado en Linux para analizar los datos.
 
 ## <a name="architecture-and-planning"></a>Arquitectura y planeación
@@ -47,6 +51,7 @@ El siguiente diagrama muestra la arquitectura de servicio de este ejemplo:
 ![diagrama que muestra los datos que fluyen desde Application Insights al almacenamiento de blobs y que a continuación son procesados por Spark en HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### <a name="azure-storage"></a>Almacenamiento de Azure
+
 Un clúster de HDInsight puede acceder directamente a blobs en bloques de una cuenta de Almacenamiento de Azure, y Application Insights puede configurarse para exportar continuamente información de telemetría a blobs de Almacenamiento de Azure. Sin embargo, hay algunos requisitos que se deben seguir:
 
 * **Ubicación**: la cuenta de almacenamiento debe encontrarse en la misma región que HDInsight. Esto reduce la latencia al acceder a los datos y evita los cargos de salida que se producen cuando se mueven datos entre regiones.
@@ -56,6 +61,7 @@ Un clúster de HDInsight puede acceder directamente a blobs en bloques de una cu
     En su lugar, se recomienda utilizar cuentas de almacenamiento independientes para HDInsight y los datos de telemetría de Application Insights, y [usar firmas de acceso compartido (SAS) para restringir el acceso a los datos desde HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md). Usar SAS permite conceder a HDInsight acceso de solo lectura a los datos de telemetría.
 
 ### <a name="data-schema"></a>Esquema de datos
+
 Application Insights proporciona información del [modelo de datos de exportación](../application-insights/app-insights-export-data-model.md) para el formato de datos de telemetría exportados a blobs. Los pasos descritos en este documento usan Spark SQL para interactuar con los datos. Spark SQL puede generar automáticamente un esquema para la estructura de datos JSON registrado por Application Insights, por lo que no es necesario definir manualmente el esquema al realizar el análisis.
 
 ## <a name="export-telemetry-data"></a>Exportación de datos de telemetría
@@ -349,6 +355,6 @@ Para obtener información sobre cómo crear y ejecutar aplicaciones de Spark, co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

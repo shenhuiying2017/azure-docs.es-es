@@ -6,7 +6,7 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 
 1. En un símbolo del sistema, escriba *ipconfig /all*.  Solo verá la dirección IP privada *principal* (por medio de DHCP).
 2. Escriba *ncpa.cpl* en el símbolo del sistema para abrir la ventana **Conexiones de red**.
-3. Abra las propiedades de la **Conexión de área local**.
+3. Abra las propiedades del adaptador correspondiente: **Conexión de área local**.
 4. Haga doble clic en el Protocolo de Internet versión 4 (IPv4).
 5. Seleccione **Usar la siguiente dirección IP** y escriba los valores siguientes:
 
@@ -16,9 +16,24 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
     * Haga clic en **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
         * **Servidor DNS preferido:** escriba 168.63.129.16 si no usa su propio servidor DNS.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
     * Haga clic en el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias indicadas en el paso 8 a la NIC con la misma subred especificada para la dirección IP principal.
+        >[!WARNING] 
+        >Si no sigue los pasos anteriores correctamente, puede perder la conectividad a la máquina virtual. Asegúrese de que la información del paso 5 es correcta antes de continuar.
+
     * Haga clic en **Aceptar** para cerrar la configuración de TCP/IP y en **Aceptar** otra vez para cerrar la configuración del adaptador. Se restablece la conexión RDP.
+
 6. En un símbolo del sistema, escriba *ipconfig /all*. Se muestran todas las direcciones IP que agregó y DHCP está desactivado.
-    
+
+
+### <a name="validation-windows"></a>Validación (Windows)
+
+Para asegurarse de que puede conectarse a internet desde su configuración de IP secundaria a través de la dirección IP pública asociada, cuando la haya agregado correctamente con los pasos anteriores, use el siguiente comando:
+
+```bash
+ping -S 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>Solo puede hacer ping a internet si la dirección IP privada anterior tiene una IP pública asociada.
+
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Abra una ventana del terminal.
@@ -39,9 +54,7 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
         ```
 
     Debería ver un archivo .cfg.
-4. Abra el archivo: vi *nombreDeArchivo*.
-
-    Debería ver las siguientes líneas al final del archivo:
+4. Abra el archivo. Debería ver las siguientes líneas al final del archivo:
 
     ```bash
     auto eth0
@@ -53,6 +66,7 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
     ```bash
     iface eth0 inet static
     address <your private IP address here>
+    netmask <your subnet mask>
     ```
 
 6. Guarde el archivo mediante el comando siguiente:
@@ -74,11 +88,11 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 8. Compruebe que la dirección IP se agregue a la interfaz de red con el comando siguiente:
 
     ```bash
-    Ip addr list eth0
+    ip addr list eth0
     ```
 
     Debería ver la dirección IP que agregó en la lista.
-    
+
 ### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS y otros)
 
 1. Abra una ventana del terminal.
@@ -102,32 +116,35 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 
     Debería ver *ifcfg-eth0* como uno de los archivos.
 
-5. Copie el archivo *ifcfg-eth0* y asígnele el nombre *ifcfg-eth0:0* con el siguiente comando:
+5. Para agregar una dirección IP, cree un archivo de configuración, tal y como se muestra a continuación. Tenga en cuenta que debe crearse un archivo para cada configuración de IP.
 
     ```bash
-    cp ifcfg-eth0 ifcfg-eth0:0
+    touch ifcfg-eth0:0
     ```
 
-6. Edite el archivo *ifcfg-eth0:0* con el comando siguiente:
+6. Abra el archivo *ifcfg-eth0:0* con el comando siguiente:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Cambie el dispositivo al nombre adecuado en el archivo, *eth0:0* en este caso, con el siguiente comando:
+7. Agregue contenido al archivo, *eth0:0* en este caso, con el siguiente comando. Asegúrese de actualizar la información en función de su dirección IP.
 
     ```bash
     DEVICE=eth0:0
+    BOOTPROTO=static
+    ONBOOT=yes
+    IPADDR=192.168.101.101
+    NETMASK=255.255.255.0
     ```
 
-8. Cambie la línea *IPADDR = suDirecciónIPPrivada* para reflejar la dirección IP.
-9. Guarde el archivo mediante el comando siguiente:
+8. Guarde el archivo mediante el comando siguiente:
 
     ```bash
     :wq
     ```
 
-10. Reinicie los servicios de red y asegúrese de que los cambios sean correctos con los comandos siguientes:
+9. Reinicie los servicios de red y asegúrese de que los cambios sean correctos con los comandos siguientes:
 
     ```bash
     /etc/init.d/network restart
@@ -136,7 +153,31 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 
     Debería ver la dirección IP que agregó, *eth0:0*, en la lista que se devuelve.
 
+### <a name="validation-linux"></a>Validación (Linux)
 
-<!--HONumber=Dec16_HO1-->
+Para asegurarse de que puede conectarse a internet desde su configuración de IP secundaria a través de la dirección IP pública asociada, use el siguiente comando:
+
+```bash
+ping -I 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>Solo puede hacer ping a internet si la dirección IP privada anterior tiene una IP pública asociada.
+
+Para máquinas virtuales Linux, al intentar validar la conectividad saliente de una NIC secundaria, debe agregar las rutas adecuadas. Existen distintas formas de hacerlo. Consulte la documentación correspondiente a su distribución de Linux. El siguiente es un método para lograr esto:
+
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
+
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+
+```
+- No olvide reemplazar:
+    - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
+    - **10.0.0.1** con su puerta de enlace predeterminada
+    - **eth2** con el nombre de la NIC secundaria
+
+
+<!--HONumber=Feb17_HO2-->
 
 

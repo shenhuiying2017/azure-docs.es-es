@@ -11,12 +11,12 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/12/2017
 ms.author: ashmaka
+experiment_id: heidist-experiment1-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29385af9183ef2f8431581aaa5fe38e89404d068
-
+ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
+ms.openlocfilehash: 99b3babee9b252b2d741515391295d8b1dc5c747
 
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Búsqueda de Azure?
@@ -25,7 +25,7 @@ Azure Search es una solución de búsqueda como servicio en la nube que delega l
 ## <a name="give-your-users-a-powerful-search-experience"></a>Ofrezca a los usuarios una eficaz experiencia de búsqueda
 **consultas eficaces** con la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx), que ofrece operadores lógicos, operadores de búsqueda de frase, operadores de sufijo y operadores de precedencia. Además, la [sintaxis de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) puede habilitar la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares. Búsqueda de Azure también admite analizadores léxicos personalizados para permitir que su aplicación administre consultas de búsqueda complejas mediante la coincidencia fonética y las expresiones regulares.
 
-**compatibilidad** con [56 idiomas diferentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). Al usar analizadores de Lucene y analizadores de Microsoft (refinados gracias a varios años de procesamiento de lenguaje natural en Office y Bing), Búsqueda de Azure puede analizar el texto en el cuadro de búsqueda de la aplicación para controlar de manera inteligente la lingüística específica del idioma, como por ejemplo, tiempos verbales, género, nombres plurales irregulares (por ejemplo, 'mouse' frente a 'ratones'), separación de palabras compuestas, separación de palabras (para idiomas sin espacios) y mucho más.
+**compatibilidad** con [56 idiomas diferentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). Al usar analizadores de Lucene y analizadores de Microsoft (refinados gracias a varios años de procesamiento de lenguaje natural en Office y Bing), Azure Search puede analizar el texto en el cuadro de búsqueda de la aplicación para controlar de manera inteligente la lingüística específica del idioma, como por ejemplo, tiempos verbales, género, nombres plurales irregulares (por ejemplo, "mouse" frente a "ratones"), separación de palabras compuestas, separación de palabras (para idiomas sin espacios) y mucho más.
 
 **sugerencias de búsqueda** pueden habilitarse las barras de búsqueda de autocompletado y las consultas de escritura automática. [Se sugieren los documentos correspondientes en el índice](https://msdn.microsoft.com/library/azure/dn798936.aspx) a medida que los usuarios escriben entradas de búsqueda parciales.
 
@@ -46,7 +46,7 @@ La **integración de datos** con [indexadores](https://msdn.microsoft.com/librar
 
 **averiguación de documentos** está disponible (actualmente en versión preliminar) para [leer e indexar los principales formatos de archivo](search-howto-indexing-azure-blob-storage.md) , por ejemplo, documentos de Microsoft Office, PDF y HTML.
 
-**análisis de tráfico de búsqueda** se [recopila y analiza fácilmente](search-traffic-analytics.md) to unlock insights from what users se typing into the search box.
+El **análisis de tráfico de búsqueda** se [recopila y analiza fácilmente](search-traffic-analytics.md) para conocer qué usuarios están escribiendo en el cuadro de búsqueda.
 
 **puntuación simple** es una ventaja clave de Búsqueda de Azure. [perfiles de puntuación](https://msdn.microsoft.com/library/azure/dn798928.aspx) se utilizan para permitir que las organizaciones modelen la relevancia en función de los valores de los propios documentos. Por ejemplo, tal vez se desea que los productos más recientes o con descuento aparezcan arriba en los resultados de búsqueda. También se pueden crear perfiles de puntuación mediante etiquetas para puntuaciones personalizadas, según las preferencias de búsqueda de los clientes de las que se ha hecho seguimiento y se han almacenado por separado.
 
@@ -80,13 +80,16 @@ El modelo de inserción se proporciona a través del SDK o las API de REST usada
 Una vez que se ha completado el índice de Azure Search, podrá [emitir consultas de búsqueda](https://msdn.microsoft.com/library/azure/dn798927.aspx) al punto de conexión de servicio mediante solicitudes HTTP sencillas con la API de REST o el SDK de .NET.
 
 ## <a name="try-it-now-for-free"></a>Pruébelo ahora (¡gratis!)
-Puede probar búsqueda de Azure hoy mismo. Si ya tiene una cuenta de Azure, puede [aprovisionar un servicio en el nivel Gratis](search-create-service-portal.md).
+Los suscriptores de Azure pueden [aprovisionar un servicio en el nivel Gratis](search-create-service-portal.md).
 
-Si no tiene una cuenta de Azure, puede probar una sesión gratuita de 60 minutos sin necesidad de registrarse. Vaya a [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) y seleccione "Aplicación web". A continuación, seleccione la plantilla "ASP.NET + Azure Search" para empezar.
+Si no es suscriptor, puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Websites. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
+
+Además, puede [activar las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO2-->
 
 

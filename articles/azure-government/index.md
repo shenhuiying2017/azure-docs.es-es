@@ -1,8 +1,20 @@
 ---
+title: "Documentación sobre Azure Government: tutoriales y referencia de API | Microsoft Docs"
+description: 
+services: Azure-government
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: Azure-government
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 93a2c8da64000d03538f73befc167368915c3dbb
+ms.sourcegitcommit: a715413312c7d8bd3dcfb9b252f3dae8d95fafd7
+ms.openlocfilehash: 7c4a0c1167837a876164d93d93e6dd6cd8f62ee6
 
 ---
 #<a name="azure-government-documentation"></a>Documentación de Azure Government
@@ -58,13 +70,27 @@ Microsoft Azure Government ofrece una plataforma en la nube que se basa en los p
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Servicios</h3>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">Proceso</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">Almacenamiento</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">Base de datos</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-networking">Redes</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity">Seguridad e identidad</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement">Supervisión y administración</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-image-gallery">Imágenes</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace para asociados</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Services</h3>
+                        <p><a href="/azure/azure-government/documentation-government-compute">Proceso</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-storage">Almacenamiento</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-database">Base de datos</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-networking">Redes</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-securityandidentity">Seguridad + Identidad</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Supervisión + Administración</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Web y móvil</a></p>
                     </div>
                 </div>
             </div>
@@ -73,16 +99,10 @@ Microsoft Azure Government ofrece una plataforma en la nube que se basa en los p
 </ul>
     
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Azure Government </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO3-->
 
 

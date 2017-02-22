@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: 3e53aa3ed3c1612c76aec349e4dabfc064842cb9
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: 79e04b1569f6e3ca221b673ebe4eb9825d89abe1
 
 
 ---
@@ -32,14 +32,18 @@ En este artículo, aprenderá a usar Secure Shell (SSH) para conectarse a un cl�
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
 
-Para completar los pasos de este artículo, necesitará lo siguiente:
+Necesitará lo siguiente para completar los pasos de este artículo:
 
 * Un clúster de HDInsight basado en Linux (Hadoop en HDInsight)
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Un cliente SSH. Los sistemas operativos Linux, Unix y Mac deben incluir un cliente SSH. Los usuarios de Windows deben descargar un cliente similar [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexión con SSH
 
-Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight mediante el comando SSH. El FQDN será el nombre que asignó al clúster, es decir, **.azurehdinsight.net**. Por ejemplo, lo siguiente conectaría con un clúster denominado **myhdinsight**:
+Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight mediante el comando SSH. El FQDN será el nombre que asignó al clúster, es decir, **.azurehdinsight.net**. Por ejemplo, lo siguiente debería conectarse a un clúster denominado **myhdinsight**.
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
 
@@ -47,23 +51,25 @@ Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight 
 
     ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
-**Si proporcionó una contraseña para la autenticación de SSH** , al crear el clúster de HDInsight, tendrá que proporcionar la contraseña cuando se le solicite.
+**Si proporcionó una contraseña para la autenticación de SSH**, al crear el clúster de HDInsight, tendrá que proporcionar la contraseña cuando se le solicite.
 
-Para obtener más información sobre el uso de SSH con HDInsight, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa)](hdinsight-hadoop-linux-use-ssh-unix.md).
+Para obtener más información sobre el uso de SSH con HDInsight, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Linux, OS X, Unix y Bash en Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="putty-windows-clients"></a>PuTTY (clientes Windows)
 
-Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Las versiones anteriores de Windows no proporcionan un cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para obtener más información sobre el uso de PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa) ](hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH (PuTTY) con Hadoop basado en Linux en HDInsight desde Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a name="a-idhadoopause-hadoop-commands"></a><a id="hadoop"></a>Uso de comandos Hadoop
 
 1. Una vez conectado al clúster de HDInsight, utilice el siguiente comando **Hadoop** para iniciar un trabajo de MapReduce:
    
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
-   
-    Se inicia la clase **wordcount**, que está contenida en el archivo **hadoop-mapreduce-examples.jar**. Como entrada, usa el documento **wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en **wasb:///ejemplo/data/WordCountOutput**.
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
+    ```
+
+    Se inicia la clase **wordcount**, que está contenida en el archivo **hadoop-mapreduce-examples.jar**. Como entrada, usa el documento **/example/data/gutenberg/davinci.txt** y la salida se almacena en **/example/data/WordCountOutput**.
    
     > [!NOTE]
     > Para obtener más información sobre este trabajo de MapReduce y los datos de ejemplo, vea [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
@@ -77,7 +83,9 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 
 3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en **wasbs://example/data/WordCountOutput**:
    
-        hdfs dfs -ls wasbs:///example/data/WordCountOutput
+    ```
+    hdfs dfs -ls /example/data/WordCountOutput
+    ```
    
     Se deberían mostrar dos archivos, **_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
    
@@ -86,9 +94,11 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 
 4. Para ver la salida, use el comando siguiente:
    
-        hdfs dfs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+    ```
+    hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
+    ```
    
-    Se mostrará una lista de las palabras contenidas en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que aparecía cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
+    Se mostrará una lista de las palabras contenidas en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que aparecía cada palabra. A continuación, se muestra un ejemplo de los datos que se incluirán en el archivo:
    
         wreathed        3
         wreathing       1
@@ -116,6 +126,6 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

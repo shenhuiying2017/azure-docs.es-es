@@ -1,7 +1,7 @@
 
 En el ejemplo anterior se pone en contacto con el proveedor de identidades y el servicio móvil cada vez que inicie la aplicación. En su lugar, puede almacenar en caché el token de autorización y usarla en primer lugar.
 
-* Para cifrar y almacenar tokens de autenticación en un cliente iOS, se recomienda usar iOS Keychain. Vamos a usar [SSKeychain](https://github.com/soffes/sskeychain) (un contenedor simple de iOS Keychain). Siga las instrucciones de la página de SSKeychain para agregarlo al proyecto. Compruebe que el valor **Habilitar módulos** está habilitado en la opción **Configuración de compilación** (sección **Apple LLVM - Idiomas - Módulos**) del proyecto.
+* Para cifrar y almacenar tokens de autenticación en un cliente iOS, se recomienda usar iOS Keychain. Vamos a usar [SSKeychain](https://github.com/soffes/sskeychain) (un contenedor simple de iOS Keychain). Siga las instrucciones de la página de SSKeychain para agregarlo al proyecto. Compruebe que el valor **Enable Modules** (Habilitar módulos) está habilitado en la opción **Build Settings** (Configuración de compilación) [sección **Apple LLVM - Languages - Modules** (Apple LLVM - Idiomas - Módulos)] del proyecto.
 * Abra **QSTodoListViewController.m** y agregue el siguiente código:
 
 ```
@@ -27,10 +27,13 @@ En el ejemplo anterior se pone en contacto con el proveedor de identidades y el 
                 [self saveAuthInfo];
 ```
 
-* Se cargan el Id. de usuario y las propiedades del token cuando se inicia la aplicación. En el `viewDidLoad` en **QSTodoListViewController.m**, agréguelo justo después de que se inicialice `self.todoService`.
+* Se cargan el Id. de usuario y las propiedades del token cuando se inicia la aplicación. En `viewDidLoad`, en **QSTodoListViewController.m**, agréguelo inmediatamente después de que `self.todoService` se inicialice.
 
 ```
                 [self loadAuthInfo];
 ```
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

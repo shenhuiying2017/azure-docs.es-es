@@ -11,7 +11,8 @@
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Uso compartido de recursos entre orígenes](cdn-cors.md)
 
-## Administrar
+## administración
+### [Habilitación de HTTPS en un dominio personalizado](cdn-custom-ssl.md)
 ### [Administración con PowerShell](cdn-manage-powershell.md)
 ### Configuración del período de vida
 #### [Contenido de Web Apps/Cloud Services, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
@@ -40,7 +41,7 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Solución de problemas
-### [Estado 404](cdn-troubleshoot-endpoint.md)
+### [Estado&404;](cdn-troubleshoot-endpoint.md)
 ### [Compresión de archivos](cdn-troubleshoot-compression.md)
 
 # Referencia
@@ -62,6 +63,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

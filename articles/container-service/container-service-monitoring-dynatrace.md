@@ -1,5 +1,5 @@
 ---
-title: "Supervisión de un clúster de Azure Container Service DC/OS con Dynatrace | Microsoft Docs"
+title: "Supervisión de un clúster de Azure DC/OS - Dynatrace | Microsoft Docs"
 description: "Supervisión de un clúster de Azure Container Service DC/OS con Dynatrace. Implemente Dynatrace OneAgent mediante el panel DC/OS."
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 96d35fbc4a8dfb620a2cfe67df449134d2f1e542
-ms.openlocfilehash: 48bb16972f2e846997e081e702ffbce57736c484
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 8878baa230bc8e91f814fd97fdc852c76b17e823
 
 
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-dynatrace-saasmanaged"></a>Supervisión de un clúster de Azure Container Service con Dynatrace SaaS/Managed
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Supervisión de un clúster DC/OS de Azure Container Service con Dynatrace SaaS/Managed
 En este artículo, le mostramos cómo implementar [Dynatrace](https://www.dynatrace.com/) OneAgent para supervisar todos los nodos de agente en el clúster de Azure Container Service. Necesita una cuenta con Dynatrace SaaS/Managed para esta configuración. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed
@@ -63,6 +63,6 @@ Estos pasos muestran cómo configurar e implementar aplicaciones de Dynatrace en
 Una vez haya instalado el paquete, desplácese hacia el panel de Dynatrace. Puede explorar distintas métricas de uso de los contenedores en el clúster. 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

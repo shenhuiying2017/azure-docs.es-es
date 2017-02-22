@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 03/31/2016
 ms.author: mattrow
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: c920a206d6f3288f6cba0d2658d556749fc4d574
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
 Al ejecutar servicios en su equipo de desarrollador, es fácil usar [herramientas de depuración de Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Para clústeres remotos, los [informes de estado](service-fabric-view-entities-aggregated-health.md) resultan siempre un buen punto de partida. La manera más sencilla de obtener acceso a estos informes es a través de PowerShell o [SFX](service-fabric-visualizing-your-cluster.md). En este artículo se supone que está depurando un clúster remoto y que tiene un conocimiento básico de cómo usar cualquiera de estas herramientas.
 
 ## <a name="application-crash"></a>Bloqueo de aplicaciones
-El informe "La partición se encuentra por debajo del número de instancias o de réplicas de destino" es un buen indicio de que se bloquea el servicio. Para averiguar dónde se bloquea su servicio, será necesario investigar un poco más. Cuando el servicio se ejecuta a escala, su mejor amigo será un conjunto de seguimiento bien elaborados.  Le recomendamos que pruebe [Diagnósticos de Microsoft Azure](service-fabric-diagnostics-how-to-setup-wad.md) para recopilar esos seguimientos y usar una solución como [Elasticsearch](service-fabric-diagnostic-how-to-use-elasticsearch.md) para ver y buscar los seguimientos.
+El informe "La partición se encuentra por debajo del número de instancias o de réplicas de destino" es un buen indicio de que se bloquea el servicio. Para averiguar dónde se bloquea su servicio, será necesario investigar un poco más. Cuando el servicio se ejecuta a escala, su mejor amigo será un conjunto de seguimiento bien elaborados.  Le recomendamos que pruebe [Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-wad.md) para recopilar esos seguimientos y usar una solución como [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) para ver y buscar los seguimientos.
 
 ![Estado de las particiones SFX](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
@@ -55,6 +55,6 @@ Más información sobre el diagnóstico existente ofrecido por Service Fabric:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

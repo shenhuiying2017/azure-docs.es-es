@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
 
 
 ---
@@ -24,24 +24,24 @@ ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-users-reset-password-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-create-users-reset-password.md)
-> 
-> 
+>
+>
 
 ## <a name="how-to-reset-the-password-for-a-user"></a>Restablecimiento de la contraseña de un usuario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
-   
+
    ![Apertura de Administración de usuarios](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
-   
+
    ![Apertura de la hoja Usuarios](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
 4. En la hoja **Usuarios y grupos - Usuarios** , seleccione un usuario de la lista.
 5. En la hoja del usuario seleccionado, seleccione **Introducción** y, después, en la barra de comandos, seleccione **Restablecer contraseña**.
-   
+
     ![Selección del comando Restablecer contraseña](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 6. En la hoja **Restablecer contraseña**, seleccione **Restablecer contraseña**.
 
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Adición de un usuario](active-directory-users-create-azure-portal.md)
 * [Asignar a un usuario a un rol de Azure AD](active-directory-users-assign-role-azure-portal.md)
 * [Cambiar la información de trabajo de un usuario](active-directory-users-work-info-azure-portal.md)
@@ -50,7 +50,6 @@ ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

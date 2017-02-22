@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d0c334a0b1e047208f6f61e5181864b1c2e3a6a
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 81706c6c95199b25a07589780d2a27fc0f8dffa7
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Administración de máquinas virtuales de Azure con Azure Resource Manager y C
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Administración de máquinas virtuales de Azure con Azure Resource Manager y C# #
 Las tareas de este artículo, como iniciar, detener y actualizar, muestran cómo administrar máquinas virtuales. Para realizar las tareas de este artículo, debe haber una máquina virtual en un grupo de recursos.
 
 Para completar las tareas de este artículo, necesitará lo siguiente:
 
 * [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-* [Un token de autenticación](../resource-group-authenticate-service-principal.md)
+* [Un token de autenticación](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="create-a-visual-studio-project-and-install-packages"></a>Creación de un proyecto de Visual Studio e instalación de paquetes
 Los paquetes de NuGet son la manera más fácil de instalar las bibliotecas que necesita para finalizar las tareas en este artículo. Las bibliotecas que se van a instalar para este artículo son la Biblioteca de autenticación de Azure Active Directory y la Biblioteca del proveedor de recursos de proceso. Siga estos pasos para instalar las bibliotecas en Visual Studio:
@@ -435,11 +435,11 @@ En este ejemplo se muestra cómo agregar un disco de datos a una máquina virtua
 5. Haga clic en **Iniciar** en Visual Studio y, a continuación, inicie sesión en Azure AD con el mismo nombre de usuario y contraseña que utiliza con su suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si se produjeron problemas con la implementación, le recomendamos echar un vistazo a [Solución de problemas de implementaciones de grupo de recursos con Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
+Si se produjeron problemas con una implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

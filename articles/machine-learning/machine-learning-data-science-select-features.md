@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: zhangya;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ec9a07a26f6c0cd100d963063304d96b75d71dd
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a30620c8a6ec52fd9b3268c4c83f89181cf6d9f5
 
 
 ---
@@ -25,9 +25,7 @@ En este artículo se explican los propósitos de la selección de característic
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-En este tema se explica el propósito de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Estudio de aprendizaje automático de Azure. 
-
-La ingeniería y la selección de características forman parte del proceso TDSP descrito en [¿Qué es el proceso de ciencia de datos en equipos (TDSP)?](data-science-process-overview.md) La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP.
+La ingeniería y la selección de características forman parte del proceso de ciencia de datos en equipos TDSP descrito en [¿Cuál es el ciclo de vida del TDSP?](data-science-process-overview.md). La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP.
 
 * **Diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
 * **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
@@ -44,11 +42,11 @@ A pesar de que la selección de características sí busca disminuir la cantidad
 
 Entre otros aspectos, una categoría ampliamente aplicada de los métodos de selección de categorías en un contexto supervisado se llama "selección de características basada en filtro". Mediante la evaluación de la correlación entre cada característica y el atributo de destino, estos métodos aplican una medida estadística para asignar una puntuación a cada característica. A continuación, las características se clasifican según la puntuación, lo que se puede usar para definir el umbral para conservar o eliminar una característica específica. Algunos ejemplos de las medidas estadísticas que se usan en estos métodos incluyen la correlación de Pearson, la información mutua y la prueba de Chi-cuadrado.
 
-En Estudio de aprendizaje automático de Azure, estos son los módulos proporcionados para la selección de características. Tal como aparece en la figura siguiente, estos módulos incluyen [Selección de características basada en filtros][filter-based-feature-selection] y [Análisis discriminante lineal de Fisher][fisher-linear-discriminant-analysis].
+En Estudio de aprendizaje automático de Azure, estos son los módulos proporcionados para la selección de características. Tal como se muestra en la figura siguiente, entre estos módulos se incluyen la [selección de características basada en filtro][filter-based-feature-selection] y el [análisis discriminante lineal de Fisher][fisher-linear-discriminant-analysis].
 
 ![Ejemplo de selección de características](./media/machine-learning-data-science-select-features/feature-Selection.png)
 
-Por ejemplo, considere el uso del módulo [Selección de características basada en filtros][filter-based-feature-selection]. Para mayor comodidad, seguiremos usando el ejemplo de minería de texto descrito anteriormente. Suponga que deseamos crear un modelo de regresión una vez creado un conjunto de 256 características mediante el módulo [Hash de características][feature-hashing] y que la variable de respuesta es la "Col1" y representa una clasificación de las reseñas de un libro, que van desde 1 a 5. Defina el "Método de puntuación de características" en "Correlación de Pearson", la "Columna de destino" en "Col1" y el "Número de características deseadas" en 50. A continuación, el módulo [Selección de características basada en filtros][filter-based-feature-selection] generará un conjunto de datos con 50 características, junto con el atributo de destino "Col1". La figura siguiente muestra el flujo de este experimento y los parámetros de entrada que acabamos de describir.
+Por ejemplo, considere el uso del módulo de [selección de características basada en filtro][filter-based-feature-selection]. Para mayor comodidad, seguiremos usando el ejemplo de minería de texto descrito anteriormente. Suponga que deseamos crear un modelo de regresión una vez creado un conjunto de 256 características mediante el módulo de [hash de características][feature-hashing] y que la variable de respuesta es la "Col1" y representa una clasificación de las reseñas de un libro, que van desde 1 a 5. Defina el "Método de puntuación de características" en "Correlación de Pearson", la "Columna de destino" en "Col1" y el "Número de características deseadas" en 50. Seguidamente, el módulo de [Selección de características basada en filtro][filter-based-feature-selection] generará un conjunto de datos con 50 características, junto con el atributo de destino "Col1". La figura siguiente muestra el flujo de este experimento y los parámetros de entrada que acabamos de describir.
 
 ![Ejemplo de selección de características](./media/machine-learning-data-science-select-features/feature-Selection1.png)
 
@@ -60,7 +58,7 @@ La figura siguiente muestra las puntuaciones correspondientes de las caracterís
 
 ![Ejemplo de selección de características](./media/machine-learning-data-science-select-features/feature-Selection3.png)
 
-A través de este módulo [Selección de características basada en filtros][filter-based-feature-selection], se seleccionan 50 de las 256 características, debido a que tienen las características más correlacionadas con la variable de destino "Col1", según el método de puntuación "Correlación de Pearson".
+A través de la aplicación de este módulo de [selección de características basada en filtro][filter-based-feature-selection], se seleccionan 50 de las 256 características, debido a que tienen las características más correlacionadas con la variable de destino "Col1", según el método de puntuación "Correlación de Pearson".
 
 ## <a name="conclusion"></a>Conclusión
 La selección de características y la ingeniería de características son dos características  diseñadas y seleccionadas frecuentemente que aumentan la eficiencia del proceso de entrenamiento en el que se intenta extraer la información clave que contienen los datos. También mejoran la eficacia de estos modelos para clasificar los datos de entrada de manera precisa y para predecir resultados de interés de manera más sólida. El diseño y la selección de características también se pueden combinar para que sea posible hacer un mejor seguimiento computacional del aprendizaje. Para ello, mejora y luego reduce el número de características que se necesitan para calibrar o entrenar un modelo. Matemáticamente hablando, las características seleccionadas para entrenar el modelo son un conjunto mínimo de variables independientes que explican los patrones existentes en los datos y, a continuación, predicen correctamente los resultados.
@@ -75,6 +73,6 @@ Observe que no siempre es necesario realizar el diseño o la selección de carac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

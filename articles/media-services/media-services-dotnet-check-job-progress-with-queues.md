@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 8eea2b930c9182f43cb1f1e416652ce8378d70b0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
 
 
 ---
@@ -35,8 +35,8 @@ Tenga en cuenta lo siguiente al desarrollar aplicaciones de Servicios multimedia
 
 * El servicio de colas no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Colas de almacenamiento de Azure no es un servicio push; tiene que sondear la cola.
-* Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://msdn.microsoft.com/library/azure/dd179363.aspx).
-* Colas de almacenamiento de Azure tiene algunas limitaciones y particularidades que se describen en el siguiente artículo: [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* Colas de almacenamiento de Azure tiene algunas limitaciones y particularidades que se describen en el siguiente artículo: [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Ejemplo de código
 El ejemplo de código de esta sección realiza lo siguiente:
@@ -354,6 +354,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

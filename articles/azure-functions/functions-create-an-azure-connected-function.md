@@ -1,6 +1,6 @@
 ---
-title: "Creación de una función de Azure que se enlaza a un servicio de Azure | Microsoft Azure"
-description: "Cree una función de Azure, una aplicación sin servidor, que interactúa con otros servicios de Azure."
+title: "Creación de una función que conecte con los servicios de Azure | Microsoft Docs"
+description: "Use Azure Functions para crear una aplicación sin servidor que se conecta a otros servicios de Azure."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,24 +14,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Creación de una función de Azure conectada a un servicio de Azure
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Use Azure Functions para crear una aplicación sin servidor que se conecta a otros servicios de Azure
 
-En este tema se muestra cómo crear una función de Azure que escucha los mensajes en una cola de Azure Storage y copia los mensajes en las filas de una tabla de Azure Storage. Se utiliza una función desencadenada del temporizador para cargar mensajes en la cola. Una segunda función lee en la cola y escribe mensajes en la tabla. Tanto la cola como la tabla las crea automáticamente Azure Functions según las definiciones de enlace. 
+En este tema se muestra cómo crear una función en Azure Functions que escucha los mensajes en una cola de Azure Storage y copia los mensajes en las filas de una tabla de Azure Storage. Se utiliza una función desencadenada del temporizador para cargar mensajes en la cola. Una segunda función lee en la cola y escribe mensajes en la tabla. Tanto la cola como la tabla las crea automáticamente Azure Functions según las definiciones de enlace. 
 
-Para hacer todo más interesante, se escribe una función en JavaScript y la otra en script de C#. Esto demuestra cómo una aplicación de la función puede tener funciones en distintos lenguajes.
+Para hacer todo más interesante, se escribe una función en JavaScript y la otra en script de C#. Esto demuestra cómo una aplicación de la función puede tener funciones en distintos lenguajes. 
 
-## <a name="watch-the-video"></a>Visualización del vídeo
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+En un [vídeo de Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player) se puede ver una demostración de este escenario.
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Creación de una función que escribe en la cola
 
@@ -186,9 +183,9 @@ Ahora que tiene mensajes que se van a agregar a la cola, puede crear otra funci�
 Consulte estos temas para más información sobre Azure Functions.
 
 * [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)  
-   contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
+  contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
-   describe las diversas herramientas y técnicas para probar sus funciones.
+  describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
   Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
 
@@ -197,6 +194,6 @@ Consulte estos temas para más información sobre Azure Functions.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

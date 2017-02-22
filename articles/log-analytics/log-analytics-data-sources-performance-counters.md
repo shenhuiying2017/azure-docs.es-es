@@ -1,10 +1,10 @@
 ---
-title: Contadores de rendimiento de Windows y Linux en Log Analytics | Microsoft Docs
+title: "Recopilación y análisis de contadores de rendimiento en Log Analytics | Microsoft Docs"
 description: "Log Analytics recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en el repositorio de OMS y se indica cómo analizarlos en el portal de OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b4d326064059b42cf2bf059184066c9acb4dcfd0
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
 
 
 ---
@@ -63,7 +63,7 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 | CounterValue |Valor numérico del contador. |
 | InstanceName |Nombre de la instancia del evento.  Vacío si no hay instancias. |
 | ObjectName |Nombre del objeto de rendimiento |
-| SourceSystem |Tipo de agente del que se recopilaron los datos. <br> OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br>  Linux: todos los agentes de Linux.  <br>  AzureStorage: Diagnósticos de Azure |
+| SourceSystem |Tipo de agente del que se recopilaron los datos. <br> OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br> Linux: todos los agentes de Linux.  <br> AzureStorage: Diagnósticos de Azure |
 | TimeGenerated |Fecha y hora en que se toma la muestra de datos. |
 
 ## <a name="sizing-estimates"></a>Estimaciones de tamaño
@@ -82,7 +82,7 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 | Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU  by Computer |Uso medio de CPU en todos los equipos |
 | Type=Perf (CounterName="% Processor Time") &#124;  measure max(Max) by Computer |Uso máximo de CPU en todos los equipos |
 | Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |Longitud media de cola de disco actual en todas las instancias de un equipo dado |
-| Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |Percentil 95 de transferencias de disco por segundo en todos los equipos |
+| Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |Percentil&95; de transferencias de disco por segundo en todos los equipos |
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Promedio por hora de uso de CPU en todos los equipos |
 | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |Percentil 70 por hora de cada contador de porcentaje % para un equipo concreto |
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Promedio, mínimo, máximo y percentil 75 por hora de uso de CPU de un equipo específico |
@@ -105,6 +105,6 @@ Para agregar datos de rendimiento en una búsqueda de registro, consulte [On-dem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

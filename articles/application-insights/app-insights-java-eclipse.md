@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Application Insights con Java en Eclipse"
+title: "Introducción a Azure Application Insights con Java en Eclipse | Microsoft Docs"
 description: "Utilización del complemento de Eclipse para agregar supervisión del rendimiento y uso para su sitio web de Java con Application Insights"
 services: application-insights
 documentationcenter: java
@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1f7f06647cc437ccbf70a8871e96ddbe98f83247
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: cfdb24ea2d461d85cfdf508a9bfabe288ef86e3c
 
 
 ---
@@ -23,12 +23,12 @@ ms.openlocfilehash: 1f7f06647cc437ccbf70a8871e96ddbe98f83247
 El SDK de Application Insights envía telemetría desde la aplicación web de Java para que se pueda analizar el uso y el rendimiento. El complemento Eclipse de Application Insights instala automáticamente el SDK en el proyecto para que obtenga la telemetría de serie, además de una API que puede usar para escribir la telemetría personalizada.   
 
 ## <a name="prerequisites"></a>Requisitos previos
-Actualmente el complemento funciona para proyectos Maven y proyectos web dinámicos en Eclipse. ([Agregar Application Insights a otros tipos de proyectos de Java][java]).
+Actualmente el complemento funciona para proyectos Maven y proyectos web dinámicos en Eclipse. ([Agregue Application Insights a otros tipos de proyectos de Java][java]).
 
 Necesitará:
 
 * Oracle JRE 1.6 o posterior
-* Una suscripción a [Microsoft Azure](https://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)).
+* Una suscripción a [Microsoft Azure](https://azure.microsoft.com/). 
 * [Eclipse IDE para Java EE Developers](http://www.eclipse.org/downloads/), Indigo o superior.
 * Windows 7 o posterior, o Windows Server 2008 o posterior
 
@@ -100,7 +100,7 @@ Las métricas de vistas de página, usuarios y sesiones aparecerán en la hoja d
 
 ![Sesiones, usuarios y vistas de página](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
-[Más información sobre la configuración de la telemetría del lado cliente.][usage]
+[Más información sobre la configuración de la telemetría de cliente.][usage]
 
 ## <a name="publish-your-application"></a>Publicación de la aplicación
 Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los usuarios y ver la telemetría en el portal.
@@ -184,7 +184,7 @@ Los contadores de rendimiento están visibles como métricas personalizadas en e
 * [Instale collectd con el complemento de Application Insights](app-insights-java-collectd.md) para obtener una amplia variedad de datos de red y del sistema.
 
 ## <a name="availability-web-tests"></a>Pruebas web de disponibilidad
-Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. [Para configurarlo][availability], desplácese hacia abajo y haga clic en Disponibilidad.
+Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. [Para configurarlo][availability], baje y haga clic en Disponibilidad.
 
 ![Desplácese hacia abajo, haga clic en Disponibilidad y, a continuación, en Agregar prueba web](./media/app-insights-java-eclipse/31-config-web-test.png)
 
@@ -197,25 +197,25 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
 
-[Obtenga más información sobre los registros de diagnóstico][javalogs]
+[Más información sobre los registros de diagnóstico][javalogs]
 
 ## <a name="custom-telemetry"></a>Telemetría personalizada
 Inserte unas pocas líneas de código en la aplicación web de Java para averiguar qué hacen los usuarios con él o para ayudar a diagnosticar problemas. 
 
 Puede insertar código en el JavaScript de la página web y en Java del servidor.
 
-[Obtenga información sobre la telemetría personalizada][track]
+[Obtenga información sobre la telemetría personalizad][track]
 
 ## <a name="next-steps"></a>Pasos siguientes
 #### <a name="detect-and-diagnose-issues"></a>Detección y diagnóstico de problemas
 * [Agregue telemetría de cliente web][usage] para obtener telemetría de rendimiento desde el cliente web.
-* [Configure las pruebas web][availability] para comprobar que la aplicación permanece activa y responde adecuadamente.
+* [Configure las pruebas web][availability] para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 * [Busque eventos y registros][diagnostic] para ayudar a diagnosticar problemas.
 * [Captura de los seguimientos Log4J o Logback][javalogs]
 
 #### <a name="track-usage"></a>Seguir el uso
 * [Agregue telemetría de cliente web][usage] para supervisar las vistas de páginas y las métricas básicas de usuario.
-* [Realice el seguimiento de métricas y eventos personalizados][track] para más información sobre cómo se usa la aplicación, tanto en el servidor como en el cliente.
+* [Realice el seguimiento de métricas y eventos personalizado][track] para obtener más información sobre cómo se usa la aplicación tanto en el servidor como en el cliente.
 
 <!--Link references-->
 
@@ -230,6 +230,6 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

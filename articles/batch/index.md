@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure Batch: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a usar Batch para ejecutar de manera eficaz aplicaciones de informática de alto rendimiento en paralelo y a gran escala. Tutoriales, referencias de API y otra documentación."
+services: batch
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: acf8bdbd4938583f8259c30cb253ee33b4c971ad
+ms.sourcegitcommit: a180f89814c3186e98018eee4d97a6b6904742cf
+ms.openlocfilehash: 11ec370ee2736d66d19a33eab938fe9639cafed7
 
 ---
 #<a name="batch-documentation"></a>Documentación de Batch
 
-Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de informática de alto rendimiento (HPC) de manera eficaz en la nube. Con el servicio Batch, se definen los recursos de procesos de Azure para ejecutar las aplicaciones en paralelo y a escala. Puede ejecutar trabajos a petición o programados sin preocuparse de la creación o administración manual de la infraestructura.
+Aprenda a usar Batch para ejecutar aplicaciones de informática de alto rendimiento en paralelo y a gran escala, de manera eficaz en la nube. Los tutoriales, las referencias de API y otra documentación muestran cómo definir los recursos de proceso de Azure para ejecutar las aplicaciones en paralelo o a escala sin tener que configurar o administrar la infraestructura de forma manual.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,7 +139,7 @@ Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de inform�
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -147,16 +159,10 @@ Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de inform�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Azure Batch </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

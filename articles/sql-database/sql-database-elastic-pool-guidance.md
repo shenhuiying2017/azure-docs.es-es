@@ -3,7 +3,7 @@ title: "¿Cuándo se debe utilizar un grupo elástico?"
 description: "Un grupo elástico es una colección de recursos disponibles que comparte un grupo de bases de datos elásticas. Este documento ofrece orientación para ayudarle a evaluar la idoneidad de usar un grupo elástico para un grupo de base de datos."
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: 
 ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
@@ -11,13 +11,13 @@ ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 12/19/2016
-ms.author: sstein;carlrab
+ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
-ms.openlocfilehash: a79b78a4e8e683afe5b41a41911e7d5f020eff88
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 9fa8c7d06675c3a7481e64c8f5390f1b5470a280
 
 
 ---
@@ -100,17 +100,6 @@ Para tamaños disponibles, consulte [Límites de almacenamiento y de eDTU para g
 
 Base de datos SQL evalúa automáticamente el historial de uso de recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda la configuración de grupo apropiada en el Portal de Azure. Además de las recomendaciones, una experiencia integrada calcula el uso de eDTU para un grupo personalizado de bases de datos en el servidor. Esto le permite realizar un análisis de hipótesis agregando bases de datos interactivamente al grupo y quitándolas para obtener análisis de uso de recursos y consejos de cambio de tamaño antes de confirmar los cambios. Para ver un procedimiento, consulte [Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md).
 
-Si desea realizar evaluaciones más flexibles sobre el uso de recursos que permitan estimaciones de cambio de tamaño ad hoc en servidores anteriores a la versión V12, así como estimaciones sobre el cambio de tamaño en bases de datos de diferentes servidores, consulte [Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas](sql-database-elastic-pool-database-assessment-powershell.md).
-
-| Capacidad | Experiencia del portal | Script de PowerShell |
-|:--- |:--- |:--- |
-| Granularidad |15 segundos |15 segundos |
-| Tiene en cuenta las diferencias de precio entre un grupo y los niveles de rendimiento de bases de datos únicas |Sí |No |
-| Permite personalizar la lista de las bases de datos analizadas |Sí |Sí |
-| Permite personalizar el período de tiempo que se utiliza en el análisis |No |Sí |
-| Permite personalizar la lista de bases de datos analizadas entre diferentes servidores |No |Sí |
-| Permite personalizar la lista de bases de datos analizadas en servidores de la versión v11 |No |Sí |
-
 En casos donde no se pueden usar herramientas, las siguientes instrucciones paso a paso pueden ayudarle a estimar si un grupo es más rentable que las bases de datos únicas:
 
 1. Calcule las eDTU necesarias para el grupo de la siguiente forma:
@@ -126,13 +115,12 @@ En casos donde no se pueden usar herramientas, las siguientes instrucciones paso
 No todas las bases de datos únicas son candidatas óptimas para los grupos. Las bases de datos con patrones de uso que se caractericen por una utilización media baja y picos de utilización relativamente poco frecuentes son candidatas excelentes. Los patrones de uso de las aplicaciones son dinámicos. Por tanto, puede usar la información y las herramientas que se describen en este artículo para realizar una evaluación inicial y ver si un grupo es una buena opción para algunas de las bases de datos o para todas. Este artículo es tan solo el punto de partida para ayudarle a decidir si el grupo elástico es apropiado para usted. Recuerde que debe supervisar constantemente el historial de uso de recursos y volver a evaluar los niveles de rendimiento de todas las bases de datos. Tenga en cuenta que puede trasladar fácilmente bases de datos dentro y fuera de grupos elásticos y, si dispone de un gran número de bases de datos, puede contar con varios grupos de distintos tamaños en los que puede dividir las bases de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de un grupo elástico](sql-database-elastic-pool-create-portal.md)
+* [Creación de un grupo elástico](sql-database-elastic-pool-manage-portal.md)
 * [Supervisión y administración de un grupo de bases de datos elásticas con Azure Portal](sql-database-elastic-pool-manage-portal.md)
 * [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md)
-* [Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas](sql-database-elastic-pool-database-assessment-powershell.md)
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

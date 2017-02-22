@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 06/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 1480c67792dc0ef6d2742b5b7f1c13e81cefbc1c
+ms.sourcegitcommit: f86986fea6fc48a4a6ed09022e8026e0645dfc56
+ms.openlocfilehash: 971558d287191c6b7b5ea9d135e6fe37c904aa76
 
 
 ---
@@ -33,7 +33,7 @@ Abra un recurso de Application Insights en el [Portal de Azure](https://portal.a
 [Más información](app-insights-javascript.md) 
 
 ## <a name="how-popular-is-my-web-application"></a>Popularidad de mi aplicación web
-Inicie sesión en el [portal de Azure][portal], diríjase al recurso de la aplicación y haga clic en Uso:
+Inicie sesión en [Azure Portal][portal], diríjase al recurso de la aplicación y haga clic en Uso:
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
@@ -58,7 +58,7 @@ El concepto de "sesión" es fundamental en Application Insights, ya que intenta 
 
 Se recopila información de contexto enriquecido sobre cada sesión, por ejemplo, las características del dispositivo, la ubicación geográfica, el sistema operativo, etc.
 
-Si instrumenta el cliente y el servidor ([ASP.NET][greenbrown] o [J2EE][java]), los SDK propagarán el identificador de sesión entre el cliente y el servidor, por lo que se pueden correlacionar eventos en ambos lados.
+Si instrumenta el cliente y el servidor ([ASP.NET][greenbrown] o [J2EE][java]), los SDK propagará el identificador de sesión entre el cliente y el servidor, por lo que se pueden correlacionar eventos en ambos lados.
 
 Al [diagnosticar problemas][diagnostic], puede encontrar toda la telemetría relacionada con la sesión en la que se produjo un problema, incluidas todas las solicitudes, así como cualquier evento, excepción o seguimiento que se hayan registrado.
 
@@ -75,11 +75,12 @@ Puede cambiar estos valores predeterminados modificando el fragmento de código:
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : el tiempo, en milisegundos, para que caduque la sesión debido a la inactividad del usuario. Valor predeterminado: 30 minutos.
 * `sessionExpirationMs` : la duración máxima de la sesión, en milisegundos. Si el usuario permanece activo después de este tiempo, se considera que es otra sesión. Valor predeterminado: 24 horas.
 
-**Duración de la sesión** es una [metrics][metrics] que registra el intervalo de tiempo entre el primer elemento de telemetría y el último de la sesión. (No incluye el tiempo de espera).
+**Duración de la sesión** es una [métrica][metrics] que registra el intervalo de tiempo entre el primer y último elemento de telemetría de la sesión. (No incluye el tiempo de espera).
 
 **Recuento de sesiones** en un intervalo determinado se define como el número de sesiones únicas con alguna actividad durante este intervalo. Cuando busque en un intervalo de tiempo grande (por ejemplo, la cantidad de sesiones diarias de la semana pasada), este valor suele equivaler al número total de sesiones. 
 
@@ -115,7 +116,7 @@ El tráfico sintético incluye las solicitudes de las pruebas de carga y disponi
 
 Application Insights intenta determinar automáticamente el tráfico sintético para clasificarlo y marcarlo correctamente. En la mayoría de los casos, el tráfico sintético no invoca el SDK de JavaScript, por lo que esta actividad se excluye del recuento de usuarios y sesiones. 
 
-Sin embargo, para las [pruebas web] de Application Insights [disponibilidad], el identificador de usuario se establece automáticamente según la ubicación POP. El identificador de sesión se establece basándose en el identificador de ejecución de pruebas. En los informes predeterminados, el tráfico sintético se filtra de manera predeterminada, por lo que se excluyen estos usuarios y estas sesiones. Sin embargo, cuando se incluye el tráfico sintético, se puede producir un pequeño incremento en el recuento global de usuarios y sesiones.
+Sin embargo, para las [pruebas web][availability] de Application Insights, el identificador de usuario se establece automáticamente según la ubicación POP. El identificador de sesión se establece basándose en el identificador de ejecución de pruebas. En los informes predeterminados, el tráfico sintético se filtra de manera predeterminada, por lo que se excluyen estos usuarios y estas sesiones. Sin embargo, cuando se incluye el tráfico sintético, se puede producir un pequeño incremento en el recuento global de usuarios y sesiones.
 
 ## <a name="page-usage"></a>Uso de las páginas
 Haga clic en el gráfico de las vistas de páginas para obtener una versión más ampliada junto con un desglose de las páginas más populares:
@@ -313,7 +314,7 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 * Hable con los usuarios. El análisis no es suficiente por sí solo, pero es una herramienta complementaria para mantener una excelente relación con el cliente.
 
 ## <a name="references"></a>Referencias
-* [Introducción al uso de la API][api]
+* [Uso de la API (información general)][api]
 * [Referencia de API de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="video"></a>Vídeo
@@ -337,6 +338,6 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

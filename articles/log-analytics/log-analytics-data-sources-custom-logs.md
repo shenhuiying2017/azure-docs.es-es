@@ -1,5 +1,5 @@
 ---
-title: Registros personalizados en Log Analytics | Microsoft Docs
+title: "Recopilación de registros personalizados en Log Analytics (OMS) | Microsoft Docs"
 description: "Log Analytics puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y detalles de los registros que crean en el repositorio de OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
 
 
 ---
@@ -122,7 +122,7 @@ Las entradas del registro personalizado tienen un tipo con el nombre del registr
 | Propiedad | Descripción |
 |:--- |:--- |
 | TimeGenerated |Fecha y hora en las que Log Analytics recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
-| SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br>  Linux: todos los agentes de Linux. |
+| SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br> Linux: todos los agentes de Linux. |
 | RawData |Texto completo de la entrada recopilada. |
 | ManagementGroupName |El nombre del grupo de administración para los agentes de SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
 
@@ -177,6 +177,6 @@ Los campos personalizados se usan para definir los campos *EventTime* (Hora del 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

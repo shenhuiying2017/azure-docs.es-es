@@ -4,7 +4,7 @@ description: "Monitor de rendimiento de red lo ayuda a supervisar el rendimiento
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/31/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 2334540ec0eeec32d0c4b3a6d9597a290bad6ec0
+ms.sourcegitcommit: d1cae87bb312ef903d099b8be59ad39a5b83d468
+ms.openlocfilehash: 4b683ef50ca1046686213b55c32e07b5fb8cca68
 
 
 ---
@@ -149,6 +149,51 @@ El sistema crea la *regla predeterminada*, así como un evento de estado siempre
 6. Para guardar la configuración, haga clic en **Guardar**.  
    ![Crear una regla de supervisión personalizada](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
+### <a name="choose-the-right-protocol-icmp-or-tcp"></a>Selección del protocolo adecuado: ICMP o TCP
+
+Monitor de rendimiento de red (NPM) utiliza transacciones sintéticas para calcular métricas de rendimiento de red, como la latencia de vínculo y la pérdida de paquetes. Para comprender esto mejor, piense en un agente de NPM conectado a un extremo de un vínculo de red. Este agente de NPM envía paquetes de sondeo a un segundo agente de NPM conectado a otro extremo de la red. El segundo agente responde con paquetes de respuesta. Este proceso se repite varias veces. Al medir el número de respuestas y el tiempo necesario para recibir cada respuesta, el primer agente de NPM evalúa la latencia del vínculo y la pérdida de paquetes.
+
+El formato, el tamaño y la secuencia de estos paquetes se determinan mediante el protocolo que elige al crear reglas de supervisión. En función del protocolo de los paquetes, los dispositivos de red intermedios (enrutadores, conmutadores, etc.) pueden procesar estos paquetes de forma diferente. Por consiguiente, la elección del protocolo afecta a la precisión de los resultados. Asimismo, el protocolo que escoja también determinará si es necesario completar algunos pasos manuales más tras implementar la solución NPM.
+
+NPM le permite elegir entre los protocolos ICMP y TCP para ejecutar transacciones sintéticas.
+Si elige ICMP al crear una regla de transacciones sintéticas, los agentes de NPM utilizan mensajes de eco ICMP para calcular la latencia de red y la pérdida de paquetes. El eco ICMP usa el mismo mensaje que se envía mediante la utilidad de ping convencional. Cuando se usa TCP como protocolo, los agentes de NPM envían un paquete TCP SYN a través de la red. A continuación, se completa un protocolo de enlace TCP y, posteriormente, se elimina la conexión con paquetes RST.
+
+#### <a name="points-to-consider-before-choosing-the-protocol"></a>Puntos que se deben tener en cuenta antes de seleccionar el protocolo
+Antes de elegir un protocolo, tenga en cuenta la siguiente información:
+
+##### <a name="discovering-multiple-network-routes"></a>Detección de varias rutas de red
+TCP ofrece más precisión al detectar varias rutas y necesita menos agentes en cada subred. Por ejemplo, uno o dos agentes que utilicen TCP pueden detectar todas las rutas redundantes entre subredes. Sin embargo, se necesitarán varios agentes que utilicen ICMP para lograr resultados similares. Con ICMP, si tiene una cantidad *N* de rutas entre dos subredes, necesitará más de 5 veces *N* agentes en una subred de origen o de destino.
+
+##### <a name="accuracy-of-results"></a>Precisión de los resultados
+Los enrutadores y conmutadores tienden a asignar una prioridad menor a paquetes de eco ICMP en comparación con los paquetes TCP. En determinadas situaciones, cuando los dispositivos de red están muy cargados, los datos obtenidos mediante TCP reflejan más fielmente la pérdida y la latencia que experimentan las aplicaciones. Esto ocurre porque la mayoría del tráfico de las aplicaciones fluye a través de TCP. En tales casos, ICMP proporciona resultados menos precisos en comparación con TCP.
+
+##### <a name="firewall-configuration"></a>Configuración del firewall
+El protocolo TCP requiere que los paquetes TCP se envíen a un puerto de destino. El puerto predeterminado que usan los agentes de NPM es el 8084, si bien puede cambiarse al configurar los agentes. Por lo tanto, debe asegurarse de que los firewalls de red o las reglas de grupo de seguridad de red (en Azure) permitan el tráfico en el puerto. También debe asegurarse de que el firewall local en los equipos en los que están instalados los agentes esté configurado para permitir el tráfico en este puerto.
+
+Puede utilizar scripts de PowerShell para configurar reglas de firewall en los equipos que ejecutan Windows, sin bien debe configurar manualmente el firewall de red.
+
+En cambio, ICMP no utiliza ningún puerto. En la mayoría de los escenarios empresariales, se permite el tráfico ICMP a través de los firewalls para posibilitar el uso de herramientas de diagnóstico de red, como la utilidad de ping. Por lo tanto, si puede hacer ping a un equipo desde otro, podrá usar el protocolo ICMP sin necesidad de configurar manualmente los firewalls.
+
+> [!NOTE]
+> En caso de duda sobre qué protocolo utilizar, elija ICMP para empezar. Si no está satisfecho con los resultados, siempre podrá cambiar a TCP más adelante.
+
+
+#### <a name="how-to-switch-the-protocol"></a>Cambio de protocolo
+
+Si decide utilizar ICMP durante la implementación, puede cambiar a TCP en cualquier momento editando la regla de supervisión predeterminada.
+
+##### <a name="to-edit-the-default-monitoring-rule"></a>Edición de la regla de supervisión predeterminada
+1.  Vaya a **Network Performance** (Rendimiento de red)  > **Monitor** > **Configurar** > **Monitor** y, a continuación, haga clic en **Regla predeterminada**.
+2.  Desplácese hasta la sección **Protocolo** y seleccione el protocolo que desee utilizar.
+3.  Haga clic en **Guardar** para aplicar el cambio.
+
+Aunque la regla predeterminada use un protocolo específico, puede crear nuevas reglas con un protocolo diferente. Incluso puede crear una combinación de reglas en la que algunas usen ICMP y otras utilicen TCP.
+
+
+
+
+
+
 ## <a name="data-collection-details"></a>Detalles de la recopilación de datos
 Monitor de rendimiento de red utiliza paquetes de protocolo de enlace SYNACK-TCP SYN-ACK para recopilar la información de pérdida y latencia. Además, se utiliza el comando Traceroute para obtener los detalles de la topología.
 
@@ -246,6 +291,6 @@ Ahora que se ha familiarizado con Monitor de rendimiento de red, veamos una inve
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

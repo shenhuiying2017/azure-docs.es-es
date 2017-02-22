@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f57bdd0c1d8efc37b90430f829184eb3c44aede5
-ms.openlocfilehash: ea31150ef186c9bcd8c943e39a7cb51559e94bd2
+ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
+ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
 
 
 ---
@@ -40,11 +40,11 @@ En este artículo se explica cómo usar el método Creación rápida para crear 
 Necesita tres componentes para implementar una aplicación como servicio en la nube en Azure:
 
 * **Definición de servicio**  
-   El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
+  El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
 * **Configuración de servicio**  
-   El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
+  El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
 * **Paquete de servicio**  
-   El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
+  El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
 
 Puede obtener más información acerca de estas y cómo crear un paquete [aquí](cloud-services-model-and-package.md).
 
@@ -66,7 +66,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 
 ## <a name="create-and-deploy"></a>Creación e implementación
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **Nuevo > Máquinas virtuales**, desplácese hacia abajo y haga clic en **Servicio en la nube**.
+2. Haga clic en **Nuevo > Compute**, luego desplácese hacia abajo y haga clic en **Servicio en la nube**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. En la parte inferior de la página de información que se muestra, haga clic en **Crear**.
@@ -76,7 +76,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 7. Haga clic en **Paquete**. Se abrirá la hoja **Upload a package** (Cargar un paquete). Rellene todos los campos obligatorios. Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
 
     > [!IMPORTANT]
-    > Cloud Services solo puede estar asociado con [cuentas de almacenamiento clásicas](../resource-manager-deployment-model.md). Si ve un mensaje que le indica que no se encontraron cuentas de almacenamiento para su suscripción y ubicación, asegúrese de que ha creado una cuenta de almacenamiento clásica para el servicio en la nube de esa ubicación.
+    > Cloud Services solo puede estar asociado con [cuentas de almacenamiento clásicas](../azure-resource-manager/resource-manager-deployment-model.md). Si ve un mensaje que le indica que no se encontraron cuentas de almacenamiento para su suscripción y ubicación, asegúrese de que ha creado una cuenta de almacenamiento clásica para el servicio en la nube de esa ubicación.
 
 8. Asegúrese de que la opción **Iniciar implementación** esté seleccionada.
 9. Haga clic en **Aceptar** para cerrar la hoja **Cargar un paquete**.
@@ -111,6 +111,6 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

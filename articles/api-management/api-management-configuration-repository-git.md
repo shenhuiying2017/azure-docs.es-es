@@ -1,28 +1,25 @@
 ---
-title: "Guardado y configuración del servicio Administración de API mediante Git"
+title: "Configuración del servicio API Management con Git - Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo guardar y configurar la configuración del servicio de administración de API mediante Git."
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
-> [!IMPORTANT]
-> La configuración Git de Administración de API está actualmente en versión preliminar. Aunque es completa funcionalmente, es una versión preliminar porque buscamos activamente comentarios acerca de esta característica. Es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes, por lo que recomendamos no depender de la característica en entornos de producción. Si tiene comentarios o preguntas, háganoslo saber en `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -40,7 +37,7 @@ Cuando hace cambios en el servicio mediante el portal para editores, los cmdlets
 
 Los pasos siguientes proporcionan una visión general sobre el proceso de administración de la instancia del servicio de Administración de API mediante Git.
 
-1. Habilitar el acceso de Git en el servicio
+1. Acceso a la configuración de Git en el servicio
 2. Guardar la base de datos de configuración del servicio en el repositorio de Git
 3. Clonar el repositorio de Git en el equipo local
 4. Desplegar el repositorio más reciente en el equipo local, y confirmar e insertar los cambios de nuevo en el repositorio
@@ -48,20 +45,14 @@ Los pasos siguientes proporcionan una visión general sobre el proceso de admini
 
 Este artículo describe cómo habilitar y usar Git para administrar la configuración del servicio y sirve como referencia para los archivos y las carpetas del repositorio Git.
 
-## <a name="to-enable-git-access"></a>Para habilitar el acceso de Git
-Puede ver rápidamente el estado de la configuración Git en el icono de Git, en la esquina superior derecha del portal del editor. En este ejemplo, el acceso de Git no todavía se ha habilitado.
+## <a name="access-git-configuration-in-your-service"></a>Acceso a la configuración de Git en el servicio
+Puede ver rápidamente el estado de la configuración Git en el icono de Git, en la esquina superior derecha del portal del editor. En este ejemplo, el mensaje de estado indica que hay cambios no guardados en el repositorio. Esto es porque la base de datos de configuración del servicio de Administración de API aún no se ha guardado en el repositorio.
 
 ![Estado de Git][api-management-git-icon-enable]
 
 Para ver y configurar las opciones de configuración Git, puede hacer clic en el icono de Git o en el menú **Seguridad** e ir a la pestaña **Repositorio de configuraciones**.
 
 ![Habilitar GIT][api-management-enable-git]
-
-Para habilitar el acceso de Git, active la casilla **Habilitar acceso de Git** .
-
-Tras unos instantes, el cambio se guarda y se muestra un mensaje de confirmación. Tenga en cuenta que el icono de Git cambia de color para indicar que el acceso de Git está habilitado, y ahora el mensaje de estado indica que hay cambios sin guardar en el repositorio. Esto es porque la base de datos de configuración del servicio de Administración de API aún no se ha guardado en el repositorio.
-
-![GIT habilitado][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Los secretos que no se definan como propiedades se almacenarán en el repositorio y permanecerán en su historial hasta que deshabilite y vuelva a habilitar el acceso de Git. Las propiedades proporcionan un lugar seguro para administrar los valores de cadena constante, como los secretos, a través de toda la configuración y las directivas de API, por lo que no tiene que almacenarlos directamente en las instrucciones de directiva. Para obtener más información, consulte [How to use properties in Azure API Management policies](api-management-howto-properties.md)(Uso de propiedades en directivas de Administración de API de Azure).
@@ -109,42 +100,58 @@ En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Window
 
 Abra su herramienta Git en la carpeta deseada y ejecute el siguiente comando para clonar el repositorio de git en el equipo local, usando para ello el comando incluido en el portal para editores.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 Proporcione el nombre de usuario y la contraseña cuando se le solicite.
 
 Si recibe algún error, pruebe a modificar su comando `git clone` para incluir el nombre de usuario y la contraseña, como se muestra en el ejemplo siguiente.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 Si de este modo aparece un error, pruebe a codificar como dirección URL la parte de la contraseña del comando. Una manera rápida de hacer esto es abrir Visual Studio y emitir el siguiente comando en la **Ventana Inmediato**. Para abrir la **Ventana Inmediato**, abra cualquier solución o proyecto en Visual Studio (o cree una aplicación de consola vacía) y elija **Ventanas**, **Inmediato** en el menú **Depurar**.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 Utilice la contraseña codificada junto con su nombre de usuario y ubicación de repositorio para construir el comando git.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para más información, consulte [Referencia de estructura de archivo y carpeta del repositorio local de Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para actualizar su repositorio local con la configuración de instancia de servicio más reciente
 Si realiza cambios en la instancia del servicio de Administración de API en el portal para editores o mediante la API de REST, debe guardar estos cambios en el repositorio para poder actualizar el repositorio local con los cambios más recientes. Para ello, haga clic en **Guardar configuración en repositorio** en la pestaña **Repositorio de configuración** del portal para editores y emita el siguiente comando en el repositorio local.
 
-    git pull
+```
+git pull
+```
 
 Antes de ejecutar `git pull` , asegúrese de que se encuentra en la carpeta del repositorio local. Si acaba de completar el comando `git clone` , debe cambiar el directorio a su repositorio ejecutando un comando similar al siguiente.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Para insertar los cambios desde su repositorio local al repositorio del servidor
 Para insertar los cambios desde el repositorio local al repositorio del servidor, debe confirmar los cambios y, a continuación, insertarlos en el repositorio del servidor. Para confirmar los cambios, abra la herramienta de comandos de Git, cambie al directorio del repositorio local y emita los siguientes comandos.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 Para insertar todas las confirmaciones en el servidor, ejecute el siguiente comando.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implementar los cambios de la configuración del servicio en la instancia del servicio de Administración de API
 Una vez confirmados los cambios locales e insertados en el repositorio del servidor, puede implementarlos en la instancia del servicio Administración de API.
@@ -190,19 +197,21 @@ Estos archivos pueden crear, eliminar, editar y administrar en el sistema de arc
 ### <a name="root-api-management-folder"></a>Carpeta raíz de la administración de API
 La carpeta raíz `api-management` contiene un archivo `configuration.json` con información de nivel superior sobre la instancia de servicio en el formato siguiente.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 Los primeros cuatro valores (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` y `UserRegistrationTermsConsentRequired`) se asignan a la siguiente configuración en la pestaña **Identidades** de la sección **Seguridad**.
 
@@ -303,6 +312,6 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Aprendizaje del flujo de trabajo de PowerShell
-description: "Este artículo está destinado como una lección rápida para que los autores familiarizados con PowerShell comprendan las diferencias específicas entre Powershell y el flujo de trabajo de PowerShell."
+title: Aprendizaje del flujo de trabajo de Windows PowerShell | Microsoft Docs
+description: "Este artículo está destinado como una lección rápida para que los autores familiarizados con PowerShell comprendan las diferencias específicas entre Powershell y el flujo de trabajo de PowerShell y los conceptos aplicables a los runbooks de Automation."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -12,27 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: bwren
+ms.date: 01/23/2017
+ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
-ms.openlocfilehash: 3893d8508535ee605c3555d2ddf40d6f286d85fa
+ms.sourcegitcommit: 480a40bd5ecd58f11b10c27e7e0d2828bcae1f17
+ms.openlocfilehash: 50966ed518b79f2033680790432e29b0c9e7b289
 
 
 ---
-# <a name="learning-windows-powershell-workflow"></a>Aprendizaje del flujo de trabajo de Windows PowerShell
-Los runbooks de Automatización de Azure se implementan como flujos de trabajo de Windows PowerShell.  Un flujo de trabajo de Windows PowerShell es similar a un script de Windows PowerShell, pero presenta algunas diferencias importantes que pueden resultar confusas para un usuario nuevo.  Este artículo está destinado a usuarios que ya están familiarizados con PowerShell y en él se explican brevemente los conceptos que son necesarios si va a convertir un script de PowerShell a un flujo de trabajo de PowerShell para su uso en un runbook.  
+# <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation 
+Los runbooks de Automatización de Azure se implementan como flujos de trabajo de Windows PowerShell.  Un flujo de trabajo de Windows PowerShell es similar a un script de Windows PowerShell, pero presenta algunas diferencias importantes que pueden resultar confusas para un usuario nuevo.  Aunque este artículo está pensado para ayudarle a escribir runbooks con el flujo de trabajo de PowerShell, se recomienda que escribir runbooks con PowerShell, a menos que necesite puntos de control.  Hay una serie de diferencias de sintaxis al crear runbooks de flujo de trabajo de PowerShell y estas diferencias requieren algo más de trabajo para escribir flujos de trabajo eficaces.  
 
 Un flujo de trabajo es una secuencia de pasos programados y conectados que realizan tareas de larga duración o requieren la coordinación de varios pasos en varios dispositivos o nodos administrados. Las ventajas de un flujo de trabajo en un script normal incluyen la capacidad de realizar una acción en varios dispositivos simultáneamente y la capacidad de recuperarse automáticamente de los errores. Un flujo de trabajo de Windows PowerShell es un script de Windows PowerShell que se aprovecha de Windows Workflow Foundation. Aunque el flujo de trabajo está escrito con sintaxis de Windows PowerShell y se inicia mediante Windows PowerShell, se procesa mediante Windows Workflow Foundation.
 
 Para obtener información detallada sobre los temas de este artículo, vea [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
-
-## <a name="types-of-runbook"></a>Tipos de runbook
-Hay tres tipos de runbook en Azure Automation: *flujo de trabajo de PowerShell*, *PowerShell* y *gráfico*.  El tipo de runbook se define cuando se crea el runbook, y no puede convertir un runbook en el otro tipo una vez creado.
-
-Los runbooks de flujo de trabajo de PowerShell y de PowerShell están destinados a los usuarios que prefieren trabajar directamente con el código de PowerShell mediante el editor de texto de Automatización de Azure o un editor sin conexión como PowerShell ISE. Debe comprender la información de este artículo si va a crear un runbook de flujo de trabajo de PowerShell.
-
-Los runbooks gráficos permiten crear un runbook con las mismas actividades y cmdlets pero mediante una interfaz gráfica que oculta la complejidad del flujo de trabajo subyacente de PowerShell.  Los conceptos de este artículo, como los puntos de comprobación y la ejecución en paralelo se siguen aplican a los runbooks gráficos, pero no tendrá que preocuparse por la sintaxis detallada.
 
 ## <a name="basic-structure-of-a-workflow"></a>Estructura básica de un flujo de trabajo
 El primer paso para convertir un script de PowerShell en un flujo de trabajo de PowerShell es delimitarlo con la palabra clave **Workflow** .  Un flujo de trabajo comienza con la palabra clave **Workflow** , seguida del cuerpo del script entre llaves. El nombre del flujo de trabajo sigue a la palabra clave **Workflow** , tal como se muestra en la sintaxis siguiente.
@@ -204,7 +197,6 @@ El ejemplo siguiente es similar al ejemplo anterior, en el que se copian archivo
 > [!NOTE]
 > No se recomienda ejecutar runbooks secundarios en paralelo, ya que se ha demostrado que no tiene unos resultados confiables.  A veces el resultado del runbook secundario no se mostrará, y la configuración de un runbook secundario puede afectar al resto de runbooks secundarios en paralelo.
 >
->
 
 ## <a name="checkpoints"></a>puntos de comprobación
 Un *punto de control* es una instantánea del estado actual del flujo de trabajo que incluye el valor actual de las variables y cualquier salida generada en ese punto. Si un flujo de trabajo termina en error o se suspende, la próxima vez que se ejecute comenzará desde su último punto de comprobación, en lugar de desde el inicio del flujo de trabajo.  Puede establecer un punto de control en un flujo de trabajo con la actividad **Checkpoint-Workflow** .
@@ -267,10 +259,10 @@ Este paso no es necesario si se autentica utilizando una cuenta de ejecución co
 Para obtener más información acerca de los puntos de control, consulte [Adición de puntos de control a un flujo de trabajo de scripts](http://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para empezar a trabajar con los runbooks del flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
+* Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

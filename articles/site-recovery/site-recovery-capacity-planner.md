@@ -1,6 +1,6 @@
 ---
-title: "Planeación de la capacidad para la protección de máquinas virtuales y de los servidores físicos en Azure Site Recovery | Microsoft Docs"
-description: "Planeación de la capacidad de replicación para Azure Site Recovery"
+title: "Estimación de la capacidad de replicación en Azure | Microsoft Docs"
+description: "Use este artículo para hacer estimaciones cuando se realizan replicaciones con Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 8fca992488746bc50a7342644de62b862a9aaea7
-ms.openlocfilehash: a427969378d2454246217d48bafe6f360e93df0f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
 
 
 ---
@@ -65,7 +65,7 @@ Puede ejecutar la herramienta de dos modos distintos:
    * **Número de discos blob necesarios** proporciona el número de discos que se crearán en el almacenamiento de Azure.
    * **Número de cuentas de almacenamiento premium necesarias** proporciona el número total de cuentas de almacenamiento premium necesarias para proteger las máquinas virtuales. Una máquina virtual de origen con una IOPS elevada (más de 20000) necesita una cuenta de Premium Storage. Una cuenta de almacenamiento premium puede contener hasta 80 000 IOPS.
    * **IOPS totales en cuentas de almacenamiento premium** se calcula en función de un tamaño de unidad IOPS de 256 K en las cuentas de almacenamiento premium totales.  Para Quick Planner, el número se calcula en función de todos los discos de máquinas virtuales de origen y la tasa de cambio de los datos diarios. Para Detailed Planner el número se calcula en función del número total de máquinas virtuales que se asignan a las máquinas virtuales premium de Azure (serie DS y GS) y a la tasa de cambio de los datos en dichas máquinas virtuales.
-   * **Número de servidores de configuración necesarios** muestra cuántos servidores de configuración son necesarios para la implementación. 
+   * **Número de servidores de configuración necesarios** muestra cuántos servidores de configuración son necesarios para la implementación.
    * **Número de servidores de procesos adicionales necesarios** muestra si se requieren servidores de procesos adicionales, además del servidor de proceso configurado en el servidor de configuración de forma predeterminada.
    * **100 % de almacenamiento adicional en origen** muestra si se necesita almacenamiento adicional en la ubicación de origen.
 
@@ -117,7 +117,7 @@ Como ejemplo, para seis máquinas virtuales con los valores que se muestran en l
 
     > [!NOTE]
     > Las IOPS de almacenamiento estándar y premium se calculan en el nivel de máquina virtual y no en el nivel de disco. Una máquina virtual estándar puede controlar hasta 500 IOPS por disco. Si las IOPS de un disco son más de 500, necesitará Premium Storage. Sin embargo, si las IOPS de un disco son más de 500, pero las IOPS de todos los discos de máquina virtual están dentro de los límites admitidos para máquinas virtuales de Azure estándar (tamaño de máquina virtual, número de discos, número de adaptadores, CPU, memoria), el planificador elige una máquina virtual estándar en lugar de la serie DS o GS. El usuario debe actualizar manualmente la asignación de la celda de tamaño de Azure con la máquina virtual de serie DS o GS correspondiente.
-   
+
 
 1. Cuando toda la información esté definida, haga clic en **Enviar datos a la herramienta del planificador** para abrir la herramienta**Capacity Planner**. Las cargas de trabajo se resaltan para mostrar si cumplen los requisitos para la protección.
 
@@ -129,6 +129,6 @@ Como ejemplo, para seis máquinas virtuales con los valores que se muestran en l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

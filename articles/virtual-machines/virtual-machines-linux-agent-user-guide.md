@@ -1,5 +1,5 @@
 ---
-title: "Guía de usuario del Agente de Linux | Microsoft Docs"
+title: "Introducción al agente de máquina virtual Linux de Azure | Microsoft Docs"
 description: "Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+ms.sourcegitcommit: 02579f138f957e5d245290e2cb8fc448120a4701
+ms.openlocfilehash: e77fee96710e99dab664f61d4c64aea0b12944ad
 
 
 ---
@@ -49,7 +49,7 @@ El agente Linux de Microsoft Azure (waagent) administra el aprovisionamiento de 
   * Asegura la estabilidad del nombre de interfaz de red
 * **Kernel**
   
-  * Configura NUMA virtual (deshabilitar para el kernel cuya versión es inferior a la versión 2.6.37)
+  * Configura NUMA virtual (deshabilitar para el kernel cuya versión es inferior a la versión&2;.6.37)
   * Consume entropía de Hyper-V para /dev/random
   * Configura tiempos de espera SCSI para el dispositivo raíz (que podría ser remoto)
 * **Diagnóstico**
@@ -210,7 +210,7 @@ Si se establece, waagent ejecutará CustomData después del aprovisionamiento.
 
 **Provisioning.PasswordCryptId**  
 Tipo: String  
-Valor predeterminado: 6
+Valor predeterminado:&6;
 
 Algoritmo usado por el cifrado al generar el hash de contraseña.   
  1 - MD5  
@@ -220,7 +220,7 @@ Algoritmo usado por el cifrado al generar el hash de contraseña.
 
 **Provisioning.PasswordCryptSaltLength**  
 Tipo: String  
-Valor predeterminado: 10
+Valor predeterminado:&10;
 
 Longitud del valor salt aleatorio usado al generar el hash de contraseña.
 
@@ -309,6 +309,6 @@ Tenga en cuenta que Ubuntu Cloud Images usan [cloud-init](https://launchpad.net/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

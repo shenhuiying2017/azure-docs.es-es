@@ -1,5 +1,5 @@
 # Información general
-## [¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
+## [¿Qué es Traffic Manager?](traffic-manager-overview.md)
 ## [Cómo funciona Traffic Manager](traffic-manager-how-traffic-manager-works.md)
 ## [Puntos de conexión de Traffic Manager](traffic-manager-endpoint-types.md)
 ## [Supervisión de puntos de conexión de Traffic Manager y conmutación por error](traffic-manager-monitoring.md)
@@ -16,21 +16,27 @@
 # Procedimientos
 ## [Configuración de un método de enrutamiento](traffic-manager-configure-routing-method.md)
 ## [Prueba de la configuración](traffic-manager-testing-settings.md)
-## [Solución de problemas de un punto de conexión degradado](traffic-manager-troubleshooting-degraded.md)
 ## [Combinación de servicios de equilibrio de carga](traffic-manager-load-balancing-azure.md)
 ## [Uso de recursos de red](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Solución de problemas
+### [Solución de problemas de un punto de conexión degradado](traffic-manager-troubleshooting-degraded.md)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (clásico)](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
+## [PowerShell (clásico)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/network/traffic-manager)
+## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Temas relacionados
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
-## [Equilibrador de carga](/azure/load-balancer/)
+## [Application Gateway](/azure/application-gateway/)
+## [Load Balancer](/azure/load-balancer/)
 ## [DNS de Azure](/azure/dns/)
 
-# resources
+# Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/traffic-manager/)
 ## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Límites de servicio](../azure-subscription-service-limits.md#traffic-manager-limits)
@@ -40,6 +46,6 @@
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

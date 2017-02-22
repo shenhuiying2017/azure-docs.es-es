@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: c5e6c3a63a7dbe0a598136a32990f65f7ee077d9
+ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
+ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
 
 
 ---
@@ -327,34 +327,42 @@ Para el propio cifrado, puede generar y administrar sus propias claves de cifrad
   
   Este artículo ofrece una explicación del cifrado de cliente y proporciona ejemplos de uso de la biblioteca de cliente de almacenamiento para cifrar y descifrar los recursos de los cuatro servicios de almacenamiento. También trata el Almacén de claves de Azure.
 
-### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Uso del Cifrado de discos de Azure para cifrar discos usados por las máquinas virtuales
-El Cifrado de discos de Azure es una nueva característica que está actualmente en su versión preliminar. Esta característica le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con el Almacén de claves de Azure para permitirle controlar y administrar las claves de cifrado del disco.
+### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Uso de Azure Disk Encryption para cifrar discos usados por las máquinas virtuales
+Azure Disk Encryption es una característica nueva. Esta característica le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con el Almacén de claves de Azure para permitirle controlar y administrar las claves de cifrado del disco.
 
-La solución Cifrado de discos de Azure admite los tres siguientes escenarios de cifrado de cliente:
-
-* Habilitar el cifrado en nuevas máquinas virtuales de IaaS creadas a partir de archivos VHD cifrados por el cliente y claves de cifrado proporcionadas por el cliente, que se almacenan en el Almacén de claves de Azure.
-* Habilitar el cifrado en nuevas máquinas virtuales de IaaS creadas en Azure Marketplace.
-* Habilitar el cifrado en máquinas virtuales de IaaS existentes que ya se ejecutan en Azure.
-
-> [!NOTE]
-> Para máquinas virtuales Linux que ya se ejecuten en Azure, o nuevas máquinas virtuales Linux creadas a partir de imágenes en Azure Marketplace, actualmente no se admite el cifrado del disco del sistema operativo. El cifrado del volumen del sistema operativo en máquinas virtuales Linux solo se admite para máquinas virtuales que se cifraron localmente y se cargaron en Azure. Esta restricción se aplica solo al disco del sistema operativo; se admite el cifrado de volúmenes de datos en una máquina virtual Linux.
-> 
-> 
-
-La solución admite lo siguiente para las máquinas virtuales IaaS para la versión de la vista previa pública cuando se habilita en Microsoft Azure:
+La solución admite los siguientes escenarios para las máquinas virtuales IaaS cuando se habilitan en Microsoft Azure:
 
 * Integración con el Almacén de claves de Azure
-*  [Máquinas virtuales IaaS de las series A, D y G](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Habilitar el cifrado en máquinas virtuales de IaaS creadas con el modelo del [Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md)
-* Todas las [regiones](https://azure.microsoft.com/regions/)
+* Máquinas virtuales de nivel estándar: [máquinas virtuales IaaS de las series A, D, DS, G, GS, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Habilitación del cifrado en máquinas virtuales IaaS Linux y Windows
+* Deshabilitación del cifrado en las unidades de datos y del sistema operativo en máquinas virtuales IaaS Windows
+* Deshabilitación del cifrado en unidades de datos en máquinas virtuales IaaS Linux
+* Habilitación del cifrado en máquinas virtuales IaaS que ejecutan el sistema operativo cliente de Windows
+* Habilitación del cifrado en volúmenes con rutas de montaje
+* Habilitación del cifrado en máquinas virtuales Linux configuradas con seccionamiento de disco (RAID) mediante mdadm
+* Habilitación del cifrado en máquinas virtuales Linux mediante LVM para discos de datos
+* Habilitación del cifrado en máquinas virtuales Windows configuradas mediante espacios de almacenamiento
+* Se admiten todas las regiones públicas de Azure.
+
+La solución no admite los siguientes escenarios, características y tecnologías en la versión:
+
+* Máquinas virtuales IaaS de nivel básico
+* Deshabilitación del cifrado en una unidad del sistema operativo para máquinas virtuales IaaS Linux
+* Máquinas virtuales de IaaS creadas mediante el método clásico de creación de máquinas virtuales
+* Integración con el Servicio de administración de claves local
+* Azure Files (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales Windows configuradas con sistemas RAID basadas en software
+
+
+> [!NOTE]
+> Actualmente, el cifrado de disco del sistema operativo Linux es compatible con las siguientes distribuciones de Linux: RHEL 7.2, CentOS 7.2n y Ubuntu 16.04.
+> 
+> 
 
 Esta característica garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en el Almacenamiento de Azure.
 
 #### <a name="resources"></a>Recursos
-* [Azure Disk Encryption for Windows and Linux Azure Virtual Machines (Cifrado de discos de Azure para máquinas virtuales IaaS de Linux y Windows)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
   
-  En este artículo se describe la versión preliminar del Cifrado de discos de Azure y se proporciona un vínculo para descargar las notas del producto.
-
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparación entre Cifrado de discos de Azure, SSE y Cifrado en el cliente
 #### <a name="iaas-vms-and-their-vhd-files"></a>Máquinas virtuales de IaaS y sus archivos VHD
 Para los discos usados por las máquinas virtuales de IaaS, se recomienda utilizar Cifrado de discos de Azure. Puede activar SSE para cifrar los archivos VHD que se usan para respaldar esos discos en Almacenamiento de Azure, pero solos se cifran los datos recién escritos. Esto significa que si crea una máquina virtual y luego habilita SSE en la cuenta de almacenamiento que contiene el archivo VHD, se cifrarán solo los cambios, no el archivo VHD original.
@@ -527,6 +535,6 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
   Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

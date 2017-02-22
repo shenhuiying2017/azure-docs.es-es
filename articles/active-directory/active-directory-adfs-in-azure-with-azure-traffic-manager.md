@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager
 [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) proporciona instrucciones paso a paso sobre cómo implementar una infraestructura de AD FS sencilla para su organización en Azure. En este artículo se proporcionan los pasos para crear una implementación entre regiones geográficas de AD FS en Azure mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager ayuda a crear una infraestructura de AD FS de alta disponibilidad y rendimiento, extendida geográficamente, para su organización mediante una serie de métodos de enrutamiento disponibles que satisfacen las distintas necesidades de la infraestructura.
 
 Una infraestructura entre regiones geográficas de AD FS de alta disponibilidad permite:
@@ -76,7 +76,7 @@ Siga estos pasos para crear un perfil del administrador de tráfico. Para más i
    
    **Tipo de recurso de destino:** seleccione la dirección IP pública como valor de esta propiedad. 
    
-   **Recurso de destino:** le proporcionará una opción para elegir entre las diferentes etiquetas DNS que tiene disponibles con su suscripción. Elija la etiqueta DNS.
+   **Recurso de destino:** le proporcionará una opción para elegir entre las diferentes etiquetas DNS que tiene disponibles con su suscripción. Elija la etiqueta DNS correspondiente al punto de conexión que está configurando.
    
    Agregue un punto de conexión en cada región geográfica en la que desee que Azure Traffic Manager enrute tráfico hacia ella.
    Para más información y ver pasos detallados acerca de cómo agregar y configurar puntos de conexión en el administrador de tráfico, consulte [Adición, deshabilitación, habilitación o eliminación de puntos de conexión](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ Siga estos pasos para crear un perfil del administrador de tráfico. Para más i
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Prueba de enrutamiento y de inicio de sesión de AD FS
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Prueba de enrutamiento y de inicio de sesión de AD FS
 ### <a name="routing-test"></a>Prueba de enrutamiento
 Una prueba muy básica para el enrutamiento sería intentar hacer ping en el nombre DNS del servicio de federación desde una máquina de cada región geográfica. Según el método de enrutamiento seleccionado, el punto de conexión al que se hace ping se reflejará en realidad en la pantalla de ping. Por ejemplo, si ha seleccionado el enrutamiento de rendimiento, se alcanzará el punto de conexión más cercano a la región del cliente. A continuación se muestra la instantánea de dos pings desde dos máquinas de cliente de regiones distintas, una en la región de Asia oriental y la otra en el oeste de EE. UU. 
 
 ![Prueba de enrutamiento](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>Prueba de inicio de sesión de AD FS
+### <a name="ad-fs-sign-in-test"></a>Prueba de inicio de sesión de AD FS
 La forma más sencilla de probar AD FS es mediante la página IdpInitiatedSignon.aspx. Para poder hacerlo, es necesario habilitar IdpInitiatedSignOn en las propiedades de AD FS. Siga estos pasos para comprobar la configuración de AD FS.
 
 1. Ejecute el siguiente cmdlet en el servidor AD FS, con PowerShell, para habilitarlo. 
@@ -126,6 +126,6 @@ La forma más sencilla de probar AD FS es mediante la página IdpInitiatedSignon
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 6cc30ace0b57555ea2b5815906d3e6a4f79d8fce
-ms.openlocfilehash: 94bf7729ceb55eaed5efc0290c1a34227888211f
+ms.sourcegitcommit: 496e00c2b9a0b374450f9a6f9dff5d41c805261c
+ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
 
 
 ---
@@ -75,7 +75,7 @@ El módulo de administración se denomina Microsoft.IntelligencePacks.Applicatio
 
 
 ## <a name="configuration"></a>Configuración
-Además de equipos de Windows y Linux, tenga un agente instalado y conectado a OMS, el instalador del agente de dependencia debe descargarse de la solución de Mapa de servicio y, a continuación, instalarse como administrador o raíz en cada servidor administrado.  Una vez instalado el agente de Mapa de servicio en un servidor que informe a OMS, los mapas de dependencia de Mapa de servicio aparecerán en 10 minutos.  Si tiene algún problema, envíe un correo electrónico [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+Además de equipos de Windows y Linux, tenga un agente instalado y conectado a OMS, el instalador del agente de dependencia debe descargarse de la solución de Mapa de servicio y, a continuación, instalarse como administrador o raíz en cada servidor administrado.  Una vez instalado el agente de Mapa de servicio en un servidor que informe a OMS, los mapas de dependencia de Mapa de servicio aparecerán en 10 minutos.
 
 
 ### <a name="migrating-from-bluestripe-factfinder"></a>Migración de BlueStripe FactFinder
@@ -117,7 +117,7 @@ Utilice los pasos siguientes para instalar el agente de dependencia en cada equi
 3.  Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Linux, el directorio de registro es */var/opt/microsoft/dependency-agent/log*.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Desinstalación del agente de dependencia en Linux
-Para desinstalar completamente el agente de dependencia de Linux, debe quitar el agente y el proxy que se instala automáticamente con el agente.  Puede desinstalar ambos con el siguiente comando único:
+Para desinstalar completamente el agente de dependencia de Linux, debe quitar el agente y el conector que se instala automáticamente con el agente.  Puede desinstalar ambos con el siguiente comando único:
 
     rpm -e dependency-agent dependency-agent-connector
 
@@ -227,7 +227,7 @@ Normalmente, el agente de Mapa de servicio utiliza un 0,1 % de memoria del siste
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
-Las secciones siguientes enumeran los sistemas operativos compatibles para el agente de dependencia.   No se admiten las arquitecturas de 32 bits para cualquier sistema operativo.
+Las secciones siguientes enumeran los sistemas operativos compatibles para el agente de dependencia.   No se admiten las arquitecturas de&32; bits para cualquier sistema operativo.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -325,6 +325,6 @@ Para obtener más información sobre el uso y la recopilación de datos, consult
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

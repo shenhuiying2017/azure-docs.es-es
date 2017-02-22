@@ -1,5 +1,5 @@
 ---
-title: "Introducción al uso de Python por parte de Azure Data Lake Store | Microsoft Docs"
+title: "Uso del SDK de Python como introducción a Azure Data Lake Store | Microsoft Docs"
 description: Aprenda a usar el SDK de Python para trabajar con cuentas de Data Lake Store y el sistema de archivos.
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: d8faeafc6d4c73c4c71d0bc1554b04302dffdc55
-ms.openlocfilehash: 72186e03a1dc47f67b8f4cdcac55208a61c8e147
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8a3f3d8bfe670f2a4d1a4642b2380764aa6daeb4
 
 
 ---
@@ -245,6 +245,6 @@ El siguiente fragmento de código crea primero el cliente de la cuenta de Data L
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

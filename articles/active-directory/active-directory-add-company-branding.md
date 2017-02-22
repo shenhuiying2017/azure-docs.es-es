@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
@@ -31,8 +31,8 @@ Este tema explica cómo personalizar la página de inicio de sesión y la págin
 > [!NOTE]
 > * La información de marca de empresa es una característica que solo está disponible si ha actualizado a la edición Premium o Básica de Azure Active Directory, o es un usuario de Office 365. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 > * Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Personalización de la página de inicio de sesión
 Normalmente, si necesita acceso basado en explorador a las aplicaciones y servicios en la nube a los que está suscrita su organización, utiliza la página de inicio de sesión.
@@ -46,8 +46,8 @@ Si visita un servicio con direcciones URL que no son específicas de un inquilin
 > [!NOTE]
 > * El nombre de dominio debe aparecer como “Activo” en la sección **Active Directory** > **Directory** > **Dominios** del Portal de Azure clásico en el que ha configurado la personalización de marca.
 > * La personalización de marca de la página de inicio de sesión no se traslada a la página de inicio de sesión de cliente de Microsoft. Si inicia sesión con una cuenta de Microsoft personal, puede ver una lista de iconos de usuario con la personalización de marca presentada por Azure AD, pero la personalización de marca de su organización no se aplicará a la página de inicio de sesión de la cuenta de Microsoft.
-> 
-> 
+>
+>
 
 Si desea mostrar en su página la marca y los colores de su empresa, además de otros elementos personalizables, vea las imágenes siguientes para entender la diferencia entre las dos experiencias.
 
@@ -91,8 +91,8 @@ Puede personalizar los siguientes elementos de la página de inicio de sesión:
 
 > [!NOTE]
 > Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión muestra su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
-> 
-> 
+>
+>
 
 En la página de inicio de sesión, la casilla **Mantener la sesión iniciada** permite que el usuario se mantenga conectado después de cerrar y abrir de nuevo el explorador. No afecta a la duración de la sesión. Puede ocultar la casilla en la página de inicio de sesión de Azure Active Directory.
 
@@ -100,12 +100,12 @@ Puede decidir si se muestra la casilla o no mediante la configuración de **Ocul
 
 ![][9]
 
-Para ocultar la casilla, utilice la opción **Oculto**. 
+Para ocultar la casilla, utilice la opción **Oculto**.
 
 > [!NOTE]
 > Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan activar esta casilla. Si configura esta opción en oculto, es posible que los usuarios reciban solicitudes adicionales e inesperadas de inicio de sesión.
-> 
-> 
+>
+>
 
 También puede localizar todos los elementos de esta página. Una vez que haya configurado un conjunto de elementos de personalización "predeterminado", puede configurar más versiones para las diferentes configuraciones regionales. También puede mezclar y hacer coincidir varios elementos. Por ejemplo, puede:
 
@@ -163,15 +163,15 @@ Puede transcurrir hasta una hora para que el cambio efectuado se muestre en la p
 4. Haga clic en **Personalizar la información de marca**.
 5. En la página Personalizar la información de marca, seleccione **Editar configuración de marca existente** y, a continuación, vaya a la página siguiente.
 6. En función de los elementos que desee quitar, realice una o varias de las acciones siguientes:
-   
+
     a. En **Logotipo del banner**, seleccione **Quitar logotipo cargado** .
-   
+
     b. En **Logotipo de imagen**, seleccione **Quitar logotipo cargado**.
-   
+
     c. Quite el texto de todos los cuadros de texto.
-   
+
     d. Haga clic en **Next**.
-   
+
     e. Quite el texto de todos los cuadros de texto.
 7. Haga clic en **Guardar** para quitar los elementos.
 8. Si es necesario, haga clic en **Personalizar la información de marca** de nuevo y repita estos pasos para todos los elementos específicos de la marca del idioma que tengan que quitarse.
@@ -199,12 +199,12 @@ Algunos elementos personalizables de Azure AD disponen de múltiples casos de us
 
 | Nombre | Description | Restricciones | Recomendaciones |
 | --- | --- | --- | --- |
-| Logotipo del banner |El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. |<p>JPG o PNG</p><p>60 x 280 píxeles</p><p>10 kB</p> |<p>Utilice el logotipo completo de la organización (incluido el pictograma y el logotipo).</p><p>Manténgalo por debajo de 30 píxeles para que no aparezcan barras de desplazamiento en los dispositivos móviles.</p><p>Manténgalo por debajo de 4 kB.</p><p>Utilice un PNG transparente (no debe presuponer que la página de inicio de sesión tiene un fondo blanco).</p> |
-| Logotipo del icono |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar el pictograma genérico de "cuenta profesional o educativa" en diferentes lugares de la experiencia. |<p>JPG o PNG</p><p>120 x 120 píxeles</p><p>10 kB</p> |<p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%. |
+| Logotipo del banner |El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. |<p>JPG o PNG</p><p>60 x&280; píxeles</p><p>10 kB</p> |<p>Utilice el logotipo completo de la organización (incluido el pictograma y el logotipo).</p><p>Manténgalo por debajo de 30 píxeles para que no aparezcan barras de desplazamiento en los dispositivos móviles.</p><p>Manténgalo por debajo de 4 kB.</p><p>Utilice un PNG transparente (no debe presuponer que la página de inicio de sesión tiene un fondo blanco).</p> |
+| Logotipo del icono |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar el pictograma genérico de "cuenta profesional o educativa" en diferentes lugares de la experiencia. |<p>JPG o PNG</p><p>120 x&120; píxeles</p><p>10 kB</p> |<p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%. |
 | </p> | | | |
 | Etiqueta de nombre de usuario de la página de inicio de sesión |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar la cadena genérica de "cuenta profesional o educativa" en diferentes lugares de la experiencia. Puede establecerlo en algo como "Cuenta Contoso" o "Id. de Contoso". |<p>Texto Unicode, hasta 50 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |<p>Elija una etiqueta corta y sencilla.</p><p>Pregunte a los usuarios qué nombre utilizan para hacer referencia a la cuenta de la escuela o del trabajo que les proporciona.</p> |
 | Texto de la página de inicio de sesión |Este texto "reutilizable" aparece debajo del formulario de la página de inicio de sesión y puede utilizarse para comunicar instrucciones adicionales o dónde acudir para obtener ayuda y soporte técnico. |<p>Texto Unicode, hasta 256 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |No sobrepase los 250 caracteres (aproximadamente 3 líneas de texto) |
-| Ilustración de la página de inicio de sesión |La ilustración es una imagen grande que se muestra en la página de inicio de sesión a la izquierda del formulario de la página de inicio de sesión. |<p>JPG o PNG</p><p>1420 x 1200</p><p>500 kB</p> |<p>1420 x 1200 píxeles</p><p>Importante: manténgala lo más pequeña posible, lo ideal es que no sobrepase los 200 KB. Si esta imagen es demasiado grande, afecta al rendimiento de la página de inicio de sesión si la imagen no se almacena en caché</p><p>Esta imagen a menudo se recorta para adaptarse a las diferentes relaciones de la pantalla. Mantenga los elementos visuales principales en la esquina superior izquierda (en la esquina superior derecha para los idiomas que se leen de derecha a izquierda), ya que el cambio de tamaño se produce desde la esquina inferior derecha, hacia la parte superior izquierda, a medida que se reduzca la ventana del explorador.</p> |
+| Ilustración de la página de inicio de sesión |La ilustración es una imagen grande que se muestra en la página de inicio de sesión a la izquierda del formulario de la página de inicio de sesión. |<p>JPG o PNG</p><p>1420 x&1200;</p><p>500 kB</p> |<p>1420 x&1200; píxeles</p><p>Importante: manténgala lo más pequeña posible, lo ideal es que no sobrepase los 200 KB. Si esta imagen es demasiado grande, afecta al rendimiento de la página de inicio de sesión si la imagen no se almacena en caché</p><p>Esta imagen a menudo se recorta para adaptarse a las diferentes relaciones de la pantalla. Mantenga los elementos visuales principales en la esquina superior izquierda (en la esquina superior derecha para los idiomas que se leen de derecha a izquierda), ya que el cambio de tamaño se produce desde la esquina inferior derecha, hacia la parte superior izquierda, a medida que se reduzca la ventana del explorador.</p> |
 | Color de fondo de la página de inicio de sesión |El color de fondo de la página de inicio de sesión se usa en el área a la izquierda del formulario de la página de inicio de sesión. |Debe ser un color RGB en formato hexadecimal (ejemplo: #FFFFFF) |<p>En las conexiones con poco ancho de banda, puede aparecer el color de fondo en lugar de la ilustración grande.</p><p>Le recomendamos que utilice el color principal del logotipo del banner.</p> |
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -224,6 +224,6 @@ Algunos elementos personalizables de Azure AD disponen de múltiples casos de us
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

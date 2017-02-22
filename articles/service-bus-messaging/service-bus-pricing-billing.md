@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
 Service Bus está disponible en los niveles Básico, Estándar y [Premium](service-bus-premium-messaging.md). Puede elegir un nivel de servicio para cada espacio de nombres del servicio Service Bus que cree y esta selección de nivel se aplica a todas las entidades creadas dentro de ese espacio de nombres.
 
 > [!NOTE]
-> Para más información sobre los precios actuales de Service Bus, consulte la [página de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) y las [preguntas más frecuentes sobre Service Bus](service-bus-faq.md#service-bus-pricing).
+> Para más información sobre los precios actuales de Service Bus, consulte la [página de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) y las [preguntas más frecuentes sobre Service Bus](service-bus-faq.md#pricing).
 >
 >
 
@@ -39,7 +39,7 @@ El nivel **Premium** proporciona aislamiento de recursos en el nivel de CPU y me
 
 Tenga en cuenta que el cargo base estándar se realiza solo una vez al mes por suscripción de Azure, lo que significa que después de crear un espacio de nombres de Service Bus de nivel Estándar o Premium, podrá crear tantos espacios de nombre de nivel Estándar o Premium como desee dentro de la misma suscripción de Azure, sin incurrir en cargos base adicionales.
 
-Todos los espacios de nombres de Bus de servicio existentes creados antes del 1 de noviembre de 2014 pasarán automáticamente a formar parte del nivel Estándar. Esto garantiza que continuará teniendo acceso a todas las características disponibles actualmente con Bus de servicio. Posteriormente, puede usar el [Portal de Azure clásico][Portal de Azure clásico] para cambiar al nivel Básico, si lo desea.
+Todos los espacios de nombres de Bus de servicio existentes creados antes del 1 de noviembre de 2014 pasarán automáticamente a formar parte del nivel Estándar. Esto garantiza que continuará teniendo acceso a todas las características disponibles actualmente con Bus de servicio. Posteriormente, puede usar el [Portal de Azure clásico][Azure classic portal] para cambiar al nivel Básico, si lo desea.
 
 En la tabla siguiente se resumen las diferencias funcionales entre los niveles Básico, Estándar y Premium.
 
@@ -77,8 +77,8 @@ Los siguientes precios están vigentes desde el 1 de noviembre de 2014:
 | --- | --- |
 | Cargo base |10 $/mes |
 | Los 12,5 millones de operaciones primeras al mes |Se incluye |
-| De 12,5 a 100 millones de operaciones en un mes |0,80 $ por cada millón de operaciones |
-| De 100 a 2.500 millones de operaciones en un mes |0,50 $ por cada millón de operaciones |
+| De&12;,5 a&100; millones de operaciones en un mes |0,80 $ por cada millón de operaciones |
+| De&100; a&2;.500 millones de operaciones en un mes |0,50 $ por cada millón de operaciones |
 | Por encima de 2.500 millones de operaciones en un mes |0,20 $ por cada millón de operaciones |
 
 | Premium | Coste |
@@ -95,12 +95,12 @@ El nivel Básico incluye 100 conexiones asíncronas (y está estrictamente limit
 | Conexiones asíncronas (nivel Estándar) | Coste |
 | --- | --- |
 | Primeras 1.000 del mes |Incluidas con el cargo base |
-| De 1.000 a 100.000 en un mes |0,03 $ por conexión y mes |
-| De 100.000 a 500.000 en un mes |0,025 $ por conexión y mes |
+| De&1;.000 a&100;.000 en un mes |0,03 $ por conexión y mes |
+| De&100;.000 a&500;.000 en un mes |0,025 $ por conexión y mes |
 | Más de 500.000 en un mes |0,015 $ por conexión y mes |
 
 > [!NOTE]
-> Con el nivel de mensajería Estándar (en el cargo base) se incluyen 1000 conexiones asincrónicas, que se pueden compartir entre todas las colas, temas y suscripciones de la suscripción de Azure asociada.
+> Con el nivel de mensajería Estándar (en el cargo base) se incluyen&1000; conexiones asincrónicas, que se pueden compartir entre todas las colas, temas y suscripciones de la suscripción de Azure asociada.
 >
 >
 
@@ -147,12 +147,12 @@ Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, i
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de los precios de Service Bus, consulte la [página de precios de Azure Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
-* Consulte las [preguntas más frecuentes sobre Service Bus](service-bus-faq.md#service-bus-pricing) para ver algunas preguntas comunes relacionadas con los precios y la facturación de Service Bus.
+* Consulte las [preguntas más frecuentes sobre Service Bus](service-bus-faq.md#pricing) para ver algunas preguntas comunes relacionadas con los precios y la facturación de Service Bus.
 
-[Portal de Azure clásico]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

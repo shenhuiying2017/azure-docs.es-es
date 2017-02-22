@@ -1,5 +1,5 @@
 ---
-title: "Conexión de un disco a una máquina virtual Linux | Microsoft Docs"
+title: "Conexión de un disco a una VM de Linux en Azure | Microsoft Docs"
 description: "Aprenda a conectar un disco de datos a una máquina virtual Linux mediante el modelo de implementación clásica y a inicializar el disco para que esté preparado para su uso."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,31 +13,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 99c36b40b16689e76a9b9af661cf1c5dd41d8321
-ms.openlocfilehash: bbf6f7ad4b7ee444787c464dae0f0fdc5db033be
+ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
+ms.openlocfilehash: b78deeeb7fd8d337b83c8e831f51f8e57014cf43
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Acoplamiento de un disco de datos a una máquina virtual Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Consulte cómo [conectar un disco de datos mediante el modelo de implementación de Resource Manager](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> [!IMPORTANT] 
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Consulte cómo [conectar un disco de datos mediante el modelo de implementación de Resource Manager](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Puede acoplar tanto discos vacíos como discos que contengan datos a las máquinas virtuales de Azure. Ambos tipos de discos son archivos .vhd que residen en una cuenta de almacenamiento de Azure. Como sucede al agregar cualquier disco a una máquina Linux, después de acoplarlo, debe inicializarlo y formatearlo para que esté listo para su uso. En este artículo se detalla cómo acoplar discos vacíos y discos que ya contengan datos a las máquinas virtuales, así como la forma de inicializar y formatear un disco nuevo.
 
 > [!NOTE]
-> Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos permanentes.**  Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
-> El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, el kernel de Linux podría denominar al disco de datos de forma similar a `/dev/sdc`, y los usuarios necesitan crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure][Agent] para más información.
+> Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos permanentes.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
+> El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, el kernel de Linux podría denominar al disco de datos de forma similar a `/dev/sdc`, y los usuarios necesitan crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure][Agent] para obtener más información.
 > 
 > 
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## <a name="initialize-a-new-data-disk-in-linux"></a>un nuevo disco de datos en Linux
-1. SSH en la máquina virtual. Para más información, consulte [Inicio de sesión en una máquina virtual con Linux][Logon].
+1. SSH en la máquina virtual. Para obtener más información, consulte [Inicio de sesión en una máquina virtual Linux][Logon].
 2. A continuación deberá buscar el identificador de dispositivo para inicializar el disco de datos. Existen dos formas de hacerlo:
    
     (a) Busque con grep dispositivos SCSI en los registros, como se muestra en el siguiente comando:
@@ -204,7 +203,7 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 
-* Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
+* En algunos casos, la opción `discard` podría tener afectar al rendimiento. Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
   
     **Ubuntu**
   
@@ -228,7 +227,9 @@ Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes 
 
 * [Inicio de sesión en una máquina virtual con Linux][Logon]
 * [Desconexión de un disco de una máquina virtual de Linux](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](../virtual-machines-command-line-tools.md)
+* [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Configuración de RAID en una máquina virtual Linux en Azure](virtual-machines-linux-configure-raid.md)
+* [Configuración del LVM en una máquina virtual Linux en Azure](virtual-machines-linux-configure-lvm.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
@@ -236,6 +237,6 @@ Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Requisitos de enrutamiento para ExpressRoute | Microsoft Docs
+title: Requisitos de enrutamiento de Azure ExpressRoute | Microsoft Docs
 description: "En eta página se especifican los requisitos detallados para configurar y administrar el enrutamiento en los circuitos de ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
-ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -84,7 +84,7 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 * [ALTDB](http://altdb.net/)
 
 > [!IMPORTANT]
-> Las direcciones IP públicas anunciadas a Microsoft a través de ExpressRoute no deben ser anunciadas en Internet. Esto puede interrumpir la conectividad con otros servicios de Microsoft. Sin embargo, las direcciones IP públicas utilizadas por los servidores de la red que se comunican con los puntos de conexión de Office 365 dentro de Microsoft pueden anunciarse en ExpressRoute. 
+> Las direcciones IP públicas anunciadas a Microsoft a través de ExpressRoute no deben ser anunciadas en Internet. Esto puede interrumpir la conectividad con otros servicios de Microsoft. Sin embargo, las direcciones IP públicas utilizadas por los servidores de la red que se comunican con los puntos de conexión de Office&365; dentro de Microsoft pueden anunciarse en ExpressRoute. 
 > 
 > 
 
@@ -146,7 +146,7 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | **Europa** | |
 | Europa del Norte |12076:51003 |
 | Europa occidental |12076:51002 |
-| Sur del Reino Unido 2 | 12076:51024 |
+| Sur del Reino Unido&2; | 12076:51024 |
 | Oeste de Reino Unido | 12076:51025 |
 | **Asia Pacífico** | |
 | Asia oriental |12076:51010 |
@@ -189,8 +189,12 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | **Nubes nacionales Región de Azure**| **Valor de comunidad de BGP** |
 | --- | --- |
 | **Gobierno de Estados Unidos** |  |
+| Gobierno de EE. UU.: Arizona | 12076:51106 |
 | Gobierno de EE. UU. - Iowa | 12076:51109 |
 | Gobierno de EE. UU. - Virginia | 12076:51105 |
+| Gobierno de EE. UU.: Texas | 12076:51108 |
+| Departamento de Defensa de EE. UU. Centro | 12076:51209 |
+| Departamento de Defensa de EE. UU. Este | 12076:51205 |
 
 
 | **Servicios en nubes nacionales** | **Valor de comunidad de BGP** |
@@ -212,6 +216,6 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

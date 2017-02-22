@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2793f2b59207d4c329b2fd76eb164b3c4237b9e3
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: c7205f2a743bf2d835e9a1a5e6aad2542a7782ad
 
 
 ---
@@ -116,12 +116,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     c. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: **https://\<instancia de su compañía de SAP NetWeaver\>/sap/saml2/sp/acs/100**.
    
-   > [!NOTE]
-   > Podrá encontrar todos estos valores en el documento de metadatos de federación que le proporcionó su asociado de SAP NetWeaver.
-   > 
-   > 
+    > [!NOTE]
+    > Podrá encontrar todos estos valores en el documento de metadatos de federación que le proporcionó su asociado de SAP NetWeaver.
+    > 
+    > 
    
     d. click **Siguiente**
+
 4. En la página **Configurar inicio de sesión único en SAP NetWeaver** , siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_05.png)
@@ -169,17 +170,18 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
     b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
    
     c. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 
+6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_07.png) 
@@ -244,6 +246,6 @@ Al hacer clic en el icono de SAP NetWeaver del panel de acceso, debería iniciar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

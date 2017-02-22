@@ -1,13 +1,13 @@
 
 
 # Información general
-## [¿Qué es Programador?](scheduler-intro.md)
+## [¿Qué es Scheduler?](scheduler-intro.md)
 
-# Primeros pasos
+# Introducción
 ## [Creación y administración de trabajos](scheduler-get-started-portal.md)
 ## [Conceptos y terminología](scheduler-concepts-terms.md)
 
-# Cómo
+# Procedimientos
 ## Planeamiento y diseño
 ### [Planes y facturación](scheduler-plans-billing.md)
 ### [Cuotas y límites](scheduler-limits-defaults-errors.md)
@@ -21,9 +21,8 @@
 ### [Autenticación saliente](scheduler-outbound-authentication.md)
 
 # Referencia
-## [Cmdlets de PowerShell de Azure Scheduler](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/scheduler/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [REST](/rest/api/scheduler)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/scheduler/)
@@ -36,6 +35,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

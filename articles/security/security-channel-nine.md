@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
 
 
 ---
@@ -53,7 +53,7 @@ En este vídeo se tratan las siguientes áreas:
 * Descripción de la API de protección de datos, las claves maestras y los certificados
 * Uso de comandos SQL para crear los certificados y claves maestras y cifrar la base de datos
 
-[Configuración de la seguridad en los laboratorios de DevTest](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
+[Configuración de la seguridad en los laboratorios de DevTest](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
 Como propietario del laboratorio, puede proteger el acceso al laboratorio a través de dos roles de laboratorio: usuario de laboratorios de DevTest y propietario. Una persona con el rol de propietario tiene acceso completo al laboratorio, mientras que una persona con el rol de usuario de laboratorios de DevTest tiene acceso limitado. En este vídeo, le mostramos cómo agregar a una persona en cualquiera de estos roles a un laboratorio.
 
@@ -81,6 +81,6 @@ Amit Bapat presenta a Scott Almacén de claves de Azure. Con Almacén de claves 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

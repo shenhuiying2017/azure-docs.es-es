@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
+ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
+ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
 
 
 ---
@@ -279,7 +279,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: la directiva con la que desea validar los tokens que entran en el servidor. Debe ser la misma directiva que se usa en la aplicación cliente para iniciar sesión.
 
 > [!NOTE]
-> Para nuestra versión preliminar de B2C, use las mismas directivas en las instalaciones de cliente y de servidor. Si ya realizó un tutorial y creó estas directivas, no necesita volver a hacerlo. Puesto que completó el tutorial, no necesita configurar nuevas directivas para los tutoriales de cliente en el sitio.
+> De momento, use las mismas directivas en las instalaciones de cliente y de servidor. Si ya realizó un tutorial y creó estas directivas, no necesita volver a hacerlo. Puesto que completó el tutorial, no necesita configurar nuevas directivas para los tutoriales de cliente en el sitio.
 >
 >
 
@@ -763,6 +763,6 @@ Ahora puede pasar a temas más avanzados, como:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

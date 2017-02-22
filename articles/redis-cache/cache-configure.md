@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 12/20/2016
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 15997f889228ca1668f4aa4752ba6f6b0f157873
-ms.openlocfilehash: ee99c3ef9ac5ce4716214736c782cede30e2c662
+ms.sourcegitcommit: 1c002b796ed926fb8b0c6cedf3e361816e50b803
+ms.openlocfilehash: d51eeebba7ce2a1ca1005954feb0471f6ad7e05b
 
 
 ---
@@ -31,9 +31,11 @@ En este tema se describe cómo revisar y actualizar la configuración de las ins
 ## <a name="configure-redis-cache-settings"></a>Configuración de opciones de la memoria caché en Redis
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Azure Redis Cache ofrece la siguiente configuración en el **Menú de recursos**.
+La configuración de Azure Redis Cache se ve y configura en la hoja **Redis Cache** mediante el **menú Recursos**.
 
 ![Caché en Redis - Configuración](./media/cache-configure/redis-cache-settings.png)
+
+Puede ver y configurar las siguientes opciones con el **menú Recursos**.
 
 * [Información general](#overview)
 * [Registro de actividad](#activity-log)
@@ -71,7 +73,7 @@ Azure Redis Cache ofrece la siguiente configuración en el **Menú de recursos**
 
 ### <a name="activity-log"></a>Registro de actividades
 
-Haga clic en **Registro de auditoría** para ver las acciones realizadas en la memoria caché. También puede usar el filtrado para expandir esta vista e incluir otros recursos. Para más información sobre el uso de registros de auditoría, consulte [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Consulta de eventos y registros de auditoría) y [Audit operations with Resource Manager](../resource-group-audit.md) (Operaciones de auditoría con Resource Manager). Para obtener más información sobre la supervisión de eventos de Caché en Redis de Azure, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
+Haga clic en **Registro de auditoría** para ver las acciones realizadas en la memoria caché. También puede usar el filtrado para expandir esta vista e incluir otros recursos. Para más información sobre el uso de registros de auditoría, consulte [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Consulta de eventos y registros de auditoría) y [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operaciones de auditoría con Resource Manager). Para obtener más información sobre la supervisión de eventos de Caché en Redis de Azure, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Control de acceso (IAM)
 
@@ -79,7 +81,7 @@ La sección **Control de acceso (IAM)** ofrece compatibilidad con el control de 
 
 ### <a name="tags"></a>Etiquetas
 
-La sección **Etiquetas** le ayuda a organizar sus recursos. Para obtener más información, vea [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
+La sección **Etiquetas** le ayuda a organizar sus recursos. Para obtener más información, vea [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/resource-group-using-tags.md).
 
 
 ### <a name="diagnose-and-solve-problems"></a>Diagnosticar y solucionar problemas
@@ -113,7 +115,7 @@ Haga clic en **Claves de acceso** para ver o volver a generar las claves de acce
 ![Caché en Redis - Claves de acceso](./media/cache-configure/redis-cache-manage-keys.png)
 
 ### <a name="advanced-settings"></a>Configuración avanzada
-Los siguientes ajustes se configuran en la hoja **Configuración avanzada** .
+Los siguientes ajustes se configuran en la hoja **Configuración avanzada**.
 
 * [Puertos de acceso](#access-ports)
 * [Maxmemory-policy y maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
@@ -265,11 +267,11 @@ Haga clic en **Propiedades** para ver información sobre la memoria caché, incl
 ![Caché en Redis - Propiedades](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>Bloqueos
-La sección **Bloqueos** permite bloquear una suscripción, un grupo de recursos o un recurso para evitar que otros usuarios de la organización eliminen o modifiquen por error recursos críticos. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../resource-group-lock-resources.md).
+La sección **Bloqueos** permite bloquear una suscripción, un grupo de recursos o un recurso para evitar que otros usuarios de la organización eliminen o modifiquen por error recursos críticos. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../azure-resource-manager/resource-group-lock-resources.md).
 
 ### <a name="automation-script"></a>Script de automatización
 
-Haga clic en **Script de automatización** para generar y exportar una plantilla de los recursos implementados para futuras implementaciones. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../resource-group-template-deploy.md).
+Haga clic en **Script de automatización** para generar y exportar una plantilla de los recursos implementados para futuras implementaciones. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="administration-settings"></a>Configuración de administración
 La configuración de la sección **Administración** permite realizar las siguientes tareas administrativas en la memoria caché premium. 
@@ -468,7 +470,7 @@ Para mover la memoria caché a una nueva suscripción, haga clic en **Mover**.
 
 ![Traslado de Caché en Redis](./media/cache-configure/redis-cache-move.png)
 
-Para obtener información acerca de cómo mover recursos de un grupo de recursos a otro y de una suscripción a otra, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../resource-group-move-resources.md).
+Para obtener información acerca de cómo mover recursos de un grupo de recursos a otro y de una suscripción a otra, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre cómo trabajar con los comandos de Redis, vea [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
@@ -476,6 +478,6 @@ Para obtener información acerca de cómo mover recursos de un grupo de recursos
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

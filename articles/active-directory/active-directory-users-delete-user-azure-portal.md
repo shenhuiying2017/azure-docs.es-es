@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -26,14 +26,14 @@ En este artículo se explica cómo eliminar un usuario de un directorio en la ve
 ## <a name="to-delete-a-user"></a>Para eliminar un usuario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
-   
+
    ![Apertura de Administración de usuarios](./media/active-directory-users-delete-user-azure-portal/create-users-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
-   
+
    ![Apertura de la hoja Usuarios](./media/active-directory-users-delete-user-azure-portal/create-users-open-users-blade.png)
 4. En la hoja **Usuarios y grupos - Usuarios** , seleccione un usuario de la lista.
 5. En la hoja del usuario seleccionado, seleccione **Información general** y, después, en la barra de comandos, seleccione **Eliminar**.
-   
+
     ![Selección del comando Quitar](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -42,7 +42,6 @@ En este artículo se explica cómo eliminar un usuario de un directorio en la ve
 * [Asignar un usuario a roles de administrador en la versión preliminar de Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Agregar o cambiar la información de perfil de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Eliminar un usuario de un directorio en la versión preliminar de Azure Active Directory](active-directory-users-profile-azure-portal.md)
-
 
 
 

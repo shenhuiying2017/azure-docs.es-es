@@ -1,5 +1,5 @@
 ---
-title: Uso de herramientas de BI con Apache Spark en HDInsight | Microsoft Docs
+title: Uso de herramientas de BI con Apache Spark en Azure HDInsight | Microsoft Docs
 description: "Instrucciones paso a paso para usar cuadernos con Apache Spark y crear esquemas de datos sin procesar, guardarlos como tablas de Hive y después usar herramientas de BI en la tabla de Hive para el análisis de datos"
 services: hdinsight
 documentationcenter: 
@@ -13,24 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 
 
 ---
-# <a name="use-bi-tools-with-apache-spark-cluster-on-hdinsight-linux"></a>Uso de herramientas de BI con el clúster de Apache Spark en HDInsight Linux
+# <a name="use-bi-tools-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de herramientas de BI con un clúster de Apache Spark en Azure HDInsight
+
 Obtenga información sobre cómo usar Apache Spark en HDInsight de Azure para hacer lo siguiente:
 
 * Tomar datos de ejemplo sin procesar y guardarlos como tabla de Hive;
 * Usar herramientas de BI como Power BI y Tableau para analizar y visualizar los datos.
-
-> [!NOTE]
-> Este tutorial solo es aplicable para los clústeres de Spark 1.5.2 creados en HDInsight de Azure.
->
->
 
 Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio Bloc de notas. Para realizar el tutorial desde un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y ejecute el cuaderno **Use BI tools with Apache Spark on HDInsight.ipynb** en la carpeta **Python**.
 
@@ -38,8 +34,8 @@ Este tutorial también está disponible como un cuaderno de Jupyter en un clúst
 
 Debe tener lo siguiente:
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Un equipo con el controlador ODBC de Microsoft Spark instalado (necesario para que Spark en HDInsight trabaje con Tableau). Puede instalar el controlador desde [aquí](http://go.microsoft.com/fwlink/?LinkId=616229).
 * Herramientas de BI, como [Power BI](http://www.powerbi.com/) o [Tableau Desktop](http://www.tableau.com/products/desktop). Puede obtener una suscripción de versión preliminar gratuita de Power BI en [http://www.powerbi.com/](http://www.powerbi.com/).
 
@@ -59,10 +55,10 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
    >
 3. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 4. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 5. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos necesarios para este escenario. Para ello, coloque el cursor en la celda y presione **MAYÚS + ENTRAR**.
 
         from pyspark.sql import *
@@ -86,7 +82,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-1. Compruebe que la tabla se creó correctamente. Puede usar la instrucción mágica `%%sql` para ejecutar directamente consultas de Hive. Para obtener más información sobre la función mágica `%%sql` , así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+1. Compruebe que la tabla se creó correctamente. Puede usar la instrucción mágica `%%sql` para ejecutar directamente consultas de Hive. Para obtener más información sobre la función mágica `%%sql` , así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
         %%sql
         SHOW TABLES
@@ -115,19 +111,19 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 1. Inicie sesión en [Power BI](http://www.powerbi.com/).
 2. En la pantalla de bienvenida, haga clic en **Databases & More** (Bases de datos y más).
 
-    ![Obtener datos en Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.get.data.png "Get data into Power BI")
+    ![Introducción de datos en Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.get.data.png "Introducción de datos en Power BI")
 3. En la siguiente pantalla, haga clic en **Spark en HDInsight de Azure** y luego en **Conectar**. Cuando se le pida, escriba la dirección URL del clúster (`mysparkcluster.azurehdinsight.net`) y las credenciales para conectarse al clúster.
 
     Una vez establecida la conexión, Power BI inicia la importación de datos desde el clúster Spark hacia HDInsight.
 4. Power BI importa los datos y agrega un nuevo conjunto de datos de Spark en el encabezado **Conjuntos de datos** . Haga clic en el conjunto de datos para abrir una nueva hoja de cálculo para visualizar los datos. También puede guardar la hoja de cálculo como un informe. Para guardar una hoja de cálculo, en el menú **Archivo**, haga clic en **Guardar**.
 
-    ![Icono Spark en el panel de Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Spark tile on Power BI dashboard")
+    ![Icono de Spark en el panel de Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Icono de Spark en panel de Power BI")
 5. Tenga en cuenta que la lista **Fields** (Campos) de la derecha incluye la tabla **hvac** que creó anteriormente. Expanda la tabla para ver sus campos, como se definieron antes en el cuaderno.
 
-      ![Lista de tablas de Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "List Hive tables")
+      ![Lista de tablas de Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "Lista de tablas de Hive")
 6. Cree una visualización para mostrar la variación entre la temperatura objetivo y la real para cada edificio. Seleccione **Area Map** (Gráfico de área), mostrado en rojo, para visualizar los datos. Para definir el eje, arrastre y coloque el campo **BuildingID** en **Axis** (Eje) y los campos **ActualTemp**/**TargetTemp** en **Value** (Valor).
 
-    ![Crear visualizaciones](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Create visualizations")
+    ![Creación de visualizaciones](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Creación de visualizaciones")
 7. De manera predeterminada, la visualización muestra la suma de **ActualTemp** y **TargetTemp**. Para ambos campos, en la lista desplegable, seleccione **Average** (Media) para obtener un promedio de las temperaturas objetivo y reales de ambos edificios.
 
     ![Crear visualizaciones](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual2.png)
@@ -139,34 +135,40 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
    Puede agregar tantas visualizaciones como quiera para el mismo conjunto de datos y anclarlas al panel para ver una instantánea de los datos. Además, los clústeres Spark en HDInsight están conectados a Power BI con conexión directa. Esto significa que Power BI siempre tiene la copia más actualizada del clúster, por lo que no es necesario programar actualizaciones del conjunto de datos.
 
 ## <a name="a-nametableauause-tableau-desktop-to-analyze-data-in-the-hive-table"></a><a name="tableau"></a>Uso de Tableau Desktop para analizar los datos de la tabla de Hive
+
+> [!NOTE]
+> Esta sección solo es aplicable a los clústeres de Spark 1.5.2 creados en Azure HDInsight.
+>
+>
+
 1. Inicie Tableau Desktop. En el panel izquierdo, en la lista del servidor al que va a conectarse, haga clic en **Spark SQL**. Si Spark SQL no aparece de forma predeterminada en el panel izquierdo, puede hacer clic en **More Servers**(Más servidores) para buscarlo.
 2. En el cuadro de diálogo de conexión de SQL Spark, proporcione los valores como se muestra a continuación y luego haga clic en **OK**(Aceptar).
 
-    ![Conectarse a un clúster Spark](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Connect to a Spark cluster")
+    ![Conexión a un clúster de Spark](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Conexión a un clúster de Spark")
 
     La lista desplegable de autenticación solo muestra **Servicio HDInsight de Microsoft Azure** como opción si ha instalado el [controlador ODBC de Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) en el equipo.
 3. En la siguiente pantalla, en la lista desplegable **Schema** (Esquema), haga clic en el icono **Find** (Buscar) y luego en **default** (predeterminado).
 
-    ![Buscar esquema](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.schema.png "Find schema")
+    ![Búsqueda de esquema](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.schema.png "Búsqueda de esquema")
 4. En el campo **Table** (Tabla), vuelva a hacer clic en el icono **Find** (Buscar) para ver todas las tablas de Hive disponibles en el clúster. Debería ver la tabla **hvac** que creó antes con el cuaderno.
 
-    ![Buscar tablas](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.table.png "Find tables")
+    ![Búsqueda de tablas](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.table.png "Búsqueda de tablas")
 5. Arrastre y coloque la tabla en el cuadro superior a la derecha. Tableau importa los datos y muestra el esquema como se resalta con el cuadro rojo.
 
-    ![Agregar tablas a Tableau](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Add tables to Tableau")
+    ![Adición de tablas a Tableau](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Adición de tablas a Tableau")
 6. Haga clic en la pestaña **Sheet1** (Hoja1) en la parte inferior izquierda. Realice una visualización que muestre el promedio de temperaturas objetivo y reales de todos los edificios para cada fecha. Arrastre **Date** (Fecha) y **Building ID** (Id. de edificio) a **Columns** (Columnas), y **Actual Temp**/**Target Temp** (Temperatura real/Temperatura objetivo) a **Rows** (Filas). En **Marks** (Marcas), seleccione **Area** (Área) para usar una visualización del gráfico de área.
 
-     ![Agregar campos para la visualización](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "Add fields for visualization")
+     ![Adición de campos de visualización](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "Adición de campos de visualización")
 7. De manera predeterminada, se muestran los campos de temperatura como agregado. Si desea mostrar el promedio de las temperaturas en su lugar, puede hacerlo en la lista desplegable, como se muestra a continuación.
 
-    ![Hacer el promedio de temperaturas](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.temp.avg.png "Take average of temperature")
+    ![Duración media de temperatura](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.temp.avg.png "Duración media de temperatura")
 8. También puede superponer un mapa de temperatura al otro para hacerse una idea más clara de la diferencia entre las temperaturas reales y objetivo. Mueva el mouse a la esquina del gráfico de área inferior hasta que vea la forma del controlador resaltada en un círculo rojo. Arrastre el gráfico al otro gráfico de encima y suelte el mouse cuando vea la forma resaltada en el rectángulo rojo.
 
-    ![Combinar mapas](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "Merge maps")
+    ![Combinación de asignaciones](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "Combinación de asignaciones")
 
      La visualización de datos debería cambiar a la siguiente:
 
-    ![Visualización](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "Visualization")
+    ![Visualización](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "visualización")
 9. Haga clic en **Save** (Guardar) para guardar la hoja de cálculo. Puede crear paneles y agregarles una o varias hojas.
 
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
@@ -207,6 +209,6 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

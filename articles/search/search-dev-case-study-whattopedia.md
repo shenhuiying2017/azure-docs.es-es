@@ -14,8 +14,8 @@ ms.workload: search
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 378ed0fdffcfab016af371ae47a99bd126895993
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4a5d12603b2a7364cf8271fb0ae98715bf4e7078
 
 
 ---
@@ -390,12 +390,12 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 
 
 <!--Anchors-->
-[Subtítulo 1]: #subheading-1
-[Subtítulo 2]: #subheading-2
-[Subtítulo 3]: #subheading-3
-[Subtítulo 4]: #subheading-4
-[Subtítulo 5]: #subheading-5
-[Pasos siguientes]: #next-steps
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
+[Subheading 4]: #subheading-4
+[Subheading 5]: #subheading-5
+[Next steps]: #next-steps
 
 <!--Image references-->
 [6]: ./media/search-dev-case-study-whattopedia/lightbulb.png
@@ -405,13 +405,13 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 
 
 <!--Link references-->
-[Vínculo 1 a otro tema de documentación de azure.microsoft.com]: ../virtual-machines-windows-hero-tutorial.md
-[Vínculo 2 a otro tema de documentación de azure.microsoft.com]: ../web-sites-custom-domain-name.md
-[Vínculo 3 a otro tema de documentación de azure.microsoft.com]: ../storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

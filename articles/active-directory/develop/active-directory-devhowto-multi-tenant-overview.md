@@ -1,5 +1,5 @@
 ---
-title: "Compilación de una aplicación en la que pueda iniciar sesión cualquier usuario de Azure Active Directory | Microsoft Docs"
+title: "Procedimiento para crear una aplicación que pueda iniciar sesión cualquier usuario de Azure AD | Microsoft Docs"
 description: "Instrucciones paso a paso para crear una aplicación que pueda iniciar la sesión de un usuario desde cualquier inquilino de Azure Active Directory, lo que se conoce también como aplicación multiempresa."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0e4eb184e353700f945f0da93aeca2187d710415
-ms.openlocfilehash: cc4893c004939f071287fea068dd754da6561224
+ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
+ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 
 
 ---
@@ -39,9 +39,9 @@ Para convertir la aplicación en una aplicación multiempresa de Azure AD, siga 
 Vamos a examinar cada paso con detalle. También puede ir directamente a [esta lista de ejemplos de multiinquilino][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Actualización del registro para que sea multiempresa
-De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino.  Para convertir su registro en multiinquilino, busque el modificador "La aplicación es multiinquilino" en la página de configuración del registro de la aplicación en el [Portal de Azure clásico][AZURE-classic-portal] y establézcalo en "Sí".
+De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino.  Para convertir su registro en multiinquilino, busque el conmutador "Multiinquilino" en la página de propiedades del registro de la aplicación en [Azure Portal][AZURE-portal] y establézcalo en "Sí".
 
-Nota: Para que la aplicación pueda convertirse en multiempresa, Azure AD requiere que el URI de id. de aplicación sea único a nivel global. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo.  Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino.  En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos.  El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD.  Por ejemplo, si el nombre del inquilino era contoso.onmicrosoft.com, un identificador 
+Tenga en cuenta que, para que la aplicación pueda convertirse en multiempresa, Azure AD requiere que el URI de id. de aplicación sea único a nivel global. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo.  Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino.  En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos.  El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD.  Por ejemplo, si el nombre del inquilino era contoso.onmicrosoft.com, un identificador 
 URI de id. de aplicación válido sería `https://contoso.onmicrosoft.com/myapp`.  Si el inquilino tenía el dominio comprobado `contoso.com`, también sería un URI de id. de aplicación válido `https://contoso.com/myapp`.  La configuración de una aplicación como multiempresa dará error si el URI de id. de aplicación no sigue este patrón.
 
 Los registros de cliente nativo son multiempresa de forma predeterminada.  No es necesario realizar ninguna acción para convertir un registro de aplicación cliente nativa en multiempresa.
@@ -102,7 +102,7 @@ En los ejemplos de multiinquilino que encontrará en la sección [Contenido rela
 Ahora veamos la experiencia para los usuarios que inician sesión en aplicaciones multiempresa.
 
 ## <a name="understanding-user-and-admin-consent"></a>Comprensión del consentimiento de usuario y administrador
-Para que un usuario inicie sesión en una aplicación en Azure AD, la aplicación debe estar representada en el inquilino del usuario.  Esto permite que la organización realice cosas como aplicar directivas únicas cuando los usuarios de su inquilino inician sesión en la aplicación.  Para una aplicación de un solo inquilino, este registro es sencillo; es lo que sucede cuando registra la aplicación en el [Portal de Azure clásico][AZURE-classic-portal].
+Para que un usuario inicie sesión en una aplicación en Azure AD, la aplicación debe estar representada en el inquilino del usuario.  Esto permite que la organización realice cosas como aplicar directivas únicas cuando los usuarios de su inquilino inician sesión en la aplicación.  Para una aplicación de un solo inquilino, este registro es sencillo; es lo que sucede cuando registra la aplicación en [Azure Portal][AZURE-portal].
 
 Para una aplicación multiempresa, el registro inicial de la aplicación reside en el inquilino de Azure AD utilizado por el desarrollador.  Cuando usuarios de otro inquilino inician sesión en la aplicación por primera vez, Azure AD les pide que den su consentimiento a los permisos solicitados por ella.  Si aceptan, se crea una representación de la aplicación llamada *entidad de servicio* en el inquilino del usuario y el inicio de sesión puede continuar. También se crea una delegación en el directorio que registra el consentimiento del usuario a la aplicación. Para más información sobre los objetos Application y ServicePrincipal y cómo se relacionan entre sí, consulte [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects].
 
@@ -126,7 +126,7 @@ El parámetro `prompt=admin_consent` también puede utilizarse con aplicaciones 
 
 Si una aplicación requiere el consentimiento del administrador y el administrador inicia sesión en la aplicación, pero el parámetro `prompt=admin_consent` no se envía, el administrador podrá dar su consentimiento a la aplicación pero solo la dará para su cuenta de usuario.  Los usuarios normales seguirán sin poder iniciar sesión y dar su consentimiento a la aplicación.  Esto resulta útil si quiere dar al administrador de inquilinos la posibilidad de explorar la aplicación antes de permitir el acceso a otros usuarios.
 
-Un administrador de inquilinos puede deshabilitar la posibilidad de que los usuarios normales den su consentimiento a las aplicaciones.  En este caso, para que la aplicación se instale en el inquilino siempre se solicitará el consentimiento del administrador.  Si quiere probar la aplicación con el consentimiento de usuarios normales deshabilitado, puede encontrar el modificador de configuración en la sección de configuración de inquilinos de Azure AD del [Portal de Azure clásico][AZURE-classic-portal].
+Un administrador de inquilinos puede deshabilitar la posibilidad de que los usuarios normales den su consentimiento a las aplicaciones.  En este caso, para que la aplicación se instale en el inquilino siempre se solicitará el consentimiento del administrador.  Si quiere probar la aplicación con el consentimiento de usuarios normales deshabilitado, puede encontrar el conmutador de configuración en la sección de configuración de inquilinos de Azure AD de [Azure Portal][AZURE-portal].
 
 > [!NOTE]
 > En algunas aplicaciones se busca una experiencia en la que los usuarios normales puedan dar su consentimiento inicialmente; más tarde, se puede hacer partícipe al administrador y solicitar permisos que requieran su consentimiento.  Esto no hay forma de hacerlo actualmente con un solo registro de aplicación en Azure AD.  El punto de conexión de Azure AD v2 que se lanzará próximamente permitirá que las aplicaciones soliciten permisos en tiempo de ejecución, en lugar de en el momento del registro, lo que permitirá este escenario.  Para más información, consulte la [Guía del desarrollador para el modelo de aplicaciones v2 de Azure AD][AAD-V2-Dev-Guide].
@@ -154,7 +154,7 @@ El diagrama siguiente proporciona información general acerca del consentimiento
 Los usuarios y administradores pueden revocar el consentimiento a la aplicación en cualquier momento:
 
 * Los usuarios revocan el acceso a aplicaciones individuales quitándolas de su lista [Aplicaciones del panel de acceso][AAD-Access-Panel].
-* Los administradores revocan el acceso a las aplicaciones quitándolas de Azure AD mediante la sección de administración de Azure AD del [Portal de Azure clásico][AZURE-classic-portal].
+* Los administradores revocan el acceso a las aplicaciones quitándolas de Azure AD mediante la sección de administración de Azure AD de [Azure Portal][AZURE-portal].
 
 Si un administrador da su consentimiento a una aplicación que incluye a todos los usuarios de un inquilino, los usuarios no pueden revocar el acceso de forma individual.  Solo el administrador puede revocar el acceso y solo para la aplicación entera.
 
@@ -174,7 +174,7 @@ Las aplicaciones multiempresa también pueden obtener tokens de acceso para llam
 * [Ámbitos de permiso de la API Graph de Microsoft][MSFT-Graph-AAD]
 * [Ámbitos de permiso de la API Graph de Azure AD][AAD-Graph-Perm-Scopes]
 
-Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones y ayudarnos a refinar y remodelar nuestro contenido.
+Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a refinar y remodelar nuestro contenido.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -189,7 +189,7 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
@@ -212,7 +212,7 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AAD-V2-Dev-Guide]: ../active-directory-appmodel-v2-overview.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
@@ -240,6 +240,6 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

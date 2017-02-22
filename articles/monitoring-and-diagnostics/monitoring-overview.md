@@ -1,28 +1,31 @@
 ---
-title: "Información general sobre la supervisión en Microsoft Azure | Microsoft Docs"
-description: "Información general de la supervisión y los diagnósticos de Microsoft Azure, incluidas las alertas, los webhooks, el escalado automático, etc."
+title: "Información general sobre Azure Monitor | Microsoft Docs"
+description: "Azure Monitor recopila estadísticas para usarse en procesos de alertas, webhooks, escalado automático y automatización. En el artículo también se muestran otras opciones de supervisión de Microsoft."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
 ms.service: monitoring-and-diagnostics
-l: 
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4a9e92330081bcf56b7e3755597f76d3530a823d
+ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
+ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 
 
 ---
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Información general sobre la supervisión en Microsoft Azure
+
+# <a name="overview-of-azure-monitor"></a>Información general sobre Azure Monitor
 En este artículo se proporciona información general conceptual de la supervisión de recursos de Azure. Proporciona punteros a la información sobre determinados tipos de recursos.  Para obtener información detallada sobre la supervisión de las aplicaciones desde el punto de vista no de Azure, consulte [Guía de supervisión y diagnóstico](../best-practices-monitoring.md).
+
+Hay un tutorial en vídeo de Azure Monitor en  
+[Funcionalidad de supervisión y diagnósticos de Microsoft Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) En [Funcionalidad de supervisión y diagnósticos de Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234), encontrará un vídeo adicional que explica un escenario donde puede usar Azure Monitor.  
 
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
 
@@ -131,7 +134,7 @@ Azure tiene diversas ofertas disponibles para supervisar sus servicios, desde la
 
 * [Azure Monitor](http://aka.ms/azmondocs): ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure (registros de actividad) como de cada recurso individual de Azure (registros de diagnóstico). Este artículo forma parte de la documentación de Azure Monitor. El nombre de Azure Monitor se publicó el 25 de septiembre en Ignite 2016.  El nombre anterior era "Azure Insights".  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : ofrece detección y diagnóstico de problemas en la capa de aplicación del servicio, y se encuentra perfectamente integrado encima de los datos de supervisión de Azure. Es la plataforma de diagnóstico predeterminada para App Service Web Apps.  Puede enrutar los datos de otros servicios en ella.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte de [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), proporciona una solución integral de administración de TI tanto para infraestructura local como basada en la nube de terceros (como AWS), además de recursos de Azure.  Los datos de Azure Monitor se pueden enrutar directamente a Log Analytics para poder ver los registros y las métricas de todo el entorno en un único lugar.     
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte de [Operations Management Suite](https://www.microsoft.com/oms/), proporciona una solución integral de administración de TI tanto para infraestructura local como basada en la nube de terceros (como AWS), además de recursos de Azure.  Los datos de Azure Monitor se pueden enrutar directamente a Log Analytics para poder ver los registros y las métricas de todo el entorno en un único lugar.     
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de
@@ -141,11 +144,10 @@ Más información acerca de
 * [Diagnósticos de Azure](../azure-diagnostics.md) : si está intentando diagnosticar problemas en su aplicación de Cloud Services, Virtual Machines o Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : si está intentando diagnosticar problemas en su aplicación web de Servicio de aplicaciones.
 * [Solución de problemas de Azure Storage](../storage/storage-e2e-troubleshooting.md) : si usa Blob Storage, Table Storage o Queue Storage.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/oms/)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 01/19/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: da356a95fc372c140e089a943e5fcb680f0c9fd7
-ms.openlocfilehash: 009fde75bff1b7746ad0ae247a3b895366f54b84
+ms.sourcegitcommit: 102be620e8812cc551aebafe7c8df4e4eac0ae90
+ms.openlocfilehash: 2ad3bd7b846693c637fd843383802651a619b128
 
 ---
 
@@ -39,15 +39,15 @@ En la actualidad no, pero esta es también una solicitud común a la que pensamo
 
 El desafío con las actualizaciones del sistema operativo es que normalmente requieren un reinicio de la máquina, lo que supone una pérdida temporal de disponibilidad. En sí mismo, esto no es problema, puesto que Service Fabric redirigirá automáticamente el tráfico para los servicios afectados a otros nodos. Sin embargo, si las actualizaciones del sistema operativo no se coordinan en el clúster, existe la posibilidad de que muchos nodos dejen de funcionar a la vez. Estos reinicios simultáneos pueden provocar la pérdida de disponibilidad completa para un servicio, o por lo menos para una partición específica (para un servicio con estado).
 
-En el futuro, mantendremos una directiva de actualización de sistema operativo que esté coordinada entre dominios de actualización, asegurando con ello el mantenimiento de la disponibilidad a pesar de los reinicios y otros errores inesperados.
+En el futuro, mantendremos una directiva de actualización del sistema operativo, completamente automatizada, que esté coordinada entre los dominios de actualización, asegurando con ello el mantenimiento de la disponibilidad a pesar de los reinicios y otros errores inesperados.
 
-Mientras tanto, la única opción segura es realizar manualmente las actualizaciones del sistema operativo, nodo por nodo.
+Mientras tanto, [suministramos un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) que el administrador de un clúster puede usar para iniciar manualmente la revisión de cada nodo de una manera segura.
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>¿Cuál es el tamaño mínimo de un clúster de Service Fabric? ¿Por qué no puede ser menor?
 
 El tamaño mínimo admitido para un clúster de Service Fabric que ejecute cargas de trabajo de producción es cinco nodos. Para escenarios de desarrollo y prueba, se admiten los nodos de tres clústeres.
 
-Estos mínimos existen porque el clúster de Service Fabric ejecuta un conjunto de servicios de sistema con estado, incluidos el servicio de nomenclatura y el administrador de conmutación por error. Estos servicios, que realizan un seguimiento de qué servicios se han implementado en el clúster y en dónde se hospedan en la actualidad, dependen de la existencia de una fuerte coherencia. Esta fuerte coherencia depende a su vez de la capacidad de obtener *cuórum* para cualquier actualización del estado de esos servicios, en donde un cuórum representa una mayoría estricta de las réplicas (N/2 + 1) para un servicio dado.
+Estos mínimos existen porque el clúster de Service Fabric ejecuta un conjunto de servicios de sistema con estado, incluidos el servicio de nomenclatura y el administrador de conmutación por error. Estos servicios, que realizan un seguimiento de qué servicios se han implementado en el clúster y en dónde se hospedan en la actualidad, dependen de la existencia de una fuerte coherencia. Esta fuerte coherencia depende a su vez de la capacidad de obtener *cuórum* para cualquier actualización del estado de esos servicios, en donde un cuórum representa una mayoría estricta de las réplicas (N/2 +&1;) para un servicio dado.
 
 Con esta información, examinemos algunas posibles configuraciones de clúster:
 
@@ -103,9 +103,17 @@ Tenga en cuenta que en este cálculo también se da por supuesto:
 
 Al igual que con Reliable Services, la cantidad de datos que se pueden almacenar en un servicio de actor solo está limitada por el espacio total disponible en disco y memoria en todos los nodos del clúster. Sin embargo, los actores individuales son más eficaces cuando se utilizan para encapsular una pequeña cantidad de estado y la lógica de negocio asociada. Como norma general, un actor individual debe tener un estado que se mida en kilobytes.
 
+## <a name="other-questions"></a>Otras preguntas
+
 ### <a name="how-does-service-fabric-relate-to-containers"></a>¿Cómo se relacionan Service Fabric con los contenedores?
 
 Los contenedores ofrecen una manera sencilla de empaquetar servicios y sus dependencias, de modo que se ejecuten de forma coherente en todos los entornos y puedan funcionar de forma aislada en una única máquina. Service Fabric ofrece una manera de implementar y administrar servicios, incluidos los [servicios empaquetados en un contenedor](service-fabric-containers-overview.md).
+
+### <a name="are-you-planning-to-open-source-service-fabric"></a>¿Tienen previsto abrir el código de Service Fabric?
+
+Se va a abrir el código de los entornos de servicios de confianza y actores confiables en GitHub, y se aceptarán las contribuciones de la comunidad a los proyectos. Siga el [blog de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obtener más información a medida que esté disponible.
+
+Actualmente no hay planes para abrir el código del tiempo de ejecución de Service Fabric.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -113,6 +121,6 @@ Los contenedores ofrecen una manera sencilla de empaquetar servicios y sus depen
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

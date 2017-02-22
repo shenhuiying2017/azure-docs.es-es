@@ -1,5 +1,5 @@
 ---
-title: "Cambio de tamaño de una máquina virtual Windows clásica | Microsoft Docs"
+title: "Cambio de tamaño de una VM de Windows en el modelo de implementación clásica - Azure | Microsoft Docs"
 description: "Cambio de tamaño de una máquina virtual Windows clásica creada con el modelo de implementación clásica utilizando Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: abac11a9e88918db3e5f051350a668185e04a184
+ms.sourcegitcommit: 3352e5d17777a213a91911440274419f2058940b
+ms.openlocfilehash: 381cf34b9e65a46a8033880a95e94446bd01edf1
 
 
 ---
@@ -26,9 +26,8 @@ En este artículo se muestra cómo cambiar de tamaño una máquina virtual Windo
 
 Al considerar la posibilidad de cambiar el tamaño de una máquina virtual, hay dos conceptos que controlan el intervalo de tamaños disponibles para modificar el tamaño de la máquina virtual. El primer concepto es la región en la que se implementa la máquina virtual. La lista de tamaños de máquina virtual disponibles en la región está en la pestaña Servicios de la página web de regiones de Azure. El segundo concepto es el hardware físico que hospeda la máquina virtual. Los servidores físicos que hospedan máquinas virtuales se agrupan en clústeres de hardware físico común. El método de cambiar un tamaño máquina virtual será diferente en función de si el nuevo tamaño de máquina virtual deseado es compatible con el clúster de hardware que hospeda la máquina virtual.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-También puede [cambiar el tamaño de una máquina virtual con el modelo de implementación de Resource Manager](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. También puede [cambiar el tamaño de una máquina virtual con el modelo de implementación de Resource Manager](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="add-your-account"></a>Adición de la cuenta
 Debe configurar Azure PowerShell para usar los recursos de Azure de clásicos. Siga estos pasos para configurar Azure PowerShell con el fin de administrar recursos clásicos.
@@ -73,6 +72,6 @@ Para cambiar el tamaño de una máquina virtual a uno que no esté disponible en
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introducción a la creación de un equilibrador de carga orientado a Internet en el modo clásico mediante PowerShell | Microsoft Docs"
+title: "Creación de un equilibrador de carga con conexión a Internet: Azure PowerShell clásico | Microsoft Docs"
 description: "Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modo clásico con PowerShell."
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 3855b32c8ff13f73cf91ea8973ed40a34a062224
+ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
+ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 ---
 
@@ -76,6 +76,6 @@ Si la aplicación necesita mantener conexiones activas para servidores detrás d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

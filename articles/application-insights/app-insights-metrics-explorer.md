@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 6c644b124ad8c994170152006ff61c11e363e7ab
-ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
 
 
 ---
@@ -35,7 +35,7 @@ En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráfic
 
 ![Abrir la hoja de información general de la aplicación en el portal de Azure](./media/app-insights-metrics-explorer/03-range.png)
 
-Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos se actualizan a intervalos, pero los intervalos son más largos para intervalos de tiempo mayores. En modo de lanzamiento, puede tardar un tiempo que lleguen a través de la canalización de análisis en un gráfico de datos.
+Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos se actualizan a intervalos, pero los intervalos son más largos para intervalos de tiempo mayores. Puede tardar un tiempo en llegar a través de la canalización de análisis a un gráfico de datos.
 
 Para acercar una parte de un gráfico, arrastre sobre ella:
 
@@ -115,6 +115,11 @@ El método predeterminado para cada métrica se muestra cuando se crea un nuevo 
 
 ![Cancelar la selección de todas las métricas para ver los valores predeterminados](./media/app-insights-metrics-explorer/06-total.png)
 
+## <a name="pin-y-axis"></a>Anclado del eje Y 
+De forma predeterminada, un gráfico muestra los valores del eje Y empezando desde cero hasta el valor máximo del intervalo de datos para proporcionar una representación visual del cuanto de los valores. Pero, en algunos casos, más que el cuanto podría ser interesante inspeccionar visualmente los pequeños cambios de los valores. Para personalizaciones como esta, use la característica de edición del intervalo del eje Y para anclar los valores mínimo y máximo del eje Y en el lugar deseado.
+Haga clic en la casilla de verificación "Configuración avanzada" para que aparezca la opción Intervalo del eje Y
+
+![Haga clic en Configuración avanzada, seleccione Intervalo personalizado y especifique los valores máximo y mínimo](./media/app-insights-metrics-explorer/y-axis-range.png)
 
 ## <a name="filter-your-data"></a>Filtrado de los datos
 Para ver solo las métricas para un conjunto de valores de propiedad seleccionado:
@@ -158,23 +163,9 @@ Si edita una hoja, pero le gustaría volver al conjunto original guardado, haga 
 
 ![En los botones situados en la parte superior del Explorador de métricas](./media/app-insights-metrics-explorer/17-reset.png)
 
-<a name="live-metrics-stream"></a>
+## <a name="live-metrics-stream"></a>Live Metrics Stream
 
-## <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>Secuencia de métricas en directo: métricas instantáneas para una estrecha supervisión
-Stream de métricas en vivo muestra las métricas de la aplicación de este mismo momento, con una latencia casi de tiempo real de 1 segundo. Esto resulta muy útil si está publicando una compilación nueva y desea asegurarse de que todo esté funcionando como se esperaba o si quiere investigar un incidente en tiempo real.
-
-![En la hoja de información general, haga clic en Stream en vivo.](./media/app-insights-metrics-explorer/live-stream.png)
-
-A diferencia del Explorador de métricas, la Secuencia de métricas en directo muestra un conjunto fijo de métricas. Los datos se conservan solo mientras se encuentran en el gráfico, y luego se descartan.
-
-### <a name="live-failures"></a>Errores de Live
-
-Si se registran errores o excepciones, Live Stream guardará una copia de estos. Haga clic en **Pausa** para guardar una muestra específica y seleccione un evento para mostrar sus detalles.
-
-![Errores de muestreo de Live](./media/app-insights-metrics-explorer/live-stream-failures.png)
-
-
-Live Metrics Stream está disponible con la versión más reciente del [SDK de Application Insights para la web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
+Para obtener una vista mucho más inmediata de la telemetría, abra [Live Stream](app-insights-live-stream.md). La mayoría de las métricas tardan unos minutos en aparecer, como consecuencia del proceso de agregación. Por el contrario, las métricas activas están optimizadas para conseguir una latencia baja. 
 
 ## <a name="set-alerts"></a>Establecer alertas
 Para recibir notificaciones por correo electrónico de los valores no habituales de cualquier métrica, agregue una alerta. Puede decidir si se debe enviar un mensaje de correo electrónico a los administradores de cuentas o a direcciones de correo electrónico específicas.
@@ -224,6 +215,6 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

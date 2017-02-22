@@ -1,28 +1,33 @@
 ---
-title: "Aplicación de Machine Learning: servicio de detección de anomalías | Microsoft Docs"
-description: "La API de detección de anomalías es un ejemplo integrado en Aprendizaje automático de Microsoft Azure que detecta anomalías en los datos de serie temporales con valores numéricos espaciados de manera uniforme en el tiempo."
+title: "(En desuso) Servicio de detección de anomalías de Azure Machine Learning | Microsoft Docs"
+description: "El servicio de detección de anomalías (en desuso) es un ejemplo creado con Microsoft Azure Machine Learning que detecta anomalías en datos de series temporales con valores numéricos espaciados de manera uniforme en el tiempo."
 services: machine-learning
 documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/11/2016
-ms.author: alokkirpal
+ms.date: 01/18/2017
+ms.author: alok
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9b900e3febd3ba945250b52ff4b878f22eae33f3
+ms.sourcegitcommit: eff129aceac18342a79f06376023301afc676763
+ms.openlocfilehash: 847c24f8baf5f5db93474b469eb402d3ab7d4880
 
 
 ---
-# <a name="machine-learning-anomaly-detection-service"></a>Servicio de detección de anomalías de aprendizaje automático
+# <a name="machine-learning-anomaly-detection-service-deprecated"></a>Servicio de detección de anomalías de Machine Learning (en desuso)
+> [!NOTE]
+> Ahora puede implementar esta API en su suscripción de Azure con la nueva opción **Suscripción** de la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). Consulte [Machine Learning Anomaly Detection API](machine-learning-apps-anomaly-detection-api.md) (Anomaly Detection API de Machine Learning) para más información.
+> 
+> El método que se describe en este artículo para acceder a la API mediante Azure Datamarket está en desuso.
+
 ## <a name="overview"></a>Información general
-La [API de detección de anomalías](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) es un ejemplo integrado en Azure Machine Learning que detecta anomalías en los datos de serie temporales con valores numéricos espaciados de manera uniforme en el tiempo. 
+[Anomaly Detection API (en desuso)](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) es un ejemplo creado con Azure Machine Learning que detecta anomalías en datos de series temporales con valores numéricos espaciados de manera uniforme en el tiempo. 
 
 Estas API pueden detectar los siguientes tipos de patrones anómalos en datos de series temporales:
 
@@ -170,9 +175,9 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 | preprocess.aggregationFunc |Función que se usa para agregar datos al objeto AggregationInterval especificado |mean |enumerated |mean, sum, length |N/D |
 | preprocess.replaceMissing |Valores que se utiliza para atribuir los datos que faltan |lkv (último valor conocido) |enumerated |zero, lkv, mean |N/D |
 | detectors.historyWindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
-| upleveldetector.sensitivity |Sensibilidad del detector de cambio de nivel ascendente. |3.25 |double |None |3.25 5 (cuanto menores sean los valores, mayor es la sensibilidad) |
-| bileveldetector.sensitivity |Sensibilidad del detector de cambio de nivel bidireccional. |3.25 |double |None |3.25 5 (cuanto menores sean los valores, mayor es la sensibilidad) |
-| trenddetector.sensitivity |Sensibilidad del detector de tendencia positiva. |3.25 |double |None |3.25 5 (cuanto menores sean los valores, mayor es la sensibilidad) |
+| upleveldetector.sensitivity |Sensibilidad del detector de cambio de nivel ascendente. |3.25 |double |None |3.25&5; (cuanto menores sean los valores, mayor es la sensibilidad) |
+| bileveldetector.sensitivity |Sensibilidad del detector de cambio de nivel bidireccional. |3.25 |double |None |3.25&5; (cuanto menores sean los valores, mayor es la sensibilidad) |
+| trenddetector.sensitivity |Sensibilidad del detector de tendencia positiva. |3.25 |double |None |3.25&5; (cuanto menores sean los valores, mayor es la sensibilidad) |
 | tspikedetector.sensitivity |Sensibilidad del detector TSpike |3 |integer |1-10 |3-5 (cuanto menores sean los valores, mayor es la sensibilidad) |
 | zspikedetector.sensitivity |Sensibilidad del detector ZSpike |3 |integer |1-10 |3-5 (cuanto menores sean los valores, mayor es la sensibilidad) |
 | seasonality.enable |Si se realizará el análisis de estacionalidad |true |boolean |true, false |Dependiente de la serie temporal |
@@ -191,11 +196,11 @@ La API ejecuta todos los detectores en los datos de la serie temporal y devuelve
 | TSpike |Indicador binario para indicar si el detector TSpike ha detectado un pico |
 | ZSpike |Indicador binario para indicar si el detector ZSpike ha detectado un pico |
 | Pscore |Número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente |
-| Palert |Valor 1/0 que indica que hay una anomalía de cambio de nivel ascendente basada en la sensibilidad de entrada |
+| Palert |Valor&1;/0 que indica que hay una anomalía de cambio de nivel ascendente basada en la sensibilidad de entrada |
 | RPScore |Número flotante que representa la puntuación de anomalía en el cambio de nivel bidireccional |
-| RPAlert |Valor 1/0 que indica que hay una anomalía de cambio de nivel bidireccional basada en la sensibilidad de entrada |
+| RPAlert |Valor&1;/0 que indica que hay una anomalía de cambio de nivel bidireccional basada en la sensibilidad de entrada |
 | TScore |Número flotante que representa la puntuación de anomalía en tendencia positiva |
-| TAlert |Valor 1/0 que indica que hay una anomalía de tendencia positiva basada en la sensibilidad de entrada |
+| TAlert |Valor&1;/0 que indica que hay una anomalía de tendencia positiva basada en la sensibilidad de entrada |
 
 Este resultado se puede analizar mediante un [analizador sencillo](https://adresultparser.codeplex.com/) ; incluye código de ejemplo que muestra cómo conectarse a la API y analizar la salida. Las anomalías detectadas se pueden visualizar en un panel o transferirse a personal experto para que tomen las medidas correctivas oportunas, o se pueden integrar en sistemas de control de vales.
 
@@ -208,6 +213,6 @@ Este resultado se puede analizar mediante un [analizador sencillo](https://adres
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

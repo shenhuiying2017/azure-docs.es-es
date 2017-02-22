@@ -1,5 +1,5 @@
 ---
-title: "Utilización de claves SSH con Hadoop en clústeres basados en Linux desde Windows | Microsoft Docs"
+title: "Uso de SSH con clústeres de HDInsight desde PuTTY en Windows | Microsoft Docs"
 description: "Aprenda a crear y usar claves SSH para autenticarse en clústeres de HDInsight basados en Linux desde clientes basados en Windows mediante el cliente SSH PuTTY."
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/30/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 5498cfa6b8bcf50b1f375daa2e9adea585ce0d75
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-windows-with-putty"></a>Uso de SSH con Hadoop en HDInsight basado en Linux desde Windows con PuTTY
+# <a name="use-ssh-with-hdinsight-hadoop-from-putty-on-windows"></a>Uso de SSH con clústeres de HDInsight desde PuTTY en Windows
+
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix y OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Shell seguro (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite realizar operaciones de forma remota en los clústeres de HDInsight basado en Linux con una interfaz de línea de comandos. Este documento proporciona información sobre cómo conectarse a HDInsight desde clientes Windows usando el cliente SSH PuTTY.
 
@@ -99,7 +100,7 @@ Cada uno de estos métodos requerirá la clave pública. Para información compl
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-Al usar [Azure Portal][preview-portal] para crear un clúster de HDInsight basado en Linux, debe escribir un **Nombre de usuario SSH** y especificar una **CONTRASEÑA** o una **CLAVE PÚBLICA DE SSH**.
+Si se usa [Azure Portal][preview-portal] para crear un clúster de HDInsight basado en Linux, es preciso escribir un **nombre de usuario de SSH** y seleccionar si se van a especificar una **contraseña** o una **clave pública SSH**.
 
 Si selecciona **CLAVE PÚBLICA DE SSH**, puede pegar la clave pública (que se muestra en el campo **Clave pública para pegar en el campo OpenSSH authorized \_keys file** de PuttyGen) en el campo **SSH PublicKey** o elija **Seleccionar un archivo** para examinar y seleccionar el archivo que contiene la clave pública.
 
@@ -241,6 +242,6 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

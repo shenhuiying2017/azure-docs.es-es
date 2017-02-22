@@ -1,5 +1,5 @@
 ---
-title: Nodos de Linux en grupos de Azure Batch | Microsoft Docs
+title: 'Aprovisionamiento de nodos de proceso de Linux en grupos: Azure Batch | Microsoft Docs'
 description: "Obtenga información acerca de cómo procesar las cargas de trabajo de proceso paralelas en grupos de máquinas virtuales de Linux en el servicio Lote de Azure."
 services: batch
 documentationcenter: python
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: eb041d3ee7e097a05bcaeb57f170e26652fa5551
-ms.openlocfilehash: 251c454b0502746817ad5c97f1b3367eba98ac92
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 85aa18c7eab56c390dc9a9f7865a3468a43739f2
 
 
 ---
@@ -229,8 +229,8 @@ En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Market
 | microsoft-ads | linux-data-science-vm | linuxdsvm | más reciente | batch.node.centos 7 |
 | microsoft-ads | standard-data-science-vm | standard-data-science-vm | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | 2008-R2-SP1 | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012 | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | más reciente | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | Centro de datos de&2012; | más reciente | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | Centro de datos de&2012;-R2 | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | 2016-Datacenter | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | 2016-Datacenter-with-Containers | más reciente | batch.node.windows amd64 |
 
@@ -351,6 +351,6 @@ El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y for
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

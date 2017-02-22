@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 20aecf6df4af0b89fb6cafbd2047facdb345bae5
-ms.openlocfilehash: 8f658cb80a43e0eb21585ea851251b1339ab546b
+ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
+ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
 
 
 ---
@@ -47,7 +47,7 @@ Puede:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migración de máquinas virtuales locales y servidores físicos
 
-Para migrar máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos, siga casi los mismos pasos que los usados para la replicación normal. Configure un almacén de Recovery Services, configure los servidores de administración necesarios (según lo que desee migrar), agréguelos en el almacén y especifique la configuración de replicación. Habilite la replicación para las máquinas que desea migrar y ejecute una conmutación por error de prueba rápida para asegurarse de que todo funciona como debería.
+Para migrar máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos, se siguen casi los mismos pasos que los de una replicación normal. Configure un almacén de Recovery Services, configure los servidores de administración necesarios (según lo que desee migrar), agréguelos en el almacén y especifique la configuración de replicación. Habilite la replicación para las máquinas que desea migrar y ejecute una conmutación por error de prueba rápida para asegurarse de que todo funciona como debería.
 
 Después de comprobar que funciona el entorno de replicación, use una conmutación por error planeada o no planeada en función de lo que su escenario [admita](site-recovery-failover.md#failover-and-failback). Para la migración, no es necesario ejecutar una conmutación por error ni eliminar nada. En su lugar, seleccione la opción **Completar migración** de cada máquina que desea migrar. La acción **Completar migración** termina el proceso de migración, quita la replicación de la máquina y se detiene la facturación de la máquina en Site Recovery.
 
@@ -73,6 +73,6 @@ Puede migrar instancias de AWS a máquinas virtuales de Azure. En este escenario
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
