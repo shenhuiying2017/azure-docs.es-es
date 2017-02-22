@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: ea3d67f7e73f9e1fb716e9c5cdd4873b0b7dddd4
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 6aecea32361166d363a412b4e8f2b01d421da5cf
 
 
 ---
@@ -29,10 +29,10 @@ Los códecs son el software que implementa los algoritmos de compresión/descomp
 
 Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Media Services (MPEG-DASH, HLS y Smooth Streaming) sin tener que volver a realizar el empaquetamiento en estos formatos de streaming.
 
-Para aprovecharse de los [paquetes dinámicos](media-services-dynamic-packaging-overview.md), deberá hacer lo siguiente:
-
-* Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
-* Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-portal-manage-streaming-endpoints.md).
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). Para aprovecharse de los [paquetes dinámicos](media-services-dynamic-packaging-overview.md), deberá hacer lo siguiente:
+>
+>Además, codifique su archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
 
 Servicios multimedia admite los siguientes codificadores a petición que se describen en este artículo:
 
@@ -54,9 +54,9 @@ Tenga en cuenta que, de forma predeterminada, cada cuenta de Servicios multimedi
 Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadatos de entrada y salida
-[Aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx)se describen los metadatos de entrada de los codificadores.
+[Aquí](media-services-input-metadata-schema.md)se describen los metadatos de entrada de los codificadores.
 
-[Aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx)se describen los metadatos de salida de los codificadores.
+[Aquí](media-services-output-metadata-schema.md)se describen los metadatos de salida de los codificadores.
 
 ### <a name="generate-thumbnails"></a>Generación de miniaturas
 Para más información, consulte [Generación de miniaturas](media-services-advanced-encoding-with-mes.md#thumbnails).
@@ -98,6 +98,6 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

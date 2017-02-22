@@ -1,6 +1,6 @@
 ---
-title: "Nivel de compatibilidad, cómo evaluar | Microsoft Docs"
-description: "Pasos y herramientas para determinar qué nivel de compatibilidad es más adecuado para su base de datos en Base de datos SQL de Azure o Microsoft SQL Server"
+title: Nivel de compatibilidad 130 en bases de datos - Azure SQL Database | Microsoft Docs
+description: "En este artículo, se exploran las ventajas de ejecutar Azure SQL Database en el nivel de compatibilidad 130 y se analiza cómo aprovechar las ventajas de las nuevas características del optimizador de consultas y del procesador de consultas. También se abordan los posibles efectos secundarios en el rendimiento de las consultas para las aplicaciones existentes de SQL."
 services: sql-database
 documentationcenter: 
 author: alainlissoir
@@ -16,15 +16,17 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b778a822e49acbbae4bc9e109b673c10ccc01ae2
+ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
+ms.openlocfilehash: 3ad25fe844c75941303034ca1037fdb99a5c679b
 
 
 ---
 # <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>Rendimiento mejorado de consultas con el nivel de compatibilidad 130 en Base de datos SQL de Azure
 Base de datos SQL de Azure ejecuta de forma transparente cientos de miles de bases de datos en muchos niveles de compatibilidad diferentes, conservando y garantizando la compatibilidad con versiones anteriores para la versión correspondiente de Microsoft SQL Server para todos sus clientes.
 
-Por lo tanto, nada impide que los clientes que modifiquen cualquier base de datos existente para que alcance el nivel de compatibilidad, se beneficien del nuevo optimizador de consultas y las nuevas características de procesador de consultas. Como recordatorio del historial, la alineación de las versiones SQL con los niveles de compatibilidad predeterminados es la siguiente:
+En este artículo, se exploran las ventajas de ejecutar Azure SQL Database en el nivel de compatibilidad 130 y se analiza cómo aprovechar las ventajas de las nuevas características del optimizador de consultas y del procesador de consultas. También se abordan los posibles efectos secundarios en el rendimiento de las consultas para las aplicaciones existentes de SQL.
+
+Como recordatorio del historial, la alineación de las versiones SQL con los niveles de compatibilidad predeterminados es la siguiente:
 
 * 100: en SQL Server 2008 y Base de datos SQL de Azure V11.
 * 110: en SQL Server 2012 y Base de datos SQL de Azure V11.
@@ -34,11 +36,8 @@ Por lo tanto, nada impide que los clientes que modifiquen cualquier base de dato
 > [!IMPORTANT]
 > A partir de **mediados de junio de 2016**, el nivel de compatibilidad predeterminado en Azure SQL Database será 130, en lugar de 120, para las bases de datos **de nueva creación**.
 > 
-> Las bases de datos creadas antes de mediados de junio de 2016 *no* se verán afectadas y mantendrán su nivel de compatibilidad actual (100, 110 o 120). Así mismo, el nivel de compatibilidad de las bases de datos que migren desde la versión V11 a V12 de Base de datos SQL Azure tampoco cambiará.
+> Las bases de datos creadas antes de mediados de junio de 2016 *no* se verán afectadas y mantendrán su nivel de compatibilidad actual (100, 110 o 120). Las bases de datos migradas de la versión 11 de Azure SQL Database a la versión 12 tendrán un nivel de compatibilidad de 100 o 110. 
 > 
-> 
-
-En este artículo exploraremos las ventajas del nivel de compatibilidad 130 y la forma de aprovechar dichas ventajas. Abordaremos los posibles efectos secundarios en el rendimiento de las consultas para las aplicaciones existentes de SQL.
 
 ## <a name="about-compatibility-level-130"></a>Acerca del nivel de compatibilidad 130
 En primer lugar, si desea conocer el nivel de compatibilidad actual de una base de datos, ejecute la siguiente instrucción de Transact-SQL.
@@ -63,7 +62,7 @@ Echemos un vistazo a lo que aporta el nivel de compatibilidad 130.  Puede encont
   * Las ordenaciones en una tabla con un índice de almacenamiento de columnas están ahora en modo por lotes.
   * Los agregados basados en ventanas operan ahora en modo por lotes, tal como instrucciones de TSQL LAG/LEAD.
   * Las consultas en tablas de almacenamiento de columnas con varias cláusulas Distinct funcionan en modo por lotes.
-  * Las consultas que se ejecutan en DOP = 1 o con un plan en serie también se ejecutan en modo por lotes.
+  * Las consultas que se ejecutan en DOP =&1; o con un plan en serie también se ejecutan en modo por lotes.
 * Por último, las mejoras de estimación de cardinalidad vienen con el nivel de compatibilidad 120, pero para aquellos que estén trabajando en un nivel de compatibilidad inferior (es decir, 100 o 110), el cambio al nivel de compatibilidad 130 también aportará estas mejoras, y éstas a su vez pueden beneficiar también al rendimiento de las consultas de las aplicaciones.
 
 ## <a name="practicing-compatibility-level-130"></a>Prácticas con el nivel de compatibilidad 130
@@ -151,7 +150,7 @@ Si solicita el estado del plan de consulta, y examina su representación gráfic
 ![En la Ilustración 1](./media/sql-database-compatibility-level-query-performance-130/figure-1.jpg)
 
 ## <a name="serial-batch-mode"></a>Modo por lotes EN SERIE
-De forma similar, pasar al nivel de compatibilidad 130 para el procesamiento de filas de datos permite el procesamiento de modo por lotes. En primer lugar, las operaciones en modo por lotes solo están disponibles cuando tenga un índice de almacenamiento de columnas preparado. En segundo lugar, un lote normalmente representa aproximadamente 900 filas y utiliza una lógica de código optimizada para una CPU de varios núcleos, un mayor rendimiento de la memoria y aprovecha directamente los datos comprimidos del almacenamiento de columnas, siempre que sea posible. En estas condiciones, SQL Server 2016 puede procesar aproximadamente 900 filas a la vez, en lugar de la 1 fila de cada vez, y en consecuencia, los costos generales de la operación se comparten ahora entre todo el lote, lo que reduce el costo global por fila. Esta cantidad de operaciones compartidas combinadas con la compresión de almacenamiento de columnas, básicamente reduce la latencia implicada en una operación de modo por lotes SELECT. Puede encontrar más detalles sobre el almacenamiento de columnas y el modo por lotes en [Descripción de los índices de almacén de columnas](https://msdn.microsoft.com/library/gg492088.aspx).
+De forma similar, pasar al nivel de compatibilidad 130 para el procesamiento de filas de datos permite el procesamiento de modo por lotes. En primer lugar, las operaciones en modo por lotes solo están disponibles cuando tenga un índice de almacenamiento de columnas preparado. En segundo lugar, un lote normalmente representa aproximadamente&900; filas y utiliza una lógica de código optimizada para una CPU de varios núcleos, un mayor rendimiento de la memoria y aprovecha directamente los datos comprimidos del almacenamiento de columnas, siempre que sea posible. En estas condiciones, SQL Server 2016 puede procesar aproximadamente 900 filas a la vez, en lugar de la 1 fila de cada vez, y en consecuencia, los costos generales de la operación se comparten ahora entre todo el lote, lo que reduce el costo global por fila. Esta cantidad de operaciones compartidas combinadas con la compresión de almacenamiento de columnas, básicamente reduce la latencia implicada en una operación de modo por lotes SELECT. Puede encontrar más detalles sobre el almacenamiento de columnas y el modo por lotes en [Descripción de los índices de almacén de columnas](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ```
 -- Serial batch mode execution
@@ -405,7 +404,7 @@ Mirando a continuación vemos que la estimación de filas es 202.877, es decir m
 
 En realidad, el conjunto de resultados es 200.704 filas (pero todo depende de la frecuencia con la que se ejecutaron las consultas de los ejemplos anteriores, y lo que es más importante porque el TSQL utiliza la instrucción de RAND(), los valores reales que se devuelven pueden variar de una ejecución a la siguiente). Por lo tanto, en este ejemplo concreto, la nueva estimación de cardinalidad hace una mejor estimación del número de filas, no cabe duda de que 202.877 está mucho más cerca de 200.704 que 194.284. Por último, si se cambian los predicados de la cláusula WHERE para igualdad (en lugar de ">" por ejemplo), esto podría hacer que haya incluso más diferencia entre las estimaciones de la antigua y la nueva función de cardinalidad, dependiendo de las coincidencias que se obtengan.
 
-En este caso, una diferencia de aproximadamente 6000 filas con respecto recuento real, en algunas situaciones no representa una gran cantidad de datos. Ahora, si se traspone esto a millones de filas en varias tablas y consultas más complejas, a veces, puede haber una diferencia de millones de filas en la estimación y, por lo tanto, el riesgo de seleccionar el plan de ejecución equivocado, o de solicitar concesiones de memoria insuficientes provocando desbordamientos de TempDB y con ello más operaciones de E/S, son mucho mayores.
+En este caso, una diferencia de aproximadamente&6000; filas con respecto recuento real, en algunas situaciones no representa una gran cantidad de datos. Ahora, si se traspone esto a millones de filas en varias tablas y consultas más complejas, a veces, puede haber una diferencia de millones de filas en la estimación y, por lo tanto, el riesgo de seleccionar el plan de ejecución equivocado, o de solicitar concesiones de memoria insuficientes provocando desbordamientos de TempDB y con ello más operaciones de E/S, son mucho mayores.
 
 Si tiene oportunidad practique esta comparación con sus consultas y conjuntos de datos más habituales, y vea por usted mismo la diferencia entre las estimaciones nuevas y las antiguas, mientras que algunas se pueden alejar más de la realidad, en otras se acerca más al recuento real devuelto en los conjuntos de resultados. Todo dependerá de la forma de las consultas, las características de base de datos SQL de Azure, la naturaleza y el tamaño de los conjuntos de datos y las estadísticas disponibles sobre ellos. Si acaba de crear la instancia de Base de datos SQL de Azure, el optimizador de consultas tendrá que generar su conocimiento desde cero en lugar de reutilizar las estadísticas de las ejecuciones de consultas anteriores. Por lo tanto, las estimaciones son muy contextuales y casi específicas para cada situación de aplicación y servidor. Es un aspecto importante que no hay que olvidar.
 
@@ -462,6 +461,6 @@ genemi = MightyPen , 2016-05-20  Friday  17:00pm
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

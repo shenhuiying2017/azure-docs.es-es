@@ -17,24 +17,25 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 176c06bd1d8117fda70001762f86f1a98829f78b
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
 
 
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight-on-windows"></a>Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight en Windows
+
 > [!div class="op_single_selector"]
 > * [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
+
+
 Para ayudarle a aprender a usar Hadoop en Windows y a empezar a usar HDInsight, en este tutorial se muestra cómo ejecutar una consulta de Hive en datos no estructurados en un clúster de Hadoop y, a continuación, analizar los resultados en Microsoft Excel.
 
-> [!NOTE]
-> La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para obtener más información sobre  clústeres basados en Linux, vea [Tutorial de Hadoop: Introducción al uso de Hadoop basado en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-> 
-> 
+> [!IMPORTANT]
+> Los pasos de este tutorial solo se aplican a clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para más información sobre la creación de clústeres basados en Linux, consulte [Tutorial de Hadoop: Introducción al uso de Hadoop basado en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 Supongamos que tiene un gran conjunto de datos no estructurados y que quiere ejecutar una consulta de Hive en él para extraer alguna información significativa. Eso es exactamente lo que vamos a hacer en este tutorial. Siga los pasos siguientes para lograrlo:
 
@@ -81,10 +82,10 @@ Cuando crea un clúster, crea recursos de proceso de Azure que contienen aplicac
    | Subscription |Seleccione la suscripción de Azure que se usará para el clúster. |
    | El grupos de recursos |Seleccione un grupo de recursos de Azure existente o cree uno nuevo. Un clúster de HDInsight básico contiene un clúster y su cuenta de almacenamiento predeterminada.  Puede agrupar los dos en un grupo de recursos para facilitar su administración. |
    | Credenciales |Escriba el nombre de usuario y la contraseña de inicio de sesión del clúster. Los clústeres basados en Windows pueden tener dos cuentas de usuario.  El usuario de clúster (o usuario HTTP) se usa para administrar el clúster y enviar trabajos.  También puede crear una cuenta de usuario de Escritorio remoto (RDP) para conectarse al clúster de forma remota. Si decide habilitar Escritorio remoto, se creará la cuenta de usuario RDP. |
-   | Origen de datos |Haga clic en Crear nueva para crear una cuenta de almacenamiento de Azure predeterminada. Use el nombre del clúster como nombre de contenedor predeterminado. Cada clúster de HDinsight tiene un contenedor de blobs predeterminado en una cuenta de almacenamiento de Azure.  La ubicación de la cuenta de almacenamiento de Azure predeterminada determina la ubicación del clúster de HDInsight. |
-   | Niveles de precios de nodo |Use uno o dos nodos de trabajo con el plan de tarifa predeterminado de nodo principal y nodo de trabajo para este tutorial. |
+   | Origen de datos |Haga clic en Crear nueva para crear una cuenta de almacenamiento de Azure predeterminada. Use el nombre del clúster como nombre de contenedor predeterminado. Cada clúster de HDinsight tiene un contenedor de blobs predeterminado en una cuenta de Azure Storage.  La ubicación de la cuenta de almacenamiento de Azure predeterminada determina la ubicación del clúster de HDInsight. |
+   | Niveles de precios de nodo |En este tutorial use uno o dos nodos de trabajo con el plan de tarifa predeterminado de nodo principal y nodo de trabajo. |
    | Configuración opcional |Omitir esto |
-4. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que la opción **Anclar a Panel de inicio** está seleccionada y haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster se está creando y, cuando se haya completado el proceso, cambiará para mostrar el icono de HDInsight.
+4. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que la opción **Anclar a Panel de inicio** está seleccionada y haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de Azure Portal. El icono indicará que el clúster se está creando y, cuando se haya completado el proceso, cambiará para mostrar el icono de HDInsight.
    
    | Durante la creación | Creación completa |
    | --- | --- |
@@ -165,11 +166,11 @@ Para completar esta parte del tutorial, debe tener instalado Excel 2013 o 2010.
 7. Haga clic en **Cerrar y cargar** en la esquina superior izquierda para importar la salida del trabajo de Hive a Excel.
 
 ## <a name="run-samples"></a>Ejecución de ejemplos
-Un clúster de HDInsight ofrece una consola de consultas que incluye una Galería de introducción para ejecutar muestras directamente en el portal. Puede usar las muestras para aprender a trabajar con HDInsight explorando algunos escenarios básicos. Estas muestras vienen con todos los componentes necesarios como, por ejemplo, los datos objeto del análisis y las consultas que se ejecutan en los datos. Para obtener más información acerca de las muestras de la Galería de introducción, consulte [Información sobre Hadoop en HDInsight con la Galería de introducción de HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
+Un clúster de HDInsight ofrece una consola de consultas que incluye una Galería de introducción para ejecutar muestras directamente en el portal. Puede usar las muestras para aprender a trabajar con HDInsight explorando algunos escenarios básicos. Estas muestras vienen con todos los componentes necesarios como, por ejemplo, los datos objeto del análisis y las consultas que se ejecutan en los datos.
 
 **Para ejecutar el ejemplo**
 
-1. En el Panel de inicio del Portal de Azure, haga clic en el icono del clúster que acaba de crear.
+1. En el Panel de inicio de Azure Portal, haga clic en el icono del clúster que acaba de crear.
 2. En la hoja del nuevo clúster, haga clic en **Panel**. Cuando se le solicite, escriba el nombre de usuario y la contraseña de administrador para el clúster.
    
     ![Inicio del panel del clúster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "Inicio del panel del clúster")
@@ -255,6 +256,6 @@ En este tutorial de Hadoop, ha aprendido a crear un clúster de Hadoop en Window
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos | Microsoft Docs"
+title: "Mantenimiento predictivo en empresas aeroespaciales con Azure: guía técnica de la solución Cortana Intelligence | Microsoft Docs"
 description: "Una guía técnica sobre la plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
 services: cortana-analytics
 documentationcenter: 
@@ -15,12 +15,16 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f4ad547656bb3675a8a636106b7e95e5392ab4c5
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 6464dbf22fc0084ee7d50f3117dae9b6566614cd
 
 
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
+
+## <a name="important"></a>**Importante**
+Este artículo está en desuso. La información sigue siendo pertinente para el problema en cuestión, es decir, el mantenimiento predictivo en empresas aeroespaciales, pero [aquí](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) puede encontrarse el artículo más reciente con la información más actualizada. 
+
 ## <a name="acknowledgements"></a>**Agradecimientos**
 Los autores de este artículo son los científicos de datos Yan Zhang, Gauher Shaheen, Fidan Boylu Uz y el ingeniero de software Dan Grecoe de Microsoft.
 
@@ -141,7 +145,7 @@ Para obtener más información acerca de cómo se creó el experimento de Aprend
 ## <a name="monitor-progress"></a>**Supervisión de progreso**
  Una vez iniciado el Generador de datos, la canalización comienza a hidratarse y los distintos componentes de la solución empiezan a entrar en acción siguiendo los comandos emitidos por la Factoría de datos. Hay dos maneras de supervisar la canalización.
 
-1. Uno de los trabajos de Análisis de transmisiones escribe los datos entrantes sin procesar en Almacenamiento de blobs. Si hace clic en el componente Blob Storage de la solución desde la pantalla en la que implementó correctamente la solución y, después, hace clic en la opción Abrir del panel derecho, irá al [portal de administración](https://portal.azure.com/). Una vez allí, haga clic en Blobs. En el siguiente panel, verá una lista de contenedores. Haga clic en **maintenancesadata**. En el siguiente panel, verá la carpeta **rawdata**. Dentro de la carpeta rawdata, verá las carpetas con nombres como hour= 17, hour=18, etc. Si ve estas carpetas, significa que los datos sin procesar se están generando en el equipo y almacenando en Almacenamiento de blobs correctamente. Debería ver archivos csv que deben tener tamaños finitos en MB en esas carpetas.
+1. Uno de los trabajos de Análisis de transmisiones escribe los datos entrantes sin procesar en Almacenamiento de blobs. Si hace clic en el componente Blob Storage de la solución desde la pantalla en la que implementó correctamente la solución y, después, hace clic en la opción Abrir del panel derecho, irá al [portal de administración](https://portal.azure.com/). Una vez allí, haga clic en Blobs. En el siguiente panel, verá una lista de contenedores. Haga clic en **maintenancesadata**. En el siguiente panel, verá la carpeta **rawdata**. Dentro de la carpeta rawdata, verá las carpetas con nombres como hour=&17;, hour=18, etc. Si ve estas carpetas, significa que los datos sin procesar se están generando en el equipo y almacenando en Almacenamiento de blobs correctamente. Debería ver archivos csv que deben tener tamaños finitos en MB en esas carpetas.
 2. El último paso de la canalización es escribir los datos (por ejemplo, predicciones del aprendizaje automático) en Base de datos SQL. Es posible que deba esperar un máximo de tres horas para los datos aparezcan en Base de datos SQL. Una manera de supervisar la cantidad de datos que están disponibles en SQL Database es a través de [Azure Portal](https://manage.windowsazure.com/). En el panel izquierdo, busque la opción BASES DE DATOS SQL ![Icono de SQL](media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) y haga clic en ella. Después, busque la base de datos **pmaintenancedb** y haga clic en ella. En la parte inferior de la página siguiente, haga clic en ADMINISTRAR.
    
     ![Icono de Administrar](media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
@@ -235,6 +239,6 @@ Las dos herramientas siguientes están disponibles para ayudarlo a comprender me
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

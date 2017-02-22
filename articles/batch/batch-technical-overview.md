@@ -1,5 +1,5 @@
 ---
-title: "Conceptos básicos del servicio Azure Batch | Microsoft Docs"
+title: "Introducción al servicio Azure Batch | Microsoft Docs"
 description: "Información acerca del servicio Lote de Azure para cargas de trabajo HPC y paralelas a gran escala"
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 6f05aa3f06c8ec86d58cafd406c2752ddb2eecc1
-ms.openlocfilehash: f3429fff9362451e687435e0c5e779feda564e46
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
 
 
 ---
@@ -159,6 +159,6 @@ Ahora que ha visto información general de alto nivel del servicio Lote, es hora
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

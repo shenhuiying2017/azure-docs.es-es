@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: team-pi@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae05e89346fe6bb85408cd560505dab3c03837cc
+ms.sourcegitcommit: dc1dac6e590088b45aa7afb87cf2d41027506635
+ms.openlocfilehash: 5ad1d7f026836e90d04d493bd1c0454b83f936ef
 
 
 ---
@@ -60,7 +60,8 @@ Realice los pasos siguientes para instalar el paquete NuGet de SendGrid en su ap
 4. Busque **SendGrid** y seleccione el elemento **SendGrid** en la lista de resultados.
    
    ![paquete NuGet de SendGrid][SendGrid-NuGet-package]
-5. Haga clic en **Instalar** para completar la instalación y cierre este cuadro de diálogo.
+5. Seleccione la **versión 6.3.4** del paquete de NuGet en la lista desplegable de versiones para poder trabajar con el objeto de modelo y las API que se muestran en este artículo.
+6. Haga clic en **Instalar** para completar la instalación y cierre este cuadro de diálogo.
 
 La biblioteca de clases .NET de SendGrid se llama **SendGridMail**. Contiene los siguientes espacios de nombres:
 
@@ -251,6 +252,6 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

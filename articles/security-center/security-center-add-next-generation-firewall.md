@@ -1,6 +1,6 @@
 ---
 title: "Adición de un firewall de próxima generación en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center de agregar un firewall de próxima generación y enrutar el tráfico solo a través de NGFW."
+description: "En este documento se muestra cómo implementar las recomendaciones **Agregar un firewall de próxima generación** y **Enrutar el tráfico solo a través de NGFW** de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4cc9541251157a3c8c632a01fafb52ea87ba58dd
+ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
+ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
 
 
 ---
@@ -25,29 +25,29 @@ Azure Security Center puede recomendarle agregar un firewall de próxima generac
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Agregar un firewall de última generación**.
    ![Add a Next Generation Firewall][1]
 2. En la hoja **Add a Next Generation Firewall** (Agregar un firewall de próxima generación), seleccione un punto de conexión.
    ![Selección de un punto de conexión][2]
-3. Se abrirá una segunda hoja **Add a Next Generation Firewall** (Agregar un firewall de próxima generación). Puede elegir usar una solución existente, si está disponible, o puede crear una nueva. En este ejemplo no hay ninguna solución existente, por lo que vamos a crear un nuevo NGFW.
+3. Se abrirá una segunda hoja **Add a Next Generation Firewall** (Agregar un firewall de próxima generación). Puede elegir usar una solución existente, si está disponible, o puede crear una nueva. En este ejemplo no hay ninguna solución existente disponible, por lo que vamos a crear un NGFW.
    ![Creación de un firewall de próxima generación][3]
-4. Para crear un nuevo NGFW, seleccione una solución de la lista de asociados integrados. En este ejemplo se seleccionará **Punto de comprobación**.
+4. Para crear un NGFW, seleccione una solución de la lista de asociados integrados. En este ejemplo se selecciona **Punto de comprobación**.
    ![Selección de una solución de firewall de próxima generación][4]
 5. Se abrirá la hoja **Punto de comprobación** , que le proporcionará información sobre la solución del asociado. Seleccione **Crear** en la hoja de información.
    ![Hoja de información del firewall][5]
-6. Se abrirá la hoja **Crear máquina virtual** . Aquí puede escribir la información que se requiere para poner en marcha una máquina virtual que ejecutará el NGFW. Siga los pasos y proporcione la información de NGFW que sea necesaria. Seleccione Aceptar para que se aplique.
+6. Se abrirá la hoja **Crear máquina virtual** . Aquí puede escribir la información que se requiere para poner en marcha una máquina virtual que ejecuta el NGFW. Siga los pasos y proporcione la información de NGFW que sea necesaria. Seleccione Aceptar para que se aplique.
    ![Creación de una máquina virtual para ejecutar un NGFW][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>Enrutar el tráfico solo a través de NGFW
-Vuelva a la hoja **Recomendaciones** . Después de agregar un NGFW a través de Security Center, se genera una nueva entrada llamada **Enrutar el tráfico solo a través de NGFW**. Esta recomendación solo se crea si ha instalado el NGFW a través de Security Center. Si tiene puntos de conexión accesibles desde Internet, Security Center recomendará configurar reglas de grupos de seguridad de red que fuercen a que el tráfico entrante pase a la máquina virtual a través del NGFW.
+Vuelva a la hoja **Recomendaciones** . Después de agregar un NGFW a través de Security Center, se genera una nueva entrada llamada **Enrutar el tráfico solo a través de un firewall de nueva generación**. Esta recomendación solo se crea si ha instalado el NGFW a través de Security Center. Si tiene puntos de conexión accesibles desde Internet, Security Center recomienda configurar reglas de grupos de seguridad de red que fuercen a que el tráfico entrante pase a la máquina virtual a través del NGFW.
 
 1. En la hoja **Recomendaciones**, seleccione **Enrutar el tráfico solo a través de NGFW**.
    ![Enrutar el tráfico solo a través de NGFW][7]
-2. Se abrirá la hoja **Enrutar el tráfico solo a través de NGFW** , que enumera las máquinas virtuales que puede enrutar el tráfico. Seleccione una máquina virtual de la lista.
+2. Se abrirá la hoja **Enrutar el tráfico solo a través de un firewall de nueva generación** que enumera las máquinas virtuales a las que puede enrutar el tráfico. Seleccione una máquina virtual de la lista.
    ![Seleccionar una máquina virtual][8]
 3. Se abre una hoja de la máquina virtual seleccionada, que muestra las reglas de entrada relacionadas. Una descripción proporciona más información sobre los posibles pasos posteriores. Seleccione **Editar reglas de entrada** para continuar con la edición de una regla de entrada. Se espera que el **Origen** no esté establecido en **Cualquiera** para los puntos de conexión accesibles desde Internet vinculados al NGFW. Para obtener más información sobre las propiedades de la regla de entrada, consulte [Reglas de grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md#nsg-rules).
    ![Configuración de reglas para limitar el acceso][9]
@@ -83,6 +83,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

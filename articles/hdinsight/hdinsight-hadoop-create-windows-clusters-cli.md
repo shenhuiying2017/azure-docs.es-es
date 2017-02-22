@@ -1,6 +1,6 @@
 ---
 title: "Creación de clústeres de Hadoop basados en Windows en HDInsight con la CLI de Azure"
-description: "Aprenda a crear clústeres para HDInsight de Azure con la CLI de Azure."
+description: "Aprenda a crear clústeres de Hadoop basados en Linux para Azure HDInsight mediante la CLI de Azure."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-cli"></a>Creación de clústeres de Hadoop basados en Windows en HDInsight con la CLI de Azure
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Aprenda a crear clústeres de HDInsight con la CLI de Azure. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a crear clústeres de Hadoop basados en Windows en HDInsight mediante la CLI de Azure. 
+
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). La información de este artículo solo se aplica a los clústeres de HDInsight para Windows. Para más información sobre la creación de clústeres basados en Linux, consulte [Creación de clústeres de Hadoop en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="prerequisites"></a>Requisitos previos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -34,7 +38,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 * **Suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure CLI**.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Requisitos de control de acceso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -46,7 +50,7 @@ Use el comando siguiente para conectarse a Azure:
 
 Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
-Ejecute el siguiente comando para cambiar al modo ARM:
+Use el siguiente comando para cambiar al modo de Azure Resource Manager:
 
     azure config mode arm
 
@@ -55,9 +59,9 @@ Para obtener ayuda, use el modificador **-h** .  Por ejemplo:
     azure hdinsight cluster create -h
 
 ## <a name="create-clusters"></a>Creación de clústeres
-Para poder crear un clúster de HDInsight, debe tener una Administración de recursos de Azure (ARM) y una cuenta de almacenamiento de blobs de Azure. Para crear un clúster de HDInsight, debe especificar lo siguiente:
+Para poder crear un clúster de HDInsight, debe tener un grupo de administración de recursos y una cuenta de Azure Blob Storage. Para crear un clúster de HDInsight, debe especificar lo siguiente:
 
-* **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. Administrador de recursos de Azure permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.
+* **Grupo de recursos de Azure**: se debe crear una cuenta de Data Lake Analytics dentro de un grupo de recursos de Azure. Administrador de recursos de Azure permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.
   
     Para mostrar los grupos de recursos de su suscripción:
   
@@ -80,7 +84,7 @@ Para poder crear un clúster de HDInsight, debe tener una Administración de rec
   > 
   > 
   
-    Para obtener información sobre la creación de una cuenta de Almacenamiento de Azure a través del Portal de Azure, consulte [Creación, administración o eliminación de una cuenta de Almacenamiento][azure-create-storageaccount].
+    Para más información sobre la creación de una cuenta de Azure Storage mediante el portal de Azure, consulte [Creación, administración o eliminación de una cuenta de Storage][azure-create-storageaccount].
   
     Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
   
@@ -91,7 +95,7 @@ Para poder crear un clúster de HDInsight, debe tener una Administración de rec
         -- Lists the keys for a Storage account
         azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
   
-    Para saber cómo obtener la información mediante el Azure Portal, consulte la sección "Administración de la cuenta de almacenamiento" del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md#manage-your-storage-account).
+    Para más información sobre cómo obtener la información mediante el portal de Azure, consulte la sección "Administración de la cuenta de almacenamiento" del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md#manage-your-storage-account).
 * **(Opcional) Contenedor de blobs predeterminado**: el comando **azure hdinsight cluster create** crea el contenedor si aún no existe. Si opta por crear el contenedor antes, puede usar el comando siguiente:
   
     azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
@@ -127,18 +131,18 @@ Creación de un clúster con una acción de scripts
 
 Para información sobre la acción de script, vea [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster.md).
 
-## <a name="create-clusters-using-arm-templates"></a>Creación de clústeres mediante plantillas de ARM
-Puede utilizar la CLI para crear clústeres llamando a plantillas de ARM. Consulte [Implementación con la CLI de Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+## <a name="create-clusters-using-resource-manager-templates"></a>Creación de clústeres con plantillas de Resource Manager
+Puede utilizar la CLI para crear clústeres llamando a plantillas de Azure Resource Manager. Consulte [Implementación con la CLI de Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## <a name="see-also"></a>Otras referencias
 * [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md) : aprenda a empezar a trabajar con su clúster de HDInsight
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md) : aprenda a enviar trabajos a HDInsight mediante programación
 * [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md)
-* [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../virtual-machines-command-line-tools.md)
+* [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

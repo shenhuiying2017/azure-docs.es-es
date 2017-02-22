@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure DNS: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a administrar sus registros DNS con el Sistema de nombres de dominio de Azure. En la documentación, se muestra cómo configurar y administrar zonas y registros DNS para los nombres de dominio."
+services: dns
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e0ec3ec5c8a24a84f54350441be73871e81b9761
-ms.openlocfilehash: 7af04a1619ea9d84eb3d477660d55eeea89e57bf
+ms.sourcegitcommit: f415cc458e91085ce315ef7ee5755b96bbcfa170
+ms.openlocfilehash: b9608dc3bafeea5faec8e379c67810113b00ffd9
 
 ---
-#<a name="dns-documentation"></a>Documentación de DNS
+# <a name="dns-documentation"></a>Documentación de DNS
 
-DNS de Azure (Sistema de nombres de dominio) es un servicio de hospedaje para los dominios DNS, que permite resolver nombres mediante la infraestructura de Microsoft Azure.  Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure.
+Aprenda a administrar sus registros DNS con el Sistema de nombres de dominio de Azure, un servicio de hospedaje. En los tutoriales, las referencias de API y otra documentación, se muestra cómo configurar y administrar zonas y registros DNS para los nombres de dominio.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,80 +98,55 @@ DNS de Azure (Sistema de nombres de dominio) es un servicio de hospedaje para lo
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
-    <li>
-        <a href="/powershell/azureps-cmdlets-docs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de Azure PowerShell</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
 <li>
-        <a href="/cli/azure/network/dns">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>CLI de Azure</h3>
-                        <p>DNS de Azure con la CLI de Azure</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>Línea de comandos</h3>
+                    <p><a href="/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns">PowerShell</a></p>
+                    <p><a href="/cli/azure/network/dns">CLI de Azure</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
+    </div>
+</li>
 <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referencia administrada de .NET</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>Idiomas</h3>
+                    <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
+                    <p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p>
+                    <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
+                    <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>
+                    <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html">Python</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
+    </div>
+</li>
 <li>
-        <a href="/rest/api/dns">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Referencia de la API de REST de DNS</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>REST</h3>
+                    <p><a href="/rest/api/dns/">API DE REST</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
+    </div>
+</li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de documentación de DNS </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

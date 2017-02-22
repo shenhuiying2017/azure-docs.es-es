@@ -1,5 +1,5 @@
 ---
-title: "Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple"
+title: "Recuperación ante desastres y conmutación por error de dispositivos para StorSimple Virtual Array | Microsoft Docs"
 description: "Obtenga más información sobre cómo conmutar por error la matriz virtual de StorSimple."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2017fcdc7a5c36c7c00d8bcef5be973ed60e3f82
 
 
 ---
@@ -125,7 +125,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 En este vídeo se muestra cómo puede conmutar por error un dispositivo virtual StorSimple local a otro dispositivo virtual.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
 > 
 > 
 
@@ -153,6 +153,6 @@ Obtenga más información sobre cómo [administrar la matriz virtual de StorSimp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

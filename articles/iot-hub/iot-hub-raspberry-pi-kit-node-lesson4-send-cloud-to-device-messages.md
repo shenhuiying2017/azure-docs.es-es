@@ -1,5 +1,7 @@
 ---
-title: "Ejecución de una aplicación de ejemplo para recibir mensajes de la nube al dispositivo | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Conexión de Raspberry Pi (Node) a Azure IoT: Lección 4: De la nube al dispositivo | Microsoft Docs"
 description: "La aplicación de ejemplo se ejecuta en Pi y supervisa los mensajes entrantes de IoT Hub. Una nueva tarea de Gulp envía mensajes a Pi desde su centro de IoT para que parpadee el LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 4a42967ceddcd1ad8d6fdd861367a6060578353b
-ms.openlocfilehash: 06ade85c7f24ed4b55de3d57a86ad747f5ae9f2f
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 92ee9d6faae9f539c663395e47714609a146f2df
 
 
 ---
@@ -91,6 +93,6 @@ Ha enviado correctamente mensajes desde el centro de IoT Hub a Pi para que el LE
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

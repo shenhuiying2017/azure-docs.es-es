@@ -1,5 +1,5 @@
 ---
-title: "Información general sobre ejemplos de Service Bus Relay | Microsoft Docs"
+title: "Información general sobre ejemplos de Azure Service Bus Relay | Microsoft Docs"
 description: "Se clasifican por categorías y se describen los ejemplos de Service Bus Relay con vínculos a cada uno."
 services: service-bus-relay
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
+ms.sourcegitcommit: 6027c973f0104fff9705a70f7812f62562165c1e
+ms.openlocfilehash: d830770c49caeacf762382ce1c6113d9196a5994
 
 
 ---
@@ -24,23 +24,23 @@ ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
 En los ejemplos de Service Bus Relay se muestran las características principales de [Service Bus Relay](https://azure.microsoft.com/services/service-bus/). En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
 
 > [!NOTE]
-> Los ejemplos del Bus de servicio no se instalan con el SDK. Para obtener los ejemplos, visite la [página de ejemplos del SDK de Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Los ejemplos de Service Bus no se instalan con Azure SDK. Para obtener los ejemplos, visite la [página de ejemplos del SDK de Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Además, encontrará un conjunto de ejemplos actualizado de Service Bus Relay [aquí](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (en el momento de escribir este documento, no se describen en este artículo).  
+> Además, hay un conjunto actualizado de muestras de Service Bus Relay [aquí](https://github.com/Azure-Samples/azure-servicebus-relay-samples).  
 > 
 > 
 
-Para obtener ejemplos de mensajes, vea [Ejemplos de mensajería de Service Bus](../service-bus-messaging/service-bus-samples.md).
+Para obtener ejemplos de mensajes de Service Bus, vea [Ejemplos de mensajería de Service Bus](../service-bus-messaging/service-bus-samples.md).
 
-## <a name="service-bus-relay"></a>Retransmisión del Bus de servicio
-En los ejemplos siguientes se muestra cómo escribir aplicaciones que usan el servicio Service Bus Relay.
+## <a name="azure-service-bus-relay"></a>Retransmisión de bus de servicio de Azure
+En los ejemplos siguientes se muestra cómo escribir aplicaciones que usan el servicio Azure Relay.
 
-Tenga en cuenta que los ejemplos de retransmisión necesitan una cadena de conexión para acceder al espacio de nombres de Service Bus.
+Tenga en cuenta que los ejemplos de retransmisión necesitan una cadena de conexión para acceder al espacio de nombres de Relay.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Para obtener una cadena de conexión para el Bus de servicio de Azure
+### <a name="to-obtain-a-connection-string-for-azure-relay"></a>Para obtener una cadena de conexión de Azure Relay, siga estos pasos:
 1. Inicie sesión en [Azure Portal](http://portal.azure.com).
-2. En la columna izquierda, haga clic en **Bus de servicio**.
-3. En la lista, haga clic en el nombre del espacio de nombres.
+2. Haga clic para expandir la lista de los espacios de nombres del panel **Todos los recursos**.
+3. En la lista, haga clic en el nombre del espacio de nombres de Relay.
 4. En la hoja del espacio de nombres, haga clic en **Directivas de acceso compartido**.
 5. En la hoja **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
 6. Copie la cadena de conexión en el Portapapeles.
@@ -48,13 +48,13 @@ Tenga en cuenta que los ejemplos de retransmisión necesitan una cadena de conex
 ### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Para obtener una cadena de conexión para el Bus de servicio para Windows Server
 1. Ejecute el siguiente cmdlet de PowerShell:
    
-    ```
+    ```powershell
     get-sbClientConfiguration
     ```
 2. Pegue la cadena de conexión en el archivo App.config del ejemplo.
 
-## <a name="service-bus-relay"></a>Retransmisión del Bus de servicio
-Ejemplos que muestran retransmisión del Bus de servicio.
+## <a name="azure-relay"></a>Azure Relay
+Ejemplos que demuestran Azure Relay.
 
 ### <a name="getting-started"></a>Introducción
 | Nombre del ejemplo | Description | Versión mínima del SDK | Disponibilidad |
@@ -84,13 +84,13 @@ Ejemplos que muestran diversas características de retransmisión del Bus de ser
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los siguientes temas para obtener conceptos generales sobre Service Bus.
 
-* [Información general sobre Service Bus Relay](service-bus-relay-overview.md)
+* [Introducción a Azure Relay](relay-what-is-it.md)
 * [Arquitectura del Bus de servicio](../service-bus-messaging/service-bus-architecture.md)
 * [Elementos fundamentales de Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

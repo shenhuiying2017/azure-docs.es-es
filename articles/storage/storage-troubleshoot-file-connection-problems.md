@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: afce238686f5b35a094f0792f8197b686d317fa5
-ms.openlocfilehash: b75e80b66e00be0022102c06113eb414f5b4b6e9
+ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
+ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
 
 
 ---
@@ -75,7 +75,9 @@ Reduzca el número de identificadores abiertos simultáneos cerrando algunos de 
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Rendimiento reducido al acceder a File Storage desde Windows o Linux
 * Si no tiene un requisito mínimo de tamaño de E/S específico, se recomienda que utilice 1 MB como el tamaño de E/S para disfrutar de un rendimiento óptimo.
 * Si conoce el tamaño final de un archivo que está ampliando con escrituras y el software aún no presenta problemas de compatibilidad cuando la cola del archivo, que aún no se ha escrito, contiene ceros, establezca el tamaño del archivo con antelación en lugar de que cada escritura sea una de ampliación.
-
+* Utilice el método de copia correcto:
+      * Utilice AZCopy para todas las transferencias entre dos recursos compartidos de archivos. Para más detalles, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy).
+      * Use Robocopy entre un recurso compartido de archivos y un equipo local. Consulte [Multi-threaded robocopy for faster copies](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) (Robocopy multiproceso para copias más rápidas) para más detalles.
 <a id="windowsslow"></a>
 
 ## <a name="slow-performance-when-accessing-the-file-storage-from-windows-81-or-windows-server-2012-r2"></a>Rendimiento reducido al acceder a File Storage desde Windows 8.1 o Windows Server 2012 R2
@@ -103,7 +105,7 @@ No cree ni abra nunca un archivo de E/S en caché que solicite acceso de escritu
 
 <a id="error53"></a>
 
-## <a name="error-53-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>"Error 53" al tratar de montar o desmontar un recurso compartido de archivos de Azure
+## <a name="error-53-or-error-67-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>"Error 53" o "Error 67" al tratar de montar o desmontar un recurso compartido de archivos de Azure
 Este problema puede deberse a las condiciones siguientes:
 
 ### <a name="cause-1"></a>Causa 1
@@ -113,7 +115,7 @@ Este problema puede deberse a las condiciones siguientes:
 Conéctese desde un cliente que cumpla los requisitos de Windows 8, Windows Server 2012 o versiones posteriores, o bien que se conecte desde una máquina virtual que se encuentre en el mismo centro de datos que la cuenta de almacenamiento de Azure que se utilice para el recurso compartido de archivos de Azure.
 
 ### <a name="cause-2"></a>Causa 2
-Se puede producir el error del sistema 53 al montar un recurso compartido de archivos de Azure si se ha bloqueado la comunicación saliente al centro de datos de Azure Files en el puerto 445. Haga clic en [aquí](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver el resumen de los ISP que permiten o deniegan el acceso desde el puerto 445.
+Se puede producir el error del sistema 53 o 67 al montar un recurso compartido de archivos de Azure si se ha bloqueado la comunicación saliente al centro de datos de Azure Files en el puerto 445. Haga clic en [aquí](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver el resumen de los ISP que permiten o deniegan el acceso desde el puerto 445.
 
 Comcast y algunas organizaciones de TI bloquean dicho puerto. Para descubrir si este es el motivo del mensaje de error del sistema 53, puede usar la utilidad Portqry para enviar una consulta al punto de conexión TCP:445. Si el punto de conexión TCP:445 se muestra como filtrado, eso quiere decir que el puerto TCP está bloqueado. Aquí se muestra una consulta de ejemplo:
 
@@ -153,7 +155,7 @@ Monte el recurso compartido desde una línea de comandos que no sea de administr
 
 <a id="slashfails"></a>
 
-## <a name="my-storage-account-contains-and-the-net-use-command-fails"></a>Mi cuenta de almacenamiento contiene "/" y el comando net use genera un error
+## <a name="my-storage-account-contains--and-the-net-use-command-fails"></a>Mi cuenta de almacenamiento contiene "/" y el comando net use genera un error
 ### <a name="cause"></a>Causa
 Cuando se ejecuta el comando **net use** en el símbolo del sistema (cmd.exe), se analiza agregando "/" como una opción de línea de comandos, lo cual hace que la asignación genere un error.
 
@@ -242,6 +244,6 @@ Si la opción **serverino** no está presente, desmonte y monte Azure Files de n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

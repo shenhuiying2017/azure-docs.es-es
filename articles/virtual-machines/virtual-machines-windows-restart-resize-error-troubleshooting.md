@@ -13,11 +13,11 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 09/09/2016
+ms.date: 01/10/2017
 ms.author: delhan
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: afa8d2b76ab0f85b5eaf615b264af2f29936016c
 
 
 ---
@@ -26,12 +26,12 @@ Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Recopilación de registros de auditoría
-Para iniciar la solución de problemas, recopile los registros de auditoría para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso:
+## <a name="collect-activity-logs"></a>Recopilación de registros de actividad
+Para iniciar la solución de problemas, recopile los registros de actividad para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso:
 
-[Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Ver operaciones de implementación](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md)
+[Ver registros de actividad para administrar recursos de Azure](../azure-resource-manager/resource-group-audit.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Error al iniciar una máquina virtual detenida
 Intenta iniciar una máquina virtual detenida, pero obtiene un error de asignación.
@@ -68,6 +68,6 @@ Si surgen problemas al crear una nueva máquina virtual Windows en Azure, consul
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

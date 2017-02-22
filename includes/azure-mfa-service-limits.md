@@ -1,6 +1,6 @@
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| El número máximo de intervalos o direcciones IP de confianza</a> por suscripción<sup>1</sup> |0 |12 |
+| El número máximo de intervalos o direcciones IP de confianza</a> por suscripción |0 |50 |
 | Recordar mis dispositivos: número de días |14 |60 |
 | ¿Número máximo de contraseñas de aplicación? |0 |Ilimitado |
 | Permitir **X** intentos durante una llamada de MFA |1 |99 |
@@ -10,10 +10,7 @@
 | Restablecer el recuento de bloqueos de cuenta tras **X** minutos |No establecido |9.999 |
 | Desbloquear cuenta tras **X** minutos |No establecido |9.999 |
 
-<sup>1</sup>Se espera que aumente en el futuro.
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

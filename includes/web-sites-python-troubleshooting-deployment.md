@@ -1,4 +1,4 @@
-Si necesita revisar los resultados de la implementación, incluida la salida de script de implementación personalizada, vaya a la página **IMPLEMENTACIONES** del Portal de Azure.
+Si necesita revisar el resultado de la implementación, incluida la salida del script de implementación personalizada, navegue a la página **IMPLEMENTACIONES** de Azure Portal.
 
 Expanda la implementación deseada:
 
@@ -8,4 +8,8 @@ Haga clic en **Ver registro** para ver la salida del script de implementación p
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

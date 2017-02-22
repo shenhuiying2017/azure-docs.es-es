@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure Data Factory: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a usar Data Factory para configurar canalizaciones de datos automatizadas entre recursos locales y en la nube para mover y procesar datos para el análisis."
+services: data-factory
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-factory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 5742326de5bbe91340df69402bc551f87dafca78
+ms.sourcegitcommit: 7e5e1b41828d0c3d81f5594609910ecdba02a249
+ms.openlocfilehash: 9e9a23f8ddcff428b45f08ab001489d00b3ed7a9
 
 ---
 # <a name="azure-data-factory-documentation"></a>Documentación de Azure Data Factory
 
-Azure Data Factory es un servicio de integración de datos basado en la nube que automatiza el movimiento y la transformación de datos. Este servicio crea soluciones de integración de datos que pueden ingerir datos de distintos almacenes, transformar y procesar los datos, y publicar los datos resultantes en los almacenes de datos.
+Aprenda a usar Data Factory, un servicio de integración de datos en la nube, para crear servicios de almacenamiento, traslado y procesamiento de datos en canalizaciones de datos automatizadas. En los tutoriales y otra documentación, se muestra cómo configurar y administrar canalizaciones de datos, además de cómo mover y transformar datos para el análisis.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -107,7 +119,6 @@ Azure Data Factory es un servicio de integración de datos basado en la nube que
                     <div class="cardText">
                         <h3>Idiomas</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
-                        <p><a href="/azure/data-factory/data-factory-sdks">Referencia para desarrolladores de Factoría de datos de Azure</a></p>
                    </div>
                 </div>
             </div>
@@ -127,18 +138,9 @@ Azure Data Factory es un servicio de integración de datos basado en la nube que
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Data Factory </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

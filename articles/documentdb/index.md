@@ -1,13 +1,26 @@
 ---
+title: "Documentación sobre Azure DocumentDB: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a usar DocumentDB, una base de datos de documentos NoSQL sin esquemas. Los tutoriales muestran cómo integrarlo con aplicaciones y usar consultas SQL en documentos JSON."
+services: documentdb
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
-ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>Documentación de DocumentDB
 
-Azure DocumentDB es un servicio de base de datos NoSQL totalmente administrado compilado para obtener un rendimiento rápido y predecible, alta disponibilidad, escalado elástico, distribución global y facilidad de desarrollo. El ser una base de datos NoSQL sin esquemas, DocumentDB proporciona funcionalidades de consulta SQL enriquecidas y familiares con latencias bajas consistentes de datos JSON.
+Aprenda a usar DocumentDB en aplicaciones de alto rendimiento para entornos web, móviles, de IoT y de juegos. Los tutoriales y otra documentación muestran cómo almacenar datos de JSON y a realizar consultas SQL mediante el esquema flexible de este servicio de base de datos NoSQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -176,40 +189,43 @@ Azure DocumentDB es un servicio de base de datos NoSQL totalmente administrado c
 
 ---
 
-## <a name="reference"></a>Referencia
+<h2>Referencia</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Idiomas</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">API DE REST</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">API de REST del proveedor de recursos</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-### <a name="java"></a>Java
-[Referencia de SDK de Java](http://azure.github.io/azure-documentdb-java)
-
-### <a name="net"></a>.NET
-[Referencia administrada de .NET](https://msdn.microsoft.com/library/azure/dn948556)
-
-### <a name="node"></a>Nodo
-[Referencia de SDK de Node](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### <a name="python"></a>Python
-[Referencia de Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### <a name="sql"></a>SQL
-[Referencia de SQL](https://msdn.microsoft.com/library/azure/dn782250)
-
-### <a name="rest"></a>REST
-[Referencia de API de REST](/rest/api/documentdb)
-
-[Referencia de API de proveedor de recursos](/rest/api/documentdbresourceprovider)
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descarga de la documentación de DocumentDB </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

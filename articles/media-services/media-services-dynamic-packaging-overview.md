@@ -1,5 +1,5 @@
 ---
-title: "Introducción al empaquetado dinámico | Microsoft Docs"
+title: "Introducción al empaquetado dinámico de Azure Media Services | Microsoft Docs"
 description: "El tema proporciona información general sobre el empaquetado dinámico."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8de073bbd9da8cd722eb0ebdb7140dbd15509fe6
+ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
+ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
 
 
 ---
@@ -34,10 +34,6 @@ El diagrama siguiente muestra el flujo de trabajo de empaquetado dinámico.
 
 ![Codificación dinámica](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-> [!NOTE]
-> Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="common-scenario"></a>Escenario común
 1. Cargar un archivo de entrada (llamado archivo intermedio). Por ejemplo, H.264, MP4 o WMV (para obtener la lista de formatos compatibles, vea [Formatos de Media Encoder Standard](media-services-media-encoder-standard-formats.md)).
@@ -67,6 +63,6 @@ El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

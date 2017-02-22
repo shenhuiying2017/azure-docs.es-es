@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 2939e7450c9ce80317ada770fd95f0e9950a58af
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: ebdd4df0bd990ee37cb173da8c1f38b60d203158
 
 
 ---
@@ -38,7 +38,7 @@ En este artículo se supone que tiene los siguientes elementos:
 > [!NOTE]
 > el reciente formato VHDX no se admite en Azure. Al crear una máquina virtual, especifique un VHD como formato. Si es necesario, puede convertir discos VHDX a VHD mediante [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) o el cmdlet de PowerShell [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). Además, Azure no permite cargar VHD dinámicos, por lo que tendrá que convertir estos discos a VHD estáticos antes de cargarlos. Puede usar herramientas como, por ejemplo, [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para convertir discos dinámicos durante el proceso de carga en Azure.
 
-* **Interfaz de la línea de comandos de Azure** : instale la [interfaz de la línea de comandos de Azure](../virtual-machines-command-line-tools.md) más reciente para cargar el archivo VHD.
+* **Interfaz de la línea de comandos de Azure** : instale la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) más reciente para cargar el archivo VHD.
 
 <a id="prepimage"> </a>
 
@@ -109,7 +109,7 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 Para crear sus propias VM, proporcione su propio nombre de usuario + contraseña, la ubicación, el nombre DNS y el nombre de imagen.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información, consulte [Referencia de la CLI de Azure para el modelo de implementación clásica de Azure](../virtual-machines-command-line-tools.md).
+Para obtener más información, consulte [Referencia de la CLI de Azure para el modelo de implementación clásica de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
@@ -117,6 +117,6 @@ Para obtener más información, consulte [Referencia de la CLI de Azure para el 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

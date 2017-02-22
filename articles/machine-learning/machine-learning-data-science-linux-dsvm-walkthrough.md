@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d803210e6599d9725a34cda5a3bd873cda14a490
+ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
+ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
 
 
 ---
@@ -182,7 +182,7 @@ Vamos a probar un modelo de bosque aleatorio. Los bosques aleatorios entrenan mu
 ## <a name="deploy-a-model-to-azure-ml"></a>Implementación de un modelo en Azure ML
 [Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) es un servicio en la nube que permite la creación e implementación de forma fácil de modelos de análisis predictivo. Una de las interesantes características de AzureML es la posibilidad de publicar cualquier función de R como un servicio web. El paquete de R de AzureML permite realizar la implementación de forma fácil, justo desde nuestra sesión en la DSVM.
 
-Para implementar el código del árbol de decisiones de la sección anterior, debe iniciar sesión en Azure Machine Learning Studio. Necesita el id. del área de trabajo y un token de autorización para iniciar sesión. Para encontrar estos valores e inicializar las variables de AzureML con ellos:
+Para implementar el código del árbol de decisiones de la sección anterior, debe iniciar sesión en Azure Machine Learning Studio. Necesita el identificador del área de trabajo y un token de autorización para iniciar sesión. Para encontrar estos valores e inicializar las variables de AzureML con ellos:
 
 Seleccione **Configuración** en el menú izquierdo. Anote su **WORKSPACE ID**(ID DE ÁREA DE TRABAJO). ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 
@@ -533,6 +533,6 @@ Para ver una descripción de otros tutoriales completos que demuestren los pasos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

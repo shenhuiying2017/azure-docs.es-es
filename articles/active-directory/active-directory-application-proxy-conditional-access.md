@@ -1,5 +1,5 @@
 ---
-title: "Acceso condicional para aplicaciones publicadas con el proxy de la aplicación de Azure AD"
+title: 'Acceso condicional a aplicaciones locales: Azure AD | Microsoft Docs'
 description: "Explica cómo configurar el acceso condicional para que se tenga acceso remoto con el proxy de la aplicación de Azure AD a las aplicaciones que se publiquen."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b1ec45073a7d9abb7eb12c009ce60357a0d1545
+ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
+ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
 
 
 ---
-# <a name="working-with-conditional-access"></a>Uso de acceso condicional
+# <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Trabajo con acceso condicional en el proxy de la aplicación de Azure AD
 Ahora puede configurar reglas de acceso para conceder acceso condicional a las aplicaciones publicadas con el proxy de aplicación. Esto le permite:
 
 * Exigir la autenticación multifactor por aplicación
@@ -43,11 +43,11 @@ Cuando un usuario tiene acceso a una aplicación federada que usa OAuth 2.0, Ope
 3. Haga clic en **Aplicaciones** y desplácese hacia abajo hasta la sección **Reglas de acceso**. La sección Reglas de acceso solo aparece para aplicaciones publicadas con el proxy de la aplicación que usa autenticación federada.
 4. Habilite la regla seleccionando **Habilitar reglas de acceso** como **Activada**.
 5. Especifique los usuarios y grupos a los que se aplican las reglas. Use el botón **Agregar grupo** para seleccionar uno o más grupos a los que se aplicará la regla de acceso. Este cuadro de diálogo también sirve para quitar grupos seleccionados.  Cuando las reglas se seleccionan para que se apliquen a grupos, las reglas de acceso solo se aplicarán a los usuarios que pertenezcan a uno de los grupos de seguridad especificados.  
-   
+
    * Para excluir explícitamente grupos de seguridad de la regla, active **Excepto** y especifique uno o más grupos. No se requerirá a los usuarios que sean miembros de un grupo de la lista Excepto que realicen autenticación multifactor.  
    * Si un usuario se configuró con la característica de autenticación multifactor por usuario, esta configuración tendrá prioridad sobre las reglas de autenticación multifactor de la aplicación. Esto significa que un usuario configurado con Multi-Factor Authentication por usuario tendrá que realizar autenticación multifactor aunque esté exento de las reglas de autenticación multifactor de la aplicación. Obtenga más información sobre [Multi-Factor Authentication y la configuración por usuario](../multi-factor-authentication/multi-factor-authentication.md).
 6. Seleccione la regla de acceso que quiere establecer:
-   
+
    * **Requerir autenticación multifactor**: los usuarios a los que se apliquen reglas de acceso tendrán que llevar a cabo autenticación multifactor para tener acceso a la aplicación a la que se aplica la regla.
    * **Requerir autenticación multifactor fuera del trabajo**: los usuarios que intenten tener acceso a la aplicación desde una dirección IP de confianza no tendrán que realizar autenticación multifactor. Los intervalos de direcciones IP de confianza pueden configurarse en la página de configuración de Multi-Factor Authentication.
    * **Bloquear acceso cuando no está en trabajo**: los usuarios que intentan obtener acceso a la aplicación desde fuera de su red corporativa no podrán tener acceso a la aplicación.
@@ -69,7 +69,6 @@ Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

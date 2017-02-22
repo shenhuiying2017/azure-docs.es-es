@@ -6,7 +6,7 @@
 | Tipo de instancia de proceso |Compartido |Compartido |Dedicado<sup>3</sup> |Dedicado<sup>3</sup> |Dedicado<sup>3</sup></p> |
 | [Escalado horizontal](../articles/app-service-web/web-sites-scale.md) (instancias máximas) |1 compartido |1 compartido |3 dedicados<sup>3</sup> |10 dedicados<sup>3</sup> |20 dedicados (50 en ASE)<sup>3.4</sup> |
 | Almacenamiento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
-| Tiempo de CPU (corto)<sup>6</sup> |3 minutos |3 minutos |Sin límite, se paga según las [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> estándar. |Sin límite, se paga según las tarifas estándar |Sin límite, se paga según las tarifas estándar |
+| Tiempo de CPU (5 min)<sup>6</sup> |3 minutos |3 minutos |Sin límite, se paga según las [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> estándar. |Sin límite, se paga según las tarifas estándar |Sin límite, se paga según las tarifas estándar |
 | Tiempo de CPU (día)<sup>6</sup> |60 minutos |240 minutos |Sin límite, se paga según las [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> estándar. |Sin límite, se paga según las tarifas estándar |Sin límite, se paga según las tarifas estándar |
 | Memoria (1 hora) |1.024 MB por plan de Servicio de aplicaciones |1.024 MB por aplicación |N/D |N/D |N/D |
 | Ancho de banda |165 MB |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican tasas por transferencia de datos. |Ilimitado; se aplican tasas por transferencia de datos. |Ilimitado; se aplican tasas por transferencia de datos. |
@@ -23,7 +23,7 @@
 | [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Compatibilidad con Programador de Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |
 | [Supervisión de extremos](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
-| [Ranuras de ensayo (vista previa)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
+| [Ranuras de ensayo](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Dominios personalizados por aplicación</a> | |500 |500 |500 |500 |
 | Contrato de nivel de servicio | |<p> |99,9 % |99,95%<sup>10</sup> |99,95%<sup>10</sup> |
 
@@ -40,6 +40,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

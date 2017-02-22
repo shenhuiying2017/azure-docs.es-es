@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: f6f894157a31641b1d0294e84795563c727caaac
+ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
+ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
 
 
 ---
-# <a name="operations-monitoring"></a>Supervisión de operaciones
+# <a name="iot-hub-operations-monitoring"></a>IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)
 La supervisión de operaciones del Centro de IoT permite supervisar el estado de las operaciones de su Centro de IoT en tiempo real. IoT Hub realiza el seguimiento de eventos a través de varias categorías de operaciones. Se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.
 
-El Centro de IoT supervisa cinco categorías de eventos:
+IoT Hub supervisa seis categorías de eventos:
 
 * Operaciones de identidad de dispositivos
 * Telemetría de dispositivo
 * Mensajes de nube a dispositivo
 * Conexiones
 * Cargas de archivos
+* Enrutamiento de mensajes
 
 ## <a name="how-to-enable-operations-monitoring"></a>Habilitación de la supervisión de operaciones
 1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear un centro de IoT en la guía [Introducción][lnk-get-started].
@@ -39,6 +40,9 @@ El Centro de IoT supervisa cinco categorías de eventos:
 3. Seleccione las categorías que desea supervisar y luego haga clic en **Guardar**. Los eventos están disponibles para su lectura desde el punto de conexión compatible con el Centro de eventos que aparece en **Configuración de supervisión**. El punto de conexión del Centro de IoT se denomina `messages/operationsmonitoringevents`.
    
     ![][2]
+
+> [!NOTE]
+> Al seleccionar el tipo de supervisión **Detallado** en la categoría **Conexiones**, IoT Hub generará más mensajes de diagnóstico. Para el resto de las categorías, la configuración **Detallado** cambia la cantidad de información que IoT Hub incluye en cada mensaje de error.
 
 ## <a name="event-categories-and-how-to-use-them"></a>Categorías de eventos y su uso
 Cada categoría de supervisión de operaciones realiza el seguimiento de un tipo diferente de interacción con el Centro de IoT, y cada categoría de supervisión tiene un esquema que define cómo se estructuran los eventos de esa categoría.
@@ -144,6 +148,22 @@ Tenga en cuenta que esta categoría no puede detectar los errores que se produce
          "durationMs": 1234
     }
 
+### <a name="message-routing"></a>Enrutamiento de mensajes
+La categoría de enrutamiento de mensajes realiza un seguimiento de los errores que se producen durante la evaluación de este proceso y el estado del punto de conexión según lo que observa IoT Hub. Esta categoría incluye eventos, como cuando una regla se evalúa como "sin definir", cuando IoT Hub marca un punto de conexión como inactivo y todos los errores recibidos de un punto de conexión. Tenga en cuenta que esta categoría no incluye errores específicos de los mensajes (por ejemplo, de limitación del dispositivo), que se notifican en la categoría de telemetría de dispositivo.
+        
+    {
+        "messageSizeInBytes": 1234,
+        "time": "UTC timestamp",
+        "operationName": "ingress",
+        "category": "routes",
+        "level": "Error",
+        "deviceId": "device-ID",
+        "messageId": "ID of message",
+        "routeName": "myroute",
+        "endpointName": "myendpoint",
+        "details": "ExternalEndpointDisabled"
+    }
+
 ## <a name="next-steps"></a>Pasos siguientes
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
@@ -164,6 +184,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

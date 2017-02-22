@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
 
 
 ---
@@ -59,7 +59,7 @@ El sistema consta de los siguientes componentes:
 
 ## <a name="create-service-instance"> </a>Creación de una instancia de Administración de API
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
+> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para más información, consulte la [evaluación gratuita de Azure][Azure Free Trial].
 > 
 > 
 
@@ -74,7 +74,7 @@ Elija la **Suscripción**, el **Grupo de recursos** y la **Ubicación** que dese
 Escriba **Contoso Ltd.** para **Nombre de la organización** y especifique su dirección de correo electrónico en el campo **Correo electrónico del administrador**.
 
 > [!NOTE]
-> Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para obtener más información, vea [Configuración de notificaciones y plantillas de correo electrónico en API Management de Azure][Configuración de notificaciones y plantillas de correo electrónico en API Management de Azure].
+> Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para más información, consulte [Configuración de notificaciones y plantillas de correo electrónico en Azure API Management][How to configure notifications and email templates in Azure API Management].
 > 
 > 
 
@@ -83,7 +83,7 @@ Escriba **Contoso Ltd.** para **Nombre de la organización** y especifique su di
 Las instancias de servicio de Administración de API están disponibles en tres niveles: Desarrollador, Estándar y Premium.
 
 > [!NOTE]
-> El nivel de desarrollador está orientado al desarrollo, las pruebas y los programas de API piloto para los que la disponibilidad no es un problema. En el nivel Estándar y Premium, puede escalar el número de unidades reservadas para administrar más tráfico. Los niveles Estándar y Premium proporcionan al servicio Administración de API la mayor potencia de procesamiento y rendimiento. Puede completar este tutorial mediante cualquier nivel. Para obtener más información acerca de los niveles de API Management, consulte [Precios de API Management][Precios de API Management].
+> El nivel de desarrollador está orientado al desarrollo, las pruebas y los programas de API piloto para los que la disponibilidad no es un problema. En el nivel Estándar y Premium, puede escalar el número de unidades reservadas para administrar más tráfico. Los niveles Estándar y Premium proporcionan al servicio Administración de API la mayor potencia de procesamiento y rendimiento. Puede completar este tutorial mediante cualquier nivel. Para más información acerca de los niveles de API Management, consulte [Precios de API Management][API Management pricing].
 > 
 > 
 
@@ -199,26 +199,26 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 ## <a name="next-steps"> </a>Pasos siguientes
 * Aprenda a [Proteger su API con límites de tarifa](api-management-howto-product-with-rules.md).
 
-[Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Creación de una instancia de Administración de API]: #create-service-instance
-[Creación de una API]: #create-api
-[Agregar una operación]: #add-operation
-[Agregar la nueva API al producto]: #add-api-to-product
-[Suscripción al producto que contiene la API]: #subscribe
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
 [Call an operation from the Developer Portal]: #call-operation
-[Visualización de análisis]: #view-analytics
-[Pasos siguientes]: #next-steps
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
 
 
-[Administración de cuentas de usuario en Azure API Management]: api-management-howto-create-or-invite-developers.md
-[Definición de la configuración de la API]: api-management-howto-create-apis.md#configure-api-settings
-[Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure]: api-management-howto-configure-notifications.md
-[Respuestas]: api-management-howto-add-operations.md#responses
-[Creación y publicación de un producto]: api-management-howto-add-products.md
-[Precios de Administración de API]: http://azure.microsoft.com/pricing/details/api-management/
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -257,6 +257,6 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
+ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Introducción a Almacenamiento de archivos de Azure en Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ Para más información acerca de los objetivos de rendimiento y escalabilidad de
 ## <a name="video-using-azure-file-storage-with-windows"></a>Vídeo: Uso del almacenamiento de archivos de Azure con Windows
 Éste es un vídeo que muestra cómo crear y usar recursos compartidos de archivos de Azure en Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -602,49 +602,61 @@ Además, puede hacer referencia al [artículo de solución de problemas de archi
    
     En la actualidad no se admite la autenticación basada en AD ni las ACL, pero se admitirá en un futuro cercano. Por ahora, las claves de las cuentas de Almacenamiento de Azure se usan para proporcionar autenticación al recurso compartido de archivos. La solución alternativa es usar las firmas de acceso compartido (SAS) a través de la API de REST o de las bibliotecas de cliente. Con SAS se pueden generar tokens con permisos específicos que son válidos durante un intervalo especificado. Por ejemplo, se puede generar un token con acceso de solo lectura a un archivo dado. Todos los usuarios que posean dicho token, mientras tenga validez, tendrán acceso de solo lectura al archivo.
    
-    SAS solo se admite a través de la API de REST o de las bibliotecas de cliente. Si el recurso compartido de archivos se monta a través del protocolo SMB, no se puede usar una SAS para delegar el acceso a su contenido.
-2. **¿Se pueden ver los recursos compartidos de archivos de Azure públicamente en Internet o solos se puede acceder a ellos desde Azure?**
-   
-    Mientras el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (*p. ej.*, Windows 8 o Windows Server 2012), el recurso compartido de archivos estará disponible a través de Internet.  
-3. **¿Cuenta el tráfico de red entre una máquina virtual de Azure y un número de recursos compartidos de archivos como ancho de banda externo que se carga a la suscripción?**
+    SAS solo se admite a través de la API de REST o de las bibliotecas de cliente. Si el recurso compartido de archivos se monta a través del protocolo SMB, no se puede usar una SAS para delegar el acceso a su contenido. 
+
+2. **¿Cómo se puede proporcionar acceso a un archivo específico a través de un explorador web?**
+   Con SAS se pueden generar tokens con permisos específicos que son válidos durante un intervalo especificado. Por ejemplo, puede generar un token con acceso de solo lectura a un archivo determinado para un período de tiempo específico. Cualquier persona que posea esta dirección URL puede realizar la descarga directamente desde cualquier explorador web mientras sea válido. Las claves SAS se pueden generar fácilmente desde una interfaz de usuario, como el Explorador de Storage.
+
+3.   **¿Cuáles son las diferentes formas de acceder a los archivos de Azure File Storage?**
+    Puede montar el recurso compartido de archivos en la máquina local mediante el protocolo SMB 3.0 o usar herramientas como el [Explorador de Storage](http://storageexplorer.com/) o Cloudberry para acceder a los archivos en el recurso compartido de archivos. Desde su aplicación, puede usar las bibliotecas de cliente, la API de REST o Powershell para acceder a los archivos en el recurso compartido de archivos de Azure.
+    
+4.   **¿Cómo puedo montar un recurso compartido de archivos de Azure en mi máquina local?** Puede montar el recurso compartido de archivos a través del protocolo SMB siempre que el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (*p. ej.*, Windows 8 o Windows Server 2012). Trabaje con su proveedor de ISP local para desbloquear el puerto. Mientras tanto, puede ver los archivos con el Explorador de Storage u otras aplicaciones de terceros como Cloudberry.
+
+5. **¿Cuenta el tráfico de red entre una máquina virtual de Azure y un número de recursos compartidos de archivos como ancho de banda externo que se carga a la suscripción?**
    
     Si el recurso compartido de archivos y la máquina virtual se encuentran en distintas regiones, el tráfico entre ellos se cargará como ancho de banda externo.
-4. **Si el tráfico de red se produce entre una máquina virtual y un recurso compartido de archivos de la misma región, ¿es gratuito?**
+6. **Si el tráfico de red se produce entre una máquina virtual y un recurso compartido de archivos de la misma región, ¿es gratuito?**
    
     Sí. Es gratis si el tráfico se produce en la misma región.
-5. **¿Depende la conexión entre máquinas virtuales locales y el almacenamiento de archivos de Azure de Azure ExpressRoute?**
+7. **¿Depende la conexión entre máquinas virtuales locales y el almacenamiento de archivos de Azure de Azure ExpressRoute?**
    
     No. Aunque no se disponga ExpressRoute, es posible acceder al recurso compartido de archivos de forma local, siempre que el puerto 445 (salida TCP) esté abierto para el acceso a Internet. Sin embargo, si se desea, es posible usar ExpressRoute con el almacenamiento de archivos.
-6. **¿Es un "testigo del recurso compartido de archivos" para un clúster de conmutación por error uno de los casos de uso del almacenamiento de archivos de Azure?**
+8. **¿Es un "testigo del recurso compartido de archivos" para un clúster de conmutación por error uno de los casos de uso del almacenamiento de archivos de Azure?**
    
     En la actualidad no se admite.
-7. **En la actualidad, el almacenamiento de archivos solo se replica a través de LRS o GRS, ¿es así?**  
+9. **En la actualidad, el almacenamiento de archivos solo se replica a través de LRS o GRS, ¿es así?**  
    
     Está previsto que RA-GRS se admite, pero aún no se puede indicar ninguna fecha.
-8. **¿Cuándo se podrán usar las cuentas de almacenamiento existentes con el almacenamiento de archivos de Azure?**
+10. **¿Cuándo se podrán usar las cuentas de almacenamiento existentes con el almacenamiento de archivos de Azure?**
    
     El almacenamiento de archivos de Azure ya está habilitado para todas las cuentas de almacenamiento.
-9. **¿Se agregará también una operación de cambio de nombre a la API de REST?**
+11. **¿Se agregará también una operación de cambio de nombre a la API de REST?**
    
     La operación de cambio de nombre aún no se admite en la API de REST.
-10. **¿Es posible tener recursos compartidos anidados, es decir, un recurso compartido en un recurso compartido?**
+12. **¿Es posible tener recursos compartidos anidados, es decir, un recurso compartido en un recurso compartido?**
     
     No. El recurso compartido de archivos es el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
-11. **¿Es posible especificar permisos de solo lectura o solo escritura en las carpetas del recurso compartido?**
+13. **¿Es posible especificar permisos de solo lectura o solo escritura en las carpetas del recurso compartido?**
     
     Si el recurso compartido de archivos se monta a través de SMB, no se tiene este nivel de control sobre los permisos. Sin embargo, se puede lograr. Para ello, es preciso crear una firma de acceso compartido (SAS) mediante la API de REST o las bibliotecas de cliente.  
-12. **Mi rendimiento era lento al intentar descomprimir archivos en el almacenamiento de archivos. ¿qué debo hacer?**
+14. **Mi rendimiento era lento al intentar descomprimir archivos en el almacenamiento de archivos. ¿qué debo hacer?**
     
     Para transferir una gran cantidad de archivos al almacenamiento de archivos es aconsejable usar AzCopy, Azure Powershell (Windows) o la CLI de Azure (Linux/Unix), ya que estas herramientas se optimizaron para la transferencia a través de red.
-13. **Revisión publicada para corregir el problema de rendimiento lento con archivos de Azure**
+15. **Revisión publicada para corregir el problema de rendimiento lento con archivos de Azure**
     
     El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para más información, consulte el artículo asociado de Knowledge Base, [Rendimiento lento en el acceso a Azure Files Storage desde Windows 8.1 o Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
-14. **Uso del Almacenamiento de archivos de Azure con IBM MQ**
+16. **Uso del Almacenamiento de archivos de Azure con IBM MQ**
     
     IBM ha publicado un documento para guiar a los clientes de IBM MQ a la hora de configurar el Almacenamiento de archivos de Azure con su servicio. Para más información, consulte [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)(Configuración del administrador de colas de varias instancias de IBM MQ con el servicio de archivos de Microsoft Azure).
-15. **¿Cómo se pueden solucionar los errores de Azure File Storage?**
+17. **¿Cómo se pueden solucionar los errores de Azure File Storage?**
     
     Puede hacer referencia al [artículo de solución de problemas de archivos de Azure](storage-troubleshoot-file-connection-problems.md) para ver una guía completa de solución de problemas.               
+
+18. **¿Cómo se puede habilitar el cifrado en el servidor para Azure Files?**
+
+    [El cifrado en el lado de servidor](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) está actualmente en versión preliminar. Durante la versión preliminar, la característica solo puede habilitarse para las cuentas de almacenamiento de Azure Resource Manager (ARM) recién creadas.
+    Puede habilitar esta característica en la cuenta de almacenamiento de Azure Resource Manager mediante Azure Portal. A finales de febrero, tenemos previsto habilitar el cifrado en [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [CLI de Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) o [la API de proveedor de recursos de Microsoft Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) para el almacenamiento de archivos. No se aplica ningún cargo adicional por habilitar esta característica. Cuando se habilita Storage Service Encryption para Azure File Storage, los datos se cifran automáticamente. 
+    Encuentre más información sobre Storage Service Encryption. También puede ponerse en contacto con ssediscussions@microsoft.com si tiene preguntas adicionales sobre la versión preliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
@@ -657,6 +669,7 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 * [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)
 * [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md)
 * [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md#create-and-manage-file-shares)
+* [Solución de problemas de Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referencia
 * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -670,6 +683,6 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

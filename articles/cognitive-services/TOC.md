@@ -16,7 +16,7 @@
 ### [Recolección de datos de aprendizaje](cognitive-services-recommendations-collecting-data.md)
 ### [Tipos de compilación y calidad de modelo](cognitive-services-recommendations-buildtypes.md)
 ### [Puntuación de Batch](cognitive-services-recommendations-batch-scoring.md)
-### [Uso de Recommendations UI](cognitive-services-recommendations-ui-intro.md)
+### [Uso de la interfaz de usuario de Recommendations](cognitive-services-recommendations-ui-intro.md)
 
 ## Desarrollo con Speaker Recognition API
 ### [Información general acerca de la API](https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation)
@@ -45,7 +45,7 @@
 ## [Desarrollo con Language Understanding Intelligence Service](https://www.luis.ai/Help/)
 
 # Referencia
-## [Cmdlets de PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Recursos 
@@ -54,6 +54,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

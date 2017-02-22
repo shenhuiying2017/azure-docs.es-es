@@ -1,6 +1,6 @@
 ---
-title: "Uso de métodos directos | Microsoft Docs"
-description: "En este tutorial se muestra cómo usar métodos directos"
+title: "Métodos directos de IoT Hub de Azure (Node) | Microsoft Docs"
+description: "Describe cómo usar los métodos directos de IoT Hub de Azure. Usará los SDK de IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo y un servicio que invoque el método directo."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 52eb502054120af4c03c649dee810366f99d326b
 
 
 ---
-# <a name="tutorial-use-direct-methods"></a>Tutorial: Uso de métodos directos
+# <a name="use-direct-methods-node"></a>Uso de métodos directos (Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
@@ -45,7 +45,7 @@ Para completar este tutorial, necesitará lo siguiente:
 ## <a name="create-a-simulated-device-app"></a>Creación de una aplicación de dispositivo simulado
 En esta sección, creará una aplicación de consola de Node.js que responda a un método que llama desde la nube.
 
-1. Cree una nueva carpeta vacía denominada **simulateddevice**. En la carpeta **simulateddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+1. Cree una nueva carpeta vacía denominada **simulateddevice**. En la carpeta **simulateddevice**, cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
    
     ```
     npm init
@@ -64,7 +64,7 @@ En esta sección, creará una aplicación de consola de Node.js que responda a u
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{device connection string}** por la cadena conexión que generó en la sección sobre cómo *crear una identidad de dispositivo*:
+5. Agregue una variable **connectionString** y utilícela para crear una instancia de **DeviceClient**. Reemplace **{device connection string}** por la cadena conexión de dispositivo que generó en la sección sobre cómo *crear una identidad de dispositivo*:
    
     ```
     var connectionString = '{device connection string}';
@@ -125,7 +125,7 @@ En esta sección, creará una aplicación de consola de Node.js que llame a un m
    
     var Client = require('azure-iothub').Client;
     ```
-5. Agregue la siguiente declaración de variable y sustituya el valor de marcador de posición por la cadena de conexión para su Centro de IoT:
+5. Agregue la siguiente declaración de variable y sustituya el valor de marcador de posición por la cadena de conexión de IoT Hub para su centro:
    
     ```
     var connectionString = '{iothub connection string}';
@@ -167,7 +167,7 @@ Ya está preparado para ejecutar las aplicaciones.
     ```
    
     ![][7]
-2. En un símbolo del sistema, en la carpeta **callmethodondevice**, ejecute el siguiente comando para empezar la supervisión del centro de IoT:
+2. En un símbolo del sistema, en la carpeta **callmethodondevice**, ejecute el siguiente comando para empezar la supervisión del centro de IoT Hub:
    
     ```
     node CallMethodOnDevice.js 
@@ -196,7 +196,7 @@ Para información sobre cómo ampliar la solución de IoT y programar llamadas d
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -213,6 +213,6 @@ Para información sobre cómo ampliar la solución de IoT y programar llamadas d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

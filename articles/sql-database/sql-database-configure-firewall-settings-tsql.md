@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/07/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
-ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
+ms.sourcegitcommit: b80b3240cdc4917c0b7be8868e75feaf1efc24cc
+ms.openlocfilehash: c6ddae85ef44bd91ca33d99e8194bc87a0081df3
 
 
 ---
@@ -39,7 +39,7 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
 > 
 
 ## <a name="server-level-firewall-rules"></a>Reglas de firewall de nivel de servidor
-Para crear una regla de firewall de nivel de servidor mediante Transact-SQL, debe ser el administrador de Azure Active Directory o usar el inicio de sesión de la entidad de seguridad de nivel de servidor.
+Para crear una regla de firewall de nivel de servidor mediante Transact-SQL, debe ser el administrador de Azure Active Directory o usar el inicio de sesión de administrador del servidor de Azure SQL.
 
 1. Inicie una ventana de consulta y conéctese a la base de datos maestra virtual mediante SQL Server Management Studio.
 2. Las reglas de firewall de nivel de servidor se pueden seleccionar, crear, actualizar o eliminar desde dentro de la ventana de consulta.
@@ -61,7 +61,7 @@ Para crear una regla de firewall de nivel de servidor mediante Transact-SQL, deb
 ## <a name="database-level-firewall-rules"></a>Reglas de firewall de nivel de base de datos
 Solo un usuario de base de datos con el permiso **CONTROL** en la base de datos (como su propietario) puede crear una regla de firewall de nivel de base de datos.
 
-1. Después de crear un firewall de nivel de servidor para la dirección IP, inicie una ventana de consulta a través del Portal clásico o mediante SQL Server Management Studio.
+1. Después de crear un firewall de nivel de servidor para la dirección IP, inicie una ventana de consulta a través de Azure Portal o mediante SQL Server Management Studio.
 2. Conéctese a la base de datos para la que desea crear una regla de firewall de nivel de base de datos.
    
     Para crear una nueva regla de firewall de nivel de base de datos o actualizar una existente, ejecute el procedimiento almacenado `sp_set_database_firewall_rule` . En el ejemplo siguiente se crea una nueva regla de firewall llamada ContosoFirewallRule.
@@ -99,6 +99,6 @@ Para saber cómo obtener acceso a las bases de datos, consulte [Manage database 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

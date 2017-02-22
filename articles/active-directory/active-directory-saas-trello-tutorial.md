@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5af430daa609f1838c640949f535f1d84cbe5f13
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 36cc4206b81312f8f4ff287cd36d9dba56611fde
 
 
 ---
@@ -61,19 +61,25 @@ Para configurar la integración de Trello en Azure AD, deberá agregar Trello de
 1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**. 
    
     ![Active Directory][1]
+
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
     ![Applications][2]
+
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
     ![Aplicaciones][3]
+
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
     ![Aplicaciones][4]
+
 6. En el cuadro de búsqueda, escriba **Trello**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_01.png)
+
 7. En el panel de resultados, seleccione **Trello** y haga clic en **Completar** para agregar la aplicación.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_02.png)
@@ -102,6 +108,7 @@ La aplicación de Trello espera que las aserciones SAML contengan un atributo de
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Trello**, en el menú de la parte superior, haga clic en **Atributos**.
    
     ![Configurar inicio de sesión único][5]
+
 2. En el cuadro de diálogo **Atributos de token de SAML** , para cada fila de la tabla siguiente, realice los pasos que se indican a continuación:
 
     | Nombre del atributo | Valor de atributo |
@@ -123,12 +130,15 @@ La aplicación de Trello espera que las aserciones SAML contengan un atributo de
 1. En el menú de la parte superior, haga clic en **Inicio rápido**.
    
     ![Configurar inicio de sesión único][6]
+
 2. En el portal clásico, en la página de integración de aplicaciones de **Trello**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único][7] 
+
 3. En la página **¿Cómo desea que los usuarios inicien sesión en Trello?**, seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-trello-tutorial/tutorial_trello_06.png)
+
 4. En la página de diálogo **Configurar las opciones de la aplicación**, si desea configurar la aplicación en el **modo iniciado por el proveedor de identidades**, siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-trello-tutorial/tutorial_trello_07.png)
@@ -137,10 +147,10 @@ La aplicación de Trello espera que las aserciones SAML contengan un atributo de
 
     b. Haga clic en **Siguiente**.
 
-> [!NOTE]
-> Debe obtener el campo de datos dinámico **\<enterprise\>** desde Trello. Si no tiene el valor del campo de datos dinámico, póngase en contacto con el equipo de soporte Trello <mailto:support@trello.com> para obtenerlo.
-> 
-> 
+    > [!NOTE]
+    > Debe obtener el campo de datos dinámico **\<enterprise\>** desde Trello. Si no tiene el valor del campo de datos dinámico, póngase en contacto con el equipo de soporte Trello <mailto:support@trello.com> para obtenerlo.
+    > 
+    > 
 
 1. Si quiere configurar la aplicación en el **modo iniciado por el proveedor de servicios**, en la página de diálogo **Configurar las opciones de la aplicación**, haga clic en **"Mostrar la configuración avanzada (opcional)"** y escriba la **URL de inicio de sesión**.
    
@@ -149,13 +159,16 @@ La aplicación de Trello espera que las aserciones SAML contengan un atributo de
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://trello.com/auth/saml/consume/<enterprise>`.
    
     b. Haga clic en **Siguiente**
+
 2. En la página **Configuración de inicio de sesión único en Trello**, haga clic en **Descargar certificado** y guarde el archivo de certificado en el equipo.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-trello-tutorial/tutorial_trello_09.png)
+
 3. Con el fin de que se configure el inicio de sesión único para la aplicación, vaya a la página de [configuración de SSO empresarial de Trello](https://trello.com/sso-configuration) para enviar la URL de inicio de sesión al equipo Trello y adjuntar el certificado descargado.
 4. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
+
 5. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
@@ -170,13 +183,17 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_09.png) 
+
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+
 3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png) 
+
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png) 
+
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_05.png) 
@@ -186,22 +203,25 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
     b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
    
     c. Haga clic en **Siguiente**.
+
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_06.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_07.png) 
+
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_08.png) 
@@ -223,12 +243,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
    
     ![Asignar usuario][201] 
+
 2. En la lista de aplicaciones, seleccione **Trello**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-trello-tutorial/tutorial_trello_10.png) 
+
 3. En el menú de la parte superior, haga clic en **Usuarios**.
    
     ![Asignar usuario][203] 
+
 4. En la lista Todos los usuarios, seleccione **Britta Simon**.
 5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
    
@@ -266,6 +289,6 @@ Al hacer clic en el icono de Trello en el panel de acceso, debería iniciar sesi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

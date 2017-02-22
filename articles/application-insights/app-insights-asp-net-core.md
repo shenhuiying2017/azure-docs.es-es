@@ -1,5 +1,5 @@
 ---
-title: Application Insights para ASP.NET Core | Microsoft Docs
+title: Azure Application Insights para ASP.NET Core | Microsoft Docs
 description: Supervise la disponibilidad, el rendimiento y el uso de las aplicaciones web.
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a881d9484089748bffed3713d06e43157dd405c
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 4c97ec97d9d12d86796e995c71d8c9bd6c6a3df2
 
 
 ---
@@ -59,6 +59,6 @@ Las vistas del portal se dividen en dos categorías principales:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

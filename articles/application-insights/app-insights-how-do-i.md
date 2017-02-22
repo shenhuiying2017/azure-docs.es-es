@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
 
 
 ---
@@ -40,7 +40,7 @@ Si quiere establecer una alerta en **Excepciones de servidor**, puede que tenga 
 ### <a name="email-on-an-event-in-my-app"></a>Enviar un correo electrónico sobre un evento en mi aplicación
 Supongamos que quiere recibir un correo electrónico cuando se produce un evento específico. Application Insights no ofrece esta función directamente, pero puede [enviar una alerta cuando una métrica sobrepasa un umbral](app-insights-alerts.md).
 
-Las alertas se pueden establecer en [métricas personalizadas](app-insights-api-custom-events-metrics.md#track-metric), aunque no así los eventos no personalizados. Escribir código para aumentar una métrica cuando se produce el evento:
+Las alertas se pueden establecer en [métricas personalizadas](app-insights-api-custom-events-metrics.md#trackmetric), aunque no así los eventos no personalizados. Escribir código para aumentar una métrica cuando se produce el evento:
 
     telemetry.TrackMetric("Alarm", 10);
 
@@ -174,7 +174,7 @@ Si desea obtener una lista de usuarios con datos como las páginas que ven o la 
 * En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), deshabilite los módulos que no necesite, como el recopilador de contadores de rendimiento.
 * Use [Muestreo y filtrado](app-insights-api-filtering-sampling.md) en el SDK.
 * En las páginas web, limite el número de llamadas AJAX que se notifican para cada vista de página. En el fragmento de script después de `instrumentationKey:...`, inserte: `,maxAjaxCallsPerView:3` (o un número adecuado).
-* Si está usando [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule el agregado de los lotes de los valores de métricas antes de enviar el resultado. Hay una sobrecarga de TrackMetric() que se proporciona para eso.
+* Si está usando [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric), calcule el agregado de los lotes de los valores de métricas antes de enviar el resultado. Hay una sobrecarga de TrackMetric() que se proporciona para eso.
 
 Obtenga más información sobre [precios y cuotas](app-insights-pricing.md).
 
@@ -208,6 +208,6 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

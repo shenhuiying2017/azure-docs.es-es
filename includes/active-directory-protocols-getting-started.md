@@ -17,10 +17,7 @@ translationtype: Human Translation
 ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
 ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
-
 ---
-<!--TODO: Introduction -->
-
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registro de la aplicación con el inquilino de AD
 En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure Active Directory (Azure AD). De este modo, se generará un id. de aplicación para la aplicación y también se habilitará esta para que reciba tokens.
 
@@ -36,6 +33,6 @@ En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Acerca de los dispositivos VPN para las conexiones de VPN Gateway de sitio a sitio para Azure Virtual Networks | Microsoft Docs
-description: "Este artículo describe los dispositivos VPN y los parámetros de IPsec para las conexiones de puerta de enlace de VPN de sitio a sitio de VPN Gateway y contiene vínculos a ejemplos y a las instrucciones de configuración."
+title: Acerca de los dispositivos VPN para las conexiones de Azure ente locales | Microsoft Docs
+description: "En este artículo se describen los dispositivos VPN y los parámetros de IPsec de las conexiones entre locales de VPN Gateway S2S. Se proporcionan vínculos a ejemplos e instrucciones de configuración."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio
-Para configurar una conexión VPN de sitio a sitio (S2S), se requiere un dispositivo VPN. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración.
+Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante una puerta de enlace de VPN se requiere un dispositivo VPN. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración.
 
 > [!NOTE]
 > Al configurar una conexión de sitio a sitio, una dirección IP IPv4 pública es necesaria para el dispositivo VPN.                                                                                                                                                                               
@@ -115,7 +115,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | **Propiedad** | **PolicyBased** | **Puerta de enlace de VPN de alto rendimiento o estándar y RouteBased** |
 | --- | --- | --- |
 | Versión de IKE |IKEv1 |IKEv2 |
-| Algoritmo hash |SHA1(SHA128) |SHA1(SHA128) |
+| Algoritmo hash |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 |3.600 segundos |3.600 segundos |
 | Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 |102.400.000 KB |- |
 | Ofertas de autenticación y cifrado de SA de IPsec (en orden de preferencia) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D |Vea *Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) |
@@ -153,6 +153,6 @@ En la siguiente tabla encontrará una lista de las ofertas de autenticación y c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 768de7b221474f9143ba8e960581893229dca051
+ms.sourcegitcommit: 0d37eb09a6c8a0bb39a331e51a8993c114202b91
+ms.openlocfilehash: 88858cffa5ddc6ba83152d3430f5400a1c66a26a
 
 
 ---
@@ -47,7 +47,7 @@ La entrada de tabla de Azure Storage a una función utiliza los siguientes objet
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "in"
+    "direction": "in",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to read - see below>",
     "rowKey": "<RowKey of table entity to read - see below>",
@@ -59,8 +59,8 @@ La entrada de tabla de Azure Storage a una función utiliza los siguientes objet
 
 Tenga en cuenta lo siguiente: 
 
-* Use `partitionKey` y `rowKey` de forma conjunta para leer una entidad única. Estas propiedades son opcionales.
-* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
+* Use `partitionKey` y `rowKey` de forma conjunta para leer una entidad única. Estas propiedades son opcionales. 
+* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. También puede [configurar esta aplicación manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings).  
 
 <a name="inputusage"></a>
 
@@ -167,7 +167,7 @@ La salida de tabla de Azure Storage para una función utiliza los siguientes obj
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "out"
+    "direction": "out",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to write - see below>",
     "rowKey": "<RowKey of table entity to write - see below>",
@@ -178,7 +178,7 @@ La salida de tabla de Azure Storage para una función utiliza los siguientes obj
 Tenga en cuenta lo siguiente: 
 
 * Use `partitionKey` y `rowKey` de forma conjunta para escribir una entidad única. Estas propiedades son opcionales. También puede especificar `PartitionKey` y `RowKey` al crear los objetos de la entidad en el código de la función.
-* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
+* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. También puede [configurar esta aplicación manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings). 
 
 <a name="outputusage"></a>
 
@@ -190,6 +190,7 @@ Puede serializar objetos en las funciones de Node.js o C#. En las funciones de C
 * Cualquier tipo que implemente `ITableEntity`
 * `ICollector<T>` (para la salida de varias entidades. Vea el [ejemplo](#outcsharp)).
 * `IAsyncCollector<T>` (versión asincrónica de `ICollector<T>`)
+* `CloudTable` (con el SDK de Azure Storage. Vea el [ejemplo](#readmulti)).
 
 <a name="outputsample"></a>
 
@@ -342,6 +343,6 @@ public class Person : TableEntity
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

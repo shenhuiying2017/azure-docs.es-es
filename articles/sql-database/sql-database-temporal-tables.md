@@ -3,7 +3,7 @@ title: "Introducción a las tablas temporales de Azure SQL Database | Microsoft 
 description: "Obtenga información sobre cómo empezar a usar las tablas temporales de Base de datos SQL de Azure"
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: bonova
 manager: jhubbard
 editor: 
 ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
-ms.date: 08/29/2016
-ms.author: carlrab
+ms.date: 01/10/2017
+ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b83d2561d37cb2dcb799d14774b6350e0681c42
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
 
 
 ---
@@ -69,7 +69,9 @@ Cuando se crea la tabla temporal con versión del sistema, la tabla del historia
 
 En este caso particular, nuestro objetivo es realizar un análisis de tendencias basado en el tiempo a través de un historial de datos más largo y con conjuntos de datos más grandes, por lo que la elección de almacenamiento para la tabla de historial es un índice de almacén de columnas agrupado. Un almacén de columnas agrupado proporciona muy buena compresión y rendimiento de consultas analíticas. Las tablas temporales proporcionan flexibilidad para configurar índices en las tablas actuales y temporales de forma totalmente independiente. 
 
-**Nota**: Los índices de almacén de columnas solo están disponibles en el nivel de servicio Premium.
+> [!NOTE]
+> Los índices de almacén de columnas solo están disponibles en el nivel de servicio Premium.
+>
 
 El siguiente script muestra cómo se puede cambiar el índice predeterminado en la tabla de historial para el almacén de columnas agrupado:
 
@@ -199,6 +201,6 @@ Visite Channel 9 para oír un [caso de éxito de implementación temporal de cli
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

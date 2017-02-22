@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
-ms.author: yochayk
+ms.author: yochaykk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 295ee5a3c067010059a0435a8867eb8f4137ccbb
+ms.sourcegitcommit: 75d42f41e6218d83cda00f2ef8926d6ca1f0aacd
+ms.openlocfilehash: 8f458884d0ea649dffa5f92fd459bbaaa9f5e4cf
 
 
 ---
@@ -31,8 +31,8 @@ En este artículo se describen las modificaciones de los servicios de Azure ya e
 App Service reúne los siguientes servicios de Azure existentes ([Websites](https://azure.microsoft.com/services/websites/), [Mobile Services](https://azure.microsoft.com/services/mobile-services/) y [BizTalk Services](https://azure.microsoft.com/services/biztalk-services/)) en un único servicio único combinado que, a su vez, agrega nuevas funcionalidades eficaces.  Además, permite hospedar los siguientes tipos de aplicaciones:
 
 * Aplicaciones web
-* Aplicaciones móviles
-* Aplicaciones de API
+* Mobile Apps
+* API Apps
 * Aplicaciones lógicas
 
 En la tabla siguiente se explica cómo se asignan los servicios de Azure existentes al Servicio de aplicaciones y los tipos de aplicaciones disponibles en este.
@@ -74,9 +74,9 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left">Aplicaciones lógicas</td>
+<td align="left">Logic Apps</td>
 <td align="left">
-<p><li>Aplicaciones lógicas es un nuevo tipo de aplicación del Servicio de aplicaciones que permite automatizar los procesos de negocio fácilmente.</p>
+<p><li>Aplicaciones lógicas es un nuevo tipo de aplicación de App Service que permite automatizar los procesos de negocio fácilmente.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/logic/">Más información acerca de Logic Apps</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -84,8 +84,8 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 <td align="left">Aplicaciones de API de BizTalk</td>
 <td align="left">
 <li><p>Servicios de Biztalk sigue estando disponible como servicio independiente con plena compatibilidad.</p>
-<li><p>Todas las capacidades de Servicios de BizTalk se integran en el Servicio de aplicaciones como aplicaciones API, lo que permite a los usuarios realizar tareas de integración de aplicaciones empresariales y de integración B2B con cualquiera de los tipos de aplicaciones del Servicio de aplicaciones.</p>
-<li><p>Ahora, con Aplicaciones lógicas, puede automatizar los procesos de negocio a través de una experiencia de diseño visual para crear flujos de trabajo.</p></td>
+<li><p>Todas las funcionalidades de BizTalk Services se integran en App Service como API Apps, lo que permite a los usuarios realizar tareas de integración de aplicaciones empresariales y de integración B2B con cualquiera de los tipos de aplicaciones de App Service.</p>
+<li><p>Ahora, con Logic Apps, puede automatizar los procesos de negocio a través de una experiencia de diseño visual para crear flujos de trabajo.</p></td>
 </tr>
 </tbody>
 </table>
@@ -95,6 +95,6 @@ Para obtener más información, visite [Documentación del Servicio de aplicacio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

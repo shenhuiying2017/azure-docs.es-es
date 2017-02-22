@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
+ms.date: 02/02/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
+ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
+ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 
 
 ---
@@ -28,12 +28,72 @@ En este artículo se muestra cómo conectar un disco persistente a la máquina v
 ## <a name="quick-commands"></a>Comandos rápidos
 En el ejemplo siguiente se asocia un `50`disco GB a la máquina virtual denominada `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
+Para usar discos administrados:
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+Para usar discos no administrados:
+
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## <a name="attach-a-disk"></a>Conexión de un disco
-La asociación de un nuevo disco es algo que se hace rápidamente. Escriba `azure vm disk attach-new myResourceGroup myVM sizeInGB` para crear y vincular un nuevo disco GB para la máquina virtual. Si no identifica explícitamente una cuenta de almacenamiento, cualquier disco que cree se coloca en la misma cuenta de almacenamiento donde reside el disco del sistema operativo. En el ejemplo siguiente se asocia un `50`disco GB a la máquina virtual denominada `myVM` en el grupo de recursos denominado `myResourceGroup`:
+## <a name="attach-a-managed-disk"></a>Conexión de un disco administrado
+
+Los discos administrados le permiten centrarse en sus máquinas virtuales y sus discos sin preocupares por las cuentas de almacenamiento de Azure Storage. Puede crear y conectar rápidamente un disco administrado a una máquina virtual con el mismo grupo de recursos de Azure, o bien puede crear tantos discos como desee y después conectarlos.
+
+
+### <a name="attach-a-new-disk-to-a-vm"></a>Conexión de un nuevo disco a una máquina virtual
+
+Si solo necesita un nuevo disco en la máquina virtual, puede usar el comando `az vm disk attach`.
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+### <a name="attach-an-existing-disk"></a>un disco existente 
+
+En muchos casos conecta discos que ya se han creado. Primero encontrará el identificador del disco y después lo trasladará al comando `az vm disk attach-disk`. El código siguiente usa un disco creado con `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+El resultado es similar al siguiente (puede usar la opción `-o table` con cualquier comando para dar formato al resultado en ):
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## <a name="attach-an-unmanaged-disk"></a>Conexión de un disco no administrado
+
+Se tarda poco tiempo en conectar un nuevo disco si no le importa crearlo en la misma cuenta de almacenamiento que su máquina virtual. Escriba `azure vm disk attach-new` para crear y vincular un nuevo disco GB para la máquina virtual. Si no identifica explícitamente una cuenta de almacenamiento, cualquier disco que cree se coloca en la misma cuenta de almacenamiento donde reside el disco del sistema operativo. En el ejemplo siguiente se asocia un `50`disco GB a la máquina virtual denominada `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -265,7 +325,7 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
+* En algunos casos, la opción `discard` podría tener afectar al rendimiento. Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
   
     **Ubuntu**
   
@@ -292,6 +352,6 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

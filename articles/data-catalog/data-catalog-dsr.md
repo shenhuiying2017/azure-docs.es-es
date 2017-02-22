@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+ms.sourcegitcommit: 24143b6866c4393b18636669b5b4281a0d18c3d1
+ms.openlocfilehash: 64e8c8b284f21320601208c798d354df2496274c
 
 
 ---
@@ -271,7 +271,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2>Solo vistas de cálculo y análisis. No se admiten vistas de atributo.</font></td>
+      <td><font size=2>Solo vistas de cálculo y vistas de análisis; las vistas de atributos no se admiten.</font></td>
     </tr>
 
     <tr>
@@ -419,7 +419,7 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 ## <a name="data-source-reference-specification"></a>Especificación de referencia de origen de datos
 > [!NOTE]
 > La columna Estructura de DSL de la tabla siguiente enumera solo las propiedades de conexión para el contenedor de propiedades address que utiliza Azure Data Catalog (es decir, el contenedor de propiedades address puede contener otras propiedades de conexión del origen de datos que persiste en Azure Data Catalog, pero que no usa).
-> 
+>
 > <table>
 > <tr>
 > <td><b>Tipo de origen</b></td>
@@ -1169,11 +1169,10 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
 > <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table> 
+> </table>>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

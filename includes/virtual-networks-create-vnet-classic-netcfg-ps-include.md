@@ -63,6 +63,6 @@ Para crear una red virtual mediante un archivo netcfg desde PowerShell, siga est
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

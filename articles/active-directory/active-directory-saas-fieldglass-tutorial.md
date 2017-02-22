@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7a99e82c73d446c928a821f80fc640a1994d67
-ms.openlocfilehash: 837e96e69e4855daf36e0c85e48cf68daaee8925
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 6baceea55e9085556c5b1386de842b3e4393c721
 
 
 ---
@@ -114,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
    
     b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con los siguientes patrones: 
    
-    - `https://<company name>.fgvms.com/<company name>`
+       - `https://<company name>.fgvms.com/<company name>`
     - `https://www.fieldglass.net/<company name>`
      
     c. Haga clic en **Siguiente**
@@ -135,9 +135,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
    
     - El archivo de **certificado descargado**
    
-    - El **identificador de entidad**
+    -El **identificador de entidad**
    
-    - La **dirección URL del servicio de cierre de sesión único**
+    -La **dirección URL del servicio de cierre de sesión único**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -249,6 +249,6 @@ Al hacer clic en el icono de Fieldglass en el panel de acceso, debería iniciar 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

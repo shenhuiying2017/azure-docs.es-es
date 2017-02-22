@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 01/09/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 91474f61ab724d3fd7a70c51dcd097fade8953dd
-ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
+ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
+ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>Conexión de una aplicación de MongoDB a una cuenta de DocumentDB mediante una cadena de conexión de MongoDB
+# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>Conexión de una aplicación de MongoDB a una cuenta de DocumentDB mediante una cadena de conexión de MongoDB
 Obtenga información sobre cómo conectar su aplicación de MongoDB a una cuenta de Azure DocumentDB utilizando una cadena de conexión de MongoDB. Al conectar la aplicación de MongoDB a una base de datos de Azure DocumentDB, puede usar una base de datos de DocumentDB como almacén de datos de la aplicación de MongoDB. 
 
 En este tutorial se proporcionan dos maneras de recuperar información de la cadena de conexión:
@@ -86,6 +86,6 @@ Por ejemplo, considere la cuenta que aparece en la hoja Información de cadena d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Creación de una instancia de Azure Function App y una cuenta de Azure Storage | Microsoft Docs"
+title: "Conexión de Raspberry Pi (Node) a Azure IoT: Lección 3: Implementación de plantillas | Microsoft Docs"
 description: La instancia de Azure Function App escucha los eventos de Azure IoT Hub, procesa los mensajes entrantes y los escribe en Azure Table Storage.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: df446b1a6b244761f39bfdcebb7e404435c2c35d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: a3a7ec4c81556e4cb530f32c9997d8701db68b2c
 
 
 ---
@@ -78,6 +78,6 @@ Ha creado una instancia de Azure Function App para procesar mensajes de IoT Hub,
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

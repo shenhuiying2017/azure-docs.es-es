@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: d53257f43c50ffae48dd8f024f9f0515be1c9338
+ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
+ms.openlocfilehash: 9164a93308a4a2f3eed4ff6262942239df029dae
 
 
 ---
@@ -23,12 +23,12 @@ ms.openlocfilehash: d53257f43c50ffae48dd8f024f9f0515be1c9338
 Preguntas o problemas relacionados con [Azure Application Insights en Java][java]. a continuación se incluyen algunas sugerencias.
 
 ## <a name="build-errors"></a>Errores de compilación
-*En Eclipse, al agregar el SDK de Application Insights a través de Maven o Gradle, obtengo errores de compilación o de validación de la suma de comprobación.*
+**En Eclipse, al agregar el SDK de Application Insights a través de Maven o Gradle, obtengo errores de compilación o de validación de la suma de comprobación.**
 
 * Si el elemento de dependencia <version> usa un patrón con caracteres comodín (por ejemplo, (Maven) `<version>[1.0,)</version>` o (Gradle) `version:'1.0.+'`), pruebe a especificar una versión concreta en lugar de `1.0.2`. Consulte la [notas de la versión](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) para la versión más reciente.
 
 ## <a name="no-data"></a>No aparecen datos
-*He agregado Application Insights correctamente y he ejecutado mi aplicación, pero no aparecen datos en el portal.*
+**He agregado Application Insights correctamente y he ejecutado mi aplicación, pero no aparecen datos en el portal.**
 
 * Espere un minuto y haga clic en Actualizar, Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente. El intervalo de actualización depende del intervalo de tiempo del gráfico.
 * Compruebe que tiene una clave de instrumentación definida en el archivo ApplicationInsights.xml (en la carpeta de recursos del proyecto).
@@ -47,40 +47,47 @@ Preguntas o problemas relacionados con [Azure Application Insights en Java][java
 * Abra la hoja Quotas and Pricing (Cuotas y precios) y compruebe si el [muestreo](app-insights-sampling.md) está en funcionamiento. (La transmisión al 100 % significa que el muestreo no está en funcionamiento). El servicio Application Insights se puede configurar para que acepte únicamente una fracción de la telemetría procedente de la aplicación. Esto le ayuda a mantenerse en su cuota mensual de telemetría. 
 
 ## <a name="no-usage-data"></a>No aparecen datos de uso
-*Veo datos sobre solicitudes y tiempos de respuesta, pero no de vista de página, del explorador o de datos de usuarios.*
+**Veo datos sobre solicitudes y tiempos de respuesta, pero no de vista de página, del explorador o de datos de usuarios.**
 
 La aplicación se ha configurado correctamente para enviar datos de telemetría desde el servidor. El paso siguiente consiste en [configurar las páginas web para enviar datos de telemetría desde el explorador web][usage].
 
-Como alternativa, si el cliente es una aplicación de [teléfono o de cualquier otro dispositivo][platforms], puede enviar datos de telemetría desde ahí. 
+Como alternativa, si el cliente es una aplicación de [teléfono o de cualquier otro dispositivo][platforms], puede enviar datos de telemetría desde este. 
 
 Use la misma clave de instrumentación para configurar la telemetría tanto de cliente como de servidor. Los datos aparecerán en el mismo recurso de Application Insights y podrá correlacionar eventos de cliente y servidor.
 
 
 ## <a name="disabling-telemetry"></a>Deshabilitación de la telemetría
-*¿Cómo puedo deshabilitar la recopilación de telemetría?*
+**¿Cómo puedo deshabilitar la recopilación de telemetría?**
 
 En el código:
 
+```Java
+
     TelemetryConfiguration config = TelemetryConfiguration.getActive();
     config.setTrackingIsDisabled(true);
-
+```
 
 **O** 
 
 Actualice ApplicationInsights.xml (en la carpeta de recursos del proyecto). Agregue lo siguiente bajo el nodo raíz:
 
+```XML
+
     <DisableTelemetry>true</DisableTelemetry>
+```
 
 Si usa el método XML, debe reiniciar la aplicación al cambiar el valor.
 
 ## <a name="changing-the-target"></a>Cambio de destino
-*¿Cómo puedo cambiar el recurso de Azure al que mi proyecto envía datos?*
+**¿Cómo puedo cambiar el recurso de Azure al que mi proyecto envía datos?**
 
 * [Obtenga la clave de instrumentación del nuevo recurso.][java]
 * Si ha agregado Application Insights al proyecto mediante el kit de herramientas de Azure para Eclipse, haga clic con el botón derecho en el proyecto web, seleccione **Azure**, **Configurar Application Insights** y cambie la clave.
 * De lo contrario, actualice la clave en ApplicationInsights.xml en la carpeta de recursos del proyecto.
 
 ## <a name="debug-data-from-the-sdk"></a>Depuración de datos del SDK
+
+**¿Cómo puedo averiguar lo que está haciendo el SDK?**
 
 Para más información sobre lo que sucede en la API, agregue `<SDKLogger/>` bajo el nodo raíz del archivo de configuración ApplicationInsights.xml.
 
@@ -98,42 +105,42 @@ Los archivos pueden encontrarse en `%temp%\javasdklogs`.
 
 
 ## <a name="the-azure-start-screen"></a>Pantalla de inicio de Azure
-*Estoy mirando el [portal de Azure](https://portal.azure.com). ¿El mapa indica algo sobre mi aplicación?*
+**Estoy mirando el [portal de Azure](https://portal.azure.com). ¿El mapa indica algo sobre mi aplicación?**
 
 No, este muestra el estado de los servidores de Azure en todo el mundo.
 
 *¿Cómo puedo encontrar datos sobre mi aplicación desde el panel de inicio de Azure (pantalla principal)?*
 
-Suponiendo que haya [configurado la aplicación para Application Insights][java], haga clic en Examinar, seleccione Application Insights y, a continuación, elija el recurso de aplicación que haya creado para su aplicación. Para mayor brevedad en un futuro, puede anclar la aplicación al panel de inicio.
+Suponiendo que haya [configurado la aplicación para Application Insights][java], haga clic en Examinar, seleccione Application Insights y, después, elija el recurso de aplicación que haya creado para su aplicación. Para mayor brevedad en un futuro, puede anclar la aplicación al panel de inicio.
 
 ## <a name="intranet-servers"></a>Servidores de intranet
-*¿Puedo supervisar un servidor de mi intranet?*
+**¿Puedo supervisar un servidor de mi intranet?**
 
 Sí, siempre que dicho servidor pueda enviar datos de telemetría al portal de Application Insights a través de una conexión pública a Internet. 
 
 En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com y f5.services.visualstudio.com.
 
 ## <a name="data-retention"></a>Retención de datos
-*¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?*
+**¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?**
 
-Consulte [Privacidad y retención de los datos][Datos].
+Consulte [Privacidad y retención de los datos][data].
 
 ## <a name="next-steps"></a>Pasos siguientes
-*He configurado Application Insights para mi aplicación de servidor Java. ¿Qué más puedo hacer?*
+**He configurado Application Insights para mi aplicación de servidor Java. ¿Qué más puedo hacer?**
 
-* [Supervisión de la disponibilidad de sus páginas web][availability]
-* [Supervisión del uso de páginas web][usage]
-* [Seguimiento del uso y problemas de diagnóstico en las aplicaciones de dispositivo][platforms]
-* [Escritura de código para realizar el seguimiento del uso de la aplicación][track]
+* [Supervisar la disponibilidad de sus páginas web][availability]
+* [Supervisar el uso de páginas web][usage]
+* [Realizar el seguimiento del uso y diagnosticar los problemas en las aplicaciones de su dispositivo][platforms]
+* [Escribir código para realizar un seguimiento del uso de la aplicación][track]
 * [Captura de registros de diagnóstico][javalogs]
 
 ## <a name="get-help"></a>Obtener ayuda
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
-[Datos]: app-insights-data-retention-privacy.md
+[data]: app-insights-data-retention-privacy.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
@@ -143,6 +150,6 @@ Consulte [Privacidad y retención de los datos][Datos].
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

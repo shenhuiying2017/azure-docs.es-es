@@ -1,5 +1,5 @@
 ---
-title: Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning | Microsoft Docs
+title: Escalado de trabajos con Azure Stream Analytics y funciones AzureML | Microsoft Docs
 description: "Aprenda a escalar correctamente trabajos de Análisis de transmisiones (creación de particiones, cantidad de SU y más) cuando se usan funciones de Aprendizaje automático de Azure."
 keywords: 
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad7ac0056cead32332b63add61655dbc1d2cb37c
+ms.sourcegitcommit: b36fd0b4a52ae2e13a5b5dcde412994a0656e3d3
+ms.openlocfilehash: 27f2ac3d54226501e254d9a8fef6cc378eb9a860
 
 
 ---
@@ -36,17 +36,17 @@ Una vez determinado el tamaño de lote, se puede determinar la cantidad de unida
 
 En general, hay 20 conexiones simultáneas al servicio web de Aprendizaje automático por cada 6 SU, salvo que los trabajos de 1 y 3 SU obtendrán también 20 conexiones simultáneas.  Por ejemplo, si la tasa de datos de entrada es de 200 000 eventos por segundo y el tamaño de lote se deja en el valor predeterminado de 1000, la latencia de servicio web resultante con un minilote de 1000 eventos será de 200 ms. Esto significa que cada conexión puede hacer 5 solicitudes al servicio web de Aprendizaje automático en un segundo. Con 20 conexiones, el trabajo de Stream Analytics puede procesar 20 000 eventos en 200 ms y, por lo tanto, 100 000 eventos en un segundo. Así que para procesar 200 000 eventos por segundo, el trabajo de Análisis de transmisiones necesita 40 conexiones simultáneas, lo que viene a ser 12 SU. En el diagrama siguiente se muestran las solicitudes desde el trabajo de Análisis de transmisiones hasta el punto de conexión de servicio web de Aprendizaje automático: cada 6 SU tienen 20 conexiones simultáneas al servicio web de Aprendizaje automático como máximo.
 
-![Escalado de Análisis de transmisiones con funciones de Aprendizaje automático 2: ejemplo de trabajo](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics with Machine Learning Functions 2 job example")
+![Ejemplo de escalado de trabajo de Stream Analytics con funciones de Machine Learning 2](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Ejemplo de escalado de trabajo de Stream Analytics con funciones de Machine Learning 2")
 
 En general, si ***B*** es el tamaño de lote y ***L*** es la latencia del servicio web con el tamaño de lote B en milisegundos, el rendimiento de un trabajo de Stream Analytics con ***N*** SU es:
 
-![Escalado de Análisis de transmisiones con funciones de Aprendizaje automático: fórmula](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics with Machine Learning Functions Formula")
+![Fórmula de escalado de Stream Analytics con funciones de Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Fórmula de escalado de Stream Analytics con funciones de Machine Learning")
 
-Un aspecto adicional a tener en cuenta pueden ser las 'llamadas simultáneas máximas' en el lado del servicio web de Aprendizaje automático; se recomienda que estas llamadas se establezcan en el valor máximo (actualmente 200).
+Un aspecto adicional a tener en cuenta pueden ser las 'llamadas simultáneas máximas' en el lado del servicio web de Aprendizaje automático; se recomienda que estas llamadas se establezcan en el valor máximo (actualmente&200;).
 
 Para más información sobre esta configuración, consulte [Escalado del servicio web](../machine-learning/machine-learning-scaling-webservice.md).
 
-## <a name="example-sentiment-analysis"></a>Ejemplo: Análisis de opiniones
+## <a name="example--sentiment-analysis"></a>Ejemplo: Análisis de opiniones
 En el ejemplo siguiente se incluye un trabajo de Análisis de transmisiones con la función de Aprendizaje automático de análisis de opiniones, como se describe en el [tutorial de integración de Aprendizaje automático de Análisis de transmisiones](stream-analytics-machine-learning-integration-tutorial.md).
 
 La consulta es una consulta sencilla completamente particionada seguida de la función **sentiment** , tal como se muestra a continuación:
@@ -72,21 +72,21 @@ Con la segunda opción, será necesario aprovisionar más SU y, por lo tanto, ge
 
 Suponga que la latencia del servicio web de Aprendizaje automático de análisis de opiniones es de 200 ms para 1000 lotes de eventos o menos, 250 ms para 5000 lotes de eventos, 300 ms para 10 000 lotes de eventos o 500 ms para 25 000 lotes de eventos.
 
-1. Con la primera opción (**sin** aprovisionar más SU), el tamaño de lote se podría aumentar a **25 000**. Esto, a su vez, permitiría que el trabajo procesara 1 000 000 eventos con 20 conexiones simultáneas al servicio web de Aprendizaje automático (con una latencia de 500 ms por llamada). De modo que, la latencia adicional del trabajo de Stream Analytics debido a las solicitudes de la función de análisis de opiniones contra las solicitudes de servicio web Machine Learning aumentaría de **200 ms** a **500 ms**. Sin embargo, tenga en cuenta que el tamaño de lote **no** se puede aumentar de manera indefinida dado que el servicio web de Aprendizaje automático necesita que el tamaño de la carga de una solicitud sea de 4 MB o un tiempo de espera más pequeño de las solicitudes de servicio web tras 100 segundos de funcionamiento.
+1. Con la primera opción (**sin** aprovisionar más SU), el tamaño de lote se podría aumentar a **25&000;**. Esto, a su vez, permitiría que el trabajo procesara 1 000 000 eventos con 20 conexiones simultáneas al servicio web de Aprendizaje automático (con una latencia de 500 ms por llamada). De modo que, la latencia adicional del trabajo de Stream Analytics debido a las solicitudes de la función de análisis de opiniones contra las solicitudes de servicio web Machine Learning aumentaría de **200 ms** a **500 ms**. Sin embargo, tenga en cuenta que el tamaño de lote **no** se puede aumentar de manera indefinida dado que el servicio web de Aprendizaje automático necesita que el tamaño de la carga de una solicitud sea de 4 MB o un tiempo de espera más pequeño de las solicitudes de servicio web tras 100 segundos de funcionamiento.
 2. Con la segunda opción, el tamaño de lote se deja en 1000; con una latencia del servicio web de 200 ms, con cada 20 conexiones simultáneas al servicio web se podrían procesar 1000 * 20 * 5 eventos = 100 000 por segundo. Por tanto, para procesar 1 000 000 eventos por segundo, el trabajo necesitaría 60 SU. En comparación con la primera opción, el trabajo de Análisis de transmisiones haría más solicitudes de lote de servicio web, lo que a su vez generaría un mayor costo.
 
 A continuación se muestra una tabla del rendimiento del trabajo de Análisis de transmisiones para diferentes SU y tamaños de lote (en número de eventos por segundo).
 
-| Tamaño del lote (latencia de Aprendizaje automático) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
+| Tamaño del lote (latencia de Aprendizaje automático) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10&000; (300 ms) | 25&000; (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unidad de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
-| **3 unidades de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
-| **6 unidades de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
-| **12 unidades de búsqueda** |5.000 |10.000 |40.000 |60 000 |100 000 |
-| **18 unidades de búsqueda** |7500 |15 000 |60 000 |90 000 |150 000 |
-| **24 unidades de búsqueda** |10.000 |20.000 |80 000 |120 000 |200 000 |
+| **1 unidad de búsqueda** |2500 |5.000 |20.000 |30&000; |50.000 |
+| **3 unidades de búsqueda** |2500 |5.000 |20.000 |30&000; |50.000 |
+| **6 unidades de búsqueda** |2500 |5.000 |20.000 |30&000; |50.000 |
+| **12 unidades de búsqueda** |5.000 |10.000 |40.000 |60&000; |100&000; |
+| **18 unidades de búsqueda** |7500 |15&000; |60&000; |90&000; |150&000; |
+| **24 unidades de búsqueda** |10.000 |20.000 |80&000; |120&000; |200&000; |
 | **…** |… |… |… |… |… |
-| **60 unidades de búsqueda** |25 000 |50.000 |200 000 |300 000 |500.000 |
+| **60 unidades de búsqueda** |25&000; |50.000 |200&000; |300&000; |500.000 |
 
 En este momento, ya debe saber cómo funcionan las funciones de Aprendizaje automático en Análisis de transmisiones. Probablemente también sepa que los trabajos de Análisis de transmisiones "extraen" datos de los orígenes de datos y que cada "extracción" devuelve un lote de eventos que procesa el trabajo de Análisis de transmisiones. ¿Cómo afecta este modelo de extracción a las solicitudes de servicio web de Aprendizaje automático?
 
@@ -95,7 +95,7 @@ Normalmente, el tamaño de lote que establecemos para las funciones de Aprendiza
 ## <a name="new-function-related-monitoring-metrics"></a>Nuevas métricas de supervisión relacionadas con la función
 En el área de supervisión de un trabajo de Análisis de transmisiones, se han agregado tres métricas adicionales relacionadas con las funciones. Y son: SOLICITUDES DE FUNCIONES, EVENTOS DE FUNCIONES y SOLICITUDES DE FUNCIONES CON ERRORES, como se muestra en el siguiente gráfico.
 
-![Escalado de Análisis de transmisiones con funciones de Aprendizaje automático: métricas](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
+![Métricas de escalado de Stream Analytics con funciones de Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Métricas de escalado de Stream Analytics con funciones de Machine Learning")
 
 Se definen de la manera siguiente:
 
@@ -125,6 +125,6 @@ Para obtener más información sobre Análisis de transmisiones, vea:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

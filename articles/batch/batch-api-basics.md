@@ -1,5 +1,5 @@
 ---
-title: "Introducción a las características de Azure Batch para desarrolladores | Microsoft Docs"
+title: "Introducción a Azure Batch para desarrolladores | Microsoft Docs"
 description: "Conozca las características del servicio Lote y sus API desde el punto de vista del desarrollo."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
     Todos los nodos de un grupo son del mismo tamaño. Si va a ejecutar aplicaciones con requisitos del sistema o niveles de carga diferentes, es recomendable usar grupos separados.
 * **Número objetivo de nodos**
 
-    Es el número de nodos de proceso que desea implementar en el grupo. Se conoce como *objetivo* porque, en algunas situaciones, es posible que el grupo no alcance el número deseado de nodos. Puede que un grupo no alcance el número deseado de nodos si este ha alcanzado la [cuota de núcleos](batch-quota-limit.md#batch-account-quotas) de su cuenta de Lote o si hay alguna fórmula de escalado automático que haya aplicado al grupo que limite el número máximo de nodos (consulte la sección "Directiva de escalado" a continuación).
+    Es el número de nodos de proceso que desea implementar en el grupo. Se conoce como *objetivo* porque, en algunas situaciones, es posible que el grupo no alcance el número deseado de nodos. Puede que un grupo no alcance el número deseado de nodos si este ha alcanzado la [cuota de núcleos](batch-quota-limit.md) de su cuenta de Lote o si hay alguna fórmula de escalado automático que haya aplicado al grupo que limite el número máximo de nodos (consulte la sección "Directiva de escalado" a continuación).
 * **Directiva de escalado**
 
     Para cargas de trabajo dinámicas, puede escribir y aplicar una [fórmula de escalado automático](#scaling-compute-resources) a un grupo. El servicio Lote evalúa periódicamente la fórmula y ajusta el número de nodos dentro del grupo en función de los diversos parámetros de grupo, trabajo y tarea que especifique.
@@ -489,6 +489,6 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

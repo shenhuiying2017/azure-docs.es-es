@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ec7e5d3229d623ce08a72439317a6a515ee3e373
 
 
 ---
@@ -24,21 +24,20 @@ ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
 Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, se necesita un lenguaje con una finalidad más general. Hive le permite crear funciones definidas por el usuario (UDF) mediante diversos lenguajes de programación. En este documento, aprenderá a usar una función definida por el usuario de Java en Hive.
 
 ## <a name="requirements"></a>Requisitos
-* Una suscripción de Azure
+
 * Un clúster de HDInsight (Windows o Linux)
   
-  > [!NOTE]
-  > La mayoría de los pasos de este documento sirven para ambos tipos de clúster, sin embargo, los pasos utilizados para cargar la función definida por el usuario compilada al clúster y ejecutarla son específicos de los clústeres basados en Linux. Se proporcionan vínculos a información que puede utilizarse con clústeres basados en Windows.
-  > 
-  > 
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  
+  La mayoría de los pasos de este documento sirven para ambos tipos de clúster, sin embargo, los pasos utilizados para cargar la función definida por el usuario compilada al clúster y ejecutarla son específicos de los clústeres basados en Linux. Se proporcionan vínculos a información que puede utilizarse con clústeres basados en Windows.
+
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 o posterior (o un equivalente como OpenJDK)
 * [Apache Maven](http://maven.apache.org/)
 * Un editor de texto o IDE de Java
   
   > [!IMPORTANT]
   > Si está utilizando un servidor HDInsight basado en Linux, pero creará los archivos de Python en un cliente Windows, debe utilizar un editor que utilice LF como final de línea. Si no está seguro de si el editor utiliza LF o CRLF, consulte la sección [Solución de problemas](#troubleshooting) para conocer los pasos que debe realizar para quitar el carácter CR con las utilidades del clúster de HDInsight.
-  > 
-  > 
 
 ## <a name="create-an-example-udf"></a>Creación de una función definida por el usuario de ejemplo
 1. Desde una línea de comandos, utilice lo siguiente para crear un nuevo proyecto de Maven:
@@ -216,6 +215,6 @@ Para más información sobre las funciones definidas por el usuario de Hive, con
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

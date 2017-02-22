@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
@@ -32,7 +32,7 @@ Puede elegir entre transmisión del contenido en directo o entrega a petición. 
 
 Para compilar soluciones de Servicios multimedia, puede usar:
 
-* [API de REST de Servicios multimedia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [API de REST de Servicios multimedia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Uno de los SDK de cliente disponibles:
     * [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services)
     * [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java)
@@ -46,7 +46,7 @@ En la ilustración siguiente, se muestran algunos de los objetos que se utilizan
 
 Haga clic en la imagen para verla a tamaño completo.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 Puede ver el modelo completo [aquí](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -79,8 +79,8 @@ En esta sección se describe escenarios comunes y se proporcionan vínculos a te
 ![Flujo de trabajo de VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
-    
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución).
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Protección del contenido en almacenamiento y entrega de contenido multimedia en streaming sin cifrar
 1. Cargue un archivo intermedio de alta calidad en un recurso.
 
@@ -184,7 +184,8 @@ Servicios multimedia admite la integración con CDN de Azure. Para obtener infor
 Puede escalar **Media Services** mediante la especificación del número de **unidades reservadas de streaming** y **unidades reservadas de codificación** con las que desea aprovisionar la cuenta.
 
 También puede escalar la cuenta de Servicios multimedia agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia.
-Los clientes de Media Services eligen un punto de conexión de streaming **estándar** o uno o varios puntos de conexión de streaming **premium**, según sus necesidades. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Incluye las mismas características que las unidades de streaming premium. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajusta a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda mediante el ajuste de unidades de escalado (también conocido como unidades de streaming premium), se recomienda asignar unidades de escalado.
+Los clientes de Media Services eligen un punto de conexión de streaming **estándar** o uno o varios puntos de conexión de streaming **premium**, según sus necesidades. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Incluye las mismas características que las unidades de streaming premium.
+El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajusta a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda mediante el ajuste de unidades de escalado (también conocido como unidades de streaming premium), se recomienda asignar unidades de escalado.
 
 [Este](media-services-portal-scale-streaming-endpoints.md) tema contiene vínculos a temas relevantes.
 

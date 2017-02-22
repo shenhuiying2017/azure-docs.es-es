@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e6c3c516b5d4271c5201d0734e22a83876dd3fa
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 936e152304dc4a4a3bd95c7bfba071a02a20d0dd
 
 
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protección del acceso con privilegios en Azure AD
 La protección del acceso con privilegios es un primer paso esencial para ayudar a proteger los activos empresariales en las organizaciones modernas. Las cuentas con privilegios son aquellas que administran los sistemas de TI. Estas cuentas son el objetivo de los ciberatacantes ya que les proporcionan acceso a los datos y los sistemas de una organización. Para proteger el acceso con privilegios, debe aislar las cuentas y los sistemas del riesgo de exposición a usuarios malintencionados.
 
-Cada vez más usuarios disfrutan del acceso con privilegios mediante los servicios en la nube. Por ejemplo, los administradores globales de Office 365, los administradores de suscripciones de Azure y los usuarios que tienen acceso administrativo en máquinas virtuales o en aplicaciones de SaaS.
+Cada vez más usuarios disfrutan del acceso con privilegios mediante los servicios en la nube. Por ejemplo, los administradores globales de Office&365;, los administradores de suscripciones de Azure y los usuarios que tienen acceso administrativo en máquinas virtuales o en aplicaciones de SaaS.
 
 Microsoft recomienda seguir este plan a la hora de [proteger el acceso con privilegios](https://technet.microsoft.com/library/mt631194.aspx).
 
@@ -36,7 +36,7 @@ Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las a
 
 Para obtener información general de cómo funciona Multi-Factor Authentication, vea el siguiente vídeo.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 > 
 > 
 
@@ -75,6 +75,6 @@ Para más información sobre la creación de un plan de seguridad completo, cons
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

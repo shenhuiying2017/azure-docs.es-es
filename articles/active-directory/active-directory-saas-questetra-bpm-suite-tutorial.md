@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: a17069b9992e36b36bad71941b0f8062d7594e95
-ms.openlocfilehash: 74959c5694ebb2a6d83b76b76f69d2fd0bb1d885
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 7ae75446c9d19ce15a82caa9604658a528ab9941
 
 
 ---
@@ -149,12 +149,12 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     e. En el cuadro de texto **NameID format** (Formato de id. de nombre), escriba **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
-    f. Cree un archivo codificado en base 64 a partir del certificado descargado. 
+    f. Cree un archivo codificado en base&64; a partir del certificado descargado. 
 
     >[!TIP] 
     >Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    g. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado de validación** . 
+    g. Abra el certificado codificado en base&64; en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado de validación** . 
 
     h. Haga clic en **Save**.
 
@@ -313,6 +313,6 @@ Al hacer clic en el icono Questetra BPM Suite en el Panel de acceso, debería in
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

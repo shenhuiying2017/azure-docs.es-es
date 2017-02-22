@@ -1,5 +1,5 @@
 ---
-title: Asistente para copia de Data Factory | Microsoft Docs
+title: "Copia fácil de datos con el Asistente para copia - Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo utilizar el Asistente para copia de Data Factory para copiar datos de orígenes de datos admitidos en receptores."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bdd816303cb971403eaa074d0fe8a46f11017a42
+ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
+ms.openlocfilehash: 0fc9eb7869ebe7316e4aed0d561638a05bc9a91c
 
 
 ---
-# <a name="data-factory-copy-wizard"></a>Asistente para copia de Data Factory
+# <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copia o movimiento sencillos de datos con el Asistente para copia de Azure Data Factory
 El Asistente para copia de factoría de datos de Azure se usa para simplificar el proceso de ingesta de datos, que normalmente es el primer paso en un escenario de integración de datos de un extremo a otro. Para aprender el uso del Asistente para copia de Azure Data Factory no es preciso conocer las definiciones de JSON de servicios vinculados, conjuntos de datos y canalizaciones. Sin embargo, después de completar todos los pasos del asistente, este crea automáticamente una canalización para copiar datos del origen de datos seleccionado al destino seleccionado. Además, el Asistente para copia ayuda a validar los datos que se van a ingerir en el momento de creación, lo que ahorra mucho tiempo, especialmente la primera vez que se van a ingerir datos del origen de datos. Si quiere iniciar el Asistente para copia, haga clic en el icono **Copiar datos** de la página principal de Data Factory.
 
 ![Asistente para copia](./media/data-factory-copy-wizard/copy-data-wizard.png)
@@ -57,7 +57,7 @@ En el ejemplo, la consulta SQL usa la función `Text.Format` y la variable `Wind
 
 ![Validación de expresiones](./media/data-factory-copy-wizard/validate-expressions.png)
 
-### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrado de datos de una carpeta de blobs de Azure
+### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrar datos en una carpeta de blobs de Azure
 Puede usar variables en la ruta de acceso de la carpeta para copiar datos desde una carpeta que se determina en el runtime según las [variables del sistema](data-factory-functions-variables.md#data-factory-system-variables). Estas son las variables que se admiten: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** y **{custom}**. Ejemplo: carpetaDeEntrada/{year}/{month}/{day}.
 
 Supongamos que tiene carpetas de entrada con el siguiente formato:
@@ -93,6 +93,6 @@ Si quiere ver un tutorial rápido sobre el uso del Asistente para copia de Data 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

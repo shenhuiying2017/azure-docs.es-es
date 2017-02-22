@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ed3d5ddbbdff9ec568f513d15ecb1ea28ba8855
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
 
 
 ---
 # <a name="extend-your-experiment-with-r"></a>Extender el experimento con R
-Puede extender la funcionalidad de ML Studio mediante el lenguaje R con el módulo [Ejecutar script R][execute-r-script].
+Puede extender la funcionalidad de ML Studio mediante el lenguaje R con el módulo [Ejecutar script de R][execute-r-script].
 
-Este módulo acepta varios conjuntos de datos de entrada y genera un solo conjunto de datos como salida. Puede escribir un script de R en el parámetro **Script de R** del módulo [Ejecutar script R][execute-r-script].
+Este módulo acepta varios conjuntos de datos de entrada y genera un solo conjunto de datos como salida. Puede escribir un script de R en el parámetro **Script de R** del módulo [Ejecutar script de R][execute-r-script].
 
 Para tener acceso a cada puerto de entrada del módulo, se usa un código similar al siguiente:
 
@@ -37,17 +37,17 @@ La lista de paquetes instalados puede cambiar. Para obtener la lista completa y 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
 
-Esta acción envía la lista de paquetes al puerto de salida del módulo [Ejecutar script R][execute-r-script].
+Esto acción envía la lista de paquetes al puerto de salida del módulo [Ejecutar script R][execute-r-script].
 Para ver la lista de paquetes, conecte un módulo de conversión, como [Convertir a CSV][convert-to-csv] con la salida izquierda del módulo [Ejecutar script R][execute-r-script], ejecute el experimento y luego haga clic en la salida del módulo de conversión y seleccione **Descargar**. 
 
-![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+![Descarga de los resultados del módulo Convertir en CSV](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## <a name="importing-packages"></a>Importación de paquetes
-También puede importar paquetes que todavía no están instalados desde un repositorio de ML Studio de ensayo si usa los siguientes comandos en el módulo [Ejecutar script R][execute-r-script] y el archivo de paquetes comprimido:
+También puede importar paquetes que todavía no están instalados desde un repositorio de ML Studio de ensayo si usa los siguientes comandos en el módulo [Ejecutar script de R][execute-r-script] y el archivo de paquetes comprimido:
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
@@ -514,6 +514,6 @@ To get the complete list of packages that are currently available, see the secti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

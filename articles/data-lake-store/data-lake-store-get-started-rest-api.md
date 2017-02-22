@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Data Lake Store mediante la API de REST | Microsoft Docs"
+title: "Uso del SDK de Python como introducción a Azure Data Lake Store | Microsoft Docs"
 description: "Usar las API de REST de WebHDFS para realizar operaciones en el Almacén de Data Lake"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 33574b0c1f023a8a5f83b1bf06f0523623891757
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [CLI de Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 En este artículo, obtendrá información sobre cómo usar las API de REST de WebHDFS y las API de REST del Almacén de Data Lake para realizar la administración de cuentas así como las operaciones del sistema de archivos del Almacén de Azure Data Lake. El Almacén de Azure Data Lake expone sus propias API de REST para operaciones de administración de cuentas. Sin embargo, como el Almacén de Data Lake es compatible con el ecosistema de HDFS y Hadoop, admite el uso de las API de REST de WebHDFS para las operaciones del sistema de archivos.
@@ -47,7 +48,7 @@ En este artículo, obtendrá información sobre cómo usar las API de REST de We
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>¿Cómo se puede autenticar mediante Azure Active Directory?
 Puede usar dos enfoques para autenticar con Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Autenticación de usuario final (interactiva)
+### <a name="end-user-authentication-interactive"></a>Autenticación de usuario final (interactiva)
 En este escenario, la aplicación pide al usuario que inicie sesión y todas las operaciones se realizan en el contexto del usuario. Realice los pasos siguientes para realizar la autenticación interactiva.
 
 1. A través de la aplicación, redirija al usuario a la siguiente dirección URL:
@@ -88,7 +89,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
 
 Para más información sobre la autenticación interactiva de usuarios, consulte el [flujo de concesión de un código de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Autenticación de servicio a servicio (no interactiva)
+### <a name="service-to-service-authentication-non-interactive"></a>Autenticación de servicio a servicio (no interactiva)
 En este escenario, la aplicación proporciona sus propias credenciales para realizar las operaciones. Para ello, debe emitir una solicitud POST como la que se muestra a continuación. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Debe ver algo parecido a lo siguiente:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

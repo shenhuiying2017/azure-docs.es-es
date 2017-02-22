@@ -1,6 +1,6 @@
 ---
-title: "Automatización de la recuperación ante desastres para recursos compartidos de archivos en StorSimple mediante Azure Site Recovery | Microsoft Docs"
-description: "Se describen los pasos y las prácticas recomendadas para crear una solución de recuperación ante desastres para recursos compartidos de archivos hospedados en el almacenamiento de StorSimple."
+title: "Automatización de recuperación ante desastres para recursos compartidos de archivos de StorSimple con Azure Site Recovery | Microsoft Docs"
+description: "Se describen los pasos y las prácticas recomendadas para crear una solución de recuperación ante desastres para recursos compartidos de archivos hospedados en el almacenamiento de Microsoft Azure StorSimple."
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: d454c138b75bbf3227dd1d5f52594e3c78e15766
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
 
 
 ---
@@ -304,6 +304,6 @@ Con Azure Site Recovery, puede crear un plan de recuperación ante desastres aut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

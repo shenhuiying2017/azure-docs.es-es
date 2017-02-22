@@ -1,7 +1,6 @@
 ---
-
-title: "Solución de contenedor de OMS | Microsoft Docs"
-description: "La solución de contenedor de OMS es una solución de Log Analytics de OMS, que le permite ver el inventario de contenedor, el rendimiento y los registros en una sola ubicación. Puede auditar contenedores y solucionar problemas de los mismos mediante la visualización de los registros en una ubicación centralizada, así como buscar contenedores con ruido en un host."
+title: "Supervisión de un clúster de Azure DC/OS - Operations Management | Microsoft Docs"
+description: "Uso de Microsoft Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service."
 services: container-service
 documentationcenter: 
 author: keikhara
@@ -18,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 translationtype: Human Translation
-ms.sourcegitcommit: 10770c96900737e1894405a6aedaa7fe2a55fd3d
-ms.openlocfilehash: 9697a4c23b50b5ed2435a00a31fa2ee239c56c48
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: f10236ab89339234a32abf42c42083e233ab3a52
 
 
 ---
 
-# <a name="using-oms-to-monitor-container-applications-on-acs-dcos"></a>Uso de OMS para supervisar aplicaciones de contenedor en ACS DC/OS
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service
 
-Microsoft Operations Management (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura en la nube y local. La solución de contenedor es una solución de Log Analytics de OMS, que le permite ver el inventario de contenedor, el rendimiento y los registros en una sola ubicación. Puede auditar contenedores y solucionar problemas de los mismos mediante la visualización de los registros en una ubicación centralizada, así como encontrar contenedores ruidosos con un consumo excesivo.
+Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube. La solución de contenedor es una solución de Log Analytics de OMS, que le permite ver el inventario de contenedor, el rendimiento y los registros en una sola ubicación. Puede auditar contenedores y solucionar problemas de los mismos mediante la visualización de los registros en una ubicación centralizada, así como encontrar contenedores ruidosos con un consumo excesivo.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -120,6 +119,6 @@ $ dcos package uninstall msoms
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

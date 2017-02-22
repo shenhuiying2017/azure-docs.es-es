@@ -26,10 +26,13 @@ La puerta de enlace de VPN de Azure anunciará las siguientes rutas a sus dispos
 * Las rutas aprendidas en otras sesión de intercambio de tráfico (peering) de BGP conectadas a la puerta de enlace de VPN de Azure, **excepto la ruta predeterminada o las rutas superpuestas con cualquier prefijo de red virtual**.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>¿Puedo anunciar la ruta predeterminada (0.0.0.0/0) para puertas de enlace de VPN de Azure?
-De momento, no.
+Sí.
 
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>¿Puedo anunciar los mismos prefijos que los de mis prefijos de red virtual?
-No, la plataforma de Azure bloqueará o filtrará el anuncio de los mismos prefijos que los de cualquiera de sus otros prefijos de dirección de red virtual. Sin embargo, puede anunciar un prefijo que sea un superconjunto de lo que contenga Virtual Network. Por ejemplo, Virtual Network podría usar el espacio de direcciones 10.10.0.0/16 y usted podría anunciar 10.0.0.0/8.
+
+No, la plataforma de Azure bloqueará o filtrará el anuncio de los mismos prefijos que los de cualquiera de sus otros prefijos de dirección de red virtual. Sin embargo, puede anunciar un prefijo que sea un superconjunto de lo que contenga su red virtual. 
+
+Por ejemplo, si una red virtual usara el espacio de direcciones 10.0.0.0/16, se podría anunciar 10.0.0.0/8. Sin embargo, no se pueden anunciar 10.0.0.0/16 o 10.0.0.0/24.
 
 ### <a name="can-i-use-bgp-with-my-vnet-to-vnet-connections"></a>¿Puedo usar BGP con mis conexiones de red virtual a red virtual?
 Sí, puede utilizar BGP para conexiones entre locales y conexiones de red virtual a red virtual.
@@ -40,17 +43,19 @@ Sí, puede mezclar conexiones de BGP y no de BGP para la misma puerta de enlace 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>¿La puerta de enlace de VPN de Azure admite el enrutamiento del tránsito de BGP?
 Sí, se admite el enrutamiento del tránsito de BGP, con la excepción de que las puertas de enlace de VPN de Azure **NO** anunciarán las rutas predeterminadas a otros pares de BGP. Para habilitar el enrutamiento del tránsito a través de varias puertas de enlace de VPN de Azure, debe habilitar BGP en todas las conexiones de red virtual a red virtual intermedias.
 
-### <a name="can-i-have-more-than-one-tunnels-between-azure-vpn-gateway-and-my-on-premises-network"></a>¿Puedo tener más de un túnel entre mi red local y la puerta de enlace de VPN de Azure?
-Sí, puede establecer más de un túnel VPN S2S entre una puerta de enlace de VPN de Azure y la red local. Tenga en cuenta que todos estos túneles se incluirán en el recuento total de túneles para las puertas de enlace de VPN de Azure. Por ejemplo, si tiene dos túneles redundantes entre la puerta de enlace de VPN de Azure y una de las redes locales, consumirán 2 túneles de la cuota total para la puerta de enlace de VPN (10 para Standard y 30 para HighPerformance).
+### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>¿Puedo tener más de un túnel entre mi red local y Azure VPN Gateway?
+Sí, puede establecer más de un túnel VPN S2S entre Azure VPN Gateway y la red local. Tenga en cuenta que todos estos túneles se incluirán en el recuento total de túneles de las puertas de enlace de la VPN de Azure y que BGP debe habilitarse en ambos.
+
+Por ejemplo, si tiene dos túneles redundantes entre la instancia de Azure VPN Gateway y una de las redes locales, consumirán 2 túneles de la cuota total para la puerta de enlace de VPN (10 para Standard y 30 para HighPerformance).
 
 ### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>¿Puedo tener varios túneles entre dos redes virtuales de Azure con BGP?
-No, no se admiten los túneles redundantes entre un par de redes virtuales.
+Sí, pero al menos una de las puertas de enlace de la red virtual debe estar en una configuración activa-activa.
 
 ### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>¿Se puede usar BGP para VPN de sitio a sitio en que coexisten VPN de sitio a sitio y ExpressRoute?
-De momento, no.
+Sí. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>¿Qué dirección utiliza la puerta de enlace de VPN de Azure para la dirección IP del par BGP?
-La puerta de enlace de VPN de Azure asignará una sola dirección IP del intervalo de GatewaySubnet definido para la red virtual. De forma predeterminada, es la penúltima dirección del intervalo. Por ejemplo, si su GatewaySubnet es 10.12.255.0/27, que oscila entre 10.12.255.0 y 10.12.255.31, la dirección IP del par BGP en la puerta de enlace de VPN de Azure será 10.12.255.30. Puede encontrar esta información al mostrar la información de la puerta de enlace de VPN de Azure.
+La puerta de enlace de VPN de Azure asignará una sola dirección IP del intervalo de GatewaySubnet definido para la red virtual. De forma predeterminada, es la penúltima dirección del intervalo. Por ejemplo, si el valor de GatewaySubnet es 10.12.255.0/27, y oscila entre 10.12.255.0 y 10.12.255.31, la dirección IP del par BGP de la puerta de enlace de la VPN de Azure será 10.12.255.30. Puede encontrar esta información al mostrar la información de la puerta de enlace de VPN de Azure.
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>¿Cuáles son los requisitos para las direcciones IP del par BGP en mi dispositivo VPN?
 Su dirección del par BGP local **NO DEBE** ser la misma que la dirección IP pública del dispositivo VPN. Utilice otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo. Especifique esta dirección en la puerta de enlace de red local correspondiente que representa la ubicación.
@@ -63,6 +68,6 @@ Debe agregar una ruta de host de la dirección IP del par BGP de Azure en el dis
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

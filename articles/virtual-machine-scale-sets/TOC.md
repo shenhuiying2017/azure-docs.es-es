@@ -2,15 +2,17 @@
 ## [¿Qué son los conjuntos de escalado de máquinas virtuales?](virtual-machine-scale-sets-overview.md)
 
 # Introducción
-## [Creación de un conjunto de escalado de Windows](virtual-machine-scale-sets-windows-create.md)
-## [Creación de un conjunto de escalado de Linux](virtual-machine-scale-sets-linux-create-cli.md)
+## [Creación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
 
 # Procedimientos
 ## Planeamiento y diseño
 ### [Consideraciones de diseño](virtual-machine-scale-sets-design-overview.md)
+
 ## Implementación
 ### [Conjunto de escalado con el portal](virtual-machine-scale-sets-portal-create.md)
 ### [Conjunto de escalado con Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Conjunto de escalado con PowerShell](virtual-machine-scale-sets-windows-create.md)
+### [Conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Conjunto de escalado de Linux con escalado automático](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Conjunto de escalado de Windows con escalado automático](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplicaciones en conjuntos de escalado](virtual-machine-scale-sets-deploy-app.md)
@@ -38,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introducción a la protección de contenido | Microsoft Docs"
+title: "Protección de su contenido con Azure Media Services | Microsoft Docs"
 description: "En este artículo se ofrece información general de protección de contenido con Media Services."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
 
 
 ---
@@ -27,10 +27,8 @@ La siguiente imagen muestra los flujos de trabajo de protección de contenido qu
 
 ![Protección con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-> [!NOTE]
-> Para poder usar el cifrado dinámico, primero debe obtener al menos una unidad reservada de streaming en el extremo de streaming desde la que desea transmitir el contenido cifrado.
-> 
-> 
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
 
 En este tema se explican los [conceptos y terminología](media-services-content-protection-overview.md) pertinentes para conocer la protección de contenido con AMS. El tema también contiene [vínculos](media-services-content-protection-overview.md#common-scenarios) a temas que muestran cómo realizar las tareas de protección de contenido. 
 
@@ -45,10 +43,6 @@ También necesita configurar la directiva de entrega del recurso. Si desea trans
 
 Cuando un reproductor solicita una transmisión, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante la clave sin cifrado de AES o el cifrado DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
-> [!NOTE]
-> Para aprovechar al máximo el cifrado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido cifrado. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="storage-encryption"></a>Cifrado de almacenamiento
 Utilice el cifrado de almacenamiento para cifrar el contenido no cifrado de manera local mediante el cifrado de AES de 256 bits y luego cargarlo a Azure Storage donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
@@ -96,6 +90,10 @@ Los temas siguientes muestran cómo proteger el contenido en el almacenamiento, 
 * [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server)(Integración del servicio de licencia de PlayReady de Azure con su propio servidor de streaming/sistema de cifrado).
 * [Uso de castLabs para entregar licencias de DRM a Servicios multimedia de Azure](media-services-castlabs-integration.md)
 
+>[!NOTE]
+>Un escenario en el que usa un servidor DRM externo (tecnología) y flujo de AMS no se admite actualmente.
+
+
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -119,6 +117,6 @@ Los temas siguientes muestran cómo proteger el contenido en el almacenamiento, 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

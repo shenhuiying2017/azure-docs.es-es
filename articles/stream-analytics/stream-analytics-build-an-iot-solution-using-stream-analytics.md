@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
+ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
+ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
 
 
 ---
@@ -38,7 +38,7 @@ Para realizar este tutorial, deberá cumplir los siguientes requisitos previos:
 
 * La versión más reciente de [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Visual Studio 2015 o la versión de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
-*  [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
+* [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegios administrativos en el equipo
 * Descarga de [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) del Centro de descarga de Microsoft.
 * Opcional: código fuente del generador de eventos TollApp de [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
@@ -61,7 +61,7 @@ El flujo de datos de entrada contiene información sobre los vehículos que entr
 | 3 |10-09-2014 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
 | 2 |10-09-2014 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |10-09-2014 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |10-09-2014 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x 4 |1 |0 |6 |321987654 |
+| 2 |10-09-2014 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x&4; |1 |0 |6 |321987654 |
 
 Breve descripción de las columnas:
 
@@ -128,7 +128,7 @@ Si no tiene una cuenta de Azure, puede [solicitar una versión de evaluación gr
 > 
 > 
 
-Asegúrese de seguir los pasos de la sección "Limpieza de la cuenta de Azure" al final de este ejercicio para que pueda aprovechar al máximo su crédito gratuito de 200 $ de Azure.
+Asegúrese de seguir los pasos de la sección "Limpieza de la cuenta de Azure" al final de este ejercicio para que pueda aprovechar al máximo su crédito gratuito de&200; $ de Azure.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Aprovisionamiento de los recursos de Azure necesarios para el tutorial
 Este tutorial requiere dos Centros de eventos para recibir los flujos de datos *entry* y *exit*. Azure SQL Database genera los resultados de los trabajos de Stream Analytics. Azure Storage almacena los datos de referencia sobre los registros de vehículos.
@@ -252,7 +252,7 @@ Sin embargo, si está interesado en los detalles de implementación, puede encon
 4. Escriba **EntryStream** como **ALIAS DE ENTRADA**.
 5. El tipo de origen es **Flujo de datos**
 6. El origen es **Centro de eventos**.
-7. **Service bus namescape** debe ser el primer TollData que aparece en la lista desplegable.
+7. **Service bus namespace** debe ser el primer TollData que aparece en la lista desplegable.
 8. El **nombre del centro de eventos** se debe establecer en **entrada**.
 9. El **nombre de la directiva del centro de eventos*es **RootManageSharedAccessKey** (el valor predeterminado).
 10. Seleccione **JSON** para **FORMATO DE SERIALIZACIÓN DE EVENTOS** y **UTF8** para **CODIFICACIÓN**.
@@ -445,6 +445,6 @@ Para más información sobre Azure Stream Analytics, consulte la [documentación
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Mensajes de Syslog en Log Analytics | Microsoft Docs
+title: "Recopilación y análisis de mensajes de Syslog en Log Analytics (OMS) | Microsoft Docs"
 description: "Syslog es un protocolo de registro de eventos que es común a Linux.   En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que crean en el repositorio de OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
 
 
 ---
@@ -77,7 +77,7 @@ Para quitar un recurso, elimine su sección del archivo de configuración.  Pued
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-El archivo de configuración de rsyslog se encuentra en **/etc/syslog-ng/syslog-ng.conf**.  A continuación se muestra su contenido predeterminado.  Recopila mensajes de Syslog enviados desde el agente local para todos los recursos y todos los niveles de gravedad.   
+El archivo de configuración de syslog-ng se encuentra en **/etc/syslog-ng/syslog-ng.conf**.  A continuación se muestra su contenido predeterminado.  Recopila mensajes de Syslog enviados desde el agente local para todos los recursos y todos los niveles de gravedad.   
 
     #
     # Warnings (except iptables) in one file:
@@ -182,6 +182,6 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -8,7 +8,7 @@ author: ddove
 editor: 
 ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
-ms.custom: sharded databases
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aa234364a8277154e486b8eca79ec30ccaa9fb0d
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 83eb96e8e9d1d5ff31d87141fe7270c0db8867bd
 
 
 ---
@@ -36,7 +36,7 @@ En este gráfico, los colores de la base de datos representan esquemas. Las base
 
 1. Un conjunto de **bases de datos de SQL de Azure** se hospedan en Azure con la arquitectura de particionamiento.
 2. La **biblioteca de cliente de base de datos elástica** se usa para administrar un conjunto de particiones.
-3. Un subconjunto de las bases de datos se coloca en un **grupo de bases de datos elásticas**. (Consulte [¿Qué es un grupo?](sql-database-elastic-pool.md)).
+3. Un subconjunto de las bases de datos se coloca en un **grupo elástico**. (Consulte [¿Qué es un grupo?](sql-database-elastic-pool.md)).
 4. Un **trabajo de Elastic Database** ejecuta scripts de T-SQL programados o ad-hoc en todas las bases de datos.
 5. La **herramienta de división y combinación** se usa para mover datos de una partición a otra.
 6. La **consulta de base de datos elástica** le permite escribir una consulta que abarque todas las bases de datos del conjunto de particiones.
@@ -93,7 +93,7 @@ Para ver una aplicación de ejemplo que demuestra la biblioteca de cliente, cons
 
 Para convertir las bases de datos existentes con el fin de emplear las herramientas, consulte [Migración de bases de datos existentes a escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Para ver los detalles del grupo de bases de datos elásticas, consulte el artículo sobre [consideraciones de precio y rendimiento para un grupo de servidores de bases de datos elásticas](sql-database-elastic-pool-guidance.md) o cree un nuevo grupo con el [tutorial](sql-database-elastic-pool-create-portal.md).  
+Para ver los detalles del grupo elástico, consulte el artículo sobre [consideraciones de precio y rendimiento para un grupo de servidores de bases de datos elásticas](sql-database-elastic-pool-guidance.md) o cree un nuevo grupo con el [tutorial](sql-database-elastic-pool-create-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -107,6 +107,6 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte el artíc
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

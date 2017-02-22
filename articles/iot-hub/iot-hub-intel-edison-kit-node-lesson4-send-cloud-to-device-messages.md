@@ -1,5 +1,5 @@
 ---
-title: "Ejecución de una aplicación de ejemplo para recibir mensajes de la nube al dispositivo de IoT Hub de Azure | Microsoft Docs"
+title: "Conexión de Intel Edison (Node) a Azure IoT: Lección 4: Recepción de mensajes | Microsoft Docs"
 description: "Una aplicación de ejemplo se ejecuta en Edison y supervisa los mensajes entrantes provenientes desde su instancia de IoT Hub. Una nueva tarea de Gulp envía mensajes a Edison desde su instancia de IoT Hub para que parpadee el LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d492fa295237f6ff333aefb2181975e8af948723
-ms.openlocfilehash: 57f794c85f7feab95a0a22006c49b29bc6cb1384
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 4dfddf6a2664abbdfd9b5d782dafc9e5ff243e5a
 
 
 ---
@@ -96,6 +96,6 @@ Envió correctamente mensajes desde su instancia de IoT Hub a Edison para que el
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

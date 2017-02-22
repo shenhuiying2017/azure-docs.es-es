@@ -1,5 +1,5 @@
 ---
-title: "Ejecución de una aplicación de ejemplo para recibir mensajes de la nube al dispositivo desde IoT Hub de Azure | Microsoft Docs"
+title: "Conexión de Arduino (C) a Azure IoT: Lección 4: De la nube al dispositivo | Microsoft Docs"
 description: "Una aplicación de ejemplo se ejecuta en Adafruit Feather M0 WiFi y supervisa los mensajes entrantes de IoT Hub. Una nueva tarea de Gulp envía mensajes a Adafruit Feather M0 WiFi desde IoT Hub para que parpadee el LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 55eda75c1e3290cedda1c4433db67c3cf320df20
+ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
+ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
 
 
 ---
@@ -139,6 +139,6 @@ Ya ha enviado correctamente mensajes desde su instancia de IoT Hub para que la p
 [change-the-on-and-off-led-behavior]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

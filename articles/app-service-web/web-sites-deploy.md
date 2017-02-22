@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 01/05/2017
 ms.author: cephalin;dariac
 translationtype: Human Translation
-ms.sourcegitcommit: 471bb707a3126eabb82e060a614beb87b95dfd72
-ms.openlocfilehash: fca6ff6c97c70422a1e90f3861f4be24786c844c
+ms.sourcegitcommit: 283b1cfda82b4f96ad5148c522a4c9833cb4c381
+ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
 
 
 ---
@@ -26,10 +26,10 @@ Este artículo le ayudará a determinar la mejor opción para implementar los ar
 ## <a name="a-nameoverviewaazure-app-service-deployment-overview"></a><a name="overview"></a>Descripción general de la implementación de Servicio de aplicaciones de Azure
 El Servicio de aplicaciones de Azure mantiene el marco de la aplicación para usted (ASP.NET, PHP, Node.js, etc.). Algunos marcos están habilitados de forma predeterminada, mientras que es posible que otros, como Java y Python, necesiten una configuración de marca de verificación sencilla para habilitarlos. Además, puede personalizar el marco de la aplicación, como la versión de PHP o el valor de bits del tiempo de ejecución. Para obtener más información, consulte [Configuración de aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-configure.md).
 
-Como no tiene que preocuparse por el marco de la aplicación o del servidor web, la implementación de la aplicación en App Service consiste en implementar código, archivos binarios, archivos de contenido y su estructura de directorios correspondiente en el directorio [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) en Azure (o el directorio **/site/wwwroot/App_Data/Jobs/** para WebJobs). El Servicio de aplicaciones admite las siguientes opciones de implementación: 
+Como no tiene que preocuparse por el marco de la aplicación o del servidor web, la implementación de la aplicación en App Service consiste en implementar código, archivos binarios, archivos de contenido y su estructura de directorios correspondiente en el directorio [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) en Azure (o el directorio **/site/wwwroot/App_Data/Jobs/** para WebJobs). App Service admite tres procesos de implementación diferentes. Todos los métodos de implementación de este artículo usan uno de los siguientes procesos: 
 
 * [FTP o FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol) use sus FTP o FTPS favoritos habilitados para mover los archivos a Azure, desde [FileZilla](https://filezilla-project.org) hasta IDE completos como [NetBeans](https://netbeans.org). Se trata estrictamente de un proceso de carga de archivos. El Servicio de aplicaciones no proporciona servicios adicionales, como control de versiones, administración de estructura de archivos, etc. 
-* [Kudu (Git/Mercurial o OneDrive/Dropbox)](https://github.com/projectkudu/kudu/wiki/Deployment): use el [motor de implementación](https://github.com/projectkudu/kudu/wiki) en App Service. Inserte el código en Kudu directamente desde cualquier repositorio. Kudu también proporciona servicios agregados siempre que se inserte código en él, como por ejemplo, control de versiones, restauración de paquetes, MSBuild y [enlaces web](https://github.com/projectkudu/kudu/wiki/Web-hooks) , para la implementación continua y otras tareas de automatización. El motor de implementación de Kudu es compatible con 3 tipos distintos de orígenes de implementación:   
+* [Kudu (Git/Mercurial o OneDrive/Dropbox)](https://github.com/projectkudu/kudu/wiki/Deployment): Kudu es el [motor de implementación](https://github.com/projectkudu/kudu/wiki) en App Service. Inserte el código en Kudu directamente desde cualquier repositorio. Kudu también proporciona servicios agregados siempre que se inserte código en él, como por ejemplo, control de versiones, restauración de paquetes, MSBuild y [enlaces web](https://github.com/projectkudu/kudu/wiki/Web-hooks) , para la implementación continua y otras tareas de automatización. El motor de implementación de Kudu es compatible con 3 tipos distintos de orígenes de implementación:   
   
   * Sincronización de contenido de OneDrive y Dropbox.   
   * Implementación continua basada en repositorio con sincronización automática desde GitHub, Bitbucket y Visual Studio Team Services.  
@@ -39,11 +39,11 @@ Como no tiene que preocuparse por el marco de la aplicación o del servidor web,
 Las herramientas de desarrollo web más populares admiten uno o varios de estos procesos de implementación. Aunque la herramienta que elija determina los procesos de implementación que puede aprovechar, la funcionalidad de DevOps real a su disposición depende de la combinación del proceso de implementación y las herramientas específicas que elija. Por ejemplo, si ejecuta Web Deploy desde [Visual Studio con Azure SDK](#vspros), aunque no obtenga la automatización de Kudu, tendrá la restauración de paquetes y la automatización de MSBuild en Visual Studio. 
 
 > [!NOTE]
-> Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](../resource-group-template-deploy-portal.md) que puede necesitar la aplicación. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate) .
+> Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md) que puede necesitar la aplicación. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate) .
 > 
 > 
 
-## <a name="a-nameftpadeploy-via-ftp-by-copying-files-to-azure-manually"></a><a name="ftp"></a>Implementación a través de FTP mediante la copia manual de archivos en Azure
+## <a name="a-nameftpadeploy-manually-by-uploading-files-with-ftp"></a><a name="ftp"></a>Implementación manual mediante la carga de archivos con FTP
 Si está familiarizado con la copia manual de contenido web en un servidor web, puede usar una utilidad [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos, como el Explorador de Windows o [FileZilla](https://filezilla-project.org/).
 
 Las ventajas de la copia manual de archivos son las siguientes:
@@ -59,7 +59,10 @@ Los inconvenientes de la copia manual de archivos son los siguientes:
 * No existe un historial integrado de las implementaciones para solucionar problemas con la implementación.
 * Existe la posibilidad de que se generen tiempos de implementación prolongados, debido a que muchas de las herramientas de FTP no ofrecen la funcionalidad para copiar solo las diferencias y simplemente copian todos los archivos.  
 
-### <a name="a-namehowtoftpahow-to-deploy-by-copying-files-to-azure-manually"></a><a name="howtoftp"></a>Implementación mediante la copia manual de archivos en Azure
+### <a name="a-namehowtoftpahow-to-upload-files-with-ftp"></a><a name="howtoftp"></a>Carga de archivos con FTP
+[Azure Portal](https://portal.azure.com) proporciona toda la información que necesita para conectarse a los directorios de la aplicación mediante FTP o FTPS.
+
+* [Implementación de la aplicación en Azure App Service mediante FTP](app-service-deploy-ftp.md)
 
 ## <a name="a-namedropboxadeploy-by-syncing-with-a-cloud-folder"></a><a name="dropbox"></a>Implementación mediante sincronización con una carpeta en la nube
 Una buena alternativa a [copiar archivos manualmente](#ftp) es sincronizar archivos y carpetas con el Servicio de aplicaciones desde un servicio de almacenamiento en la nube, como OneDrive y Dropbox. La sincronización con una carpeta en la nube utiliza el proceso Kudu para la implementación (consulte [Información general sobre los procesos de implementación](#overview)).
@@ -98,6 +101,8 @@ La desventaja de la implementación desde un servicio de control de código fuen
 En el [Portal de Azure](https://portal.azure.com), puede configurar la implementación continua desde GitHub, BitBucket y Visual Studio Team Services.
 
 * [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continuous-deployment.md) 
+
+Para más información sobre cómo configurar una implementación continua manualmente desde un repositorio en la nube que no aparece en Azure Portal (como [GitLab](https://gitlab.com/)), consulte [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps) (Configuración de la implementación continua de forma manual).
 
 ## <a name="a-namelocalgitdeploymentadeploy-from-local-git"></a><a name="localgitdeployment"></a>Implementación desde Git local
 Si el equipo de desarrollo usa un servicio de administración de código fuente (SCM) local basado en Git, puede configurarlo como un origen de implementación en Servicio de aplicaciones. 
@@ -155,58 +160,21 @@ Microsoft le permite implementar Web Apps en Azure directamente desde Eclipse e 
 * [Creación de una aplicación web Hello World para Azure en IntelliJ](app-service-web-intellij-create-hello-world-web-app.md). En este tutorial, se muestra cómo utilizar el kit de herramientas de Azure para IntelliJ con el fin de crear e implementar una aplicación web que muestra el mensaje "Hello world!" (¡Hola, mundo!) para Azure.
 
 ## <a name="a-nameautomateaautomate-deployment-by-using-command-line-tools"></a><a name="automate"></a>Automatización de la implementación mediante herramientas de línea de comandos
-* [Automatización de la implementación con MSBuild](#msbuild)
-* [Copia de archivos con scripts y herramientas FTP](#ftp)
-* [Automatización de la implementación con Windows PowerShell](#powershell)
-* [Automatización de la implementación con la API de administración de .NET](#api)
-* [Implementación desde la interfaz de la línea de comandos de Azure (CLI de Azure)](#cli)
-* [Implementación desde la línea de comandos de Web Deploy](#webdeploy)
-* [Uso de scripts por lotes de FTP](http://support.microsoft.com/kb/96269).
+Si prefiere el terminal de línea de comandos como entorno de desarrollo, puede crear tareas de implementación de scripts para la aplicación de App Service con herramientas de la línea de comandos. 
 
-Otra opción de implementación es usar un servicio basado en la nube como [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Para obtener más información, consulte [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)(Implementación de aplicaciones ASP.NET en Sitios web de Azure).
+Las ventajas de la implementación con las herramientas de la línea de comandos son las siguientes:
 
-### <a name="a-namemsbuildaautomate-deployment-with-msbuild"></a><a name="msbuild"></a>Automatización de la implementación con MSBuild
-Si usa el [IDE de Visual Studio](#vs) para desarrollo, puede usar [MSBuild](http://msbuildbook.com/) para automatizar todo lo que puede hacer en el IDE. Puede configurar MSBuild para usar [Web Deploy](#webdeploy) o [FTP/FTPS](#ftp) para copiar archivos. Web Deploy también puede automatizar muchas otras tareas relacionadas con la implementación, como implementar bases de datos.
+* Habilita escenarios de implementación con script.
+* Integra el aprovisionamiento de recursos de Azure y la implementación de código.
+* Integra la implementación de Azure en los scripts de integración continua existentes.
 
-Para obtener más información acerca de la implementación de la línea de comandos con MSBuild, consulte los siguientes recursos:
+Los inconvenientes de la implementación con las herramientas de la línea de comandos son las siguientes:
 
-* [Implementación web de ASP.NET con Visual Studio: Implementación de línea de comandos](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). El décimo tutorial de una serie sobre la implementación en Azure con Visual Studio. Muestra cómo usar la línea de comandos para la implementación después de haber configurado perfiles de publicación en Visual Studio.
-* [Dentro de Microsoft Build Engine: Uso de MSBuild y Team Foundation Build](http://msbuildbook.com/). Copia impresa de un libro que incluye capítulos sobre cómo usar MSBuild para la implementación.
+* No está indicado para los desarrolladores que prefieren GUI.
 
-### <a name="a-namepowershellaautomate-deployment-with-windows-powershell"></a><a name="powershell"></a>Automatización de la implementación con Windows PowerShell
-Desde [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx)puede ejecutar funciones de implementación MSBuild o FTP. Si lo hace, también puede usar una recopilación de cmdlets de Windows PowerShell que hacen que sea fácil llamar a la API REST de administración de Azure.
+### <a name="a-nameautomatehowahow-to-automate-deployment-with-command-line-tools"></a><a name="automatehow"></a>Automatización de la implementación con herramientas de la línea de comandos
 
-Para obtener más información, consulte los siguientes recursos:
-
-* [Implementación de una aplicación web vinculada a un repositorio de GitHub](app-service-web-arm-from-github-provision.md)
-* [Aprovisionamiento de una aplicación web con una base de datos SQL](app-service-web-arm-with-sql-database-provision.md)
-* [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-deploy-complex-application-predictably.md)
-* [Creación de aplicaciones reales en la nube con Azure: automatizar todo.](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de un libro electrónico que explica cómo la aplicación de ejemplo que aparece en el libro electrónico usa scripts de Windows PowerShell para crear un entorno de prueba de Azure e implementar en él. Consulte la sección [Recursos](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para ver vínculos a documentación adicional de Azure PowerShell.
-* [Uso de scripts de Windows PowerShell para publicar en entornos de prueba y desarrollo](../vs-azure-tools-publishing-using-powershell-scripts.md). Cómo usar scripts de implementación de Windows PowerShell que genera Visual Studio.
-
-### <a name="a-nameapiaautomate-deployment-with-net-management-api"></a><a name="api"></a>Automatización de la implementación con la API de administración de .NET
-Puede escribir código de C# para realizar funciones de MSBuild o FTP para implementación. Si lo hace, puede tener acceso a la API REST de administración de Azure para realizar funciones de administración de sitios.
-
-Para obtener más información, consulte el siguiente recurso:
-
-* [Automatización de todo con las bibliotecas de administración de Azure y .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Introducción a la API de administración .NET y vínculos a más documentación.
-
-### <a name="a-namecliadeploy-from-azure-command-line-interface-azure-cli"></a><a name="cli"></a>Implementación desde la interfaz de la línea de comandos de Azure (CLI de Azure)
-Puede usar la línea de comandos en máquinas Windows, Mac o Linux para implementar mediante FTP. Si lo hace, también puede tener acceso a la API de administración REST de Azure con la CLI de Azure.
-
-Para obtener más información, consulte el siguiente recurso:
-
-* [Herramientas de línea de comandos de Azure](https://azure.microsoft.com/downloads/). Página de portal en Azure.com para obtener información sobre la herramienta de línea de comandos.
-
-### <a name="a-namewebdeployadeploy-from-web-deploy-command-line"></a><a name="webdeploy"></a>Implementación desde la línea de comandos de Web Deploy
-[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) es el software de Microsoft para la implementación en IIS que no solo ofrece características inteligentes de sincronización de archivos, sino que también puede realizar o coordinar muchas otras tareas relacionadas con la implementación que no se pueden automatizar cuando usa FTP. Por ejemplo, Web Deploy puede implementar una base de datos nueva o actualizaciones de base de datos junto con su aplicación web. Web Deploy también puede minimizar el tiempo que se requiere para actualizar un sitio existente, dado que puede copiar de manera inteligente solo los archivos modificados. Microsoft Visual Studio y Team Foundation Server cuentan con compatibilidad integrada para Web Deploy, pero solo puede usar Web Deploy directamente desde la línea de comandos para automatizar la implementación. Los comandos de Web Deploy son muy poderosos, pero la curva de aprendizaje puede ser pronunciada.
-
-Para obtener más información, consulte el siguiente recurso:
-
-* [Aplicaciones web simples: implementación](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre una herramienta que escribió para facilitar el uso de Web Deploy.
-* [Herramienta de implementación web](http://technet.microsoft.com/library/dd568996). Documentación oficial sobre el sitio de Microsoft TechNet. Información antigua, pero sigue siendo un buen lugar para comenzar.
-* [Uso de Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Documentación oficial sobre el sitio de Microsoft IIS.NET. También es información antigua, pero es un buen lugar para comenzar.
-* [Implementación web de ASP.NET con Visual Studio: Implementación de línea de comandos](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild es el motor de compilación que emplea Visual Studio y que también se puede usar desde la línea de comandos para implementar aplicaciones web en Web Apps. Este tutorial forma parte de una serie que se refiere principalmente a la implementación de Visual Studio.
+Vea [Automate deployment of your Azure app with command-line tools](app-service-deploy-command-line.md) (Automatización de su aplicación de Azure con herramientas de la línea de comandos) para obtener una lista de herramientas de línea de comandos y vínculos a los tutoriales. 
 
 ## <a name="a-namenextstepsanext-steps"></a><a name="nextsteps"></a>Pasos siguientes
 En algunos escenarios, es posible que desee poder cambiar fácilmente entre una versión de ensayo y versión una de producción de su aplicación. Para obtener más información, consulte [Implementación de ensayo en Web Apps](web-sites-staged-publishing.md).
@@ -215,17 +183,9 @@ Tener un plan de copia de seguridad y restauración es un elemento importante de
 
 Para obtener información sobre cómo usar el control de acceso basado en roles de Azure para administrar el acceso a la implementación del Servicio de aplicaciones, consulte [RBAC and Web App Publishing](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/)(RBAC y la publicación de aplicaciones web).
 
-<a name="see-also"></a>
-
-## <a name="see-also"></a>Otras referencias
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
-
-<!-- URL List -->
-
-[Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

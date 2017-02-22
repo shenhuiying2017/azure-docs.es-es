@@ -34,7 +34,7 @@ Después de completar este tutorial, los usuarios de AAD a los que ha asignado a
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-thousandeyes-tutorial/IC790059.png "Scenario")
+![Escenario](./media/active-directory-saas-thousandeyes-tutorial/IC790059.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-thousandeyes"></a>Habilitación de la integración de aplicaciones para ThousandEyes
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para ThousandEyes.
@@ -48,19 +48,19 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-    ![Applications](./media/active-directory-saas-thousandeyes-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-thousandeyes-tutorial/IC700994.png "Aplicaciones")
 
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-    ![Agregar aplicación](./media/active-directory-saas-thousandeyes-tutorial/IC749321.png "Add application")
+    ![Agregar aplicaciones](./media/active-directory-saas-thousandeyes-tutorial/IC749321.png "Agregar aplicaciones")
 
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-thousandeyes-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-thousandeyes-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
 6. En el **cuadro de búsqueda**, escriba **ThousandEyes**.
    
-    ![Galería de aplicaciones](./media/active-directory-saas-thousandeyes-tutorial/IC790060.png "Application Gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-thousandeyes-tutorial/IC790060.png "Galería de aplicaciones")
 7. En el panel de resultados, seleccione **ThousandEyes** y, luego, haga clic en **Completar** para agregar la aplicación.
    
     ![ThousandEyes](./media/active-directory-saas-thousandeyes-tutorial/IC790061.png "ThousandEyes")
@@ -71,37 +71,37 @@ En esta sección se describe cómo se habilita la autenticación de los usuarios
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de la aplicación **ThousandEyes**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Configure Single SignOn")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Configurar inicio de sesión único")
 
 1. En la página **¿Cómo desea que los usuarios inicien sesión en ThousandEyes?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configure Single SignOn")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurar inicio de sesión único")
 
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ThousandEyes**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación ThousandEyes (por ejemplo: "*https://app.thousandeyes.com/login/sso*") y, después, haga clic en **Siguiente**. 
    
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurar dirección URL de la aplicación")
 
 4. En la página **Configurar inicio de sesión único en ThousandEyes**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Configure Single SignOn")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Configurar inicio de sesión único")
 
 5. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de **ThousandEyes** como administrador.
 
 6. En el menú de la parte superior, haga clic en **Configuración**.
    
-    ![Configuración](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Settings")
+    ![Configuración](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Configuración")
 
 7. Haga clic en **Cuenta**
    
-    ![Cuenta](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
+    ![Cuenta](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Cuenta")
 
 8. Haga clic en la pestaña **Security & Authentication** (Seguridad y autenticación).
    
-    ![Seguridad y autenticación](./media/active-directory-saas-thousandeyes-tutorial/IC790068.png "Security & Authentication")
+    ![Seguridad y autenticación](./media/active-directory-saas-thousandeyes-tutorial/IC790068.png "Seguridad y autenticación")
 
 9. En la sección **Configurar inicio de sesión único** siga los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Setup Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Configurar inicio de sesión único")
    
     a. Seleccione **Enable Single Sign-On**(Habilitar inicio de sesión único).
    
@@ -117,7 +117,7 @@ En esta sección se describe cómo se habilita la autenticación de los usuarios
 
 10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Configure Single SignOn")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Configurar inicio de sesión único")
 
 ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 Para permitir que los usuarios de Azure AD inicien sesión en ThousandEyes, deben aprovisionarse en ThousandEyes.  
@@ -128,19 +128,19 @@ En el caso de ThousandEyes, el aprovisionamiento es una tarea manual.
 
 2. Haga clic en **Configuración**.
    
-    ![Configuración](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Settings")
+    ![Configuración](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Configuración")
 
 3. Haga clic en **Cuenta**.
    
-    ![Cuenta](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
+    ![Cuenta](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Cuenta")
 
 4. Haga clic en la pestaña **Accounts & Users** (Cuentas y usuarios).
    
-    ![Cuentas y usuarios](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Accounts & Users")
+    ![Cuentas y usuarios](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Cuentas y usuarios")
 
 5. En la sección **Add Users & Accounts** (Agregar usuarios y cuentas), realice los siguientes pasos:
    
-    ![Agregar cuentas de usuario](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Add User Accounts")
+    ![Agregar cuentas de usuario](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Agregar cuentas de usuario")
    
     a. Escriba el **nombre**, **correo electrónico** y otros detalles de una cuenta de Azure Active Directory válida que desee aprovisionar en los cuadros de texto pertinentes.
    
@@ -164,17 +164,17 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 2. En la página de integración de la aplicación **ThousandEyes**, haga clic en **Asignar usuarios**.
    
-    ![Asignar usuarios](./media/active-directory-saas-thousandeyes-tutorial/IC790075.png "Assign Users")
+    ![Asignar usuarios](./media/active-directory-saas-thousandeyes-tutorial/IC790075.png "Asignar usuarios")
 
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-    ![Sí](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Yes")
+    ![Sí](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

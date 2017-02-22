@@ -5,7 +5,7 @@ Cree una conexión de cliente mediante la generación de un objeto `WindowsAzure
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="a-nametable-referenceawork-with-tables"></a><a name="table-reference"></a>Uso de tablas
+## <a name="a-nametable-referenceawork-with-tables"></a><a name="table-reference"></a>Trabajo con tablas
 Para acceder a los datos o actualizarlos, cree una referencia a la tabla de back-end. Reemplace `tableName` por el nombre de la tabla.
 
 ```
@@ -22,7 +22,7 @@ Una vez que disponga de una referencia de tabla, podrá realizar más operacione
 * [Modificación de datos](#modifying)
 * [Eliminación de datos](#deleting)
 
-### <a name="a-namequeryingahow-to-query-a-table-reference"></a><a name="querying"></a>Cómo consultar una referencia de tabla
+### <a name="a-namequeryingahow-to-query-a-table-reference"></a><a name="querying"></a>Consulta de una referencia de tabla
 Una vez que tiene una referencia de tabla, puede utilizarla para consultar datos en el servidor.  Las consultas se realizan en un lenguaje "similar a LINQ".
 Para devolver todos los datos de la tabla, utilice el código siguiente:
 
@@ -107,7 +107,7 @@ El método `.includeTotalCount()` se utiliza para agregar un campo totalCount al
 
 A continuación, puede usar la variable de páginas y algunos botones de la interfaz de usuario para proporcionar una lista de páginas; utilice `loadPage()` para cargar los nuevos registros de cada página.  Implemente el almacenamiento en caché para acelerar el acceso a los registros que ya se han cargado.
 
-#### <a name="a-namesorting-dataahow-to-return-data-sorted"></a><a name="sorting-data"></a>Cómo devolver los datos ordenados
+#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>Devolución de los datos ordenados
 Utilice los métodos de consulta `.orderBy()` o `.orderByDescending()`:
 
 ```
@@ -119,7 +119,7 @@ table
 
 Para más información sobre el objeto Query, consulte la [documentación del objeto Query].
 
-### <a name="a-nameinsertingahow-to-insert-data"></a><a name="inserting"></a>Insertar datos
+### <a name="a-nameinsertingahow-to-insert-data"></a><a name="inserting"></a>Inserción de datos
 Cree un objeto de JavaScript con la fecha adecuada y llame a `table.insert()` de manera asincrónica:
 
 ```javascript
@@ -167,6 +167,6 @@ table
 ```
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

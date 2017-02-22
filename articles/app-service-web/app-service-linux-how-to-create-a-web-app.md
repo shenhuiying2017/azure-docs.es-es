@@ -1,5 +1,5 @@
 ---
-title: "Creación de una aplicación web con App Service en Linux | Microsoft Docs"
+title: "Creación de una aplicación web de Azure que se ejecute en Linux | Microsoft Docs"
 description: "Flujo de creación de aplicaciones web para App Service en Linux."
 keywords: "azure app service, aplicación web, linux, oss"
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Creación de una aplicación web con App Service en Linux
+# <a name="create-an-azure-web-app-running-on-linux"></a>Creación de una aplicación web de Azure que se ejecute en Linux
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Uso de Azure Portal para crear una aplicación web
 Puede empezar a crear la aplicación web en Linux desde [Azure Portal](https://portal.azure.com) como se muestra en la siguiente imagen:
 
@@ -34,7 +34,7 @@ Aparecerá la hoja de **creación**, como se muestra en la siguiente imagen:
 1. Asigne un nombre a la aplicación web.
 2. Elija un grupo de recursos existente o cree uno. (Consulte las regiones disponibles en la [sección de limitaciones](app-service-linux-intro.md)).
 3. Seleccione un plan de Azure App Service existente o cree uno. (Consulte las notas del plan de App Service en la [sección de limitaciones](app-service-linux-intro.md)).
-4. Elija la pila de aplicaciones que se va a utilizar. Puede elegir entre varias versiones de Node.js y PHP.
+4. Elija la pila de aplicaciones que se va a utilizar. Puede elegir entre varias versiones de Node.js, PHP, .NET Core y Ruby.
 
 Una vez que haya creado la aplicación, puede cambiar la pila de aplicaciones de la configuración de la aplicación como se muestra en la siguiente imagen:
 
@@ -59,6 +59,6 @@ También puede usar FTP para cargar la aplicación al sitio. En la sección de r
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

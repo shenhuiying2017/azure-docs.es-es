@@ -1,6 +1,6 @@
 ---
-title: "Administración de clústeres de Hadoop basados en Linux en HDInsight mediante Azure Portal | Microsoft Docs"
-description: "Aprenda a crear y administrar clústeres de HDInsight basados en Linux mediante el portal de Azure."
+title: "Administración de clústeres de Hadoop en HDInsight con el portal de Azure | Microsoft Azure"
+description: "Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,18 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 7bfa0d73f870202e4caeb893830952ca39a35c26
-ms.openlocfilehash: 27ee26b38b9881ed7f0cd7b0253be123af27955f
+ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
+ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
 
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-En [Azure Portal][azure-portal], puede administrar clústeres basados en Linux en Azure HDInsight. Use el selector de pestañas para obtener información sobre cómo administrar clústeres de Hadoop en HDInsight con otras herramientas. 
+En el [portal de Azure][azure-portal], puede administrar clústeres de Hadoop en Azure HDInsight. Use el selector de pestañas para obtener información sobre cómo administrar clústeres de Hadoop en HDInsight con otras herramientas. 
 
 **Requisitos previos**
 
@@ -43,6 +43,8 @@ Antes de empezar este artículo, debe tener lo siguiente:
      
        ![Portal de Azure botón clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       Si no ve el clúster de HDInsight, haga clic en **Más servicios** en la parte inferior de la lista y, a continuación, haga clic en **Clústeres de HDInsight** en la sección **Inteligencia y análisis**.
+
 ## <a name="create-clusters"></a>Creación de clústeres
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -56,14 +58,14 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
    
     ![Azure Portal: aspectos básicos del clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-    **Menú de información general**:
+    **Menú de información general:**
 
-   * **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux.
+   * **Panel**: abre el panel del clúster, que es la web de Ambari para clústeres basados en Linux.
    * **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
    * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
    * **Eliminar**: elimina el clúster.
 
-    **Menú de la izquierda**
+    **Menú de la izquierda:**
    
    * **Registros de actividad**: consultar y mostrar registros de actividad.
    * **Access Control (IAM)**: usar las asignaciones de roles.  Vea [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
@@ -315,6 +317,6 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

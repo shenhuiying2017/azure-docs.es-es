@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 53c84ff1e99236343585ff31ef1bcb57e0250fdc
+ms.sourcegitcommit: 46c624608773fcd55e7ee3548aaa32fbbc630056
+ms.openlocfilehash: b6d0c877e0f0515dd82c0615850009910aa0b0be
 
 
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Evaluación del rendimiento de un modelo en Aprendizaje automático de Azure
-En este tema se muestra cómo evaluar el rendimiento de un modelo en el Estudio de aprendizaje automático de Azure y se proporciona una breve explicación de las métricas disponibles para esta tarea. Se presentan tres escenarios comunes de aprendizaje supervisado: 
+En este artículo se muestra cómo evaluar el rendimiento de un modelo en Azure Machine Learning Studio y se proporciona una breve explicación de las métricas disponibles para esta tarea. Se presentan tres escenarios comunes de aprendizaje supervisado: 
 
 * regresión
 * clasificación binaria 
@@ -36,7 +36,7 @@ Azure Machine Learning admite la evaluación de modelos a través de dos de sus 
 ## <a name="evaluation-vs-cross-validation"></a>Evaluación frente a Validación cruzada
 La evaluación y la validación cruzada son métodos estándares para medir el rendimiento de un modelo. Ambos generan métricas de evaluación que puede inspeccionar o comparar con las de otros modelos.
 
-[Evaluar modelo][evaluate-model] espera un conjunto de datos puntuado como entrada (o 2 en caso de que quiera comparar el rendimiento de 2 modelos distintos). Esto implica que debe entrenar el modelo mediante el módulo [Train Model][train-model] (Entrenar modelo) y realizar predicciones sobre algún conjunto de datos con el módulo [Puntuar modelo][score-model], antes de poder evaluar los resultados. La evaluación se basa en las etiquetas y probabilidades puntuadas junto con las etiquetas verdaderas, todas los cuales son el resultado del módulo [Puntuar modelo][score-model].
+[Evaluar modelo][evaluate-model] espera un conjunto de datos puntuado como entrada (o 2 en caso de que quiera comparar el rendimiento de 2 modelos distintos). Esto implica que debe entrenar el modelo mediante el módulo [Train Model][train-model] (Entrenar modelo) y realizar predicciones sobre algún conjunto de datos con el módulo [Puntuar modelo][score-model], antes de poder evaluar los resultados. La evaluación se basa en las etiquetas y probabilidades puntuadas junto con las etiquetas verdaderas, las cuales son el resultado del módulo [Puntuar modelo][score-model].
 
 De forma alternativa, es posible usar la validación cruzada para realizar automáticamente varias operaciones de entrenamiento, puntuación y evaluación (10 subconjuntos) en distintos subconjuntos de los datos de entrada. Los datos de entrada se dividen en 10 partes, donde una se reserva para las pruebas y las otras 9 para el entrenamiento. Este proceso se repite 10 veces y se calcula el promedio de las métricas de evaluación. Esto ayuda a determinar el nivel al que un modelo se podría generalizar para nuevos conjuntos de datos. El módulo [Validar modelo de forma cruzada][cross-validate-model] toma un modelo sin entrenar y algunos conjuntos de datos con etiquetas y genera los resultados de la evaluación de cada uno de los 10 subconjuntos, además de los resultados promediados.
 
@@ -115,7 +115,9 @@ Figura 6. Matriz de confusión de la clasificación binaria.
 
 Volviendo al problema de clasificación de ingresos, existen varias preguntas de evaluación que querríamos preguntar para ayudarnos a comprender el rendimiento del clasificador utilizado. Una pregunta muy natural es: "De los individuos que el modelo predijo que ganan >50.000 (TP+FP), cuántos se han clasificado correctamente (TP)?" Puede responder esta pregunta observando la **Precisión** del modelo, que es la proporción de positivos que se han clasificado correctamente: TP/(TP+FP). Otra pregunta común es "De todos los empleados con ingresos >50.000 (TP+FN), ¿cuántos predijo el clasificador correctamente (TP)?". Esto es en realidad la **Recuperación** o la tasa de positivos verdaderos: TP/(TP+FN) del clasificador. Observará que hay una evidente compensación entre la precisión y la recuperación. Por ejemplo, dado un conjunto de datos relativamente equilibrado, un clasificador que prediga principalmente instancias positivas tendría una recuperación alta, pero una precisión más baja, ya que muchas de las instancias negativas se clasificarían incorrectamente y se produciría un número mayor de falsos positivos. Para ver un gráfico de cómo varían estas dos métricas, haga clic en la curva de "PRECISIÓN/RECUPERACIÓN" en la página de salida de resultados de evaluación (parte superior izquierda de la Figura 7).
 
-![Resultados de la evaluación de clasificación binaria](media/machine-learning-evaluate-model-performance/7.png), Ilustración 7. Resultados de la evaluación de clasificación binaria.
+![Resultados de la evaluación de clasificación binaria](media/machine-learning-evaluate-model-performance/7.png)
+
+Ilustración 7. Resultados de la evaluación de clasificación binaria.
 
 Otra métrica relacionada que se usa con frecuencia es **F1 Score**, que tiene en cuenta la precisión y la recuperación. Es la media armónica de estas 2 métricas y se calcula como tal: F1 = 2 (precisión x recuperación) / (precisión + recuperación). La puntuación de F1 score es una buena forma de resumir la evaluación en un número único, pero siempre es una práctica recomendada comprobar la precisión y la recuperación juntas para comprender mejor cómo se comporta un clasificador.
 
@@ -189,6 +191,6 @@ Ilustración 13. Resultados de una validación cruzada de un modelo de clasifica
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

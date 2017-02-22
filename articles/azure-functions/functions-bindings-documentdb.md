@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 3c406de579e3f09b521b60861230106c952f4357
+ms.sourcegitcommit: c9e736f7ce5330823f3890c669da40e2bb1ecf43
+ms.openlocfilehash: 13b69118c6732ed872bec11e880737db3b8fa3c5
 
 
 ---
@@ -159,6 +159,24 @@ En esta sección se muestra cómo utilizar el enlace de salida de DocumentDB en 
 
 Cuando se escribe en el parámetro de salida en la función, de forma predeterminada se genera un nuevo documento en la base de datos, con un GUID generado automáticamente como el identificador de documento. Puede especificar el identificador de documento del documento de salida mediante la especificación de la propiedad JSON `id` en el parámetro de salida. Si ya existe un documento con ese identificador, el documento de salida lo sobrescribe. 
 
+Puede escribir en la salida mediante cualquiera de los siguientes tipos:
+
+* Cualquier [objeto](https://msdn.microsoft.com/library/system.object.aspx): útil para la serialización mediante JSON.
+  Si declara un tipo de salida personalizado (por ejemplo, `out FooType paramName`), Azure Functions intentará serializar el objeto en JSON. Si el parámetro de salida es nulo cuando sale la función, el entorno de tiempo de ejecución de Azure Functions creará un blob como objeto nulo.
+* Cadena: (`out string paramName`) útil para los datos de blob de texto. el entorno de tiempo de ejecución de Azure Functions genera un blob solo si el parámetro de cadena no es nulo cuando sale la función.
+
+En las funciones de C# también puede enviar la salida a cualquiera de los siguientes tipos:
+
+* `TextWriter`
+* `Stream`
+* `CloudBlobStream`
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
+
+Para generar varios documentos, también puede enlazar a `ICollector<T>` o `IAsyncCollector<T>`, donde `T` es uno de los tipos admitidos.
+
+
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Ejemplo de salida
@@ -290,6 +308,7 @@ module.exports = function (context) {
 ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

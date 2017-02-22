@@ -1,7 +1,7 @@
 ---
 title: "¿Qué es Machine Learning en Azure? | Microsoft Docs"
 description: "Explica los conceptos básicos del aprendizaje automático en la nube, describe para qué puede utilizarlo y define los términos de aprendizaje automático."
-keywords: "qué es aprendizaje automático, terminología de aprendizaje automático, predictivo, qué es análisis predictivo, poner en funcionamiento"
+keywords: "qué es aprendizaje automático, terminología de aprendizaje automático, predictivo, qué es análisis predictivo, términos de aprendizaje automático"
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0415a3a07a1334f1947ff89e79bc710332de113
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Introducción al aprendizaje automático en la nube
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Introducción a Azure Machine Learning en la nube
 ## <a name="what-is-machine-learning"></a>¿Qué es el aprendizaje automático?
 El aprendizaje automático es una técnica de ciencia de datos que ayuda a los equipos a aprender de los datos existentes para prever tendencias, resultados y comportamientos futuros.  
 
@@ -30,47 +30,47 @@ Estas previsiones o predicciones del aprendizaje automático pueden hacer que la
 Si desea una pequeña introducción, vea la serie de vídeos [Ciencia de datos para principiantes](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Sin utilizar tecnicismos ni matemáticas, la serie de vídeos Ciencia de datos para principiantes hace una introducción al aprendizaje automático y le guía a lo largo de un sencillo modelo de predicción.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>¿Qué es Aprendizaje automático en la nube de Microsoft Azure?
-Aprendizaje automático de Azure es un eficaz servicio de análisis predictivo basado en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis. Al usar la nube de Azure para ejecutar experimentos de aprendizaje automático o crear soluciones, no es necesario comprar hardware ni infraestructura costosos.
+Azure Machine Learning es un servicio de análisis predictivo en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis.
+
+Puede trabajar desde una biblioteca de algoritmos lista para usar, utilizarlos para crear modelos en un equipo conectado a Internet e implementar rápidamente la solución de predicción. Comience con los ejemplos y las soluciones listos para usar de la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/).
 
 ![¿Qué es el aprendizaje automático? Flujo de trabajo básico para poner en funcionamiento el análisis predictivo en el Aprendizaje automático de Azure.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
-Aprendizaje automático de Azure no solo proporciona herramientas para análisis predictivos de modelos, sino que también proporciona un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Aprendizaje automático de Azure proporciona herramientas para crear completas soluciones de análisis predictivos en la nube: crear, probar, poner operativos y administrar modelos predictivos rápidamente.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+Aprendizaje automático de Azure no solo proporciona herramientas para análisis predictivos de modelos, sino que también proporciona un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir.
 
 ## <a name="what-is-predictive-analytics"></a>¿Qué es el análisis predictivo?
-El análisis predictivo emplea varias fórmulas matemáticas denominadas algoritmos que analizan datos históricos o actuales para buscar patrones o tendencias para la previsión de futuros eventos.
+El análisis predictivo emplea fórmulas matemáticas llamadas algoritmos, que analizan datos históricos o actuales para identificar patrones o tendencias para la previsión de futuros eventos.
 
-Aprendizaje automático de Azure es una manera muy eficaz de realizar análisis predictivos: puede trabajar desde una biblioteca lista para el uso de algoritmos, usar estos para crear modelos en un equipo conectado a Internet e implementar rápidamente su solución predictiva. Para obtener resultados rápidamente, comience con los ejemplos y soluciones listos para usarse de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
-
-## <a name="build-complete-machine-learning-solutions-in-the-cloud"></a>Generación de completas soluciones de Aprendizaje automático en la nube
-Aprendizaje automático de Azure tiene todo lo que necesita para crear soluciones de análisis predictivos en la nube desde una biblioteca de algoritmos grande, a un estudio para la creación de modelos, para una manera fácil de implementar el modelo como un servicio web.
+## <a name="tools-to-build-complete-machine-learning-solutions-in-the-cloud"></a>Herramientas para crear completas soluciones de aprendizaje automático en la nube
+Azure Machine Learning tiene todo lo que necesita para crear completas soluciones de análisis predictivo en la nube, desde una biblioteca de algoritmos grande a un estudio para la creación de modelos o una manera fácil de implementar su modelo como un servicio web. Cree, pruebe, ponga en funcionamiento y administre rápidamente modelos de predicción.
 
 ### <a name="machine-learning-studio-create-predictive-models"></a>Estudio de aprendizaje automático: creación de modelos predictivos
-En [Estudio de aprendizaje automático](machine-learning-what-is-ml-studio.md), puede crear rápidamente modelos predictivos arrastrando, quitando y conectando módulos. Es fácil experimentar con diferentes combinaciones y puede [probarlas gratuitamente](https://studio.azureml.net/?selectAccess=true&o=2).
+En [Estudio de aprendizaje automático](machine-learning-what-is-ml-studio.md), puede crear rápidamente modelos predictivos arrastrando, quitando y conectando módulos. Puede experimentar con diferentes combinaciones y [probarlas gratuitamente](https://studio.azureml.net/?selectAccess=true&o=2).
 
 * En la [Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md), puede intentar las soluciones de análisis creadas por otros usuarios o aportar las suyas propias. Publique preguntas o comentarios sobre experimentos en la comunidad o comparta vínculos a experimentos a través de redes sociales, como LinkedIn y Twitter.
-  
+
   ![Pruebe experimentos predictivos o contribuya con los suyos propios en la Galería de Cortana Intelligence de Azure.](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Utilice una gran biblioteca de [algoritmos y módulos de Aprendizaje automático](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) en Estudio de aprendizaje automático para impulsar sus modelos de predictivos. Elija entre experimentos de ejemplo, paquetes R y Python y los mejores algoritmos de su clase en servicios de Microsoft como Xbox y Bing. Amplíe los módulos de Studio con sus propios scripts de [R](machine-learning-r-quickstart.md) y [Python](machine-learning-execute-python-scripts.md) personalizados.
-  
+
   ![Descripción de análisis predictivo: ejemplo de un experimento de análisis predictivo en Estudio de aprendizaje automático de Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-### <a name="operationalize-predictive-analytics-solutions-purchase-web-services-or-publish-your-own"></a>Operacionalización de soluciones de análisis predictivos: adquiera servicios web de compra o publique las suyas
-* Adquiera servicios web listos para consumir en [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), por ejemplo, recomendaciones, análisis de texto y detección de anomalías.
-* Operacionalización de los modelos de análisis predictivo:
-  
-  * [Implementación de servicios web](machine-learning-publish-a-machine-learning-web-service.md)
-  * [Entrenar y volver a entrenar modelos mediante API](machine-learning-retrain-models-programmatically.md)
-  * [Administración de extremos de servicios web](machine-learning-create-endpoint.md)
-  * [Escalado de un servicio web](machine-learning-scaling-webservice.md)
-  * [Consumo de servicios web](machine-learning-consume-web-services.md)
+### <a name="operationalize-predictive-analytics-solutions-by-publishing-your-own"></a>Publicar soluciones de análisis predictivo para ponerlas en funcionamiento
+Los tutoriales siguientes muestran cómo poner en funcionamiento los modelos de análisis predictivo:
+
+ * [Implementación de servicios web](machine-learning-publish-a-machine-learning-web-service.md)
+ * [Repetición del entrenamiento de modelos mediante API](machine-learning-retrain-models-programmatically.md)
+ * [Administración de extremos de servicios web](machine-learning-create-endpoint.md)
+ * [Escalado de un servicio web](machine-learning-scaling-webservice.md)
+ * [Consumo de servicios web](machine-learning-consume-web-services.md)
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>Términos clave del aprendizaje automático
 La terminología del aprendizaje automático puede resultar confusa. Aquí se muestran definiciones de términos clave que le ayudarán. Use los comentarios que aparecen a continuación para indicarnos cualquier otro término del que le gustaría ver una definición.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Exploración de datos, análisis descriptivo y análisis predictivos
-**Exploración de datos** es el proceso de recopilación de información sobre un conjunto de datos grande y a menudo no estructurado para encontrar características para análisis más detallados. **Minería de datos** hace referencia a la exploración de datos automatizada.
+
+**Exploración de datos** es el proceso de recopilación de información sobre un conjunto de datos grande y a menudo no estructurado para encontrar características para análisis más detallados.
+
+**Minería de datos** hace referencia a la exploración de datos automatizada.
 
 **Análisis descriptivo** es el proceso de análisis de un conjunto de datos con el fin de resumir lo que sucedió. La inmensa mayoría de análisis de negocios, como los informes de ventas, las métricas de web y el análisis de redes sociales, son descriptivos.
 
@@ -115,6 +115,6 @@ Puede aprender los datos básicos del análisis predictivo y de Machine Learning
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

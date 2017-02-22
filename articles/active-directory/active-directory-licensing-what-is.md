@@ -13,32 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 02/06/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23763662967c9f41c20cfb86dae19bb87fbd11a9
+ms.sourcegitcommit: ae4961611195c1574f5b94edbca74e1f182b4361
+ms.openlocfilehash: eb0b428f84dc16abd5cfee73dc8e4191698ebdd6
 
 
 ---
 # <a name="what-is-microsoft-azure-active-directory-licensing"></a>¿Qué es la licencia de Microsoft Azure Active Directory?
-## <a name="description"></a>Description
+
+> [!div class="op_single_selector"]
+> * [Portal de Azure](active-directory-licensing-get-started-azure-portal.md)
+> * [Portal de Azure clásico](active-directory-licensing-what-is.md)
+>
+>
+
+
 Azure Active Directory (Azure AD) es la plataforma y la solución de  identidad como un servicio de Microsoft. Azure AD se ofrece en distintas versiones técnicas o funcionales que van desde Azure AD Free, que se encuentra disponible con cualquier servicio de Microsoft como Office 365, Dynamics, Microsoft Intune y Azure (Azure AD no genera ningún gasto de consumo en este modo), hasta las versiones de pago de Azure AD como Enterprise Mobility Suite (EMS), Azure AD Premium y Basic y Azure Multi-Factor Authentication (MFA). Al igual que muchos de los servicios en línea de Microsoft, la mayoría de las versiones de pago de Azure AD se proporcionan a través de derechos por usuario, como ocurre en Office 365, Microsoft Intune y Azure AD. En estos casos, la compra de servicio se representa con una o varias suscripciones, y cada suscripción incluye un número de preventa de licencias en el inquilino. Los derechos de usuario se logran a través de la asignación de licencias, creando un vínculo entre el usuario y el producto, habilitando los componentes del servicio para el usuario y consumiendo una de las licencias de prepagadas.
 
 [Probar Azure AD Premium ahora.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
 > [!NOTE]
 > Portal de administración de Azure AD es una parte del Portal de Azure clásico. Aunque para usar de Azure AD no es preciso adquirir Azure, el acceso a este portal requiere una suscripción activa a Azure o una [suscripción de prueba a Azure](https://azure.microsoft.com/pricing/free-trial/).
-> 
-> 
+>
+>
 
 Para más información sobre las funcionalidades de servicio de Azure AD, consulte [¿Qué es Azure AD?](active-directory-whatis.md).
 [Más información sobre los niveles de servicio de Azure AD](https://azure.microsoft.com/support/legal/sla/)
 
 > [!NOTE]
 > Las suscripciones de Azure de pago por uso de Azure son distintas: a pesar de que también se representan en el directorio, estas suscripciones permiten la creación de recursos de Azure y asignarlos a la forma de pago. En este caso, NO hay ningún número de licencias asociado a la suscripción. La asociación de los usuarios con la suscripción, el acceso de los usuarios a los recursos de suscripción de administración, se consigue mediante la concesión de permisos para que funcione en recursos de Azure asignados a la suscripción.
-> 
-> 
+>
+>
 
 ## <a name="how-does-azure-ad-licensing-work"></a>¿Cómo funcionan las licencias de Azure AD?
 Los servicios de Azure AD basados en licencias (basados en derechos) funcionan mediante la activación de una suscripción en el inquilino del servicio/directorio de Azure AD. Una vez que la suscripción está activa, los administradores de servicios/directorios pueden gestionar las capacidades del servicio y los usuarios con licencia pueden usarlas.
@@ -51,10 +58,10 @@ En general, la información de suscripción de Azure AD se administra a través 
 
 > [!IMPORTANT]
 > Azure AD Premium y Basic, así como las suscripciones de Enterprise Mobility Suite, se limitan a su inquilino/directorio aprovisionado. Las suscripciones no se pueden dividir entre directorios ni usarse para autorizar a los usuarios en otros directorios. Es posible mover una suscripción entre directorios, pero requiere el envío de una incidencia de soporte técnico o la cancelación y compra de nuevo en caso de compras directas.
-> 
+>
 > Al adquirir Azure AD o Enterprise Mobility Suite a través del programa de licencias por volumen la activación de la suscripción se realizará automáticamente cuando el contrato incluya otros servicios de Microsoft Online Services, como por ejemplo, Office 365.
-> 
-> 
+>
+>
 
 Las características de Azure AD de pago dividen el alcance del directorio. Algunos ejemplos son:
 
@@ -80,8 +87,8 @@ Estas son algunas prácticas recomendadas:
 
 > [!NOTE]
 > Azure AD admite "usuarios externos", que son cuentas de usuario en una instancia de Azure AD que se generaron con una identidad de Azure AD o cuenta Microsoft (MSA) desde otro directorio. Puesto que estamos ocupados ampliando esta capacidad a todos los servicios organizacionales de Microsoft, estas cuentas no son actualmente compatibles en algunas de las experiencias de servicios; por ejemplo, el Portal de administración de Office 365 no es compatible actualmente con estos usuarios. Como resultado, los usuarios externos con cuentas Microsoft no podrán obtener acceso al Portal de administración de Office 365 mientras que los usuarios externos de otros directorios de Azure AD se ignorarán. En el último caso, solo se podrá obtener acceso a la cuenta local del usuario, el directorio de Azure AD u Office 365 en el que se creó originalmente el usuario, a través de estas experiencias.
-> 
-> 
+>
+>
 
 Como se indica, Azure AD dispone de distintas versiones de pago. Estas versiones apenas se diferencian en cuanto a disponibilidad de compra:
 
@@ -154,7 +161,6 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Movimiento de datos hacia y desde Azure Storage | Microsoft Docs
-description: "Este artículo ofrece información general sobre los distintos métodos de mover los datos hacia y desde Almacenamiento de Azure."
+title: "Movimiento de grandes cantidades de datos desde el almacenamiento en la nube y hacia él en Azure | Microsoft Docs"
+description: "Información general sobre los distintos métodos de mover los datos hacia Azure Storage y desde él."
 services: storage
 documentationcenter: 
-author: micurd
-manager: jahogg
+author: JarrettRenshaw
+manager: msmets
 editor: tysonn
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
+ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
 
 
 ---
@@ -74,10 +74,12 @@ Consulte [StorSimple](../storsimple/storsimple-overview.md) para más informaci�
 Si tiene aplicaciones y cargas de trabajo locales, necesitará una solución que permita que su negocio siga funcionando en caso de desastre. Azure Site Recovery controla la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Los datos replicados se almacenan en Almacenamiento de Azure, lo que le permite eliminar la necesidad de un centro de datos secundario en el sitio.
 
 Consulte [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para más información.
+### <a name="moving-data-faq"></a>Preguntas más frecuentes sobre movimiento de datos:
+## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>¿Puedo migrar VHD de una región a otra sin copiar?
+La única manera de copiar VHD entre regiones es copiar los datos entre las cuentas de almacenamiento en cada región. Puede utilizar AZCopy para ello. Consulte Transferencia de datos con la utilidad en línea de comandos AzCopy para obtener más información. Para grandes cantidades de datos, también puede importar/exportar de Azure. Consulte [Importación/Exportación de Azure](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) para más información.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

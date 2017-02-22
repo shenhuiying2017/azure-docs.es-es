@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cc669e18d702e5cb59a4ee292f8b0fdb22e1b7fa
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: c488fcc8de41fe4d58d78517deea98c4617b5f49
 
 
 ---
@@ -127,7 +127,7 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes.
 * Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250 000 * 10 = 2,5 millones de solicitudes por segundo.
 * El rendimiento para los tamaños de clave más grandes es mayor en el nivel Premium que en el nivel Estándar.
 
-| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño de clave de 1 KB |
+| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño de clave de&1; KB |
 | --- | --- | --- | --- | --- |
 | **Tamaños de caché estándar** | | |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS)** |
 | C0 |250 MB |Compartido |5 / 0.625 |600 |
@@ -354,9 +354,9 @@ Cómo configurar este valor:
 
 * En ASP.NET, utilice la [opción de configuración "minIoThreads"]["minIoThreads" configuration setting] que se encuentra en el elemento de configuración `<processModel>` de web.config. Si está trabajando dentro de Sitios web de Azure, esta configuración no se expone a través de las opciones de configuración. Sin embargo, todavía podrá establecerlo mediante programación (consulte a continuación) con el método Application_Start de global.asax.cs.
 
-> **Nota importante:** El valor especificado en este elemento de configuración es *por núcleo* . Por ejemplo, si tiene una máquina de 4 núcleos y quiere que su configuración de minIOThreads sea 200 en tiempo de ejecución, use `<processModel minIoThreads="50"/>`.
->
->
+  > [!NOTE] 
+  > El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de 4 núcleos y quiere que su configuración de minIOThreads sea 200 en tiempo de ejecución, use `<processModel minIoThreads="50"/>`.
+  >
 
 * Fuera de ASP.NET, use la API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) .
 
@@ -384,7 +384,7 @@ La sección **Soporte técnico y solución de problemas** de la hoja **Configura
 Estas herramientas permiten supervisar el estado de las instancias de Caché en Redis de Azure y ayudarle a administrar sus aplicaciones de almacenamiento en caché. Para más información, vea la sección "Configuración de soporte técnico y solución de problemas" de [Configuración de Azure Redis Cache](cache-configure.md).
 
 ### <a name="my-cache-diagnostics-storage-account-settings-changed-what-happened"></a>Ha cambiado la configuración de la cuenta de almacenamiento de diagnóstico de la caché, ¿qué ha ocurrido?
-Las memorias caché de igual región y suscripción comparten la misma configuración de almacenamiento de diagnóstico y, cuando se cambia de configuración (habilitación o deshabilitación de diagnóstico o cambio de cuenta de almacenamiento), esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región. Si ha cambiado la configuración de diagnóstico de la memoria caché, compruebe si ha cambiado la configuración de diagnóstico de otra caché en la misma suscripción y región. Una forma de comprobarlo es ver los registros de auditoría de la caché para un evento `Write DiagnosticSettings` . Para más información sobre el uso de registros de auditoría, consulte [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Consulta de eventos y registros de auditoría) y [Audit operations with Resource Manager](../resource-group-audit.md) (Operaciones de auditoría con Resource Manager). Para obtener más información sobre la supervisión de eventos de Caché en Redis de Azure, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
+Las memorias caché de igual región y suscripción comparten la misma configuración de almacenamiento de diagnóstico y, cuando se cambia de configuración (habilitación o deshabilitación de diagnóstico o cambio de cuenta de almacenamiento), esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región. Si ha cambiado la configuración de diagnóstico de la memoria caché, compruebe si ha cambiado la configuración de diagnóstico de otra caché en la misma suscripción y región. Una forma de comprobarlo es ver los registros de auditoría de la caché para un evento `Write DiagnosticSettings` . Para más información sobre el uso de registros de auditoría, consulte [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Consulta de eventos y registros de auditoría) y [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operaciones de auditoría con Resource Manager). Para obtener más información sobre la supervisión de eventos de Caché en Redis de Azure, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="why-is-diagnostics-enabled-for-some-new-caches-but-not-others"></a>¿Por qué está habilitado el diagnóstico para algunas memorias caché nuevas y no para otras?
 Las memorias caché de la misma región y suscripción comparten la misma configuración de almacenamiento de diagnóstico. Si crea una nueva memoria caché en la misma región y suscripción que otra caché que tiene el diagnóstico habilitado, el diagnóstico se habilita en la nueva caché con la misma configuración.
@@ -439,6 +439,6 @@ Para más información sobre los primeros pasos con Azure Redis Cache, consulte 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/18/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
-ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
+ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
+ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
 
 
 ---
@@ -37,19 +37,17 @@ La siguiente imagen muestra el registro de actividad de una suscripción. Hay tr
 
 Errores de validación que provengan de escenarios que se pueden determinar previamente para que se produzca un problema. Entre ellos se encuentran los errores de sintaxis en la plantilla o tratar de implementar los recursos que se superen las cuotas de suscripción. Errores de implementación que provengan de condiciones que se producen durante el proceso de implementación. Por ejemplo, un error de implementación podría surgir por tratar de obtener acceso a un recurso que se va a implementar en paralelo.
 
-Los dos tipos de errores devuelven un código de error que utiliza para solucionar problemas de implementación. Ambos aparecen en el registro de actividad. Sin embargo, los errores de validación no aparecen en el historial de implementación porque la implementación nunca se inicia.
+Los dos tipos de errores devuelven un código de error que utiliza para solucionar problemas de implementación. Ambos aparecen en el [registro de actividad](resource-group-audit.md). Sin embargo, los errores de validación no aparecen en el historial de implementación porque la implementación nunca se inicia.
 
 
 ## <a name="error-codes"></a>Códigos de error
-Los errores de implementación devuelven el código **DeploymentFailed**. Sin embargo, este código de error es un error de implementación general. El código de error que realmente lo ayuda a resolver el problema suele estar a un nivel por debajo de ese error. La siguiente imagen muestra el código de error **RequestDisallowedByPolicy** que se encuentra en el error de implementación.
-
-![Visualización del código de error](./media/resource-manager-common-deployment-errors/error-code.png)
 
 En este tema se describen los códigos de error siguientes:
 
 * [AccountNameInvalid](#accountnameinvalid)
 * [Error de autorización](#authorization-failed)
 * [BadRequest](#badrequest)
+* [DeploymentFailed](#deploymentfailed)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -64,6 +62,67 @@ En este tema se describen los códigos de error siguientes:
 * [StorageAccountAlreadyExists](#storagenamenotunique)
 * [StorageAccountAlreadyTaken](#storagenamenotunique)
 
+### <a name="deploymentfailed"></a>DeploymentFailed
+
+Este código de error indica un error de implementación general, pero no es el código de error que necesita para empezar a solucionar problemas. El código de error que realmente le ayuda a resolver el problema suele estar un nivel por debajo de este error. Por ejemplo, la siguiente imagen muestra el código de error **RequestDisallowedByPolicy** que se encuentra debajo del error de implementación.
+
+![Visualización del código de error](./media/resource-manager-common-deployment-errors/error-code.png)
+
+### <a name="skunotavailable"></a>SkuNotAvailable
+
+Al implementar un recurso (normalmente una máquina virtual), puede recibir el siguiente código y mensaje de error:
+
+```
+Code: SkuNotAvailable
+Message: The requested tier for resource '<resource>' is currently not available in location '<location>' 
+for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+```
+
+Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejemplo, el tamaño de máquina virtual) no está disponible para la ubicación seleccionada. Para resolver este problema, debe determinar qué SKU están disponibles en una región. Puede usar el portal o una operación REST para buscar las SKU disponibles.
+
+- Para usar el [portal](https://portal.azure.com), inicie sesión en el portal y agregue un recurso mediante la interfaz. A medida que establezca los valores, verá las SKU disponibles para ese recurso. No tiene que completar la implementación.
+
+    ![SKU disponibles](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+- Para usar la API de REST para máquinas virtuales, envíe la solicitud siguiente:
+
+  ```HTTP 
+  GET
+  https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
+  ```
+
+  Se devuelven las SKU y las regiones disponibles en el formato siguiente:
+
+  ```json
+  {
+    "value": [
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A0",
+        "tier": "Standard",
+        "size": "A0",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A1",
+        "tier": "Standard",
+        "size": "A1",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      ...
+    ]
+  }    
+  ```
+
+Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga las necesidades de su negocio, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
+
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Este error puede tener distintos orígenes.
 
@@ -71,12 +130,16 @@ Este error puede tener distintos orígenes.
 
    Si recibe un mensaje de error que indica que la plantilla no superó la validación, puede que esta tenga un problema de sintaxis.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed
+  ```
 
    Es fácil cometer este error porque las expresiones de plantilla pueden ser complejas. Por ejemplo, la siguiente asignación de nombre de una cuenta de almacenamiento contiene un conjunto de corchetes, tres funciones, tres conjuntos de paréntesis, un conjunto de comillas simples y una propiedad:
 
-       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```json
+  "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```
 
    Si no proporciona toda la sintaxis de coincidencia, la plantilla generará un valor que será diferente del que esperaba.
 
@@ -86,50 +149,60 @@ Este error puede tener distintos orígenes.
 
    Cuando el nombre del recurso no tiene el formato correcto, se produce otro error de plantilla no válida.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed: 'The template resource {resource-name}'
-       for type {resource-type} has incorrect segment lengths.
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed: 'The template resource {resource-name}'
+  for type {resource-type} has incorrect segment lengths.
+  ```
 
    Un recurso de nivel de raíz debe tener un segmento menos en el nombre que en el tipo de recurso. Cada segmento se distingue por una barra diagonal. En el ejemplo siguiente, el tipo tiene&2; segmentos y el nombre,&1;, por lo que es un **nombre válido**.
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "myHostingPlanName",
-         ...
-       }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "myHostingPlanName",
+    ...
+  }
+  ```
 
    Pero el ejemplo siguiente **no es un nombre válido** porque el nombre tiene el mismo número de segmentos que el tipo.
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "appPlan/myHostingPlanName",
-         ...
-       }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "appPlan/myHostingPlanName",
+    ...
+  }
+  ```
 
    Para los recursos secundarios, el tipo y el nombre deben tener el mismo número de segmentos. Este número de segmentos tiene sentido, ya que el tipo y el nombre completo del elemento secundario incluyen el tipo y el nombre del elemento primario. Por lo tanto, el nombre completo sigue teniendo un segmento menos que el tipo completo.
 
-       "resources": [
-           {
-               "type": "Microsoft.KeyVault/vaults",
-               "name": "contosokeyvault",
-               ...
-               "resources": [
-                   {
-                       "type": "secrets",
-                       "name": "appPassword",
-                       ...
-                   }
-               ]
-           }
-       ]
+  ```json
+  "resources": [
+      {
+          "type": "Microsoft.KeyVault/vaults",
+          "name": "contosokeyvault",
+          ...
+          "resources": [
+              {
+                  "type": "secrets",
+                  "name": "appPassword",
+                  ...
+              }
+          ]
+      }
+  ]
+  ```
 
    Obtener los segmentos correctos puede resultar complicado con los tipos de Resource Manager que se aplican en los proveedores de recursos. Por ejemplo, para aplicar un bloqueo de recurso a un sitio web, el tipo debe tener&4; segmentos. Por lo tanto, el nombre tiene&3; segmentos:
 
-       {
-           "type": "Microsoft.Web/sites/providers/locks",
-           "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-           ...
-       }
+  ```json
+  {
+      "type": "Microsoft.Web/sites/providers/locks",
+      "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+      ...
+  }
+  ```
 
 - Copy index is not expected (Índice de copia no esperado)
 
@@ -139,44 +212,59 @@ Este error puede tener distintos orígenes.
 
    Si la plantilla especifica los valores permitidos de un parámetro y proporciona un valor que no es uno de esos, recibirá un mensaje similar al siguiente error:
 
-       Code=InvalidTemplate;
-       Message=Deployment template validation failed: 'The provided value {parameter value}
-       for the template parameter {parameter name} is not valid. The parameter value is not
-       part of the allowed values
+  ```
+  Code=InvalidTemplate;
+  Message=Deployment template validation failed: 'The provided value {parameter value}
+  for the template parameter {parameter name} is not valid. The parameter value is not
+  part of the allowed values
+  ``` 
 
    Compruebe los valores permitidos de la plantilla y proporcione uno durante la implementación.
+
+- Se detectó una dependencia circular
+
+   Este error se recibe cuando los recursos dependen unos de otros de una forma que impide que se inicie la implementación. Una combinación de interdependencias hace que dos o más recursos esperen otros recursos que también están esperando. Por ejemplo, resource1 depende de resource3, resource2 depende de resource1 y resource3 depende de resource2. Para resolver este problema, normalmente se eliminan las dependencias innecesarias. Para obtener sugerencias sobre cómo solucionar los errores de dependencia, consulte [Comprobación de la secuencia de implementación](#check-deployment-sequence).
 
 <a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound y ResourceNotFound
 Cuando la plantilla incluye el nombre de un recurso que no se puede resolver, recibirá un error similar al siguiente:
 
-    Code=NotFound;
-    Message=Cannot find ServerFarm with name exampleplan.
+```
+Code=NotFound;
+Message=Cannot find ServerFarm with name exampleplan.
+```
 
 Si está tratando de implementar el recurso que falta en la plantilla, compruebe si tiene que agregar una dependencia. Cuando es posible, Resource Manager optimiza la implementación mediante la creación de recursos en paralelo. Si un recurso se debe implementar después de otro recurso, debe usar el elemento **dependsOn** en la plantilla para crear una dependencia en el otro recurso. Por ejemplo, al implementar una aplicación web, debe existir el plan de Servicio de aplicaciones. Si no ha especificado que la aplicación web dependa del plan de App Service, Resource Manager creará ambos recursos al mismo tiempo. Recibirá un error que indica que no se encuentra el recurso del plan de App Service, porque aún no existe cuando se trata de establecer una propiedad en la aplicación web. Este error se puede evitar estableciendo la dependencia en la aplicación web.
 
-    {
-      "apiVersion": "2015-08-01",
-      "type": "Microsoft.Web/sites",
-      ...
-      "dependsOn": [
-        "[variables('hostingPlanName')]"
-      ],
-      ...
-    }
+```json
+{
+  "apiVersion": "2015-08-01",
+  "type": "Microsoft.Web/sites",
+  "dependsOn": [
+    "[variables('hostingPlanName')]"
+  ],
+  ...
+}
+```
+
+Para obtener sugerencias sobre cómo solucionar los errores de dependencia, consulte [Comprobación de la secuencia de implementación](#check-deployment-sequence).
 
 También verá este error cuando el recurso se encuentra en otro grupo de recursos que donde se está implementando. En ese caso, use la [función resourceId](resource-group-template-functions.md#resourceid) para obtener el nombre completo del recurso.
 
-    "properties": {
-        "name": "[parameters('siteName')]",
-        "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-    }
+```json
+"properties": {
+    "name": "[parameters('siteName')]",
+    "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+}
+```
 
 Si trata de usar las funciones [reference](resource-group-template-functions.md#reference) o [listKeys](resource-group-template-functions.md#listkeys) con un recurso que no se puede resolver, recibirá el error siguiente:
 
-    Code=ResourceNotFound;
-    Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
-    group {resource group name} was not found.
+```
+Code=ResourceNotFound;
+Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
+group {resource group name} was not found.
+```
 
 Busque una expresión que incluya la función **reference**. Compruebe que los valores de parámetro son correctos.
 
@@ -184,55 +272,69 @@ Busque una expresión que incluya la función **reference**. Compruebe que los v
 
 Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si aún no existe, recibirá el error siguiente:
 
-     Code=ParentResourceNotFound;
-     Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
+Code=ParentResourceNotFound;
+Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
 
 El nombre del recurso secundario incluye el nombre primario. Por ejemplo, se podría definir una base de datos SQL como:
 
-    {
-      "type": "Microsoft.Sql/servers/databases",
-      "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
-      ...
+```json
+{
+  "type": "Microsoft.Sql/servers/databases",
+  "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
+  ...
+```
 
 Sin embargo, si no especifica una dependencia del recurso primario, el secundario puede implementarse antes del primario. Para resolver este error, incluya una dependencia.
 
-    "dependsOn": [
-        "[variables('databaseServerName')]"
-    ]
+```json
+"dependsOn": [
+    "[variables('databaseServerName')]"
+]
+```
 
 <a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists y StorageAccountAlreadyTaken
 Para las cuentas de almacenamiento, debe proporcionar un nombre al recurso que sea único en Azure. Si no lo hace, recibirá un error como el siguiente:
 
-    Code=StorageAccountAlreadyTaken
-    Message=The storage account named mystorage is already taken.
+```
+Code=StorageAccountAlreadyTaken
+Message=The storage account named mystorage is already taken.
+```
 
 Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions.md#uniquestring) .
 
-    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
-    "type": "Microsoft.Storage/storageAccounts",
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]",
+"type": "Microsoft.Storage/storageAccounts",
+```
 
 Si implementa una cuenta de almacenamiento con el mismo nombre que una que ya hay en la suscripción, pero proporciona una ubicación diferente, recibirá un error que indica que la cuenta de almacenamiento ya se encuentra en otra ubicación. Elimine la cuenta de almacenamiento que ya existe o proporcione la misma ubicación que la de la cuenta de almacenamiento.
 
 ### <a name="accountnameinvalid"></a>AccountNameInvalid
-Verá el error **AccountNameInvalid** al tratar de proporcionar a una cuenta de almacenamiento un nombre que incluya caracteres prohibidos. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas.
+Verá el error **AccountNameInvalid** al tratar de proporcionar a una cuenta de almacenamiento un nombre que incluya caracteres prohibidos. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. La función [uniqueString](resource-group-template-functions.md#uniquestring) devuelve 13 caracteres. Si concatena un prefijo con el resultado **uniqueString**, proporcione un prefijo que tenga 11 caracteres o menos.
 
 ### <a name="badrequest"></a>BadRequest
 
-Puede encontrar un estado BadRequest al proporcionar un valor no válido para una propiedad. Por ejemplo, si proporciona un valor incorrecto de SKU para una cuenta de almacenamiento, se produce un error en la implementación. 
+Puede encontrar un estado BadRequest al proporcionar un valor no válido para una propiedad. Por ejemplo, si proporciona un valor incorrecto de SKU para una cuenta de almacenamiento, se produce un error en la implementación. Para determinar valores válidos para la propiedad, examine la [API de REST](/rest/api) del tipo de recurso que se va a implementar.
 
 <a id="noregisteredproviderfound" />
 ### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound y MissingSubscriptionRegistration
 Al implementar recursos, puede recibir el siguiente código y mensaje de error:
 
-    Code: NoRegisteredProviderFound
-    Message: No registered resource provider found for location {ocation}
-    and API version {api-version} for type {resource-type}.
+```
+Code: NoRegisteredProviderFound
+Message: No registered resource provider found for location {location}
+and API version {api-version} for type {resource-type}.
+```
 
 O bien, puede recibir un mensaje similar que indica:
 
-    Code: MissingSubscriptionRegistration
-    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
+Code: MissingSubscriptionRegistration
+Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
 
 Recibirá estos errores por uno de estos tres motivos:
 
@@ -258,33 +360,47 @@ Puede ver el estado de registro y registrar un espacio de nombres de proveedor d
 
 Para ver el estado de su registro, use **Get-AzureRmResourceProvider**.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Para registrar un proveedor, use **Register-AzureRmResourceProvider** e indique el nombre del proveedor de recursos que desea registrar.
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```
 
 Para conocer las ubicaciones admitidas para un tipo determinado de recurso, use:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
 Para conocer las versiones de API admitidas para un tipo determinado de recurso, use:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 **CLI de Azure**
 
 Para ver si el proveedor está registrado, utilice el comando `azure provider list` .
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Para registrar un proveedor de recursos, use el comando `azure provider register` y especifique el *espacio de nombres* que desea registrar.
 
-    azure provider register Microsoft.Cdn
+```azurecli
+azure provider register Microsoft.Cdn
+```
 
 Para ver las ubicaciones y las versiones de API admitidas por un proveedor de recursos, use:
 
-    azure provider show -n Microsoft.Compute --json > compute.json
+```azurecli
+azure provider show -n Microsoft.Compute --json > compute.json
+```
 
 <a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded y OperationNotAllowed
@@ -293,38 +409,48 @@ Para obtener información completa de las cuotas, consulte [Límites, cuotas y r
 
 Para examinar las cuotas de núcleos de su suscripción, puede usar el comando `azure vm list-usage` en la CLI de Azure. En el siguiente ejemplo se muestra que la cuota de núcleos para una cuenta de evaluación gratuita es 4:
 
-    azure vm list-usage
+```azurecli
+azure vm list-usage
+```
 
 Que devuelve:
 
-    info:    Executing command vm list-usage
-    Location: westus
-    data:    Name   Unit   CurrentValue  Limit
-    data:    -----  -----  ------------  -----
-    data:    Cores  Count  0             4
-    info:    vm list-usage command OK
+```azurecli
+info:    Executing command vm list-usage
+Location: westus
+data:    Name   Unit   CurrentValue  Limit
+data:    -----  -----  ------------  -----
+data:    Cores  Count  0             4
+info:    vm list-usage command OK
+```
 
 Si implementa una plantilla que crea más de&4; núcleos en la región oeste de EE. UU., obtendrá un error de implementación similar al siguiente:
 
-    Code=OperationNotAllowed
-    Message=Operation results in exceeding quota limits of Core.
-    Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
+Code=OperationNotAllowed
+Message=Operation results in exceeding quota limits of Core.
+Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
 
 O bien en PowerShell, puede emplear el cmdlet **Get-AzureRmVMUsage** .
 
-    Get-AzureRmVMUsage
+```powershell
+Get-AzureRmVMUsage
+```
 
 Que devuelve:
 
-    ...
-    CurrentValue : 0
-    Limit        : 4
-    Name         : {
-                     "value": "cores",
-                     "localizedValue": "Total Regional Cores"
-                   }
-    Unit         : null
-    ...
+```powershell
+...
+CurrentValue : 0
+Limit        : 4
+Name         : {
+                 "value": "cores",
+                 "localizedValue": "Total Regional Cores"
+               }
+Unit         : null
+...
+```
 
 En estos casos, debe ir al portal y archivar un problema de soporte técnico para aumentar su cuota para la región en la que desea realizar la implementación.
 
@@ -336,23 +462,31 @@ En estos casos, debe ir al portal y archivar un problema de soporte técnico par
 ### <a name="invalidcontentlink"></a>InvalidContentLink
 Si recibe el mensaje de error:
 
-    Code=InvalidContentLink
-    Message=Unable to download deployment content from ...
+```
+Code=InvalidContentLink
+Message=Unable to download deployment content from ...
+```
 
 Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe transmitir un token SAS. Para más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
 ### <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
 Recibirá este error cuando la suscripción incluye una directiva de recursos que impide una acción que está tratando de realizar durante la implementación. En el mensaje de error, busque el identificador de directiva.
 
-    Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
+Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
 
 En **PowerShell**, proporcione ese identificador de directiva como el parámetro **Id** para recuperar los detalles de la directiva que bloqueó la implementación.
 
-    (Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```powershell
+(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```
 
 En la **CLI de Azure**, proporcione el nombre de la definición de directiva:
 
-    azure policy definition show regionPolicyDefinition --json
+```azurecli
+azure policy definition show regionPolicyDefinition --json
+```
 
 Para más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
@@ -360,23 +494,6 @@ Para más información sobre las directivas, consulte [Uso de directivas para ad
 Puede recibir un error durante la implementación porque la cuenta o la entidad de servicio que intenta implementar los recursos no tiene acceso para realizar esas acciones. Azure Active Directory permite al usuario o al administrador controlar qué identidades pueden acceder a qué recursos con un alto grado de precisión. Por ejemplo, si su cuenta se asigna al rol Lector, no podrá crear recursos. En ese caso, debería ver un mensaje de error que indica que hubo un error de autorización.
 
 Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
-
-### <a name="skunotavailable"></a>SkuNotAvailable
-
-Al implementar un recurso (normalmente una máquina virtual), puede recibir el siguiente código y mensaje de error:
-
-```
-Code: SkuNotAvailable
-Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
-```
-
-Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejemplo, el tamaño de máquina virtual) no está disponible para la ubicación seleccionada. Tiene dos opciones para resolver este problema:
-
-- Inicie sesión en el portal y agregue un nuevo recurso a través de la interfaz de usuario. A medida que establezca los valores, verá las SKU disponibles para ese recurso. No tiene que completar la implementación.
-
-    ![sku disponibles](./media/resource-manager-common-deployment-errors/view-sku.png)
-
-- Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga las necesidades de su negocio, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 ## <a name="troubleshooting-tricks-and-tips"></a>Sugerencias y trucos para solucionar problemas
 
@@ -387,15 +504,21 @@ Puede detectar información valiosa sobre cómo se procesa la implementación re
 
    En PowerShell, establezca el parámetro **DeploymentDebugLogLevel** en Todos, ResponseContent o RequestContent.
 
-       New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
 
    Examine el contenido de la solicitud con el siguiente cmdlet:
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
 
    O bien, la respuesta de contenido con:
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
 
    Esta información puede ayudarlo a determinar si un valor en la plantilla se está estableciendo de forma incorrecta.
 
@@ -403,11 +526,15 @@ Puede detectar información valiosa sobre cómo se procesa la implementación re
 
    En la CLI de Azure, establezca el parámetro **--debug-setting** en Todos, ResponseContent o RequestContent.
 
-       azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+  ```azurecli
+  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+  ```
 
-   Examine el contenido de la respuesta y la solicitud registrada con lo siguiente:
+   Examine el contenido de la respuesta y la solicitud registradas con lo siguiente:
 
-       azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  ```azurecli
+  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  ```
 
    Esta información puede ayudarlo a determinar si un valor en la plantilla se está estableciendo de forma incorrecta.
 
@@ -415,52 +542,60 @@ Puede detectar información valiosa sobre cómo se procesa la implementación re
 
    Para registrar la información de depuración de una plantilla anidada, use el elemento **debugSetting**.
 
-       {
-           "apiVersion": "2016-09-01",
-           "name": "nestedTemplate",
-           "type": "Microsoft.Resources/deployments",
-           "properties": {
-               "mode": "Incremental",
-               "templateLink": {
-                   "uri": "{template-uri}",
-                   "contentVersion": "1.0.0.0"
-               },
-               "debugSetting": {
-                  "detailLevel": "requestContent, responseContent"
-               }
-           }
-       }
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
 
 
 ### <a name="create-a-troubleshooting-template"></a>Creación de una plantilla de solución de problemas
 En algunos casos, la manera más fácil de solucionar problemas de plantillas es comprobando sus elementos. Puede crear una plantilla simplificada que le permita centrarse en lo que crea que está provocando el error. Por ejemplo, supongamos que se recibe un error al hacer referencia a un recurso. En lugar de trabajar directamente con una plantilla de toda, cree una plantilla que devuelva la parte que pueda estar causando el problema. Esto puede ayudarlo a determinar si está pasando los parámetros correctos con las funciones de plantilla correctamente y obteniendo el recurso esperado.
 
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageName": {
-            "type": "string"
-        },
-        "storageResourceGroup": {
-            "type": "string"
-        }
-      },
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "exampleOutput": {
-            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-            "type" : "object"
-        }
-      }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
 
 Supongamos que se están produciendo errores de implementación que cree que están relacionados con dependencias establecidas incorrectamente. Pruebe la plantilla dividiéndola en plantillas simplificadas. En primer lugar, cree una plantilla que implemente solo un único recurso (por ejemplo, un servidor SQL Server). Cuando esté seguro de que tiene dicho recurso definido correctamente, agregue un recurso que dependa de él (por ejemplo, una base de datos SQL). Cuando esos dos recursos se definan correctamente, agregue otros recursos dependientes (por ejemplo, las directivas de auditoría). Entre cada implementación de prueba, elimine el grupo de recursos para asegurarse de que se prueban adecuadamente las dependencias. 
 
 ### <a name="check-deployment-sequence"></a>Comprobación de la secuencia de implementación
 
-Muchos errores de implementación se producen cuando los recursos se implementan en una secuencia inesperada. Estos errores se producen cuando las dependencias no se han establecido correctamente. Un recurso intenta usar un valor para otro recurso pero este último todavía no existe. Para ver el orden de las operaciones de implementación:
+Muchos errores de implementación se producen cuando los recursos se implementan en una secuencia inesperada. Estos errores se producen cuando las dependencias no se han establecido correctamente. Cuando falta una dependencia necesaria, un recurso intenta usar un valor para otro recurso, pero este otro recurso no existe aún. Recibirá un error que indica que no se encuentra el recurso. Puede que este tipo de error aparezca de forma intermitente porque el tiempo de implementación de cada recurso puede variar. Por ejemplo, su primer intento de implementar los recursos tendrá éxito porque un recurso necesario aleatoriamente finaliza a tiempo. Sin embargo, el segundo intento produce error porque el recurso necesario no finalizó a tiempo. 
+
+No obstante, desea evitar configurar dependencias que no sean necesarias. Cuando hay dependencias innecesarias, prolonga la duración de la implementación al impedir que los recursos que no son dependientes entre sí se implementen en paralelo. Además, puede crear dependencias circulares que bloqueen la implementación. La función [reference](resource-group-template-functions.md#reference) crea una dependencia implícita del recurso que especifica como parámetro en la función, si ese recurso se implementa en la misma plantilla. Por lo tanto, puede tener más dependencias que las especificadas en la propiedad **dependsOn**. La función [resourceId](resource-group-template-functions.md#resourceid) no crea una dependencia implícita ni valida que el recurso existe.
+
+Cuando se encuentre con problemas de dependencia, debe comprender mejor el orden de la implementación de recursos. Para ver el orden de las operaciones de implementación:
 
 1. Seleccione el historial de implementaciones para el grupo de recursos.
 
@@ -474,14 +609,38 @@ Muchos errores de implementación se producen cuando los recursos se implementan
 
    ![implementación paralela](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
 
-   La siguiente imagen muestra tres cuentas de almacenamiento que no se implementan en paralelo. La segunda cuenta de almacenamiento se marca como dependiente de la primera cuenta de almacenamiento y la tercera cuenta de almacenamiento depende de la segunda cuenta de almacenamiento. Por lo tanto, la primera cuenta de almacenamiento se inicia, acepta y completa antes de que se inicie la siguiente.
+   La siguiente imagen muestra tres cuentas de almacenamiento que no se implementan en paralelo. La segunda cuenta de almacenamiento depende de la primera cuenta de almacenamiento y la tercera cuenta de almacenamiento depende de la segunda cuenta de almacenamiento. Por lo tanto, la primera cuenta de almacenamiento se inicia, acepta y completa antes de que se inicie la siguiente.
 
    ![implementación secuencial](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
 
-Examine los eventos de implementación para ver si un recurso se ha iniciado antes de lo que cabría esperar. Si es así, compruebe las dependencias para este recurso.
+Los escenarios del mundo real pueden ser bastante más complicados, pero puede usar la misma técnica para detectar cuándo se inicia la implementación y finaliza para cada recurso. Examine los eventos de implementación para ver si la secuencia es diferente de la que cabría esperar. Si es así, vuelva a evaluar las dependencias de este recurso.
+
+Resource Manager identifica dependencias circulares durante la validación de plantillas. y devuelve un mensaje de error que indica específicamente que existe una dependencia circular. Para resolver una dependencia circular:
+
+1. En la plantilla, busque el recurso identificado en la dependencia circular. 
+2. Para ese recurso, examine la propiedad **dependsOn** y todos los usos de la función **reference** para ver de qué recursos depende. 
+3. Examine esos recursos para ver de qué recursos dependen. Siga las dependencias hasta que observe un recurso que dependa del recurso original.
+5. Para los recursos que intervienen en la dependencia circular, examine con cuidado todos los usos de la propiedad **dependsOn** para identificar las dependencias que no sean necesarias. Quite esas dependencias. Si no está seguro de si una dependencia es necesaria, pruebe a quitarla. 
+6. Vuelva a implementar la plantilla.
+
+Al quitar los valores de la propiedad **dependsOn**, se pueden provocar errores al implementar la plantilla. Si se produce un error, vuelva a agregar la dependencia en la plantilla. 
+
+Si ese enfoque no soluciona la dependencia circular, considere la posibilidad de mover parte de la lógica de implementación a recursos secundarios (por ejemplo, extensiones o valores de configuración). Configure esos recursos secundarios para que se implementen después de los recursos que intervienen en la dependencia circular. Por ejemplo, suponga que va a implementar dos máquinas virtuales pero debe establecer propiedades en cada una que hagan referencia a la otra. Puede implementarlas en el orden siguiente:
+
+1. vm1
+2. vm2
+3. La extensión en vm1 depende de vm1 y vm2. La extensión establece valores en vm1 que obtiene de vm2.
+4. La extensión en vm2 depende de vm1 y vm2. La extensión establece valores en vm2 que obtiene de vm1.
+
+El mismo enfoque funciona para las aplicaciones de App Service. Considere la posibilidad de mover los valores de configuración a un recurso secundario del recurso de aplicación. Puede implementar dos aplicaciones web en el orden siguiente:
+
+1. webapp1
+2. webapp2
+3. La configuración de webapp1 depende de webapp1 y webapp2. Contiene la configuración de aplicación con valores de webapp2.
+4. La configuración de webapp2 depende de webapp1 y webapp2. Contiene la configuración de aplicación con valores de webapp1.
 
 ## <a name="troubleshooting-other-services"></a>Solución de problemas con otros servicios
-Si los códigos de error de implementación anterior no le han ayudado solucionar el problema, puede buscar instrucciones más detalladas de solución de problemas del servicio de Azure que tiene el error.
+Si los códigos de error de implementación anteriores no le han ayudado solucionar el problema, puede encontrar instrucciones de solución de problemas más detalladas para cada servicio de Azure.
 
 En la tabla siguiente se enumeran los temas de solución de problemas para máquinas virtuales.
 
@@ -512,10 +671,10 @@ En la tabla siguiente se enumeran los temas de solución de problemas para otros
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
-* Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
+* Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-deployment-operations.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

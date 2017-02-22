@@ -78,6 +78,6 @@ El siguiente script de PowerShell crea la aplicación de Active Directory (AD) y
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

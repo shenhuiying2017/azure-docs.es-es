@@ -12,26 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 12/13/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 7c73de46500ac565680f2d16da05b4821507cd93
+ms.sourcegitcommit: 803d295f0d9f08fdfe7ee4550bd093b98bd80631
+ms.openlocfilehash: 594f8c79e6e98a3e727416b0bf1867481b33dd2c
 
 
 ---
 # <a name="request-increased-documentdb-account-quotas"></a>Solicitud de aumento de las cuotas de la cuenta de DocumentDB
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) tiene un conjunto de cuotas predeterminadas que se pueden ajustar estableciendo contacto con el equipo soporte técnico de Azure.  En este artículo se muestra cómo solicitar un aumento de la cuenta.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) es una base de datos de escala global en el que se pueden escalar el rendimiento y almacenamiento para gestionar todo lo que requiera la aplicación. Si tiene alguna pregunta sobre la escala que DocumentDB proporciona, envíe un correo electrónico a askdocdb@microsoft.com..
 
-Después de leer este artículo, podrá responder a las preguntas siguientes:  
-
-* ¿Qué cuotas de la base de datos de DocumentDB pueden ajustarse estableciendo contacto con el equipo de soporte técnico de Azure?
-* ¿Cómo puedo solicitar un ajuste en la cuota de la cuenta de DocumentDB?
-
-## <a name="a-idquotasa-documentdb-account-quotas"></a><a id="Quotas"></a> Cuotas de cuenta de DocumentDB
-La siguiente tabla muestra las cuotas de DocumentDB. Las cuotas que tienen un asterisco (*) se pueden ajustar poniéndose en contacto con el soporte técnico de Azure:
-
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+En este artículo se muestra cómo solicitar al soporte técnico de Azure un aumento de la cuenta.
 
 ## <a name="a-idrequestquotaincreasea-request-a-quota-adjustment"></a><a id="RequestQuotaIncrease"></a> Solicitud de un ajuste de cuota
 En los pasos siguientes se muestra cómo solicitar un ajuste de cuota.
@@ -60,6 +52,6 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

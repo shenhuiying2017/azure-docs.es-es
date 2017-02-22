@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
+ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
+ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
 
 
 ---
@@ -31,7 +31,7 @@ Los conectores son servicios hospedados a los que se puede acceder desde una apl
 
 Cada desencadenador o acción de conector tendrá un conjunto de propiedades que deben configurarse.  Puede hacer clic en los botones de información para consultar los detalles de la acción o ver la documentación relacionada [para obtener más información](apis-list.md).
 
-Si desea realizar la integración con un servicio o API que todavía no es un conector, puede ampliar las aplicaciones lógicas mediante un [conector personalizado](../app-service-logic/app-service-logic-create-api-app.md) o llamar directamente al servicio a través de un protocolo, como HTTP.
+Si desea realizar la integración con un servicio o API que todavía no es un conector, puede ampliar las aplicaciones lógicas mediante un [conector personalizado](../logic-apps/logic-apps-create-api-app.md) o llamar directamente al servicio a través de un protocolo, como HTTP.
 
 ## <a name="triggers"></a>Desencadenadores
 Algunos conectores tienen un desencadenador, lo que significa que un evento de dicho conector desencadenará una aplicación lógica y pasará los datos como parte del desencadenador.  En una aplicación lógica, los desencadenadores constituyen siempre el primer paso.  Algunos desencadenadores comunes son operaciones, como:
@@ -56,9 +56,9 @@ Para poder utilizar la mayoría de los conectores, es necesario configurar una *
 Para ver y administrar las conexiones en Azure, haga clic en **Examinar** y seleccione **Conexiones de API**.  En el recurso API Connections (Conexiones de API), puede ver, editar, actualizar o volver a autorizar cualquier conexión que haya creado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
-* [Ejemplos de aplicaciones lógicas y escenarios comunes](../app-service-logic/app-service-logic-examples-and-scenarios.md)
-* [Información general sobre Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
+* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Ejemplos de aplicaciones lógicas y escenarios comunes](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Información general sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
@@ -66,6 +66,6 @@ Para ver y administrar las conexiones en Azure, haga clic en **Examinar** y sele
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

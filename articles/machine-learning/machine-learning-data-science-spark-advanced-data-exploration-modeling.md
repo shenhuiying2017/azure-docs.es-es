@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/07/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c844eeb0e01422dac468484a8458f243a2afb87d
+ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
+ms.openlocfilehash: 853f3c9b2a4781b683b03b5c7ec93f0197c78cdc
 
 
 ---
@@ -28,9 +28,9 @@ En este tutorial se usa Spark en HDInsight para realizar exploración de datos y
 * La tarea de **clasificación binaria** consiste en predecir si se dará propina por la carrera o no. 
 * La tarea de **regresión** consiste en predecir el importe de la propina en función de otras características de la propina. 
 
-Los pasos de modelado también contienen código que muestra cómo entrenar, evaluar y guardar cada tipo de modelo. El tema abarca algunos aspectos que coinciden con [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (Exploración y modelado de datos con Spark), aunque de forma "avanzada", ya que también usa la validación cruzada junto con el barrido de hiperparámetros para entrenar modelos de clasificación y regresión con precisión óptima. 
+Los pasos de modelado también contienen código que muestra cómo entrenar, evaluar y guardar cada tipo de modelo. El tema abarca algunos aspectos que coinciden con [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (Exploración y modelado de datos con Spark), aunque de forma "avanzada", ya que también usa la validación cruzada con el barrido de hiperparámetros para entrenar modelos de clasificación y regresión con precisión óptima. 
 
-**Validación cruzada (VC)** es una técnica que evalúa la calidad de la generalización que realizará un modelo entrenado con un conjunto conocido de datos para predecir las características de conjuntos de datos con los que no se haya entrenado. La idea general tras esta técnica es que se entrena un modelo con un conjunto conocido de datos y después se prueba la precisión de sus predicciones con un conjunto de datos independiente. En este caso, se usa una implementación habitual en la que se divide un conjunto de datos en K iteraciones y después se entrena el modelo como round-robin en todas las iteraciones menos una. 
+**Validación cruzada (VC)** es una técnica que evalúa la calidad de la generalización que realizará un modelo entrenado con un conjunto conocido de datos para predecir las características de conjuntos de datos con los que no se haya entrenado.  En este caso, se usa una implementación habitual en la que se divide un conjunto de datos en K iteraciones y después se entrena el modelo como round-robin en todas las iteraciones menos una. La capacidad del modelo para predecir con precisión cuando se le prueba con un conjunto de datos independiente de esta iteración no se utiliza para entrenar el modelo que se evalúa.
 
 **optimización de los hiperparámetros** es el problema de elegir un conjunto de hiperparámetros para un algoritmo de aprendizaje, normalmente con el fin de optimizar una medida del rendimiento del algoritmo con un conjunto de datos independiente. **hiperparámetros** son valores que deben especificarse fuera del procedimiento de entrenamiento del modelo. Las suposiciones que se hagan sobre estos valores pueden afectar a la flexibilidad y la precisión de los modelos. Los árboles de decisión tienen hiperparámetros, como por ejemplo la profundidad que desee y el número de hojas del árbol. Las máquinas de vectores de soporte (SVM) requieren que se establezca un término de penalización para las clasificaciones incorrectas. 
 
@@ -51,7 +51,7 @@ Se muestran ejemplos donde se usan la VC y el barrido de hiperparámetros para e
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte el artículo [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para obtener instrucciones sobre cómo satisfacer estos requisitos. Ese tema también contiene una descripción de los datos de taxis de Nueva York de 2013 que se usan aquí, además de instrucciones sobre cómo ejecutar el código de un cuaderno de Jupyter Notebook en el clúster Spark. El cuaderno **pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Necesita una cuenta de Azure y un clúster de Spark 1.6 o Spark 2.0 HDInsight para completar este tutorial. Consulte el artículo [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para obtener instrucciones sobre cómo satisfacer estos requisitos. Ese tema también contiene una descripción de los datos de taxis de Nueva York de 2013 que se usan aquí, además de instrucciones sobre cómo ejecutar el código de un cuaderno de Jupyter Notebook en el clúster Spark. El cuaderno **pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -191,9 +191,7 @@ Una vez incorporados los datos en Spark, el siguiente paso del proceso de la cie
 Este código y fragmentos de código siguientes utilizan instrucciones mágicas de SQL para consultar los ejemplos e instrucciones mágicas locales para trazar los datos.
 
 * **Instrucciones mágicas de SQL (`%%sql`)** El kernel PySpark de HDInsight admite consultas sencillas de HiveQL en línea en sqlContext. El argumento (-o VARIABLE_NAME) conserva la salida de la consulta SQL como una trama de datos de Pandas en el servidor de Jupyter. Esto significa que estará disponible en el modo local.
-* La **`%%local`** se utiliza para ejecutar código de forma local en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, se utilizan juntas las instrucciones mágicas `%%local` y `%%sql` con el parámetro -o. El parámetro -o conservaría la salida de la consulta SQL localmente y luego la instrucción mágica %%local desencadenaría el siguiente conjunto de fragmento de código para ejecutarse localmente en la salida de las consultas SQL que se conserva localmente.
-
-La salida se visualizará automáticamente después de ejecutar el código.
+* La **`%%local`** se utiliza para ejecutar código de forma local en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, utilizará las instrucciones mágicas `%%local` después de las instrucciones `%%sql -o` que se usaban para ejecutar una consulta. El parámetro -o debería conservar la salida de la consulta SQL localmente. La instrucción mágica `%%local` desencadena el siguiente conjunto de fragmentos de código para ejecutarlos en la salida de las consultas SQL que se han guardado localmente. La salida se visualizará automáticamente después de ejecutar el código.
 
 Esta consulta recupera los viajes por el número de pasajeros. 
 
@@ -298,15 +296,15 @@ Esta celda de código usa la consulta SQL para crear tres trazados de los datos.
 ## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Diseño, transformación y preparación de los datos para el modelado de características
 Esta sección describe y proporciona el código para los procedimientos que se usan para preparar los datos para su uso en el modelado de aprendizaje automático. Muestra cómo realizar las siguientes tareas:
 
-* Creación de una nueva característica mediante la discretización de horas en cubos de tiempo de tráfico
+* Creación de una nueva característica mediante la partición de horas en intervalos de tiempo de tráfico
 * Indexación y codificación "uno de n" de características categóricas
 * Creación de objetos de punto con etiqueta para la entrada en funciones de aprendizaje automático
 * Creación de una submuestra aleatoria de datos y su división en conjuntos de entrenamiento y de pruebas
 * Ajuste de la escala de las características
 * Almacenamiento de objetos en caché
 
-### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Creación de una nueva característica mediante la discretización de horas en cubos de tiempo de tráfico
-Este código muestra cómo crear una nueva característica mediante la discretización de horas en cubos de tiempo de tráfico y, después, cómo almacenar en caché la trama de datos resultante en memoria. Cuando se usan repetidamente conjuntos de datos distribuidos resistentes (RDD) y tramas de datos, el almacenamiento en caché mejora los tiempos de ejecución. Por lo tanto, almacenaremos en caché los RDD y las tramas de datos en varias fases del tutorial.
+### <a name="create-a-new-feature-by-partitioning-traffic-times-into-bins"></a>Creación de una nueva característica mediante la partición de tiempos de tráfico en intervalos
+Este código muestra cómo crear una nueva característica mediante la partición de tiempos de tráfico en intervalos y, después, cómo almacenar en caché la trama de datos resultante en memoria. Cuando se usan repetidamente conjuntos de datos distribuidos resistentes (RDD) y tramas de datos, el almacenamiento en caché mejora los tiempos de ejecución. Por lo tanto, almacenaremos en caché los RDD y las tramas de datos en varias fases del tutorial.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -383,7 +381,7 @@ Este es el código para indexar y codificar características categóricas:
 Time taken to execute above cell: 3.14 seconds
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Creación de objetos de punto con etiqueta para la entrada en funciones de aprendizaje automático
-Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un tipo de datos de punto con etiqueta, y codificarlos para poder usarlos para entrenar y probar la regresión logística de MLlib y otros modelos de clasificación. Los objetos de punto con etiqueta son conjuntos de datos distribuidos resistentes (RDD) con el formato de datos de entrada que necesita la mayoría de los algoritmos de aprendizaje automático de MLlib. Un [punto con etiqueta](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) es un vector local, denso o disperso, asociado con una etiqueta o respuesta.
+Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un tipo de datos de punto con etiqueta, y cómo codificarlos. Esto los prepara para usarlos para entrenar y probar la regresión logística de MLlib y otros modelos de clasificación. Los objetos de punto con etiqueta son conjuntos de datos distribuidos resistentes (RDD) con el formato de datos de entrada que necesita la mayoría de los algoritmos de aprendizaje automático de MLlib. Un [punto con etiqueta](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) es un vector local, denso o disperso, asociado con una etiqueta o respuesta.
 
 Este es el código para indexar y codificar las características de texto para la clasificación binaria.
 
@@ -432,7 +430,7 @@ Este es el código para codificar e indexar características de texto de categor
 
 
 ### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Creación de una submuestra aleatoria de datos y su división en conjuntos de entrenamiento y de pruebas
-Este código crea una muestra aleatoria de los datos (aquí se usa el 25 %). Aunque no es necesario para este ejemplo debido al tamaño del conjunto de datos, se muestra cómo realizar la muestra para que sepa cómo hacerlo cuando lo necesite. Cuando las muestras son grandes, esto puede ahorrar mucho tiempo al entrenar modelos. Después, dividimos la muestra en una parte de entrenamiento (75 %) y una parte de pruebas (25 %) para el modelado de clasificación y regresión.
+Este código crea una muestra aleatoria de los datos (aquí se usa el&25; %). Aunque no es necesario para este ejemplo debido al tamaño del conjunto de datos, aquí se muestra cómo realizar la muestra. Así sabrá cómo hacerlo para solucionar un problema propio si es necesario. Cuando las muestras son grandes, esto puede ahorrar mucho tiempo al entrenar modelos. Después, dividimos la muestra en una parte de entrenamiento (75 %) y una parte de pruebas (25 %) para el modelado de clasificación y regresión.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -476,7 +474,7 @@ Este código crea una muestra aleatoria de los datos (aquí se usa el 25 %). Aun
 Time taken to execute above cell: 0.31 seconds
 
 ### <a name="feature-scaling"></a>Ajuste de la escala de las características
-El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo. El código para ajustar la escala de las características usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para ajustarlas a la varianza de la unidad. MLlib lo proporciona para su uso en la regresión lineal con descenso de gradiente estocástico (SGD), un popular algoritmo para entrenar una amplia variedad de otros modelos de aprendizaje automático tales como regresiones regularizadas o máquinas de vectores de soporte (SVM).   
+El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo. El código para ajustar la escala de las características usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para ajustarlas a la varianza de la unidad. MLlib lo proporciona para su uso en la regresión lineal con descenso de gradiente estocástico (SGD). SGD es un conocido algoritmo para entrenar una amplia variedad de otros modelos de aprendizaje automático tales como regresiones regularizadas o máquinas de vectores de soporte (SVM).   
 
 > [!TIP]
 > Hemos descubierto que el algoritmo LinearRegressionWithSGD es sensible al ajuste de la escala de las características.   
@@ -563,7 +561,7 @@ Cada sección de código de generación del modelo se dividirá en pasos:
 Mostramos cómo realizar la validación cruzada (VC) con el barrido de parámetros de dos maneras:
 
 1. Con código personalizado **genérico** que se puede aplicar a cualquier algoritmo de MLlib y a cualquier conjunto de parámetros en un algoritmo. 
-2. Mediante la **función de canalización CrossValidator de pySpark**. Tenga en cuenta que aunque es útil, en nuestra experiencia, CrossValidator tiene algunas limitaciones para Spark 1.5.0: 
+2. Mediante la **función de canalización CrossValidator de pySpark**. Tenga en cuenta que CrossValidator presenta algunas limitaciones para Spark 1.5.0: 
    
    * Los modelos de canalización no se pueden guardar ni conservar para usarlos en el futuro.
    * No se puede utilizar para todos los parámetros de un modelo.
@@ -1440,6 +1438,6 @@ Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

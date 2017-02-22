@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
-ms.openlocfilehash: 3864148ecd09b5bc4199185bc0e5a781703f3fdb
+ms.sourcegitcommit: 13ae22245d105b32b9fc50d7dbc8a6d50ad4560a
+ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
 
 
 ---
@@ -26,14 +26,29 @@ Si ha estado teniendo dificultades para solucionar los problemas de acceso de SS
 > [!NOTE]
 > Después de volver a implementar una máquina virtual, se perderá el disco temporal y se actualizarán las direcciones IP dinámicas asociadas con la interfaz de red virtual. 
 
+Puede volver a implementar una máquina virtual mediante una de las siguientes opciones. Solo tiene que elegir una opción para volver a implementar la máquina virtual:
 
-## <a name="using-azure-cli"></a>Uso de la CLI de Azure
-Asegúrese de que tiene instalada la [CLI de Azure más reciente](../xplat-cli-install.md) en su equipo y que usa el modo de implementación de Resource Manager (`azure config mode arm`).
+- [CLI de Azure 1.0](#azure-cli-10)
+- [Versión preliminar de la CLI de Azure 2.0](#azure-cli-20-preview)
+- [Portal de Azure](#using-azure-portal)
+
+
+## <a name="azure-cli-10"></a>CLI de Azure 1.0
+Instale la [CLI de Azure 1.0 más reciente ](../xplat-cli-install.md), inicie sesión en una cuenta de Azure y asegúrese de que está en modo Resource Manager (`azure config mode arm`).
 
 En el ejemplo siguiente se vuelve a implementar la máquina virtual llamada `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
+```
+
+## <a name="azure-cli-20-preview"></a>Versión preliminar de la CLI de Azure 2.0
+Instale la última versión de la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+
+Vuelva a implementar la máquina virtual con [az vm redeploy](/cli/azure/vm#redeploy). En el ejemplo siguiente se vuelve a implementar la máquina virtual llamada `myVM` en el grupo de recursos denominado `myResourceGroup`:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
@@ -44,6 +59,6 @@ Puede encontrar ayuda específica sobre la [solución de problemas de las conexi
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

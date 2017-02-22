@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Reliable Actors de Service Fabric | Microsoft Docs"
+title: "Creación del primer microservicio de Azure basado en actores en Java | Microsoft Docs"
 description: "En este tutorial se explica paso a paso cómo crear, depurar e implementar un servicio de actor sencillo con Reliable Actors de Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e349d0c76078889b6e41340ee8bb2f599819ba3
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 8ecc5208237d846d0e81914eee8874ea97744bc3
 
 
 ---
@@ -191,6 +191,6 @@ $ ./install.sh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

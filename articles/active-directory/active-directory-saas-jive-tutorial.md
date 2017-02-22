@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: 8e5af99c6c0a8ce4d1b239b3271846f39bc387be
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 304ee87e82ce5acc4479fd16d3ac1aa340e42815
 
 
 ---
@@ -207,7 +207,7 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
 
 La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relacionado en Azure AD:
 
-![Configurar aprovisionamiento de usuarios](./media/active-directory-saas-jive-tutorial/IC698794.png "Configure User Provisioning")
+![Configurar el aprovisionamiento de usuarios](./media/active-directory-saas-jive-tutorial/IC698794.png "Configurar aprovisionamiento de usuarios")
 
 #### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
 1. En el Portal de administración de Azure, en la página de integración de aplicaciones de **Jive**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo de **Configurar aprovisionamiento de usuarios**.
@@ -283,6 +283,6 @@ Al hacer clic en el icono de Jive en el panel de acceso, debería iniciar sesió
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

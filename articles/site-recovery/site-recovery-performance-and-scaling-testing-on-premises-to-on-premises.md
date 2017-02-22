@@ -1,5 +1,5 @@
 ---
-title: "Resultados de escalado y pruebas de rendimiento de la replicación de Hyper-V entre sitios locales con Site Recovery | Microsoft Docs"
+title: "Resultados de la prueba para la replicación de Hyper-V entre sitios con Azure Site Recovery | Microsoft Docs"
 description: "Este artículo proporciona información acerca de la prueba de rendimiento de replicación entre dos sitios locales con Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3c35bf129dd1566f3e2084caacc0330b5a6fc32
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: ba82512e830032172c8a0d78029605935d1417f9
 
 
 ---
-# <a name="performance-test-and-scale-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Resultados de escalado y pruebas de rendimiento de la replicación de Hyper-V entre sitios locales con Site Recovery.
+# <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Resultados de la prueba para la replicación de Hyper-V entre sitios locales con Site Recovery
 Puede usar Microsoft Azure Site Recovery para organizar y administrar la replicación de máquinas virtuales y servidores físicos en Azure, o en un centro de datos secundario. Este artículo proporciona los resultados de pruebas de rendimiento que obtuvimos al replicar máquinas virtuales de Hyper-V entre dos centros de datos locales.
 
 ## <a name="overview"></a>Información general
@@ -124,11 +124,11 @@ Los resultados muestran claramente que Azure Site Recovery, junto con la réplic
 
 | Carga de trabajo | Tamaño de E/S (KB) | % de acceso | % de lectura | Operaciones de E/s pendientes | Patrón de E/S |
 | --- | --- | --- | --- | --- | --- |
-| Servidor de archivos |48163264 |60% 20 %5 %5% 10% |80% de 80 80% 80% 80% |88888 |Todos 100% aleatorios |
-| SQL Server (volumen 1) SQL Server (volumen 2) |864 |100% 100% |70% %0 |88 |100% aleatorio 100% secuencial |
+| Servidor de archivos |48163264 |60%&20; %5 %5%&10;% |80% de&80;&80;%&80;%&80;% |88888 |Todos 100% aleatorios |
+| SQL Server (volumen 1) SQL Server (volumen 2) |864 |100%&100;% |70% %0 |88 |100% aleatorio&100;% secuencial |
 | Exchange |32 |100% |67% |8 |100% aleatorio |
-| Estación de trabajo/VDI |464 |66% 34% |70% 95% |11 |Los dos 100% aleatorios |
-| Servidor de archivos web |4864 |33% 34% 33% |95% 95 95% |888 |Todos 75% aleatorios |
+| Estación de trabajo/VDI |464 |66%&34;% |70%&95;% |11 |Los dos 100% aleatorios |
+| Servidor de archivos web |4864 |33%&34;%&33;% |95%&95;&95;% |888 |Todos 75% aleatorios |
 
 ### <a name="virtual-machine-configuration"></a>Configuración de la máquina virtual
 * 470 máquinas virtuales en el clúster principal.
@@ -173,7 +173,6 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

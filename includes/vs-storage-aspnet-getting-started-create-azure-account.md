@@ -6,6 +6,6 @@ Puede crear también una cuenta de Azure Storage mediante [Azure PowerShell](../
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,0 +1,82 @@
+---
+title: "Creación de una instancia de Azure Container Registry: portal | Microsoft Docs"
+description: "Introducción a la creación y administración de registros de contenedor de Azure mediante Azure Portal"
+services: container-registry
+documentationcenter: 
+author: stevelas
+manager: balans
+editor: dlepow
+tags: 
+keywords: 
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
+ms.service: container-registry
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/14/2016
+ms.author: stevelas
+translationtype: Human Translation
+ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
+ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+
+---
+# <a name="create-a-container-registry-using-the-azure-portal"></a>Creación de un registro de contenedor mediante Azure Portal
+Use Azure Portal para crear un registro de contenedor y administrar su configuración. También puede crear y administrar registros de contenedor mediante los [comandos de la versión preliminar de la CLI 2.0 de Azure](container-registry-get-started-azure-cli.md) o mediante programación con la [API de REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+
+Para más información y conceptos, vea [¿Qué es Azure Container Registry?](container-registry-intro.md)
+
+
+> [!NOTE]
+> Container Registry está actualmente en vista previa.
+
+
+## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
+1. Haga clic en [Nuevo](https://portal.azure.com), en el **portal**.
+2. Busque el marketplace para el **registro de contenedor**.
+3. Seleccione **Container Registry (versión preliminar)**, con el publicador **Microsoft**. 
+    ![Servicio Container Registry en Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
+4. Haga clic en **Crear**. Aparece la hoja **Container Registry**.
+
+    ![Configuración de Container Registry](./media/container-registry-get-started-portal/container-registry-settings.png)
+5. En la hoja **Container Registry**, escriba la siguiente información. Cuando haya terminado, haga clic en **Crear**.
+   
+    a. **Nombre del registro**: un nombre de dominio de nivel superior único global para el registro específico. En este ejemplo, el nombre del registro es *myRegistry01*, pero puede sustituirlo por un nombre único de su elección. El nombre puede contener solo letras y números.
+   
+    b. **Grupo de recursos**: seleccione un [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) existente o escriba el nombre para crear uno. 
+   
+    c. **Ubicación**: seleccione una ubicación para el centro de datos de Azure en la que el servicio esté [disponible](https://azure.microsoft.com/regions/services/) como, por ejemplo, **centro-sur de EE. UU.**. 
+   
+    d. **Usuario administrador**: si lo desea, habilite un usuario administrador para acceder al registro. Puede cambiar esta configuración después de crear el registro.
+   
+   > [!IMPORTANT]
+   > Además de proporcionar acceso a través de una cuenta de usuario de administrador, los registros de contenedor admiten la autenticación respaldada por entidades de servicio de Azure Active Directory. Para más información y otras consideraciones, consulte [Authenticate with the container registry](container-registry-authentication.md) (Autenticación con el registro de contenedor).
+   
+    e. **Cuenta de almacenamiento**: use la configuración predeterminada para crear una [cuenta de almacenamiento](../storage/storage-introduction.md) o seleccione una cuenta de almacenamiento existente en la misma ubicación. Tenga en cuenta que no se admiten cuentas de almacenamiento Premium y clásicas.
+
+## <a name="manage-registry-settings"></a>Administración de la configuración del registro
+Después de crear el registro, busque la configuración de este iniciando la hoja **Registros de contenedor** del portal. Por ejemplo, necesitará la configuración para iniciar sesión en el registro, o puede que desee habilitar o deshabilitar el usuario administrador.
+
+1. En la hoja **Registros de contenedor**, haga clic en el nombre del registro.
+   
+    ![Hoja Registro de contenedor](./media/container-registry-get-started-portal/container-registry-blade.png)
+2. Para administrar la configuración de acceso, haga clic en **Clave de acceso**.
+   
+    ![Acceso al registro de contenedor](./media/container-registry-get-started-portal/container-registry-access.png)
+3. Tenga en cuenta la siguiente configuración:
+   
+   * **Servidor de inicio de sesión**: el nombre completo que usa para iniciar sesión en el registro. En este ejemplo, es `myregistry01-contoso.azurecr.io`.
+   * **Usuario administrador**: elija habilitar o deshabilitar la cuenta de usuario administrador del registro.
+   * **Nombre de usuario** y **contraseña**: las credenciales de la cuenta de usuario administrador (si está habilitado) que puede usar para iniciar sesión en el registro. Si lo desea, puede volver a generar la contraseña.
+
+## <a name="next-steps"></a>Pasos siguientes
+* [Insertar la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md)
+
+
+
+
+
+
+<!--HONumber=Feb17_HO2-->
+
+

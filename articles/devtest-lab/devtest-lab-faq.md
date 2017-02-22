@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 2d1ff28d5c7d989d4c81758bd191e8d1e8100b2e
+ms.sourcegitcommit: f772060243ce6d741d26113710be32cb76135479
+ms.openlocfilehash: 41a28f43942d4e6bf395b7fd024bd22b96420d55
 
 
 ---
@@ -28,7 +28,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 ## <a name="general"></a>General
 * [Mi pregunta no está respondida aquí. ¿Qué debo hacer?](#what-if-my-question-isnt-answered-here)
 * [¿Por qué debería usar Azure DevTest Labs?](#why-should-i-use-azure-devtest-labs) 
-* [¿Qué significa "sin preocupaciones, autoservicio"?](#what-does-quotworry-free-self-servicequot-mean)
+* [¿Qué significa "sin preocupaciones, autoservicio"?](#what-does-worry-free-self-service-mean)
 * [¿Cómo se usa Azure DevTest Labs?](#how-can-i-use-azure-devtest-labs) 
 * [¿Cómo se factura Azure DevTest Labs?](#how-am-i-billed-for-azure-devtest-labs) 
 
@@ -246,6 +246,6 @@ Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

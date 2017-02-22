@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/19/2016
 ms.author: lemai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8771556954be77543b0eaa21b7201f93ffa0ed70
 
 
 ---
@@ -44,12 +44,12 @@ Para iniciar un comando, llame a la API de inicio de la API correspondiente.  Es
 
 1. Se completa correctamente.  Si, en este caso, se llama a GetProgress en ella, la propiedad State del objeto de progreso tendrá el valor Completado.
 2. Se produce un error irrecuperable.  Si, en este caso, se llama a GetProgress en ella, la propiedad State del objeto de progreso tendrá el valor Error.
-3. La operación puede cancelarse mediante la API [CancelTestCommandAsync][cancel] o el cmdlet de PowerShell [Stop-ServiceFabricTestCommand][cancelps].  Si, en este caso, se llama a GetProgress en ella, la propiedad State del objeto de progreso tendrá el valor Cancelado o ForceCancelled, en función de cuál sea el argumento para dicha API.  Consulte la documentación de [CancelTestCommandAsync][cancel] para obtener más información.
+3. La operación puede cancelarse mediante la API [CancelTestCommandAsync][cancel] o el cmdlet de PowerShell [Stop ServiceFabricTestCommand][cancelps].  Si, en este caso, se llama a GetProgress en ella, la propiedad State del objeto de progreso tendrá el valor Cancelado o ForceCancelled, en función de cuál sea el argumento para dicha API.  Consulte la documentación de [CancelTestCommandAsync][cancel] para obtener más información.
 
 ## <a name="details-of-running-a-command"></a>Detalles de la ejecución de un comando
 Para iniciar un comando, llame a la API de inicio con los argumentos esperados.  Todas las API de inicio tiene un argumento de Guid denominado "operationId".  Se debe realizar un seguimiento del argumento operationId, ya que se utiliza para seguir el progreso de este comando.  Este argumento debe pasarse a la API GetProgress con el fin de realizar un seguimiento del progreso del comando.  El argumento operationId debe ser único.
 
-Después de llamar correctamente a la API de inicio, la API GetProgress debe llamarse en un bucle hasta que la propiedad State del objeto de progreso devuelto tenga el valor Completado.  Se deben volver a intentar todas las clases [FabricTransientException][fte] y OperationCanceledException.
+Después de llamar correctamente a la API de inicio, la API GetProgress debe llamarse en un bucle hasta que la propiedad State del objeto de progreso devuelto tenga el valor Completado.  Se debe volver a tratar de inicializar todas las clases [FabricTransientException][fte] y OperationCanceledException.
 Cuando el comando haya alcanzado un estado terminal (Completado, Error o Cancelado), la propiedad Result del objeto de progreso devuelto contendrá más información.  Si el estado es Completado, Result.SelectedPartition.PartitionId incluirá el id. de partición que se seleccionó.  El valor de Result.Exception será NULL.  Si el estado es Error, Result.Exception incluirá la razón por la que el servicio de análisis e inserción de errores no pudo ejecutar el comando.  Result.SelectedPartition.PartitionId tendrá el id. de partición que se haya seleccionado.  En algunos casos, es posible que el comando no haya podido elegir correctamente una partición.  En ese caso, el valor de PartitionId será 0.  Si el estado es Cancelado, el valor de Result.Exception será NULL.  Al igual que en el caso del estado Error, Result.SelectedPartition.PartitionId tendrá el id. de partición que se seleccionó, pero si el comando no ha podido elegir correctamente la partición, el valor será 0.  Consulte también el siguiente ejemplo.
 
 En el código de ejemplo siguiente se muestra cómo iniciar un comando y, luego, comprobar su progreso para provocar una pérdida de datos en una partición concreta.
@@ -237,6 +237,6 @@ Cuando un comando haya alcanzado un estado terminal, sus metadatos permanecerán
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

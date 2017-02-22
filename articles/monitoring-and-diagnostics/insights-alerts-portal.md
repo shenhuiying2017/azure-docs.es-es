@@ -1,8 +1,8 @@
 ---
-title: Uso de Azure Portal para crear alertas de los servicios de Azure | Microsoft Docs
-description: "Use Azure Portal para crear alertas de Azure, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones especificadas."
+title: "Creación de alertas para servicios de Azure - Azure Portal | Microsoft Docs"
+description: "Desencadene correos electrónicos y notificaciones, llame a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones especificadas."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
 
 
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Uso de Azure Portal para crear alertas de los servicios de Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creación de alertas en Azure Monitor para servicios de Azure - Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo configurar alertas de Azure con Azure Portal.
+En este artículo se muestra cómo configurar alertas de Azure con Azure Portal.   
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
@@ -53,14 +53,14 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creación de una regla de alerta de una métrica con Azure Portal
 1. En el [portal](https://portal.azure.com/), busque el recurso que desea supervisar y selecciónelo.
 2. En la sección SUPERVISIÓN, seleccione **Alertas** o **Reglas de alerta**. El texto y el icono pueden variar ligeramente en los distintos recursos.  
-   
+
     ![Supervisión](./media/insights-alerts-portal/AlertRulesButton.png)
 3. Seleccione el comando **Agregar alerta** y rellene los campos.
-   
+
     ![Agregar alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
 5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de tiempo de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando la CPU ha estado por sobre el 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando la CPU se mantiene por debajo del 80% durante 5 minutos. La CPU se mide cada 1 minuto.   
-6. Marque la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
+6. Desactive la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
 7. Si desea enviar una notificación a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos de administradores adicionales** . Separe las direcciones de correo electrónico con punto y coma, de la siguiente manera: *email@contoso.com;email2@contoso.com*
 8. Escriba un identificador URI válido en el campo **Webhook** si desea llamarlo cuando se active la alerta.
 9. Si usa Azure Automation, puede seleccionar un runbook para que se ejecute cuando se active la alerta.
@@ -84,7 +84,6 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: 3400c137088800398e3757ecfcfb5007044ea66c
+ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
+ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 3400c137088800398e3757ecfcfb5007044ea66c
 > [!div class="op_single_selector"]
 > * [Portal de Azure](cloud-services-how-to-manage-portal.md)
 > * [Portal de Azure clásico](cloud-services-how-to-manage.md)
-> 
-> 
+>
+>
 
 El servicio en la nube se administra en el área **Servicios en la nube (clásico)** de Azure Portal. En este artículo se describen algunas acciones comunes que se deben realizar al administrar servicios en la nube; por ejemplo, actualizar, eliminar, escalar y promover una implementación de ensayo a producción.
 
@@ -34,42 +34,58 @@ Para obtener más información sobre cómo escalar un servicio en la nube, haga 
 ## <a name="how-to-update-a-cloud-service-role-or-deployment"></a>Actualización del rol de servicio en la nube o implementación
 Si necesita actualizar el código de la aplicación para su servicio en la nube, use **Actualizar** en la hoja del servicio en la nube. Puede actualizar un solo rol o todos los roles. Para ello, puede cargar un nuevo paquete de servicio o un archivo de configuración de servicio.
 
-1. En [Portal de Azure][Portal de Azure], seleccione el servicio en la nube que desee actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
+1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 2. En la hoja, haga clic en el botón **Actualizar** .
-   
+
     ![Botón Actualizar](./media/cloud-services-how-to-manage-portal/update-button.png)
 
 3. Actualice la implementación con un nuevo archivo de paquete de servicio (.cspkg) y un archivo de configuración de servicio (.cscfg).
-   
+
     ![Implementación de actualizaciones](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
-4. **Opcionalmente** puede actualizar la etiqueta de implementación y la cuenta de almacenamiento. 
-5. Si uno de los roles solo tiene una instancia de rol, seleccione **Implementar aunque uno o varios roles contengan una sola instancia** para permitir que la actualización continúe. 
-   
+4. **Opcionalmente** puede actualizar la etiqueta de implementación y la cuenta de almacenamiento.
+5. Si uno de los roles solo tiene una instancia de rol, seleccione **Implementar aunque uno o varios roles contengan una sola instancia** para permitir que la actualización continúe.
+
     Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtuales). Con dos instancias de rol, una máquina virtual procesará las solicitudes de cliente mientras la otra se actualiza.
-    
+
 6. Active **Iniciar implementación** si quiere que la actualización se aplique cuando termine de cargarse el paquete.
 7. Haga clic en **Aceptar** para iniciar la actualización del servicio.
 
 ## <a name="how-to-swap-deployments-to-promote-a-staged-deployment-to-production"></a>Intercambio de implementaciones para pasar un servicio en la nube de ensayo a producción
-Cuando decida implementar una nueva versión de un servicio en la nube, puede colocar en etapa y probar la nueva versión en su entorno de ensayo del servicio en la nube. Use **Intercambiar** para cambiar las direcciones URL que dirigen a las dos implementaciones y promover una nueva versión a producción. 
+Cuando decida implementar una nueva versión de un servicio en la nube, puede colocar en etapa y probar la nueva versión en su entorno de ensayo del servicio en la nube. Use **Intercambiar** para cambiar las direcciones URL que dirigen a las dos implementaciones y promover una nueva versión a producción.
 
 Puede intercambiar implementaciones desde la página **Servicios en la nube** o el panel.
 
-1. En [Portal de Azure][Portal de Azure], seleccione el servicio en la nube que desee actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
+1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 2. En la hoja, haga clic en el botón **Intercambiar** .
-   
+
     ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/swap-button.png)
 
 3. Se abre la siguiente solicitud de confirmación.
-   
+
     ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
 4. Después de verificar la información de la implementación, haga clic en **Aceptar** para intercambiar las implementaciones.
-   
+
     El intercambio de implementaciones ocurre rápidamente porque lo único que cambia son las direcciones IP virtuales (VIP) de las implementaciones.
-   
+
     Para ahorrar en los costos de proceso, puede eliminar la implementación de ensayo después de comprobar que la implementación de producción funcione según lo previsto.
+
+### <a name="common-questions-about-swapping-deployments"></a>Preguntas comunes sobre el intercambio de implementaciones
+
+**¿Cuáles son los requisitos previos para el intercambio de implementaciones?**
+
+Existen principalmente dos requisitos previos para que el intercambio de implementación se realice de manera correcta:
+
+- Si quiere usar una dirección IP estática para su ranura de producción, debe reservar también una para su ranura de ensayo. Si no, el intercambio dará error.
+
+- Todas las instancias de los roles se deben estar ejecutando para poder realizar el intercambio. Puede comprobar el estado de las en la hoja de información general del portal de Azure o mediante el [comando Get-AzureRole de Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+
+Tenga en cuenta que las actualizaciones del SO invitado y las operaciones de recuperación de servicios pueden hacer que los intercambios de implementación den error. Consulte [Solución de problemas de implementación de servicios en la nube](cloud-services-troubleshoot-deployment-problems.md) para más información.
+
+**¿Un intercambio conlleva tiempo de inactividad de mi aplicación? ¿Cómo puedo controlarlo?**
+
+Como se describe en la última sección, un intercambio de implementación suele ser muy rápido ya que es un cambio de configuración en el equilibrador de carga de Azure. Sin embargo, en algunos casos, puede tardar diez o más segundos y dar lugar a errores de conexión transitorios. Para limitar el impacto en los clientes, considere la posibilidad de implementar la [lógica de reintento del cliente](../best-practices-retry-general.md).
 
 ## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Vinculación de un recurso a un servicio en la nube
 El Portal de Azure no vincula recursos entre sí como el Portal de Azure clásico actual. En su lugar, implemente más recursos en el mismo grupo de recursos que está usando el servicio en la nube.
@@ -79,26 +95,26 @@ Antes de que pueda eliminar un servicio en la nube, debe eliminar cada implement
 
 Para ahorrar en los costos de proceso, puede eliminar la implementación de ensayo después de comprobar que la implementación de producción funcione según lo previsto. Se le facturarán los costos de proceso de las instancias de rol implementadas que se detengan.
 
-Use el siguiente procedimiento para eliminar una implementación o su servicio en la nube. 
+Use el siguiente procedimiento para eliminar una implementación o su servicio en la nube.
 
-1. En [Portal de Azure][Portal de Azure], seleccione el servicio en la nube que desee eliminar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
+1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera eliminar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 2. En la hoja, haga clic en el botón **Eliminar** .
-   
+
     ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
 3. Puede eliminar el servicio en la nube completo seleccionando **Servicio en la nube y sus implementaciones** o elija **Implementación de producción** o **Implementación de almacenamiento provisional**.
-   
-    ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/delete-blade.png) 
+
+    ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
 4. Haga clic en el botón **Eliminar** situado en la parte inferior.
 5. Para eliminar el servicio en la nube, haga clic en **Eliminar servicio en la nube**. Luego, haga clic en **Sí**en la solicitud de confirmación.
 
 > [!NOTE]
 > Cuando se elimina un servicio en la nube y se configura una supervisión detallada, debe eliminar manualmente los datos de la cuenta de almacenamiento. Para obtener información sobre dónde buscar las tablas métricas, consulte [este](cloud-services-how-to-monitor.md) artículo.
-> 
-> 
+>
+>
 
-[Portal de Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
@@ -108,7 +124,6 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

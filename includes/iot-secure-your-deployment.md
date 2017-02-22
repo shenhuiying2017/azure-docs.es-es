@@ -109,6 +109,6 @@ En este artículo se proporciona información general sobre los detalles de los 
 [lnk-blob]: https://azure.microsoft.com/services/storage/
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

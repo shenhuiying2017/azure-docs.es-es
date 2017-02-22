@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 276033907d454a54b2d9d5354f8e1dc48a7b01d4
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
 
 
 ---
@@ -31,17 +31,26 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar el registro de diagnósticos en la cuenta de Data Lake Store
 1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
-2. Abra la cuenta de Data Lake Store y, en la hoja de la cuenta de Data Lake Store, haga clic en **Configuración** y en **Configuración de diagnóstico**.
+2. Abra la cuenta de Data Lake Store y, en la hoja de la cuenta de Data Lake Store, haga clic en **Configuración** y en **Registros de diagnóstico**.
+3. En la hoja **Registros de diagnóstico**, haga clic en **Activar diagnósticos**.
+
+    ![Habilitar el registro de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Habilitar registros de diagnóstico")
+
 3. En la hoja **Diagnóstico** , realice los siguientes cambios para configurar el registro de diagnósticos.
    
-    ![Activación del registro de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![Habilitar el registro de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Habilitar registros de diagnóstico")
    
-   * Establezca el **Estado** en **Activado** para habilitar el registro de diagnósticos.
-   * Puede optar por almacenar o procesar los datos de dos maneras diferentes.
-     * Seleccione la opción **Exportar a Centro de eventos** para transmitir los datos de registro a un Centro de eventos de Azure. Lo más probable es que use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
-     * Seleccione la opción **Exportar a cuenta de almacenamiento** para almacenar los registros en una cuenta de almacenamiento de Azure. Use esta opción si quiere archivar los datos que se procesarán por lotes más adelante. Si selecciona esta opción, debe proporcionar una cuenta de almacenamiento de Azure para guardar los registros.
+   * Establezca el **Estado** en **Activado** para habilitar el registro de diagnóstico.
+   * Puede optar por almacenar o procesar los datos de maneras diferentes.
+     
+        * Seleccione la opción **Archive to a storage account** (Archivar en cuenta de almacenamiento) para almacenar los registros en una cuenta de Azure Storage. Use esta opción si quiere archivar los datos que se procesarán por lotes más adelante. Si selecciona esta opción, debe proporcionar una cuenta de almacenamiento de Azure para guardar los registros.
+        
+        * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a una instancia de Azure Event Hubs. Lo más probable es que use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
+
+        * Seleccione la opción de **Send to Log Analytics** (Enviar a Log Analytics) para usar el servicio Azure Log Analytics para analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles para el área de trabajo de Operations Management Suite que usaría para realizar análisis de registros.
+     
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
-   * Especifique el número de días durante los que deben conservarse los datos.
+   * Especifique el número de días durante los que deben conservarse los datos. La retención solo es aplicable si está utilizando la cuenta de Azure Storage para archivar datos de registro.
    * Haga clic en **Guardar**.
 
 Una vez habilitada la configuración de diagnóstico, puede ver los registros en la pestaña **Registros de diagnóstico** .
@@ -55,8 +64,8 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Stor
 ### <a name="using-the-data-lake-store-settings-view"></a>Uso de la vista de configuración de Data Lake Store
 1. En la hoja **Configuración** de su cuenta de Data Lake Store, haga clic en **Registros de diagnóstico**.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
-2. En la hoja **Registros de diagnóstico**, debería ver los registros clasificados por **Registros de auditoría** y **Request Logs** (Registros de solicitudes).
+    ![Ver registro de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Ver registros de diagnóstico") 
+2. En la hoja **Registros de diagnóstico**, debería ver los registros clasificados por **Registros de auditoría** y **Registros de solicitudes**.
    
    * Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Store.
    * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Store. Por ejemplo, una llamada de API de carga única en los registros de solicitud podría producir varias operaciones "Append" en los registros de auditoría.
@@ -65,13 +74,13 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Stor
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>En la cuenta de Almacenamiento de Azure que contiene los datos de registro
 1. Abra la hoja de la cuenta de Almacenamiento de Azure asociada con Data Lake Store para el registro y haga clic en Blobs. La hoja **Servicio Blob** muestra dos contenedores.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Ver registro de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Ver registros de diagnóstico")
    
    * El contenedor **insights-logs-audit** contiene los registros de auditoría.
    * El contenedor **insights-logs-requests** contiene los registros de solicitudes.
 2. Dentro de estos contenedores, los registros se almacenan con la siguiente estructura.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
+    ![Ver registro de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Ver registros de diagnóstico")
    
     Por ejemplo, la ruta de acceso completa a un registro de auditoría sería `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -177,6 +186,6 @@ Azure Data Lake Store proporciona un ejemplo de cómo procesar y analizar los da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

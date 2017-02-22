@@ -5,12 +5,12 @@ En este paso, crearás una regla de firewall para abrir el puerto de sondeo para
 3. En la página **Tipo de regla**, selecciona **Puerto** y haz clic en **Siguiente**.
 4. En la página **Protocolo y puertos**, selecciona **TCP** y escribe **59999** en la casilla **Puertos locales específicos**. A continuación, haz clic en **Siguiente**.
 5. En la página **Acción**, mantén seleccionado **Permitir la conexión** y haz clic en **Siguiente**.
-6. En la página **Perfiles**, acepta la configuración predeterminada y haga clic en **Siguiente**.
-7. En la página **Nombre**, especifica un nombre de regla, como **AlwaysOn Listener Probe Port** (Puerto de sondeo de escucha AlwaysOn), en el cuadro de texto **Nombre** y haz clic en **Finalizar**.
-8. Repite los pasos anteriores para el puerto de escucha del grupo de disponibilidad (como se especificó anteriormente en el parámetro $EndpointPort del script) y especifica un nombre de regla adecuado, como **Puerto de escucha AlwaysOn**.
+6. En la página **Perfiles**, acepte la configuración predeterminada y haga clic en **Siguiente**.
+7. En la página **Nombre**, especifique un nombre de regla, como **Always On Listener Probe Port** (Puerto de sondeo de escucha Always On), en el cuadro de texto **Nombre** y haga clic en **Finalizar**.
+8. Repita los pasos anteriores para el puerto de escucha del grupo de disponibilidad (como se especificó anteriormente en el parámetro $EndpointPort del script) y especifique un nombre de regla adecuado, como **Puerto de escucha Always On**.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

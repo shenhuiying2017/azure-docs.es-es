@@ -129,11 +129,11 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
     b. Haga clic en **Next**.
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de eDigitalResearch y proporcione lo siguiente: 
    
-      - El archivo de **certificado descargado**
+      -El archivo de **certificado descargado**
    
-      - El **identificador de entidad**
+      -El **identificador de entidad**
    
-      - La **dirección URL del servicio de cierre de sesión único**
+      -La **dirección URL del servicio de cierre de sesión único**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -246,6 +246,6 @@ Al hacer clic en el icono de eDigitalResearch en el Panel de acceso, debería in
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

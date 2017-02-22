@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 93cfd92687fdcad3f1f593a5c5c098850af4762f
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 134239990df959fe2657340eca4f2a8bf646a7b0
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante FTP
-En este tutorial se muestra cómo crear una aplicación web PHP-MySQL y cómo implementarla mediante FTP. En este tutorial se supone que tiene [PHP][install-php], [MySQL][install-mysql], un servidor web y un cliente FTP instalados en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá una aplicación web PHP/MySQL que se ejecutará en Azure.
+En este tutorial se muestra cómo crear una aplicación web PHP-MySQL y cómo implementarla mediante FTP. En este tutorial se supone que dispone de [PHP][install-php], [MySQL][install-mysql], un servidor web y un cliente FTP instalado en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá una aplicación web PHP/MySQL que se ejecutará en Azure.
 
 Aprenderá a:
 
@@ -33,7 +33,7 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 ![Sitio web PHP de Azure][running-app]
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. 
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. 
 > 
 > 
 
@@ -197,7 +197,7 @@ Para compilar y ejecutar la aplicación localmente, siga estos pasos. Tenga en c
             echo "<h3>No one is currently registered.</h3>";
         }
 
-Ahora puede ir a [http://localhost/registration/index.php][localhost-index] para probar la aplicación.
+Ahora puede dirigirse a [http://localhost/registration/index.php][localhost-index] para probar la aplicación.
 
 ## <a name="get-mysql-and-ftp-connection-information"></a>Obtención de información de conexión de FTP y MySQL
 Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, necesita información de conexión. Si desea obtener la información de conexión de MySQL, siga estos pasos:
@@ -276,6 +276,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

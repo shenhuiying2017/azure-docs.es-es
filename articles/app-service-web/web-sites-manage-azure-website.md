@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dadae052868fcb0952b4480525efc0267a4a8e22
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
 
 
 ---
@@ -29,7 +29,7 @@ Muchas tareas de administración de aplicaciones web se pueden hacer desde el Po
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>Antes de implementar su aplicación web para la producción.
 ### <a name="choose-a-tier"></a>Elija un nivel
-Servicio de aplicaciones de Azure se ofrece en cinco niveles: gratis, compartido, básico, estándar y premium. Para obtener información acerca de las características y los precios de cada nivel, consulte [Detalles de precios](/pricing/details/app-service/). 
+Servicio de aplicaciones de Azure se ofrece en cinco niveles: gratis, compartido, básico, estándar y premium. Para obtener información acerca de las características y los precios de cada nivel, consulte [Detalles de precios](https://azure.microsoft.com/pricing/details/app-service/). 
 
 * [planes del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) le permiten agrupar varias aplicaciones web en el mismo nivel.
 * Siempre puede [cambiar los niveles](web-sites-scale.md) después de crear su aplicación web.
@@ -83,14 +83,14 @@ Si usa Visual Studio Team Services, puede configurar una implementación continu
 
 <!-- Anchors. -->
 
-[Antes de implementar su sitio para la producción]: #before-you-deploy-your-site-to-production
-[Cuando el sitio web está en funcionamiento]: #while-your-website-is-running
-[Cuando actualiza el sitio web]: #when-you-update-your-website
+[Before you deploy your site to production]: #before-you-deploy-your-site-to-production
+[While your website is running]: #while-your-website-is-running
+[When you update your website]: #when-you-update-your-website
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

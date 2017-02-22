@@ -1,6 +1,6 @@
 ---
 title: "Límites de servicio en Azure Search | Microsoft Docs"
-description: "Límites de servicio usados en la planeación de la capacidad y los límites máximos de solicitudes y respuestas de Búsqueda de Azure."
+description: "Límites de servicio usados en la planeación de la capacidad y los límites máximos de solicitudes y respuestas de Azure Search."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: ffdd03fb1e9718b0f72f5a13bb80de4a4bfe2709
-ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
+ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
+ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
 
 
 ---
@@ -46,10 +46,10 @@ Hay una correspondencia uno a uno entre los límites de los índices y los lími
 | Índice: campos máximos por índice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
 | Índice: perfiles de puntuación máximos por índice |16 |16 |16 |16 |16 |16 |
 | Índice: funciones máximas por perfil |8 |8 |8 |8 |8 |8 |
-| Indexadores: carga máxima de indexación por invocación |10 000 documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D <sup>2</sup> |
+| Indexadores: carga máxima de indexación por invocación |10&000; documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D <sup>2</sup> |
 | Indexadores: tiempo de ejecución máximo |3 minutos |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D <sup>2</sup> |
-| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4 millones |4 millones |4 millones |N/D <sup>2</sup> |
+| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32&000; |64&000; |4 millones |4 millones |4 millones |N/D <sup>2</sup> |
 
 <sup>1</sup> El nivel básico es el único SKU con un límite inferior de 100 campos por índice.
 
@@ -67,7 +67,7 @@ Para mantener el tamaño del documento reducido, no olvide excluir los datos no 
 ## <a name="workload-limits-queries-per-second"></a>Límites de carga de trabajo (consultas por segundo)
 | Recurso | Gratuito | Básica | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| QPS |N/D  |~ 3 por réplica |~ 15 por réplica |~ 60 por réplica |>60 por réplica |>60 por réplica |
+| QPS |N/D  |~&3; por réplica |~&15; por réplica |~&60; por réplica |>60 por réplica |>60 por réplica |
 
 Las consultas por segundo (QPS) son una aproximación basada en heurística, mediante cargas de trabajo de clientes reales y simuladas para obtener valores estimados. El rendimiento QPS exacto varía dependiendo de los datos y de la naturaleza de la consulta.
 
@@ -96,6 +96,6 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

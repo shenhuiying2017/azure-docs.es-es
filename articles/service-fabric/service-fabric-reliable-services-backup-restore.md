@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/18/2016
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a063d7ec6759bb9890d9b541088a8190dfd79aef
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
 
 
 ---
@@ -177,15 +177,62 @@ Observe lo siguiente:
 * Con cada restauración, es posible que la copia de seguridad que se restaura sea anterior al estado de la partición antes de la pérdida de datos. Por este motivo, la restauración se debe utilizar solo como último recurso para recuperar tantos datos como sea posible.
 * La cadena que representa la ruta de acceso de la carpeta de copia de seguridad, así como las rutas de acceso de los archivos dentro de la misma, puede tener más de 255 caracteres, según la ruta de acceso de FabricDataRoot y la longitud del nombre del tipo de aplicación. Esto puede provocar que algunos métodos .NET, como **Directory.Move**, inicien la excepción **PathTooLongException**. Una solución alternativa es llamar directamente a las API de kernel32, como **CopyFile**.
 
-## <a name="backup-and-restore-reliable-actors"></a>Copia de seguridad y restauración de Reliable Actors
-La copia de seguridad y restauración para Reliable Actors se basa en la funcionalidad de copia de seguridad y restauración que proporcionan los servicios de confianza. El propietario del servicio debe crear un servicio Actor personalizado que se deriva de **ActorService** (que es un servicio de confianza de Service Fabric que hospeda actores) y después hacer la copia de seguridad y restauración de forma similar a Reliable Services, tal y como se describió en las secciones anteriores. Puesto que las copias de seguridad se realizan por partición, se llevará a cabo una copia de seguridad de los estados para todos los actores de esa partición concreta. La restauración es similar y se realizará por partición.
 
-* Al crear un servicio de actor personalizado, debe registrar también dicho servicio al registrar el actor. Consulte **ActorRuntime.RegistorActorAsync**.
-* **KvsActorStateProvider** actualmente solo admite la copia de seguridad completa. **KvsActorStateProvider** también pasa por alto la opción **RestorePolicy.Safe**.
+
+
+## <a name="backup-and-restore-reliable-actors"></a>Copia de seguridad y restauración de Reliable Actors
+
+
+El marco de Reliable Actors está basado en Reliable Services. El servicio ActorService que hospeda los actores es un servicio con estado confiable. Por lo tanto, toda la funcionalidad de copia de seguridad y restauración disponible en Reliable Services también está disponible para Reliable Actors (excepto los comportamientos específicos para el proveedor de estado). Puesto que las copias de seguridad se realizan por partición, se llevará a cabo una copia de seguridad de los estados para todos los actores de esa partición. La restauración es similar y se realizará por partición. Para realizar la copia de seguridad y restauración, el propietario del servicio debe crear una clase de servicio de actor personalizada que derive de la clase ActorService y, luego, hacer la copia de seguridad y restauración de forma similar a Reliable Services, tal como se describió en las secciones anteriores.
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo)
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+Cuando crea una clase de servicio de actor personalizada, también necesita registrar dicha clase cuando registra el actor.
+
+```
+ActorRuntime.RegisterActorAsync<MyActor>(
+   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+```
+
+El proveedor de estado predeterminado para Reliable Actors es **KvsActorStateProvider**. La copia de seguridad incremental no está habilitada de manera predeterminada para **KvsActorStateProvider**. Para habilitar la copia de seguridad incremental, puede crear **KvsActorStateProvider** con la configuración adecuada en el constructor y, luego, pasarla al constructor de ActorService tal como se muestra en el fragmento de código siguiente:
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+Una vez habilitada la copia de seguridad incremental, crear una copia de seguridad incremental puede presentar un error con la excepción FabricMissingFullBackupException por alguno de los siguientes motivos; por ello, deberá crear una copia de seguridad completa antes de crear copias de seguridad incrementales:
+
+* La réplica nunca ha realizado una copia de seguridad completa desde que se convirtió en la primaria.
+* Algunos de los registros se truncaron desde que se creó la última copia de seguridad.
+
+Cuando la copia de seguridad incremental está habilitada, **KvsActorStateProvider** no usa un búfer circular para administrar los registros y los trunca de forma periódica. Si el usuario no crea copias de seguridad durante un período de 45 minutos, el sistema trunca automáticamente los registros. Puede configurar este intervalo si especifica **logTrunctationIntervalInMinutes** en el constructor **KvsActorStateProvider** (de forma similar a cuando se habilita la copia de seguridad incremental). También es posible que se trunquen los registros si la réplica principal debe crear otra réplica enviando todos sus datos.
+
+Cuando se realiza la restauración a partir de una cadena de copias de seguridad, de manera similar a Reliable Services, BackupFolderPath debe contener subdirectorios con un subdirectorio que contenga la copia de seguridad completa y otros subdirectorios que contengan las copias de seguridad incrementales. La API de restauración iniciará la excepción FabricException con el mensaje de error correspondiente si se produce un error en la validación de la cadena de copias de seguridad. 
 
 > [!NOTE]
-> El valor predeterminado ActorStateProvider (es decir, **KvsActorStateProvider**) **no** limpia las carpetas de copia de seguridad por sí mismo (en la carpeta de trabajo de la aplicación obtenida a través de ICodePackageActivationContext.WorkDirectory). Esto puede provocar que se llene la carpeta de trabajo. Debe limpiar expresamente la carpeta de copia de seguridad en la llamada de devolución de copia de seguridad después de haber movido la copia de seguridad a un almacenamiento externo.
-> 
+> **KvsActorStateProvider** actualmente omite la opción RestorePolicy.Safe. La compatibilidad con esta característica está pensada para un próximo lanzamiento.
 > 
 
 ## <a name="testing-backup-and-restore"></a>Prueba de la copia de seguridad y la restauración
@@ -230,6 +277,6 @@ Este paso garantiza que el estado recuperado sea coherente.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

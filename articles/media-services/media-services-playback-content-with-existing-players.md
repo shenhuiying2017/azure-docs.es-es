@@ -1,5 +1,5 @@
 ---
-title: "Reproducción del contenido | Microsoft Docs"
+title: Uso de reproductores existentes para reproducir el contenido - Azure | Microsoft Docs
 description: En este tema se enumeran los reproductores existentes que puede usar para reproducir el contenido.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
 
 
 ---
@@ -77,6 +77,6 @@ Para obtener información sobre cómo desarrollar sus propios reproductores, con
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

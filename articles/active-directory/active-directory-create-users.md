@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Agregue usuarios para rellenar su directorio. Este artículo explica cómo agreg
 2. Haga clic en **Active Directory**y seleccione el nombre del directorio de su organización.
 3. Seleccione la pestaña **Usuarios** y, después, en la barra de comandos, seleccione **Agregar usuario**.
 4. En la página **Proporcione información sobre este usuario**, elija una de estas opciones en **Tipo de usuario**:
-   
+
    * **Nuevo usuario de la organización** : agrega una nueva cuenta de usuario al directorio.
    * **Usuario con una cuenta de Microsoft existente** : agrega una cuenta de consumidor de Microsoft existente a su directorio (por ejemplo, una cuenta de Outlook).
 5. En función del **tipo de usuario**, escriba un nombre de usuario (para un nuevo usuario) o una dirección de correo electrónico (para un usuario con una cuenta de Microsoft).
@@ -37,11 +37,11 @@ Agregue usuarios para rellenar su directorio. Este artículo explica cómo agreg
 
 > [!IMPORTANT]
 > Si su organización usa más de un dominio, debe tener en cuenta los siguientes problemas al agregar una cuenta de usuario:
-> 
+>
 > * Para agregar cuentas de usuario con el mismo nombre principal de usuario (UPN) en todos los dominios, agregue **primero**, por ejemplo, geoffgrisso@contoso.onmicrosoft.com, **seguido de** geoffgrisso@contoso.com.
-> * **No** agregue geoffgrisso@contoso.com antes de agregar geoffgrisso@contoso.onmicrosoft.com. Este orden es importante y puede ser complicado de deshacer.
-> 
-> 
+> * **No** agregue geoffgrisso@contoso.com antes de geoffgrisso@contoso.onmicrosoft.com. Este orden es importante y puede ser complicado de deshacer.
+>
+>
 
 ## <a name="change-user-information"></a>Cambiar la información de usuario
 Puede cambiar los atributos de usuario, excepto el id. objeto.
@@ -87,6 +87,6 @@ A continuación, puede editar las opciones para controlar el acceso de usuarios 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

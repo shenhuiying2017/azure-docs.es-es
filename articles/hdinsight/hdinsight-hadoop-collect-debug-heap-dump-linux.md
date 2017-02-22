@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
 
 Los volcados de montón contienen una instantánea de la memoria de la aplicación, incluidos los valores de variables en el momento en el que se creó el volcado de memoria. Por ello, estos volcados son realmente útiles a la hora de diagnosticar cualquier problema que hubiera ocurrido durante el tiempo de ejecución.
 
-> [!NOTE]
-> La información de este artículo solo se aplica al HDInsight basado en Linux. Para obtener más información sobre  HDInsight basado en Windows, consulte [Habilitar volcados de montón para servicios de Hadoop en HDInsight de Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
-> 
-> 
+
+
+> [!IMPORTANT]
+> Los pasos de este documento solo funcionan con clústeres de HDInsight que usan Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Servicios
 Puede habilitar los volcados de montón en los siguientes servicios:
@@ -134,6 +134,6 @@ Para modificar la configuración de un servicio, siga estos pasos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

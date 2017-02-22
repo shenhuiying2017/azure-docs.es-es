@@ -1,6 +1,6 @@
 ---
-title: "Cómo programar trabajos | Microsoft Docs"
-description: "En este tutorial se muestra cómo programar trabajos"
+title: "Cómo programar trabajos con IoT Hub de Azure | Microsoft Docs"
+description: "Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. El SDK de IoT de Azure para Node.js se usa para implementar la aplicación de dispositivo simulado y una aplicación de servicio para ejecutar el trabajo."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 4700bdd14f6b826116b919c12c63c8405eff6053
 
 
 ---
-# <a name="tutorial-schedule-and-broadcast-jobs"></a>Tutorial: Programar y difundir trabajos
+# <a name="schedule-and-broadcast-jobs-node"></a>Programación y difusión de trabajos (Node)
 
 ## <a name="introduction"></a>Introducción
 IoT Hub de Azure es un servicio completamente administrado que permite a una aplicación back-end crear y realizar un seguimiento de los trabajos que programan y actualizan millones de dispositivos.  Los trabajos pueden utilizarse para las siguientes acciones:
@@ -29,17 +29,17 @@ IoT Hub de Azure es un servicio completamente administrado que permite a una apl
 * Actualizar etiquetas
 * Invocar métodos directos
 
-Conceptualmente, un trabajo contiene una de estas acciones y realiza un seguimiento del progreso de ejecución en un conjunto de dispositivos, que define una consulta de dispositivo gemelo.  Por ejemplo, mediante un trabajo, una aplicación back-end puede invocar un método de reinicio en 10 000 dispositivos, especificado por una consulta de dispositivos gemelos y programada en el futuro.  Esa aplicación puede después seguir el progreso cuando cada uno de estos dispositivos reciben y ejecutan el método de reinicio.
+Conceptualmente, un trabajo contiene una de estas acciones y realiza un seguimiento del progreso de ejecución en un conjunto de dispositivos, que define una consulta de dispositivo gemelo.  Por ejemplo, una aplicación back-end puede usar un trabajo para invocar un método de reinicio en 10 000 dispositivos, especificado por una consulta de dispositivos gemelos y programada en el futuro.  Esa aplicación puede después seguir el progreso cuando cada uno de estos dispositivos reciben y ejecutan el método de reinicio.
 
 Más información sobre estas funcionalidades en estos artículos:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos][lnk-get-started-twin] y [Tutorial: Uso de las propiedades deseadas para configurar dispositivos][lnk-twin-props]
-* Métodos directos: [Guía del desarrollador: métodos directos][lnk-dev-methods] y [Tutorial: Uso de métodos directos][lnk-c2d-methods]
+* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos][lnk-dev-methods] y [Tutorial: Uso de métodos directos][lnk-c2d-methods]
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
-* Crear una aplicación de dispositivo simulado con un método directo que permita **lockDoor** que se pueda llamar por la aplicación back-end.
-* Crear una aplicación de consola que llama al método directo **lockDoor** en la aplicación de dispositivo simulado mediante un trabajo y actualiza las propiedades deseadas con un trabajo del dispositivo.
+* Crear una aplicación de dispositivo simulado con un método directo que permita **lockDoor** que se pueda llamar por la solución back-end.
+* Crear una aplicación de consola de Node.js que llame al método directo **lockDoor** en la aplicación de dispositivo simulado mediante un trabajo y actualice las propiedades deseadas mediante un trabajo de dispositivo.
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
@@ -78,7 +78,7 @@ En esta sección, creará una aplicación de consola de Node.js que responde a u
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo.  
+5. Agregue una variable **connectionString** y utilícela para crear una instancia de **cliente**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -176,7 +176,7 @@ En esta sección, creará una aplicación de consola de Node.js que inicia un **
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
-        timeoutInSeconds: 45
+        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
    
     var methodJobId = uuid.v4();
@@ -255,7 +255,7 @@ En este tutorial, ha utilizado un trabajo para programar un método directo para
 
 Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte:
 
-[Tutorial: Cómo realizar una actualización de firmware][lnk-fwupdate]
+[Tutorial: Realización de una actualización de firmware][lnk-fwupdate]
 
 Para continuar con la introducción a IoT Hub, consulte [Introducción al SDK de puerta de enlace de IoT de Azure][lnk-gateway-SDK].
 
@@ -271,6 +271,6 @@ Para continuar con la introducción a IoT Hub, consulte [Introducción al SDK de
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

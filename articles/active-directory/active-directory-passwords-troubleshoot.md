@@ -97,7 +97,7 @@ Si se produce un error al configurar el restablecimiento de la contraseña, pued
               <p>La sección <strong>Políticas para restablecer la contraseña del usuario</strong> está visible, pero la única marca que aparece debajo es <strong>Usuarios habilitados para restablecer la contraseña</strong>.</p>
             </td>
             <td>
-              <p>El resto de la interfaz de usuario aparecerá cuando cambie la marca <strong>Usuarios habilitados para restablecer la contraseña</strong> a <strong>Sí.</strong></p>
+              <p>El resto de la interfaz de usuario aparecerá cuando cambie la marca <strong>Usuarios habilitados para restablecer la contraseña</strong> a <strong>Sí</strong>.</p>
             </td>
           </tr>
           <tr>
@@ -1519,6 +1519,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

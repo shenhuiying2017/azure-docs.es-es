@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
+ms.sourcegitcommit: c327fc0f8175f3fe62f9a0975b7fbad1437bbbe0
+ms.openlocfilehash: 4309d2dffacb9baf2563c8a4fcd1984beabdeef0
 
 
 ---
@@ -26,7 +26,7 @@ En este tema, se describe cómo usar el comando [docker-machine](https://docs.do
 
 **Nota:** 
 
-* *Este artículo depende de la versión 0.7.0 de docker-machine, o de una versión superior*
+* *Este artículo depende de la versión 0.9.0-rc2 de docker-machine, o de una versión superior*
 * *Muy pronto será posible usar contenedores de Windows a través del comando docker-machine*
 
 ## <a name="create-vms-with-docker-machine"></a>Creación de VM con la máquina de Docker
@@ -45,10 +45,15 @@ El controlador de Azure necesitará su identificador de suscripción. Para recup
 Escriba `docker-machine create --driver azure` para ver las opciones y sus valores predeterminados.
 Para más información, también puede consultar la [documentación del controlador de Azure de Docker](https://docs.docker.com/machine/drivers/azure/) . 
 
-En el siguiente ejemplo se usan los valores predeterminados, pero brinda la opción de abrir el puerto 80 en la máquina virtual para el acceso a Internet. 
+En el siguiente ejemplo se usan los [valores predeterminados](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), pero se configuran opcionalmente estos valores: 
+
+* azure-dns para el nombre asociado a la dirección IP pública y los certificados generados.  La máquina virtual puede así detenerse sin ningún riesgo, liberar la dirección IP dinámica y ofrecer la posibilidad de volver a conectarse una vez que la máquina virtual se inicia de nuevo con una dirección IP nueva.  El prefijo del nombre debe ser único para esa región UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* abrir el puerto 80 en la máquina virtual para el acceso a internet saliente
+* tamaño de la máquina virtual para usar Premium Storage más rápido
+* Premium Storage utilizado para el disco de máquina virtual
 
 ```
-docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
+docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-dns <Your UNIQUE_DNSNAME_PREFIX> --azure-open-port 80 --azure-size Standard_DS1_v2 --azure-storage-type "Premium_LRS" mydockerhost 
 ```
 
 ## <a name="choose-a-docker-host-with-docker-machine"></a>Elección de un host de Docker con una docker-machine
@@ -119,6 +124,6 @@ Para desarrollar aplicaciones de .NET Core con Visual Studio, consulte [Docker T
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,15 +1,16 @@
 <a name="tellmeas"></a>
 
-## Información sobre Servicio de aplicaciones
+## <a name="tell-me-about-app-service"></a>Información sobre Servicio de aplicaciones
 Máquinas virtuales de Azure puede controlar una amplia gama de tareas de hospedaje en nube. Pero la creación y administración de una infraestructura de máquina virtual requiere habilidades especializadas y esfuerzo considerable. Si no necesita tener un control completo sobre las máquinas virtuales que ejecutan sus aplicaciones web, back-ends de aplicaciones móviles, aplicaciones de API, etc., hay una solución más fácil (y más económica): la *plataforma como servicio* (PaaS). Con PaaS, Azure controla la mayor parte del trabajo de administración de las máquinas virtuales que ejecutan las aplicaciones. [Servicio de aplicaciones de Azure](../articles/app-service/app-service-value-prop-what-is.md) es una oferta de PaaS totalmente administrada que permite compilar, implementar y escalar las aplicaciones web empresariales en cuestión de segundos.
 
 Servicio de aplicaciones es la mejor opción para muchos tipos de cargas de trabajo de aplicaciones. Una corporación podría requerir la creación o migración de un sitio web comercial que pueda manejar millones de visitas a la semana y que se pueda implementar en varios centros de datos en todo el mundo. La misma corporación podría tener también una aplicación de línea de negocio que realice el seguimiento de los informes de gastos de los usuarios autenticados desde el Active Directory corporativo. La aplicación, por su parte, podría tener un componente de dispositivo móvil y conectarse a los procesos empresariales y los recursos locales. Los informes de gastos pueden requerir trabajos en segundo plano periódicos para calcular y resumir grandes volúmenes de información. Un consultor de TI podría adaptar una aplicación popular de código abierto para configurar un sistema de administración de contenido para una pequeña empresa. En la figura siguiente, se muestran algunos de los tipos de aplicaciones web que se pueden ejecutar en Servicio de aplicaciones de Azure.
 
-<a name="appservice_diagram"></a> ![Diagrama de Servicio de aplicaciones](media/app-service-choose-me-content/diagram.png)
+<a name="appservice_diagram"></a>
+![diagrama de app service](media/app-service-choose-me-content/diagram.png)
 
 **Figura: Servicio de aplicaciones de Azure es compatible con páginas web estáticas, aplicaciones web populares y aplicaciones web personalizadas creadas con diversas tecnologías. También puede ejecutar back-ends móviles, aplicaciones de API y cargas de trabajo de procesos que no sean web (mediante WebJobs).**
 
-Con Servicio de aplicaciones de Azure, también puede ejecutar cualquier tipo de carga de trabajo de proceso utilizando la característica [WebJobs](../articles/app-service-web/websites-webjobs-resources.md).
+Con Servicio de aplicaciones de Azure, también puede ejecutar cualquier tipo de carga de trabajo de proceso utilizando la característica [WebJobs](../articles/app-service-web/websites-webjobs-resources.md) .
 
 Servicio de aplicaciones de Azure ofrece la opción de ejecutarse en máquinas virtuales compartidas que contienen varias aplicaciones web creadas por múltiples usuarios, o en máquinas virtuales que utilice únicamente usted. Las VM forman parte de un grupo de recursos administrados mediante Servicio de aplicaciones de Azure y, por tanto, ofrecen una alta confiabilidad y tolerancia a errores.
 
@@ -19,4 +20,8 @@ Los desarrolladores pueden crear grandes aplicaciones web escalables con Servici
 
 Tal como muestra la [figura](#appservice_diagram) anterior, hay diversas formas de publicar código y otro contenido web en Servicio de aplicaciones de Azure. Puede utilizar la tecnología WebDeploy de Microsoft, FTPS o FTP. Servicio de aplicaciones de Azure también es compatible con la publicación de código a partir de sistemas de control de código fuente, incluido Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server y el Team Foundation Service basado en la nube.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

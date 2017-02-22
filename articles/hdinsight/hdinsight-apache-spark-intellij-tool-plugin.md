@@ -1,5 +1,5 @@
 ---
-title: "Creación de aplicaciones Spark en Scala con las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ | Microsoft Docs"
+title: Uso del kit de herramientas de Azure para IntelliJ para crear aplicaciones de Scala para Spark | Microsoft Docs
 description: "Obtenga información sobre cómo crear una aplicación independiente Spark para ejecutarla en clústeres de HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53346b6f9e7b5a172ecc343883f55409d5ca8057
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 6c513def2abc8c99b84b2eb48848de76e12e69c7
 
 
 ---
@@ -71,11 +71,13 @@ Las herramientas de HDInsight para IntelliJ están disponibles como parte del ki
 2. En la siguiente ventana, proporcione los detalles del proyecto.
    
    * Proporcione un nombre de proyecto y la ubicación del proyecto.
-   * En **Project SDK**(SDK de proyecto), asegúrese de proporcionar una versión de Java superior a la 7.
-   * En **Scala SDK** (SDK de Scala), haga clic en **Create** (Crear) y en **Download** (Descargar). A continuación, seleccione la versión de Scala que desea usar. **Asegúrese de no usar la versión 2.11.x**. En este ejemplo se usa la versión **2.10.6**.
-     
-       ![Crear aplicación Spark en Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
-   * En **Spark SDK** (SDK de Spark), descargue [aquí](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) el SDK para utilizarlo. Si lo desea, puede omitir este paso y utilizar en su lugar el [repositorio de Spark Maven](http://mvnrepository.com/search?q=spark). Sin embargo, debe comprobar que tiene instalado el repositorio de Maven correcto para poder desarrollar aplicaciones de Spark. Por ejemplo, debe asegurarse de que tiene la parte Spark Streaming instalada si está utilizando Spark Streaming. Asimismo, asegúrese de que utiliza el repositorio marcado como Scala 2.10 y no el repositorio marcado como Scala 2.11.
+   * Para **SDK de proyecto**, Java 1.7 o superior para clústeres Spark 1.6 y Java 1.8 para clústeres Spark 2.0.
+   * En **Scala SDK** (SDK de Scala), haga clic en **Create** (Crear) y en **Download** (Descargar). A continuación, seleccione la versión de Scala que desea usar.
+   * * Elija **JDK 1.8 y Scala 2.11.x** si está dispuesto a enviar el trabajo al clúster Spark 2.0.
+   * * Elija **JDK 1.7 o superior y Scala 2.10.x** si está dispuesto a enviar el trabajo al clúster Spark 1.6.
+
+        ![](./media/hdinsight-apache-spark-intellij-tool-plugin/show-scala2.11.x-select.png)
+   * Para **SDK de Spark**, descargue y use el SDK de [aquí](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) (spark-assembly-2.0.0-hadoop2.7.0-SNAPSHOT.jar es para el clúster Spark 2.0 y spark-assembly-x.jar es para el clúster Spark 1.6). Si lo desea, puede omitir este paso y utilizar en su lugar el [repositorio de Spark Maven](http://mvnrepository.com/search?q=spark). Sin embargo, debe comprobar que tiene instalado el repositorio de Maven correcto para poder desarrollar aplicaciones de Spark. Por ejemplo, debe asegurarse de que tiene la parte Spark Streaming instalada si está utilizando Spark Streaming. Asimismo, asegúrese de que utiliza el repositorio marcado como Scala 2.10 para clústeres Spark 1.6 y como Scala 2.11 para clústeres Spark 2.0.
      
        ![Crear aplicación Spark en Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
    * Haga clic en **Finalizar**
@@ -87,7 +89,7 @@ Las herramientas de HDInsight para IntelliJ están disponibles como parte del ki
        ![Crear archivo JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
       
       También puede crear su propio artefacto haciendo clic en el icono **+** (resaltado en la imagen anterior).
-4. En el cuadro de diálogo **Project Structure** (Estructura de proyecto), haga clic en **Project** (Proyecto). Si **Project SDK** (SDK de proyecto) está establecido en 1.8, asegúrese de que **Project language level** (Nivel de lenguaje del proyecto) esté establecido en **7 - Diamonds, ARM, multi-catch, etc**.
+4. En el cuadro de diálogo **Project Structure** (Estructura de proyecto), haga clic en **Project** (Proyecto). Si **Project SDK** (SDK de proyecto) está establecido en 1.8, asegúrese de que **Project language level** (Nivel de lenguaje del proyecto) esté establecido en **7 - Diamonds, ARM, multi-catch, etc** (es opcional para clústeres Spark 2.0).
    
     ![Establecer el nivel de lenguaje del proyecto](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
 5. Agregue el código fuente de aplicación.
@@ -180,10 +182,10 @@ Mientras se ejecuta la aplicación Spark en Scala local en un equipo Windows, pu
    
    * Proporcione un nombre de proyecto y la ubicación del proyecto.
    * En **Project SDK**(SDK de proyecto), asegúrese de proporcionar una versión de Java superior a la 7.
-   * En **Scala SDK** (SDK de Scala), haga clic en **Create** (Crear) y en **Download** (Descargar). A continuación, seleccione la versión de Scala que desea usar. **Asegúrese de no usar la versión 2.11.x**. En este ejemplo se usa la versión **2.10.6**.
+   * Para **SDK de Scala**, haga clic en **Crear**, **Descargar**y, luego, seleccione la versión de Scala para usar ** Scala 2.11.x para Spark 2.0 y Scala 2.10.x para Spark 1.6**.
      
        ![Crear aplicación Spark en Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
-   * En **Spark SDK** (SDK de Spark), descargue [aquí](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) el SDK para utilizarlo. Si lo desea, puede omitir este paso y utilizar en su lugar el [repositorio de Spark Maven](http://mvnrepository.com/search?q=spark). Sin embargo, debe comprobar que tiene instalado el repositorio de Maven correcto para poder desarrollar aplicaciones de Spark. Por ejemplo, debe asegurarse de que tiene la parte Spark Streaming instalada si está utilizando Spark Streaming. Asimismo, asegúrese de que utiliza el repositorio marcado como Scala 2.10 y no el repositorio marcado como Scala 2.11.
+   * En **Spark SDK** (SDK de Spark), descargue [aquí](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) el SDK para utilizarlo. Si lo desea, puede omitir este paso y utilizar en su lugar el [repositorio de Spark Maven](http://mvnrepository.com/search?q=spark). Sin embargo, debe comprobar que tiene instalado el repositorio de Maven correcto para poder desarrollar aplicaciones de Spark. Por ejemplo, debe asegurarse de que tiene la parte Spark Streaming instalada si está utilizando Spark Streaming. Asimismo, asegúrese de que utiliza el repositorio marcado como Scala 2.10 para clústeres Spark 1.6 y como Scala 2.11 para clústeres Spark 2.0.
      
        ![Crear aplicación Spark en Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-create-project.png)
    * Haga clic en **Finalizar**
@@ -231,7 +233,7 @@ Esto se debe a que el tamaño del montón no es lo suficientemente grande como p
 
 ![Resultado de la ejecución local de la aplicación Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
 
-## <a name="feedback-known-issues"></a>Comentarios y problemas conocidos
+## <a name="feedback--known-issues"></a>Comentarios y problemas conocidos
 Actualmente, la visualización de salidas de Spark directamente no se admite y estamos trabajando en ello.
 
 Si tiene sugerencias o comentarios, o si encuentra algún problema al usar esta herramienta, no dude en enviarnos un correo electrónico a hdivstool a microsoft punto com.
@@ -265,6 +267,6 @@ Si tiene sugerencias o comentarios, o si encuentra algún problema al usar esta 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

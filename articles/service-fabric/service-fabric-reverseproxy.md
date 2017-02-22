@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: dbc03f9951a5a76da98f4e3097c16cf373aaf146
-ms.openlocfilehash: b3fc83b83655f270be6bad08a99a99503aa14042
+ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
+ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
 
 
 ---
@@ -131,7 +131,7 @@ El proxy inverso de Service Fabric puede habilitarse en el clúster a través de
 
 Cuando disponga de la plantilla del clúster que quiere implementar (puede conseguirla de las plantillas de ejemplo o creando una plantilla de Resource Manager personalizada), podrá habilitar el proxy inverso en ella siguiendo estos pasos.
 
-1. Defina un puerto para el proxy inverso en la [sección de parámetros](../resource-group-authoring-templates.md) de la plantilla.
+1. Defina un puerto para el proxy inverso en la [sección de parámetros](../azure-resource-manager/resource-group-authoring-templates.md) de la plantilla.
    
     ```json
     "SFReverseProxyPort": {
@@ -142,7 +142,7 @@ Cuando disponga de la plantilla del clúster que quiere implementar (puede conse
         }
     },
     ```
-2. Especifique el puerto para cada uno de los objetos de NodeType en la **sección de tipos de recursos** [clúster](../resource-group-authoring-templates.md)
+2. Especifique el puerto para cada uno de los objetos de NodeType en la **sección de tipos de recursos** [clúster](../azure-resource-manager/resource-group-authoring-templates.md)
    
     Para valores de apiVersion anteriores a '2016-09-01', el puerto se identifica mediante el nombre del parámetro ***httpApplicationGatewayEndpointPort***.
    
@@ -229,7 +229,7 @@ Cuando disponga de la plantilla del clúster que quiere implementar (puede conse
         ]
     }
     ```
-4. Para configurar certificados SSL en el puerto del proxy inverso, agregue el certificado a la propiedad httpApplicationGatewayCertificate de la **sección de tipos de recursos** [clúster](../resource-group-authoring-templates.md)
+4. Para configurar certificados SSL en el puerto del proxy inverso, agregue el certificado a la propiedad httpApplicationGatewayCertificate de la **sección de tipos de recursos** [clúster](../azure-resource-manager/resource-group-authoring-templates.md)
    
     Para valores de apiVersion anteriores a '2016-09-01', el certificado se identifica mediante el nombre del parámetro ***httpApplicationGatewayCertificate***.
    
@@ -287,6 +287,6 @@ Cuando disponga de la plantilla del clúster que quiere implementar (puede conse
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

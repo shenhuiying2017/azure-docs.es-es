@@ -1,6 +1,6 @@
 ---
-title: "Creación, administración o eliminación de una cuenta de almacenamiento en Portal de Azure clásico | Microsoft Docs"
-description: "Cree una nueva cuenta de almacenamiento, administre las claves de acceso de la misma o elimínela en el Portal de Azure. Obtenga información acerca de las cuentas de almacenamiento estándar y premium."
+title: "Creación, administración o eliminación de una cuenta de almacenamiento en el Portal de Azure clásico | Microsoft Docs"
+description: "Cree una nueva cuenta de almacenamiento, administre las claves de acceso de dicha cuenta o elimínela en Azure Portal. Obtenga información acerca de las cuentas de almacenamiento estándar y premium."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: 599d509d00e8366a5095cac7503b11cf818e6a34
 
 
 ---
@@ -175,6 +175,6 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

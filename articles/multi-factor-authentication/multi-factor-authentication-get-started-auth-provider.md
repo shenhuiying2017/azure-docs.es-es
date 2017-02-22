@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
@@ -25,17 +25,13 @@ La verificación en dos pasos está disponible de forma predeterminada para los 
 
 > [!NOTE]
 > Se utiliza un Proveedor de Azure Multi-Factor Authentication para aprovechar las características proporcionadas por la versión completa de Azure MFA. Es para aquellos usuarios que **no tienen licencias a través de Azure MFA, Azure AD Premium o EMS**.  De forma predeterminada Azure MFA, Azure AD Premium y EMS incluyen la versión completa de Azure MFA.  Si cuenta con licencias, no necesita un Proveedor de Azure Multi-Factor Authentication.
-> 
-> 
 
 Se necesita un proveedor de Azure Multi-Factor Authentication para descargar el SDK.
 
 > [!IMPORTANT]
 > Para descargar el SDK, cree un proveedor de Azure Multi-Factor Authentication, incluso si tiene licencias de Azure MFA, AAD Premium o EMS.  Si crea un proveedor de Azure Multi-Factor Authentication para este propósito y ya tiene licencias, asegúrese de crear el proveedor con el modelo **Por usuario habilitado**. A continuación, vincule el proveedor al directorio que contiene las licencias de Azure MFA, Azure AD Premium o EMS.  De este modo, se asegura de que no se le cobrará, salvo que tenga más usuarios únicos mediante el SDK que el número de licencias que posee.
-> 
-> 
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Creación de un Proveedor de autenticación multifactor
+## <a name="create-a-multi-factor-auth-provider"></a>Creación de un proveedor de autenticación multifactor
 Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentication.
 
 1. Inicie sesión como administrador en el [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -64,6 +60,6 @@ Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentic
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

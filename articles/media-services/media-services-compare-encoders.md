@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
+ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
+ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 
 ---
@@ -28,8 +28,8 @@ En esta tema se comparan las funcionalidades de codificación de **Media Encoder
 ### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Medidor de facturación usado por cada codificador
 | Nombre de procesador multimedia | Precios aplicables | Notas |
 | --- | --- | --- |
-| **Media Encoder Estándar** |ENCODER |Las tareas de codificación se cobrarán en función del tamaño del recurso de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR. |
-| **Flujo de trabajo premium de codificación de medios** |CODIFICADOR PREMIUM |Las tareas de codificación se cobrarán en función del tamaño del recurso de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM. |
+| **Media Encoder Estándar** |ENCODER |Las tareas de codificación se cobrarán en función de la duración total, en minutos, de todos los archivos multimedia producidos como salida, según la tarifa especificada [aquí][1], bajo la columna ENCODER. |
+| **Flujo de trabajo de Media Encoder Premium** |CODIFICADOR PREMIUM |Las tareas de codificación se cobrarán en función de la duración total, en minutos, de todos los archivos multimedia producidos como salida, según la tarifa especificada [aquí][1], bajo la columna PREMIUM ENCODER. |
 
 ### <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
 | Formatos de archivo/contenedor de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
@@ -116,8 +116,10 @@ En esta tema se comparan las funcionalidades de codificación de **Media Encoder
 | AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1) |Sí |Sí |
 | MPEG Layer 2 |No |Sí |
 | MP3 (MPEG-1 Audio Layer 3) |No |Sí |
-| Windows Media Audio |No |yes |
+| Windows Media Audio |No |Sí |
 
+>[!NOTE]
+>Si utiliza la codificación en Dolby® Digital (AC3), la salida solo puede escribirse en un archivo ISO MP4.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -134,6 +136,6 @@ En esta tema se comparan las funcionalidades de codificación de **Media Encoder
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

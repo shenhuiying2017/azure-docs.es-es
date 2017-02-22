@@ -1,5 +1,5 @@
 ---
-title: "Obtención de las herramientas de Azure para el kit de inicio de IoT de Azure (Ubuntu 16.04) | Microsoft Docs"
+title: "Conexión de Intel Edison (C) a Azure IoT: Lección 2: Herramientas de Azure (Ubuntu) | Microsoft Docs"
 description: "Instale Python y la interfaz de la línea de comandos de Azure (CLI de Azure) en Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 97054e61b2586d74b2eab348d75b64399f66667b
-ms.openlocfilehash: 5d8f626380372847cdba72895abb4598e32f8829
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: e3b1c4dd3ff9a361c6c32cabd04fec523f8d6578
 
 
 ---
@@ -82,6 +82,6 @@ Ha instalado la CLI de Azure. La siguiente tarea consiste en crear la identidad 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

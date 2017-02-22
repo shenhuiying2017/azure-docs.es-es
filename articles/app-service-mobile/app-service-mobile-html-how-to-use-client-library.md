@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7705670592c353032740bd80d03bc8f174028e39
+ms.sourcegitcommit: d6e68497cf0a4c48e6f611834089224b50b9bd5e
+ms.openlocfilehash: 79743cab91f8c22d06796803eb7e31681a581233
 
 
 ---
@@ -39,12 +39,6 @@ Se puede instalar el SDK de JavaScript para Aplicaciones móviles de Azure con e
 npm install azure-mobile-apps-client --save
 ```
 
-Una vez instalado, la biblioteca se encuentra en `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`.  Copie este archivo en su área web.
-
-```
-<script src="path/to/MobileServices.Web.min.js"></script>
-```
-
 La biblioteca también puede utilizarse como un módulo ES2015, en entornos de CommonJS, como Browserify y Webpack, y como una biblioteca AMD.  Por ejemplo:
 
 ```
@@ -52,6 +46,12 @@ La biblioteca también puede utilizarse como un módulo ES2015, en entornos de C
 var WindowsAzure = require('azure-mobile-apps-client');
 # For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
+```
+
+También puede utilizar una versión previamente compilada del SDK descargándolo directamente de nuestra red CDN:
+
+```html
+<script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
 ```
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
@@ -101,15 +101,15 @@ Cuando el back-end se actualice, podrá usar las nuevas direcciones URL de bucle
 <!-- URLs. -->
 [inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
-[Incorporación de la autenticación a una aplicación]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Azure Portal]: https://portal.azure.com/
 [SDK de JavaScript para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Documentación del objeto Consulta]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

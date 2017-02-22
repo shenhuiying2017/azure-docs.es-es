@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/30/2016
+ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
-ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
+ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
+ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
 
 
 ---
@@ -51,7 +51,8 @@ Hay tres productos del servicio CDN de Azure: **Azure CDN Standard de Akamai**, 
 | --- | --- | --- | --- |
 | Fácil integración con servicios de Azure, como [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) y [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Se puede administrar mediante la [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) o [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Compatibilidad con HTTPS |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Compatibilidad con HTTPS con el punto de conexión de red CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| HTTPS de dominio personalizado | |**&#x2713;** |**&#x2713;** |
 | Equilibrio de carga |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Pila dual IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -91,6 +92,6 @@ Para más información sobre los precios, consulte [Precios de Red de entrega de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

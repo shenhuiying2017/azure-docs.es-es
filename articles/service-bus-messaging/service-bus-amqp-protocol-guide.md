@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2016
+ms.date: 01/07/2017
 ms.author: clemensv;jotaub;hillaryc;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 946384b5986ee56f16f5b3fe3be07d09f9837076
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 72bfbc4c3cc4a3941d842f4fc688df5d6fb46ba8
 
 
 ---
@@ -48,7 +48,7 @@ El protocolo AMQP 1.0 está diseñado para ser extensible, lo que permite que la
 ## <a name="basic-amqp-scenarios"></a>Escenarios básicos de AMQP
 En esta sección se explica el uso básico de AMQP 1.0 con Azure Service Bus, lo que incluye la creación de conexiones, sesiones y vínculos, así como la transferencia de mensajes tanto a las entidades de Services Bus (colas, temas y suscripciones) como desde ellas.
 
-La fuente con mayor autoridad para aprender cómo funciona AMQP es la especificación AMQP 1.0, pero se escribió para guiar de forma precisa la implementación, no para enseñar el protocolo. Esta sección se centra en la presentación de tanta terminología como sea necesario para describir el modo en que el Bus de servicio usa AMQP 1.0. Para obtener una introducción más completa sobre AMQP, así como una explicación más amplia de AMQP 1.0, puede ver [este curso de vídeo][este curso de vídeo].
+La fuente con mayor autoridad para aprender cómo funciona AMQP es la especificación AMQP 1.0, pero se escribió para guiar de forma precisa la implementación, no para enseñar el protocolo. Esta sección se centra en la presentación de tanta terminología como sea necesario para describir el modo en que el Bus de servicio usa AMQP 1.0. Para una introducción más completa a AMQP, así como una explicación más amplia de AMQP 1.0, puede consultar [este curso en vídeo][this video course].
 
 ### <a name="connections-and-sessions"></a>Conexiones y sesiones
 ![][1]
@@ -125,7 +125,7 @@ Una llamada "recibir" en el nivel de API se traduce en un performativo *flow* a 
 
 Se libera el bloqueo de un mensaje cuando la transferencia se determina en uno de los estados terminales *aceptado*, *rechazado* o *publicado*. El mensaje se quita de Service Bus cuando el estado terminal *aceptado*. Permanece en el Bus de servicio y se entregará al siguiente receptor cuando la transferencia alcance cualquiera de los otros estados. El Bus de servicio pasará automáticamente el mensaje a la cola de proceso como correo devuelto de la entidad al alcanzar el número máximo de entregas permitido para la entidad debido a repetidos rechazos o versiones.
 
-Aunque las API del Bus de servicio oficial no exponen directamente dicha opción en la actualidad, un cliente del protocolo AMQP de nivel inferior puede utilizar el modelo de crédito del vínculo para convertir la interacción de "estilo de extracción", que emite una unidad de crédito para cada solicitud de recepción, en un modelo de "estilo de inserción" al emitir un gran número de créditos del vínculo y, a continuación, recibir los mensajes cuando estén disponibles sin intervención adicional. Se admite la inserción mediante la configuración de las propiedades [MessagingFactory.PrefetchCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.prefetchcount.aspx) o [MessageReceiver.PrefetchCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.prefetchcount.aspx). Si son distintas de cero, el cliente de AMQP las usa como crédito del vínculo.
+Aunque las API del Bus de servicio oficial no exponen directamente dicha opción en la actualidad, un cliente del protocolo AMQP de nivel inferior puede utilizar el modelo de crédito del vínculo para convertir la interacción de "estilo de extracción", que emite una unidad de crédito para cada solicitud de recepción, en un modelo de "estilo de inserción" al emitir un gran número de créditos del vínculo y, a continuación, recibir los mensajes cuando estén disponibles sin intervención adicional. Se admite la inserción mediante la configuración de las propiedades [MessagingFactory.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) o [MessageReceiver.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount). Si son distintas de cero, el cliente de AMQP las usa como crédito del vínculo.
 
 En este contexto, es importante comprender que el reloj de la expiración del bloqueo en el mensaje dentro de la entidad se inicia cuando el mensaje se toma de la entidad, no cuando se coloca en la transferencia. Cada vez que el cliente indica que está preparado para recibir mensajes mediante la emisión de crédito del vínculo, se espera que extraiga activamente los mensajes a través de la red y que esté preparado para controlarlos. De lo contrario, el bloqueo del mensaje puede haber expirado incluso antes de que el mensaje se entregue. El uso del control de flujo del crédito del vínculo debe reflejar directamente la disponibilidad inmediata para tratar con mensajes disponibles enviados al receptor.
 
@@ -193,32 +193,32 @@ En las siguientes secciones se explican las propiedades de las secciones de mens
 | --- | --- | --- |
 | duradero |- |- |
 | prioridad |- |- |
-| ttl |Período de vida para este mensaje |[TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| ttl |Período de vida para este mensaje |[TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| delivery-count |- |[DeliveryCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
 #### <a name="properties"></a>propiedades
 | Nombre del campo | Uso | Nombre de la API |
 | --- | --- | --- |
-| message-id |Identificador de formato libre definido por la aplicación para este mensaje. Se usa para la detección de duplicados. |[MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) |
+| message-id |Identificador de formato libre definido por la aplicación para este mensaje. Se usa para la detección de duplicados. |[MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | user-id |Identificador del usuario definido por la aplicación; no interpretado por el Bus de servicio. |No es accesible a través de la API del Bus de servicio. |
-| to |Identificador del destino definido por la aplicación; no interpretado por el Bus de servicio. |[To](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx) |
-| subject |Identificador del propósito de mensaje definido por la aplicación; no interpretado por el Bus de servicio. |[Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) |
-| reply-to |Indicador de la ruta de respuesta definido por la aplicación; no interpretado por el Bus de servicio. |[ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx) |
-| correlation-id |Identificador de la correlación definido por la aplicación; no interpretado por el Bus de servicio. |[CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx) |
-| content-type |Indicador del tipo de contenido definido por la aplicación para el cuerpo; no interpretado por el Bus de servicio. |[ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) |
+| to |Identificador del destino definido por la aplicación; no interpretado por el Bus de servicio. |[To](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
+| subject |Identificador del propósito de mensaje definido por la aplicación; no interpretado por el Bus de servicio. |[Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| reply-to |Indicador de la ruta de respuesta definido por la aplicación; no interpretado por el Bus de servicio. |[ReplyTo](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| correlation-id |Identificador de la correlación definido por la aplicación; no interpretado por el Bus de servicio. |[CorrelationId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| content-type |Indicador del tipo de contenido definido por la aplicación para el cuerpo; no interpretado por el Bus de servicio. |[ContentType](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | content-encoding |Indicador de la codificación de contenido definido por la aplicación para el cuerpo; no interpretado por el Bus de servicio. |No es accesible a través de la API del Bus de servicio. |
-| absolute-expiry-time |Declara en qué instante absoluto expirará el mensaje. Se ignora en la entrada (se observa el ttl de encabezado), es autoritativo en la salida. |[ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx) |
+| absolute-expiry-time |Declara en qué instante absoluto expirará el mensaje. Se ignora en la entrada (se observa el ttl de encabezado), es autoritativo en la salida. |[ExpiresAtUtc](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Declara en qué momento creó el mensaje. No usado por el Bus de servicio |No es accesible a través de la API del Bus de servicio. |
-| group-id |Identificador definido por la aplicación para un conjunto de mensajes relacionado. Se utiliza para sesiones del Bus de servicio. |[SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) |
+| group-id |Identificador definido por la aplicación para un conjunto de mensajes relacionado. Se utiliza para sesiones del Bus de servicio. |[SessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Contador que identifica el número de secuencia relativa del mensaje dentro de una sesión. Omitido por el Bus de servicio. |No es accesible a través de la API del Bus de servicio. |
-| reply-to-group-id |- |[ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx) |
+| reply-to-group-id |- |[ReplyToSessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
 ## <a name="advanced-service-bus-capabilities"></a>Funcionalidades avanzadas del Bus de servicio
 En esta sección se tratan las funcionalidades avanzadas del Bus de servicio de Azure que se basan en los borradores de la extensión AMQP que actualmente estamos desarrollando en el comité técnico de OASIS para AMQP. El Bus de servicio de Azure implementa el estado más reciente de estos borradores y adopta los cambios introducidos a medida que los borradores alcanzan el estado estándar.
 
 > [!NOTE]
-> Se admiten las operaciones avanzadas de mensajería de Bus de servicio mediante un modelo de solicitud y respuesta. Los detalles de estas operaciones se describen en el documento [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx) (AMQP 1.0 en Service Bus: operaciones basadas en solicitudes y respuestas).
+> Se admiten las operaciones avanzadas de mensajería de Service Bus mediante un modelo de solicitud y respuesta. Los detalles de estas operaciones se describen en el documento [AMQP 1.0 in Service Bus: request/response-based operations](service-bus-amqp-request-response.md) (AMQP 1.0 en Service Bus: operaciones basadas en solicitudes y respuestas).
 > 
 > 
 
@@ -301,7 +301,7 @@ Para aprender más sobre AMQP, consulte los siguientes vínculos:
 * [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]
 * [AMQP de Service Bus para Windows Server]
 
-[este curso de vídeo]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
+[this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png
 [2]: ./media/service-bus-amqp/amqp2.png
 [3]: ./media/service-bus-amqp/amqp3.png
@@ -313,6 +313,6 @@ Para aprender más sobre AMQP, consulte los siguientes vínculos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

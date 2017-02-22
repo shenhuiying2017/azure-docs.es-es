@@ -1,5 +1,5 @@
 ---
-title: "Documentación, tutoriales y referencia de API sobre VPN Gateway | Microsoft Docs"
+title: "Documentación sobre Azure VPN Gateway: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a configurar puertas de enlace de red privada virtual (VPN) para administrar el tráfico entre redes virtuales en la nube y locales, o entre redes virtuales en la nube."
 services: vpn-gateway
 author: carolz
@@ -13,9 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
-ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
-
+ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
+ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
 
 ---
 # <a name="vpn-gateway-documentation"></a>Documentación de VPN Gateway
@@ -169,6 +168,6 @@ Aprenda a configurar VPN Gateway, una puerta de enlace de red privada virtual. E
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

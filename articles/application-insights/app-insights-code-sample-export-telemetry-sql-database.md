@@ -1,5 +1,5 @@
 ---
-title: "Ejemplo de código: Análisis de los datos exportados desde Application Insights | Microsoft Docs"
+title: "Ejemplo: Análisis de los datos exportados desde Azure Application Insights | Microsoft Docs"
 description: "Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua. Guarde los datos en SQL."
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: fedd078402bbd220bce9b71cd035508d46f92f82
 
 
 ---
 # <a name="code-sample-parse-data-exported-from-application-insights"></a>Ejemplo de código: Análisis de los datos exportados desde Application Insights
-En este artículo se muestra cómo escribir código para procesar los datos que se han exportado de [Azure Application Insights][start] con la [exportación continua][export]. La Exportación continua traslada la telemetría al Almacenamiento de Azure en formato JSON, por lo que escribiremos algún código para analizar los objetos JSON y crear filas en una tabla de base de datos.
+En este artículo se muestra cómo escribir código para procesar los datos que se han exportado de [Azure Application Insights][start] mediante la [exportación continua][export]. La Exportación continua traslada la telemetría al Almacenamiento de Azure en formato JSON, por lo que escribiremos algún código para analizar los objetos JSON y crear filas en una tabla de base de datos.
 
 Como ejemplo, escribiremos código para mover los datos de telemetría de Application Insights a SQL Database.
 
@@ -74,7 +74,7 @@ Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede 
 ## <a name="create-an-azure-sql-database"></a>Creación de una Base de datos SQL de Azure
 En este ejemplo, escribiremos código para insertar los datos en una base de datos.
 
-De nuevo, empiece desde su suscripción en [Azure Portal][portal], cree la base de datos (y un servidor, excepto si ya tiene uno) donde escribirá los datos.
+De nuevo, empiece desde su suscripción en [Azure Portal][portal], cree la base de datos (y un servidor, a menos que ya tenga uno) donde escribirá los datos.
 
 ![Nuevo, Datos, SQL.](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
 
@@ -501,6 +501,6 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

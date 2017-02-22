@@ -1,10 +1,10 @@
 ---
-title: " Uso del conector de Slack en Logic Apps | Microsoft Docs"
-description: "Introducción al uso del conector de Slack en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
+title: " Uso del conector de Slack en Logic Apps | Microsoft Docss"
+description: "Introducción al uso del conector de Slack en Logic Apps"
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cacaa4a4a0089e1c3df54ae466af251026e1a55b
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 404776283ee10aa9410d002597e054757516bcab
 
 
 ---
@@ -33,7 +33,7 @@ Con el conector de Slack, puede:
 
 * Usarlo para crear aplicaciones lógicas
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>Hablemos de acciones y desencadenadores
 El conector de Slack puede usarse como acción; no hay desencadenadores. Todos los conectores admiten datos en formato JSON y XML. 
@@ -109,7 +109,7 @@ Siga estos pasos para iniciar sesión en Slack y completar la configuración de 
 
 - - -
 ## <a name="object-definitions"></a>Definiciones de objeto:
- **Mensaje**: mensaje de Yammer
+ **Mensaje**: mensaje de Slack
 
 Propiedades obligatorias para Message:
 
@@ -141,7 +141,7 @@ Ninguna de las propiedades es obligatoria.
 | liked_by |not defined |
 | system_message |boolean |
 
- **PostOperationRequest**: representa una solicitud post del conector de Yammer para publicar en Yammer
+ **PostOperationRequest**: representa una solicitud post del conector de Slack para publicar en Slack
 
 Propiedades necesarias para PostOperationRequest:
 
@@ -231,7 +231,7 @@ Ninguna de las propiedades es obligatoria.
 | full_name |string |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## <a name="object-definitions"></a>Definiciones de objeto:
  **WebResultModel**: resultados de búsqueda en web de Bing
@@ -400,7 +400,7 @@ Ninguna de las propiedades es obligatoria.
 | is_user-deleted |boolean |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
 [2]: ./media/connectors-create-api-slack/connectionconfig2.png 
@@ -411,6 +411,6 @@ Ninguna de las propiedades es obligatoria.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

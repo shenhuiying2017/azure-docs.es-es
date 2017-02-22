@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 01/11/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: f6e684b08ed481cdf84faf2b8426da72f98fc58c
-ms.openlocfilehash: 39678df7c52781d2f7e8fec49d97c96bee58ce8c
+ms.sourcegitcommit: 4029b699b59bb12eaa9e24b487d2829b5fb26daf
+ms.openlocfilehash: 6780b422138fbe18adfe256e9f7aa279dfed1cd9
 
 
 ---
@@ -48,54 +48,70 @@ El proceso de recuperación de estos valores de encabezado del código o el scri
 
 Por ejemplo, en **C#**, recupere el valor del encabezado de un objeto **HttpWebResponse** denominado "**response**"con el código siguiente:
 
-    response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```cs
+response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```
 
 En **PowerShell**, recupere el valor del encabezado de una operación Invoke-WebRequest.
 
-    $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
-    $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```powershell
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```
 
 O bien, si quiere ver las solicitudes restantes de depuración, puede proporcionar el parámetro **-Debug** en el cmdlet **PowerShell**.
 
-    Get-AzureRmResourceGroup -Debug
+```powershell
+Get-AzureRmResourceGroup -Debug
+```
 
-Esta operación devuelve una gran cantidad de información, incluido el valor de la respuesta siguiente:
+Que devuelve muchos valores, incluido el siguiente valor de respuesta:
 
-    ...
-    DEBUG: ============================ HTTP RESPONSE ============================
+```powershell
+...
+DEBUG: ============================ HTTP RESPONSE ============================
 
-    Status Code:
-    OK
+Status Code:
+OK
 
-    Headers:
-    Pragma                        : no-cache
-    x-ms-ratelimit-remaining-subscription-reads: 14999
-    ...
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-reads: 14999
+...
+```
 
 En la **CLI de Azure**, recupere el valor del encabezado mediante la opción más detallada.
 
-    azure group list -vv --json
+```azurecli
+azure group list -vv --json
+```
 
-Esta operación devuelve una gran cantidad de información, incluido el valor del objeto siguiente:
+Que devuelve muchos valores, incluido el siguiente objeto:
 
+```azurecli
+...
+silly: returnObject
+{
+  "statusCode": 200,
+  "header": {
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "content-type": "application/json; charset=utf-8",
+    "expires": "-1",
+    "x-ms-ratelimit-remaining-subscription-reads": "14998",
     ...
-    silly: returnObject
-    {
-      "statusCode": 200,
-      "header": {
-        "cache-control": "no-cache",
-        "pragma": "no-cache",
-        "content-type": "application/json; charset=utf-8",
-        "expires": "-1",
-        "x-ms-ratelimit-remaining-subscription-reads": "14998",
-        ...
+```
 
 ## <a name="waiting-before-sending-next-request"></a>Espera antes de enviar la solicitud siguiente
 Cuando alcance el límite de solicitudes, Azure Resource Manager devuelve el código de estado HTTP **429** y un valor **Retry-After** del encabezado. El valor **Retry-After** valor especifica el número de segundos que debe esperar (o estar en estado de suspensión) la aplicación antes de enviar la solicitud siguiente. Si envía una solicitud antes de que haya transcurrido el valor de reintento, no se procesa la solicitud y se devuelve un nuevo valor de reintento.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para más información acerca de límites y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+* Para obtener información sobre el control de solicitudes asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

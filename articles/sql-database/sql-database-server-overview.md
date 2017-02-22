@@ -10,14 +10,14 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
+ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
+ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 En este tema se incluyen consideraciones e instrucciones para trabajar con servidores lógicos de Azure SQL. Para obtener más información sobre las bases de datos de Azure SQL, consulte el artículo sobre las [bases de datos de SQL Database](sql-database-overview.md).
 
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>¿Qué es un servidor lógico de Azure SQL Database?
-Un servidor lógico de Azure SQL Database actúa como el punto central de administración de varias bases de datos. En SQL Database, un servidor es una construcción lógica distinta de una instancia de SQL Server, con la que puede estar familiarizado en el mundo de implementaciones locales. En concreto, el servicio SQL Database no ofrece ninguna garantía con respecto a la ubicación de las bases de datos con respecto a sus servidores lógicos y no expone ningún acceso de nivel de instancia ni características. Para obtener más información sobre los servidores lógicos de Azure SQL, consulte el [artículo al respecto](sql-database-server-overview.md). 
+Un servidor lógico de Azure SQL Database actúa como el punto central de administración de varias bases de datos. En SQL Database, un servidor es una construcción lógica distinta de una instancia de SQL Server, con la que puede estar familiarizado en el mundo de implementaciones locales. En concreto, el servicio SQL Database no ofrece ninguna garantía con respecto a la ubicación de las bases de datos con respecto a sus servidores lógicos y no expone ningún acceso de nivel de instancia ni características.  
 
 Un servidor lógico de Azure Database:
 
@@ -55,7 +55,7 @@ Un servidor lógico de Azure Database:
 
 ## <a name="what-collations-are-supported"></a>¿Qué intercalaciones son compatibles?
 
-La intercalación de bases de datos predeterminada que utiliza Microsoft Azure SQL Database (incluida la base de datos maestra) es **SQL_LATIN1_GENERAL_CP1_CI_AS**, donde **LATIN1_GENERAL** corresponde a inglés (Estados Unidos); **CP1** es la página de códigos 1252; **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se tienen en cuenta los acentos. No se recomienda modificar la intercalación de bases de datos de la versión 12 después de su creación. Para obtener más información acerca de las intercalaciones, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La intercalación de bases de datos predeterminada que utiliza Microsoft Azure SQL Database (incluida la base de datos maestra) es **SQL_LATIN1_GENERAL_CP1_CI_AS**, donde **LATIN1_GENERAL** corresponde a inglés (Estados Unidos); **CP1** es la página de códigos 1252; **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se tienen en cuenta los acentos. No se recomienda modificar la intercalación de bases de datos de la versión&12; después de su creación. Para obtener más información acerca de las intercalaciones, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>¿Cuáles son los requisitos de nomenclaturas de los objetos de base de datos?
 
@@ -85,6 +85,6 @@ Puede administrar servidores lógicos de Azure SQL Database mediante varios mét
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

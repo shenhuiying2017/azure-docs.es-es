@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/20/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: afb51a4513a7f1bcbbc85394d8dc7ab8af762f43
+ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
+ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
 
 
 ---
@@ -28,11 +28,11 @@ Azure AD Identity Protection envía dos tipos de correos electrónicos de notifi
 * Correo electrónico de resumen semanal
 
 ## <a name="user-compromised-alert-email"></a>Correo electrónico de alerta para usuarios en peligro
-Se genera una alerta de correo electrónico para usuarios en peligro cuando Azure AD Identity Protection identifica que una cuenta se ha puesto en peligro. El correo electrónico incluye un vínculo al informe Usuarios marcados como de riesgo en el panel de Identity Protection. Se recomienda que las notificaciones de usuarios en peligro se investiguen inmediatamente.
+Se genera una alerta de correo electrónico para usuarios en peligro cuando Azure AD Identity Protection identifica que una cuenta se ha puesto en peligro. El correo electrónico incluye un vínculo al informe Usuarios marcados como de riesgo en el panel de Identity Protection. Se recomienda que las notificaciones de cuentas en peligro se investiguen inmediatamente.
 
 ## <a name="weekly-digest-email"></a>Correo electrónico de resumen semanal
 El correo electrónico de resumen semanal contiene un sumario de nuevos eventos de riesgo.<br>
- Incluye:
+Incluye:
 
 * Usuarios en riesgo
 * Actividades sospechosas
@@ -41,7 +41,7 @@ El correo electrónico de resumen semanal contiene un sumario de nuevos eventos 
 
 <br>
 ![Corrección](./media/active-directory-identityprotection-notifications/400.png "Remediation")
-<br> 
+<br>
 
 Puede desactivar la opción de envío de un correo electrónico de resumen semanal.
 <br><br>
@@ -59,12 +59,11 @@ Puede desactivar la opción de envío de un correo electrónico de resumen seman
    ![Directiva de riesgo de usuario](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-## <a name="see-also"></a>Otras referencias
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+## <a name="see-also"></a>Consulte también
+* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

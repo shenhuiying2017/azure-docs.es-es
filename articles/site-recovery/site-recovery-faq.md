@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 12/28/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 06be4297bd805a77c2901296071bfa344d076c82
+ms.sourcegitcommit: 4ad6d1003b3acd48a1f129eb84f9bbed53075d37
+ms.openlocfilehash: 3c2705a7608c3af9085b51fdbc7191030d3fc9fe
 
 
 ---
@@ -72,6 +72,20 @@ Para proteger las máquinas virtuales de VMWare, necesitará un hipervisor vSphe
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>¿Es posible administrar la recuperación ante desastres para las sucursales con Site Recovery?
 Sí. Si usa Site Recovery para coordinar la replicación y la conmutación por error en las sucursales, disfrutará de una coordinación unificada y una vista de todas las cargas de trabajo de las sucursales desde un mismo punto. Puede ejecutar con facilidad conmutaciones por error y administrar la recuperación ante desastres de todas las sucursales desde la sede central, sin necesidad de visitar estas sucursales.
 
+## <a name="pricing"></a>Precios
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>¿En qué cargos se incurre al utilizar Azure Site Recovery?
+Al usar Azure Site Recovery, se producen cargos por la licencia de Azure Site Recovery, Azure Storage, las transacciones de almacenamiento y la transferencia de datos de salida. [Más información](https://azure.microsoft.com/pricing/details/site-recovery).
+
+La licencia de Site Recovery es para cada instancia protegida, y una instancia es una máquina virtual o un servidor físico.
+
+- Si un disco de máquina virtual se replica en una cuenta de almacenamiento estándar, Azure Storage cobra por el consumo de almacenamiento. Por ejemplo, si el tamaño del disco de origen es 1 TB y se usan 400 GB, Site Recovery crea un disco duro virtual de 1 TB en Azure, pero se cobra por un almacenamiento de 400 GB (más la cantidad de espacio de almacenamiento que se usa para los registros de replicación).
+- Si un disco de máquina virtual se replica en una cuenta de almacenamiento premium, Azure Storage cobra por el tamaño de almacenamiento aprovisionado, redondeado a la opción de disco de almacenamiento premium más cercana. Por ejemplo, si el tamaño del disco de origen es de 50 GB, Site Recovery crea un disco de 50 GB en Azure y Azure lo asigna al disco de almacenamiento premium (P10) más cercano.  Los costes se calculan sobre P10 y no sobre el tamaño de disco de 50 GB.  [Más información](https://aka.ms/premium-storage-pricing).  Si usa almacenamiento premium, también se necesita una cuenta de almacenamiento estándar para el registro de la replicación, y también se factura la cantidad de espacio de almacenamiento estándar usado para estos registros.
+
+También se incurre en costes durante la conmutación por error de prueba, y se aplicarán los costes de las transacciones de VM, almacenamiento, salida y almacenamiento.
+
+
+
 ## <a name="security"></a>Seguridad
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>¿Se envían mis datos de replicación al servicio de Site Recovery?
 No, Site Recovery no intercepta los datos replicados ni tiene información sobre lo que se ejecuta en sus máquinas virtuales o servidores físicos.
@@ -86,6 +100,13 @@ Sí. Al crear un almacén de Site Recovery en una región, garantizamos que todo
 Al replicar máquinas virtuales y servidores físicos entre sitios locales, se admite el cifrado en tránsito. Al replicar máquinas virtuales y servidores físicos en Azure, se admite tanto el cifrado en tránsito como el cifrado en reposo (en Azure).
 
 ## <a name="replication"></a>Replicación
+
+### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>¿Puedo replicar a través de una VPN de sitio a sitio en Azure?
+Azure Site Recovery replica los datos en una cuenta de almacenamiento de Azure a través de un punto de conexión público. Por lo tanto, la replicación no se producirá a través de una VPN de sitio a sitio. Puede crear una VPN de sitio a sitio con una red virtual de Azure y eso no interferirá en la replicación de ASR.
+
+### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>¿Puedo usar ExpressRoute para replicar máquinas virtuales en Azure?
+Sí, se puede usar ExpressRoute para replicar máquinas virtuales en Azure. Azure Site Recovery replica los datos en una cuenta de almacenamiento de Azure a través de un punto de conexión público. Es necesario configurar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#public-peering) para usar ExpressRoute para la replicación de Site Recovery. Una vez que las máquinas virtuales se hayan conmutado por error a una red virtual de Azure,podrá acceder a ellas mediante la configuración [entre pares privados](../expressroute/expressroute-circuit-peerings.md#private-peering) con la red virtual de Azure.
+
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>¿Hay algún requisito previo para replicar las máquinas virtuales a Azure?
 Las máquinas virtuales que quiera replicar a Azure deben cumplir con los [Requisitos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
@@ -139,9 +160,9 @@ Sí. Puede leer más acerca de la limitación de ancho de banda en los artículo
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso?
 Es posible tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio o mediante Azure ExpressRoute. Debe preparar algunas cosas para la conexión. Obtenga más información en los artículos siguientes:
 
-* [Connect to Azure VMs after failover of VMware VMs or physical servers](site-recovery-vmware-to-azure.md#step-7-test-the-deployment)
+* [Connect to Azure VMs after failover of VMware VMs or physical servers](site-recovery-vmware-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 * [Connect to Azure VMs after failover of Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
-* [Connect to Azure VMs after failover of Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#step-7-test-the-deployment)
+* [Connect to Azure VMs after failover of Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Si se realiza una conmutación por error a Azure, ¿cómo se asegura Azure de que los datos resistan el proceso?
 Azure está diseñado para la resistencia. Site Recovery ya se ha diseñado para la conmutación por error en un centro de datos de Azure secundario según el Acuerdo de Nivel de Servicio de Azure por si surge la necesidad de hacerlo. Si esto ocurre, nos aseguraremos de que los metadatos y los almacenes permanecen en la misma región geográfica que eligió para su almacén.  
@@ -191,6 +212,6 @@ Sí, es posible replicar máquinas virtuales de Hyper-V en Azure, o replicar ent
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

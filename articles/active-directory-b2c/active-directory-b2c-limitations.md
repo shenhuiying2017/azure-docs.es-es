@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
-ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
+ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
+ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
 
 
 ---
@@ -27,9 +27,6 @@ Hay varias características y funcionalidades de Azure Active Directory (Azure A
 Si surgen problemas durante la [creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started.md), consulte [Creación de un inquilino de Azure AD o de Azure AD B2C: problemas y soluciones](active-directory-b2c-support-create-directory.md) para saber qué hacer.
 
 Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C existente y volver a crearlo con el mismo nombre de dominio. Es necesario crear un inquilino de B2C con otro nombre de dominio.
-
-## <a name="note-about-b2c-tenant-quotas"></a>Nota sobre las cuotas de inquilinos B2C
-De forma predeterminada, el número de usuarios de un inquilino B2C está limitado a 50 000 usuarios. Si necesita aumentar la cuota del inquilino B2C, póngase en contacto con el soporte técnico.
 
 ## <a name="branding-issues-on-verification-email"></a>Problemas de personalización de marca en el mensaje de confirmación
 El correo electrónico de comprobación predeterminado contiene información de personalización de marca de Microsoft. Lo quitaremos en el futuro. Por ahora, puede quitarla mediante la [característica de personalización de marca corporativa](../active-directory/active-directory-add-company-branding.md).
@@ -51,6 +48,39 @@ Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de 
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
 
+## <a name="restrictions-on-reply-urls"></a>Restricciones en las direcciones URL de respuesta
+Actualmente, las aplicaciones registradas en Azure AD B2C están restringidas a un conjunto limitado de valores de direcciones URL de respuesta. La dirección URL de respuesta de aplicaciones y servicios web debe comenzar por el esquema `https`, y todos los valores de dicha dirección deben compartir un único dominio DNS. Por ejemplo, no puede registrar una aplicación web con una de estas direcciones URL de respuesta:
+
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`
+
+El sistema de registro compara el nombre DNS completo de la dirección URL de respuesta existente con el nombre DNS de la dirección URL de respuesta que va a agregar. La solicitud para agregar el nombre DNS presentará un error si se cumple alguna de las condiciones siguientes:
+
+* Si el nombre DNS completo de la nueva dirección URL de respuesta no coincide con el nombre DNS de la dirección URL de respuesta existente.
+* Si el nombre DNS completo de la nueva dirección URL de respuesta no es un subdominio de la dirección URL de respuesta existente.
+
+Por ejemplo, si la aplicación tiene esta dirección URL de respuesta:
+
+`https://login.contoso.com`
+
+Puede agregarla del modo siguiente:
+
+`https://login.contoso.com/new`
+
+En este caso, el nombre DNS es una coincidencia exacta. O bien, puede hacer lo siguiente:
+
+`https://new.login.contoso.com`
+
+En este caso, hace referencia a un subdominio DNS de login.contoso.com. Si desea que una aplicación tenga login-east.contoso.com y login-west.contoso.com como direcciones URL de respuesta, debe agregar dichas direcciones en este orden:
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+Puede agregar las dos últimas porque son subdominios de la primera URL de respuesta, contoso.com. Esta limitación se eliminará en una próxima versión.
+
+Para obtener información sobre cómo registrar una aplicación en Azure AD B2C, vea [Registro de la aplicación con Azure Active Directory B2C](active-directory-b2c-app-registration.md).
+
 ## <a name="restriction-on-libraries-and-sdks"></a>Restricción en bibliotecas y SDK
 El conjunto de bibliotecas compatibles de Microsoft que funcionan con Azure AD B2C es muy limitado en este momento. Contamos con compatibilidad para aplicaciones web y servicios basados en .NET, así como aplicaciones web y servicios de NodeJS.  También tenemos una biblioteca de cliente .NET en versión preliminar conocida como MSAL que puede usarse con Azure AD B2C en Windows y otras aplicaciones .NET.
 
@@ -62,7 +92,7 @@ Nuestros tutoriales de inicio rápido de iOS y Android utilizan bibliotecas de c
 Azure AD B2C admite OpenID Connect y OAuth 2.0. Sin embargo, no se han implementado todas las características y capacidades de cada protocolo. Para comprender mejor el alcance de la funcionalidad del protocolo compatible con Azure AD B2C, lea nuestra [referencia de protocolos OAuth 2.0 y OpenID Connect](active-directory-b2c-reference-protocols.md). Ahora existe compatibilidad con los protocolos SAML y WS-Fed.
 
 ## <a name="restriction-on-tokens"></a>Restricción en los tokens
-Muchos de los tokens emitidos por Azure AD B2C se implementan como JSON Web Token o JWT. Sin embargo, no toda la información incluida en JWT (conocida como "notificaciones") es como debería ser o falta. Entre los ejemplos se incluyen las notificaciones "sub" y "preferred_username".  Como los valores, el formato o el significado de las notificaciones cambian con el tiempo, los tokens para las directivas existentes no se ven afectados, por lo que puede confiar en sus valores de las aplicaciones de producción.  Cuando valores cambian, se le dará la oportunidad de configurar esos cambios para cada una de las directivas.  Para comprender mejor los tokens emitidos actualmente por el servicio de Azure AD B2C, lea nuestra [referencia de token](active-directory-b2c-reference-tokens.md).
+Muchos de los tokens emitidos por Azure AD B2C se implementan como JSON Web Token o JWT. Sin embargo, no toda la información incluida en JWT (conocida como "notificaciones") es como debería ser o falta. Un ejemplo es la notificación "preferred_username".  Como los valores, el formato o el significado de las notificaciones cambian con el tiempo, los tokens para las directivas existentes no se ven afectados, por lo que puede confiar en sus valores de las aplicaciones de producción.  Cuando valores cambian, se le dará la oportunidad de configurar esos cambios para cada una de las directivas.  Para comprender mejor los tokens emitidos actualmente por el servicio de Azure AD B2C, lea nuestra [referencia de token](active-directory-b2c-reference-tokens.md).
 
 ## <a name="restriction-on-nested-groups"></a>Restricción en grupos anidados
 No se admiten pertenencias a grupos anidados en inquilinos de Azure AD B2C. No está previsto agregar esta funcionalidad.
@@ -93,9 +123,13 @@ Solicitudes de las directivas de inicio de sesión (con MFA activado) errores in
 * Utilizar la "directiva de registro o de inicio de sesión" en lugar de la "directiva de inicio de sesión".
 * Reducir el número de **notificaciones de la aplicación** que se solicita en la directiva.
 
+## <a name="issues-with-windows-desktop-wpf-apps-using-azure-ad-b2c"></a>Problemas con aplicaciones de WPF de escritorio de Windows que usan Azure AD B2C
+Las solicitudes a Azure AD B2C desde una aplicación de WPF de escritorio de Windows a veces genera un error con el siguiente mensaje de error: "The browser based authentication dialog failed to complete. Reason: The protocol is not known and no pluggable protocols have been entered that match." (El cuadro de diálogo de autenticación basada en el explorador no ha podido completarse. Motivo: No se conoce el protocolo y no se especificó ningún protocolo conectable que coincida).
+
+Esto se debe al tamaño de los códigos de autorización proporcionados por Azure AD B2C; el tamaño se correlaciona con el número de notificaciones solicitadas en un token. Una solución alternativa para este problema es reducir el número de notificaciones solicitadas en el token y consultar API Graph por separado para el resto de notificaciones.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

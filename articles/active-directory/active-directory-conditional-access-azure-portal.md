@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0ecbaaf030e5c87ff05228af852477b865329596
-ms.openlocfilehash: 3b06c7c32c6ec27659365ca4da6193457fff7162
+ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
+ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
 
 
 ---
@@ -159,18 +159,13 @@ En cada inicio de sesión, Azure Active Directory evalúa todas las directivas y
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>¿Funciona el acceso condicional con Exchange ActiveSync?
  
-Puede usar Exchange ActiveSync en una directiva de acceso condicional. Sin embargo, la compatibilidad con este escenario es limitada.  
-Las siguientes limitaciones se aplican a una directiva que incluye Exchange ActiveSync:
+No, no se puede usar Exchange ActiveSync en una directiva de acceso condicional en este momento.
 
-- Como asignación de **aplicaciones de nube**, solo ha seleccionado **Exchange Online**.
 
-- Si es necesario establecer un **control**, solo puede seleccionar **Requerir dispositivo compatible**. 
- 
-    ![Conceder](./media/active-directory-conditional-access-azure-portal/22.png)
- 
-- Si tiene que configurar una **condición**, solo puede configurar **aplicaciones cliente**.   
+### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>¿Qué sucede si necesito autenticación multifactor o un dispositivo compatible?
 
-    ![Condiciones](./media/active-directory-conditional-access-azure-portal/21.png)
+Actualmente, se le solicita al usuario la autenticación multifactor con independencia del dispositivo.
+
 
 
 ## <a name="common-scenarios"></a>Escenarios comunes
@@ -193,7 +188,7 @@ En otras palabras, podría tener un requisito de autenticación multifactor si u
 
 Si usa Intune en su entorno, puede comenzar a usar inmediatamente la directiva de acceso condicional en la consola de Azure.
 
-Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo los dispositivos de confianza puedan acceder a servicios de Office 365. Esto significa que los dispositivos móviles se inscriben con Intune y satisfacen los requisitos de la directiva de cumplimiento y que los equipos con Windows están unidos a un dominio local. Una importante mejora es que no es necesario establecer la misma directiva para cada uno de los servicios de Office 365.  Cuando cree una nueva directiva, configure las aplicaciones de nube para que incluyan cada una de las aplicaciones de Office 365 que quiere proteger con acceso condicional. 
+Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo los dispositivos de confianza puedan acceder a servicios de Office 365. Esto significa que los dispositivos móviles se inscriben con Intune y satisfacen los requisitos de la directiva de cumplimiento y que los equipos con Windows están unidos a un dominio local. Una importante mejora es que no es necesario establecer la misma directiva para cada uno de los servicios de Office 365.  Cuando cree una nueva directiva, configure las aplicaciones de nube para que incluyan cada una de las aplicaciones de Office&365; que quiere proteger con acceso condicional. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -201,6 +196,6 @@ Si quiere saber cómo configurar una directiva de acceso condicional, consulte [
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

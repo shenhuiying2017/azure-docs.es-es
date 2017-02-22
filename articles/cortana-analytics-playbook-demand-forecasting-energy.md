@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4fe84f732c24efc8aa647e1f1f650960fcf6514a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
 
 
 ---
@@ -349,7 +349,7 @@ La creación de una de previsión de la demanda de energía como un problema de 
 Desde nuestra experiencia con la implementación de las previsiones de demanda energéticas piloto, hemos descubierto que los modelos de regresión avanzadas disponibles en Aprendizaje automático de Azure tienden a producir los mejores resultados, por los que son los que usamos.
 
 ## <a name="model-evaluation"></a>Evaluación del modelo
-La evaluación del modelo tiene un rol crítico en el **ciclo de desarrollo del modelo**. En este paso se examina la validación del modelo y su rendimiento con datos reales. Durante el paso de modelado se usa una parte de los datos disponibles para entrenar el modelo. Durante la fase de evaluación se toma el resto de los datos para probar el modelo. En la práctica significa que introducimos los datos del nuevo modelo que se han reestructurado y contienen las mismas características que el conjunto de datos del entrenamiento. Sin embargo, en el proceso de validación se usa el modelo para predecir la variable de destino, en lugar de proporcionar la variable de destino disponible. A menudo, este proceso se denomina puntuación de modelo. Luego se usarían los valores de destino reales y se compararían con los pronosticados. El objetivo es medir y minimizar los errores de predicción, es decir, la diferencia entre las predicciones y el valor real. La cuantificación de la medida del error es clave, ya que deseamos ajustar el modelo y validar si el error se reduce. El ajuste del modelo se puede realizar bien mediante la modificación de los parámetros del modelo que controlan el proceso de aprendizaje bien mediante la incorporación o eliminación de características de datos (lo que se denomina [barrido de parámetros](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). En la práctica, esto significa existe la posibilidad de que sea preciso iterar entre las fases de ingeniería de características, modelado y evaluación del modelo varias veces hasta que se pueda reducir el error al nivel requerido.
+La evaluación del modelo tiene un rol crítico en el **ciclo de desarrollo del modelo**. En este paso se examina la validación del modelo y su rendimiento con datos reales. Durante el paso de modelado se usa una parte de los datos disponibles para entrenar el modelo. Durante la fase de evaluación se toma el resto de los datos para probar el modelo. En la práctica significa que introducimos los datos del nuevo modelo que se han reestructurado y contienen las mismas características que el conjunto de datos del entrenamiento. Sin embargo, en el proceso de validación se usa el modelo para predecir la variable de destino, en lugar de proporcionar la variable de destino disponible. A menudo, este proceso se denomina puntuación de modelo. Luego se usarían los valores de destino reales y se compararían con los pronosticados. El objetivo es medir y minimizar los errores de predicción, es decir, la diferencia entre las predicciones y el valor real. La cuantificación de la medida del error es clave, ya que deseamos ajustar el modelo y validar si el error se reduce. El ajuste del modelo se puede realizar bien mediante la modificación de los parámetros del modelo que controlan el proceso de aprendizaje bien mediante la incorporación o eliminación de características de datos (lo que se denomina [barrido de parámetros](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). En la práctica, esto significa existe la posibilidad de que sea preciso iterar entre las fases de ingeniería de características, modelado y evaluación del modelo varias veces hasta que se pueda reducir el error al nivel requerido.
 
 Es importante hacer énfasis en que el error de predicción nunca será cero, ya que no existe ningún modelo que pueda predecir a la perfección todos los resultados. Sin embargo, la empresa puede llegar a aceptar cierto margen de error. En el proceso de validación, deseamos garantizar que nuestro error de predicción del modelo se ajusta al nivel de tolerancia de la empresa, o incluso no llega a él. Por lo tanto, es importante establecer el nivel del error tolerable al principio del ciclo, en la fase de **formulación del problema** .
 
@@ -404,6 +404,6 @@ Para más información tanto acerca de cada uno de los componentes como de la ar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Creación de clústeres de Hadoop, HBase o Storm basados en Linux en HDInsight mediante la CLI de Azure multiplataforma | Microsoft Docs"
-description: "Aprenda a crear clústeres de HDInsight basados en Linux con la CLI de Azure multiplataforma, las plantillas del Administrador de recursos de Azure y la API de REST de Azure. Puede especificar el tipo de clúster (Hadoop, HBase o Storm) o usar scripts para instalar componentes personalizados..."
+title: "Creación de Azure HDInsight (Hadoop) mediante la línea de comandos | Microsoft Docs"
+description: "Aprenda a crear clústeres de HDInsight con la CLI de Azure multiplataforma, las plantillas de Azure Resource Manager y la API de REST de Azure. Puede especificar el tipo de clúster (Hadoop, HBase o Storm) o usar scripts para instalar componentes personalizados..."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,45 +13,46 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f322b95e3ade4318ccd64f5e2222194bd2fb9361
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 777168c5d48cc589c54a12265bd54e87c4b64274
 
 
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Crear clústeres basados en Linux en HDInsight con la CLI de Azure
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure
 
-La CLI de Azure es una utilidad de línea de comandos multiplataforma que permite administrar los servicios de Azure. Se puede usar, junto con las plantillas de administración de recursos de Azure para crear un clúster de HDInsight, junto con las cuentas de almacenamiento asociadas y otros servicios.
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Las plantillas del Administrador de recursos de Azure son documentos JSON que describen un **grupo de recursos** y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla, le permite definir todos los recursos que necesita para HDInsight en una plantilla. También le permite administrar los cambios en el grupo como un todo a través de **implementaciones**, que aplican cambios a todo el grupo.
+La CLI de Azure es una utilidad de línea de comandos multiplataforma que permite administrar los servicios de Azure. Se puede usar, junto con las plantillas de Azure Resource Manager, para crear un clúster de HDInsight, junto con las cuentas de almacenamiento asociadas y otros servicios.
+
+Las plantillas de Azure Resource Manager son documentos JSON que describen un **grupo de recursos** y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla, le permite definir todos los recursos que necesita para HDInsight en una plantilla. También le permite administrar los cambios en el grupo como un todo a través de **implementaciones**, que aplican cambios a todo el grupo.
 
 Los pasos de este documento recorren el proceso de creación de un nuevo clúster de HDInsight mediante la CLI de Azure y una plantilla:
 
 > [!IMPORTANT]
-> Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo (en el momento de la creación de clústeres o escalando el clúster), tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
-> 
-> Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-> 
-> 
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **CLI de Azure** Los pasos descritos en este documento se probaron por última vez en la versión 0.10.1 de la CLI de Azure.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Requisitos de control de acceso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="log-in-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
+
 Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md) y conéctese a su suscripción con el método **login** .
 
 ## <a name="create-a-cluster"></a>Crear un clúster
+
 Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o la sesión de terminal después de instalar y configurar la CLI de Azure.
 
 1. Use el siguiente comando para autenticarse en su suscripción de Azure:
@@ -107,6 +108,11 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
    * Para el parámetro `--defaultStorageContainer` , use el mismo nombre que utiliza para el clúster.
    * Reemplace **admin** y **httppassword** con el nombre y la contraseña que desea utilizar al acceder al clúster mediante HTTPS.
    * Sustituya **sshuser** y **sshuserpassword** con el nombre de usuario y la contraseña que quiere usar al acceder al clúster mediante SSH.
+   
+   > [!IMPORTANT]
+   > En el ejemplo anterior se crea un clúster con 2 nodos de trabajo. Si planea crear más de 32 nodos de trabajo (en el momento de la creación de clústeres o escalando el clúster), tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM. Puede establecer el tamaño del nodo principal mediante el parámetro `--headNodeSize`.
+   > 
+   > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
      
      Pueden pasar varios minutos (por lo general, unos quince) hasta que finalice el proceso de creación del clúster.
 
@@ -130,6 +136,6 @@ Una vez creado correctamente un clúster de HDInsight correctamente mediante la 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

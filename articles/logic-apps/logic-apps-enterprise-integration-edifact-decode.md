@@ -1,6 +1,6 @@
 ---
-title: "Información acerca del conector Decode EDIFACT Message de Enterprise Integration Pack | Microsoft Docs"
-description: "Sepa cómo usar partners con las Aplicaciones lógicas y Enterprise Integration Pack"
+title: "Descodificación de mensajes EDIFACT en Azure Logic Apps | Microsoft Docs"
+description: Uso del descodificador EDIFACT de Enterprise Integration Pack con Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,49 +12,51 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 8bf5fe5527e3de6f2e0950b3ee494b88cd1063a1
-ms.openlocfilehash: 96dbedf2dc072795712e4b0a41c424e633263220
+ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
+ms.openlocfilehash: 430a3add46053b5969597aa625df899f4d2e83f6
 
 
 ---
+
 # <a name="get-started-with-decode-edifact-message"></a>Introducción a Decode EDIFACT Message
-Valida las propiedades de EDI y las específicas de los partners, genera un documento XML para cada conjunto de transacciones, así como la confirmación de transacción procesada.
+El conector Decode EDIFACT valida propiedades EDI y específicas de asociados, genera un documento XML para cada conjunto de transacciones y origina la confirmación de transacción procesada.
 
-## <a name="create-the-connection"></a>Creación de la conexión
-### <a name="prerequisites"></a>Requisitos previos
+## <a name="prereqs"></a>Requisitos previos
 * Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)
-* Para usar el conector Decode EDIFACT Message, se requiere una cuenta de integración. Consulte cómo crear una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), [asociados](logic-apps-enterprise-integration-partners.md) y un [contrato de EDIFACT](logic-apps-enterprise-integration-edifact.md)
+* Para usar el conector Decode EDIFACT Message, se requiere una cuenta de integración. Consulte cómo crear una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), [asociados](logic-apps-enterprise-integration-partners.md) y un [contrato de EDIFACT](logic-apps-enterprise-integration-edifact.md).
 
-### <a name="connect-to-decode-edifact-message-using-the-following-steps"></a>Conecte con Encode EDIFACT Message mediante los siguientes pasos:
-1. En [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](logic-apps-create-a-logic-app.md) se puede ver un ejemplo.
-2. Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica, como uno de solicitud.  En el diseñador de aplicaciones lógicas, agregue un desencadenador y, luego, agregue una acción.  Seleccione Mostrar las API administradas por Microsoft en la lista desplegable y escriba "EDIFACT" en el cuadro de búsqueda.  Seleccione Decode EDIFACT Message
+## <a name="decode-edifact-messages"></a>Descodificación de mensajes EDIFACT
+1. [Cree una aplicación lógica](logic-apps-create-a-logic-app.md).
+2. Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica, como uno de solicitud.  En el diseñador de aplicaciones lógicas, agregue un desencadenador y, luego, agregue una acción.  Seleccione Mostrar las API administradas por Microsoft en la lista desplegable y escriba "EDIFACT" en el cuadro de búsqueda.  Seleccione Decode EDIFACT Message:
    
     ![buscar EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
-3. Si no ha creado anteriormente ninguna conexión a la cuenta de integración, se le pedirán los detalles de conexión.
+3. Si no ha creado anteriormente ninguna conexión a la cuenta de integración, se le pedirán los detalles de conexión:
    
     ![crear cuenta de integración](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)  
-4. Escriba los detalles de la cuenta de integración.  Las propiedades con un asterisco son obligatorias.
+4. Escriba los detalles de la cuenta de integración.  Las propiedades con un asterisco son obligatorias:
    
    | Propiedad | Detalles |
    | --- | --- |
    | Nombre de la conexión * |Escriba cualquier nombre para la conexión. |
    | Cuenta de integración* |Escriba el nombre de la cuenta de integración. Asegúrese de que la cuenta de integración y la aplicación lógica se encuentran en la misma ubicación de Azure. |
    
-    Una vez completados, los detalles de la conexión presentan un aspecto similar al siguiente.
+    Una vez completado, los detalles de la conexión presentan un aspecto similar al siguiente:
    
     ![cuenta de integración creada](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
-5. Seleccione **Crear**
-6. Observe que la conexión se ha creado en el portal.
+5. Seleccione **Crear**.
+6. Observe que la conexión se ha creado en el portal:
    
-    ![detalles de conexión de cuenta de integración](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
-7. Seleccione EDIFACT flat file message to decode (Mensaje de archivo plano de EDIFACT que se va a descodificar).
+    ![detalles de conexión de la cuenta de integración](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+7. Seleccione EDIFACT flat file message to decode (Mensaje de archivo plano de EDIFACT que se va a descodificar):
    
-    ![especificar campos obligatorios](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+    ![especificar los campos obligatorios](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
-## <a name="edifact-decode-does-following"></a>Funciones de EDIFACT Decode
+## <a name="edifact-decoder-details"></a>Detalles de descodificador de EDIFACT
+El conector Decode EDIFACT hace lo siguiente: 
+
 * Resuelve el acuerdo, para lo que hace coincidir el calificador e identificador del remitente con el calificador e identificador del receptor.
 * Divide varios intercambios de un único mensaje en intercambios independientes.
 * Valida el sobre con el acuerdo de socio comercial.
@@ -84,6 +86,6 @@ Valida las propiedades de EDI y las específicas de los partners, genera un docu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

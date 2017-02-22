@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a91bea6a7a015ea4a61fd15ba34bcb1a86445b40
+ms.sourcegitcommit: 4e6c6571be85cd5fe374c7df644741ae017ccd19
+ms.openlocfilehash: 6db4cf048147cb9559ca1a2e6921c679fe6ec9e5
 
 
 ---
@@ -30,7 +30,7 @@ Es posible que las aplicaciones hospedadas en Azure RemoteApp no se inicien por 
 Para obtener información sobre los mensajes de error comunes debidos a errores de inicio y conexión de la aplicación, siga leyendo.
 
 ## <a name="were-getting-you-set-up-try-again-in-10-minutes"></a>Estamos realizando la configuración... Inténtelo de nuevo en 10 minutos.
-Este error significa que Azure RemoteApp se está escalando horizontalmente para satisfacer las necesidades de capacidad de los usuarios. Se están creando en segundo plano más instancias de máquina virtual de Azure RemoteApp con el fin de controlar las necesidades de capacidad de los usuarios. Normalmente, esta operación puede tardar entre cinco y diez minutos. En ocasiones, no se produce lo suficientemente rápido y se necesitan recursos inmediatamente. Por ejemplo, un escenario de 9 de la mañana donde muchos usuarios necesitan usar la aplicación en Azure RemoteAppn al mismo tiempo. Si esto sucede, podemos habilitar el **modo de capacidad** en el back-end. Para ello, abra una incidencia de soporte técnico de Azure o envíenos un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com). Asegúrese de incluir el identificador de la suscripción en la solicitud.  
+Este error significa que Azure RemoteApp se está escalando horizontalmente para satisfacer las necesidades de capacidad de los usuarios. Se están creando en segundo plano más instancias de máquina virtual de Azure RemoteApp con el fin de controlar las necesidades de capacidad de los usuarios. Normalmente, esta operación puede tardar entre cinco y diez minutos. En ocasiones, no se produce lo suficientemente rápido y se necesitan recursos inmediatamente. Por ejemplo, un escenario de 9 de la mañana donde muchos usuarios necesitan usar la aplicación en Azure RemoteAppn al mismo tiempo. Si esto sucede, podemos habilitar el **modo de capacidad** en el back-end. Para ello, abra una incidencia de soporte técnico de Azure. Asegúrese de incluir el identificador de la suscripción en la solicitud.  
 
 ![Estamos realizando la configuración](./media/remoteapp-apptrouble/ra-apptrouble1.png)
 
@@ -40,21 +40,21 @@ Este mensaje de error suele aparecer si estaba usando Azure RemoteApp y pone su 
 ![No ha sido posible la reconexión automática a sus aplicaciones](./media/remoteapp-apptrouble/ra-apptrouble2.png) 
 
 ## <a name="problems-with-the-temp-profile"></a>Problemas con el perfil temporal
-Este error se produce cuando el perfil de usuario (disco de perfil de usuario) no se puede montar y el usuario recibe un perfil temporal.  Los administradores deben dirigirse a la colección en Azure Portal y luego ir a la pestaña **Sesiones** e intentar cerrar la sesión del usuario con **Cerrar sesión**. Esto obligará a un cierre completo de la sesión del usuario. A continuación, indique el usuario que intente iniciar la aplicación de nuevo. Si se produce un error, póngase en contacto con el soporte técnico de Azure o envíenos un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com).
+Este error se produce cuando el perfil de usuario (disco de perfil de usuario) no se puede montar y el usuario recibe un perfil temporal.  Los administradores deben dirigirse a la colección en Azure Portal y luego ir a la pestaña **Sesiones** e intentar cerrar la sesión del usuario con **Cerrar sesión**. Esto obligará a un cierre completo de la sesión del usuario. A continuación, indique el usuario que intente iniciar la aplicación de nuevo. Si se produce un error, póngase en contacto con el soporte técnico de Azure.
 
 ## <a name="azure-remoteapp-has-stopped-working"></a>Azure RemoteApp ha dejado de funcionar
-Este mensaje de error significa que el cliente de Azure RemoteApp está teniendo un problema y debe reiniciarse. Indique a los usuarios que cierren la aplicación. Deben seleccionar **Cerrar programa** y luego iniciar de nuevo el cliente de Azure RemoteApp.  Si el problema continúa, abra una incidencia de soporte técnico de Azure o envíenos un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com).
+Este mensaje de error significa que el cliente de Azure RemoteApp está teniendo un problema y debe reiniciarse. Indique a los usuarios que cierren la aplicación. Deben seleccionar **Cerrar programa** y luego iniciar de nuevo el cliente de Azure RemoteApp.  Si el problema continúa, abra una incidencia de soporte técnico de Azure.
 
 ![Azure RemoteApp ha dejado de funcionar](./media/remoteapp-apptrouble/ra-apptrouble3.png)  
 
 ## <a name="an-error-occurred-while-remote-desktop-connection-was-accessing-this-resource-retry-the-connection-or-contact-your-system-administrator"></a>Se produjo un error mientras Conexión a Escritorio remoto trataba de obtener acceso a este recurso. Vuelva a intentar la conexión o póngase en contacto con el administrador del sistema.
-Se trata de un mensaje de error genérico: póngase en contacto con el soporte técnico de Azure o envíenos un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) para que podamos investigarlo. 
+Se trata de un mensaje de error genérico: póngase en contacto con el soporte técnico de Azure para que podamos investigarlo. 
 
 ![Mensaje genérico de Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble4.png) 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

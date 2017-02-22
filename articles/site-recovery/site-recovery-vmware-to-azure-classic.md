@@ -1,5 +1,5 @@
 ---
-title: "Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery | Microsoft Docs"
+title: "Replicación de máquinas virtuales de VMware y servidores físicos en Azure en el portal clásico | Microsoft Docs"
 description: "En este artículo se describe cómo implementar Azure Site Recovery para organizar la replicación, la conmutación por error y la recuperación de máquinas virtuales de VMware locales y servidores físicos de Windows o Linux en Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 70ccb773b70f1b58f039ea5f4aca488d91fa3dad
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: e794f44cbf0b5e76c8a67e6e63129efb12090df8
 
 
 ---
@@ -65,12 +65,12 @@ La implementación mejorada es una actualización importante. A continuación, p
 * Configure planes de recuperación que agrupen las cargas de trabajo de aplicaciones organizadas en niveles en distintas máquinas. Puede realizar la conmutación por recuperación de esos planes y Site Recovery proporcionará coherencia para varias máquinas virtuales, con la finalidad de recuperar las máquinas virtuales que ejecutan las mismas cargas de trabajo a un punto de datos coherente.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
-### <a name="windows64-bit-only"></a>Windows (solo 64 bits)
+### <a name="windows64-bit-only"></a>Windows (solo&64; bits)
 * Windows Server 2008 R2 SP1 y versiones posteriores
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (solo 64 bits)
+### <a name="linux-64-bit-only"></a>Linux (solo&64; bits)
 * Red Hat Enterprise Linux 6.7, 7.1 y 7.2
 * CentOS 6.5, 6.6, 6.7, 7.0, 7.1 y 7.2
 * Oracle Enterprise Linux 6.4 y 6.5, en ejecución en el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3)
@@ -115,7 +115,7 @@ La tabla siguiente resumen las recomendaciones de tamaño para el servidor de ad
 
 | **CPU del servidor de administración** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Implemente un servidor de administración con esta configuración para replicar menos de 100 máquinas. |
+| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) |16 GB |<&300; GB |500 GB o menos |Implemente un servidor de administración con esta configuración para replicar menos de 100 máquinas. |
 | 12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Implemente un servidor de administración con esta configuración para replicar entre 100 y 150 máquinas. |
 | 16 vCPU (2 sockets * 8 núcleos @ 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Implemente un servidor de administración con esta configuración para replicar entre 150 y 200 máquinas. |
 | Implementar otro servidor de procesos | | |2 TB |Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB. |
@@ -169,7 +169,7 @@ Esta tabla describe un escenario en el cual:
 
 | **Servidor de administración original**<br/><br/>(servidor de configuración) | **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria |4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Puede replicar 85 máquinas o menos. |
+| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria |4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria |<&300; GB |250 GB o menos |Puede replicar 85 máquinas o menos. |
 | 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria |8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Puede replicar entre 85 y 150 máquinas. |
 | 12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 18 GB de memoria |12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 24 GB de memoria |1 TB |1 TB a 2 TB |Puede replicar entre 150 y 225 máquinas. |
 
@@ -250,7 +250,7 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 >
 
 
->[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. En la página **Inicio rápido** , descargue el archivo de instalación unificada en el servidor.
@@ -296,7 +296,7 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 3. En **Ubicación de instalación** , seleccione dónde quiere instalar los archivos binarios y almacenar la memoria caché. Puede seleccionar una unidad que tenga al menos 5 GB de almacenamiento disponible, pero se recomienda usar una unidad de memoria caché con 600 GB o más de espacio libre.
 
    ![Ubicación de instalación](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
-4. En **Selección de red** , especifique el agente de escucha (adaptador de red y puerto SSL) en el que el servidor de configuración enviará y recibirá los datos de replicación. Puede modificar el puerto predeterminado (9443). Además de este puerto, el puerto 443 se utilizará un servidor web que organiza las operaciones de replicación. No se debe utilizar el puerto 443 para recibir tráfico de replicación.
+4. En **Selección de red** , especifique el agente de escucha (adaptador de red y puerto SSL) en el que el servidor de configuración enviará y recibirá los datos de replicación. Puede modificar el puerto predeterminado (9443). Además de este puerto, el puerto 443 se utilizará un servidor web que organiza las operaciones de replicación. No se debe utilizar el puerto&443; para recibir tráfico de replicación.
 
     ![Selección de red](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
 
@@ -335,7 +335,7 @@ Donde:
 * /ProxySettingsFilePath. Opcional. Especifica la configuración de un proxy personalizado (ya sea el proxy predeterminado en el servidor que requiere autenticación o un proxy personalizado).
 
 ## <a name="step-6-set-up-credentials-for-the-vcenter-server"></a>Paso 6: Configuración de las credenciales para el servidor vCenter
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Discovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
 >
 >
 
@@ -377,7 +377,7 @@ Si replica máquinas virtuales de VMware, deberá agregar un servidor vCenter (o
     ![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 
 ## <a name="step-8-create-a-protection-group"></a>Paso 8: Creación de un grupo de protección
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Protection/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Protection/player]
 >
 >
 
@@ -452,7 +452,7 @@ Los instaladores están disponibles en C:\Program Files (x86)\Microsoft Azure Si
 
 | Sistema operativo de origen | Archivo de instalación del servicio de movilidad |
 | --- | --- |
-| Windows Server 64 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
+| Windows Server&64; (solo&64; bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
 | CentOS 6.4, 6.5, 6.6 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
@@ -589,7 +589,7 @@ Además, el estado de protección se puede supervisar en **Elementos protegidos*
      * Si el adaptador de red de la máquina de origen está configurado para utilizar una dirección IP estática, puede especificar una dirección IP estática para la máquina virtual de Azure. Si no proporciona una dirección IP estática, se asignará cualquier dirección IP que se encuentre disponible. Si se especifica la dirección IP de destino, pero ya la usa otra máquina virtual en Azure, la conmutación por error presentará errores. Si el adaptador de red de la máquina de origen está configurado para utilizar DHCP, esta será la configuración para Azure.
 
 ## <a name="step-12-create-a-recovery-plan-and-run-a-failover"></a>Paso 12: Creación de un plan de recuperación y ejecución de una conmutación por error
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Failover/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Failover/player]
 >
 >
 
@@ -722,6 +722,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

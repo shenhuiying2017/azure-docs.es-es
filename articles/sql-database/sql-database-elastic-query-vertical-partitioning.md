@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
 
 
 ---
@@ -30,7 +30,10 @@ Las bases de datos con particiones verticales usan distintos conjuntos de tablas
 * Se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para hacer referencia al origen de datos subyacente.
 
 ## <a name="overview"></a>Información general
-**NOTA**: A diferencia del particionamiento horizontal, estas instrucciones DDL no dependen de la definición de una capa de datos con un mapa de particiones mediante la biblioteca de cliente de bases de datos elásticas.
+
+> [!NOTE]
+> A diferencia del particionamiento horizontal, estas instrucciones DDL no dependen de la definición de una capa de datos con un mapa de particiones mediante la biblioteca de cliente de bases de datos elásticas.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -45,7 +48,9 @@ La credencial utiliza la consulta elástica para conectarse a las bases de datos
     SECRET = '<password>'
     [;]
 
-**Nota** Asegúrese de que *<username>* no incluya ningún sufijo *"@servername"*. 
+> [!NOTE]
+> Asegúrese de que `<username>` no incluya ningún sufijo **"@servername"**. 
+>
 
 ## <a name="create-external-data-sources"></a>Creación de orígenes de datos externos
 Sintaxis:
@@ -58,7 +63,9 @@ Sintaxis:
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Importante** El parámetro TYPE debe establecerse en **RDBMS**. 
+> [!IMPORTANT]
+> El parámetro TYPE debe establecerse en **RDBMS**. 
+>
 
 ### <a name="example"></a>Ejemplo
 En el ejemplo siguiente se ilustra el uso de la instrucción CREATE para orígenes de datos externos. 
@@ -185,6 +192,6 @@ Para consultar bases de datos con particiones horizontales (también llamadas ba
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Instalación del dispositivo StorSimple 8600 | Microsoft Docs"
+title: "Instalación del dispositivo Microsoft Azure StorSimple 8600 | Microsoft Docs"
 description: "Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600 antes de implementar y configurar el software."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5b250358c44e699082c27803027a6a861e206a7d
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
 
 
 ---
@@ -203,8 +203,8 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
    
    | Etiqueta | Description |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de red de 1 GbE |
-   |   2,3 |Interfaces de red de 10 GbE |
+   |   0,1,4,5 |Interfaces de red de&1; GbE |
+   |   2,3 |Interfaces de red de&10; GbE |
    |   6 |Puertos serie |
 2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. Para obtener un alto rendimiento y disponibilidad, la configuración adicional requerida se muestra mediante líneas de puntos).
 
@@ -233,7 +233,7 @@ Cuando se realiza el cableado del dispositivo, la configuración mínima requier
 
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
-* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
+* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan&10; GbE) en cada controlador.
 * Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
@@ -252,8 +252,8 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 5. Configure la conexión serie del modo indicado a continuación:
    
    * 115.200 baudios
-   * Bits de datos: 8
-   * Bit de parada: 1
+   * Bits de datos:&8;
+   * Bit de parada:&1;
    * Sin paridad
    * Control de flujo establecido en **Ninguno**
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
@@ -271,6 +271,6 @@ Ahora está listo para [implementar y configurar el dispositivo StorSimple local
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

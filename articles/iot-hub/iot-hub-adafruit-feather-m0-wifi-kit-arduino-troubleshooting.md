@@ -1,5 +1,5 @@
 ---
-title: "Solución de problemas del kit de inicio de IoT de Azure en Adafruit Feather M0 WiFi | Microsoft Docs"
+title: "Conexión de Arduino (C) a Azure IoT: Solución de problemas | Microsoft Docs"
 description: "Página de solución de problemas de experiencia de Adafruit Feather M0 WiFi Arduino"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: e855e43c14cac49598ff6d6bd3582efe81c50243
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 448dc0370014ad295ed820d796f7af2eb5fe698e
 
 
 ---
@@ -74,7 +74,7 @@ Al instalar **pip**, se produce un error de permisos si hay paquetes antiguos in
 Si el centro de IoT Hub de Azure se ha aprovisionado correctamente con `azure-cli` y necesita una herramienta que administre los dispositivos que se conectan a este centro, puede probar las siguientes herramientas:
 
 ### <a name="device-explorer"></a>Explorador de dispositivos
-El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) se ejecuta en el equipo local Windows y se conecta a IoT Hub de Azure. Además, se comunica con los siguientes [puntos de conexión de IoT Hub](iot-hub-devguide.md):
+El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) se ejecuta en el equipo local Windows y se conecta a IoT Hub de Azure. Además, se comunica con los siguientes [puntos de conexión de IoT Hub](iot-hub-devguide.md):
 
 * *Administración de identidades de dispositivo* para aprovisionar y administrar los dispositivos registrados con su instancia de IoT Hub.
 * *Recepción de mensajes del dispositivo a la nube*, para poder supervisar mensajes enviados desde el dispositivo al centro de IoT Hub.
@@ -83,7 +83,8 @@ El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdks/blob/mas
 Configurar `IoT hub connection string` dentro de esta herramienta para usar todas sus funcionalidades.
 
 ### <a name="iot-hub-explorer"></a>Explorador de IoT Hub
-El [Explorador de IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) es una herramienta CLI multiplataforma de ejemplo para administrar clientes de dispositivos. Esta herramienta puede usarse para administrar los dispositivos en el registro de identidad, supervisar los mensajes del dispositivo a la nube y enviar comandos de la nube al dispositivo.
+El [Explorador de IoT Hub](https://github.com/Azure/iothub-explorer) es una herramienta CLI multiplataforma de ejemplo para administrar clientes de dispositivos. Esta herramienta puede usarse para administrar los dispositivos en el registro de identidad, supervisar los mensajes del dispositivo a la nube y enviar comandos de la nube al dispositivo.
+
 
 Para instalar la última versión (versión preliminar) de la herramienta iothub-explorer, ejecute el siguiente comando en el entorno de la línea de comandos:
 
@@ -108,6 +109,6 @@ El [Explorador de Microsoft Azure Storage (versión preliminar)](http://storagee
 [sample-repository]: https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

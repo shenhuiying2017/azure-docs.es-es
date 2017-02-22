@@ -1,5 +1,5 @@
 ---
-title: "Detección, evaluación de errores y diagnóstico"
+title: "Detección y diagnóstico de problemas de la aplicación web: Azure Application Insights | Microsoft Docs"
 description: Analice los bloqueos y detecte y diagnostique problemas de rendimiento en sus aplicaciones.
 author: alancameronwills
 services: application-insights
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 9589adad2f8f227043b2c8f864a48d1c9ba43732
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
 
 
 ---
@@ -69,7 +69,7 @@ En la misma página de información general de Application Insights, hay un grá
 
 El tiempo de carga de la página del explorador se obtiene de la telemetría enviada directamente desde las páginas web. El tiempo de respuesta del servidor, el número de solicitudes del servidor y el número de solicitudes con error se miden en el servidor web y se envían a Application Insights desde allí.
 
-Marcela está un poco preocupada por el gráfico de respuesta del servidor, que muestra el tiempo promedio que pasa entre la recepción en el de una solicitud HTTP del explorador de un usuario y la devolución de la respuesta. No es infrecuente ver una variación en este gráfico, porque la carga del sistema varía. No obstante, en este caso, parece haber una correlación entre los pequeños aumentos en el recuento de solicitudes y los grandes aumentos en el tiempo de respuesta. Esto podría indicar que el sistema está funcionando al borde de sus límites. 
+Marcela está un poco preocupada por el gráfico de respuesta del servidor, que muestra el tiempo promedio que pasa entre la recepción en el de una solicitud HTTP del explorador de un usuario y la devolución de la respuesta. No es infrecuente ver una variación en este gráfico, porque la carga del sistema varía. No obstante, en este caso, parece haber una correlación entre los pequeños aumentos en el recuento de solicitudes y los grandes aumentos en el tiempo de respuesta. Esto podría indicar que el sistema está funcionando al borde de sus límites.
 
 Abre los gráficos de servidores:
 
@@ -91,7 +91,7 @@ El día siguiente, llega una alerta de Application Insights por correo electrón
 
 Las solicitudes con error indican los casos donde los usuarios han visto un error, normalmente a continuación de una excepción en el código. Quizás verán un mensaje que dice "Lo sentimos, no pudimos actualizar sus datos ahora" o, en el peor de los casos, un volcado de la pila en la pantalla del usuario, cortesía del servidor web.
 
-Esta alerta es una sorpresa, porque la última vez que lo consultó, el recuento de solicitudes con error era bastante bajo. En un servidor ocupado, era de esperar un pequeño número de errores. 
+Esta alerta es una sorpresa, porque la última vez que lo consultó, el recuento de solicitudes con error era bastante bajo. En un servidor ocupado, era de esperar un pequeño número de errores.
 
 También le sorprendió no haber tenido que configurar esta alerta. De hecho, la detección inteligente se incluye automáticamente con Application Insights. Se ajusta de forma automática al patrón de errores habitual de la aplicación y "se adapta a" los errores de una página concreta, con una carga elevada o vinculados a otras métricas. Genera la alarma solo si hay un aumento por encima de lo que se espera.
 
@@ -101,16 +101,16 @@ Se trata de un correo electrónico muy útil. No solo genera una alarma, sino qu
 
 Muestra cuántos clientes se ven afectados y en qué páginas web u operaciones. Marcela puede decidir si necesita implicar a todo el equipo que trabaja en esto como un simulacro de incendio o si se puede ignorar hasta la próxima semana.
 
-El correo electrónico también muestra que se ha producido una excepción determinada y (todavía más interesante) que el error está asociado con las llamadas con error a una base de datos determinada. Esto explica por qué el error ha aparecido repentinamente, aunque el equipo de Marcela no haya implementado recientemente ninguna actualización. 
+El correo electrónico también muestra que se ha producido una excepción determinada y (todavía más interesante) que el error está asociado con las llamadas con error a una base de datos determinada. Esto explica por qué el error ha aparecido repentinamente, aunque el equipo de Marcela no haya implementado recientemente ninguna actualización.
 
 Hace ping al coordinador del equipo de base de datos. Sí, han lanzado una revisión en la última media hora y, por lo que parece, es posible que se haya producido un pequeño cambio en el esquema...
 
-Por tanto, el problema se está resolviendo, incluso antes de investigar los registros y en los 15 minutos posteriores a su aparición. Aun así, Marcela hace clic en el vínculo para abrir Application Insights. Se abre directamente en una solicitud con error y ve la llamada a la base de datos con error en la lista asociada de llamadas de dependencia. 
+Por tanto, el problema se está resolviendo, incluso antes de investigar los registros y en los 15 minutos posteriores a su aparición. Aun así, Marcela hace clic en el vínculo para abrir Application Insights. Se abre directamente en una solicitud con error y ve la llamada a la base de datos con error en la lista asociada de llamadas de dependencia.
 
 ![solicitud con error](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detecting-exceptions"></a>Detección de excepciones
-Con un poco de configuración, se notifican [excepciones](app-insights-asp-net-exceptions.md) automáticamente a Application Insights. También se pueden capturar de manera explícita mediante la inserción de llamadas a [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) en el código:  
+Con un poco de configuración, se notifican [excepciones](app-insights-asp-net-exceptions.md) automáticamente a Application Insights. También se pueden capturar de manera explícita mediante la inserción de llamadas a [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) en el código:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -191,17 +191,17 @@ En el caso de respuesta lenta, compare la tabla de solicitudes de respuesta más
 ## <a name="diagnosis"></a>Diagnóstico
 El diagnóstico no es exactamente lo mismo que la depuración. Antes de iniciar el seguimiento a través del código, debe tener una idea aproximada de por qué, dónde y cuándo se está produciendo el problema.
 
-**¿Cuándo sucede?**  La vista histórica proporcionada por los gráficos de eventos y métricas facilita la creación de una correlación entre los efectos y las posibles causas. Si hay picos intermitentes en las tasas de excepción o de tiempo de respuesta, examine el número de solicitudes: si alcanza el máximo al mismo tiempo, parece un problema de recursos. ¿Es necesario asignar más CPU o memoria? ¿O se trata de una dependencia que no puede administrar la carga?
+**¿Cuándo sucede?** La vista histórica proporcionada por los gráficos de eventos y métricas facilita la creación de una correlación entre los efectos y las posibles causas. Si hay picos intermitentes en las tasas de excepción o de tiempo de respuesta, examine el número de solicitudes: si alcanza el máximo al mismo tiempo, parece un problema de recursos. ¿Es necesario asignar más CPU o memoria? ¿O se trata de una dependencia que no puede administrar la carga?
 
-**¿Somos nosotros?**   Si tiene un descenso repentino en el rendimiento de un tipo concreto de solicitud, por ejemplo cuando el cliente desea un extracto de cuenta, hay una posibilidad de que sea un subsistema externo en lugar de la aplicación web. En el Explorador de métricas, seleccione la tasa de errores de dependencia y las tasas de duración de dependencia y compare sus historiales de las pasadas horas o días con el problema que ha detectado. Si hay cambios que se correlacionan, es posible que un subsistema externo sea el culpable.  
+**¿Somos nosotros?**  Si tiene un descenso repentino en el rendimiento de un tipo concreto de solicitud, por ejemplo cuando el cliente desea un extracto de cuenta, hay una posibilidad de que sea un subsistema externo en lugar de la aplicación web. En el Explorador de métricas, seleccione la tasa de errores de dependencia y las tasas de duración de dependencia y compare sus historiales de las pasadas horas o días con el problema que ha detectado. Si hay cambios que se correlacionan, es posible que un subsistema externo sea el culpable.  
 
 ![Gráficos de errores de dependencia y duración de llamadas a dependencias](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Algunos problemas de dependencia lenta son problemas de ubicación geográfica. Fabrikam Bank usa máquinas virtuales de Azure, y descubrieron que habían ubicado sin darse cuenta el servidor web y el servidor de cuentas en distintos países. Migrando uno de ellos, se obtuvo una mejora considerable.
 
-**¿Qué hicimos?**  Si el problema no parece estar en una dependencia, y no ha estado siempre ahí, es probable que se deba a un cambio reciente. La perspectiva histórica proporcionada por los gráficos de métricas y eventos facilita la correlación de cualquier cambio repentino con las implementaciones. De esta forma se limita la búsqueda del problema.
+**¿Qué hicimos?** Si el problema no parece estar en una dependencia, y no ha estado siempre ahí, es probable que se deba a un cambio reciente. La perspectiva histórica proporcionada por los gráficos de métricas y eventos facilita la correlación de cualquier cambio repentino con las implementaciones. De esta forma se limita la búsqueda del problema.
 
-**¿Qué está ocurriendo?**  Algunos problemas se producen solo en raras ocasiones y pueden ser difíciles de rastrear mediante pruebas sin conexión. Todo lo que podemos hacer es intentar capturar el error cuando se produzca en vivo. Puede inspeccionar los volcados de pila en los informes de excepciones. Además, puede escribir llamadas de seguimiento con su marco de registro favorito o con TrackTrace() o TrackEvent().  
+**¿Qué está ocurriendo?** Algunos problemas se producen solo en raras ocasiones y pueden ser difíciles de rastrear mediante pruebas sin conexión. Todo lo que podemos hacer es intentar capturar el error cuando se produzca en vivo. Puede inspeccionar los volcados de pila en los informes de excepciones. Además, puede escribir llamadas de seguimiento con su marco de registro favorito o con TrackTrace() o TrackEvent().  
 
 Fabrikam tenía un problema intermitente con las transferencias entre cuentas, pero solo con determinados tipos de cuenta. Para entender mejor lo que estaba ocurriendo, insertaron llamadas a TrackTrace() en los puntos clave del código y asociaron el tipo de cuenta como una propiedad para cada llamada. De esta forma fue fácil filtrar solo esos seguimientos en la búsqueda de diagnóstico. También asociaron valores de parámetros como propiedades y medidas a las llamadas de seguimiento.
 
@@ -231,10 +231,6 @@ Puede comenzar a trabajar de varias maneras, según las características de la a
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

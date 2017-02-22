@@ -1,6 +1,6 @@
 ---
-title: Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage | Microsoft Docs
-description: Mover datos hacia y desde el almacenamiento de blobs de Azure con el Explorador de almacenamiento de Azure
+title: Movimiento de datos hacia y desde Blob Storage con el Explorador de Azure Storage | Microsoft Docs
+description: Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
-ms.openlocfilehash: 18c05ade1ee0c0c716307613a3c0daf1c8d853aa
+ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
+ms.openlocfilehash: a258404e659bd6d6e7e0f468a5f3ce5e184be2a3
 
 
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde el almacenamiento de blobs de Azure con el Explorador de almacenamiento de Azure
-El Explorador de almacenamiento de Azure es una herramienta gratuita de Microsoft que permite trabajar con los datos de Almacenamiento de Azure en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/).
+# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
+El Explorador de Azure Storage es una herramienta gratuita de Microsoft que permite trabajar con los datos de Azure Storage en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -46,18 +46,18 @@ En este documento se supone que tiene una suscripción de Azure y una cuenta de 
 En los pasos siguientes se describe cómo cargar y descargar datos mediante el Explorador de almacenamiento de Azure. 
 
 1. Inicie Explorador de almacenamiento de Microsoft Azure.
-2. Para que aparezca el Asistente **Iniciar sesión en una cuenta...**, seleccione el icono de **Configuración de la cuenta de Azure**, **Agregar una cuenta** y escriba las credenciales. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Para que aparezca el Asistente **Conectar a Azure Storage**, seleccione el icono de **Conectar a Azure Storage**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Escriba la clave de acceso de la cuenta de almacenamiento de Azure en el Asistente **Conectar a Azure Storage** y luego haga clic en **Siguiente**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
-5. Escriba el nombre de la cuenta de almacenamiento en el cuadro **Nombre de cuenta** y, después, seleccione **Siguiente**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
+2. Para que aparezca el Asistente **Iniciar sesión en una cuenta...**, seleccione el icono de **Configuración de la cuenta de Azure**, luego **Agregar una cuenta** y escriba las credenciales. ![Agregar una cuenta de Azure Storage](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
+3. Para que aparezca el Asistente **Conectar a Azure Storage**, seleccione el icono de **Conectar a Azure Storage**. ![Conectar a Azure Storage](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Escriba la clave de acceso de la cuenta de Azure Storage en el Asistente **Conectar a Azure Storage** y luego haga clic en **Siguiente**. ![Conectar a Azure Storage](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+5. Escriba el nombre de la cuenta de almacenamiento en el cuadro **Nombre de cuenta** y, después, seleccione **Siguiente**. ![Adjuntar almacenamiento externo](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. Ahora debería aparecer la cuenta de almacenamiento agregada. Para crear un contenedor de blobs en una cuenta de almacenamiento, haga clic con el botón derecho en el nodo **Contenedores de blob** de esa cuenta, seleccione **Crear contenedor de blobs** y escriba un nombre.
-7. Para cargar datos en un contenedor, seleccione el contenedor de destino y haga clic en el botón **Cargar**.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
-8. Haga clic en **...** a la derecha del cuadro **Archivos**, seleccione uno o varios para cargarlos desde el sistema de archivos y haga clic en **Cargar** para empezar a cargarlos.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
-9. Para descargar datos, seleccione el blob en el contenedor correspondiente y haga clic en el botón **Descargar**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
+7. Para cargar datos en un contenedor, seleccione el contenedor de destino y haga clic en el botón **Cargar**.![Cuentas de almacenamiento](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
+8. Haga clic en **...** a la derecha del cuadro **Archivos**, seleccione uno o varios archivos para cargarlos desde el sistema de archivos y haga clic en **Cargar** para empezar a cargarlos.![Cargar archivos](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
+9. Para descargar datos, seleccione el blob en el contenedor correspondiente para descarga y haga clic en **Descargar**. ![Descargar archivos](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

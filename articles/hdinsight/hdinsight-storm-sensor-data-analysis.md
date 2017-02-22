@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 0d2743f10d828aaf5ef401ac5378c94384e0a46b
+ms.sourcegitcommit: b19e8b8e6f90ad502799fafd70ad6838d6e6ba4d
+ms.openlocfilehash: 215698f2089934eac549e36644f0bfd4247fe2b9
 
 
 ---
@@ -224,8 +224,7 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
    
    > [!NOTE]
    > En este ejemplo se da por supuesto que ha usado **sensordata** como nombre del centro de eventos y **devices** como nombre de la directiva que tiene una notificación **Enviar**.
-   > 
-   > 
+
 3. Use el siguiente comando para insertar entradas nuevas en el Centro de eventos:
    
         node app.js
@@ -345,12 +344,11 @@ Para almacenar datos en HBase, primero hay que crear una tabla. Por lo general s
         exit
 
 ## <a name="configure-the-hbase-bolt"></a>Configuración del bolt de HBase
-Para escribir en HBase desde el clúster de Storm, debe proporcionar el bolt de HBase con los detalles de configuración de su clúster de HBase. La manera más fácil de hacerlo es descargar el archivo **hbase-site.xml** del clúster e incluirlo en el proyecto. También debe quitar los comentarios de varias dependencias en el archivo **pom.xml** , que carga el componente storm-hbase y las dependencias necesarias.
+
+Para escribir en HBase desde el clúster de Storm, debe proporcionar el bolt de HBase con los detalles de configuración de su clúster de HBase. La manera más fácil de hacerlo es descargar el archivo **hbase-site.xml** del clúster e incluirlo en el proyecto. 
 
 > [!IMPORTANT]
 > También debe descargar el archivo storm-hbase.jar proporcionado en el clúster 3.3 o 3.4 de Storm en HDInsight; esta versión está compilada para funcionar con HBase 1.1.x, que se utiliza para HBase en los clústeres 3.3 y 3.4 de HDInsight. Si utiliza un componente de storm-hbase procedente de otra parte, se puede compilar con una versión anterior de HBase.
-> 
-> 
 
 ### <a name="download-the-hbase-sitexml"></a>Descarga del archivo hbase-site.xml
 Desde un símbolo del sistema, utilice SCP para descargar el archivo **hbase-site.xml** desde el clúster. En el ejemplo siguiente, reemplace **USERNAME** por el usuario de SSH que proporcionó al crear el clúster y **BASENAME** por el nombre base que proporcionó anteriormente. Cuando se le solicite, escriba la contraseña del usuario de SSH. Reemplace `/path/to/TemperatureMonitor/resources/hbase-site.xml` por la ruta de acceso a este archivo en el proyecto TemperatureMonitor.
@@ -373,33 +371,18 @@ Esto descargará el archivo **hbase-site.xml** en la ruta especificada.
    
         mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
-### <a name="enable-the-storm-hbase-component-in-the-project"></a>Habilitación del componente de storm-hbase en el proyecto
-1. Abra el archivo **TemperatureMonitor/pom.xml** y elimine las líneas siguientes:
-   
-        <!-- uncomment this section to enable the hbase-bolt
-        end comment for hbase-bolt section -->
-   
-   > [!IMPORTANT]
-   > Elimine solo estas dos líneas; no elimine ninguna de las líneas entre ellas.
-   > 
-   > 
-   
-    Esto habilita varios componentes que son necesarios al comunicarse con HBase mediante el bolt de hbase.
-2. Busque las líneas siguientes y reemplace **####** por el número de versión del archivo storm-hbase que descargó anteriormente.
-   
+3. En el archivo __pom.xml__, busque en la sección de dependencia __storm-hbase__. Quite el comentario de la dependencia; para ello, quite los símbolos `<!--` y `-->` que la rodean. También, cambie la entrada `<version></version>` para que coincida con los símbolos #### usados en los pasos anteriores. La entrada será similar al ejemplo siguiente:
+
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-hbase</artifactId>
-            <version>####</version>
+            <version>0.10.0.2.4.2.4-5</version>
         </dependency>
-   
-   > [!IMPORTANT]
-   > El número de versión debe coincidir con la versión utilizada al instalar el componente en el repositorio de Maven local, ya que Maven usa esta información para cargar el componente al compilar el proyecto.
-   > 
-   > 
-3. Guarde el archivo **pom.xml** .
+
+   Guarde el archivo después de realizar cambios.
 
 ## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>Compilación, empaquetado e implementación de la solución en HDInsight
+
 En el entorno de desarrollo, siga estos pasos para implementar la topología de Storm en el clúster de storm.
 
 1. Desde el directorio **TemperatureMonitor** , use el comando siguiente para realizar una nueva compilación y crear un paquete JAR a partir del proyecto:
@@ -409,7 +392,7 @@ En el entorno de desarrollo, siga estos pasos para implementar la topología de 
     Se creará un archivo denominado **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **target** del proyecto.
 2. Use scp para cargar el archivo **TemperatureMonitor-1.0-SNAPSHOT.jar** en el clúster de Storm. En el ejemplo siguiente, reemplace **USERNAME** por el usuario de SSH que proporcionó al crear el clúster y **BASENAME** por el nombre base que proporcionó anteriormente. Cuando se le solicite, escriba la contraseña del usuario de SSH.
    
-        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
+        scp target/TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
    
    > [!NOTE]
    > Puede tardar varios minutos en cargar el archivo, ya que tendrá varios megabytes.

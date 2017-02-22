@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
 
 ---
 
@@ -36,10 +36,10 @@ Antes de comenzar este tutorial, debe haber [creado ya un índice de Búsqueda d
 
 Para poder insertar documentos en el índice mediante la API de REST, deberá emitir una solicitud HTTP POST al punto de conexión de la dirección URL del índice. El cuerpo de la solicitud HTTP es un objeto JSON que contiene los documentos que se van a agregar, modificar o eliminar.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificación de la clave de API de administración del servicio de Búsqueda de Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio de Búsqueda de Azure
 Al emitir solicitudes HTTP en el servicio mediante la API de REST, *cada* solicitud de API debe incluir la clave de API que se generó para el servicio de Búsqueda que aprovisionó. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-1. Para buscar las claves de API del servicio, debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
+1. Para buscar las claves de API del servicio, puede iniciar sesión en [Azure Portal](https://portal.azure.com/)
 2. Vaya a la hoja de servicio de Búsqueda de Azure
 3. Haga clic en el icono "Claves"
 
@@ -50,7 +50,7 @@ El servicio tendrá *claves de administración* y *claves de consulta*.
 
 Para importar datos en un índice, puede usar su clave de administración principal o la secundaria.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Elección de la acción de indexación que va a usar
+## <a name="decide-which-indexing-action-to-use"></a>Elección de la acción de indexación que va a usar
 Al utilizar la API de REST, emitirá solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del punto de conexión del índice de Búsqueda de Azure. El objeto JSON en el cuerpo de la solicitud HTTP contiene una única matriz JSON denominada "value" que contiene los objetos JSON que representan los documentos que le gustaría agregar, actualizar o eliminar del índice.
 
 Cada objeto JSON de la matriz de "value" representa un documento que se va a indexar. Cada uno de estos objetos contiene la clave del documento y especifica la acción de indexación deseada (cargar, combinar, eliminar, etc.). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
@@ -62,7 +62,7 @@ Cada objeto JSON de la matriz de "value" representa un documento que se va a ind
 | `mergeOrUpload` |Esta acción se comporta como `merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `upload` con un nuevo documento. |la clave, además de cualquier otro campo que desee definir |- |
 | `delete` |Quita el documento especificado del índice. |solo la clave |Todos los campos que especifique que no sean el campo de clave, se omitirán. Si desea quitar un campo individual de un documento, use `merge` en su lugar y establezca el campo explícitamente con el valor NULL. |
 
-## <a name="iii-construct-your-http-request-and-request-body"></a>III. Construcción de la solicitud HTTP y el cuerpo de la solicitud
+## <a name="construct-your-http-request-and-request-body"></a>Construcción de la solicitud HTTP y el cuerpo de la solicitud
 Ahora que ha recopilado los valores de campo necesarios para las acciones de índice, está listo para construir la solicitud HTTP real y el cuerpo de solicitud JSON para importar sus datos.
 
 #### <a name="request-and-request-headers"></a>Solicitudes y encabezados de solicitud
@@ -126,7 +126,7 @@ Se supone que este índice "hoteles" de ejemplo ya está relleno con varios docu
 
 Además, tenga en cuenta que solo se puede incluir hasta 1000 documentos (o 16 MB) en una única solicitud de indexación.
 
-## <a name="iv-understand-your-http-response-code"></a>IV. Descripción del código de respuesta HTTP
+## <a name="understand-your-http-response-code"></a>Descripción del código de respuesta HTTP
 #### <a name="200"></a>200
 Después de enviar una solicitud de indexación correcta recibirá una respuesta HTTP con código de estado de `200 OK`. El cuerpo JSON de la respuesta HTTP será el siguiente:
 
@@ -177,11 +177,11 @@ Se devolverá un código de estado de `503` si ninguno de los elementos de la so
 
 Para más información sobre las acciones de documentos y las respuestas de éxito o error, consulte [Agregar, actualizar o eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Búsqueda de Azure](search-query-overview.md) .
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

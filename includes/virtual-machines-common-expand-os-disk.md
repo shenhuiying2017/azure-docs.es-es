@@ -84,6 +84,6 @@ Si desea averiguar cómo conectar discos a una máquina virtual de Azure Resourc
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

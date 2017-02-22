@@ -1,6 +1,6 @@
 ---
-title: "Equilibrio de carga de contenedores en un clúster de Azure Container Service | Microsoft Docs"
-description: "Equilibrio de carga en varios contenedores en un clúster de Azure Container Service."
+title: "Equilibrio de carga de contenedores en un clúster DC/OS de Azure | Microsoft Docs"
+description: "Equilibrio de carga en varios contenedores en un clúster DC/OS de Azure Container Service."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -11,18 +11,18 @@ keywords: Contenedores, microservicios, DC/OS, Azure
 ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
 
 
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Equilibrio de carga de contenedores en un clúster de Azure Container Service
+# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Equilibrio de carga de contenedores en un clúster DC/OS de Azure Container Service
 En este artículo, exploraremos cómo crear un equilibrador de carga interno en una instancia de Azure Container Service administrada por DC/OS mediante Marathon-LB. Esto le permitirá escalar aplicaciones horizontalmente. También le permitirá aprovechar sacar provecho de los clústeres de agente públicos y privados mediante la colocación de los equilibradores de carga en el clúster público y los contenedores de su aplicación en el clúster privado.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -39,14 +39,14 @@ El equilibrador de carga de Marathon se reconfigura dinámicamente basándose en
 
 Para instalar Marathon Load Balancer puede usar la IU web de DC/OS o la línea de comandos.
 
-### <a name="install-marathonlb-using-dcos-web-ui"></a>Instalación de Marathon-LB con la IU web de DC/OS
+### <a name="install-marathon-lb-using-dcos-web-ui"></a>Instalación de Marathon-LB con la IU web de DC/OS
 1. Haga clic en "Universe" (Universo)
 2. Busque "Marathon-LB"
 3. Haga clic en "Install" (Instalar)
 
 ![Instalación de maratón lb a través de la interfaz de Web DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathonlb-using-the-dcos-cli"></a>Instalación de Marathon-LB con la CLI de DC/OS
+### <a name="install-marathon-lb-using-the-dcos-cli"></a>Instalación de Marathon-LB con la CLI de DC/OS
 Después de instalar la CLI de DC/OS y garantizar puede conectarse al clúster, ejecute el siguiente comando desde la máquina cliente:
 
 ```bash
@@ -136,6 +136,6 @@ Para más información sobre [marathon-lb](https://dcos.io/docs/1.7/usage/servic
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

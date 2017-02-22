@@ -1,6 +1,6 @@
 ---
-title: "Introducción a los dispositivos gemelos | Microsoft Docs"
-description: "En este tutorial se muestra cómo usar los dispositivos gemelos."
+title: "Introducción a los dispositivos gemelos de IoT Hub de Azure | Microsoft Docs"
+description: "Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. El SDK de IoT de Azure para Node.js se usa para implementar la aplicación de dispositivo simulado y una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: d7b615476bb5e9ed08e1e84f63c1a40c11154b23
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 527aed57517f04d1b0fdcad5feac5488123b89c7
 
 
 ---
-# <a name="tutorial-get-started-with-device-twins"></a>Tutorial: Introducción a los dispositivos gemelos
+# <a name="get-started-with-device-twins-node"></a>Introducción a los dispositivos gemelos (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
-* **AddTagsAndQuery.js**, una aplicación Node.js diseñada para ejecutarse desde el back-end, que agrega etiquetas y consulta dispositivos gemelos.
+* **AddTagsAndQuery.js**, una aplicación Node.js de back-end diseñada para ejecutarse desde el back-end, que agrega etiquetas y consulta dispositivos gemelos.
 * **TwinSimulatedDevice.js**, una aplicación de Node.js que simula un dispositivo que se conecta a su centro de IoT con la identidad del dispositivo creada anteriormente e informa de su estado de conectividad.
 
 > [!NOTE]
-> El artículo [SDK de IoT de Azure][lnk-hub-sdks] proporciona información acerca de los SDK que puede usar para crear el dispositivo y las aplicaciones back-end.
+> En el artículo [SDK de IoT de Azure][lnk-hub-sdks] se proporciona información sobre los SDK que puede usar para crear aplicaciones de dispositivo y de back-end.
 > 
 > 
 
@@ -56,11 +56,11 @@ En esta sección, creará una aplicación de consola de Node.js que agrega metad
     npm install azure-iothub --save
     ```
 3. Con un editor de texto, cree un nuevo archivo **AddTagsAndQuery.js** en la carpeta **addtagsandqueryapp**.
-4. Agregue el código siguiente al archivo **AddTagsAndQuery.js** y sustituya el marcador de posición **{service connection string}** con la cadena de conexión que copió al crear su centro:
+4. Agregue el código siguiente al archivo **AddTagsAndQuery.js** y sustituya el marcador de posición **{iot hub connection string}** con la cadena de conexión de IoT Hub que copió al crear su centro:
    
         'use strict';
         var iothub = require('azure-iothub');
-        var connectionString = '{service hub connection string}';
+        var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
    
         registry.getTwin('myDeviceId', function(err, twin){
@@ -197,7 +197,7 @@ En esta sección, creará una aplicación de consola de Node.js que se conecta a
     ![][3]
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Ha agregado metadatos de dispositivo como etiquetas desde una aplicación back-end y ha escrito una aplicación de dispositivo simulado para notificar la información de conectividad de dispositivos en el dispositivo gemelo. También ha aprendido cómo consultar esta información usando el lenguaje de consulta de IoT Hub de tipo SQL.
+En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Ha agregado metadatos de dispositivo como etiquetas desde una aplicación back-end y ha escrito una aplicación de dispositivo simulado para notificar la información de conectividad de dispositivos en el dispositivo gemelo. También ha aprendido cómo consultar esta información mediante el lenguaje de consulta de IoT Hub de tipo SQL.
 
 Use los siguientes recursos para obtener información sobre cómo:
 
@@ -225,13 +225,13 @@ Use los siguientes recursos para obtener información sobre cómo:
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

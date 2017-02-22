@@ -1,5 +1,5 @@
 ---
-title: "Implementación de Microsoft Azure StorSimple Virtual Array: configurar como servidor de archivos | Microsoft Docs"
+title: "Configuración de una matriz virtual de StorSimple como servidor de archivos | Microsoft Docs"
 description: "En este tercer tutorial sobre la implementación de matrices virtuales StorSimple se enseña a configurar un dispositivo virtual como servidor de archivos."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 5d250042d47b4dfdb6d6e95b93384b1acb323816
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 16af5829053567b5c67c755e6a4ca50f966fbfdd
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server"></a>Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos
@@ -124,7 +124,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
 2. Haga clic en el dispositivo y verá un mensaje del banner que indica que el dispositivo está listo para configurar.
    
     ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
-3. Haga clic en **Configurar** en la barra de comandos. Se abrirá la hoja **Configurar**. En dicha hoja, realice estas acciones:
+3. Haga clic en **Configurar** en la barra de comandos. Se abrirá la hoja **Configurar**. En **dicha hoja**, realice estas acciones:
    
     1. El nombre del servidor de archivos se rellena automáticamente.
     
@@ -211,6 +211,6 @@ Aprenda a usar la interfaz de usuario web local para [administrar la matriz virt
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

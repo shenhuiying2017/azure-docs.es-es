@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Portal para crear un centro de IoT | Microsoft Docs
-description: "Información general sobre cómo crear y administrar los centros de IoT de Azure a través del portal de Azure"
+description: "Describe sobre cómo crear, administrar y eliminar los centros de IoT Hub de Azure a través de Azure Portal. Incluye información sobre los niveles de precios, el escalado, la seguridad y la configuración de la mensajería."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: ee072749e080264b4fa2b6cd0305071ed33b665e
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
 
 
 ---
@@ -39,7 +39,7 @@ Puede crear un IoT Hub con los métodos siguientes:
 * Para crear un IoT Hub mediante Marketplace: Al hacer clic en **Crear**, se abre una hoja igual a la hoja anterior de la experiencia **+ Nuevo**. Las secciones siguientes enumeran los diversos pasos para crear un Centro de IoT.
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>Elección del nombre del Centro de IoT
-Para crear un centro de IoT, debe asignar un nombre al centro. Tenga en cuenta que este nombre debe distinguirlo de todos los centros. La duplicación de centros no está permitida en el back-end, por lo que se recomienda asignar a este centro un nombre lo más único posible.
+Para crear un centro de IoT, debe asignar un nombre al centro. Tenga en cuenta que este nombre debe distinguirlo de todos los centros. La duplicación de centros no está permitida en el back-end de solución, por lo que se recomienda asignar a este centro un nombre lo más único posible.
 
 ### <a name="choose-the-pricing-tier"></a>Elección del plan de tarifa
 Puede elegir entre cuatro niveles: **Gratis**, **Estándar 1**, **Estándar 2** y **Estándar S3**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
@@ -58,7 +58,7 @@ Puede elegir entre cuatro niveles: **Gratis**, **Estándar 1**, **Estándar 2** 
 > 
 
 ### <a name="iot-hub-units"></a>Unidades del Centro de IoT
-Una unidad del Centro de IoT incluye un número determinado de mensajes por día. El número total de mensajes compatibles para este centro es el número de unidades multiplicado por el número de mensajes al día para ese nivel. Por ejemplo, si desea que el Centro de IoT admita la entrada de 700 000 mensajes, elija dos unidades del nivel de S1.
+El número de mensajes que se permiten por unidad al día depende del plan de tarifa del centro. Por ejemplo, si desea que el Centro de IoT admita la entrada de 700 000 mensajes, elija dos unidades del nivel de S1.
 
 ### <a name="device-to-cloud-partitions-and-resource-group"></a>Dispositivo para particiones en la nube y grupo de recursos
 Puede cambiar el número de particiones para un centro de IoT. Las particiones predeterminadas están establecidas en cuatro; sin embargo, puede elegir un número diferente de particiones en una lista desplegable.
@@ -86,7 +86,7 @@ Puede cambiar la configuración de un Centro de IoT después de crearlo desde la
 **Directivas de acceso compartido**: estas directivas definen los permisos para que los dispositivos y servicios se conecten a IoT Hub. Para acceder a estas directivas, haga clic en **Directivas de acceso compartido** en **General**. En esta hoja puede modificar las directivas existentes o agregar una nueva.
 
 ### <a name="create-a-policy"></a>Para crear una directiva
-* Haga clic en **Agregar** para abrir una hoja. Aquí puede escribir el nombre de la nueva directiva y los permisos que quiere asociar a esta directiva, tal como se muestra en la siguiente ilustración.
+* Haga clic en **Agregar** para abrir una hoja. Aquí puede escribir el nombre de la nueva directiva y los permisos que quiere asociar a esta directiva, tal como se muestra en la siguiente ilustración:
   
     Hay varios permisos que se pueden asociar a estas directivas compartidas. Las dos primeras directivas, **Lectura del Registro** y **Escritura del Registro**, conceden derechos de acceso de lectura y escritura para el almacén de identidades de dispositivo o el registro de identidades. Si selecciona la opción de escritura, se elegirá automáticamente también la opción de lectura.
   
@@ -95,26 +95,45 @@ Puede cambiar la configuración de un Centro de IoT después de crearlo desde la
 
 ![][10]
 
-## <a name="messaging"></a>Mensajería
-Haga clic en **Mensajería** para mostrar una lista de propiedades de mensajería para el Centro de IoT que se está modificando. Hay dos tipos principales de propiedades que puede modificar o copiar: **De nube a dispositivo** y **De dispositivo a nube**.
-
-* **Configuración de la nube al dispositivo**: Esta configuración tiene dos opciones secundarias: **TTL de nube a dispositivo** (período de vida) y **Tiempo de retención** para los mensajes. Cuando se crea el Centro de IoT por primera vez, estas dos opciones se crean con un valor predeterminado de una hora. Para ajustar los valores, use los controles deslizantes o escriba los valores.
-* **Configuración de dispositivo a nube** : esta configuración tiene varias opciones secundarias, algunas de las cuales se denominan/asignan al crear el Centro de IoT y solo se pueden copiar en otras opciones secundarias personalizables. Esta configuración se muestra en la siguiente sección.
-
-**Particiones**: este valor se establece cuando se crea el Centro de IoT y se puede cambiar en esta configuración.
-
-**Punto de conexión y nombre compatible del Centro de eventos**: Cuando se crea IoT Hub, se crea internamente un Event Hub al que el usuario podría necesitar acceder en determinadas circunstancias. Este nombre y punto de conexión compatible con Event Hub no se pueden personalizar pero están disponible para su uso mediante el botón **Copiar** .
-
-**Tiempo de retención**: establecido en un día de forma predeterminada, pero se puede personalizar con otros valores en la lista desplegable. Este valor es en días para la configuración Dispositivo a nube y no en horas, como en el caso de la configuración Nube a dispositivo.
-
-**Grupos de consumidores**: Grupos de consumidores es una configuración similar a otros sistemas de mensajería que se puede usar para extraer datos de modos específicos a fin de conectar otras aplicaciones o servicios a un Centro de IoT. Cada Centro de IoT se crea con un grupo de consumidores predeterminado. Sin embargo, puede agregar o eliminar grupos de consumidores en los Centros de IoT.
-
-> [!NOTE]
-> El grupo de consumidores predeterminado no se puede modificar ni eliminar.
-> 
-> 
+## <a name="endpoints"></a>Puntos de conexión
+Haga clic en **Endpoints** (Puntos de conexión) para mostrar una lista de puntos de conexión para el centro de IoT que está modificando. Hay dos tipos de puntos de conexión: los integrados en el centro de IoT y los que agrega al centro de IoT después de crearlo.
 
 ![][11]
+
+### <a name="built-in-endpoints"></a>Puntos de conexión integrados
+Hay dos puntos de conexión integrados: **Cloud to device feedback** (Comentarios de la nube al dispositivo) y **Events** (Eventos).
+
+* Configuración de **Cloud to device feedback** (Comentarios de la nube al dispositivo): esta configuración tiene dos opciones secundarias: **Cloud to Device TTL** (TTL de nube a dispositivo) (período de vida) y **Retention time** (Tiempo de retención) (en horas) para los mensajes. Al crear por primera vez un centro de IoT, ambas configuraciones tienen el valor predeterminado de una hora. Para ajustar la configuración, use los controles deslizantes o escriba los valores.
+* Configuración de **Events** (Eventos): esta configuración tiene distintas opciones secundarias, algunas de solo lectura. Estas opciones secundarias se describen en la lista siguiente:
+
+    * **Partitions** (Particiones): se establece un valor predeterminado cuando se crea el centro de IoT. Esta opción permite cambiar el número de particiones.
+
+    * **Punto de conexión y nombre compatible del Centro de eventos**: Cuando se crea IoT Hub, se crea internamente un Event Hub al que el usuario podría necesitar acceder en determinadas circunstancias. No se pueden personalizar los valores de nombre y punto de conexión compatibles con el centro de eventos, pero los puede copiar al hacer clic en **Copy** (Copiar).
+
+    * **Retention Time** (Tiempo de retención): se establece en un día de forma predeterminada, pero se puede cambiar gracias a la lista desplegable. Este valor está en días para la configuración del dispositivo a la nube.
+
+    * **Consumer Groups** (Grupos de consumidores): es una configuración similar a otros sistemas de mensajería que se puede usar para extraer datos de modos específicos a fin de conectar otras aplicaciones o servicios a IoT Hub. Cada Centro de IoT se crea con un grupo de consumidores predeterminado. Sin embargo, con esta configuración puede agregar o eliminar grupos de consumidores en los centros de IoT.
+
+    > [!NOTE]
+    > El grupo de consumidores predeterminado no se puede modificar ni eliminar.
+    > 
+    > 
+
+### <a name="custom-endpoints"></a>Puntos de conexión personalizados
+Puede agregar puntos de conexión personalizados al centro de IoT a través del portal. En la hoja **Endpoints** (Puntos de conexión), haga clic en **Add** (Agregar) de la parte superior para abrir la hoja **Add endpoint** (Agregar punto de conexión). Escriba la información necesaria y haga clic en **OK** (Aceptar). El punto de conexión personalizado aparecerá ahora en la hoja principal de **Endpoints** (Puntos de conexión).
+
+![][13]
+
+Puede leer más sobre los puntos de conexión personalizados en [Referencia: Puntos de conexión de IoT Hub][lnk-devguide-endpoints].
+
+## <a name="routes"></a>Rutas
+Haga clic en **Routes** (Rutas) para administrar el envío de mensajes del dispositivo a la nube de IoT Hub.
+
+![][14]
+
+Puede agregar rutas adicionales al centro de IoT; para ello, haga clic en **Add** (Agregar) de la parte superior de la hoja **Routes*** (Rutas), escriba la información necesaria y haga clic en **OK** (Aceptar). La ruta aparecerá en la lista de la hoja principal de **Routes** (Rutas). Puede editar una ruta al hacer clic en ella en la lista de rutas. Para habilitar una ruta, haga clic en ella en la lista de rutas y establezca el control de alternancia de **habilitar** en **Off** (Desactivado). Haga clic en **OK** (Aceptar) en la parte inferior de la hoja para guardar el cambio.
+
+![][15]
 
 ## <a name="pricing-and-scale"></a>Precios y escala
 El precio de un Centro de IoT existente se puede cambiar mediante la configuración **Precios** , con las siguientes excepciones:
@@ -133,12 +152,12 @@ Puede examinar el Centro de IoT que desea eliminar haciendo clic en **Examinar**
 Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:
 
 * [Administración masiva de dispositivos de IoT][lnk-bulk]
-* [Métricas de uso][lnk-metrics]
+* [Métricas de IoT Hub][lnk-metrics]
 * [Supervisión de operaciones][lnk-monitor]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía del desarrollador][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 * [Protección total de la solución de IoT][lnk-securing]
 
@@ -148,6 +167,9 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
 [11]: ./media/iot-hub-create-through-portal/messaging-settings.png
 [12]: ./media/iot-hub-create-through-portal/pricing-error.png
+[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
+[14]: ./media/iot-hub-create-through-portal/routes-list.png
+[15]: ./media/iot-hub-create-through-portal/route-edit.png
 
 [lnk-bulk]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
@@ -156,9 +178,10 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

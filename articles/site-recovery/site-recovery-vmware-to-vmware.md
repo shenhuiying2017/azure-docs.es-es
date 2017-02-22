@@ -1,5 +1,5 @@
 ---
-title: "Replicación de máquinas virtuales locales de VMware o de servidores físicos en un sitio secundario | Microsoft Docs"
+title: "Replicación de máquinas virtuales de VMware o servidores físicos en otro sitio (Portal de Azure clásico) | Microsoft Docs"
 description: "Use este artículo para replicar máquinas virtuales de VMware o servidores físicos de Windows o Linux en un sitio secundario con Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: d325ce41e79ec85e08fbf4bb86e0cd7e0edf1c8f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
 
 
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Replicación de máquinas virtuales locales de VMware o de servidores físicos en un sitio secundario
+# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Replicación de máquinas virtuales locales de VMware o de servidores físicos en un sitio secundario en el Portal de Azure clásico
+
 ## <a name="overview"></a>Información general
 InMage Scout en Azure Site Recovery proporciona características de replicación en tiempo real entre los sitios locales de VMware. InMage Scout se incluye en las suscripciones al servicio Azure Site Recovery.
 
@@ -83,7 +84,7 @@ Instale las actualizaciones de la siguiente manera:
 
 ## <a name="updates"></a>Actualizaciones
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1, actualización 4
-La actualización 4 de Scout es una actualización acumulativa. Tiene todas las correcciones de las actualizaciones de la 1 a la 3, así como las nuevas correcciones de errores y mejoras siguientes.
+La actualización 4 de Scout es una actualización acumulativa. Tiene todas las correcciones de las actualizaciones de la&1; a la&3;, así como las nuevas correcciones de errores y mejoras siguientes.
 
 **Nueva compatibilidad con plataformas**
 
@@ -199,6 +200,6 @@ Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

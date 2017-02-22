@@ -1,7 +1,5 @@
-[![patrones y prácticas](media/guidance-pnp-include/pnp-logo.png)](http://aka.ms/mspnp)
+![patrones y prácticas](media/guidance-pnp-include/pnp-logo.png)
 
-
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

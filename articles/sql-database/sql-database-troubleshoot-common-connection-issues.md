@@ -4,7 +4,7 @@ description: "Pasos para identificar y resolver errores de conexión comunes par
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -61,8 +61,8 @@ Si la aplicación no se puede conectar a la Base de datos SQL de Azure de forma 
 * Error de usuario: por ejemplo, escribió incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes
-1. Configure las [reglas de firewall](sql-database-configure-firewall-settings.md) para permitir la dirección IP del cliente.
-2. En todos los firewalls entre el cliente e Internet, asegúrese de que el puerto 1433 está abierto para las conexiones salientes. Consulte [Configurar Firewall de Windows para permitir el acceso a SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) para obtener indicaciones adicionales.
+1. Configure las [reglas de firewall](sql-database-configure-firewall-settings.md) para permitir la dirección IP del cliente. Con fines de prueba temporales, configure una regla de firewall mediante 0.0.0.0 como intervalo de direcciones IP inicial y 255.255.255.255 como intervalo de dirección IP final. Se abrirá el servidor a todas las direcciones IP. Si se resuelve el problema de conectividad, quite esta regla y cree una regla de firewall para una dirección IP o intervalo de direcciones apropiadamente limitados. 
+2. En todos los firewalls entre el cliente e Internet, asegúrese de que el puerto 1433 está abierto para las conexiones salientes. Consulte [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) (Configuración del Firewall de Windows para permitir el acceso de SQL Server) y [Puertos y protocolos requeridos para la identidad híbrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) para obtener información sobre punteros relacionados con los puertos adicionales que necesite abrir para la autenticación de Azure Active Directory.
 3. Compruebe la cadena de conexión y otras opciones de conexión. Vea la sección Cadena de conexión en el [tema de los problemas de conectividad](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Compruebe el estado del servicio en el panel. Si piensa que hay un interrupción regional, vea [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para los pasos para recuperarse para una región nueva.
 
@@ -77,13 +77,11 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 | 4 |[Solucionar problemas de conectividad con la Base de datos SQL de Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Esta herramienta ayuda a identificar problemas y a resolver problemas de conexión. |
 | 5 |[Solucionar el problema del mensaje "Database &lt;x&gt; v &lt;y&gt; is not currently available. Please retry the connection later" (La base de datos &lt;x&gt; del servidor &lt;y&gt; no está disponible. Vuelva a intentar la conexión más tarde)](sql-database-troubleshoot-connection.md) |Se describe cómo identificar y resolver un error 40613: "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Vuelva a intentar la conexión más tarde.) |
 | 6 |[Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas.](sql-database-develop-error-messages.md) |Proporciona información sobre los códigos de error de SQL de las aplicaciones cliente de Base de datos SQL, como errores de conexión de base de datos más comunes, problemas de copia de la base de datos y errores generales. |
-| 7 |[Guía de rendimiento de SQL Database de Azure para bases de datos independientes](sql-database-performance-guidance.md). |Se proporcionan instrucciones para ayudarle a determinar qué nivel de servicio es adecuado para su aplicación. También se incluyen recomendaciones para optimizar la aplicación y así sacar el máximo provecho de su instancia de Base de datos SQL de Azure. |
+| 7 |[Guía de rendimiento de Base de datos SQL de Azure](sql-database-performance-guidance.md) |Se proporcionan instrucciones para ayudarle a determinar qué nivel de servicio es adecuado para su aplicación. También se incluyen recomendaciones para optimizar la aplicación y así sacar el máximo provecho de su instancia de Base de datos SQL de Azure. |
 | 8 |[Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md) |Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse a Base de datos SQL de Azure e interactuar con este servicio. |
-| 9 |Actualizar a la página de la versión&12; de Azure SQL Database ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Se proporcionan instrucciones para actualizar los servidores y bases de datos de Base de datos SQL de Azure V11 existentes a Base de datos SQL de Azure V12 mediante el Portal de Azure o PowerShell. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Evaluación y mejora del rendimiento de la base de datos con la Base de datos SQL de Azure](sql-database-troubleshoot-performance.md)
-* [Tareas administrativas comunes en Base de datos SQL de Azure](sql-database-troubleshoot-permissions.md)
 * [Buscar en la documentación de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Ver las últimas actualizaciones del servicio Base de datos SQL](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -91,12 +89,10 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 * [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
 * [Orientación general sobre reintentos](../best-practices-retry-general.md)
 * [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
-* [La ruta aprendizaje para el uso de Base de datos SQL de Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

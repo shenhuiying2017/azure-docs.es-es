@@ -1,0 +1,122 @@
+---
+title: 'Azure Container Service: P+F | Microsoft Docs'
+description: "Respuestas a preguntas frecuentes acerca de Azure Container Service, un servicio que simplifica la creación, configuración y administración de un clúster de máquinas virtuales para ejecutar aplicaciones de contenedor de Docker."
+services: container-service
+documentationcenter: 
+author: dlepow
+manager: timlt
+editor: 
+tags: acs, azure-container-service
+keywords: Docker, contenedores, microservicios, Mesos, Azure, Kubernetes
+ms.assetid: 
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/10/2017
+ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
+ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+
+
+---
+# <a name="frequently-asked-questions-azure-container-service"></a>Preguntas más frecuentes: Azure Container Service
+
+
+## <a name="orchestrators"></a>Orquestadores
+
+### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>¿Qué orquestadores de contenedor son compatibles con Azure Container Service? 
+
+Hay compatibilidad con Kubernetes, Docker Swarm y DC/OS de código abierto. Aunque la compatibilidad con DC/OS y Docker Swarm es global, con Kubernetes es actualmente una versión preliminar. Para más información, consulte la [introducción](container-service-intro.md).
+ 
+### <a name="do-you-support-swarm-mode"></a>¿Se admite el modo Swarm? 
+
+Actualmente no se admite el modo Swarm, pero está en el plan de servicio. 
+
+### <a name="does-azure-container-service-support-windows-containers"></a>¿Admite Azure Container Service contenedores de Windows?  
+
+Actualmente se admiten los contenedores de Linux. La compatibilidad con los contenedores de Windows con orquestadores de DC/OS, Docker Swarm y Kubernetes está en el plan de servicio. 
+
+### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>¿Se recomienda un organizador específico en Azure Container Service? 
+Por lo general, no se recomienda un organizador específico. Si tiene experiencia con uno de los orquestadores compatibles, puede aplicarla a Azure Container Service. Sin embargo, las tendencias de datos sugieren que DC/OS es productivo para cargas de trabajo de IoT y macrodatos, Kubernetes es adecuado para las cargas de trabajo nativo de la nube y Docker Swarm se conoce por su integración con herramientas de Docker y su fácil curva de aprendizaje.
+
+Según el escenario, también puede crear y administrar soluciones de contenedor personalizadas con otros servicios de Azure. Estos servicios incluyen [Virtual Machines](../virtual-machines/virtual-machines-linux-azure-overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) y [Batch](../batch/batch-technical-overview.md).  
+
+### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>¿Cuál es la diferencia entre Azure Container Service y ACS Engine? 
+Azure Container Service es un servicio de Azure basado en SLA con características en Azure Portal, las herramientas de línea de comandos de Azure y las API de Azure. El servicio le permite implementar y administrar rápidamente clústeres que ejecutan las herramientas de organización de contenedores estándar con un número relativamente pequeño de opciones de configuración. 
+
+[ACS Engine](http://github.com/Azure/acs-engine) es un proyecto de código abierto que permite a los usuarios avanzados personalizar la configuración de los clústeres en todos los niveles. Esta capacidad de modificar la configuración de la infraestructura y el software significa que no ofrecemos ningún SLA para ACS Engine. El soporte técnico se controla a través del proyecto de código abierto en GitHub, en lugar de a través de los canales oficiales de Microsoft. 
+
+## <a name="cluster-management"></a>Administración de clústeres
+
+### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>¿Cómo se crean claves de SSH para el clúster?
+
+Puede utilizar las herramientas estándar del sistema operativo para crear un par de claves SSH RSA públicas y privadas para la autenticación en las máquinas virtuales Linux del clúster. Para conocer los pasos, consulte las instrucciones para [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+
+Si usa los [comandos de CLI de Azure 2.0 (versión preliminar)](container-service-create-acs-cluster-cli.md) para implementar un clúster de servicio de contenedor, se pueden generar claves SSH para el clúster automáticamente.
+
+### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>¿Cómo creo una entidad de servicio para el clúster de Kubernetes?
+
+Para crear un clúster de Kubernetes en Azure Container Service también se necesitan ID y contraseña de la entidad de servicio de Azure Active Directory. Para más información, consulte el artículo [acerca de la entidad de servicio para un clúster de Kubernetes](container-service-kubernetes-service-principal.md).
+
+
+Si usa los [comandos de CLI de Azure 2.0 (versión preliminar)](container-service-create-acs-cluster-cli.md) para implementar un clúster de Kubernetes, se pueden generar credenciales de entidad de servicio para el clúster automáticamente.
+
+
+### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>¿Cómo se aumenta el número de patrones una vez creado un clúster? 
+Una vez creado el clúster, el número de patrones es fijo y no se puede cambiar. Durante la creación del clúster, lo ideal es seleccionar de tres a cinco patrones para lograr alta disponibilidad.
+
+> [!NOTE]
+> En la versión preliminar, un clúster de Kubernetes en Azure Container Service solo puede tener un patrón.
+>
+
+### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>¿Cómo se aumenta el número de agentes una vez creado un clúster? 
+Puede aumentar el número de agentes del clúster mediante Azure Portal o las herramientas de la línea de comandos. Consulte [Escalado de un clúster de Azure Container Service](container-service-scale.md).
+
+> [!NOTE]
+> En la versión preliminar, un clúster de Kubernetes en Azure Container Service tiene un número fijo de agentes. 
+>
+
+### <a name="what-are-the-urls-of-my-masters-and-agents"></a>¿Cuáles son las direcciones URL de mis patrones y agentes? 
+Las direcciones URL de los recursos de clúster en Azure Container Service se basan en el prefijo del nombre DNS y el nombre de la región de Azure que haya elegido para la implementación. Por ejemplo, el nombre de dominio completo (FQDN) del nodo principal es de esta forma:
+
+``` 
+DNSnamePrefix.AzureRegion.cloudapp.azure.net
+```
+
+Encontrará direcciones URL de clúster comunes en Azure Portal, el Explorador de recursos de Azure u otras herramientas de Azure.
+ 
+### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>¿Dónde se encuentra la cadena de conexión de SSH para el clúster?
+
+Puede encontrar la cadena de conexión en Azure Portal o mediante las herramientas de la línea de comandos de Azure. 
+
+1. En el portal, desplácese hasta el grupo de recursos para la implementación del clúster.  
+
+2. Haga clic en **Información general** y en el vínculo **Implementaciones** de **Información esencial**. 
+
+3. En la hoja **Historial de implementación**, haga clic en la implementación cuyo nombre comience por **microsoft-acs**, seguido de una fecha de implementación. Ejemplo: microsoft-acs-201701310000.  
+
+4. En la página **Summary** (Resumen), en **Salidas**, varios vínculos de clúster son <provided> </provided>. **SSHMaster0** proporciona una cadena de conexión de SSH para el primer patrón del clúster de servicio de contenedor. 
+
+Como se indicó anteriormente, también puede utilizar las herramientas de Azure para buscar el FQDN del patrón. Realice una conexión de SSH con el patrón mediante el FQDN de este y el nombre de usuario que especificó al crear el clúster. Por ejemplo:
+
+```bash
+ssh userName@masterFQDN –A –p 22 
+```
+
+Para más información, consulte [Conexión a un clúster de Azure Container Service](container-service-connect.md).
+
+
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Más información](container-service-intro.md) sobre Azure Container Service.
+* Implementación de un clúster de servicio de contenedor mediante el [portal](container-service-deployment.md) o la [CLI de Azure 2.0 (versión preliminar)](container-service-create-acs-cluster-cli.md).
+
+
+<!--HONumber=Feb17_HO3-->
+
+

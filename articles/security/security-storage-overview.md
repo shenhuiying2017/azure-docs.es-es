@@ -1,6 +1,6 @@
 ---
-title: "Introducción a la seguridad de Azure Storage | Microsoft Docs"
-description: " Almacenamiento de Azure es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes. Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Almacenamiento de Azure. "
+title: "Características de seguridad que se pueden usar con Azure Storage | Microsoft Docs"
+description: " Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Azure Storage.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 488fe9c38d2e8ca26c1d0cf4d3f937e0c3faa902
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
 
 
 ---
@@ -55,8 +55,8 @@ Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la
 
 Más información:
 
-* [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Firmas de acceso compartido, Parte&1;: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
+* [Firmas de acceso compartido, Parte&2;: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Almacenamiento de Azure, puede proteger los datos mediante:
@@ -101,7 +101,6 @@ Más información:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

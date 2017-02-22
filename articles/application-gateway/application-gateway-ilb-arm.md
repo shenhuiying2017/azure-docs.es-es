@@ -1,10 +1,10 @@
 ---
-title: "Creación y configuración de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB) mediante Azure Resource Manager | Microsoft Docs"
+title: Uso de Azure Application Gateway con el equilibrador de carga interno mediante PowerShell | Microsoft Docs
 description: "En esta página se proporcionan instrucciones para crear, configurar, iniciar y eliminar una puerta de enlace de aplicaciones de Azure con un equilibrador de carga interno (ILB) en el Administrador de recursos de Azure"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad7bf23b10f16fb2d9e9bc946d8d4e840428558
-ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: db097fd947112dc4747523693f89c80d984bd26d
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
 > [!div class="op_single_selector"]
 > * [Azure Classic PowerShell](application-gateway-ilb.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-ilb-arm.md)
-> 
-> 
 
 Puerta de enlace de aplicaciones de Azure se puede configurar con una VIP conexión a Internet o con un punto de conexión interno no expuesto a Internet, también conocido como punto de conexión ILB (equilibrador de carga interno). La configuración de la puerta de enlace con un ILB es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los distintos servicios y niveles de una aplicación de niveles múltiples que se encuentran dentro de un límite de seguridad no expuesto a Internet, pero que aún así siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL (Capa de sockets seguros).
 
@@ -76,11 +74,11 @@ Compruebe las suscripciones para la cuenta.
 Get-AzureRmSubscription
 ```
 
-Se le solicita que se autentique con sus credenciales.<BR>
+Se le solicita que se autentique con sus credenciales.
 
 ### <a name="step-3"></a>Paso 3
 
-Elección de la suscripción de Azure que se va a usar. <BR>
+Elección de la suscripción de Azure que se va a usar.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -108,7 +106,7 @@ En el ejemplo siguiente se muestra cómo crear una red virtual con el Administra
 $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
-Se asigna el intervalo de direcciones 10.0.0.0/24 a la variable de subred que se va a usar para crear una red virtual.
+Este paso asigna el intervalo de direcciones 10.0.0.0/24 a la variable de subred que se va a usar para crear una red virtual.
 
 ### <a name="step-2"></a>Paso 2
 
@@ -116,7 +114,7 @@ Se asigna el intervalo de direcciones 10.0.0.0/24 a la variable de subred que se
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-Se crea una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región West US con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
+Este paso crea una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región West US con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
 
 ### <a name="step-3"></a>Paso 3
 
@@ -124,7 +122,7 @@ Se crea una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg
 $subnet = $vnet.subnets[0]
 ```
 
-Se asigna el objeto de subred a la variable $subnet para los siguientes pasos.
+Este paso asigna el objeto de subred a la variable $subnet para los siguientes pasos.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
 
@@ -134,7 +132,7 @@ Se asigna el objeto de subred a la variable $subnet para los siguientes pasos.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-Se crea una configuración de la IP de la puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia la Puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
+Este paso crea una configuración de la IP de la puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia la Puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
 
 ### <a name="step-2"></a>Paso 2
 
@@ -142,7 +140,7 @@ Se crea una configuración de la IP de la puerta de enlace de aplicaciones denom
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 ```
 
-Se configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "134.170.185.46, 134.170.188.221 y 134.170.185.50". Son las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplace las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación.
+Este paso configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "134.170.185.46, 134.170.188.221 y 134.170.185.50". Son las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplaza las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación.
 
 ### <a name="step-3"></a>Paso 3
 
@@ -150,7 +148,7 @@ Se configura el grupo de direcciones IP de back-end denominado "pool01" con las 
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
+Este paso configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
 
 ### <a name="step-4"></a>Paso 4
 
@@ -158,7 +156,7 @@ Configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
-Configura el puerto IP del front-end denominado "frontendport01" para el ILB.
+Este paso configura el puerto IP del front-end denominado "frontendport01" para el ILB.
 
 ### <a name="step-5"></a>Paso 5
 
@@ -166,7 +164,7 @@ Configura el puerto IP del front-end denominado "frontendport01" para el ILB.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-Crea la configuración de la IP del front-end llamada "fipconfig01" y la asocia una dirección IP privada de la subred de la red virtual actual.
+Este paso crea la configuración de la IP del front-end llamada "fipconfig01" y la asocia una dirección IP privada de la subred de la red virtual actual.
 
 ### <a name="step-6"></a>Paso 6
 
@@ -174,7 +172,7 @@ Crea la configuración de la IP del front-end llamada "fipconfig01" y la asocia 
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-Crea el nombre de agente de escucha "listener01" y asocia el puerto front-end con la configuración de la IP del front-end.
+Este paso crea el agente de escucha "listener01" y asocia el puerto front-end con la configuración de la IP del front-end.
 
 ### <a name="step-7"></a>Paso 7
 
@@ -182,7 +180,7 @@ Crea el nombre de agente de escucha "listener01" y asocia el puerto front-end co
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-Crea la regla de enrutamiento del equilibrador de carga denominada "rule01" que configura el comportamiento del equilibrador de carga.
+Este paso crea la regla de enrutamiento del equilibrador de carga denominada "rule01" que configura el comportamiento del equilibrador de carga.
 
 ### <a name="step-8"></a>Paso 8
 
@@ -190,27 +188,24 @@ Crea la regla de enrutamiento del equilibrador de carga denominada "rule01" que 
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-Configura el tamaño de instancia de la puerta de enlace de aplicaciones.
+Este paso configura el tamaño de instancia de la puerta de enlace de aplicaciones.
 
 > [!NOTE]
 > El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard_Small, Standard_Medium y Standard_Large.
-> 
-> 
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Creación de una puerta de enlace de aplicaciones con New-AzureApplicationGateway
 
-Crea una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina "appgwtest".
-
+Cree una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina "appgwtest".
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-Crea una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la Puerta de enlace de aplicaciones se denomina "appgwtest".
+Este paso crea una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la Puerta de enlace de aplicaciones se denomina "appgwtest".
 
 ## <a name="delete-an-application-gateway"></a>Eliminación de una puerta de enlace de aplicaciones
 
-Para eliminar una puerta de enlace de aplicaciones, deberá hacer lo siguiente en orden:
+Para eliminar una puerta de enlace de aplicaciones, deberá realizar los pasos siguientes en orden:
 
 1. Use el cmdlet `Stop-AzureRmApplicationGateway` para detener la puerta de enlace.
 2. Utilice el cmdlet `Remove-AzureRmApplicationGateway` para quitar la puerta de enlace.
@@ -256,8 +251,6 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 > [!NOTE]
 > Se puede usar el modificador **-force** para suprimir el mensaje de confirmación de eliminación.
-> 
-> 
 
 Para comprobar que se ha quitado el servicio, puede usar el cmdlet `Get-AzureRmApplicationGateway`. Este paso no es necesario.
 
@@ -285,6 +278,6 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

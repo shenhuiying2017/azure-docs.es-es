@@ -1,5 +1,5 @@
 ---
-title: "¿Qué es StorSimple? | Microsoft Docs"
+title: "Información general de la solución de la serie 8000 de StorSimple | Microsoft Docs"
 description: "Describe el almacenamiento en capas de StorSimple, el dispositivo, el dispositivo virtual, los servicios y la administración de almacenamiento, y define términos clave usados en StorSimple."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: 34b09279785d87f75d16e3baf320ffb66cf9b682
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 3575e4f22e17608de7f3b66e9dd577a1d4a4c148
 
 
 ---
@@ -32,9 +32,9 @@ Update 2 también permite crear dispositivos virtuales StorSimple que se benefic
 
 Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
 
-![icono de vídeo](./media/storsimple-overview/video_icon.png)  Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
+![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 > 
 > 
 
@@ -241,7 +241,7 @@ A continuación, se muestra una lista de los componentes de infraestructura comp
 | General |DataCore FC |Sí* |Compatible con DataCore SANsymphony |Todas las versiones |
 | General |DFSR |Sí* |Solo compatible con volúmenes localmente anclados |Todas las versiones |
 | General |Indización |Sí* |Para volúmenes en capas, solo se admite la indización de metadatos (sin datos).<br>Para volúmenes anclados localmente, se admite la indización completa. |Todas las versiones |
-| General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br>  Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
+| General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br> Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
 
 *Sí&#42;. Se deben aplicar las restricciones y directrices de la solución.*
 
@@ -310,6 +310,6 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

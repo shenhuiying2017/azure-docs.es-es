@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1c45d0ad8431b5cfff7859817fe57c3168f2dc7f
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
 
 
 ---
@@ -32,7 +32,7 @@ Para ejecutar los siguientes pasos, necesitará:
 
 * Una suscripción de Azure activa. Si no tiene una, puede obtener una prueba gratuita en [azure.com](https://azure.microsoft.com/).
 * Un identificador profesional o educativo para usar grupos de recursos de Azure. Si tiene una cuenta personal e inicia sesión con un identificador de Microsoft, deberá [crear un identificador profesional a partir del suyo personal](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Dependiendo de su sistema operativo de cliente, bien [Azure PowerShell](../powershell-install-configure.md) bien la [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
+* Dependiendo de su sistema operativo de cliente, bien [Azure PowerShell](/powershell/azureps-cmdlets-docs) bien la [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL se usa para generar los certificados necesarios.
 * Un cliente Git como [Git Bash](https://git-scm.com/).
 * Para probar la aplicación de ejemplo, también necesitará un servidor DNS. Puede usar los servidores o servicios DNS que admiten los registros de carácter comodín A.
@@ -57,7 +57,7 @@ En esta sección, usará una plantilla de [Azure Resource Manager](../azure-reso
    
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
    <br />
-    Cada clúster CoreOS debe tener un token único de este servicio gratuito. Consulte [Documentación de CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obtener más detalles.
+   Cada clúster CoreOS debe tener un token único de este servicio gratuito. Consulte [Documentación de CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obtener más detalles.
 6. Modifique el archivo **cloud-config.yaml** para reemplazar el token **discovery** existente por el nuevo:
    
         #cloud-config
@@ -244,7 +244,7 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo le guiamos a través de todos los pasos para aprovisionar un nuevo clúster Deis en Azure mediante una plantilla de Administrador de recursos de Azure. La plantilla admite la redundancia en conexiones de herramientas, así como el equilibrio de cargas para aplicaciones implementadas. La plantilla también evita el uso de direcciones IP públicas en los nodos de miembro, lo cual ahorra valiosos recursos IP públicos y proporciona un entorno más seguro para hospedar aplicaciones. Para obtener más información, consulte los artículos siguientes:
 
-[Información general de Azure Resource Manager][resource-group-overview]  
+[Información general sobre Azure Resource Manager][resource-group-overview]  
 [Uso de la CLI de Azure][azure-command-line-tools]  
 [Uso de Azure PowerShell con Azure Resource Manager][powershell-azure-resource-manager]  
 
@@ -254,6 +254,6 @@ En este artículo le guiamos a través de todos los pasos para aprovisionar un n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

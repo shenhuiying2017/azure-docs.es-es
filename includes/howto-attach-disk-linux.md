@@ -4,7 +4,7 @@ Para más información acerca de los discos, consulte [Acerca de los discos y lo
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Conectar un disco vacío
-1. Abra la CLI de Azure y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Asegúrese de que se encuentra en el modo de administración de servicios de Azure (`azure config mode asm`).
+1. Abra la CLI de Azure 1.0 y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Procure estar en el modo de administración de servicios de Azure (`azure config mode asm`).
 2. Escriba `azure vm disk attach-new` para crear y asociar un nuevo disco, como se muestra en el siguiente ejemplo. Reemplace *myVM* por el nombre de la máquina virtual Linux y especifique el tamaño del disco, en GB *100 GB* en este ejemplo:
 
     ```azurecli
@@ -37,7 +37,7 @@ Para más información acerca de los discos, consulte [Acerca de los discos y lo
 ## <a name="attach-an-existing-disk"></a>un disco existente
 El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento.
 
-1. Abra la CLI de Azure y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Procure estar en el modo de administración de servicios de Azure (`azure config mode asm`).
+1. Abra la CLI de Azure 1.0 y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Procure estar en el modo de administración de servicios de Azure (`azure config mode asm`).
 2. Compruebe si el VHD que quiere asociar ya se ha cargado en la suscripción de Azure:
    
     ```azurecli
@@ -78,7 +78,7 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
     info:    vm disk create command OK
     ```
    
-   También puede usar el comando `azure vm disk upload` para cargar un VHD a una cuenta de almacenamiento específica. [Aquí](../articles/virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks) puede encontrar más información sobre los comandos para administrar discos de datos de una máquina virtual de Azure.
+   También puede usar el comando `azure vm disk upload` para cargar un VHD a una cuenta de almacenamiento específica. [Aquí](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) puede encontrar más información sobre los comandos para administrar discos de datos de una máquina virtual de Azure.
 
 4. Ahora conectamos el VHD que queramos a la máquina virtual:
    
@@ -117,6 +117,6 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

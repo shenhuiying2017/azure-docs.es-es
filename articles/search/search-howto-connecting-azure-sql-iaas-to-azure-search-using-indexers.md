@@ -1,9 +1,9 @@
 ---
-title: "Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure | Microsoft Docs"
+title: "Conexión de máquina virtual de SQL a Azure Search | Microsoft Docs"
 description: "Habilite conexiones cifradas y configure el firewall para permitir conexiones a SQL Server en una máquina virtual de Azure a partir de un indexador de Azure Search."
 services: search
 documentationcenter: 
-author: jack4it
+author: HeidiSteen
 manager: pablocas
 editor: 
 ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/26/2016
-ms.author: jackma
+ms.date: 01/23/2017
+ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 2150735fbf1e1438feeef70f0ea92ed041d0cd24
+ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
+ms.openlocfilehash: 1e436978da0f2fc8c122a1a99bd891fe82929f50
 
 
 ---
@@ -91,6 +91,6 @@ Dejando a un lado la configuración, ya puede especificar un servicio SQL Server
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

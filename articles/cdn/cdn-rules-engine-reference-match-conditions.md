@@ -1,6 +1,6 @@
 ---
-title: Condiciones de coincidencia del motor de reglas de Azure Content Delivery Network | Microsoft Docs
-description: "En este tema se describen las características y las condiciones de coincidencia del motor de reglas"
+title: Condiciones de coincidencia del motor de reglas de la red CDN de Azure | Microsoft Docs
+description: "Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: f96e977c777e4ecd007d6cd863054addb465489d
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
 
 
 ---
 
-#<a name="match-conditions-for-azure-content-delivery-network-cdn-rules-engine"></a>Condiciones de coincidencia para el motor de reglas de Azure Content Delivery Network (CDN)
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [Motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
 
 La segunda parte de una regla es la condición de coincidencia. Una condición de coincidencia identifica tipos específicos de solicitudes para los que se ejecutará un conjunto de características.
@@ -128,6 +128,6 @@ Carácter comodín de consulta de dirección URL | Compara los valores especific
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

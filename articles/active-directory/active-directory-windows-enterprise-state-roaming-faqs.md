@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: f5b9a4d83e21dfefc12ea2931702a9dce3f03016
-ms.openlocfilehash: bd4352cd6f8a909d518b0c5527d6c0e63e4bad51
+ms.sourcegitcommit: 7d472733e80ae03294ba1ac9e97d1afd3aa0fa91
+ms.openlocfilehash: c7d8eefe560a361690cc4daf6550b2a8c894f318
 
 
 ---
@@ -120,23 +120,17 @@ Enterprise State Roaming es compatible con las SKU de cliente de Windows 10, per
 Si su organización ya está usando la itinerancia en Windows 10 con la suscripción gratuita de uso limitado de Azure RMS y compra una suscripción de Azure RMS de pago, no afectará a la funcionalidad de la característica de itinerancia y el administrador de TI no tendrá que realizar cambios en la configuración.
 
 ## <a name="known-issues"></a>Problemas conocidos
-* Si intenta iniciar sesión en el dispositivo Windows con una tarjeta inteligente o tarjeta inteligente virtual, la sincronización dejará de funcionar. Las futuras actualizaciones de Windows 10 pueden resolver este problema.
-* Necesitará la actualización acumulativa de julio de Windows 10 (compilación 10586.494 o posterior) para que funcione la sincronización de los favoritos de Internet Explorer.
-* No se sincronizarán los datos protegidos con Windows Information Protection a través de Enterprise State Roaming. Además, las máquinas que tienen habilitado Windows Information Protections no experimentarán la sincronización de temas.
-* En algunas circunstancias, Enterprise State Roaming no puede sincronizar los datos si se ha configurado Azure Multi-Factor Authentication.
-
-  * Si el dispositivo está configurado para requerir [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) en el portal de Azure Active Directory, se puede producir un error al sincronizar la configuración cuando se inicia sesión en un dispositivo Windows 10 con una contraseña. Este tipo de configuración de Multi-Factor Authentication se ha diseñado para proteger cuentas de administrador de Azure. Los usuarios administradores pueden seguir realizando la sincronización al iniciar sesión en sus dispositivos Windows 10 con su PIN de [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) o también pueden completar Multi-Factor Authentication al acceder a otros servicios de Azure, como Office 365.
-  * La sincronización puede producir un error si el administrador configura la directiva de acceso condicional de Multi-Factor Authentication de Active Directory Federation Services y caduca el token de acceso en el dispositivo.  Asegúrese de iniciar sesión y de cerrarla con el PIN de [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) , o bien de completar Multi-Factor Authentication al acceder a otros servicios de Azure, como Office 365.
-* Si una máquina está unida a dominio con registro automático a dispositivos de Azure Active Directory, puede experimentar un error de sincronización si la maquina está fuera del sitio durante largos períodos de tiempo y no se puede completar la autenticación de dominio. Para resolver este problema, conecte la máquina a una red corporativa para que se pueda reanudar la sincronización.
+Consulte la documentación en la sección de [solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) para obtener una lista de problemas conocidos. 
 
 ## <a name="related-topics"></a>Temas relacionados
 * [Información general de Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Habilitación de Enterprise State Roaming en Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

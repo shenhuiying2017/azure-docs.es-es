@@ -1,5 +1,5 @@
 ---
-title: "Aplicación de directivas en máquinas virtuales de Azure Resource Manager | Microsoft Docs"
+title: "Aplicación de seguridad con directivas en máquinas virtuales Linux en Azure | Microsoft Docs"
 description: "Aplicación de una directiva a una máquina virtual Linux de Azure Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Aplicación de directivas en máquinas virtuales de Azure Resource Manager
+# <a name="apply-security-and-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicación de seguridad y directivas a máquinas virtuales Linux con Azure Resource Manager
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describiremos cómo puede utilizar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.
 
 Los pasos para lograr esto se describen a continuación:
@@ -82,7 +82,7 @@ La directiva anterior se puede modificar fácilmente para un escenario en el que
 ```
 
 #### <a name="virtual-machine-property-fields"></a>Campos de propiedades de la máquina virtual
-La siguiente tabla describe las propiedades de la máquina Virtual que se pueden utilizar como campos en la definición de la directiva. Para más información sobre los campos de directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](../resource-manager-policy.md#fields).
+La siguiente tabla describe las propiedades de la máquina Virtual que se pueden utilizar como campos en la definición de la directiva. Para más información sobre los campos de directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](../azure-resource-manager/resource-manager-policy.md#conditions).
 
 | Nombre del campo | Description |
 | --- | --- |
@@ -92,13 +92,13 @@ La siguiente tabla describe las propiedades de la máquina Virtual que se pueden
 | imageVersion |Especifica la versión de la imagen para la SKU elegida |
 
 ## <a name="create-the-policy"></a>Creación de la directiva
-Una directiva se puede crear fácilmente mediante la API de REST directamente o los cmdlets de PowerShell. Más información sobre la [creación y la asignación de una directiva](../resource-manager-policy.md#create-and-assign-a-policy).
+Una directiva se puede crear fácilmente mediante la API de REST directamente o los cmdlets de PowerShell. Más información sobre la [creación y la asignación de una directiva](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 ## <a name="apply-the-policy"></a>Aplicación de la directiva
-Después de crear la directiva, debe aplicarla en un ámbito definido. El ámbito puede ser una suscripción, un grupo de recursos o incluso un recurso. Más información sobre la [creación y la asignación de una directiva](../resource-manager-policy.md#create-and-assign-a-policy).
+Después de crear la directiva, debe aplicarla en un ámbito definido. El ámbito puede ser una suscripción, un grupo de recursos o incluso un recurso. Más información sobre la [creación y la asignación de una directiva](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

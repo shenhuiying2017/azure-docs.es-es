@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a7320a7e5052ffb4171307bc8636182447ddfc50
+ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
+ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
 
 
 ---
@@ -42,26 +42,23 @@ El Kit de herramientas de Eclipse permite esto al instalar un módulo IIS especi
 * El tiempo para inicializar cada rol será superior.
 * Se agregará un punto de conexión interno para que funcione como enrutador de tráfico, como se ha mencionado anteriormente.
 
-Para un ejemplo de cómo mantener los datos de sesión cuando la afinidad de sesión está habilitada, consulte [Cómo mantener los datos de sesión con afinidad de sesión][Cómo mantener los datos de sesión con afinidad de sesión].
 
 ## <a name="see-also"></a>Otras referencias
-[Kit de herramientas de Azure para Eclipse][Kit de herramientas de Azure para Eclipse]
+[Kit de herramientas de Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Creación de una aplicación Hello World para Azure en Eclipse][Creación de una aplicación Hello World para Azure en Eclipse]
+[Creación de una aplicación Hola a todos para Azure en Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Instalación del Kit de herramientas de Azure para Eclipse][Instalación del Kit de herramientas de Azure para Eclipse] 
+[Instalación del Kit de herramientas de Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Cómo mantener los datos de sesión con afinidad de sesión][Cómo mantener los datos de sesión con afinidad de sesión]
-
-Para más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure][Centro para desarrolladores de Java de Azure].
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centro para desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creación de una aplicación Hello World para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Cómo mantener los datos de sesión con afinidad de sesión]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Instalación del Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -71,6 +68,6 @@ Para más información sobre el uso de Azure con Java, vea el [Centro para desar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

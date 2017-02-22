@@ -1,6 +1,6 @@
 ---
-title: Uso del SDK de dispositivo de IoT de Azure para C | Microsoft Docs
-description: "Obtenga más información y comience a trabajar con el código de ejemplo del SDK de dispositivo IoT de Azure para C."
+title: SDK de dispositivo IoT de Azure para C | Microsoft Docs
+description: "Introducción al SDK de dispositivo IoT de Azure para C e información sobre cómo crear aplicaciones para dispositivos que se comunican con un centro de IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 38dd351fb6acf5b754eb8fd4b768262241ab24c3
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 0033f1cc036e1eef63f0728be8d5d73c8dbbccf6
 
 
 ---
-# <a name="introducing-the-azure-iot-device-sdk-for-c"></a>Introducción al SDK de dispositivo IoT de Azure
+# <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 El **SDK de dispositivo IoT de Azure** es un conjunto de bibliotecas diseñadas para simplificar el proceso de envío de eventos y recepción de mensajes desde el servicio **IoT Hub de Azure**. Hay distintas variantes del SDK, cada una dirigida a una plataforma concreta, pero este artículo describe el **SDK de dispositivo IoT de Azure para C**.
 
 El SDK de dispositivo IoT de Azure para C está escrito en ANSI C (C99) para maximizar su portabilidad. Resulta idóneo para operar en diferentes plataformas y dispositivos, especialmente si la prioridad es minimizar la carga para el espacio de disco y la memoria.  
@@ -30,7 +30,7 @@ Existe una amplia gama de plataformas en las que se ha probado el SDK (consulte 
 En este artículo se presentarán la arquitectura del SDK de dispositivo IoT de Azure para C. Demostraremos cómo inicializar la biblioteca de dispositivos, enviar eventos al Centro de IoT y como recibir mensajes de él. La información de este artículo debería ser suficiente para comenzar a usar el SDK, pero también se proporcionan referencias a información adicional sobre las bibliotecas.
 
 ## <a name="sdk-architecture"></a>Arquitectura del SDK
-Puede encontrar el **SDK de dispositivo IoT de Azure para C** en el repositorio de [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks) en GitHub y ver los detalles de la API en la [referencia de la API de C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Puede encontrar el [**SDK de dispositivo IoT de Azure para C**](https://github.com/Azure/azure-iot-sdk-c) en el repositorio de GitHub y ver los detalles de la API en la [referencia de la API de C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 Encontrará la versión más reciente de las bibliotecas en la bifurcación **principal** del repositorio:
 
@@ -58,15 +58,15 @@ Antes de ejecutar los ejemplos en el SDK de dispositivo IoT de Azure para C, deb
 
 Si necesita crear una instancia de Azure IoT Hub en su suscripción de Azure, siga [estas instrucciones](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
 
-El [archivo Léame](https://github.com/Azure/azure-iot-sdks/tree/master/c) incluido con el SDK ofrece instrucciones para preparar el entorno de desarrollo y obtener las credenciales del dispositivo.
+El [archivo Léame](https://github.com/Azure/azure-iot-sdk-c) incluido con el SDK ofrece instrucciones para preparar el entorno de desarrollo y obtener las credenciales del dispositivo.
 Las secciones siguientes incluyen algunos comentarios adicionales sobre esas instrucciones.
 
 ### <a name="preparing-your-development-environment"></a>Preparación del entorno de desarrollo
 Aunque se proporcionan paquetes para algunas plataformas (como NuGet para Windows o apt_get para Debian y Ubuntu) y los ejemplos utilizan estos paquetes si están disponibles, las instrucciones siguientes explican cómo generar la biblioteca y los ejemplos directamente desde el código.
 
-En primer lugar, necesitará obtener una copia del SDK de GitHub y, a continuación, compilar el código fuente. Debe obtener una copia del código fuente en la rama **master** del [repositorio de GitHub](https://github.com/Azure/azure-iot-sdks).
+En primer lugar, necesitará obtener una copia del SDK de GitHub y, a continuación, compilar el código fuente. Debe obtener una copia del código fuente en la rama **master** del [repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-c).
 
-Cuando haya descargado una copia del código fuente, será necesario completar los pasos descritos en el artículo del SDK sobre la [preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md).
+Cuando haya descargado una copia del código fuente, será necesario completar los pasos descritos en el artículo del SDK sobre la [preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md).
 
 Estas son algunas sugerencias que le ayudarán a completar el procedimiento descrito en la guía de preparación:
 
@@ -84,20 +84,20 @@ Estas son algunas sugerencias que le ayudarán a completar el procedimiento desc
      
         ![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
-Cuando se completen todos los pasos descritos en la página de [preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) , estará listo para compilar las aplicaciones de ejemplo.
+Cuando se completen todos los pasos descritos en la página de [preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) , estará listo para compilar las aplicaciones de ejemplo.
 
 ### <a name="obtaining-device-credentials"></a>Obtención de las credenciales del dispositivo
 Ahora que el entorno de desarrollo está configurado, lo siguiente que debe hacer es obtener un conjunto de credenciales de dispositivo.  Para que un dispositivo pueda acceder a un centro de IoT, primero debe agregar el dispositivo al registro de identidad del centro de IoT. Al agregar el dispositivo, se obtiene un conjunto de credenciales de dispositivo que necesita para que el dispositivo se pueda conectar a un Centro de IoT. Las aplicaciones de ejemplo que veremos en la siguiente sección esperan estas credenciales en forma de una **cadena de conexión de dispositivo**.
 
-En el repositorio de código abierto del SDK se proporcionan un par de herramientas para ayudarle a administrar el Centro de IoT. Una es una aplicación de Windows llamada Device Explorer y la otra es una herramienta CLI multiplataforma basada en node.js llamada iothub-explorer. Puede aprender más sobre estas herramientas [aquí](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
+En el repositorio de código abierto del SDK se proporcionan un par de herramientas para ayudarle a administrar el Centro de IoT. Una es una aplicación de Windows llamada *Explorador de dispositivos* y la otra es una herramienta CLI multiplataforma basada en node.js llamada *iothub-explorer*. Puede aprender más sobre estas herramientas [aquí](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
 
-Como en este artículo estamos viendo el proceso de ejecución de los ejemplos en Windows, estamos utilizando la herramienta Device Explorer. Sin embargo, también puede utilizar iothub-explorer si prefiere herramientas CLI.
+Como en este artículo estamos viendo el proceso de ejecución de los ejemplos en Windows, estamos utilizando la herramienta Explorador de dispositivos. Sin embargo, también puede utilizar iothub-explorer si prefiere herramientas CLI.
 
-La herramienta [Device Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) usa las bibliotecas del servicio IoT de Azure para realizar varias funciones en el Centro de IoT, incluida la adición de dispositivos. Si usa el Explorador de dispositivos para agregar un dispositivo, obtendrá una cadena de conexión correspondiente. Necesita esta cadena de conexión para hacer que estas aplicaciones de ejemplo se ejecuten.
+La herramienta [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) usa las bibliotecas del servicio IoT de Azure para realizar varias funciones en IoT Hub, incluida la adición de dispositivos. Si usa el Explorador de dispositivos para agregar un dispositivo, obtendrá una cadena de conexión correspondiente. Necesita esta cadena de conexión para hacer que estas aplicaciones de ejemplo se ejecuten.
 
-Si no está familiarizado con el proceso, el siguiente procedimiento describe cómo usar Device Explorer para agregar un dispositivo y obtener la cadena de conexión del dispositivo.
+Si no está familiarizado con el proceso, el siguiente procedimiento describe cómo usar Explorador de dispositivos para agregar un dispositivo y obtener la cadena de conexión del dispositivo.
 
-Puede encontrar un programa de instalación de Windows para la herramienta Device Explorer en la [página de la versión de SDK](https://github.com/Azure/azure-iot-sdks/releases). Sin embargo, también puede ejecutar la herramienta directamente desde el código si abre **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** en **Visual Studio 2015** y compila la solución.
+Puede encontrar un programa de instalación de Windows para la herramienta Explorador de dispositivos en la [página de la versión de SDK](https://github.com/Azure/azure-iot-sdks/releases). Sin embargo, también puede ejecutar la herramienta directamente desde el código si abre **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** en **Microsoft Visual Studio 2015** y compila la solución.
 
 Al ejecutar el programa verá esta interfaz:
 
@@ -119,7 +119,7 @@ Una vez creado el dispositivo, la lista de dispositivos se actualiza con todos l
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-Si elige la opción **Copy connection string for selected device** (Copiar la cadena de conexión para el dispositivo seleccionado), la cadena de conexión de su dispositivo se copia en el Portapapeles. Mantenga una copia de la cadena de conexión. La necesitará cuando ejecute las aplicaciones de ejemplo que se describen en las secciones siguientes.
+Si elige la opción **Copy connection string for selected device** (Copiar la cadena de conexión para el dispositivo seleccionado), la cadena de conexión de su dispositivo se copia en el Portapapeles. Mantenga una copia de la cadena de conexión de dispositivo. La necesitará cuando ejecute las aplicaciones de ejemplo que se describen en las secciones siguientes.
 
 Una vez completados los pasos anteriores, está listo para iniciar la ejecución de código. Ambos ejemplos tienen una constante en la parte superior del archivo de código fuente principal, que permite especificar una cadena de conexión. Por ejemplo, la línea correspondiente de la aplicación **iothub\_client\_sample\_amqp** aparece del modo siguiente.
 
@@ -130,7 +130,7 @@ static const char* connectionString = "[device connection string]";
 Si quiere seguir, escriba aquí la cadena de conexión de dispositivo, vuelva a compilar la solución y podrá ejecutar el ejemplo.
 
 ## <a name="iothubclient"></a>IoTHubClient
-Dentro de la carpeta **iothub\_client**, en el repositorio azure-iot-sdks, hay una carpeta **samples** que contiene una aplicación denominada **iothub\_client\_sample\_amqp**.
+Dentro de la carpeta **iothub\_client**, en el repositorio [azure-iot-sdks](https://github.com/azure/azure-iot-sdk-c), hay una carpeta **samples** que contiene una aplicación denominada **iothub\_client\_sample\_amqp**.
 
 La versión de Windows de la aplicación **iothub\_client\_sample\_ampq** incluye la solución de Visual Studio siguiente:
 
@@ -151,7 +151,7 @@ Vamos a usar esta aplicación de ejemplo para guiarle por los requisitos necesar
 
 ### <a name="initializing-the-library"></a>Inicialización de la biblioteca
 > [!NOTE]
-> Antes de empezar a trabajar con las bibliotecas, puede que necesite realizar alguna tarea de inicialización específica de la plataforma. Por ejemplo, si tiene previsto usar AMQP en Linux, debe inicializar la biblioteca OpenSSL. Los ejemplos del [repositorio de GitHub](https://github.com/Azure/azure-iot-sdks) llaman a la función de utilidad **platform_init** cuando el cliente se inicia y, luego, a la función **platform_deinit** antes de salir. Estas funciones se declaran en el archivo de encabezado "platform.h". Conviene examinar las definiciones de estas funciones para la plataforma de destino en el [repositorio](https://github.com/Azure/azure-iot-sdks) , así podrá averiguar si tiene que incluir código de inicialización de plataforma en el cliente.
+> Antes de empezar a trabajar con las bibliotecas, puede que necesite realizar alguna tarea de inicialización específica de la plataforma. Por ejemplo, si tiene previsto usar AMQP en Linux, debe inicializar la biblioteca OpenSSL. Los ejemplos del [repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-c) llaman a la función de utilidad **platform_init** cuando el cliente se inicia y, luego, a la función **platform_deinit** antes de salir. Estas funciones se declaran en el archivo de encabezado "platform.h". Conviene examinar las definiciones de estas funciones para la plataforma de destino en el [repositorio](https://github.com/Azure/azure-iot-sdk-c) , así podrá averiguar si tiene que incluir código de inicialización de plataforma en el cliente.
 > 
 > 
 
@@ -245,7 +245,7 @@ La biblioteca **IoTHubClient** también ofrece un control preciso sobre el modo 
 ## <a name="serializer"></a>serializer
 Conceptualmente, la biblioteca **serializer** se encuentra encima de la biblioteca **IoTHubClient** en el SDK. Usa la biblioteca **IoTHubClient** para la comunicación subyacente con el Centro de IoT, pero incorpora funcionalidades de modelado que eliminan la carga de tratar con la serialización de mensajes del desarrollador. Un ejemplo ilustra mejor el funcionamiento de esta biblioteca.
 
-Dentro de la carpeta **serializer**, en el repositorio azure-iot-sdks, hay una carpeta **samples** que contiene una aplicación denominada **simplesample\_amqp**. La versión de Windows de este ejemplo incluye la solución de Visual Studio siguiente:
+Dentro de la carpeta **serializer**, en el repositorio [azure-iot-sdks](https://github.com/Azure/azure-iot-sdk-c), hay una carpeta **samples** que contiene una aplicación denominada **simplesample\_amqp**. La versión de Windows de este ejemplo incluye la solución de Visual Studio siguiente:
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_amqp.PNG)
 
@@ -466,6 +466,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

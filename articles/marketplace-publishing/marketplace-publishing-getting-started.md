@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 98840e0bc1565eab0e5936cb65b68852e1423450
-ms.openlocfilehash: fd71f55f636fa1b7918536d7e6b51fb6a2a05903
+ms.sourcegitcommit: b76185c0a4a0e17b663affee9a02b65f222fedeb
+ms.openlocfilehash: d679096476406831c1fda4f695adff84e63d6ae8
 
 
 ---
@@ -42,10 +42,12 @@ Lo primero que le convendría hacer como publicador es definir el tipo de soluci
 ![dibujo](media/marketplace-publishing-getting-started/img01.png)
 
 ### <a name="1-nominate-your-solution-for-pre-approval"></a>1. Designación de la solución para su aprobación previa
-> [!IMPORTANT]
-> Antes de empezar cualquier trabajo en Azure Marketplace, debe obtener la [aprobación previa](http://azure.com/certified).
+- Complete el formulario de nominación de la solución para **Microsoft Azure Certified para Virtual Machines** [aquí](https://createopportunity.azurewebsites.net)
 
-- [Solicitar la aprobación previa de Microsoft Azure Certified](marketplace-publishing-azure-certification.md)
+>[!NOTE]
+> Si trabaja con un administrador de cuentas de asociado o un administrador de asociados de DX, pídale que le proponga para el programa de certificación de Azure O vaya a la página web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net), rellene el formulario de solicitud y escriba la dirección de correo electrónico del administrador de cuentas de asociado o del administrador de asociados de DC en el campo de contacto de patrocinadores de Microsoft.
+
+Si se cumplen los criterios de elegibilidad de las [directivas de participación de Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833) y se aprueba la aplicación, comenzaremos a trabajar en conjunto con usted para incorporar su solución a Azure Marketplace.
 
 ### <a name="2-register-your-account-as-a-microsoft-seller"></a>2. Registrar de la cuenta como vendedor de Microsoft
 - [Registro de la cuenta Microsoft como una cuenta de Microsoft Developer](marketplace-publishing-accounts-creation-registration.md)
@@ -93,6 +95,6 @@ Lo primero que le convendría hacer como publicador es definir el tipo de soluci
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

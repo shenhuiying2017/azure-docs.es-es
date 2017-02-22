@@ -26,6 +26,7 @@
 ### [Realizar el seguimiento de un trabajo de runbook](automation-runbook-execution.md)
 ### [Cambiar la configuración de runbook](automation-runbook-settings.md)
 ### [Administrar datos de Azure Automation](automation-managing-data.md)
+### [Llamada a un runbook de Azure Automation desde una alerta de Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Implementar administración de configuración (DSC)
 ### [Configuración de estado deseado (DSC)](automation-dsc-overview.md)
 ### [Introducción](automation-dsc-getting-started.md)
@@ -43,6 +44,7 @@
 ### [Módulos de integración](automation-integration-modules.md)
 ### [Programaciones](automation-schedules.md)
 ### [Variables](automation-variables.md)
+### [Actualizar módulos de Azure PowerShell](automation-update-azure-modules.md)
 ## Automatización de escenarios
 ### [Galería de runbooks](automation-runbook-gallery.md)
 ### [Inicio y detención de máquinas virtuales](automation-solution-startstopvm-graphical.md)
@@ -53,7 +55,9 @@
 ### [Eliminación de grupo de recursos](automation-scenario-remove-resourcegroup.md)
 ### [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 ### [Integración de control de código fuente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Supervisión](automation-manage-send-joblogs-log-analytics.md)
+## Supervisión
+### [Reenvío de datos del trabajo de Azure Automation a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Desvinculación de la cuenta de Azure Automation de Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrar
 ### [Migración desde Orchestrator](automation-orchestrator-migration.md)
 ### [Traslado de una cuenta de Automation](automation-migrate-account-subscription.md)
@@ -78,6 +82,6 @@
 ## [Vídeo de introducción a Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

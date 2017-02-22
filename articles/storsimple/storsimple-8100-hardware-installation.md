@@ -1,5 +1,5 @@
 ---
-title: "Instalación del dispositivo StorSimple 8100 | Microsoft Docs"
+title: "Instalación del dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs"
 description: "Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100 antes de implementar y configurar el software."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: 9d6d4ca99d5733f4e586ccba44307d8f5ffa09e8
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
 
 
 ---
@@ -189,8 +189,8 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
    
    | Etiqueta | Description |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de red de 1 GbE |
-   |   2,3 |Interfaces de red de 10 GbE |
+   |   0,1,4,5 |Interfaces de red de&1; GbE |
+   |   2,3 |Interfaces de red de&10; GbE |
    |   6 |Puertos serie |
 2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos.
 
@@ -217,7 +217,7 @@ Cuando se realiza el cableado del dispositivo, la configuración mínima requier
 
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
-* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
+* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan&10; GbE) en cada controlador.
 * Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos.
 
 Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
@@ -251,6 +251,6 @@ Aprenda cómo [Implementar el dispositivo StorSimple local](storsimple-deploymen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 7b4988ecc1594b5c9fba8554173ccbf167260898
+ms.sourcegitcommit: 5b8b293b5b37365088a3df55581be7b7bf76691c
+ms.openlocfilehash: 7bc3421e00215ca4629ea11811c98e581377b24a
 
 
 ---
@@ -34,7 +34,7 @@ En este tema se explica cómo usar Azure PowerShell con plantillas de Resource M
 > [!TIP]
 > Para obtener ayuda con la depuración de un error durante la implementación, consulte:
 > 
-> * [Visualización de operaciones de implementación con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) para obtener información que le ayude a solucionar el error
+> * [Visualización de operaciones de implementación](resource-manager-deployment-operations.md) para obtener información que lo ayude a solucionar el error
 > * [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) para obtener información sobre cómo resolver errores comunes de implementación
 > 
 > 
@@ -104,7 +104,7 @@ Estos comandos crean un grupo de recursos e implementan una plantilla en dicho g
    
      Los dos ejemplos anteriores no incluyen valores de parámetro. Obtendrá información sobre las opciones para pasar valores de parámetro en la sección [Parámetros](#parameters). Por ahora, se le pide que proporcione los valores de parámetro con la sintaxis siguiente:
 
-   ```poweshell  
+   ```powershell  
    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
    Supply values for the following parameters:
    (Type !? for Help.)
@@ -113,7 +113,7 @@ Estos comandos crean un grupo de recursos e implementan una plantilla en dicho g
      
      Una vez implementados los recursos, verá un resumen de la implementación. El resumen incluye un valor **ProvisioningState**, que indica si la implementación se realizó correctamente.
 
-   ```poweshell   
+   ```powershell   
    DeploymentName    : ExampleDeployment
    ResourceGroupName : ExampleResourceGroup
    ProvisioningState : Succeeded
@@ -127,7 +127,7 @@ Estos comandos crean un grupo de recursos e implementan una plantilla en dicho g
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
    ```
    
-     Para más información sobre cómo usar este contenido de depuración a fin de solucionar problemas en implementaciones, consulte [Solución de problemas de implementaciones de grupo de recursos con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     Para obtener más información sobre cómo usar este contenido de depuración a fin de solucionar problemas en implementaciones, consulte [View deployment operations](resource-manager-deployment-operations.md) (Ver operaciones de implementación).
 
 ## <a name="deploy-private-template-with-sas-token"></a>Implementación de una plantilla privada con el token de SAS
 Puede agregar las plantillas a una cuenta de almacenamiento y establecer vínculos a ellas durante la implementación con un token de SAS.
@@ -193,10 +193,10 @@ Tiene las opciones siguientes para proporcionar valores de parámetro:
    
 - Parámetros en línea. Incluya nombres de parámetro individuales en el cmdlet (por ejemplo, **-myParameterName**).
 
-   ```poweshell   
+   ```powershell   
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
    ```
-- Objeto de parámetro. Incluya el parámetro **- emplateParameterObject**.
+- Objeto de parámetro. Incluya el parámetro **-TemplateParameterObject**.
 
    ```powershell   
    $parameters = @{"<ParameterName>"="<Parameter Value>"}
@@ -233,6 +233,6 @@ Sin embargo, cuando se utiliza un archivo de parámetros externo, no se pueden p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

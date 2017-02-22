@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ac51879ecc6ff56564d6af24a91f1be2e656aca
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 85ad42b4e551f598cb67ffdbd3b0031faff45eb6
 
 
 ---
@@ -285,6 +285,6 @@ Al hacer clic en el icono de Skydesk Email en el Panel de acceso, debería inici
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: e65a655bc9e85b4797d795c9be6ded9ef253ed86
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
 
 
 ---
@@ -60,7 +60,7 @@ Si usa el nombre de dominio **\*.azurewebsites.net** que se crea para su aplicac
 Si habilita [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , puede contribuir a la protección frente a ataques MITM dirigidos a la comunicación entre la aplicación y sus usuarios.
 
 ## <a name="secure-data-tier"></a>Protección de la capa de datos
-El Servicio de aplicaciones se integra estrechamente con Base de datos SQL, de forma que todas las cadenas de conexión se cifran de modo generalizado y solo se descifran en la máquina virtual donde se ejecuta la aplicación *y* solamente cuando se ejecuta la aplicación. Además, Azure SQL Database incluye muchas características de seguridad que ayudan a proteger los datos de la aplicación frente a las amenazas de Internet, entre ellas el [cifrado en reposo](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), [Enmascaramiento dinámico de datos](../sql-database/sql-database-dynamic-data-masking-get-started.md) y [Detección de amenazas](../sql-database/sql-database-threat-detection-get-started.md). Si tiene datos confidenciales o requisitos de cumplimiento, consulte [Protección de Bases de datos SQL](../sql-database/sql-database-security.md) para más información sobre cómo proteger los datos.
+El Servicio de aplicaciones se integra estrechamente con Base de datos SQL, de forma que todas las cadenas de conexión se cifran de modo generalizado y solo se descifran en la máquina virtual donde se ejecuta la aplicación *y* solamente cuando se ejecuta la aplicación. Además, Azure SQL Database incluye muchas características de seguridad que ayudan a proteger los datos de la aplicación frente a las amenazas de Internet, entre ellas el [cifrado en reposo](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), [Enmascaramiento dinámico de datos](../sql-database/sql-database-dynamic-data-masking-get-started.md) y [Detección de amenazas](../sql-database/sql-database-threat-detection.md). Si tiene datos confidenciales o requisitos de cumplimiento, consulte [Protección de Bases de datos SQL](../sql-database/sql-database-security-overview.md) para más información sobre cómo proteger los datos.
 
 Si usa un proveedor de bases de datos de terceros, como ClearDB, debe consultar los procedimientos recomendados de seguridad directamente en la documentación del proveedor.  
 
@@ -110,7 +110,7 @@ Para más información sobre los archivos **web.config** o **applicationhost.con
 Para más datos sobre la información de registro para aplicaciones del Servicio de aplicaciones, que puede resultar útil para detectar de ataques, consulte [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-enable-diagnostic-log.md).
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -120,6 +120,6 @@ Para más datos sobre la información de registro para aplicaciones del Servicio
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

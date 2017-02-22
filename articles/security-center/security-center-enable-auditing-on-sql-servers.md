@@ -1,6 +1,6 @@
 ---
 title: "Habilitación de la auditoría en servidores SQL Server desde Azure Security Center| Microsoft Docs"
-description: "En este documento, mostramos cómo implementar la recomendación de Azure Security Center **Habilitar la auditoría en servidores SQL**."
+description: "En este documento se muestra cómo implementar la recomendación **Habilitar la auditoría en servidores SQL** de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 114368ffdf8637a229bd0dfc61c0d568d348e8ee
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 7aab37882e3f831627281bcd197fb6098dc50cc6
 
 
 ---
@@ -29,15 +29,18 @@ Esta recomendación solo se aplica en el servicio SQL de Azure; no se incluyen l
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Habilitar la auditoría en servidores SQL**.  Se abrirá la hoja **Habilitar la auditoría en servidores SQL** .
-   ![Enable auditing on SQL servers][1]
+
+   ![Habilitación de la auditoría en servidores SQL][1]
 2. Seleccione un servidor SQL Server en donde habilitar la auditoría. Se abrirá la hoja **Configuración de auditoría** .
-   ![Auditing settings][2]
+
+   ![Configuración de auditoría][2]
 3. En la hoja **Configuración de auditoría**, seleccione la opción **ACTIVAR** de **Auditoría**.
+
    ![Activación de la configuración de auditoría][3]
 4. Siga los pasos de [Introducción a la auditoría de bases de datos SQL](../sql-database/sql-database-auditing-get-started.md) para configurar el almacenamiento donde se guardarán los registros de auditoría. La cuenta de almacenamiento de la suscripción en la que se recopilarán datos es la predeterminada.
 5. Siga los pasos de [Introducción a Detección de amenazas de Base de datos SQL](../sql-database/sql-database-threat-detection-get-started.md) para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
@@ -64,6 +67,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

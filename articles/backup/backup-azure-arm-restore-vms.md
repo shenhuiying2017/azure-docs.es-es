@@ -162,7 +162,7 @@ Es posible hacer una copia de seguridad y restaurar las máquinas virtuales con 
 
 * Máquinas virtuales en el equilibrador de carga (interno y externo)
 * Máquinas virtuales con varias direcciones IP reservadas
-* Paso 3: Creación de máquinas virtuales con varias NIC
+* Paso&3;: Creación de máquinas virtuales con varias NIC
 
 > [!IMPORTANT]
 > Al crear la configuración especial de red para las máquinas virtuales, debe usar PowerShell para crear máquinas virtuales a partir de los discos restaurados.

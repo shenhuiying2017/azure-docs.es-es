@@ -1,5 +1,5 @@
 ---
-title: "Creación de aplicaciones Spark en Scala con las herramientas de HDInsight del kit de herramientas de Azure para Eclipse | Microsoft Docs"
+title: Uso del kit de herramientas de Azure para Eclipse para crear aplicaciones de Scala para Spark | Microsoft Docs
 description: "Obtenga información sobre cómo crear una aplicación independiente Spark para ejecutarla en clústeres de HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-linux-cluster"></a>Uso de las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)
+# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-cluster"></a>Uso de las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark para clústeres de Spark en HDInsight
 En este artículo se proporcionan instrucciones paso a paso sobre cómo desarrollar aplicaciones Spark escritas en Scala y enviarlas a un clúster Spark en HDInsight mediante las herramientas de HDInsight del kit de herramientas de Azure para Eclipse. Puede usar las herramientas de varias maneras diferentes:
 
 * Para desarrollar y enviar una aplicación Spark en Scala en un clúster de HDInsight Spark
@@ -34,8 +34,8 @@ En este artículo se proporcionan instrucciones paso a paso sobre cómo desarrol
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit (versiones 7 y 8). 
   
   * **Java SDK 7** se utiliza para compilar proyectos Spark, ya que los clústeres de HDInsight admiten la versión 7 de Java. Puede descargar Java SDK 7 [aquí](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
@@ -234,6 +234,6 @@ Si tiene sugerencias o comentarios, o si encuentra algún problema al usar esta 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Intel Edison Azure y el kit de inicio de IoT de Azure | Microsoft Docs"
+title: "Conexión de Intel Edison (C) a Azure IoT: Introducción | Microsoft Docs"
 description: "En este artículo se explica cómo empezar a trabajar con Intel Edison, crear la instancia de IoT Hub de Azure y conectar Edison a IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/7/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: 4c13a79d5701c91d845b5d141631801dec2a22d1
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 90b7486d8a5997db16419a85e79f1c181de98b95
 
 
 ---
@@ -142,6 +142,6 @@ Si tiene algún problema durante las lecciones, puede encontrar soluciones en el
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

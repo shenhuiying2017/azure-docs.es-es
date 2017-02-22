@@ -10,18 +10,18 @@ ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
+ms.sourcegitcommit: 36748312506a08ed7932a6bb355a5dc7393bb002
+ms.openlocfilehash: 5e15f8a0ebb8cab5dce5b3c1cf6b62dee362a8d0
 
 
 ---
-# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Carga de datos desde CSV en Almacenamiento de datos SQL de Azure (archivos planos)
+# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carga de datos desde CSV en Azure SQL Database (archivos planos)
 Puede utilizar la herramienta de línea de comandos bcp para importar datos desde un archivo CSV en Base de datos SQL de Azure.
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -121,6 +121,6 @@ Para migrar una base de datos de SQL Server, consulte el artículo sobre la [mig
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

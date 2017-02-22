@@ -1,5 +1,5 @@
 ---
-title: "Implementación de la matriz virtual de Microsoft Azure StorSimple 1: preparación del portal | Microsoft Docs"
+title: "Preparación del portal para StorSimple Virtual Array | Microsoft Docs"
 description: "El primer tutorial para implementar la matriz virtual de StorSimple trata sobre la preparación de Azure Portal"
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 019f56c6d76f3977c0681403d58f957ca263ab25
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Implementación de la matriz virtual de StorSimple: preparación del portal
@@ -172,6 +172,6 @@ El siguiente paso es aprovisionar una máquina virtual para StorSimple Virtual A
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

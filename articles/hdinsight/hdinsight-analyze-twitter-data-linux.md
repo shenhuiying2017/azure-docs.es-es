@@ -13,21 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 660524509b523ae2edb72cb8c80d75437730c119
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 64324eb5258a060f31902cfb30c97425304b7e33
 
 
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Análisis de datos de Twitter con Hive en HDInsight
-En este documento, obtendrá tweets mediante una API de streaming de Twitter y, luego, usará Apache Hive en un clúster de HDInsight basado en Linux para procesar los datos con formato JSON. El resultado será una lista de usuarios de Twitter que enviaron la mayoría de los tweets que contienen una palabra determinada.
 
-> [!NOTE]
-> Aunque distintas partes de este documento se pueden usar con clústeres de HDInsight basados en Windows (Python por ejemplo), muchos de los pasos se basan el uso de un clúster de HDInsight basado en Linux. Para obtener pasos específicos para un clúster basado en Windows, vea [Análisis de datos de Twitter con Hive en HDInsight](hdinsight-analyze-twitter-data.md).
-> 
-> 
+En este documento, obtendrá tweets mediante una API de streaming de Twitter y, luego, usará Apache Hive en un clúster de HDInsight para procesar los datos con formato JSON. El resultado será una lista de usuarios de Twitter que enviaron la mayoría de los tweets que contienen una palabra determinada.
+
+> [!IMPORTANT]
+> Los pasos de este documento se probaron en un clúster de HDInsight basado en Linux.
+>
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
@@ -61,8 +62,7 @@ Twitter permite recuperar los [datos de cada tweet](https://dev.twitter.com/docs
 
 > [!NOTE]
 > Cuando utilice el comando Curl en Windows, use comillas dobles en lugar de comillas simples para los valores de opción.
-> 
-> 
+
 
 ### <a name="download-tweets"></a>Descarga de tweets
 El siguiente código Python descargará 10.000 tweets de Twitter y los guardará en un archivo denominado **tweets.txt**.
@@ -316,6 +316,6 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

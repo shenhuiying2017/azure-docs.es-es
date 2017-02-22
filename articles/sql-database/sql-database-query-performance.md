@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight de Base de datos SQL de Azure
+title: "Información de rendimiento de consultas para Azure SQL Database | Microsoft Docs"
 description: "La supervisión del rendimiento de las consultas identifica las consultas que más CPU consumen en una base de datos SQL de Azure."
 services: sql-database
 documentationcenter: 
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 174fedeb49b1ce8ca84ff2302314d683fe181fff
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -31,7 +32,6 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Query Performance Insight solo está disponible con Base de datos de SQL Azure V12.
 * Información de rendimiento de consultas requiere que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté activo en la base de datos. Si Almacén de consultas no está en ejecución, el portal le pedirá que lo active.
 
 ## <a name="permissions"></a>Permisos
@@ -176,9 +176,9 @@ Hay dos tipos de directivas de retención:
 
 La directiva de capturas se podría establecer como:
 
-* **Todas** : captura todas las consultas.
-* **Automática** : se ignoran las consultas poco frecuentes y las consultas con una duración de ejecución y compilación insignificantes. Los umbrales para la duración del tiempo de ejecución y de compilación y para el recuento de ejecuciones se determinan internamente. Esta es la opción predeterminada.
-* **Ninguna** : el Almacén de consultas deja de capturar nuevas consultas, pero las estadísticas en tiempo de ejecución de las consultas ya capturadas siguen recopilándose.
+* **Todas**: captura todas las consultas.
+* **Automática**: se ignoran las consultas poco frecuentes y las consultas con una duración de ejecución y compilación insignificantes. Los umbrales para la duración del tiempo de ejecución y de compilación y para el recuento de ejecuciones se determinan internamente. Esta es la opción predeterminada.
+* **Ninguna**: el Almacén de consultas deja de capturar nuevas consultas, pero las estadísticas en tiempo de ejecución de las consultas ya capturadas siguen recopilándose.
 
 Se recomienda establecer todas las directivas en AUTO y la directiva de limpieza en 30 días:
 
@@ -228,6 +228,6 @@ Para recomendaciones adicionales sobre cómo mejorar el rendimiento de la base d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

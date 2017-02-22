@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/01/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
+ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
 
 
 ---
@@ -50,18 +50,23 @@ La VM de ciencia de datos puede usarse para evaluar o aprender herramientas como
 La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de datos conocidas ya instaladas y configuradas. También incluye herramientas que facilitan trabajar con diversos productos y análisis de datos de Azure. Puede explorar y generar modelos predictivos en conjuntos de datos a gran escala mediante Microsoft R Server o con SQL Server 2016. También se incluye un host de otras herramientas de la comunidad de código abierto y desde Microsoft, así como código de ejemplo y bloc de notas. En la tabla siguiente se detalla y compara los componentes principales incluidos en las ediciones de Windows y Linux de la máquina virtual de ciencia de datos.
 
 | **Edición de Windows** | **Edición de Linux** |
-| --- | --- |
-| Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Servidor de Jupyter Notebook (R, Python) |JupyterHub: Jupyter Notebooks multiusuario (R, Python, Julia) |
-| SQL Server 2016 Developer Edition: Análisis de base de datos escalable con servicios de R |Postgres, ardilla SQL (herramienta de la base de datos), controladores de SQL Server y línea de comandos (bcp, sqlcmd) |
-| Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools </br> - Herramientas R, Node.js y Python para Visual Studio |IDE y editores </br> - Eclipse con complemento de kit de herramientas de Azure </br> - Emacs (con ESS, auctex) gedit |
+| -- | --|
+| Microsoft R Open con paquetes populares preinstalados | Microsoft R Open con paquetes populares preinstalados |
+| Microsoft R Server Developer Edition con algoritmos de MicrosoftML y Microsoft R Operationalization  |Microsoft R Server Developer Edition |
+| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 con paquetes populares preinstalados|
+| JuliaPro con paquetes populares preinstalados | JuliaPro con paquetes populares preinstalados |
+| Jupyter Notebook Server (R, Python, Julia) |JupyterHub: Jupyter Notebooks multiusuario (R, Python, Julia, PySpark) |
+| SQL Server 2016 Developer Edition SP1: Análisis de base de datos escalable con servicios de R |PostgresSQL, SQuirreL SQL (herramienta de la base de datos), controladores de SQL Server y línea de comandos (bcp, sqlcmd) |
+|- Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools </br> - Herramientas R, Node.js y Python para Visual Studio (RTVS 0.5) </br>- R Studio Desktop|IDE y editores </br> - Eclipse con complemento de kit de herramientas de Azure </br> - Emacs (con ESS, auctex) gedit </br> - IntelliJ IDEA</br> - PyCharm</br> - Atom</br> - Código de Visual Studio|
 | Power BI Desktop |-- |
-| Herramientas de aprendizaje automático </br> - Integración con Azure Machine Learning </br> - CNTK (aprendizaje en profundidad/AI) </br> - Xgboost (herramienta ML conocida en competencias de ciencia de datos) </br> - Vowpal Wabbit (objetivo del aprendizaje en línea rápido) </br> - Rattle (herramienta de análisis y datos de inicio rápido visual) </br> - Mxnet (aprendizaje en profundidad/AI) |Herramientas de aprendizaje automático </br> - Integraciones con Azure Machine Learning </br> - CNTK (aprendizaje en profundidad/AI) </br> - Xgboost (herramienta ML conocida en competencias de ciencia de datos) </br> - Vowpal Wabbit (objetivo del aprendizaje en línea rápido) </br> - Rattle (herramienta de análisis y datos de inicio rápido visual) |
+| Herramientas de aprendizaje automático </br> - Integración con Azure Machine Learning </br> - Aprendizaje en profundidad/AI con Microsoft Cognitive Toolkit (CNTK 2.0) </br> - Xgboost (herramienta ML conocida en competencias de ciencia de datos) </br> - Vowpal Wabbit (objetivo del aprendizaje en línea rápido) </br> - Rattle (herramienta de análisis y datos de inicio rápido visual) </br> - Mxnet (aprendizaje en profundidad/AI) </br> -Tensorflow  |Herramientas de aprendizaje automático </br> - Integraciones con Azure Machine Learning </br> - CNTK (aprendizaje en profundidad/AI) </br> - Xgboost (herramienta ML conocida en competencias de ciencia de datos) </br> - Vowpal Wabbit (objetivo del aprendizaje en línea rápido) </br> - Rattle (herramienta de análisis y datos de inicio rápido visual) </br> - Mxnet (aprendizaje en profundidad/AI)|
 | SDK para obtener acceso al conjunto de aplicaciones Cortana Intelligence y Azure |SDK para obtener acceso al conjunto de aplicaciones Cortana Intelligence y Azure |
 | Herramientas para el movimiento de datos y administración de recursos de Azure y macrodatos: Azure Storage Explorer, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (para DocumentDB), Microsoft Data Management Gateway |Herramientas para la administración de datos y administración de recursos de Azure y macrodatos: Azure Storage Explorer, CLI |
 | Git, complemento de Visual Studio Team Services |Git |
 | Puerto de Windows de las utilidades de línea de comandos de Linux/Unix más conocidas accesibles a través de la línea de comandos/GitBash |-- |
+| Weka | Weka |
+| Detalles | Detalles |
+| --| Spark local |
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Cómo empezar a trabajar con la VM de ciencia de datos de Windows
 * Cree una instancia de la VM en Windows desplazándose a [esta página](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) y seleccionando el botón verde **Crear máquina virtual**.
@@ -86,6 +91,6 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

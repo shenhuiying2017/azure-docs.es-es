@@ -6,18 +6,17 @@ keywords: acceso condicional basado en dispositivo, registro de dispositivo, hab
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ Si su dispositivo utiliza una de las siguientes plataformas, busque en las sigui
 ### <a name="device-is-not-registered"></a>El dispositivo no está registrado
 Si el dispositivo no está registrado en Azure AD y la aplicación está protegida mediante una directiva basada en dispositivo, puede ver una página con uno de los siguientes errores:
 
-![Mensajes de tipo "No se puede llegar allí desde aquí" para dispositivos no registrados](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Mensajes del tipo "No se puede llegar allí desde aquí" para dispositivos no registrados](./media/active-directory-conditional-access-device-remediation/01.png "Escenario")
 
 Si el dispositivo está unido al dominio a la instancia de Active Directory de su organización, pruebe lo siguiente:
 
@@ -122,7 +121,7 @@ Es posible que se le deniegue el acceso si intenta acceder a una aplicación o s
 
 Se mostrará una página de error como la siguiente:
 
-![Mensaje "No se puede llegar allí desde aquí" para exploradores no admitidos](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![Mensaje "No se puede llegar allí desde aquí" para exploradores no admitidos](./media/active-directory-conditional-access-device-remediation/02.png "Escenario")
 
 La única solución es utilizar un explorador compatible con la aplicación de la plataforma del dispositivo.
 
@@ -132,6 +131,6 @@ La única solución es utilizar un explorador compatible con la aplicación de l
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

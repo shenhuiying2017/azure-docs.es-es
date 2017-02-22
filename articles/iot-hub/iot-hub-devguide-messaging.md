@@ -1,6 +1,6 @@
 ---
-title: "Guía del desarrollador: Mensajería | Microsoft Docs"
-description: "Guía del desarrollador de Azure IoT Hub: mensajería del dispositivo a la nube y de la nube al dispositivo"
+title: "Información sobre la mensajería de IoT Hub de Azure | Microsoft Docs"
+description: "Guía del desarrollador: mensajería de dispositivo a nube y de nube a dispositivo con IoT Hub Incluye información sobre los formatos de mensaje y protocolos de comunicación compatibles."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 1951ea9d876ccb962e0bc84873bfb71ee42aa535
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 1951ea9d876ccb962e0bc84873bfb71ee42aa535
 ## <a name="overview"></a>Información general
 IoT Hub proporciona los siguientes primitivos de mensajería para comunicarse con un dispositivo:
 
-* [Del dispositivo a la nube][lnk-d2c] desde un dispositivo hasta un back-end de aplicación.
-* [De la nube al dispositivo][lnk-c2d] desde un back-end de aplicación (*servicio* o *nube*).
+* [De dispositivo a nube][lnk-d2c] desde un dispositivo hasta un back-end de aplicación.
+* [de nube a dispositivo][lnk-c2d] desde un back-end de aplicación (*servicio* o *nube*).
 
 Las propiedades básicas de la funcionalidad de mensajería del Centro de IoT son la confiabilidad y durabilidad de los mensajes. Estas propiedades permiten la resistencia a la conectividad intermitente en el dispositivo y a los picos de carga del procesamiento de eventos en la nube. El Centro de IoT implementa *al menos una vez* garantías de entrega para la mensajería del dispositivo a la nube y de la nube al dispositivo.
 
 IoT Hub admite varios [protocolos accesibles desde los dispositivos][lnk-protocols] (por ejemplo, MQTT, AMQP y HTTP). Para admitir la interoperabilidad sin problemas entre protocolos, IoT Hub define un [formato de mensaje común][lnk-message-format] compatible con todos los protocolos accesibles desde el dispositivo.
 
-IoT Hub expone un [punto de conexión compatible con Event Hub][lnk-compatible-endpoint] para permitir que las aplicaciones de back-end lean los mensajes del dispositivo a la nube recibidos por el centro de IoT.
+IoT Hub expone un [punto de conexión compatible con el Centro de eventos][lnk-compatible-endpoint] integrado para permitir que las aplicaciones de back-end lean los mensajes de dispositivo a nube recibidos por el centro. También puede crear puntos de conexión personalizados en su IoT Hub vinculando otros servicios en su suscripción al centro.
 
 ### <a name="when-to-use"></a>Cuándo se deben usar
 Los mensajes del dispositivo a la nube se utilizan para enviar telemetría y alertas de series temporales desde la aplicación para dispositivo y los mensajes de la nube al dispositivo, para las notificaciones unidireccionales a la aplicación para dispositivo.
@@ -42,30 +42,26 @@ Si duda entre el uso de las propiedades deseadas, los métodos directos o los me
 Para ver una comparación de los servicios IoT Hub y Event Hubs, consulte [Comparación de IoT Hub y Event Hubs][lnk-compare].
 
 ## <a name="device-to-cloud-messages"></a>Mensajes de dispositivo a nube
-Los mensajes del dispositivo a la nube se envían a través de un punto de conexión orientado al dispositivo (**/devices/{IdDeDispositivo}/messages/events**). El servicio de back-end recibe mensajes del dispositivo a la nube a través de un punto de conexión accesible desde el servicio (**/messages/events**) que es compatible con [Event Hubs][lnk-event-hubs]. Por lo tanto, puede usar la [integración de Event Hubs estándar y SDK][lnk-compatible-endpoint] para recibir mensajes del dispositivo a la nube.
+Los mensajes del dispositivo a la nube se envían a través de un punto de conexión orientado al dispositivo (**/devices/{IdDeDispositivo}/messages/events**). Después, las reglas de enrutamiento enrutan los mensajes a uno de los puntos de conexión orientado al servicio en su IoT Hub. Las reglas de enrutamiento utilizan las propiedades de los mensajes de dispositivo a nube que fluyen a través de su centro para determinar dónde enrutarlos. De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (/messages/events), que es compatible con [Event Hubs][lnk-event-hubs]. Por lo tanto, puede usar la [integración de Event Hubs estándar y SDK][lnk-compatible-endpoint] para recibir mensajes del dispositivo a la nube.
 
-IoT Hub implementa mensajería del dispositivo a la nube de forma similar a [Event Hubs][lnk-event-hubs]. Los mensajes del dispositivo a la nube de IoT Hub son más parecidos a los *eventos* de Event Hubs que a los *mensajes* de [Service Bus][lnk-servicebus].
+IoT Hub implementa mensajería de dispositivo a nube mediante un patrón de mensajería de streaming. Los mensajes de dispositivo a nube de IoT Hub son más parecidos a *eventos* de [Event Hubs][lnk-event-hubs] que a *mensajes* de [Service Bus][lnk-servicebus] en que hay un gran volumen de eventos que se pasan a través del servicio que pueden leer varios lectores.
 
 Esta implementación tiene las implicaciones siguientes:
 
-* Como sucede con los eventos de Event Hubs, los mensajes del dispositivo a la nube son duraderos y se conservan en un centro de IoT hasta siete días (consulte [Opciones de configuración del dispositivo a la nube][lnk-d2c-configuration]).
-* Los mensajes del dispositivo a la nube se fragmentan en un conjunto fijo de particiones que se establece en el momento de la creación (consulte [Opciones de configuración del dispositivo a la nube][lnk-d2c-configuration]).
-* De igual forma que los centros de eventos, los clientes que leen mensajes de dispositivo a nube tienen que administrar particiones y puntos de control. Consulte [Event Hubs: consumo de eventos][lnk-event-hubs-consuming-events].
-* Como los eventos de Event Hubs, los mensajes del dispositivo a la nube pueden tener como máximo 256 kB y se pueden agrupar en lotes para optimizar los envíos. Los lotes pueden tener un tamaño máximo de 256 KB y como máximo 500 mensajes.
+* Como sucede con los eventos de Event Hubs, los mensajes de dispositivo a nube son duraderos y se conservan en el punto de conexión **messages/events** predeterminado de un IoT Hub hasta siete días.
+* Como los eventos de Event Hubs, los mensajes del dispositivo a la nube pueden tener como máximo 256 kB y se pueden agrupar en lotes para optimizar los envíos. Los lotes pueden tener un tamaño máximo de 256 KB.
 
 De todas formas, hay algunas diferencias importantes entre los mensajes de dispositivo a nube de Centro de IoT y los Centros de eventos:
 
 * Como se explica en la sección [Control del acceso a IoT Hub][lnk-devguide-security], IoT Hub permite la autenticación y el control de acceso por dispositivo.
-* IoT Hub permite millones de dispositivos conectados simultáneamente [consulte [Cuotas y limitación][lnk-quotas], mientras que Event Hubs se limita a 5000 conexiones AMQP por espacio de nombres.
+* IoT Hub le permite crear hasta 10 puntos de conexión personalizados. Los mensajes se entregan a los puntos de conexión según las rutas configuradas en su IoT Hub.
+* IoT Hub permite millones de dispositivos conectados simultáneamente consulte [Cuotas y limitación][lnk-quotas], mientras que Event Hubs se limita a 5000 conexiones AMQP por espacio de nombres.
 * El Centro de IoT no permite el particionamiento arbitrario mediante una **PartitionKey**. Los mensajes de dispositivo a nube se dividen en particiones en función de su valor de **deviceId**de origen.
 * El escalado de un Centro de IoT es ligeramente diferente al de los centros de eventos. Para más información, consulte [Escalado de IoT Hub][lnk-guidance-scale].
 
-> [!NOTE]
-> No puede sustituir IoT Hub por Event Hubs en todos los escenarios. Por ejemplo, en algunos cálculos de procesamiento de eventos, podría ser necesario volver a crear particiones de eventos con respecto a un campo o propiedad diferentes antes de analizar los flujos de datos. En esta situación, puede usar un Centro de eventos para desacoplar las dos partes de la canalización de procesamiento de la transmisión. Para más información, consulte la sección *Particiones* del artículo [Información general de Azure Event Hubs][lnk-eventhub-partitions].
-> 
-> 
-
 Para más información sobre cómo usar la mensajería del dispositivo a la nube, consulte [SDK de IoT de Azure][lnk-sdks].
+
+Para más información sobre cómo configurar el enrutamiento de mensajes, consulte [Reglas de enrutamiento](#routing-rules).
 
 > [!NOTE]
 > Cuando se usa HTTP para enviar mensajes de dispositivo a nube, los valores y los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII y ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
@@ -73,17 +69,33 @@ Para más información sobre cómo usar la mensajería del dispositivo a la nube
 > 
 
 ### <a name="non-telemetry-traffic"></a>Tráfico sin telemetría
-A menudo, además de los puntos de datos de telemetría, los dispositivos también envían mensajes y solicitudes que requieren la ejecución y el control de la capa de lógica de negocio de la aplicación. Por ejemplo, alertas críticas que deben desencadenar una acción específica en el back-end o respuestas de dispositivo a los comandos enviados desde el back-end.
+A menudo, además de los puntos de datos de telemetría, los dispositivos envían mensajes y solicitudes que requieren la ejecución y el control independientes de la capa de lógica de negocio de la aplicación. Por ejemplo, las alertas críticas que deben desencadenar una acción específica en el back-end. Puede escribir fácilmente una regla de enrutamiento para enviar estos tipos de mensajes a un punto de conexión dedicado para su procesamiento.
 
 Para más información sobre la mejor manera de procesar este tipo de mensaje, consulte [Tutorial: procesamiento de mensajes del dispositivo a la nube de IoT Hub][lnk-d2c-tutorial].
 
-### <a name="device-to-cloud-configuration-options"></a>Opciones de configuración del dispositivo a la nube
-Centro de IoT muestra las propiedades siguientes para permitirle controlar la mensajería de dispositivo a la nube.
+### <a name="routing-rules"></a>Reglas de enrutamiento
+
+IoT Hub le permite enrutar mensajes a puntos de conexión de IoT Hub según las propiedades de mensaje. Las reglas de enrutamiento proporcionan la flexibilidad necesaria para enviar los mensajes donde deben ir sin la necesidad de crear servicios adicionales para procesar mensajes o escribir código adicional. Cada regla de enrutamiento que configure tiene las siguientes propiedades:
+
+* **Nombre**. Nombre único que identifica la regla.
+* **Origen**. El origen del flujo de datos sobre el que se debe actuar. Por ejemplo, telemetría de dispositivo.
+* **Condición**. La expresión de consulta para la regla de enrutamiento que se ejecuta en las propiedades del mensaje y se usa para determinar si se trata de una coincidencia para el punto de conexión. Para más información sobre cómo crear una condición de ruta, consulte [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-devguide-query-language].
+* **Punto de conexión**. El nombre del punto de conexión donde IoT Hub envía mensajes que cumplen la condición. Los puntos de conexión deben estar en la misma región que IoT Hub, ya que, de lo caso contrario, se puede cobrar por escrituras entre regiones.
+
+Un solo mensaje puede cumplir la condición en varias reglas de enrutamiento, en cuyo caso IoT Hub entrega el mensaje al punto de conexión asociado a cada regla coincidente. IoT Hub también desduplica automáticamente la entrega de mensajes, por lo que si un mensaje cumple varias reglas que tienen el mismo destino, solo se escribe en ese destino una vez.
+
+Para más información sobre cómo crear puntos de conexión personalizados en IoT Hub, consulte [Referencia: Puntos de conexión de IoT Hub][lnk-devguide-endpoints].
+
+### <a name="built-in-endpoint-messagesevents"></a>Punto de conexión integrado: messages/events
+
+IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado **messages/events**.
 
 * **Número de particiones**. Establezca esta propiedad durante la creación para definir el número de particiones para ingesta de eventos de dispositivo a la nube.
 * **Tiempo de retención**. Esta propiedad especifica el tiempo de retención para los mensajes de dispositivo a nube. El valor predeterminado es un día, pero se puede aumentar a siete días.
 
-Además, de forma análoga a los Centros de eventos, el Centro de IoT permite administrar los grupos de consumidores en el punto de conexión de recepción de dispositivo a nube.
+IoT Hub también le permite administrar los grupos de consumidores en el punto de conexión de recepción de dispositivo a nube integrado.
+
+De forma predeterminada, todos los mensajes que no cumplen de forma explícita una regla de enrutamiento de mensajes se escriben en el punto de conexión integrado. Si deshabilita esta ruta de reserva, los mensajes que no cumplen explícitamente ninguna reglas de enrutamiento de mensajes se quitan.
 
 Puede modificar todas estas propiedades mediante programación con las[API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis] o usando [Azure Portal][lnk-management-portal].
 
@@ -120,7 +132,7 @@ Cada mensaje de la nube al dispositivo se dirige a un único dispositivo al esta
 > 
 
 ### <a name="message-lifecycle"></a>Ciclo de vida de los mensajes
-Para garantizar la entrega de mensajes al menos una vez, IoT Hub conserva los mensajes de la nube al dispositivo en colas para cada dispositivo. Los dispositivos tienen que confirmar explícitamente la *finalización* para que el Centro de IoT los quite de la cola. Esto garantiza la resistencia frente a errores de dispositivo y de conectividad.
+Para garantizar la entrega de mensajes al menos una vez, IoT Hub conserva los mensajes de nube a dispositivo en colas para cada dispositivo. Los dispositivos tienen que confirmar explícitamente la *finalización* para que el Centro de IoT los quite de la cola. Esto garantiza la resistencia frente a errores de dispositivo y de conectividad.
 
 En el diagrama siguiente se detalla el gráfico de estado del ciclo de vida de un mensaje de nube a dispositivo.
 
@@ -140,7 +152,7 @@ Un mensaje puede cambiar entre los estados **Enqueued** (En cola) e **Invisible*
 Para ver un tutorial sobre los mensajes de la nube al dispositivo, consulte [Tutorial: cómo enviar mensajes de la nube a un dispositivo con IoT Hub][lnk-c2d-tutorial]. Para consultar temas de referencia sobre cómo exponen los diferentes SDK IoT de Azure la funcionalidad de la nube al dispositivo, consulte [SDK de IoT de Azure][lnk-sdks].
 
 > [!NOTE]
-> Normalmente los mensajes de nube a dispositivo se completan siempre que la pérdida del mensaje no afecte a la lógica de aplicación. Por ejemplo, el contenido del mensaje se ha guardado correctamente en el almacenamiento local, o se ha ejecutado correctamente una operación. El mensaje también puede llevar información transitoria, cuya pérdida no afectaría a la funcionalidad de la aplicación. A veces, para tareas de larga duración, puede completar el mensaje de nube a dispositivo después de guardar la descripción de la tarea en el almacenamiento local. A continuación, se puede notificar al back-end de aplicación con uno o más mensajes de dispositivo a nube en distintas fases de progreso de la tarea.
+> Normalmente los mensajes de nube a dispositivo se completan siempre que la pérdida del mensaje no afecte a la lógica de aplicación. Por ejemplo, el contenido del mensaje se ha guardado correctamente en el almacenamiento local, o se ha ejecutado correctamente una operación. El mensaje también puede llevar información transitoria, cuya pérdida no afectaría a la funcionalidad de la aplicación. A veces, para tareas de larga duración, puede completar el mensaje de nube a dispositivo después de guardar la descripción de la tarea en el almacenamiento local. A continuación, se puede notificar al back-end de solución con uno o más mensajes de dispositivo a nube en distintas fases de progreso de la tarea.
 > 
 > 
 
@@ -178,7 +190,7 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
 | --- | --- |
 | EnqueuedTimeUtc |Marca de tiempo que indica cuándo se produjo el resultado del mensaje. Por ejemplo, el dispositivo completado o el mensaje expirado. |
 | OriginalMessageId |**MessageId** del mensaje de nube a dispositivo al que pertenece esta información de comentarios. |
-| StatusCode |Entero requerido. Se utiliza en los mensajes de comentarios generados por el Centro de IoT. <br/> 0 = correcto <br/> 1 = mensaje expirado <br/> 2 = el número máximo de entregas excedido <br/>  3 = mensaje rechazado |
+| StatusCode |Entero requerido. Se utiliza en los mensajes de comentarios generados por el Centro de IoT. <br/> 0 = correcto <br/> 1 = mensaje expirado <br/> 2 = el número máximo de entregas excedido <br/> &3; = mensaje rechazado |
 | Description |Valores de cadena para **StatusCode**. |
 | deviceId |**DeviceId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
 | DeviceGenerationId |**DeviceGenerationId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
@@ -220,21 +232,30 @@ Cada Centro de IoT expone las siguientes opciones de configuración para la mens
 Para más información, consulte el artículo sobre la [creación de centros de IoT][lnk-portal].
 
 ## <a name="read-device-to-cloud-messages"></a>Lectura de mensajes del dispositivo a la nube
-IoT Hub expone un punto de conexión para los servicios de back-end con el fin de leer los mensajes del dispositivo a la nube recibidos por el centro. El punto de conexión es compatible con Event Hub, lo que permite usar cualquiera de los mecanismos del servicio Event Hubs para leer mensajes.
+IoT Hub expone el punto de conexión integrado **messages/events** para los servicios de back-end con el fin de leer los mensajes de dispositivo a nube recibidos por el centro. Este punto de conexión es compatible con Event Hubs, lo que permite usar cualquiera de los mecanismos que el servicio Event Hubs admite para leer mensajes.
+
+También puede crear puntos de conexión personalizados en IoT Hub. IoT Hub admite actualmente Event Hubs, colas de Service Bus y temas de Service Bus como puntos de conexión personalizados. Para más información sobre la lectura desde esos servicios, consulte lo siguiente: lectura desde [Event Hubs][lnk-getstarted-eh], lectura desde [colas de Service Bus][lnk-getstarted-queue] y lectura desde [temas de Service Bus][lnk-getstarted-topic].
+
+### <a name="reading-from-the-built-in-endpoint"></a>Lectura desde el punto de conexión integrado
 
 Al usar el [SDK de Azure Service Bus para .NET][lnk-servicebus-sdk] o [Event Hubs - host del procesador de eventos][lnk-eventprocessorhost], puede usar cualquier cadena de conexión del centro de IoT con los permisos correctos. A continuación, utilice **messages/events** como el nombre del Centro de eventos.
 
 Cuando use SDK (o integraciones de productos) que no detecten IoT Hub, tiene que recuperar un punto de conexión y un nombre compatibles con Event Hub de la configuración de IoT Hub en [Azure Portal][lnk-management-portal]:
 
-1. En la hoja Centro de IoT, haga clic en **Mensajería**.
-2. En la sección **Configuración del dispositivo a la nube**, encontrará los valores **Extremo compatible con el Centro de eventos**, **Nombre compatible con el Centro de eventos** y **Particiones**.
+1. En la hoja IoT Hub, haga clic en **Puntos de conexión**.
+2. En la sección **Built-in endpoints** (Puntos de conexión integrados), haga clic en **Eventos**. La hoja contiene los siguientes valores: **Event Hub-compatible endpoint** (Punto de conexión compatible con el Centro de eventos), **Event Hub-compatible name** (Nombre compatible con el Centro de eventos), **Particiones**, **Tiempo de retención** y **Grupos de consumidores**.
    
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
 > [!NOTE]
-> Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **Extremo compatible con el Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** sería **iothub-ns-myiothub-1234**.
+> El SDK de IoT Hub requiere el nombre del punto de conexión de IoT Hub, que es **messages/events** tal y como se muestra en la hoja **Puntos de conexión**.
+>
+>
+
+> [!NOTE]
+> Si el SDK que utiliza requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema de **Event Hub-compatible endpoint** (Punto de conexión compatible con el Centro de eventos). Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** sería **iothub-ns-myiothub-1234**.
 > 
-> 
+>
 
 A continuación, puede usar cualquier directiva de acceso compartido que tenga permisos **ServiceConnect** para conectarse a la instancia de Event Hub especificada.
 
@@ -286,7 +307,7 @@ IoT Hub mide el tamaño de los mensajes de una manera independiente del protocol
 * El tamaño en bytes de todos los valores de las propiedades del sistema del mensaje, además de
 * El tamaño en bytes de todos los valores y nombres de propiedades del usuario.
 
-Tenga en cuenta que los nombres de propiedades y valores se limitan a los caracteres ASCII, por lo que la longitud de las cadenas es igual al tamaño en bytes.
+Tenga en cuenta solamente se pueden usar caracteres ASCII para valores y los nombres de propiedades, por lo que la longitud de las cadenas es igual al tamaño en bytes.
 
 ## <a name="communication-protocols"></a>Protocolos de comunicación
 IoT Hub permite a los dispositivos usar protocolos [MQTT][lnk-mqtt], MQTT sobre WebSockets, [AMQP][lnk-amqp], AMQP sobre WebSockets y HTTP para comunicaciones del lado del dispositivo. La tabla siguiente proporciona recomendaciones generales para la elección del protocolo:
@@ -313,7 +334,7 @@ Considere los siguientes aspectos a la hora de elegir el protocolo para las comu
 ## <a name="port-numbers"></a>Números de puerto
 Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante diversos protocolos. Normalmente, la elección del protocolo se basa en los requisitos específicos de la solución. En la tabla siguiente se indican los puertos de salida que deben estar abiertos para que un dispositivo pueda usar un protocolo concreto:
 
-| Protocol | Puertos |
+| Protocol | Port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT sobre WebSockets |443 |
@@ -327,24 +348,24 @@ Una vez creado un centro de IoT en una región de Azure, el centro de IoT mantie
 ## <a name="notes-on-mqtt-support"></a>Notas sobre la compatibilidad con MQTT
 Centro de IoT implementa el protocolo MQTT v3.1.1 con las siguientes limitaciones y comportamiento específico:
 
-* **No se admite QoS 2**. Cuando un cliente de dispositivo publica un mensaje con **QoS 2**, el Centro de IoT cierra la conexión de red. Cuando un cliente de dispositivo se suscribe a un tema con **QoS 2**, IoT Hub concede el QoS de nivel 1 (el máximo) en el paquete **SUBACK**.
-* **Los mensajes Retain no se conservan**. Si un cliente de dispositivo publica un mensaje con la marca RETAIN establecida en 1, el Centro de IoT agrega la propiedad de aplicación **x-opt-retain** al mensaje. Esto significa que el Centro de IoT no conserva el mensaje, sino que lo pasa a la aplicación de back-end.
+* **No se admite QoS 2**. Cuando un cliente de dispositivo publica un mensaje con **QoS 2**, IoT Hub cierra la conexión de red. Cuando una aplicación de dispositivo se suscribe a un tema con **QoS 2**, IoT Hub concede el QoS de nivel 1 (el máximo) en el paquete **SUBACK**.
+* **Los mensajes Retain no se conservan**. Si una aplicación de dispositivo publica un mensaje con la marca RETAIN establecida en 1, IoT Hub agrega la propiedad de aplicación **x-opt-retain** al mensaje. Esto significa que IoT Hub no conserva el mensaje, sino que lo pasa a la aplicación de back-end.
 
 Para más información, consulte [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt].
 
 Como consideración final, debe revisarse la sección [Puerta de enlace de protocolos de IoT de Azure][lnk-azure-protocol-gateway], donde se explica cómo implementar una puerta de enlace de protocolo personalizado de alto rendimiento que interactúe directamente con IoT Hub. La puerta de enlace de protocolos de IoT de Azure le permite personalizar el protocolo del dispositivo para dar cabida a las implementaciones de MQTT de Brownfield u otros protocolos personalizados. Sin embargo, este enfoque requiere que se ejecute y se ponga en funcionamiento una puerta de enlace de protocolo personalizado.
 
 ## <a name="additional-reference-material"></a>Material de referencia adicional
-Otros temas de referencia en la Guía del desarrollador son:
+Otros temas de referencia en la guía del desarrollador de IoT Hub son los siguientes:
 
-* En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT para las operaciones en tiempo de ejecución y de administración.
+* En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
 * En [Cuotas y limitación][lnk-quotas], se describen las cuotas que se aplican al servicio IoT Hub y el comportamiento de limitación que se espera al usar el servicio.
-* En [SDK de dispositivos y servicios de IoT de Azure][lnk-sdks], se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
+* En [SDK de dispositivo y servicio IoT de Azure][lnk-sdks] se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
 * En [Lenguaje de consulta de IoT Hub para gemelos y trabajos][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha aprendido a enviar y recibir mensajes con IoT Hub, pueden interesarle los siguientes temas de la Guía del desarrollador:
+Ahora que ha aprendido a enviar y recibir mensajes con IoT Hub, pueden interesarle los siguientes temas de la Guía del desarrollador de IoT Hub:
 
 * [Upload files from a device][lnk-devguide-upload] (Carga de archivos desde un dispositivo)
 * [Administrar identidades del dispositivo en IoT Hub][lnk-devguide-identities]
@@ -374,6 +395,9 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-portal]: iot-hub-create-through-portal.md
+[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
@@ -388,7 +412,6 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-compatible-endpoint]: iot-hub-devguide-messaging.md#read-device-to-cloud-messages
 [lnk-protocols]: iot-hub-devguide-messaging.md#communication-protocols
 [lnk-message-format]: iot-hub-devguide-messaging.md#message-format
-[lnk-d2c-configuration]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-ttl]: iot-hub-devguide-messaging.md#message-expiration-time-to-live
 [lnk-c2d-configuration]: iot-hub-devguide-messaging.md#cloud-to-device-configuration-options
@@ -405,7 +428,8 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
-
+[lnk-devguide-query-language]: iot-hub-devguide-query-language.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
@@ -413,6 +437,6 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

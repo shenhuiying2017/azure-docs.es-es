@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
 
 
 ---
@@ -39,37 +39,37 @@ En esta página puede ver experimentos **agregados recientemente** (Recently add
 Para examinar todos los experimentos:
 
 1. Haga clic en **Browse all** (Examinar todo) en la parte superior de la página.
-2. En **Refine by** (Refinar por), seleccione **Experiment** (Experimento) para ver todos los experimentos de la galería.
+2. En **Refine by** (Refinar por) en la sección **Categories** (Categorías), seleccione **Experiment** (Experimento) para ver todos los experimentos de la galería.
 3. Puede encontrar los experimentos que cumplan con sus requisitos de las siguientes maneras:
    * **Seleccione los filtros de la izquierda.** Por ejemplo, para examinar los experimentos que utilizan un algoritmo de detección de anomalías basado en PCA, seleccione **Experiment** (Experimento) en **Categories** (Categorías), y **PCA-Based Anomaly Detection** (Detección de anomalías basada en PCA) en **Algorithms Used** (Algoritmos usados). Si no ve ese algoritmo, haga clic en **Show all** (Mostrar todo) en la parte inferior de la lista.<br></br>
      ![Filtros de selección](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Utilice el cuadro de búsqueda.**  Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases): ![Use el cuadro de búsqueda](./media/machine-learning-sample-experiments/search-for-experiments.png)
+   * **Utilice el cuadro de búsqueda.** Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione los filtros **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases):<br></br>
+     ![Utilice el cuadro de búsqueda](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Haga clic en un experimento para obtener más información.
-5. Para ejecutar o modificar el experimento, haga clic en **Open in Studio** (Abrir en Estudio) en la página del experimento.
-
-   > [!NOTE]
-   > Para abrir un experimento en Estudio de aprendizaje automático, debe iniciar sesión con las credenciales de su cuenta Microsoft. Si aún no tiene un área de trabajo de Aprendizaje automático, se creará un área de trabajo de prueba gratuita. [Información sobre qué incluye la evaluación gratuita de Aprendizaje automático](https://azure.microsoft.com/pricing/details/machine-learning/)
-   >
-   >
+5. Para ejecutar o modificar el experimento, haga clic en **Open in Studio** (Abrir en Estudio) en la página del experimento. <br></br>
 
     ![Experimento de ejemplo](./media/machine-learning-sample-experiments/example-experiment.png)
+
+    > [!NOTE]
+    > Cuando abra un experimento en Machine Learning Studio por primera vez, puede probarlo de forma gratuita o comprar una suscripción a Azure. [Vea información sobre la diferencia entre la prueba gratuita de Machine Learning Studio y el servicio de pago](https://azure.microsoft.com/pricing/details/machine-learning/)
+    >
+    >
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Uso de una plantilla en Estudio de aprendizaje automático
 También puede crear un nuevo experimento en Estudio de aprendizaje automático si usa un ejemplo de la galería como plantilla.
 
-1. Inicie sesión con las credenciales de su cuenta Microsoft en [Estudio](https://studio.azureml.net)y después haga clic en **Nuevo** para crear un nuevo experimento.
+1. Inicie sesión con las credenciales de su cuenta de Microsoft en [Studio](https://studio.azureml.net) y haga clic en **Nuevo** para crear un experimento.
 2. Examine el contenido de ejemplo y haga clic en uno.
 
 Se crea un nuevo experimento en el área de trabajo con el experimento de ejemplo como plantilla.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Preparación de sus datos](machine-learning-data-science-import-data.md)
-* [Probar el uso de R en el experimento](machine-learning-r-quickstart.md)
-* [Revisar los experimentos de ejemplo R](machine-learning-r-csharp-web-service-examples.md)
-* [Creación de una API de servicio web](machine-learning-publish-a-machine-learning-web-service.md)
+* [Importación de datos desde varios orígenes](machine-learning-data-science-import-data.md)
+* [Tutorial rápido para el lenguaje R en Machine Learning](machine-learning-r-quickstart.md)
+* [Implementación de un servicio web Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Simulación de un dispositivo con el SDK de puerta de enlace de IoT | Microsoft Docs"
-description: "Tutorial del SDK de puerta de enlace de IoT de Azure con Windows para ilustrar el envío de datos de telemetría desde un dispositivo simulado mediante el SDK de puerta de enlace de IoT de Azure."
+title: "Simulación de un dispositivo con el SDK de puerta de enlace de IoT de Azure (Windows) | Microsoft Docs"
+description: "Describe cómo usar el SDK de puerta de enlace de IoT de Azure en Windows para crear un dispositivo simulado que envíe datos de telemetría a través de una puerta de enlace a un centro de IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2016
+ms.date: 02/08/2017
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
+ms.sourcegitcommit: 5edf2f4c7d9d2e8e8ceb2e8de9ae7cef4c9fd02e
+ms.openlocfilehash: 446e7361b5817ce888105fbb78f329affa7de6e6
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-app-using-windows"></a>SDK de puerta de enlace de IoT de Azure: envío de mensajes del dispositivo a la nube con una aplicación de dispositivo simulado mediante Windows
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Uso del SDK de puerta de enlace de IoT de Azure para enviar mensajes de dispositivo a nube con un dispositivo simulado (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Compilación y ejecución del ejemplo
@@ -28,13 +28,13 @@ Antes de comenzar, realice los siguientes pasos:
 
 * [Configure el entorno de desarrollo][lnk-setupdevbox] para trabajar con el SDK en Windows.
 * [Cree un centro de IoT][lnk-create-hub] en su suscripción de Azure; que necesitará el nombre de su centro para realizar este tutorial. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
-* Agregue dos dispositivos en su Centro de IoT y tome nota de sus identificadores y claves de dispositivo. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar los dispositivos al centro de IoT que creó en el paso anterior y recuperar las claves.
+* Agregue dos dispositivos en su Centro de IoT y tome nota de sus identificadores y claves de dispositivo. Puede usar la herramienta [Explorador de dispositivos][lnk-device-explorer] o [iothub-explorer][lnk-iothub-explorer] para agregar los dispositivos a la instancia de IoT Hub que creó en el paso anterior y recuperar las claves.
 
 Para compilar el ejemplo:
 
 1. Abra un **símbolo del sistema para desarrolladores para VS2015** .
 2. Vaya a la carpeta raíz en la copia local del repositorio **azure-iot-gateway-sdk** .
-3. Ejecute el script **tools\\build.cmd**. Este script crea un archivo de solución de Visual Studio, genera la solución y ejecuta las pruebas. Puede encontrar la solución de Visual Studio en la carpeta **build** de su copia local del repositorio **azure-iot-gateway-sdk**.
+3. Ejecute el script **tools\\build.cmd**. Este script crea un archivo de solución de Visual Studio y compila la solución. Puede encontrar la solución de Visual Studio en la carpeta **build** de su copia local del repositorio **azure-iot-gateway-sdk**. Se pueden pasar parámetros adicionales al script para compilar y ejecutar pruebas unitarias y de principio a fin. Estos parámetros son **--run-unittests** y **--run-e2e-tests**, respectivamente.
 
 Para ejecutar el ejemplo:
 
@@ -142,7 +142,7 @@ Para ejecutar el ejemplo:
     ```
     build\samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-3. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que el centro de IoT recibe de la puerta de enlace.
+3. Puede usar la herramienta [Explorador de dispositivos][lnk-device-explorer] o [iothub-explorer][lnk-iothub-explorer] para supervisar los mensajes que la instancia de IoT Hub recibe de la puerta de enlace.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea una descripción más avanzada del SDK de puerta de enlace de IoT y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
@@ -152,21 +152,23 @@ Si desea una descripción más avanzada del SDK de puerta de enlace de IoT y exp
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía del desarrollador][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
+* [Seguridad de la solución de IoT desde el principio][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
+[lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
 [lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
 
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-create-hub]: iot-hub-create-through-portal.md 
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-create-hub]: iot-hub-create-through-portal.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

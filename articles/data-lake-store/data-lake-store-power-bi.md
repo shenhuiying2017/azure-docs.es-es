@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2cd2ef87032d1691f2c56a9da44ce29ccb4e9963
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: f965e3a5067dd8dd2ac6dc29446c7f5b50cdd450
 
 
 ---
@@ -34,64 +34,64 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 1. Inicie Power BI Desktop en el equipo.
 2. En la cinta **Inicio**, haga clic en **Obtener datos** y luego en Más. En el cuadro de diálogo **Obtener datos**, haga clic en **Azure**, en **Azure Data Lake Store** y luego en **Conectar**.
    
-    ![Conexión al Almacén de Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Connect to Data Lake Store")
+    ![Conectar a Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conectar a Data Lake Store")
 3. Si ve un cuadro de diálogo que indica que el conector está en fase de desarrollo, opte por continuar.
 4. En el cuadro de diálogo **Microsoft Azure Data Lake Store**, indique la dirección URL a su cuenta de Data Lake Store y haga clic en **Aceptar**.
    
-    ![Dirección URL del Almacén de Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL for Data Lake Store")
+    ![Dirección URL de Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "Dirección URL de Data Lake Store")
 5. En el siguiente cuadro de diálogo, haga clic en **Iniciar sesión** para iniciar sesión en la cuenta del Almacén de Data Lake. Se le redirigirá a la página de inicio de sesión de su organización. Siga las indicaciones para iniciar sesión en la cuenta.
    
-    ![Inicio de sesión en el Almacén de Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Sign into Data Lake Store")
+    ![Iniciar sesión en Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Iniciar sesión en Data Lake Store")
 6. Cuando haya iniciado sesión correctamente, haga clic en **Conectar**.
    
-    ![Conexión al Almacén de Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Connect to Data Lake Store")
+    ![Conectar a Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Conectar a Data Lake Store")
 7. El siguiente cuadro de diálogo muestra el archivo que cargó a su cuenta del Almacén de Data Lake. Compruebe la información y haga clic en **Cargar**.
    
-    ![Carga de datos del Almacén de Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Load data from Data Lake Store")
+    ![Cargar datos desde Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Cargar datos desde Data Lake Store")
 8. Después de cargar correctamente los datos en Power BI, verá los siguientes campos en la pestaña **Campos** .
    
-    ![Campos importados](./media/data-lake-store-power-bi/imported-fields.png "Imported fields")
+    ![Campos importados](./media/data-lake-store-power-bi/imported-fields.png "Campos importados")
    
     Pero, para visualizar y analizar los datos, es preferible que estos estén disponibles por los campos siguientes.
    
-    ![Campos deseados](./media/data-lake-store-power-bi/desired-fields.png "Desired fields")
+    ![Campos deseados](./media/data-lake-store-power-bi/desired-fields.png "Campos deseados")
    
     En los pasos siguientes, se actualizará la consulta para convertir los datos importados al formato deseado.
 9. En la cinta **Inicio**, haga clic en **Editar consultas**.
    
-    ![Editar consultas](./media/data-lake-store-power-bi/edit-queries.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/edit-queries.png "Editar consultas")
 10. En el Editor de consultas, en la columna **Contenido**, haga clic en **Binario**.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "Editar consultas")
 11. Verá un icono de archivo, que representa el archivo **Drivers.txt** que cargó. Haga clic en el archivo y luego en **CSV**.    
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "Editar consultas")
 12. Debería ver una salida como la siguiente. Los datos están ahora disponibles en un formato que puede usar para crear visualizaciones.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query3.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query3.png "Editar consultas")
 13. En la cinta **Inicio**, haga clic en **Cerrar y aplicar** y luego en **Cerrar y aplicar**.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/load-edited-query.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/load-edited-query.png "Editar consultas")
 14. Después de actualizar la consulta, la pestaña **Campos** mostrará los nuevos campos disponibles para su visualización.
     
-    ![Campos actualizados](./media/data-lake-store-power-bi/updated-query-fields.png "Updated fields")
+    ![Campos actualizados](./media/data-lake-store-power-bi/updated-query-fields.png "Campos actualizados")
 15. Vamos a crear un gráfico circular para representar los conductores de cada ciudad de un país determinado. Para ello, realice las selecciones siguientes.
     
     1. En la pestaña Visualizaciones, haga clic en el símbolo de un gráfico circular.
        
-        ![Creación de un gráfico circular](./media/data-lake-store-power-bi/create-pie-chart.png "Create pie chart")
+        ![Crear gráfico circular](./media/data-lake-store-power-bi/create-pie-chart.png "Crear gráfico circular")
     2. Las columnas que se van a usar son **Columna 4** (nombre de la ciudad) y **Columna 7** (nombre del país). Arrastre estas columnas de la pestaña **Campos** a la pestaña **Visualizaciones**, tal y como se muestra a continuación.
        
-        ![Crear visualizaciones](./media/data-lake-store-power-bi/create-visualizations.png "Create visualizations")
+        ![Creación de visualizaciones](./media/data-lake-store-power-bi/create-visualizations.png "Creación de visualizaciones")
     3. El gráfico circular ahora debe ser similar al que se muestra a continuación.
        
-        ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Create visualizations")
+        ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Crear visualizaciones")
 16. Si selecciona un país específico en los filtros de nivel de página, ahora puede ver el número de conductores de cada ciudad del país seleccionado. Por ejemplo, en la pestaña **Visualizaciones**, en **Filtros de nivel de página**, seleccione **Brasil**.
     
-    ![Selección de un país](./media/data-lake-store-power-bi/select-country.png "Select a country")
+    ![Seleccionar un país](./media/data-lake-store-power-bi/select-country.png "Seleccionar un país")
 17. El gráfico circular se actualiza automáticamente para mostrar los conductores de las ciudades de Brasil.
     
-    ![Conductores de un país](./media/data-lake-store-power-bi/driver-per-country.png "Drivers per country")
+    ![Controladores en un país](./media/data-lake-store-power-bi/driver-per-country.png "Controladores por país")
 18. En el menú **Archivo**, haga clic en **Guardar** para guardar la visualización como archivo de Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicación del informe en el servicio Power BI
@@ -103,6 +103,6 @@ Después de crear las visualizaciones en Power BI Desktop, puede compartirlas co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

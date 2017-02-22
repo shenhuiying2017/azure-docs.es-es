@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf45651360a9fe9b5023d46000aadc054ce0ef37
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 26383db7a3fe6736fb739121dd545518784c098a
 
 
 ---
@@ -32,7 +32,7 @@ Una de las características clave de la solución para Big Data de Microsoft es 
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
 
-* **Un clúster de HDInsight**. Para configurar uno, consulte [Introducción a HDInsight de Azure][hdinsight-get-started].
+* **Un clúster de HDInsight**. Para configurarlo, consulte [Introducción a Azure HDInsight][hdinsight-get-started].
 * **Una estación de trabajo** que ejecute Windows 7, Windows Server 2008 R2 o un sistema operativo posterior.
 * **Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone u Office 2010 Professional Plus**.
 
@@ -83,6 +83,6 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

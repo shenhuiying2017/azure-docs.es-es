@@ -1,6 +1,6 @@
 ---
-title: "Creación de una copia de la máquina virtual Windows | Microsoft Docs"
-description: "Aprenda a crear una copia de una máquina virtual de Azure especializada que ejecuta Windows con el modelo de implementación de Resource Manager."
+title: "Creación de una máquina virtual a partir de un disco especializado en Azure | Microsoft Docs"
+description: "Cree una nueva máquina virtual asociando un disco administrado especializado o un disco no administrado en el modelo de implementación de Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a779f084e0ad6de71ad3e2de86a2fb85738b8fe6
+ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
+ms.openlocfilehash: cbe3d72bbd0d9cc425b1b26ad412e77b33f385b2
 
 
 ---
-# <a name="create-a-vm-from-a-specialized-vhd"></a>Creación de máquinas virtuales a partir de un disco duro virtual especializado
-Cree una nueva máquina virtual conectando un disco duro virtual especializado como disco del sistema operativo mediante Powershell. Un disco duro virtual especializado mantiene las cuentas de usuario, las aplicaciones y otros datos de estado de la máquina virtual original. 
+# <a name="create-a-vm-from-a-specialized-disk"></a>Creación de una máquina virtual a partir de un disco especializado
 
-Si desea crear una máquina virtual a partir de un VHD especializado, consulte [Create a VM from a generalized VHD image](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de una máquina virtual a partir de una imagen de VHD generalizada).
+Cree una nueva máquina virtual conectando un disco duro virtual especializado como disco del sistema operativo mediante PowerShell. Un disco especializado es una copia del VHD de una máquina virtual existente que mantiene las cuentas de usuario, las aplicaciones y otros datos de estado de la máquina virtual original. Puede usar un [disco administrado](../storage/storage-managed-disks-overview.md) o a un disco no administrado especializado para crear una nueva máquina virtual.
+
+## <a name="before-you-begin"></a>Antes de empezar
+Si usa PowerShell, asegúrese de que tiene la versión más reciente del módulo de PowerShell AzureRM.Compute. Ejecute el siguiente comando para instalarlo.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Si desea obtener más información, consulte [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Control de versiones de Azure PowerShell).
+
 
 ## <a name="create-the-subnet-and-vnet"></a>Creación de la subred y la red virtual
+
 Cree la red virtual y la subred de la [red virtual](../virtual-network/virtual-networks-overview.md).
 
 1. Cree la subred. En este ejemplo se crea una subred llamada **mySubNet**, en el grupo de recursos **myResourceGroup** y se establece el prefijo de la dirección de subred en **10.0.0.0/24**.
@@ -59,8 +68,8 @@ Para permitir la comunicación con la máquina virtual en la red virtual, necesi
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
-        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Creación del grupo de seguridad de red y las reglas de RDP
@@ -78,45 +87,89 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
 
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+    
 ```
 
 Para más información sobre puntos de conexión y reglas NSG, consulte [Apertura de puertos para una máquina virtual en Azure mediante PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="create-the-vm-configuration"></a>Creación de la configuración de máquina virtual
-Realice la configuración de la máquina virtual para conectar el disco duro virtual copiado como disco duro virtual del sistema operativo.
+## <a name="set-the-vm-name-and-size"></a>Establecimiento del nombre de máquina virtual y el tamaño
+
+Este ejemplo establece el nombre de máquina virtual en "myVM" y el tamaño de máquina virtual en "Standard_A2".
 
 ```powershell
-# Set the URI for the VHD that you want to use. In this example, the VHD file named "myOsDisk.vhd" is kept 
-# in a storage account named "myStorageAccount" in a container named "myContainer".
-$osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
-
-# Set the VM name and size. This example sets the VM name to "myVM" and the VM size to "Standard_A2".
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-
-# Add the NIC
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-# Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the 
-# term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this 
-# Windows-based VHD should be attached to the VM as the OS disk.
-$osDiskName = $vmName + "osDisk"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
 ```
 
+## <a name="add-the-nic"></a>Agregación de la NIC
+    
+```powershell
+$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+```
+    
+    
+## <a name="configure-the-os-disk"></a>Configuración del disco del sistema operativo
 
-Si tiene discos de datos que necesitan estar conectados a la máquina virtual, también debe agregar lo siguiente: 
+El sistema operativo especializado podría ser un VHD que ha [cargado en Azure](virtual-machines-windows-upload-image.md) o una [copia del VHD de una máquina virtual de Azure existente](virtual-machines-windows-vhd-copy.md). 
+
+Puede elegir una de las dos opciones:
+- **Opción 1**: crear un disco administrado especializado a partir de un VHD en una cuenta de almacenamiento existente que se usará como el disco del sistema operativo.
+
+o 
+
+- **Opción 2**: usar un VHD especializado almacenado en su propia cuenta de almacenamiento (un disco no administrado). 
+
+### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>Opción 1: crear un disco administrado desde un disco especializado no administrado
+
+1. Cree un disco administrado a partir del VHD especializado de su cuenta de almacenamiento. En este ejemplo se utiliza **myOSDisk1** como nombre del disco, se coloca el disco en el almacenamiento **LRS Estándar** y se utiliza **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** como el URI para el VHD de origen.
+
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
+    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+    -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
+    -ResourceGroupName $rgName
+    ```
+
+2. Agregue el disco del sistema operativo a la configuración. Este ejemplo establece el tamaño del disco en **128 GB** y conecta el disco administrado como un disco del sistema operativo **Windows**.
+    
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
+
+Opcional: conecte discos administrados adicionales como discos de datos. Esta opción da por hecho que ha creado los discos de datos administrados mediante la [creación de discos de datos administrados](virtual-machines-windows-create-managed-disk-ps.md). 
 
 ```powershell
-# Optional: Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit 
-# Number (Lun).
-$dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
+$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 ```
 
-Las direcciones URL del disco de datos y sistema operativo deben tener un aspecto similar al siguiente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Para encontrarla en el portal, diríjase al contenedor de almacenamiento de destino, haga clic en el VHD de datos o del sistema operativo que se ha copiado y copie el contenido de la dirección URL.
+
+### <a name="option-2-attach-a-vhd-that-is-in-an-existing-storage-account"></a>Opción 2: conectar un VHD que se encuentra en una cuenta de almacenamiento existente
+
+1. Establezca el URI para el VHD que desea usar. En este ejemplo, el archivo de VHD denominado **myOsDisk.vhd** se mantiene en una cuenta de almacenamiento llamada **myStorageAccount** en un contenedor que se llama **myContainer**.
+
+    ```powershell
+    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
+    ```
+2. Agregue el disco del sistema operativo mediante la dirección URL del VHD del sistema operativo copiado. En este ejemplo, cuando se crea el disco del sistema operativo, el término "osDisk" se agrega al nombre de máquina virtual para crear el nombre del disco de sistema operativo. En este ejemplo también se especifica que este VHD basado en Windows debería asociarse a la máquina virtual como el disco del sistema operativo.
+    
+    ```powershell
+    $osDiskName = $vmName + "osDisk"
+    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    ```
+
+Opcional: si tiene discos de datos que necesitan estar conectados a la máquina virtual, agregue los discos de datos usando las direcciones URL de VHD de datos y el número de unidad lógica (LUN) correspondiente.
+
+```powershell
+$dataDiskName = $vmName + "dataDisk"
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+```
+
+Cuando se use una cuenta de almacenamiento, las URL de los discos de datos y del sistema operativo tienen un formato similar al siguiente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Para encontrarla en el portal, diríjase al contenedor de almacenamiento de destino, haga clic en el VHD de datos o del sistema operativo que se ha copiado y copie el contenido de la dirección URL.
+
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
+
 Cree la máquina virtual con las configuraciones que acaba de crear.
 
 ```powershell
@@ -147,6 +200,6 @@ Para iniciar sesión en la nueva máquina virtual, examine la máquina virtual e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

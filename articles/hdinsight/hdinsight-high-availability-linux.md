@@ -1,5 +1,5 @@
 ---
-title: "Características de alta disponibilidad de HDInsight (Hadoop) basado en Linux | Microsoft Docs"
+title: "Características de alta disponibilidad de HDInsight (Hadoop) | Microsoft Docs"
 description: "Obtenga información acerca de cómo los clústeres de HDInsight basados en Linux mejoran la confiabilidad y la disponibilidad mediante el uso de un nodo principal adicional. Aprenderá cómo esto afecta a los servicios de Hadoop como Ambari y Hive, y cómo conectarse individualmente a cada nodo mediante SSH."
 services: hdinsight
 editor: cgronlun
@@ -13,23 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 461ff9ce5aac5b2bf87671c314b38a4b1adad233
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
 
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
+
 Hadoop logra una alta disponibilidad y confiabilidad mediante la distribución de copias redundantes de los datos y servicios en los nodos de un clúster. Sin embargo, las distribuciones estándar de Hadoop suelen tener un único nodo principal. Cualquier interrupción de ese nodo principal puede causar que el clúster deje de funcionar.
 
-Para solucionar este posible problema, los clústeres de HDInsight basados en Linux en Azure proporcionan dos nodos principales para aumentar la disponibilidad y la confiabilidad de los servicios y trabajos de Hadoop en curso.
+Para solucionar este posible problema, los clústeres de HDInsight en Azure proporcionan dos nodos principales para aumentar la disponibilidad y la confiabilidad de los servicios y trabajos de Hadoop en curso.
 
-> [!NOTE]
-> Los pasos descritos en este documento son específicos de los clústeres de HDInsight basados en Linux. Si usa un clúster basado en Windows, consulte [Disponibilidad y confiabilidad de clústeres Hadoop basados en Windows en HDInsight](hdinsight-high-availability.md) para obtener información específica de Windows.
-> 
-> 
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="understanding-the-nodes"></a>Descripción de los nodos
 Los nodos de un clúster de HDInsight se implementan mediante Máquinas virtuales de Azure. Si se produce un error en un nodo, se desconecta y se crea un nuevo nodo para reemplazar el nodo con error. Mientras el nodo está sin conexión, se utilizará otro nodo del mismo tipo hasta que se vuelva a conectar el nuevo nodo.
@@ -187,14 +186,10 @@ Para ver una lista de comandos disponibles, escriba `help` en el símbolo del si
 
 > [!NOTE]
 > También hay interfaces gráficas que le permiten visualizar el sistema de archivos cuando se conecta mediante SFTP. Por ejemplo, [MobaXTerm](http://mobaxterm.mobatek.net/) le permite examinar el sistema de archivos mediante una interfaz similar al Explorador de Windows.
-> 
-> 
 
 ### <a name="ambari"></a>Ambari
 > [!NOTE]
 > Para acceder a los archivos de registro a través de Ambari se requiere un túnel SSH, ya que los sitios web de los servicios individuales no se exponen públicamente en Internet. Para obtener información sobre cómo usar un túnel SSH, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
-> 
-> 
 
 En la interfaz de usuario web de Ambari, seleccione el servicio cuyos registros quiere ver (por ejemplo, YARN) y luego use **Vínculos rápidos** para seleccionar el nodo principal en el que quiere ver los registros.
 
@@ -226,6 +221,6 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

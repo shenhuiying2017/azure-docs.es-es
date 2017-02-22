@@ -17,19 +17,20 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
-ms.openlocfilehash: b7b6dc01c996527c4ada974cc28b774b30e6b853
+ms.sourcegitcommit: c8e9f9709d13295c9414e525f1f60abf0d0accb7
+ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
 
 
 ---
 # <a name="azure-functions-event-hub-bindings"></a>Enlaces de Centro de eventos de funciones de Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-En este artículo se explica cómo configurar y codificar enlaces de [Centro de eventos de Azure](../event-hubs/event-hubs-overview.md) para Funciones de Azure. Azure Functions admite enlaces de desencadenador y salida para Event Hubs.
+En este artículo se explica cómo configurar y codificar enlaces de [Centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md) para Funciones de Azure.
+Azure Functions admite enlaces de desencadenador y salida para Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Si no está familiarizado con Event Hubs de Azure, consulte la [información general de Event Hubs de Azure](../event-hubs/event-hubs-overview.md).
+Si no está familiarizado con Event Hubs de Azure, consulte la [información general de Event Hubs de Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
@@ -44,13 +45,14 @@ El desencadenador de un centro de eventos para una función usa el siguiente obj
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
     "path": "<Name of the Event Hub>",
-    "consumerGroup": "Consumer group to use - see below", 
+    "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup` es una propiedad opcional que se utiliza para establecer el [grupo de consumidores](../event-hubs/event-hubs-overview.md#consumer-groups) utilizado para suscribirse a eventos en el concentrador. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`.  
-`connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
+`consumerGroup` es una propiedad opcional que se utiliza para establecer el [grupo de consumidores](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers) utilizado para suscribirse a eventos en el concentrador. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`.  
+`connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos.
+Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
 
 Se pueden proporcionar [opciones de configuración adicionales](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) en un archivo host.json para ajustar aún más los desencadenadores del Centro de eventos.  
 
@@ -116,9 +118,9 @@ module.exports = function (context, myEventHubMessage) {
 <a name="output"></a>
 
 ## <a name="event-hub-output-binding"></a>Enlace de salida del centro de eventos
-Use el enlace de salida del centro de eventos para escribir eventos en una secuencia de eventos del centro de eventos. Debe tener permiso de envío a un centro de eventos para escribir eventos en él. 
+Use el enlace de salida del centro de eventos para escribir eventos en una secuencia de eventos del centro de eventos. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
-El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de function.json: 
+El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de function.json:
 
 ```json
 {
@@ -130,12 +132,13 @@ El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de func
 }
 ```
 
-`connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia de eventos.
+`connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos.
+Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia de eventos.
 
 ## <a name="output-usage"></a>Uso de salidas
 En esta sección se muestra cómo utilizar el enlace de salida de Event Hub en el código de función.
 
-Puede generar mensajes para el centro de eventos configurado con los siguientes tipos de parámetro: 
+Puede generar mensajes para el centro de eventos configurado con los siguientes tipos de parámetro:
 
 * `out string`
 * `ICollector<string>`( para generar varios mensajes)
@@ -183,7 +186,7 @@ O bien, cree varios mensajes:
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
 {
     string message = $"Event Hub message created at: {DateTime.Now}";
-    log.Info(message); 
+    log.Info(message);
     outputEventHubMessage.Add("1 " + message);
     outputEventHubMessage.Add("2 " + message);
 }
@@ -233,7 +236,6 @@ module.exports = function(context) {
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

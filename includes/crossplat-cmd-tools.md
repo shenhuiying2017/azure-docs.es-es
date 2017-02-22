@@ -41,7 +41,7 @@ Para probar la instalación, escriba `azure` en el símbolo del sistema. Si la i
 
 Para usar las Herramientas de línea de comandos de Azure para Mac y Linux, necesitará una cuenta de Azure.
 
-Abra un explorador web, diríjase a [http://www.windowsazure.com][windowsazuredotcom] y haga clic en **evaluación gratuita** en la esquina superior derecha.
+Abra un explorador web, diríjase a [http://www.windowsazure.com][windowsazuredotcom] y haga clic en **cuenta gratuita** en la esquina superior derecha.
 
 ![Sitio web de Azure][Azure Web Site]
 
@@ -214,6 +214,6 @@ Para conocer una lista completa de comandos para crear y administrar máquinas v
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

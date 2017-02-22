@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 
 ---
@@ -34,7 +34,7 @@ Las **[Competiciones](https://gallery.cortanaintelligence.com/competitions)** pr
  La página **[Competiciones](https://gallery.cortanaintelligence.com/competitions)**
  muestra una lista de las competiciones más populares.
 Haga clic en **Ver todos** para ver todas las competiciones.
-Desde esta página, puede examinar todas las competiciones en la galería, o puede buscar seleccionando criterios de filtro a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
+Desde esta página, puede examinar todas las competiciones de la Galería. También puede buscar seleccionando criterios de filtrado a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
 
  Haga clic en cualquier competición para abrir la página de detalles de la competición y leer más información. En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo a la competición para invitar a otros usuarios a ver la página.
 
@@ -58,6 +58,6 @@ Si ya no está abierta la competición, su estado en la página de información 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

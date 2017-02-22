@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
 
 
 ---
@@ -31,7 +31,7 @@ La hoja de información general (página) de la aplicación muestra un resumen d
 
 ![Rutas principales para ver los datos de telemetría](./media/app-insights-dashboards/010-oview.png)
 
-Puede personalizar cualquiera de los demás gráficos y anclarlos a un panel. De este modo, se pueden reunir los gráficos principales de diferentes aplicaciones.
+Puede personalizar cualquiera de los gráficos y cuadrículas y anclarlos a un panel. De este modo, se puede reunir la telemetría clave de aplicaciones diferentes en un panel central.
 
 ## <a name="dashboards"></a>Paneles
 Lo primero que verá después de iniciar sesión en el [Portal de Microsoft Azure](https://portal.azure.com) es un panel. Aquí puede agrupar los gráficos que le resultan más importantes de todos los recursos de Azure, incluidos los datos de telemetría desde [Azure Application Insights](app-insights-overview.md).
@@ -119,8 +119,8 @@ La hoja de información general es la puerta de enlace para más información ac
 INVESTIGAR
 
 * [**Mapa de aplicación**](app-insights-app-map.md): mapa activo que muestra los componentes de la aplicación, obtenidos de la información de dependencia.
-* [**Diagnósticos proactivos**](app-insights-proactive-diagnostics.md): revise las alertas recientes de rendimiento.
-* [**Stream en vivo**](app-insights-metrics-explorer.md#live-metrics-stream): un conjunto fijo de métricas casi instantáneas, útiles al implementar una nueva compilación o depurar.
+* [**Detección inteligente**](app-insights-proactive-diagnostics.md): revise las alertas recientes de rendimiento.
+* [**Stream en vivo**](app-insights-live-stream.md): un conjunto fijo de métricas casi instantáneas, útiles al implementar una nueva compilación o depurar.
 * [**Disponibilidad / pruebas web**](app-insights-monitor-web-app-availability.md): envíe solicitudes regulares a la aplicación web desde cualquier parte del mundo*.
 * [**Errores, rendimiento**](app-insights-web-monitor-performance.md): excepciones, tasas de error y tiempos de respuesta para las solicitudes realizadas a la aplicación y para las solicitudes realizadas desde la aplicación a las [dependencias](app-insights-asp-net-dependencies.md).
 * [**Rendimiento**](app-insights-web-monitor-performance.md): tiempo de respuesta, tiempos de respuesta de dependencia.
@@ -157,6 +157,6 @@ SOPORTE TÉCNICO
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

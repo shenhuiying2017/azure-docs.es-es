@@ -13,23 +13,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: f39e0aec85856adba8dea99159f94fc55c822224
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: e6a3e91e5821e761af0ff710da2a817eb7c185bb
 
 
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight-ssh"></a>Uso de Sqoop con Hadoop en HDInsight (SSH)
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a utilizar Sqoop para importar y exportar entre un clúster de HDInsight basado en Linux y la base de datos de SQL Server o la base de datos SQL de Azure.
+Aprenda a utilizar Sqoop para importar y exportar entre un clúster de HDInsight y SQL Database de Azure o la base de datos SQL Server.
 
-> [!NOTE]
-> En los pasos de este artículo se usa SSH para conectarse a un clúster de HDInsight basado en Linux. Los clientes de Windows también pueden usar Azure PowerShell y el SDK de .NET de HDInsight para trabajar con Sqoop en clústeres basados en Linux. Utilice el selector de pestañas para abrir esos artículos.
->
->
+> [!IMPORTANT]
+> Los pasos de este documento solo funcionan con clústeres de HDInsight que usan Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
@@ -201,6 +199,6 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

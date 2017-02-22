@@ -1,5 +1,5 @@
 ---
-title: "Obtención de las herramientas de Azure para el kit de inicio de IoT de Azure (macOS 10.10) | Microsoft Docs"
+title: "Conexión de Intel Edison (Node) a Azure IoT: Lección 1: Obtención de las herramientas (macOS) | Microsoft Docs"
 description: "Descargue e instale las herramientas y el software necesarios para la primera aplicación de ejemplo de Edison en macOS."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 448e79e35a35292ac2646d9b94f91ca4110cb6b2
-ms.openlocfilehash: c01b8cf4323777883d33318001b0bf1a0843506e
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 7d8c4ef5cf055930178408ee9751058392a2f894
 
 
 ---
@@ -91,6 +91,6 @@ Ha instalado las herramientas de desarrollo y el software necesarios para la pri
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

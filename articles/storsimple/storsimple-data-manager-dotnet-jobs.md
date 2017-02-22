@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 9bfc1a281bb63a9fd7528106d7bdbc808371c5fb
-ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
+ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
+ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
 
 ---
 
@@ -30,7 +30,7 @@ En este artículo se explica cómo se usa la característica de transformación 
 
 Antes de comenzar, asegúrese de que dispone de:
 *   Un sistema con Visual Studio 2012, 2013 o 2015 instalados.
-*   [Azure Powershell] también está instalado. [Descarga de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Azure Powershell instalado. [Descarga de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   Valores de configuración para inicializar el trabajo de transformación de datos (se incluyen las instrucciones necesarias para obtener dichos valores).
 *   Una definición del trabajo que se ha configurado correctamente en un recurso de datos híbridos de un grupo de recursos.
 *   Todos los archivos dll requeridos. Dichos archivos se pueden descargar del [repositorio de GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
@@ -62,27 +62,27 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
     5. Seleccione **C:\DataTransformation** en **Ubicación**.
     6. Haga clic en **Aceptar** para crear el proyecto.
 
-3.  Ahora, agregue todos los archivos DLL de la carpeta [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **referencias** en el proyecto que ha creado. Para descargar los archivos dll, realice estas operaciones:
+4.  Ahora, agregue todos los archivos DLL de la carpeta [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **referencias** en el proyecto que ha creado. Para descargar los archivos dll, realice estas operaciones:
 
     1. En Visual Studio, vaya a **Vista > Explorador de soluciones**.
     1. Haga clic en la flecha situada a la izquierda del proyecto de la aplicación de transformación de datos. Haga clic en **Referencias** y, después, haga clic con el botón derecho en **Agregar referencia**.
     2. Vaya a la ubicación de la carpeta de paquetes, seleccione todos los archivos DLL, haga clic en **Agregar** y, luego, haga clic en **Aceptar**.
 
-4. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
+5. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
 
-    ````
+    ```
     using System;
     using System.Collections.Generic;
     using System.Threading;
     using Microsoft.Azure.Management.HybridData.Models;
     using Microsoft.Internal.Dms.DmsWebJob;
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
-    ````
+    ```
 
 
-5. El siguiente código inicializa la instancia del trabajo de transformación de datos. Agréguelo al **Método principal**. Reemplace los valores de los parámetros de configuración que obtuvo antes. Emplee los valores de **Nombre del grupo de recursos** y **Nombre del recurso de datos híbridos**. El **nombre del grupo de recursos** es el que hospeda el recurso de datos híbridos en el que se configuró la definición del trabajo.
+6. El siguiente código inicializa la instancia del trabajo de transformación de datos. Agréguelo al **Método principal**. Reemplace los valores de los parámetros de configuración que obtuvo antes. Emplee los valores de **Nombre del grupo de recursos** y **Nombre del recurso de datos híbridos**. El **nombre del grupo de recursos** es el que hospeda el recurso de datos híbridos en el que se configuró la definición del trabajo.
 
-    ````
+    ```
     // Setup the configuration parameters.
     var configParams = new ConfigurationParams
     {
@@ -97,24 +97,23 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
 
-    ````
+    ```
 
-6. Especifique los parámetros con los que hay que ejecutar la definición del trabajo
+7. Especifique los parámetros con los que hay que ejecutar la definición del trabajo
 
-    ````
+    ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
 
-    ````
+    ```
 
     O BIEN
 
     Si desea cambiar los parámetros de la definición del trabajo en tiempo de ejecución, agregue después el código siguiente:
 
+    ```
     string jobDefinitionName = "job-definition-name";
-
-    ````
     // Must start with a '\'
     var rootDirectories = new List<string> {@"\root"};
 
@@ -136,23 +135,24 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    ````
+    
+    ```
 
-7. Después de la inicialización, agregue el código siguiente para desencadenar un trabajo de transformación de datos en la definición del trabajo. Emplee el **nombre de definición de trabajo** apropiado.
+8. Después de la inicialización, agregue el código siguiente para desencadenar un trabajo de transformación de datos en la definición del trabajo. Emplee el **nombre de definición de trabajo** apropiado.
 
-    ````
+    ```
     // Trigger a job, retrieve the jobId and the retry interval for polling.
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
 
-    ````
+    ```
 
-8. Este trabajo carga en el contenedor especificado los archivos coincidentes presentes en el directorio raíz del volumen de StorSimple. Cuando se carga un archivo, se coloca un mensaje en la cola (en la misma cuenta de almacenamiento que el contenedor) con el mismo nombre que la definición del trabajo. Dicho mensaje se puede usar como desencadenador para iniciar el posterior procesamiento del archivo.
+9. Este trabajo carga en el contenedor especificado los archivos coincidentes presentes en el directorio raíz del volumen de StorSimple. Cuando se carga un archivo, se coloca un mensaje en la cola (en la misma cuenta de almacenamiento que el contenedor) con el mismo nombre que la definición del trabajo. Dicho mensaje se puede usar como desencadenador para iniciar el posterior procesamiento del archivo.
 
-9. Una vez que el trabajo se haya desencadenado, agregue el código siguiente para realizar un seguimiento de la finalización del mismo.
+10. Una vez que el trabajo se haya desencadenado, agregue el código siguiente para realizar un seguimiento de la finalización del mismo.
 
-    ````
+    ```
     Job jobDetails = null;
 
     // Poll the job.
@@ -171,7 +171,7 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
     // To hold the console before exiting.
     Console.Read();
 
-    ````
+    ```
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -179,6 +179,7 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
 [Manage using the StorSimple Data Manager service UI](storsimple-data-manager-ui.md) (Administración del uso de la interfaz de usuario del servicio StorSimple Data Manager).
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO4-->
 
 

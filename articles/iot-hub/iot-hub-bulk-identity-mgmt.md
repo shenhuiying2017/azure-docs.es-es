@@ -1,6 +1,6 @@
 ---
-title: "Importación y exportación de identidades de dispositivo de IoT Hub | Microsoft Docs"
-description: "Conceptos y fragmentos de código de .NET para la administración masiva de identidades del dispositivo de Centro de IoT"
+title: "Importación y exportación de identidades de dispositivo de IoT Hub de Azure | Microsoft Docs"
+description: "Describe cómo usar el SDK de servicio IoT de Azure para realizar operaciones masivas en el registro de identidad con el fin de importar y exportar identidades de dispositivo. Las operaciones de importación permiten crear, actualizar y eliminar las identidades de dispositivo de forma masiva."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 7c50b4bd32d32ec33f35c2484a3c86e944830725
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 668f6ab0d5c09d53edd85b568cc8c9941b2f9135
 
 
 ---
-# <a name="bulk-management-of-iot-hub-device-identities"></a>Administración de identidades de dispositivos de Centro de IoT de forma masiva
+# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Administración de las identidades de dispositivo de IoT Hub de forma masiva
 Cada centro de IoT tiene un registro de identidad que se usa para crear recursos en el servicio para cada dispositivo, como una cola que contiene los mensajes de nube a dispositivo en curso. El registro de identidad también permite controlar el acceso a los puntos de conexión accesibles desde los dispositivos. En este artículo se describe cómo importar y exportar identidades de dispositivo de forma masiva hacia y desde un Registro de identidad.
 
 Las operaciones de importación y exportación tienen lugar en el contexto de *Trabajos* que permiten ejecutar operaciones de servicio de forma masiva en un IoT Hub.
@@ -30,7 +30,7 @@ La clase **RegistryManager** incluye los métodos **ExportDevicesAsync** y **Imp
 ## <a name="what-are-jobs"></a>¿Qué son los Trabajos?
 Las operaciones de Registro de identidad usan el sistema de **trabajo** cuando la operación:
 
-* Tiene un tiempo de ejecución potencialmente largo en comparación con las operaciones de tiempo de ejecución estándar, o
+* Tiene un tiempo de ejecución potencialmente largo en comparación con las operaciones en tiempo de ejecución estándar, o
 * Devuelve una gran cantidad de datos al usuario.
 
 En estos casos, en lugar de una única llamada de API en espera o que bloquea el resultado de la operación, esta crea de forma asincrónica un **Trabajo** para ese IoT Hub. La operación después devuelve inmediatamente un objeto **JobProperties**.
@@ -75,7 +75,7 @@ El método **ExportDevicesAsync** requiere dos parámetros:
    ```
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
-* Un valor *booleano* que indica si desea excluir las claves de autenticación de los datos de exportación. Si es **false**, las claves de autenticación se incluyen en la exportación; si no, las claves se exportan como **null**.
+* Un valor *booleano* que indica si desea excluir las claves de autenticación de los datos de exportación. Si es **false**, las claves de autenticación se incluyen en la exportación. De lo contrario, las claves se exportan como **null**.
 
 El siguiente fragmento de código de C# muestra cómo iniciar un trabajo de exportación que incluye las claves de autenticación de dispositivo en los datos de exportación y luego sondea la finalización:
 
@@ -342,12 +342,12 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, aprendió a realizar operaciones de forma masiva en el Registro de identidad en un centro de IoT. Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:
 
-* [Métricas de uso][lnk-metrics]
+* [Métricas de IoT Hub][lnk-metrics]
 * [Supervisión de operaciones][lnk-monitor]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía del desarrollador][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md
@@ -358,6 +358,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

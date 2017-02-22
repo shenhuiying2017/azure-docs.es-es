@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
 
-Para administrar el acceso a Log Analytics, tendrá que realizar varias tareas administrativas relacionadas con las áreas de trabajo. Este artículo proporciona asesoramiento y los procedimientos recomendados que se usarán para administrar áreas de trabajo con varios tipos de cuentas. En esencia, un área de trabajo es un contenedor donde se incluyen los datos de la cuenta e información básica de la configuración de la cuenta. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
+Para administrar el acceso a Log Analytics, tendrá que realizar varias tareas administrativas relacionadas con las áreas de trabajo. En este artículo se proporcionan consejos y procedimientos recomendados para administrar áreas de trabajo. En esencia, un área de trabajo es un contenedor donde se incluyen los datos de la cuenta e información básica de la configuración de la cuenta. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
 
 Para crear un área de trabajo, necesitará:
 
@@ -41,8 +41,9 @@ En la actualidad, un área de trabajo proporciona:
 * Una ubicación geográfica para el almacenamiento de datos
 * Granularidad para la facturación
 * Aislamiento de datos
+* Ámbito de configuración
 
-Dadas estas características, podría ser interesante crear varias áreas de trabajo en los siguientes casos:
+Dadas estas características anteriores, quizás quiera crear varias áreas de trabajo en los siguientes casos:
 
 * Una empresa internacional que necesita que los datos estén almacenados en regiones concretas por motivos de soberanía de datos o cumplimiento normativo.
 * Un usuario de Azure que desea evitar los gastos de transferencia de datos de salida manteniendo un área de trabajo en la misma región que los recursos de Azure que administra.
@@ -78,15 +79,14 @@ La concesión de acceso a los usuarios en el área de trabajo se controla en dos
 * En Azure, se puede usar el control de acceso basado en rol para proporcionar acceso a la suscripción de Azure y a los recursos de Azure asociados. Estos permisos también se utilizan para el acceso a PowerShell y la API de REST.
 * En el portal OMS, acceso solo al portal OMS, no a la suscripción de Azure asociada.
 
-Los usuarios no verán los datos en los iconos de solución de Backup y Site Recovery si solo les da acceso al portal de OMS pero no a la suscripción de Azure a la que está vinculado.
-Para que todos los usuarios puedan ver los datos en estas soluciones, asegúrese de que, como mínimo, tienen acceso de **lectura** al almacén de copia de seguridad y al almacén de Site Recovery que están vinculados al área de trabajo.   
+Para ver datos en los iconos de la solución de copia de seguridad y recuperación de sitios, es necesario tener el permiso del administrador o coadministrador para la suscripción de Azure a la que está vinculada el área de trabajo.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Administración del acceso a Log Analytics mediante el Portal de Azure
 Si concede acceso a los usuarios al área de trabajo de Log Analytics mediante los permisos de Azure (por ejemplo, en Azure Portal), esos mismos usuarios pueden tener acceso al portal de Log Analytics. Si los usuarios se encuentran en Azure Portal, pueden navegar al portal OMS haciendo clic en la tarea **Portal OMS** al visualizar el recurso del área de trabajo de Log Analytics.
 
 Algunos aspectos relativos a Azure Portal que deben tenerse en cuenta:
 
-* Esto no es *Control de acceso basado en rol*. Si tiene permisos de acceso de *lector* en Azure Portal para el área de trabajo de Log Analytics, puede realizar cambios mediante el portal de OMS. El portal de OMS tiene un concepto de Administrador, Colaborador y Usuario de solo lectura. Si la cuenta con la que ha iniciado sesión está en Azure Active Directory vinculada al área de trabajo, será administrador en el portal de OMS; de lo contrario, será colaborador.
+* Esto no es *Control de acceso basado en rol*. Si tiene permisos de acceso de *lector* en Azure Portal para el área de trabajo de Log Analytics, puede realizar cambios mediante el portal de OMS. El portal de OMS tiene un concepto de Administrador, Colaborador y Usuario de solo lectura. Si la cuenta con la que ha iniciado sesión en Azure Active Directory está vinculada al área de trabajo, será administrador en el portal de OMS; de lo contrario, será colaborador.
 * Si inicia sesión en el portal de OMS mediante http://mms.microsoft.com, verá la lista **Seleccionar un área de trabajo** de manera predeterminada. Solo contiene las áreas de trabajo que se agregaron mediante el portal OMS. Para ver las áreas de trabajo a las que tiene acceso con las suscripciones de Azure, será preciso que especifique un inquilino como parte de la dirección URL. Por ejemplo:
 
   `mms.microsoft.com/?tenant=contoso.com` A menudo, el identificador del inquilino es la última parte de la dirección de correo electrónico con la que inicia sesión.
@@ -199,7 +199,7 @@ Su nuevo plan de datos se muestra en la cinta de opciones del portal OMS, que se
 8. Haga clic en **Aceptar**. Ahora, el área de trabajo está vinculada a su cuenta de Azure.
 
 > [!NOTE]
-> Si no ve el área de trabajo que quiere vincular, significa que su suscripción de Azure no tiene acceso al área de trabajo que creó mediante el sitio web de OMS.  Debe conceder acceso a esta cuenta desde el portal de OMS. Si ello, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
+> Si no ve el área de trabajo que quiere vincular, significa que su suscripción de Azure no tiene acceso al área de trabajo que creó mediante el sitio web de OMS.  Para conceder acceso a esta cuenta desde el portal OMS, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -232,15 +232,20 @@ Si previamente ha pagado una cierta cantidad a Azure como parte de la inscripci�
 
 Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>Cómo cambiar un área de trabajo a un plan de datos de pago
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Cambio de un área de trabajo a un plan de tarifa de pago
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
-4. En la hoja de área de trabajo, en **General**, haga clic en **Plan de tarifa**.  
-5. En **Plan de tarifa**, seleccione un plan de datos y haga clic en **Seleccionar**.  
+4. En la hoja del área de trabajo, en **General**, haga clic en **Plan de tarifa**.  
+5. En **Plan de tarifa**, seleccione un plan de tarifa y haga clic en **Seleccionar**.  
     ![seleccionar plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Cuando actualice la vista de Azure Portal, verá que **Plan de tarifa** se ha actualizado con el plan seleccionado.  
+6. Cuando actualice la vista en Azure Portal, verá que **Plan de tarifa** se ha actualizado con el plan seleccionado.  
     ![plan actualizado](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Cambio de la duración del almacenamiento de datos de Log Analytics
 
@@ -293,6 +298,6 @@ Si es administrador y hay varios usuarios asociados al área de trabajo, se inte
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -10,7 +10,7 @@ Hay algunas regiones de Azure especiales, en cuanto a cumplimiento normativo o a
 * **Virginia Gob. EE. UU.** e **Iowa Gob. EE. UU.**
   * Una instancia física y lógica con aislamiento de red de Azure para asociados y agencias de la administración pública de EE. UU., operada por personal estadounidense seleccionado con rigor. Incluye certificaciones de cumplimiento adicionales como [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) y [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Más información sobre [Azure Government](https://azure.microsoft.com/features/gov/).
 * **Centro de la India**, **India del Sur** y **oeste de la India**
-  * Estas regiones están disponibles actualmente para clientes de licencias por volumen y asociados inscritos en la India. El acceso se abre a las suscripciones en línea directas a lo largo de 2016.
+  * Estas regiones están disponibles actualmente para clientes de licencias por volumen y asociados inscritos en la India. Desde 2016, los usuarios pueden acceder a ellos si han comprado suscripciones en línea directas.
 * **China (Este)** y **China (Norte)**
   * Estas regiones están disponibles gracias a una exclusiva asociación entre Microsoft y 21Vianet, por el cual Microsoft no mantiene directamente los centros de datos. Obtenga más información sobre [Microsoft Azure en China](http://www.windowsazure.cn/).
 * **Centro de Alemania** y **Noreste de Alemania**
@@ -37,8 +37,13 @@ Puede consultar en su totalidad la [lista de pares regionales aquí](../articles
 Algunos servicios o características de las máquinas virtuales solo están disponibles en determinadas regiones, como, por ejemplo, tipos de almacenamiento o tamaños de VM específicos. También hay algunos servicios globales de Azure que no requieren que seleccione una región concreta, como [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) o [DNS de Azure](../articles/dns/dns-overview.md). Para obtener ayuda con el diseño del entorno de la aplicación, puede comprobar la [disponibilidad de servicios de Azure en cada región](https://azure.microsoft.com/regions/#services). 
 
 ## <a name="storage-availability"></a>Disponibilidad de almacenamiento
-Es importante comprender las regiones y zonas geográficas de Azure al considerar las opciones de replicación de Almacenamiento de Azure disponibles. Cuando cree una cuenta de almacenamiento, debe seleccionar una de las siguientes opciones de replicación:
+Es importante comprender las regiones y zonas geográficas de Azure a la hora de considerar las opciones de replicación de almacenamiento disponibles. Según el tipo de almacenamiento, tendrá opciones de replicación diferentes.
 
+**Azure Managed Disks**
+* Almacenamiento con redundancia local (LRS)
+  * Replica los datos tres veces dentro de la región en la que creó su cuenta de almacenamiento.
+
+**Discos basados en cuentas de almacenamiento**
 * Almacenamiento con redundancia local (LRS)
   * Replica los datos tres veces dentro de la región en la que creó su cuenta de almacenamiento.
 * Almacenamiento con redundancia de zona (ZRS)
@@ -56,11 +61,15 @@ La tabla siguiente proporciona una breve descripción de las diferencias entre l
 | Los datos se pueden leer tanto desde la ubicación secundaria como desde la ubicación principal. |No |No |No |Sí |
 | Cantidad de copias de datos mantenidas en nodos independientes |3 |3 |6 |6 |
 
-Puede obtener más información sobre las [opciones de replicación de Almacenamiento de Azure aquí](../articles/storage/storage-redundancy.md).
+Puede obtener más información sobre las [opciones de replicación de Almacenamiento de Azure aquí](../articles/storage/storage-redundancy.md). Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md) (Introducción a los discos administrados de Azure).
 
 ### <a name="storage-costs"></a>Costos de almacenamiento
-Los precios varían según el tipo de almacenamiento y la disponibilidad que seleccione. 
+Los precios varían según el tipo de almacenamiento y la disponibilidad que seleccione.
 
+**Azure Managed Disks**
+* Las copias de seguridad de los discos administrados premium se realizan en unidades de estado sólido (SSD) y las de los discos administrados estándar en discos de rotación normales. Los discos administrados premium y estándar se cobran en función de la capacidad aprovisionada para el disco.
+
+**Discos no administrados**
 * Almacenamiento premium está respaldado por unidades de estado sólido (SSD) y se cobra según la capacidad del disco.
 * El almacenamiento estándar está respaldado por los discos giratorios habituales y se cobra según la capacidad en uso y la disponibilidad de almacenamiento deseada.
   * Para RA-GRS, existe un cargo adicional por la transferencia de datos de replicación geográfica por el ancho de banda de replicar dichos datos en otra región de Azure.
@@ -75,7 +84,7 @@ Al crear una máquina virtual desde una imagen en Azure Marketplace, en realidad
 También puede crear sus propias imágenes personalizadas y cargarlas mediante la [CLI de Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para crear rápidamente máquinas virtuales personalizadas para sus requisitos de creación específicos.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
-Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). El conjunto de disponibilidad consta de dos agrupaciones adicionales que protegen contra errores de hardware y permiten la aplicación segura de las actualizaciones: dominios de error (FD) y dominios de actualización (UD).
+Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Cuando una sola máquina virtual usa [Azure Premium Storage](../articles/storage/storage-premium-storage.md), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. El conjunto de disponibilidad consta de dos agrupaciones adicionales que protegen contra errores de hardware y permiten la aplicación segura de las actualizaciones: dominios de error (FD) y dominios de actualización (UD).
 
 ![Dibujo conceptual de la configuración del dominio de actualización y de error](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
@@ -83,6 +92,9 @@ Puede obtener más información acerca de cómo administrar la disponibilidad de
 
 ### <a name="fault-domains"></a>Dominios de error
 Un dominio de error es un grupo lógico de hardware subyacente que comparte la fuente de alimentación y el conmutador de red, similar a un bastidor dentro de un centro de datos local. Cuando se crean máquinas virtuales en un conjunto de disponibilidad, la plataforma de Azure las distribuye automáticamente entre estos dominios de error. Este enfoque limita el impacto de potenciales errores de hardware físico, interrupciones de red o cortes de alimentación eléctrica.
+
+#### <a name="managed-disk-fault-domains-and-availability-sets"></a>Conjuntos de disponibilidad y dominios de error de disco administrado
+Para las máquinas virtuales que usen [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), las máquinas virtuales se alinean con los dominios de error de disco administrado cuando se usa un conjunto de disponibilidad administrada. Esta alineación garantiza que todos los discos administrados conectados a una máquina virtual se encuentran en el mismo dominio de error de disco administrado. Solo se pueden crear máquinas virtuales con discos administrados en un conjunto de disponibilidad administrada. El número de dominios de error de disco administrado varía según la región: dos o tres dominios de error de disco administrado por región.
 
 ### <a name="update-domains"></a>Dominios de actualización
 Un dominio de actualización es un grupo lógico de hardware subyacente que puede someterse a mantenimiento o reiniciarse al mismo tiempo. Cuando se crean máquinas virtuales en un conjunto de disponibilidad, la plataforma de Azure las distribuye automáticamente entre estos dominios de error. Este enfoque garantiza que al menos una instancia de la aplicación sigue ejecutándose cuando se realiza el mantenimiento periódico de la plataforma Azure. Es posible que el orden en que se reinician los dominios de actualización no siga una secuencia durante un mantenimiento planeado, pero se reinician de uno en uno.
@@ -92,6 +104,6 @@ Ya puede empezar a usar estas características de disponibilidad y redundancia p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

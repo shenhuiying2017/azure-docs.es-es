@@ -4,18 +4,19 @@ description: "cómo utilizar consultas de bases de datos cruzadas"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: SilviaDoomra
+author: ddove
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: SilviaDoomra
+ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 3e92315dc7bea2953cb62b6e7a7e593c15e1600c
+ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
+ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
 
 
 ---
@@ -50,7 +51,9 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 
     ![Portal de Azure y nivel de precios][3]
 
-    Nota: Puede usar una base de datos existente. Si puede hacerlo, no debe ser una de las particiones en las que desee ejecutar las consultas. Esta base de datos se usará para crear los objetos de metadatos para una consulta de base de datos elástica.
+    > [!NOTE]
+    > puede usar una base de datos existente. Si puede hacerlo, no debe ser una de las particiones en las que desee ejecutar las consultas. Esta base de datos se usará para crear los objetos de metadatos para una consulta de base de datos elástica.
+    >
 
 ## <a name="create-database-objects"></a>Creación de objetos de base de datos
 ### <a name="database-scoped-master-key-and-credentials"></a>Clave maestra y credenciales de ámbito de base de datos
@@ -138,6 +141,6 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

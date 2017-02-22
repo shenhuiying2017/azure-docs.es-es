@@ -2,7 +2,7 @@
 ## <a name="key-features"></a>Principales características
 * **Hardware de alto rendimiento** : estas instancias están diseñadas y optimizadas para aplicaciones de proceso intensivo y uso de red intensivo, incluidas las aplicaciones de clúster de proceso de alto rendimiento (HCP) y de lotes, el modelado y las simulaciones a gran escala. 
   
-    Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). En el sitio web Intel.com encontrará detalles acerca de los procesadores de Intel Xeon E5-2667 v3 (que se usa en las series H) y los procesadores de Intel Xeon E5-2670 (en A8 - A11), incluidas las extensiones del conjunto de instrucciones compatibles. 
+    En el sitio web Intel.com encontrará detalles acerca de los procesadores de Intel Xeon E5-2667 v3 (que se usa en las series H) y los procesadores de Intel Xeon E5-2670 (en A8 - A11), incluidas las extensiones del conjunto de instrucciones compatibles. 
 * **Diseñados para clústeres HPC** : implemente varias instancias de proceso intensivo en Azure para crear un clúster HPC independiente o para agregar más capacidad a un clúster local. Si quiere, implemente herramientas de administración del clúster y de programación de trabajos. O bien, usar las instancias para el trabajo de proceso intensivo en otro servicio de Azure, como Azure Batch.
 * **Conexión de red RDMA para aplicaciones MPI** : un subconjunto de las instancias de proceso intensivo (H16r, H16mr, A8 y A9) incluyen una segunda interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Esta interfaz se añade a la interfaz de red estándar de Azure disponible para otros tamaños de máquina virtual. 
   
@@ -24,6 +24,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Desconexión de un disco de una máquina virtual Linux | Microsoft Docs"
+title: "Desconexión de un disco de una máquina virtual de Linux en Azure | Microsoft Docs"
 description: "Obtenga información acerca de cómo desconectar un disco de datos de una máquina virtual de Azure creada mediante el modelo de implementación clásica."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 127df4a8f4c4031d40b8136b35237f48bfb527d3
+ms.sourcegitcommit: 9bb7878836c0444d3ccc058fd89b8bbd9f6e255a
+ms.openlocfilehash: 3ba234eca45e643a235abf120efc6d8f82af461f
 
 
 ---
@@ -31,11 +31,11 @@ ms.openlocfilehash: 127df4a8f4c4031d40b8136b35237f48bfb527d3
 Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes artículos:
 
 * [Acoplamiento de un disco de datos a una máquina virtual Linux](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](../virtual-machines-command-line-tools.md)
+* [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

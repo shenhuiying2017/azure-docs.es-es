@@ -115,7 +115,7 @@ Determina el nombre descriptivo del remitente; por ejemplo, "Microsoft en nombre
                   <li class="unordered">
 Determina si se muestra o no el logotipo en la parte superior del portal de restablecimiento de contraseña en lugar del logotipo de Microsoft predeterminado.<br><br></li>
                   <li class="unordered">
-                    <strong>Nota:</strong> puede que no vea su logotipo en la primera página del portal de restablecimiento de contraseña si llega directamente a la página de restablecimiento de contraseña.  Una vez que el usuario escriba su identificador de usuario y haga clic en Siguiente, aparecerá su logotipo.  Puede forzar que su logotipo aparezca al cargar la página si pasa el parámetro whr a la página de restablecimiento de contraseña, como se muestra aquí: <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com.</a><br><br></li>
+                    <strong>Nota:</strong> puede que no vea su logotipo en la primera página del portal de restablecimiento de contraseña si llega directamente a la página de restablecimiento de contraseña.  Una vez que el usuario escriba su identificador de usuario y haga clic en Siguiente, aparecerá su logotipo.  Puede forzar que su logotipo aparezca al cargar la página si pasa el parámetro whr a la página de restablecimiento de contraseña, como se muestra aquí: <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a>.<br><br></li>
                 </ul>
                 <p>
                   <strong>Mensajes de correo electrónico de tipo "Póngase en contacto con el administrador":</strong>
@@ -302,7 +302,7 @@ Dirección de correo electrónico alternativa corresponde al atributo <strong>Co
                   <li class="unordered">
 Las preguntas de seguridad se almacenan de forma privada y segura en un objeto de usuario en el directorio y solo las pueden responder los usuarios durante el registro.  Por motivos de seguridad, no hay actualmente ninguna manera de que un administrador edite o vea estas respuestas.<br><br></li>
                   <li class="unordered">
-                    <strong>Nota: </strong>de forma predeterminada, solo los atributos de la nube Teléfono de la oficina y Teléfono móvil se sincronizan en su directorio en la nube desde el directorio local.  Para más información acerca de qué atributos locales se sincronizan en la nube, consulte <a href="https://msdn.microsoft.com/library/azure/dn764938.aspx">Atributos sincronizados con Azure AD.</a><br><br></li>
+                    <strong>Nota: </strong>de forma predeterminada, solo los atributos de la nube Teléfono de la oficina y Teléfono móvil se sincronizan en su directorio en la nube desde el directorio local.  Para obtener más información acerca de qué atributos locales se sincronizan en la nube, consulte <a href="https://msdn.microsoft.com/library/azure/dn764938.aspx">Atributos sincronizados con Azure AD</a>.<br><br></li>
                 </ul>
                 <p>
                   <strong>Portal de registro:</strong>
@@ -767,7 +767,7 @@ Si el modificador se establece en <strong>Sí</strong>, se habilita la escritura
                 </p>
                 <ul>
                   <li class="unordered">
-Para poder usar esta característica, debe instalar la versión de agosto de 2015 de Azure AD Connect o la más reciente (v. 1.0.8667.0 o superior).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Haga clic aquí para descargar la versión más reciente de Azure AD Connect.</a></li>
+Para poder usar esta característica, debe instalar la versión de agosto de 2015 de Azure AD Connect o la más reciente (v. 1.0.8667.0 o superior).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Haga clic aquí para descargar la versión más reciente de Azure AD Connect</a>.</li>
 
                   <li class="unordered">
                     <strong>Nota:</strong> para probar esta función, deberá habilitar la escritura diferida de contraseñas y usar una cuenta que tenga como origen el entorno local (por ejemplo, un usuario federado o con contraseña sincronizada) y que tenga una cuenta bloqueada.  Los usuarios que no procedan del entorno local y no tengan una cuenta bloqueada no verán la opción para desbloquear sus cuentas.</li>
@@ -880,6 +880,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

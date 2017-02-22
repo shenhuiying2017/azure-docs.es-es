@@ -1,13 +1,25 @@
 ---
+title: "Documentación sobre Azure Analysis Services: tutoriales y referencia de API | Microsoft Docs"
+description: "Aprenda a configurar el modelado de datos con Analysis Services en la nube. La documentación muestra cómo crear una solución de BI empresarial con datos tabulares."
+services: analysis-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: analysis-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
+ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
+ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
 
 ---
 # <a name="analysis-services-documentation"></a>Documentación de Analysis Services
 
-Azure Analysis Services, que se basa en el motor analítico de eficacia probada de Microsoft SQL Server Analysis Services, ofrece un modelado de datos de categoría empresarial en la nube.
+Aprenda a configurar y administrar modelado de datos con Analysis Services. Los tutoriales y otra documentación muestran cómo crear una solución de BI empresarial que usa datos tabulares en la nube o locales.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +88,7 @@ Azure Analysis Services, que se basa en el motor analítico de eficacia probada 
                 <div class="card">
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -96,18 +108,10 @@ Azure Analysis Services, que se basa en el motor analítico de eficacia probada 
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Descargar la documentación sobre Analysis Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

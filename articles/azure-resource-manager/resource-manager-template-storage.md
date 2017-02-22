@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
+ms.sourcegitcommit: b089bc075ec3ec718eb21357bbbc5c4af09f4af1
+ms.openlocfilehash: b01125160875e367b9b6e1d02031c5dd80b41594
 
 
 ---
@@ -81,13 +81,13 @@ En el ejemplo siguiente, se implementa una cuenta de almacenamiento con redundan
 ## <a name="quickstart-templates"></a>Plantillas de inicio rápido
 Hay muchas plantillas de inicio rápido que incluyen una cuenta de almacenamiento. Las plantillas siguientes muestran algunos escenarios comunes:
 
-* [Create a Standard Storage Account (Crear una cuenta de almacenamiento estándar)](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
-* [Simple deployment of an Windows VM](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
-* [Simple deployment of an Linux VM](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
-* [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin (Crear un perfil de CDN, un punto de conexión de CDN con una cuenta de almacenamiento como origen)](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
-* [Create a High Availabilty SharePoint Farm with 9 VMs using the Powershell DSC Extension](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
-* [Simple deployment of a 5 Node secure Service Fabric Cluster with WAD enabled](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-* [Create a Virtual Machine from a Windows Image with 4 Empty Data Disks (Crear una máquina virtual a partir de una imagen de Windows con cuatro discos de datos vacíos)](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
+* [Create a Standard Storage Account (Crear una cuenta de almacenamiento estándar)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+* [Simple deployment of an Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+* [Simple deployment of an Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+* [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin] (Crear un perfil de red CDN, un punto de conexión de CDN con cuenta de almacenamiento como origen) https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+* [Create a High Availabilty SharePoint Farm with 9 VMs using the Powershell DSC Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+* [Simple deployment of a 5 Node secure Service Fabric Cluster with WAD enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
+* [Create a Virtual Machine from a Windows Image with 4 Empty Data Disks (Crear una máquina virtual a partir de una imagen de Windows con cuatro discos de datos vacíos)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información general sobre el almacenamiento, consulte el artículo de [introducción a Microsoft Azure Storage](../storage/storage-introduction.md).
@@ -96,6 +96,6 @@ Hay muchas plantillas de inicio rápido que incluyen una cuenta de almacenamient
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

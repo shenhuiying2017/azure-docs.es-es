@@ -1,23 +1,20 @@
 ---
-title: "Información general de Operations Management Suite (OMS) | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube.  Este artículo identifica los distintos servicios que se incluyen en OMS y proporciona vínculos a contenido detallado."
+title: "Documentación sobre Azure Operations Management Suite (OMS): tutoriales y referencia de API | Microsoft Docs"
+description: "Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube. Este artículo identifica los distintos servicios que se incluyen en OMS y proporciona vínculos a contenido detallado."
 services: operations-management-suite
-documentationcenter: 
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 9dc437b9-e83c-45da-917c-cb4f4d8d6333
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: operations-management-suite
-ms.devlang: na
-ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: bwren
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
-ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
-
+ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
+ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>¿Qué es Operations Management Suite (OMS)?
@@ -32,7 +29,7 @@ Las secciones siguientes proporcionan una descripción de alto nivel de las áre
 
 Puede agregar fácilmente soluciones a Log Analytics que definan los datos que se vana a recopilar y la lógica para su análisis.  Las soluciones pueden incluir funcionalidad adicional que se entrega automáticamente a los agentes con una configuración mínima o sin configuración.  Además de utilizar las herramientas de análisis proporcionadas por las soluciones individuales, puede realizar búsquedas personalizadas a través de todo el conjunto de datos para correlacionar datos entre sistemas y aplicaciones.  
 
-## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
+## <a name="automation--controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation--control"></a>![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
 Azure Automation automatiza los procesos administrativos con [Runbooks](../automation/automation-runbook-types.md) que se basan en PowerShell y se ejecutan en la nube de Azure.  Los runbooks pueden obtener acceso a cualquier producto o servicio que se puede administrar con PowerShell, incluidos los recursos de otras nubes como Amazon Web Services (AWS).  Los runbooks pueden ejecutarse en un servidor en el centro de datos local para administrar recursos locales.
 
 Azure Automation proporciona administración de configuración con [DSC de PowerShell](../automation/automation-dsc-overview.md).  Puede crear y administrar recursos de DSC hospedados en Azure y aplicarlos a los sistemas de nube y locales para definir y aplicar automáticamente su configuración.
@@ -42,7 +39,7 @@ Azure Automation proporciona administración de configuración con [DSC de Power
 
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores Windows/Linux físicos. Puede replicar las máquinas en un centro de datos secundario o ampliar su centro de datos mediante la replicación en Azure. Site Recovery también proporciona conmutación por error simple y recuperación para cargas de trabajo. Se integra con mecanismos de recuperación ante desastres, como SQL Server AlwaysOn y proporciona planes de recuperación para una conmutación por error sencilla de cargas de trabajo que están organizados en niveles entre varias máquinas.
 
-## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![Seguridad y cumplimiento normativo de OMS](media/operations-management-suite-overview/icon-security-compliance.png)  Seguridad y cumplimiento normativo
+## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![Seguridad y cumplimiento normativo de OMS](media/operations-management-suite-overview/icon-security-compliance.png) Seguridad y cumplimiento normativo
 Seguridad y cumplimiento normativo le ayuda a identificar, evaluar y mitigar los riesgos de seguridad de su infraestructura.  Estas características de OMS se implementan a través de varias soluciones de Log Analytics que analizan los datos de registro y configuración de sistemas de agente que le ayudarán a garantizar la seguridad continua de su entorno.
 
 * La solución [Seguridad y auditoría](oms-security-getting-started.md) recopila y analiza los eventos de seguridad en sistemas administrados para identificar cualquier actividad sospechosa.
@@ -58,6 +55,6 @@ Seguridad y cumplimiento normativo le ayuda a identificar, evaluar y mitigar los
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

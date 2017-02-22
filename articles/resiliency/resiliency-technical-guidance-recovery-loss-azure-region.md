@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
+ms.sourcegitcommit: 559b38da4ed787f6f7a4462f6add92384bed54f7
+ms.openlocfilehash: 0acdbefcae875c206667260b6df5dfd8882dcc42
 
 
 ---
 # <a name="azure-resiliency-technical-guidance-recovery-from-a-region-wide-service-disruption"></a>Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región
-Azure se divide física y lógicamente en unidades denominadas regiones. Una región consta de uno o varios centros de datos muy cercanos. En el momento de redactar este artículo, Azure tiene veinticuatro regiones en todo el mundo.
+Azure se divide física y lógicamente en unidades denominadas regiones. Una región consta de uno o varios centros de datos muy cercanos. Para consultar la lista actual de regiones, vea la [página Regiones de Azure](https://azure.microsoft.com/regions/).
 
 En raras ocasiones es posible que no se pueda acceder a las instalaciones de toda una región debido, por ejemplo, a errores en la red. O las instalaciones pueden perderse por completo debido, por ejemplo, a un desastre natural. Esta sección explica las funcionalidades de Azure para crear aplicaciones que se distribuyen entre diferentes regiones. Esta distribución está diseñada para minimizar la posibilidad de que un error en una región pueda afectar a otras.
 
@@ -188,6 +188,6 @@ Este artículo forma parte de una serie que se centra en la [Guía técnica sobr
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a28aace9269bafe9158cccf9bea2dc26f77cf937
-ms.openlocfilehash: 54a763530961073655257251f0381b0b379ae73c
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: f4f04a05c1d522f43668e31db15092476b4ef6df
 
 
 ---
@@ -882,7 +882,7 @@ La palabra clave TOP se puede usar para limitar la cantidad de valores de una co
 TOP se puede usar con un valor constante (como se muestra anteriormente) o con un valor variable usando consultas con parámetros. Si desea obtener más información, consulte las consultas con parámetros que aparecen a continuación.
 
 ## <a name="order-by-clause"></a>Cláusula ORDER BY
-Al igual que en ANSI SQL, puede incluir una cláusula Order By opcional al realizar la consulta. La cláusula puede incluir un argumento ASC o DESC opcional para especificar el orden en que se deben recuperar los resultados. Si desea obtener más información sobre Order By, consulte [Ordenación de datos de DocumentDB con Order By](documentdb-orderby.md).
+Al igual que en ANSI SQL, puede incluir una cláusula Order By opcional al realizar la consulta. La cláusula puede incluir un argumento ASC o DESC opcional para especificar el orden en que se deben recuperar los resultados.
 
 Por ejemplo, aquí hay una consulta que recupera las familias ordenadas por nombre de la ciudad de residencia.
 
@@ -1334,7 +1334,7 @@ Las funciones matemáticas realizan un cálculo, basado normalmente en valores d
 | [FLOOR (num_expr)](#bk_floor) | Devuelve el valor entero más grande menor o igual que la expresión numérica especificada. |
 | [EXP (num_expr)](#bk_exp) | Devuelve el exponente de la expresión numérica especificada. |
 | [LOG (num_expr [,base])](#bk_log) | Devuelve el logaritmo natural de la expresión numérica especificada o bien el logaritmo que utiliza la base especificada |
-| [LOG10 (num_expr)](#bk_log10) | Devuelve el valor logarítmico de base 10 de la expresión numérica especificada. |
+| [LOG10 (num_expr)](#bk_log10) | Devuelve el valor logarítmico de base&10; de la expresión numérica especificada. |
 | [ROUND (num_expr)](#bk_round) | Devuelve un valor numérico, redondeado al valor entero más cercano. |
 | [TRUNC (num_expr)](#bk_trunc) | Devuelve un valor numérico, truncado al valor entero más cercano. |
 | [SQRT (num_expr)](#bk_sqrt) | Devuelve la raíz cuadrada de la expresión numérica especificada. |
@@ -2026,7 +2026,7 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
 
 Si los resultados de una consulta no caben en una sola página, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token` . Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado numérico `x-ms-max-item-count` .
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para obtener más información, consulte [Niveles de coherencia de DocumentDB][consistency-levels].
+Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para más información, consulte [Niveles de coherencia de DocumentDB][consistency-levels].
 
 Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de Base de datos de documentos devuelve 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. Se puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
 
@@ -2172,7 +2172,7 @@ En la ruta de escritura:
 1. [Introducción a Azure DocumentDB][introduction]
 2. [Especificación de SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
-4. [Niveles de coherencia en DocumentDB][consistency-levels]
+4. [Niveles de coherencia de DocumentDB][consistency-levels]
 5. SQL ANSI 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
 7. Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
@@ -2190,6 +2190,6 @@ En la ruta de escritura:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

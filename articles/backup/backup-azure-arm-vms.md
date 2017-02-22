@@ -1,10 +1,10 @@
 ---
 title: "Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services | Microsoft Docs"
-description: "Detecte, registre y realice copias de seguridad de máquinas virtuales de Azure en un almacén de Servicios de recuperación con estos procedimientos de copia de seguridad de máquinas virtuales de Azure."
+description: "Detecte y registre máquinas virtuales de Azure y haga copias de seguridad de las mismas en un almacén de Recovery Services."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "copia de seguridad de máquinas virtuales; hacer copia de seguridad de máquinas virtuales; copia de seguridad y recuperación ante desastres; copia de seguridad de arm"
 ms.assetid: 5c68481d-7be3-4e68-b87c-0961c267053e
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.date: 1/30/2017
+ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: ac8df40db8ddcc84a0a6221dddd0f17fecbe6586
-ms.openlocfilehash: e80d4fdb6f189bf46096422602508b0827f41a67
+ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
+ms.openlocfilehash: 28a5014f7ee73b30f879d249811e7fc303b13ac6
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: e80d4fdb6f189bf46096422602508b0827f41a67
 >
 >
 
-En este artículo se proporciona el procedimiento para realizar una copia de seguridad de máquinas virtuales de Azure (con el modelo de implementación de Resource Manager o el modelo clásico) en un almacén de Servicios de recuperación. La mayoría del trabajo de la copia de seguridad de máquinas virtuales se basa en la preparación. Antes de poder realizar una copia de seguridad de una máquina virtual, o protegerla, es necesario realizar una serie de tareas que son [requisito previo](backup-azure-arm-vms-prepare.md) con el fin de preparar el entorno para la protección de las máquinas virtuales. Cuando haya realizado estas tareas, puede iniciar la operación de copia de seguridad para tomar instantáneas de la máquina virtual.
+En este artículo se proporcionan detalles para realizar una copia de seguridad de VM de Azure (con el modelo de implementación de Resource Manager y el modelo clásico) en un almacén de Recovery Services. La mayoría del trabajo de la copia de seguridad de máquinas virtuales se basa en la preparación. Antes de poder realizar una copia de seguridad de una máquina virtual, o protegerla, es necesario realizar una serie de tareas que son [requisito previo](backup-azure-arm-vms-prepare.md) con el fin de preparar el entorno para la protección de las máquinas virtuales. Cuando haya realizado estas tareas, puede iniciar la operación de copia de seguridad para tomar instantáneas de la máquina virtual.
 
 
 [!INCLUDE [learn about backup deployment models](../../includes/backup-deployment-models.md)]
@@ -82,6 +82,6 @@ Ahora que ha protegido su máquina virtual, vea los siguientes artículos para o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

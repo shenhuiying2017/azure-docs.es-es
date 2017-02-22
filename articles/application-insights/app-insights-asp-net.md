@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: a97e20b208d92e03bd4458605aaa48ef7c389e32
+ms.sourcegitcommit: 919f67a422faad2ba4c19e1f11f8e873098e8bd1
+ms.openlocfilehash: 9c27cfb674a7743c7cfe47b35b263da48c9c564e
 
 
 ---
@@ -55,11 +55,13 @@ En Visual Studio, aparece un recuento de los eventos que se han registrado.
 
 ## <a name="3-see-your-telemetry"></a>3. Visualización de los datos de telemetría...
 ### <a name="-in-visual-studio"></a>... en Visual Studio
-Abra la ventana de Application Insights en Visual Studio: haga clic en el botón Application Insights, o bien haga clic con el botón derecho en el proyecto en el Explorador de soluciones:
+Abra la ventana de Application Insights en Visual Studio: haga clic en el botón Application Insights, o bien haga clic con el botón derecho en el proyecto en el Explorador de soluciones, seleccione `Application Insights` y después haga clic en `Search Live Telemetry`:
 
 ![En Visual Studio, el botón de Application Insights se muestra durante la depuración.](./media/app-insights-asp-net/55.png)
 
-Esta vista muestra los datos de telemetría generados en el servidor de la aplicación. Experimente con los filtros y haga clic en cualquier evento para ver más información al respecto.
+Esta vista ("Datos de la sesión de depuración") muestra los datos de telemetría generados en el servidor de la aplicación. Experimente con los filtros y haga clic en cualquier evento para ver más información al respecto.
+
+* *¿No hay datos? Asegúrese de que el intervalo de tiempo es correcto y haga clic en el icono de búsqueda.*
 
 [Más información acerca de las herramientas de Application Insights en Visual Studio](app-insights-visual-studio.md).
 
@@ -70,15 +72,34 @@ Salvo que elija *Install SDK only* (Instalar SDK solamente), también puede ver 
 
 El portal tiene más gráficos, herramientas de análisis y paneles que Visual Studio. 
 
-Abra el recurso de Application Insights en el [Portal de Azure](https://portal.azure.com/).
+Abra el recurso de Application Insights, ya sea mediante el inicio de sesión en [Azure Portal](https://portal.azure.com/) y buscarlos allí, o haga clic en el proyecto en Visual Studio y deje que le lleve allí.
 
 ![Haga clic con el botón secundario en el proyecto y abra el Portal de Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-El portal se abrirá en una vista de los datos de telemetría desde su aplicación: ![](./media/app-insights-asp-net/66.png)
+* *¿Error de acceso? Si tiene más de un conjunto de credenciales de Microsoft, puede iniciar sesión con un conjunto erróneo. En el portal, cierre la sesión y vuelva a iniciarla.*
 
-* La primera telemetría se muestra en [Secuencia de métricas en directo](app-insights-metrics-explorer.md#live-metrics-stream).
-* Los eventos individuales aparecen en **Búsqueda** (1). Los datos pueden tardar unos minutos en aparecer. Haga clic en cualquier evento para ver sus propiedades. 
-* Las métricas agregadas aparecen en los gráficos (2). Los datos pueden tardar uno o dos minutos en aparecer aquí. Haga clic en cualquiera de los gráficos para abrir una hoja en la que encontrará más información.
+El portal se abrirá en una vista de los datos de telemetría desde su aplicación: ![Página de información general de Application Insights](./media/app-insights-asp-net/66.png).
+
+Haga clic en un icono para ver su contenido con mayor detalle.
+
+### <a name="more-detail-in-the-portal"></a>Más detalles en el portal
+
+* [**Live Metrics Stream**](app-insights-live-stream.md) muestra la telemetría casi al instante.
+
+    ![En la hoja de información general, haga clic en Live Stream.](./media/app-insights-asp-net/livestream.png)
+
+    Abra Live Stream al mismo tiempo que se ejecuta la aplicación, para que puedan conectarse.
+
+    Live Stream solo muestra telemetría durante un minuto después de enviarla. Para más investigaciones históricas, use Search, Explorador de métricas y Analytics. Los datos pueden tardar unos minutos en aparecer.
+
+* [**Search** ](app-insights-diagnostic-search.md) muestra los eventos individuales, como solicitudes excepciones y vistas de página. Puede filtrar por tipo de evento, coincidencia de términos y valores de propiedad. Haga clic en cualquier evento para ver sus propiedades y eventos relacionados. 
+
+    ![En la hoja de información general, haga clic en Search.](./media/app-insights-asp-net/search.png)
+
+ * En modo de desarrollo, pueden ver una gran cantidad de eventos de dependencia (AJAX). Son las sincronizaciones entre el explorador y el emulador del servidor. Para ocultarlas, haga clic en el filtro Dependencia.
+* [**Las métricas agregadas**](app-insights-metrics-explorer.md) como las tasas de solicitud y de error aparecen en los gráficos. Haga clic en cualquiera de los gráficos para abrir una hoja en la que encontrará más información. Haga clic en la etiqueta **Editar** de cualquier gráfico para establecer filtros o el tamaño, entre otros.
+    
+    ![En la hoja de información general, haga clic en cualquier gráfico.](./media/app-insights-asp-net/metrics.png)
 
 [Más información acerca del uso de Application Insights en el Portal de Azure](app-insights-dashboards.md).
 
@@ -113,17 +134,25 @@ Para actualizar a una [nueva versión del SDK](https://github.com/Microsoft/Appl
 Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copia del mismo antes de actualizar y después combine los cambios en la nueva versión.
 
 ## <a name="add-more-telemetry"></a>Incorporación de telemetría adicional
-### <a name="web-pages-and-single-page-apps"></a>Páginas web y aplicaciones de una página
-1. [Agregue el fragmento de código de JavaScript](app-insights-javascript.md) a sus páginas web para mejorar las hojas Explorador y Uso con datos sobre vistas de página, tiempos de carga, excepciones de explorador, rendimiento de las llamadas AJAX, y recuentos de usuarios y sesiones.
-2. [Eventos personalizados con código](app-insights-api-custom-events-metrics.md) para el recuento, la hora o la medición de las acciones del usuario.
-
 ### <a name="dependencies-exceptions-and-performance-counters"></a>Dependencias, excepciones y contadores de rendimiento
-[Instale el monitor de estado](app-insights-monitor-performance-live-website-now.md) en cada uno de los equipos del servidor para obtener telemetría adicional acerca de la aplicación. Esto es lo que obtiene:
+
+[Instale el monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648) en cada una de las máquinas del servidor de IIS para obtener telemetría adicional acerca de las aplicaciones web.
+
+Si ya está instalado, no es preciso hacer nada. 
+
+Puede que ya haya utilizado el monitor de estado para iniciar la supervisión de una aplicación en tiempo de ejecución. 
+
+Con el monitor de estado, además del SDK de tiempo de compilación, obtendrá un conjunto más completo de telemetría que incluye:
 
 * [Contadores de rendimiento](app-insights-performance-counters.md) - 
   CPU, memoria, disco y otros contadores de rendimiento relacionados con la aplicación. 
 * [Excepciones](app-insights-asp-net-exceptions.md): telemetría más detallada para algunas excepciones.
-* [Dependencias](app-insights-asp-net-dependencies.md): llamadas a servicios de API de REST o SQL. Averigüe si las respuestas lentas por parte de los componentes externos están causando problemas de rendimiento en su aplicación. (Si la aplicación se ejecuta en .NET 4.6, no necesita el monitor de estado para obtener esta telemetría).
+* [Dependencias](app-insights-asp-net-dependencies.md), que incluyen valores devueltos.
+
+### <a name="web-pages-and-single-page-apps"></a>Páginas web y aplicaciones de una página
+1. [Agregue el fragmento de código de JavaScript](app-insights-javascript.md) a sus páginas web para mejorar las hojas Explorador y Uso con datos sobre vistas de página, tiempos de carga, excepciones de explorador, rendimiento de las llamadas AJAX, y recuentos de usuarios y sesiones.
+2. [Eventos personalizados con código](app-insights-api-custom-events-metrics.md) para el recuento, la hora o la medición de las acciones del usuario.
+
 
 ### <a name="diagnostic-code"></a>Código de diagnóstico
 ¿Tiene un problema? Si desea insertar código en la aplicación para que le ayude con el diagnóstico, tiene varias opciones:
@@ -170,11 +199,10 @@ Si usa Visual Studio Team Services, puede [obtener un marcador de anotación](ap
 | --- | --- |
 | **[Trabajo con Application Insights en Visual Studio](app-insights-visual-studio.md)**<br/>Depuración con telemetría, búsqueda de diagnóstico, profundización en el código. |
 | **[Trabajo con el portal de Application Insights](app-insights-dashboards.md)**<br/>Paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y exportación de la telemetría. |
-| **[Incorporación de datos adicionales](app-insights-asp-net-more.md)**<br/>Supervise el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

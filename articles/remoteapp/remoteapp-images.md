@@ -40,7 +40,7 @@ La suscripción de Azure RemoteApp incluye tres imágenes de plantilla:
 
 Siga leyendo para obtener más información sobre lo que contiene cada imagen.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2  ("vanilla image")
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2  ("vanilla image")
 Esta imagen se basa en el sistema operativo Microsoft Windows Server 2012 R2 Datacenter y tiene los siguientes roles y características instalados para cumplir los requisitos de las imágenes de plantilla de Azure RemoteApp:
 
 * .NET Framework 4.5, 3.5.1, 3.5

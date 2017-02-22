@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
 
 
 ---
@@ -38,7 +38,7 @@ Además de ayudarlo a proteger los recursos de SQL Database, Security Center tam
 ## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. El nivel Gratis de Security Center se habilita con su suscripción. Para obtener más información sobre los niveles Gratis y Estándar de Security Center, consulte [Centro de seguridad Precios](https://azure.microsoft.com/pricing/details/security-center/).
 
-El Centro de seguridad admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md). Las P+F de Security Center proporcionan información sobre [cómo se controlan los permisos en Security Center](security-center-faq.md#how-are-permissions-handled-in-azure-security-center).
+El Centro de seguridad admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md). Las P+F de Security Center proporcionan información sobre [cómo se controlan los permisos en Security Center](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Acceso al Centro de seguridad
 Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). [Inicie sesión en el portal](https://portal.azure.com/) y seleccione la **opción de Security Center**.
@@ -118,6 +118,6 @@ Para obtener más información, consulte el artículo sobre cómo [administrar l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

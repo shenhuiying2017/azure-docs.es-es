@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
 
 
 ---
@@ -26,28 +26,13 @@ La replicación geográfica activa le permite configurar hasta cuatro bases de d
 
 > [!NOTE]
 > La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
-> 
-> 
+>  
 
  Puede configurar la replicación geográfica activa mediante [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) o la [API de REST: creación o actualización de la base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
-> [!div class="op_single_selector"]
-> * [Configuración: Azure Portal](sql-database-geo-replication-portal.md)
-> * [Configuración: PowerShell](sql-database-geo-replication-powershell.md)
-> * [Configuración: T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 Si, por cualquier motivo, se produce un error en la base de datos principal o, simplemente, debe desconectarse, puede *conmutar por error* a cualquiera de las secundarias. Cuando se activa la conmutación por error a una de las bases de datos secundarias, las demás bases de datos secundarias se vinculan automáticamente a la nueva base de datos principal.
 
 Puede conmutar por error a una base de datos secundaria mediante [Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), la [API de REST: conmutación por error planeada](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) o la [API de REST: conmutación por error no planeada](https://msdn.microsoft.com/library/azure/mt582027.aspx).
-
-> [!div class="op_single_selector"]
-> * [Conmutación por error: Portal de Azure](sql-database-geo-replication-failover-portal.md)
-> * [Conmutación por error: PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [Conmutación por error: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
@@ -149,6 +134,6 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

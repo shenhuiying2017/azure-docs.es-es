@@ -5,7 +5,7 @@ keywords: "conexión de sql, cadena de conexión, problemas de conectividad, err
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
@@ -14,11 +14,11 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1566cfc42a6897b5ac8b4ad7d4d6c7900ca91a3
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 7ca726f5dc67feae7eeccfdcc00b41aa95c38348
 
 
 ---
@@ -450,6 +450,6 @@ public bool IsTransient(Exception ex)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
+ms.sourcegitcommit: 4c3f32cd6159052f17557c51e08e7e3f611aa338
+ms.openlocfilehash: 7a1e705e40cd8f7b260c38f41e81e2f199555059
 
 
 ---
@@ -212,27 +212,17 @@ Por ejemplo, ¿cuántas marcas de vehículos únicas pasan a través de la cabin
 
 **Solución:**
 
-    WITH Makes AS (
-        SELECT
-            Make,
-            COUNT(*) AS CountMake
-        FROM
-            Input TIMESTAMP BY Time
-        GROUP BY
-              Make,
-              TumblingWindow(second, 2)
-    )
-    SELECT
-        COUNT(*) AS Count,
-        System.TimeStamp AS Time
-    FROM
-        Makes
-    GROUP BY
-        TumblingWindow(second, 1)
+````
+SELECT
+     COUNT(DISTINCT Make) AS CountMake,
+     System.TIMESTAMP AS TIME
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+````
 
 
-**Explicación:** hacemos una agregación inicial para obtener marcas únicas con su recuento en la ventana.
-A continuación, hacemos una agregación de todas las ventanas que tenemos; dado que todos los valores únicos en una ventana obtienen la misma marca de tiempo, la segunda ventana de agregación debe ser mínima para no agregar las dos ventanas del primer paso.
+**Explicación:** COUNT(DISTINCT Make) devuelve la cantidad de valores distintos de la columna "Make" dentro de una ventana de tiempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
 **Descripción**: mire el valor anterior para determinar si es diferente del actual. Por ejemplo, ¿el vehículo anterior en Carretera con peaje es de la misma marca que el actual?
@@ -509,7 +499,7 @@ Por ejemplo, genere un evento cada 5 segundos que informará el punto de datos v
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Explicación**: esta consulta generará eventos cada 5 segundos y generará como resultado el último evento que se recibió antes. [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "ventana de salto - Azure Stream Analytics") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo, 300 segundos).
+**Explicación**: esta consulta generará eventos cada 5 segundos y generará como resultado el último evento que se recibió antes. [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "ventana de salto - Azure Stream Analytics") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo,&300; segundos).
 
 ## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -524,6 +514,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

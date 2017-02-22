@@ -183,7 +183,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     a. Copie el identificador de identidad de SP desde la pantalla SAML y péguelo en Azure AD como el valor del **identificador**.
 
-    b. La dirección URL de inicio de sesión es la dirección URL del inquilino de Atlassian Cloud.   
+    b. La dirección URL de inicio de sesión es la dirección URL del inquilino de Atlassian Cloud.     
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
     
@@ -335,6 +335,6 @@ Al hacer clic en el icono de Atlassian Cloud en el panel de acceso, debería ini
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

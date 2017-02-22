@@ -1,5 +1,5 @@
 ---
-title: "Tamaños de los servicios en la nube | Microsoft Docs"
+title: "Tamaños de máquina virtual para Azure Cloud Services | Microsoft Docs"
 description: "Enumera los diferentes tamaños (e ids.) de máquina virtual para los roles web y de trabajo del servicio en la nube de Azure."
 services: cloud-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2016
+ms.date: 01/12/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 35a295a8c24475de90fc26687ca00024cfba1079
-ms.openlocfilehash: bccdfd49226261699f89ebca0adf437ff63c1cdf
+ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
+ms.openlocfilehash: 88032b3855c2f89b935064abe496a8455dcff88b
 
 
 ---
@@ -58,15 +58,15 @@ Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma d
 
 | Familia de SKU | ACU/núcleo |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
+| [ExtraSmall](#a-series) |50 |
+| [Small-ExtraLarge](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [Standard_A1-8v2](#av2-series) |100 |
 | [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [D1-14](#d-series) |160 |
-| [D1 15v2](#dv2-series) |210 - 250* |
-| [G1 5](#g-series) |180 - 240* |
+| [D1&15;v2](#dv2-series) |210 - 250* |
+| [G1&5;](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento. El volumen de la mejora puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
@@ -80,101 +80,92 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 * El ancho de banda de red máximo es el ancho de banda agregado máximo que se asigna por cada tipo de VM. El ancho de banda máximo proporciona una orientación a la hora de seleccionar el tipo de VM correcto a fin de garantizar la disponibilidad de la capacidad de red adecuada. Al cambiar a Bajo, Moderado, Alto y Muy alto, el rendimiento aumentará en consecuencia. El rendimiento de red real dependerá de muchos factores (como, por ejemplo, las cargas de la red y de la aplicación y la configuración de red de la aplicación).
 
 ## <a name="a-series"></a>Serie A
-| Tamaño | Núcleos de CPU | Memoria: GiB | HDD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0,768 |20 | |1 |1x500 |1 / bajo |
-| Standard_A1 |1 |1,75 |70 |2 |2 x 500 |1 / moderado |
-| Standard_A2 |2 |3,5 GB |135 |4 |4x500 |1 / moderado |
-| Standard_A3 |4 |7 |285 |8 |8x500 |2 / alto |
-| Standard_A4 |8 |14 |605 |16 |16x500 |4 / alto |
-| Standard_A5 |2 |14 |135 |4 |4x500 |1 / moderado |
-| Standard_A6 |4 |28 |285 |8 |8x500 |2 / alto |
-| Standard_A7 |8 |56 |605 |16 |16x500 |4 / alto |
+| Tamaño            | Núcleos de CPU | Memoria: GiB  | HDD local: GiB       | Ancho de banda de red/NIC máx. |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| ExtraSmall      | 1         | 0,768        | 20 |                   | 1 / bajo |
+| Pequeña           | 1         | 1,75         | 225                  | 1 / moderado |
+| Mediano          | 2         | 3,5 GB       | 490                  | 1 / moderado |
+| Grande           | 4         | 7            | 1000                 | 2 / alto |
+| ExtraLarge      | 8         | 14           | 2040                 | 4 / alto |
+| A5              | 2         | 14           | 490                  | 1 / moderado |
+| A6              | 4         | 28           | 1000                 | 2 / alto |
+| A7              | 8         | 56           | 2040                 | 4 / alto |
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A: instancias de proceso intensivo
 Para información y consideraciones sobre el uso de estos tamaños, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Tamaño | Núcleos de CPU | Memoria: GiB | HDD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2 / alto |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 / muy alto |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2 / alto |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 / muy alto |
+| Tamaño            | Núcleos de CPU | Memoria: GiB  | HDD local: GiB       | Ancho de banda de red/NIC máx. |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| A8*             |8          | 56           | 1817                 | 2 / alto |
+| A9*             |16         | 112          | 1817                 | 4 / muy alto |
+| A10             |8          | 56           | 1817                 | 2 / alto |
+| A11             |16         | 112          | 1817                 | 4 / muy alto |
 
 \*Compatible con RDMA
 
 ## <a name="av2-series"></a>Serie Av2
 
-| Tamaño        | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2 x 500              | 1 / moderado              |
-| Standard_A2_v2 | 2         | 4            | 20 |                   | 4              | 4x500              | 2 / moderado              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4 / alto                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8 / alto                  |
-| Standard_A2m_v2 | 2        | 16           | 20 |                   | 4              | 4x500              | 2 / moderado              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4 / alto                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8 / alto                  |
+| Tamaño            | Núcleos de CPU | Memoria: GiB  | SSD local: GiB       | Ancho de banda de red/NIC máx. |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_A1_v2  | 1         | 2            | 10                   | 1 / moderado                 |
+| Standard_A2_v2  | 2         | 4            | 20 |                   | 2 / moderado                 |
+| Standard_A4_v2  | 4         | 8            | 40                   | 4 / alto                     |
+| Standard_A8_v2  | 8         | 16           | 80                   | 8 / alto                     |
+| Standard_A2m_v2 | 2         | 16           | 20 |                   | 2 / moderado                 |
+| Standard_A4m_v2 | 4         | 32           | 40                   | 4 / alto                     |
+| Standard_A8m_v2 | 8         | 64           | 80                   | 8 / alto                     |
 
 
 ## <a name="d-series"></a>Serie D
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2 x 500 |1 / moderado |
-| Standard_D2 |2 |7 |100 |4 |4x500 |2 / alto |
-| Standard_D3 |4 |14 |200 |8 |8x500 |4 / alto |
-| Standard_D4 |8 |28 |400 |16 |16x500 |8 / alto |
-| Standard_D11 |2 |14 |100 |4 |4x500 |2 / alto |
-| Standard_D12 |4 |28 |200 |8 |8x500 |4 / alto |
-| Standard_D13 |8 |56 |400 |16 |16x500 |8 / alto |
-| Standard_D14 |16 |112 |800 |32 |32x500 |8 / muy alto |
+| Tamaño            | Núcleos de CPU | Memoria: GiB  | SSD local: GiB       | Ancho de banda de red/NIC máx. |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_D1     | 1         | 3,5          | 50                   | 1 / moderado |
+| Standard_D2     | 2         | 7            | 100                  | 2 / alto |
+| Standard_D3     | 4         | 14           | 200                  | 4 / alto |
+| Standard_D4     | 8         | 28           | 400                  | 8 / alto |
+| Standard_D11    | 2         | 14           | 100                  | 2 / alto |
+| Standard_D12    | 4         | 28           | 200                  | 4 / alto |
+| Standard_D13    | 8         | 56           | 400                  | 8 / alto |
+| Standard_D14    | 16        | 112          | 800                  | 8 / muy alto |
 
 ## <a name="dv2-series"></a>Serie Dv2
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2 x 500 |1 / moderado |
-| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2 / alto |
-| Standard_D3_v2 |4 |14 |200 |8 |8x500 |4 / alto |
-| Standard_D4_v2 |8 |28 |400 |16 |16x500 |8 / alto |
-| Standard_D5_v2 |16 |56 |800 |32 |32x500 |8 / extremadamente alto |
-| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2 / alto |
-| Standard_D12_v2 |4 |28 |200 |8 |8x500 |4 / alto |
-| Standard_D13_v2 |8 |56 |400 |16 |16x500 |8 / alto |
-| Standard_D14_v2 |16 |112 |800 |32 |32x500 |8 / extremadamente alto |
-| Standard_D15_v2 |20 | |140 |1000 |40 |40 x 500 |8 / extremadamente alto |
+| Tamaño            | Núcleos de CPU | Memoria: GiB  | SSD local: GiB       | Ancho de banda de red/NIC máx. |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / moderado |
+| Standard_D2_v2  | 2         | 7            | 100                  | 2 / alto |
+| Standard_D3_v2  | 4         | 14           | 200                  | 4 / alto |
+| Standard_D4_v2  | 8         | 28           | 400                  | 8 / alto |
+| Standard_D5_v2  | 16        | 56           | 800                  | 8 / extremadamente alto |
+| Standard_D11_v2 | 2         | 14           | 100                  | 2 / alto |
+| Standard_D12_v2 | 4         | 28           | 200                  | 4 / alto |
+| Standard_D13_v2 | 8         | 56           | 400                  | 8 / alto |
+| Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremadamente alto |
+| Standard_D15_v2 | 20 |        | 140          | 1000                | 8 / extremadamente alto |
 
 ## <a name="g-series"></a>Serie G
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 x 500 |1 / alto |
-| Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / alto |
-| Standard_G3 |8 |112 |1536 |16 |16 x 500 |4 / muy alto |
-| Standard_G4 |16 |224 |3072 |32 |32 x 500 |8 / extremadamente alto |
-| Standard_G5 |32 |448 |6144 |64 |64 x 500 |8 / extremadamente alto |
+| Tamaño            | Núcleos de CPU | Memoria: GiB  | SSD local: GiB       | Ancho de banda de red/NIC máx. |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_G1     | 2         | 28           | 384                  |1 / alto |
+| Standard_G2     | 4         | 56           | 768                  |2 / alto |
+| Standard_G3     | 8         | 112          | 1536                |4 / muy alto |
+| Standard_G4     | 16        | 224          | 3072                |8 / extremadamente alto |
+| Standard_G5     | 32        | 448          | 6144                |8 / extremadamente alto |
 
 ## <a name="h-series"></a>Serie H
 Las máquinas virtuales de la serie H son las de próxima generación informática de alto rendimiento que abordan las necesidades informáticas de gama alta, como el modelado molecular y la dinámica de fluidos computacional. Estas máquinas virtuales de 8 y 16 núcleos se basan en la tecnología de procesador Intel Haswell E5-2667 V3 con memoria DDR4 y almacenamiento basado en SSD local.
 
 Además de una potencia de CPU notable, la serie H ofrece varias opciones para las redes RDMA de baja latencia con FDR InfiniBand y varias configuraciones de memoria para admitir requisitos computacionales de uso intensivo de la memoria.
 
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16 x 500 |8 / alto |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |8 / muy alto |
-| Standard_H8m |8 |112 |1000 |16 |16 x 500 |8 / alto |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |8 / muy alto |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |8 / muy alto |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |8 / muy alto |
+| Tamaño            | Núcleos de CPU | Memoria: GiB  | SSD local: GiB       | Ancho de banda de red/NIC máx. |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_H8     | 8         | 56           | 1000                 | 8 / alto |
+| Standard_H16    | 16        | 112          | 2000                 | 8 / muy alto |
+| Standard_H8m    | 8         | 112          | 1000                 | 8 / alto |
+| Standard_H16m   | 16        | 224          | 2000                 | 8 / muy alto |
+| Standard_H16r*  | 16        | 112          | 2000                 | 8 / muy alto |
+| Standard_H16mr* | 16        | 224          | 2000                 | 8 / muy alto |
 
 \*Compatible con RDMA
-
-## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Notas: Standard_A0 - A4 con CLI y PowerShell
-En el modelo de implementación clásica, algunos nombres de tamaños de VM varían ligeramente en la CLI y en PowerShell:
-
-* Standard_A0 es ExtraSmall
-* Standard_A1 es Small
-* Standard_A2 es Medium
-* Standard_A3 es Large
-* Standard_A4 es ExtraLarge
 
 ## <a name="configure-sizes-for-cloud-services"></a>Configuración de tamaños para los Servicios en la nube
 Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
@@ -196,12 +187,19 @@ A medida que cambia la naturaleza de la carga de trabajo o los tamaños de la nu
 >
 >
 
+## <a name="get-a-list-of-sizes"></a>Obtención de una lista de tamaños
+Puede usar PowerShell o la API de REST para obtener una lista de tamaños. La API de REST de Storm se documenta [aquí](https://msdn.microsoft.com/library/azure/dn469422.aspx). El código siguiente es un comando de PowerShell que enumerará todos los tamaños disponibles actualmente para el servicio en la nube.
+
+```powershell
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
 * Más información [cerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabajo, como la informática de alto rendimiento (HPC).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

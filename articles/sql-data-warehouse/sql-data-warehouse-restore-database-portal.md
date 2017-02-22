@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: 7216b064f5d0e9a1f4b7e3966e98a0bac485dd73
-ms.openlocfilehash: dcf4bab6c28d2b353fd458687fc04f7a92857d33
+ms.sourcegitcommit: 763ae02d1196a924bbf89e423871af2ec22e9e6c
+ms.openlocfilehash: 84f582e8d767466ce9dec83203ec78047648caea
 
 
 ---
@@ -28,9 +28,6 @@ ms.openlocfilehash: dcf4bab6c28d2b353fd458687fc04f7a92857d33
 > * [REST][REST]
 >
 >
-> [!NOTE]
-> A partir del 01/12/2016, se corregirá un problema al restaurar desde Azure Portal. Restaure a través de [PowerShell] (https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell).
-
 En este artículo, obtendrá información sobre cómo restaurar Azure SQL Data Warehouse mediante Azure Portal.
 
 ## <a name="before-you-begin"></a>Antes de empezar

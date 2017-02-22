@@ -1,5 +1,5 @@
 ---
-title: "Obtención de las herramientas para el kit de inicio de IoT de Azure (Windows 7 y superior) | Microsoft Docs"
+title: "Conexión de Arduino a Azure IoT: Lección 1: Obtención de herramientas (Windows) | Microsoft Docs"
 description: "Descargue e instale las herramientas y el software necesarios para la primera aplicación de ejemplo de Adafruit Feather M0 WiFi en Windows 7 y versiones posteriores."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 5720809e9f257218c8ee0801bfc7a06d286934f6
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: dbf4be49bf806415c7a7817acb37c7e33be6267d
 
 
 ---
@@ -93,6 +93,6 @@ Ha instalado las herramientas de desarrollo y el software necesarios para la pri
 [create-and-deploy-the-blink-sample-application]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -64,6 +64,6 @@ Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

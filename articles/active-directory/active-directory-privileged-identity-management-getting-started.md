@@ -3,7 +3,7 @@ title: "Introducción a Azure AD Privileged Identity Management | Microsoft Docs
 description: "Aprenda a administrar identidades con privilegios con la aplicación Privileged Identity Management de Azure Active Directory en el Portal de Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: 7b1510ccfed939e27bad4fc0e5fafd4383db4a35
 
 
 ---
@@ -44,7 +44,6 @@ Después de configurar Azure AD Privileged Identity Management, verá la hoja de
 * **Administrar roles con privilegios** es el panel para que los administradores de roles con privilegios administren las asignaciones de roles, cambien la configuración de activación de roles e inicien revisiones del acceso, entre otras operaciones. Las opciones de este panel están deshabilitadas para todos aquellos que no sean administradores de roles con privilegios.
 * **Revisar acceso con privilegios** le lleva a todas las revisiones de acceso pendientes que necesita completar, tanto si revisa su acceso como el de otro usuario. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 En la información general de [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) , se incluye más información sobre cómo administrar el acceso administrativo en una organización.
 
@@ -56,6 +55,6 @@ En la información general de [Azure AD Privileged Identity Management](active-d
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

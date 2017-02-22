@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a06126707ad9942ba3b269b0e2e2a52f9cf0c61e
-ms.openlocfilehash: 4d6735772ff36a730ccb369f7fce653a91bc9d4f
+ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
+ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
 
 
 ---
@@ -48,8 +48,8 @@ La tabla siguiente le ayuda a determinar qué es lo mejor para una integración 
 | --- | --- | --- |
 | Público |trabajadores de oficina, usuarios empresariales |profesionales de TI, desarrolladores |
 | Escenarios |Autoservicio |Críticas |
-| Herramienta de diseño |En el explorador, solo interfaz de usuario |En el explorador y [Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md), [visualización del código](../app-service-logic/app-service-logic-author-definitions.md) disponible |
-| DevOps |Ad hoc, desarrollo en producción |control del código fuente, prueba, soporte técnico, automatización y manejabilidad en [Administración de recursos de Azure](../app-service-logic/app-service-logic-arm-provision.md) |
+| Herramienta de diseño |En el explorador, solo interfaz de usuario |En el explorador y [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [visualización del código](../logic-apps/logic-apps-author-definitions.md) disponible |
+| DevOps |Ad hoc, desarrollo en producción |control del código fuente, prueba, soporte técnico, automatización y manejabilidad en [Administración de recursos de Azure](../logic-apps/logic-apps-arm-provision.md) |
 | Experiencia del administrador |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Seguridad |Procedimientos estándar: [soberanía de datos](https://wikipedia.org/wiki/Technological_Sovereignty), [cifrado en reposo](https://wikipedia.org/wiki/Data_at_rest#Encryption) para datos confidenciales, etc. |Garantía de seguridad de Azure: [Seguridad de Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [registros de auditoría](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), y mucho más. |
 
@@ -107,7 +107,7 @@ Puede llamar a una aplicación lógica en un flujo. También puede llamar a una 
 Comience con cada uno de estos servicios creando su primer flujo, aplicación lógica, aplicación de función o trabajo web. Haga clic en cualquiera de los siguientes vínculos:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/) (Introducción a Microsoft Flow)
-* [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Creación de su primera función de Azure](functions-create-first-azure-function.md)
 * [Implementar trabajos web con Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
 
@@ -122,6 +122,6 @@ O bien, obtenga más información sobre estos servicios de integración con los 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: SDK y API para Node.js de DocumentDB | Microsoft Docs
+title: 'API de Node.js y recursos del SDK: Azure DocumentDB | Microsoft Docs'
 description: "Obtenga toda la información sobre el SDK y la API para Node.js como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para Node.js de DocumentDB."
 services: documentdb
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 12/22/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 43d658a67eb55a2d2e35f79080d63c3effb6387e
 
 
 ---
@@ -54,6 +54,11 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name11011101a"></a><a name="1.10.1"/>1.10.1</a>
+* Se ha deshabilitado la comprobación de SSL cuando se usa el SDK para alcanzar el emulador (nombre de host = host local).
+* Se ha agregado compatibilidad para habilitar el registro de scripts durante la ejecución de procedimientos almacenados.
+
 ### <a name="a-name11001100a"></a><a name="1.10.0"/>1.10.0</a>
 * Compatibilidad agregada con las consultas paralelas entre particiones.
 * Se ha agregado compatibilidad con las consultas TOP y ORDER BY en las colecciones particionadas.
@@ -129,22 +134,18 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 ### <a name="a-name100100a"></a><a name="1.0.0"/>1.0.0</a>
 * SDK de GA.
 
-## <a name="release-retirement-dates"></a>Fechas de lanzamiento y de retirada
+## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
 El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un SDK retirado.
 
-> [!WARNING]
-> Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la versión **1.0.0** se retirarán el **29 de febrero de 2016**.
-> 
-> 
-
 <br/>
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.10.1](#1.10.1) |22 de diciembre de 2016 |--- |
 | [1.10.0](#1.10.0) |03 de octubre de 2016 |--- |
 | [1.9.0](#1.9.0) |7 de julio de 2016 |--- |
 | [1.8.0](#1.8.0) |14 de junio de 2016 |--- |
@@ -167,13 +168,8 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 | [1.0.2](#1.0.2) |23 de mayo de 2015 |--- |
 | [1.0.1](#1.0.1) |15 de mayo de 2015 |--- |
 | [1.0.0](#1.0.0) |08 de abril de 2015 |--- |
-| 0.9.4 (versión preliminar) |6 de abril de 2015 |29 de febrero de 2016 |
-| 0.9.3 (versión preliminar) |14 de enero de 2015 |29 de febrero de 2016 |
-| 0.9.2 (versión preliminar) |18 de diciembre de 2014 |29 de febrero de 2016 |
-| 0.9.1 (versión preliminar) |22 de agosto de 2014 |29 de febrero de 2016 |
-| 0.9.0 (versión preliminar) |21 de agosto de 2014 |29 de febrero de 2016 |
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>Otras referencias
@@ -182,6 +178,6 @@ Para más información sobre DocumentDB, consulte la página del servicio [Micro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

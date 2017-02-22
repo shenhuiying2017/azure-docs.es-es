@@ -1,5 +1,5 @@
 ---
-title: "Cambio de sus contraseñas de StorSimple | Microsoft Docs"
+title: "Cambio de la contraseña a través de StorSimple Device Manager | Microsoft Docs"
 description: "Describe cómo usar el servicio StorSimple Manager para cambiar sus contraseñas de administrador de dispositivos y de StorSimple Snapshot Manager."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43df835da672a7d6584cb91f0837b4e11671c27a
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
 
 
 ---
@@ -60,6 +60,6 @@ Ahora se debe actualizar la contraseña de StorSimple Snapshot Manager.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

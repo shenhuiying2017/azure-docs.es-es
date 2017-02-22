@@ -35,20 +35,20 @@ Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma d
 
 | Familia de SKU | ACU/núcleo |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
+| [A0](#a-series) |50 |
+| [A1-A4](#a-series) |100 |
+| [A5-A7](#a-series) |100 |
+| [A1_v2-A8_v2](#av2-series) |100 |
+| [A2m_v2-A8m_v2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1 15v2](#dv2-series) |210 - 250* |
-| [14 DS1](#ds-series) |160 |
-| [15v2 DS1](#dsv2-series) |210-250* |
+| [D1-D14](#d-series) |160 |
+| [D1_v2-D15_v2](#dv2-series) |210 - 250* |
+| [DS1-DS14](#ds-series) |160 |
+| [DS1_v2-DS15_v2](#dsv2-series) |210-250* |
 | [F1-F16](#f-series) |210-250* |
 | [F1s F16s](#fs-series) |210-250* |
-| [G1 5](#g-series) |180 - 240* |
-| [GS1 5](#gs-series) |180 - 240* |
+| [G1-G5](#g-series) |180 - 240* |
+| [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento.  El volumen de la mejora puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
@@ -65,7 +65,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 | Tamaño | Núcleos de CPU | Memoria: GiB | HDD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 |1 |0,768 |20 | |1 |1x500 |1 / bajo |
-| Standard_A1 |1 |1,75 |70 |2 |2 x 500 |1 / moderado |
+| Standard_A1 |1 |1,75 |70 |2 |2 x&500; |1 / moderado |
 | Standard_A2 |2 |3,5 |135 |4 |4x500 |1 / moderado |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / alto |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4 / alto |
@@ -93,7 +93,7 @@ Para información y consideraciones sobre el uso de estos tamaños, consulte [Ac
 
 | Tamaño        | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
 |-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2 x 500              | 1 / moderado              |
+| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2 x&500;              | 1 / moderado              |
 | Standard_A2_v2 | 2         | 4            | 20 |                   | 4              | 4x500              | 2 / moderado              |
 | Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4 / alto                  |
 | Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8 / alto                  |
@@ -105,7 +105,7 @@ Para información y consideraciones sobre el uso de estos tamaños, consulte [Ac
 ## <a name="d-series"></a>Serie D
 | Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2 x 500 |1 / moderado |
+| Standard_D1 |1 |3,5 |50 |2 |2 x&500; |1 / moderado |
 | Standard_D2 |2 |7 |100 |4 |4x500 |2 / alto |
 | Standard_D3 |4 |14 |200 |8 |8x500 |4 / alto |
 | Standard_D4 |8 |28 |400 |16 |16x500 |8 / alto |
@@ -119,7 +119,7 @@ Para información y consideraciones sobre el uso de estos tamaños, consulte [Ac
 ## <a name="dv2-series"></a>Serie Dv2
 | Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2 x 500 |1 / moderado |
+| Standard_D1_v2 |1 |3,5 |50 |2 |2 x&500; |1 / moderado |
 | Standard_D2_v2 |2 |7 |100 |4 |4x500 |2 / alto |
 | Standard_D3_v2 |4 |14 |200 |8 |8x500 |4 / alto |
 | Standard_D4_v2 |8 |28 |400 |16 |16x500 |8 / alto |
@@ -128,9 +128,11 @@ Para información y consideraciones sobre el uso de estos tamaños, consulte [Ac
 | Standard_D12_v2 |4 |28 |200 |8 |8x500 |4 / alto |
 | Standard_D13_v2 |8 |56 |400 |16 |16x500 |8 / alto |
 | Standard_D14_v2 |16 |112 |800 |32 |32x500 |8 / extremadamente alto |
-| Standard_D15_v2 |20 | |140 |1000 |40 |40 x 500 |8 / extremadamente alto* |
+| Standard_D15_v2** |20 | |140 |1000 |40 |40 x&500; |8 / extremadamente alto* |
 
 * En algunas regiones, Accelerated Networking está disponible para el tamaño Standard_D15_v2. Para más información acerca del uso y la disponibilidad, consulte [Accelerated Networking is in preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Accelerated Networking está en la fase de versión preliminar) y [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Accelerated Networking para una máquina virtual).
+
+**La instancia está aislada en el hardware dedicado a un solo cliente.
 
 <br>
 
@@ -164,7 +166,7 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 | Standard_DS12_v2 |4 |28 |56 |8 |16 000 / 128 (144) |12 800 / 192 |4 alto |
 | Standard_DS13_v2 |8 |56 |112 |16 |32 000 / 256 (288) |25 600 / 384 |8 alto |
 | Standard_DS14_v2 |16 |112 |224 |32 |64 000 / 512 (576) |51 200 / 768 |8 extremadamente alto |
-| Standard_DS15_v2 |20 | |140 |280 |40 |80 000 / 640 (720) |64 000 / 960 |8 extremadamente alto** |
+| Standard_DS15_v2*** |20 | |140 |280 |40 |80 000 / 640 (720) |64 000 / 960 |8 extremadamente alto** |
 
 MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
@@ -172,12 +174,13 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
 ** En algunas regiones, Accelerated Networking está disponible para el tamaño Standard_DS15_v2. Para más información acerca del uso y la disponibilidad, consulte [Accelerated Networking is in preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Accelerated Networking está en la fase de versión preliminar) y [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Accelerated Networking para una máquina virtual).
 
+***La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
 
 ## <a name="f-series"></a>Serie F
 | Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2 x 500 |1 / moderado |
+| Standard_F1 |1 |2 |16 |2 |2 x&500; |1 / moderado |
 | Standard_F2 |2 |4 |32 |4 |4x500 |2 / alto |
 | Standard_F4 |4 |8 |64 |8 |8x500 |4 / alto |
 | Standard_F8 |8 |16 |128 |16 |16x500 |8 / alto |
@@ -207,8 +210,9 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 | Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / alto |
 | Standard_G3 |8 |112 |1536 |16 |16 x 500 |4 / muy alto |
 | Standard_G4 |16 |224 |3072 |32 |32 x 500 |8 / extremadamente alto |
-| Standard_G5 |32 |448 |6144 |64 |64 x 500 |8 / extremadamente alto |
+| Standard_G5* |32 |448 |6144 |64 |64 x 500 |8 / extremadamente alto |
 
+*La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
 
 ## <a name="gs-series"></a>Serie GS*
@@ -218,12 +222,13 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 | Standard_GS2 |4 |56 |112 |8 |20 000 / 200 (528) |10 000 / 250 |2 / alto |
 | Standard_GS3 |8 |112 |224 |16 |40 000 / 400 (1056) |20 000 / 500 |4 / muy alto |
 | Standard_GS4 |16 |224 |448 |32 |80 000 / 800 (2112) |40 000 / 1000 |8 / extremadamente alto |
-| Standard_GS5 |32 |448 |896 |64 |160 000 / 1600 (4224) |80 000 / 2000 |8 / extremadamente alto |
+| Standard_GS5** |32 |448 |896 |64 |160 000 / 1600 (4224) |80 000 / 2000 |8 / extremadamente alto |
 
 MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
 *El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie GS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. 
 
+**La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
 
 ## <a name="h-series"></a>Serie H
@@ -301,6 +306,6 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

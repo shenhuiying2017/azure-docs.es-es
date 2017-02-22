@@ -1,20 +1,24 @@
 
 ---
-title: Creación de un clúster de Service Fabric mediante el Portal de Azure | Microsoft Docs
-description: En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante el Portal de Azure y el Almacén de claves de Azure.
+title: "Creación de un clúster de Service Fabric en Azure Portal | Microsoft Azure"
+description: "En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante el Portal de Azure y el Almacén de claves de Azure."
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
 editor: vturecek
-
+ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/21/2016
-ms.author: vturecek
+ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
+ms.openlocfilehash: c413f415cb056f079ed30cf444af4edbe20364ea
+
 
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
@@ -56,7 +60,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ## <a name="set-up-key-vault"></a>Configuración del Almacén de claves
-Esta parte de la guía le lleva por la creación de un Almacén de claves para un clúster de Service Fabric de Azure y para aplicaciones de Service Fabric. Para obtener una guía completa sobre Key Vault, vea [Introducción a Key Vault][key-vault-get-started].
+Esta parte de la guía le lleva por la creación de un Almacén de claves para un clúster de Service Fabric de Azure y para aplicaciones de Service Fabric. Para obtener una guía completa sobre Key Vault, consulte [Introducción a Key Vault][key-vault-get-started].
 
 Service Fabric usa certificados X.509 para proteger un clúster. El Almacén de claves de Azure se usa para administrar certificados para clústeres de Service Fabric en Azure. Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados del Almacén de claves y los instala en las máquinas virtuales del clúster.
 
@@ -122,7 +126,7 @@ Si tiene un Almacén de claves existente, puede habilitarlo para implementación
 
 
 ## <a name="add-certificates-to-key-vault"></a>Adición de certificados al Almacén de claves
-Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para más información sobre el modo en que se usan los certificados en Service Fabric, vea [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
+Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para obtener más información sobre el modo en que se usan los certificados en Service Fabric, consulte los [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
 
 ### <a name="cluster-and-server-certificate-required"></a>Certificado de clúster y servidor (obligatorio)
 Este certificado es necesario para proteger un clúster e impedir el acceso no autorizado. La seguridad adopta dos formas:
@@ -137,7 +141,7 @@ Para servir a estos propósitos, el certificado debe cumplir los siguientes requ
 * El nombre de sujeto del certificado debe coincidir con el nombre del dominio usado para acceder al clúster de Service Fabric. Este es un requisito para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio `.cloudapp.azure.com` . Adquiera un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado que se usó para el clúster.
 
 ### <a name="client-authentication-certificates"></a>Certificados de autenticación de cliente
-Los certificados de cliente adicionales autentican a los administradores en las tareas de administración del clúster. Service Fabric tiene dos niveles de acceso: **administrador** y **usuario de solo lectura**. Se debe usar como mínimo un certificado para el acceso administrativo. Para accesos de nivel de usuario adicionales, se debe proporcionar un certificado diferente. Para más información sobre los roles de acceso, vea [Control de acceso basado en roles para clientes de Service Fabric][service-fabric-cluster-security-roles].
+Los certificados de cliente adicionales autentican a los administradores en las tareas de administración del clúster. Service Fabric tiene dos niveles de acceso: **administrador** y **usuario de solo lectura**. Se debe usar como mínimo un certificado para el acceso administrativo. Para accesos de nivel de usuario adicionales, se debe proporcionar un certificado diferente. Para obtener más información sobre los roles de acceso, consulte [Control de acceso basado en roles para clientes de Service Fabric][service-fabric-cluster-security-roles].
 
 No es necesario cargar los certificados de autenticación de cliente en Key Vault para trabajar con Service Fabric. Estos certificados solo se deben proporcionar a los usuarios que están autorizados para la administración del clúster. 
 
@@ -235,16 +239,16 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 > 
 
 1. Elija un nombre para el tipo de nodo (con una longitud de 1 a 12 caracteres y que contenga solamente letras y números).
-2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para más información sobre la durabilidad, vea la información sobre cómo [elegir los niveles de confiabilidad y durabilidad del clúster de Service Fabric][service-fabric-cluster-capacity].
+2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para obtener más información sobre la durabilidad, consulte [Elección de los niveles de confiabilidad y durabilidad del clúster de Service Fabric][service-fabric-cluster-capacity].
 3. Seleccione el tamaño de máquina virtual y el plan de tarifa. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado. No utilice cualquier SKU de máquina virtual que tenga núcleos parciales o menos de 7 GB de capacidad de disco disponible. 
-4. El **número** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **confiabilidad** que elija. El valor predeterminado del nivel de confiabilidad es Silver. Para más información sobre la durabilidad, vea la información sobre cómo [elegir los niveles de confiabilidad y durabilidad del clúster de Service Fabric][service-fabric-cluster-capacity].
+4. El **número** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **confiabilidad** que elija. El valor predeterminado del nivel de confiabilidad es Silver. Para obtener más información sobre la confiabilidad, consulte [Elección de los niveles de confiabilidad y durabilidad del clúster de Service Fabric][service-fabric-cluster-capacity].
 5. Elija el número de máquinas virtuales del tipo de nodo. Puede escalar o reducir verticalmente el número de máquinas virtuales en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo depende del nivel de confiabilidad que haya elegido. Otros tipos de nodo pueden tener un mínimo de 1 máquina virtual.
-6. Configure los puntos de conexión personalizados. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para obtener información sobre los puntos de conexión, vea la información sobre la [comunicación con aplicaciones][service-fabric-connect-and-communicate-with-services]
+6. Configure los puntos de conexión personalizados. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para obtener más información sobre los puntos de conexión, consulte la [comunicación con las aplicaciones][service-fabric-connect-and-communicate-with-services].
 7. Configure los **diagnósticos**de clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos.
 8. Seleccione el modo de actualización de Service Fabric que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible.
 
 > [!NOTE]
-> Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual** , está aceptando la responsabilidad de actualizar el clúster a una versión compatible. Para más información sobre el modo de actualización de Service Fabric, vea el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
+> Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual** , está aceptando la responsabilidad de actualizar el clúster a una versión compatible. Para obtener más información sobre el modo de actualización de Service Fabric, consulte el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
 > 
 > 
 
@@ -292,10 +296,10 @@ En la sección **Node Monitor** (Monitor de nodo) de la hoja del panel del clús
 > 
 
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conexión remota a una instancia de conjunto de escalado de máquinas virtuales (VMSS) o a un nodo del clúster
-Cada uno de los tipos de nodos que especifica en el clúster da lugar a una configuración del conjunto de escalado de VM. Vea [Conexión remota a una instancia de conjunto de escalado de máquinas virtuales][remote-connect-to-a-vm-scale-set] para más información.
+Cada uno de los tipos de nodos que especifica en el clúster da lugar a una configuración del conjunto de escalado de VM. Consulte [Conexión remota a una instancia de conjunto de escalado de máquinas virtuales][remote-connect-to-a-vm-scale-set] para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este punto, tiene un clúster seguro mediante certificados para la autenticación de administración. Después, [conéctese al clúster](service-fabric-connect-to-secure-cluster.md) y aprenda a [administrar secretos de aplicación](service-fabric-application-secret-management.md).
+En este punto, tiene un clúster seguro mediante certificados para la autenticación de administración. Después, [conéctese al clúster](service-fabric-connect-to-secure-cluster.md) y aprenda a [administrar secretos de aplicación](service-fabric-application-secret-management.md).  Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
@@ -323,6 +327,6 @@ En este punto, tiene un clúster seguro mediante certificados para la autenticac
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

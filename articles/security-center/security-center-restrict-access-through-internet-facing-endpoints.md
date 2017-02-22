@@ -1,6 +1,6 @@
 ---
 title: "Restricción del acceso a través de puntos de conexión accesibles desde Internet en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center de restringir el acceso a través de puntos de conexión accesibles desde Internet."
+description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center **Restringir el acceso a través de un punto de conexión accesible desde Internet**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5f73681c402d66b52a93863bbade3aafec1ae78f
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
 
 
 ---
@@ -27,23 +27,28 @@ Esta recomendación se genera para cualquier puerto no web que tenga la opción 
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 1. En la hoja **Recomendaciones**, seleccione **Restringir el acceso a través de un punto de conexión accesible desde Internet**.
-   ![Restrict access through Internet facing endpoint][1]
+
+   ![Restricción del acceso a través de puntos de conexión accesibles desde Internet][1]
 2. Se abrirá la hoja **Restrict access through Internet facing endpoint**(Restringir el acceso a través de puntos de conexión accesibles desde Internet). Esta hoja enumera las máquinas virtuales (VM) con reglas de entrada que generan un posible problema de seguridad. Seleccione una máquina virtual.
+
    ![Seleccionar una máquina virtual][2]
 3. La hoja **NSG** muestra la información de los grupos de seguridad de red, las reglas de entrada relacionadas y la máquina virtual asociada. Seleccione **Editar reglas de entrada** para continuar con la edición de una regla de entrada.
+
    ![Hoja Grupo de seguridad de red][3]
 4. En la hoja **Reglas de seguridad de entrada** , seleccione la regla de entrada que va a editar. En este ejemplo, vamos a seleccionar **AllowWeb**.
+
    ![Reglas de seguridad de entrada][4]
-   
+
    Tenga en cuenta que también puede seleccionar **Reglas predeterminadas** para ver el conjunto de reglas predeterminadas que contiene todos los NSG. No se pueden eliminar las reglas predeterminadas, pero como que tienen asignada la prioridad mínima, pueden reemplazarse por las reglas que cree. Obtenga más información sobre [reglas predeterminadas](../virtual-network/virtual-networks-nsg.md#default-rules).
+
    ![Reglas predeterminadas][5]
 5. En la hoja **AllowWeb**, edite las propiedades de la regla de entrada para que el **origen** sea una dirección IP o un bloque de direcciones IP. Para obtener más información sobre las propiedades de la regla de entrada, consulte [Reglas de grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   
+
    ![Editar regla de entrada][6]
 
 ## <a name="see-also"></a>Consulte también
@@ -72,6 +77,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

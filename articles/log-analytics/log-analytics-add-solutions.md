@@ -1,6 +1,6 @@
 ---
-title: "Incorporación de soluciones de administración de Log Analytics | Microsoft Docs"
-description: "Las soluciones de administración de Log Analytics son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas."
+title: "Incorporación de soluciones de administración de Operations Management Suite (OMS) | Microsoft Docs"
+description: "Las soluciones de administración de Operations Management Suite (OMS)/Log Analytics son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/13/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6cdc0730d7632e41b393c4abb17badc255e21a8d
-ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
+ms.sourcegitcommit: db7bc67a7797bc83450b07c4f32accc3ea7c0354
+ms.openlocfilehash: 757fd850bf1cc9fb058a0a7e0f4b65d95ba3ce03
 
 
 ---
-# <a name="add-log-analytics-management-solutions"></a>Incorporación de soluciones de administración de Log Analytics
+# <a name="add-operations-management-suite-oms-management-solutions"></a>Incorporación de soluciones de administración de Operations Management Suite (OMS)
 
-Las soluciones de administración de Log Analytics son una colección de reglas de **lógica**, **visualización** y **adquisición de datos** que proporcionan métricas que giran en torno a una determinada área de problemas. En este artículo se enumeran soluciones de administración compatibles con Log Analytics, y se indica cómo agregarlas y quitarlas de un área de trabajo mediante Azure Portal. También puede agregar soluciones en el portal OMS con la Galería de soluciones.
+Las soluciones de administración de Operations Management Suite (OMS) son una colección de **reglas de lógica**, **visualización** y **adquisición de datos** que proporcionan métricas que giran en torno a una determinada área de problemas. En este artículo se enumeran soluciones de administración compatibles con Log Analytics, y se indica cómo agregarlas y quitarlas de un área de trabajo mediante Azure Portal. También puede agregar soluciones en el portal OMS con la Galería de soluciones.
 
 Las soluciones de administración permiten obtener información más detallada para:
 
@@ -35,7 +35,7 @@ Las soluciones de administración permiten obtener información más detallada p
 
 Con este artículo se agregan soluciones de administración a un área de trabajo mediante el portal de Azure Marketplace. Una vez que agrega una solución, se recopilan datos desde los servidores de la infraestructura y se envían al servicio de OMS. El servicio OMS suele tardar en procesar esto entre unos minutos y una hora. Una vez que el servicio procesa los datos, puede verlos en OMS.
 
-Es posible quitar fácilmente una solución de administración cuando ya no se necesita. Cuando se quita una solución, sus datos no se envían a OMS, lo que reduce la cantidad de datos usados por la cuota diaria, si tiene una.
+Es posible quitar fácilmente una solución de administración cuando ya no se necesita. Cuando se quita una solución de administración, sus datos no se envían a OMS. Si se encuentra en el plan de tarifa Gratis, al quitar una solución, se puede reducir la cantidad de datos usados, lo que ayuda a mantenerle dentro de la cuota diaria de datos.
 
 ## <a name="add-a-management-solution"></a>Incorporación de una solución de administración
 1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) mediante su suscripción de Azure.
@@ -59,35 +59,86 @@ Es posible quitar fácilmente una solución de administración cuando ya no se n
     ![eliminar solución](./media/log-analytics-add-solutions/solution-delete.png)  
 4. En el cuadro de diálogo de confirmación, haga clic en **Sí**.
 
+## <a name="offers-and-pricing-tiers"></a>Ofertas y planes de tarifa
+
+En la siguiente tabla, se identifican las soluciones de administración que pertenecen a cada oferta de seguridad y Operations Management. En la tabla también se identifican los planes de tarifa que están disponibles para cada solución de administración. Todas las soluciones de la tabla siguiente están disponibles en Azure Portal y la galería de soluciones en el portal de Log Analytics.
+
+| Solución de administración                                                                        | Oferta                                                                     | Planes de tarifa<sup>1</sup>                                                    | Notas | 
+| ---                                                                                        | ---                                                                       | ---                                                                                                       | ---   |
+| Análisis de registros de actividad                                                                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | 90 días de datos disponibles de forma gratuita |
+| [Evaluación de AD](log-analytics-ad-assessment.md)                                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Estado de replicación de AD](log-analytics-ad-replication-status.md)                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Estado de mantenimiento de los agentes                                                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Administración de alertas](log-analytics-solution-alert-management.md)                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Application Insights Connector <br>(versión preliminar)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>    | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Automation Hybrid Worker                                                                     | <ul><li>Automation and Control</li></ul>                                    | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                            | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation |
+| [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md)      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md)      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Azure SQL Analytics <br>(versión preliminar)                                                         | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br>Por&nbsp;nodo&nbsp;(OMS)                                                                             | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation|
+| Backup                                                                                    | <ul><li>Insight and Analytics</li></ul>                                     | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                            | Requiere un almacén de copia de seguridad clásico |
+| Capacidad y rendimiento <br>(versión preliminar)                                                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Seguimiento de cambios](log-analytics-change-tracking.md)                                         | <ul><li>Automation and Control</li></ul>                                    | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                            | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation |
+| [Contenedores](log-analytics-containers.md)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Supervisión de HDInsight HBase <br>(versión preliminar)                                                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Análisis de Key Vault](log-analytics-azure-key-vault.md)                      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Evaluación de malware](log-analytics-malware.md)                                             | <ul><li>Seguridad y cumplimiento normativo</li></ul>                                    | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                               | |
+| [Monitor de rendimiento de red](log-analytics-network-performance-monitor.md) <br>(versión preliminar)    | <ul><li>Insight and Analytics</li></ul>                                     | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                         | |
+| Office 365 Analytics <br>(versión preliminar)                                                        | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Seguridad y auditoría](../operations-management-suite/oms-security-getting-started.md)        | <ul><li>Seguridad&nbsp;y&nbsp;cumplimiento</li></ul>                        | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                               | Se necesita esta solución para recopilar registros de eventos de seguridad |
+| [Análisis de Service Fabric](log-analytics-service-fabric.md) <br>(versión preliminar)                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Mapa de servicio](../operations-management-suite/operations-management-suite-service-map.md) <br>(versión preliminar)| <ul><li>Insight and Analytics</li></ul>                         | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                         | Disponible en Este de EE. UU. y Europa Occidental     |
+| Site Recovery                                                                                | <ul><li>Insight and Analytics</li></ul>                                     | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                            | Requiere un almacén de Site Recovery clásico |
+| [Evaluación de SQL](log-analytics-sql-assessment.md)                                            | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Inicio y detención de máquinas virtuales durante las horas de trabajo<br>(versión preliminar)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                         | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation |
+| [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| [Evaluación de System Center Operations Manager](log-analytics-scom-assessment.md) <br>(versión preliminar) | <ul><li>Insight and Analytics</li><li>Log Analytics</li></ul>         | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Administración de actualizaciones                                                                               | <ul><li>Automation and Control</li></ul>                                    | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                            | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation |
+| [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics) <br>(versión preliminar)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | Sin cargos para datos ni nodos |
+| [Supervisión de VMware](log-analytics-vmware.md) <br>(versión preliminar)                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)     | |
+| Wire Data 2.0<br>(versión preliminar)                                                                   | <ul><li>Insight and Analytics</li></ul>                                      | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                         | Disponible en Este de EE. UU. y Europa Occidental |
+
+<sup>1</sup> Los planes de tarifa *Estándar* y *Premium (OMS)* solo están disponibles para los clientes que crearon su área de trabajo de Log Analytics antes del 21 de septiembre de 2016.
+
+### <a name="community-provided-management-solutions"></a>Soluciones de administración proporcionadas por la comunidad
+
+Las soluciones proporcionadas por la comunidad están disponibles en la [galería de plantillas de Azure](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS)) y directamente de los autores.
+
+| Solución de administración                 | Oferta                                                                     | Planes de tarifa                         | Notas | 
+| ---                                 | ---                                                                       | ---                                   | ---   |
+| Todas las soluciones proporcionadas por la comunidad  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)     |    Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation |
+
+
+
 
 ## <a name="data-collection-details"></a>Detalles de la recopilación de datos
-En la siguiente tabla se muestran los métodos de recopilación de datos y otros detalles sobre cómo se recopilan datos de los orígenes de datos y las soluciones de administración de Log Analytics. Las tablas se clasifican por ofertas de soluciones, que equivalen a [los planes de tarifa de suscripción](https://go.microsoft.com/fwlink/?linkid=827926). La solución Análisis de registros de actividad está disponible para todos los planes de tarifa de forma gratuita.
+En las siguientes tablas se muestran los métodos de recopilación de datos y otros detalles sobre cómo se recopilan datos para los orígenes de datos y las soluciones de administración de Log Analytics. Las tablas se clasifican por ofertas de soluciones, que equivalen a los [planes de tarifa de suscripción](https://go.microsoft.com/fwlink/?linkid=827926). La solución Análisis de registros de actividad está disponible para todos los planes de tarifa de forma gratuita.
 
-Los agentes de Windows y de SCOM son esencialmente lo mismo, sin embargo, el agente de Windows incluye funcionalidad adicional para permitir la conexión al área de trabajo OMS y enrutar a través de un servidor proxy. Si usa un agente SCOM, debe ser un agente OMS para comunicarse con OMS. Los agentes SCOM de esta tabla son agentes OMS conectados a SCOM. Para información sobre cómo conectar el entorno de SCOM existente con OMS, consulte [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
+El agente de Windows de Log Analytics y el agente de System Center Operations Manager son básicamente iguales. El agente de Windows incluye funcionalidad adicional que permite que conectarse al área de trabajo de OMS y enrutarse a través de un servidor proxy. Si usa un agente de Operations Manager, debe dirigirse como un agente de OMS para comunicarse con OMS. Los agentes de Operations Manager de esta tabla son agentes de OMS que están conectados a Operations Manager. Para información sobre cómo conectar el entorno de Operations Manager existente con OMS, consulte [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
 > El tipo de agente que use determina cómo se envían los datos a OMS, con las condiciones siguientes:
-> - Se usa el agente de Windows o un agente OMS conectado a SCOM.
-> - Cuando se requiere SCOM, los datos del agente SCOM de la solución siempre se envían a OMS a través del grupo de administración de SCOM. Además, cuando se necesita SCOM, la solución utiliza solo el agente SCOM.
-> - Cuando SCOM no es necesario y en la tabla se muestra que se envían los datos del agente SCOM a OMS a través del grupo de administración, los datos del agente SCOM siempre se envían a OMS a través de grupos de administración. Los agentes de Windows omiten el grupo de administración y envían los datos directamente a OMS.
-> - Cuando los datos del agente SCOM no se envían a través de un grupo de administración, los datos se envían directamente a OMS, omitiendo el grupo de administración.
+> - Use el agente de Windows o un agente de OMS conectado a Operations Manager.
+> - Cuando se requiere Operations Manager, siempre se envían los datos del agente de Operations Manager para la solución a OMS mediante el grupo de administración de Operations Manager. Además, cuando se requiere Operations Manager, la solución solo usa el agente de Operations Manager.
+> - Cuando no se necesita Operations Manager y en la tabla se muestra que se envían los datos del agente de Operations Manager a OMS mediante el grupo de administración, los datos del agente de Operations Manager siempre se envían a OMS mediante grupos de administración. Los agentes de Windows omiten el grupo de administración y envían los datos directamente a OMS.
+> - Cuando los datos del agente de Operations Manager no se envían mediante un grupo de administración, se envían directamente a OMS, pasando por alto el grupo de administración.
 
-### <a name="insight--analytics-or-log-analytics-standalone-per-gigabyte"></a>Insight and Analytics o Log Analytics independiente (por gigabyte)
+### <a name="insight--analytics--log-analytics"></a>Insight and Analytics/Log Analytics 
 
-| solución | plataforma | Agente de Windows | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Análisis de registros de actividad | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | según notificación |
 | Evaluación de AD |Windows |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 días |
 | Estado de replicación de AD |Windows |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |5 días |
 | Estado de mantenimiento de los agentes | Windows y Linux | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | 1 minuto |
-| Administración de alertas (Nagios) | Linux |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |a la llegada |
-| Administración de alertas (Zabbix) | Linux |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |1 minuto |
+| Administración de alertas (Nagios) |Linux |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |a la llegada |
+| Administración de alertas (Zabbix) |Linux |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |1 minuto |
 | Administración de alertas (Operations Manager) |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |3 minutos |
 | Application Insights Connector (versión preliminar) | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | según notificación |
-| Análisis de red de Azure (versión preliminar) | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10 minutos |
-| Administración de capacidad<sup>1</sup> |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |cada hora |
-| Contenedores |  Linux | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 minutos |
-| Key Vault Analytics (versión preliminar) |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |10 minutos |
+| Azure Application Gateway Analytics | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10 minutos |
+| Azure Network Security Group Analytics | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10 minutos |
+| Administración de la capacidad |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |cada hora |
+| Contenedores | Linux | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 minutos |
+| Análisis de Key Vault |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |10 minutos |
 | Monitor de rendimiento de red | Windows | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | Protocolos de enlace TCP cada 5 segundos; se envían datos cada 3 minutos. |
 | Office 365 Analytics (versión preliminar) |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |según notificación |
 | Service Fabric Analytics |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minutos |
@@ -96,20 +147,14 @@ Los agentes de Windows y de SCOM son esencialmente lo mismo, sin embargo, el age
 | SurfaceHub |Windows |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |a la llegada |
 | Evaluación de System Center Operations Manager (versión preliminar) | Windows | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | siete días |
 | Upgrade Analytics (versión preliminar) | Windows | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 2 días |
-| Supervisión de VMware (versión preliminar) |  Linux | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 minutos |
-| Datos de conexión<sup>2</sup> |Windows (2012 R2 / 8.1 o posterior) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1 minuto |
-
-
-<sup>1</sup>La solución Administración de capacidad no está disponible para agregarse a áreas de trabajo. Los clientes que tengan instalada la solución de administración de capacidad pueden seguir usándola.
-
-<sup>2</sup>La solución Datos de conexión no está actualmente disponible para agregarse a áreas de trabajo. Los clientes que ya tienen la solución Datos de conexión habilitada pueden continuar utilizándola.
+| Supervisión de VMware (versión preliminar) | Linux | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 minutos |
+| Wire Data |Windows (2012 R2 / 8.1 o posterior) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1 minuto |
 
 
 ### <a name="automation--control"></a>Automation & Control
 
-| solución | plataforma | Agente de Windows | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Análisis de registros de actividad | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | según notificación |
 | Automation Hybrid Worker | Windows | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | N/D |
 | Seguimiento de cambios |Windows |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |cada hora |
 | Seguimiento de cambios |Linux |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |cada hora |
@@ -117,13 +162,12 @@ Los agentes de Windows y de SCOM son esencialmente lo mismo, sin embargo, el age
 
 ### <a name="security--compliance"></a>Seguridad y cumplimiento
 
-| tipo de solución | plataforma | Agente de Windows | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Análisis de registros de actividad | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | según notificación |
 | Evaluación antimalware |Windows |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |cada hora |
 | Seguridad y auditoría<sup>1</sup> | Windows y Linux | ![Algunos](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Algunos](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Algunos](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Algunos](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | varias |
 
-<sup>1</sup>La solución Seguridad y auditoría puede recopilar registros de agentes de Windows, SCOM y Linux. Consulte [Orígenes de datos](#data-sources) a continuación para obtener información sobre la recopilación de datos para:
+<sup>1</sup>La solución Seguridad y auditoría puede recopilar registros de agentes de Windows, Operations Manager y Linux. Consulte [Orígenes de datos](#data-sources) para información sobre la recopilación de datos para:
 
 - syslog
 - Registros de eventos de seguridad de Windows
@@ -134,17 +178,16 @@ Los agentes de Windows y de SCOM son esencialmente lo mismo, sin embargo, el age
 
 ### <a name="protection--recovery"></a>Protección y recuperación
 
-| solución | plataforma | Agente de Windows | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Análisis de registros de actividad | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | según notificación |
-| Copia de seguridad | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | N/D |
+| Backup | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | N/D |
 | Azure Site Recovery | Las tablas de Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | N/D |
 
 
 ### <a name="data-sources"></a>Orígenes de datos
 
 
-| origen de datos | plataforma | Agente de Windows | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| Origen de datos | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ETW |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minutos |
 | Registros IIS |Windows |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sí](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minutos |
@@ -160,23 +203,23 @@ Los agentes de Windows y de SCOM son esencialmente lo mismo, sin embargo, el age
 
 
 ## <a name="preview-management-solutions-and-features"></a>Versión preliminar de características y soluciones de administración
-Cuando ejecutamos un servicio y seguimos los procedimientos de las operaciones de desarrollo, podemos asociarnos con clientes para desarrollar soluciones y características.
+Al ejecutar un servicio y seguir los procedimientos de DevOps, podemos asociarnos con clientes para desarrollar soluciones y características.
 
-Durante una vista previa privada, damos acceso a un pequeño grupo de clientes a una primera implementación de la característica o solución con objeto de recibir comentarios y efectuar mejoras. Esta implementación temprana posee las características y funciones operativas mínimas.
+Durante una versión preliminar privada, damos acceso a un pequeño grupo de clientes a una primera implementación de la característica o solución con objeto de recibir comentarios y efectuar mejoras. Esta implementación temprana posee las características y funciones operativas mínimas.
 
 Nuestro objetivo es probarlas rápidamente para saber qué funciona y qué no. Pasamos varias veces por este mismo proceso hasta que los comentarios de los clientes de la vista previa privada indican que estamos listos para lanzar una vista previa pública.
 
 Durante la vista previa pública, ofrecemos la característica o solución a todos los usuarios para obtener más comentarios y validar nuestra capacidad de escalado y eficacia. Durante esta fase:
 
-* Las características en versión preliminar aparecerán en la pestaña Configuración y cualquier usuario podrá habilitarlas.
-* Se pueden agregar soluciones en versión preliminar mediante la galería o mediante un script publicado.
+* Las características en versión preliminar aparecen en la pestaña Configuración y cualquier usuario puede habilitarlas.
+* Las soluciones en versión preliminar se agregan mediante la galería o un script.
 
 ### <a name="what-should-i-know-about-preview-features-and-solutions"></a>¿Qué hay que saber sobre la versión preliminar de las características y soluciones?
 Estamos entusiasmados con las nuevas características y soluciones de administración, y nos encanta colaborar con los usuarios para desarrollarlas.
 
-Con todo, las características y soluciones de vista previa no son aptas para todos los públicos, por lo que, antes de solicitar unirse a una vista previa privada o habilitar una vista previa pública, confirme que no le importa trabajar con algo que está en fase de desarrollo.
+Las soluciones y características en versión preliminar no son adecuadas para todos los usuarios. Antes de solicitar unirse a una versión preliminar privada o de habilitar una versión preliminar pública, confirme que no le importa trabajar con algo que está en fase de desarrollo.
 
-Cuando habilite una característica de vista previa a través del portal, aparecerá una advertencia para recordarle que la característica está en fase de vista previa.
+Cuando habilita una característica en versión preliminar a través del portal, aparece una advertencia para recordarle que la característica está en versión preliminar.
 
 #### <a name="for-both-private-and-public-preview"></a>Común a las versiones preliminares *públicas* y *privadas*
 Las siguientes afirmaciones pueden aplicarse a las vistas previas tanto públicas como privadas:
@@ -191,23 +234,23 @@ Las siguientes afirmaciones pueden aplicarse a las vistas previas tanto pública
   * Según la información que recabemos durante la versión preliminar, podemos decidir no lanzar la característica o solución.
 * Puede que las vistas previas no funcionen o no se hayan probado con todas las configuraciones, a raíz de lo cual podremos limitar:
   * Los sistemas operativos que se pueden usar (por ejemplo, puede que una característica solo sea válida en Linux mientras está en versión preliminar).
-  * El tipo de agente (MMA, SCOM) que se puede usar (por ejemplo, puede que una característica no funcione con SCOM en la versión preliminar).  
+  * El tipo de agente (MMA, Operations Manager) que se puede usar (por ejemplo, es posible que una característica no funcione con Operations Manager en la versión preliminar).  
 * Las versiones preliminares de características y soluciones no están cubiertas por el acuerdo de nivel de servicio.
-* El uso de las versiones preliminares de características conllevará cargos por uso.
+* El uso de las características en versión preliminar conllevará gastos.
 * Puede que las características o las funcionalidades que necesite para que la característica o solución le resulte útil no estén o estén incompletas.
 * Puede que las características o soluciones no estén disponibles en todas las regiones.
 * Puede que las características o soluciones no estén localizadas.
 * Puede que las características o soluciones tengan un límite en cuanto al número de clientes o dispositivos que pueden usarlas.
 * Puede que haya que usar scripts para realizar la configuración y habilitar la característica o la solución.
-* La interfaz de usuario estará incompleta y puede variar de un día para otro.
+* La interfaz de usuario está incompleta y puede variar de un día para otro.
 * Puede que las versiones preliminares públicas no sean adecuadas en sistemas críticos o de producción.
 
 #### <a name="for-private-preview"></a>Vistas previas *privadas*
 Aparte de los puntos anteriores, los que siguen son específicos de las vistas previas privadas:
 
 * Esperamos que nos envíe comentarios sobre su experiencia para que podamos mejorar la solución o la característica.
-* Podemos ponernos en contacto con usted para pedirle comentarios mediante encuestas, llamadas de teléfono o correo electrónico.
-* Las cosas no siempre funcionarán como deben.
+* Puede que nos pongamos en contacto con usted para pedirle comentarios mediante encuestas, llamadas de teléfono o correo electrónico.
+* No todo funcionará siempre como debiera.
 * Puede que requiramos un acuerdo de confidencialidad para participar o que incluyamos contenido confidencial.
   * Antes de crear entradas en blog, tweets o de comunicarse de algún otro modo con terceros, acuda al administrador de programas responsable de la versión preliminar para conocer todas las restricciones sobre la divulgación de contenido.
 * No ejecute la versión preliminar en sistemas críticos o de producción.
@@ -225,6 +268,6 @@ Invitamos a los clientes a las vistas previas privadas de diversas maneras, depe
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

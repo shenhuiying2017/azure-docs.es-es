@@ -12,26 +12,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 128db3fccecaa610d078c17aa2f2133338966153
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: 5ef6381f7d182c818171eca3e3d32a00bc30268e
 
 
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentación de métricas y carga en Service Fabric
-Cluster Resource Manager de Service Fabric se ocupa principalmente del equilibrio en cuanto a distribuir la carga, de forma que se tiene la seguridad de que todos los nodos del clúster se utilizan por igual. Este es habitualmente el diseño más seguro e inteligente en términos de superación de errores, ya que asegura que cualquier error no se lleve gran parte de una carga de trabajo. Cluster Resource Manager de Service Fabric admite también una estrategia diferente: la desfragmentación. Este término generalmente significa que, en lugar de intentar distribuir el uso de una métrica en el clúster, lo que deberíamos intentar realmente es consolidarla. Se trata de una inversión afortunada de nuestra estrategia normal: en lugar de optimizar el clúster en función de la reducción de la desviación estándar media de la carga métrica para una métrica dada, comenzamos optimizando para aumentar la desviación. Pero, ¿para qué sirve esta estrategia?
+Cluster Resource Manager de Service Fabric se ocupa principalmente del equilibrio en cuanto a distribuir la carga, de forma que se tiene la seguridad de que los nodos del clúster se utilizan por igual. Tener cargas de trabajo distribuidas es el diseño más seguro en términos de superación de errores, ya que asegura que un error no se lleve un gran porcentaje de una carga de trabajo determinada. Cluster Resource Manager de Service Fabric admite también una estrategia diferente: la desfragmentación. Este término generalmente significa que, en lugar de intentar distribuir el uso de una métrica en el clúster, lo que deberíamos intentar realmente es consolidarla. La consolidación es una inversión afortunada de nuestra estrategia normal: en lugar de minimizar la desviación estándar promedio de la carga métrica, Cluster Resource Manager intenta lograr aumentos en la desviación. Pero, ¿para qué sirve esta estrategia?
 
-Si ha repartido la carga equitativamente entre los nodos del clúster, entonces ha consumido algunos de los recursos que ofrecen los nodos. Esto no acostumbra a ser un problema, pero a veces algunas cargas de trabajo crean servicios que son excepcionalmente grandes y consumen la inmensa mayoría de un nodo (digamos que entre un 75 y un 95 % de los recursos de un nodo pueden terminar dedicándose a una única instancia o réplica de servicio). Esto no supone un problema, Cluster Resource Manager detectará durante la creación del servicio que necesita reorganizar el clúster para dejarle margen a esta gran carga de trabajo y configurarlo para ello, pero hasta entonces la carga de trabajo deberá esperar a que se programe en el clúster.
+Si ha repartido la carga equitativamente entre los nodos del clúster, entonces ha consumido algunos de los recursos que ofrecen los nodos. Sin embargo, algunas cargas de trabajo crean servicios que son excepcionalmente grandes y consumen gran parte de un nodo. En estos casos, es posible que entre el 75 % y el 95 % de los recursos de un nodo termine dedicado a un solo objeto de servicio. Las cargas de trabajo de gran tamaño no son problema. Cluster Resource Manager determina, en el momento de la creación del servicio, que debe reorganizar el clúster para hacer espacio para esta carga de trabajo de gran tamaño. Sin embargo, mientras tanto, esa carga de trabajo debe esperar que se la programe en el clúster.
 
-Dado que la programación de nuevas cargas de trabajo suele ser al menos algo sensible a la latencia, si no hacemos nada de forma diferente, algunas veces esos SLA no se verán afectados si hay muchos servicios y estados para mover, en especial si las cargas de trabajo en el clúster son grandes por lo general (de ahí que tarden más en moverse por el clúster). De hecho, cuando medimos los tiempos de creación en las simulaciones basadas en datos reales de clúster, vimos que, si los servicios eran suficientemente grandes y el clúster se usaba de forma equitativa, la creación de esos servicios de gran tamaño se ralentizaba. También detectamos que podíamos mejorar esta situación si introducíamos la directiva de métricas de desfragmentación.
+Si hay muchos servicios y estados para desplazar, colocar la carga de trabajo de gran tamaño en el clúster podría demorar más. Esto es probable si otras cargas de trabajo del clúster son de gran tamaño y, por lo tanto, demoran más en desplazarse. El equipo de Service Fabric midió los tiempos de creación en simulaciones de este escenario. Se descubrió que si los servicios son lo suficientemente grandes y el clúster se usaba con gran frecuencia, la creación de esos servicios de gran tamaño sería lenta. Para controlar este escenario, introdujimos la desfragmentación como una estrategia de equilibrio. Se descubrió que para las cargas de trabajo de gran tamaño, especialmente esas en las que el tiempo de creación era importante, la desfragmentación realmente ayudaba a que esas cargas de trabajo nuevas se programaran en el clúster.
 
-La creación o el acceso a archivos, por ejemplo, puede ralentizarse si el disco duro de un equipo se fragmenta, y puede acelerarse mediante la desfragmentación de la unidad, a fin de que haya bloques contiguos más grandes disponibles. De una forma similar, puede configurar métricas de desfragmentación para que Cluster Resource Manager intente condensar la carga de los servicios de forma proactiva en menos nodos, de forma que haya (casi) siempre espacio para los servicios grandes y que estos puedan crearse rápidamente. Aunque en la mayoría de los casos, esto no será necesario, porque los servicios serán normalmente más pequeños, de ahí que no sea difícil hacerles sitio; pero si tiene servicios grandes que se deben crear rápidamente (y está dispuesto a aceptar los otros inconvenientes, como el aumento del impacto de los errores y que algunos recursos se dejen sin utilizar mientras esperan a que se programen las cargas de trabajo), la desfragmentación es su estrategia.
+Puede configurar las métricas de desfragmentación para que Cluster Resource Manager intente de forma proactiva condensar la carga de los servicios en una menor cantidad de nodos. Esto permite garantizar que (casi) siempre haya espacio para servicios incluso de mayor tamaño. De este modo, esos servicios se pueden crear rápidamente cuando sea necesario.
 
-El diagrama siguiente ofrece una representación visual de dos clústeres diferentes, uno que está desfragmentado y otro que no. En el caso del clúster equilibrado, piense en los movimientos que serían necesarios para colocar uno de los objetos de servicio de mayor tamaño si se fuera a crear uno nuevo, en contraste con el clúster desfragmentado, donde podría colocarse inmediatamente en los nodos 4 o 5.
+La mayoría de los usuarios no requiere desfragmentación. Habitualmente, los servicios son pequeños y, por lo tanto, no es difícil que haya espacio para ellos en el clúster. Sin embargo, si tiene servicios de gran tamaño y necesita crearlos rápidamente (y está dispuesto a aceptar los otros inconvenientes), la estrategia de desfragmentación es su opción.
 
+¿Cuáles son los inconvenientes? Principalmente, la desfragmentación puede aumentar el impacto de los errores (debido a que hay más servicios en ejecución en el nodo que generan errores). Además, la desfragmentación garantiza que algunos recursos del clúster no se usan mientras esperan que se programen las cargas de trabajo.
+
+En el diagrama siguiente puede ver una representación visual de dos clústeres diferentes, uno desfragmentado y el otro no. En el caso del clúster equilibrado, considere el número de movimientos que se necesitarían para colocar uno de los objetos de servicio más grandes. Compárelo con el clúster desfragmentado, donde la carga de trabajo de gran tamaño se podría colocar de inmediato en el nodo cuatro o el cinco.
+
+<center>
 ![Comparación de clústeres equilibrados y desfragmentados][Image1]
+</center>
 
 ## <a name="defragmentation-pros-and-cons"></a>Ventajas y desventajas de la desfragmentación
 ¿Cuáles son esas otras soluciones intermedias conceptuales? Le recomendamos que mida de forma exhaustiva sus cargas de trabajo antes de activar las métricas de desfragmentación. A continuación tiene una tabla de referencia rápida con los aspectos que debe tener en cuenta:
@@ -42,7 +48,7 @@ El diagrama siguiente ofrece una representación visual de dos clústeres difere
 | Permite reducir el movimiento de datos durante la creación. |Los errores pueden afectar a más servicios y provocar más renovaciones. |
 | Permite la descripción enriquecida de requisitos y la reclamación de espacio. |La configuración general de administración de recursos es más compleja. |
 
-Puede combinar métricas de desfragmentación y normales en el mismo clúster; Resource Manager hará todo lo que pueda para asegurarse de que obtenga una distribución que consolide la mayor cantidad posible de métricas de desfragmentación, a la vez que intenta distribuir el resto. Los resultados exactos que obtenga dependerán del número de métricas equilibradas en comparación con el número de métricas de desfragmentación y su peso, las cargas actuales, etc.
+Puede combinar las métricas desfragmentadas y normales en el mismo clúster. Cluster Resource Manager intenta consolidar las métricas de desfragmentación tanto como sea posible mientras distribuye las otras. Si no hay servicios que compartan esas métricas, los resultados pueden ser convenientes. Los resultados exactos dependerán del número de métricas equilibradas en comparación con el número de métricas de desfragmentación, cuándo se superponen, su peso, las cargas actuales y otros factores. Se requiere realizar una experimentación para determinar la configuración exacta necesaria.
 
 ## <a name="configuring-defragmentation-metrics"></a>Configuración de métricas de desfragmentación
 Configurar las métricas de desfragmentación es una decisión global en el clúster, y pueden seleccionarse métricas individuales para la desfragmentación:
@@ -56,14 +62,35 @@ ClusterManifest.xml:
 </Section>
 ```
 
+a través de ClusterConfig.json para las implementaciones independientes o Template.json para los clústeres hospedados en Azure:
+
+```json
+"fabricSettings": [
+  {
+    "name": "DefragmentationMetrics",
+    "parameters": [
+      {
+          "name": "Disk",
+          "value": "true"
+      },
+      {
+          "name": "CPU",
+          "value": "false"
+      }
+    ]
+  }
+]
+```
+
+
 ## <a name="next-steps"></a>Pasos siguientes
-* El Administrador de recursos de clúster tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte el artículo [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+* Cluster Resource Manager tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte este artículo sobre cómo [describir un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 * Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

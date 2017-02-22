@@ -1,5 +1,5 @@
 ---
-title: Unidades de solicitud en DocumentDB | Microsoft Docs
+title: "Unidades de solicitud y estimación de rendimiento: Azure DocumentDB | Microsoft Docs"
 description: "Obtenga información acerca de cómo entender, especificar y estimar los requisitos de la unidad de solicitud en DocumentDB."
 services: documentdb
 author: syamkmsft
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: bf58d333e81fb76ffc3cca8a8e1ccb3f71ac72c9
 
 
 ---
@@ -239,6 +239,6 @@ Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

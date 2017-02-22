@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+ms.workload: infrastructure-services
+ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 171566e8b1eccfafc78bd8b422189c977421592d
+ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
+ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 
 
 ---
@@ -46,14 +46,13 @@ En este tutorial, aprenderá lo siguiente:
    > Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
    > 
    > 
-2. En el Portal de Azure, haga clic en **Nuevo**. Se abrirá la hoja **Nuevo** . Los recursos de la máquina virtual de SQL Server se encuentran en el grupo **Máquinas virtuales** de Marketplace.
-3. En la hoja **Nuevo**, haga clic en **Máquinas virtuales**.
-4. Para ver todas las imágenes disponibles, en la hoja **Máquinas virtuales**, haga clic en **Ver todo**.
-   
-    ![Hoja Máquinas virtuales de Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. En **Servidores de la base de datos**, haga clic en **SQL Server**. Es posible que tenga que desplazarse hacia abajo para buscar **Servidores de la base de datos**. Consulte las plantillas de SQL Server disponibles.
-   
-    ![Imágenes de SQL de la galería de máquinas virtuales](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+2. En el Portal de Azure, haga clic en **Nuevo**. Se abrirá la hoja **Nuevo** . Los recursos de máquina virtual con SQL Server están en el grupo **Proceso** de Marketplace.
+3. En la hoja **Nuevo**, haga clic en **Proceso** y después haga clic en **Ver todo**.
+4. En el cuadro de texto **Filtro** escriba SQL Server y presione la tecla ENTRAR.
+
+   ![Hoja Máquinas virtuales de Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. Consulte las plantillas de SQL Server disponibles.
 6. Cada plantilla identifica una versión de SQL Server y un sistema operativo. Seleccione una de las imágenes de la lista. A continuación, revise la hoja de detalles, donde aparece una descripción de la imagen de máquina virtual.
    
    > [!NOTE]
@@ -82,7 +81,7 @@ En la hoja **Básico** , especifique la siguiente información:
 * Especifique un valor en **Nombre de usuario** para la cuenta de administrador local de la máquina virtual. Esta cuenta se agregará también al rol fijo de servidor de SQL Server **sysadmin** .
 * Proporcione una contraseña segura en **Contraseña**.
 * Si tiene varias suscripciones, compruebe que la suscripción de la nueva máquina virtual es correcta.
-* En el cuadro **Grupo de recursos** , escriba un nombre para el nuevo grupo de recursos. Si lo desea, también puede hacer clic en **Seleccionar existente**para usar uno existente. Un grupo de recursos es una colección de recursos relacionados de Azure (máquinas virtuales, cuentas de almacenamiento, redes virtuales, etc.).
+* En el cuadro **Grupo de recursos** , escriba un nombre para el nuevo grupo de recursos. Si lo desea, también puede hacer clic en **Usar existente** para usar un grupo de recursos existente. Un grupo de recursos es una colección de recursos relacionados de Azure (máquinas virtuales, cuentas de almacenamiento, redes virtuales, etc.).
   
   > [!NOTE]
   > El uso de un grupo de recursos resulta útil si solo está probando o aprendiendo sobre las implementaciones de SQL Server en Azure. Cuando haya terminado la prueba, elimine el grupo de recursos. De ese modo, se eliminará automáticamente la máquina virtual y los recursos asociados a ese grupo. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
@@ -216,10 +215,12 @@ Si la copia de seguridad automática de SQL está habilitada, puede configurar l
 * El período de retención (días) de las copias de seguridad
 * La cuenta de almacenamiento que se utilizará para las copias de seguridad
 * La opción de cifrado y la contraseña de las copias de seguridad
+* La copia de seguridad de bases de datos del sistema
+* La configuración de la programación de copia de seguridad
 
 Para cifrar la copia de seguridad, haga clic en **Habilitar**. Después, especifique un valor en **Contraseña**. Azure crea un certificado para cifrar las copias de seguridad y utiliza la contraseña especificada para proteger ese certificado.
 
-![Copia de seguridad automatizada de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![Copia de seguridad automatizada de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  Para obtener más información, vea [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-automated-backup.md).
 
@@ -302,6 +303,6 @@ Para obtener información general sobre Azure Virtual Machines, vea el vídeo [A
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

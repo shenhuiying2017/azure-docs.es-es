@@ -1,5 +1,5 @@
 ---
-title: Lectura de mensajes guardados en Azure Storage | Microsoft Docs
+title: "Conexión de Intel Edison (C) a Azure IoT: Lección 3: Supervisión de mensajes | Microsoft Docs"
 description: Supervise los mensajes del dispositivo a la nube a medida que se escriben en Azure Table Storage.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: fc9090bd9d2dd621767c23f3cfb76dcc88b66a71
-ms.openlocfilehash: c798669a111417cd4cf719a59a15221e734c7ff3
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 1be4de1fef11da43c2940fdd890027d0e9728515
 
 
 ---
@@ -78,6 +78,6 @@ Ha conseguido conectar Edison a IoT Hub en la nube y utilizar la aplicación de 
 [receive-cloud-to-device-messages]: iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

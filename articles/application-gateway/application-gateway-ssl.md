@@ -1,5 +1,5 @@
 ---
-title: "Configuración de Application Gateway para la descarga SSL mediante la implementación clásica | Microsoft Docs"
+title: "Configuración de la descarga SSL para Azure Application Gateway mediante el PowerShell clásico | Microsoft Docs"
 description: "En este artículo se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante el modelo de implementación clásica de Azure."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
-ms.openlocfilehash: 0f565431f03527c4fac463f93c5664504a90662f
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9c56914091ecac3eb97977dd5afc2dc4588a052c
 
 
 ---
@@ -214,6 +214,6 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

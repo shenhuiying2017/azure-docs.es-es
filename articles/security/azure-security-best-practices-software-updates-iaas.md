@@ -1,6 +1,6 @@
 ---
-title: Procedimientos recomendados para las actualizaciones de software de IaaS de Microsoft Azure | Microsoft Docs
-description: "El artículo proporciona una recopilación de prácticas recomendadas para actualizaciones de software en un entorno de IaaS de Microsoft Azure.  Está pensado para profesionales de TI y analistas de seguridad que se enfrentan diariamente con la administración de control de cambios, de actualizaciones de software y de activos, incluidos quiénes son responsables de los esfuerzos de seguridad y cumplimiento de su organización."
+title: Procedimientos recomendados para las actualizaciones de software de IaaS de Azure | Microsoft Docs
+description: "Este artículo proporciona una recopilación de procedimientos recomendados para actualizaciones de software en un entorno de IaaS de Microsoft Azure.  Está pensado para profesionales de TI y analistas de seguridad que se enfrentan diariamente con la administración de control de cambios, de actualizaciones de software y de activos, incluidos quiénes son responsables de los esfuerzos de seguridad y cumplimiento de su organización."
 services: security
 documentationcenter: na
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52a2d6be31b1a8f581313932c0af87120ccd9fe
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 43d760ffcc108a70212e47ee8eab9ec2aca02a17
 
 
 ---
@@ -27,14 +27,14 @@ Antes de profundizar en cualquier tipo de explicación sobre los procedimientos 
 
 La columna más a la izquierda muestra las siete responsabilidades (definidas en las secciones siguientes) que las organizaciones deben tener en cuenta, que contribuyen a la seguridad y privacidad de un entorno informático.
 
-La responsabilidad y clasificación de los datos y protección del cliente y el punto de conexión son responsabilidades que recaen exclusivamente en los clientes, mientras que las responsabilidades de entornos físicos, hosts y redes son de los proveedores de servicios en la nube en los modelos de PaaS y SaaS. 
+La responsabilidad y clasificación de los datos y protección del cliente y el punto de conexión son responsabilidades que recaen exclusivamente en los clientes, mientras que las responsabilidades de entornos físicos, hosts y redes son de los proveedores de servicios en la nube en los modelos de PaaS y SaaS.
 
 El resto de las responsabilidades se comparten entre los clientes y proveedores de servicios en la nube. Algunas responsabilidades requieren que el CSP y el cliente administren juntos la responsabilidad, incluida la auditoría de sus dominios. Por ejemplo, considere la administración del acceso y las identidades al usar servicios de Azure Active Directory; la configuración de los servicios, como la autenticación multifactor, depende del cliente, pero garantizar un funcionamiento eficaz es responsabilidad de Microsoft Azure.
 
 > [!NOTE]
-> Para más información sobre las responsabilidades compartidas en la nube, consulte [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Responsabilidades compartidas de informática en la nube). 
-> 
-> 
+> Para más información sobre las responsabilidades compartidas en la nube, consulte [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Responsabilidades compartidas de informática en la nube).
+>
+>
 
 Estos mismos principios se aplican en un escenario híbrido, en el que su empresa usa máquinas virtuales de IaaS de Azure que se comunican con los recursos locales tal como se muestra en el diagrama siguiente.
 
@@ -110,7 +110,6 @@ Use las instrucciones descritas en este artículo para determinar las mejores op
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

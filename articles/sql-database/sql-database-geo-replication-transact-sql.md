@@ -16,19 +16,12 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7b9803d7d0b4982dece276d6f5a7ec8293ce4361
-ms.openlocfilehash: 37725b1abe0ad13124b9206c9aa6fcf1185b6db4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
 
 
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configuración de la replicación geográfica activa para Azure SQL Database con Transact-SQL
-> [!div class="op_single_selector"]
-> * [Información general](sql-database-geo-replication-overview.md)
-> * [Portal de Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 En este artículo se muestra cómo configurar la replicación geográfica activa para una instancia de Azure SQL Database mediante Transact-SQL.
 
@@ -165,12 +158,12 @@ En abril de 2017 se retirará el tipo secundario no legible y las bases de datos
             ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener más información sobre la replicación geográfica activa, consulte el [artículo al respecto](sql-database-geo-replication-overview.md).
+* Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md)
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Soluciones de Azure para EL Internet de las cosas | Microsoft Docs
+title: Soluciones de Azure para Internet de las cosas (IoT Suite) | Microsoft Docs
 description: "Información general de una arquitectura de la solución de IoT de ejemplo y cómo se relaciona con dispositivos, el servicio IoT Hub de Azure, SDK de dispositivo IoT de Azure, SDK del servicio IoT de Azure y otros servicios de Azure."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 36e4afb54485c12b39349124e241a2d74617702c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
 
 
 ---
@@ -49,6 +49,6 @@ También puede interesarle [Conjunto de aplicaciones de IoT de Azure][lnk-iot-su
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

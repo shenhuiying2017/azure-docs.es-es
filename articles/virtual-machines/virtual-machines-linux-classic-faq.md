@@ -1,6 +1,6 @@
 ---
-title: "Preguntas más frecuentes sobre máquinas virtuales clásicas | Microsoft Docs"
-description: "Proporciona respuestas a algunas de las preguntas más comunes sobre las máquinas virtuales Linux de Azure creadas con el modelo de implementación clásica."
+title: "Preguntas más frecuentes sobre máquinas virtuales Linux clásicas | Microsoft Docs"
+description: "Proporciona respuestas a algunas preguntas habituales sobre las máquinas virtuales Linux de Azure creadas con el modelo de implementación clásica."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 1941fae336bac00edec9cd43d3a40167dfc6834d
+ms.sourcegitcommit: 872965ae70a0f0938f190a99832104cdfed25ef9
+ms.openlocfilehash: 6b6ec0198bbe4d60c833c35b100fbf92b39df80a
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: 1941fae336bac00edec9cd43d3a40167dfc6834d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

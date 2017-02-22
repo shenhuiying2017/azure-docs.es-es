@@ -1,5 +1,5 @@
 ---
-title: "Creación de hosts de Docker en Azure con Docker Machine | Microsoft Docs"
+title: Uso de Docker Machine para crear hosts Linux en Azure | Microsoft Docs
 description: "Describe el uso de la máquina de Docker para crear hosts de docker en Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
+ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
 
 
 ---
 # <a name="use-docker-machine-with-the-azure-driver"></a>Uso de una máquina de Docker con el controlador de Azure
-[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usa contenedores de Linux en lugar de máquinas virtuales como una forma de aislar datos de aplicación y calcular recursos compartidos. En este tema se describe cuándo y cómo usar [Docker Machine](https://docs.docker.com/machine/) (el comando `docker-machine`) para crear nuevas máquinas virtuales Linux en Azure habilitadas como un host de docker para los contenedores de Linux.
+[Docker](https://www.docker.com/) ofrece virtualización con contenedores de Linux en lugar de las máquinas virtuales para aislar los datos de la aplicación y la computación en un recurso compartido. En este tema se describe cómo y cuándo usar [Docker Machine](https://docs.docker.com/machine/). El comando `docker-machine` crea una nueva VM de Linux en Azure habilitada como un host de Docker para los contenedores de Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Creación de VM con la máquina de Docker
 Cree máquinas virtuales de host de docker en Azure con el comando `docker-machine create` mediante el argumento de controlador `azure` para la opción de controlador (`-d`) y cualquier otro argumento. 
@@ -132,6 +132,6 @@ Para ver más ejemplos de cómo trabajar con Docker, consulte [cómo trabajar co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

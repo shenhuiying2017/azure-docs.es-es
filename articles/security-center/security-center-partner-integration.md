@@ -72,6 +72,6 @@ En este documento, ha aprendido cómo integrar la solución de asociado en Azure
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

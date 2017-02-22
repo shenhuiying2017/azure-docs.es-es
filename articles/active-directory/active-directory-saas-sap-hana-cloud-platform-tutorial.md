@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
+ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
+ms.openlocfilehash: c58d2c68b6b95d7020e03333e36b281ad7d0f9f9
 
 
 ---
@@ -40,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Asignación de un rol a un usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790795.png "Scenario")
+![Escenario](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790795.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>Habilitación de la integración de aplicaciones para SAP HANA Cloud Platform
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para SAP HANA Cloud Platform.
@@ -48,101 +48,126 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 ### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para SAP HANA Cloud Platform:
 1. En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
+
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-   ![Applications](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "Aplicaciones")
+
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-   ![Agregar aplicación](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "Add application")
+    ![Agregar aplicaciones](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "Agregar aplicaciones")
+
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749322.png "Agregar una aplicación de la galería")
+
 6. En el **cuadro de búsqueda**, escriba **SAP HANA Cloud Platform**.
    
-   ![Galería de aplicaciones](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790796.png "Application Gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790796.png "Galería de aplicaciones")
+
 7. En el panel de resultados, seleccione **SAP HANA Cloud Platform** y haga clic en **Completar** para agregar la aplicación.
    
-   ![SAP Hana](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793929.png "SAP Hana")
+    ![SAP Hana](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793929.png "SAP Hana")
    
-   ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en SAP HANA Cloud Platform con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
-Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de SAP HANA Cloud Platform.  
+Como parte de este procedimiento, es necesario cargar un certificado codificado en base&64; en su inquilino de SAP HANA Cloud Platform.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **SAP HANA Cloud Platform**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configurar inicio de sesión único")
+
 2. En la página **¿Cómo desea que los usuarios inicien sesión en SAP HANA Cloud Platform?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configurar inicio de sesión único")
+
 3. En otra ventana del explorador web, inicie sesión en SAP HANA Cloud Platform Cockpit en https://account.\<host horizontal\>.ondemand.com/cockpit (e.g.: *https://account.hanatrial.ondemand.com/cockpit*).
+
 4. Haga clic en la pestaña **Trust** (Confianza).
    
-   ![Trust](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790800.png "Trust")
+    ![Confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790800.png "Confianza")
+
 5. En la sección de administración de confianza, lleve a cabo estos pasos:
    
-   ![Get Metadata](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793930.png "Get Metadata")
+    ![Obtención de metadatos](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793930.png "Obtención de metadatos")
    
-   1. Haga clic en la pestaña **Local Service Provide** (Proveedor de servicios local).
-   2. Para descargar el archivo de metadatos de SAP HANA Cloud Platform, haga clic en **Get Metadata**(Obtener metadatos).
+    1. Haga clic en la pestaña **Local Service Provide** (Proveedor de servicios local).
+    2. Para descargar el archivo de metadatos de SAP HANA Cloud Platform, haga clic en **Get Metadata**(Obtener metadatos).
+
 6. En el Portal de Azure clásico, en la página **Configurar dirección URL** de la aplicación, realice los pasos siguientes y haga clic en **Siguiente**.
    
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configurar dirección URL de la aplicación")
    
-   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL utilizada por los usuarios para iniciar sesión en la aplicación **SAP HANA Cloud Platform**. Se trata de la URL específica de la cuenta de un recurso protegido en su aplicación SAP HANA Cloud Platform. La dirección URL se basa en el patrón siguiente: *https://\<nombreDeAplicación\>\<nombreDeCuenta\>.\<host horizontal\>.ondemand.com/\<ruta\_al\_recurso\_protegido\>* (p. ej.: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*).
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL utilizada por los usuarios para iniciar sesión en la aplicación **SAP HANA Cloud Platform**. Se trata de la URL específica de la cuenta de un recurso protegido en su aplicación SAP HANA Cloud Platform. La dirección URL se basa en el patrón siguiente: *https://\<nombreDeAplicación\>\<nombreDeCuenta\>.\<host horizontal\>.ondemand.com/\<ruta\_al\_recurso\_protegido\>* (p. ej.: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*).
       
-      > [!NOTE]
-      > Se trata de la URL de la aplicación SAP HANA Cloud Platform que requiere que autentique el usuario.
-      > 
-      > 
-   2. Abra el archivo de metadatos de SAP HANA Cloud Platform descargado y luego busque la etiqueta **ns3:AssertionConsumerService** .
-   3. Copie el valor del atributo **Ubicación** y péguelo en el cuadro de texto **URL de respuesta de SAP HANA Cloud Platform**.
+    > [!NOTE]
+    > Se trata de la URL de la aplicación SAP HANA Cloud Platform que requiere que autentique el usuario.
+    > 
+    > 
+
+    b. Abra el archivo de metadatos de SAP HANA Cloud Platform descargado y luego busque la etiqueta **ns3:AssertionConsumerService** .
+
+    c. Copie el valor del atributo **Ubicación** y péguelo en el cuadro de texto **URL de respuesta de SAP HANA Cloud Platform**.
+
 7. En la página **Configurar inicio de sesión único en SAP HANA Cloud Platform**, para descargar los metadatos, haga clic en **Descargar metadatos** y guarde el archivo en el equipo.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790799.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790799.png "Configurar inicio de sesión único")
+
 8. En SAP HANA Cloud Platform Cockpit, en la sección **Local Service Provider** (Proveedor de servicios local), realice los pasos siguientes:
    
-   ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "Trust Management")
+    ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "Administración de confianza")
    
-   1. Haga clic en **Editar**.
-   2. En **Configuration Type** (Tipo de configuración), seleccione **Custom** (Personalizado).
-   3. Como **Local Provider Name**(Nombre de proveedor local), deje el valor predeterminado.
-   4. Para generar una **Signing Key** (Clave de firma) y un par de claves **Signing Certificate** (Certificado de firma), haga clic en **Generate Key Pair** (Generar par de claves).
-   5. En **Principal Propagation** (Propagación de entidad de seguridad), seleccione **Disabled** (Deshabilitada).
-   6. En **Force Authentication** (Forzar autenticación), seleccione **Disabled** (Deshabilitado).
-   7. Haga clic en **Guardar**.
+    1. Haga clic en **Editar**.
+
+    2. En **Configuration Type** (Tipo de configuración), seleccione **Custom** (Personalizado).
+
+    3. Como **Local Provider Name**(Nombre de proveedor local), deje el valor predeterminado.
+
+    4. Para generar una **Signing Key** (Clave de firma) y un par de claves **Signing Certificate** (Certificado de firma), haga clic en **Generate Key Pair** (Generar par de claves).
+
+    5. En **Principal Propagation** (Propagación de entidad de seguridad), seleccione **Disabled** (Deshabilitada).
+
+    6. En **Force Authentication** (Forzar autenticación), seleccione **Disabled** (Deshabilitado).
+
+    7. Haga clic en **Guardar**.
+
 9. Haga clic en la pestaña **Trusted Identity Provider** (Proveedor de identidades de confianza) y en **Add Trusted Identity Provider** (Agregar proveedor de identidad de confianza).
    
-   ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790802.png "Trust Management")
+    ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790802.png "Administración de confianza")
    
-   > [!NOTE]
-   > Para administrar la lista de proveedores de identidades de confianza, deberá haber elegido el tipo de configuración personalizada en la sección del proveedor de servicios local. Para el tipo de configuración predeterminado, tendrá una confianza implícita y no editable para el servicio de id. de SAP. Para Ninguno, no tiene ninguna configuración de confianza.
-   > 
-   > 
+    > [!NOTE]
+    > Para administrar la lista de proveedores de identidades de confianza, deberá haber elegido el tipo de configuración personalizada en la sección del proveedor de servicios local. Para el tipo de configuración predeterminado, tendrá una confianza implícita y no editable para el servicio de id. de SAP. Para Ninguno, no tiene ninguna configuración de confianza.
+    > 
+    > 
+
 10. Haga clic en la pestaña **General** y en **Browse** (Examinar) para cargar el archivo de metadatos descargados.
     
-    ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Trust Management")
+    ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Administración de confianza")
     
     > [!NOTE]
     > Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
     > 
     > 
+
 11. Haga clic en la pestaña **Attributes** (Atributos).
+
 12. En la pestaña **Attributes** (Atributos), realice los pasos siguientes:
     
-    ![Attributes](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Attributes")
+    ![Atributos](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Atributos")
     
-    1. Al hacer clic en **Add Assertion-Based Attribute**(Agregar atributo basado en la aserción), agregue los siguientes atributos basados en la aserción:
+    - Haga clic en **Add Assertion-Based Attribute**(Agregar atributo basado en la aserción) y agregue los siguientes atributos basados en aserción:
        
-       | Atributo de aserción | Atributo de entidad de seguridad |
-       | --- | --- |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |firstname |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |Lastname |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |email |
+    | Atributo de aserción | Atributo de entidad de seguridad |
+    | --- | --- |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |firstname |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |Lastname |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |email |
     
     > [!NOTE]
     > La configuración de los atributos depende de cómo se desarrollan las aplicaciones en HCP, es decir, qué atributos esperan en la respuesta de SAML y con qué nombre (atributo de la entidad de seguridad) tienen acceso a este atributo en el código.
@@ -152,9 +177,11 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
     > b.  Los nombres y valores para el **Principal Attribute** (Atributo principal) que se muestran en la captura de pantalla dependen de cómo se desarrolle la aplicación. Es posible que la aplicación requiera diferentes asignaciones.
     > 
     > 
+
 13. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SAP HANA Cloud Platform**, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar**.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configurar inicio de sesión único")
+
 
 Como paso opcional, puede configurar grupos basados en aserción para su proveedor de identidades de Azure Active Directory.
 
@@ -170,9 +197,10 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAP HANA Cloud Pla
 
 ### <a name="to-assign-a-role-to-a-user-perform-the-following-steps"></a>Para asignar un rol a un usuario, lleve a cabo los siguientes pasos:
 1. Inicie sesión en su cabina de **SAP HANA Cloud Platform** .
+
 2. Lleve a cabo los siguiente pasos:
    
-   ![Autorizaciones](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790805.png "Authorizations")
+   ![Autorizaciones](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790805.png "Autorizaciones")
    
    1. Haga clic en **Authorization**(Autorización).
    2. Haga clic en la pestaña **Usuarios** .
@@ -187,16 +215,16 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **SAP HANA Cloud Platform**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Assign Users")
+   ![Asignar usuarios](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Asignar usuarios")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Yes")
+   ![Sí](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

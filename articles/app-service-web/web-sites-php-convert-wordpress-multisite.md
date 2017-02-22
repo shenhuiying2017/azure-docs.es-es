@@ -12,23 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5a0d7d5143879eaf0ee42a70a04d865a33879733
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 45a5c8f16dd70f65967907c18752f4f98ffa75ea
 
 
 ---
 # <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>Conversión de WordPress en multisitios en Servicio de aplicaciones de Azure
 ## <a name="overview"></a>Información general
-*Por [Ben Lobaughben-lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
+*Por [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 En este tutorial aprenderá a tomar una aplicación web de WordPress existente creada a través de la galería en Azure y convertirla en una instalación WordPress Multisite. Adicionalmente, aprenderá a asignar un dominio personalizado a cada uno de los subsitios dentro de su instalación.
 
 Se supone que tiene una instalación existente de WordPress. De lo contrario, siga las instrucciones que se proporcionan en [Creación de un sitio web de WordPress desde la galería de Azure][website-from-gallery].
 
-La conversión de la instalación de un único sitio de WordPress existente en multisitio es generalmente bastante simple y muchos de los pasos iniciales que se presentan aquí provienen directamente de la página [Creación de una red][wordpress-codex-create-a-network] en [WordPress Codex](http://codex.wordpress.org).
+La conversión de la instalación de un único sitio de WordPress existente a multisitio es generalmente bastante simple y muchos de los pasos iniciales que se presentan aquí provienen directamente de la página [Create A Network][wordpress-codex-create-a-network] (Creación de una red) en [WordPress Codex](http://codex.wordpress.org).
 
 Comencemos.
 
@@ -107,7 +107,7 @@ Es importante tener en cuenta aquí que las aplicaciones web de Azure aceptan ta
 Con la ayuda de la dirección IP del paso anterior, vuelva a su administrador de DNS y configure el registro A para que apunte a dicha dirección IP.
 
 ## <a name="install-and-setup-the-plugin"></a>Instalación y configuración del complemento
-WordPress Multisite no dispone actualmente de un método integrado para asignar dominios personalizados. Sin embargo, hay un complemento llamado [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] que agrega la funcionalidad por usted. Inicie sesión en la sección Administrador de red de su sitio e instale el complemento **WordPress MU Domain Mapping** .
+WordPress Multisite no dispone actualmente de un método integrado para asignar dominios personalizados. Sin embargo, hay un complemento llamado [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] que agrega la funcionalidad. Inicie sesión en la sección Administrador de red de su sitio e instale el complemento **WordPress MU Domain Mapping** .
 
 Después de instalar y activar el complemento, visite **Configuración** > **Asignación de dominios** para configurarlo. En el primer cuadro de texto, *Dirección IP del servidor*, indique la dirección IP que usó para configurar el registro A para el dominio. Establezca las *Opciones de dominio* que desee (los valores predeterminados suelen ser válidos) y haga clic en **Guardar**.
 
@@ -120,7 +120,7 @@ De manera predeterminada, el dominio nuevo se sobrescribirá con el dominio del 
 Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un sitio web. Para agregar otro dominio, necesitará ejecutar las secciones **Verificación de su dominio** y **Configuración del registro A del dominio** para cada dominio.    
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [App Service](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -143,6 +143,6 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

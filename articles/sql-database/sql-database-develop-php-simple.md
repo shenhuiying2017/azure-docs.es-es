@@ -13,11 +13,11 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/03/2017
 ms.author: meetb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 162c89b07a0bc690600f0cc59e3f4c70e02eac91
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: e1c3e7e0f6ca097e3ee41995defe5c1df666d39e
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 162c89b07a0bc690600f0cc59e3f4c70e02eac91
 Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde una aplicación cliente escrita en PHP que se ejecuta en Windows.
 
 ## <a name="step-1--configure-development-environment"></a>Paso 1: Configuración del entorno de desarrollo
-[Configure development environment for PHP development](https://msdn.microsoft.com/library/mt720663.aspx)
+[Configure development environment for PHP development](https://docs.microsoft.com/sql/connect/php/step-1-configure-development-environment-for-php-development/)
 
 ## <a name="step-2-create-a-sql-database"></a>Paso 2: Creación de una base de datos SQL
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo.  Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
@@ -36,12 +36,12 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 [!INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 ## <a name="step-4-run-sample-code"></a>Paso 4: ejecución de código de muestra
-* [Proof of concept connecting to SQL using PHP](https://msdn.microsoft.com/library/mt720665.aspx)
-* [Connect resiliently to SQL with PHP](https://msdn.microsoft.com/library/mt720667.aspx)
+* [Proof of concept connecting to SQL using PHP](https://docs.microsoft.com/sql/connect/php/step-3-proof-of-concept-connecting-to-sql-using-php/)
+* [Connect resiliently to SQL with PHP](https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
-* Puede encontrar más información en [Microsoft PHP Driver para SQL Server](https://msdn.microsoft.com/library/dn865013.aspx)
+* Puede encontrar más información en [Microsoft PHP Driver para SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server/)
 * Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -51,6 +51,6 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5306fc491e7b832c116e7bb8cc73a11ed77eed7
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: a07496a2d5eb52dd3c4092105e45b70b6e9f69cd
 
 
 ---
@@ -420,9 +420,9 @@ Use el diseñador de configuración de diagnósticos para mover la configuració
 1. En el menú contextual del rol que quiere configurar, elija Propiedades, y luego elija la pestaña Configuración.
 2. En la sección **Diagnósticos**, asegúrese de que la casilla **Habilitar diagnósticos** está seleccionada.
 3. Elija el botón **Configurar** .
-   
+
    ![Acceso a la opción de habilitar diagnósticos](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
-   
+
    Consulte [Configuración de los diagnósticos para los servicios en la nube y las máquinas virtuales de Azure](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para obtener más información.
 
 ## <a name="avoid-declaring-dbcontext-objects-as-static"></a>Evite declarar objetos DbContext como estáticos
@@ -465,11 +465,10 @@ public class BlogsController : Controller
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo optimizar y solucionar problemas de Aplicaciones de Azure, consulte [Solución de problemas de una aplicación web en Azure App Service con Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Para obtener más información sobre cómo optimizar y solucionar problemas de Azure App Service, consulte [Solución de problemas de una aplicación web en Azure App Service con Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Interfaces de red | Microsoft Docs
-description: "Obtenga información sobre las interfaces de red en Azure Resource Manager."
+title: Interfaces de red de Azure| Microsoft Docs
+description: "Obtenga información sobre las interfaces de red en el modelo de implementación de Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
+ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
 
 
 ---
-# <a name="network-interfaces"></a>Interfaces de red
+# <a name="network-interfaces-in-azure"></a>Interfaces de red de Azure
 Una interfaz de red (NIC) es la interconexión entre una máquina virtual (VM) y la red de software subyacente. Este artículo explica qué es una interfaz de red y cómo se utiliza en el modelo de implementación de Azure Resource Manager.
 
 Microsoft recomienda implementar nuevos recursos utilizando el modelo de implementación de Resource Manager, pero también puede implementar máquinas virtuales con conectividad de red en el modelo de implementación [clásico](virtual-network-ip-addresses-overview-classic.md) . Si está familiarizado con el modelo clásico, hay diferencias importantes en las cuestiones relacionadas con las redes de máquinas virtuales en el modelo de implementación de Resource Manager. Infórmese sobre las diferencias leyendo el artículo sobre [Redes de máquinas virtuales (modelo clásico)](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) .
@@ -56,6 +56,6 @@ Se pueden asociar varias NIC a una máquina virtual pero, al hacerlo, tenga en c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,23 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: f1d7df6163336cd66600dc22ff72a2bc1f29a1d5
-ms.openlocfilehash: 138ac79846a2e7d0ae4af59ce13b6d36cce05047
+ms.sourcegitcommit: 55c988bf74ff0f2e519e895a735dc68f3dc99855
+ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
 
 ---
 
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Search mediante el uso de Data Factory de Azure
 En este artículo se describe cómo usar la actividad de copia para insertar datos de un almacén de datos local compatible con el servicio Data Factory a un índice de Azure Search. Los almacenes de datos de origen compatibles se muestran en la columna Se admite como origen de la tabla de [almacenes de datos y receptores que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Este artículo se basa en el artículo sobre [movimiento de datos y actividad de copia](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones de almacén de datos admitidas.
 
-Data Factory de Azure solo permite mover datos a Azure Search desde [almacenes de datos de origen local compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats). No se puede migrar información de Azure Search a otros almacenes de datos.
-
 ## <a name="enabling-connectivity"></a>Habilitación de la conectividad
-Para que el servicio Data Factory pueda conectarse con un almacén de datos local, instale la puerta de enlace de administración de datos en el entorno local. No podrá instalar la puerta de enlace en la misma máquina que hospeda el almacén de datos de origen ni en una independiente para evitar la competencia por los recursos con el almacén de datos. 
+Para que el servicio Data Factory pueda conectarse con un almacén de datos local, instale la puerta de enlace de administración de datos en el entorno local. No podrá instalar la puerta de enlace en la misma máquina que hospeda el almacén de datos de origen ni en una independiente para evitar la competencia por los recursos con el almacén de datos.
 
-La puerta de enlace de administración de datos conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway. 
+La puerta de enlace de administración de datos conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway.
 
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
 La manera más fácil de crear una canalización que copie datos de cualquiera de los orígenes de datos compatibles a Azure Search es usar el Asistente para copiar datos. Para ver un tutorial rápido, consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md).
@@ -45,14 +43,14 @@ El ejemplo siguiente muestra:
 4.  Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureSearchIndex](#azure-search-index-dataset-properties).
 4.  Una [canalización](data-factory-create-pipelines.md) con una actividad de copia que usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) y [AzureSearchIndexSink](#azure-search-index-sink-properties).
 
-En el ejemplo se copian datos de serie temporal de una base de datos de SQL Server local a un índice de Azure Search cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de ellos. 
+En el ejemplo se copian datos de serie temporal de una base de datos de SQL Server local a un índice de Azure Search cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de ellos.
 
 En primer lugar, configure la puerta de enlace de administración de datos en la máquina local. Las instrucciones se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md) .
 
 **Servicio vinculado de Azure Search**:
 
 ```JSON
-{   
+{
     "name": "AzureSearchLinkedService",
     "properties": {
         "type": "AzureSearch",
@@ -182,6 +180,19 @@ La canalización contiene una actividad de copia que está configurada para usar
 }
 ```
 
+Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. A continuación, se muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
+
+```JSON
+"typeProperties": {
+  "source": {
+    "type": "BlobSource"
+  },
+  "sink": {
+    "type": "AzureSearchIndexSink"
+  },
+  "executionLocation": "West US"
+}
+```
 
 ## <a name="azure-search-linked-service-properties"></a>Propiedades del servicio vinculado de Azure Search
 
@@ -210,7 +221,7 @@ En la actividad de copia, si el origen es de tipo **AzureSearchIndexSink**, est�
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).| Combinar (predeterminado)<br/>Cargar| No | 
+| WriteBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).| Combinar (predeterminado)<br/>Cargar| No |
 | WriteBatchSize | Carga datos en el índice de Azure Search cuando el tamaño del búfer alcanza el valor de WriteBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información. | De 1 a 1000. El valor predeterminado es 1000. | No |
 
 ### <a name="writebehavior-property"></a>Propiedad WriteBehavior
@@ -226,22 +237,37 @@ El comportamiento predeterminado es **Combinar**.
 ### <a name="writebatchsize-property"></a>Propiedad WriteBatchSize
 Azure Search puede crear documentos como lotes. Un lote puede contener entre 1 y 1000 acciones. Una acción controla un documento para llevar a cabo la operación de combinación o de carga.
 
-### <a name="data-type-support"></a>Compatibilidad con los tipos de datos 
-En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure Search. 
+### <a name="data-type-support"></a>Compatibilidad con los tipos de datos
+En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure Search.
 
 | Tipo de datos de Azure Search | Compatible con el receptor de Azure Search |
 | ---------------------- | ------------------------------ |
-| Cadena | Y | 
+| Cadena | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
 | Booleano | Y |
-| DataTimeOffset | Y | 
-| Matriz de cadenas | N | 
+| DataTimeOffset | Y |
+| Matriz de cadenas | N |
 | GeographyPoint | N |
 
+## <a name="copy-from-a-cloud-source"></a>Copia desde un origen en la nube
+Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. A continuación, se muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
+
+```JSON
+"typeProperties": {
+  "source": {
+    "type": "BlobSource"
+  },
+  "sink": {
+    "type": "AzureSearchIndexSink"
+  },
+  "executionLocation": "West US"
+}
+```
+
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificación de la definición de la estructura de los conjuntos de datos rectangulares
-La sección structure de JSON de los conjuntos de datos es una sección **opcional** para tablas rectangulares (con filas y columnas) y contiene una colección de columnas de la tabla. Use la sección structure con el fin de proporcionar información de tipos para realizar conversiones de tipos o asignaciones de columnas. En las siguientes secciones se describen estas configuraciones con más detalle. 
+La sección structure de JSON de los conjuntos de datos es una sección **opcional** para tablas rectangulares (con filas y columnas) y contiene una colección de columnas de la tabla. Use la sección structure con el fin de proporcionar información de tipos para realizar conversiones de tipos o asignaciones de columnas. En las siguientes secciones se describen estas configuraciones con más detalle.
 
 Cada columna contiene las siguientes propiedades:
 
@@ -255,7 +281,7 @@ Cada columna contiene las siguientes propiedades:
 En el ejemplo siguiente se muestra el JSON de la sección structure de una tabla con tres columnas: `userid`, `name` y `lastlogindate`.
 
 ```JSON
-"structure": 
+"structure":
 [
     { "name": "userid"},
     { "name": "name"},
@@ -264,27 +290,27 @@ En el ejemplo siguiente se muestra el JSON de la sección structure de una tabla
 ```
 Utilice las siguientes directrices sobre cuándo incluir la información de la sección **structure** y qué incluir en ella.
 
-- **Para los orígenes de datos estructurados** que almacenan el esquema de datos y la información de tipos junto con los propios datos (por ejemplo, SQL Server, Oracle, tablas de Azure, etc.), solo debe especificar la sección structure si asigna columnas de orígenes específicas en columnas concretas del receptor y sus nombres no son iguales. Vea los detalles en la sección de asignación de columnas. 
+- **Para los orígenes de datos estructurados** que almacenan el esquema de datos y la información de tipos junto con los propios datos (por ejemplo, SQL Server, Oracle, tablas de Azure, etc.), solo debe especificar la sección structure si asigna columnas de orígenes específicas en columnas concretas del receptor y sus nombres no son iguales. Vea los detalles en la sección de asignación de columnas.
 
     Como se ha mencionado antes, la información de tipos es opcional en la sección structure. En los orígenes estructurados, la información de tipos está disponible como parte de la definición del conjunto de datos del almacén de datos, por lo que no debería incluir la información de tipos cuando incluya la sección structure.
 - **En cuanto al esquema de los orígenes de datos de lectura (en concreto, el blob de Azure)**, puede elegir guardar los datos sin almacenar el esquema o la información de tipos con ellos. Para estos tipos de orígenes de datos, debe incluir la sección structure en los dos casos siguientes:
     - Asigna columnas de orígenes a columnas de receptores.
     - Cuando el conjunto de datos es un origen de una actividad de copia, puede proporcionar información de los tipos en la sección structure. Data Factory usa esta información para convertirlos a tipos nativos del receptor. Consulte el artículo sobre cómo [mover datos con el blob de Azure como origen y destino](data-factory-azure-blob-connector.md) para obtener más información.
 
-### <a name="supported-net-based-types"></a>Tipos basados en .NET admitidos 
+### <a name="supported-net-based-types"></a>Tipos basados en .NET admitidos
 Data factory admite los siguientes valores de tipo basados en .NET compatible con CLS con el fin de proporcionar información de tipos en la sección structure del esquema de los orígenes de datos de lectura como el blob de Azure.
 
 - Int16
-- Int32 
+- Int32
 - Int64
 - Single
 - Doble
 - Decimal
 - Booleano
-- Cadena 
+- Cadena
 - Datetime
 - Datetimeoffset
-- TimeSpan 
+- TimeSpan
 
 Para Datetime y Datetimeoffset, también puede, si lo desea, especificar las cadenas culture y format para facilitar el análisis de la cadena de fecha y hora personalizada. Vea un ejemplo de conversión de tipos en la sección siguiente:
 
@@ -298,12 +324,12 @@ Para Datetime y Datetimeoffset, también puede, si lo desea, especificar las cad
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) y las diversas formas de optimizarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes: 
+Consulte los artículos siguientes:
 
-* [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia. 
+* [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

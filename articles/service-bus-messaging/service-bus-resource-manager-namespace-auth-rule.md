@@ -1,5 +1,5 @@
 ---
-title: "Creación de una regla de autorización de Service Bus con una plantilla de Azure Resource Manager | Microsoft Docs"
+title: "Creación de una regla de autorización de Azure Service Bus con plantilla | Microsoft Docs"
 description: "Creación de una regla de autorización de Bus de servicio para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 65693a99ee3458deb15d0e41187ef3babd76e5c1
 
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creación de una regla de autorización de Bus de servicio para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager
 En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea una [regla de autorización](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) para una cola y un espacio de nombres de Service Bus. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Creación de plantillas de Azure Resource Manager].
+Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
 
-Para ver la plantilla completa, consulte la [Plantilla de regla de autorización de Bus de servicio][Plantilla de regla de autorización de Bus de servicio] en GitHub.
+Para ver la plantilla completa, consulte la [plantilla de regla de autorización de Service Bus][Service Bus auth rule template] en GitHub.
 
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
@@ -33,9 +33,9 @@ Para ver la plantilla completa, consulte la [Plantilla de regla de autorización
 > * [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
 > * [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
 > * [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
-> * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
+> * [Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque "Service Bus".
+> Para buscar las últimas plantillas, visite la galería [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque "Service Bus".
 > 
 > 
 
@@ -56,7 +56,7 @@ La plantilla define los parámetros siguientes.
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 El nombre del espacio de nombres de Bus de servicio que crear.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -65,7 +65,7 @@ El nombre del espacio de nombres de Bus de servicio que crear.
 ### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
 El nombre de la regla de autorización para el espacio de nombres.
 
-```
+```json
 "namespaceAuthorizationRuleName ": {
 "type": "string"
 }
@@ -74,7 +74,7 @@ El nombre de la regla de autorización para el espacio de nombres.
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
 El nombre de la cola en el espacio de nombres de Bus de servicio.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -83,7 +83,7 @@ El nombre de la cola en el espacio de nombres de Bus de servicio.
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 La versión de la API de Bus de servicio de la plantilla.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -92,7 +92,7 @@ La versión de la API de Bus de servicio de la plantilla.
 ## <a name="resources-to-deploy"></a>Recursos para implementar
 Crea un espacio de nombres de Bus de servicio estándar de tipo **Mensajería**y una regla de autorización de Bus de servicio para el espacio de nombres y la entidad.
 
-```
+```json
 "resources": [
         {
             "apiVersion": "[variables('sbVersion')]",
@@ -147,12 +147,12 @@ Crea un espacio de nombres de Bus de servicio estándar de tipo **Mensajería**y
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
@@ -162,17 +162,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Ahora que ha creado e implementado recursos con Azure Resource Manager, estos artículos le enseñarán como administrarlos:
 
 * [Administración de Service Bus con PowerShell](service-bus-powershell-how-to-provision.md)
-* [Administración de recursos de Bus de servicio con el Explorador de Bus de servicio](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Administración de recursos de Bus de servicio con el Explorador de Bus de servicio](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Autenticación y autorización de Bus de servicio](service-bus-authentication-and-authorization.md)
 
-[Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
-[Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Uso de Azure PowerShell con Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Uso de la CLI de Azure para Mac, Linux y Windows mediante la administración de recursos de Azure]: ../xplat-cli-azure-resource-manager.md
-[Plantilla de regla de autorización de Bus de servicio]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

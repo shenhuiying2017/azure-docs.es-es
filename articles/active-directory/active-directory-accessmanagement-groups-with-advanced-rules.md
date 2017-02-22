@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
-ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
 
 
 ---
@@ -27,12 +27,12 @@ Cuando los atributos de un usuario cambian, el sistema evalúa todas las reglas 
 
 > [!NOTE]
 > Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. Actualmente, las pertenencias a grupos anidados no son compatibles con la asignación basada en grupos a aplicaciones.
-> 
+>
 > La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
-> 
+>
 > * Al administrador que administra la regla en un grupo
 > * Todos los miembros del grupo
-> 
+>
 
 ## <a name="to-create-the-advanced-rule"></a>Para crear la regla avanzada
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory**y luego abra el directorio de su organización.
@@ -57,17 +57,18 @@ Para obtener una lista completa de los parámetros y los operadores de regla de 
 Tenga en cuenta que la propiedad debe llevar un prefijo con el tipo de objeto correcto: usuario o dispositivo.
 La regla que aparece a continuación producirá un error de validación: mail –ne null
 
-La regla correcta sería: 
+La regla correcta sería:
 
 user.mail –ne null
 
 La longitud total del cuerpo de la regla avanzada no puede superar los 2048 caracteres.
 
 > [!NOTE]
-> Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
+> Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas.
+> Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
 > Utilice comillas solamente para los valores de tipo cadena y solo use comillas inglesas.
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regla de expresión admitidos
 En la tabla siguiente se enumeran todos los operadores de regla de expresión admitidos y su sintaxis para su uso en el cuerpo de la regla avanzada:
@@ -86,14 +87,14 @@ En la tabla siguiente se enumeran todos los operadores de regla de expresión ad
 ## <a name="operator-precedence"></a>Precedencia de operadores
 
 Todos los operadores se enumeran a continuación por orden de precedencia, de menor a mayor, los operadores en la misma línea tienen la misma prioridad -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
- 
+
 Todos los operadores se pueden utilizar con o sin prefijo de guión.
 
 Tenga en cuenta que no siempre se necesitan paréntesis, solo necesita agregar paréntesis si la precedencia no cumple sus requisitos como, por ejemplo:
 
-   user.department –eq "Marketing" –and user.country –eq "US" 
-   
-equivale a: 
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+equivale a:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
@@ -173,7 +174,7 @@ Operadores permitidos
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 
-Para especificar un valor nulo en una regla, puede usar "null" o $null. Ejemplo: 
+Para especificar un valor nulo en una regla, puede usar "null" o $null. Ejemplo:
 
    user.mail –ne null equivale a user.mail –ne $null
 
@@ -197,7 +198,7 @@ El nombre de atributo personalizado se puede encontrar en el directorio mediante
 Para incluir una propiedad de varios valores en una regla, use el operador "-any", como en
 
   user.assignedPlans -any assignedPlan.service -startsWith "SCO"
-  
+
 ## <a name="direct-reports-rule"></a>Regla de informes directos
 Puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
 
@@ -207,11 +208,11 @@ Puede rellenar los miembros de un grupo en función del atributo de administrado
 2. Seleccione la pestaña **Grupos** y abra el grupo que desea editar.
 3. Seleccione la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**.
 4. Escriba la regla con la sintaxis siguiente:
-   
+
     Direct Reports for *Direct Reports for {obectID_of_manager}*. Un ejemplo de una regla válida para informes directos
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el identificador de objeto del administrador. Encontrará el identificador de objeto en Azure AD, en la pestaña **Perfil** de la página del usuario que es el administrador.
 5. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Pueden pasar unos minutos hasta que empiece a llenarse el grupo.
 
@@ -239,10 +240,10 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 
 > [!NOTE]
 > No se pueden crear estas reglas de dispositivo mediante la lista desplegable de "regla simple" en el Portal de Azure clásico.
-> 
-> 
+>
+>
 
-## <a name="additional-information"></a>Información adicional
+## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Solución de problemas relacionados con las pertenencias dinámicas para grupos](active-directory-accessmanagement-troubleshooting.md)
@@ -250,7 +251,6 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Cmdlets de Azure Active Directory para configurar las opciones de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
 
 
 

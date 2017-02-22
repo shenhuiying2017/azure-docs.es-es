@@ -4,7 +4,7 @@ description: "Un tutorial sobre cómo enlazar aplicaciones lógicas con el conju
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 12f8fa60fd5da8dcb7ce8f429f6bc47595a0f9d6
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
 
 
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT de Azure
-La solución preconfigurada de supervisión remota del [Conjunto de aplicaciones de IoT de Microsoft Azure][lnk-internetofthings] constituye una excelente forma de empezar a trabajar rápidamente con una serie de características de extremo a extremo que ejemplifica una solución de IoT. Este tutorial le mostrará cómo agregar una aplicación lógica a su solución preconfigurada de supervisión remota de dicho conjunto de aplicaciones. Estos pasos muestran cómo puede aprovechar aún más la solución de IoT conectándola a un proceso empresarial.
+La solución preconfigurada de supervisión remota del [conjunto de aplicaciones de IoT de Microsoft Azure][lnk-internetofthings] constituye una excelente forma de empezar a trabajar rápidamente con una serie de características de extremo a extremo que ejemplifica una solución de IoT. Este tutorial le mostrará cómo agregar una aplicación lógica a su solución preconfigurada de supervisión remota de dicho conjunto de aplicaciones. Estos pasos muestran cómo puede aprovechar aún más la solución de IoT conectándola a un proceso empresarial.
 
-*Si está buscando un tutorial sobre cómo aprovisionar una solución preconfigurada de supervisión remota, consulte [Tutorial: Introducción a las soluciones preconfiguradas IoT][lnk-getstarted].*
+*Si está buscando un tutorial sobre cómo aprovisionar una solución preconfigurada de supervisión remota, consulte [Tutorial: Introducción a las soluciones preconfiguradas][lnk-getstarted].*
 
 Antes de comenzar este tutorial, debe:
 
 * Aprovisionar la solución preconfigurada de supervisión remota en su suscripción de Azure.
 * Crear una cuenta de SendGrid para poder enviar un correo electrónico que desencadene el proceso de negocio. Puede registrarse para obtener una cuenta de evaluación gratuita en [SendGrid](https://sendgrid.com/) haciendo clic en **Try for Free**(Probar gratis). Después de haberse registrado para crear una cuenta de evaluación gratuita, deberá generar una [clave de API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) en SendGrid que conceda permisos para enviar correo. La necesitará más adelante en el tutorial.
 
-Suponiendo que ya se haya aprovisionado la solución preconfigurada de supervisión remota, vaya al grupo de recursos correspondiente a esa solución en [Azure Portal][lnk-azureportal]. El grupo de recursos tiene el mismo nombre que la solución de supervisión remota aprovisionada. En el grupo de recursos, puede ver todos los recursos de Azure aprovisionados previamente para su solución (a excepción de la aplicación Azure Active Directory, que se puede encontrar en el Portal de Azure clásico). La captura de pantalla siguiente muestra una hoja de **grupo de recursos** de ejemplo para una solución preconfigurada de supervisión remota:
+Suponiendo que ya se haya aprovisionado la solución preconfigurada de supervisión remota, vaya al grupo de recursos correspondiente a esa solución en[ Azure Portal][lnk-azureportal]. El grupo de recursos tiene el mismo nombre que la solución de supervisión remota aprovisionada. En el grupo de recursos, puede ver todos los recursos de Azure aprovisionados previamente para su solución (a excepción de la aplicación Azure Active Directory, que se puede encontrar en el Portal de Azure clásico). La captura de pantalla siguiente muestra una hoja de **grupo de recursos** de ejemplo para una solución preconfigurada de supervisión remota:
 
 ![](media/iot-suite-logic-apps-tutorial/resourcegroup.png)
 
@@ -48,7 +48,7 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Seleccione **Solicitud**. Esta acción especifica que una solicitud HTTP entrante con una carga específica con formato de JSON actúa como desencadenador.
-7. Pegue lo siguiente en el esquema de JSON del cuerpo de la solicitud:
+7. Pegue el siguiente código en el esquema de JSON del cuerpo de la solicitud:
    
     ```
     {
@@ -172,6 +172,6 @@ Ahora que ha utilizado una aplicación lógica para conectar la solución precon
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

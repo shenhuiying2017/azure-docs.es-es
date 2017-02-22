@@ -1,4 +1,4 @@
-## Implementación con la CLI de Azure
+## <a name="how-to-deploy-with-azure-cli"></a>Implementación con la CLI de Azure
 1. Inicie sesión en su cuenta de Azure.
    
         azure login
@@ -62,4 +62,8 @@
    
          azure group log show -l -v ExampleResourceGroup
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

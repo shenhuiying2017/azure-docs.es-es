@@ -1,5 +1,5 @@
 ---
-title: "¿Están sus datos preparados para la ciencia de datos? Evaluación de los datos | Microsoft Docs"
+title: "¿Están sus datos preparados para la ciencia de datos? Evaluación de los datos (Azure) | Microsoft Docs"
 description: "Aprenda los cuatro criterios para que los datos estén preparado para la ciencia de datos. El vídeo 2 de Ciencia de datos para principiantes tiene ejemplos concretos para ayudar con la evaluación de datos básicos."
 keywords: datos pertinentes, evaluar los datos, preparar datos, criterios de datos, datos preparados
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
 
 
 ---
@@ -80,7 +80,7 @@ Si observa la tabla de la izquierda, faltan tantos datos que es difícil estable
 Sin embargo, la tabla de la derecha está llena y completa; un ejemplo de datos conectados.
 
 ## <a name="is-your-data-accurate"></a>¿Son precisos los datos?
-El siguiente ingrediente que necesitamos es la precisión. Aquí hay 4 dianas a las que nos gustaría acertar con flechas.
+El siguiente ingrediente que necesitamos es la precisión. Aquí hay&4; dianas a las que nos gustaría acertar con flechas.
 
 ![Datos precisos frente a datos imprecisos: criterios de datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
 
@@ -113,6 +113,6 @@ Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiant
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

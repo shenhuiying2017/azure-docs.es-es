@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
+ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
+ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
 
 
 ---
@@ -37,7 +37,7 @@ Estos son algunos de los procedimientos recomendados a la hora de evaluar la mig
 * Si tiene actualmente scripts automatizados que implementan la infraestructura y las aplicaciones, intente crear una configuración de prueba similar usando esos scripts para la migración. También puede configurar entornos de ejemplo mediante el Portal de Azure.
 
 > [!IMPORTANT]
-> Las puertas de enlace de ExpressRoute y las puertas de enlace de aplicaciones no se admiten actualmente para realizar migraciones del modelo clásico al de Resource Manager. Para migrar una red virtual clásica con una puerta de enlace de ExpressRoute o de aplicaciones, primero debe quitar la puerta de enlace antes de ejecutar una operación de confirmación para mover la red (puede ejecutar el paso de preparación sin eliminar la puerta de enlace de ExpressRoute o de aplicaciones). Después, cuando termine el proceso de migración, vuelva a conectar la puerta de enlace en Azure Resource Manager.
+> Las puertas de enlace de aplicaciones no se admiten actualmente para realizar migraciones del modelo clásico al de Resource Manager. Para migrar una red virtual clásica con una puerta de enlace de aplicaciones, debe quitar la puerta de enlace antes de ejecutar una operación de confirmación para mover la red (puede ejecutar el paso de preparación sin eliminar la puerta de enlace de aplicaciones). Después, cuando termine el proceso de migración, vuelva a conectar la puerta de enlace en Azure Resource Manager. Debe ponerse en contacto con el soporte técnico si quiere migrar puertas de enlace de ExpressRoute en casos en los que la puerta de enlace y el circuito de ExpressRoute se encuentren en la misma suscripción. Las puertas de enlace de ExpressRoute que se conectan con circuitos de ExpressRoute en otra suscripción no se pueden migrar. En esos casos, quite la puerta de enlace de ExpressRoute, migre la red virtual y vuelva a crear la puerta de enlace.
 > 
 > 
 
@@ -274,6 +274,6 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 3493afbebf2a75a190d344ac1e66b00b9ddfd582
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 3d9997655e19ba800bf3462d5ebd3f7c7210271f
 
 
 ---
@@ -28,7 +28,7 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 
 1. Abra un **símbolo del sistema para desarrolladores para VS2015** .
 2. Vaya a la carpeta raíz en la copia local del repositorio **azure-iot-gateway-sdk** .
-3. Ejecute el script **tools\\build.cmd**. Este script crea un archivo de solución de Visual Studio, genera la solución y ejecuta las pruebas. Puede encontrar la solución de Visual Studio en la carpeta **build** de su copia local del repositorio **azure-iot-gateway-sdk**.
+3. Ejecute el script **tools\\build.cmd**. Este script crea un archivo de solución de Visual Studio y compila la solución. Puede encontrar la solución de Visual Studio en la carpeta **build** de su copia local del repositorio **azure-iot-gateway-sdk**. Se pueden pasar parámetros adicionales al script para compilar y ejecutar pruebas unitarias y de principio a fin. Estos parámetros son **--run-unittests** y **--run-e2e-tests**, respectivamente. 
 
 ## <a name="how-to-run-the-sample"></a>Ejecución del ejemplo
 1. El script **build.cmd** crea una carpeta llamada **build** en la copia local del repositorio. Esta carpeta contiene los dos módulos utilizados en este ejemplo.
@@ -86,6 +86,6 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

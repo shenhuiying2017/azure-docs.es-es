@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 412640c0c53ca85dbdc234783ba94afaa807a22a
-ms.openlocfilehash: f1e4ecfd91e161f71115bed31cd41684ed514b5a
+ms.sourcegitcommit: 29df0e2198be05a64b6a90f1adf30a0c3b218d93
+ms.openlocfilehash: b40fa2d511910668438ba33291d16202dec8c8a8
 
 
 ---
@@ -211,10 +211,10 @@ HttpTriggers puede hacer uso de claves para aumentar la seguridad. Un objeto Htt
 Las claves se almacenan como parte de la aplicación de función en Azure y se cifran en reposo. Para ver las claves, crear unas nuevas o asignarles nuevos valores, desplácese a una de las funciones en el portal y seleccione "Administrar". 
 
 Existen dos tipos de claves:
-- **Claves de administrador**: estas claves se comparten entre todas las funciones dentro de la aplicación de función. Cuando se usan como una clave de API, permiten el acceso a cualquier función dentro de la aplicación de función.
+- **Claves de host**: estas claves se comparten entre todas las funciones dentro de la aplicación de función. Cuando se usan como una clave de API, permiten el acceso a cualquier función dentro de la aplicación de función.
 - **Claves de función**: estas claves se aplican solo a las funciones específicas en las que se definen. Cuando se usan como una clave de API, solo permiten el acceso a esa función.
 
-Cada clave se nombra como referencia y hay una clave predeterminada (denominada "predeterminada") en el nivel de función y administración. La **clave maestra** es una clave de administrador predeterminada denominada "_master" que se define para cada aplicación de función y no se puede revocar. Proporciona acceso administrativo a las API en tiempo de ejecución. El uso de `"authLevel": "admin"` en el enlace JSON requerirá que esta clave esté presente en la solicitud; cualquier otra clave producirá un error de autorización.
+Para cada clave se usa un nombre fácilmente referenciable y hay una clave predeterminada (denominada "predeterminada") en el nivel de función y host. La **clave maestra** es una clave de host predeterminada denominada "_master" que se define para cada aplicación de función y no se puede revocar. Proporciona acceso administrativo a las API en tiempo de ejecución. El uso de `"authLevel": "admin"` en el enlace JSON requerirá que esta clave esté presente en la solicitud; cualquier otra clave producirá un error de autorización.
 
 > [!NOTE]
 > Debido a los permisos elevados otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en aplicaciones cliente nativas. Tenga cuidado al elegir el nivel de autorización del administrador.
@@ -226,7 +226,7 @@ De forma predeterminada, un objeto HttpTrigger requiere una clave de API en la s
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-La clave se puede incluir en una variable de cadena de consulta denominada `code`, como se ha indicado anteriormente, o puede incluirse en un encabezado HTTP `x-functions-key`. El valor de la clave puede ser cualquier clave de función definida para la función o cualquier clave de administración.
+La clave se puede incluir en una variable de cadena de consulta denominada `code`, como se ha indicado anteriormente, o puede incluirse en un encabezado HTTP `x-functions-key`. El valor de la clave puede ser cualquier clave de función definida para la función o cualquier clave de host.
 
 Puede optar por permitir solicitudes sin claves o especificar que se use la clave maestra cambiando la propiedad `authLevel` en el JSON de enlace (consulte [Desencadenador HTTP](#httptrigger)).
 
@@ -237,7 +237,7 @@ La autorización de webhook se controla mediante el componente receptor de webho
 - **Encabezado de solicitud**: el proveedor pasa el nombre de clave en el encabezado `x-functions-clientid`.
 
 > [!NOTE]
-> Las claves de función tienen prioridad sobre las claves de administrador. Si se definen dos claves con el mismo nombre, se usará la clave de función.
+> Las claves de función tienen prioridad sobre las claves de host. Si se definen dos claves con el mismo nombre, se usará la clave de función.
 > 
 > 
 
@@ -439,6 +439,6 @@ module.exports = function (context, data) {
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

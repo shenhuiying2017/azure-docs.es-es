@@ -4,7 +4,7 @@ description: "Este artículo describe cómo implementar una solución de recuper
 services: site-recovery
 documentationcenter: 
 author: prateek9us
-manager: abhiag
+manager: gauravd
 editor: 
 ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 1/9/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
-ms.openlocfilehash: 9f3d87fe08b13f08622b4bd169240a2ec0683b00
+ms.sourcegitcommit: feb0200fc27227f546da8c98f21d54f45d677c98
+ms.openlocfilehash: a583225b4f3acd747a10c1c1fd337bc1b7ac599c
 
 
 ---
@@ -29,18 +29,16 @@ Con Site Recovery, puede crear un plan completo de recuperación ante desastres 
 
 En este artículo se explica cómo puede crear una solución de recuperación ante desastres para Active Directory, realizar conmutaciones por error planeadas, no planeadas o de prueba con el plan de recuperación de un solo clic, las configuraciones admitidas y los requisitos previos.  Debe estar familiarizado con Active Directory y Azure Site Recovery antes de empezar.
 
-Hay dos opciones recomendadas según la complejidad de su entorno.
+## <a name="replicating-domain-controller"></a>Replicación de controlador de dominio
 
-### <a name="option-1"></a>Opción 1
-Si tiene un pequeño número de aplicaciones y un solo controlador de dominio, y desea conmutar por error todo el sitio, se recomienda utilizar Site Recovery para replicar el controlador de dominio en el sitio secundario (ya use Azure o un sitio secundario para la conmutación por error). La misma máquina virtual replicada puede usarse también para probar la conmutación por error.
+Debe instalar la [replicación de Site Recovery](#enable-protection-using-site-recovery) en al menos una máquina virtual que hospede el controlador de dominio y DNS. Si tiene [varios controladores de dominio](#environment-with-multiple-domain-controllers) en su entorno, además de replicar la máquina virtual del controlador de dominio con Site Recovery, tendrá que instalar un [controlador de dominio adicional](#protect-active-directory-with-active-directory-replication) en el sitio de destino (Azure o un centro de datos local secundario). 
 
-### <a name="option-2"></a>Opción 2
-Si tiene un gran número de aplicaciones y hay más de un controlador de dominio en el entorno, o si planea realizar una conmutación por error de pocas aplicaciones cada vez, se recomienda que además de replicar la máquina virtual del controlador de dominio con Site Recovery configure también un controlador de dominio adicional en el sitio de destino (Azure o un sitio secundario local).
+### <a name="single-domain-controller-environment"></a>Entorno con un solo controlador de dominio
+Si tiene pocas aplicaciones y un solo controlador de dominio, y desea conmutar por error todo el sitio, se recomienda utilizar Site Recovery para replicar el controlador de dominio en el sitio secundario (ya use Azure o un sitio secundario para la conmutación por error). Se puede usar la misma máquina virtual del controlador de dominio/DNS replicada para la [conmutación por error de prueba](#test-failover-considerations).
 
-> [!NOTE]
-> Incluso si va a implementar la opción 2, para realizar una conmutación por error de prueba tendrá que replicar el controlador de dominio con Site Recovery. Para obtener más información, lea [Consideraciones sobre la conmutación por error de prueba](#considerations-for-test-failover) .
-> 
-> 
+### <a name="environment-with-multiple-domain-controllers"></a>Entorno con varios controladores de dominio
+Si tiene un gran número de aplicaciones y hay más de un controlador de dominio en el entorno, o si planea realizar una conmutación por error de pocas aplicaciones cada vez, además de replicar la máquina virtual del controlador de dominio con Site Recovery, es recomendable que configure un [controlador de dominio adicional](#protect-active-directory-with-active-directory-replication) en el sitio de destino (Azure o un centro de datos secundario local). En este escenario, usará el controlador de dominio replicado por Site Recovery para realizar la [conmutación por error de prueba](#test-failover-considerations), y el controlador de dominio adicional en el sitio de destino cuando se realice una conmutación por error. 
+
 
 Las siguientes secciones explican cómo habilitar la protección en el controlador de dominio en Site Recovery y cómo configurar un controlador de dominio en Azure.
 
@@ -56,7 +54,7 @@ Habilite la protección de la máquina virtual de DNS y del controlador de domin
 ### <a name="configure-virtual-machine-network-settings"></a>Configuración de los valores de red de la máquina virtual
 Para la máquina virtual de controlador de dominio o DNS, configure los valores de red en Site Recovery para que la máquina virtual se conecte a la red correcta después de una conmutación por error. Por ejemplo, si replica máquinas virtuales de Hyper-V en Azure, puede seleccionar la máquina virtual en la nube VMM o en el grupo de protección para configurar las opciones de red, como se muestra a continuación
 
-![Configuración de red de máquina virtual](./media/site-recovery-active-directory/VM-Network-Settings.png)
+![Configuración de red de máquina virtual](./media/site-recovery-active-directory/DNS-Target-IP.png)
 
 ## <a name="protect-active-directory-with-active-directory-replication"></a>Protección de Active Directory con la replicación de Active Directory
 ### <a name="site-to-site-protection"></a>Protección de sitio a sitio
@@ -69,6 +67,8 @@ A continuación [vuelva a configurar el servidor DNS para la red virtual](../act
 
 ![Red de Azure](./media/site-recovery-active-directory/azure-network.png)
 
+**DNS en la red de producción de Azure**
+
 ## <a name="test-failover-considerations"></a>Consideraciones sobre la conmutación por error de prueba
 La conmutación por error de prueba se produce en una red que está aislada de la red de producción para que no haya impacto alguno en la carga de trabajo de producción.
 
@@ -76,19 +76,62 @@ La mayoría de las aplicaciones también requieren la presencia de un controlado
 
 1. Habilite la protección de la máquina virtual de DNS y del controlador de dominio en Site Recovery.
 1. Cree una red aislada. Cualquier red virtual que se cree en Azure de forma predeterminada está aislada de otras redes. Se recomienda que el intervalo de dirección IP para esta red sea el mismo que el de la red de producción. No habilite la conectividad de sitio a sitio en esta red.
-1. Proporcione una dirección IP de DNS en la red que se ha creado, como la dirección IP que se espera que la máquina virtual DNS obtenga. Si realiza la replicación en Azure, proporcione la dirección IP para la máquina virtual que se usará en la conmutación por error en el valor de configuración **IP de destino** en las propiedades de la máquina virtual. Si realiza la replicación en otro sitio local y está usando DHCP, siga las instrucciones para [la configuración de DNS y DHCP para la conmutación por error en Site Recovery](site-recovery-failover.md#prepare-dhcp)
+1. Proporcione una dirección IP de DNS en la red que se ha creado, como la dirección IP que se espera que la máquina virtual DNS obtenga. Si realiza la replicación en Azure, indique la dirección IP de la máquina virtual que se usará en la conmutación por error en la opción **IP de destino**, en **Proceso y red**. 
 
-    > [!NOTE]
-    > La dirección IP que se asigna a una máquina virtual en una conmutación por error de prueba es el misma dirección IP que obtendría al realizar una conmutación por error planeada o no planeada, si la dirección IP está disponible en la red de conmutación por error de prueba. Si no lo está, la máquina virtual recibe una dirección IP diferente que está disponible en la red de conmutación por error de prueba.
-    > 
-    > 
+    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png)
+    **IP de destino**
 
-1. En la máquina virtual de controlador de dominio pruebe la conmutación por error del mismo en la red aislada. Use el último punto de recuperación **coherente de aplicación** disponible de la máquina virtual del controlador de dominio para realizar la conmutación por error de prueba. 
+    ![Red de prueba de Azure](./media/site-recovery-active-directory/azure-test-network.png)
+
+    **DNS en la red de prueba de Azure**
+
+1. Si realiza la replicación en otro sitio local y está usando DHCP, siga las instrucciones para [la configuración de DNS y DHCP para la conmutación por error en Site Recovery](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
+1. Pruebe la conmutación por error de la máquina virtual del controlador de dominio en la red aislada. Use el último punto de recuperación **coherente de aplicación** disponible de la máquina virtual del controlador de dominio para realizar la conmutación por error de prueba. 
 1. Ejecute una conmutación por error de prueba para un plan de recuperación de aplicación.
 1. Cuando finalice la prueba, marque el trabajo de conmutación por error de prueba de la máquina virtual del controlador de dominio y del plan de recuperación como "Completo" en la pestaña **Trabajos** del portal de Site Recovery.
 
+
+> [!TIP]
+> La dirección IP que se asigna a una máquina virtual en una conmutación por error de prueba es el misma dirección IP que obtendría al realizar una conmutación por error planeada o no planeada, si la dirección IP está disponible en la red de conmutación por error de prueba. Si no lo está, la máquina virtual recibe una dirección IP diferente que está disponible en la red de conmutación por error de prueba.
+> 
+> 
+
+
 ### <a name="removing-reference-to-other-domain-controllers"></a>Eliminación de la referencia a otros controladores de dominio
 Cuando realice una prueba de conmutación por error, no podrá incluir todos los controladores de dominio en la red de prueba. Para quitar la referencia a los demás controladores de dominio que existan en su entorno de producción, tendrá que [ asumir los roles FSMO de Active Directory y realizar una limpieza de metadatos](http://aka.ms/ad_seize_fsmo) para los controladores de dominio que falten. 
+
+### <a name="troubleshooting-domain-controller-issues-during-test-failover"></a>Solución de los problemas de controlador de dominio durante la conmutación por error de prueba
+
+
+En un símbolo del sistema, ejecute el siguiente comando para comprobar si las carpetas SYSVOL y NETLOGON están compartidas:
+
+    NET SHARE
+
+En el símbolo del sistema, ejecute el siguiente comando para asegurarse de que el controlador de dominio funciona correctamente.
+
+    dcdiag /v > dcdiag.txt
+
+En el registro de salida, busque el siguiente texto para confirmar que el controlador de dominio está funcionando bien. 
+
+* "passed test Connectivity"
+* "passed test Advertising"
+* "passed test MachineAccount"
+
+Si se cumplen las condiciones anteriores, es probable que el controlador de dominio funcione correctamente. De lo contrario, pruebe los pasos siguientes.
+
+
+* Realice una restauración autoritativa del controlador de dominio.
+    * Aunque [no se recomienda usar la replicación FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si todavía la usa, siga los pasos indicados [aquí](https://support.microsoft.com/en-in/kb/290762) para realizar una restauración autoritativa. [Aquí](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/) obtendrá más información acerca de Burflags, mencionado en el vínculo anterior.
+    * Si usa la replicación DFSR, siga los pasos descritos [aquí](https://support.microsoft.com/en-us/kb/2218556) para realizar una restauración autoritativa. También puede usar las funciones de Powershell disponibles [aquí](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/). 
+    
+* Para omitir el requisito de sincronización inicial, establezca la siguiente clave del Registro en 0. Si esta DWORD no existe, créela en el nodo 'Parameters'. Puede leer más sobre este tema [aquí](https://support.microsoft.com/en-us/kb/2001093).
+
+        HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
+
+* Deshabilite el requisito de que haya un servidor de catálogo global disponible para validar el inicio de sesión de usuario; para ello, establezca la siguiente clave del Registro en 1. Si esta DWORD no existe, créela en el nodo 'Lsa'. Puede leer más sobre este tema [aquí](http://support.microsoft.com/kb/241789/EN-US).
+
+        HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
+
 
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS y controlador de dominio en equipos diferentes
@@ -118,6 +161,6 @@ Consulte [qué cargas de trabajo puede proteger](site-recovery-workload.md) para
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Direcciones IP (clásica) | Microsoft Docs"
+title: "Tipos de direcciones IP en Azure (clásico) | Microsoft Docs"
 description: "Obtenga información sobre las direcciones IP públicas y privadas (clásica) en Azure."
 services: virtual-network
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c164ac86c404f11a4bc77bc9346ad6fc45e0a7
+ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
+ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
 
 
 ---
-# <a name="ip-addresses-classic-in-azure"></a>Direcciones IP (clásica) en Azure
+# <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
 
 Las direcciones IP públicas se usan para la comunicación con Internet, incluidos los servicios de acceso público de Azure.
@@ -182,6 +182,6 @@ A continuación, se muestra una comparación de las características de direccio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

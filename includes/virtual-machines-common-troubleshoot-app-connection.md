@@ -75,7 +75,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 * El firewall del host de la VM de destino permite el tráfico de la solicitud entrante y el tráfico de la respuesta saliente.
 * El software de detección de intrusiones o de supervisión de red que se ejecuta en la VM de destino permite el tráfico.
-* Los puntos de conexión de los servicios en la nube o los grupos de seguridad de red permiten el tráfico.
+* Los puntos de conexión de Cloud Services o los grupos de seguridad de red permiten el tráfico:
   * [Modelo clásico: administración de puntos de conexión de servicios en la nube](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * Un componente independiente que se ejecuta en la VM en la ruta de acceso entre la VM de prueba y su VM (como un equilibrador de carga o un firewall) permite el tráfico.
@@ -93,13 +93,13 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 * Para las máquinas virtuales creadas con el modelo de implementación clásica:
   
-  * Que la configuración del punto de conexión de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
-  * Que las listas de control de acceso (ACL) en el punto de conexión no impidan el tráfico entrante desde Internet.
+  * Compruebe que la configuración del punto de conexión de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
+  * Compruebe que las listas de control de acceso (ACL) en el punto de conexión no impidan el tráfico entrante desde Internet.
   * Para más información, consulte [Configuración de puntos de conexión en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Para las máquinas virtuales creadas con el modelo de implementación de Resource Manager:
   
-  * Que la configuración de la regla NAT de entrada de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
-  * Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente.
+  * Compruebe que la configuración de la regla NAT de entrada de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
+  * Compruebe que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente.
   * Para más información, consulte [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
@@ -107,7 +107,7 @@ Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio 
 * Compruebe que el protocolo de sondeo (TCP o UDP) y el número de puerto son correctos.
 * Si el protocolo de sondeo y el puerto es diferente del protocolo y puerto del conjunto con equilibrio de carga:
   * Compruebe que la aplicación está escuchando el protocolo de sondeo (TCP o UDP) y el número de puerto (use **netstat –a** en la máquina virtual de destino).
-  * Compruebe que el firewall del host de la VM de destino permite la solicitud de sondeo entrante y el tráfico de respuesta de sondeo saliente.
+  * Compruebe que el firewall del host de la máquina virtual de destino permite la solicitud de sondeo entrante y el tráfico de respuesta de sondeo saliente.
 
 Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimetral de Internet permita:
 
@@ -121,6 +121,6 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

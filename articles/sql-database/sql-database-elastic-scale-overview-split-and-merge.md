@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d6fc4d314adf02e9c6d5a72b3b7d58db3c2f5731
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: b2e45a77b900092390a2ca66a8d1286193023f29
 
 
 ---
@@ -55,7 +56,7 @@ La capacidad debe reducirse debido a la naturaleza estacional de una empresa. La
 
 Con varios inquilinos por base de datos, la asignación de shardlets a particiones puede generar cuellos de botella en la capacidad de algunas particiones. Esto requiere volver a asignar shardlets o mover shardlets ocupados a particiones nuevas o menos utilizadas. 
 
-## <a name="concepts-key-features"></a>Conceptos y características clave
+## <a name="concepts--key-features"></a>Conceptos y características clave
 **Servicios hospedados por el cliente**
 
 El servicio División y combinación es un servicio hospedado por el cliente. Debe implementar y hospedar el servicio en su suscripción a Microsoft Azure. El paquete que descarga de NuGet contiene una plantilla de configuración que se debe completar con la información correspondiente a la implementación específica. Consulte el [tutorial de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más detalles. Dado que el servicio se ejecuta en su suscripción de Azure, es posible controlar y configurar la mayoría de los aspectos de seguridad del servicio. La plantilla predeterminada incluye las opciones para configurar SSL, autenticación de cliente basada en certificados, cifrado para credenciales almacenadas, protección ante denegación de servicio y restricciones de IP. Puede encontrar más información sobre los aspectos de seguridad en el siguiente documento [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
@@ -200,7 +201,7 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 
 No es necesario aprovisionar una nueva base de datos de metadatos para que se actualice la División y combinación. La nueva versión actualizará automáticamente su base de datos de metadatos existente a la nueva versión. 
 
-## <a name="best-practices-troubleshooting"></a>Prácticas recomendadas y solución de problemas
+## <a name="best-practices--troubleshooting"></a>Prácticas recomendadas y solución de problemas
 * Defina un inquilino de prueba y ejecute las operaciones de división/combinación/desplazamiento más importantes con el inquilino de prueba entre varias particiones. Asegúrese de que todos los metadatos estén correctamente definidos en el mapa de particiones y que las operaciones no infrinjan las restricciones o las claves externas.
 * Mantenga el tamaño del inquilino de prueba sobre el tamaño de datos máximo del inquilino de mayor tamaño para asegurarse de no encontrar problemas relacionados con el tamaño de los datos. Esto le permite evaluar un límite superior en el tiempo necesario para mover a un solo inquilino. 
 * Asegúrese de que el esquema permita las eliminaciones. El servicio División y combinación requiere la capacidad de quitar los datos de la partición de origen una vez que los datos se han copiado correctamente en el destino. Por ejemplo, los **desencadenadores de eliminación** pueden impedir que el servicio elimine los datos en el origen y pueden provocar errores en operaciones.
@@ -218,6 +219,6 @@ No es necesario aprovisionar una nueva base de datos de metadatos para que se ac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

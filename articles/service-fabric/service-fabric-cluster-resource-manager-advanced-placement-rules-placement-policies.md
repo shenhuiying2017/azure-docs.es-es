@@ -12,21 +12,37 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc136c567279ff9da655ed3536fae6d2ae7be3df
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: 7fa35de8b99132ad1c10229a9bb2231f11fdbaa0
 
 
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Directivas de colocación de servicios de Service Fabric
-Existen numerosas reglas adicionales que podrían afectarle si el clúster de Service Fabric está distribuido entre varias distancias geográficas, por ejemplo, entre varios centros de datos o regiones de Azure, o si su entorno abarca diversas áreas de control geopolítico (o cualquier otro caso en el que haya límites legales o de directiva que le afecten, o en el que las distancias implicadas tengan un impacto real en el rendimiento o la latencia). La mayoría pueden configurarse mediante propiedades de nodo y restricciones de colocación, pero otras son más complicadas. Para simplificar las cosas, proporcionamos estos comandos adicionales. Al igual que sucede con otras restricciones de ubicación, las directivas de selección de ubicación pueden configurarse en función de la instancia de servicio con nombre.
+Hay muchas reglas adicionales distintas que puede tener que configurar en ciertos escenarios poco frecuentes. Algunos ejemplos de esos escenarios son:
+* Si el clúster de Service Fabric está distribuido geográficamente, como en varios centros de datos locales o en regiones de Azure.
+* Si su entorno abarca diversas áreas de control geopolítico (o cualquier otro caso en el que haya limites legales o de directiva que le afecten).
+* Existen consideraciones reales en el rendimiento o latencia debido a la comunicación en el clúster que viaja grandes distancias o pasa por ciertas redes más lentas o menos confiables.
+
+En estos tipos de situaciones, puede ser importante que un servicio determinado se ejecute siempre o que nunca se ejecute en ciertas regiones. Del mismo modo, puede ser importante intentar colocar el servicio principal en cierta región con el fin de minimizar la latencia del usuario final.
+
+Las directivas de colocación avanzadas son:
+
+1. Dominios no válidos
+2. Dominios requeridos
+3. Dominios de preferencia
+4. No permitir el empaquetado de réplicas
+
+La mayoría de los controles siguientes pueden configurarse mediante propiedades de nodo y restricciones de colocación, pero otros son más complicados. Para simplificar las cosas, Cluster Resource Manager de Service Fabric proporciona estas directivas de colocación adicionales. Al igual que sucede con otras restricciones de colocación, las directivas de colocación pueden configurarse en función de la instancia de servicio con nombre y actualizarse de forma dinámica.
 
 ## <a name="specifying-invalid-domains"></a>Especificación de dominios no válidos
 La directiva de colocación InvalidDomain le permite especificar que un determinado dominio de error no es válido para esta carga de trabajo. Resulta útil para garantizar que un servicio específico no se ejecute nunca en un área determinada, por ejemplo por motivos geopolíticos o relacionados con la directiva corporativa. Pueden especificarse varios dominios no válidos mediante distintas directivas.
 
+<center>
 ![Ejemplo de dominio no válido][Image1]
+</center>
 
 Código:
 
@@ -42,9 +58,11 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
 ```
 ## <a name="specifying-required-domains"></a>Especificación de dominios requeridos
-La directiva de selección de ubicación de dominios requeridos exige que todas las réplicas con estado o instancias de servicio sin estado del servicio existan en el dominio especificado. Pueden especificarse varios dominios requeridos mediante directivas diferentes.
+La directiva de colocación de dominios requeridos exige que todas las réplicas con estado o instancias de servicio sin estado del servicio existan en el dominio especificado. Pueden especificarse varios dominios requeridos mediante directivas diferentes.
 
+<center>
 ![Ejemplo de dominio requerido][Image2]
+</center>
 
 Código:
 
@@ -61,9 +79,11 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 ## <a name="specifying-a-preferred-domain-for-the-primary-replicas"></a>Especificación de un dominio preferido para las réplicas principales
-El dominio principal preferido es un control interesante, ya que permite seleccionar el dominio de error en el que debe existir el dominio principal, si es posible hacerlo. Cuando todo está correcto, el dominio principal acabará en este dominio. Si se produce un error en el dominio o la réplica principal, o bien se apagan por algún motivo, el dominio principal se migrará a otra ubicación. Si esta ubicación no está en el dominio preferido, Cluster Resource Manager la devolverá al dominio preferido, siempre que sea posible. Evidentemente, esta configuración solo tiene sentido para los servicios con estado. Esta directiva resulta útil principalmente en clústeres que están distribuidos entre regiones de Azure o entre varios centros de datos. En estas situaciones usará todas las ubicaciones de cara a la redundancia, pero preferirá que las réplicas principales se coloquen en una ubicación determinada a fin de proporcionar una menor latencia en operaciones que se dirigen a las principales (las escrituras y, de forma predeterminada, todas las lecturas se atienden en las principales).
+El dominio principal preferido es un control interesante, ya que permite seleccionar el dominio de error en el que debe existir el dominio principal, si es posible hacerlo. El dominio principal acaba en este dominio cuando todo está correcto. Si se produce un error en el dominio o en la réplica principal, o bien se apagan por algún motivo, el dominio principal se migrará a otra ubicación. Si esta ubicación nueva no está en el dominio preferido, Cluster Resource Manager la devolverá al dominio preferido lo antes posible. Evidentemente, esta configuración solo tiene sentido para los servicios con estado. Esta directiva resulta útil principalmente en clústeres que están distribuidos entre regiones de Azure o entre varios centros de datos, pero se preferiría que las réplicas principales estén colocadas en una ubicación determinada. Mantener los dominios principales cerca de los usuarios permite brindar una menor latencia, especialmente en el caso de las lecturas.
 
+<center>
 ![Dominios principales preferidos y conmutación por error][Image3]
+</center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
@@ -78,11 +98,13 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 ## <a name="requiring-replicas-to-be-distributed-among-all-domains-and-disallowing-packing"></a>Exigir que las réplicas se distribuyan entre todos los dominios y no permitir el empaquetado
-Otra directiva que puede especificar es exigir que las réplicas se distribuyan siempre entre los dominios de error disponibles. En la mayoría de los casos en los que el clúster tenga un estado correcto, esto sucederá de forma predeterminada; sin embargo, hay casos degenerados en los que las réplicas de una partición dada pueden acabar empaquetadas temporalmente en un único dominio de error o actualización. Por ejemplo, aunque el clúster tuviera 9 nodos en 3 dominios de error (0, 1 y 2) y el servicio tuviera 3 réplicas, los nodos que se usaran para esas réplicas en los dominios de error 1 y 2 se volverían inactivos y, debido a los problemas de capacidad, ninguno de los otros nodos de esos dominios sería válido. Si Service Fabric crea sustituciones para esas réplicas, Cluster Resource Manager tendrá que ponerlas en el dominio de error 0, lo que crea una situación en la que se infringe la restricción del dominio de error. También aumenta la probabilidad de que todo el conjunto de réplicas se pierda (si el dominio de error 0 se pierde definitivamente). (Para más información sobre las restricciones y las prioridades de restricción en general, consulte [en este tema](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities) ).
+Las réplicas _habitualmente_ se distribuyen entre los dominios en que el clúster está en buen estado; sin embargo, hay casos en los que las réplicas de una partición determinada pueden terminar temporalmente empaquetados en un solo dominio. Por ejemplo, digamos que el clúster tiene nueve nodos en tres dominios de error (fd:/0, fd:/1 y fd:/2) y el servicio tiene tres réplicas. Supongamos que los nodos que se usaban para esas réplicas en fd:/1 y fd:/2 quedaron inactivos. Ahora, lo habitual es que Cluster Resource Manager prefiera otros nodos en esos mismos dominios de error. En este caso, supongamos que, debido a problemas de capacidad, ninguno de los demás nodos de esos dominios eran válidos. Si Cluster Resource Manager crea reemplazos para esas réplicas, debería tener que escoger los nodos de fd:/0. Sin embargo, con _esa acción_ se crea una situación en la que se infringe la restricción de dominio de error. También aumenta la probabilidad de que todo el conjunto de réplicas quede inactivo o se pierda (si FD 0 se pierde definitivamente). Para más información sobre las restricciones y las prioridades de restricción en general, consulte [este tema](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities).
 
-Si alguna vez ha visto una advertencia de estado como "El equilibrador de carga detectó una infracción de limitación para esta réplica:fabric:/<some service name> La partición secundaria <some partition ID> está infringiendo la restricción: FaultDomain", se ha topado con esta condición o algo parecido. Estas situaciones suelen ser transitorias (los nodos no permanecen inactivos mucho tiempo o, si lo hacen, es necesario crear sustituciones donde haya otros nodos en los dominios de error correctos que sean válidos), pero hay algunas cargas de trabajo en las que preferirá disponibilidad antes que arriesgarse a perder todas sus réplicas. Para ello, podemos especificar la directiva "RequireDomainDistribution"que garantizará que dos réplicas cualesquiera de la misma partición no podrán estar jamás en el mismo dominio de error o actualización.
+Si alguna vez vio una advertencia de estado como `The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`, es porque se topó con esta condición o algo parecido. Esta situación es poco frecuente, pero puede suceder y, usualmente, estas situaciones son transitorias porque los nodos vuelven a estar activos. Si los nodos permanecen inactivos y Cluster Resource Manager debe crear reemplazos, habitualmente hay otros nodos disponibles en los dominios de error ideales.
 
-Algunas cargas de trabajo preferirán tener siempre el número objetivo de réplicas (copias de estado) en todo momento (apostando contra el número total de errores del dominio y sabiendo que habitualmente pueden recuperar el estado local), mientras que otras preferirán tener tiempo de inactividad antes que arriesgarse a problemas de exactitud y pérdida de datos. Como la mayoría de las cargas de trabajo de producción se ejecutan con más de 3 réplicas, el valor predeterminado es no exigir la distribución de dominios y permitir que el equilibrio y la conmutación por error controlen los casos con normalidad, aunque eso signifique que temporalmente se empaquetarán varias réplicas en un dominio.
+Algunas cargas de trabajo preferirían tener siempre el número de réplicas de destino, incluso si se empaquetan en menos dominios. Estas cargas de trabajo apuesta contra el número total de errores permanentes del dominio simultáneos y normalmente pueden recuperar el estado local. Otras cargas de trabajo preferirían asumir el tiempo de inactividad antes que arriesgar la exactitud o la pérdida de los datos. Como la mayoría de las cargas de trabajo de producción se ejecutan con más de tres réplicas, más de tres dominios de error y muchos nodos válidos por dominio de error, el valor predeterminado es no requerir la distribución de dominio. Esto permite que el equilibrio y la conmutación por error normal controlen estos casos, incluso si eso significa que un dominio pueda tener temporalmente varias réplicas empaquetadas en él.
+
+Si desea deshabilitar ese empaquetado para una carga de trabajo determinada, puede especificar la directiva "RequireDomainDistribution" en el servicio. Cuando se establece esta directiva, Cluster Resource Manager garantiza que nunca se permitirán dos réplicas de la misma partición en el mismo dominio de error o de actualización.
 
 Código:
 
@@ -97,17 +119,17 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
 ```
 
-Se preguntará si sería posible usar estas configuraciones para los servicios de un clúster que no esté distribuido geográficamente. Por supuesto que se puede. Pero tampoco hay una buena razón para ello; en concreto, se deben evitar configuraciones de dominios preferidos requeridos y no válidos a no ser que realmente vaya a ejecutar un clúster distribuido geográficamente - no tiene sentido intentar forzar que una carga de trabajo determinada se ejecute en un solo bastidor, o dar preferencia a algún segmento del clúster local sobre otro a menos que haya diferentes tipos de hardware o que se produzca la segmentación de la carga de trabajo, y esos casos se pueden administrar mediante restricciones de ubicación normales.
+Se preguntará si sería posible usar estas configuraciones para los servicios de un clúster que no esté distribuido geográficamente. Por supuesto que se puede. Sin embargo, no hay razones de peso para hacerlo. Las configuraciones de dominio requerido, no valido y preferido se deben evitar, a menos que realmente se ejecute un clúster distribuido geográficamente. No tiene sentido intentar forzar que una carga de trabajo determinada se ejecute en un solo bastidor o dar preferencia a algún segmento del clúster local sobre otro. Distintas configuraciones de hardware se deben distribuir entre dominios, y entre los administrados a través de restricciones de ubicación normales y propiedades de nodo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles en [Más información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md)
+* Para más información sobre las demás opciones disponibles para configurar servicios, vaya a [Información acerca de la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md)
 
-[Imagen 1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
-[Imagen 2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
-[Imagen 3]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
+[Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
+[Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
+[Image3]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

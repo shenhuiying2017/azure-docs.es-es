@@ -1,6 +1,6 @@
 ---
-title: "Configuración automática de grupos de disponibilidad Always On de máquinas virtuales de Azure Resource Manager"
-description: "Cree un grupo de disponibilidad AlwaysOn con Máquinas virtuales de Azure en el modo Azure Resource Manager. Este tutorial usa principalmente la interfaz de usuario para crear automáticamente toda la solución."
+title: "Configuración de alta disponibilidad para máquinas virtuales de Azure Resource Manager | Microsoft Docs"
+description: "En este tutorial se muestra cómo crear un grupo de disponibilidad AlwaysOn con Azure Virtual Machines en el modo de Azure Resource Manager."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/20/2016
-ms.author: MikeRayMSFT
+ms.workload: iaas-sql-server
+ms.date: 1/23/2017
+ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 27967ee372c379de08ae0c4740638cbeaabc4e55
+ms.sourcegitcommit: d0910bd4e0bf50591ac83991eb2eb679bdc3cadf
+ms.openlocfilehash: 4cbe4f189f5d562edbe5d5cbb524581aa4cb66f2
 
 
 ---
@@ -231,6 +231,6 @@ Ahora está conectado con RDP a SQL Server. Puede abrir SQL Server Management St
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

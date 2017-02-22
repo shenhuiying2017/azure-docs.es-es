@@ -1,5 +1,5 @@
 ---
-title: "Autenticación y autorización de SQL Database | Microsoft Docs"
+title: "Usuarios e inicios de sesión de SQL Azure | Microsoft Docs"
 description: "Obtenga información acerca de la administración de seguridad de la Base de datos SQL, específicamente el modo de administrar la seguridad del inicio de sesión y el acceso a la base de datos con la cuenta de entidad de seguridad a nivel de servidor."
 keywords: "seguridad de la Base de datos SQL, administración de seguridad de la base de datos, seguridad de inicio de sesión, seguridad de la base de datos, acceso a la base de datos"
 services: sql-database
@@ -12,14 +12,14 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 6949e07622f229616f950a9aed07c7b58a5b63fc
-ms.openlocfilehash: 9de26e09cb41ef415d0535db35d7d5d0cd8784a5
+ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
+ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 
 
 ---
@@ -29,6 +29,12 @@ Cuando se hayan configurado las reglas de firewall, los usuarios pueden conectar
 
 >  [!NOTE]  
 >  Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. 
+>
+
+> [!TIP]
+> Para ver un tutorial sobre la autenticación de SQL Server, consulte [Tutorial: autenticación de SQL Server](sql-database-control-access-sql-authentication-get-started.md). Para ver un tutorial sobre la autenticación de Azure Active Directory, consulte [Tutorial: autenticación de AAD](sql-database-control-access-aad-authentication-get-started.md).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Cuentas administrativas sin restricciones
 Hay dos cuentas administrativas (**administrador del servidor** y **administrador de Active Directory**) que actúan como administradores. Para identificar estas cuentas de administrador para SQL Server, abra Azure Portal y vaya a las propiedades de SQL Server.
@@ -73,7 +79,7 @@ Para ver un tutorial en el que se explica cómo crear un servidor, una base de d
 Además de los roles administrativos de nivel de servidor que se han descrito anteriormente, SQL Database proporciona dos roles administrativos restringidos en la base de datos maestra a la que se pueden agregar cuentas de usuario que otorgan permisos para crear bases de datos o administrar inicios de sesión.
 
 ### <a name="database-creators"></a>Creadores de bases de datos
-Uno de estos roles administrativos es **dbmanager**. Los miembros de este rol pueden crear bases de datos nuevas. Para usar este rol, cree un usuario en la base de datos `master` y, después, agréguelo al rol de base de datos **dbmanager**. El usuario puede ser un usuario de una base de datos independiente o un usuario basado en un inicio de sesión de SQL Server en la base de datos maestra.
+Uno de estos roles administrativos es **dbmanager**. Los miembros de este rol pueden crear bases de datos nuevas. Para usar este rol, cree un usuario en la base de datos `master` y, después, agréguelo al rol de base de datos **dbmanager**. Para crear una base de datos, el usuario debe haber iniciado sesión con SQL Server en la base de datos maestra, o bien ser un usuario de base de datos independiente basado en un usuario de Azure Active Directory.
 
 1. Con una cuenta de administrador, conéctese a la base de datos maestra.
 2. Paso opcional: crear un inicio de sesión de autenticación de SQL Server mediante la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) . Instrucción de ejemplo:
@@ -132,7 +138,6 @@ Para permitir un control total de la base de datos a usuarios adicionales, convi
 
 > [!NOTE]
 > La razón más común para crear usuarios de base de datos basados en inicios de sesión es tener usuarios de autenticación de SQL Server que necesitan acceder a varias bases de datos. Los usuarios basados en inicios de sesión están vinculados al inicio de sesión y solo se mantiene una contraseña para dicho inicio de sesión. Los usuarios de base de datos independiente en bases de datos individuales son entidades individuales y cada uno mantiene su propia contraseña. Esto puede confundir a los usuarios de base de datos independiente si no mantienen sus contraseñas idénticas.
- 
 
 ### <a name="configuring-the-database-level-firewall"></a>Configuración del firewall de nivel de base de datos
 Como procedimiento recomendado, los usuarios no administradores solo deben tener acceso a través del firewall a las bases de datos que utilizan. En lugar de autorizar sus direcciones IP a través del firewall de nivel de servidor y permitir acceder a todas las bases de datos, use la instrucción [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) para configurar el firewall de nivel de base de datos. El firewall de nivel de base de datos no se puede configurar a través del portal.
@@ -158,7 +163,8 @@ En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar ind
 ### <a name="considerations-and-restrictions"></a>Consideraciones y restricciones
 Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en cuenta lo siguiente:
 
-* Debe estar conectado a la base de datos **maestra** cuando ejecute las instrucciones `CREATE/ALTER/DROP DATABASE`. El usuario de la base de datos maestra correspondiente al inicio de sesión del **administrador de servidor** no se puede alterar ni quitar. 
+* Debe estar conectado a la base de datos **maestra** cuando ejecute las instrucciones `CREATE/ALTER/DROP DATABASE`.   
+* El usuario de la base de datos correspondiente al inicio de sesión del **administrador de servidor** no se puede alterar ni quitar. 
 * El inglés de Estados Unidos es el idioma predeterminado del inicio de sesión del **administrador del servidor**.
 * Solamente los administradores (inicio de sesión de **administrador de servidor** o de administrador de Azure AD) y los miembros del rol de base de datos **dbmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones `CREATE DATABASE` y `DROP DATABASE`.
 * Debe estar conectado a la base de datos maestra al ejecutar las instrucciones `CREATE/ALTER/DROP LOGIN` . Sin embargo, el uso de inicios de sesión no es recomendable. En su lugar, utilice los usuarios de la base de datos independiente.
@@ -185,13 +191,14 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 
 - Para más información acerca de las reglas de firewall, consulte [Firewall de Azure SQL Database](sql-database-firewall-configure.md).
 - Para una información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL).
-- Para obtener un tutorial, consulte [Introducción a la seguridad de SQL](sql-database-get-started-security.md)
+- Para obtener un tutorial, consulte [Introducción a la seguridad de SQL](sql-database-control-access-sql-authentication-get-started.md)
 - Para obtener información acerca de las vistas y los procedimientos almacenados, consulte [Creación de vistas y procedimientos almacenados](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para obtener información acerca de cómo otorgar acceso a un objeto de base de datos, consulte [Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)
+- Para ver un tutorial sobre la autenticación de SQL Server, consulte [Tutorial: autenticación de SQL Server](sql-database-control-access-sql-authentication-get-started.md).
+- Para ver un tutorial sobre la autenticación de Azure Active Directory, consulte [Tutorial: autenticación de AAD](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

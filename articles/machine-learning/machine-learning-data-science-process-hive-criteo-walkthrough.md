@@ -1,5 +1,5 @@
 ---
-title: "Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Docs"
+title: "Proceso de ciencia de datos en equipos en acción: uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB | Microsoft Docs"
 description: "Uso del proceso de ciencia de datos en equipos en un escenario completo con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)"
 services: machine-learning,hdinsight
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6bdffe23905f5507332b95e1dc12e2c00c017d
-ms.openlocfilehash: b6fe6dd15dd73e8874ded8b9481ea8a14733e34c
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 5e4bf617d80d3b0f4b88a819257bf4226db0ab7a
 
 
 ---
-# <a name="the-team-data-science-process-in-action---using-azure-hdinsight-hadoop-clusters-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
+# <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
+
 En este tutorial, se describe cómo usar el proceso de ciencia de datos en equipos en un escenario completo con un [clúster de Hadoop de Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar sus características desde el punto de vista de los ingenieros y reducir los datos de ejemplo de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) que están disponibles públicamente. Usamos Aprendizaje automático de Azure para crear un modelo de clasificación binaria con estos datos. Asimismo, se muestra cómo publicar uno de estos modelos como un servicio web.
 
 También es posible usar un cuaderno de iPython para realizar las tareas que se presentan en este tutorial. Los usuarios que deseen probar este método deben consultar el tema [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (tutorial de Criteo con una conexión de ODBC de Hive).
@@ -75,7 +76,7 @@ Para acceder al conjunto de datos de [Criteo](http://labs.criteo.com/downloads/d
 
 Haga clic en **Continue to download** (Continuar la descarga) para más información sobre el conjunto de datos y su disponibilidad.
 
-Los datos residen en una ubicación pública de [Azure Blob Storage](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/.. "Wasb" hace referencia a la ubicación de Azure Blob Storage. 
+Los datos residen en una ubicación pública de [Azure Blob Storage](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" hace referencia a la ubicación de almacenamiento de blobs de Azure. 
 
 1. Los datos de este almacenamiento de blobs público constan de tres subcarpetas de datos sin comprimir.
    
@@ -407,7 +408,9 @@ Hay un componente importante final antes de pasar al Aprendizaje automático de 
 ## <a name="a-namecounta-a-brief-discussion-on-the-count-table"></a><a name="count"></a> Breve explicación sobre la tabla de recuento
 Como hemos visto, algunas variables de categorías tienen una dimensionalidad muy alta. En nuestro tutorial, presentamos una técnica eficaz denominada [Aprendizaje con recuentos](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar estas variables de una manera eficiente y robusta. Para obtener más información sobre esta técnica, acceda al vínculo proporcionado.
 
-**Nota:** En este tutorial, nos centramos en el uso de las tablas de recuento para producir representaciones compactas de características de categorías con una alta dimensionalidad. Esta no es la única manera de codificar características de las categorías. Para más información sobre otras técnicas, los usuarios interesados pueden ver la información sobre la [codificación "one-hot"](http://en.wikipedia.org/wiki/One-hot) y la [aplicación de hash a las características](http://en.wikipedia.org/wiki/Feature_hashing).
+[!NOTE]
+>En este tutorial, nos centramos en el uso de las tablas de recuento para producir representaciones compactas de características de categorías con una alta dimensionalidad. Esta no es la única manera de codificar características de las categorías. Para más información sobre otras técnicas, los usuarios interesados pueden ver la información sobre la [codificación "one-hot"](http://en.wikipedia.org/wiki/One-hot) y la [aplicación de hash a las características](http://en.wikipedia.org/wiki/Feature_hashing).
+>
 
 Para crear tablas de recuento en los datos de recuento, se utilizan los datos de la carpeta raw/count. En la sección de modelado, mostramos a los usuarios cómo crear estas tablas de recuento para características de categorías desde cero, así como a utilizar una tabla de recuento pregenerada para sus exploraciones. En lo sucesivo, cuando nos referimos a las "tablas de recuento pregeneradas", nos referimos a usar las tablas de recuento proporcionadas. En la siguiente sección encontrará instrucciones detalladas sobre cómo obtener acceso a estas tablas.
 
@@ -415,11 +418,10 @@ Para crear tablas de recuento en los datos de recuento, se utilizan los datos de
 Nuestro proceso de creación de modelos con Azure Machine Learning consta de estos pasos:
 
 1. [Obtención de los datos a partir de las tablas de Hive para el Aprendizaje automático de Azure](#step1)
-2. [Creación del experimento: limpieza de los datos, elección de un aprendiz y caracterización de las tablas de recuento](#step2)
-3. [Entrenamiento del modelo](#step3)
-4. [Puntuación del modelo con los datos de prueba](#step4)
-5. [Evaluación del modelo](#step5)
-6. [Publicación del modelo como un servicio web para su consumo](#step6)
+2. [Creación del experimento: limpieza de los datos y caracterización con tablas de recuento](#step2)
+3. [Crear, entrenar y puntuar el modelo](#step3)
+4. [Evaluación del modelo](#step4)
+5. [Publicación del modelo como un servicio web](#step5)
 
 Ahora estamos preparados para generar modelos en Estudio de aprendizaje automático de Azure. Nuestros datos con tamaño reducido están guardados como tablas de Hive en el clúster. Usaremos el módulo **Importar datos** de Azure Machine Learning para leer estos datos. Las credenciales para acceder a la cuenta de almacenamiento de este clúster se proporcionan a continuación.
 
@@ -480,7 +482,9 @@ Para crear características de recuento, usamos el módulo **Crear transformaci�
 ![Módulo Crear transformación de recuento](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
 ![Módulo Crear transformación de recuento](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
-**Nota importante**: En el cuadro **Recuento de columnas**, especificamos las columnas en las que queremos realizar recuentos. Normalmente, son columnas de categorías con una alta dimensionalidad (tal y como se mencionó). Al principio, hemos mencionado que el conjunto de datos de Criteo tiene 26 columnas de categorías: de Col15 a Col40. En este caso, contamos en todas ellas y les damos sus índices (de 15 a 40 separados por comas, como se muestra).
+> [!IMPORTANT] 
+> En el cuadro **Recuento de columnas**, especificamos las columnas en las que queremos realizar recuentos. Normalmente, son columnas de categorías con una alta dimensionalidad (tal y como se mencionó). Al principio, hemos mencionado que el conjunto de datos de Criteo tiene 26 columnas de categorías: de Col15 a Col40. En este caso, contamos en todas ellas y les damos sus índices (de 15 a 40 separados por comas, como se muestra).
+> 
 
 Para usar el módulo en el modo MapReduce (adecuado para grandes conjuntos de datos), se necesita acceso a un clúster de Hadoop de HDInsight (el que se usa para la exploración de categorías se puede reutilizar para este propósito) y sus credenciales. En las ilustraciones anteriores se muestra el aspecto de los valores rellenados (reemplace los valores de ejemplo por los que son relevantes para su propio caso de uso).
 
@@ -532,8 +536,9 @@ En este extracto, se muestra que para las columnas en las que se ha hecho el rec
 
 Ahora estamos listos para crear un modelo de Aprendizaje automático de Azure con estos conjuntos de datos transformados. En la siguiente sección, veremos cómo se puede hacer esto.
 
-#### <a name="azure-machine-learning-model-building"></a>Creación de modelos de Aprendizaje automático de Azure
-##### <a name="choice-of-learner"></a>Elección del aprendiz
+### <a name="a-namestep3a-step-3-build-train-and-score-the-model"></a><a name="step3"></a>Paso 3: Creación, entrenamiento y puntuación del modelo
+
+#### <a name="choice-of-learner"></a>Elección del aprendiz
 En primer lugar, tenemos que elegir un aprendiz. Vamos a usar como nuestro aprendiz un árbol de decisiones incrementado de dos clases. Aquí están las opciones predeterminadas para este aprendiz:
 
 ![Parámetros de árbol de decisiones incrementados de dos clases](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
@@ -550,7 +555,7 @@ Una vez que tenemos un modelo entrenado, estamos preparados para puntuar el conj
 
 ![Score Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="a-namestep5a-step-5-evaluate-the-model"></a><a name="step5"></a> Paso 5: evaluación del modelo
+### <a name="a-namestep4a-step-4-evaluate-the-model"></a><a name="step4"></a> Paso 4: Evaluación del modelo
 Por último, vamos a analizar el rendimiento del modelo. Normalmente, para los problemas de clasificación (binarios) de dos clases, una buena medida es AUC. Para visualizar esto, conectamos el módulo **Score Model (Puntuar modelo)** con un módulo **Evaluate Model (Evaluar modelo)**. Al hacer clic en **Visualizar** en el módulo **Evaluate Model (Evaluar modelo)**, se genera un gráfico como el siguiente:
 
 ![Módulo Evaluación del modelo de BDT](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
@@ -559,7 +564,7 @@ En los problemas de clasificación binarios (o de dos clases), una buena medida 
 
 ![Visualización del módulo Evaluar modelo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="a-namestep6a-step-6-publish-the-model-as-a-web-service"></a><a name="step6"></a> Paso 6: publicación del modelo como un servicio web
+### <a name="a-namestep5a-step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a> Paso 5: Publicación del modelo como un servicio web
 La capacidad de publicar un modelo de Aprendizaje automático de Azure como servicios web con una complicación mínima es una característica valiosa para que esté ampliamente disponible. Una vez hecho esto, cualquier persona puede realizar llamadas al servicio web con los datos de entrada para los que necesitan predicciones, y el servicio web usa el modelo para devolver dichas predicciones.
 
 Para ello, primero guardamos el modelo con el que hemos entrenado como un objeto del Modelo entrenado. Haga clic con el botón derecho en el módulo **Entrenar modelo** y use la opción **Save as Trained Model (Guardar como modelo entrenado)**.
@@ -628,6 +633,6 @@ Con esto concluye nuestro tutorial completo que muestra cómo controlar un conju
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

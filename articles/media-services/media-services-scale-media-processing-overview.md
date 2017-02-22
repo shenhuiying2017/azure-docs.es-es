@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
-ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
 
 
 ---
@@ -44,8 +44,8 @@ La siguiente tabla sirve de ayuda para tomar la decisión de elegir entre distin
 
 * Las unidades reservadas sirven para establecer paralelismos en todo el procesamiento multimedia, incluida la indexación de trabajos mediante Azure Media Indexer.  Sin embargo, a diferencia de la codificación, la indexación de los trabajos no se procesará más rápido con unidades reservadas de mayor rapidez.
 * Si utiliza el grupo compartido, es decir, sin ninguna unidad reservada, las tareas de codificación tendrán el mismo rendimiento que con las RU S1. Sin embargo, no existe ningún límite superior para el tiempo que las tareas pueden estar en el estado en cola, y en un momento determinado, se estará ejecutando a lo sumo una tarea.
-* Los siguientes centros de datos no ofrecen el tipo de unidad reservada **S2** : Sur de Brasil, India occidental, India central y Sur de la India.
-* Los siguientes centros de datos no ofrecen el tipo de unidad reservada **S3** : Sur de Brasil, India occidental e India central.
+* Los siguientes centros de datos no ofrecen el tipo de unidad reservada **S2**: Sur de Brasil e India occidental.
+* El siguiente centro de datos no ofrece el tipo de unidad reservada **S3**: India occidental.
 * Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste.
 
 ## <a name="quotas-and-limitations"></a>Cuotas y limitaciones
@@ -57,7 +57,7 @@ Llevar a cabo la tarea de escalado de procesamiento de medios con alguna de esta
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -72,6 +72,6 @@ Llevar a cabo la tarea de escalado de procesamiento de medios con alguna de esta
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

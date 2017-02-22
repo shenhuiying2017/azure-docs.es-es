@@ -13,18 +13,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 028e09c031037f3c4001eccfb4543122eef2c055
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
 
 
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos de la CLI de Azure en el modo de Resource Manager
 En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para obtener una descripción general de los recursos y grupos de recursos de Azure, vea [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
 
-Para comenzar, primero [instale la CLI de Azure](../xplat-cli-install.md) y [conéctese a su suscripción de Azure](../xplat-cli-connect.md) mediante una cuenta profesional o educativa, o bien una identidad de cuenta de Microsoft.
+> [!NOTE]
+> Este artículo muestra los comandos de modo de Resource Manager en la CLI de Azure, que suele llamar Azure CLI 1.0. Para trabajar en el modelo de Resource Manager, también puede probar la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2), nuestra CLI multiplataforma de última generación.
+>Obtenga más información sobre las [CLI antigua y nueva de Azure](/cli/azure/old-and-new-clis).
+>
+
+En primer lugar, [instale la CLI de Azure](../xplat-cli-install.md) y [conéctese a su suscripción de Azure](../xplat-cli-connect.md).
 
 Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo del Administrador de recursos, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
@@ -1861,6 +1866,6 @@ Opciones de parámetro:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

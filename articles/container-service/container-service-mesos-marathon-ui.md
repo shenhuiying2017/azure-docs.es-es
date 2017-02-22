@@ -1,5 +1,5 @@
 ---
-title: "Administración de un clúster de Azure Container Service con la interfaz de usuario de Marathon | Microsoft Docs"
+title: "Administración de un clúster DC/OS de Azure con la interfaz de usuario de Marathon | Microsoft Docs"
 description: "Implemente contenedores en un clúster del servicio Contenedor de Azure mediante la interfaz de usuario web de Marathon."
 services: container-service
 documentationcenter: 
@@ -11,14 +11,14 @@ keywords: Docker, contenedores, microservicios, Mesos, Azure
 ms.assetid: d148ed1e-b582-4d51-944f-1ac7ae3c4fd6
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: c472963048e842e795e17df39567a8380d8543a9
-ms.openlocfilehash: b076fabd964cfb583bb4049d1373268d0d2762fb
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
 
 
 ---
@@ -113,6 +113,6 @@ Una vez que finaliza la operación de escalado, verá varias instancias de la mi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

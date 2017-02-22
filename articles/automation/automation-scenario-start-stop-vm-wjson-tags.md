@@ -1,5 +1,5 @@
 ---
-title: "Uso de etiquetas con formato JSON para crear una programación de inicio y apagado de VM de Azure | Microsoft Docs"
+title: "Uso de etiquetas con formato JSON para programar el estado de la máquina virtual de Azure | Microsoft Docs"
 description: "En este artículo se explica cómo usar cadenas JSON en las etiquetas para automatizar la programación de inicio y apagado de máquinas virtuales."
 services: automation
 documentationcenter: 
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2016
+ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 4a9886cf5ee80bafd4b36d0d7f6781aea9b36dd6
+ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
+ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 
 
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Escenario de Automatización de Azure: uso de etiquetas con formato JSON para crear una programación de inicio y apagado de VM de Azure
-Normalmente, los clientes quieren programar el inicio y apagado de las máquinas virtuales para reducir los costos de suscripción o dar cabida a requisitos empresariales y técnicos.  
+Normalmente, los clientes quieren programar el inicio y apagado de las máquinas virtuales para reducir los costos de suscripción o dar cabida a requisitos empresariales y técnicos.
 
-El siguiente escenario le permite configurar el inicio y apagado automatizados de máquinas virtuales por medio de una etiqueta denominada Schedule en un nivel de grupo de recursos o de máquina virtual de Azure. Esta programación se puede configurar de domingo a sábado con una hora de inicio y una hora de apagado.  
+El siguiente escenario le permite configurar el inicio y apagado automatizados de máquinas virtuales por medio de una etiqueta denominada Schedule en un nivel de grupo de recursos o de máquina virtual de Azure. Esta programación se puede configurar de domingo a sábado con una hora de inicio y una hora de apagado.
 
 Tenemos algunas opciones disponibles de forma inmediata. Entre ellos se incluyen los siguientes:
 
 * [Conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) con una configuración de escalado automático que le permite escalar o reducir horizontalmente.
 * [DevTest Labs](../devtest-lab/devtest-lab-overview.md) , que tiene una funcionalidad integrada para programar las operaciones de inicio y apagado.
 
-Sin embargo, estas opciones solo admiten escenarios específicos y no se pueden aplicar a las máquinas virtuales de infraestructura como servicio (IaaS).   
+Sin embargo, estas opciones solo admiten escenarios específicos y no se pueden aplicar a las máquinas virtuales de infraestructura como servicio (IaaS).
 
 Cuando la etiqueta Schedule se aplica a un grupo de recursos, se aplica también a todas las máquinas virtuales dentro de ese grupo de recursos. Si también se aplica una programación directamente a una máquina virtual, tiene prioridad la última programación en el siguiente orden:
 
@@ -67,7 +67,7 @@ Haga lo siguiente para habilitar la programación en el Runbook Test-ResourceSch
 6. Para la programación **Inicio**, establezca la hora de inicio en un incremento de hora.
 7. Seleccione **Periodicidad** y, en **Recur every interval** (Repetir cada intervalo), seleccione **1 hora**.
 8. Compruebe que **Configurar expiración** está establecido en **No** y, después, haga clic en **Crear** para guardar la nueva programación.
-9. En hoja de opciones **Programar Runbook**, seleccione **Configuración de ejecución y parámetros**. En la hoja **Parámetros** de Test-ResourceSchedule, escriba el nombre de la suscripción en el campo **SubscriptionName**.  Este es el único parámetro necesario para el Runbook.  Cuando haya terminado, haga clic en **Aceptar**.  
+9. En hoja de opciones **Programar Runbook**, seleccione **Configuración de ejecución y parámetros**. En la hoja **Parámetros** de Test-ResourceSchedule, escriba el nombre de la suscripción en el campo **SubscriptionName**.  Este es el único parámetro necesario para el Runbook.  Cuando haya terminado, haga clic en **Aceptar**.
 
 La programación del Runbook debe parecerse a lo siguiente cuando se complete:
 
@@ -78,43 +78,47 @@ Esta solución básicamente toma una cadena JSON con un formato especificado y l
 
 El Runbook recorre las máquinas virtuales que tienen programaciones adjuntas y comprueba qué acciones deben ejecutarse. Este es un ejemplo de cómo aplicar el formato a las soluciones:
 
-    {
-       "TzId": "Eastern Standard Time",
-        "0": {  
-           "S": "11",
-           "E": "17"
-        },
-        "1": {
-           "S": "9",
-           "E": "19"
-        },
-        "2": {
-           "S": "9",
-           "E": "19"
-        },
-    }
+```json
+{
+    "TzId": "Eastern Standard Time",
+    "0": {
+        "S": "11",
+        "E": "17"
+    },
+    "1": {
+        "S": "9",
+        "E": "19"
+    },
+    "2": {
+        "S": "9",
+        "E": "19"
+    },
+}
+```
 
 Información detallada sobre esta estructura:
 
 1. El formato de esta estructura JSON está optimizado para evitar la limitación de 256 caracteres de un valor de etiqueta única en Azure.
 2. *TzId* es la zona horaria de la máquina virtual. Este identificador se puede obtener con la clase .NET. TimeZoneInfo en una sesión de PowerShell: **[System.TimeZoneInfo]::GetSystemTimeZones()**.
 
-    ![GetSystemTimeZones en PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
+   ![GetSystemTimeZones en PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * Los días de la semana se representan con un valor numérico entre 0 y 6. El valor 0 corresponde al domingo.
+   * Los días de la semana se representan con un valor numérico entre&0; y&6;. El valor&0; corresponde al domingo.
    * La hora de inicio se representa con el atributo **S** y su valor se presenta en un formato de 24 horas.
    * La hora de fin o apagado se representa con el atributo **E** y su valor se presenta en un formato de 24 horas.
 
-     Si los atributos **S** y **E** tienen un valor de cero (0), la máquina virtual permanecerá en el estado que tenga en el momento de la evaluación.   
+     Si los atributos **S** y **E** tienen un valor de cero (0), la máquina virtual permanecerá en el estado que tenga en el momento de la evaluación.
 3. Si quiere omitir la evaluación para un determinado día de la semana, no agregue la sección del día de la semana en cuestión. En el siguiente ejemplo solo se evaluará el lunes y se ignorarán los demás días de la semana:
 
-        {
-          "TzId": "Eastern Standard Time",
-           "1": {
-             "S": "11",
-             "E": "17"
-           }
+    ```json
+    {
+        "TzId": "Eastern Standard Time",
+        "1": {
+            "S": "11",
+            "E": "17"
         }
+    }
+    ```
 
 ## <a name="tag-resource-groups-or-vms"></a>Etiquetado de máquinas virtuales o grupos de recursos
 Para apagar las máquinas virtuales, debe etiquetar las máquinas virtuales o los grupos de recursos en los que se encuentran. No se evalúan las máquinas virtuales que no tienen una etiqueta Schedule. Por lo tanto, estas no se iniciarán ni apagarán.
@@ -126,82 +130,110 @@ Haga lo siguiente para etiquetar una máquina virtual o un grupo de recursos en 
 
 1. Acople la cadena JSON y compruebe que no hay espacios.  La cadena JSON debe tener este aspecto:
 
-        {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```json
+    {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```
+
 2. Seleccione el icono de **etiqueta** de una máquina virtual o grupo de recursos para aplicarle esta programación.
 
-![Opción de etiqueta de máquina virtual](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)    
+   ![Opción de etiqueta de máquina virtual](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
 
-1. Las etiquetas se definen siguiendo un par clave/valor. Escriba **Schedule** en el campo **Clave** y pegue la cadena JSON en el campo **Valor**. Haga clic en **Save**. La nueva etiqueta debería aparecer en la lista de etiquetas del recurso.
+3. Las etiquetas se definen siguiendo un par clave/valor. Escriba **Schedule** en el campo **Clave** y pegue la cadena JSON en el campo **Valor**. Haga clic en **Save**. La nueva etiqueta debería aparecer en la lista de etiquetas del recurso.
 
-![Etiqueta Schedule de máquina virtual](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
+   ![Etiqueta Schedule de máquina virtual](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 ### <a name="tag-from-powershell"></a>Etiquetado en PowerShell
-Todos los Runbooks importados contienen información de ayuda al principio del script que describe cómo ejecutar los Runbooks directamente desde PowerShell. Puede llamar a los Runbooks Add-ScheduleResource y Update-ScheduleResource desde PowerShell. Para ello, utilice los parámetros necesarios que le permiten crear o actualizar la etiqueta Schedule en una máquina virtual o grupo de recursos fuera del portal.  
+Todos los Runbooks importados contienen información de ayuda al principio del script que describe cómo ejecutar los Runbooks directamente desde PowerShell. Puede llamar a los Runbooks Add-ScheduleResource y Update-ScheduleResource desde PowerShell. Para ello, utilice los parámetros necesarios que le permiten crear o actualizar la etiqueta Schedule en una máquina virtual o grupo de recursos fuera del portal.
 
-Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso [configurar el entorno de PowerShell para Azure](../powershell-install-configure.md). Una vez completada la configuración, puede continuar con los pasos siguientes.
+Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso [configurar el entorno de PowerShell para Azure](/powershell/azureps-cmdlets-docs). Una vez completada la configuración, puede continuar con los pasos siguientes.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Creación de una etiqueta Schedule con PowerShell
-1. Abra una sesión de PowerShell. A continuación, use lo siguiente para autenticarse con la cuenta de ejecución y especificar una suscripción:   
+1. Abra una sesión de PowerShell. A continuación, use lo siguiente para autenticarse con la cuenta de ejecución y especificar una suscripción:
 
-        Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
+
 2. Defina una tabla hash de programación. Este es un ejemplo de cómo debe estar conformada:
 
-        $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```powershell
+    $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```
+
 3. Defina los parámetros que el Runbook necesita. En el siguiente ejemplo, el destino es una máquina virtual:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
-        "VmName"="VM01";"Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "VmName"="VM01";"Schedule"=$schedule}
+    ```
 
     Si quiere etiquetar un grupo de recursos, quite el parámetro *VMName* de la tabla hash $params de la siguiente manera:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
-        "Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "Schedule"=$schedule}
+    ```
+
 4. Ejecute el Runbook Add-ResourceSchedule con los siguientes parámetros para crear la etiqueta Schedule:
 
-        Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
+
 5. Para actualizar una etiqueta de una máquina virtual o un grupo de recursos, ejecute el Runbook **Update-ResourceSchedule** con los siguientes parámetros:
 
-        Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 ### <a name="remove-a-schedule-tag-with-powershell"></a>Eliminación de una etiqueta Schedule con PowerShell
 1. Abra una sesión de PowerShell y ejecute lo siguiente para autenticarse con la cuenta de ejecución y seleccionar y especificar una suscripción:
 
-        Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
+
 2. Defina los parámetros que el Runbook necesita. En el siguiente ejemplo, el destino es una máquina virtual:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01" `
-        ;"VmName"="VM01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01";"VmName"="VM01"}
+    ```
 
     Si quiere eliminar una etiqueta de un grupo de recursos, simplemente quite el parámetro *VMName* de la tabla hash $params de la siguiente manera:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```
+
 3. Ejecute el Runbook Remove-ResourceSchedule para eliminar la etiqueta Schedule:
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
+
 4. Para actualizar una etiqueta de una máquina virtual o un grupo de recursos, ejecute el Runbook Remove-ResourceSchedule con los siguientes parámetros:
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 > [!NOTE]
-> Se recomienda supervisar de forma proactiva estos Runbooks (y el estado de las máquinas virtuales) para comprobar que las máquinas virtuales se apagan e inician como es debido.  
->
+> Se recomienda supervisar de forma proactiva estos Runbooks (y el estado de las máquinas virtuales) para comprobar que las máquinas virtuales se apagan e inician como es debido.
 >
 
-Para ver los detalles del trabajo del Runbook Test-ResourceSchedule en el Portal de Azure, seleccione el icono **Trabajos** del Runbook. La opción de resumen del trabajo le mostrará los parámetros de entrada y el flujo de salida, además de información general sobre el trabajo y las excepciones que se hayan producido.  
+Para ver los detalles del trabajo del Runbook Test-ResourceSchedule en el Portal de Azure, seleccione el icono **Trabajos** del Runbook. La opción de resumen del trabajo le mostrará los parámetros de entrada y el flujo de salida, además de información general sobre el trabajo y las excepciones que se hayan producido.
 
 El **resumen del trabajo** incluye los mensajes de los flujos de salida, advertencia y error. Seleccione el icono **Salida** para ver los resultados detallados de la ejecución del Runbook.
 
-![Salida de Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)  
+![Salida de Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
@@ -212,6 +244,6 @@ El **resumen del trabajo** incluye los mensajes de los flujos de salida, adverte
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

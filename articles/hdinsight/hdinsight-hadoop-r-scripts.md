@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fb8a8563d41827ce22604e2fb485c84a1441efa2
-ms.openlocfilehash: 2aea15d4560d225bed18438b93d88bb8f64b71b9
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 8b74f2e4169ac97e09da12d5ed85e0e24b50e150
 
 
 ---
@@ -30,7 +30,7 @@ Puede instalar R en cualquier tipo de clúster (Hadoop, Storm, HBase, Spark) en 
 
 * [Instalación y uso de R en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 * [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
-* [Personalización de clústeres de HDInsight mediante la acción de scripts][hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de scripts.
+* [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
 * [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-r"></a>¿Qué es R?
@@ -49,7 +49,7 @@ Un [script de ejemplo](https://hdiconfigactions.blob.core.windows.net/rconfigact
 1. Cuando aprovisione un clúster de HDInsight desde el Portal, haga clic en **Configuración opcional** y en **Acciones de script**.
 2. En la página **Acciones de script** , escriba los siguientes valores:
 
-    ![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
+    ![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Uso de la acción de script para personalizar un clúster")
 
     <table border='1'>
         <tr><th>Propiedad</th><th>Valor</th></tr>
@@ -101,19 +101,19 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 ## <a name="see-also"></a>Otras referencias
 * [Instalación y uso de R en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 * [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
-* [Personalización de clústeres de HDInsight mediante la acción de scripts][hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de scripts.
+* [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
 * [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions.md)
 * [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]: ejemplo de acción de script sobre la instalación de Spark.
 * [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md): ejemplo de acción de script sobre la instalación de Giraph.
 * [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md): ejemplo de acción de script sobre la instalación de Solr.
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

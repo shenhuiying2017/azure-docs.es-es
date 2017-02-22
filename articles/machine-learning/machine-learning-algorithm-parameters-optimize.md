@@ -1,5 +1,5 @@
 ---
-title: "Cómo elegir parámetros para optimizar los algoritmos de Azure Machine Learning | Microsoft Docs"
+title: "Optimización de algoritmos de Azure Machine Learning | Microsoft Docs"
 description: "Explica cómo elegir el parámetro óptimo establecido para un algoritmo de Aprendizaje automático de Azure."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: b3be7f31ac31c656744fb809e3972af0ac4ad4f1
 
 
 ---
@@ -48,12 +48,12 @@ Puede definir el conjunto de parámetros en el paso de inicialización del model
 ![Árbol de decisión ampliado de dos clases, intervalo de parámetros](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>Definir los plegamientos de validación cruzada
-El módulo de [Partición y ejemplo][partition-and-sample] se puede usar para asignar plegamientos a los datos de manera aleatoria. En la siguiente configuración de ejemplo del módulo, definimos cinco plegamientos y asignamos aleatoriamente un número de plegamientos a las instancias de ejemplo.
+El módulo de [partición y ejemplo][partition-and-sample] se puede usar para asignar pliegues a los datos de forma aleatoria. En la siguiente configuración de ejemplo del módulo, definimos cinco plegamientos y asignamos aleatoriamente un número de plegamientos a las instancias de ejemplo.
 
 ![Partición y ejemplo](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>Definir la métrica
-En el módulo [Optimizar los hiperparámetros de modelo][tune-model-hyperparameters] se proporciona compatibilidad para elegir empíricamente el mejor conjunto de parámetros para un algoritmo y un conjunto de datos determinado. El panel **Propiedades** de este módulo incluye, además de otra información referente a entrenar el modelo, la métrica para determinar el mejor conjunto de parámetros. Tiene dos cuadros de lista desplegables diferentes para los algoritmos de clasificación y regresión, respectivamente. Si el algoritmo en cuestión es un algoritmo de clasificación, se ignorará la métrica de regresión y viceversa. En este ejemplo concreto, la métrica es **Precisión**.   
+El módulo [Optimizar el modelo Hiperparámetros][tune-model-hyperparameters] proporciona compatibilidad para elegir empíricamente el mejor conjunto de parámetros para un algoritmo determinado y el conjunto de datos. El panel **Propiedades** de este módulo incluye, además de otra información referente a entrenar el modelo, la métrica para determinar el mejor conjunto de parámetros. Tiene dos cuadros de lista desplegables diferentes para los algoritmos de clasificación y regresión, respectivamente. Si el algoritmo en cuestión es un algoritmo de clasificación, se ignorará la métrica de regresión y viceversa. En este ejemplo concreto, la métrica es **Precisión**.   
 
 ![Limpiar parámetros](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
@@ -79,6 +79,6 @@ Puede ver los parámetros exactos elegidos mediante la visualización del puerto
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
