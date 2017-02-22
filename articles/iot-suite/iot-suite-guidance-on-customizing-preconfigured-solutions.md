@@ -4,7 +4,7 @@ description: "Proporciona directrices sobre la personalización de ñas solucion
 services: 
 suite: iot-suite
 documentationcenter: .net
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
@@ -13,16 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 45fd461defc00c5dc018496b85b8bf85614f03dd
-ms.openlocfilehash: 0037b9e28b20c9a85f810cba45aa5b4cbcf6ab6b
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 
 
 ---
 # <a name="customize-a-preconfigured-solution"></a>Personalizar una solución preconfigurada
-Las soluciones preconfiguradas proporcionadas con el conjunto de aplicaciones de IoT de Azure muestran los servicios del conjunto de aplicaciones que funcionan juntos para proporcionar una solución completa. Desde este punto de partida, existen diversos lugares donde puede ampliar y personalizar la solución para cada situación específica. Las secciones siguientes describen estos puntos de personalización comunes.
+Las soluciones preconfiguradas proporcionadas con el conjunto de aplicaciones de IoT de Azure muestran los servicios del conjunto de aplicaciones que funcionan juntos para proporcionar una solución completa. Desde este punto de partida, existen varios lugares donde puede ampliar y personalizar la solución para cada situación específica. Las secciones siguientes describen estos puntos de personalización comunes.
 
 ## <a name="finding-the-source-code"></a>Búsqueda del código fuente
 El código fuente de su solución preconfigurada está disponible en Github en los repositorios siguientes:
@@ -33,19 +33,19 @@ El código fuente de su solución preconfigurada está disponible en Github en l
 El código fuente de las soluciones preconfiguradas se proporciona para demostrar los patrones y los procedimientos que se usan para implementar la funcionalidad de extremo a extremo de una solución de IoT mediante el conjunto de aplicaciones de IoT de Azure. Puede encontrar más información sobre cómo crear e implementar las soluciones en los repositorios de GitHub.
 
 ## <a name="changing-the-preconfigured-rules"></a>Cambio de las reglas previamente configuradas
-La solución de supervisión remota incluye tres trabajos de [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para implementar la información del dispositivo, la telemetría y la lógica de reglas que se muestran para la solución.
+La solución de supervisión remota incluye tres trabajos de [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para controlar la información del dispositivo, la telemetría y la lógica de reglas de la solución.
 
-Los tres trabajos de análisis de transmisiones y su sintaxis se describen detalladamente en el [Tutorial de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-sample-walkthrough.md). 
+Los tres trabajos de Stream Analytics y su sintaxis se describen detalladamente en el [Tutorial de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-sample-walkthrough.md). 
 
 Puede editar directamente estos trabajos y modificar la lógica, o agregar lógica específica a su escenario. Para encontrar los trabajos de Análisis de transmisiones, siga estos pasos:
 
 1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Vaya al grupo de recursos con el mismo nombre que la solución de IoT. 
 3. Seleccione el trabajo de Análisis de transmisiones de Azure que desea modificar. 
-4. Detenga el trabajo seleccionando **Detener**en el conjunto de comandos. 
+4. Detenga el trabajo seleccionando **Detener** en el conjunto de comandos. 
 5. Edite las entradas, la consulta y las salidas.
    
-    Una modificación sencilla consiste en cambiar la consulta para que el trabajo **Reglas** use **"<"** en lugar de **">"**. El portal de la solución seguirá mostrando **">"** al editar una regla, pero observará que el comportamiento varía debido al cambio en el trabajo subyacente.
+    Una modificación sencilla consiste en cambiar la consulta para que el trabajo **Reglas** use **"<"** en lugar de **">"**. El portal de la solución sigue mostrando **">"** al editar una regla, pero observe cómo varía el comportamiento debido al cambio en el trabajo subyacente.
 6. Inicio del trabajo
 
 > [!NOTE]
@@ -59,12 +59,12 @@ Además de cambiar los trabajos de Análisis de transmisiones de Azure preconfig
 ## <a name="customizing-devices"></a>Personalización de dispositivos
 Una de las actividades de extensión más comunes es trabajar con dispositivos específicos de su escenario. Existen varios métodos para trabajar con dispositivos. Entre estos se incluye la modificación de un dispositivo simulado para adaptarlo a su situación, o bien el uso del [SDK de dispositivo de IoT][IoT Device SDK] para conectar el dispositivo físico a la solución.
 
-Para obtener una guía paso a paso para agregar dispositivos a la solución preconfigurada de supervisión remota, consulte los [dispositivos de conexión de Conjunto de aplicaciones de IoT](iot-suite-connecting-devices.md) y el [ejemplo del SDK de C de supervisión remota](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring) que está diseñado para trabajar con la solución preconfigurada de supervisión remota.
+Para obtener una guía paso a paso para agregar dispositivos, consulte el artículo [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)](iot-suite-connecting-devices.md) y el [ejemplo del SDK de C de supervisión remota](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring) que está diseñado para trabajar con la solución preconfigurada de supervisión remota.
 
 ### <a name="creating-your-own-simulated-device"></a>Creación de dispositivo simulado propio
-El código fuente de la solución de supervisión remota (mencionado anteriormente) incluye un simulador. NET. Este simulador es el que se aprovisiona como parte de la solución y se puede modificar para enviar distintos metadatos, telemetría o responder a distintos comandos.
+El [código fuente de la solución de supervisión remota](https://github.com/Azure/azure-iot-remote-monitoring) incluye un simulador. NET. Este simulador es el que se aprovisiona como parte de la solución y puede modificarlo para enviar distintos metadatos, telemetría y responder a distintos comandos.
 
-El simulador preconfigurado en la solución preconfigurada de supervisión remota es un dispositivo de refrigeración que emite la telemetría de temperatura y humedad. Puede modificar el simulador en el proyecto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) después de bifurcar el repositorio de GitHub.
+El simulador preconfigurado en la solución preconfigurada de supervisión remota imita un dispositivo de refrigeración que emite la telemetría de temperatura y humedad. Puede modificar el simulador en el proyecto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) cuando haya bifurcado el repositorio de GitHub.
 
 ### <a name="available-locations-for-simulated-devices"></a>Ubicaciones disponibles para dispositivos simulados
 El conjunto predeterminado de ubicaciones es Seattle/Redmond, Washington (Estados Unidos de América). Puede cambiar estas ubicaciones en [SampleDeviceFactory.cs][lnk-sample-device-factory].
@@ -80,7 +80,7 @@ El valor predeterminado es 200. Puede cambiar este número en [DashboardControll
 El valor predeterminado es 200. Puede cambiar este número en [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
 ### <a name="time-period-of-telemetry-graph"></a>Periodo del gráfico de telemetría
-El valor predeterminado es 10 minutos. Puede cambiarlo en [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
+El valor predeterminado es 10 minutos. Puede cambiar este valor en [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## <a name="manually-setting-up-application-roles"></a>Configuración manual de los roles de aplicación
 El siguiente procedimiento describe cómo agregar los roles de aplicación **Admin** y **ReadOnly** a una solución preconfigurada. Tenga en cuenta que las soluciones preconfiguradas aprovisionadas desde el sitio azureiotsuite.com ya incluyen los roles **Admin** y **ReadOnly**.
@@ -94,12 +94,12 @@ Los miembros del rol **ReadOnly** pueden ver el panel y la lista de dispositivos
 5. Haga clic en el nombre de la aplicación que coincida con el nombre de la solución preconfigurada. Si no ve la aplicación en la lista, seleccione **Aplicaciones que tiene mi compañía** en la lista desplegable **Mostrar** y haga clic en la marca de verificación.
 6. En la parte inferior de la página, haga clic en **Administrar manifiesto** y, luego, en **Descargar manifiesto**.
 7. Se descargará un archivo .json en la máquina local.  Abra este archivo para editarlo en el editor de texto que quiera.
-8. En la tercera línea del archivo .json, encontrará:
+8. En la tercera línea del archivo .json, verá:
    
    ```
    "appRoles" : [],
    ```
-   Reemplácelo por lo siguiente:
+   Reemplace esta línea por el código siguiente:
    
    ```
    "appRoles": [
@@ -125,12 +125,12 @@ Los miembros del rol **ReadOnly** pueden ver el panel y la lista de dispositivos
    } ],
    ```
 9. Guarde el archivo .json actualizado (puede sobrescribir el archivo existente).
-10. En el Portal de administración de Azure, en la parte inferior de la página, seleccione **Administrar manifiesto** y, después, **Cargar manifiesto** para descargar el archivo .json que guardó en el paso anterior.
+10. En el Portal de Azure clásico, en la parte inferior de la página, seleccione **Administrar manifiesto** y, después, **Cargar manifiesto** para cargar el archivo .json que guardó en el paso anterior.
 11. Ahora, los roles **Admin** y **ReadOnly** ya están agregados a la aplicación.
 12. Para asignar uno de estos roles a un usuario del directorio, consulte [Permisos en el sitio azureiotsuite.com][lnk-permissions].
 
 ## <a name="feedback"></a>Comentarios
-¿Tiene una personalización que le gustaría que se tratara en este documento? Agregue las sugerencias de características a [User Voice](https://feedback.azure.com/forums/321918-azure-iot)o comente este artículo a continuación. 
+¿Tiene una personalización que le gustaría que se tratara en este documento? Agregue las sugerencias de características a [User Voice](https://feedback.azure.com/forums/321918-azure-iot) o comente este artículo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre las opciones para personalizar las soluciones preconfiguradas, consulte estos artículos:
@@ -153,6 +153,6 @@ Para obtener más información sobre las opciones para personalizar las solucion
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

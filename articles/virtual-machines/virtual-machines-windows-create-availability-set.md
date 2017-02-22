@@ -1,6 +1,6 @@
 ---
-title: "Creación de un conjunto de disponibilidad de máquina virtual | Microsoft Docs"
-description: "Aprenda a crear un conjunto de disponibilidad para sus máquinas virtuales mediante el Portal de Azure o PowerShell con el modelo de implementación de Resource Manager."
+title: "Creación de un conjunto de disponibilidad de VM en Azure | Microsoft Docs"
+description: "Obtenga información sobre cómo crear un conjunto de disponibilidad administrado o no administrado para sus máquinas virtuales mediante Azure PowerShell o el portal con el modelo de implementación de Resource Manager."
 keywords: conjunto de disponibilidad
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,16 +14,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 19f22b9e38e472b56fc9abecc6c14b63b521a58b
+ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
+ms.openlocfilehash: f7562c2bb6ad354ece3aa3c51fdaabad8e878fa9
 
 
 ---
 # <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
-Mediante el portal, si quiere que la máquina virtual pase a formar parte de un conjunto de disponibilidad, debe crear primero el conjunto de disponibilidad.
+Los conjuntos de disponibilidad proporcionan redundancia en la aplicación. Se recomienda agrupar dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información, consulte [Acuerdo de Nivel de Servicio para máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+
+> [!IMPORTANT]
+> Las VM deben crearse en el mismo grupo de recursos que el conjunto de disponibilidad.
+> 
+
+Si quiere que la VM pase a formar parte de un conjunto de disponibilidad, debe crear el conjunto de disponibilidad primero o mientras crea la primera VM en el conjunto. Si la VM va a utilizar Managed Disks, el conjunto de disponibilidad debe crearse como un conjunto de disponibilidad administrado.
 
 Para más información sobre la creación y el uso de conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -42,24 +48,46 @@ Para más información sobre la creación y el uso de conjuntos de disponibilida
    * **Suscripción** : si tiene varias suscripciones, seleccione la que quiera usar.
    * **Grupo de recursos** : seleccione un grupo de recursos existente; para ello, haga clic en la flecha y seleccione un grupo de recursos de la lista desplegable. Otra manera de crear un nuevo grupo de recursos es escribir un nombre. El nombre puede contener cualquiera de los siguientes caracteres: letras, números, puntos, guiones, caracteres de subrayado y paréntesis de apertura o cierre. El nombre no puede terminar con un punto. Todas las máquinas virtuales del grupo de disponibilidad deben crearse en el mismo grupo de recursos que el conjunto de disponibilidad.
    * **Ubicación** : seleccione una ubicación de la lista desplegable.
-4. Cuando haya terminado de especificar la información, haga clic en **Crear**. Después de crear el grupo de disponibilidad, puede verlo en la lista después de actualizar el portal.
+   * **Administrado**: seleccione *Sí* para crear un conjunto de disponibilidad administrado para usarlo con las VM que usan Managed Disks para el almacenamiento. Seleccione **No** si las VM que formarán parte del conjunto usan discos no administrados en una cuenta de almacenamiento.
+   
+4. Cuando haya terminado de especificar la información, haga clic en **Crear**. 
 
 ## <a name="use-the-portal-to-create-a-virtual-machine-and-an-availability-set-at-the-same-time"></a>Uso del portal para crear una máquina virtual y un conjunto de disponibilidad al mismo tiempo
-Si va a crear una nueva máquina virtual mediante el portal, también puede crear un nuevo conjunto de disponibilidad para la máquina virtual mientras crea la primera máquina virtual del conjunto.
+Si va a crear una nueva máquina virtual mediante el portal, también puede crear un nuevo conjunto de disponibilidad para la máquina virtual mientras crea la primera máquina virtual del conjunto. Si decide usar Managed Disks para la VM, se creará un conjunto de disponibilidad administrado.
 
 ![Captura de pantalla que muestra el proceso para crear un nuevo conjunto de disponibilidad mientras crea la máquina virtual.](./media/virtual-machines-windows-create-availability-set/new-vm-avail-set.png)
 
-## <a name="add-a-new-vm-to-an-existing-availability-set"></a>Adición de una nueva máquina virtual a un conjunto de disponibilidad existente
+## <a name="add-a-new-vm-to-an-existing-availability-set-in-the-portal"></a>Incorporación de una nueva VM a un conjunto de disponibilidad existente en el portal
 Para cada máquina virtual adicional que cree que debe pertenecer al conjunto, asegúrese de que la crea en el mismo **grupo de recursos** y luego seleccione el conjunto de disponibilidad existente en el paso 3. 
 
 ![Captura de pantalla que muestra cómo seleccionar un conjunto de disponibilidad existente para la máquina virtual.](./media/virtual-machines-windows-create-availability-set/add-vm-to-set.png)
 
 ## <a name="use-powershell-to-create-an-availability-set"></a>Uso de PowerShell para crear un conjunto de disponibilidad
-En este ejemplo se crea un conjunto de disponibilidad en el grupo de recursos **RMResGroup** en la ubicación **oeste de EE. UU.**. Esto se debe hacer antes de crear la primera máquina virtual que estará en el conjunto.
+En este ejemplo se crea un conjunto de disponibilidad denominado **myAvailabilitySet** en el grupo de recursos **myResourceGroup** en la ubicación **Oeste de EE. UU.** Esto se debe hacer antes de crear la primera máquina virtual que estará en el conjunto.
 
-    New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "West US"
+Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell. Ejecute el siguiente comando para realizar la instalación.
 
-Para más información, consulte [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Para más información, consulte [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Control de versiones de Azure PowerShell).
+
+
+Si usa discos administrados para las VM, escriba:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+    -Name "myAvailabilitySet" -Location "West US" -managed
+```
+
+Si usa sus propias cuentas de almacenamiento para las VM, escriba:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+    -Name "myAvailabilitySet" -Location "West US" 
+```
+
+Para más información, consulte [New-AzureRmAvailabilitySet](/powershell/new-azurermavailabilityset).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 * Al crear una máquina virtual, si el conjunto de disponibilidad que quiere no está en la lista desplegable en el portal, puede que lo haya creado en otro grupo de recursos. Si no conoce el grupo de recursos de su conjunto de disponibilidad, vaya al menú del concentrador y haga clic en Examinar > Conjuntos de disponibilidad para ver una lista de los conjuntos de disponibilidad y los grupos de recursos a los que pertenecen.
@@ -70,6 +98,6 @@ Agregue almacenamiento adicional a la máquina virtual mediante la adición de u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

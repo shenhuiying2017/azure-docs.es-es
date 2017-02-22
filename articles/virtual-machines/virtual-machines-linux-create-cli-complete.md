@@ -1,5 +1,5 @@
 ---
-title: "Creación de un entorno de Linux completo mediante la versión preliminar de la CLI de Azure 2.0 | Microsoft Docs"
+title: "Creación de un entorno de Linux mediante la CLI de Azure 2.0 | Microsoft Docs"
 description: "Cree almacenamiento, una máquina virtual Linux, una red virtual y subred, un equilibrador de carga, una NIC, una dirección IP pública y un grupo de seguridad de red, todo desde el principio mediante la versión preliminar de la CLI de Azure 2.0."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
-ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
+ms.sourcegitcommit: 39ce158ae52b978b74161cdadb4b886a7ddbf87a
+ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
 
 
 ---
@@ -53,7 +53,7 @@ En primer lugar, cree el grupo de recursos con [az group create](/cli/azure/grou
 az group create --name myResourceGroup --location westeurope
 ```
 
-Cree la cuenta de almacenamiento con [az storage account create](/cli/azure/storage/account#create). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount`. El nombre de la cuenta de almacenamiento debe ser único, así que indique su propio nombre único.
+El paso siguiente es opcional. La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 (versión preliminar) consiste en usar Azure Managed Disks. Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks). En cambio, si desea usar discos no administrados, debe crear una cuenta de almacenamiento con [az storage account create](/cli/azure/storage/account#create). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount`. El nombre de la cuenta de almacenamiento debe ser único, así que indique su propio nombre único.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -167,7 +167,7 @@ az vm availability-set create --resource-group myResourceGroup --location westeu
   --name myAvailabilitySet
 ```
 
-Cree la primera máquina virtual Linux con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual denominada `myVM1`:
+Cree la primera máquina virtual Linux con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una VM denominada `myVM1` mediante Azure Managed Disks. Si desea usar discos no administrados, vea la nota adicional a continuación.
 
 ```azurecli
 az vm create \
@@ -179,10 +179,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Si usa Azure Managed Disks, omita este paso. Si desea usar discos no administrados y ha creado una cuenta de almacenamiento en los pasos anteriores, debe agregar algunos parámetros adicionales al comando de continuación. Agregue los siguientes parámetros adicionales al comando de continuación para crear los discos no administrados en la cuenta de almacenamiento denominada `mystorageaccount`: 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Cree la segunda máquina virtual Linux, de nuevo con **az vm create**. En el ejemplo siguiente se crea una máquina virtual denominada `myVM2`:
@@ -197,11 +203,17 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+De nuevo, si no utiliza Azure Managed Disks de forma predeterminada, agregue los parámetros adicionales siguientes al comando de continuación para crear los discos no administrados en la cuenta de almacenamiento denominada `mystorageaccount`:
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 Compruebe que todo se ha creado correctamente con [az vm show](/cli/azure/vm#show):
 
@@ -245,7 +257,9 @@ De forma predeterminada, la salida está en JSON (notación de objetos JavaScrip
 ```
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
-Las cuentas de almacenamiento son necesarias tanto para los discos de su máquina virtual como para cualquier otro disco de datos adicionales que desee agregar. Las cuentas de almacenamiento se crean casi inmediatamente después de crear los grupos de recursos.
+El paso siguiente es opcional. La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 (versión preliminar) consiste en usar Azure Managed Disks. Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks). Vaya a [Creación de una red virtual y una subred](#create-a-virtual-network-and-subnet) si desea usar Azure Managed Disks. 
+
+Si desea usar discos no administrados, necesita crear una cuenta de almacenamiento para los discos de la VM y para todos los discos de datos adicionales que desea agregar.
 
 Aquí se usa [az storage account create](/cli/azure/storage/account#create) y se pasa la ubicación de la cuenta, el grupo de recursos que la controla y el tipo de soporte de almacenamiento que quiere. En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount`:
 
@@ -994,11 +1008,11 @@ Lea más sobre cómo [administrar la disponibilidad de las máquinas virtuales](
 
 
 ## <a name="create-the-linux-vms"></a>Creación de las máquinas virtuales Linux
-Ha creado los recursos de almacenamiento y de red necesarios para dar soporte a máquinas virtuales con acceso a Internet. Ahora crearemos dichas máquinas virtuales y las protegeremos con una clave SSH sin contraseña. En este caso, vamos a crear una máquina virtual con Ubuntu basada en la LTM más reciente. Vamos a buscar esa información de la imagen mediante [az vm image list](/cli/azure/vm/image#list), tal como se describe en el artículo sobre cómo [buscar imágenes de máquina virtual de Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ha creado los recursos de red para dar soporte a VM con acceso a Internet. Ahora crearemos dichas máquinas virtuales y las protegeremos con una clave SSH sin contraseña. En este caso, vamos a crear una máquina virtual con Ubuntu basada en la LTM más reciente. Vamos a buscar esa información de la imagen mediante [az vm image list](/cli/azure/vm/image#list), tal como se describe en el artículo sobre cómo [buscar imágenes de máquina virtual de Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 También especificamos una clave SSH para usarla para la autenticación. Si no tiene ninguna clave SSH, puede crearlas mediante [estas instrucciones](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Como alternativa, puede usar el método `--admin-password` para autenticar sus conexiones SSH una vez creada la máquina virtual. Este método suele ser menos seguro.
 
-Creamos la máquina virtual, para lo que reunimos toda nuestra información y recursos con el comando [az vm create](/cli/azure/vm#create):
+Se crea la VM, para lo que se recopila toda la información y los recursos con el comando [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una VM denominada `myVM1` mediante Azure Managed Disks. Si desea usar discos no administrados, vea la nota adicional a continuación.
 
 ```azurecli
 az vm create \
@@ -1010,10 +1024,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Si usa Azure Managed Disks, omita este paso. Si desea usar discos no administrados y ha creado una cuenta de almacenamiento en los pasos anteriores, debe agregar algunos parámetros adicionales al comando de continuación. Agregue los siguientes parámetros adicionales al comando de continuación para crear los discos no administrados en la cuenta de almacenamiento denominada `mystorageaccount`: 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Salida:
@@ -1069,11 +1089,17 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+De nuevo, si no utiliza Azure Managed Disks de forma predeterminada, agregue los parámetros adicionales siguientes al comando de continuación para crear los discos no administrados en la cuenta de almacenamiento denominada `mystorageaccount`:
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 Llegados a este punto, ejecuta las máquinas virtuales con Ubuntu detrás de un equilibrador de carga en Azure en las que solo puede iniciar sesión con el par de claves SSH (porque las contraseñas están deshabilitadas). Puede instalar nginx o httpd, implementar una aplicación web y ver cómo fluye el tráfico a las dos máquinas virtuales a través del equilibrador de carga.
 
@@ -1101,6 +1127,6 @@ Ya está listo para empezar a trabajar con varios componentes de red y máquinas
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

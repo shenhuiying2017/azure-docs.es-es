@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 599b0bdaef2d0189bbe03153ff82489fbd32dd1b
+ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
+ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
 
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
+
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Analytics y cómo ver los registros recopilados relativos a su cuenta.
 
 Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta de Azure Data Lake Analytics para recopilar trazas de auditoría de acceso a datos. Estos registros proporcionan información como:
@@ -30,47 +31,72 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
 * Cantidad de datos que se almacena en la cuenta.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Habilite su suscripción de Azure** para la versión preliminar pública de Data Lake Analytics. Consulte las [instrucciones](data-lake-analytics-get-started-portal.md).
+
 * **Cuenta de Azure Data Lake Analytics**. Siga las instrucciones que se describen en [Introducción a Azure Data Lake Analytics mediante el Portal de Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Habilitación del registro
-1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
-2. Abra la cuenta de Data Lake Analytics y, en la hoja de la cuenta de Data Lake Analytics, haga clic en **Configuración** y en **Configuración de diagnóstico**.
-3. En la hoja **Diagnóstico** , realice los siguientes cambios para configurar el registro de diagnósticos.
 
-    ![Activación del registro de diagnóstico](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
+
+2. Abra su cuenta de Data Lake Analytics y seleccione **Registros de diagnósticos** en la __sección Supervisión__. Después, seleccione __Activar diagnósticos__.
+
+    ![Activar los diagnósticos para recopilar registros de solicitudes y auditoría](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+
+3. En __Configuración de diagnóstico__, establezca el estado en __Activado__ y seleccione las opciones de registro.
+
+    ![Activar los diagnósticos para recopilar registros de solicitudes y auditoría](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Habilitar registros de diagnósticos")
 
    * Establezca el **Estado** en **Activado** para habilitar el registro de diagnóstico.
+
    * Puede optar por almacenar o procesar los datos de dos maneras diferentes.
-     * Seleccione **Exportar a Centro de eventos** para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
-     * Seleccione **Exportar a cuenta de almacenamiento** para almacenar los registros en una cuenta de Almacenamiento de Azure. Utilice esta opción si desea archivar los datos. Si selecciona esta opción, debe proporcionar una cuenta de Almacenamiento de Azure para guardar los registros.
+
+     * Seleccione __Archive to a storage account__ (Archivar en cuenta de almacenamiento) para almacenar los registros en una cuenta de almacenamiento de Azure. Utilice esta opción si desea archivar los datos. Si selecciona esta opción, debe proporcionar una cuenta de almacenamiento de Azure para guardar los registros.
+
+     * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
+
+     * Seleccione __Send to Log Analytics__ (Enviar a Log Analytics) para enviar los datos al servicio Log Analytics. Utilice esto si desea usar Log Analytics para recopilar y analizar registros.
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
+
    * Especifique el número de días durante los que deben conservarse los datos.
+
    * Haga clic en **Guardar**.
 
-Una vez habilitada la configuración de diagnóstico, puede ver los registros en la pestaña **Registros de diagnóstico** .
+        > [!NOTE]
+        > Debe seleccionar __Archive to a storage account__ (Archivar en cuenta de almacenamiento), __Stream to an Event Hub__ (Transmitir a un centro de eventos) o __Send to Log Analytics__ (Enviar a Log Analytics) antes de usar el botón __Guardar__.
+
+Una vez habilitada la configuración de diagnóstico, puede volver a la hoja __Registros de diagnósticos__ para ver los registros.
 
 ## <a name="view-logs"></a>Ver registros
+
 Existen dos formas de ver los datos de registro para la cuenta de Data Lake Analytics.
 
 * Desde la configuración de la cuenta de Data Lake Analytics
 * Desde la cuenta de Almacenamiento de Azure donde se almacenan los datos
 
 ### <a name="using-the-data-lake-analytics-settings-view"></a>Uso de la vista de configuración de Data Lake Analytics
-1. En la hoja **Configuración** de su cuenta de Data Lake Analytics, haga clic en **Registros de diagnóstico**.
 
-    ![Visualización del registro de diagnósticos](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
-2. En la hoja **Registros de diagnóstico**, debería ver los registros clasificados por **Registros de auditoría** y **Registros de solicitudes**.
+1. En la hoja de la cuenta de Data Lake Analytics, seleccione **Registros de diagnósticos** y luego seleccione la entrada para la que se van a mostrar los registros.
+
+    ![Ver registro de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Ver registros de diagnóstico")
+
+2. Hay dos categorías de registros: **Registros de auditoría** y **Registros de solicitudes**.
+
+    ![entradas del registro](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Analytics.
    * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Analytics. Por ejemplo, una llamada de API de carga única en los registros de solicitud podría producir varias operaciones "Append" en los registros de auditoría.
+
 3. Haga clic en el vínculo **Descargar** para que una entrada de registro descargue los registros.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>En la cuenta de Almacenamiento de Azure que contiene los datos de registro
+
 1. Abra la hoja de la cuenta de Almacenamiento de Azure asociada con Data Lake Analytics para el registro y haga clic en Blobs. La hoja **Servicio Blob** muestra dos contenedores.
 
-    ![Visualización del registro de diagnósticos](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Ver registro de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Ver registros de diagnóstico")
 
    * El contenedor **insights-logs-audit** contiene los registros de auditoría.
    * El contenedor **insights-logs-requests** contiene los registros de solicitudes.
@@ -94,8 +120,6 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Anal
 
    > [!NOTE]
    > La hoja `##` de la ruta de acceso contienen el año, mes, día y hora en que se creó el registro. Data Lake Analytics crea un archivo cada hora, por lo que `m=` siempre contiene un valor de `00`.
-   >
-   >
 
     Por ejemplo, la ruta de acceso completa a un registro de auditoría sería:
 
@@ -106,9 +130,11 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Anal
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
 ## <a name="log-structure"></a>Estructura de los registros
+
 Los registros de auditoría y de solicitud tienen un formato JSON. En esta sección, veremos la estructura de JSON de los registros de auditoría y de solicitud.
 
 ### <a name="request-logs"></a>Request Logs
+
 Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro.
 
     {
@@ -140,6 +166,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
     }
 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
+
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
@@ -153,6 +180,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de solicitud) para más información |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
+
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | HttpMethod |String |Método HTTP usado en la operación. Por ejemplo, GET. |
@@ -163,6 +191,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | EndTime |String |Hora a la que el servidor ha enviado una respuesta. |
 
 ### <a name="audit-logs"></a>Registros de auditoría
+
 Este es un ejemplo de una entrada en el registro de auditoría con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro
 
     {
@@ -189,6 +218,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
     }
 
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
+
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
@@ -197,7 +227,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | operationName |String |Nombre de la operación que se registra. Por ejemplo, JobSubmitted. |
 | resultType |String |Un subestado para el estado del trabajo (operationName). |
 | resultSignature |String |Detalles adicionales sobre el estado del trabajo (operationName). |
-| identidad |String |El usuario que solicitó la operación. Por ejemplo, naiara@contoso.com. |
+| identidad |String |El usuario que solicitó la operación. Por ejemplo: susan@contoso.com. |
 | propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de auditoría) para más información |
 
 > [!NOTE]
@@ -206,6 +236,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 >
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
+
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | JobId |String |El identificador asignado al trabajo |
@@ -218,10 +249,9 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** y **Parallelism** proporcionan información sobre una operación y solo contendrán algún valor si una operación se ha iniciado o completado. Por ejemplo, **SubmitTime** contiene un valor después de que **operationName** indique **JobSubmitted**.
->
->
 
 ## <a name="process-the-log-data"></a>Procesamiento de los datos de registro
+
 Azure Data Lake Analytics proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -229,6 +259,6 @@ Azure Data Lake Analytics proporciona un ejemplo de cómo procesar y analizar lo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
