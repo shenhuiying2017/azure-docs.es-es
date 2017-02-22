@@ -12,24 +12,22 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4dc2137ce42e3ed8e85d57dacc1acecc6de243e
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: c5f1ab504bcb639260b2500d462a56ea30cab9aa
 
 
 ---
 # <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Administración de Base de datos SQL de Azure con el uso de SQL Server Management Studio
-> [!div class="op_single_selector"]
-> * [Portal de Azure](sql-database-manage-portal.md)
-> * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor creados en la Base de datos SQL de Azure antes de comenzar. Consulte [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md) y [Conexión y consulta mediante SSMS](sql-database-connect-query-ssms.md) para más información.
+
+> [!TIP]
+> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started.md).
+>
 
 Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. 
 
@@ -142,6 +140,6 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

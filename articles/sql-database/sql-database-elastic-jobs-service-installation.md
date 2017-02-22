@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
 
 
 ---
@@ -147,7 +147,7 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Instalación de componentes de Trabajos de base de datos elástica mediante el Portal
-Una vez creado el [grupo elástico](sql-database-elastic-pool-create-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica** , la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
+Una vez creado el [grupo elástico](sql-database-elastic-pool-manage-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica** , la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
 
 **Tiempo estimado para completar el tutorial:** 10 minutos.
 
@@ -181,6 +181,6 @@ Consulte [Creación y administración de trabajos de base de datos elástica](sq
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 79adce1f3fb9a33e60159af72e83118dd88e0946
-ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
+ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
+ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
 
 
 ---
@@ -70,7 +70,7 @@ Se recomienda que configure un único host de Hyper-V como servidor de recuperac
 3. Configure la autenticación:
 
    * En **Autenticación y puertos** , seleccione cómo autenticar el servidor principal y los puertos de autenticación. Si usa certificados, haga clic en **Seleccionar certificado** para seleccionar uno. Use Kerberos si el host de Hyper-V principal y el de recuperación se encuentran en el mismo dominio o en dominios de confianza. Use certificados si los dominios son diferentes o si la implementación es para un grupo de trabajo.
-   * En la sección **Autorización y almacenamiento**, especifique si se permite que **cualquier** servidor autenticado (principal) envíe datos de replicación a este servidor de réplica. 
+   * En la sección **Autorización y almacenamiento**, especifique si se permite que **cualquier** servidor autenticado (principal) envíe datos de replicación a este servidor de réplica.
 
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * Ejecute **netsh http show servicestate** para comprobar que el agente de escucha se esté ejecutando para el puerto y el protocolo especificados:  
@@ -133,11 +133,9 @@ Cuando haya terminado de planear la capacidad, puede comenzar a implementar Site
 * [Replicación de máquinas virtuales de Hyper-V de nubes VMM en Azure](site-recovery-vmm-to-azure.md)
 * [Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicación de máquinas virtuales de Hyper-V entre sitios VMM](site-recovery-vmm-to-vmm.md)
-* [Replicación de máquinas virtuales de Hyper-V entre sitios VMM con SAN](site-recovery-vmm-san.md)
-* [Replicación de máquinas virtuales de Hyper-V en un único servidor VMM](site-recovery-single-vmm.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
