@@ -101,7 +101,7 @@ Modifique `App.xaml.cs`:
 > 
 
 ## <a name="basic-reporting"></a>Informes básicos
-### <a name="recommended-method-overload-your-phoneapplicationpage-classes"></a>Método recomendado: sobrecargar las clases `PhoneApplicationPage`
+### <a name="recommended-method--overload-your-phoneapplicationpage-classes"></a>Método recomendado: sobrecargar las clases `PhoneApplicationPage`
 Para activar el informe de todos los registros que Engagement necesita para calcular las estadísticas de usuarios, sesiones, actividades, bloqueos y aspectos técnicos, puede hacer que todas las subclases `PhoneApplicationPage` hereden de las clases `EngagementPage`.
 
 Este es un ejemplo de cómo hacer esto para una página de la aplicación. Puede hacer lo mismo para todas las páginas de la aplicación.

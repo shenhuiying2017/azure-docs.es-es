@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de M
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Tráfico procedente de la red destinado a Microsoft
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Tráfico procedente de la red destinado a Microsoft
 * Debe asegurarse de que el tráfico se introduce en la ruta de acceso de emparejamiento de Microsoft con una dirección IPv4 pública válida. Microsoft debe poder validar al propietario del grupo de direcciones NAT IPv4 en el registro de Internet de enrutamiento regional (RIR) o en un registro de enrutamiento de Internet (IRR). Se realizará una comprobación basándose en el número AS de emparejamiento y las direcciones IP usadas para NAT. Consulte la página [Requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para obtener información sobre los registros de enrutamiento.
 * Las direcciones IP usadas para la configuración de emparejamiento público de Azure y otros circuitos ExpressRoute no se deben anunciar a Microsoft a través de la sesión BGP. No hay ninguna restricción en la longitud del prefijo de la dirección IP NAT anunciado a través de este emparejamiento.
   
@@ -54,7 +54,7 @@ El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de M
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfico procedente de Microsoft destinado a la red
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfico procedente de Microsoft destinado a la red
 * Algunos escenarios requieren que Microsoft inicie la conectividad con extremos de servicio hospedados dentro de la red. Un ejemplo típico del escenario sería la conectividad con los servidores ADFS hospedados en la red de Office 365. En tales casos, debe filtrar prefijos adecuados desde la red en el emparejamiento de tráfico de Microsoft. 
 * Debe aplicar SNAT al tráfico destinado a direcciones IP dentro de la red desde Microsoft. 
 
@@ -70,6 +70,6 @@ El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de M
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

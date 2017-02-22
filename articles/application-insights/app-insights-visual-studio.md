@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 06/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8886107f96f31f668ce55ebb4c76e58ad1f21268
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 2334a85402049eb8654039e98cf2c3131a43de62
 
 
 ---
 # <a name="working-with-application-insights-in-visual-studio"></a>Trabajo con Application Insights en Visual Studio
-En Visual Studio (2015 y posterior), se pueden analizar los problemas de rendimiento y diagnóstico, tanto en depuración como en producción, mediante los datos de telemetría de [Visual Studio Application Insights](app-insights-overview.md).
+En Visual Studio (2015 y versiones posteriores), se pueden analizar los problemas de rendimiento y diagnóstico, tanto en tiempo de depuración como en producción, mediante los datos de telemetría de [Azure Application Insights](app-insights-overview.md).
 
 Si aún no ha [instalado Application Insights en su aplicación](app-insights-asp-net.md), hágalo ahora.
 
@@ -94,6 +94,6 @@ Para detectar anomalías en los datos, elija una de las opciones de anomalía en
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
