@@ -16,18 +16,12 @@ ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 473d6195acf7867c3dd1348ff8644d0c3a26f986
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL
-> [!div class="op_single_selector"]
-> * [Portal de Azure](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con Transact-SQL. Para configurar la replicación geográfica, consulte [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-transact-sql.md).
 
@@ -99,6 +93,6 @@ Use los pasos siguientes para iniciar una conmutación por error no planeada.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

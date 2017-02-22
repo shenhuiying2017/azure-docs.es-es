@@ -11,14 +11,14 @@ ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 8fefa688ee52395d7dee2f53da12ebc50e84fb8e
 
 
 ---
@@ -38,7 +38,7 @@ La tabla siguiente compara los valores de ERT y RPO para los tres escenarios má
 | Replicación geográfica activa |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Uso de copias de seguridad para recuperar bases de datos
-Base de datos SQL realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 minutos con el fin de proteger su empresa contra la pérdida de datos. Estas copias de seguridad se guardan en un almacenamiento con redundancia geográfica durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium, y durante siete días en el nivel Básico. Para más información sobre los niveles de servicio, consulte los [niveles de servicio](sql-database-service-tiers.md). Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-scale-up.md). Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Consulte el artículo sobre [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md) para más información.
+Base de datos SQL realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada&5; minutos con el fin de proteger su empresa contra la pérdida de datos. Estas copias de seguridad se guardan en un almacenamiento con redundancia geográfica durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium, y durante siete días en el nivel Básico. Para más información sobre los niveles de servicio, consulte los [niveles de servicio](sql-database-service-tiers.md). Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-service-tiers.md). Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Consulte el artículo sobre [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md) para más información.
 
 Si el período de retención integrado no es suficiente para la aplicación, puede ampliarlo mediante la configuración de la directiva de retención a largo plazo para las bases de datos. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md). 
 
@@ -158,6 +158,6 @@ Para ver una explicación de las consideraciones de diseño de las aplicaciones 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: c033c1b32ad7b69565f870636110d317d01266df
-ms.openlocfilehash: 28489985797a638c04e1fabba30f42dac56d4d9c
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -82,7 +82,6 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Evaluación y mejora del rendimiento de la base de datos con la Base de datos SQL de Azure](sql-database-troubleshoot-performance.md)
-* [Tareas administrativas comunes en Base de datos SQL de Azure](sql-database-troubleshoot-permissions.md)
 * [Buscar en la documentación de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Ver las últimas actualizaciones del servicio Base de datos SQL](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -90,12 +89,10 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 * [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
 * [Orientación general sobre reintentos](../best-practices-retry-general.md)
 * [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
-* [La ruta aprendizaje para el uso de Base de datos SQL de Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

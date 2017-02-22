@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: ffb2f8d2eaaa0754063cd2f92791739b2dee3b16
 
 
 ---
@@ -26,20 +26,20 @@ En este artículo se explica cómo administrar la configuración de un grupo en 
 ## <a name="how-do-i-find-and-change-the-settings"></a>¿Cómo puedo buscar y cambiar la configuración?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
-   
+
    ![Apertura de Administración de usuarios](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
-   
+
    ![Apertura de la hoja Grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. En la hoja **Usuarios y grupos - Todos los grupos** , seleccione un grupo.
 5. En la hoja **Grupo - *nombre del grupo***, seleccione **Propiedades**.
-   
+
    ![Apertura de la hoja Propiedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Cuando termine de modificar las propiedades del grupo, seleccione **Guardar**.    
-   
+
    ![Guardado de los cambios de propiedades](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="additional-information"></a>Información adicional
+## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)
@@ -50,7 +50,6 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 73eec3322f8ee027c68ede89501b8b9fb00961a6
+ms.sourcegitcommit: f24227a33b2106955dc44defe8feb5a7d4dc655e
+ms.openlocfilehash: 6f6338d8c0e941b7fee4fb8c04315b26919716a3
 
 ---
 
@@ -148,18 +148,18 @@ El recurso de extensión final tiene un aspecto similar al siguiente ejemplo JSO
 }
 ```
 
-Si utiliza parámetros de plantilla para proporcionar valores de propiedad, estos deben crearse. Al crear parámetros de plantilla para los valores de configuración protegida, asegúrese de usar el tipo de parámetro `SecureObject` para que se protejan los valores confidenciales. Para más información sobre el uso de parámetros, consulte [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) (Creación de plantillas de Azure Resource Manager).
+Si utiliza parámetros de plantilla para proporcionar valores de propiedad, estos deben crearse. Al crear parámetros de plantilla para los valores de configuración protegida, asegúrese de usar el tipo de parámetro `SecureString` para que se protejan los valores confidenciales. Para más información sobre el uso de parámetros, consulte [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) (Creación de plantillas de Azure Resource Manager).
 
 En el ejemplo de la extensión `IaasDiagnostic`, se crearán los siguientes parámetros en la sección de parámetros de la plantilla de Resource Manager.
 
 ```json
 "storageAccountName": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 },
 "storageAccountKey": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 }
 ```
 
@@ -167,6 +167,6 @@ En este momento, la plantilla se puede implementar mediante cualquier método de
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

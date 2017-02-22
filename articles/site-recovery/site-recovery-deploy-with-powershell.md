@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: d3bf50e9e686acdac33ffaf9d781f02193406298
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: d5fed9feb2292002a06c426cdd9e4e18f67bd3ec
 
 
 ---
@@ -49,7 +49,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 ### <a name="azure-prerequisites"></a>Requisitos previos de Azure
 * Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/) . Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. [Más información sobre Almacenamiento de Azure](../storage/storage-introduction.md).
-* Deberá asegurarse de que las máquinas virtuales que quiere proteger cumplen los [requisitos previos de máquina virtual de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Deberá asegurarse de que las máquinas virtuales que quiere proteger cumplen los [requisitos previos de máquina virtual de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### <a name="vmm-prerequisites"></a>Requisitos previos de VMM
 * Necesitará un servidor VMM que se ejecute en System Center 2012 R2.
@@ -74,7 +74,6 @@ Si desea implementar la asignación de redes, necesitará lo siguiente:
 
 * Las máquinas virtuales que desea proteger en el servidor VMM de origen deben estar conectadas a una red de máquina virtual. Esa red debe estar vinculada a una red lógica asociada con la nube.
 * Una red de Azure a la que pueden conectarse máquinas virtuales replicadas después de la conmutación por error. Seleccionará esta red en el momento de la conmutación por error. La red debe estar en la misma región que su suscripción de Azure Site Recovery.
-* [Obtenga más información](site-recovery-network-mapping.md) sobre la asignación de redes:
 
 ### <a name="powershell-prerequisites"></a>Requisitos previos de PowerShell
 Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para información sobre cómo configurar PowerShell, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
@@ -302,7 +301,7 @@ El cmdlet final crea una asignación entre la red principal y la red de la máqu
 ## <a name="step-9-enable-protection-for-virtual-machines"></a>Paso 9: Habilitación de la protección para las máquinas virtuales
 Una vez que los servidores, las nubes y las redes se configuran correctamente, puede habilitar la protección para las máquinas virtuales en la nube. Tenga en cuenta lo siguiente:
 
-Las máquinas virtuales deben cumplir [Requisitos previos de las máquinas virtuales de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Las máquinas virtuales deben cumplir [Requisitos previos de las máquinas virtuales de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 Para habilitar la protección del sistema operativo y el disco del sistema operativo, deben establecerse las propiedades de la máquina virtual. Al crear una máquina virtual en VMM con una plantilla de máquina virtual puede establecer la propiedad. También puede establecer estas propiedades para máquinas virtuales existentes en las pestañas **General** y **Configuración del hardware** de las propiedades de la máquina virtual. Si no ve estas propiedades en VMM, podrá configurarlas en el portal de Azure Site Recovery.
 
@@ -408,6 +407,6 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 

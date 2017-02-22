@@ -16,18 +16,12 @@ ms.workload: data-management
 ms.date: 08/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-powershell"></a>Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con PowerShell
-> [!div class="op_single_selector"]
-> * [Portal de Azure](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 En este artículo se muestra cómo iniciar una conmutación por error planeada o no planeada para Base de datos SQL con PowerShell. Para configurar la replicación geográfica, consulte [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md).
 
@@ -45,7 +39,7 @@ Este cmdlet devolverá resultados cuando se complete el proceso de cambiar la ba
 
 El siguiente comando cambia los roles de la base de datos "mydb" en el servidor "srv2" en el grupo de recursos "rg2" a principal. La base de datos principal original a la que estaba conectada "db2" cambiará a secundaria después de que las dos bases de datos estén totalmente sincronizadas.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -70,8 +64,8 @@ Si la base de datos principal tiene varias bases de datos secundarias, el comand
 
 El siguiente comando cambia los roles de la base de datos "mydb" a principal cuando la base de datos principal no está disponible. La base de datos principal original a la que estaba conectada "mydb" cambiará a secundaria después de volver en línea de nuevo. En ese momento, la sincronización puede producir la pérdida de datos.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
+    $database | Set-AzureRmSqlDatabaseSecondary -Failover -AllowDataLoss
 
 
 
@@ -87,6 +81,6 @@ El siguiente comando cambia los roles de la base de datos "mydb" a principal cua
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

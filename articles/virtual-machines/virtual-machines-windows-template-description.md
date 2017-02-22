@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c94d114c50d44a3ca2933ec3464e7a2396867d60
-ms.openlocfilehash: eb94a0e383be4a2c125b9f5a2e7c1e49beacd4df
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
 
 
 ---
@@ -38,7 +38,7 @@ En este ejemplo se muestra una sección de recursos típica de una plantilla par
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop", 
+      "name": "virtualMachineLoop",    
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -230,7 +230,7 @@ Si necesita más de una máquina virtual para la aplicación, puede utilizar un 
 
 ```
 "copy": {
-  "name": "virtualMachineLoop", 
+  "name": "virtualMachineLoop",    
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -307,7 +307,7 @@ Al definir un recurso de máquina virtual, se utilizan varios elementos de perfi
 
 ## <a name="disks-and-images"></a>Discos e imágenes
    
-En Azure, los archivos de VHD pueden representar [discos o imágenes](virtual-machines-windows-about-disks-vhds.md). Cuando el sistema operativo de un archivo de VHD está especializado para ser una máquina virtual específica, se conoce como "disco". Cuando el sistema operativo de un archivo de VHD está generalizado para crear muchas máquinas virtuales, se conoce como "imagen".   
+En Azure, los archivos de VHD pueden representar [discos o imágenes](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cuando el sistema operativo de un archivo de VHD está especializado para ser una máquina virtual específica, se conoce como "disco". Cuando el sistema operativo de un archivo de VHD está generalizado para crear muchas máquinas virtuales, se conoce como "imagen".   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Creación de máquinas virtuales y discos a partir de una imagen de plataforma
 
@@ -500,6 +500,6 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 - Aprenda a administrar la máquina virtual que ha creado consultando [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

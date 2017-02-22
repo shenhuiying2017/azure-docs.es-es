@@ -4,7 +4,7 @@ description: "Puede usar la solución Azure Networking Analytics en Log Analytic
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: 
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: a5d0587a9b7c6ea228caa8ab23307f5f46d122ef
-ms.openlocfilehash: 840239d3bc7fd8c2ce68d0cce15f844c1f2693e7
+ms.sourcegitcommit: 14df6b49d79aa1bf6f414070c60e7acac6578301
+ms.openlocfilehash: 7267b41d5d1a7903a084eea2c813bc40249fbf6a
 
 
 ---
@@ -30,11 +30,6 @@ Puede usar la solución Azure Application Gateway Analytics de Log Analytics par
 Puede usar la solución Azure Network Security Group Analytics de Log Analytics para revisar lo siguiente:
 
 * Registros de Azure Network Security Group
-
-> [!NOTE]
-> Azure Application Gateway Analytics y Azure Network Security Group Analytics son [soluciones en versión preliminar](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
 
 Para usar la solución, habilite los diagnósticos para registros de Azure Application Gateway y Azure Network Security Group y dirija dichos diagnósticos a un área de trabajo de Log Analytics. No se requiere escribir los registros en Azure Blob Storage.
 
@@ -131,7 +126,6 @@ Para los grupos de seguridad de red se admiten los siguientes registros:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
-* NetworkSecurityGroupFlowEvent
 
 ### <a name="install-and-configure-the-solution"></a>Instalación y configuración de la solución
 Para instalar y configurar la solución Azure Networking Analytics, siga estas instrucciones:
@@ -211,12 +205,15 @@ Para usar las soluciones actualizadas:
 
 Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede seguir consultando estos datos con el tipo y los nombres de campo anteriores.
 
+## <a name="troubleshooting"></a>Solución de problemas
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre los diagnósticos de Azure.
 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

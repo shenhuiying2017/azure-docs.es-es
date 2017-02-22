@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 664abe5887b3d96eb48e3b47df9a32648ee623dd
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 8f7a679dc5b5726107503a9f7363ab162b1770d0
 
 
 ---
@@ -30,16 +30,15 @@ La experiencia de versión preliminar le permite administrar muchos recursos de 
 En la experiencia de versión preliminar se lee y escribe en el mismo inquilino de Azure Active Directory que el portal clásico y el Centro de administración de Office 365. Los cambios realizados en cualquiera de estos portales se reflejan en todos los demás.
 
 ## <a name="use-the-same-authorization-logic"></a>Uso de la misma lógica de autorización
-En la experiencia de versión preliminar se usa la misma lógica de autorización que en los clientes de Active Directory existentes. Los usuarios tienen autorización para realizar cambios en los recursos de directorio según su rol de directorio, como administrador global, administrador de usuarios o administrador de contraseñas. El hecho de tener un rol en recursos de Azure o en una suscripción de Azure no autoriza a un usuario a administrar recursos de directorio. Para obtener más información sobre los roles de administración de Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles.md). 
+En la experiencia de versión preliminar se usa la misma lógica de autorización que en los clientes de Active Directory existentes. Los usuarios tienen autorización para realizar cambios en los recursos de directorio según su rol de directorio, como administrador global, administrador de usuarios o administrador de contraseñas. El hecho de tener un rol en recursos de Azure o en una suscripción de Azure no autoriza a un usuario a administrar recursos de directorio. Para obtener más información sobre los roles de administración de Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles.md).
 
 La experiencia de versión preliminar está optimizada para los administradores globales. Si usa la experiencia de versión preliminar con una sesión iniciada como usuario que no es administrador global, su experiencia se verá limitada. Por ejemplo, podría seleccionar un botón que le permite iniciar una tarea que no se puede completar en el directorio. Pronto mejoraremos esta experiencia.
 
-## <a name="tell-us-what-you-think"></a>Díganos lo que opina.
+## <a name="next-steps"></a>Pasos siguientes
 Puede proporcionar comentarios sobre la experiencia de versión preliminar en la sección del portal de administración del [foro de comentarios de Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

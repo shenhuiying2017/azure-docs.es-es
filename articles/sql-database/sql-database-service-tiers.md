@@ -11,19 +11,19 @@ ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8ed4b3b30df6756c4e99e77476bc4c3a21bba90e
-ms.openlocfilehash: e93d54910d8ed64879e66542c4c795101bc19a41
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
-[Azure SQL Database](sql-database-technical-overview.md) ofrece tres niveles de servicio: **Básico**, **Estándar** y **Premium**, con varios niveles de rendimiento para controlar diferentes cargas de trabajo. Niveles de rendimiento más altos proporcionan recursos diseñados para proporcionar un mayor rendimiento. Puede cambiar los [niveles de servicio y de rendimiento dinámicamente](sql-database-scale-up.md) sin tiempo de inactividad. Los niveles de servicio Básico, Estándar y Premium tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. 
+[Azure SQL Database](sql-database-technical-overview.md) ofrece tres niveles de servicio: **Básico**, **Estándar** y **Premium**, con varios niveles de rendimiento para controlar diferentes cargas de trabajo. Niveles de rendimiento más altos proporcionan recursos diseñados para proporcionar un mayor rendimiento. Puede cambiar los [niveles de servicio y de rendimiento dinámicamente](sql-database-service-tiers.md) sin tiempo de inactividad. Los niveles de servicio Básico, Estándar y Premium tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. 
 
 Puede crear bases de datos únicas con recursos dedicados en el [nivel de rendimiento](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) seleccionado. También puede administrar varias bases de datos en un [grupo elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus), en el que los recursos se comparten en las bases de datos. Los recursos disponibles para las bases de datos únicas se expresan en términos de unidades de transacción de base de datos (DTU) y para los grupos elásticos en términos de DTU elásticas (eDTU). Para más información sobre DTU y eDTU, consulte el artículo de [descripción de las DTU](sql-database-what-is-a-dtu.md). 
 
@@ -48,7 +48,7 @@ En primer lugar, decida si desea ejecutar una base de datos única o agrupar las
 Cuando haya determinado el nivel de servicio mínimo, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Con frecuencia, los niveles de rendimiento S2 y S3 estándar son un buen punto de partida. Para las bases de datos con los requisitos de CPU o E/S altos, los niveles de rendimiento Premium son el punto de partida adecuado. El nivel Premium ofrece más CPU y comienza en 10 veces más E/S que el nivel de rendimiento estándar más alto.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Niveles de servicio de la Base de datos única y niveles de rendimiento
-Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel más adecuado a las exigencias de su carga de trabajo. Si necesita escalar o reducir verticalmente, puede cambiar fácilmente los niveles de la base de datos. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-scale-up.md) .
+Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel más adecuado a las exigencias de su carga de trabajo. Si necesita escalar o reducir verticalmente, puede cambiar fácilmente los niveles de la base de datos. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-service-tiers.md) .
 
 Independientemente de la cantidad de bases de datos hospedadas, la base de datos seguirá recibiendo un conjunto de recursos garantizado, y las características de rendimiento previstas de la base de datos no se verán afectadas.
 
@@ -110,6 +110,6 @@ Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
