@@ -1,10 +1,10 @@
 ---
-title: "Descripción de la factura | Microsoft Azure"
+title: "Descripción de la factura de Azure | Microsoft Docs"
 description: "Aprenda a leer y entender el uso y la factura de la suscripción de Azure"
 services: 
 documentationcenter: 
 author: genlin
-manager: stevenpo
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 02/03/2017
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b107405081429626bf1e758567ae5427e2dbca15
+ms.sourcegitcommit: 29a6290a19186d5bc8a07d87617b47d21529d6b7
+ms.openlocfilehash: 2e99332e2a2b023c00669b3ad5ea07f0c791a805
 
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
-Para entender la factura de Azure, revise la factura con el resumen de cargos y el archivo independiente de uso diario detallado. En este artículo se describen la mayoría de los términos que se muestran en la factura y en el archivo de uso diario. Para más información, consulte [Cómo descargar las datos de uso diario y de factura de facturación de Azure](../billing-download-azure-invoice-daily-usage-date.md). Si va a usar una suscripción de prueba gratuita, puede obtener la información de uso diario pero no tendrá una factura.
+Para entender la factura de Azure, revise la factura con el resumen de cargos y el archivo independiente de uso diario detallado. En este artículo se describen la mayoría de los términos que se muestran en la factura y en el archivo de uso diario. Para obtener estos archivos, consulte el artículo sobre [cómo obtener los datos de uso diario y de factura de facturación de Azure](billing-download-azure-invoice-daily-usage-date.md). Si va a usar una suscripción de prueba gratuita, puede obtener la información de uso diario pero no tendrá una factura.
 
 Los cargos de las suscripciones de Microsoft Azure varían según el plan de tarifas. Algunos planes de tarifas, como el de los suscriptores de Visual Studio Enterprise (MPN), incluyen créditos mensuales que puede usar en cualquier servicio de Azure según sus necesidades.
 
 En la factura actual pueden aparecer hasta 24 horas de uso al final del período de facturación anterior. Además, los cargos enumerados en los extractos de facturación para clientes internacionales tienen únicamente carácter estimativo. Los bancos tienen costos diferentes para los tipos de conversión.
 
 ## <a name="a-namepdfa-understand-your-invoice-pdf"></a><a name="pdf"></a> Descripción de la factura (.pdf)
-La factura proporciona un resumen de los cargos. Puede descargarla en el formato de documento portátil (.pdf) desde [Azure Portal](https://portal.azure.com). Para más información, consulte [Cómo descargar las datos de uso diario y de factura de facturación de Azure](../billing-download-azure-invoice-daily-usage-date.md). 
+La factura proporciona un resumen de los cargos. Puede descargarla en el formato de documento portátil (.pdf) desde [Azure Portal](https://portal.azure.com). Para obtener más información, consulte el artículo sobre [cómo obtener los datos de uso diario y de factura de facturación de Azure](billing-download-azure-invoice-daily-usage-date.md). 
 
 Las siguientes secciones enumeran la mayoría de los términos que ve en la factura y las descripciones de cada uno.
 
@@ -43,10 +43,10 @@ La sección de información de cuenta muestra información sobre el uso y el per
 | Número de factura |Identificador único de factura con fines de seguimiento |
 | Ciclo de facturación |Intervalo de fechas que cubre esta factura |
 | Fecha de la factura |Fecha en que se ha generado la factura |
-| Método de pago |Tipo de pago que se usa en la cuenta (factura o tarjeta de crédito). Si necesita actualizar su tarjeta de crédito, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](../billing-how-to-change-credit-card.md). Si representa una empresa, puede pagar su suscripción de Azure con métodos de pago de factura como cheques, cheques urgentes o transferencias electrónicas. Consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/). |
-| Dirección de facturación |Dirección de pagos de Microsoft Azure. Para actualizar la dirección de facturación asociada a la tarjeta de crédito, vaya a la página de suscripción del [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions). |
-| Oferta de suscripción |Tipo de oferta de suscripción que se adquirió (pago por uso, BizSpark Plus, Pase para Azure, etc.) Si desea cambiar el pago por uso por otra oferta de suscripción, consulte [Cambio de la suscripción de Azure a otra oferta](../billing-how-to-switch-azure-offer.md). |
-| Correo electrónico del propietario de cuenta |La dirección de correo electrónico de la cuenta con que está registrada la cuenta de Microsoft Azure. Para cambiar la dirección de correo electrónico, consulte [Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto](../billing-how-to-change-azure-account-profile.md). |
+| Método de pago |Tipo de pago que se usa en la cuenta (factura o tarjeta de crédito). Si necesita actualizar su tarjeta de crédito, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md). Si representa una empresa, puede pagar su suscripción de Azure con métodos de pago de factura como cheques, cheques urgentes o transferencias electrónicas. Consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/). |
+| Dirección de facturación |Dirección de pagos de Microsoft Azure. Obtenga información sobre cómo actualizar la información de facturación en [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md). |
+| Oferta de suscripción |Tipo de oferta de suscripción que se adquirió (pago por uso, BizSpark Plus, Pase para Azure, etc.) Si desea cambiar el pago por uso por otra oferta de suscripción, consulte [Cambio de la suscripción de Azure a otra oferta](billing-how-to-switch-azure-offer.md). |
+| Correo electrónico del propietario de cuenta |La dirección de correo electrónico de la cuenta con que está registrada la cuenta de Microsoft Azure. Para cambiar la dirección de correo electrónico, consulte [Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto](billing-how-to-change-azure-account-profile.md). |
 
 ### <a name="understand-the-invoice-summary"></a>Comprender el resumen de factura
 La sección **Resumen de factura** de la factura resume las transacciones desde la última factura y los cargos de uso actuales.
@@ -76,11 +76,11 @@ En la tabla siguiente se describen la dirección de venta y las instrucciones de
 
 | Término | Description |
 | --- | --- |
-| Dirección de venta |Se rellena previamente con la dirección del perfil de la cuenta. Si tiene que modificarla, consulte [Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto](../billing-how-to-change-azure-account-profile.md). |
+| Dirección de venta |Se rellena previamente con la dirección del perfil de la cuenta. Si tiene que modificarla, consulte [Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto](billing-how-to-change-azure-account-profile.md). |
 | Instrucciones de pago |Si su método de pago es factura, aquí es donde debe enviar los cheques, las transferencias bancarias o los cheques por correo nocturno. Para más información, consulte [Facturación de Azure: cómo realizar la facturación](https://azure.microsoft.com/pricing/invoicing/). |
 
 ## <a name="a-namecsva-understand-detailed-usage-charges-csv"></a><a name="csv"></a> Descripción de los cargos por uso detallado (.csv)
-El archivo de uso muestra la cantidad de cada recurso que se utiliza dentro del período de facturación actual. Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo. Si ve dos versiones disponibles, descargue la versión 2. Este es el formato de archivo más reciente. Para más información, consulte [Cómo descargar las datos de uso diario y de factura de facturación de Azure](../billing-download-azure-invoice-daily-usage-date.md).
+El archivo de uso muestra la cantidad de cada recurso que se utiliza dentro del período de facturación actual. Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo. Si ve dos versiones disponibles, descargue la versión 2. Este es el formato de archivo más reciente. Para obtener más información, consulte el artículo sobre [cómo obtener los datos de uso diario y de factura de facturación de Azure](billing-download-azure-invoice-daily-usage-date.md).
 
 Los cargos de uso son los cargos totales **mensuales** de una suscripción, menos cualquier crédito o descuento. Se le facturará según el uso que haya realizado el mes anterior.  
 
@@ -131,6 +131,15 @@ La sección de uso diario del archivo muestra los detalles de uso que afectan a 
 |Información de servicio 1 |El nombre del proyecto al que pertenece el servicio en la suscripción. |
 |Información de servicio 2 |Se trata de un campo heredado que captura los metadatos específicos del servicio opcional. |
 
+## <a name="tips-for-cost-management"></a>Sugerencias de administración de costes
+Es conveniente ser proactivo a la hora de controlar los costes:
+
+- Calcule los costes mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/), la [calculadora de coste total de propiedad](https://aka.ms/azure-tco-calculator) y cuando agregue un servicio
+- [Configurar alertas de facturación](billing-set-up-alerts.md)
+- [Revise el uso y los costes con regularidad en Azure Portal](billing-getting-started.md#costs)
+
+Para más información, consulte [Introducción a la administración de costes y facturación de Azure](billing-getting-started.md).
+
 ## <a name="how-do-i-make-a-payment"></a>¿Cómo se puede realizar un pago?
 Si ha configurado una tarjeta de crédito o de débito como forma de pago, el pago se realizará automáticamente. Si se encuentra en un [método de factura de pago](https://azure.microsoft.com/pricing/invoicing/), envíe el pago a la ubicación indicada en la parte inferior de la factura. Para obtener ayuda, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -138,7 +147,7 @@ Si ha configurado una tarjeta de crédito o de débito como forma de pago, el pa
 [Cree una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar el estado de su pago. 
 
 ## <a name="what-about-marketplace-orders-or-external-service-charges"></a>¿Qué hay acerca de los pedidos de Marketplace o los cargos por servicios externos?
-Los servicios externos se solían llamar pedidos de Marketplace. Los servicios externos los proporcionan proveedores de servicios independientes, pero están integrados en el ecosistema de Azure. Para aprender más, consulte [Descripción de los gastos de servicios externos de Azure](../billing-understand-your-azure-marketplace-charges.md).
+Los servicios externos se solían llamar pedidos de Marketplace. Los servicios externos los proporcionan proveedores de servicios independientes, pero están integrados en el ecosistema de Azure. Para aprender más, consulte [Descripción de los gastos de servicios externos de Azure](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico. 
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
@@ -149,6 +158,6 @@ Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte té
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

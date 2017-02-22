@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
-ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
+ms.sourcegitcommit: a87b2811175193377142e391597011f48f169f11
+ms.openlocfilehash: 4c16c843ba43a9e38d73fc1fd44d06f6f72de60c
 
 
 ---
@@ -40,7 +40,7 @@ Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](docu
 
     Establezca la capacidad de almacenamiento en **10 GB** si desea una [colección de partición única](documentdb-partition-data.md#single-partition-and-partitioned-collections) con niveles de rendimiento desde 400-10.000 unidades de solicitud/segundo (RU/s). Una RU corresponde al rendimiento de una lectura de un documento de 1 KB. Para más información sobre las unidades de solicitud, consulte [Unidades de solicitud en DocumentDB](documentdb-request-units.md).
 
-    Establezca la capacidad de almacenamiento en **250 GB** si desea una [colección particionada](documentdb-partition-data.md#single-partition-and-partitioned-collections) que se pueda escalar para administrar una cantidad ilimitada de almacenamiento en varias particiones, y puede tener niveles de rendimiento superiores a 10,100 RU/s.
+    Establezca la capacidad de almacenamiento en **250 GB** si desea una [colección particionada](documentdb-partition-data.md#single-partition-and-partitioned-collections) que se pueda escalar para administrar una cantidad ilimitada de almacenamiento en varias particiones, y puede tener niveles de rendimiento superiores a 2500 RU/s.
 
     Establezca la capacidad de almacenamiento en **Personalizada** si desea proporcionar una cantidad diferente de 10 GB o 250 GB. DocumentDB tiene posibilidades de escalado prácticamente ilimitadas, así que incluya el tamaño de almacenamiento y el valor de rendimiento solicitados en la solicitud de soporte.
 
@@ -83,6 +83,6 @@ Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](docume
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

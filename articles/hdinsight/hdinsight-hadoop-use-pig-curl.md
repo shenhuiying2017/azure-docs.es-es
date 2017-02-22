@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 476af10550075cde145a9cf2153330f063ad17b3
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: d4d9ed8380a0e8726fe2e2835e4b10fd262e1562
 
 
 ---
@@ -34,7 +34,7 @@ CURL sirve para demostrar cómo se puede interactuar con HDInsight mediante soli
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
 
-Para completar los pasos de este artículo, necesitará lo siguiente:
+Necesitará lo siguiente para completar los pasos de este artículo:
 
 * Un clúster de HDInsight de Azure (Hadoop en HDInsight) (basado en Windows o en Linux)
 
@@ -70,7 +70,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 2. Utilice el siguiente código para enviar un trabajo de Pig Latin al clúster:
    
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasbs:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasbs:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
    
     Los parámetros que se utilizan en este comando son los siguientes:
    
@@ -98,18 +98,9 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 ## <a name="a-idresultsaview-results"></a><a id="results"></a>Visualización de resultados
 
-Cuando el estado del trabajo haya cambiado a **SUCCEEDED**, puede recuperar los resultados del trabajo desde Azure Blob Storage. El parámetro `statusdir` pasado con la consulta contiene la ubicación del archivo de salida; en este caso, **wasb:///example/pigcurl**. Esta dirección almacena el resultado del trabajo en el directorio **example/pigcurl** en el contenedor de almacenamiento predeterminado utilizado por el clúster de HDInsight.
+Cuando el estado del trabajo haya cambiado a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento que usa el clúster. El parámetro `statusdir` pasado con la consulta contiene la ubicación del archivo de salida; en este caso, **/example/pigcurl**. 
 
-Puede enumerar y descargar estos archivos mediante la [CLI de Azure](../xplat-cli-install.md). Por ejemplo, para enumerar los archivos en **example/pigcurl**, use el siguiente comando:
-
-    azure storage blob list <container-name> example/pigcurl
-
-Para descargar un archivo, use lo siguiente:
-
-    azure storage blob download <container-name> <blob-name> <destination-file>
-
-> [!NOTE]
-> Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**.
+La memoria auxiliar para HDInsight puede ser Azure Storage o Azure Data Lake Store, y hay distintas formas de obtener los datos según cuál use. Para obtener más información sobre cómo trabajar con Azure Storage y Azure Data Lake Store, consulte la sección [HDFS, Blob Storage y Data Lake Store](hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) del documento de HDInsight en Linux.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumen
 
@@ -131,6 +122,6 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

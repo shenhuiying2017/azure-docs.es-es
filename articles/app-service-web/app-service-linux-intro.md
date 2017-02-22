@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
-ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
+ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
+ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
 
 
 ---
@@ -33,6 +33,7 @@ App Service en Linux admite actualmente las siguientes pilas de aplicaciones:
 * Node.js
 * PHP
 * .Net Core
+* Ruby
 
 Los clientes pueden implementar sus aplicaciones mediante:
 
@@ -66,6 +67,8 @@ Las aplicaciones web en Linux solo se admiten en planes de App Service dedicados
 
 Las aplicaciones web de Linux se deben crear en un grupo de recursos que no contenga aplicaciones web que no sean de Linux en la misma región.
 
+Web Apps en Linux Web todavía no admite la implementación de aplicaciones de .NET Core a partir de código fuente sin compilar. Primero, tendrá que publicar o compilar la aplicación de .NET Core localmente y, luego, insertar los bits del sitio publicado en la aplicación.
+
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para empezar a trabajar con App Service en Linux. Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -73,9 +76,9 @@ Consulte los vínculos siguientes para empezar a trabajar con App Service en Lin
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md) (Uso de una imagen de Docker personalizada para App Service en Linux)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md) (Uso de la configuración de PM2 para Node.js en Web Apps en Linux)
 * [Uso de .NET Core en Azure App Service Web Apps en Linux](app-service-linux-using-dotnetcore.md)
+* [Preguntas más frecuentes sobre Azure App Service Web Apps en Linux](app-service-linux-faq.md)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

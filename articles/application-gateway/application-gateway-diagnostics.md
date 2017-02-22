@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ca5291e00fcf4fbd9927fe3cadad01f62b235d10
-ms.openlocfilehash: c6829c94bb8e5de3bec155bf326ac61c300477cb
+ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
+ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
 
 
 ---
@@ -210,6 +210,9 @@ Este registro solo se genera si lo habilitó para cada puerta de enlace de aplic
 }
 ```
 
+> [!NOTE]
+> La latencia se calcula desde el momento en que se recibe el primer byte de la solicitud HTTP a la vez que se envía el último byte de la respuesta HTTP. Es la suma del tiempo de procesamiento de Application Gateway más el costo de red en el back-end, más el tiempo que tarda el back-end en procesar la solicitud.
+
 ### <a name="firewall-log"></a>Registro de firewall
 
 Este registro solo se genera si lo habilitó para cada puerta de enlace de aplicaciones, tal como se indicó anteriormente. Este registro también requiere que el firewall de aplicaciones web esté configurado en una puerta de enlace de aplicaciones. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se registran los datos siguientes:
@@ -314,6 +317,6 @@ Para conocer más detalles sobre los webhooks y cómo usarlos con alertas, visit
 [10]: ./media/application-gateway-diagnostics/figure10.png
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

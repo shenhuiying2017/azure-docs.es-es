@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 530530952a4f69ae0a78e02cc1c079532f0c5b0f
+ms.sourcegitcommit: 1c002b796ed926fb8b0c6cedf3e361816e50b803
+ms.openlocfilehash: d51eeebba7ce2a1ca1005954feb0471f6ad7e05b
 
 
 ---
@@ -31,9 +31,11 @@ En este tema se describe cómo revisar y actualizar la configuración de las ins
 ## <a name="configure-redis-cache-settings"></a>Configuración de opciones de la memoria caché en Redis
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Azure Redis Cache ofrece la siguiente configuración en el **Menú de recursos**.
+La configuración de Azure Redis Cache se ve y configura en la hoja **Redis Cache** mediante el **menú Recursos**.
 
 ![Caché en Redis - Configuración](./media/cache-configure/redis-cache-settings.png)
+
+Puede ver y configurar las siguientes opciones con el **menú Recursos**.
 
 * [Información general](#overview)
 * [Registro de actividad](#activity-log)
@@ -476,6 +478,6 @@ Para obtener información acerca de cómo mover recursos de un grupo de recursos
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

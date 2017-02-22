@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 94e09583ef8070a7e98fd2b30648996648ce3c41
-ms.openlocfilehash: 87d3b5ef8989984420f1d0fe7d4188698a68dd0d
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 6c9e70c3de404a3a5af343570203d6724342e062
 
 
 ---
@@ -37,6 +37,9 @@ En este documento, obtendrá información sobre cómo crear una topología bási
   > Aunque se admiten topologías SCP.NET en clústeres de Storm basados en Linux creados después del 28/10/2016, el SDK de HBase para el paquete de .NET disponible a partir del 28/10/2016 no funciona correctamente en Linux.
 
 * Apache HBase en un clúster de HDInsight (basado en Linux o Windows). Se trata del almacén de datos que se utiliza para este ejemplo.
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [Java](https://java.com) 1.7 o superior en el entorno de desarrollo. Java se utiliza para empaquetar la topología cuando se envía al clúster de HDInsight.
 
@@ -165,16 +168,16 @@ Esta descarga contiene los proyectos de C# siguientes:
    
    ![Imagen del envío al elemento de menú de Storm](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
-6. En el cuadro de diálogo **Enviar topología** , seleccione el clúster de Storm que ejecutará esta topología.
+6. En el cuadro de diálogo **Enviar topología** , seleccione el clúster de Storm en el que quiere implementar esta topología.
    
    > [!NOTE]
    > La primera vez que envíe una topología, es posible que se tarde unos segundos en recuperar el nombre de los clústeres de HDInsight.
 
-7. Una vez que se ha cargado y enviado la topología al clúster, se abrirá la **Vista de topología de Storm** y se mostrará la topología en ejecución. Seleccione **CorrelationTopology** y utilice el botón Actualizar de la parte superior derecha de la página para actualizar la información de topología.
+7. Una vez que se haya cargado y enviado la topología al clúster, se abrirá **Vista de topología de Storm** y se mostrará la topología en ejecución. Seleccione **CorrelationTopology** y utilice el botón Actualizar de la parte superior derecha de la página para actualizar la información de topología.
    
    ![Imagen de la vista de topología](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
-   Cuando la topología comience a generar datos, el valor de la columna **Emitida** incrementará.
+   Cuando la topología comience a generar datos, el valor de la columna **Emitida** se incrementará.
    
    > [!NOTE]
    > Si la **Vista de topología de Storm** no se abre automáticamente, siga estos pasos para abrirla:
@@ -218,6 +221,6 @@ Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en H
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

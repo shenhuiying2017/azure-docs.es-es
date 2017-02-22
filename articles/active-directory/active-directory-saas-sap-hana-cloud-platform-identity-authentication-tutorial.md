@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 18fa3fd2fc9bb68b9e68c0c5ac5663a8a8348fd7
-ms.openlocfilehash: e02cb1916c65d137dc06b1ce6a9dd9621a31b56c
+ms.sourcegitcommit: 16ec322d0c921f97819375cfe52d2c3f02a2c53b
+ms.openlocfilehash: d573090fb2dc4ea02308e0711c24371e17fb3cde
 
 
 ---
@@ -89,7 +89,7 @@ Para configurar la integración de SAP HANA Cloud Platform Identity Authenticati
 
     ![Aplicaciones][2]
     
-3. Haga clic en el botón **Agregar** de la parte superior del cuadro de diálogo.
+3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
     ![Aplicaciones][3]
 
@@ -135,7 +135,7 @@ La aplicación SAP HANA Cloud Platform Identity Authentication espera las aserci
  
     ![Configurar inicio de sesión único][5]
 
-3. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, si la aplicación de SAP espera un atributo, por ejemplo, "firstName". En el cuadro de diálogo Atributos de token de SAML, agregue el atributo "firstName".
+3. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, si la aplicación de SAP espera un atributo, por ejemplo, "firstName", en el mismo cuadro de diálogo de atributos de token de SAML, agregue el atributo "firstName".
 
     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
@@ -196,9 +196,9 @@ El objetivo de esta sección es crear un usuario de prueba en el nuevo portal ll
 
     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de BrittaSimon.
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
-    c. Seleccione **Mostrar contraseña** y anote el valor de la **contraseña**.
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
     d. Haga clic en **Crear**. 
 
@@ -276,6 +276,7 @@ Al hacer clic en el icono de SAP HANA Cloud Platform Identity Authentication del
 [203]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_203.png
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

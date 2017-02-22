@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 619fec5dc02b026ae2cbb5eba18609fd020a551b
-ms.openlocfilehash: d51d9416ef56e119bc765e536a09206fb36c55fe
+ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
+ms.openlocfilehash: def038842dc3c1037d5dd11ffef6a9e2de3cf09f
 
 
 ---
@@ -44,6 +44,10 @@ Puede obtener una vista previa de la parte de los datos del origen de datos sele
 
 ## <a name="schema-capture-and-mapping"></a>Captura y asignación de esquema
 En algunos casos, es posible que el esquema de datos de entrada no coincida con el esquema de datos de salida. En este escenario, es preciso asignar columnas del esquema de origen a columnas del esquema de destino.
+
+> [!TIP]
+> Al copiar datos desde SQL Server o Azure SQL Database en SQL Data Warehouse, si la tabla no se encuentra en el almacén de destino, Data Factory podrá crear la tabla automáticamente mediante el esquema del origen. Obtenga más información en [Movimiento de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+>
 
 Use una lista desplegable para seleccionar una columna del esquema de origen para asignar a una columna en el esquema de destino. El Asistente para copia intenta entender el patrón para la asignación de columnas. Se aplica el mismo patrón para el resto de las columnas, por lo que no debe seleccionar cada una de las columnas individualmente para completar la asignación de esquema. Si lo prefiere, puede invalidar estas asignaciones mediante el uso de las listas desplegables para asignar las columnas una por una. El patrón se vuelve más preciso a medida que asigna más columnas. El Asistente para copia actualiza el patrón constantemente y, en última instancia, alcanza el patrón correcto para la asignación de columnas que desea conseguir.     
 
@@ -87,6 +91,6 @@ Si quiere ver un tutorial rápido sobre el uso del Asistente para copia de Data 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

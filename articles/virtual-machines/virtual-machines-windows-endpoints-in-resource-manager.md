@@ -1,6 +1,6 @@
 ---
-title: "Puntos de conexión clásicos en Resource Manager | Microsoft Docs"
-description: "Conozca cómo los puntos de conexión del modelo de implementación clásica se implementan ahora en Resource Manager mediante los grupos de seguridad de red y las reglas de ACL"
+title: "Descripción de los puntos de conexión de máquinas virtuales Windows en Azure | Microsoft Docs"
+description: "Aprenda cómo los puntos de conexión del modelo de implementación clásica se implementan ahora en Resource Manager mediante los grupos de seguridad de red y las reglas de ACL"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1b6342ef22a00a4d760d8b13d1a2945ab3754463
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 21df6d8ff572295e27c9aaed83c3af189c700aee
 
 
 ---
-# <a name="classic-endpoints-in-resource-manager"></a>Puntos de conexión clásicos en Resource Manager
+# <a name="classic-endpoints-for-windows-vms-with-azure-resource-manager"></a>Puntos de conexión clásicos para máquinas virtuales Windows con Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -35,6 +35,6 @@ Puede leer información más detallada sobre las tecnologías aquí descritas, j
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

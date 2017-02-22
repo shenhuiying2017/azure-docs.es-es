@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 304247b5ed897f39e2db29ca8a5ae9d797e27327
-ms.openlocfilehash: 473688e6610ede44e939b0b384bd8a1604bc5526
+ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
+ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
 
 
 ---
@@ -83,7 +83,7 @@ Cuando se ha configurado el módulo, puede publicar la aplicación en Azure medi
 2. Si aún no ha iniciado sesión en Azure desde IntelliJ, se le pedirá que lo haga. (Si tiene varias cuentas de Azure, puede que algunos de los avisos que aparecen durante el proceso de inicio de sesión se muestren más de una vez, incluso si parecen ser iguales. Cuando esto ocurra, siga la instrucciones de inicio de sesión).
    
     ![Cuadro de diálogo de inicio de sesión de Azure][07]
-3. Cuando haya iniciado sesión correctamente en su cuenta de Azure, el cuadro de diálogo **Manage Subscriptions** (Administrar suscripciones) mostrará una lista de suscripciones que están asociadas con sus credenciales. (Si aparecen varias suscripciones y quiere trabajar solo con un subconjunto específico de ellas, opcionalmente puede desactivar las que no utilice). Cuando haya seleccionado las suscripciones, haga clic en **Cerrar**.
+3. Cuando haya iniciado sesión correctamente en su cuenta de Azure, el cuadro de diálogo **Manage Subscriptions** (Administrar suscripciones) mostrará una lista de suscripciones que están asociadas con sus credenciales. Si aparecen varias suscripciones y quiere trabajar solo con un subconjunto específico de ellas, opcionalmente puede desactivar las que no utilice. Cuando haya seleccionado las suscripciones, haga clic en **Cerrar**.
    
     ![Administrar suscripciones][08]
 4. Cuando aparezca el cuadro de diálogo **Deploy to Azure Web App Container** (Implementar en el contenedor de aplicaciones web de Azure), se mostrarán los contenedores de aplicaciones web creados anteriormente; si no ha creado ningún contenedor, la lista estará vacía.
@@ -257,6 +257,6 @@ Para obtener más información sobre cómo crear aplicaciones web de Azure, cons
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

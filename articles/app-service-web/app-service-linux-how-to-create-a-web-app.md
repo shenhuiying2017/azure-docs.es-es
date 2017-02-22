@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
-ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
@@ -34,7 +34,7 @@ Aparecerá la hoja de **creación**, como se muestra en la siguiente imagen:
 1. Asigne un nombre a la aplicación web.
 2. Elija un grupo de recursos existente o cree uno. (Consulte las regiones disponibles en la [sección de limitaciones](app-service-linux-intro.md)).
 3. Seleccione un plan de Azure App Service existente o cree uno. (Consulte las notas del plan de App Service en la [sección de limitaciones](app-service-linux-intro.md)).
-4. Elija la pila de aplicaciones que se va a utilizar. Puede elegir entre varias versiones de Node.js y PHP.
+4. Elija la pila de aplicaciones que se va a utilizar. Puede elegir entre varias versiones de Node.js, PHP, .NET Core y Ruby.
 
 Una vez que haya creado la aplicación, puede cambiar la pila de aplicaciones de la configuración de la aplicación como se muestra en la siguiente imagen:
 
@@ -59,6 +59,6 @@ También puede usar FTP para cargar la aplicación al sitio. En la sección de r
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

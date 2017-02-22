@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e14e2227d95b396d7d281edfd367f0a24ac54f7a
+ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
+ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
 
 
 ---
@@ -25,9 +25,7 @@ Azure Active Directory (Azure AD) utiliza el protocolo SAML 2.0 para permitir qu
 
 El protocolo SAML requiere que el proveedor de identidades (Azure AD) y el proveedor de servicios (la aplicación) intercambien información sobre sí mismos.
 
-Cuando una aplicación se registra en Azure AD, el desarrollador de esta registra información relacionada con la federación en Azure AD. Esto incluye el **URI de redireccionamiento** y de **metadatos** de la aplicación.
-
-Azure AD usa el **URI de metadatos** del servicio en la nube para recuperar la clave de firma y el URI de cierre de sesión del servicio en la nube. Si la aplicación no admite un URI de metadatos, el desarrollador debe ponerse en contacto con el servicio de soporte técnico de Microsoft para proporcionar el URI de cierre de sesión y la clave de firma.
+Cuando una aplicación se registra en Azure AD, el desarrollador de esta registra información relacionada con la federación en Azure AD. Esto incluye el **URI de redireccionamiento** de la aplicación.
 
 Azure Active Directory expone puntos de conexión de inicio y cierre de sesión único comunes y específicos del inquilino (independientes del inquilino). Estas direcciones URL representan ubicaciones direccionables; no se trata únicamente identificadores, así que puede acceder al punto de conexión para leer los metadatos.
 
@@ -39,7 +37,6 @@ Para obtener información sobre los documentos de metadatos de federación que p
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

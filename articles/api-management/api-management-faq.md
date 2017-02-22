@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
+ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
+ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
 
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
@@ -44,6 +44,7 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 * [¿Por qué se obtiene un error de autenticación al intentar clonar un repositorio?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [¿Funciona API Management con Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [¿Se puede mover un servicio API Management de una suscripción a otra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [¿Existen restricciones de la importación de mi API o problemas conocidos con ella?](#api-management-api-import-restrictions)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>¿Cómo se puede hacer una pregunta al equipo de Microsoft Azure API Management?
 Puede ponerse en contacto con nosotros mediante una de estas opciones:
@@ -90,7 +91,6 @@ Ahora el colaborador recién agregado puede usar los [cmdlets](https://msdn.micr
 2. Establezca el contexto para la suscripción que tiene el servicio mediante `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Obtenga la dirección URL de inicio de sesión único mediante `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Utilice la dirección URL para acceder al portal de administración.
-
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?
 Si la directiva que desea agregar aparece atenuada o sombreada en el editor de directivas, asegúrese de que está en el ámbito correcto para la directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, consulte en la sección sobre el uso de la directiva en [API Management policies](https://msdn.microsoft.com/library/azure/dn894080.aspx) (Directivas de API Management).
 
@@ -100,7 +100,6 @@ Tiene varias opciones para usar las versiones de API en API Management:
 * En API Management, puede configurar las API para representar distintas versiones. Por ejemplo, podría tener dos API distintas, MyAPIv1 y MyAPIv2. Un desarrollador puede elegir la versión que desea usar.
 * También puede configurar su API con una dirección URL del servicio que no incluya un segmento de versión; por ejemplo: https://my.api. A continuación, configure un segmento de la versión de la plantilla [URL de reescritura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operación. Por ejemplo, puede tener una operación con una [plantilla URL](api-management-howto-add-operations.md#url-template) llamada /resource y una plantilla [URL de reescritura](api-management-howto-add-operations.md#rewrite-url-template) denominada /v1/Resource. Puede cambiar el valor del segmento de la versión por separado para cada operación.
 * Si quiere mantener un segmento de versión predeterminado en la dirección URL del servicio de la API, configure una directiva que use la directiva [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) (Establecer servicio back-end) en operaciones seleccionadas para cambiar la ruta de acceso de la solicitud back-end.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>¿Cómo se configuran varios entornos en una sola API?
 Para configurar varios entornos; por ejemplo, un entorno de prueba y un entorno de producción, en una sola API, tiene dos opciones. Puede:
 
@@ -148,9 +147,11 @@ Sí. API Management funciona con Azure ExpressRoute.
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>¿Se puede mover un servicio API Management de una suscripción a otra?
 Sí. Para más información, consulte vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
+### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>¿Existen restricciones de la importación de mi API o problemas conocidos con ella?
+[Problemas conocidos y restricciones](api-management-api-import-restrictions.md) para formatos Open API(Swagger), WSDL y WADL.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Directivas de almacenamiento de Azure Resource Manager | Microsoft Docs
+title: Directivas de recursos de Azure para cuentas de almacenamiento | Microsoft Docs
 description: "Se describen las directivas de Azure Resource Manager para administrar la implementación de cuentas de almacenamiento."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ce31bbcb96a6afe19cf6c25dd9a68d6c2d4d080c
-ms.openlocfilehash: f2141304f6db6d137065e06558e10c721b11f892
+ms.sourcegitcommit: 5ea75843bf671ad4d879c01cdd20d5bbc5e889c2
+ms.openlocfilehash: 08c991e9f217c49828889d0b806888e193b245a8
 
 
 ---
-# <a name="apply-azure-resource-policies-to-storage-accounts"></a>Aplicación de directivas de recursos de Azure a cuentas de almacenamiento
-Mediante directivas de Azure Resource Manager se definen reglas coherentes sobre el modo en que se implementan los recursos en su organización. Además, se crean directivas personalizadas para garantizar que los usuarios de su organización no infringen las convenciones que son necesarias para administrar los recursos de esta. En este tema se muestran varias directivas que definen reglas para cuentas de Azure Storage. Para más información sobre las directivas, consulte [Uso de directivas para administrar los recursos ](resource-manager-policy.md).
-
-En los ejemplos de este tema se muestran los valores codificados de forma fija en la regla de directiva. Sin embargo, puede usar parámetros para pasar valores que se usan al asignar la directiva. Para más información, consulte [Parámetros de la directiva](resource-manager-policy.md#parameters).
+# <a name="apply-resource-policies-to-storage-accounts"></a>Aplicación de directivas de recursos a cuentas de almacenamiento
+En este tema se muestran varias [directivas de recursos](resource-manager-policy.md) que puede aplicar a cuentas de Azure Storage. Estas directivas garantizan la coherencia de las cuentas de almacenamiento implementada en la organización. 
 
 ## <a name="define-permitted-storage-account-types"></a>Definición de tipos de cuenta de almacenamiento permitidos
 
@@ -53,6 +51,8 @@ La siguiente directiva restringe qué [tipos de cuenta de almacenamiento](../sto
   }
 }
 ```
+
+Una regla de directiva similar con un parámetro para aceptar las SKU permitidas está disponible como una definición de directiva integrada. La directiva integrada tiene el identificador de recurso `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
 
 ## <a name="define-permitted-access-tier"></a>Definición del nivel de acceso permitido
 
@@ -110,16 +110,15 @@ La siguiente directiva requiere que todas las cuentas de almacenamiento habilite
 }
 ```
 
-## <a name="create-and-assign-policies"></a>Creación y asignación de directivas
-
-Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para ver ejemplos sobre cómo crear y asignar directivas, consulte [Creación y asignación de directivas](resource-manager-policy.md#create-and-assign-a-policy). 
+Esta regla de directiva también está disponible como una definición de directiva integrada con el identificador de recurso `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
 
 ## <a name="next-steps"></a>Pasos siguientes
+* Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para ver ejemplos sobre la creación y asignación de directivas, consulte [Assign and manage policies](resource-manager-policy-create-assign.md) (Asignación y administración de directivas). 
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

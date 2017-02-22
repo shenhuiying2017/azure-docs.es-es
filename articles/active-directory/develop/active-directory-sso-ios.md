@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d76491683d08bf9afd505eebfdede5812e87f458
+ms.sourcegitcommit: a63996ad3661b43bea83870c1fa88fa6d64c6c6a
+ms.openlocfilehash: bc2bb9916baa08b14dc5cfeb0e6d712b1c0522ef
 
 
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 Actualmente, los clientes esperan disfrutar de un inicio de sesión único que les permita escribir sus credenciales una sola vez y que esas credenciales se propaguen automáticamente entre las diferentes aplicaciones. La dificultad de escribir el nombre de usuario y contraseña en una pantalla pequeña, a menudo combinado con un factor adicional (2FA) como una llamada de teléfono o un código de mensaje de texto, provoca una rápida insatisfacción si el usuario tiene que hacer esto más de una vez para su producto.
 
-Además, si hace uso de una plataforma de identidad que puedan utilizar otras aplicaciones, como cuentas Microsoft o una cuenta de trabajo de Office 365, los clientes esperan que las credenciales estén disponibles para todas sus aplicaciones, independientemente del proveedor.
+Además, si hace uso de una plataforma de identidad que puedan utilizar otras aplicaciones, como cuentas Microsoft o una cuenta de trabajo de Office&365;, los clientes esperan que las credenciales estén disponibles para todas sus aplicaciones, independientemente del proveedor.
 
 La plataforma de Microsoft Identity, junto con los SDK correspondientes, se ocupa de este trabajo ingrato y le ofrece la posibilidad de satisfacer a sus clientes con el inicio de sesión único, ya sea dentro de su propio conjunto de aplicaciones o, como sucede con nuestra funcionalidad de agente y las aplicaciones de Authenticator, en todo el dispositivo.
 
@@ -155,11 +155,11 @@ A fin de que la plataforma Microsoft Identity sepa que puede compartir tokens en
 
 Quizás se pregunte cómo se puede identificar a las diferentes aplicaciones en el servicio Microsoft Identity si todas utilizan el mismo identificador. Pues bien, esto es posible gracias a los **URI de redirección**. Cada aplicación puede tener varios URI de redirección registrados en el portal de incorporación. Cada una de las aplicaciones de su conjunto tendrá diferentes URI de redirección. A continuación se muestra un ejemplo típico de su aspecto:
 
-URI de redirección de la aplicación 1: `x-msauth-mytestiosapp://com.myapp.mytestapp`
+URI de redirección de la aplicación&1;: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-URI de redirección de la aplicación 2: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
+URI de redirección de la aplicación&2;: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-URI de redirección de la aplicación 3: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
+URI de redirección de la aplicación&3;: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 
@@ -231,7 +231,7 @@ Los pasos que debe seguir son los siguientes:
 1. Habilitar el modo de agente en la llamada al código de la aplicación para el SDK de Microsoft.
 2. Establecer un nuevo URI de redirección e indicarlo tanto en la aplicación como en el registro de la aplicación.
 3. Registrar un esquema de dirección URL.
-4. Compatibilidad con iOS 9: agregar un permiso al archivo info.plist.
+4. Compatibilidad con iOS&9;: agregar un permiso al archivo info.plist.
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>Paso 1: Habilitar el modo de agente en la aplicación
 La capacidad de la aplicación de utilizar el agente se activa al crear el "contexto" o la configuración inicial del objeto de autenticación. Para ello, configure el tipo de credenciales en el código:
@@ -277,10 +277,10 @@ Para ser correcto, el URI de redirección debe presentar el formato siguiente:
 
 Por ejemplo, *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-Este URI de redirección debe especificarse en el registro de la aplicación mediante el [Portal de Azure clásico](https://manage.windowsazure.com/). Para más información sobre el registro de aplicaciones de Azure AD, consulte [Integración con Azure Active Directory](active-directory-how-to-integrate.md).
+Este URI de redirección debe especificarse en el registro de la aplicación mediante [Azure Portal](https://portal.azure.com/). Para más información sobre el registro de aplicaciones de Azure AD, consulte [Integración con Azure Active Directory](active-directory-how-to-integrate.md).
 
 ##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Paso 3a: Agregar un URI de redirección a la aplicación y al portal de desarrolladores para admitir la autenticación basada en certificados
-Para admitir la autenticación basada en certificados, se requiere el registro de un segundo elemento "msauth"en la aplicación y en el [Portal de Azure clásico](https://manage.windowsazure.com/) para controlar la autenticación de certificados si desea agregar esa compatibilidad a su aplicación.
+Para admitir la autenticación basada en certificados, se requiere el registro de un segundo elemento "msauth"en la aplicación y en [Azure Portal](https://portal.azure.com/) para controlar la autenticación de certificados si desea agregar esa compatibilidad a su aplicación.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
@@ -301,6 +301,6 @@ Ahora, el SDK de Microsoft Identity compartirá automáticamente las credenciale
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

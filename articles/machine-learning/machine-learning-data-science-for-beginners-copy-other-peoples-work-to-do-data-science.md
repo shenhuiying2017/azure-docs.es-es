@@ -1,6 +1,6 @@
 ---
-title: Copia de trabajos de ciencia de datos de otros usuarios (ejemplo de Machine Learning) | Microsoft Docs
-description: "El secreto comercial de la ciencia de datos: consiga que otras personas hagan el trabajo por usted. Vea ejemplos en la Galería de Cortana Analytics; por ejemplo, uno de algoritmo de agrupación en clústeres."
+title: Copia de trabajos de ciencia de datos de otros usuarios (ejemplo de Azure Machine Learning) | Microsoft Docs
+description: "El secreto comercial de la ciencia de datos: consiga que otras personas hagan el trabajo por usted. Obtenga ejemplos de Machine Learning de la Galería de Cortana Analytics."
 keywords: "ejemplos de ciencia de datos,ejemplo de aprendizaje automático, algoritmo de agrupación en clústeres, ejemplo de algoritmo de agrupación en clústeres"
 services: machine-learning
 documentationcenter: na
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: f0efc0b10d843c6105446b3960821609e10fd400
+ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
+ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
 
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copia del trabajo de otras personas para realizar ciencia de datos
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciencia de datos para principiantes
-Uno de los secretos empresariales de la ciencia de datos es conseguir que otras personas hagan el trabajo por usted. Vea un ejemplo de algoritmo de agrupación en clústeres que utilizará en su propio experimento de aprendizaje automático.
+Uno de los secretos empresariales de la ciencia de datos es conseguir que otras personas hagan el trabajo por usted. Vea un ejemplo de algoritmo de agrupación en clústeres de la Galería de Cortana Analytics que usará en su propio experimento de Machine Learning.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Otros vídeos de la serie
 *Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
@@ -96,7 +96,6 @@ Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para pr
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

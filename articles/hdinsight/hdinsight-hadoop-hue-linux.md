@@ -12,11 +12,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9096b87dc93e261c2810a069a95d954121822cf5
-ms.openlocfilehash: 903a8b7f143ac08b69d94aa2bc442a43ca041b64
+ms.sourcegitcommit: 7af856e32064f16e7cb1083432d4d5715cef6e3a
+ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
 
 
 ---
@@ -46,8 +46,7 @@ Hue es un conjunto de aplicaciones web que se usan para interactuar con un clús
 
 ## <a name="install-hue-using-script-actions"></a>Instalación de Hue mediante acciones de script
 
-La acción de script siguiente puede utilizarse para instalar Hue en un clúster de HDInsight basado en Linux.
-https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+El script para instalar Hue en un clúster de HDInsight basado en Linux se encuentra disponible en https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Puede usar este script para instalar Hue en clústeres con Azure Storage Blob (WASB) o Azure Data Lake Store como almacenamiento predeterminado.
 
 En esta sección se proporcionan instrucciones sobre cómo usar el script durante el aprovisionamiento del clúster mediante el Portal de Azure.
 
@@ -138,7 +137,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 2. Durante la instalación, se reinician varios servicios de Hadoop (HDFS, YARN, MR2, Oozie) para actualizar la configuración. Cuando el script finaliza la instalación de Hue, puede tardar algún tiempo hasta que otros servicios de Hadoop se inicien. Esto podría afectar inicialmente al rendimiento de Hue. Una vez que todos los servicios se inician, la funcionalidad de Hue será total.
 3. Hue no entiende los trabajos Tez, que es el valor predeterminado actual de Hive. Si desea usar MapReduce como el motor de ejecución de Hive, actualice el script para usar el comando siguiente en el script:
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 4. Con los clústeres de Linux, se puede dar el caso de que los servicios se ejecutan en el nodo principal primario mientras Resource Manager se ejecuta en el secundario. Este escenario podría producir errores (que se muestra a continuación) cuando se usa Hue para ver detalles de trabajos de ejecución en el clúster. De todas formas, puede ver los detalles del trabajo una vez que el trabajo se complete.
 
@@ -158,6 +157,6 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

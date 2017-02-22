@@ -1,6 +1,6 @@
 ---
-title: "Creación de un índice para documentos en varios idiomas en Azure Search | Microsoft Docs"
-description: "  Búsqueda de Azure admite 56 idiomas y aprovecha los analizadores de idiomas Lucene y la tecnología de procesamiento de lenguaje natural de Microsoft."
+title: Varios lenguajes para Azure Search | Microsoft Docs
+description: "Búsqueda de Azure admite 56 idiomas y aprovecha los analizadores de idiomas Lucene y la tecnología de procesamiento de lenguaje natural de Microsoft."
 services: search
 documentationcenter: 
 author: yahnoosh
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: jlembicz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1cbb5209b85d14a313da764394069f835ef29176
+ms.sourcegitcommit: 6feadcc02aa0047dc2028d016687d3ad2859eb44
+ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
 
 ---
 
@@ -39,10 +39,10 @@ A continuación, se muestran capturas de pantalla de las hojas del Portal de Azu
 >
 
 ## <a name="define-a-new-field-definition"></a>Definición de una nueva definición de campo
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y abra la hoja de servicio del servicio de búsqueda.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la hoja de servicio del servicio de búsqueda.
 2. Haga clic en **Agregar un índice** en la barra de comandos de la parte superior del panel de servicio para iniciar un nuevo índice, o abra un índice existente para establecer un analizador de nuevos campos que se va a agregar a un índice existente.
 3. Aparece la hoja Campos, que proporciona opciones para definir el esquema del índice, incluida la pestaña Analizador usada para elegir un analizador de lenguaje.
-4. En Campos, inicie una definición de campo; para ello, proporcione un nombre, seleccione el tipo de datos y establezca los atributos para marcar el campo como texto completo que se puede buscar, recuperar en los resultados de búsqueda, usar en estructuras de navegación de facetas, ordenar, etc.
+4. En Campos, inicie una definición de campo y proporcione un nombre, seleccione el tipo de datos y establezca los atributos para marcar el campo como texto completo que se puede buscar, recuperar resultados de búsqueda, que se pueden usar en estructuras de navegación de facetas, se pueden ordenar, etc.
 5. Antes de pasar al siguiente campo, abra la pestaña **Analizador** .
 
 ![][1]
@@ -94,6 +94,6 @@ Si es desarrollador de. NET, tenga en cuenta que puede configurar los analizador
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

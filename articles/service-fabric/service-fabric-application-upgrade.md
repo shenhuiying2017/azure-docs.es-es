@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/15/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: ab167a74ddab1e38369ce9fa466022365ca08bee
+ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
+ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
 
 
 ---
@@ -44,6 +44,18 @@ El modo en que se recomienda que se actualice la aplicación es el modo supervis
 
 El modo manual sin supervisión requiere intervención manual tras cada actualización en un dominio de actualización para iniciar la actualización en el siguiente dominio de actualización. No se realiza ninguna comprobación de mantenimiento de Service Fabric. El administrador realiza las comprobaciones de estado antes de iniciar la actualización en el siguiente dominio de actualización.
 
+## <a name="upgrade-default-services"></a>Actualización de servicios predeterminados
+Los servicios predeterminados de la aplicación de Service Fabric pueden actualizarse durante el proceso de actualización de una aplicación. Estos se definen en el [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application). Las reglas estándar de la actualización de servicios predeterminados son las siguientes:
+
+1. Se crean los servicios predeterminados del nuevo [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) que no se encuentran en el clúster.
+> [!TIP]
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) debe establecerse en True para habilitar las reglas siguientes. Esta característica se admite desde la versión&5;.5.
+
+2. Se actualizan los servicios predeterminados existentes del [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) anterior y los de la nueva versión. Las descripciones de servicios de la nueva versión sobrescribirán a las que ya se encuentran en el clúster. La actualización de aplicaciones se revertiría automáticamente tras el error de actualización de servicios.
+3. Se eliminan los servicios predeterminados del [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) anterior, pero no los de la nueva versión. **Tenga en cuenta que no se pueden revertir esta eliminación de servicios predeterminados.**
+
+En el caso de que se revierta una actualización de aplicaciones, los servicios predeterminados se revierten al estado anterior al inicio de la aplicación. No obstante, nunca se pueden crear servicios eliminados.
+
 ## <a name="application-upgrade-flowchart"></a>Diagrama de flujo de actualización de la aplicación
 El siguiente diagrama de flujo puede ayudarle a comprender el proceso de actualización de una aplicación de Service Fabric. En concreto, el flujo describe cómo los tiempos de espera, incluidos *HealthCheckStableDuration*, *HealthCheckRetryTimeout* y *UpgradeHealthCheckInterval*, ayudan a controlar cuándo se considera un éxito o un fracaso la actualización en un dominio de actualización.
 
@@ -66,6 +78,6 @@ Solucione problemas habituales en las actualizaciones de aplicaciones consultand
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: bcbd421e4e8a4643695011b27482722029611a3d
+ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
+ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
 
 
 ---
@@ -34,10 +34,10 @@ A veces se conoce a los tokens de acceso como "Aplicación y usuario" o "Solo ap
 Consulte [Referencia de tokens de Azure AD][AAD-Tokens-Claims] para obtener más información.
 
 ## <a name="application-manifest"></a>manifiesto de aplicación
-Una característica proporcionada por el [Portal de Azure clásico][AZURE-classic-portal], lo que genera una representación JSON de la configuración de identidad de la aplicación, utilizada como un mecanismo para actualizar sus entidades [Application][AAD-Graph-App-Entity] y [ServicePrincipal][AAD-Graph-Sp-Entity] asociadas. Para más información, consulte [Descripción del manifiesto de aplicación de Azure Active Directory][AAD-App-Manifest].
+Una característica proporcionada por [Azure Portal][AZURE-portal], que genera una representación JSON de la configuración de identidad de la aplicación, utilizada como un mecanismo para actualizar sus entidades [Application][AAD-Graph-App-Entity] y [ServicePrincipal][AAD-Graph-Sp-Entity] asociadas. Para más información, consulte [Descripción del manifiesto de aplicación de Azure Active Directory][AAD-App-Manifest].
 
 ## <a name="application-object"></a>objeto de aplicación
-Cuando se registra o se actualiza una aplicación en el [Portal de Azure clásico][AZURE-classic-portal], el portal crea o actualiza un objeto de aplicación y un [objeto de entidad de servicio](#service-principal-object) correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que tiene acceso), lo que proporciona una plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
+Cuando se registra o se actualiza una aplicación en [Azure Portal][AZURE-portal], el portal crea o actualiza un objeto de aplicación y un [objeto de entidad de servicio](#service-principal-object) correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que tiene acceso), lo que proporciona una plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
 
 Para más información, consulte [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects].
 
@@ -109,7 +109,7 @@ Una [aplicación cliente](#client-application) obtiene acceso a un [servidor de 
 
 También se revelan durante el proceso de [consentimiento](#consent) , ya que proporciona al administrador o al propietario del recurso la oportunidad de conceder o denegar el acceso de cliente a los recursos en su inquilino.
 
-Las solicitudes de permisos se configuran en la pestaña "Aplicaciones"/"Configurar" del [Portal de Azure clásico][AZURE-classic-portal], bajo "Permisos para otras aplicaciones", al seleccionar los "Permisos delegados" y "Permisos de la aplicación" deseados (el último requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
+Las solicitudes de permisos se configuran en la pestaña "Aplicaciones"/"Configuración" de [Azure Portal][AZURE-portal], bajo "Permisos necesarios", al seleccionar los "Permisos delegados" y "Permisos de la aplicación" deseados (el último requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propietario del recurso
 De acuerdo con la [plataforma de autorización de OAuth2][OAuth2-Role-Def], una entidad capaz de conceder acceso a un recurso protegido. Cuando el propietario del recurso es una persona, se conoce como usuario final. Por ejemplo, cuando una [aplicación cliente](#client-application) desea acceder al buzón del usuario a través de la [API Graph de Microsoft][Microsoft-Graph], requiere el permiso del propietario de los recursos del buzón de correo.
@@ -124,14 +124,14 @@ Al igual que una aplicación cliente, se establece la configuración de la ident
 ## <a name="roles"></a>roles
 Como los [ámbitos](#scopes), los roles proporcionan una forma para que un [servidor de recursos](#resource-server) controle el acceso a los recursos protegidos. Hay dos tipos: un rol de "usuario" implementa el control de acceso basado en roles para usuarios o grupos que requieren acceso al recurso, mientras que un rol de "aplicación" implementa lo mismo para las [aplicaciones cliente](#client-application) que requieren acceso.
 
-Los roles son cadenas definidas por recursos (por ejemplo "Aprobador de gastos", "Solo lectura", "Directory.ReadWrite.All"), administradas en el [Portal de Azure clásico][AZURE-classic-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad appRoles][AAD-Graph-Sp-Entity] del recurso. El Portal de Azure clásico también se usa para asignar usuarios a roles de "usuario" y configurar los [permisos de la aplicación](#permissions) del cliente para acceder a un rol de "aplicación".
+Los roles son cadenas definidas por recursos (por ejemplo, "Aprobador de gastos", "Solo lectura", "Directory.ReadWrite.All"), administradas en [Azure Portal][AZURE-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad appRoles][AAD-Graph-Sp-Entity] del recurso. Azure Portal también se usa para asignar usuarios a roles de "usuario" y configurar los [permisos de la aplicación](#permissions) del cliente para acceder a un rol de "aplicación".
 
 Para ver una explicación detallada de los roles de aplicación expuestos por la API Azure AD Graph, consulte los [ámbitos de permisos de API Graph][AAD-Graph-Perm-Scopes]. Para ver un ejemplo de implementación paso a paso, consulte [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog] (Control de acceso basado en rol en aplicaciones en la nube con Azure AD).
 
 ## <a name="scopes"></a>ámbitos
 Como los [roles](#roles), los ámbitos proporcionan una forma para que un [servidor de recursos](#resource-server) controle el acceso a los recursos protegidos. Los ámbitos se utilizan para implementar el control de acceso [basado en ámbitos][OAuth2-Access-Token-Scopes] para una [aplicación cliente](#client-application) a la que el propietario haya otorgado acceso delegado al recurso.
 
-Los ámbitos son cadenas definidas por recursos (por ejemplo "Mail.Read" o "Directory.ReadWrite.All"), administradas en el [Portal de Azure clásico][AZURE-classic-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad oauth2Permissions del recurso][AAD-Graph-Sp-Entity]. El Portal de Azure clásico también se utiliza para configurar los [permisos delegados](#permissions) de la aplicación cliente para acceder a un ámbito.
+Los ámbitos son cadenas definidas por recursos (por ejemplo, "Mail.Read" o "Directory.ReadWrite.All"), administradas en [Azure Portal][AZURE-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad oauth2Permissions][AAD-Graph-Sp-Entity] del recurso. Azure Portal también se utiliza para configurar los [permisos delegados](#permissions) de la aplicación cliente para acceder a un ámbito.
 
 Como procedimiento recomendado para la convención de nomenclatura, utilice un formato "resource.operation.constraint". Para ver una explicación detallada de los ámbitos expuestos por la API Azure AD Graph, consulte los [ámbitos de permisos de API Graph][AAD-Graph-Perm-Scopes]. Para los ámbitos expuestos por los servicios de Office 365, consulte [Office 365 API permissions reference][O365-Perm-Ref] (Referencia a los permisos de la API de Office 365).
 
@@ -139,7 +139,7 @@ Como procedimiento recomendado para la convención de nomenclatura, utilice un f
 Un documento firmado con notificaciones, como un token OAuth2 o una aserción SAML 2.0. En el caso de una [concesión de autorización](#authorization-grant) de OAuth2, un [token de acceso](#access-token) (OAuth2) y un [token de identificador](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) son tipos de token de seguridad, que se implementan como un [JSON Web Token (JWT)][JWT].
 
 ## <a name="service-principal-object"></a>objeto de entidad de servicio
-Cuando se registra o se actualiza una aplicación en el [Portal de Azure clásico][AZURE-classic-portal], el portal crea o actualiza un [objeto de aplicación](#application-object) y un objeto de entidad de servicio correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que se le ha concedido acceso a la aplicación asociada) y es la plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
+Cuando se registra o se actualiza una aplicación en [Azure Portal][AZURE-portal], el portal crea o actualiza un [objeto de aplicación](#application-object) y un objeto de entidad de servicio correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que se le ha concedido acceso a la aplicación asociada) y es la plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
 
 Para más información, consulte [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects].
 
@@ -195,7 +195,7 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
@@ -211,6 +211,6 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

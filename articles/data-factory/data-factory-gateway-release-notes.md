@@ -15,8 +15,8 @@ ms.date: 01/17/2017
 ms.author: spelluru
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 65c036240618f3e426707d57eeb6b194410a9084
-ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
+ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
+ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
@@ -27,15 +27,36 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 *  [Data Management Gateway](data-factory-data-management-gateway.md)
 *  [Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## <a name="current-version-2561641"></a>VERSIÓN ACTUAL (2.5.6164.1)
+
+## <a name="current-version-2762192"></a>VERSIÓN ACTUAL (2.7.6219.2)
+
+### <a name="whats-new"></a>Novedades
+- Ahora puede autenticarse en Azure Data Lake Store con la entidad de servicio. Anteriormente, solo se admitiría OAuth.
+- Hemos creado un nuevo controlador para leer los datos del almacén de datos local de Oracle en la puerta de enlace.
+
+### <a name="enhancements-"></a>Mejoras-
+- Mejora del rendimiento de lectura de datos del origen de datos de Oracle.
+- Corregido: Problema con la expiración del token de OAuth del origen de OData.
+- Corregido: Problema al leer decimales de Oracle de más de 28 bits.
+
+
+## <a name="earlier-versions"></a>Versiones anteriores
+
+## <a name="2661922"></a>2.6.6192.2
+### <a name="whats-new"></a>Novedades
+- Los clientes pueden proporcionar comentarios en la experiencia de registro de la puerta de enlace.
+- Nuevo formato de compresión compatible: ZIP (Deflate).
+
+### <a name="enhancements-"></a>Mejoras-
+- Mejora del rendimiento del origen de HDFS y el receptor de Oracle.
+- Corrección de errores de la capacidad de procesamiento en paralelo y la actualización automática de la puerta de enlace.
+
+
+## <a name="2561641"></a>2.5.6164.1
 ### <a name="enhancements"></a>Mejoras
 - Experiencia de registro de la puerta de enlace mejorada y más sólida: ahora puede realizar el seguimiento del estado del progreso durante el proceso de registro de la puerta de enlace, con lo que la experiencia de registro tiene una mayor capacidad de respuesta.
 - Mejora del proceso de restauración de la puerta de enlace: puede recuperar la puerta de enlace incluso si no tiene el archivo de copia de seguridad de la puerta de enlace con esta actualización. Esto requeriría restablecer credenciales de servicio vinculado en el Portal.
 - Corrección de errores.
-
-
-
-## <a name="earlier-versions"></a>Versiones anteriores
 
 ## <a name="2461511"></a>2.4.6151.1
 
@@ -66,7 +87,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 ## <a name="216040"></a>2.1.6040.
 
 *  El controlador DB2 se incluye ahora en el paquete de instalación de la puerta de enlace. No es necesario instalarlo por separado. 
-*  El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows). 
+*  El controlador DB2 ahora admite z/OS y DB2 para i (AS /&400;) junto con las plataformas ya admitidas (Linux, Unix y Windows). 
 *  Admite el uso de DocumentDB como origen o destino para almacenes de datos locales
 *  Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida. 
 *  Le permite conectarse a la instancia local de SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.  
@@ -75,7 +96,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 *  Puede seleccionar el idioma o la referencia cultural que utilizará una puerta de enlace durante la instalación manual.
 
-*  Cuando la puerta de enlace no funciona del modo previsto, puede optar por enviar los registros de la puerta de enlace de los últimos 7 días a Microsoft para que pueda solucionar el problema. Si la puerta de enlace no está conectada al servicio en la nube, puede guardar y archivar los registros de la puerta de enlace.  
+*  Cuando la puerta de enlace no funciona del modo previsto, puede optar por enviar los registros de la puerta de enlace de los últimos&7; días a Microsoft para que pueda solucionar el problema. Si la puerta de enlace no está conectada al servicio en la nube, puede guardar y archivar los registros de la puerta de enlace.  
 
 *  Mejoras de la interfaz de usuario del Administrador de configuración de puertas de enlace:
 
@@ -100,7 +121,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 *  En caso de que se requiera un reinicio durante la actualización automática de la puerta de enlace, se muestra un cuadro de diálogo de advertencia. Puede elegir reiniciar en ese mismo momento o más adelante. 
 
-*  En caso de error en la actualización automática, el instalador de puerta de enlace volverá a intentar esta operación 3 veces al máximo.
+*  En caso de error en la actualización automática, el instalador de puerta de enlace volverá a intentar esta operación&3; veces al máximo.
 
 *  Mejoras en el rendimiento
 
@@ -216,6 +237,6 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

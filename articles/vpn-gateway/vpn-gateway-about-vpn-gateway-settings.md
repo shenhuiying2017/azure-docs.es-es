@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
-ms.openlocfilehash: 7a4efebcfc1ed38e9efdac293845f4be632e5b08
+ms.sourcegitcommit: b902d2e79633959a6f76ddd45b1193177b0e8465
+ms.openlocfilehash: 1ac5a78c8d9419e4c641bf66f8dac7aa8cbcd179
 
 
 ---
-# <a name="about-vpn-gateway-settings"></a>Acerca de la configuración de Puerta de enlace de VPN
-Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado entre la red virtual y la ubicación local a través de una conexión pública. También puede utilizar una puerta de enlace de VPN para enviar tráfico entre redes virtuales.
+# <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de la puerta de enlace de VPN
+Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado entre la red virtual y la ubicación local a través de una conexión pública. También puede utilizar una puerta de enlace de VPN para enviar tráfico entre redes virtuales a través de la red troncal de Azure.
 
-Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN para una red virtual creada en el modelo de implementación de **Resource Manager**. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).  
+Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN para una red virtual creada en el modelo de implementación de Resource Manager. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).  
 
 ## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>Tipos de puerta de enlace
 Cada red virtual solo puede tener una puerta de enlace de red de cada tipo. Al crear una puerta de enlace de red virtual, debe asegurarse de que el tipo de puerta de enlace es el correcto para su configuración.
@@ -47,13 +47,13 @@ Ejemplo:
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ### <a name="configuring-the-gateway-sku"></a>Configuración de la SKU de puerta de enlace
-**Especificación de la SKU de puerta de enlace en Azure Portal**
+####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>Especificación de la SKU de puerta de enlace en Azure Portal
 
 Si usa Azure Portal para crear una puerta de enlace de red virtual de Resource Manager, puede seleccionar la SKU de la puerta de enlace con el menú desplegable. Las opciones que se presentan corresponden con el tipo de puerta de enlace y tipo de VPN que seleccione.
 
 Por ejemplo, si selecciona el tipo de puerta de enlace "VPN" y el tipo de VPN "Policy-based", verá solo la SKU "Basic" porque es la única SKU disponible para VPN basadas en directrices. Si selecciona "Route-based", puede seleccionar SKU Basic, Standard y HighPerformance. 
 
-**Especificación de la SKU de puerta de enlace con PowerShell**
+####<a name="specifying-the-gateway-sku-using-powershell"></a>Especificación de la SKU de puerta de enlace con PowerShell
 
 En el siguiente ejemplo de PowerShell se especifica `-GatewaySku` como *Standard*.
 
@@ -61,7 +61,7 @@ En el siguiente ejemplo de PowerShell se especifica `-GatewaySku` como *Standard
     -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
     -GatewayType Vpn -VpnType RouteBased
 
-**Cambio de una SKU de puerta de enlace**
+####<a name="changing-a-gateway-sku"></a>Cambio de una SKU de puerta de enlace
 
 Si quiere actualizar su SKU de puerta de enlace a una SKU más eficaz (de Basic y Standard a HighPerformance), puede usar el cmdlet `Resize-AzureRmVirtualNetworkGateway` de PowerShell. También puede cambiar a una versión anterior del tamaño de la SKU de puerta de enlace con este cmdlet.
 
@@ -107,11 +107,9 @@ En el siguiente ejemplo de PowerShell se especifica `-VpnType` como *RouteBased*
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ## <a name="a-namegwsubagateway-subnet"></a><a name="gwsub"></a>Subred de puerta de enlace
-Para configurar una puerta de enlace de red virtual, primero deberá crear una subred de puerta de enlace para la red virtual. Para que la subred de puerta de enlace funcione correctamente, su nombre tiene que ser *GatewaySubnet* . Este nombre permite a Azure saber que esta subred se debe usar para la puerta de enlace.
+Para configurar la puerta de enlace de la red virtual para su red virtual, necesitará crear una subred de puerta de enlace. La subred de puerta de enlace contiene las direcciones IP que usan los servicios de puerta de enlace de la red virtual. Para que la subred de puerta de enlace funcione correctamente, su nombre tiene que ser *GatewaySubnet* . Este nombre permite a Azure saber que esta subred se debe usar para la puerta de enlace.
 
-El tamaño mínimo de la subred de puerta de enlace depende por completo de la configuración que desee crear. Aunque es posible crear una puerta de enlace tan pequeña como /29, le recomendamos que cree una puerta de enlace de /28 o mayor (/28, /27, /26 etc.). 
-
-Crear un tamaño mayor de la puerta de enlace evitará que se superen las limitaciones de tamaño de puerta de enlace. Por ejemplo, puede haber creado una puerta de enlace de red virtual con un tamaño de la subred de puerta de enlace /29 para una conexión S2S. Ahora quiere definir una configuración coexistente S2S/ExpressRoute. Dicha configuración requiere un tamaño mínimo de la subred de puerta de enlace /28. Para crear la configuración, tendría que modificar la subred de puerta de enlace para adaptarse al requisito mínimo para la conexión, que es /28.
+Al crear la subred de puerta de enlace, especifique el número de direcciones IP que contiene la subred. Las direcciones IP de la subred de puerta de enlace se asignan al servicio de puerta de enlace. Algunas configuraciones requieren la asignación de más direcciones IP al servicio de puerta de enlace que otras. Debe asegurarse de que la subred de puerta de enlace contiene suficientes direcciones IP para soportar el crecimiento futuro y posibles configuraciones de conexión nuevas. Por lo tanto, aunque es posible crear una puerta de enlace tan pequeña como /29, se recomienda que sea de /28 o mayor (/28, /27, /26, etc.). Consulte los requisitos de configuración que desea crear y compruebe que su subred de puerta de enlace los cumple.
 
 En el ejemplo de PowerShell de Resource Manager siguiente, se muestra una subred de puerta de enlace con el nombre GatewaySubnet. Puede ver que la notación CIDR especifica /27, que permite suficientes direcciones IP para la mayoría de las configuraciones que existen.
 
@@ -145,6 +143,6 @@ Consulte [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md) p
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

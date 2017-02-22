@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0135732e95279f2e717334d3dd39902b56b0aa90
-ms.openlocfilehash: 30a327f59b8149f41c3b5206e0b0c2fc859934a0
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
 
 
 ---
@@ -49,7 +49,7 @@ Consulte [Permisos en Azure Security Center](security-center-permissions.md) par
 Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede al Centro de seguridad la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar [desactivando la recopilación de datos](#how-do-i-disable-data-collection) en la directiva de Security Center.
 
 ### <a name="how-do-i-disable-data-collection"></a>¿Cómo se puede deshabilitar la recolección de datos?
-Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en Azure Portal](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**).  Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la opción **Colección de datos**. Para quitar agentes de máquinas virtuales existentes, seleccione la opción **Eliminar agentes** en la cinta de opciones superior.
+Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en Azure Portal](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**).  Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la opción **Colección de datos**. Los agentes de supervisión de Azure se quitan automáticamente de las máquinas virtuales existentes de la suscripción cuando se desactiva la recolección de datos.
 
 > [!NOTE]
 > Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero tiene que seleccionar una suscripción para desactivar la colección de datos.
@@ -71,7 +71,7 @@ La colección de datos se habilita a través de la extensión Supervisión de se
 El agente y la extensión utilizan una cantidad simbólica de los recursos del sistema y tienen un impacto menor en el rendimiento. Para obtener más información sobre el impacto en el rendimiento, y el agente y la extensión, vea la [guía de planeación y las operaciones](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### <a name="where-is-my-data-stored"></a>¿Dónde se almacenan los datos?
-Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en Azure Portal](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**). Cuando selecciona una suscripción, se abre una hoja nueva. Para seleccionar una región, seleccione **Elegir cuentas de almacenamiento**.
+Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en Azure Portal](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**). Cuando selecciona una suscripción, se abre una hoja nueva. Para seleccionar una región, seleccione **Elegir cuentas de almacenamiento**. Si no elige una cuenta de almacenamiento para cada región, se crea automáticamente una cuenta de almacenamiento y se coloca en el grupo de recursos securitydata.
 
 > [!NOTE]
 > Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la selección de una región para la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
@@ -140,6 +140,7 @@ Máquinas virtuales de Windows admitidas:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 Máquinas virtuales de Linux compatibles:
 
@@ -147,7 +148,7 @@ Máquinas virtuales de Linux compatibles:
 * Versiones de Debian 7, 8
 * Versiones de CentOS 6.\*, 7.*
 * Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-* Versiones de SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
+* Versiones de SUSE Linux Enterprise Server (SLES) 11 SP4+, 12.*
 * Versiones de Oracle Linux 6.\*, 7.*
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
@@ -163,6 +164,6 @@ El agente de VM debe instalarse en VM para habilitar la recopilación de datos. 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
-ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
+ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
+ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
 
 ---
 
@@ -62,7 +62,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 #### <a name="connector-and-published-server-in-the-same-domain"></a>Conector y servidor publicado en el mismo dominio
 1. En Active Directory, vaya a **Herramientas** > **Usuarios y equipos**.
 2. Seleccione el servidor que ejecuta el conector.
-3. Haga clic en el botón derecho y seleccione **Propiedades** > **Delegación**.
+.3. Haga clic en el botón derecho y seleccione **Propiedades** > **Delegación**.
 4. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificados**. En **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad SPN del servidor de aplicaciones.
 5. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
 
@@ -105,6 +105,8 @@ El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se i
 
 ![Diagrama de SSO que no es de Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
+Para obtener más información sobre Kerberos, consulte [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Todo lo que necesita saber sobre Delegación restringida de kerberos [KCD]).
+
 ### <a name="delegated-login-identity"></a>identidad de inicio de sesión delegada
 La identidad de inicio de sesión delegada le ayuda a controlar los dos escenarios de inicio de sesión diferentes:
 
@@ -130,7 +132,7 @@ Esta funcionalidad permite a muchas organizaciones que tienen identidades locale
 También le ayuda con aplicaciones que no aceptan direcciones en forma de dirección de correo electrónico, que es un escenario muy común en servidores back-end que no son Windows.
 
 ### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>Configuración de SSO para diferentes identidades en la nube y locales diferentes
-1. Configure Azure AD Connect para que la identidad principal sea la dirección de correo electrónico (correo). Esto se realiza como parte del proceso de personalización, al cambiar el campo **Nombre principal de usuario** en la configuración de sincronización. Esta configuración también determina la forma en que los usuarios inician sesión en dispositivos con Office 365 y Windows10, y otras aplicaciones que usan Azure AD como almacén de identidades.  
+1. Configure Azure AD Connect para que la identidad principal sea la dirección de correo electrónico (correo). Esto se realiza como parte del proceso de personalización, al cambiar el campo **Nombre principal de usuario** en la configuración de sincronización. Esta configuración también determina la forma en que los usuarios inician sesión en dispositivos con Office&365; y Windows10, y otras aplicaciones que usan Azure AD como almacén de identidades.  
    ![Captura de pantalla de la identificación de usuarios - lista desplegable de Nombre principal de usuario](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. En las opciones de Configuración de la aplicación correspondientes a la aplicación que quiere modificar, seleccione la información en **Identidad de inicio de sesión delegada** que quiere usar:
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
-ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
+ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
 
 
 ---
@@ -298,7 +298,7 @@ Puede omitir el operador lógico para los argumentos de filtro de nivel superior
 | sistema "Windows Server" O gravedad:1 |sistema Y "Windows Server" O gravedad:1 |
 
 ### <a name="wildcarding"></a>Caracteres comodín
-El lenguaje de consulta admite que se use el carácter (*\*) para representar uno o más caracteres para un valor en una consulta.
+El lenguaje de consulta admite que se use el carácter (\*) para representar uno o más caracteres para un valor en una consulta.
 
 Ejemplos:
 
@@ -813,6 +813,6 @@ Para más información acerca de las búsquedas de registros:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

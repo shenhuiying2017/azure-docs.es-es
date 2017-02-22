@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 94e09583ef8070a7e98fd2b30648996648ce3c41
-ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 8da7631d2dfc51e21269d05ace737760e3be61b8
 
 
 ---
@@ -28,7 +28,9 @@ El panel de Storm permite implementar y ejecutar fácilmente topologías de Apac
 El panel de Storm y las características de Storm de las herramientas de HDInsight dependen de la API de REST de Storm, que se puede usar para crear sus propias soluciones de supervisión y administración.
 
 > [!IMPORTANT]
-> Los pasos de este documento requieren un clúster Storm basado en Windows en HDInsight. Para obtener información sobre el uso de un clúster basado en Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
+> Para los pasos de este documento se necesita un clúster de Storm en HDInsight que usa Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+>
+> Para más información sobre la implementación y la administración de topologías de Storm con un clúster de HDInsight que usa Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,7 +57,7 @@ En la parte superior del panel de Storm, seleccione **Enviar topología**. Siga 
 
 ### <a name="storm-ui"></a>UI de Storm
 
-En el panel de Storm, seleccione el vínculo **IU de Storm** . Se mostrará información sobre el clúster, así como las topologías que estén en ejecución.
+En el panel de Storm, seleccione el vínculo **IU de Storm** . Se muestra información sobre el clúster, así como las topologías que estén en ejecución.
 
 ![la interfaz de usuario de storm][storm-dashboard-ui]
 
@@ -174,7 +176,7 @@ Las solicitudes a la API de REST deben usar la **autenticación básica**; use e
 
 ### <a name="return-values"></a>Valores devueltos
 
-La información que se devuelve de la API de REST solo se puede utilizar desde dentro del clúster o de máquinas virtuales en la misma red virtual de Azure que el clúster. Por ejemplo, no se podrá obtener el acceso desde Internet al nombre de dominio completo (FQDN) devuelto para servidores de Zookeeper.
+La información que se devuelve de la API de REST solo se puede utilizar desde dentro del clúster o de máquinas virtuales en la misma red virtual de Azure que el clúster. Por ejemplo, no se puede obtener el acceso desde Internet al nombre de dominio completo (FQDN) devuelto para servidores de Zookeeper.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -192,6 +194,6 @@ Para obtener una lista con más topologías de ejemplo, consulte [Topologías de
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

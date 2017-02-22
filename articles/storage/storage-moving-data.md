@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: 8b21bcbea774f7a5107da54081f75db331459b5f
+ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
+ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
 
 
 ---
@@ -74,10 +74,12 @@ Consulte [StorSimple](../storsimple/storsimple-overview.md) para más informaci�
 Si tiene aplicaciones y cargas de trabajo locales, necesitará una solución que permita que su negocio siga funcionando en caso de desastre. Azure Site Recovery controla la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Los datos replicados se almacenan en Almacenamiento de Azure, lo que le permite eliminar la necesidad de un centro de datos secundario en el sitio.
 
 Consulte [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para más información.
+### <a name="moving-data-faq"></a>Preguntas más frecuentes sobre movimiento de datos:
+## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>¿Puedo migrar VHD de una región a otra sin copiar?
+La única manera de copiar VHD entre regiones es copiar los datos entre las cuentas de almacenamiento en cada región. Puede utilizar AZCopy para ello. Consulte Transferencia de datos con la utilidad en línea de comandos AzCopy para obtener más información. Para grandes cantidades de datos, también puede importar/exportar de Azure. Consulte [Importación/Exportación de Azure](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) para más información.
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

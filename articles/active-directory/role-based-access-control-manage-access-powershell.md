@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d6dbbee1f977245cc16710ace3b25d6e167cbc7e
-ms.openlocfilehash: cdd7aab27943df568abfda27265ed970e6dd789c
+ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
+ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
 
 
 ---
@@ -127,7 +127,14 @@ Para quitar el acceso de usuarios, grupos y aplicaciones, use:
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - captura de pantalla](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Crear un rol personalizado
-Para crear un rol personalizado, use el comando `New-AzureRmRoleDefinition` . Existen dos métodos para estructurar el rol: por medio de PSRoleDefinitionObject o una plantilla JSON. 
+Para crear un rol personalizado, use el comando ```New-AzureRmRoleDefinition``` . Existen dos métodos para estructurar el rol: por medio de PSRoleDefinitionObject o una plantilla JSON. 
+
+## <a name="get-actions-from-particular-resource-provider"></a>Obtención de las acciones de proveedores de recursos concretos
+A la hora de crear roles personalizados desde el principio, es importante conocer todas las operaciones posibles de los proveedores de recursos.
+Esto se puede lograr usando el comando ```Get-AzureRMProviderOperation```. Por ejemplo, si quiere comprobar todas las operaciones disponibles para la máquina virtual, el comando será como se indica a continuación:
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
 
 ### <a name="create-role-with-psroledefinitionobject"></a>Creación de rol con PSRoleDefinitionObject
 Al crear un rol personalizado mediante el uso de PowerShell, puede empezar desde cero o usar uno de los [roles integrados](role-based-access-built-in-roles.md) como punto de partida (en este ejemplo se utiliza el último). Edite los atributos para agregar cualquier elemento *Actions*, *notActions* o *scopes* que quiera y guarde los cambios como un nuevo rol.
@@ -276,6 +283,6 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
-ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
+ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
+ms.openlocfilehash: 49c7506b35f661509346dfd8305f10c0d63422eb
 
 
 ---
@@ -45,7 +45,7 @@ Para completar este tutorial, necesitará lo siguiente:
 2. En el Explorador de soluciones, haga clic con el botón secundario en su proyecto y luego haga clic en **Administrar paquetes de NuGet**.
 3. En el Administrador de paquetes NuGet, active **Incluir versión preliminar** y busque **Microsoft.Azure.Management.ResourceManager**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar las licencias.
 4. En el Administrador de paquetes NuGet, busque **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar la licencia.
-5. En Program.cs, reemplace las instrucciones **using** existentes por las siguientes:
+5. En Program.cs, reemplace las instrucciones **using** existentes por el siguiente código:
    
     ```
     using System;
@@ -193,9 +193,9 @@ Ahora que ha implementado un Centro de IoT mediante una plantilla de Azure Resou
 * Consulte las funcionalidades de la [API de REST del proveedor de recursos de IoT Hub][lnk-rest-api].
 * Para más información sobre las funcionalidades de Azure Resource Manager, consulte [Información general de Azure Resource Manager][lnk-azure-rm-overview].
 
-Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
+Para obtener más información sobre cómo desarrollar para IoT Hub, consulte los siguientes artículos:
 
-* [Introducción a C SDK][lnk-c-sdk]
+* [Introducción al SDK de C][lnk-c-sdk]
 * [SDK de IoT de Azure][lnk-sdks]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
@@ -218,6 +218,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

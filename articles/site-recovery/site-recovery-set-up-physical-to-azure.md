@@ -15,8 +15,8 @@ ms.workload: backup-recovery
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 9dfcdeb4dc3e84089eb8031272b870f87d90b689
-ms.openlocfilehash: 9416ec83089a6892099634b0572b2c794dc74dba
+ms.sourcegitcommit: f849ea027022cc753bf818d7980170b5875221f0
+ms.openlocfilehash: 47431f934f092ea7c614599b6c8e3fe3a946a955
 
 ---
 
@@ -29,13 +29,13 @@ En este artículo se describe cómo configurar el entorno local para comenzar a 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se supone que ya cuenta con lo siguiente
+En este artículo se supone que ya cuenta con lo siguiente:
 1. Un almacén de Recovery Services en [Azure Portal](http://portal.azure.com "Azure Portal").
 3. Un equipo físico para instalar el servidor de configuración.
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos del servidor de configuración
 En la siguiente tabla se muestran los requisitos mínimos de hardware, software y red para un servidor de configuración.
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
 > El servidor de configuración no admite los servidores proxy basados en HTTPS.
@@ -43,10 +43,10 @@ En la siguiente tabla se muestran los requisitos mínimos de hardware, software 
 ## <a name="choose-your-protection-goals"></a>Selección de los objetivos de protección
 
 1. En Azure Portal, vaya a la hoja de los almacenes de **Recovery Services** y seleccione su almacén.
-2. En el menú de recursos del almacén, haga clic en **Introducción** > **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
+2. En el menú de **Recurso** del almacén, haga clic en **Introducción** > **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
 
     ![Elegir objetivos](./media/site-recovery-set-up-physical-to-azure/choose-goals.png)
-3. En **Objetivo de protección**, seleccione **En Azure** y, luego, **No virtualizado/otro**. A continuación, haga clic en **Aceptar**.
+3. En **Objetivo de protección**, seleccione **To Azure** (En Azure) y, luego, **No virtualizado/otro**; después haga clic en **Aceptar**.
 
     ![Elegir objetivos](./media/site-recovery-set-up-physical-to-azure/physical-protection-goal.PNG)
 
@@ -57,20 +57,20 @@ En la siguiente tabla se muestran los requisitos mínimos de hardware, software 
   ![Configurar origen](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. En la hoja **Agregar servidor**, compruebe que **Servidor de configuración** aparezca en **Tipo de servidor**.
 4. Descargue el archivo de instalación unificada de Site Recovery.
-5. Descargue la clave de registro del almacén. Necesita la clave de registro cuando ejecuta la instalación unificada. La clave es válida durante **cinco** días después de generada.
+5. Descargue la clave de registro del almacén. Necesita la clave de registro cuando ejecuta la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.
 
     ![Configurar origen](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
 6. En la máquina que usa como el servidor de configuración, ejecute la **instalación unificada de Azure Site Recovery** para instalar el servidor de configuración, el servidor de procesos y el servidor de destino maestro.
 
-#### <a name="running-the-azure-site-recovery-unified-setup"></a>Ejecución de la instalación unificada de Azure Site Recovery
+#### <a name="run-azure-site-recovery-unified-setup"></a>Ejecución de la instalación unificada de Azure Site Recovery
 
 > [!TIP]
-> El registro del servidor de configuración presenta errores si la hora del reloj del sistema de su equipo está más de cinco minutos adelantada o atrasada con respecto a la hora local.  Sincronice el reloj del sistema con un [servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) antes de comenzar la instalación.
+> El registro del servidor de configuración presenta errores si la hora del reloj del sistema de su equipo tiene más de cinco minutos de diferencia con respecto a la hora local. Sincronice el reloj del sistema con un [servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) antes de comenzar la instalación.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> El servidor de configuración se puede instalar a través de la línea de comandos. Más información sobre cómo [instalar el servidor de configuración con herramientas de línea de comandos](http://aka.ms/installconfigsrv).
+> El servidor de configuración se puede instalar a través de una línea de comandos. Para obtener más información, consulte [Instalación del servidor de configuración con herramientas de línea de comandos](http://aka.ms/installconfigsrv).
 
 
 ## <a name="common-issues"></a>Problemas comunes
@@ -79,10 +79,12 @@ En la siguiente tabla se muestran los requisitos mínimos de hardware, software 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-El paso siguiente implica [configurar el entorno de destino](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) en Azure.
+
+El paso siguiente implica [configurar el entorno de destino](./site-recovery-prepare-target-physical-to-azure.md) en Azure.
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
+ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
+ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
 
 
 ---
@@ -43,6 +43,10 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 ## <a name="a-idrestversionhistoryarest-api-version-history"></a><a id="rest_version_history"></a>Historial de versiones de API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
+
+## <a name="febuary-2017-release"></a>Versión de febrero de 2017
+
+A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe [aquí](media-services-dotnet-manage-entities.md).
 
 ## <a name="january-2017-release"></a>Versión de enero de 2017
 
@@ -535,6 +539,6 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

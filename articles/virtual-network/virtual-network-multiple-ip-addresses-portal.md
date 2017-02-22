@@ -1,6 +1,6 @@
 ---
-title: "Varias direcciones IP para máquinas virtuales - Portal | Microsoft Docs"
-description: "Aprenda a asignar varias direcciones IP a una máquina virtual con Azure Portal."
+title: "Varias direcciones IP para máquinas virtuales de Azure: Portal | Microsoft Docs"
+description: "Obtenga información sobre cómo asignar varias direcciones IP a una máquina virtual con Azure Portal | Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,181 +13,147 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2016
+ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 716046d5e23de015da42f25f8a1f674de228efac
-ms.openlocfilehash: a04192ffde57ae38d901a78a74724a89f43caedb
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: 6e7eac6ae505c627ffa1d63aace76b9006d92c74
 
 
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines"></a>Asignación de varias direcciones IP a máquinas virtuales
-> [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Asignación de varias direcciones IP a máquinas virtuales con Azure Portal
 
-
-Una máquina virtual (VM) de Azure puede tener una o varias interfaces de red (NIC) asociadas a ella. Cualquier NIC puede tener una o varias direcciones IP públicas o privadas asignadas. Si no está familiarizado con las direcciones IP en Azure, lea el artículo [Direcciones IP en Azure](virtual-network-ip-addresses-overview-arm.md) para aprender más sobre ellas. En este artículo, se explica cómo usar Azure Portal para asignar varias direcciones IP a una VM en el modelo de implementación de Azure Resource Manager.
-
-La asignación de varias direcciones IP a una VM permite las siguientes capacidades:
-
-* Hospede varios sitios web o servicios con direcciones IP y certificados SSL diferentes en un único servidor.
-* Actúe como aplicación de red virtual, como un firewall o equilibrador de carga.
-* La capacidad de agregar cualquier dirección IP privada para cualquiera de las NIC a un grupo de servidores de back-end de Azure Load Balancer. En el pasado, solo la dirección IP principal para la NIC principal podía agregarse a un grupo de back-end.
+>[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
+>
+En este artículo se describe cómo crear una máquina virtual con el modelo de implementación de Azure Resource Manager mediante Azure Portal. No se pueden asignar varias direcciones IP a los recursos creados mediante el modelo de implementación clásica. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../resource-manager-deployment-model.md) (Descripción de los modelos de implementación).
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Para registrarse para la versión preliminar, envíe un correo electrónico a [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto.
-
-## <a name="scenario"></a>Escenario
-En este artículo, asociará 3 configuraciones IP con una interfaz de red.
-Las siguientes configuraciones de ejemplo se crearán y asignarán a una NIC que tendrá 3 direcciones IP privadas y una pública asignadas:
-
-* IPConfig-1: una dirección IP privada dinámica (predeterminada) y una dirección IP pública del recurso de dirección IP pública llamado PIP1.
-* IPConfig-2: una dirección IP privada estática y ninguna dirección IP pública.
-* IPConfig-3: una dirección IP privada dinámica y ninguna dirección IP pública.
-
-    ![Texto alternativo de imagen](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-Este escenario supone que tiene un grupo de recursos llamado *RG1*, dentro del cual se encuentra una red virtual denominada *VNet1* y una subred llamada *Subnet1*. Además, supone que tiene una máquina virtual llamada *VM1*, una interfaz de red llamada *VM1-NIC1* asociada a ella y una dirección IP pública denominada *PIP1*.
-
-[Este artículo](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lo guiará en el proceso de creación de los recursos mencionados anteriormente en caso de que todavía no los haya creado.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
-Para crear configuraciones de varias direcciones IP basadas en el escenario anterior por medio del portal de vista previa de Azure, siga estos pasos.
 
-1. Desde un explorador, vaya a http://portal.azure.com y, si fuera necesario, inicie sesión con su cuenta de Azure.
-2. Seleccione la interfaz de red a la que desea agregar las configuraciones de IP: **Máquinas virtuales** > **VM1** > **Interfaces de red** > **VM1 NIC1**
-3. En la hoja **Interfaz de red** hoja, seleccione **Configuraciones de IP**. Verá una lista de las configuraciones de IP existentes.
-4. Para asociar **PIP1** a **ipconfig1**, en la hoja **Configuraciones de IP**, seleccione **ipconfig1**. En la hoja **ipconfig1**, en **Dirección IP pública**, seleccione **Habilitada**.
-5. En la pestaña **Dirección IP**, seleccione **Configurar valores obligatorios** y luego seleccione **PIP1** o la dirección IP pública que desea asociar a esta configuración IP primaria y después haga clic en Guardar. También puede crear una nueva dirección IP pública para asociar aquí. A continuación verá la notificación Guardando interfaz de red que, una vez finalizada, verá **PIP1** asociada a **ipconfig1**.
+Si desea crear una VM con varias direcciones IP, debe crearla mediante PowerShell o la CLI de Azure. Para aprender cómo, haga clic en las opciones PowerShell o CLI en la parte superior de este artículo. Puede crear una VM con una sola dirección IP privada estática y (opcionalmente) una única dirección IP pública mediante el portal siguiendo los pasos descritos en los artículos [Creación de la primera máquina virtual de Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creación de una máquina virtual de Linux en Azure mediante el portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Después de crear la VM, puede cambiar los tipos de direcciones IP y agregar más direcciones IP mediante el portal siguiendo los pasos de la sección [Incorporación de direcciones IP a una VM](#add) de este artículo.
 
-    ![Texto alternativo de imagen](media\\virtual-network-multiple-ip-addresses-portal\\01-portal.PNG)
+## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Incorporación de direcciones IP a una VM
 
+Puede agregar direcciones IP públicas y privadas a una NIC completando los pasos siguientes. En los ejemplos de las secciones siguientes se da por sentado que ya tiene una máquina virtual con las tres configuraciones de IP descritas en el [escenario](#Scenario) de este artículo, pero no es necesario que lo haga.
+
+### <a name="a-namecoreaddacore-steps"></a><a name="coreadd"></a>Pasos principales
+
+1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
     >[!NOTE] 
-    > Las direcciones IP públicas tienen un precio simbólico. Para más información sobre los precios de las direcciones IP, lea la página [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses) .
+    >Esta operación puede tardar unos minutos.
+    
+2. Vaya Azure Portal en https://portal.azure.com e inicie sesión en él, si es necesario.
+3. En el portal, haga clic en **Más servicios** > tipo *Máquinas virtuales* en el cuadro de filtro y luego haga clic en **Máquinas virtuales**.
+4. En la hoja **Máquinas virtuales**, haga clic en la VM a la que desea agregar direcciones IP. Haga clic en **Interfaces de red** en la hoja de la máquina virtual que aparece y luego seleccione la interfaz de red a la que desea agregar direcciones IP. En el ejemplo mostrado en la siguiente imagen, está seleccionada la NIC denominada *myNIC* de la VM llamada *myVM*:
 
-1. Después, para agregar una configuración de IP, en la sección **Configuraciones de IP** de la interfaz de red, haga clic en **+Agregar**.
+    ![Interfaz de red](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-   > [!NOTE]
-   > Puede asignar hasta 250 direcciones IP privadas a una NIC. Existe un límite para el número de direcciones IP públicas que pueden usarse dentro de una suscripción. Para más información, lea el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager) .
-   >
-   >
-2. En la hoja **Agregar configuración IP**, asigne un nombre a la configuración de IP. Aquí es **IPConfig 2**. Seleccione **Estática** para **Asignación** y escriba la dirección IP que desea. En este escenario, 10.0.0.5. A continuación, haga clic en **Aceptar**. Una vez guardada la configuración, verá la configuración de IP en la lista.
+5. En la hoja que aparece para la NIC que se ha seleccionado, haga clic en **Configuraciones IP**, tal y como se muestra en la siguiente imagen:
 
-    ![Texto alternativo de imagen](media\\virtual-network-multiple-ip-addresses-portal\\02-portal.PNG)
-3. A continuación, agregue la tercera configuración de IP, seleccionando **+Agregar** en la hoja **Configuraciones de IP** y rellene los detalles necesarios como se muestra a continuación. Después seleccione **Aceptar**.
+    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure2.png)
 
-    ![Texto alternativo de imagen](media\\virtual-network-multiple-ip-addresses-portal\\03-portal.PNG)
+Complete los pasos de una de las secciones siguientes según el tipo de dirección IP que desea agregar.
 
-    Tenga en cuenta que IPConfig-2 e IPConfig-3 también se pueden asociar a una dirección IP pública seleccionando **Habilitada** en la sección **Dirección IP pública** de la hoja **Agregar configuración IP**. Se puede crear una dirección IP pública nueva o una ya creada se puede asociarse a la configuración de IP.
-4. Agregue manualmente todas las direcciones IP privadas (incluida la principal) a la configuración TCP/IP en el sistema operativo tal y como se muestra a continuación. Para agregar manualmente las direcciones IP debe conectarse a la VM y luego seguir los pasos descritos a continuación.
+### <a name="add-a-private-ip-address"></a>**Incorporación de una dirección IP privada**
 
-**Windows**
+Complete los pasos siguientes para agregar una nueva dirección IP privada:
 
-1. En un símbolo del sistema, escriba *ipconfig /all*.  Solo verá la dirección IP privada *principal* (por medio de DHCP).
-2. Luego, escriba *ncpa.cpl* en la ventana del símbolo del sistema del comando. De este modo se abrirá una ventana nueva.
-3. Abra las propiedades de la **Conexión de área local**.
-4. Haga doble clic en el Protocolo de Internet versión 4 (IPv4)
-5. Seleccione **Usar la siguiente dirección IP** y escriba los valores siguientes:
+1. Complete los pasos de la sección [Pasos principales](#coreadd) de este artículo.
+2. Haga clic en **Agregar**. En la hoja **Agregar configuración de IP** que aparece, cree una configuración de IP denominada *IPConfig&4;* con *10.0.0.7* como una dirección IP privada de tipo *Estática* y luego haga clic en **Aceptar**, tal y como se muestra en la siguiente imagen:
 
-   * **Dirección IP**: escriba la dirección IP privada *principal* .
-   * **Máscara de subred**: establezca este valor en función de su subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
-   * **Puerta de enlace predeterminada**: la primera dirección IP de la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
-   * Haga clic en **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
-     * **Servidor DNS preferido:** escriba 168.63.129.16 si no usa su propio servidor DNS.  Si usa uno propio, escriba su dirección IP.
-   * Haga clic en el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias indicadas en el paso 8 a la NIC con la misma subred especificada para la dirección IP principal.
-   * Haga clic en **Aceptar** para cerrar la configuración de TCP/IP y en **Aceptar** otra vez para cerrar la configuración del adaptador. Con esto se restablecerá la conexión RDP.
-6. En un símbolo del sistema, escriba *ipconfig /all*. Se muestran todas las direcciones IP que agregó y DHCP está desactivado.
+    ![Agregar dirección IP privada](./media/virtual-network-multiple-ip-addresses-portal/figure3.png)
 
-**Linux (Ubuntu)**
+    > [!NOTE]
+    > Al agregar una dirección IP estática, debe especificar una dirección válida no utilizada en la subred a la que la está conectada la NIC. Si la dirección que seleccionó no está disponible, el portal mostrará una X para la dirección IP y deberá seleccionar otra.
 
-1. Abra una ventana del terminal.
-2. Asegúrese de ser el usuario raíz. Si no lo es, cámbielo mediante el siguiente comando:
+    Si prefiere que la dirección IP privada **Método de asignación** sea *Dinámico*, selecciónelo y no tendrá que especificar una dirección IP.
+3. Una vez que haga clic en Aceptar, se cerrará la hoja y verá la nueva configuración de IP en la lista, tal y como se muestra en la siguiente imagen:
 
-            sudo -i
-3. Actualice el archivo de configuración de la interfaz de red (suponiendo que sea "eth0").
+    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure4.png)
 
-   * Mantenga el elemento de línea existente para dhcp. Esto configurará la dirección IP principal como solía ser antes.
-   * Agregue una configuración para una dirección IP estática adicional con los siguientes comandos:
+    Haga clic en **Aceptar** para cerrar la hoja **Agregar configuración de IP**.
+4. Puede hacer clic en **Agregar** agregue más configuraciones IP o cerrar todas las hojas abiertas para terminar de agregar direcciones IP.
+5. Agregue al sistema operativo de la VM las direcciones IP privadas completando los pasos correspondientes al sistema operativo de la sección [Incorporación de direcciones IP a un sistema operativo de la VM](#os-config) de este artículo.
 
-               cd /etc/network/interfaces.d/
-               ls
+### <a name="add-a-public-ip-address"></a>Incorporación de una dirección IP pública
 
-       Debería ver un archivo .cfg.
-4. Abra el archivo: vi *nombreDeArchivo*.
+Una dirección IP pública se agrega mediante la asociación de un recurso de dirección IP pública a una nueva configuración de IP o una configuración de IP existente.
 
-    Debería ver las siguientes líneas al final del archivo:
+> [!NOTE]
+> Las direcciones IP públicas tienen un precio simbólico. Para más información sobre los precios de las direcciones IP, lea la página [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Existe un límite para el número de direcciones IP públicas que pueden usarse dentro de una suscripción. Para más información sobre los límites, lea el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#networking-limits).
+> 
 
-            auto eth0
-            iface eth0 inet dhcp
-5. Agregue las líneas siguientes después de las que existen en este archivo:
+### <a name="a-namecreate-public-ipacreate-a-public-ip-address-resource"></a><a name="create-public-ip"></a>Creación de un recurso de dirección IP pública
 
-            iface eth0 inet static
-            address <your private IP address here>
-6. Guarde el archivo mediante el comando siguiente:
+Una dirección IP pública es una configuración para un recurso de dirección IP pública. Si tiene un recurso de dirección IP pública que no está asociado actualmente a una configuración de IP que desea asociar a una configuración de IP, omita los pasos siguientes y complete los pasos de una de las secciones siguientes, según sea preciso. Si no tiene un recurso de dirección IP pública disponible, complete los pasos siguientes para crear uno:
 
-            :wq
-7. Restablezca la interfaz de red con el comando siguiente:
+1. Vaya Azure Portal en https://portal.azure.com e inicie sesión en él, si es necesario.
+3. En el portal, haga clic en **Nuevo** > **Redes** > **Dirección IP pública**.
+4. En la hoja **Crear dirección IP pública** que aparece, escriba un nombre en **Nombre**, seleccione un tipo en **Asignación de dirección IP**, una suscripción en **Suscripción**, un grupo de recursos sen **Grupo de recursos** y una ubicación en **Ubicación**. Luego, haga clic en **Crear** tal y como se muestra en la siguiente imagen:
 
-           sudo ifdown eth0 && sudo ifup eth0
+    ![Creación de un recurso de dirección IP pública](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
 
-   > [!IMPORTANT]
-   > Si usa una conexión remota, ejecute ifdown e ifup en la misma línea.
-   >
-   >
-8. Compruebe que la dirección IP se agregue a la interfaz de red con el comando siguiente:
+5. Complete los pasos de una de las secciones siguientes para asociar el recurso de dirección IP pública a una configuración de IP.
 
-            ip addr list eth0
+#### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Asociación del recurso de dirección IP pública a una nueva configuración de IP
 
-    Debería ver la dirección IP que agregó en la lista.
+1. Complete los pasos de la sección [Pasos principales](#coreadd) de este artículo.
+2. Haga clic en **Agregar**. En la hoja **Agregar configuración de IP** hoja que aparece, cree una configuración de IP denominada *IPConfig&4;*. Habilite la opción **Dirección IP pública** y seleccione un recurso de dirección IP pública existente que esté disponible en la hoja **Elegir dirección IP pública** que aparece, tal como se muestra en la siguiente imagen:
 
-**Linux (Redhat, CentOS y otros)**
+    ![Nueva configuración de IP](./media/virtual-network-multiple-ip-addresses-portal/figure6.png)
 
-1. Abra una ventana del terminal.
-2. Asegúrese de ser el usuario raíz. Si no lo es, cámbielo mediante el siguiente comando:
+    Una vez que haya seleccionado la dirección IP pública, haga clic en **Aceptar** y la hoja se cerrará. Si no tiene una dirección IP pública existente, puede crear una completando los pasos descritos en la sección [Creación de un recurso de dirección IP pública](#create-public-ip) de este artículo. 
 
-            sudo -i
-3. Escriba la contraseña y siga las instrucciones que aparezcan. Una vez que sea el usuario raíz, vaya a la carpeta de scripts de red con el comando siguiente:
+3. Revise la nueva configuración de IP, tal y como se muestra en la siguiente imagen:
 
-            cd /etc/sysconfig/network-scripts
-4. Muestra una lista de los archivos de ifcfg relacionados con el siguiente comando:
+    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure7.png)
 
-            ls ifcfg-*
+    > [!NOTE]
+    > Aunque no se asignara explícitamente una dirección IP privada, se asigna una automáticamente a la configuración de IP, dado que todas las configuraciones IP deben tener una dirección IP privada.
+    >
 
-    Debería ver *ifcfg-eth0* como uno de los archivos.
-5. Copie el archivo *ifcfg-eth0* y asígnele el nombre *ifcfg-eth0:0* con el siguiente comando:
+4. Puede hacer clic en **Agregar** agregue más configuraciones IP o cerrar todas las hojas abiertas para terminar de agregar direcciones IP.
+5. Agregue al sistema operativo de la VM la dirección IP privada completando los pasos de la sección [Incorporación de direcciones IP a un sistema operativo de la VM](#os-config) de este artículo. No agregue la dirección IP pública al sistema operativo.
 
-            cp ifcfg-eth0 ifcfg-eth0:0
-6. Edite el archivo *ifcfg-eth0:0* con el comando siguiente:
+#### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>Asociación del recurso de dirección IP pública a una configuración de IP existente
 
-            vi ifcfg-eth1
-7. Cambie el dispositivo al nombre adecuado en el archivo, *eth0:0* en este caso, con el siguiente comando:
+1. Complete los pasos de la sección [Pasos principales](#coreadd) de este artículo.
+2. Seleccione la configuración de IP a la que desea agregar el recurso de dirección IP pública, habilite la dirección IP pública y seleccione un recurso de dirección IP pública existente que esté disponible. En el ejemplo que se muestra en la siguiente imagen, el recurso de dirección IP pública *myPublicIp3* está asociado a *IPConfig-3*.
 
-            DEVICE=eth0:0
-8. Cambie la línea *IPADDR = suDirecciónIPPrivada* para reflejar la dirección IP.
-9. Guarde el archivo mediante el comando siguiente:
+    ![Configuración de IP existente](./media/virtual-network-multiple-ip-addresses-portal/figure8.png)
 
-            :wq
-10. Reinicie los servicios de red y asegúrese de que los cambios sean correctos con los comandos siguientes:
+    Una vez que haya seleccionado el recurso de dirección IP pública, haga clic en **Guardar** y las hojas se cerrarán. Si no tiene una dirección IP pública existente, puede crear una completando los pasos descritos en la sección [Creación de un recurso de dirección IP pública](#create-public-ip) de este artículo.
 
-            /etc/init.d/network restart
-            Ipconfig
+3. Revise la nueva configuración de IP, tal y como se muestra en la siguiente imagen:
 
-    Debería ver la dirección IP que agregó, *eth0:0*, en la lista que se devuelve.
+    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure9.png)
 
-## <a name="a-nameaddaadd-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Incorporación de direcciones IP a una máquina virtual existente
-Complete los pasos siguientes para agregar direcciones IP adicionales a una NIC existente:
+4. Puede hacer clic en **Agregar** agregue más configuraciones IP o cerrar todas las hojas abiertas para terminar de agregar direcciones IP. No agregue la dirección IP pública al sistema operativo.
 
-1. Desde un explorador, vaya a http://portal.azure.com y, si fuera necesario, inicie sesión con su cuenta de Azure.
-2. Seleccione la interfaz de red a la que desea agregar las configuraciones de IP en la sección **Interfaces de red**.
-3. En la hoja **Interfaz de red** hoja, seleccione **Configuraciones de IP**. Verá una lista de las configuraciones de IP existentes.
-4. Después, para agregar una configuración de IP, en la sección Configuraciones de IP de la interfaz de red, haga clic en **+Agregar**.
-5. En la hoja Agregar configuración IP, asigne un nombre a la configuración de IP. Seleccione el tipo de dirección IP que le gustaría (Estática o Dinámica) en **Asignación**. En **Dirección IP pública**, seleccione **Habilitada** si desea asociar la configuración de IP a una dirección IP pública. Si no hace clic en **Deshabilitado**. Seleccione **Habilitado** para poder asociar una dirección de IP pública existente a la configuración. Luego haga clic en Aceptar. Una vez guardada la configuración, verá la configuración de IP en la lista.
+
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Creación de un clúster de HDInsight con Azure Data Lake Store mediante Azure PowerShell | Microsoft Docs"
+title: Uso de PowerShell para crear Azure HDInsight y Data Lake Store | Microsoft Docs
 description: "Uso de Azure PowerShell para crear y usar clústeres de HDInsight con Azure Data Lake"
 services: data-lake-store,hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 0b635129a7f3b96b062a7005225a634de98e9ac9
+ms.sourcegitcommit: 0fed9cff7a357c596d7e178ec756be449cd1dff0
+ms.openlocfilehash: aada6f72a3b20233fdeeb7adabf6545ce831d563
 
 
 ---
@@ -117,10 +117,8 @@ Asegúrese de que tiene [Windows SDK](https://dev.windows.com/en-us/downloads) i
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
-        $startDate = (Get-Date).ToString('MM/dd/yyyy')
-        $endDate = (Get-Date).AddDays(365).ToString('MM/dd/yyyy')
-
-        makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
+        
+        makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     Se le pedirá que escriba la contraseña de la clave privada. Después de que el comando se ejecute correctamente, debería ver los archivos **CertFile.cer** y **mykey.pvk** en el directorio de certificado especificado.
 2. Emplee la utilidad [Pvk2Pfx][pvk2pfx] para convertir los archivos .pvk y .cer que MakeCert creó en un archivo .pfx. Ejecute el siguiente comando.
@@ -145,14 +143,12 @@ En esta sección, llevará a cabo los pasos para crear una entidad de servicio p
         $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
         $application = New-AzureRmADApplication `
-                    -DisplayName "HDIADL" `
-                    -HomePage "https://contoso.com" `
-                    -IdentifierUris "https://mycontoso.com" `
-                    -KeyValue $credential  `
-                    -KeyType "AsymmetricX509Cert"  `
-                    -KeyUsage "Verify"  `
-                    -StartDate $startDate  `
-                    -EndDate $endDate
+            -DisplayName "HDIADL" `
+            -HomePage "https://contoso.com" `
+            -IdentifierUris "https://mycontoso.com" `
+            -CertValue $credential  `
+            -StartDate $certificatePFX.NotBefore  `
+            -EndDate $certificatePFX.NotAfter
 
         $applicationId = $application.ApplicationId
 2. Cree una entidad de servicio con el identificador de aplicación.
@@ -160,14 +156,13 @@ En esta sección, llevará a cabo los pasos para crear una entidad de servicio p
         $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
 
         $objectId = $servicePrincipal.Id
-3. Conceda acceso de entidad de servicio al archivo o la carpeta de Data Lake Store a la que accederá desde el clúster de HDInsight. El siguiente fragmento proporciona acceso a la raíz de la cuenta de Data Lake Store.
+3. Conceda acceso de entidad de servicio al archivo o la carpeta de Data Lake Store a la que accederá desde el clúster de HDInsight. El fragmento de código siguiente proporciona acceso a la raíz de la cuenta de Data Lake Store (donde copió el archivo de datos de ejemplo) y al propio archivo.
 
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
+        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
-    En el aviso, escriba **Y** para confirmar.
-
-## <a name="create-an-hdinsight-cluster-with-authentication-to-data-lake-store"></a>Creación de un clúster de HDInsight con autenticación en el Almacén de Data Lake
-En esta sección, crearemos un clúster de Hadoop en HDInsight. En esta versión, el clúster de HDInsight y el Almacén de Data Lake deben estar en la misma ubicación (Este de EE. UU. 2).
+## <a name="create-an-hdinsight-linux-cluster-with-authentication-to-data-lake-store"></a>Creación de un clúster de HDInsight con autenticación en Data Lake Store
+En esta sección, crearemos un clúster de Linux de Hadoop en HDInsight. En esta versión, el clúster de HDInsight y Data Lake Store deben estar en la misma ubicación.
 
 1. Comience recuperando el identificador del inquilino de la suscripción. Lo necesitará más adelante.
 
@@ -182,7 +177,7 @@ En esta sección, crearemos un clúster de Hadoop en HDInsight. En esta versión
 
         # Create an Azure Blob Storage container
         $containerName = "<ContainerName>"              # Provide a container name
-        $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+        $storageAccountKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
         $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
         New-AzureStorageContainer -Name $containerName -Context $destContext
 3. Cree el clúster de HDInsight. Use los siguientes cmdlets.
@@ -191,35 +186,20 @@ En esta sección, crearemos un clúster de Hadoop en HDInsight. En esta versión
         $clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
         $httpCredentials = Get-Credential
-        $rdpCredentials = Get-Credential
+        $sshCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
+        New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.4" -OSType Linux -SshCredential $sshCredentials -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
-    Una vez que el cmdlet se complete correctamente, debería ver un resultado similar al siguiente:
+    Una vez que el cmdlet se complete correctamente, debería ver un resultado con la información del clúster.
 
-        Name                      : hdiadlcluster
-        Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
-                                    crosoft.HDInsight/clusters/hdiadlcluster
-        Location                  : East US 2
-        ClusterVersion            : 3.2.7.707
-        OperatingSystemType       : Windows
-        ClusterState              : Running
-        ClusterType               : Hadoop
-        CoresUsed                 : 16
-        HttpEndpoint              : hdiadlcluster.azurehdinsight.net
-        Error                     :
-        DefaultStorageAccount     :
-        DefaultStorageContainer   :
-        ResourceGroup             : hdiadlgroup
-        AdditionalStorageAccounts :
-
+        
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Ejecución de trabajos de prueba en el clúster de HDInsight para usar el Almacén de Data Lake
 Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prueba en el clúster para probar que el clúster de HDInsight pueda acceder al Almacén de Data Lake. Para hacerlo, ejecutaremos un trabajo de Hive de ejemplo que crea una tabla con los datos de ejemplo que cargó antes en el Almacén de Data Lake.
 
-### <a name="for-a-linux-cluster"></a>En un clúster de Linux
-En esta sección, se usará SSH en el clúster y se ejecutarán una consulta de Hive de ejemplo. Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight que creó y ejecutará una consulta de Hive de ejemplo.
 
-Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Si usa un cliente Windows para usar SSH en el clúster, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Si usa un cliente Linux para usar SSH en el clúster, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Una vez conectado, inicie la CLI de Hive con el siguiente comando:
 
@@ -243,55 +223,13 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
         1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
         1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
-### <a name="for-a-windows-cluster"></a>En un clúster de Windows
-Use los siguientes cmdlets para ejecutar la consulta de Hive. En esta consulta se crea una tabla con los datos del Almacén de Data Lake y después se ejecuta una consulta Select en la tabla creada.
-
-    $queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-
-    $hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
-
-    $hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
-
-    Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
-
-El resultado será el siguiente. **ExitValue** en el resultado indica que el trabajo se completó correctamente.
-
-    Cluster         : hdiadlcluster.
-    HttpEndpoint    : hdiadlcluster.azurehdinsight.net
-    State           : SUCCEEDED
-    JobId           : job_1445386885331_0012
-    ParentId        :
-    PercentComplete :
-    ExitValue       : 0
-    User            : admin
-    Callback        :
-    Completed       : done
-
-Recupere el resultado del trabajo mediante el siguiente cmdlet:
-
-    Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
-
-El resultado del trabajo es similar a lo siguiente:
-
-    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-    1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-    1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-    1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-    1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-    1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-    1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-    1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-    1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-    1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
-
-
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Acceso al Almacén de Data Lake mediante comandos de HDFS
 Una vez que configure el clúster de HDInsight para que use el Almacén de Data Lake, puede usar los comandos de shell de HDFS para acceder al almacén.
 
-### <a name="for-a-linux-cluster"></a>En un clúster de Linux
-En esta sección, se usará SSH en el clúster y se ejecutarán los comandos de HDFS. Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight que creó y ejecutará los comandos de HDFS. 
 
-Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Si usa un cliente Windows para usar SSH en el clúster, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Si usa un cliente Linux para usar SSH en el clúster, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Una vez conectado, utilice el siguiente comando del sistema de archivos HDFS para enumerar los archivos del Almacén de Data Lake.
 
@@ -305,26 +243,6 @@ Se debería incluir el archivo que cargó antes en el Almacén de Data Lake.
 
 También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en el almacén de Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
 
-### <a name="for-a-windows-cluster"></a>En un clúster de Windows
-1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **Examinar**, en **Clústeres de HDInsight** y, después, en el clúster de HDInsight que creó.
-3. En la hoja del clúster, haga clic en **Escritorio remoto** y, después, en la hoja **Escritorio remoto**; luego, seleccione **Conectar**.
-
-    ![Remoto en clúster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Creación de un grupo de recursos de Azure")
-
-    Cuando se le solicite, escriba las credenciales que proporcionó para el usuario de Escritorio remoto.
-4. En la sesión remota, inicie Windows PowerShell y use los comandos del sistema de archivos de HDFS para enumerar los archivos en el Almacén de Azure Data Lake.
-
-         hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
-
-    Se debería incluir el archivo que cargó antes en el Almacén de Data Lake.
-
-        15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-        Found 1 items
-        -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
-
-    También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en el almacén de Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
-
 ## <a name="see-also"></a>Otras referencias
 * [Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de vista previa de Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 
@@ -333,6 +251,6 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

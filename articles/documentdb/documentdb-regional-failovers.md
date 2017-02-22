@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 888e88c3e8ede6b67b9cf26b426d73b86b2aff62
-ms.openlocfilehash: 17e9d5d8afe3b11ca5d3944158dcd6c9126ceeda
+ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
+ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
 
 
 ---
@@ -28,6 +28,10 @@ Azure DocumentDB admite tanto las conmutaciones por error definidas por directiv
 * Funcionamiento de las conmutaciones por error manuales en DocumentDB
 * Funcionamiento de las conmutaciones por error automáticas en DocumentDB
 * Uso de las conmutaciones por error manuales en arquitecturas de aplicación
+
+También obtendrá más información sobre las conmutaciones por error en este vídeo de Azure Friday con Scott Hanselman y el administrador de ingeniería principal Karthik Raman.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>Configuración de aplicaciones de varias regiones
 Antes de profundizar en los modos de conmutación por error, veremos cómo puede configurar una aplicación para que aproveche las ventajas que ofrece la disponibilidad de varias regiones y para que sea resistente en caso de una conmutación por error regional.
@@ -119,6 +123,6 @@ En este artículo, hemos revisado cómo funcionan las conmutaciones por error ma
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

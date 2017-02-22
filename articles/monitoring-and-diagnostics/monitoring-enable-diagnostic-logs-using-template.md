@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 2/14/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 00f4ddd7173affb9e557e8c993c9f7432a3152cd
+ms.sourcegitcommit: f4e7b1f2ac7f10748473605eacee71bf0cd538e6
+ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
 
 
 ---
@@ -102,9 +102,9 @@ Para recursos no de proceso, debe hacer dos cosas:
     ]
     ```
 
-El blob de propiedades para la configuración de diagnóstico sigue [el formato descrito en este artículo](https://msdn.microsoft.com/library/azure/dn931931.aspx). Agregar la propiedad `metrics` le permitirá también enviar métricas de recursos para estos mismos resultados.
+El blob de propiedades para la configuración de diagnóstico sigue [el formato descrito en este artículo](https://msdn.microsoft.com/library/azure/dn931931.aspx). Al agregar la propiedad `metrics`, también podrá enviar métricas de recursos para estos mismos resultados, siempre y cuando [los recursos admitan las métricas de Azure Monitor](monitoring-supported-metrics.md).
 
-Este es un ejemplo completo en el que se crea un grupo de seguridad de red y se activa el streaming a centros de eventos y el almacenamiento en una cuenta de almacenamiento.
+Este es un ejemplo completo en el que se crea una aplicación lógica y se activa la transmisión a Event Hubs y el almacenamiento en una cuenta de almacenamiento.
 
 ```json
 
@@ -112,11 +112,15 @@ Este es un ejemplo completo en el que se crea un grupo de seguridad de red y se 
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "nsgName": {
+    "logicAppName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the NSG that will be created."
+        "description": "Name of the Logic App that will be created."
       }
+    },
+    "testUri": {
+      "type": "string",
+      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
     "storageAccountName": {
       "type": "string",
@@ -140,19 +144,49 @@ Este es un ejemplo completo en el que se crea un grupo de seguridad de red y se 
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('nsgName')]",
-      "apiVersion": "2016-03-30",
-      "location": "westus",
+      "type": "Microsoft.Logic/workflows",
+      "name": "[parameters('logicAppName')]",
+      "apiVersion": "2016-06-01",
+      "location": "[resourceGroup().location]",
       "properties": {
-        "securityRules": []
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              },
+              "runAfter": {}
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
       },
       "resources": [
         {
           "type": "providers/diagnosticSettings",
           "name": "Microsoft.Insights/service",
           "dependsOn": [
-            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+            "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
           "apiVersion": "2015-07-01",
           "properties": {
@@ -161,15 +195,7 @@ Este es un ejemplo completo en el que se crea un grupo de seguridad de red y se 
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {
-                "category": "NetworkSecurityGroupEvent",
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "NetworkSecurityGroupRuleCounter",
+                "category": "WorkflowRuntime",
                 "enabled": true,
                 "retentionPolicy": {
                   "days": 0,
@@ -218,6 +244,6 @@ Se describe el proceso completo, con ejemplos, [en este documento](../virtual-ma
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

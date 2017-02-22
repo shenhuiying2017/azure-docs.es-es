@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/22/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: c89ce056cb0fa84b2169df161660916d083bec3f
-ms.openlocfilehash: bcef9de167fa31001ee4086d7e5b85c2d8bc4613
+ms.sourcegitcommit: 2826f825b2d34005ce6e7142dd4371285a452ca8
+ms.openlocfilehash: bd1952281dde6f262848d1520995efdb131a3b38
 
 
 ---
 
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli"></a>Expansión del disco del sistema operativo en una máquina virtual Linux mediante la CLI de Azure
-Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Puede [agregar discos de datos](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir el disco del sistema operativo. En este artículo se detalla cómo expandir el disco del sistema operativo para una máquina virtual Linux mediante la CLI de Azure.
+Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Puede [agregar discos de datos](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir el disco del sistema operativo. En este artículo se detalla cómo expandir el disco del sistema operativo para una máquina virtual Linux mediante discos no administrados con la CLI de Azure.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -46,7 +46,7 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     > [!NOTE]
     > `azure vm stop` no libera los recursos de proceso. Para liberar los recursos de proceso, use `azure vm deallocate`. Debe desasignar la máquina virtual para expandir el disco duro virtual.
 
-2. Actualice el tamaño del disco de sistema operativo mediante el comando `azure vm set`. En el ejemplo siguiente se actualiza la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup` para que tenga `50` GB:
+2. Actualice el tamaño del disco no administrado de sistema operativo mediante el comando `azure vm set`. En el ejemplo siguiente se actualiza la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup` para que tenga `50` GB:
 
     ```azurecli
     azure vm set --resource-group myResourceGroup --name myVM --new-os-disk-size 50
@@ -72,6 +72,6 @@ Si necesita almacenamiento adicional, también puede [agregar discos de datos a 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

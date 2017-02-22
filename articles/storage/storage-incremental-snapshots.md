@@ -1,5 +1,5 @@
 ---
-title: "Uso de instantáneas incrementales para realizar operaciones de copia de seguridad y recuperación de máquinas virtuales de Azure | Microsoft Docs"
+title: "Uso de instantáneas incrementales para realizar operaciones de copia de seguridad y recuperación de discos de máquinas virtuales de Azure no administrados | Microsoft Docs"
 description: "Cree una solución personalizada para realizar operaciones de copia de seguridad y recuperación de los discos de máquina virtual de Azure mediante instantáneas incrementales."
 services: storage
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
+ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
 
 
 ---
-# <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>Copias de seguridad de discos de máquinas virtuales de Azure con instantáneas incrementales
+# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Copias de seguridad de discos de máquinas virtuales de Azure no administrados con instantáneas incrementales
 ## <a name="overview"></a>Información general
 Almacenamiento de Azure permite realizar instantáneas de blobs. Dichas instantáneas capturan el estado del blob en el preciso momento en el que se realicen. En este artículo, se describirá cómo mantener copias de seguridad de discos de máquinas virtuales por medio de instantáneas. Podrá utilizar esta metodología cuando opte por no usar el servicio de recuperación y copia de seguridad de Azure y quiera crear una estrategia de copias de seguridad personalizada para los discos de sus máquinas virtuales.
 
@@ -60,7 +60,7 @@ La copia de instantáneas incrementales permite realizar copiar de una cuenta de
 
 Siempre que se cumplan las condiciones siguientes:
 
-* El blob se creó a partir del 1 de enero de 2016.
+* El blob se creó a partir del&1; de enero de&2016;.
 * El blob no se sobrescribió con [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) o [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) entre dos instantáneas.
 
 **Nota**: Esta característica está disponible para los blobs en páginas de Azure premium y estándar.
@@ -123,6 +123,6 @@ Obtenga más información sobre cómo crear instantáneas de un blob y planear l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

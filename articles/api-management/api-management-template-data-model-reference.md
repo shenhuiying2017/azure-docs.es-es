@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 5df4ff1e0d68a62f5e470c7b05e1507ff019d0dc
+ms.sourcegitcommit: 080ac72246e62948c3defe329028f27751e8c78d
+ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referencia de modelo de datos de la plantilla de Azure API Management
@@ -350,14 +350,15 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Email|string|Dirección de correo electrónico. No debe estar vacía y debe ser única dentro de la instancia de servicio. La longitud máxima es de 254 caracteres.|  
 |Nombre|string|Nombre. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |Apellidos|string|Apellidos. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
-|UserData|string|Valor utilizado por el control de inicio de sesión [sign-up](api-management-page-controls.md#sign-up).|  
+|UserData|string|Valor utilizado por el control de [sign-up](api-management-page-controls.md#sign-up).|  
 |NameIdentifier|string|Valor utilizado por el control de inicio de sesión [sign-up](api-management-page-controls.md#sign-up).|  
 |ProviderName|string|Nombre del proveedor de autenticación.|
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](api-management-developer-portal-templates.md).
+Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

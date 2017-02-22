@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
-ms.openlocfilehash: 55756029ebba3f3467828db5567a6616f7eeba2b
+ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
+ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de precios de Logic Apps
@@ -30,7 +30,9 @@ Los desencadenadores son acciones especiales diseñadas para crear una nueva ins
 * **Desencadenador de sondeo**: este desencadenador sondea continuamente un punto de conexión hasta que recibe un mensaje que satisface los criterios para crear una instancia de una aplicación lógica.  El intervalo de sondeo se puede configurar en el desencadenador en el diseñador de Logic Apps.  Cada solicitud de sondeo, incluso si no crea una instancia de una aplicación lógica, cuenta como una ejecución de acción.
 * **Desencadenador de webhook** : este desencadenador espera a que un cliente envíe una solicitud en un punto de conexión determinado.  Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. El desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook.
 * **Desencadenador de periodicidad**: este desencadenador crea una instancia de la aplicación lógica según el intervalo de periodicidad configurado en el desencadenador.  Por ejemplo, un desencadenador de periodicidad puede configurarse para que se ejecute cada tres días o incluso cada minuto.
+
 Las ejecuciones de desencadenadores se pueden ver en la hoja de recursos de Logic Apps en la parte Historial de desencadenadores.
+
 Todas las acciones que se ejecutaron, tanto si tuvieron éxito como si no, se miden como ejecuciones de acción.  Las acciones omitidas debido a condiciones que no se cumplieron o acciones que no se ejecutaron porque la aplicación lógica terminó antes de que se completara no se cuentan como ejecuciones de acción.
 
 Las acciones ejecutadas dentro de bucles se cuentan por cada iteración del bucle.  Por ejemplo, una sola acción en un bucle for each que interacciona mediante una lista de 10 elementos se contará como el número de elementos de la lista (10) multiplicado por el número de acciones del bucle (1) más uno por la iniciación del bucle que, en este ejemplo, sería (10 * 1) + 1 = 11 ejecuciones de acción.
@@ -38,7 +40,7 @@ Si Logic Apps está deshabilitada, no puede tener nuevas instancias iniciadas y,
 ### <a name="integration-account-usage"></a>Uso de la cuenta de integración
 En el uso basado en el consumo se incluye una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) a efectos de exploración, desarrollo y pruebas, que permite usar las características [B2B/EDI](logic-apps-enterprise-integration-b2b.md) y [procesamiento XML](logic-apps-enterprise-integration-xml.md) de Logic Apps sin costo adicional. Es posible crear un máximo de una cuenta por región y almacenar hasta 10 contratos y 25 mapas. Los esquemas, certificados y asociados no tienen ningún límite, y puede cargar tantos como necesite.
 
-Además de incluir cuentas de integración con consumo, también puede crear cuentas de integración estándar sin estos límites y con el Acuerdo de Nivel de Servicio estándar de Logic Apps. Consulte los [precios de Azure](https://azure.microsoft.com/pricing/details/logic-apps) para más información.
+Además de incluir cuentas de integración con consumo, también puede crear cuentas de integración estándar sin estos límites y con el Acuerdo de Nivel de Servicio estándar de Logic Apps. Para obtener más información, consulte [Precios de Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="app-service-plans"></a>Planes del Servicio de aplicaciones
 Las aplicaciones lógicas creadas anteriormente conforme al plan de App Service se seguirán comportando como antes. Según el plan elegido, se establecen limitaciones cuando se superan las ejecuciones diarias prescritas, pero se factura con el medidor de ejecuciones de acciones.
@@ -60,6 +62,6 @@ Para obtener información sobre precios, vea [Precios de Logic Apps](https://azu
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

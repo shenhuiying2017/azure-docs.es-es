@@ -16,8 +16,8 @@ ms.workload: iaas-sql-server
 ms.date: 02/07/2017
 ms.author: v-shysun
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: a7d1878931ccf45e8e3192d5d03a4292c5291366
+ms.sourcegitcommit: 42b3e222f24e9b5c1bb26f7e1e36b1e11c2f48b8
+ms.openlocfilehash: 7a8d1451fc1b5ace2996faec22090b1f872bf547
 
 
 ---
@@ -49,6 +49,10 @@ En este tema se proporcionan respuestas a algunas de las preguntas más comunes 
 
     No. No puede cambiar de licencias de pago por minuto a usar su propia licencia. Cree una máquina virtual de Azure nueva usando una de las [imágenes BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) y, luego, migre las bases de datos al nuevo servidor con las [técnicas de migración de datos](virtual-machines-windows-migrate-sql.md) estándar.
 
+7. **¿Son compatibles las instancias del clúster de conmutación por error (FCI) de SQL Server con Azure Virtual Machines?**
+
+   Sí. También puede [crear un clúster de conmutación por error de Windows Server \(WSFC\) en Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) y usar Espacios de almacenamiento directo (S2D) para el almacenamiento del clúster. También puede usar soluciones de agrupación en clústeres o almacenamiento de terceros como se describe en [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+
 7. **¿Tengo que pagar para obtener una licencia de SQL Server en una máquina virtual de Azure si solo se usa para conmutación por error o en modo en espera?**
    
     No tiene que pagar por obtener una licencia de SQL Server, como réplica secundaria pasiva en una implementación de alta disponibilidad, si dispone de Software Assurance y usa la Movilidad de Licencias como se describe en [P+F sobre licencias de máquinas virtuales](http://azure.microsoft.com/pricing/licensing-faq/).
@@ -77,6 +81,6 @@ Otros recursos son los siguientes:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

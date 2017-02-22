@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre la funcionalidad de supervisión de Azure | Microsoft Docs"
-description: "Introducción breve a la característica Azure Monitor de Microsoft Azure, que incluye alertas, webhooks, escalado automático y mucho más."
+title: "Información general sobre Azure Monitor | Microsoft Docs"
+description: "Azure Monitor recopila estadísticas para usarse en procesos de alertas, webhooks, escalado automático y automatización. En el artículo también se muestran otras opciones de supervisión de Microsoft."
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
+ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
+ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 
 
 ---
 
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Información general sobre la supervisión en Microsoft Azure
+# <a name="overview-of-azure-monitor"></a>Información general sobre Azure Monitor
 En este artículo se proporciona información general conceptual de la supervisión de recursos de Azure. Proporciona punteros a la información sobre determinados tipos de recursos.  Para obtener información detallada sobre la supervisión de las aplicaciones desde el punto de vista no de Azure, consulte [Guía de supervisión y diagnóstico](../best-practices-monitoring.md).
 
 Hay un tutorial en vídeo de Azure Monitor en  
@@ -134,7 +134,7 @@ Azure tiene diversas ofertas disponibles para supervisar sus servicios, desde la
 
 * [Azure Monitor](http://aka.ms/azmondocs): ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure (registros de actividad) como de cada recurso individual de Azure (registros de diagnóstico). Este artículo forma parte de la documentación de Azure Monitor. El nombre de Azure Monitor se publicó el 25 de septiembre en Ignite 2016.  El nombre anterior era "Azure Insights".  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : ofrece detección y diagnóstico de problemas en la capa de aplicación del servicio, y se encuentra perfectamente integrado encima de los datos de supervisión de Azure. Es la plataforma de diagnóstico predeterminada para App Service Web Apps.  Puede enrutar los datos de otros servicios en ella.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte de [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), proporciona una solución integral de administración de TI tanto para infraestructura local como basada en la nube de terceros (como AWS), además de recursos de Azure.  Los datos de Azure Monitor se pueden enrutar directamente a Log Analytics para poder ver los registros y las métricas de todo el entorno en un único lugar.     
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte de [Operations Management Suite](https://www.microsoft.com/oms/), proporciona una solución integral de administración de TI tanto para infraestructura local como basada en la nube de terceros (como AWS), además de recursos de Azure.  Los datos de Azure Monitor se pueden enrutar directamente a Log Analytics para poder ver los registros y las métricas de todo el entorno en un único lugar.     
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de
@@ -144,10 +144,10 @@ Más información acerca de
 * [Diagnósticos de Azure](../azure-diagnostics.md) : si está intentando diagnosticar problemas en su aplicación de Cloud Services, Virtual Machines o Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : si está intentando diagnosticar problemas en su aplicación web de Servicio de aplicaciones.
 * [Solución de problemas de Azure Storage](../storage/storage-e2e-troubleshooting.md) : si usa Blob Storage, Table Storage o Queue Storage.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/oms/)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: da120b0ea1bfa7a0afcb6eed864c4eadbd2bbec0
+ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
+ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 
 
 ---
 # <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Uso de atributos para crear reglas avanzadas para la pertenencia a grupos en la versión preliminar de Azure Active Directory
-El Portal de Azure clásico le ofrece la posibilidad de crear reglas avanzadas para permitir pertenencias dinámicas más complejas basadas en atributos para grupos de la versión preliminar de Azure Active Directory (Azure AD). [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md)  En este artículo se describen los atributos y la sintaxis de reglas para crear estas reglas avanzadas.
+El Portal de Azure clásico le ofrece la posibilidad de crear reglas avanzadas para permitir pertenencias dinámicas más complejas basadas en atributos para grupos de la versión preliminar de Azure Active Directory (Azure AD). [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md) En este artículo se describen los atributos y la sintaxis de reglas para crear estas reglas avanzadas.
 
 ## <a name="to-create-the-advanced-rule"></a>Para crear la regla avanzada
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
@@ -119,6 +119,7 @@ Operadores permitidos
 | --- | --- | --- |
 | city |Cualquier valor de cadena o $null |(user.city -eq "value") |
 | country |Cualquier valor de cadena o $null |(user.country -eq "value") |
+| CompanyName | Cualquier valor de cadena o $null | (user.CompanyName -eq "value") |
 | department |Cualquier valor de cadena o $null |(user.department -eq "value") |
 | DisplayName |Cualquier valor de cadena |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Cualquier valor de cadena o $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -194,7 +195,7 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 | isManaged |true false null |(device.isManaged -eq "false") |
 | isCompliant |true false null |(device.isCompliant -eq "true") |
 
-## <a name="additional-information"></a>Información adicional
+## <a name="next-steps"></a>Pasos siguientes
 En estos artículos se proporciona información adicional sobre los grupos en Azure Active Directory.
 
 * [Consulta de los grupos existentes](active-directory-groups-view-azure-portal.md)
@@ -205,6 +206,6 @@ En estos artículos se proporciona información adicional sobre los grupos en Az
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

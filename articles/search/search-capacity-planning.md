@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/23/2017
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
-ms.openlocfilehash: c3f547fade400ba35619217dac503ab7ea2fbb40
+ms.sourcegitcommit: bf06b5623ca6bd6005cdde6fd587048ded6412dd
+ms.openlocfilehash: 3e33d1c815589fdb40af46f3c3410e037f77a34c
 
 ---
 
@@ -71,7 +71,10 @@ Los Acuerdos de Nivel de Servicio (SLA) de Azure Search están destinados a las 
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilidad de los índices durante un proceso de regeneración###
 
-La alta disponibilidad para Búsqueda de Azure se refiere a las consultas y actualizaciones de índices que no requieren volver a generar un índice. Si agrega o elimina un campo, cambia un tipo de datos o el nombre de un campo, debe volver a generar el índice. Para volver a crear el índice, debe eliminar el índice, volver a crearlo y cargar de nuevo los datos.
+La alta disponibilidad para Búsqueda de Azure se refiere a las consultas y actualizaciones de índices que no requieren volver a generar un índice. Si elimina un campo, cambia un tipo de datos o el nombre de un campo, debe volver a generar el índice. Para volver a crear el índice, debe eliminar el índice, volver a crearlo y cargar de nuevo los datos.
+
+> [!NOTE]
+> Puede agregar nuevos campos a un índice de Azure Search sin volver a generar el índice. El valor del nuevo campo será Null en todos los documentos que estén en el índice.
 
 Para mantener la disponibilidad del índice durante una regeneración, debe contar con una segunda copia del índice con un nombre distinto en el mismo servicio, o bien una copia del índice con el mismo nombre en un servicio diferente. Luego, tendrá que proporcionar la lógica de conmutación por error o redireccionamiento en el código.
 
@@ -122,6 +125,6 @@ El nivel determina el costo por SU, con una tasa de facturación por unidad más
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

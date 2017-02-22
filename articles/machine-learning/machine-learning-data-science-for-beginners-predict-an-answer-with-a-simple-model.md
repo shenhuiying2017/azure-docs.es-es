@@ -1,5 +1,5 @@
 ---
-title: "Predicción de respuestas con un modelo simple - modelo de regresión | Microsoft Docs"
+title: "Predicción de respuestas con un modelo de regresión simple (Azure) | Microsoft Docs"
 description: "Descubra cómo crear un modelo de regresión simple para predecir un precio en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal con los datos de destino."
 keywords: "crear un modelo, modelo simple, predicción del precio, modelo de regresión simple"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 
 
 ---
@@ -28,8 +28,8 @@ Aprenda a crear un modelo de regresión simple para predecir el precio de un dia
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Otros vídeos de la serie
 *Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
@@ -135,7 +135,6 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

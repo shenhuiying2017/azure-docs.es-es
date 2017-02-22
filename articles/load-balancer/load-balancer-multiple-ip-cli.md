@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 5c4e6fd9b560d3005294a02a5ec52c140690c819
-ms.openlocfilehash: 79bb6d74c4eba99386b44e8464214d84abf882c6
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: f52a86b01e45a32315b017c2605f7caebb68b006
 
 
 ---
@@ -38,8 +38,27 @@ En este escenario, tenemos dos máquinas virtuales que ejecutan Windows. Cada un
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Para registrarse para la versión preliminar, envíe un correo electrónico a [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto.
+Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
 
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
+        
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
+        
+>[!NOTE] 
+>Esta operación puede tardar unos minutos.
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Pasos para equilibrar la carga en varias configuraciones de IP
 
@@ -47,7 +66,7 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
 
 1. [Instale y configure la CLI de Azure ](../xplat-cli-install.md) siguiendo los pasos que se describen en el artículo vinculado e inicie sesión en la cuenta de Azure.
 2. [Cree un grupo de recursos](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) llamado *contosofabrikam*, tal y como se describe en el artículo vinculado.
- 
+
     ```azurecli
     azure group create contosofabrikam westcentralus
     ```
@@ -58,7 +77,7 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
     azure availset create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Cree una red virtual](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) llamada *myVNet* y una subred denominada *mySubnet*: 
+4. [Cree una red virtual](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) llamada *myVNet* y una subred denominada *mySubnet*:
 
     ```azurecli
     azure network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus
@@ -105,7 +124,7 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
     azure network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Cree una dirección IP pública](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address-pip): *myPublicIp*, y una [cuenta de almacenamiento](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account): *mystorageaccont1*, para la primera máquina virtual (VM1), tal y como se muestra a continuación:
+10. [Cree una dirección IP pública](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address): *myPublicIp*, y una [cuenta de almacenamiento](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account): *mystorageaccont1*, para la primera máquina virtual (VM1), tal y como se muestra a continuación:
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -134,6 +153,7 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
 13. Por último, debe configurar los registros de recursos DNS para que apunten a la dirección IP de front-end correspondiente del equilibrador de carga. Puede hospedar los dominios en Azure DNS. Para más información sobre el uso de Azure DNS con Load Balancer, consulte [Uso de Azure DNS con otros servicios de Azure](../dns/dns-for-azure-services.md).
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Feb17_HO2-->
 
 

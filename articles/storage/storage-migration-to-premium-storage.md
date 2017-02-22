@@ -1,9 +1,9 @@
 ---
-title: Migrar a Azure Premium Storage | Microsoft Docs
-description: "Migre las máquinas virtuales existentes a Azure Premium Storage. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure."
+title: "Migración de máquinas virtuales al almacenamiento premium de Azure | Microsoft Docs"
+description: "Migre las máquinas virtuales existentes al almacenamiento premium de Azure. El Almacenamiento premium le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure."
 services: storage
 documentationcenter: na
-author: aungoo-msft
+author: yuemlu
 manager: tadb
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
@@ -12,17 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
-ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
+ms.sourcegitcommit: 4582049fa1d369ea63395514336d26a524dbfdbe
+ms.openlocfilehash: b3f1b2b4e257fea0dd9324b02ea9aad3e1a645e4
 
 
 ---
-# <a name="migrating-to-azure-premium-storage"></a>Migrar a Azure Premium Storage
-## <a name="overview"></a>Información general
-Azure Premium Storage le ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede aprovechar la velocidad y el rendimiento de estos discos si migra los discos de máquina virtual de la aplicación a Azure Premium Storage.
+# <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migración al almacenamiento premium de Azure (discos no gestionados)
+
+> [!NOTE]
+> En este artículo se describe cómo migrar una máquina virtual que use discos estándar no administrados a una máquina virtual que use discos premium no administrados. Se recomienda usar Azure Managed Disks para las nuevas máquinas virtuales y que convierta los discos no administrados anteriores en discos administrados. Managed Disks administra las cuentas de almacenamiento subyacentes por usted. Para obtener más información, consulte [Managed Disks Overview](storage-managed-disks-overview.md) (Información general sobre Managed Disks).
+>
+
+El Almacenamiento premium de Azure le ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede aprovechar la velocidad y el rendimiento de estos discos si migra los discos de máquina virtual de la aplicación a Azure Premium Storage.
 
 La finalidad de esta guía es ayudar a los nuevos usuarios de Azure Premium Storage a prepararse mejor para realizar una transición sin problemas desde su sistema actual a Premium Storage. La guía trata de tres de los componentes clave de este proceso:
 
@@ -34,7 +38,6 @@ Puede migrar máquinas virtuales de otras plataformas a Azure Premium Storage o 
 
 > [!NOTE]
 > Encontrará una introducción a las características y los precios de Premium Storage en [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage.md). Se recomienda migrar cualquier disco de máquina virtual que requiera un número elevado de operaciones de entrada/salida por segundo al Almacenamiento premium de Azure para mejorar el rendimiento de la aplicación. Si el disco no requiere un número elevado de operaciones de entrada/salida por segundo, puede limitar los costos mediante el mantenimiento del almacenamiento estándar, que almacena los datos de disco de máquina virtual en unidades de disco duro (HDD) en lugar de SSD.
->
 >
 
 Para completar el proceso de migración en su totalidad puede ser necesario realizar acciones adicionales antes y después de los pasos proporcionados en esta guía, Por ejemplo, configurar redes virtuales o puntos de conexión o realizar cambios en el código dentro de la propia aplicación que pueden requerir algún tiempo de inactividad de la aplicación. Estas acciones son únicas para cada aplicación y deben completarse junto con los pasos proporcionados en esta guía para realizar la transición completa a Premium Storage lo más fácilmente posible.
@@ -773,6 +776,6 @@ Consulte también los siguientes recursos para más información sobre Azure Sto
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

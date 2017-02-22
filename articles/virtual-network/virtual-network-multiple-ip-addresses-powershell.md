@@ -1,5 +1,5 @@
 ---
-title: "Varias direcciones IP para máquinas virtuales - PowerShell | Microsoft Docs"
+title: "Varias direcciones IP para máquinas virtuales de Azure: PowerShell | Microsoft Docs"
 description: "Aprenda a asignar varias direcciones IP a una máquina virtual con PowerShell | Resource Manager."
 services: virtual-network
 documentationcenter: na
@@ -16,50 +16,46 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: jdial;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 11e490ee3b2d2f216168e827154125807a61a73f
-ms.openlocfilehash: 39b45b276c50922878e9918b225f6fa399d42edf
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
->
+[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Una máquina virtual (VM) de Azure tiene una o varias interfaces de red (NIC) asociadas a ella. Una NIC puede tener una o varias direcciones IP públicas o privadas estáticas o dinámicas asignadas. La asignación de varias direcciones IP a una VM permite las siguientes capacidades:
-
-* Hospede varios sitios web o servicios con direcciones IP y certificados SSL diferentes en un único servidor.
-* Actúe como aplicación de red virtual, como un firewall o equilibrador de carga.
-* La capacidad de agregar cualquier dirección IP privada para cualquiera de las NIC a un grupo de servidores de back-end de Azure Load Balancer. En el pasado, solo la dirección IP principal para la NIC principal podía agregarse a un grupo de back-end. Para más información sobre cómo equilibrar la carga de varias configuraciones de IP, lea el artículo [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md) (Equilibrio de carga de varias configuraciones de IP).
-
-Cada NIC conectada a una VM tiene una o varias configuraciones de IP asociadas. Se asigna a cada configuración una dirección IP privada estática o dinámica. Cada configuración también puede tener un recurso de dirección IP pública asociado. Un recurso de dirección IP pública tiene una dirección IP dinámica o estática asignada. Para más información sobre las direcciones IP en Azure, lea el artículo sobre [direcciones IP en Azure](virtual-network-ip-addresses-overview-arm.md).
-
-En este artículo, se explica cómo usar PowerShell para asignar varias direcciones IP a una VM creada a través del modelo de implementación de Azure Resource Manager. No se pueden asignar varias direcciones IP a los recursos creados mediante el modelo de implementación clásica. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../resource-manager-deployment-model.md) (Descripción de los modelos de implementación).
+En este artículo se describe cómo crear una máquina virtual (VM) con el modelo de implementación de Azure Resource Manager mediante PowerShell. No se pueden asignar varias direcciones IP a los recursos creados mediante el modelo de implementación clásica. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../resource-manager-deployment-model.md) (Descripción de los modelos de implementación).
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-## <a name="scenario"></a>Escenario
-Se crea una máquina virtual con una sola NIC y se conecta a una red virtual. La máquina virtual requiere tres direcciones IP *privadas* y dos direcciones IP *públicas*, todas diferentes. Las direcciones IP se asignan a las siguientes configuraciones de IP:
-
-* **IPConfig-1:** Asigna un dirección IP privada (valor predeterminado) *dinámica* y una dirección IP pública *estática*.
-* **IPConfig-2:** asigna un dirección IP privada *estática* y una dirección IP pública *estática*.
-* **IPConfig-3:** asigna un dirección IP privada *dinámica* y una dirección IP no pública.
-  
-    ![Varias direcciones IP](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-Las configuraciones de IP se asocian a la NIC cuando esta se crea, y la NIC se conecta a la máquina virtual cuando esta se crea. Los tipos de direcciones IP usados para el escenario tienen fines ilustrativos. Puede asignar cualquier dirección IP y tipos de asignación que requiera.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
 En los pasos siguientes se explica cómo crear una VM de ejemplo con varias direcciones IP, tal como se describe en el escenario. Cambie los nombres de variable los y tipos de direcciones IP según sea necesario para la implementación.
 
 1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-2. Regístrese para la versión preliminar enviando un correo electrónico a [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto. No complete los pasos restantes:
-    - Hasta después de recibir una notificación por correo electrónico de que se le acepta en la versión preliminar.
-    - Sin seguir las instrucciones del correo electrónico que reciba.
+2. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Esta operación puede tardar unos minutos.
+
 3. Complete los pasos 1-4 del artículo [Creación de una máquina virtual de Windows con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md). No complete el paso 5 (creación del recurso de dirección IP pública y la interfaz de red). Si cambia los nombres de las variables utilizadas en ese artículo, cambie también los nombres de las variables de los pasos restantes. Para crear una máquina virtual Linux, seleccione un sistema operativo Linux en lugar de Windows.
 4. Cree una variable para almacenar el objeto de subred creado en el paso 4 (crear una red virtual) del artículo Creación de una máquina virtual de Windows con Resource Manager y PowerShell escribiendo el comando siguiente:
 
@@ -206,7 +202,7 @@ Puede agregar direcciones IP públicas y privadas a una NIC completando los paso
     -Location $location -AllocationMethod Static
     ```
 
-    Para crear una nueva configuración de IP con una dirección IP privada dinámica y el recurso de dirección IP pública *myPublicIp3*, escriba el comando siguiente:
+     Para crear una nueva configuración de IP con una dirección IP privada dinámica y el recurso de dirección IP pública *myPublicIp3*, escriba el comando siguiente:
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -258,6 +254,6 @@ Puede agregar direcciones IP públicas y privadas a una NIC completando los paso
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

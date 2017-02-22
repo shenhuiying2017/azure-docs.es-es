@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1a2ea0753d12915075c055f9983773618bf6777d
-ms.openlocfilehash: 85c6a2296a4487ae549321d3ff07129bcbab5adf
+ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
+ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
 
 
 ---
@@ -241,7 +241,7 @@ Puede implementar Site Recovery para replicar máquinas virtuales y servidores f
 **Arquitectura del sistema operativo invitado** | 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Tamaño del disco del sistema operativo** | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Número de discos del sistema operativo** | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Número de discos de datos** | 16 o menos (el valor máximo es una función del tamaño de la máquina virtual que se está creando. 16 = XL) | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+**Número de discos de datos** | 64 o menos si está va a replicar **máquinas virtuales de VMware a Azure**; 16 o menos si va a replicar **máquinas virtuales de Hyper-V a Azure** | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Tamaño de VHD del disco de datos** | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Adaptadores de red** | Se admiten varios adaptadores |
 **Dirección IP estática** | Compatible | Si la máquina virtual principal usa una dirección IP estática, puede especificar la dirección IP estática para la máquina virtual que se creará en Azure.<br/><br/> No se admiten direcciones IP estáticas de una **máquina virtual Linux con Hyper-V** no se admite.
@@ -265,6 +265,6 @@ Puede implementar Site Recovery para replicar máquinas virtuales y servidores f
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

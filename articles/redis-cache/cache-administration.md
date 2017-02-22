@@ -12,32 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
+ms.sourcegitcommit: 8929a1697bf88da82fc027520d0126eaef872840
+ms.openlocfilehash: 488212ad1b43d5e35bf46a334bc7ac8e1acabebc
 
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Administración de la Caché en Redis de Azure
-En este tema se describe cómo realizar tareas de administración como el reinicio y la programación de actualizaciones para las instancias de Azure Redis Cache.
+En este tema se describe cómo realizar tareas de administración como el [reinicio](#reboot) y la [programación de actualizaciones](#schedule-updates) para las instancias de Azure Redis Cache.
 
 > [!IMPORTANT]
 > La configuración y las características que se describen en este artículo solo están disponibles para las cachés de nivel Premium.
 > 
 > 
 
-## <a name="administration-settings"></a>Configuración de administración
-La configuración de **Administration** (Admnistración) de Caché en Redis de Azure le permite realizar las siguientes tareas administrativas de la caché premium. Para acceder a la configuración de administración, haga clic en **Configuración** o en **Toda la configuración** en la hoja de Redis Cache y desplácese hasta la sección **Administración** de la hoja **Configuración**.
-
-![Administración](./media/cache-administration/redis-cache-administration.png)
-
-* [Reboot](#reboot)
-* [Programación de actualizaciones](#schedule-updates)
-
 ## <a name="reboot"></a>Reboot
 La hoja **Reiniciar** permite reiniciar uno o varios nodos de la memoria caché. De este modo, podrá probar la resistencia de la aplicación en caso de error.
+
+![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
+
+Seleccione los nodos que se van a reiniciar y haga clic en **Reiniciar**.
 
 ![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
@@ -52,7 +48,7 @@ El impacto en las aplicaciones cliente varía en función de los nodos que se re
 * **Master** (Maestro): cuando el nodo maestro se reinicia, en Caché en Redis de Azure se produce una conmutación por error en el nodo de la réplica y lo promueve al maestro. Durante esta conmutación por error puede haber un breve intervalo en el que se puede producir un error de conexión a la memoria caché.
 * **Slave** (Subordinado): el reinicio de un nodo subordinado no suele afectar a las cachés cliente.
 * **Both master and slave** (Maestro y subordinado): cuando se reinician ambos nodos de la memoria caché se pierden todos los datos de la caché y las conexiones a la caché producen un error hasta que el nodo principal vuelve a estar en línea. Si ha configurado la [persistencia de datos](cache-how-to-premium-persistence.md), se restaura la copia de seguridad más reciente cuando la caché vuelva a estar en línea. Tenga en cuenta que se perderán las escrituras de caché que se produjeron después de la copia de seguridad más reciente.
-* **Node(s) of a premium cache with clustering enabled** (Nodos de una caché premium con agrupamiento en clústeres habilitado): cuando reinicie los nodos de una caché premium con el agrupamiento en clústeres habilitado, el comportamiento es el mismo que al reiniciar los nodos de una caché sin agrupar.
+* **Node(s) of a premium cache with clustering enabled** (Nodos de una caché premium con agrupamiento en clústeres habilitado): cuando reinicie los nodos de una caché premium con el agrupamiento en clústeres habilitado, el comportamiento de los nodos seleccionados es el mismo que al reiniciar los nodos de una caché sin agrupar.
 
 > [!IMPORTANT]
 > El reinicio solo está disponible para las memorias caché de nivel premium.
@@ -80,7 +76,7 @@ Sí, si reinicia la memoria caché se borran todas las conexiones de cliente. Es
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>¿Se pierden los datos de mi memoria caché si reinicio?
 Si reinicia los nodos **Master** (Maestro) y **Slave** (Esclavo) se pierden todos los datos de la memoria caché (o de esa partición si utiliza una caché premium con el agrupamiento en clústeres habilitado). Si ha configurado la [persistencia de datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea. Tenga en cuenta que se perderán las escrituras de caché que se han producido después de realizar la copia de seguridad.
 
-Si reinicia solo uno de los nodos, no se suelen perder datos, pero podría pasar. Por ejemplo, si se reinicia el nodo maestro y se está escribiendo en la caché, los datos escritos se pierden. Otro escenario de pérdida de datos se produce al reiniciar un nodo y el otro nodo se dejar de funcionar debido a un error al mismo tiempo. Para más información acerca de posibles causas de pérdida de datos, consulte [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)(¿Qué ha ocurrido con mis datos en Redis?).
+Si reinicia solo uno de los nodos, no se suelen perder datos, pero podría pasar. Por ejemplo, si se reinicia el nodo maestro y se está escribiendo en la caché, los datos escritos se pierden. Otro escenario de pérdida de datos se produce al reiniciar un nodo y el otro nodo se dejar de funcionar debido a un error al mismo tiempo. Para obtener más información sobre las posibles causas de pérdida de datos, consulte [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) (¿Qué ha ocurrido con mis datos en Redis?).
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>¿Puedo reiniciar la caché con PowerShell, CLI u otras herramientas de administración?
 Sí. Para más información sobre las instrucciones de PowerShell consulte la sección [Reinicio de una caché en Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
@@ -96,7 +92,7 @@ La hoja **Programar actualizaciones** permite designar una ventana de mantenimie
 Para especificar una ventana de mantenimiento, compruebe los días deseados, especifique la hora de inicio de la ventana de mantenimiento para cada día y haga clic en **Aceptar**. Tenga en cuenta que la hora de la ventana de mantenimiento está en formato UTC. 
 
 > [!NOTE]
-> La ventana de mantenimiento predeterminada para las actualizaciones es de 5 horas. Este valor no es configurable desde Azure Portal, pero puede configurarlo en PowerShell mediante el parámetro `MaintenanceWindow` del cmdlet [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx) . Para más información, consulte [¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
+> La ventana de mantenimiento predeterminada para las actualizaciones es de 5 horas. Este valor no es configurable desde Azure Portal, pero puede configurarlo en PowerShell mediante el parámetro `MaintenanceWindow` del cmdlet [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry) . Para obtener más información, consulte [¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 > 
 > 
 
@@ -115,10 +111,10 @@ Las actualizaciones del servidor Redis solo se realizan durante el período prog
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?
 Sí, puede administrar sus actualizaciones programadas con los siguientes cmdlets de PowerShell.
 
-* [Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
-* [New-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763834.aspx)
-* [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
-* [Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
+* [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/get-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry)
+* [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/remove-azurermrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>¿Qué planes de tarifa pueden usar la funcionalidad de programación de actualizaciones?
 La programación de actualizaciones solo está disponible en el plan de tarifa Premium.
@@ -129,6 +125,6 @@ La programación de actualizaciones solo está disponible en el plan de tarifa P
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

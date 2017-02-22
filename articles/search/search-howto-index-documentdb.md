@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: efa4a720a306aaedcd2d5857d30d34394a76f5f6
-ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
+ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
+ms.openlocfilehash: ca09ac90dfcf125291bc0b312b16e28160a18527
 
 
 ---
@@ -26,7 +26,10 @@ Si está pensando implementar grandes experiencias de búsqueda sobre los datos 
 
 Para configurarlo, debe tener un [servicio Azure Search](search-create-service-portal.md), además de un índice, un indexador y un origen de datos. Puede crear estos objetos por medio del [portal](search-import-data-portal.md), el [SDK de .NET](/dotnet/api/microsoft.azure.search) o la [API de REST](/rest/api/searchservice/) para todos los lenguajes que no sean de .NET. 
 
-Si se opta por el portal, el [Asistente para importar datos](search-import-data-portal.md) le guía a través de la creación de estos objetos. Normalmente, un índice predeterminado puede generarse automáticamente.
+Si opta por el portal, el [Asistente para la importación de datos](search-import-data-portal.md) lo guía a través de la creación de estos objetos. Normalmente, un índice predeterminado puede generarse automáticamente.
+
+> [!NOTE]
+> Puede iniciar el asistente para **importar datos** desde el panel de DocumentDB para simplificar la indexación para ese origen de datos. En el panel de navegación de la izquierda, vaya a **Colecciones** > **Add Azure Search** (Añadir búsqueda de Azure) para empezar.
 
 ## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Conceptos del indizador de Búsqueda de Azure
 Búsqueda de Azure admite la creación y administración de orígenes de datos (incluida DocumentDB), así como de indizadores que se usan en dichos orígenes.
@@ -291,6 +294,6 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 * Para más información sobre Búsqueda de Azure, vea la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

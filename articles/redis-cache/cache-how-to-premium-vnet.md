@@ -12,18 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
-ms.openlocfilehash: 2cc95618b2edcb8d0f7c172a18156871887b8f69
+ms.sourcegitcommit: 50d8db29ccce1244387f1fe0e3e42e610575e483
+ms.openlocfilehash: 057affeccd955245ac07fc5e174447562e81b959
 
 
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium
-Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluido el nuevo nivel Premium.
-
-El nivel Premium de Azure Redis Cache incluye la compatibilidad con la agrupación en clústeres, la persistencia y la red virtual. Una red virtual es una red privada en la nube. Cuando una instancia de Caché en Redis de Azure se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con red virtual de una instancia de Caché en Redis de Azure Premium.
+Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. Una red virtual es una red privada en la nube. Cuando una instancia de Caché en Redis de Azure se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con red virtual de una instancia de Caché en Redis de Azure Premium.
 
 > [!NOTE]
 > Caché en Redis de Azure admite redes virtuales con los enfoques clásico y ARM.
@@ -60,7 +58,7 @@ Seleccione la subred deseada en la lista desplegable **Subred** y especifique la
 > 
 > 
 
-Una vez que se crea la memoria caché, para ver la configuración de la red virtual es preciso hacer clic en **Red virtual** en la hoja **Configuración**.
+Una vez que se crea la memoria caché, para ver la configuración de la red virtual es preciso hacer clic en **Red virtual** en el **menú Recursos**.
 
 ![Red virtual][redis-cache-vnet-info]
 
@@ -168,6 +166,6 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

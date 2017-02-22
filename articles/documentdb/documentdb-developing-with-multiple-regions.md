@@ -3,7 +3,7 @@ title: Desarrollo con varias regiones en DocumentDB | Microsoft Docs
 description: Aprenda a acceder a sus datos en varias regiones desde Azure DocumentDB, un servicio de base de datos NoSQL totalmente administrado.
 services: documentdb
 documentationcenter: 
-author: kiratp
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
@@ -12,19 +12,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
-ms.author: kipandya
+ms.date: 02/09/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: d7ed490157eff98e31c824daf1f9af98ae1afeaa
+ms.sourcegitcommit: 240f45383639f1eb8a4a9b7c4e4489591be23dba
+ms.openlocfilehash: aac8c26cd9af94659abc80b2ae260dc380cf38c9
 
 
 ---
 # <a name="developing-with-multi-region-documentdb-accounts"></a>Desarrollo con cuentas de DocumentDB de varias regiones
-> [!NOTE]
-> La distribución global de las bases de datos de DocumentDB está disponible con carácter general y habilitada automáticamente para cualquier cuenta de DocumentDB que se haya creado recientemente. Estamos trabajando para habilitar la distribución global en todas las cuentas existentes, pero, mientras tanto, si quiere que la habilitemos ahora en la suya, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
->
->
+
+Obtenga información sobre las cuentas de DocumentDB de varias regiones en este vídeo de Azure Friday con Scott Hanselman y el administrador de ingeniería principal Karthik Raman.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+
+## <a name="introduction"></a>Introducción
 
 Para aprovechar las ventajas de la [distribución global](documentdb-distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Esto puede hacerse estableciendo la directiva de conexión. Según la configuración de la cuenta de Azure DocumentDB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
 
@@ -158,6 +160,6 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

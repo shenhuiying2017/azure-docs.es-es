@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 02/09/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
-ms.openlocfilehash: 2e930dbb8dd2c15162d2ec81a123f57209134554
+ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
+ms.openlocfilehash: 65b73f61b91cab719efef44a524ab8a129a435aa
 
 
 ---
@@ -32,7 +32,7 @@ Azure SQL Database ofrece tres [niveles de servicio](sql-database-service-tiers.
 Estos son los tres niveles de servicio de Azure SQL Database entre los que puede elegir (el rendimiento se mide en unidades de procesamiento de base de datos, o [DTU](sql-database-what-is-a-dtu.md)):
 
 * **Básico**. El nivel de servicio Básico ofrece una buena predicción del rendimiento para cada base de datos, hora a hora. En una base de datos básica, hay suficientes recursos para proporcionar un buen rendimiento en bases de datos pequeñas que no tienen varias solicitudes simultáneas.
-* **Estándar**. El nivel de servicio Estándar ofrece una funcionalidad mejorada para predecir el rendimiento y eleva el listón para bases de datos con solicitudes simultáneas, tales como aplicaciones web y de grupo de trabajo. Cuando se usa una base de datos con un nivel de servicio Estándar, puede ajustar el tamaño de la aplicación de base de datos según un rendimiento predecible, minuto a minuto.
+* **Estándar**. El nivel de servicio Estándar ofrece una funcionalidad mejorada para predecir el rendimiento y ofrece un buen rendimiento para bases de datos con solicitudes simultáneas, tales como aplicaciones web y de grupo de trabajo. Cuando se usa una base de datos con un nivel de servicio Estándar, puede ajustar el tamaño de la aplicación de base de datos según un rendimiento predecible, minuto a minuto.
 * **Premium**. El nivel de servicio Premium proporciona un rendimiento predecible, segundo a segundo, para cada base de datos Premium. Si elige el nivel de servicio Premium, puede cambiar el tamaño de la aplicación de base de datos según la carga máxima para dicha base de datos. El plan elimina los casos en los que variaciones en el rendimiento pueden ocasionar que consultas de pequeño tamaño tarden más de lo habitual en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación de productos en aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas.
 
 En cada nivel de servicio se establece el nivel de rendimiento, de modo que tiene la flexibilidad de pagar únicamente por la capacidad que necesita. También puede [ajustar la capacidad](sql-database-scale-up.md), hacia arriba o hacia abajo, según los cambios en la carga de trabajo. Por ejemplo, si la carga de trabajo de la base de datos es alta durante la temporada de compra de vuelta al colegio, puede aumentar el nivel de rendimiento de la base de datos durante un tiempo establecido, de julio a septiembre. Luego, puede reducirla cuando finalice la temporada de actividad máxima. Puede optimizar su entorno de nube para la estacionalidad de su negocio y así minimizar lo que paga. Este modelo también funciona bien para los ciclos de lanzamiento de productos de software. Un equipo de pruebas puede asignar capacidad mientras realiza ejecuciones de prueba y luego liberar esa capacidad cuando finalicen las pruebas. En un modelo de solicitud de capacidad, se paga por la capacidad que necesite, así se evita gastos en recursos dedicados que raramente usa.
@@ -106,7 +106,7 @@ Si va a analizar una carga de trabajo de SQL Server local, modifique la consulta
 
 Nuevamente, estas consultas devuelven un número puntual. Si recopila varias muestras con el tiempo, tendrá una mejor comprensión del uso de la sesión.
 
-Para el análisis de SQL Database, puede obtener estadísticas históricas sobre las sesiones. Consulte **sys.resource_stats** y use la columna **active_session_count**. Consulte la siguiente sección para más información sobre el uso de esta vista.
+Para el análisis de SQL Database, puede obtener estadísticas históricas sobre las sesiones consultando la vista [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) y revisando la columna **active_session_count**. 
 
 ## <a name="monitor-resource-use"></a>Supervisión del uso de recursos
 
@@ -144,7 +144,7 @@ En el siguiente gráfico se muestra el uso de recursos de CPU para una base de d
 
 Según los datos, esta base de datos tiene actualmente una carga máxima de CPU superior al 50 % de uso de la CPU respecto al nivel de rendimiento P2 (mediodía del martes). Si la CPU es el factor dominante en el perfil de recursos de la aplicación, puede decidir que P2 es el nivel de rendimiento adecuado para garantizar que la carga de trabajo siempre se ajuste. Si espera que una aplicación crezca con el tiempo, es una buena idea tener un búfer de recursos adicionales para que la aplicación no alcance el límite del nivel de rendimiento. Si aumenta el nivel de rendimiento, puede ayudar a evitar errores visibles para el cliente que pueden producirse cuando una base de datos no tiene suficiente capacidad para procesar las solicitudes de manera eficaz, especialmente en entornos sensibles a la latencia. Un ejemplo es una base de datos que admite una aplicación que dibuja páginas web basadas en los resultados de las llamadas de base de datos.
 
-Tenga en cuenta que otros tipos de aplicaciones pueden interpretar el mismo gráfico de manera diferente. Por ejemplo, si una aplicación intenta procesar datos de nóminas todos los días y tiene el mismo gráfico, este tipo de modelo de "trabajo por lotes" podría funcionar bien en un nivel de rendimiento P1. El nivel de rendimiento P1 tiene 100 DTU en comparación con las 200 DTU del nivel de rendimiento P2. El nivel de rendimiento P1 proporciona la mitad de rendimiento que el nivel de rendimiento P2. Por lo tanto, el 50 por ciento de uso de CPU en P2 es igual al 100 por cien de uso de CPU en P1. Si la aplicación no tiene tiempos de espera, puede dar igual que un trabajo tarde 2 o 2,5 horas en completarse, siempre que se termine hoy. Una aplicación de esta categoría puede usar probablemente un nivel de rendimiento P1. Puede aprovechar el hecho de que hay períodos de tiempo durante el día en que el uso de recursos es menor, lo que significa que las "cargas elevadas" podrían retrasarse a uno de esos momentos más tarde ese día. El nivel de rendimiento P1 podría ser conveniente para ese tipo de aplicación (y ahorrar dinero), siempre y cuando los trabajos se puedan finalizar a tiempo cada día.
+Otros tipos de aplicaciones pueden interpretar el mismo gráfico de manera diferente. Por ejemplo, si una aplicación intenta procesar datos de nóminas todos los días y tiene el mismo gráfico, este tipo de modelo de "trabajo por lotes" podría funcionar bien en un nivel de rendimiento P1. El nivel de rendimiento P1 tiene 100 DTU en comparación con las 200 DTU del nivel de rendimiento P2. El nivel de rendimiento P1 proporciona la mitad de rendimiento que el nivel de rendimiento P2. Por lo tanto, el 50 por ciento de uso de CPU en P2 es igual al 100 por cien de uso de CPU en P1. Si la aplicación no tiene tiempos de espera, puede dar igual que un trabajo tarde 2 o 2,5 horas en completarse, siempre que se termine hoy. Una aplicación de esta categoría puede usar probablemente un nivel de rendimiento P1. Puede aprovechar el hecho de que hay períodos de tiempo durante el día en que el uso de recursos es menor, lo que significa que las "cargas elevadas" podrían retrasarse a uno de esos momentos más tarde ese día. El nivel de rendimiento P1 podría ser conveniente para ese tipo de aplicación (y ahorrar dinero), siempre y cuando los trabajos se puedan finalizar a tiempo cada día.
 
 Azure SQL Database muestra información sobre los recursos consumidos para cada base de datos activa en la vista **sys.resource_stats** de la base de datos **maestra** de cada servidor. Los datos de la tabla se agregan en intervalos de 5 minutos. Con los niveles de servicio Básico, Estándar y Premium, los datos pueden tardar más de cinco minutos en aparecer en la tabla, así que estos datos son mejores para el análisis histórico que para el análisis casi en tiempo real. Consulte la vista **sys.resource_stats** para ver el historial reciente de una base de datos y para validar si la reserva elegida proporciona el rendimiento que quiere cuando lo necesita.
 
@@ -199,15 +199,15 @@ En el siguiente ejemplo se muestran distintas maneras en que puede usar la vista
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    
-    En función de su objetivo de nivel de servicio (SLO) de base de datos, puede decidir si la carga de trabajo se ajusta al nivel de rendimiento inferior. Si el SLO de la carga de trabajo de base de datos es del 99,9 % y la consulta anterior devuelve valores mayores que el 99,9 por ciento para las tres dimensiones de recursos, es probable que la carga de trabajo se ajuste al nivel de rendimiento inferior.
+    En función de su objetivo de nivel de servicio (SLO) de base de datos, puede decidir si la carga de trabajo se ajusta al nivel de rendimiento inferior. Si el SLO de la carga de trabajo de base de datos es del 99,9 % y la consulta anterior devuelve valores mayores que el 99,9 % para las tres dimensiones de recursos, es probable que la carga de trabajo se ajuste al nivel de rendimiento inferior.
    
-    El porcentaje de ajuste también ofrece información detallada sobre si debe pasar al siguiente nivel de rendimiento superior para cumplir su SLO. Por ejemplo, userdb1 muestra el siguiente uso de CPU durante la semana pasada:
+    El porcentaje de ajuste también ofrece información detallada sobre si debería pasar al siguiente nivel de rendimiento superior para cumplir su SLO. Por ejemplo, userdb1 muestra el siguiente uso de CPU durante la semana pasada:
    
    | Porcentaje medio de CPU | Porcentaje máximo de CPU |
    | --- | --- |
    | 24,5 |100,00 |
    
-    El promedio de CPU es aproximadamente un cuarto del límite del nivel de rendimiento, que se ajustaría bien al nivel de rendimiento de la base de datos. Sin embargo, el valor máximo muestra que la base de datos alcanza el límite del nivel de rendimiento. ¿Necesita pasar al siguiente nivel de rendimiento superior? Hay que mirar cuántas veces la carga de trabajo alcanza el 100 % y compararlo con el SLO de la carga de trabajo de base de datos.
+    El promedio de CPU es aproximadamente un cuarto del límite del nivel de rendimiento, que se ajustaría bien al nivel de rendimiento de la base de datos. Sin embargo, el valor máximo muestra que la base de datos alcanza el límite del nivel de rendimiento. ¿Necesita pasar al siguiente nivel de rendimiento superior? Observe cuántas veces la carga de trabajo alcanza el 100 % y compárelo con el SLO de la carga de trabajo de base de datos.
    
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
@@ -234,7 +234,7 @@ Aunque los niveles de servicio de Azure SQL Database están diseñados para mejo
 En esta sección, examinamos algunas técnicas que puede usar para optimizar Azure SQL Database para obtener el mejor rendimiento de la aplicación y ejecutarla con el menor nivel de rendimiento posible. Algunas de estas técnicas coinciden con los procedimientos recomendados de optimización tradicionales de SQL Server, pero otras son específicas de Azure SQL Database. En algunos casos, puede examinar los recursos consumidos en una base de datos para encontrar áreas de mejora adicional y ampliar las técnicas de SQL Server tradicionales para trabajar en Azure SQL Database.
 
 ### <a name="azure-portal-tools"></a>Herramientas del Portal de Azure
-Encontrará dos herramientas en Azure Portal que pueden ayudarle a analizar y corregir problemas de rendimiento con la base de datos SQL:
+Las siguientes herramientas en Azure Portal pueden ayudarlo a analizar y corregir problemas de rendimiento con SQL Database:
 
 * [Query Performance Insight](sql-database-query-performance.md)
 * [Asesor de Base de datos SQL](sql-database-advisor.md)
@@ -390,7 +390,7 @@ La segunda parte del ejemplo usa una sugerencia de consulta para indicar al opti
 
 ![Optimización de consultas mediante una sugerencia de consulta](./media/sql-database-performance-guidance/query_tuning_3.png)
 
-Puede ver el efecto en la tabla **sys.resource_stats** (hay un retraso desde el momento en que ejecuta la prueba y cuando los datos llenan la tabla). En este ejemplo, la parte 1 se ejecutó en el período de tiempo de 22:25:00 y la parte 2 se ejecutó a las 22:35:00. Tenga en cuenta que el período de tiempo anterior usó más recursos en ese período que el posterior (debido a las mejoras de eficiencia del plan).
+Puede ver el efecto en la tabla **sys.resource_stats** (hay un retraso desde el momento en que ejecuta la prueba y cuando los datos llenan la tabla). En este ejemplo, la parte 1 se ejecutó en el período de tiempo de 22:25:00 y la parte 2 se ejecutó a las 22:35:00. El período de tiempo anterior usó más recursos en ese período que el posterior (debido a las mejoras de eficiencia del plan).
 
     SELECT TOP 1000 *
     FROM sys.resource_stats
@@ -441,6 +441,6 @@ Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones d
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/17/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 09f5ba954dd712d71f41397b2243b6d3f3f0ca42
-ms.openlocfilehash: db829fb8e93b0a395cd70bd8eb71b2090d27c4c2
+ms.sourcegitcommit: 1336f95809712779ca5c4c68237a3a8c6d630af4
+ms.openlocfilehash: 337e1c185ef8989345ec3abb60f6b255dbc9ef4f
 
 
 ---
@@ -32,9 +32,8 @@ También aprenderá a crear topologías híbridas que usan componentes de C# y J
 > 
 > Para usar una topología de C# con un clúster basado en Linux, debe actualizar el paquete de NuGet Microsoft.SCP.Net.SDK usado en el proyecto a la versión 0.10.0.6 u otra superior. La versión del paquete también debe coincidir con la versión principal de Storm instalada en HDInsight. Por ejemplo, en las versiones de HDInsight 3.3 y 3.4 se usa Storm 0.10.x, mientras que en HDInsight 3.5 se usa Storm 1.0.x.
 > 
-> Las topologías de C# en clústeres basados en Linux deben usar .NET 4.5, y emplear Mono para ejecutarse en el clúster de HDInsight. La mayoría de las cosas funcionará; no obstante, debe comprobar el documento de [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para ver las posibles incompatibilidades.
-> 
-> 
+> Las topologías de C# en clústeres basados en Linux deben usar .NET 4.5, y emplear Mono para ejecutarse en el clúster de HDInsight. La mayoría funcionará; no obstante, debe comprobar el documento de [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para ver las posibles incompatibilidades.
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -57,6 +56,9 @@ También aprenderá a crear topologías híbridas que usan componentes de C# y J
   > No se admite el uso de las herramientas de HDInsight para Visual Studio en Visual Studio Express
 
 * Clúster Apache Storm en HDInsight: vea [Introducción a Apache Storm en HDInsight](hdinsight-apache-storm-tutorial-get-started.md) para conocer los pasos para crear un clúster.
+
+  > [!IMPORTANT]
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="templates"></a>Plantillas
 
@@ -91,14 +93,19 @@ Para conocer una topología de ejemplo que utiliza este componente y funciona co
 ## <a name="create-a-c-topology"></a>Creación de una topología de C#
 
 1. Si todavía no tiene instalada la versión más reciente de las herramientas de HDInsight para Visual Studio, consulte [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+
 2. Abra Visual Studio, seleccione **Archivo** > **Nuevo** y luego **Proyecto**.
+
 3. En la pantalla **Nuevo proyecto**, expanda **Instalado** > **Plantillas** y seleccione **HDInsight**. En la lista de plantillas, seleccione **Aplicación de Storm**. En la parte inferior de la pantalla, escriba **WordCount** como nombre de la aplicación.
    
     ![imagen](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
+
 4. Cuando se haya creado el proyecto, debe tener los siguientes archivos:
    
    * **Program.cs**: define la topología del proyecto. Tenga en cuenta que se crea una topología predeterminada que consta de un spout y un bolt de manera predeterminada.
+
    * **Spout.cs**: un spout de ejemplo que emite números aleatorios
+
    * **Bolt.cs**: un bolt de ejemplo que mantiene un recuento de los números emitidos por el spout.
      
      Como parte de la creación del proyecto, los [paquetes SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) más recientes se descargarán de NuGet.
@@ -108,183 +115,198 @@ Para conocer una topología de ejemplo que utiliza este componente y funciona co
 En las secciones siguientes, modificará este proyecto en una aplicación básica de WordCount.
 
 ### <a name="implement-the-spout"></a>Implementación del spout
+
 1. Abra **Spout.cs**. Los spouts se usan para leer los datos en una topología de un origen externo. Los componentes principales de un spout son:
    
    * **NextTuple**: llamado por Storm cuando se permite que el spout emita nuevas tuplas
+
    * **Ack** (solo topología transaccional): controla las confirmaciones iniciadas por otros componentes de la topología para tuplas enviadas desde este spout. La confirmación de una tupla permite que el spout conozca que se ha procesado correctamente por componentes de bajada.
+
    * **Fail** (solo topología transaccional): controla las tuplas que producen un error al procesar otros componentes de la topología. Esto ofrece la oportunidad de volver a emitir la tupla para que se pueda procesar de nuevo.
+
 2. Reemplace el contenido de la clase **Spout** por lo siguiente. Esto crea un spout que emite aleatoriamente una frase en la topología.
-   
-        private Context ctx;
-        private Random r = new Random();
-        string[] sentences = new string[] {
-            "the cow jumped over the moon",
-            "an apple a day keeps the doctor away",
-            "four score and seven years ago",
-            "snow white and the seven dwarfs",
-            "i am at two with nature"
-        };
-   
-        public Spout(Context ctx)
-        {
-            // Set the instance context
-            this.ctx = ctx;
-   
-            Context.Logger.Info("Generator constructor called");
-   
-            // Declare Output schema
-            Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-            // The schema for the default output stream is
-            // a tuple that contains a string field
-            outputSchema.Add("default", new List<Type>() { typeof(string) });
-            this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
-        }
-   
-        // Get an instance of the spout
-        public static Spout Get(Context ctx, Dictionary<string, Object> parms)
-        {
-            return new Spout(ctx);
-        }
-   
-        public void NextTuple(Dictionary<string, Object> parms)
-        {
-            Context.Logger.Info("NextTuple enter");
-            // The sentence to be emitted
-            string sentence;
-   
-            // Get a random sentence
-            sentence = sentences[r.Next(0, sentences.Length - 1)];
-            Context.Logger.Info("Emit: {0}", sentence);
-            // Emit it
-            this.ctx.Emit(new Values(sentence));
-   
-            Context.Logger.Info("NextTuple exit");
-        }
-   
-        public void Ack(long seqId, Dictionary<string, Object> parms)
-        {
-            // Only used for transactional topologies
-        }
-   
-        public void Fail(long seqId, Dictionary<string, Object> parms)
-        {
-            // Only used for transactional topologies
-        }
+    
+    ```csharp
+    private Context ctx;
+    private Random r = new Random();
+    string[] sentences = new string[] {
+        "the cow jumped over the moon",
+        "an apple a day keeps the doctor away",
+        "four score and seven years ago",
+        "snow white and the seven dwarfs",
+        "i am at two with nature"
+    };
+
+    public Spout(Context ctx)
+    {
+        // Set the instance context
+        this.ctx = ctx;
+
+        Context.Logger.Info("Generator constructor called");
+
+        // Declare Output schema
+        Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
+        // The schema for the default output stream is
+        // a tuple that contains a string field
+        outputSchema.Add("default", new List<Type>() { typeof(string) });
+        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
+    }
+
+    // Get an instance of the spout
+    public static Spout Get(Context ctx, Dictionary<string, Object> parms)
+    {
+        return new Spout(ctx);
+    }
+
+    public void NextTuple(Dictionary<string, Object> parms)
+    {
+        Context.Logger.Info("NextTuple enter");
+        // The sentence to be emitted
+        string sentence;
+
+        // Get a random sentence
+        sentence = sentences[r.Next(0, sentences.Length - 1)];
+        Context.Logger.Info("Emit: {0}", sentence);
+        // Emit it
+        this.ctx.Emit(new Values(sentence));
+
+        Context.Logger.Info("NextTuple exit");
+    }
+
+    public void Ack(long seqId, Dictionary<string, Object> parms)
+    {
+        // Only used for transactional topologies
+    }
+
+    public void Fail(long seqId, Dictionary<string, Object> parms)
+    {
+        // Only used for transactional topologies
+    }
+    ```
    
     Dedique un momento a leer los comentarios para entender lo que hace este código.
 
 ### <a name="implement-the-bolts"></a>Implementación de los bolts
+
 1. Elimine el archivo **Bolt.cs** existente del proyecto.
+
 2. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento**. En la lista, seleccione **Bolt de Storm** y escriba **Splitter.cs** como nombre. Repita esto para crear un segundo bolt denominado **Counter.cs**.
    
    * **Splitter.cs**: implementa un bolt que divide la frase en palabras individuales y emite una nueva secuencia de palabras.
+
    * **Counter.cs**: implementa un bolt que cuenta cada palabra y emite una nueva secuencia de palabras y el recuento de cada palabra.
      
      > [!NOTE]
      > Estos bolts simplemente leen y escriben en las secuencias, pero también puede usar un bolt para comunicarse con orígenes como una base de datos o un servicio.
-     > 
-     > 
+
 3. Abra **Splitter.cs**. Tenga en cuenta que tiene solo un método de forma predeterminada: **Execute**. Se llama cuando el bolt recibe una tupla para el procesamiento. En este caso, puede leer y procesar las tuplas entrantes y emitir tuplas salientes.
+
 4. Reemplace el contenido de la clase **Splitter** por el código siguiente:
-   
-        private Context ctx;
-   
-        // Constructor
-        public Splitter(Context ctx)
+    
+    ```csharp
+    private Context ctx;
+
+    // Constructor
+    public Splitter(Context ctx)
+    {
+        Context.Logger.Info("Splitter constructor called");
+        this.ctx = ctx;
+
+        // Declare Input and Output schemas
+        Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
+        // Input contains a tuple with a string field (the sentence)
+        inputSchema.Add("default", new List<Type>() { typeof(string) });
+        Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
+        // Outbound contains a tuple with a string field (the word)
+        outputSchema.Add("default", new List<Type>() { typeof(string) });
+        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
+    }
+
+    // Get a new instance of the bolt
+    public static Splitter Get(Context ctx, Dictionary<string, Object> parms)
+    {
+        return new Splitter(ctx);
+    }
+
+    // Called when a new tuple is available
+    public void Execute(SCPTuple tuple)
+    {
+        Context.Logger.Info("Execute enter");
+
+        // Get the sentence from the tuple
+        string sentence = tuple.GetString(0);
+        // Split at space characters
+        foreach (string word in sentence.Split(' '))
         {
-            Context.Logger.Info("Splitter constructor called");
-            this.ctx = ctx;
-   
-            // Declare Input and Output schemas
-            Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-            // Input contains a tuple with a string field (the sentence)
-            inputSchema.Add("default", new List<Type>() { typeof(string) });
-            Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-            // Outbound contains a tuple with a string field (the word)
-            outputSchema.Add("default", new List<Type>() { typeof(string) });
-            this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
+            Context.Logger.Info("Emit: {0}", word);
+            //Emit each word
+            this.ctx.Emit(new Values(word));
         }
-   
-        // Get a new instance of the bolt
-        public static Splitter Get(Context ctx, Dictionary<string, Object> parms)
-        {
-            return new Splitter(ctx);
-        }
-   
-        // Called when a new tuple is available
-        public void Execute(SCPTuple tuple)
-        {
-            Context.Logger.Info("Execute enter");
-   
-            // Get the sentence from the tuple
-            string sentence = tuple.GetString(0);
-            // Split at space characters
-            foreach (string word in sentence.Split(' '))
-            {
-                Context.Logger.Info("Emit: {0}", word);
-                //Emit each word
-                this.ctx.Emit(new Values(word));
-            }
-   
-            Context.Logger.Info("Execute exit");
-        }
+
+        Context.Logger.Info("Execute exit");
+    }
+    ```
    
     Dedique un momento a leer los comentarios para entender lo que hace este código.
+
 5. Abra **Counter.cs** y reemplace el contenido de la clase por lo siguiente:
-   
-        private Context ctx;
-   
-        // Dictionary for holding words and counts
-        private Dictionary<string, int> counts = new Dictionary<string, int>();
-   
-        // Constructor
-        public Counter(Context ctx)
-        {
-            Context.Logger.Info("Counter constructor called");
-            // Set instance context
-            this.ctx = ctx;
-   
-            // Declare Input and Output schemas
-            Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-            // A tuple containing a string field - the word
-            inputSchema.Add("default", new List<Type>() { typeof(string) });
-   
-            Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-            // A tuple containing a string and integer field - the word and the word count
-            outputSchema.Add("default", new List<Type>() { typeof(string), typeof(int) });
-            this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
-        }
-   
-        // Get a new instance
-        public static Counter Get(Context ctx, Dictionary<string, Object> parms)
-        {
-            return new Counter(ctx);
-        }
-   
-        // Called when a new tuple is available
-        public void Execute(SCPTuple tuple)
-        {
-            Context.Logger.Info("Execute enter");
-   
-            // Get the word from the tuple
-            string word = tuple.GetString(0);
-            // Do we already have an entry for the word in the dictionary?
-            // If no, create one with a count of 0
-            int count = counts.ContainsKey(word) ? counts[word] : 0;
-            // Increment the count
-            count++;
-            // Update the count in the dictionary
-            counts[word] = count;
-   
-            Context.Logger.Info("Emit: {0}, count: {1}", word, count);
-            // Emit the word and count information
-            this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new List<SCPTuple> { tuple }, new Values(word, count));
-            Context.Logger.Info("Execute exit");
-        }
+    
+    ```csharp
+    private Context ctx;
+
+    // Dictionary for holding words and counts
+    private Dictionary<string, int> counts = new Dictionary<string, int>();
+
+    // Constructor
+    public Counter(Context ctx)
+    {
+        Context.Logger.Info("Counter constructor called");
+        // Set instance context
+        this.ctx = ctx;
+
+        // Declare Input and Output schemas
+        Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
+        // A tuple containing a string field - the word
+        inputSchema.Add("default", new List<Type>() { typeof(string) });
+
+        Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
+        // A tuple containing a string and integer field - the word and the word count
+        outputSchema.Add("default", new List<Type>() { typeof(string), typeof(int) });
+        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
+    }
+
+    // Get a new instance
+    public static Counter Get(Context ctx, Dictionary<string, Object> parms)
+    {
+        return new Counter(ctx);
+    }
+
+    // Called when a new tuple is available
+    public void Execute(SCPTuple tuple)
+    {
+        Context.Logger.Info("Execute enter");
+
+        // Get the word from the tuple
+        string word = tuple.GetString(0);
+        // Do we already have an entry for the word in the dictionary?
+        // If no, create one with a count of 0
+        int count = counts.ContainsKey(word) ? counts[word] : 0;
+        // Increment the count
+        count++;
+        // Update the count in the dictionary
+        counts[word] = count;
+
+        Context.Logger.Info("Emit: {0}, count: {1}", word, count);
+        // Emit the word and count information
+        this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new List<SCPTuple> { tuple }, new Values(word, count));
+        Context.Logger.Info("Execute exit");
+    }
+    ```
    
     Dedique un momento a leer los comentarios para entender lo que hace este código.
 
 ### <a name="define-the-topology"></a>Definición de la topología
+
 Los spouts y bolts se organizan en un gráfico, que define cómo fluyen los datos entre componentes. Para esta topología, el gráfico es como sigue:
 
 ![imagen de cómo se organizan los componentes](./media/hdinsight-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
@@ -295,94 +317,98 @@ Dado que el recuento de palabras se guarda localmente en la instancia del contad
 
 Abra **Program.cs**. El método importante aquí es **GetTopologyBuilder**, que se usa para definir la topología que se envía a Storm. Reemplace el contenido de **GetTopologyBuilder** por el código siguiente para implementar la topología descrita anteriormente:
 
-        // Create a new topology named 'WordCount'
-        TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount" + DateTime.Now.ToString("yyyyMMddHHmmss"));
+```csharp
+// Create a new topology named 'WordCount'
+TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount" + DateTime.Now.ToString("yyyyMMddHHmmss"));
 
-        // Add the spout to the topology.
-        // Name the component 'sentences'
-        // Name the field that is emitted as 'sentence'
-        topologyBuilder.SetSpout(
-            "sentences",
-            Spout.Get,
-            new Dictionary<string, List<string>>()
-            {
-                {Constants.DEFAULT_STREAM_ID, new List<string>(){"sentence"}}
-            },
-            1);
-        // Add the splitter bolt to the topology.
-        // Name the component 'splitter'
-        // Name the field that is emitted 'word'
-        // Use suffleGrouping to distribute incoming tuples
-        //   from the 'sentences' spout across instances
-        //   of the splitter
-        topologyBuilder.SetBolt(
-            "splitter",
-            Splitter.Get,
-            new Dictionary<string, List<string>>()
-            {
-                {Constants.DEFAULT_STREAM_ID, new List<string>(){"word"}}
-            },
-            1).shuffleGrouping("sentences");
+// Add the spout to the topology.
+// Name the component 'sentences'
+// Name the field that is emitted as 'sentence'
+topologyBuilder.SetSpout(
+    "sentences",
+    Spout.Get,
+    new Dictionary<string, List<string>>()
+    {
+        {Constants.DEFAULT_STREAM_ID, new List<string>(){"sentence"}}
+    },
+    1);
+// Add the splitter bolt to the topology.
+// Name the component 'splitter'
+// Name the field that is emitted 'word'
+// Use suffleGrouping to distribute incoming tuples
+//   from the 'sentences' spout across instances
+//   of the splitter
+topologyBuilder.SetBolt(
+    "splitter",
+    Splitter.Get,
+    new Dictionary<string, List<string>>()
+    {
+        {Constants.DEFAULT_STREAM_ID, new List<string>(){"word"}}
+    },
+    1).shuffleGrouping("sentences");
 
-        // Add the counter bolt to the topology.
-        // Name the component 'counter'
-        // Name the fields that are emitted 'word' and 'count'
-        // Use fieldsGrouping to ensure that tuples are routed
-        //   to counter instances based on the contents of field
-        //   position 0 (the word). This could also have been
-        //   List<string>(){"word"}.
-        //   This ensures that the word 'jumped', for example, will always
-        //   go to the same instance
-        topologyBuilder.SetBolt(
-            "counter",
-            Counter.Get,
-            new Dictionary<string, List<string>>()
-            {
-                {Constants.DEFAULT_STREAM_ID, new List<string>(){"word", "count"}}
-            },
-            1).fieldsGrouping("splitter", new List<int>() { 0 });
+// Add the counter bolt to the topology.
+// Name the component 'counter'
+// Name the fields that are emitted 'word' and 'count'
+// Use fieldsGrouping to ensure that tuples are routed
+//   to counter instances based on the contents of field
+//   position 0 (the word). This could also have been
+//   List<string>(){"word"}.
+//   This ensures that the word 'jumped', for example, will always
+//   go to the same instance
+topologyBuilder.SetBolt(
+    "counter",
+    Counter.Get,
+    new Dictionary<string, List<string>>()
+    {
+        {Constants.DEFAULT_STREAM_ID, new List<string>(){"word", "count"}}
+    },
+    1).fieldsGrouping("splitter", new List<int>() { 0 });
 
-        // Add topology config
-        topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-        {
-            {"topology.kryo.register","[\"[B\"]"}
-        });
+// Add topology config
+topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
+{
+    {"topology.kryo.register","[\"[B\"]"}
+});
 
-        return topologyBuilder;
+return topologyBuilder;
+```
 
 Dedique un momento a leer los comentarios para entender lo que hace este código.
 
 ## <a name="submit-the-topology"></a>Envío de la topología
+
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Submit to Storm on HDInsight** (Enviar a Storm en HDInsight).
    
    > [!NOTE]
    > Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
-   > 
-   > 
+
 2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Storm Cluster ** (Clúster de Storm y seleccione **Submit** (Enviar). Puede supervisar si el envío es correcto mediante la ventana **Salida** .
+
 3. Cuando la topología se envíe correctamente, debe aparecer **topologías de Storm** del clúster. Seleccione la topología **WordCount** en la lista para consultar la información acerca de la topología en ejecución.
    
    > [!NOTE]
    > También puede ver las **topologías de Storm** en el **Explorador de servidores**: expanda **Azure** > **HDInsight**, haga clic con el botón derecho en un clúster de Storm en HDInsight y luego seleccione **Ver topologías de Storm**.
-   > 
-   > 
-   
+
     Use los vínculos de los spouts o bolts para ver información sobre estos componentes. Se abrirá una ventana nueva para cada elemento seleccionado.
+
 4. Desde la vista **Resumen de la topología**, haga clic en **Eliminar** para detener la topología.
    
    > [!NOTE]
    > Las topologías de Storm continúan ejecutándose hasta que se desactiven o se elimine el clúster.
-   > 
-   > 
 
 ## <a name="transactional-topology"></a>Topología transaccional
+
 La topología anterior no es transaccional. Los componentes de dentro de la topología no implementan ninguna funcionalidad para reproducir los mensajes si se produce un error de procesamiento de un componente de la topología. Para ver un ejemplo de topología transaccional, cree un nuevo proyecto y seleccione **Muestra de Storm** como tipo de proyecto.
 
 Las topologías transaccionales implementan lo siguiente para que admitan la reproducción de datos:
 
 * **Almacenamiento en caché de metadatos**: el spout debe almacenar metadatos sobre los datos emitidos para que los datos puedan recuperarse y volver a emitirse si se produce un error. Dado que los datos que emite la muestra son pequeños, los datos sin procesar de cada tupla se almacenan en un diccionario para la reproducción.
+
 * **Ack**: cada bolt de la topología puede llamar a `this.ctx.Ack(tuple)` para confirmar si el proceso de una tupla se ha realizado correctamente. Una vez que todos los bolts han confirmado la tupla, se llama al método `Ack` del spout. Esto permite que el spout quite los datos almacenados en caché para la reproducción, ya que los datos se han procesado completamente.
+
 * **Fail**: cada bolt puede llamar a `this.ctx.Fail(tuple)` para indicar que se produjo un error al procesar una tupla. El error se propaga al método `Fail` del spout, donde la tupla puede reproducirse mediante metadatos almacenados en caché.
+
 * **Id. de secuencia**: al emitir una tupla, se puede especificar un identificador de secuencia. Debe ser un valor que identifique la tupla para el procesamiento de reproducción (Ack y Fail). Por ejemplo, el spout del proyecto **Muestra de Storm** utiliza los siguiente al emitir datos:
   
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
@@ -392,6 +418,7 @@ Las topologías transaccionales implementan lo siguiente para que admitan la rep
 Como se muestra en el proyecto **Muestra de Storm** , se puede establecer si un componente es transaccional en tiempo de ejecución, según la configuración.
 
 ## <a name="hybrid-topology"></a>Topologías híbridas
+
 Las herramientas de HDInsight para Visual Studio también pueden utilizarse para crear topologías híbridas, donde algunos componentes son de C# y otros son de Java.
 
 Para ver una topología híbrida de ejemplo, cree un nuevo proyecto y seleccione **Muestra híbrida de Storm**. Esto crea una muestra totalmente comentada que contiene varias topologías que muestran lo siguiente:
@@ -417,56 +444,65 @@ Para cambiar entre la topología que se usa cuando se envía el proyecto, simple
 Tenga en cuenta lo siguiente al crear y enviar una topología híbrida:
 
 * **JavaComponentConstructor** debe usarse para crear una nueva instancia de la clase de Java de un spout o bolt
+
 * **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** debe usarse para serializar datos hacia y desde los componentes de Java, a partir de objetos de Java a JSON
+
 * Al enviar la topología al servidor, debe usar la opción **Configuraciones adicionales** para especificar las **rutas de acceso del archivo Java**. La ruta especificada debe ser el directorio que contiene los archivos JAR que contienen las clases de Java.
 
 ### <a name="azure-event-hubs"></a>Centros de eventos de Azure
+
 La versión 0.9.4.203 de SCP.Net presenta una nueva clase y método específicos para trabajar con el spout del Centro de eventos (un spout de Java que lee desde el Centro de eventos.) Al crear una topología que utiliza este spout, utilice los métodos siguientes:
 
-* **EventHubSpoutConfig** : crea un objeto que contiene la configuración para el componente spout
-* **TopologyBuilder.SetEventHubSpout** : agrega el componente spout del Centro de eventos a la topología
+* Clase **EventHubSpoutConfig**: crea un objeto que contiene la configuración del componente spout.
+
+* Método **TopologyBuilder.SetEventHubSpout**: agrega el componente spout del Centro de eventos a la topología.
 
 > [!NOTE]
 > Aunque estos simplifican el trabajo con el spout del Centro de eventos en comparación con otros componentes de Java, deberá utilizar CustomizedInteropJSONSerializer para serializar los datos que produce el spout.
-> 
-> 
 
 ## <a name="a-idconfigurationmanagerausing-configurationmanager"></a><a id="configurationmanager"></a>Uso de ConfigurationManager
-No use ConfigurationManager para recuperar valores de configuración de componentes de bolt y spout; esto llevará a una excepción de puntero nulo. En su lugar, la configuración de su proyecto se pasa a la topología de Storm como un par clave-valor en el contexto de la topología. Cada componente que se basa en los valores de configuración debe recuperarlos del contexto durante la inicialización.
+
+No use ConfigurationManager para recuperar valores de configuración de los componentes bolt y spout; esto puede generar una excepción de puntero nulo. En su lugar, la configuración de su proyecto se pasa a la topología de Storm como un par clave-valor en el contexto de la topología. Cada componente que se basa en los valores de configuración debe recuperarlos del contexto durante la inicialización.
 
 El código siguiente muestra cómo recuperar estos valores:
 
-    public class MyComponent : ISCPBolt
+```csharp
+public class MyComponent : ISCPBolt
+{
+    // To hold configuration information loaded from context
+    Configuration configuration;
+    ...
+    public MyComponent(Context ctx, Dictionary<string, Object> parms)
     {
-        // To hold configuration information loaded from context
-        Configuration configuration;
-        ...
-        public MyComponent(Context ctx, Dictionary<string, Object> parms)
+        // Save a copy of the context for this component instance
+        this.ctx = ctx;
+        // If it exists, load the configuration for the component
+        if(parms.ContainsKey(Constants.USER_CONFIG))
         {
-            // Save a copy of the context for this component instance
-            this.ctx = ctx;
-            // If it exists, load the configuration for the component
-            if(parms.ContainsKey(Constants.USER_CONFIG))
-            {
-                this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
-            }
-            // Retrieve the value of "Foo" from configuration
-            var foo = this.configuration.AppSettings.Settings["Foo"].Value;
+            this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
         }
-        ...
+        // Retrieve the value of "Foo" from configuration
+        var foo = this.configuration.AppSettings.Settings["Foo"].Value;
     }
+    ...
+}
+```
 
 Si usa un método `Get` para devolver una instancia de su componente, debe asegurarse de que pasa los parámetros `Context` y `Dictionary<string, Object>` al constructor. El ejemplo siguiente es un método `Get` básico que pasa estos valores correctamente:
 
-    public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
-    {
-        return new MyComponent(ctx, parms);
-    }
+```csharp
+public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
+{
+    return new MyComponent(ctx, parms);
+}
+```
 
 ## <a name="how-to-update-scpnet"></a>Cómo actualizar SCP.NET
+
 Las versiones recientes de SCP.NET admiten la actualización de paquetes a través de NuGet. Cuando está disponible una nueva actualización, recibirá una notificación de actualización. Para comprobar manualmente una actualización, siga estos pasos:
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
+
 2. En el administrador de paquetes, seleccione **Actualizaciones**. Si hay disponible una actualización, se mostrará una lista. Haga clic en el botón **Actualizar** para que el paquete la instale.
 
 > [!IMPORTANT]
@@ -474,8 +510,6 @@ Las versiones recientes de SCP.NET admiten la actualización de paquetes a trav�
 > 
 > 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
 > 2. Mediante el campo **Búsqueda**, busque **Microsoft.SCP.Net.SDK** y agréguelo al proyecto.
-> 
-> 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -502,9 +536,7 @@ Para clústeres de HDInsight basados en Linux, debe asegurarse de que el proyect
 Aunque es fácil implementar una topología en un clúster, en algunos casos puede que deba probar localmente una topología. Siga los pasos que se muestran a continuación para ejecutar y probar localmente la topología de ejemplo de este tutorial en su entorno de desarrollo.
 
 > [!WARNING]
-> Las pruebas locales solo funcionan para topologías básicas de C#. No debe utilizar las pruebas locales para las topologías híbridas o las topologías que utilizan varias secuencias porque recibirá errores.
-> 
-> 
+> Las pruebas locales solo funcionan para topologías básicas de C#. No debe utilizar las pruebas locales para las topologías híbridas o las topologías que utilizan varias secuencias.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Propiedades**. En las propiedades del proyecto, cambie el **tipo de salida** a **Aplicación de consola**.
    
@@ -512,144 +544,153 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos pue
    
    > [!NOTE]
    > No olvide cambiar el **tipo de salida** de nuevo a **Biblioteca de clases** antes de implementar la topología en un clúster.
-   > 
-   > 
+
 2. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento**. Seleccione **Clase** y escriba **LocalTest.cs** como nombre de clase. Por último, haga clic en **Agregar**.
+
 3. Abra **LocalTest.cs** y agregue la siguiente instrucción **using** en la parte superior:
-   
-        using Microsoft.SCP;
+    
+    ```csharp
+    using Microsoft.SCP;
+    ```
+
 4. Use lo siguiente como contenido de la clase **LocalTest** :
-   
-        // Drives the topology components
-        public void RunTestCase()
+    
+    ```csharp
+    // Drives the topology components
+    public void RunTestCase()
+    {
+        // An empty dictionary for use when creating components
+        Dictionary<string, Object> emptyDictionary = new Dictionary<string, object>();
+
+        #region Test the spout
         {
-            // An empty dictionary for use when creating components
-            Dictionary<string, Object> emptyDictionary = new Dictionary<string, object>();
-   
-            #region Test the spout
-            {
-                Console.WriteLine("Starting spout");
-                // LocalContext is a local-mode context that can be used to initialize
-                // components in the development environment.
-                LocalContext spoutCtx = LocalContext.Get();
-                // Get a new instance of the spout, using the local context
-                Spout sentences = Spout.Get(spoutCtx, emptyDictionary);
-   
-                // Emit 10 tuples
-                for (int i = 0; i < 10; i++)
-                {
-                    sentences.NextTuple(emptyDictionary);
-                }
-                // Use LocalContext to persist the data stream to file
-                spoutCtx.WriteMsgQueueToFile("sentences.txt");
-                Console.WriteLine("Spout finished");
-            }
-            #endregion
-   
-            #region Test the splitter bolt
-            {
-                Console.WriteLine("Starting splitter bolt");
-                // LocalContext is a local-mode context that can be used to initialize
-                // components in the development environment.
-                LocalContext splitterCtx = LocalContext.Get();
-                // Get a new instance of the bolt
-                Splitter splitter = Splitter.Get(splitterCtx, emptyDictionary);
+            Console.WriteLine("Starting spout");
+            // LocalContext is a local-mode context that can be used to initialize
+            // components in the development environment.
+            LocalContext spoutCtx = LocalContext.Get();
+            // Get a new instance of the spout, using the local context
+            Spout sentences = Spout.Get(spoutCtx, emptyDictionary);
 
-                // Set the data stream to the data created by the spout
-                splitterCtx.ReadFromFileToMsgQueue("sentences.txt");
-                // Get a batch of tuples from the stream
-                List<SCPTuple> batch = splitterCtx.RecvFromMsgQueue();
-                // Process each tuple in the batch
-                foreach (SCPTuple tuple in batch)
-                {
-                    splitter.Execute(tuple);
-                }
-                // Use LocalContext to persist the data stream to file
-                splitterCtx.WriteMsgQueueToFile("splitter.txt");
-                Console.WriteLine("Splitter bolt finished");
-            }
-            #endregion
-
-            #region Test the counter bolt
+            // Emit 10 tuples
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("Starting counter bolt");
-                // LocalContext is a local-mode context that can be used to initialize
-                // components in the development environment.
-                LocalContext counterCtx = LocalContext.Get();
-                // Get a new instance of the bolt
-                Counter counter = Counter.Get(counterCtx, emptyDictionary);
-
-                // Set the data stream to the data created by splitter bolt
-                counterCtx.ReadFromFileToMsgQueue("splitter.txt");
-                // Get a batch of tuples from the stream
-                List<SCPTuple> batch = counterCtx.RecvFromMsgQueue();
-                // Process each tuple in the batch
-                foreach (SCPTuple tuple in batch)
-                {
-                    counter.Execute(tuple);
-                }
-                // Use LocalContext to persist the data stream to file
-                counterCtx.WriteMsgQueueToFile("counter.txt");
-                Console.WriteLine("Counter bolt finished");
+                sentences.NextTuple(emptyDictionary);
             }
-            #endregion
+            // Use LocalContext to persist the data stream to file
+            spoutCtx.WriteMsgQueueToFile("sentences.txt");
+            Console.WriteLine("Spout finished");
         }
+        #endregion
+
+        #region Test the splitter bolt
+        {
+            Console.WriteLine("Starting splitter bolt");
+            // LocalContext is a local-mode context that can be used to initialize
+            // components in the development environment.
+            LocalContext splitterCtx = LocalContext.Get();
+            // Get a new instance of the bolt
+            Splitter splitter = Splitter.Get(splitterCtx, emptyDictionary);
+
+            // Set the data stream to the data created by the spout
+            splitterCtx.ReadFromFileToMsgQueue("sentences.txt");
+            // Get a batch of tuples from the stream
+            List<SCPTuple> batch = splitterCtx.RecvFromMsgQueue();
+            // Process each tuple in the batch
+            foreach (SCPTuple tuple in batch)
+            {
+                splitter.Execute(tuple);
+            }
+            // Use LocalContext to persist the data stream to file
+            splitterCtx.WriteMsgQueueToFile("splitter.txt");
+            Console.WriteLine("Splitter bolt finished");
+        }
+        #endregion
+
+        #region Test the counter bolt
+        {
+            Console.WriteLine("Starting counter bolt");
+            // LocalContext is a local-mode context that can be used to initialize
+            // components in the development environment.
+            LocalContext counterCtx = LocalContext.Get();
+            // Get a new instance of the bolt
+            Counter counter = Counter.Get(counterCtx, emptyDictionary);
+
+            // Set the data stream to the data created by splitter bolt
+            counterCtx.ReadFromFileToMsgQueue("splitter.txt");
+            // Get a batch of tuples from the stream
+            List<SCPTuple> batch = counterCtx.RecvFromMsgQueue();
+            // Process each tuple in the batch
+            foreach (SCPTuple tuple in batch)
+            {
+                counter.Execute(tuple);
+            }
+            // Use LocalContext to persist the data stream to file
+            counterCtx.WriteMsgQueueToFile("counter.txt");
+            Console.WriteLine("Counter bolt finished");
+        }
+        #endregion
+    }
+    ```
 
     Dedique un momento para leer los comentarios del código. Este código usa **LocalContext** para ejecutar los componentes en el entorno de desarrollo y conserva la secuencia de datos entre componentes de los archivos de texto en la unidad local.
 
 1. Abra **Program.cs** y agregue lo siguiente al método **Main**:
-   
-        Console.WriteLine("Starting tests");
-        System.Environment.SetEnvironmentVariable("microsoft.scp.logPrefix", "WordCount-LocalTest");
-        // Initialize the runtime
-        SCPRuntime.Initialize();
-   
-        //If we are not running under the local context, throw an error
-        if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
-        {
-            throw new Exception(string.Format("unexpected pluginType: {0}", Context.pluginType));
-        }
-        // Create test instance
-        LocalTest tests = new LocalTest();
-        // Run tests
-        tests.RunTestCase();
-        Console.WriteLine("Tests finished");
-        Console.ReadKey();
+    
+    ```csharp
+    Console.WriteLine("Starting tests");
+    System.Environment.SetEnvironmentVariable("microsoft.scp.logPrefix", "WordCount-LocalTest");
+    // Initialize the runtime
+    SCPRuntime.Initialize();
+
+    //If we are not running under the local context, throw an error
+    if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
+    {
+        throw new Exception(string.Format("unexpected pluginType: {0}", Context.pluginType));
+    }
+    // Create test instance
+    LocalTest tests = new LocalTest();
+    // Run tests
+    tests.RunTestCase();
+    Console.WriteLine("Tests finished");
+    Console.ReadKey();
+    ```
+
 2. Guarde los cambios y presione **F5** o seleccione **Depurar** > **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando se muestre **Pruebas finalizadas** , presione cualquier tecla para cerrar la ventana.
+
 3. Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto; por ejemplo, **C:\Usuarios\<su_nombre_de_usuario>\Documentos\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y haga clic en **Depurar**. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
    
    > [!NOTE]
    > Los datos de cadena se almacenan como una matriz de valores decimales en estos archivos. Por ejemplo, \[[97,103,111]] en el archivo **splitter.txt** es la palabra 'and'.
-   > 
-   > 
+
 
 Aunque llevar a cabo las pruebas de una aplicación de recuento de palabras básica de forma local es bastante sencillo, el verdadero valor se observa cuando tiene una topología compleja que se comunica con orígenes de datos externos o realiza análisis de datos complejos. Cuando se trabaja en un proyecto de este tipo, puede que necesite establecer puntos de interrupción y recorrer el código en los componentes para aislar problemas.
 
 > [!NOTE]
 > Asegúrese de volver a establecer el **tipo de proyecto** en **Biblioteca de clases** antes de implementarlo en un clúster de Storm en HDInsight.
-> 
-> 
 
 ### <a name="log-information"></a>Información del registro
 
 Puede registrar fácilmente información de los componentes de la topología mediante `Context.Logger`. Por ejemplo, lo siguiente creará una entrada del registro informativo:
 
-    Context.Logger.Info("Component started");
+```csharp
+Context.Logger.Info("Component started");
+```
 
 Se puede ver la información registrada desde el **registro del servicio Hadoop**, que se encuentra en el **Explorador de servidores**. Expanda la entrada para el clúster de Storm en HDInsight y, después, expanda **Registro del servicio Hadoop**. Por último, seleccione el archivo de registro que desea consultar.
 
 > [!NOTE]
 > Los registros se almacenan en la cuenta de almacenamiento de Azure que usa el clúster. Si se trata de una suscripción diferente de la que ha iniciado sesión con Visual Studio, debe iniciar sesión en la suscripción que contiene la cuenta de almacenamiento para ver esta información.
-> 
-> 
 
 ### <a name="view-error-information"></a>Visualización de la información del error
 
 Para ver los errores que se han producido en una topología en ejecución, siga estos pasos:
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en el clúster de Storm en HDInsight y seleccione **Ver topologías de Storm**.
-2. Para el **Spout** y los **Bolts**, la columna **Último error** tendrá información sobre el último error que ha ocurrido.
+
+2. Para los componentes **spout** y **bolt**, la columna **Último error** tendrá información sobre el último error que ha ocurrido.
+
 3. Seleccione el **id. de spout** o el **id. de bolt** del componente del que se muestra un error. En la página de detalles que se muestra, se enumerará información adicional sobre el error en la sección **Errores** de la parte inferior de la página.
+
 4. Para más información, seleccione un **puerto** en la sección **Executors** (Ejecutores) de la página para ver el registro de trabajo de Storm de los últimos minutos.
 
 ### <a name="errors-submitting-topologies"></a>Errores en el envío de topologías
@@ -661,6 +702,7 @@ Si se producen errores al enviar una topología a HDInsight, puede encontrar reg
 Reemplace __sshuser__ por la cuenta de usuario SSH del clúster. Reemplace __clustername__ por el nombre del clúster de HDInsight. Si usó una contraseña para la cuenta SSH, se le pedirá que la escriba. El comando descargará el archivo en el directorio desde el que se ejecutó el comando.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha aprendido a desarrollar e implementar topologías de Storm desde las herramientas de HDInsight para Visual Studio, obtenga más información sobre el [Procesamiento de eventos desde Centro de eventos de Azure con Storm en HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 Para ver un ejemplo de una topología de C# que divide los datos de una secuencia en varias secuencias, consulte [Ejemplo de Storm en C#](https://github.com/Blackmist/csharp-storm-example).
@@ -691,6 +733,6 @@ Para conocer más formas de trabajar con HDInsight y obtener más ejemplos de St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

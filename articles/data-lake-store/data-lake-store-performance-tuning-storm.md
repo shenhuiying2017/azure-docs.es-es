@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: ebf876f946eceddce9c8c990d8b28fcb969bec23
-ms.openlocfilehash: 112226028c053cc91f9fb2bc0e5978f7cb2343ed
+ms.sourcegitcommit: 518d586a921926874cd959587ad2730ad346df71
+ms.openlocfilehash: cae3f0192d6b0e6204ede4c1855b731a2ffa4ae1
 
 
 ---
@@ -36,7 +36,7 @@ Hay algunos factores que deben tenerse en cuenta al optimizar el rendimiento de 
 
 Puede alcanzar un mejor rendimiento si aumenta la simultaneidad de la entrada/salida hacia y desde Azure Data Lake Store.  
 Una topología de Storm tiene un conjunto de configuraciones que determinan el paralelismo:
-* Número de procesos de trabajo: los trabajos se distribuyen uniformemente entre las VM.
+* Número de procesos de trabajo: los trabajos se distribuyen uniformemente entre las máquinas virtuales.
 * Número de instancias de ejecutor de spout
 * Número de instancias de ejecutor de bolt
 * Número de tareas de spout
@@ -131,7 +131,7 @@ Mientras se ejecuta la topología, puede supervisarla en la interfaz de usuario 
 
 ## <a name="limitation"></a>Limitación 
 Limitación de ADLS: si se alcanzan los límites de ancho de banda impuestos por ADLS, empezará a ver errores de tareas. Esto puede identificarse observando los errores de limitación en los registros de tarea.  Puede reducir el paralelismo mediante un aumento del tamaño del contenedor.  Si necesita más simultaneidad para su trabajo, póngase en contacto con nosotros.   
-Para comprobar si está sujeto a limitaciones, debe habilitar el registro de depuración en el lado del cliente. Para hacerlo:
+Para comprobar si le están aplicando limitaciones, debe habilitar el registro de depuración en el lado del cliente. Para hacerlo:
 
 1. Cambie lo siguiente en Ambari > Storm > Config > Advanced storm-worker-log4j.  Cambie &lt;root level="info"&gt; a &lt;root level=”debug”&gt;.  Reinicie todos los nodos/servicios para que la configuración surta efecto.
 2. Supervise la topología de Storm en los nodos de trabajo (en /var/log/storm/worker-artifacts/&lt;NombreTopología&gt;/&lt;puerto&gt;/worker.log) para controlar las excepciones de limitación de ADLS.
@@ -144,6 +144,6 @@ Pruebe este ejemplo ubicado en [github](https://github.com/hdinsight/storm-perfo
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

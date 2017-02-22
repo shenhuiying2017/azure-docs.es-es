@@ -4,7 +4,7 @@ description: "Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: araguila
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 69d4439a20fec8caaabdb43444cabd81f7d1b7c8
-ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
 * Si elimina el grupo de recursos en [Azure Portal][lnk-azure-portal], solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada a la solución preconfigurada en el [Portal de Azure clásico][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias del Centro de IoT se pueden aprovisionar en una suscripción?
-Diez. Para aumentar este límite se puede crear una [incidencia de soporte técnico de Azure][link-azuresupportticket], pero de forma predeterminada solo se pueden aprovisionar 10 instancias de IoT Hub por suscripción, como se describe en [Límites de suscripciones de Azure][link-azuresublimits]. Como consecuencia, dado que todas las soluciones preconfiguradas aprovisionan una nueva instancia de IoT Hub, solo se pueden aprovisionar hasta 10 soluciones preconfiguradas en una suscripción determinada. 
+Puede aprovisionar 10 centros de IoT Hub por suscripción. Para aumentar este límite se puede crear una [incidencia de soporte técnico de Azure][link-azuresupportticket], pero de forma predeterminada solo se pueden aprovisionar 10 instancias de IoT Hub por suscripción, como se describe en [Límites de suscripciones de Azure][link-azuresublimits]. Como consecuencia, dado que todas las soluciones preconfiguradas aprovisionan una nueva instancia de IoT Hub, solo se pueden aprovisionar hasta 10 soluciones preconfiguradas en una suscripción determinada. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias de DocumentDB se pueden aprovisionar en una suscripción?
 Cincuenta. Para aumentar este límite se puede crear una [incidencia de soporte técnico de Azure][link-azuresupportticket], pero de forma predeterminada solo se pueden aprovisionar 50 instancias de DocumentDB por suscripción. 
@@ -80,6 +80,6 @@ También puede explorar algunas de las demás características y funcionalidades
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

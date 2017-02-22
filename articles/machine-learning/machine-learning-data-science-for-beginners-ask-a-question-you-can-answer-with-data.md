@@ -1,7 +1,7 @@
 ---
-title: "Realización de preguntas que pueden responderse con datos: formular preguntas | Microsoft Docs"
-description: "Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión."
-keywords: "preguntas de ciencias de datos,formular pregunta,preguntas de regresión,preguntas de clasificación,pregunta directa"
+title: "Realización de preguntas sobre datos (problemas de ciencia de datos de Azure) | Microsoft Docs"
+description: "Aprenda a formular una buena pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión."
+keywords: "problemas de ciencia de datos,preguntas de ciencias de datos,formular pregunta,preguntas de regresión,preguntas de clasificación,pregunta directa"
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 4e6a7a47f83b0db4380fe3bbf26efd292e4c8054
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 
 
 ---
@@ -28,8 +28,8 @@ Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para pri
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Otros vídeos de la serie
 *Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
@@ -100,7 +100,6 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

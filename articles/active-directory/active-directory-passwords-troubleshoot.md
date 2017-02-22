@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad322aed5e2e6a42a2600a3995be28a99ee14f3a
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
 
 
 ---
@@ -97,7 +97,7 @@ Si se produce un error al configurar el restablecimiento de la contraseña, pued
               <p>La sección <strong>Políticas para restablecer la contraseña del usuario</strong> está visible, pero la única marca que aparece debajo es <strong>Usuarios habilitados para restablecer la contraseña</strong>.</p>
             </td>
             <td>
-              <p>El resto de la interfaz de usuario aparecerá cuando cambie la marca <strong>Usuarios habilitados para restablecer la contraseña</strong> a <strong>Sí.</strong></p>
+              <p>El resto de la interfaz de usuario aparecerá cuando cambie la marca <strong>Usuarios habilitados para restablecer la contraseña</strong> a <strong>Sí</strong>.</p>
             </td>
           </tr>
           <tr>
@@ -659,7 +659,7 @@ Ahora intente habilitar/deshabilitar la escritura diferida de contraseñas. El a
               <p>Al intentar restablecer la contraseña en nombre del usuario del Portal de administración de Azure, obtendrá el siguiente mensaje: "El servicio de restablecimiento de contraseña ejecutado en su entorno local no admite que los administradores restablezcan las contraseñas de usuario". Actualice a la versión más reciente de Azure AD Connect para resolver el problema”.</p>
             </td>
             <td>
-              <p>Esto sucede cuando la versión del motor de sincronización no admite la operación particular utilizada de la escritura diferida de contraseñas. Las versiones de Azure AD Connect posteriores a la 1.0.0419.0911 admiten todas las operaciones de administración de contraseñas, entre otras, la escritura diferida de restablecimiento de contraseñas, la escritura diferida de modificación de contraseñas y la escritura diferida de restablecimiento de contraseñas iniciada por el administrador desde el Portal de administración de Azure.&nbsp; Las versiones de DirSync posteriores a la 1.0.6862 solo admiten la escritura diferida de restablecimiento de contraseñas. Para resolver este problema, le recomendamos encarecidamente que instale la versión más reciente de Azure AD Connect o Azure Active Directory Connect. Para más información, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md) para resolver este problema y sacar el máximo partido de la escritura diferida de contraseñas en su organización.</p>
+              <p>Esto sucede cuando la versión del motor de sincronización no admite la operación particular utilizada de la escritura diferida de contraseñas. Las versiones de Azure AD Connect posteriores a la 1.0.0419.0911 admiten todas las operaciones de administración de contraseñas, entre otras, la escritura diferida de restablecimiento de contraseñas, la escritura diferida de modificación de contraseñas y la escritura diferida de restablecimiento de contraseñas iniciada por el administrador desde el Portal de administración de Azure.&nbsp; Las versiones de DirSync posteriores a la 1.0.6862 solo admiten la escritura diferida de restablecimiento de contraseñas. Para resolver este problema, le recomendamos encarecidamente que instale la versión más reciente de Azure AD Connect o Azure Active Directory Connect. Para más información, consulte [Integración de las identidades locales con Azure Active Directory](connect/active-directory-aadconnect.md) para resolver este problema y sacar el máximo partido de la escritura diferida de contraseñas en su organización.</p>
             </td>
           </tr>
         </tbody></table>
@@ -1486,7 +1486,7 @@ Si el problema no se soluciona después de deshabilitar y volver a habilitar la 
 Volver a instalar el paquete de Azure AD Connect resolverá cualquier problema de configuración que pueda afectar a su capacidad de conectarse a nuestros servicios en la nube o administrar contraseñas en su entorno de AD local.
 Se recomienda realizar este paso sólo después de probar los dos primeros pasos descritos anteriormente.
 
-1. Descargue la última versión de Azure AD Connect [aquí](active-directory-aadconnect.md#install-azure-ad-connect).
+1. Descargue la última versión de Azure AD Connect [aquí](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 2. Puesto que ya ha instalado Azure AD Connect, sólo necesitará realizar una actualización in situ para actualizar la instalación de Azure AD Connect a la versión más reciente.
 3. Ejecute el paquete descargado y siga las instrucciones en pantalla para actualizar el equipo de Azure AD Connect.  No se necesitan pasos manuales adicionales a menos que haya personalizado reglas de sincronización rápida, en cuyo caso debe **realizar una copia de seguridad antes de continuar con la actualización y volver a implementarla de forma manual cuando haya terminado**.
 
@@ -1519,6 +1519,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

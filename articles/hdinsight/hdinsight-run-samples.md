@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/14/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fc79b8017f2184091f2473a0ff9cdfbd0a4cbdf8
-ms.openlocfilehash: d195f4936e8adfa22972a2a518188987398928e8
+ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
+ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
 
 
 ---
@@ -54,7 +54,7 @@ En la actualidad, muchas personas prefieren Hive y Pig a MapReduce.  Para más i
     > [!IMPORTANT]
     > La compatibilidad con Azure PowerShell para administrar recursos de HDInsight mediante Azure Service Manager está **en desuso** y desaparecerá por completo el 1 de enero de 2017. En los pasos descritos en este documento, se usan los nuevos cmdlets de HDInsight que funcionan con Azure Resource Manager.
     >
-    > Para instalar la versión más reciente, siga los pasos descritos en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) . Si tiene scripts que se deben modificar para usar los nuevos cmdlets que funcionan con Azure Resource Manager, consulte [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migración a herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight) para más información.
+    > Para instalar la versión más reciente de Azure PowerShell, siga los pasos descritos en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Si tiene scripts que se deben modificar para usar los nuevos cmdlets que funcionan con Azure Resource Manager, consulte [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migración a herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight).
 
 ## <a name="a-namehdinsight-sample-wordcountaword-count---java"></a><a name="hdinsight-sample-wordcount"></a>Recuento de palabras: Java
 Para enviar un proyecto de MapReduce, primero hay que crear una definición de trabajo de MapReduce. En la definición del trabajo, se especifica el archivo jar de programa de MapReduce y la ubicación del archivo jar, que es **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, el nombre de clase y los argumentos.  El programa de MapReduce de recuento de palabras toma dos argumentos: el archivo de origen que se usará para contar las palabras y la ubicación del resultado.
@@ -120,7 +120,7 @@ Para conocer el procedimiento de desarrollo del programa MapReduce de Java, cons
     ```
 
     El trabajo de MapReduce genera un archivo denominado *part-r-00000*con las palabras y los recuentos. El script usa el comando **findstr** para enumerar todas las palabras que contienen *"there*".
-3. Establezca las 3 variables y ejecute el script.
+3. Configure las tres primeras variables y ejecute el script.
 
 ## <a name="a-namehdinsight-sample-csharp-streamingaword-count---c-streaming"></a><a name="hdinsight-sample-csharp-streaming"></a>Recuento de palabras: streaming en C#
 Hadoop ofrece una API de streaming para MapReduce que le permite escribir mapas y reducir funciones en lenguajes distintos de Java.
@@ -138,11 +138,9 @@ Cuando se especifica un archivo ejecutable para los **reductores**, cada tarea d
 
 Mientras tanto, el reductor recopila la salida orientada a líneas desde el elemento [stdout][stdin-stdout-stderr] del proceso. Convierte cada línea en un par de clave y valor, que se recopila como la salida del reductor. De manera predeterminada, el prefijo de una línea hasta el primer carácter de tabulación es la clave y el resto de la línea (sin incluir el carácter de tabulación) es el valor.
 
-Para obtener más información acerca de la interfaz de streaming de Hadoop, consulte [Hadoop Streaming][hadoop-streaming].
-
 **Para enviar un trabajo de recuento de palabras de streaming de C#**
 
-* Siga el procedimiento de [Recuento de palabras: Java](#word-count-java) y reemplace la definición de trabajo por lo siguiente:
+* Siga el procedimiento de [Recuento de palabras: Java](#word-count-java) y reemplace la definición de trabajo por la siguiente línea:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -164,7 +162,7 @@ El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y
 
 **Para enviar un trabajo del estimador de pi**
 
-* Siga el procedimiento de [Recuento de palabras: Java](#word-count-java) y reemplace la definición de trabajo por lo siguiente:
+* Siga el procedimiento de [Recuento de palabras: Java](#word-count-java) y reemplace la definición de trabajo por la siguiente línea:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -173,7 +171,7 @@ El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y
                                 -Arguments "16", "10000000"
     ```
 
-## <a name="a-namehdinsight-sample-10gb-graysorta10-gb-graysort"></a><a name="hdinsight-sample-10gb-graysort"></a>GraySort de 10 GB
+## <a name="a-namehdinsight-sample-10gb-graysorta10-gb-graysort"></a><a name="hdinsight-sample-10gb-graysort"></a>GraySort de&10; GB
 Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:
@@ -615,7 +613,7 @@ FileOutputFormat.setOutputPath(jobConf, outDir);
 final FileSystem fs = FileSystem.get(jobConf);
 if (fs.exists(TMP_DIR)) {
 throw new IOException("Tmp directory " + fs.makeQualified(TMP_DIR)
-+ " already exists. Please remove it first.");
++ " already exists. Remove it first.");
 }
 if (!fs.mkdirs(inDir)) {
 throw new IOException("Cannot create input directory " + inDir);
@@ -989,6 +987,6 @@ public class TeraSort extends Configured implements Tool {
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
