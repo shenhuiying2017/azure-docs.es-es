@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
@@ -124,7 +124,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Halosys con el siguiente patrón: `https://<company-name>.Halosys.com/client-api/api`.
 
-    b. En el cuadro de texto **Identifier URL** (URL del identificador), escriba la dirección URL con el siguiente patrón: `https://<company-name>.Halosys.com`.   
+    b. En el cuadro de texto **Identifier URL** (URL del identificador), escriba la dirección URL con el siguiente patrón: `https://<company-name>.Halosys.com`.    
          
 4. En la página **Configurar inicio de sesión único en Halosys**, haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
