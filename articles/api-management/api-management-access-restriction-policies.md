@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
+ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
+ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
@@ -178,7 +178,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|  
 |set-limit|Elemento raíz.|Sí|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
@@ -337,7 +337,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|  
 |quota|Elemento raíz.|Sí|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
@@ -368,7 +368,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
-    require-expiration-time="true|false"   
+    require-expiration-time="true|false"
+    require-scheme="scheme"
     require-signed-tokens="true|false"   
     clock-skew="allowed clock skew in seconds">  
   <issuer-signing-keys>  
@@ -491,7 +492,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |id|El atributo `id` del elemento `key` le permite especificar la cadena que se comparará con la notificación `kid` del token (si existe) para averiguar qué clave debe usarse para validar la firma.|No|N/D|  
 |match|El atributo `match` del elemento `claim` especifica si todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Los valores posibles son:<br /><br /> -                          `all`: todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente.<br /><br /> -                          `any`: al menos un valor de notificación debe estar presente en el token para que la validación se efectúe correctamente.|No|todas|  
 |query-paremeter-name|Nombre del parámetro de consulta que contiene el token.|Se debe especificar `header-name` o `query-paremeter-name`, pero no ambos.|N/D|  
-|require-expiration-time|Booleano. Especifica si es necesaria una notificación de expiración en el token.|No|true|  
+|require-expiration-time|Booleano. Especifica si es necesaria una notificación de expiración en el token.|No|true|
+|require-scheme|El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.|No|N/D|
 |require-signed-tokens|Booleano. Especifica si un token debe estar firmado.|No|true|  
 |url|Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. En Azure Active Directory, utilice la dirección URL `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`.|Sí|N/D|  
   
@@ -503,9 +505,10 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre cómo trabajar con directivas, consulte [Directivas de API Management](api-management-howto-policies.md).  
+Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

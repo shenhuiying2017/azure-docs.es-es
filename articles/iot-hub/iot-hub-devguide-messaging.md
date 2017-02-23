@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
+ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
+ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
 
 
 ---
@@ -97,7 +97,7 @@ IoT Hub también le permite administrar los grupos de consumidores en el punto d
 
 De forma predeterminada, todos los mensajes que no cumplen de forma explícita una regla de enrutamiento de mensajes se escriben en el punto de conexión integrado. Si deshabilita esta ruta de reserva, los mensajes que no cumplen explícitamente ninguna reglas de enrutamiento de mensajes se quitan.
 
-Puede modificar todas estas propiedades mediante programación con las[API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis] o usando [Azure Portal][lnk-management-portal].
+Puede modificar el tiempo de retención mediante programación con las[API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis] o usando [Azure Portal][lnk-management-portal].
 
 ### <a name="anti-spoofing-properties"></a>Propiedades contra la suplantación
 Para evitar la suplantación de dispositivos en los mensajes de dispositivo a nube, el Centro de IoT marca todos los mensajes con las siguientes propiedades:
@@ -437,6 +437,6 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

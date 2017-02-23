@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: d6e68497cf0a4c48e6f611834089224b50b9bd5e
-ms.openlocfilehash: 79743cab91f8c22d06796803eb7e31681a581233
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
 
 
 ---
-# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de JavaScript para Aplicaciones móviles de Azure
+# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de JavaScript para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 En esta guía descubrirá cómo realizar tareas comunes usando el último [SDK de JavaScript para Aplicaciones móviles de Azure]. Si no está familiarizado con Aplicaciones móviles de Azure, complete primero el [inicio rápido de Aplicaciones móviles de Azure] para crear un back-end y una tabla. En esta guía, nos centramos en usar el back-end móvil en aplicaciones web HTML/JavaScript.
@@ -63,12 +63,12 @@ Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de clie
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
+### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Cómo configurar el servicio de Mobile Apps para URL de redireccionamiento externas
 Varios tipos de aplicaciones de JavaScript utilizan funcionalidades de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth.  Estas son algunas de ellas:
 
 * Ejecución del servicio de manera local
 * Uso de la característica Live Reload con Ionic Framework
-* Redirección a App Service para la autenticación 
+* Redirección a App Service para la autenticación
 
 La ejecución local puede ocasionar problemas porque, de forma predeterminada, la autenticación de App Service solo está configurada para permitir el acceso desde el back-end de la aplicación móvil. Realice los pasos siguientes para cambiar la configuración de App Service con el fin de permitir la autenticación desde el servidor de manera local:
 
@@ -79,12 +79,12 @@ La ejecución local puede ocasionar problemas porque, de forma predeterminada, l
 5. Expanda el nodo **config** > **authsettings** de la aplicación.
 6. Haga clic en el botón **Editar** para habilitar la edición del recurso.
 7. Busque el elemento **allowedExternalRedirectUrls** , que debe tener el valor null. Agregue las direcciones URL en una matriz:
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Reemplace las direcciones URL de la matriz por las de su servicio; en este ejemplo, la URL es `http://localhost:3000` para el servicio de ejemplo de Node.js local. También podría usar `http://localhost:4400` para el servicio Ripple o alguna otra dirección URL, según cómo esté configurada la aplicación.
 8. En la parte superior de la página, haga clic en **Lectura/escritura** y, luego, haga clic en **PUT** para guardar las actualizaciones.
 
@@ -110,6 +110,6 @@ Cuando el back-end se actualice, podrá usar las nuevas direcciones URL de bucle
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

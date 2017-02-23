@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
+ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
+ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
 
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
@@ -391,7 +391,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|exists-action|Especifica la acción que se debe realizar cuando ya se especifica un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al del encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, se inscriben varias entradas con los resultados del mismo nombre del encabezado que se están estableciendo de acuerdo con todas las entradas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|No|override|  
+|exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|No|override|  
 |name|Especifica el nombre del encabezado que se va a establecer.|Sí|N/D|  
   
 ### <a name="usage"></a>Uso  
@@ -472,11 +472,11 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 > [!NOTE]
 >  Solo puede agregar parámetros de cadena de consulta mediante esta directiva. No puede agregar ningún parámetro de ruta de plantilla adicional en la URL de reescritura.  
-  
+
 ### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
-<rewrite-uri template="uri template" />  
+<rewrite-uri template="uri template" copy-unmatched-params="true | false" />  
 ```  
   
 ### <a name="example"></a>Ejemplo  
@@ -492,18 +492,45 @@ En este tema se proporciona una referencia para las siguientes directivas de API
     </outbound>  
 </policies>  
 ```  
-  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put?c=d -->
+```  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" copy-unmatched-params="false" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put -->
+```
+
 ### <a name="elements"></a>Elementos  
   
 |Nombre|Descripción|Obligatorio|  
 |----------|-----------------|--------------|  
 |rewrite-uri|Elemento raíz.|Sí|  
   
-### <a name="attributes"></a>Atributos  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
-|template|La dirección URL del servicio web real con cualquier parámetro de cadena de consulta.|Sí|N/D|  
+|template|La dirección URL del servicio web real con cualquier parámetro de cadena de consulta. Cuando se usan expresiones, todo el valor debe ser una expresión.|Sí|N/D|  
+|copy-unmatched-params|Especifica si los parámetros de consulta de la solicitud entrante no presentes en la plantilla de la dirección URL original se agregan en la dirección URL definida por la plantilla de reescritura|No|true|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -577,9 +604,10 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre cómo trabajar con las directivas, consulte el artículo relativo a [directivas de API Management](api-management-howto-policies.md).  
+Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

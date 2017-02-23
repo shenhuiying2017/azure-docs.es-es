@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c8ca9d1ac59b0470a87e22731494adbc359b3420
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: eb24c4fe5f382a30acc524065f2ee9e3a27ce94f
 
 
 ---
@@ -35,7 +35,7 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con People, necesita los siguientes elementos:
 
 * Una suscripción de Azure
-* Una suscripción habilitada para inicio de sesión único en People
+* Una suscripción habilitada para el inicio de sesión único en People
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -104,33 +104,24 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-people-tutorial/tutorial_people_04.png) 
    
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación People con el patrón siguiente: **“https://\<nombre de la compañía\>.peoplehr.com/”**. 
-   
-    b. Si no conoce la dirección URL de inquilino, póngase en contacto con el equipo de soporte técnico de People enviando un mensaje de correo electrónico a [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) para obtenerla.  
-   
-    c. En el cuadro de texto **Identificador** , escriba la dirección URL de inquilino. 
-   
-    d. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el patrón siguiente: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
-   
-    e. Haga clic en **Siguiente**
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación People con el patrón siguiente: **“https://\<nombre de la compañía\>.peoplehr.com/”**. 
+   2. Si no conoce la dirección URL de inquilino, póngase en contacto con el equipo de soporte técnico de People enviando un mensaje de correo electrónico a [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) para obtenerla.    3. En el cuadro de texto **Identificador** , escriba la dirección URL de inquilino. 
+   4. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el patrón siguiente: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+   5. Haga clic en **Siguiente**.
 4. En la página **Configurar inicio de sesión único en People**, siga este procedimiento y, después, haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-people-tutorial/tutorial_people_05.png) 
    
-    a. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
+   1. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
+   2. Haga clic en **Siguiente**.
 5. Para configurar SSO para la aplicación, debe iniciar sesión en su inquilino de People como administrador.
    
-    a. En el menú de la izquierda, haga clic en **Configuración**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) 
-   
-    b. Haga clic en **"Compañía"**.
+   1. En el menú de la izquierda, haga clic en **Configuración**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)    
+   2. Haga clic en **"Compañía"**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) 
-   
-    c. En **Upload “Single Sign On” SAML meta-data file** (Cargar archivo de metadatos SAML de “Inicio de sesión único”), haga clic en **Examinar** para cargar el archivo de metadatos descargado.
+    3. En **Upload “Single Sign On” SAML meta-data file** (Cargar archivo de metadatos SAML de “Inicio de sesión único”), haga clic en **Examinar** para cargar el archivo de metadatos descargado.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
@@ -162,24 +153,18 @@ En la lista Usuarios, seleccione **Britta Simon**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
    
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+    1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+    2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+    3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+   1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+   2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+   3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+   4. En la lista **Rol**, seleccione **Usuario**.
+   5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_07.png) 
@@ -187,9 +172,8 @@ En la lista Usuarios, seleccione **Britta Simon**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_08.png) 
    
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+   1. Anote el valor del campo **Nueva contraseña**.
+   2. Haga clic en **Completo**.   
 
 ### <a name="creating-a-people-test-user"></a>Creación de un usuario de prueba de People
 El objetivo de esta sección es crear un usuario llamado Britta Simon en People. People no admite el aprovisionamiento Just-In-Time, por lo que debe ponerse en contacto con el equipo de soporte técnico de People para crear un usuario manualmente.
@@ -243,6 +227,6 @@ Al hacer clic en el icono de People en el Panel de acceso, debería iniciar sesi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

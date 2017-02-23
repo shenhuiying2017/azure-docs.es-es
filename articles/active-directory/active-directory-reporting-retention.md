@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/30/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
-ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
+ms.sourcegitcommit: 47594d1d435ee92d57150a01a99765bab0e87846
+ms.openlocfilehash: 2ac62c2c04975167b243b49bf2c536900e77df73
 
 
 ---
@@ -30,8 +30,8 @@ Este tema proporciona respuestas a las preguntas más frecuentes en relación a 
 
 | Edición de Azure AD | Inicio de la recopilación |
 | :--              | :--   |
-|Premium y Premium 2 | Cuando se suscribe a una licencia |
-| Gratuito | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Al suscribirse a una suscripción |
+| Azure AD Free | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
 
 
 ¿Cuándo estarán disponibles los datos de actividad en Azure Portal?
@@ -46,14 +46,14 @@ En el caso de las señales de seguridad, el proceso de recopilación se inicia c
 
 **Informes de actividad**    
 
-| Informe | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| Informe | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Auditoría de directorio | 7 días | 30 días | 30 días |
 | Actividad de inicio de sesión |    7 días | 30 días | 30 días |
 
 **Señales de seguridad**
 
-| Informe | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| Informe | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Inicios de sesión no seguros | 7 días | 30 días | 90 días |
 
@@ -61,6 +61,6 @@ En el caso de las señales de seguridad, el proceso de recopilación se inicia c
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
