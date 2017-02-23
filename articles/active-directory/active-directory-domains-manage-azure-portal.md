@@ -3,7 +3,7 @@ title: "Administración de nombres de dominio personalizados en la versión prel
 description: "Conceptos y procedimientos de administración de un nombre de dominio en Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a

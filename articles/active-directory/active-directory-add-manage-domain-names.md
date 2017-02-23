@@ -3,7 +3,7 @@ title: "Administración de nombres de dominio personalizados en Azure Active Dir
 description: "Conceptos y procedimientos de administración de un dominio personalizado en Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: cf3523bd-9ee0-439e-963d-ccea038867b9
