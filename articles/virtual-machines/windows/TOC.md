@@ -1,7 +1,7 @@
 # Información general
 ## [Acerca de las máquinas virtuales](../virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Storage](../virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Redes virtuales](../../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Storage](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Redes virtuales](../virtual-machines-windows-network-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Puertos, puntos de conexión y seguridad](../virtual-machines-windows-endpoints-in-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Equilibradores de carga](../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Tamaños de máquinas virtuales](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -23,7 +23,7 @@
 ## [Distintas formas de crear una máquina virtual](../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Instalación de Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Crear una VM con PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Tutorial de plantillas](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Tutorial de plantillas](../virtual-machines-windows-template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Creación e implementación de plantillas de máquinas virtuales complejas](../virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Arquitectura de la aplicación](../virtual-machines-windows-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Acceso y seguridad](../virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -31,9 +31,17 @@
 ### [Implementación de aplicación](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Procedimientos
-## Uso de Storage
-### [Acoplamiento de un disco de datos](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## Usar Storage
+### [Preguntas más frecuentes sobre discos de máquinas virtuales de Azure](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Introducción a Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Creación de un disco administrado](../virtual-machines-windows-create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Acoplamiento de un disco de datos
+#### [Portal de Azure](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Azure PowerShell](../virtual-machines-windows-attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Desacoplamiento de un disco de datos](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Instantánea de un disco administrado](../virtual-machines-windows-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Introducción a la conversión de una máquina virtual a Managed Disks](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Uso de Azure PowerShell](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Expansión del disco del SO](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Uso de D: como disco de datos](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Cifrado de disco](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -63,14 +71,22 @@
 ### [Implementación con C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implementación con C# y plantillas](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implementación de marcos de trabajo de la aplicación a partir de una plantilla](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Migración de AWS y máquinas virtuales locales a Managed Disks](../virtual-machines-windows-on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Migración de Amazon Web Services (AWS) a Azure Managed Disks](../virtual-machines-windows-aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Carga de un disco duro virtual generalizado y uso de Managed Disks](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Carga de un disco duro virtual especializado y creación de una máquina virtual](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Imágenes
 #### [Preparación de un disco duro virtual para cargar](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Generalización de VM mediante Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Carga de una imagen de VM](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Carga de un disco duro virtual](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Agente de Windows de Azure](../virtual-machines-windows-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Captura de VM de Azure generalizadas](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### Creación de una imagen de máquina virtual en Azure
+##### [Captura de una máquina virtual no administrada en Blob Storage](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+##### [Creación de una imagen de disco administrado](../virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Copia de VM de Azure especializadas](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Creación de VM a partir de un disco duro virtual generalizado](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### Creación de una imagen a partir de una máquina virtual generalizada
+##### [Creación de una máquina virtual a partir de un disco duro virtual generalizado](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+##### [Creación de una máquina virtual a partir de una imagen de disco administrado generalizada](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Creación de VM a partir de un disco duro virtual especializado](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Configuración
@@ -117,7 +133,8 @@
 ## Migrar
 ### [Introducción a la migración](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Planeamiento de la migración](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Migración mediante PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Migración de todas las máquinas virtuales en una red virtual con PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Migración de una sola máquina virtual con PowerShell](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Errores comunes en la migración](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Herramientas de la comunidad para migrar](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -133,6 +150,7 @@
 ### [Ejemplo de infraestructura](../virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Mantenimiento planeado de Azure](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Programación](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Eventos programados](../virtual-machines-scheduled-events.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Administración de cargas de trabajo
 ### [Informática de alto rendimiento (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -155,7 +173,7 @@
 ### [Solución de problemas de conexión del Escritorio remoto](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Restablecimiento de la contraseña de RDP](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solución de problemas de mensajes de error específicos de RDP](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Solución de problemas mediante la creación de una nueva VM](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Solución de problemas mediante la creación de una máquina virtual](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solución de problemas mediante el reinicio o cambio de tamaño de una VM](../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solución de problemas de acceso a aplicaciones](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solución de errores de asignación](../virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -172,6 +190,7 @@
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
 ## [REST de Compute](/rest/api/compute)
+## [REST de Managed Disks](/rest/api/manageddisks)
 
 # Recursos
 ## [Creación de plantillas de Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -182,6 +201,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

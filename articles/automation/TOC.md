@@ -55,6 +55,7 @@
 ### [Eliminación de grupo de recursos](automation-scenario-remove-resourcegroup.md)
 ### [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 ### [Integración de control de código fuente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Integración de control de código fuente con VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Supervisión
 ### [Reenvío de datos del trabajo de Azure Automation a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Desvinculación de la cuenta de Azure Automation de Log Analytics](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Vídeo de introducción a Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

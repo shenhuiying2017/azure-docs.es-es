@@ -3,6 +3,7 @@
 
 # Introducción
 ## [Creación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
+## [Creación de un conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Procedimientos
 ## Planeamiento y diseño
@@ -10,20 +11,27 @@
 
 ## Implementación
 ### [Conjunto de escalado con el portal](virtual-machine-scale-sets-portal-create.md)
+### [Conjunto de escalado con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Conjunto de escalado con Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Conjunto de escalado con PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Conjunto de escalado de Linux con escalado automático](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Conjunto de escalado de Windows con escalado automático](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplicaciones en conjuntos de escalado](virtual-machine-scale-sets-deploy-app.md)
+### [Uso de discos de datos con conjuntos de escalado](virtual-machine-scale-sets-attached-disks.md)
+### [Uso de grandes conjuntos de escalado](virtual-machine-scale-sets-placement-groups.md)
+### [Conversión de una plantilla de conjunto de escalado para que use un disco administrado](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Administrar
+
+
+## administración
 ### [Conjunto de escalado de Windows con PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Escalado automático y conjuntos de escalado](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Escalado vertical en un conjunto de escalado](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Actualizaciones para conjuntos de escalado](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Uso de DSC y conjuntos de escalado](virtual-machine-scale-sets-dsc.md)
+### [Conversión de una plantilla en discos administrados](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Solución de problemas
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
@@ -31,7 +39,7 @@
 # Referencia
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [CLI de Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Recursos
 ## Precios 
@@ -40,6 +48,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
