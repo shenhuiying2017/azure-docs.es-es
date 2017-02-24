@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 783952ef1a19d18c3dd5d25c9ccf25cf3b29af45
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
 
 
 ---
@@ -114,7 +114,7 @@ Los siguientes controles y características LDAP deben estar disponibles en el s
 
 Habitualmente no se notifica que el filtro True/False es compatible con directorios LDAP y puede que aparezca en la **página Global** en **Características obligatorias no encontradas**. Se utiliza para crear filtros **OR** en las consultas LDAP, por ejemplo, al importar varios tipos de objeto. Si puede importar más de un tipo de objeto, eso significa que el servidor LDAP es compatible con esta característica.
 
-Si utiliza un directorio donde un identificador único es el delimitador, también debe estar disponible lo siguiente (consulte sección [Configuración de delimitadores](#configure-anchors) más adelante en este artículo para más información):  
+Si utiliza un directorio donde un identificador único es el delimitador, también debe estar disponible lo siguiente (consulte sección [Configuración de delimitadores](#configure-anchors) más adelante en este artículo para obtener más información):  
 `1.3.6.1.4.1.4203.1.5.1` Todos los atributos operativos
 
 Si el directorio tiene más objetos de los que caben en una llamada al directorio, se recomienda utilizar la paginación. Para que funcione la paginación, necesita una de las siguientes opciones:
@@ -260,11 +260,10 @@ Para Novell eDirectory la importación diferencial no detecta las eliminaciones 
 Para directorios con un registro de cambios diferenciales que se basa en la fecha y hora, se recomienda encarecidamente ejecutar una importación completa de manera periódica. Este proceso permite que el motor de sincronización encuentre cualquier diferencia entre el servidor LDAP y lo que está en el espacio del conector.
 
 ## <a name="troubleshooting"></a>Solución de problemas
-* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM&2010; R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

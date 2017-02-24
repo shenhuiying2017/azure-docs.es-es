@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 01/23/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0bdc5a415b6f7bb40652893d35f7a844e19812a2
-ms.openlocfilehash: 3d8a347fac8b9b13d4fcef3f81ba9e89d8ca1d66
+ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
+ms.openlocfilehash: edcf34610e7517f9ca16f8c239e4080c475933f4
 
 
 ---
@@ -45,9 +45,10 @@ Implemente o amplíe su clúster de Windows o Linux HPC existente para ejecutar 
 ### <a name="microsoft-hpc-pack"></a>Microsoft HPC Pack
 HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologías de Microsoft Azure y Windows Server, capaz de ejecutar cargas de trabajo HPC de Windows y Linux.  
 
+* [Descargar HPC Pack 2016](https://www.microsoft.com/download/details.aspx?id=54507)
 * [Descargar HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922)
 * [Documentación](https://technet.microsoft.com/library/jj899572.aspx)
-* Opciones del clúster de HPC Pack de [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en Azure
+* Opciones del clúster de HPC Pack de [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en Azure 
 * [Irrumpir en instancias de trabajo de Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 * [Expansión a Azure Batch con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 * [Foros de Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -60,7 +61,7 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 * [Edición de nube de Intel para Software de Lustre - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## <a name="microsoft-mpi"></a>Microsoft MPI
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) es una implementación de Microsoft del estándar de la interfaz de especificación de mensajes para desarrollar y ejecutar aplicaciones en paralelo en la plataforma de Windows. La versión más reciente es MS-MPI v7.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) es una implementación de Microsoft del estándar de la interfaz de especificación de mensajes para desarrollar y ejecutar aplicaciones en paralelo en la plataforma de Windows.
 
 * [Descargar MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
 * [Referencia de MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
@@ -113,6 +114,6 @@ Azure ofrece un [rango de tamaños de VM](../virtual-machines/virtual-machines-w
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

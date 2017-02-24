@@ -17,9 +17,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: 6fc5dfd3fbdd2e0690b60f4b232e624c34bf53b6
-ms.openlocfilehash: c1022a127266d28d3b59bfebd0543a840fe11e3a
-
+ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
+ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
 
 ---
 
@@ -35,29 +34,23 @@ El rendimiento de DocumentDB se basa en la cantidad de [unidades de solicitud](d
 
 Como un sistema de base de datos distribuido globalmente, DocumentDB es el único servicio de Azure que proporciona un Acuerdo de Nivel de Servicio sobre latencia, rendimiento y coherencia además de alta disponibilidad. El rendimiento que se aprovisiona se aplica a cada una de las regiones asociadas a su cuenta de base de datos de DocumentDB. Para lecturas, DocumentDB ofrece varios [niveles de coherencia](documentdb-consistency-levels.md) bien definidos entre los que elegir. 
 
-La tabla siguiente muestra el número de RU necesarias para realizar transacciones de lectura y escritura basadas en algunos tamaños de documento. 
+La tabla siguiente muestra el número de RU necesarias para realizar transacciones de lectura y escritura basadas en el tamaño de documento de 1 KB y 100 KB.
 
 |Tamaño del documento|1 lectura|1 escritura|
 |-------------|------|-------|
 |1 KB|1 RU|5 RU|
-|5 KB|5 RU|25 RU|
-|10 kB|10 RU|50 RU|
-|50 KB|50 RU|250 RU|
-|100 KB|100 RU|500 RU|
+|100 KB|10 RU|50 RU|
 
-## <a name="cost-of-running-documentdb-in-readwrite-mode-without-indexing"></a>Costo de ejecutar DocumentDB en modo de lectura/escritura sin indexación
+## <a name="cost-of-reads-and-writes"></a>Costo de lecturas y escrituras
 
 Si aprovisiona 1000 RU/s, esto asciende a 3,6 millones de RU/hora y costará 0,08 USD para la hora (en Estados Unidos y Europa). Para un documento de 1 KB de tamaño, esto significa que puede consumir 3,6 millones de lecturas o 0,72 millones de escrituras (3,6 millones de RU/5) con el rendimiento aprovisionado. Normalizado a millones de lecturas y escrituras, el costo sería de 0,022 USD/millones de lecturas (0,08 USD/3,6) y 0,111/millones de escrituras (0,08 USD/0,72). El costo por millón pasa a ser mínimo tal como se muestra en la tabla siguiente.
 
 |Tamaño del documento|1 millón de lecturas|1 millón de escrituras|
 |-------------|-------|--------|
 |1 KB|0,022 USD|0,111 USD|
-|5 KB|0,111 USD|0,556 USD|
-|10 kB|0,222 USD|1,111 USD|
-|50 KB|1,111 USD|5,556 USD|
-|100 KB|2,222 USD|11,111 USD|
+|100 KB|0,222 USD|1,111 USD|
 
-La mayoría de los almacenes de blobs u objetos básicos, como AWS S3, o los servicios de Azure Blob Storage cobran&0;,40 USD por cada millón de transacciones de lectura y&5; USD por cada millón de transacciones de escritura. Si se usa de forma óptima, DocumentDB puede ser hasta un 98 % más económico que estas otras soluciones (para transacciones de 1 KB).
+La mayoría de los almacenes de blobs u objetos básicos cobran&0;,40 USD por cada millón de transacciones de lectura y&5; USD por cada millón de transacciones de escritura. Si se usa de forma óptima, DocumentDB puede ser hasta un 98 % más económico que estas otras soluciones (para transacciones de 1 KB).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

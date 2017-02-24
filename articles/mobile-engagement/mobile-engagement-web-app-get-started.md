@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 
 ---
@@ -40,7 +40,7 @@ Este SDK web está en vista previa, solo admite Analytics por el momento y aún 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Configuración de Mobile Engagement para una aplicación web
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
 En este tutorial se presenta una "integración básica", que es el conjunto mínimo requerido para recopilar los datos.
 
 Crearemos una aplicación web básica con Visual Studio para demostrar la integración, aunque también puede seguir los pasos con cualquier aplicación web que no se haya creado con Visual Studio. 
@@ -65,7 +65,7 @@ Ya ha creado un nuevo proyecto de aplicación web en blanco en el que se integra
    
     ![Visual Studio con archivos js][1]
 
-## <a name="enable-realtime-monitoring"></a>Habilitación de la supervisión en tiempo real
+## <a name="enable-real-time-monitoring"></a>Habilitación de la supervisión en tiempo real
 Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, es preciso enviar al menos una actividad al back-end de Mobile Engagement. Una actividad en el contexto de una aplicación web es una página web. 
 
 1. Cree una nueva página denominada **home.html** en la solución y establézcala como página de inicio de la aplicación web. 
@@ -88,7 +88,7 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, es
         </body>
         </html>
 
-## <a name="connect-app-with-realtime-monitoring"></a>Conectar la aplicación con la supervisión en tiempo real
+## <a name="connect-app-with-real-time-monitoring"></a>Conectar la aplicación con la supervisión en tiempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
   ![][2]

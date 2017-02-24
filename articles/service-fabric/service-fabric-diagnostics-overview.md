@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 02/9/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 1683b52d4e5e6370a737038128f48b8ea8263038
-ms.openlocfilehash: 27df2afd97107dd13a7aa2dd79343ec9425c0aed
+ms.sourcegitcommit: a83fe451ec8b77b8b84575c5fd46f3661fc261c0
+ms.openlocfilehash: 77e5872654aa6f50b5a6564fb8ee8c7a6a4c29a5
 
 
 ---
@@ -228,7 +228,7 @@ Diagnósticos de Azure solo funciona para los clústeres de Service Fabric imple
 
 ### <a name="eventflow"></a>EventFlow
 
-[EventFlow se publicó por el equipo de Visual Studio](https://github.com/Azure/diagnostics-eventflows) y ofrece un mecanismo para eventos de enrutamiento desde un nodo a uno o varios destinos de supervisión. Dado que se incluye como un paquete de NuGet en el proyecto de servicio, el código y la configuración de EventFlow van junto al servicio, lo que elimina el problema de la configuración por nodo que se mencionó sobre Diagnósticos de Azure. EventFlow se ejecuta dentro de su proceso de servicio y se conecta directamente con las salidas configuradas. Debido a esta conexión directa, EventFlow funciona en Azure, en implementaciones de contenedor o locales de un servicio. Debe tener cuidado al ejecutar muchas réplicas en el mismo nodo, porque cada canalización EventFlow establece una conexión externa. Si está hospedando una gran cantidad de procesos, acabará teniendo una gran cantidad de conexiones salientes. Esto no supone un problema para las aplicaciones de Service Fabric, porque todas las réplicas de un ServiceType se ejecutan dentro del mismo proceso, limitando el número de conexiones salientes. EventFlow también proporciona el filtrado de eventos, de manera que solo se envían los eventos que coinciden con el filtro especificado. Para obtener información detallada sobre el uso de EventFlow con Service Fabric, vea [Recopilación de registros directamente desde un proceso de servicio de Azure Service Fabric](service-fabric-diagnostic-collect-logs-without-an-agent.md).
+[EventFlow se publicó por el equipo de Visual Studio](https://github.com/Azure/diagnostics-eventflow) y ofrece un mecanismo para eventos de enrutamiento desde un nodo a uno o varios destinos de supervisión. Dado que se incluye como un paquete de NuGet en el proyecto de servicio, el código y la configuración de EventFlow van junto al servicio, lo que elimina el problema de la configuración por nodo que se mencionó sobre Diagnósticos de Azure. EventFlow se ejecuta dentro de su proceso de servicio y se conecta directamente con las salidas configuradas. Debido a esta conexión directa, EventFlow funciona en Azure, en implementaciones de contenedor o locales de un servicio. Debe tener cuidado al ejecutar muchas réplicas en el mismo nodo, porque cada canalización EventFlow establece una conexión externa. Si está hospedando una gran cantidad de procesos, acabará teniendo una gran cantidad de conexiones salientes. Esto no supone un problema para las aplicaciones de Service Fabric, porque todas las réplicas de un ServiceType se ejecutan dentro del mismo proceso, limitando el número de conexiones salientes. EventFlow también proporciona el filtrado de eventos, de manera que solo se envían los eventos que coinciden con el filtro especificado. Para obtener información detallada sobre el uso de EventFlow con Service Fabric, vea [Recopilación de registros directamente desde un proceso de servicio de Azure Service Fabric](service-fabric-diagnostic-collect-logs-without-an-agent.md).
 
 > [!NOTE]
 > En una futura versión de Service Fabric, habrá disponible una aplicación de host de EventSource, lo que hará posible la escucha a las entradas basadas en ETW, la recopilación de métricas a nivel de nodo y la compatibilidad con los archivos de registro graduales.
@@ -393,6 +393,6 @@ La última parte de la supervisión es la visualización del flujo de eventos, l
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

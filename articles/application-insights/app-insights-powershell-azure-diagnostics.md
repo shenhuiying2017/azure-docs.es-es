@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 11/17/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b324d38f1f06f9cfcb15665da3d0e3964555ee54
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
 
 
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Uso de PowerShell para configurar Application Insights para una aplicación web de Azure
-[Microsoft Azure](https://azure.com) puede [configurarse para que envíe Diagnósticos de Azure](app-insights-azure-diagnostics.md) a [Application Insights de Visual Studio](app-insights-overview.md). Los diagnósticos están relacionados con Servicios en la nube de Azure y Máquinas virtuales de Azure. Complementan la telemetría que se envía desde la aplicación mediante el SDK de Application Insights. Como parte de la automatización del proceso de creación de nuevos recursos en Azure, puede configurar diagnósticos mediante PowerShell.
+[Microsoft Azure](https://azure.com) puede [configurarse para que envíe diagnósticos de Azure](app-insights-azure-diagnostics.md) a [Azure Application Insights](app-insights-overview.md). Los diagnósticos están relacionados con Servicios en la nube de Azure y Máquinas virtuales de Azure. Complementan la telemetría que se envía desde la aplicación mediante el SDK de Application Insights. Como parte de la automatización del proceso de creación de nuevos recursos en Azure, puede configurar diagnósticos mediante PowerShell.
 
 ## <a name="azure-template"></a>Plantilla de Azure
 Si la aplicación web está en Azure y crea los recursos mediante una plantilla de Azure Resource Manager, puede configurar Application Insights agregando lo siguiente al nodo de recursos:
@@ -141,6 +141,6 @@ Para quitar la extensión de diagnóstico de cada rol individual:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

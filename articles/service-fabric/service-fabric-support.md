@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2016
+ms.date: 02/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: ca1ff55fa0ad4b7466b900c8c36386649d021909
-ms.openlocfilehash: 9d71fb0e92f58771dac989a4d83a8e314c6a52b6
+ms.sourcegitcommit: 05e433b028762016759637b2afa8c741b04f31ff
+ms.openlocfilehash: a31a297f909ffb1c6da748623b0050415c43486b
 
 
 ---
@@ -79,11 +79,9 @@ A continuación, aparece una lista con las versiones compatibles de Service Fabr
 | **Clúster de tiempo de ejecución de Service Fabric** | **Fecha de finalización de soporte técnico** |
 | --- | --- |
 | Todas las versiones de clústeres anteriores a 5.3.121 |20 de enero de 2017 |
-| 5.3.121.* |24 de febrero de 2017 |
-| 5.3.204.* |24 de febrero de 2017 |
 | 5.3* |24 de febrero de 2017 |
-| 5.4.*     |17 de abril de 2017     |
-| 5.5.*     |Versión actual y, por lo tanto, sin fecha de finalización
+| 5.4.* |17 de abril de 2017     |
+| 5.5.* |Versión actual y, por lo tanto, sin fecha de finalización
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -100,6 +98,6 @@ A continuación, aparece una lista con las versiones compatibles de Service Fabr
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

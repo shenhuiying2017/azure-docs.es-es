@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 02/08/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 14b6b817c071ba833d2f49ca289151520e1e32f0
+ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
+ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
 
 
 ---
@@ -44,8 +44,6 @@ El Asistente para la instalación proporciona una configuración que se supone q
 
 > [!WARNING]
 > Las reglas de sincronización listas para usar tienen una huella digital. Si realiza un cambio en estas reglas, la huella digital ya no coincidirá. Es posible que tenga problemas en el futuro cuando intente aplicar una nueva versión de Azure AD Connect. Realiza únicamente cambios cómo se describe en este artículo.
-> 
-> 
 
 ### <a name="disable-an-unwanted-sync-rule"></a>Deshabilite una regla de sincronización no deseada
 No elimine una regla de sincronización lista para usar. Esta se vuelve a crear durante la siguiente actualización.
@@ -57,6 +55,8 @@ En algunos casos, el asistente de instalación ha generado una configuración qu
 En la imagen anterior, el Asistente para la instalación ha encontrado un esquema antiguo de Exchange 2003 en el bosque de cuentas. Este esquema de extensión se agregó antes de que el bosque de recursos se introdujera en el entorno de Fabrikam. Para asegurarse de que ningún atributo de la implementación antigua de Exchange se sincronice, la regla de sincronización se debe deshabilitar como se muestra.
 
 ### <a name="change-an-out-of-box-rule"></a>cambiar una regla lista para usar
+La única vez que se debe cambiar una regla integrada es cuando tiene que cambiar la regla de unión. Si tiene que cambiar un flujo de atributo, debe crear una regla de sincronización con mayor prioridad que las reglas integradas. La única regla que necesita desde un punto de vista práctico es la regla **In from AD - User Join**. Puede invalidar el resto de reglas con una regla de prioridad superior.
+
 Si tiene que realizar cambios en una regla lista para usar, debe realizar una copia de esta y deshabilitar la regla original. A continuación, realice los cambios en la regla clonada. El Editor de reglas de sincronización le ayuda con esos pasos. Cuando se abre una regla lista para usar, se presenta este cuadro de diálogo:   
 ![Regla lista para usar de advertencia](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
@@ -73,7 +73,6 @@ En esta regla clonada, realice los cambios necesarios en el ámbito, la combinac
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

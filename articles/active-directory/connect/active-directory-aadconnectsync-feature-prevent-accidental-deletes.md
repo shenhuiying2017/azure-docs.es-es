@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/04/2017
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
+ms.sourcegitcommit: 2048c2786cbe7e237f7a72f5a73a4b135ed60088
+ms.openlocfilehash: cf4ee6d18d5ab3b0f53ec5e8ab80d6e91864a103
 
 
 ---
@@ -25,6 +25,7 @@ En este tema se describe la característica para evitar eliminaciones accidental
 
 Al instalar Azure AD Connect, la característica para evitar eliminaciones accidentales se habilitará de forma predeterminada y se configurará para que no permita ninguna exportación con más de 500 eliminaciones. Esta característica está diseñada para protegerle de los cambios de configuración accidentales y de los cambios en el directorio local que afectarían a un gran número de usuarios y demás objetos.
 
+## <a name="what-is-prevent-accidental-deletes"></a>Qué significa evitar eliminaciones accidentales
 Algunos de los escenarios comunes en los que puede observar esto son los siguientes:
 
 * Cambios en el [filtrado](active-directory-aadconnectsync-configure-filtering.md) donde se anula la selección de una [unidad organizativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) completos.
@@ -38,7 +39,7 @@ Si hay demasiadas eliminaciones almacenadas provisionalmente para exportarse a A
 ![Evitar eliminaciones accidentales del correo electrónico](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *Hola (contacto técnico). A veces el servicio de sincronización de identidades detecta que el número de eliminaciones supera el umbral de eliminación configurado para (nombre de la organización). En esta sincronización de identidades, se envía un total de (número) objetos para su eliminación. Este número cumple o supera el valor del umbral de eliminación configurado de (número) objetos. Es necesario que confirme que estas eliminaciones deben procesarse para que podamos continuar. Para más detalles sobre el error que aparece en este mensaje de correo electrónico, consulte la información sobre la prevención de eliminaciones accidentales .*
-> 
+>
 > 
 
 También puede ver el estado `stopped-deletion-threshold-exceeded` cuando observa la interfaz de usuario **Synchronization Service Manager** para el perfil de exportación.
@@ -69,7 +70,6 @@ Si se desean todas las eliminaciones, haga lo siguiente:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3db5ba37844f6a77eece2f20bdce080d0ab8b7
-ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
+ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
+ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
 
 
 ---
@@ -98,9 +98,26 @@ Independientemente del método que elija, deberá suministrar valores para los [
 
 Para implementar la plantilla mediante PowerShell, complete los siguientes pasos:
 
-1. Regístrese para la versión preliminar enviando un correo electrónico a [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto. No complete los pasos restantes:
-    - Hasta después de recibir una notificación por correo electrónico de que se le acepta en la versión preliminar.
-    - Sin seguir las instrucciones del correo electrónico que reciba.
+1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Esta operación puede tardar unos minutos.
+
 2. Implemente la plantilla siguiendo los pasos descritos en el artículo [Implementación de una plantilla con PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). El artículo describe varias opciones para la implementación de una plantilla. Si decide implementar con `-TemplateUri parameter`, e identificador URI de esta plantilla es *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si decide implementar con el parámetro `-TemplateFile`, copie el contenido del [archivo de plantilla](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) desde GitHub en un nuevo archivo en su equipo. Modifique el contenido de la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independientemente de la opción que elija para la implementación de la plantilla, debe proporcionar valores para los valores de parámetro que se enumeran en la sección [parámetros](#parameters) de este artículo. Si decide proporcionar parámetros mediante un archivo de parámetros, copie el contenido del [archivo de parámetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub en un nuevo archivo en el equipo. Modifique los valores en el archivo. Use el archivo que creó como valor para el parámetro `-TemplateParameterFile`.
@@ -116,14 +133,31 @@ Para implementar la plantilla mediante PowerShell, complete los siguientes pasos
 
 Para implementar la plantilla mediante la CLI de Azure 1.0, complete los siguientes pasos:
 
-1. Regístrese para la versión preliminar enviando un correo electrónico a [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto. No complete los pasos restantes:
-    - Hasta después de recibir una notificación por correo electrónico de que se le acepta en la versión preliminar.
-    - Sin seguir las instrucciones del correo electrónico que reciba.
+1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Esta operación puede tardar unos minutos.
+
 2. Implemente la plantilla siguiendo los pasos descritos en el artículo [Implementación de una plantilla con la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). El artículo describe varias opciones para la implementación de una plantilla. Si decide implementar con `--template-uri` (-f), e identificador URI de esta plantilla es *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si decide implementar con el parámetro `--template-file` (-f), copie el contenido del [archivo de plantilla](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) desde GitHub en un nuevo archivo en su equipo. Modifique el contenido de la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independientemente de la opción que elija para la implementación de la plantilla, debe proporcionar valores para los valores de parámetro que se enumeran en la sección [parámetros](#parameters) de este artículo. Si decide proporcionar parámetros mediante un archivo de parámetros, copie el contenido del [archivo de parámetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub en un nuevo archivo en el equipo. Modifique los valores en el archivo. Use el archivo que creó como valor para el parámetro `--parameters-file` (-e).
     
-    Para determinar los valores válidos para los parámetros de OSVersion, ImagePublisher e imageOffer, complete los pasos del artículo sobre [navegación y selección de imágenes de la máquina virtual de Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli).
+    Para determinar los valores válidos para los parámetros de OSVersion, ImagePublisher e imageOffer, complete los pasos del artículo sobre [navegación y selección de imágenes de la máquina virtual de Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10).
 
 3. Una vez que se implemente la máquina virtual, conéctese a ella y agregue las direcciones IP privadas al sistema operativo que implementó completando los pasos en la sección [Incorporación de direcciones IP a un sistema operativo de la máquina virtual](#os-config) de este artículo. No agregue las direcciones IP públicas al sistema operativo.
 
@@ -131,6 +165,6 @@ Para implementar la plantilla mediante la CLI de Azure 1.0, complete los siguien
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -3,8 +3,9 @@
 ## [¿Qué es App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service en Linux](app-service-linux-intro.md)
+## [Peguntas más frecuentes sobre App Service en Linux](app-service-linux-faq.md)
 
-# Introducción
+# Primeros pasos
 
 ## Web Apps
 ### [HTML](app-service-web-get-started-html.md)
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Aplicación de Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [SDK de WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### Aplicaciones de ASP.NET
 #### [Creación de una aplicación ASP.NET en Azure con Visual Studio](web-sites-dotnet-get-started.md)
 #### [Creación de un servicio REST mediante ASP.NET Web API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Creación de una aplicación web ASP.NET 5 en Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Uso de .NET Core en Web Apps en Linux](app-service-linux-using-dotnetcore.md)
+
 
 ### Aplicaciones de Node.js
 #### [Desarrollo de Node.js para App Service](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [Creación e implementación mediante WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Aplicaciones PHP
-#### [Desarrollo de aplicaciones PHP para App Service](app-service-web-php-get-started.md) 
+#### [Desarrollo de aplicaciones PHP para App Service](app-service-web-php-get-started.md)    
 #### [Creación de una aplicación web de PHP-SQL e implementarla mediante Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Creación de una aplicación web de WordPress en Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Creación y conexión de una base de datos MySQL en Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Flask y Table Storage con Python Tools 2.2 para Visual Studio](web-sites-python-ptvs-flask-table-storage.md)
 #### [Django y MySQL en Azure con Python Tools 2.2 para Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Django y SQL Database en Azure con Python Tools 2.2 para Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Aplicaciones de Ruby
+#### [Uso de Ruby en Web Apps en Linux](app-service-linux-using-ruby.md)
 
 ### [Implementación de su primera aplicación web básica en Azure en&5; minutos](app-service-web-get-started-html.md)
 ### [Introducción a las pruebas en producción para Web Apps](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Configuración de Python](web-sites-python-configure.md)
 #### [Configuración del inicio de Node.js en Linux](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Dominios personalizados
 #### [Compra y configuración de dominios personalizados](custom-dns-web-site-buydomains-web-app.md)
 #### [Asignación de su propio dominio personalizado](web-sites-custom-domain-name.md)
+#### [Migración de un dominio personalizado activo](app-service-custom-domain-name-migrate.md)
 #### [Configuración de dominios GoDaddy](web-sites-godaddy-custom-domain-name.md)
 #### [Dominios personalizados con Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -267,6 +276,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

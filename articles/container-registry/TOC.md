@@ -4,7 +4,7 @@
 
 # Introducción
 ## [Creación de un registro en el portal](container-registry-get-started-portal.md)
-## [Creación de un registro con la CLI](container-registry-get-started-azure-cli.md)
+## [Creación de un registro con la CLI de Azure 2.0](container-registry-get-started-azure-cli.md)
 ## [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md)
 
 # Procedimientos
@@ -14,7 +14,7 @@
 
 # Referencia
 
-## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/acr)
+## [CLI de Azure 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
 
 # Temas relacionados
@@ -27,6 +27,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

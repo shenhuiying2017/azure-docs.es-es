@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Azure Data Lake Analytics mediante la interfaz de la línea de comandos de Azure | Microsoft Docs"
-description: "Aprenda a usar la interfaz de línea de comandos de Azure para crear una cuenta de Almacén de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo. "
+description: "Aprenda a usar la interfaz de la línea de comandos de Azure para crear una cuenta de Data Lake Analytics, crear un trabajo de Data Lake Analytics mediante U-SQL y enviar el trabajo. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Tutorial: Introducción a Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Tutorial: Introducción a Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Aprenda a usar la CLI de Azure para crear cuentas de Análisis de Azure Data Lake, definir trabajos de Análisis de Data Lake en [U-SQL](data-lake-analytics-u-sql-get-started.md)y enviar trabajos a cuentas de Análisis de Data Lake. Para obtener más información acerca de Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
@@ -165,6 +165,6 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

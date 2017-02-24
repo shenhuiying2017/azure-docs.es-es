@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 39741a7a9efccd0d1f63727e4d13b424804398bc
+ms.sourcegitcommit: 29cd1d3583dfcba5c1057ae1e81376930f52f887
+ms.openlocfilehash: 1152fcf551aa02264d626f87e97bc3f69b4f6778
 
 
 ---
@@ -63,7 +63,7 @@ En esta sección, vuelva a conectar la aplicación al back-end de la aplicación
    `CheckItem` llama a `SyncAsync` para sincronizar cada elemento completado con el back-end de Mobile App. `SyncAsync` llama a las operaciones de inserción y extracción. **Cada vez que se ejecuta una incorporación de cambios en una tabla en la que el cliente ha realizado cambios, siempre se ejecuta automáticamente una inserción**. De este modo se garantiza la coherencia de todas las tablas del almacén local, junto con sus relaciones. Este comportamiento puede provocar una inserción inesperada. Para obtener más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ## <a name="review-the-client-sync-code"></a>Revisión del código de sincronización de cliente
-El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Creación de una aplicación Xamarin.Android] ya contiene el código que admite la sincronización sin conexión con una base de datos SQLite local. Esta es una breve descripción general de lo que ya se incluye en el código del tutorial. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Creación de una aplicación Xamarin.Android] ya contiene el código que admite la sincronización sin conexión con una base de datos SQLite local. Esta es una breve descripción de lo que ya está incluido en el código del tutorial. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 * Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. La base de datos del almacén local se inicializa cuando `ToDoActivity.OnCreate()` ejecuta `ToDoActivity.InitLocalStoreAsync()`. Este método crea una base de datos SQLite local que usa la clase `MobileServiceSQLiteStore` que proporciona el SDK de cliente de Azure Mobile Apps.
   
@@ -112,7 +112,7 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
-* [PROCEDIMIENTO DEL SDK .NET de Azure Mobile Apps][8]
+* [Procedimiento del SDK de .NET de Azure Mobile Apps][8]
 
 <!-- URLs. -->
 [Creación de una aplicación Xamarin.Android]: ../app-service-mobile-xamarin-android-get-started.md
@@ -124,12 +124,12 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
 [Creación de una aplicación Xamarin Android]: app-service-mobile-xamarin-android-get-started.md
 [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
 [Xamarin Studio]: http://xamarin.com/download
-[Extensión de Xamarin]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac82535515f346d43bbceeb274ce61d81ade60b1
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: bb140097831453d46f6bfef1c9fbe569eefb3020
 
 
 ---
@@ -89,7 +89,7 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 
 Para configurar y probar el inicio de sesión único de Azure AD con Tangoe Command Premium Mobile, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Tangoe Command Premium Mobile](#creating-an-tangoe-test-user)** : para tener un homólogo de Britta Simon en Tangoe Command Premium Mobile que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
@@ -110,40 +110,39 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png) 
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Tangoe Command Premium Mobile con el siguiente patrón: “**https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<emisor de inquilino\>&Target=\<URL de página de destino\>”**.
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Tangoe Command Premium Mobile con el siguiente patrón: “**https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<emisor de inquilino\>&Target=\<URL de página de destino\>”**.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: **"https://sso.tangoe.com/sp/ACS.saml2"**
+   2. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: **"https://sso.tangoe.com/sp/ACS.saml2"**
 
-    > [AZURE.NOTE]  Si no conoce los valores correctos de las direcciones URL, puede usar los valores indicados anteriormente como marcadores de posición y solicitar los valores correctos al servicio de asistencia al cliente de Tangoe.
+    > [!NOTE]  
+    > Si no conoce los valores correctos de las direcciones URL, puede usar los valores indicados anteriormente como marcadores de posición y solicitar los valores correctos al servicio de asistencia al cliente de Tangoe.
+    >
 
-
-1. En la página **Configurar inicio de sesión único en Tangoe Command Premium Mobile** , realice los pasos siguientes:
+4. En la página **Configurar inicio de sesión único en Tangoe Command Premium Mobile** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_05.png) 
    
-    a. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
-2. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el servicio de asistencia al cliente de Tangoe y proporcione lo siguiente:
+   1. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
+   2. Haga clic en **Siguiente**.
 
-    - El archivo de metadatos descargado
-    - La **URL del emisor**
-    - La **dirección URL de SSO de SAML**
-    - La **dirección URL del servicio de cierre de sesión único**
+5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el servicio de asistencia al cliente de Tangoe y proporcione lo siguiente:
 
+   - El archivo de metadatos descargado
+   - La **URL del emisor**
+   - La **dirección URL de SSO de SAML**
+   - La **dirección URL del servicio de cierre de sesión único**
 
-
-1. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
-2. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
-En la lista Usuarios, seleccione **Britta Simon**.
+* En la lista Usuarios, seleccione **Britta Simon**.
 
 ![Creación de un usuario de Azure AD][20]
 
@@ -172,15 +171,11 @@ En la lista Usuarios, seleccione **Britta Simon**.
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_07.png) 
@@ -188,16 +183,14 @@ En la lista Usuarios, seleccione **Britta Simon**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_08.png) 
    
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
 ### <a name="creating-an-tangoe-command-premium-mobile-test-user"></a>Creación de un usuario de prueba de Tangoe Command Premium Mobile
 En esta sección, creará un usuario llamado Britta Simon en Tangoe Command Premium Mobile. La aplicación Tangoe Command Premium Mobile necesita que todos los usuarios estén aprovisionados en la aplicación antes de realizar el inicio de sesión único. Así pues, colabore con el servicio de asistencia al cliente de Tangoe para aprovisionar todos estos usuarios en la aplicación. 
 
 > [!NOTE]
 > Si necesita crear un usuario de forma manual o por lotes de los usuarios, póngase en contacto con el equipo de soporte técnico de Tangoe Command Premium Mobile.
-> 
 > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
@@ -209,18 +202,18 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
 
-![Asignar usuario][201] 
+ ![Asignar usuario][201] 
 
-1. En la lista de aplicaciones, seleccione **Tangoe comando Premium Mobile**.
+2. En la lista de aplicaciones, seleccione **Tangoe comando Premium Mobile**.
 
-![Configurar inicio de sesión único](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_50.png) 
+ ![Configurar inicio de sesión único](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_50.png) 
+ 
+3. En el menú de la parte superior, haga clic en **Usuarios**.
 
-1. En el menú de la parte superior, haga clic en **Usuarios**.
+ ![Asignar usuario][203] 
 
-![Asignar usuario][203] 
-
-1. En la lista Usuarios, seleccione **Britta Simon**.
-2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+4. En la lista Usuarios, seleccione **Britta Simon**.
+5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
 
 ![Asignar usuario][205]
 
@@ -253,6 +246,6 @@ Al hacer clic en el icono de Tangoe Command Premium Mobile en el panel de acceso
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Recomendaciones de rendimiento para Azure SQL Database | Microsoft Docs
+title: 'Recomendaciones de ajuste del rendimiento de consultas: Azure SQL Database | Microsoft Docs'
 description: El Asesor de Base de datos SQL de Azure ofrece recomendaciones para las bases de datos SQL existentes que pueden mejorar el rendimiento actual de las consultas.
 services: sql-database
 documentationcenter: 
@@ -16,21 +16,16 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 5df30f24a8e7370ac33c72641f05138776e24bb0
-ms.openlocfilehash: 55502f346eaf5ccf76d6f1c03487e95f0b93e3f5
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
 
 
 ---
 # <a name="sql-database-advisor"></a>Asesor de Base de datos SQL
-> [!div class="op_single_selector"]
-> * [Información general del Asesor de Base de datos SQL](sql-database-advisor.md)
-> * [Portal](sql-database-advisor-portal.md)
-> 
-> 
 
 Azure SQL Database aprende y se adapta a su aplicación, y proporciona recomendaciones personalizadas que le permiten maximizar el rendimiento de las bases de datos SQL. SQL Database Advisor ofrece recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas del esquema. El asesor evalúa el rendimiento mediante el análisis del historial de uso de la base de datos SQL. Se recomienda usar los índices que sean más adecuados para ejecutar la carga de trabajo habitual de su base de datos. 
 
-Las recomendaciones siguientes están disponibles para los servidores V12 (no hay recomendaciones disponibles para servidores V11). En estos momentos, puede configurar que las recomendaciones de creación y eliminación de índices se apliquen automáticamente. Para más información, consulte la sección de [administración automática de índices](sql-database-advisor-portal.md#enable-automatic-index-management).
+Las recomendaciones siguientes están disponibles para los servidores de Azure SQL Database. En estos momentos, puede configurar que las recomendaciones de creación y eliminación de índices se apliquen automáticamente. Para más información, consulte la sección de [administración automática de índices](sql-database-advisor-portal.md#enable-automatic-index-management).
 
 ## <a name="create-index-recommendations"></a>Recomendaciones para crear índice
 **creación de índices** aparecen cuando el servicio Base de datos SQL detecta que falta un índice que, si se crea, puede beneficiar a la carga de trabajo de las bases de datos (solo en el caso de los índices no agrupados en clústeres).
@@ -79,6 +74,6 @@ Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

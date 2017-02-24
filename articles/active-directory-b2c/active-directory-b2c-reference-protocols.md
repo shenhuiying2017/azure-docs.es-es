@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 03c511f53704f306aa3fce2dd394188e5b3a0fa2
+ms.sourcegitcommit: 24e86b2a0c47576eba67f74c88bf9b9a42394653
+ms.openlocfilehash: 556da1513345b3cadf4fda622bb351835c114845
 
 
 ---
@@ -65,10 +65,11 @@ Cuando esté listo para revisar algunas solicitudes de ejemplo, puede comenzar c
 
 * [Creación de aplicaciones móviles nativas mediante OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Creación de aplicaciones web mediante OpenID Connect](active-directory-b2c-reference-oidc.md)
+* [Creación de aplicaciones de una sola página con el flujo implícito de OAuth 2.0](active-directory-b2c-reference-spa.md)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

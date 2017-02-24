@@ -1,6 +1,6 @@
 ---
-title: Consulta de Azure SQL Data Warehouse | Microsoft Docs
-description: "Consulta de Almacenamiento de datos SQL Azure con las utilidades de la línea de comandos sqlcmd."
+title: "Conexión a Azure SQL Data Warehouse sqlcmd | Microsoft Docs"
+description: "Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectar y consultar una instancia de Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conexión a Almacenamiento de datos SQL con sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
 > 
 > 
 
-En este tutorial se usa la utilidad de línea de comandos [sqlcmd][sqlcmd] para consultar una instancia de Azure SQL Data Warehouse.  
+Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectar y consultar una instancia de Azure SQL Data Warehouse.  
 
 ## <a name="1-connect"></a>1. Conectar
 Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de SQL Data Warehouse. La cadena de conexión requiere los siguientes parámetros:
@@ -100,6 +100,6 @@ Consulte [documentación de sqlcmd][sqlcmd] para más información sobre las opc
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

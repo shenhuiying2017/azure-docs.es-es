@@ -26,8 +26,7 @@
 ### [PowerShell](resource-group-template-deploy.md)
 ### [CLI de Azure](resource-group-template-deploy-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
-### [API de REST](resource-group-template-deploy-rest.md)
-### [Entornos de desarrollo y pruebas](solution-dev-test-environments.md)
+### [API DE REST](resource-group-template-deploy-rest.md)
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Administrar
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -43,20 +42,23 @@
 ### [Creación de una entidad de servicio con la CLI de Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Creación de una entidad de servicio con el portal](resource-group-create-service-principal-portal.md)
 ### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
-### [Establecimiento de directivas de administración](resource-manager-policy.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)
 ### [Consideraciones sobre la seguridad](best-practices-resource-manager-security.md)
+## Establecimiento de directivas de recursos
+### [¿Qué son las directivas de recursos?](resource-manager-policy.md)
+### [Asignación y administración de directivas](resource-manager-policy-create-assign.md)
+### [Directivas de etiquetas de recursos](resource-manager-policy-tags.md)
+### [Directivas de almacenamiento](resource-manager-policy-storage.md)
+### [Directivas de máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Directivas de máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Auditoría y solución de problemas
 ### [Solución de errores de implementación comunes](resource-manager-common-deployment-errors.md)
 ### [Visualización de registros de actividad](resource-group-audit.md)
-### [Visualización de operaciones de implementación con el portal](resource-manager-troubleshoot-deployments-portal.md)
-### [Visualización de operaciones de implementación con PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Visualización de operaciones de implementación con la CLI de Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Visualización de operaciones de implementación con la API de REST](resource-manager-troubleshoot-deployments-rest.md)
+### [Ver operaciones de implementación](resource-manager-deployment-operations.md)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/resource)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+## [CLI de Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -65,11 +67,12 @@
 
 # Recursos
 ## [Solicitudes de limitación](resource-manager-request-limits.md)
+## [Seguimiento de operaciones asincrónicas](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

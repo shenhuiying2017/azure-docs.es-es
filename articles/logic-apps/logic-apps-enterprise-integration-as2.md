@@ -1,9 +1,9 @@
 ---
-title: "Información acerca de la creación de un contrato de AS2 para Enterprise Integration Pack| Microsoft Docs"
-description: "Información acerca de la creación de un contrato de AS2 para Enterprise Integration Pack| Azure Logic Apps"
+title: "Creación de un contrato de AS2 en Azure Logic Apps | Microsoft Docs"
+description: "Creación de un contrato de AS2 para Enterprise Integration Pack | Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
 editor: 
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
@@ -12,119 +12,143 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: deonhe
+ms.date: 01/27/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 47a1c5653d84a55224c18222bc547e1c863ea442
-ms.openlocfilehash: ea256557a38b3ce6cb457d195fa4b48cfd8879b8
+ms.sourcegitcommit: 6a947ea997bbcfe1b6b28c7cbb49911836750e6a
+ms.openlocfilehash: a490b89c5420aecdfb3f79289979faab9a4630e9
 
 
 ---
 # <a name="enterprise-integration-with-as2"></a>Integración de empresas con AS2
-## <a name="create-an-as2-agreement"></a>Creación de un contrato AS2
-Para poder utilizar las características empresariales de Logic Apps, primero deben crearse los contratos. 
+Para poder utilizar las características empresariales de Logic Apps, primero deben crearse los contratos.
 
-### <a name="heres-what-you-need-before-you-get-started"></a>Requisitos para poder comenzar
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) definida en su suscripción de Azure  
-* Al menos dos [asociados](logic-apps-enterprise-integration-partners.md) definidos en su cuenta de integración  
+## <a name="prerequisites"></a>Requisitos previos
+* Debe tener una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) definida en su suscripción de Azure.  
+* Debe tener al menos dos [asociados](logic-apps-enterprise-integration-partners.md) definidos en su cuenta de integración.  
 
 > [!NOTE]
 > Al crear un contrato, el contenido del archivo de contrato debe coincidir con el tipo de contrato.    
-> 
-> 
 
-Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) y [agregado los asociados](logic-apps-enterprise-integration-partners.md), podrá generar un contrato siguiendo estos pasos:  
+Cuando haya creado una cuenta de integración y agregado asociados, podrá generar un contrato usando los procedimientos de las secciones siguientes.  
 
-### <a name="from-the-azure-portal-home-page"></a>En la página principal del Portal de Azure
-Una vez que haya iniciado sesión en [Azure Portal](http://portal.azure.com "Azure Portal"):  
+## <a name="create-an-agreement"></a>Creación de un contrato
 
-1. Seleccione **Más servicios** y escriba **integración** en el cuadro de búsqueda de filtro. Seleccione **Cuentas de integración** en la lista de resultados.    
-![](./media/logic-apps-enterprise-integration-agreements/overview-1.png)    
-2. Seleccione la cuenta integración en la que vaya a agregar el certificado. 
-![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-3. Seleccione el icono **Acuerdos** . Si no lo ve, agréguelo antes.   
-![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
-4. Seleccione el botón **Agregar** en la hoja Acuerdos que se abre.  
-![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
-5. En la hoja Acuerdos, escriba el **nombre** del contrato, seleccione **AS2** en **Tipo de contrato** y especifique los valores de **Asociado del host**, **Identidad del host**, **Asociado invitado** e **Identidad del invitado**.  
-![](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+1. Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal").  
+2. Seleccione **Más servicios**, escriba **integración** en el cuadro de búsqueda de filtros y después **Cuentas de integración** en la lista de resultados.
 
-A continuación, encontrará información que puede resultarle útil a la hora de configurar las opciones del contrato: 
+ ![Seleccione "Cuentas de integración" en la lista de resultados.](./media/logic-apps-enterprise-integration-agreements/overview-1.png)    
+3. Seleccione la cuenta integración en la que quiera agregar el certificado.
 
-| Propiedad | Descripción |
-| --- | --- |
-| Host Partner (Partner anfitrión) |Un contrato tiene asociado un partner anfitrión e invitado. El partner anfitrión representa la organización que configura el contrato. |
-| Host Identity (Identidad anfitriona) |Un identificador del partner anfitrión. |
-| Guest Partner (Partner invitado) |Un contrato tiene asociado un partner anfitrión e invitado. El partner invitado representa la organización que está haciendo negocios con el partner anfitrión. |
-| Guest Identity |Un identificador de la identidad invitada. |
-| Receive Settings (Configuración de recepción) |Estas propiedades se aplican a todos los mensajes que recibe un contrato |
-| Send Settings (Configuración de envío) |Estas propiedades se aplican a todos los mensajes que envía un contrato |
+ ![Seleccione la cuenta de integración.](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
+4. Seleccione el icono **Acuerdos** . Si el icono no aparece, agréguelo.
 
-Prosigamos:  
+ ![Seleccione el icono "Acuerdos".](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
+5. En la hoja **Contratos**, seleccione **Agregar**.
 
-1. Seleccione **Receive Settings** (Configuración de recepción) para configurar cómo se administran los mensajes que se reciben través de este contrato.  
-   
-   * Si lo desea, puede invalidar las propiedades del mensaje entrante. Para ello, active la casilla **Reemplazar propiedades del mensaje**.
-   * Active la casilla **Debe firmarse el mensaje** si quiere que, de forma obligatoria, todos los mensajes vayan firmados. Si la activa, tendrá que seleccionar *guest partner public certificate* (certificado público del asociado invitado) para poder validar la firma de los mensajes.
-   * Active la casilla **Debe cifrarse el mensaje** si quiere que, de forma obligatoria, todos los mensajes entrantes vayan cifrados.  Si la activa, tendrá que seleccionar *host partner private certificate* (certificado privado del asociado del host) para poder descifrar los mensajes entrantes.
-   * También puede exigir que se compriman los mensajes. Para ello, active la casilla **Debe comprimirse el mensaje**.    
-   * Active la casilla **Enviar MDN** si desea enviar una MDN sincrónica para los mensajes recibidos.
-   * Active la casilla **Enviar MDN firmado** si desea enviar una MDN firmada para los mensajes recibidos.
-   * Active la casilla **Enviar MDN asincrónico** si desea enviar una MDN asincrónica para los mensajes recibidos.     
-    ![](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)  
+ ![Seleccione "Agregar".](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
+6. Escriba un nombre para el acuerdo, seleccione **AS2** en la lista **Tipo de contrato** y escriba la información pertinente en las listas **Asociado del host**, **Identidad del host**, **Asociado invitado** e **Identidad del invitado**.
 
-Si quiere obtener más información sobre las opciones que habilita la configuración de recepción, consulte la tabla siguiente.  
+ ![Escriba un nombre para el contrato](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
 
-| Propiedad | Descripción |
-| --- | --- |
-| Override message properties |Seleccione esta opción para indicar que se pueden invalidar las propiedades de los mensajes recibidos |
-| Message should be signed |Habilite esta opción si desea que, de forma obligatoria, los mensajes vayan firmados digitalmente.  Configure el certificado público del asociado invitado para la comprobación de firmas.  |
-| Message should be encrypted |Habilite esta opción para exigir que se cifren los mensajes. Los mensajes que no estén cifrados se rechazarán. Configure el certificado privado del asociado del host para descifrar los mensajes.  |
-| Message should be compressed |Habilite esta opción para exigir que se compriman los mensajes. Los mensajes que no estén comprimidos se rechazarán. |
-| MDN Text (Texto de MDN) |Se trata de una MDN predeterminada que se envía al remitente del mensaje |
-| Send MDN (Enviar MDN) |Habilite esta opción para permitir que se envíen MDN. |
-| Send signed MDN (Enviar MDN firmada) |Habilite esta opción para exigir que se firmen las MDN. |
-| MIC Algorithm (Algoritmo de MIC) | |
-| Send asynchronous MDN (Enviar MDN asincrónica) |Habilite esta opción para exigir que los mensajes se envíen de forma asincrónica. |
-| URL |Se trata de la dirección URL a la que se enviarán las MDN. |
+ En la tabla siguiente se describen las propiedades del cuadro de diálogo **Agregar**:
 
-Ahora, continuemos:  
+    | Propiedad | Descripción |
+    | --- | --- |
+    | Host Partner (Partner anfitrión) | Un contrato requiere un asociado anfitrión y uno invitado. El asociado del host representa la organización que configura el contrato. |
+    | Host Identity (Identidad anfitriona) | Un identificador del partner anfitrión. |
+    | Guest Partner (Partner invitado) | Un contrato requiere un asociado anfitrión y uno invitado. El partner invitado representa la organización que está haciendo negocios con el partner anfitrión. |
+    | Guest Identity | Un identificador de la identidad invitada. |
+    | Receive Settings (Configuración de recepción) | Las propiedades que se aplican a todos los mensajes recibidos por el contrato. |
+    | Send Settings (Configuración de envío) | Las propiedades que se aplican a todos los mensajes que envía el contrato. |
 
-1. Seleccione **Send Settings** (Configuración de envío) para configurar cómo se controlarán los mensajes enviados a través de este contrato.  
+7. Para configurar cómo se administran los mensajes que se reciben través de este contrato, siga estos pasos:
 
-   * Active la casilla **Habilitar la firma de mensajes** si desea enviar mensajes firmados al asociado. Si la activa, tendrá que seleccionar *host partner private certificate MIC Algorithm* (Algoritmo MIC de certificado privado del asociado del host) y *host partner private certificate* (certificado privado del asociado del host) para poder firmar los mensajes.
-   * Active la casilla **Habilitar el cifrado de mensajes** si desea enviar mensajes cifrados al asociado. Si la activa, tendrá que seleccionar *guest partner public certificate algorithm* (algoritmo de certificado público del asociado invitado) y *guest partner public certificate* (certificado público del asociado invitado) para poder cifrar los mensajes.
-   * Active la casilla **Debe comprimirse el mensaje** para comprimir el mensaje. 
-   * Active la casilla **Expandir encabezados HTTP** para expandir el encabezado HTTP Content-Type en una sola línea. 
-   * Active la casilla **Solicitar MDN** si desea recibir una MDN sincrónica de los mensajes enviados.
-   * Active la casilla **Solicitar MDN firmada** si desea recibir una MDN firmada de los mensajes enviados.
-   * Active la casilla **Solicitar MDN asincrónica** si desea recibir una MDN asincrónica de los mensajes enviados. Si la activa, tendrá que especificar la dirección URL a la que se enviarán las MDN.  
-   * Active la casilla **Habilitar NRR** para que no se rechace la recepción de mensajes.    
-   ![](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
+ a. Seleccione **Configuración de recepción**.
 
-Si quiere obtener más información sobre las opciones que habilita la configuración de envío, consulte la tabla siguiente.  
+ b. Si lo desea, puede invalidar las propiedades de los mensajes entrantes activando la casilla **Reemplazar propiedades del mensaje**.
 
-| Propiedad | Descripción |
-| --- | --- |
-| Enable message signing (Habilitar firma de mensajes) |Active esta casilla para que se firmen todos los mensajes enviados desde el contrato. |
-| MIC Algorithm (Algoritmo de MIC) |Seleccione el algoritmo que se utilizará para firmar los mensajes. Configure el algoritmo MIC del certificado privado del asociado del host que se va a utilizar para firmar los mensajes. |
-| Certificate |Seleccione el certificado que se va a usar para firmar los mensajes. Configure el certificado privado del asociado del host que se va a utilizar para firmar los mensajes. |
-| Enable message encryption (Habilitar el cifrado de mensajes) |Active esta casilla para cifrar todos los mensajes enviados desde este contrato. Configure el algoritmo del certificado público del asociado invitado que se va a utilizar para cifrar los mensajes. |
-| Algoritmo de cifrado |Seleccione el algoritmo de cifrado que se va a utilizar para cifrar los mensajes. Configure el certificado público del asociado invitado que se va a utilizar para cifrar los mensajes. |
-| Unfold HTTP headers (Expandir encabezados HTTP) |Active esta casilla para expandir el encabezado HTTP Content-Type en una sola línea. |
-| Request MDN (Solicitar MDN) |Active esta casilla si desea solicitar una MDN para todos los mensajes enviados desde este contrato. |
-| Request signed MDN (Solicitar MDN firmada) |Habilite esta opción para solicitar que se firmen todas las MDN enviadas a este contrato |
-| Request asynchronous MDN (Solicitar MDN asíncrona) |Habilite esta opción para solicitar que se envíen MDN asíncronas a este contrato |
-| URL |La dirección URL a la que se enviarán las MDN |
-| Enable NRR (Habilitar NRR) |Active esta casilla para que no se rechace la recepción de mensajes. |
+ c. Para exigir que se firmen todos los mensajes entrantes, active la casilla **Debe firmarse el mensaje**. Si selecciona esta opción, valide la firma en los mensajes seleccionando **guest partner public certificate** (certificado público del asociado invitado) en la lista **Certificado**.
 
-Seleccione el icono de **Agreements** (Contratos) de la hoja Integration Account (Cuenta de integración); verá en la lista el contrato que acaba de agregar.  
-![](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+ d. Para exigir que se cifren todos los mensajes entrantes, active la casilla **Debe cifrarse el mensaje**. Si la activa, descifre los mensajes entrantes seleccionando **host partner private certificate** (certificado privado del asociado del host) en la lista **Certificado**.
+
+ e. Para exigir que los mensajes se compriman, active la casilla **Debe comprimirse el mensaje**.    
+
+ f. Para enviar una notificación de disposición de mensaje (MDN) sincrónica para los mensajes recibidos, active la casilla **Enviar MDN**.
+
+ g. Para enviar MDN firmadas, active la casilla **Enviar MDN firmado**.
+
+ h. Para enviar MDN asincrónicas para mensajes recibidos, active la casilla **Enviar MDN asincrónico**.
+
+ ![Establecimiento de las propiedades de "Configuración de recepción"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)  
+
+ En la tabla siguiente se describen las propiedades de **Configuración de recepción**:  
+
+ | Propiedad | Descripción |
+ | --- | --- |
+ | Override message properties | Indica que se pueden invalidar las propiedades de los mensajes recibidos. |
+ | Message should be signed | Exige que los mensajes se firmen digitalmente. Configure el certificado público del asociado invitado para la comprobación de firmas.  |
+ | Message should be encrypted | Exige el cifrado de los mensajes. Los mensajes que no estén cifrados se rechazarán. Configure el certificado privado del asociado del host para el descifrado de los mensajes.  |
+ | Message should be compressed | Requiere que los mensajes estén comprimidos. Los mensajes que no estén comprimidos se rechazarán. |
+ | MDN Text (Texto de MDN) | La notificación de disposición del mensaje (MDN) predeterminada que se enviará al remitente del mensaje. |
+ | Send MDN (Enviar MDN) | Exige el envío de MDN. |
+ | Send signed MDN (Enviar MDN firmada) | Exige que las MDN estén firmadas. |
+ | MIC Algorithm (Algoritmo de MIC) | |
+ | Send asynchronous MDN (Enviar MDN asincrónica) | Exige que los mensajes se envíen de forma asincrónica. |
+ | URL | La dirección URL a la que se enviarán los MDN. |
+
+8. Para configurar cómo se administran los mensajes que se envían a través de este contrato, siga estos pasos:
+
+ a. Haga clic en **Enviar configuración**.  
+
+ b. Para enviar mensajes firmados al asociado, active la casilla **Habilitar la firma de mensajes**. Si selecciona esta opción, firme los mensajes seleccionando **host partner private certificate MIC Algorithm** (algoritmo MIC de certificado privado del asociado del host) en la lista **Algoritmo MIC** y **host partner private certificate** (certificado privado del asociado del host) en la lista **Certificado**.
+
+ c. Para enviar mensajes cifrados al asociado, active la casilla **Habilitar el cifrado de mensajes**. Si selecciona esta opción, cifre los mensajes seleccionando **guest partner public certificate** (certificado público del asociado invitado) en la lista **Algoritmo de cifrado** y **guest partner public certificate** (certificado público del asociado invitado) en la lista **Certificado**.
+
+ d. Para comprimir el mensaje, active la casilla **Habilitar la compresión de mensajes**.
+
+ e. Para desplegar el encabezado HTTP Content-Type en una sola línea, active la casilla **Expandir encabezados HTTP**.
+
+ f. Para recibir MDN sincrónicos para los mensajes enviados, active la casilla **Solicitar MDN**.
+
+ g. Para recibir MDN firmadas para los mensajes enviados, active la casilla **Solicitar MDN firmada**.
+
+ h. Para recibir MDN asincrónicas para los mensajes enviados, active la casilla **Solicitar MDN asincrónica**. Si selecciona esta opción, escriba la dirección URL a la que se enviarán las MDN.  
+
+ i. Para exigir la recepción sin rechazo, active la casilla **Habilitar NRR**.
+
+ j. Seleccione **Aceptar**.
+
+ ![Establecimiento de las propiedades de "Configuración de envío"](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
+
+ En la tabla siguiente se describen las propiedades de **Enviar configuración**:  
+
+ | Propiedad | Descripción |
+ | --- | --- |
+ | Enable message signing (Habilitar firma de mensajes) | Exige que se firmen todos los mensajes enviados desde el contrato. |
+ | MIC Algorithm (Algoritmo de MIC) | El algoritmo que se utiliza para firmar los mensajes. Configura el algoritmo MIC del certificado privado del asociado del host para firmar los mensajes. |
+ | Certificate | El certificado que se utilizará para firmar los mensajes. Configura el certificado privado del asociado del host para firmar los mensajes. |
+ | Enable message encryption (Habilitar el cifrado de mensajes) | Exige que se cifren todos los mensajes enviados desde el contrato. Configura el algoritmo del certificado público del asociado invitado para el cifrado de los mensajes. |
+ | Algoritmo de cifrado | El algoritmo de cifrado que se va a utilizar para cifrar los mensajes. Configura el certificado público del asociado invitado para el cifrado de los mensajes. |
+ | Certificate | El certificado que se utilizará para cifrar los mensajes. Configura el certificado privado del asociado invitado para el cifrado de los mensajes. |
+ | Habilitar la compresión de mensajes | Exige que se compriman todos los mensajes enviados desde el contrato. |
+ | Unfold HTTP headers (Expandir encabezados HTTP) | Coloca el encabezado HTTP Content-Type en una sola línea. |
+ | Request MDN (Solicitar MDN) | Exige una MDN para todos los mensajes enviados desde el contrato. |
+ | Request signed MDN (Solicitar MDN firmada) | Exige que se firmen todas las MDN enviadas al contrato. |
+ | Request asynchronous MDN (Solicitar MDN asíncrona) | Exige que se envíen MDN asincrónicas a este contrato. |
+ | URL | La dirección URL a la que se enviarán los MDN. |
+ | Enable NRR (Habilitar NRR) | Exige la recepción sin rechazo (NRR), un atributo de comunicación que prueba que se recibieron los datos según la dirección indicada. |
+
+## <a name="view-the-agreements-list"></a>Visualización de la lista de contratos
+Para ver el contrato recién añadido, seleccione el icono de **Contratos** de la hoja **Cuenta de integración**.
+
+![Visualización de la lista "Contratos"](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO1-->
 
 

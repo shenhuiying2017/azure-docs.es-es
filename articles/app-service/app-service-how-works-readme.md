@@ -23,7 +23,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 ---
 # <a name="how-app-service-works"></a>Funcionamiento de App Service
 Azure App Service es un servicio en la nube diseñado para resolver los problemas prácticos a los que se enfrentan hoy en día los ingenieros.
-El objetivo de App Service es ofrecer a los desarrolladores una productividad superior sin que esto perjudique a la necesidad de entregar aplicaciones a escala de nube.
+El objetivo de App Service es ofrecer a los desarrolladores una productividad superior sin que esto perjudique a la necesidad de entregar aplicaciones a escala de nube. 
 
 App Service también proporciona las características y marcos necesarios para crear aplicaciones empresariales de línea de negocio, al tiempo que ofrece asistencia a los desarrolladores con los lenguajes de desarrollo más populares (como Microsoft .NET, Java, PHP, Node.js y Python).
 Con App Service, los desarrolladores pueden:

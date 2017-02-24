@@ -10,10 +10,12 @@
 ## [Solución de problemas](multi-factor-authentication-end-user-troubleshoot.md)
 ## [Configuración de contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)
 ## Uso de la aplicación Microsoft Authenticator
-### [Primeros pasos](microsoft-authenticator-app-how-to.md)
+### [Introducción a la aplicación](microsoft-authenticator-app-how-to.md)
+### [Inicio de sesión con el teléfono](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Preguntas más frecuentes](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

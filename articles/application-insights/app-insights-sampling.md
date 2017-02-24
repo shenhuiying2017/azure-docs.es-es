@@ -1,31 +1,31 @@
 ---
-title: "Muestreo de telemetría en Application Insights | Microsoft Docs"
+title: "Muestreo de telemetría en Azure Application Insights | Microsoft Docs"
 description: "Cómo mantener el volumen de telemetría bajo control."
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
-manager: douge
+manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
+ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
+ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
 
 
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
 
-El muestreo es una característica de [Azure Application Insights](app-insights-overview.md). Se trata de la manera recomendada de reducir el almacenamiento y el tráfico de telemetría conservando, al mismo tiempo, un análisis estadísticamente correcto de datos de las aplicaciones. El filtro selecciona los elementos relacionados, para que pueda desplazarse entre los elementos de diagnóstico cuando esté realizando investigaciones de diagnóstico.
+El muestreo es una característica de [Azure Application Insights](app-insights-overview.md). Se trata de la manera recomendada de reducir el almacenamiento y el tráfico de telemetría conservando, al mismo tiempo, un análisis estadísticamente correcto de datos de las aplicaciones. El filtro selecciona los elementos relacionado para que pueda desplazarse entre los elementos de diagnóstico cuando esté realizando investigaciones de diagnóstico.
 Cuando los recuentos de métrica se presentan al usuario en el portal, se renormalizan para tener en cuenta el muestreo y minimizar cualquier efecto en las estadísticas.
 
-El muestreo reduce el tráfico, lo que ayuda a mantenerlo dentro de cuotas mensuales de datos y a evitar limitaciones.
+El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitación.
 
 ## <a name="in-brief"></a>En resumen:
 * El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener los eventos de 1 a 5, una velocidad de muestreo del 20 %. 
@@ -103,6 +103,17 @@ En [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     Valor asignado cuando se acaba de iniciar la aplicación. No lo reduzca durante la depuración. 
+
+* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+  
+    Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son Dependency, Event, Exception, PageView, Request, Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean.
+
+* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+  
+    Una lista delimitada por puntos y coma de tipos que desea que se muestreen. Los tipos reconocidos son Dependency, Event, Exception, PageView, Request, Trace. Los tipos especificados se muestrean, todas las instancias del resto de tipos siempre se transmitirán.
+
+
+**Para desactivar** el muestreo adaptable, quite el nodo AdaptiveSamplingTelemetryProcessor de applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternativa: configure el muestreo adaptivo en el código
 En lugar de ajustar el muestreo en el archivo .config, puede usar código. Esto le permite especificar una función de devolución de llamada que se invoca cuando se vuelve a evaluar la frecuencia de muestreo. Puede utilizarlo, por ejemplo, para averiguar la velocidad de muestreo que se está usando.
@@ -344,6 +355,6 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

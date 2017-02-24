@@ -1,5 +1,5 @@
 ---
-title: "Sincronización de Azure AD Connect: realización de un cambio en la configuración predeterminada | Microsoft Docs"
+title: "Sincronización de Azure AD Connect: cambio en la configuración de la sincronización de Azure AD Connect | Microsoft Docs"
 description: "Tutorial cómo realizar un cambio en la configuración de la sincronización de Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 1e5356dca98e8da035c1ffb1eca16e8b16dbfe77
+ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
+ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
 
 
 ---
@@ -54,18 +54,18 @@ De forma predeterminada, el [programador](active-directory-aadconnectsync-featur
    ![Regla de filtrado de entrada](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
    * Name (Nombre): asigne un nombre descriptivo a la regla.
    * Description (Descripción): alguna aclaración para que cualquier otro usuario entienda para qué sirve la regla.
-   * Connected system (Sistema conectado): el sistema donde se puede encontrar el objeto. En este caso, se selecciona Conector Active Directory.
+   * Connected system (Sistema conectado): el sistema donde se puede encontrar el objeto. En este caso, seleccione el Conector Active Directory.
    * Connected System/Metaverse Object Type (Sistema conectado/Tipo de objeto de metaverso): seleccione **User** y **Person**, respectivamente.
    * Link Type (Tipo de vínculo): cambie este valor a **Join**.
    * Precedence (Prioridad): proporcione un valor que sea único en el sistema. Un valor numérico inferior indica una mayor prioridad.
    * Tag (Etiqueta): deje este campo en blanco. Solo las reglas de serie de Microsoft tienen esta casilla rellena con un valor.
 3. En la página **Scoping filter** (Filtro de ámbito), escriba **givenName ISNOTNULL**.  
    ![Filtro del ámbito de la regla entrada](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
-    Esta sección se utiliza para definir los objetos a los que debería aplicarse la regla. Si se deja vacía, la regla se aplica a todos los objetos de usuario. Pero también incluiría a salas de conferencias, cuentas de servicio y otros objetos de usuario que no son personas.
+   Esta sección se utiliza para definir los objetos a los que debería aplicarse la regla. Si se deja vacía, la regla se aplica a todos los objetos de usuario. Pero también incluiría a salas de conferencias, cuentas de servicio y otros objetos de usuario que no son personas.
 4. En el campo **Join rules**(Reglas de unión), déjelo vacío.
 5. En la página **Transformations** (Transformations), cambie FlowType por **Expression**. Seleccione el atributo de destino **givenName** y, en el origen, escriba `PCase([givenName])`.
    ![Transformaciones de la regla de entrada](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
-    El motor de sincronización distingue mayúsculas de minúsculas tanto en el nombre de función como en el nombre del atributo. Si escribe algo incorrecto, verá una advertencia al agregar la regla. El editor permite guardar y continuar, por lo que deberá volver a abrir la regla y corregir la regla.
+   El motor de sincronización distingue mayúsculas de minúsculas tanto en el nombre de función como en el nombre del atributo. Si escribe algo incorrecto, verá una advertencia al agregar la regla. El editor permite guardar y continuar, por lo que deberá volver a abrir la regla y corregir la regla.
 6. Haga clic en **Agregar** para guardar la regla.
 
 La nueva regla personalizada debe aparecer con las demás reglas de sincronización en el sistema.
@@ -81,14 +81,14 @@ Inicie el **Servicio de sincronización** desde el menú Inicio. Los pasos de es
 1. **Sincronización completa en todos los objetos**  
    Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Servicios de dominio de Active Directory, y selecciónelo. Seleccione **Ejecutar** en Acciones y seleccione **Sincronización completa** y **Aceptar**.
    ![Sincronización completa](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
-    Los objetos se actualizan ahora en el metaverso. Ahora desea ver el objeto en el metaverso.
+   Los objetos se actualizan ahora en el metaverso. Ahora desea ver el objeto en el metaverso.
 2. **Vista previa y sincronización completa en un solo objeto**  
-   Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Servicios de dominio de Active Directory, y selecciónelo. Seleccione **Search Connector Space**(Buscar espacio de conector). Use el ámbito para encontrar un objeto que se vaya a utilizar para probar el cambio. Seleccione el objeto y haga clic en **Vista previa**. En la nueva pantalla, seleccione **Vista previa de confirmación**.
+   Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Servicios de dominio de Active Directory, y selecciónelo. Seleccione **Search Connector Space**(Buscar espacio de conector). Use el ámbito para encontrar un objeto que se vaya a utilizar para probar el cambio. Seleccione el objeto y haga clic en **Vista previa**. En la nueva pantalla, seleccione **Vista previa de confirmación**.  
    ![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
-    Ahora, el cambio se confirma en el metaverso.
+   Ahora, el cambio se confirma en el metaverso.
 
 **Visualización del objeto en el metaverso**  
- Ahora quiere seleccionar algunos objetos de ejemplo para asegurarse de que el valor es el previsto y que se aplica la regla. Seleccione **Metaverse Search** (Búsqueda de metaverso) en la parte superior. Agregue cualquier filtro que necesite para buscar los objetos pertinentes. En los resultados de la búsqueda, abra un objeto. Consulte los valores de atributo y compruebe también que en la columna **Sync Rules** (Reglas de sincronización) se aplica la regla de la forma prevista.  
+Ahora quiere seleccionar algunos objetos de ejemplo para asegurarse de que el valor es el previsto y que se aplica la regla. Seleccione **Metaverse Search** (Búsqueda de metaverso) en la parte superior. Agregue cualquier filtro que necesite para buscar los objetos pertinentes. En los resultados de la búsqueda, abra un objeto. Consulte los valores de atributo y compruebe también que en la columna **Sync Rules** (Reglas de sincronización) se aplica la regla de la forma prevista.  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Habilitación del programador
@@ -107,7 +107,7 @@ Para crear una regla con otros flujos de atributo, haga lo siguiente:
 
 * Inicie el **Editor de reglas de sincronización** en el menú Inicio.
 * Con **Entrante** aún seleccionado a la izquierda, haga clic en el botón **Agregar nueva regla**.
-* Asigne a la regla un nombre y una descripción. Seleccione Active Directory local y los tipos de objeto correspondientes.  En **Tipo de vínculo**, seleccione **Unir**. Para establecer la precedencia, seleccione un número que no se use en otra regla. Las reglas listas para usar comienzan con 100, así que en este ejemplo se puede usar el valor 50.
+* Asigne a la regla un nombre y una descripción. Seleccione Active Directory local y los tipos de objeto correspondientes. En **Tipo de vínculo**, seleccione **Unir**. Para establecer la precedencia, seleccione un número que no se use en otra regla. Las reglas listas para usar comienzan con 100, así que en este ejemplo se puede usar el valor 50.
   ![Flujo de atributos 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
 * Deje el ámbito vacío (es decir, se debe aplicar a todos los objetos de usuario del bosque).
 * Deje las reglas de unión vacías (es decir, permita que la regla lista para usar controle las uniones).
@@ -133,7 +133,7 @@ En esta expresión, se toma todo de la izquierda en el primer @-sign (Word) y se
 Algunos atributos de Active Directory tienen varios valores en el esquema  aunque parezca que tienen un valor en Usuarios y equipos de Active Directory. Un ejemplo es el atributo description.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-En esta expresión, en caso de que el atributo tenga un valor, tomamos el primer elemento (Elemento) en el atributo, quitamos los espacios iniciales y finales (Recorte) y, a continuación, conservamos los primeros 448 caracteres (Izquierda) en la cadena.
+En esta expresión, en caso de que el atributo tenga un valor, se toma el primer elemento (Elemento) en el atributo, se quitan los espacios iniciales y finales (Recorte) y, a continuación, se conservan los primeros 448 caracteres (Izquierda) en la cadena.
 
 ### <a name="do-not-flow-an-attribute"></a>No pasar atributos
 Para más información sobre el escenario de esta sección, consulte [Control del proceso de flujo de atributo](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
@@ -152,6 +152,25 @@ En Fabrikam no hemos dado cuenta de que algunos de los atributos sincronizamos c
 * Compruebe que los cambios deseados están a punto de exportarse; para ello, busque en el espacio de conector.
   ![Eliminación por fases](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
+## <a name="create-rules-with-powershell"></a>Creación de reglas con PowerShell
+El uso del editor de reglas de sincronización es apropiado si solo tiene unos pocos cambios que realizar. Si tiene que realizar muchos cambios, PowerShell podría ser una mejor opción. Algunas características avanzadas solo están disponibles con PowerShell.
+
+### <a name="get-the-powershell-script-for-an-out-of-box-rule"></a>Obtención del script de PowerShell para una regla integrada
+Para ver el PowerShell de script que crea una regla integrada, seleccione la regla en el editor de reglas de sincronización y haga clic en **Exportar**. Esta acción le proporciona el script de PowerShell que crea la regla.
+
+### <a name="advanced-precedence"></a>Precedencia avanzada
+Las reglas de sincronización integradas comienzan con un valor de prioridad de 100. Si tiene varios bosques y necesita realizar muchos cambios personalizados, a continuación, 99 reglas de sincronización podrían no ser suficientes.
+
+Puede indicar al motor de sincronización que desea insertar reglas adicionales antes de las reglas integradas. Para conseguirlo, siga estos pasos:
+
+1. Marque la primera regla de sincronización integrada (esta regla es **In from AD-User Join**) en el editor de reglas de sincronización y seleccione **Exportar**. Copie el valor del identificador de SR.  
+![PowerShell antes del cambio](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
+2. Cree la nueva regla de sincronización. Puede usar el editor de reglas de sincronización para ello. Exporte la regla a un script de PowerShell.
+3. En la propiedad **PrecedenceBefore**, inserte el valor del identificador de la regla integrada. Establezca el valor de **Precedencia** en **0**. Asegúrese de que el atributo de identificador es único y de que no está reutilizando un GUID de otra regla. También asegúrese de que no se ha establecido la propiedad **ImmutableTag**, ya que solo debe hacerse para una regla integrada. Guarde el script de PowerShell y ejecútelo. Como resultado, a la regla integrada se le agrega un valor de precedencia de 100 y se incrementan el resto de reglas rápidas.  
+![PowerShell después del cambio](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
+
+Puede tener muchas reglas de sincronización personalizadas con el mismo valor **PrecedenceBefore** cuando sea necesario.
+
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
@@ -163,7 +182,6 @@ En Fabrikam no hemos dado cuenta de que algunos de los atributos sincronizamos c
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

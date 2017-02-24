@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/04/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: da1a8c45a1753d617e0cb62f99bc47d22838a8e8
-ms.openlocfilehash: ac58f3f5498edbd6f7b19db647a9513a485d6dbf
+ms.sourcegitcommit: 617599c7df6284e6319a1b3331d1e894e5d4b2d1
+ms.openlocfilehash: 2ced7d0d4e2e653013c605932066c412c4202082
 
 
 ---
@@ -353,11 +353,15 @@ Debe implementar el paquete mediante un sistema de distribución de software com
 El instalador crea una tarea programada en el sistema que se ejecuta en el contexto del usuario. La tarea se desencadena cuando el usuario inicia sesión en Windows. La tarea registra de forma silenciosa el dispositivo en Azure AD con las credenciales de usuario después de realizar la autenticación mediante IWA. Para ver la tarea programada, vaya a **Microsoft** > **Unión al área de trabajo** y, a continuación, vaya a la biblioteca del programador de tareas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Acceso condicional de Azure Active Directory](active-directory-conditional-access.md)
+
+- Si se produjo un error durante el registro automático de dispositivos, consulte los siguientes temas de solución de problemas para obtener ayuda:
+    - [Para Windows 10 y Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+    - [Para el cliente de nivel inferior de Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+- Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre el registro automático de dispositivos](active-directory-conditional-access-automatic-device-registration-faq.md).
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

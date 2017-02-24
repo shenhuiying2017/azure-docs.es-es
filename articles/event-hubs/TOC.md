@@ -20,6 +20,7 @@
 ## Planeamiento y diseño
 ### [Event Hubs dedicado](event-hubs-dedicated-overview.md)
 ### [Introducción al modelo de autenticación y seguridad](event-hubs-authentication-and-security-model-overview.md)
+### [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md)
 ## Desarrollo
 ### [API disponibles](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
@@ -59,6 +60,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
