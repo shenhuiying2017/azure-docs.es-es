@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD y aplicaciones: guiar a los desarrolladores | Microsoft Docs'
+title: Desarrollo de aplicaciones de LOB para Azure AD | Microsoft Docs
 description: "Escrito para los profesionales de TI, este artículo ofrece instrucciones para integrar las aplicaciones de Azure con Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: fe295cb9b79593f7fd4635d142ec86d1c6897192
+ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
+ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
 
 
 ---
@@ -36,18 +36,18 @@ El registro de una aplicación permite a cualquier usuario hacer lo siguiente:
 * Obtener uno o más secretos o claves que la aplicación puede usar para autenticarse a sí misma en AD
 * Identificar la aplicación, por ejemplo, con un nombre o logotipo personalizado en el Portal de Azure
 * Aplicar las características de autorización de Azure AD en su aplicación, como las siguientes:
-  
+
   * Control de acceso basado en rol (RBAC)
   * Azure Active Directory como servidor de autorización de OAuth (proteger una API expuesta por la aplicación)
 * Indicar los permisos necesarios para que la aplicación funcione según lo previsto, como:
-  
+
       - Permisos de la aplicación (solo administradores globales). Por ejemplo: pertenencia a roles en otra aplicación de Azure AD o respecto a una suscripción, un grupo de recursos o un recurso de Azure
       - Permisos delegados (cualquier usuario) Por ejemplo: Azure AD, inicio de sesión y perfil de lectura
 
 > [!NOTE]
 > De forma predeterminada, cualquier miembro puede registrar una aplicación. Para obtener información sobre cómo restringir permisos de registro de aplicaciones a miembros específicos, consulte [Cómo se agregan aplicaciones a Azure AD](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-> 
-> 
+>
+>
 
 A continuación, se indica lo que el administrador global tendrá que hacer para ayudar a los desarrolladores a que su aplicación esté lista para la producción:
 
@@ -83,7 +83,6 @@ Para obtener más información sobre el consentimiento de usuarios y cómo se ut
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

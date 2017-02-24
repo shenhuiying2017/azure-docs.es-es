@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 314170f8d1ef228817543a80b99f4c2ff282866f
-ms.openlocfilehash: 8c783fc8e789ec31f0b8f4db90b5fa67334d95ab
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
 
 
 ---
-# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Uso de una biblioteca de cliente de Apache Cordova para Aplicaciones móviles de Azure
+# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Uso de una biblioteca de cliente de Apache Cordova para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 En esta guía se muestran algunos escenarios comunes del uso del último [complemento de Apache Cordova para Aplicaciones móviles de Azure]. Si no está familiarizado con Aplicaciones móviles de Azure, realice primero el tutorial [Creación de una aplicación de Apache Cordova] para crear un back-end, crear una tabla y descargar un proyecto de Apache Cordova previamente compilado. En esta guía nos centramos en el complemento de Apache Cordova del lado cliente.
 
 ## <a name="supported-platforms"></a>Plataformas compatibles
-Este SDK es compatible con la versión 6.0.0 y posterior de Apache Cordova en dispositivos iOS, Android y Windows.  Las plataformas compatibles con las siguientes:
+Este SDK es compatible con la versión&6;.0.0 y posterior de Apache Cordova en dispositivos iOS, Android y Windows.  Las plataformas compatibles con las siguientes:
 
 * Niveles de API de Android del 19 al 24 (de KitKat a Nougat)
 * Versiones 8.0 y posteriores de iOS.
@@ -42,6 +42,32 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 Para más información sobre la creación de [su primera aplicación de Apache Cordova], consulte su documentación.
 
+## <a name="a-nameionicasetting-up-an-ionic-v2-app"></a><a name="ionic"></a>Configuración de una aplicación de Ionic v2
+
+Para configurar correctamente un proyecto de Ionic v2, primero cree una aplicación básica y agregue el complemento de Cordova:
+
+```
+ionic start projectName --v2
+cd projectName
+ionic plugin add cordova-plugin-ms-azure-mobile-apps
+```
+
+Agregue las siguientes líneas a `app.component.ts` para crear el objeto de cliente:
+
+```
+declare var WindowsAzure: any;
+var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
+```
+
+Ahora puede compilar y ejecutar el proyecto en el explorador:
+
+```
+ionic platform add browser
+ionic run browser
+```
+
+El complemento de Cordova de Azure Mobile Apps es compatible con Ionic v1 y v2.  Solo las aplicaciones de Ionic v2 requieren la declaración adicional para el objeto `WindowsAzure`.
+
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>Autenticación de usuarios
@@ -56,7 +82,7 @@ Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de clie
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
+### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Cómo configurar el servicio de Mobile Apps para URL de redireccionamiento externas
 Varios tipos de aplicaciones de Apache Cordova utilizan una función de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth.  Los flujos de interfaz de usuario de OAuth conllevan problemas, ya que el servicio de autenticación solo sabe cómo utilizar el servicio de manera predeterminada.  Ejemplos de flujos de interfaz de usuario de OAuth problemáticos:
 
 * El emulador Ripple
@@ -96,7 +122,7 @@ Agregue también estas URL de bucle invertido a la configuración de CORS:
 
 Los nuevos ajustes tardarán aproximadamente entre 10 y 15 segundos en surtir efecto.
 
-## <a name="a-nameregister-for-pushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
+## <a name="a-nameregister-for-pushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>Registrar notificaciones de inserción
 Instale [phonegap-plugin-push] para administrar las notificaciones push.  Este complemento se puede agregar fácilmente mediante el comando `cordova plugin add` en la línea de comandos o por medio del instalador de complementos Git dentro de Visual Studio.  El siguiente código de la aplicación de Apache Cordova registrará el dispositivo para notificaciones push:
 
 ```
@@ -158,6 +184,6 @@ Puede encontrar información detallada sobre las API en nuestra [documentación 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

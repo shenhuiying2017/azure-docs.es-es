@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: c853d61257493d73cd0f8a51a15f0389e1e83cf4
 
 
 ---
@@ -109,19 +109,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 3. En el cuadro de diálogo **Configurar las opciones de la aplicación**, si desea configurar la aplicación en el **modo iniciado por el proveedor de identidades**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_04.png)
-   
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<your-subdomain>.<region>.deputy.com`.
-   
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<your-subdomain>.<region>.deputy.com/exec/devapp/samlacs`.
-   
-    c. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<your-subdomain>.<region>.deputy.com`.
+  2. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<your-subdomain>.<region>.deputy.com/exec/devapp/samlacs`.
+  3. Haga clic en **Siguiente**.
 4. Si quiere configurar la aplicación en el **modo iniciado por el proveedor de servicios**, en la página de diálogo **Configurar las opciones de la aplicación**, haga clic en **"Mostrar la configuración avanzada (opcional)"**, escriba la **URL de inicio de sesión** y haga clic en **Siguiente**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_05.png)
-   
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<your-subdomain>.<region>.deputy.com`.
-   
-    b. Haga clic en **Siguiente**.
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<your-subdomain>.<region>.deputy.com`.
+   2. Haga clic en **Siguiente**.
    
    > [!NOTE]
    > El sufijo de la región de Deputy es opcional o debe usar uno de los siguientes: au | na | eu |as |la |af |an |ent-au |ent-na |ent-eu |ent-as | ent-la | ent-af | ent-an
@@ -130,27 +125,21 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 5. En la página **Configurar inicio de sesión único en Deputy**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_06.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+   1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
 6. Vaya a la siguiente dirección URL: https://(your-subdomain).deputy.com/exec/config/system_config. Vaya a **Configuración de seguridad** y haga clic en **Editar**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
 7. En el Portal de Azure clásico, en la configuración de inicio de sesión único en la página de Deputy, copie la dirección URL de SSO de SAML. 
 8. En esta página de **configuración de seguridad** , siga estos pasos.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)
-   
-    a. Habilite el **inicio de sesión social**.
-   
-    b. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el portapapeles y luego péguelo en el cuadro de texto **Certificado OpenSSL** .
-   
-    c. En el cuadro de texto Dirección URL de inicio de sesión único de SAML, escriba `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
-   
-    d. En el cuadro de texto URL de SSO de SAM, reemplace `<your subdomain>` por el subdominio.
-   
-    e. En el cuadro de texto Dirección URL de inicio de sesión único de SAML, reemplace `<saml sso url>` por la URL de SSO de SAML que haya copiado desde el Portal de Azure clásico.
-   
-    f. Haga clic en **Guardar configuración**.
+![Configurar inicio de sesión único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)
+
+   1. Habilite el **inicio de sesión social**.
+   2. Abra el certificado codificado en base&64; en el Bloc de notas, copie su contenido en el portapapeles y luego péguelo en el cuadro de texto **Certificado OpenSSL**.
+   3. En el cuadro de texto Dirección URL de inicio de sesión único de SAML, escriba `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
+   4. En el cuadro de texto URL de SSO de SAM, reemplace `<your subdomain>` por el subdominio.
+   5. En el cuadro de texto Dirección URL de inicio de sesión único de SAML, reemplace `<saml sso url>` por la URL de SSO de SAML que haya copiado desde el Portal de Azure clásico.
+   6. Haga clic en **Guardar configuración**.
 9. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -178,25 +167,20 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_05.png)
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+
+   1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+   2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+   3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_06.png)
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+   1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+   2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+   3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+   4. En la lista **Rol**, seleccione **Usuario**.
+   5. Haga clic en **Siguiente**.
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_07.png)
@@ -204,9 +188,8 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_08.png)
    
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+   1. Anote el valor del campo **Nueva contraseña**.
+   2. Haga clic en **Completo**.   
 
 ### <a name="creating-a-deputy-test-user"></a>Creación de usuario de prueba de Deputy
 Para permitir que los usuarios de Azure AD inicien sesión en Deputy, deben aprovisionarse en Deputy. En el caso de Deputy, el aprovisionamiento es una tarea manual.
@@ -215,21 +198,18 @@ Para permitir que los usuarios de Azure AD inicien sesión en Deputy, deben apro
 1. Inicie sesión en su sitio de la compañía de Deputy como administrador.
 2. En la parte superior del panel de navegación, haga clic en **Contactos**.
    
-   ![Personas](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "People")
+   ![Personas](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "Personas")
 3. Haga clic en el botón **Agregar personas** y en **Agregar una sola persona**.
    
-   ![Agregar personas](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "Add People")
+   ![Agregar personas](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "Agregar personas")
 4. Realice los pasos siguientes y haga clic en **Guardar e invitar**.
    
-   ![Nuevo usuario](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "New User")
+   ![Nuevo usuario](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "Nuevo usuario")
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta** y **Simon**.  
-   
-   b. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de la cuenta de Azure AD que quiera aprovisionar.
-   
-   c. En el cuadro de texto **Trabaja en** , escriba el nombre de la empresa.
-   
-   d. Haga clic en el botón **Guardar e invitar**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta** y **Simon**.  
+  2. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de la cuenta de Azure AD que quiera aprovisionar.
+  3. En el cuadro de texto **Trabaja en** , escriba el nombre de la empresa.
+  4. Haga clic en el botón **Guardar e invitar**.
    
    > [!NOTE]
    > El titular de la cuenta de AAD recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta para que se active. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Deputy que proporcione Deputy para aprovisionar cuentas de usuario de AAD.
@@ -286,6 +266,6 @@ Al hacer clic en el icono de Deputy en el panel de acceso, debería iniciar sesi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -26,7 +26,7 @@ ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
 En este artículo se describe cómo implementar S/4 Hana en Microsoft Azure por medio de SAP Cloud Appliance Library 3.0.
 Las capturas de pantalla muestran el proceso paso a paso. La implementación de otras soluciones basadas en SAP Hana, como BW/4 Hana, funciona del mismo modo desde la perspectiva del proceso. Solo se tiene que seleccionar una solución diferente.
 
-Para empezar con SAP Cloud Appliance Library (SAP CAL), vaya [aquí](https://cal.sap.com/). Hay un blog de SAP sobre la nueva versión de [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Para empezar con SAP Cloud Appliance Library (SAP CAL), vaya [aquí](https://cal.sap.com/). Hay un blog de SAP sobre la nueva versión de [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
 Las capturas de pantalla siguientes muestran paso a paso cómo implementar S/4 Hana en Microsoft Azure. El proceso funciona del mismo modo para otras soluciones como BW/4 Hana.
 
@@ -46,8 +46,6 @@ A continuación, debe escribir el identificador de suscripción de Azure que pue
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic6b.jpg)
 
 En el nuevo portal de Azure, busque el elemento "Suscripciones" en el lado izquierdo. Haga clic en él para mostrar todas las suscripciones activas para el usuario.
-
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
 Si selecciona una de las suscripciones y después "Certificados de administración", verá una explicación sobre el concepto nuevo de "entidades de servicio" usado para el nuevo modelo de Azure Resource Manager.
 SAP CAL aún no se ha adaptado a este nuevo modelo y sigue requiriendo el modelo "clásico" y el Portal de Azure anterior para trabajar con certificados de administración.
@@ -92,7 +90,6 @@ Ahora es posible conectarse a la solución mediante el botón correspondiente en
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Otra opción consiste en iniciar sesión en la máquina virtual Windows cliente e iniciar, por ejemplo, la instancia de SAP GUI configurada previamente.
-
 
 
 

@@ -164,7 +164,8 @@ Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azur
 
 ```azurecli
 az vm availability-set create --resource-group myResourceGroup --location westeurope \
-  --name myAvailabilitySet
+  --name myAvailabilitySet \
+  --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
 Cree la primera máquina virtual Linux con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una VM denominada `myVM1` mediante Azure Managed Disks. Si desea usar discos no administrados, vea la nota adicional a continuación.
@@ -176,9 +177,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic1 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser
@@ -200,9 +198,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic2 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser
@@ -997,7 +992,8 @@ Los conjuntos de disponibilidad ayudan a propagar las máquinas virtuales a los 
 
 ```azurecli
 az vm availability-set create --resource-group myResourceGroup --location westeurope \
-  --name myAvailabilitySet
+  --name myAvailabilitySet \
+  --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
 Los dominios de error definen un grupo de máquinas virtuales que comparten una fuente de alimentación común y un conmutador de red. De manera predeterminada, las máquinas virtuales configuradas dentro de su conjunto de disponibilidad se separan en hasta tres dominios de error. La idea es que un problema de hardware en uno de estos dominios de error no afecte a cada máquina virtual que ejecute la aplicación. Azure distribuye automáticamente las máquinas virtuales en los dominios de error al incluirlos en un conjunto de disponibilidad.
@@ -1021,9 +1017,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic1 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser
@@ -1086,9 +1079,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic2 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser

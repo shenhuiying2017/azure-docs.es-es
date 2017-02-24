@@ -2,7 +2,7 @@
 ## [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 ## [Elección de la edición](active-directory-editions.md)
 ## [Acerca de la administración de identidades de Azure](fundamentals-identity.md)
-## [Vista previa de la experiencia de Azure Portal](active-directory-preview-explainer.md)
+## [Vista previa de la experiencia del portal de Azure AD](active-directory-preview-explainer.md)
 
 
 # Primeros pasos
@@ -50,8 +50,11 @@
 ### [Configuración de grupos de autoservicio](active-directory-accessmanagement-self-service-group-management.md)
 ### [Solución de problemas](active-directory-accessmanagement-troubleshooting.md)
 
-## [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
+## [Visualización de informes de actividades y de seguridad](active-directory-view-access-usage-reports.md)
 ### [Informes de Azure AD](active-directory-reporting-getting-started.md)
+### [Preguntas más frecuentes](active-directory-reporting-faq.md)
+### [Migración de informes](active-directory-reporting-migration.md)
+
 ### [Redes conocidas](active-directory-known-networks.md)
 
 ### [Guía de creación de informes](active-directory-reporting-guide.md)
@@ -106,6 +109,7 @@
 #### [Implementación](active-directory-azureadjoin-devices-group-policy.md)
 #### [Autenticación sin contraseñas](active-directory-azureadjoin-passport.md)
 #### [Habilitación de Windows Hello para empresas](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Descripción de la integración de Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Uso de dispositivos de Windows 10](active-directory-azureadjoin-windows10-devices.md)
 #### [Preguntas más frecuentes](active-directory-conditional-access-automatic-device-registration-faq.md)
@@ -123,25 +127,31 @@
 
 ### [Concesión de acceso remoto a las aplicaciones](active-directory-application-proxy-get-started.md)
 #### [Habilitación del proxy de aplicación](active-directory-application-proxy-enable.md)
+#### [Descripción de los conectores](application-proxy-understand-connectors.md)
+
 #### Publicación de aplicaciones
 ##### [Portal de Azure](application-proxy-publish-azure-portal.md)
 ##### [Portal clásico](active-directory-application-proxy-publish.md)
+#### [Seguridad](application-proxy-security-considerations.md)
+#### [Redes](application-proxy-network-topology-considerations.md)
+#### [Escritorio remoto](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Publicación en redes independientes
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Portal clásico](active-directory-application-proxy-connectors.md)
+#### [Servidores proxy](application-proxy-working-with-proxy-servers.md)
 #### [Dominios personalizados](active-directory-application-proxy-custom-domains.md)
+#### [Acceso a aplicaciones](active-directory-appssoaccess-whatis.md)
+##### [Portal de Azure](application-proxy-sso-azure-portal.md)
 #### [Inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
-##### [Azure Portal](application-proxy-sso-azure-portal.md)
 #### [Aplicaciones compatibles con notificaciones](active-directory-application-proxy-claims-aware-apps.md)
 #### [Aplicaciones de cliente nativo](active-directory-application-proxy-native-client.md)
+#### [Página de inicio personalizada](application-proxy-office365-app-launcher.md)
 #### [Acceso condicional](active-directory-application-proxy-conditional-access.md)
 #### [Instalación silenciosa](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Solución de problemas](active-directory-application-proxy-troubleshoot.md)
-### [Descripción de SSO para aplicaciones](active-directory-appssoaccess-whatis.md)
-
-### Integración a las aplicaciones SaaS
-#### [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
-#### [Portal clásico](active-directory-sso-integrate-saas-apps.md)
 
 ### Administración de aplicaciones empresariales
 #### [Asignación de usuarios](active-directory-coreapps-assign-user-azure-portal.md)
@@ -164,7 +174,6 @@
 
 ### [Uso de usuarios de aprovisionamiento de SCIM](active-directory-scim-provisioning.md)
 ### [Biblioteca de documentos](active-directory-apps-index.md)
-
 
 ## Administración del directorio
 ### Nombres de dominio personalizados
@@ -191,25 +200,29 @@
 #### [Configuración de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Preguntas más frecuentes](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Integración de asociados con B2B de Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Adición de usuarios de B2B por los administradores](active-directory-b2b-admin-add-users.md)
 #### [Adición de usuarios de B2B por los trabajadores de la información](active-directory-b2b-iw-add-users.md)
 #### [Invitación por correo electrónico](active-directory-b2b-invitation-email.md)
 #### [Canje de invitación](active-directory-b2b-redemption-experience.md)
-#### [Licencias](active-directory-b2b-licensing.md)
-#### [Solución de problemas de B2B](active-directory-b2b-troubleshooting.md)
-#### [Preguntas más frecuentes](active-directory-b2b-faq.md)
-#### [API y personalización](active-directory-b2b-api.md)
-#### [Multi-Factor Authentication para B2B](active-directory-b2b-mfa-instructions.md)
+#### [Propiedades de usuario B2B](active-directory-b2b-user-properties.md)
 #### [Adición de un usuario invitado a un rol](active-directory-b2b-add-guest-to-role.md)
+#### [API y personalización](active-directory-b2b-api.md)
 #### [Delegación de invitaciones](active-directory-b2b-delegate-invitations.md)
 #### [Grupos dinámicos y B2B](active-directory-b2b-dynamic-groups.md)
-#### [Ejemplos de código y de PowerShell](active-directory-b2b-code-samples.md)
-#### [Configuración de aplicaciones SaaS para B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Multi-Factor Authentication para B2B](active-directory-b2b-mfa-instructions.md)
 #### [Tokens de usuario de B2B](active-directory-b2b-user-token.md)
 #### [Asignación de notificaciones de usuario de B2B](active-directory-b2b-claims-mapping.md)
 #### [Uso compartido externo de Office 365](active-directory-b2b-o365-external-user.md)
+#### [Configuración de aplicaciones SaaS para B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Ejemplos de código y de PowerShell](active-directory-b2b-code-samples.md)
 #### [Limitaciones actuales](active-directory-b2b-current-limitations.md)
+#### [Licencias](active-directory-b2b-licensing.md)
+#### [Solución de problemas de B2B](active-directory-b2b-troubleshooting.md)
+#### [Comparación de la colaboración B2B con B2C](active-directory-b2b-compare-b2c.md)
+#### [Obtención de soporte técnico para B2B](active-directory-b2b-support.md)
+#### [Preguntas más frecuentes](active-directory-b2b-faq.md)
 ### [Integración de identidades locales con Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
@@ -219,9 +232,9 @@
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
 ### [Control de acceso basado en roles](role-based-access-control-what-is.md)
-#### Administración del acceso
-##### [Azure Portal](role-based-access-control-manage-assignments.md)
-##### [Portal clásico](role-based-access-control-configure.md)
+#### Administración de asignaciones de acceso
+##### [Por usuario](role-based-access-control-manage-assignments.md)
+##### [Por recurso](role-based-access-control-configure.md)
 #### [Roles integrados](role-based-access-built-in-roles.md)
 #### [Roles personalizados](role-based-access-control-custom-roles.md)
 #### [Informes](role-based-access-control-access-change-history-report.md)
@@ -312,6 +325,6 @@
 ## [Foro de comentarios de Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

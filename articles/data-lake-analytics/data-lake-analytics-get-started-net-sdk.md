@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Azure Data Lake Analytics mediante .NET SDK | Microsoft Docs"
-description: "Aprenda a usar .NET SDK para crear cuentas del Almacén de Data Lake, crear trabajos de Análisis de Data Lake y enviar trabajos escritos en U-SQL. "
+description: 'Aprenda a usar .NET SDK para crear cuentas de Data Lake Analytics, crear trabajos de Data Lake Analytics y enviar trabajos escritos en U-SQL. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ Debe usar rutas de acceso absolutas para acceder a los archivos de las cuentas d
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ Debe usar rutas de acceso absolutas para acceder a los archivos de las cuentas d
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ Debe usar rutas de acceso absolutas para acceder a los archivos de las cuentas d
           }
         }
 
-1. Presione **F5** para ejecutar la aplicación. El resultado es como el que aparece a continuación:
+5. Presione **F5** para ejecutar la aplicación. El resultado es como el que aparece a continuación:
    
     ![Salida del SDK de .NET de U-SQL del trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Compruebe el archivo de salida.  El nombre de archivo y la ruta de acceso predeterminados son c:\Temp\SearchLog-from-Data-Lake.csv.
+6. Compruebe el archivo de salida.  El nombre de archivo y la ruta de acceso predeterminados son c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>Consulte también
 * Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
@@ -257,6 +257,6 @@ Debe usar rutas de acceso absolutas para acceder a los archivos de las cuentas d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 738184f4a253201a9aa7581e03d269a06d7cf48a
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integración de Azure Active Directory con PolicyStat
 El objetivo de este tutorial es mostrar la integración de Azure y PolicyStat.  
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
@@ -35,63 +36,67 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-policystat-tutorial/IC808662.png "Scenario")
+![Escenario](./media/active-directory-saas-policystat-tutorial/IC808662.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-policystat"></a>Habilitación de la integración de aplicaciones para PolicyStat
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para PolicyStat.
 
-### <a name="to-enable-the-application-integration-for-policystat-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para PolicyStat:
+**Siga estos pasos para habilitar la integración de aplicaciones para PolicyStat:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-policystat-tutorial/IC700993.png "Active Directory")
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-   ![Applications](./media/active-directory-saas-policystat-tutorial/IC700994.png "Applications")
+   ![Aplicaciones](./media/active-directory-saas-policystat-tutorial/IC700994.png "Aplicaciones")
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-   ![Agregar aplicación](./media/active-directory-saas-policystat-tutorial/IC749321.png "Add application")
+   ![Agregar aplicaciones](./media/active-directory-saas-policystat-tutorial/IC749321.png "Agregar aplicaciones")
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-policystat-tutorial/IC749322.png "Add an application from gallerry")
+   ![Agregar una aplicación de la galería](./media/active-directory-saas-policystat-tutorial/IC749322.png "Agregar una aplicación de la galería")
 6. En el **cuadro de búsqueda**, escriba **PolicyStat**.
    
-   ![Galería de aplicaciones](./media/active-directory-saas-policystat-tutorial/IC808627.png "Application Gallery")
+   ![Galería de aplicaciones](./media/active-directory-saas-policystat-tutorial/IC808627.png "Galería de aplicaciones")
 7. En el panel de resultados, seleccione **PolicyStat** y haga clic en **Completar** para agregar la aplicación.
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-   ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en PolicyStat con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+
 La aplicación PolicyStat espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token de SAML** .  
+
 La siguiente captura de pantalla le muestra un ejemplo de esto.
 
-![Atributos](./media/active-directory-saas-policystat-tutorial/IC808628.png "Attributes")
+![Atributos](./media/active-directory-saas-policystat-tutorial/IC808628.png "Atributos")
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **PolicyStat**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configure Single Sign-On")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configurar inicio de sesión único")
 2. En la página **¿Cómo desea que los usuarios inicien sesión en PolicyStat?**, seleccione **Inicio de sesión único de Microsoft Azure** AD y haga clic en **Siguiente**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808630.png "Configure Single Sign-On")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808630.png "Configurar inicio de sesión único")
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL utilizada por los usuarios para iniciar sesión en su aplicación de PolicyStat de URL (por ejemplo, *“https://demo-azure.policystat.com”*) y haga clic en **Siguiente**.
    
-   ![Configurar las opciones de la aplicación](./media/active-directory-saas-policystat-tutorial/IC808631.png "Configure App Settings")
+   ![Configurar las opciones de la aplicación](./media/active-directory-saas-policystat-tutorial/IC808631.png "Configurar las opciones de la aplicación")
 4. En la página **Configuración de inicio de sesión único en PolicyStat**, haga clic en **Descargar metadatos** y guarde el archivo de metadatos en el equipo.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808632.png "Configure Single Sign-On")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808632.png "Configurar inicio de sesión único")
 5. En otra ventana del explorador web, inicie sesión en el sitio de la compañía PolicyStat como administrador.
 6. Haga clic en la pestaña **Administración** y en **Configuración de inicio de sesión único** en el panel de navegación izquierdo.
    
-   ![Menú Administrador](./media/active-directory-saas-policystat-tutorial/IC808633.png "Administrator Menu")
+   ![Menú Administrator](./media/active-directory-saas-policystat-tutorial/IC808633.png "Menú Administrator")
 7. En la sección **Configuración**, seleccione **Habilitar la integración de inicio de sesión único**.
    
-   ![Configuración de inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808634.png "Single Sign-On Configuration")
+   ![Configuración de inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808634.png "Configuración de inicio de sesión único")
 8. Haga clic en **Configurar atributos** y, en la sección **Configurar atributos**, realice los pasos siguientes:
    
-   ![Configuración de inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808635.png "Single Sign-On Configuration")
+   ![Configuración de inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808635.png "Configuración de inicio de sesión único")
    
    1. En el cuadro de texto **Atributo de nombre de usuario**, escriba **uid**.
    2. En el cuadro de texto **Atributo de nombre**, escriba **firstname**.
@@ -100,28 +105,31 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
    5. Haga clic en **Guardar cambios**.
 9. Haga clic en **Sus metadatos de IDP** y en la sección **Sus metadatos de IDP**, realice los pasos siguientes:
    
-   ![Configuración de inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808635.png "Single Sign-On Configuration")
+   ![Configuración de inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808635.png "Configuración de inicio de sesión único")
    
-   1. Abra el archivo de metadatos descargado, copie el contenido y luego péguelo en el cuadro de texto **Metadatos del proveedor de identidades** .
+   1. Abra el archivo de metadatos descargado, copie el contenido y luego péguelo en el cuadro de texto **Metadatos del proveedor de identidades**.
    2. Haga clic en **Guardar cambios**.
 10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configure Single Sign-On")
-11. 1. En el menú de la parte superior, haga clic en **Atributos** to open the **SAML Token Atributos** .
+    ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configurar inicio de sesión único")
+  
+11. En el menú de la parte superior, haga clic en **Atributos** to open the **SAML Token Atributos** .
     
-    ![Atributos](./media/active-directory-saas-policystat-tutorial/IC795920.png "Attributes")
+    ![Atributos](./media/active-directory-saas-policystat-tutorial/IC795920.png "Atributos")
 12. Para agregar las asignaciones de los atributos necesarios, realice los pasos siguientes:
     
-    ![Atributos](./media/active-directory-saas-policystat-tutorial/IC804823.png "Attributes")
+    ![Atributos](./media/active-directory-saas-policystat-tutorial/IC804823.png "Atributos")
     
-    1. Haga clic en **agregar atributo de usuario**.
-    2. En el cuadro de texto **Nombre de atributo**, escriba **uid**.
-    3. En el cuadro de texto **Valor del atributo**, seleccione **ExtractMailPrefix()**.
-    4. En la lista **Correo**, seleccione **User.mail**.
-    5. Haga clic en **Completo**.
-       ##<a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+   1. Haga clic en **agregar atributo de usuario**.
+   2. En el cuadro de texto **Nombre de atributo**, escriba **uid**.
+   3. En el cuadro de texto **Valor del atributo**, seleccione **ExtractMailPrefix()**.    
+   4. En la lista **Correo**, seleccione **User.mail**.
+   5. Haga clic en **Completo**.
+
+##<a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 
 Para permitir que los usuarios de Azure AD inicien sesión en PolicyStat, deben aprovisionarse en PolicyStat.  
+
 PolicyStat admite aprovisionamiento de usuarios justo a tiempo. Esto significa que no es necesario agregar usuarios manualmente a PolicyStat.  
 Los usuarios se agregarán automáticamente en su primer inicio de sesión a través del inicio de sesión único.
 
@@ -133,20 +141,21 @@ Los usuarios se agregarán automáticamente en su primer inicio de sesión a tra
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-policystat-perform-the-following-steps"></a>Para asignar usuarios a PolicyStat, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a PolicyStat, lleve a cabo los siguientes pasos:**
+
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **PolicyStat**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-policystat-tutorial/IC808636.png "Assign Users")
+   ![Asignar usuarios](./media/active-directory-saas-policystat-tutorial/IC808636.png "Asignar usuarios")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-policystat-tutorial/IC767830.png "Yes")
+   ![Sí](./media/active-directory-saas-policystat-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

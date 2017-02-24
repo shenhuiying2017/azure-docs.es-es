@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
+ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
+ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 
 ---
@@ -35,6 +35,10 @@ Archivos de vídeo. Actualmente, se admiten los siguientes formatos: MP4, MOV y 
 
 ## <a name="task-configuration"></a>Configuración de tareas
 Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **Azure Media OCR**, debe especificar una configuración preestablecida mediante JSON o XML. 
+
+>[!NOTE]
+>El motor de OCR solo toma una área de imagen con un mínimo de 40 píxeles hasta un máximo de 32 000 píxeles como entrada válida en los valores alto y ancho.
+>
 
 ### <a name="attribute-descriptions"></a>Descripciones de atributos
 | Nombre del atributo | Description |
@@ -342,6 +346,6 @@ El programa siguiente muestra cómo:
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

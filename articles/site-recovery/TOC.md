@@ -2,7 +2,7 @@
 ## [¿Qué es Site Recovery?](site-recovery-overview.md)
 ## [¿Cómo funciona Site Recovery?](site-recovery-components.md)
 ## [¿Qué cargas de trabajo se pueden proteger?](site-recovery-workload.md)
-## [Matriz de compatibilidad de Site Recovery](site-recovery-support-matrix.md)
+## [Matriz de compatibilidad de Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [Preguntas más frecuentes](site-recovery-faq.md)
 ## [Vídeo introductorio](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -26,7 +26,14 @@
 ### [Implementación de Mobility Service para la replicación de VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Implementación de Mobility Service con System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Implementación de Mobility Service con DSC de Automatización de Azure](site-recovery-automate-mobility-service-install.md)
-### [Quitar servidores y deshabilitar la protección](site-recovery-manage-registration-and-protection.md)
+## Conmutación por error y conmutación por recuperación
+### [Conmutación por error en Site Recovery](site-recovery-failover.md)
+### [Configuración de planes de recuperación](site-recovery-create-recovery-plans.md)
+#### [Adicción de runbooks de Azure a los planes de recuperación](site-recovery-runbook-automation.md)
+### [Ejecución de una conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md)
+### [Ejecución de una conmutación por error de prueba entre dos sitios VMM](site-recovery-test-failover-vmm-to-vmm.md)
+### [Conmutación por recuperación de VM de VMware y servidores físicos](site-recovery-failback-azure-to-vmware.md)
+
 ## Migrar
 ### [Migración a Azure](site-recovery-migrate-to-azure.md)
 ### [Migración entre regiones de Azure](site-recovery-migrate-azure-to-azure.md)
@@ -44,13 +51,9 @@
 ### [Automatización de la replicación de Hyper-V en Azure (sin VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Automatización de la replicación de Hyper-V en Azure (con VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatización de la replicación de Hyper-V en un sitio secundario (con VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-## Conmutación por error y conmutación por recuperación
-### [Conmutación por error en Site Recovery](site-recovery-failover.md)
-### [Configuración de planes de recuperación](site-recovery-create-recovery-plans.md)
-#### [Adicción de runbooks de Azure a los planes de recuperación](site-recovery-runbook-automation.md)
-### [Ejecución de una conmutación por error de prueba de VMware a Azure](site-recovery-test-failover-to-azure.md)
-### [Ejecución de una conmutación por error de prueba entre dos sitios VMM](site-recovery-test-failover-vmm-to-vmm.md)
-### [Conmutación por recuperación de VM de VMware y servidores físicos](site-recovery-failback-azure-to-vmware.md)
+## Administrar
+### [Quitar servidores y deshabilitar la protección](site-recovery-manage-registration-and-protection.md)
+### [Edición de la configuración de replicación](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
 ## [Supervisión y solución de problemas](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referencia
@@ -69,6 +72,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

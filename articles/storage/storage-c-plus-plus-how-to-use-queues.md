@@ -55,8 +55,8 @@ Install-Package wastorage
 Agregue las siguientes instrucciones include en la parte superior del archivo C++ en el que desea usar las API de almacenamiento de Azure para obtener acceso a las colas:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/queue.h"
+#include <was/storage_account.h>
+#include <was/queue.h>
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configuración de una cadena de conexión de Almacenamiento de Azure

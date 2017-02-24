@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
-ms.openlocfilehash: 2ac01c010979fca0bb3df5d003dd639cd7819651
+ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
+ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
 
 
 ---
@@ -54,9 +54,10 @@ A continuación se muestra un ejemplo de un rol personalizado para supervisar y 
 }
 ```
 ## <a name="actions"></a>Acciones
-La propiedad **Actions** de un rol personalizado especifica las operaciones de Azure a las que el rol concede acceso. Se trata de una colección de cadenas de operación que identifican a las operaciones protegibles de proveedores de recursos de Azure. Las cadenas de la operación que contienen caracteres comodín (\*) conceden acceso a todas las operaciones que coinciden con la cadena de la operación. Por ejemplo:
+La propiedad **Actions** de un rol personalizado especifica las operaciones de Azure a las que el rol concede acceso. Se trata de una colección de cadenas de operación que identifican a las operaciones protegibles de proveedores de recursos de Azure. Las cadenas de operaciones usan el formato `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Las cadenas de la operación que contienen caracteres comodín (\*) conceden acceso a todas las operaciones que coinciden con la cadena de la operación. Por ejemplo:
 
 * `*/read` concede acceso a las operaciones de lectura a todos los tipos de recursos de todos los proveedores de recursos de Azure.
+* `Microsoft.Compute/*` concede acceso a todas las operaciones a todos los tipos de recursos del proveedor de recursos Microsoft.Compute.
 * `Microsoft.Network/*/read` concede acceso a las operaciones de lectura a todos los tipos de recursos del proveedor de recursos Microsoft.Network de Azure.
 * `Microsoft.Compute/virtualMachines/*` concede acceso a todas las operaciones de las máquinas virtuales y a sus tipos de recursos secundarios.
 * `Microsoft.Web/sites/restart/Action` concede acceso para reiniciar sitios web.
@@ -69,7 +70,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![Captura de pantalla de PowerShell: Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![Captura de pantalla de PowerShell: Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -122,6 +123,6 @@ La propiedad **AssignableScopes** del rol personalizado también controla quién
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,7 +16,8 @@
 
 # Recursos
 ##[Conexiones a origen de datos](analysis-services-datasource.md)
-##[Proveedores de datos](analysis-services-data-providers.md) 
+##[Proveedores de datos](analysis-services-data-providers.md)
+##[Creación de un archivo .odc](analysis-services-odc.md)
 
 
 <!--HONumber=Feb17_HO3-->

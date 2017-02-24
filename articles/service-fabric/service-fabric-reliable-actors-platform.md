@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 12565a57415642d68397982decb834a0c573ccbe
+ms.sourcegitcommit: c2e8f2d2f26bb93af5c2858242392b3dc207beb4
+ms.openlocfilehash: 2a3a5647f506d61e853f465f241d66fbe8c4ced0
 
 
 ---
@@ -30,7 +30,7 @@ En este artículo se explica cómo funciona Reliable Actors en la plataforma de 
 En conjunto, estos componentes forman el marco de trabajo de Reliable Actor. 
 
 ## <a name="service-layering"></a>Servicio en capas
-Debido a que el servicio de actor es un servicio de confianza, todos los conceptos de [modelo de aplicación](service-fabric-application-model.md), ciclo de vida, [empaquetado](service-fabric-application-model.md#package-an-application), [implementación]((service-fabric-deploy-remove-applications.md#deploy-an-application), actualización y escalado de Reliable Services se aplican del mismo modo a los servicios de actor. 
+Debido a que el propio servicio de actor es de tipo Reliable Services, todos los conceptos de [modelo de aplicación](service-fabric-application-model.md), ciclo de vida, [empaquetado](service-fabric-application-model.md#package-an-application), [implementación](service-fabric-deploy-remove-applications.md), actualización y escalado de Reliable Services se aplican del mismo modo a los servicios de actor. 
 
 ![Servicio de actor en capas][1]
 
@@ -251,6 +251,6 @@ Cuando se usan GUID y cadenas, se aplica un algoritmo hash a los valores en un I
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

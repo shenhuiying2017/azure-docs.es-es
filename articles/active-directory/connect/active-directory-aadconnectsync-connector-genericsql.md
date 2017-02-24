@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 8a6c84ba559545cd1b786fc42cbbb7b190585e66
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
 
 
 ---
@@ -47,7 +47,7 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 Antes de usar el conector, asegúrese de que tiene lo siguiente en el servidor de sincronización:
 
 * Microsoft .NET 4.5.2 Framework o posterior
-* Controladores cliente ODBC de 64 bits
+* Controladores cliente ODBC de&64; bits
 
 ### <a name="permissions-in-connected-data-source"></a>Permisos en origen de datos conectado
 Para crear o realizar alguna de las tareas admitidas en el conector de SQL genérico, debe tener:
@@ -157,7 +157,7 @@ El conector de SQL genérico admite los siguientes métodos para la importación
   * La estrategia de marca de agua no admite objetos eliminados.
 * **Snapshot**: (solo funciona con Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/library/cc720640.aspx)
 * **ChangeTracking**: (solo funciona con Microsoft SQL Server) [About ChangeTracking](https://msdn.microsoft.com/library/bb933875.aspx)  
-   Limitaciones:
+  Limitaciones:
   * Los atributos de delimitador y de DN deben ser parte de la clave principal para el objeto seleccionado en la tabla.
   * No se admite la consulta SQL durante la importación y exportación con seguimiento de cambios.
 
@@ -223,7 +223,7 @@ Haga lo siguiente:
 ![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
 
 * Si tiene una gran cantidad de datos, se recomienda implementar la paginación con los procedimientos almacenados.
-* Para que el procedimiento almacenado admita la paginación, debe proporcionar el índice inicial y el índice final. Consulte: [Tutorial 25: Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
+* Para que el procedimiento almacenado admita la paginación, debe proporcionar el índice inicial y el índice final. Consulte: [Tutorial&25;: Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
 * @StartIndex y @EndIndex se reemplazan en tiempo de ejecución por el valor del tamaño de página correspondiente establecido en la página **Configurar paso**. Por ejemplo, cuando el conector recupera la primera página y el tamaño de página se establece en 500, en esta situación @StartIndex sería 1 y @EndIndex 500. Estos valores aumentan cuando el conector recupera las páginas siguientes y cambia el valor de @StartIndex y de @EndIndex.
 * Para ejecutar el procedimiento almacenado con parámetros, proporcione estos en el formato `[Name]:[Direction]:[Value]` . Escriba cada parámetro en una línea independiente (use Ctrl + Entrar para obtener una nueva línea).
 * El conector SQL genérico también admite la operación de importación desde los servidores vinculados de Microsoft SQL Server. Si la información debe recuperarse de una tabla en un servidor vinculado, es necesario proporcionar la tabla en el formato: `[ServerName].[Database].[Schema].[TableName]`
@@ -259,7 +259,7 @@ El conector de SQL genérico admite la exportación mediante cuatro métodos com
 * Consulta SQL
 
 **Tabla/Vista**  
- Si elige la opción de tabla o vista, el conector genera las consultas correspondientes para realizar la exportación.
+Si elige la opción de tabla o vista, el conector genera las consultas correspondientes para realizar la exportación.
 
 **Procedimientos almacenados**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
@@ -283,11 +283,10 @@ Si elige la opción Consulta SQL, la exportación requiere tres consultas difere
 * Atributo seleccionado en el esquema usado como valor de parámetro para la consulta, por ejemplo `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Solución de problemas
-* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM&2010; R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

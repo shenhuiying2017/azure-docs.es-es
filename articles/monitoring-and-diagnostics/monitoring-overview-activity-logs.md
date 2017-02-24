@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/27/2016
+ms.date: 2/2/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6ec7c3f915b249e735a81d964bbd23ba3f2818
-ms.openlocfilehash: 5f6e7fcb4ea4185ef2f1b5ea0275388641c561e9
+ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
+ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
 
 
 ---
@@ -50,7 +50,7 @@ El espacio de nombres del centro de eventos o la cuenta de almacenamiento no tie
 Un **perfil de registro** controla cómo se exporta el registro de actividad. Con un perfil de registro, puede configurar:
 
 * Dónde se debería enviar el registro de actividad (cuenta de almacenamiento o centros de eventos)
-* Qué categorías de eventos (Escritura, Eliminación, Acción) se deberían enviar
+* Qué categorías de eventos (Escritura, Eliminación, Acción) se deberían enviar. *Tenga en cuenta que el significado de "categoría" en el contexto del perfil de registro es diferente que el significado de la propiedad "categoría" en un evento de registro de actividad. Mientras que "categoría" en el perfil de registro representa el tipo de operación (Escritura, Eliminación, Acción), la propiedad "categoría" en un evento de registro de actividad representa el origen o el tipo de evento (Administración, Estado del servicio, Alerta, etc.).*
 * Qué regiones (ubicaciones) se deben exportar
 * Cuánto tiempo debe retenerse el registro de actividad en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647. Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de Event Hubs u OMS), las directivas de retención no surten ningún efecto. Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
@@ -244,6 +244,6 @@ Cada evento del registro de actividad tiene un blob JSON similar al siguiente:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

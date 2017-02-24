@@ -4,6 +4,12 @@
 # Introducción
 ## [Creación y administración de cuentas](media-services-portal-create-account.md)
 ## [Configuración de un entorno de desarrollo](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Conexión mediante programación
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Entrega de vídeos a petición
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
@@ -14,20 +20,19 @@
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Procedimientos
-## Administrar
-### Administrar cuentas
+## administración
+### Cuentas
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Administrar entidades
+### Entidades
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Conexión mediante programación
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Administración de puntos de conexión de streaming](media-services-streaming-endpoints-overview.md)
+### [Puntos de conexión de streaming](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Actualización de Media Services después de revertir las claves de acceso de almacenamiento](media-services-roll-storage-access-keys.md)
+### Almacenamiento
+#### [Actualización de Media Services después de regenerar las claves de acceso de almacenamiento](media-services-roll-storage-access-keys.md)
+#### [Administración de recursos en varias cuentas de Storage](meda-services-managing-multiple-storage-accounts.md)
 ### [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
 
 ## Carga de contenido
@@ -35,6 +40,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Carga de archivos de gran tamaño con Aspera](media-services-upload-files-with-aspera.md)
 ### [Copia de blobs existentes](media-services-copying-existing-blob.md)
 
 ## [Codificación de contenido](media-services-encode-asset.md)
@@ -98,7 +104,6 @@
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming en vivo con codificador en la nube](media-services-manage-live-encoder-enabled-channels.md)
-### Tutoriales sobre codificadores en la nube
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configuración de codificadores locales para usarlos con un codificador en la nube](media-services-live-encoders-overview.md)
@@ -111,14 +116,17 @@
 
 ## [Protección](media-services-content-protection-overview.md)
 ### [Configuración de Content Protection en el portal](media-services-portal-protect-content.md)
-### [Configuración de la clave sin cifrado AES 128 bits para transmisiones](media-services-protect-with-aes128.md)
+### [Configuración de la clave sin cifrado AES&128; bits para transmisiones](media-services-protect-with-aes128.md)
 ### [Cifrado de contenido con cifrado de Storage mediante la API de REST de AMS](media-services-rest-storage-encryption.md)
 ### [Introducción a las plantillas de licencias de PlayReady de Media Services](media-services-playready-license-template-overview.md)
+### [Introducción a las plantillas de licencias de Widevine](media-services-widevine-license-template-overview.md)
 ### [Entrega de licencia DRM](media-services-deliver-keys-and-licenses.md)
 ### [Uso de partners para entregar licencias de Widevine a Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Uso de cifrado dinámico común de PlayReady o Widevine.](media-services-protect-with-drm.md)
 ### [Uso de Azure Media Services para transmitir contenido HLS protegido con Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC con varios DRM y Access Control: diseño e implementación de referencia en Azure y Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [Uso de Axinom para entregar licencias de Widevine a Azure Media Services](media-services-axinom-integration.md)
+### [Uso de castLabs para entregar licencias de Widevine a Azure Media Services](media-services-castlabs-integration.md)
 
 ### Entrega de recursos
 #### Configuración de directivas de entrega de recursos
@@ -152,16 +160,16 @@
 ### [Procesamiento multimedia](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Extremos de streaming
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Entrega de contenido](media-services-deliver-content-overview.md)
 ### [Empaquetado dinámico](media-services-dynamic-packaging-overview.md)
 ### [Introducción a filtros y manifiestos dinámicos](media-services-dynamic-manifest-overview.md)
-### Crear filtros
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Creación de filtros con .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Creación de filtros con REST](media-services-rest-dynamic-manifest.md)
+### [Directiva de almacenamiento en caché de CDN en extensión de Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publicación de contenido
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -177,21 +185,18 @@
 #### [Aplicación HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Reproductores de Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Inserción de anuncios en el lado del cliente](media-services-inserting-ads-on-client-side.md)
+### [Licencias del kit de portabilidad de cliente de Microsoft Smooth Streaming](media-services-sspk.md)
 
 ## Integrate
-### [Directiva de almacenamiento en caché de CDN en extensión de Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licencias del kit de portabilidad de cliente de Microsoft® Smooth Streaming](media-services-sspk.md)
-### [Administración de recursos en varias cuentas de Storage](meda-services-managing-multiple-storage-accounts.md)
-### [Uso de Axinom para entregar licencias de Widevine a Azure Media Services](media-services-axinom-integration.md)
-### [Uso de castLabs para entregar licencias de Widevine a Azure Media Services](media-services-castlabs-integration.md)
-### [Introducción a las plantillas de licencias de Widevine](media-services-widevine-license-template-overview.md)
+### [Funciones de Azure](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## Supervisión
 ### Consulta del progreso del trabajo
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Queue Storage para supervisar notificaciones de trabajos](media-services-dotnet-check-job-progress-with-queues.md)
+### [Supervisión de notificaciones de trabajos con Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Supervisión de notificaciones de trabajos con webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Solución de problemas
 ### [Preguntas más frecuentes](media-services-frequently-asked-questions.md)
@@ -212,6 +217,6 @@
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

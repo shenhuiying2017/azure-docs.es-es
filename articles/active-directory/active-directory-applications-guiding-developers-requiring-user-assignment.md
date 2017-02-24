@@ -1,5 +1,5 @@
 ---
-title: "Azure AD y aplicaciones: necesidad de asignación de usuario | Microsoft Docs"
+title: "Procedimiento para requerir la asignación de usuarios: Azure AD | Microsoft Docs"
 description: "Cómo requerir la asignación de usuario para aplicaciones de Azure."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2015
+ms.date: 02/06/2017
 ms.author: inhenk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: de23d1d775cefa818b6f8a104194eecaa5d740e3
+ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
+ms.openlocfilehash: f5804d258c609f2bf289dcf4d173dc67137e7691
 
 
 ---
-# <a name="azure-ad-and-applications-requiring-user-assignment"></a>Azure AD y aplicaciones: necesidad de asignación de usuario
+# <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD y aplicaciones: procedimiento para requerir la asignación de usuarios
 ## <a name="requiring-user-assignment"></a>Necesidad de asignación de usuario
 1. Inicie sesión en el portal de Azure con una cuenta de administrador.
 2. Haga clic en el elemento **Todos los elementos** del menú principal.
@@ -38,7 +38,6 @@ Ahora tendrá que asignar usuarios o grupos a la aplicación. Vea [Asignación d
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

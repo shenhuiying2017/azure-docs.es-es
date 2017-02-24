@@ -1,10 +1,10 @@
 ---
-title: "Implementación de Microsoft Azure StorSimple Virtual Array: aprovisionamiento en Hyper-V | Microsoft Docs"
+title: Aprovisionamiento de StorSimple Virtual Array en Hyper-V | Microsoft Docs
 description: "En este segundo tutorial de implementación de StorSimple Virtual Array, se trata el aprovisionamiento de una matriz virtual en Hyper-V."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: d623c4172a654b90d68c6e6e488a2c791abe8647
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V
@@ -48,7 +48,7 @@ Antes de implementar una matriz virtual, asegúrese de que:
 * El sistema host es capaz de dedicar los recursos siguientes para aprovisionar su dispositivo virtual:
 
   * Un mínimo de 4 núcleos.
-  * Al menos 8 GB de RAM.
+  * Al menos 8 GB de RAM. Si desea configurar la matriz virtual como servidor de archivos, 8 GB admite menos de 2 millones de archivos. Necesita 16 GB de RAM para admitir 2-4 millones de archivos.
   * Una interfaz de red.
   * Un disco virtual de 500 GB para datos.
 
@@ -73,7 +73,7 @@ Para crear una matriz virtual, se necesita:
 Asegúrese de que el hardware subyacente (sistema host) en el que crea la matriz virtual pueda dedicar los siguientes recursos a la matriz virtual:
 
 * Un mínimo de 4 núcleos.
-* Al menos 8 GB de RAM.
+* Al menos 8 GB de RAM. Si desea configurar la matriz virtual como servidor de archivos, 8 GB admite menos de 2 millones de archivos. Necesita 16 GB de RAM para admitir 2-4 millones de archivos.
 * Una interfaz de red.
 * Un disco virtual de 500 GB para datos del sistema.
 
@@ -217,6 +217,6 @@ Si encuentra cualquier otro error durante la configuración inicial mediante la 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

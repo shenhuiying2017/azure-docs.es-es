@@ -4,7 +4,7 @@ description: "El primer tutorial para implementar la matriz virtual de StorSimpl
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 019f56c6d76f3977c0681403d58f957ca263ab25
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Implementación de la matriz virtual de StorSimple: preparación del portal
@@ -72,7 +72,7 @@ Antes de implementar una matriz virtual, asegúrese de que:
 * El sistema host es capaz de dedicar los recursos siguientes para aprovisionar su dispositivo virtual:
   
   * Un mínimo de 4 núcleos.
-  * Al menos 8 GB de RAM.
+  * Al menos 8 GB de RAM. Si desea configurar la matriz virtual como servidor de archivos, 8 GB admite 2 millones de archivos. Necesita 16 GB de RAM para admitir 2-4 millones de archivos del plan.
   * Una interfaz de red.
   * Un disco virtual de 500 GB para datos del sistema.
 
@@ -172,6 +172,6 @@ El siguiente paso es aprovisionar una máquina virtual para StorSimple Virtual A
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

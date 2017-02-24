@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 55ed7d44006f18fa3573a5bef5e8f24107ca20fa
+ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
+ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
 
 
 ---
@@ -162,12 +162,16 @@ Para habilitar en su aplicación el restablecimiento de contraseña específica,
     > 
     > 
 
+## <a name="how-to-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>¿Cómo vincular una directiva de inicio de sesión o de registro con una directiva de restablecimiento de contraseña?
+Al crear una directiva de inicio de sesión o de registro (con cuentas locales), el consumidor verá un vínculo “He olvidado mi contraseña” en la primera página de la experiencia. Al hacer clic en este vínculo, no se desencadena automáticamente una directiva de restablecimiento de contraseña. En su lugar, se devuelve un código de error específico `AADB2C90118` a su aplicación. La aplicación debe controlar esto e invocar una directiva de restablecimiento de contraseña específica. Se puede encontrar una muestra de este enfoque basado en vincular directivas [aquí](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
+* [Deshabilitación de la comprobación de correos electrónicos durante la suscripción de consumidores](active-directory-b2c-reference-disable-ev.md)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

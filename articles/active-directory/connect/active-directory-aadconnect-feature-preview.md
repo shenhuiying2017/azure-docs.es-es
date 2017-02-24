@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6892ec9d27dd2e7add68a2739c1f29b6d8f008a4
+ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
+ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
 
 
 ---
@@ -28,7 +28,7 @@ La opción para la escritura diferida de grupos en las características opcional
 
 Puede encontrar más información sobre los grupos de Office 365 y cómo utilizarlos [aquí](http://aka.ms/O365g).
 
-Este grupo se representará como un grupo de distribución en AD DS local. El servidor de Exchange local debe tener la actualización acumulativa 8 de Exchange 2013 (publicada en marzo de 2015) o Exchange 2016 para reconocer este nuevo tipo de grupo.
+Este grupo de Office 365 se representará como un grupo de distribución en AD DS local. El servidor de Exchange local debe tener la actualización acumulativa 8 de Exchange 2013 (publicada en marzo de 2015) o Exchange 2016 para reconocer este nuevo tipo de grupo.
 
 **Notas durante la vista previa**
 
@@ -40,13 +40,13 @@ Este grupo se representará como un grupo de distribución en AD DS local. El se
 > [!NOTE]
 > Se necesita una suscripción a Azure AD Premium para la escritura diferida de grupos.
 > 
-> 
+>
 
 ## <a name="user-writeback"></a>Reescritura de usuarios
 > [!IMPORTANT]
 > La característica en vista previa de escritura diferida de usuario, se quitó en la actualización de agosto de 2015 a Azure AD Connect. Si la ha habilitado, debería deshabilitarla.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 Continúe su [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
@@ -55,7 +55,6 @@ Obtenga más información sobre la [Integración de las identidades locales con 
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

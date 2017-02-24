@@ -74,7 +74,7 @@ Para más información, consulte [Azure PowerShell Versioning](https://docs.micr
 2. Asegúrese de que la VM se ha desasignado.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Establezca el estado de la máquina virtual en **Generalizado**. 
@@ -119,7 +119,7 @@ Cree una imagen administrada con el VHD del SO generalizado.
 2. Detenga/desasigne la VM.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Marque la VM como generalizada.

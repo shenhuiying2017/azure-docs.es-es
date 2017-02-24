@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 85ad42b4e551f598cb67ffdbd3b0031faff45eb6
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: fcea07a412de7b35931ff95b01fbe1276302f1ea
 
 
 ---
@@ -60,7 +60,7 @@ Para configurar la integración de Skydesk Email en Azure AD, será preciso que 
 
 **Para agregar Skydesk Email desde la galería, siga estos pasos:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**. 
    
     ![Active Directory][1]
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
@@ -110,42 +110,33 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_04.png) 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Skydesk Email con el patrón siguiente: **“https://mail.skydesk.jp/portal/\<nombre de la compañía\>”**.
+   1. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Skydesk Email con el patrón siguiente: **“https://mail.skydesk.jp/portal/\<nombre de la compañía\>”**.
+   2. Haga clic en **Siguiente**.
 
-    b. Haga clic en **Siguiente**.
-
-
-1. En la página **Configurar inicio de sesión único en Skydesk Email** , siga estos pasos:
+4. En la página **Configurar inicio de sesión único en Skydesk Email** , siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_05.png) 
    
     a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
     b. Haga clic en **Siguiente**.
-2. Para habilitar SSO en **Skydesk Email**, siga estos pasos:
-   
-    a. Inicie sesión en su cuenta Skydesk Email como administrador.
-   
-    b. En el menú en la parte superior, haga clic en Setup (Configurar) y, luego, en Org (Organización). 
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)
-   
-    c. En el panel izquierdo, haga clic en Domains (Dominios).
-   
+5. Para habilitar SSO en **Skydesk Email**, siga estos pasos:
+   1. Inicie sesión en su cuenta de correo de Skydesk Email como administrador.
+   2. En el menú en la parte superior, haga clic en Setup (Configurar) y, luego, en Org (Organización). 
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)  
+   3. En el panel izquierdo, haga clic en Domains (Dominios).
+    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_53.png)
-   
-    d. Haga clic en Add Domain (Agregar dominio).
-   
+   4. Haga clic en Add Domain (Agregar dominio).
+    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_54.png)
-   
-    e. Escriba el nombre de dominio y, a continuación, compruebe el dominio.
-   
+   5. Escriba el nombre de dominio y, a continuación, compruebe el dominio.
+    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_55.png)
-   
-    f. Haga clic en **SAML Authentication** (Autenticación SAML) desde el panel izquierdo.
-   
+   6. Haga clic en **SAML Authentication** (Autenticación SAML) desde el panel izquierdo.
+    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
-3. En la página de diálogo **SAML Authentication** (Autenticación SAML), siga estos pasos:
+6. En la página de diálogo **SAML Authentication** (Autenticación SAML), siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
    
@@ -156,23 +147,17 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
-    a. En el Portal de Azure AD clásico, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+   1. En el Portal de Azure AD clásico, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+   2. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
+   3. **Cambiar dirección URL de contraseña** es opcional, déjelo en blanco.
+   4. Haga clic en **Get Key From File** (Obtener clave de archivo) para seleccionar el certificado descargado de Skydesk Email y, después, haga clic en **Abrir** para cargar el certificado.
+   5. En **Algoritmo**, seleccione **RSA**.
+   6. Haga clic en **Aceptar** para guardar los cambios.
 
-    b. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
-
-    c. **Cambiar dirección URL de contraseña** es opcional, déjelo en blanco.
-
-    d. Haga clic en **Get Key From File** (Obtener clave de archivo) para seleccionar el certificado descargado de Skydesk Email y, después, haga clic en **Abrir** para cargar el certificado.
-
-    e. En **Algoritmo**, seleccione **RSA**.
-
-    f. Haga clic en **Aceptar** para guardar los cambios.
-
-
-1. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+7. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
-2. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+8. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
 
@@ -206,15 +191,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+   1. En el cuadro de texto **Nombre**, escriba **Britta**. 
+   2. En el cuadro de texto **Apellidos**, escriba **Simon**.  
+   3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+   4. En la lista **Rol**, seleccione **Usuario**.
+   5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_07.png) 
@@ -222,18 +203,20 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_08.png) 
    
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+   1. Anote el valor del campo **Nueva contraseña**.
+   2. Haga clic en **Complete**.   
 
 ### <a name="creating-a-skydesk-email-test-user"></a>Creación de un usuario de prueba de Skydesk Email
 En esta sección, creará un usuario llamado Britta Simon en Skydesk Email.
 
-a. Haga clic en **User Access** (Acceso de usuario) en el panel de la izquierda de Skydesk Email y, a continuación, escriba su nombre de usuario. 
+1. Haga clic en **User Access** (Acceso de usuario) en el panel de la izquierda de Skydesk Email y, a continuación, escriba su nombre de usuario. 
 
 ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
-[AZURE.NOTE] Si necesita crear usuarios de forma masiva, debe ponerse en contacto con el equipo de soporte técnico de Skydesk Email.
+>[!NOTE] 
+>Si necesita crear usuarios de forma masiva, debe ponerse en contacto con el equipo de soporte técnico de Skydesk Email.
+>
+
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a Skydesk Email.
@@ -242,15 +225,14 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar a Britta Simon a Skydesk Email, siga estos pasos:**
 
-1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en la opción **Aplicaciones** del menú superior.
    
     ![Asignar usuario][201] 
 2. En la lista de aplicaciones, seleccione **Skydesk Email**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_50.png) 
 3. En el menú de la parte superior, haga clic en **Usuarios**.
-   
-    ![Asignar usuario][203] 
+![Asignar usuario][203] 
 4. En la lista Usuarios, seleccione **Britta Simon**.
 5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
    
@@ -259,7 +241,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
-Al hacer clic en el icono de Skydesk Email en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Skydesk Email.
+Al hacer clic en el icono de Skydesk Email en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Skydesk Email.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
@@ -285,6 +267,6 @@ Al hacer clic en el icono de Skydesk Email en el Panel de acceso, debería inici
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 
