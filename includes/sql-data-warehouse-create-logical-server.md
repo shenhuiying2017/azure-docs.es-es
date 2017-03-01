@@ -38,15 +38,10 @@
     ![ubicación del servidor](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > La casilla de verificación **Permitir que los servicios de Azure accedan al servidor** no se puede cambiar en esta hoja. Puede cambiar esta configuración en la hoja del firewall del servidor. Para más información, consulte [Get started with security](../articles/sql-database/sql-database-get-started-security.md) (Introducción a la seguridad).
+    > La casilla de verificación **Permitir que los servicios de Azure accedan al servidor** no se puede cambiar en esta hoja. Puede cambiar esta configuración en la hoja del firewall del servidor. Para más información, consulte [Get started with security](../articles/sql-database/sql-database-manage-servers-portal.md) (Introducción a la seguridad).
     >
     
 9. Haga clic en **Crear**.
 
     ![botón Crear](./media/sql-data-warehouse-create-logical-server/create.png)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
