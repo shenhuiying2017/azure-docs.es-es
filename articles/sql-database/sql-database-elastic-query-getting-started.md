@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
-ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
+ms.sourcegitcommit: cbd1c7e7d915e8a10d69c7a2f1679835dcee23b7
+ms.openlocfilehash: b64129b77385685b41aac55c52a34e9d0495124e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -37,7 +38,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 
     ![símbolo del sistema][1]
 2. En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
-3. El [Portal de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
+3. [Azure Portal](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
 
    ![Confirmación de Visual Studio][2]
 
@@ -46,7 +47,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
    En la siguiente sección, crearemos un extremo de la base de datos de ejemplo que admite las consultas más completas de los datos entre las particiones.
 
 ## <a name="create-an-elastic-query-database"></a>Creación una base de datos de consulta elástica
-1. Abra el [Portal de Azure](https://portal.azure.com) e inicie sesión.
+1. Abra [Azure Portal](https://portal.azure.com) e inicie sesión.
 2. Cree una nueva Base de datos SQL de Azure en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos.
 
     ![Portal de Azure y nivel de precios][3]
@@ -129,7 +130,16 @@ No hay ningún cargo adicional por usar la característica de consulta de base d
 
 Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Pasos siguientes
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para obtener información general sobre las consultas elásticas, consulte [Información general sobre las consultas elásticas](sql-database-elastic-query-overview.md).
+* Para obtener un tutorial sobre la creación de particiones verticales, consulte [Introducción a las consultas entre bases de datos (particiones verticales)](sql-database-elastic-query-getting-started-vertical.md).
+* Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento vertical, consulte [Consulta de datos particionados verticalmente](sql-database-elastic-query-vertical-partitioning.md)
+* Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento horizontal, consulte [Consulta de datos particionados horizontalmente.](sql-database-elastic-query-horizontal-partitioning.md)
+* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
@@ -138,9 +148,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

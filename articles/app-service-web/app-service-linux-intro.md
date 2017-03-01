@@ -5,7 +5,7 @@ keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
-ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
+ms.sourcegitcommit: 78fbef5aa26c52f5dd264581fd1525ada763d4c6
+ms.openlocfilehash: fa5d210c5e73074803d5cfb874ad7891563aefd0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,12 +40,12 @@ Los clientes pueden implementar sus aplicaciones mediante:
 
 * FTP
 * Git local
-* GitHub o Bitbucket
+* GitHub
 
 Para el escalado de aplicaciones:
 
-* Los clientes pueden escalar o reducir sus aplicaciones web verticalmente mediante la modificación del nivel en su plan de App Service.
-* Los clientes pueden escalar horizontalmente sus aplicaciones y ejecutar su aplicación en varias instancias dentro de los confines de su SKU.
+* Los clientes pueden escalar o reducir aplicaciones web verticalmente mediante la modificación del nivel en su plan de App Service.
+* Los clientes pueden escalar horizontalmente aplicaciones y ejecutar varias instancias de la aplicación dentro de los confines de su SKU.
 
 Para Kudu, parte de la funcionalidad básica funciona con lo siguiente:
 
@@ -53,9 +54,9 @@ Para Kudu, parte de la funcionalidad básica funciona con lo siguiente:
 * Consolas básicas
 
 ## <a name="limitations"></a>Limitaciones
-Azure Portal solo muestra las características que funcionan actualmente para App Service en Linux y oculta el resto. A medida que habilitemos más características, las verá reflejadas en el portal.
+Azure Portal solo muestra las características que funcionan actualmente para App Service en Linux y oculta el resto. A medida que se habiliten más características, estas aparecerán en el portal.
 
-Algunas de ellas, como la integración de la red virtual, la autenticación de Azure Active Directory o de terceros o las extensiones de sitio de Kudu, no funcionan por el momento. Pero cuando consigamos que lo hagan, actualizaremos nuestra documentación y el blog sobre los cambios.
+Algunas de ellas, como la integración de la red virtual, la autenticación de Azure Active Directory o de terceros o las extensiones de sitio de Kudu, no están terminadas. Pero cuando se terminen, actualizaremos nuestra documentación y el blog sobre los cambios.
 
 Esta versión preliminar pública solo está disponible en las siguientes regiones:
 
@@ -76,9 +77,7 @@ Consulte los vínculos siguientes para empezar a trabajar con App Service en Lin
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md) (Uso de una imagen de Docker personalizada para App Service en Linux)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md) (Uso de la configuración de PM2 para Node.js en Web Apps en Linux)
 * [Uso de .NET Core en Azure App Service Web Apps en Linux](app-service-linux-using-dotnetcore.md)
+* [Uso de Ruby en Azure App Service Web Apps en Linux](app-service-linux-using-ruby.md)
 * [Preguntas más frecuentes sobre Azure App Service Web Apps en Linux](app-service-linux-faq.md)
-
-
-<!--HONumber=Feb17_HO3-->
 
 

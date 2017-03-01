@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
-ms.openlocfilehash: ae97e66b8fb0992550c5a4f1f8418c5cb7e496b5
+ms.sourcegitcommit: e208b2bf861d698901b287458a3969e833540e44
+ms.openlocfilehash: f8f67af3cb6adb333924714bd758609b950845af
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -68,6 +69,17 @@ En primer lugar, el usuario intenta acceder a un recurso que confía en tokens e
 5.    Azure AD descifra el vale Kerberos mediante la clave antes compartida. A continuación, devuelve un token al usuario o pide al usuario que proporcione prueba adicional, como la autenticación multifactor según sea necesario para el recurso.
 
 El inicio de sesión único es una característica oportunista, lo que significa que, si se produce un error por algún motivo, basta con que el usuario escriba su contraseña en la página de inicio de sesión como de costumbre.
+
+## <a name="single-sign-on-sso-prerequisites"></a>Requisitos previos del inicio de sesión único (SSO)
+Si va a habilitar "Inicio de sesión único" con "Autenticación de paso a través", no hay requisitos previos adicionales más allá de los que se requieren para "Autenticación de paso a través".
+
+Si va a habilitar "Inicio de sesión único" con "Sincronización de contraseñas", y si hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
+- El servidor de Azure AD Connect pueda comunicarse con *. msappproxy.net
+- Azure AD Connect pueda realizar solicitudes HTTPS a Azure AD en los puertos siguientes:
+
+|Protocol|Número de puerto|Descripción
+| --- | --- | ---
+|HTTPS|9090|    Habilita el registro de SSO (solo es necesario para el proceso de registro de SSO).
 
 ## <a name="enabling-sso-with-pass-through-authentication-or-password-sync"></a>Habilitación de SSO con la autenticación de paso a través o la sincronización de contraseña
 Azure AD Connect proporciona un proceso sencillo para habilitar el inicio de sesión único con la autenticación de paso a través o la sincronización de contraseña. Asegúrese de que tiene derechos de administrador de dominio en uno de los dominios de cada bosque de la sincronización para permitir la configuración de los nombres de entidad de servicio (SPN) de Kerberos en la cuenta de la máquina. El nombre de usuario y la contraseña no se almacenan en Azure AD Connect ni en Azure AD y solo se usan para esta operación.
@@ -132,9 +144,4 @@ Si está habilitada la auditoría de aciertos, cada vez que un usuario utilice e
       </Query>
     </QueryList>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

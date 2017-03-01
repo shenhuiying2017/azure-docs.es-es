@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: 16a2a67840e7ee85f7a605e8f114293305f84b50
+ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
+ms.openlocfilehash: f643deb0b76c598df9bd983474b4bd2bcba129e7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -28,8 +29,9 @@ La autenticación basada en certificados (CBA) le permite autenticarse mediante 
 
 Al configurar esta función, no tendrá que escribir una combinación de nombre de usuario y contraseña en determinadas aplicaciones de correo electrónico y Microsoft Office de su dispositivo móvil. 
 
-Este tema le proporciona los requisitos y los escenarios admitidos para configurar CBA en un dispositivo iOS para usuarios de inquilinos de planes de Office 365 Enterprise, Business, Education y US Government Federal. No incluye Office 365 Defense. 
+En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo Android para usuarios de inquilinos de Office 365 Enterprise, Business, Education y US Government. 
 
+Esta característica se encuentra disponible como versión preliminar en los planes Office 365 US Government Defense y US Government Federal.
 
 
 
@@ -85,9 +87,4 @@ Si quiere configurar la autenticación basada en certificados en su entorno, con
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

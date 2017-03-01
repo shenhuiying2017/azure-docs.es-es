@@ -4,7 +4,7 @@ description: "En este artículo se explican los requisitos y modelos de arquitec
 keywords: 
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 63f94dc3b648486fe7c2e14661b5f5f02a147149
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -90,7 +91,7 @@ En la Figura 2, el eje Y muestra el nivel de aislamiento de los inquilinos. El e
 
 Figure 2: Modelos de datos multiinquilino populares
 
-El cuadrante inferior derecho en la Figura 2 muestra un modelo de aplicación que utiliza una única base de datos independiente compartida potencialmente grande y el enfoque de tabla compartida (o esquema independiente). Se recomienda para el uso compartido de recursos porque todos los inquilinos utilizan los mismos recursos de base de datos (CPU, memoria, entrada y salida) en una única base de datos. Sin embargo, el aislamiento de inquilinos es limitado. Tendrá que realizar otros pasos para proteger los inquilinos unos de otros en la capa de aplicación. Estos pasos adicionales pueden aumentar significativamente el costo de las operaciones de DevOps de desarrollo y administración de la aplicación. La escalabilidad está limitada por la escala del hardware que hospeda la base de datos.
+El cuadrante inferior derecho en la Figura 2 muestra un modelo de aplicación que utiliza una única base de datos compartida potencialmente grande y el enfoque de tabla compartida (o esquema independiente). Se recomienda para el uso compartido de recursos porque todos los inquilinos utilizan los mismos recursos de base de datos (CPU, memoria, entrada y salida) en una única base de datos. Sin embargo, el aislamiento de inquilinos es limitado. Tendrá que realizar otros pasos para proteger los inquilinos unos de otros en la capa de aplicación. Estos pasos adicionales pueden aumentar significativamente el costo de las operaciones de DevOps de desarrollo y administración de la aplicación. La escalabilidad está limitada por la escala del hardware que hospeda la base de datos.
 
 El cuadrante inferior izquierdo en la Figura 2 ilustra varios inquilinos particionados en varias bases de datos (las unidades de escalado de hardware suelen diferir). Cada base de datos hospeda un subconjunto de inquilinos, que soluciona el problema de escalabilidad de otros modelos. Si se requiere más capacidad para un número mayor de inquilinos, puede colocarlos fácilmente en nuevas bases de datos asignadas a nuevas unidades de escalado de hardware. No obstante, se reduce la cantidad de recursos compartidos. Solo comparten recursos los inquilinos colocados en las mismas unidades de escala. Este enfoque supone pocas mejoras de aislamiento de inquilinos, ya que muchos inquilinos todavía siguen colocando sin estar protegidos automáticamente de las acciones de los demás. La complejidad de la aplicación permanece alta.
 
@@ -124,7 +125,7 @@ Los grupos elásticos de Base de datos SQL combinan el aislamiento de inquilinos
 | [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md): administra distribuciones de datos y asigna inquilinos a bases de datos. | |
 
 ## <a name="shared-models"></a>Modelos compartidos
-Como se describió anteriormente, para la mayoría proveedores de SaaS, el enfoque de modelo compartido puede plantear problemas con el aislamiento de los inquilinos, así como complejidades con el desarrollo y mantenimiento de la aplicación. Sin embargo, para las aplicaciones multiinquilino que proporcionan un servicio directamente a los consumidores, los requisitos de aislamiento de inquilinos pueden no tener tanta prioridad como la reducción de los costos. Pueden empaquetar los inquilinos de una o más bases de datos a alta densidad para reducir los costos. Los modelos de base de datos compartida con una o varias bases de datos independientes particionadas pueden agregar eficacia al uso compartido de recursos y reducir el costo general. La Base de datos SQL de Azure proporciona algunas características que ayudan a los clientes a crear aislamiento para la seguridad y la administración mejoradas a escala en la capa de datos.
+Como se describió anteriormente, para la mayoría proveedores de SaaS, el enfoque de modelo compartido puede plantear problemas con el aislamiento de los inquilinos, así como complejidades con el desarrollo y mantenimiento de la aplicación. Sin embargo, para las aplicaciones multiinquilino que proporcionan un servicio directamente a los consumidores, los requisitos de aislamiento de inquilinos pueden no tener tanta prioridad como la reducción de los costos. Pueden empaquetar los inquilinos de una o más bases de datos a alta densidad para reducir los costos. Los modelos de base de datos compartida con una o varias bases de datos particionadas pueden agregar eficacia al uso compartido de recursos y reducir el costo general. La Base de datos SQL de Azure proporciona algunas características que ayudan a los clientes a crear aislamiento para la seguridad y la administración mejoradas a escala en la capa de datos.
 
 | Requisitos de la aplicación | Funcionalidades de Base de datos SQL |
 | --- | --- |
@@ -150,7 +151,7 @@ Cree un [panel personalizado de grupo elástico para SaaS](https://github.com/Mi
 
 Use las herramientas de Base de datos SQL de Azure para [migrar bases de datos existentes de escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Consulte nuestro tutorial sobre cómo [crear un grupo elástico](sql-database-elastic-pool-create-portal.md).  
+Para crear y administrar un grupo elástico mediante Azure Portal, consulte [cómo crear un grupo elástico](sql-database-elastic-pool-manage-portal.md).  
 
 Aprenda a [supervisar y administrar un grupo elástico](sql-database-elastic-pool-manage-portal.md).
 
@@ -160,14 +161,9 @@ Aprenda a [supervisar y administrar un grupo elástico](sql-database-elastic-poo
 * [Aplicaciones multiinquilino con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect (Autenticación en aplicaciones multiinquilino con Azure Active Directory y OpenID Connect)](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
-* [Inicios rápidos de soluciones](sql-database-solution-quick-starts.md)
+
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 Si tiene preguntas, nos encontrará en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Agregue una solicitud de característica en el [foro de comentarios de Base de datos SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

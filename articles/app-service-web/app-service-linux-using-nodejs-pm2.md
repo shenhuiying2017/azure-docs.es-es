@@ -5,7 +5,7 @@ keywords: azure app service, aplic. web, nodejs, pm2, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7
 ms.service: app-service
@@ -13,20 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a46f52198e956406c2384c45ed4323aff27259a0
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Uso de la configuración de PM2 para Node.js en Web Apps en Linux
-Si establece la pila de la aplicación en Node.js para Web Apps en Linux, tiene la opción de establecer un archivo de inicio de Node.js, como se muestra en la siguiente imagen.
+Si establece la pila de la aplicación en Node.js para Web Apps en Linux, tiene la opción de establecer un archivo de inicio de Node.js, como se muestra en la siguiente imagen:
 
 ![Establecer un archivo de inicio de Node.js][1]
 
-Se puede utilizar para realizar una de las siguientes tareas:
+Se puede utilizar esta opción para realizar una de las siguientes tareas:
 
 * Especificar el script de inicio de una aplicación de Node.js (por ejemplo: /bin/server.js).
 * Especificar el archivo de configuración de PM2 que se va a usar para una aplicación de Node.js (por ejemplo: /foo/process.json).
@@ -61,12 +62,8 @@ En esta configuración debe tenerse en cuenta lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es App Service en Linux?](app-service-linux-intro.md)
+* [Preguntas más frecuentes sobre Azure App Service Web Apps en Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

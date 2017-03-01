@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 02/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 096fcd2a7415da03714f05bb1f29ceac6f186eda
-ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
+ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
+ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -203,11 +204,13 @@ Aunque se recomienda la directiva de seguimiento de cambios integrado de SQL, so
 
 * Todas las inserciones especifican un valor para la columna.
 * Todas las actualizaciones de un elemento también cambian el valor de la columna.
-* El valor de esta columna aumenta con cada cambio.
+* El valor de esta columna aumenta con cada inserción o actualización.
 * Consultas con las cláusulas WHERE y ORDER BY siguientes se pueden ejecutar eficientemente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-Por ejemplo, una columna **rowversion** indizada es un candidato ideal para la columna de marca de límite superior.
-Para usar esta directiva, cree o actualice el origen de datos de la siguiente manera:
+> [!IMPORTANT] 
+> Se recomienda encarecidamente usar una columna **rowversion** para el seguimiento de cambios. Si se utiliza cualquier otro tipo de datos, no se garantiza que el seguimiento de cambios capture todos los cambios en el caso de transacciones que se ejecutan simultáneamente con una consulta de indexador.
+
+Para usar una directiva de marca de límite superior, cree o actualice el origen de datos de la siguiente manera:
 
     {
         "name" : "myazuresqldatasource",
@@ -216,7 +219,7 @@ Para usar esta directiva, cree o actualice el origen de datos de la siguiente ma
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 
@@ -312,9 +315,4 @@ R: Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. 
 **P:** ¿Afecta la ejecución de un indizador a la carga de trabajo de consulta?
 
 R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indización y consulta detecta la alta tasa de 503 errores o el aumento de los tiempos de respuesta, considere la posibilidad de escalar verticalmente el servicio de búsqueda.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

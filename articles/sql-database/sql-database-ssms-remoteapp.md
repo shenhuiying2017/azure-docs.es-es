@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: d0edcf7f7e927f817caae1cb7f4519596a09f140
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: a8540a541d05d1d8a0afeb2aeb42c77951ebf8c2
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -41,8 +42,8 @@ Si ejecuta SSMS en Azure RemoteApp obtendrá la misma experiencia que si lo ejec
 ## <a name="benefits"></a>Ventajas
 Hay muchas ventajas por utilizar SSMS en Azure RemoteApp, entre las que se incluyen:
 
-* El puerto 1433 en el servidor SQL de Azure no tiene que exponerse externamente (fuera de Azure).
-* No es necesario agregar y quitar direcciones IP en el firewall del servidor SQL de Azure.
+* El puerto 1433 en el servidor Azure SQL no tiene que exponerse externamente (fuera de Azure).
+* No es necesario agregar ni quitar direcciones IP en el firewall del servidor Azure SQL.
 * Todas las conexiones de Azure RemoteApp se realizan a través de HTTPS en el puerto 443 mediante un protocolo cifrado de escritorio remoto
 * Es multiusuario y se puede escalar.
 * Hay una mejora del rendimiento si dispone de SSMS en la misma región que la base de datos SQL.
@@ -98,7 +99,7 @@ En la pestaña Acceso de usuario puede seleccionar los usuarios que tendrán acc
 ### <a name="9-install-the-azure-remoteapp-client-application"></a>9. Instale la aplicación de cliente de Azure RemoteApp
 Puede descargar e instalar un cliente de Azure RemoteApp aquí: [Descargar | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
 
-## <a name="configure-azure-sql-server"></a>Configuración de un servidor SQL de Azure
+## <a name="configure-azure-sql-server"></a>Configuración de un servidor Azure SQL
 La única configuración necesaria es asegurarse de que los servicios de Azure estén habilitados para el firewall. Si utiliza esta solución, no es necesario agregar ninguna dirección IP para abrir el firewall. El tráfico de red que se permite hacia SQL Server es de otros servicios de Azure.
 
 ![Permiso de Azure][4]
@@ -114,7 +115,7 @@ Si no tiene Azure AD Premium, tendrá que activarlo en la sección de licencias 
 Cuando vaya a un usuario de Azure Active Directory, a continuación, puede ir a la pestaña de actividad para ver la información de inicio de sesión en Azure RemoteApp.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de completar todos los pasos anteriores, podrá ejecutar el cliente de Azure RemoteApp y el inicio de sesión con un usuario asignado. Se le presentará SSMS como una de sus aplicaciones y podrá ejecutarla como lo haría si la hubiera instalado en el equipo con acceso al servidor SQL de Azure.
+Después de completar todos los pasos anteriores, podrá ejecutar el cliente de Azure RemoteApp y el inicio de sesión con un usuario asignado. Se le presentará SSMS como una de sus aplicaciones y podrá ejecutarla como lo haría si la hubiera instalado en el equipo con acceso al servidor Azure SQL.
 
 Para más información sobre cómo realizar la conexión a la base de datos SQL, consulte [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md).
 
@@ -127,8 +128,3 @@ Eso es todo por ahora. ¡Disfrute!
 [4]: ./media/sql-database-ssms-remoteapp/allowazure.png
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
-
-
-<!--HONumber=Dec16_HO1-->
-
-

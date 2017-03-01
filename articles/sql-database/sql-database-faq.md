@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ff3ea3564d3cde5369f87d5f5102176229686acb
-ms.openlocfilehash: 6b828f7256c27aab567428706cd38c38b2f896eb
+ms.sourcegitcommit: 20183f482b7c7ec10c2b1f2d759b160434c9174c
+ms.openlocfilehash: 208a38aea6b4673f93c4c1fe4252c788e1f3425b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -92,12 +93,10 @@ Si usa las bases de datos V12, puede cambiar el nivel de servicio (entre Básica
 Tan a menudo como desee.
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>¿Cuánto tiempo se tarda en cambiar el nivel de servicio o el nivel de rendimiento de una base de datos única o en mover una base de datos dentro y fuera de un grupo elástico?
-Para cambiar el nivel de servicio de una base de datos e incorporarla y retirarla de un grupo es necesario copiar la base de datos en la plataforma como operación en segundo plano. Cambiar el nivel de servicio puede tardar desde solo unos minutos hasta varias horas, según el tamaño de las bases de datos. En ambos casos, las bases de datos permanecen en línea y disponibles durante el traslado. Para más información sobre cómo cambiar las bases de datos únicas, consulte [Cambiar el nivel de servicio de una base de datos](sql-database-scale-up.md). 
+Para cambiar el nivel de servicio de una base de datos e incorporarla y retirarla de un grupo es necesario copiar la base de datos en la plataforma como operación en segundo plano. Cambiar el nivel de servicio puede tardar desde solo unos minutos hasta varias horas, según el tamaño de las bases de datos. En ambos casos, las bases de datos permanecen en línea y disponibles durante el traslado. Para más información sobre cómo cambiar las bases de datos únicas, consulte [Cambiar el nivel de servicio de una base de datos](sql-database-service-tiers.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>¿Cuándo se deben usar bases de datos elásticas y cuándo una base de datos única?
-En general, los grupos elásticos están diseñados para un [patrón de aplicación de software como servicio (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md) típico, donde hay una base de datos por cliente o inquilino. Adquirir bases de datos individuales y aprovisionarlas en exceso para cubrir todas las variaciones y la demanda máxima no resulta rentable. Con los grupos, el rendimiento colectivo del grupo y el escalado horizontal y reducción vertical de las bases de datos se administra automáticamente. 
-
-El motor inteligente de Azure recomendará un grupo para las bases de datos si un patrón de uso lo garantiza. Para más información, consulte [Recomendaciones sobre el nivel de precios de Base de datos SQL](sql-database-service-tier-advisor.md). Para obtener instrucciones detalladas sobre cómo elegir entre bases de datos únicas y elásticas, vea [Consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md).
+En general, los grupos elásticos están diseñados para un [patrón de aplicación de software como servicio (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md) típico, donde hay una base de datos por cliente o inquilino. Adquirir bases de datos individuales y aprovisionarlas en exceso para cubrir todas las variaciones y la demanda máxima no resulta rentable. Con los grupos, el rendimiento colectivo del grupo y el escalado horizontal y reducción vertical de las bases de datos se administra automáticamente. El motor inteligente de Azure recomendará un grupo para las bases de datos si un patrón de uso lo garantiza. Para más información, consulte la [guía de grupos elásticos](sql-database-elastic-pool-guidance.md).
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>¿Qué significa tener hasta un 200 % del almacenamiento de base de datos aprovisionado máximo para almacenar copias de seguridad?
 El almacenamiento de copia de seguridad es el almacenamiento asociado a las copias de seguridad de base de datos automatizadas que se usan para la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) y la [restauración geográfica](sql-database-recovery-using-backups.md#geo-restore). La Base de datos SQL de Microsoft Azure le proporciona hasta un 200 % de almacenamiento de base de datos aprovisionado máximo, para que pueda almacenar copias de seguridad sin coste adicional. Por ejemplo, si tiene una instancia de base de datos de tipo Estándar con un tamaño de base de datos aprovisionado de 250 GB, se le proporcionarán 500 GB para almacenar sus copias de seguridad sin coste adicional. Si su base de datos excede el tamaño del almacenamiento de copias de seguridad suministrado, puede elegir reducir el período de retención poniéndose en contacto con el Servicio técnico de Azure o pagar el almacenamiento de copias de seguridad extra; si se decide por la segunda opción, esta se facturará según la tarifa de almacenamiento de redundancia geográfica con acceso de lectura (RA-GRS) estándar. Para obtener más información sobre la facturación RA-GRS, consulte los Detalles de los precios de almacenamiento.
@@ -119,10 +118,5 @@ La base de datos secundaria geográficamente es una réplica asincrónica y no i
 
 ## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary"></a>¿Qué herramientas están disponibles para supervisar el retraso de replicación entre la base de datos principal y la base de datos secundaria geográficamente?
 Exponemos el retraso de replicación en tiempo real entre la base de datos principal y la base de datos secundaria geográficamente mediante una DMV. Para más información, consulte [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

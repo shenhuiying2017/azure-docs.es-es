@@ -1,22 +1,23 @@
 ---
 title: "Lista de versiones del esquema de configuración de Diagnósticos de Azure | Microsoft Docs"
 description: "Se utiliza para configurar la recopilación de contadores de rendimiento en Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric y Cloud Services."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 2e1bc45b55cd79af8579a5ddaf43cf0db019c92f
+ms.sourcegitcommit: ac1ae46a165baad675c6b2445f91e05694eae6f9
+ms.openlocfilehash: 5d0894430dc915fc46d753a0b672de3b51ce3888
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ Esta página es un índice de las versiones del esquema de Diagnósticos de Azur
 > Diagnósticos de Azure es el componente que se usa para recopilar contadores de rendimiento y otras estadísticas de Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric y Cloud Services.  Esta página solo es pertinente si está usando uno de estos servicios.
 >
 
-Diagnósticos de Azure se usa junto con otros productos de diagnósticos de Microsoft, como Azure Monitor, Application Insights y Log Analytics.
+Diagnósticos de Azure se usa con otros productos de diagnósticos de Microsoft, como Azure Monitor, Application Insights y Log Analytics.
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envío de las versiones del SDK y de Diagnósticos de Azure  
 
@@ -39,6 +40,10 @@ Diagnósticos de Azure se usa junto con otros productos de diagnósticos de Micr
 |2.6               |1.3                         |"|  
 |2.7               |1.4                         |"|  
 |2.8               |1.5                         |"|  
+|2.9               |1.6                         |"|
+|2.96              |1.7                         |"|
+
+
 
  La versión 1.0 de Diagnósticos de Azure se incluyó por primera vez en un modelo de complemento, lo que significa que, al instalar el SDK de Azure, obtuvo la versión de Diagnósticos de Azure que se incluía con el producto.  
 
@@ -51,10 +56,5 @@ Diagnósticos de Azure se usa junto con otros productos de diagnósticos de Micr
 
 [Esquema de configuración de Diagnósticos 1.2](azure-diagnostics-schema-1dot2.md)  
 
-[Esquema de configuración de Diagnósticos 1.3. a 1.5](azure-diagnostics-schema-1dot3-to-1dot5.md)  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[Esquema de configuración de Diagnósticos 1.3 y versiones posteriores](azure-diagnostics-schema-1dot3-and-later.md)  
 

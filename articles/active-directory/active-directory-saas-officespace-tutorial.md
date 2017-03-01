@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 02/01/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 01e2bcf3fa32546a7952ddc919f99b46a74755a2
-ms.openlocfilehash: e0933b1a7e19fc70f9c5e81225b296412837385e
+ms.sourcegitcommit: b8f354b34e1a3a581dd2e41df4b80cbdbcd9a705
+ms.openlocfilehash: 3033df7c69a1c4211c906c6f3bdcd7868dedde13
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -27,7 +28,7 @@ La integración de OfficeSpace Software con Azure AD proporciona las siguientes 
 
 - Puede controlar en Azure AD quién tiene acceso a OfficeSpace Software.
 - Puede permitir que los usuarios inicien sesión automáticamente en OfficeSpace Software (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
+- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -61,29 +62,23 @@ Para configurar la integración de OfficeSpace Software en Azure AD, deberá agr
 
 **Para agregar OfficeSpace Software desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-
-    ![Applications][2]
-
-4. Haga clic en **Agregar** en la parte inferior de la página.
+    ![Aplicaciones][2]
+    
+3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
     ![Aplicaciones][3]
 
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-
-    ![Aplicaciones][4]
-
-6. En el cuadro de búsqueda, escriba **OfficeSpace Software**.
+4. En el cuadro de búsqueda, escriba **OfficeSpace Software**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_001.png)
 
-7. En el panel de resultados, seleccione **OfficeSpace Software** y, después, haga clic en **Completar** para agregar la aplicación.
+5. En el panel de resultados, seleccione **OfficeSpace Software** y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_0001.png)
 
@@ -105,155 +100,136 @@ Para configurar y probar el inicio de sesión único de Azure AD con OfficeSpace
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación OfficeSpace Software.
-
-La aplicación OfficeSpace Software espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña**Atributo**de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. 
-
-![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_01.png)
+En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación OfficeSpace Software.
 
 **Para configurar el inicio de sesión único de Azure AD con OfficeSpace Software, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de la aplicación **OfficeSpace Software**, en el menú de la parte superior, haga clic en **Atributos**.
+1. En el Portal de administración de Azure, en la página de integración de la aplicación **OfficeSpace Software**, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_01.png)
+
+3. En la sección **Dominio y direcciones URL de OfficeSpace Software**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_02.png)
 
-2. En el cuadro de diálogo **Atributos de token de SAML** , para cada fila de la tabla siguiente, realice los pasos que se indican a continuación:
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.officespacesoftware.com/users/sign_in/saml`.
+
+    b. En el cuadro de texto **Identificador**, escriba un valor con el siguiente patrón: `<company name>.officespacesoftware.com`
+
+    > [!NOTE] 
+    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de OfficeSpace Software](mailto:support@officespacesoftware.com) para obtener estos valores. 
+
+4. La aplicación OfficeSpace Software espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_03.png)
+
+5. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, seleccione **user.mail** como **identificador de usuario**, y para cada fila se muestra en la tabla siguiente, realice los pasos siguientes:
     
     | Nombre del atributo | Valor de atributo |
     | --- | --- |    
-    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | user.mail |
     | email | user.mail |
     | name | user.displayname |
     | first_name | user.givenname |
     | last_name | user.surname |
 
-    a. Haga clic en **agregar atributo de usuario** para abrir el cuadro de diálogo **Agregar atributo de usuario**.
+    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_03.png)
-    
-    b. En el cuadro de texto **Nombre de atributo** , escriba el nombre de atributo que se muestra para la fila.
-    
-    c. En la lista **Valor de atributo**, escriba el valor de atributo que se muestra para esa fila.
-    
-    d. Haga clic en **Completar**
-
-3. En el menú de la parte superior, haga clic en **Inicio rápido**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_04.png) 
-
-4. En el portal clásico, en la página de integración de aplicaciones de **OfficeSpace Software**, haga clic en **Configurar inicio de sesión único** para abrir el diálogo **Configurar inicio de sesión único**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_04.png)
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_05.png)
+    
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+    
+    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+    
+    d. Haga clic en **Aceptar**.
 
-5. En la página **¿Cómo quiere que los usuarios inicien sesión en OfficeSpace Software?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, después, haga clic en **Siguiente**.
- 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)
+6. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-6. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)     
+
+7. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
+
+8. En la sección **Certificado de firma de SAML**, seleccione **Make new certificate active** (Activar el nuevo certificado) y haga clic en el botón **Guardar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.officespace.com/users/sign_in/saml`.
+9. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
 
-    b. Haga clic en **Next**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
 
-    > [!NOTE] 
-    > Tenga en cuenta que este no es el valor real. Tiene que actualizar este valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de OfficeSpace Software](emaiLto:support@officespacesoftware.com) para obtener este valor.
-
-7. En la página **Configurar inicio de sesión único en OfficeSpace Software**, haga clic en **Descargar certificado** y guarde el archivo de certificado en el equipo:
+10. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-8. En otra ventana del explorador web, inicie sesión en como administrador en el inquilino de OfficeSpace Software.
+11. En la sección **Configuración de OfficeSpace Software**, haga clic en **Configurar OfficeSpace Software** para abrir la ventana **Configurar inicio de sesión**.
 
-9. Vaya a **ADMIN** (ADMINISTRACIÓN) y haga clic en **Connectors** (Conectores).
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
+
+12. En otra ventana del explorador web, inicie sesión en como administrador en el inquilino de OfficeSpace Software.
+
+13. Vaya a **Settings** (Configuración) y haga clic en **Connectors** (Conectores).
 
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-10. Haga clic en **Autorización de SAML**.
+14. Haga clic en **Autorización de SAML**.
 
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-11. En la sección **Autorización SAML** , realice los pasos siguientes:
+15. En la sección **Autorización SAML** , realice los pasos siguientes:
 
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 
-    a. En el cuadro de texto **Logout provider url** (Dirección URL de proveedor de cierre de sesión), coloque el valor de **Dirección URL de inicio de sesión remoto** del Asistente para configuración de aplicaciones de Azure AD.
+    a. En el cuadro de texto **URL de proveedor de cierre de sesión**, coloque el valor de **URL de cierre de sesión** en la ventana de configuración de aplicaciones de Azure AD.
 
-    b. En el cuadro de texto **Client idp target url** (Dirección URL de destino de idp de cliente), coloque el valor de **Dirección URL de cierre de sesión remoto** del Asistente para configuración de aplicaciones de Azure AD.
+    b. En el cuadro de texto **URL de destino de IdP de cliente**, coloque el valor de **Dirección URL del servicio de inicio de sesión único** en la ventana de configuración de aplicaciones de Azure AD.
 
     c. Copie el valor de **Huella digital** del certificado descargado y luego péguelo en el cuadro de texto **Client idp cert fingerprint** (Huella digital del certificado de idp de cliente). 
 
     d. Haga clic en **Guardar configuración**.
 
     > [!NOTE]
-    > Para más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI)
-
-12. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
-
-    ![Inicio de sesión único de Azure AD ][10]
-
-13. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+    > Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI) 
   
-    ![Inicio de sesión único de Azure AD ][11]
-
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
+El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
 
-![Creación de un usuario de Azure AD][20]
+![Creación de un usuario de Azure AD][100]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_09.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_01.png) 
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+2. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_02.png) 
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
-
+3. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
+ 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_03.png) 
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_04.png) 
 
-5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_05.png) 
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    c. Haga clic en **Siguiente**.
-
-6.  En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
-
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_06.png) 
-
-    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-
-    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-
-    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-
-    d. En la lista **Rol**, seleccione **Usuario**.
-
-    e. Haga clic en **Siguiente**.
-
-7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
-
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_07.png) 
-
-8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
-
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_08.png) 
-
-    a. Anote el valor del campo **Nueva contraseña**.
-
-    b. Haga clic en **Completo**.   
+    d. Haga clic en **Crear**. 
 
 
 
@@ -264,7 +240,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a OfficeSpace Software se creará un nuevo usuario, en caso de que no exista.
 
 > [!NOTE]
-> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de OfficeSpace Software](emaiLto:support@officespacesoftware.com).
+> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de OfficeSpace Software](mailto:support@officespacesoftware.com).
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
@@ -275,7 +251,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar un usuario llamado Britta Simon a OfficeSpace Software, realice los pasos siguientes:**
 
-1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y seleccione **Aplicaciones empresariales**. Después, haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -283,16 +259,20 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_50.png) 
 
-3. En el menú de la parte superior, haga clic en **Usuarios**.
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][203] 
+    ![Asignar usuario][202] 
 
-4. En la lista Usuarios, seleccione **Britta Simon**.
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-    ![Asignar usuario][205]
-
 
 
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
@@ -316,19 +296,9 @@ Al hacer clic en el icono OfficeSpace Software en el panel de acceso, debería i
 [3]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

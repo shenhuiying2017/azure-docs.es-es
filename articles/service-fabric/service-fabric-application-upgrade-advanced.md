@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: subramar
+ms.date: 02/02/2017
+ms.author: subramar;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
-ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
+ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
+ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -34,7 +35,7 @@ También se pueden quitar servicios de una aplicación como parte de una actuali
 
 Azure Service Fabric ofrece varios modos de actualización para admitir clústeres de desarrollo y producción. Las opciones de implementación elegidas pueden ser diferentes para distintos entornos.
 
-La actualización de la aplicación gradual en modo supervisado es la actualización más típica que se usa en producción. Cuando se especifica la directiva de actualización, Service Fabric garantiza que la aplicación sea correcta antes de que la actualización continúe.
+La actualización gradual de la aplicación en modo supervisado es la actualización más típica que se usa en el entorno de producción. Cuando se especifica la directiva de actualización, Service Fabric garantiza que la aplicación sea correcta antes de que la actualización continúe.
 
  El Administrador de aplicaciones puede utilizar el modo de actualización de aplicación gradual manual para tener control total sobre el progreso de la actualización a través de los distintos dominios de actualización. Este modo es útil cuando se necesita una directiva de evaluación de estado personalizada o compleja, o tiene lugar una actualización poco convencional (por ejemplo, la aplicación ya tiene pérdida de datos).
 
@@ -99,9 +100,4 @@ Puede controlar cómo se actualiza una aplicación usando [parámetros de actual
 Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a usar la [serialización de datos](service-fabric-application-upgrade-data-serialization.md).
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

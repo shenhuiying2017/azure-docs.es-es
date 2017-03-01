@@ -1,6 +1,5 @@
 ---
-title: Uso de PowerShell para crear Azure HDInsight y Data Lake Store | Microsoft Docs
-description: "Uso de Azure PowerShell para crear y usar clústeres de HDInsight con Azure Data Lake"
+title: "PowerShell: clúster de Azure HDInsight con Data Lake Store como almacenamiento complementario | Microsoft Docs"
 services: data-lake-store,hdinsight
 documentationcenter: 
 author: nitinme
@@ -12,34 +11,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0fed9cff7a357c596d7e178ec756be449cd1dff0
-ms.openlocfilehash: aada6f72a3b20233fdeeb7adabf6545ce831d563
+ms.sourcegitcommit: d8100903d78a9ca8d88d2649ad5245ce3f456518
+ms.openlocfilehash: c21f244408ed6f6ca3168ee193bcba4d3b26cd40
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-powershell"></a>Creación de un clúster de HDInsight con el Almacén de Data Lake mediante Azure PowerShell
+# <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Uso de Azure PowerShell para crear clústeres de HDInsight con Data Lake Store (como almacenamiento adicional)
 > [!div class="op_single_selector"]
 > * [Uso del Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Uso de PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Uso de PowerShell (para el almacenamiento predeterminado)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Uso de PowerShell (para el almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Uso de Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight con acceso a Azure Data Lake Store. Para los tipos de clúster compatibles, Data Lake Store se puede usar como un almacenamiento predeterminado o una cuenta de almacenamiento adicional. Cuando Data Lake Store se usa como almacenamiento adicional, la cuenta de almacenamiento predeterminada para los clústeres seguirá siendo Azure Storage Blobs (WASB) y los archivos relacionados con clústeres (como registros, etc.) seguirán escribiéndose en el almacenamiento predeterminado, mientras que los datos que quiere procesar pueden almacenarse en una cuenta de Data Lake Store. Utilizar el Almacén de Data Lake como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura y escritura en el almacenamiento del clúster.
+Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight con Azure Data Lake Store **como almacenamiento adicional**. Para obtener instrucciones acerca de cómo crear un clúster de HDInsight con Azure Data Lake Store como almacenamiento predeterminado, consulte [Creación de un clúster de HDInsight con Data Lake Store mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
 
-Algunas consideraciones importantes:
+En el caso de los tipos de clúster compatibles, Data Lake Store se puede usar como almacenamiento predeterminado o como cuenta de almacenamiento adicional. Cuando Data Lake Store se usa como almacenamiento adicional, la cuenta de almacenamiento predeterminada para los clústeres seguirá siendo Azure Storage Blobs (WASB) y los archivos relacionados con clústeres (como registros, etc.) seguirán escribiéndose en el almacenamiento predeterminado, mientras que los datos que quiere procesar pueden almacenarse en una cuenta de Data Lake Store. Utilizar el Almacén de Data Lake como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura y escritura en el almacenamiento del clúster.
 
-* La opción para crear clústeres de HDInsight con acceso a Data Lake Store como almacenamiento predeterminado está disponible para HDInsight versión 3.5.
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Uso de Data Lake Store para el almacenamiento de clústeres de HDInsight
+
+Estas son algunas consideraciones importantes que deben tenerse en cuenta al usar HDInsight con Data Lake Store:
 
 * La opción para crear clústeres de HDInsight con acceso a Data Lake Store como almacenamiento está disponible para las versiones 3.2, 3.4 y 3.5. de HDInsight.
 
 * En clústeres HBase (Windows y Linux), Azure Data Lake Store **no se admite** como una opción de almacenamiento, ya sea almacenamiento predeterminado o almacenamiento adicional.
 
-
-En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data Lake como almacenamiento adicional. Para instrucciones sobre cómo crear un clúster de Hadoop con Data Lake Store como almacenamiento predeterminado, consulte [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 La configuración de HDInsight para trabajar con el Almacén de Data Lake mediante PowerShell consta de los pasos siguientes:
 
@@ -161,8 +162,9 @@ En esta sección, llevará a cabo los pasos para crear una entidad de servicio p
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
-## <a name="create-an-hdinsight-linux-cluster-with-authentication-to-data-lake-store"></a>Creación de un clúster de HDInsight con autenticación en Data Lake Store
-En esta sección, crearemos un clúster de Linux de Hadoop en HDInsight. En esta versión, el clúster de HDInsight y Data Lake Store deben estar en la misma ubicación.
+## <a name="create-an-hdinsight-linux-cluster-with-data-lake-store-as-additional-storage"></a>Creación de un clúster de HDInsight en Linux con Data Lake Store como almacenamiento adicional
+
+En esta sección, se creará un clúster de Hadoop en HDInsight basado en Linux con Data Lake Store como almacenamiento adicional. En esta versión, el clúster de HDInsight y Data Lake Store deben estar en la misma ubicación.
 
 1. Comience recuperando el identificador del inquilino de la suscripción. Lo necesitará más adelante.
 
@@ -248,9 +250,4 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

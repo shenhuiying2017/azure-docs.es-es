@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: squillace
 translationtype: Human Translation
-ms.sourcegitcommit: 4d2bd4bbcaf889ee25cc4567772384b167166c10
-ms.openlocfilehash: 736f30768da968f8e1d39ff94fe9de66cc219321
+ms.sourcegitcommit: 50f3c56daaa28b1f28e201ec0502a91804313e5f
+ms.openlocfilehash: 111a80548982a1dab529d9dd6fb46eb759b7f908
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -80,6 +81,8 @@ Cada suscripción de Azure tiene límites de cuota predeterminados que pueden af
 En Microsoft trabajamos estrechamente con nuestros asociados para garantizar que las imágenes disponibles están actualizadas y optimizadas para los entornos de tiempo de ejecución de Azure.  Para obtener más información sobre nuestros asociados, visite las siguientes páginas de Marketplace.
 
 Linux en Azure: [distribuciones aprobadas](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
 
 Red Hat: [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 
@@ -151,9 +154,4 @@ Ya tiene una visión general de Linux en Azure.  El siguiente paso consiste en e
 
 * [Creación de una máquina virtual con Linux en Azure mediante el Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de una máquina virtual con Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1f7d7ad6dcec3c7d3b6fec7abcad7c36d2c02b70
-ms.openlocfilehash: 6342b2e5f3efa498a911bb82a642fa4672f77180
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: b949318eb689eec9f0d08e91f2a9d0169d9d816f
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ En el ejemplo siguiente se usa PowerShell para obtener las ubicaciones para el t
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-En el ejemplo siguiente se usa la CLI de Azure 2.0 (versión preliminar) para obtener las ubicaciones para el tipo de recurso `Microsoft.Web\sites`:
+En el ejemplo siguiente se usa la CLI de Azure 2.0 para obtener las ubicaciones para el tipo de recurso `Microsoft.Web\sites`:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -100,10 +101,5 @@ Si tiene que codificar la ubicación en la plantilla, indique el nombre de una d
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más recomendaciones sobre la creación de plantillas, consulte [Procedimientos recomendados para crear plantillas de Azure Resource Manager](resource-manager-template-best-practices.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

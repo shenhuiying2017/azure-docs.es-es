@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: 2a204ffbb915370328e574dc3cba6a617e97c87a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,19 +67,19 @@ Para configurar la integración de MCM en Azure AD, deberá agregar esta soluci�
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-    ![Applications](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Aplicaciones")
 
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-    ![Agregar aplicación](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Add application")
+    ![Agregar aplicaciones](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Agregar aplicaciones")
 
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Agregar una aplicación de la galería")
 
 6. En el **cuadro de búsqueda**, escriba **MCM**.
    
-    ![Galería de aplicaciones](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Application gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Galería de aplicaciones")
 
 7. En el panel de resultados, seleccione **MCM** y, después, haga clic en **Completar** para agregar la aplicación.
    
@@ -106,15 +107,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **MCM**, haga clic en **Configurar inicio de sesión único** para abrir el diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configurar inicio de sesión único")
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en MCM?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, después, haga clic en **Siguiente**.
    
-    ![Inicio de sesión único de Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-On")
+    ![Inicio de sesión único de Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Inicio de sesión único de Microsoft Azure AD")
 
 3. En la página de diálogo Configurar las opciones de la aplicación, siga estos pasos:
    
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configurar dirección URL de la aplicación")
    
     a. En el cuadro de texto **URL de inicio de sesión**, escriba `https://myaba.co.uk/client-access/<company name>/saml.php`.
    
@@ -122,17 +123,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 4. En la página **Configurar inicio de sesión único en MCM**, haga clic en **Descargar metadatos** y, después, guarde el archivo de certificado en el equipo.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configurar inicio de sesión único")
 
 5. Si quiere configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de MCM. Adjunte el archivo de metadatos descargado y compártalo con el equipo de MCM para que le configure el inicio de sesión único.
 
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configurar inicio de sesión único")
 
 7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configurar inicio de sesión único")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
@@ -202,13 +203,13 @@ En esta sección, creará un usuario llamado Britta Simon en MCM. Colabore con e
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a MCM.
 
-![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Assign users")
+![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Asignar usuarios")
 
 **Para asignar el usuario Britta Simon a MCM, realice los pasos siguientes:**
 
 1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
    
-    ![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assign users")
+    ![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Asignar usuarios")
 
 2. En la lista de aplicaciones, seleccione **MCM**.
    
@@ -216,13 +217,13 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 3. En el menú de la parte superior, haga clic en **Usuarios**.
    
-    ![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assign users")
+    ![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Asignar usuarios")
 
 4. En la lista Usuarios, seleccione **Britta Simon**.
 
 5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
    
-    ![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assign users")
+    ![Asignar usuarios](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Asignar usuarios")
 
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
@@ -232,10 +233,5 @@ Al hacer clic en el icono de MCM del panel de acceso, debería iniciar sesión a
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
