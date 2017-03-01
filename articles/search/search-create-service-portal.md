@@ -1,9 +1,9 @@
 ---
-title: "Creación de un servicio Azure Search mediante Azure Portal | Microsoft Docs"
-description: "Más información sobre cómo aprovisionar un servicio Búsqueda de Azure mediante el Portal de Azure."
+title: "Creación de un servicio Azure Search en Azure Portal | Microsoft Docs"
+description: Aprovisione un servicio Azure Search en Azure Portal.
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: c8c88922-69aa-4099-b817-60f7b54e62df
 ms.service: search
@@ -11,74 +11,89 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/29/2016
-ms.author: ashmaka
+ms.date: 02/16/2017
+ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
-ms.openlocfilehash: 5046b3fc1444e37388505f2662a28486342c8822
+ms.sourcegitcommit: 4d7c0afe5e43e0c119f534cdedaaa03a16ed5303
+ms.openlocfilehash: 0d5198c74fa81358dcdfec514e1fe422d17f368f
+ms.lasthandoff: 02/17/2017
 
 
 ---
-# <a name="create-an-azure-search-service-using-the-azure-portal"></a>Creación de un servicio Búsqueda de Azure mediante el Portal de Azure
-Este artículo le llevará por el proceso de crear (o aprovisionar) un servicio Azure Search con [Azure Portal](https://portal.azure.com/).
+# <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio de Búsqueda de Azure en el portal
 
-En esta artículo se supone que ya tiene una suscripción de Azure y puede iniciar sesión en Azure Portal.
+En este artículo se explica cómo crear o proporcionar un servicio Azure Search en Azure Portal. Para obtener instrucciones de PowerShell, consulte [Administración del servicio Azure Search con PowerShell](search-manage-powershell.md).
 
-## <a name="find-azure-search-in-the-azure-portal"></a>Encontrar Búsqueda de Azure en el Portal de Azure
-1. Abra [Azure Portal](https://portal.azure.com/) e inicie sesión.
+## <a name="subscribe-free-or-paid"></a>Suscripción (gratuita o de pago)
+
+[Abra una cuenta gratuita de Azure ](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y use créditos gratuitos para probar servicios de pago de Azure. Cuando se consuman los créditos, mantenga la cuenta y siga usando servicios de Azure gratuitos, como Websites. No se le realizará ningún cargo en su tarjeta de crédito a menos que cambie explícitamente la configuración y lo solicite.
+
+Como alternativa, [active las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Una suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago. 
+
+## <a name="find-azure-search"></a>Búsqueda de Azure Search
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en el signo más ("+") en la esquina superior izquierda.
-3. Seleccione **Web + Móvil**.
-4. Seleccione **Búsqueda de Azure**.
+3. Seleccione **Web y móvil** > **Azure Search**.
 
-![](./media/search-create-service-portal/find-search.png)
+![](./media/search-create-service-portal/find-search2.png)
 
-## <a name="pick-a-service-name-and-url-endpoint-for-your-service"></a>Elegir un nombre de servicio y el punto de conexión de la dirección URL del servicio
-1. El nombre del servicio será parte de la dirección URL del punto de conexión del servicio Búsqueda de Azure contra el que hará las llamadas de API para administrar y usar el servicio de búsqueda.
-2. Escriba el nombre del servicio en el campo **Dirección URL** . El nombre del servicio debe cumplir los siguientes requisitos:
-   * Solo debe contener letras minúsculas, números o guiones ("-").
-   * No puede utilizar guiones ("-") en los dos primeros caracteres o en el último carácter.
-   * No puede contener guiones consecutivos ("--").
-   * Está limitada a una longitud de entre 2 y 60 caracteres.
+## <a name="name-the-service-and-url-endpoint"></a>Asignación de un nombre al servicio y al punto de conexión de dirección URL
 
-## <a name="select-a-subscription-where-you-will-keep-your-service"></a>Seleccionar una suscripción donde mantendrá el servicio
-Si tiene más de una suscripción, puede seleccionar cuál incluirá este servicio Búsqueda de Azure.
+Un nombre de servicio es parte del punto de conexión de dirección URL con la que se emiten llamadas a la API. Escriba el nombre del servicio en el campo **Dirección URL** . 
 
-## <a name="select-a-resource-group-for-your-service"></a>Seleccionar un grupo de recursos para el servicio
-Cree un nuevo grupo de recursos o seleccione uno existente. Un grupo de recursos es una colección de servicios y recursos de Azure que se usan juntos. Por ejemplo, si utiliza Búsqueda de Azure para indexar una base de datos SQL, ambos servicios deberían formar parte del mismo grupo de recursos.
+Requisitos de nombre de servicio:
+   * Entre 2 y 60 caracteres de longitud.
+   * Letras minúsculas, números o guiones ("-").
+   * Sin guiones ("-") en los dos primeros caracteres o en el último carácter.
+   * Sin guiones consecutivos ("--").
 
-## <a name="select-the-location-where-your-service-will-be-hosted"></a>Seleccionar la ubicación donde se hospedará el servicio
-En cuanto servicio de Azure, Búsqueda de Azure está disponible para hospedarse en centros de datos de todo el mundo. Tenga en cuenta que los [precios pueden variar](https://azure.microsoft.com/pricing/details/search/) según la región geográfica.
+## <a name="select-a-subscription"></a>Selección de una suscripción
+Si tiene más de una suscripción, elija una que también tenga servicios de almacenamiento de datos o archivos. Azure Search puede detectar automáticamente Azure Table y Blob Storage, SQL Database y DocumentDB para indexarlos mediante *indexadores*, pero solo para servicios de la misma suscripción.
 
-## <a name="select-your-pricing-tier"></a>Seleccionar el plan de tarifa
+## <a name="select-a-resource-group"></a>Selección de un grupo de recursos
+Un grupo de recursos es una colección de servicios y recursos de Azure que se usan juntos. Por ejemplo, si usa Azure Search para indexar una base de datos SQL, ambos servicios deben formar parte del mismo grupo de recursos.
+
+> [!TIP]
+> Al eliminar un grupo de recursos también se eliminan los servicios que contiene. En el caso de proyectos de prototipo que usan muchos servicios, si se ponen todos ellos en el mismo grupo de recursos, la limpieza resulta más fácil después de que el proyecto ha finalizado. 
+
+## <a name="select-a-hosting-location"></a>Selección de una ubicación de hospedaje 
+En cuanto servicio de Azure, Azure Search se puede hospedar en centros de datos de todo el mundo. Tenga en cuenta que los [precios pueden variar](https://azure.microsoft.com/pricing/details/search/) según la región geográfica.
+
+## <a name="select-a-pricing-tier-sku"></a>Selección de un plan de tarifa (SKU)
 [Búsqueda de Azure se ofrece actualmente en varios planes de tarifa](https://azure.microsoft.com/pricing/details/search/): Gratis, Básico y Estándar. Cada plan tiene su propia [capacidad y sus propios límites](search-limits-quotas-capacity.md). Consulte [Selección SKU o plan de tarifa](search-sku-tier.md) para obtener instrucciones.
 
-En este caso, hemos elegido el nivel Estándar para nuestro servicio.
+En este tutorial, hemos elegido el nivel Estándar para nuestro servicio.
 
-## <a name="select-the-create-button-to-provision-your-service"></a>Seleccionar el botón "Crear" para aprovisionar el servicio
-![](./media/search-create-service-portal/create-service.png)
+## <a name="create-your-service"></a>Creación del servicio
+
+No olvide anclar su servicio en el panel para facilitar el acceso siempre que inicie sesión.
+
+![](./media/search-create-service-portal/new-service2.png)
 
 ## <a name="scale-your-service"></a>Escalar el servicio
-Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Dado que ha elegido el nivel Estándar para el servicio Azure Search, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas. Si ha aprovisionado el servicio gratuito, el escalado no está disponible.
+La creación de un servicio puede llevarle unos minutos (15 o más, en función del nivel). Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Dado que ha elegido el nivel Estándar para el servicio Azure Search, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas. Si ha aprovisionado el servicio gratuito, el escalado no está disponible.
 
 Las ***particiones*** permiten que el servicio almacene y busque en más documentos.
 
-Las ***réplicas*** permiten que el servicio gestione una carga más elevada de consultas de búsqueda: [un servicio requiere dos réplicas para lograr un SLA de solo lectura y tres réplicas para lograr un SLA de lectura y escritura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Las ***réplicas*** permiten al servicio administrar una carga más elevada de consultas de búsqueda.
 
-1. Vaya a la hoja de administración de su servicio Azure Search en Azure Portal.
-2. En la hoja **Configuración**, seleccione **Escala**.
-3. Puede escalar el servicio mediante la adición de particiones o réplicas.
-   * Cada nivel de servicio tiene distintos [límites](search-limits-quotas-capacity.md) en el número total de unidades de búsqueda que se permiten en un único servicio (réplicas * particiones = total de unidades de búsqueda).
+> [!Important]
+> Un servicio debe tener [2 réplicas para SLA de solo lectura y 3 réplicas para SLA de lectura y escritura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-![](./media/search-create-service-portal/scale-service.png)
+1. Vaya a la hoja del servicio de búsqueda en Azure Portal.
+2. En el panel de navegación de la izquierda, seleccione **Configuración** > **Escala**.
+3. Use la barra deslizante para agregar réplicas o particiones.
+
+![](./media/search-create-service-portal/settings-scale.png)
+
+> [!Note] 
+> Cada nivel tiene distintos [límites](search-limits-quotas-capacity.md) en el número total de unidades de búsqueda que se permiten en un único servicio (réplicas * particiones = total de unidades de búsqueda).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de aprovisionar un servicio Búsqueda de Azure, estará listo para [definir un índice de Búsqueda de Azure](search-what-is-an-index.md) para que pueda cargar y buscar los datos.
+Después de aprovisionar un servicio Azure Search, está listo para [definir un índice](search-what-is-an-index.md) para que pueda cargar y buscar los datos.
 
-Consulte [Introducción a Búsqueda de Azure en el Portal](search-get-started-portal.md) para un tutorial rápido.
+Para acceder al servicio mediante código o script, proporcione la dirección URL (*nombre_servicio*.search.windows.net) y una clave. Las claves de administrador conceden acceso completo; las claves de consulta conceden acceso de solo lectura. Consulte [Cómo usar Azure Search en .NET](search-howto-dotnet-sdk.md) para comenzar.
 
-
-
-
-<!--HONumber=Jan17_HO2-->
+Consulte [Compilación y consulta del primer índice](search-get-started-portal.md) para obtener un tutorial rápido basado en Azure Portal.
 
 

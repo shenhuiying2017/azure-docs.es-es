@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1b12d8ef3bbbfd2688f7bbd47968332e83a35252
-ms.openlocfilehash: 6cb5aee751e89ad1e825fae4fdfd460f1bfd8b6c
+ms.sourcegitcommit: d0d213e2cc52f43c11efd49c51270aa42f8fad36
+ms.openlocfilehash: 6c373adaee553e9eca94a978afc62d453f7db0f8
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="troubleshooting-the-auto-registration-of-azure-ad-domain-joined-computers-for-windows-down-level-clients"></a>Solución de problemas de registro automático de equipos unidos a un dominio Azure AD para clientes de nivel inferior de Windows 
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad-for-windows-down-level-clients"></a>Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD para clientes de nivel inferior de Windows 
 
 Este tema solo es aplicable a los siguientes clientes: 
 
@@ -30,7 +31,7 @@ Este tema solo es aplicable a los siguientes clientes:
 - Windows Server 2012 R2 
  
 
-Para Windows 10 o Windows Server 2016, vea [Solución de problemas de registro automático de equipos unidos a un dominio Azure AD para Windows 10 y Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
+Para Windows 10 o Windows Server 2016, consulte [Solución de problemas de registro automático de equipos unidos a un dominio Azure AD para Windows 10 y Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
 
 En este tema se supone que ha configurado el registro automático de dispositivos unidos a un dominio como se describe en [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md).
  
@@ -98,9 +99,4 @@ También puede encontrar la información de estado en el registro de eventos en 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, vea [Preguntas más frecuentes sobre el registro automático de dispositivos](active-directory-conditional-access-automatic-device-registration-faq.md) 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

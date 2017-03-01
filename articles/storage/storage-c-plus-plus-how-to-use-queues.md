@@ -3,7 +3,7 @@ title: Udo de Queue Storage (C++) | Microsoft Docs
 description: "Aprenda a usar el servicio de almacenamiento de colas en Azure. Los ejemplos están escritos en C++."
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: c8a36365-29f6-404d-8fd1-858a7f33b50a
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
 ms.openlocfilehash: ca4b5428279291c0b3fe4fb52f6dc4e2c1208bf2
+ms.lasthandoff: 11/22/2016
 
 
 ---
@@ -271,8 +272,3 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 * [Enumeración de los recursos de almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md)
 * [Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 * [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

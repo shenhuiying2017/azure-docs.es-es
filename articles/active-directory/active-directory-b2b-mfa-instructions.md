@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 32d0b45080d57712209e0c5a3e5adf981fb4b66e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -36,10 +37,14 @@ Esto significa lo siguiente:
 7. En resumen, el espacio invitador *siempre* es responsable de la MFA de los usuarios de colaboración B2B de la organización del asociado, no la propia organización del asociado (incluso si tiene funcionalidades de MFA). En futuras versiones, permitiremos que la organización invitadora confíe en la MFA de las organizaciones de asociados específicos en lugar de usar la de la organización invitadora.
 
 ## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configuración de Multi-Factor Authentication para los usuarios de colaboración B2B
-Para descubrir lo fácil que es configurar la MFA para los usuarios de colaboración B2B, vea [este vídeo](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
+Para descubrir lo fácil que es configurar MFA para los usuarios de colaboración B2B, vea el siguiente vídeo:
 
-## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>Experiencia de Multi-Factor Authentication de los usuarios de colaboración B2B para el canje de ofertas
-Vea la siguiente animación para ver la experiencia de canje, tal como se muestra en [este vídeo](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
+
+## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Experiencia de MFA de los usuarios B2B para el canje de ofertas
+En la siguiente animación se puede ver el canje, como se muestra en este vídeo:
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>Restablecimiento de la MFA para los usuarios de colaboración B2B
 Actualmente, el administrador puede requerir que se vuelvan a probar los usuarios de colaboración B2B solo mediante los siguientes cmdlets de PowerShell. Por lo tanto, los siguientes cmdlets de PowerShell deben usarse si desea restablecer el método de prueba de un usuario de la colaboración B2B.
@@ -85,9 +90,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

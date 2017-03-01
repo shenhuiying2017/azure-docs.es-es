@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
-ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de precios de Logic Apps
@@ -27,7 +28,7 @@ Se miden todas las acciones que se ejecutan durante la ejecución de una instanc
 ### <a name="what-are-action-executions"></a>¿Cuáles son las ejecuciones de acción?
 Cada paso de una definición de aplicación lógica es una acción, que incluye desencadenadores, pasos del flujo de control, como condiciones, ámbitos, bucles for each, bucles do until, llamadas a conectores y llamadas a acciones nativas.
 Los desencadenadores son acciones especiales diseñadas para crear una nueva instancia de aplicación lógica cuando se produce un evento determinado.  Existen varios comportamientos diferentes para desencadenadores que podrían afectar al modo en que se mide la aplicación lógica.
-* **Desencadenador de sondeo**: este desencadenador sondea continuamente un punto de conexión hasta que recibe un mensaje que satisface los criterios para crear una instancia de una aplicación lógica.  El intervalo de sondeo se puede configurar en el desencadenador en el diseñador de Logic Apps.  Cada solicitud de sondeo, incluso si no crea una instancia de una aplicación lógica, cuenta como una ejecución de acción.
+* **Desencadenador de sondeo**: este desencadenador sondea continuamente un punto de conexión hasta que recibe un mensaje que satisface los criterios para crear una instancia de una aplicación lógica.  El intervalo de sondeo se puede configurar en el desencadenador en el Diseñador de aplicación lógica.  Cada solicitud de sondeo, incluso si no crea una instancia de una aplicación lógica, cuenta como una ejecución de acción.
 * **Desencadenador de webhook** : este desencadenador espera a que un cliente envíe una solicitud en un punto de conexión determinado.  Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. El desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook.
 * **Desencadenador de periodicidad**: este desencadenador crea una instancia de la aplicación lógica según el intervalo de periodicidad configurado en el desencadenador.  Por ejemplo, un desencadenador de periodicidad puede configurarse para que se ejecute cada tres días o incluso cada minuto.
 
@@ -58,10 +59,5 @@ Para obtener información sobre precios, vea [Precios de Logic Apps](https://azu
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Logic Apps][whatis]
 * [Create your first logic app] ([Creación de la primera aplicación lógica]) [create] [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/ [whatis]: logic-apps-what-are-logic-apps.md [create]: logic-apps-create-a-logic-app.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Espacios de nombres emparejados de Service Bus | Microsoft Docs
+title: Espacios de nombres emparejados de Azure Service Bus | Microsoft Docs
 description: "Detalles de la implementación y costos de los espacios de nombres emparejados"
 services: service-bus-messaging
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e384611b598f4e5256f2957227927ffd7c4e5ff
+ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
+ms.openlocfilehash: 84e125dffcac3f3a54250587c5238b50d3a6cb95
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Detalles de implementación y costos asociados de los espacios de nombres emparejados
-El método [PairNamespaceAsync][PairNamespaceAsync], con una instancia de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], realiza tareas visibles en su nombre. Dado que el uso de esta característica tiene ciertos costes asociados, resulta útil conocer dichas tareas para que su comportamiento no le pille desprevenido. La API interactúa con el siguiente comportamiento automático en su nombre:
+El método [PairNamespaceAsync][PairNamespaceAsync], que usa una instancia de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], realiza tareas visibles en su nombre. Dado que el uso de esta característica tiene ciertos costes asociados, resulta útil conocer dichas tareas para que su comportamiento no le pille desprevenido. La API interactúa con el siguiente comportamiento automático en su nombre:
 
 * Creación de colas de trabajos pendientes.
 * Creación de un objeto [MessageSender][MessageSender] que se comunique con colas o temas.
@@ -29,11 +30,11 @@ El método [PairNamespaceAsync][PairNamespaceAsync], con una instancia de [SendA
 * Opcionalmente, crea un conjunto de "suministros de mensajes" que mueven los mensajes de las colas de trabajos pendientes a las colas principales.
 * Coordina el cierre o error de las instancias de [MessagingFactory][MessagingFactory] principal y secundaria.
 
-A un alto nivel, la característica funciona del siguiente modo: cuando la entidad principal es correcta, se producen cambios de comportamiento. Si transcurre el período de [FailoverInterval][FailoverInterval] y la entidad principal no identifica envíos correctos después de una [MessagingException][MessagingException] o un [TimeoutException][TimeoutException] no transitorios, se produce el comportamiento siguiente:
+A un alto nivel, la característica funciona del siguiente modo: cuando la entidad principal es correcta, se producen cambios de comportamiento. Si transcurre la duración de [FailoverInterval][FailoverInterval] y la entidad principal no ve envíos correctos después de unas excepciones [MessagingException][MessagingException] o [TimeoutException no transitorias][TimeoutException], se produce el siguiente comportamiento:
 
 1. Las operaciones de envío a la entidad principal están deshabilitadas y el sistema hace ping a la entidad principal hasta que los pings se puedan entregar correctamente.
 2. Se selecciona una cola de trabajos pendientes aleatoria.
-3. Los objetos [BrokeredMessage][BrokeredMessage] se enrutan a la cola de trabajos pendientes seleccionada.
+3. Los objetos [BrokeredMessage][BrokeredMessage] se enrutan a la cola de trabajos pendientes elegida.
 4. Si se produce un error en una operación de envío a la cola de trabajos pendientes elegidas, dicha cola se extrae de la rotación y se selecciona una nueva cola. Todos los remitentes de la instancia de [MessagingFactory][MessagingFactory] reciben información del error.
 
 Las ilustraciones siguientes muestran la secuencia. En primer lugar, el remitente envía los mensajes.
@@ -51,9 +52,9 @@ En este momento, los mensajes siguen en la cola secundaria y no se han entregado
 En el resto de este tema se tratan los detalles concretos del funcionamiento de estas partes.
 
 ## <a name="creation-of-backlog-queues"></a>Creación de colas de trabajos pendientes
-El objeto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] pasado al método [PairNamespaceAsync][PairNamespaceAsync] indica el número de colas de trabajos pendientes que quiere usar. Después, se crean las colas de trabajos pendientes con las siguientes propiedades definidas de forma explícita (en los valores restantes se seleccionan los valores predeterminados de [QueueDescription][QueueDescription]):
+El objeto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] pasado al método [PairNamespaceAsync][PairNamespaceAsync] indica el número de colas de trabajos pendientes que desea usar. A continuación, se crean las colas de trabajos pendientes con las siguientes propiedades definidas explícitamente (en los restantes valores se seleccionan los valores predeterminados de [QueueDescription][QueueDescription]):
 
-| path | [espacio de nombres principal] / x-servicebus-transfer / [index] donde [index] es un valor de [0, BacklogQueueCount) |
+| Ruta de acceso | [espacio de nombres principal] / x-servicebus-transfer / [index] donde [index] es un valor de [0, BacklogQueueCount) |
 | --- | --- |
 | MaxSizeInMegabytes |5120 |
 | MaxDeliveryCount |int.MaxValue |
@@ -65,13 +66,13 @@ El objeto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespa
 
 Por ejemplo, la primera cola de trabajos pendientes creada para el espacio de nombres **contoso** se denomina `contoso/x-servicebus-transfer/0`.
 
-Cuando se crean las colas, el código comprueba primero si existe dicha cola. Si la cola no existe, se crea. El código no limpiar la colas de trabajos pendientes "adicionales". En concreto, si la aplicación con el espacio de nombres principal **contoso** solicita cinco colas de trabajos pendientes, pero existe una cola con la ruta de acceso `contoso/x-servicebus-transfer/7`, dicha cola de trabajos pendientes adicional está presente pero no se usa. El sistema permite explícitamente que existan colas de trabajos pendientes adicionales que no se usan. El propietario del espacio de nombres, es el responsable de limpiar las colas de trabajos pendientes sin usar o no deseadas. La razón para tomar esta decisión es que el bus de servicio no puede saber qué fines tienen todas las colas del espacio de nombres. Además, si existe una cola con el nombre especificado, pero no cumple la [QueueDescription][QueueDescription] supuesta, puede cambiar el comportamiento predeterminado. No se garantizan las modificaciones en las colas de registros pendientes realizadas por el código. Asegúrese de probar exhaustivamente los cambios.
+Cuando se crean las colas, el código comprueba primero si existe dicha cola. Si la cola no existe, se crea. El código no limpiar la colas de trabajos pendientes "adicionales". En concreto, si la aplicación con el espacio de nombres principal **contoso** solicita cinco colas de trabajos pendientes, pero existe una cola con la ruta de acceso `contoso/x-servicebus-transfer/7`, dicha cola de trabajos pendientes adicional está presente pero no se usa. El sistema permite explícitamente que existan colas de trabajos pendientes adicionales que no se usan. El propietario del espacio de nombres, es el responsable de limpiar las colas de trabajos pendientes sin usar o no deseadas. La razón para tomar esta decisión es que el bus de servicio no puede saber qué fines tienen todas las colas del espacio de nombres. Además, si existe una cola con el nombre especificado, pero NO cumple la [QueueDescription][QueueDescription] asumida, las razones son las suyas propias para cambiar el comportamiento predeterminado. No se garantizan las modificaciones en las colas de registros pendientes realizadas por el código. Asegúrese de probar exhaustivamente los cambios.
 
 ## <a name="custom-messagesender"></a>MessageSender personalizado
-Cuando se envían, todos los mensajes pasan a través de un objeto [MessageSender][MessageSender] interno que se comporta con normalidad cuando todo funciona y se redirigen a las colas de trabajos pendiente cuando algo "deja de funcionar". Al recibir un error no transitorio, se inicia un temporizador. Después de un período [TimeSpan][TimeSpan] (formado por el valor de la propiedad [FailoverInterval][FailoverInterval] durante el que no se envían mensajes correctos), se activa la conmutación por error. En este punto, esto es lo que ocurre en cada entidad:
+Cuando se envían, todos los mensajes atraviesan un objeto [MessageSender][MessageSender] interno que se comporta con normalidad cuando todo funciona y se redirigen a las colas de trabajos pendiente cuando algo "deja de funcionar". Al recibir un error no transitorio, se inicia un temporizador. Después de un período [TimeSpan][TimeSpan] que consta del valor de la propiedad [FailoverInterval][FailoverInterval] durante el que no se envían mensajes correctos, se activa la conmutación por error. En este punto, esto es lo que ocurre en cada entidad:
 
 * Se ejecuta una tarea de ping cada [PingPrimaryInterval][PingPrimaryInterval] para comprobar si la entidad está disponible. Una vez que esta tarea se realiza correctamente, todo el código de cliente que usa la entidad inmediatamente comienza a enviar mensajes nuevos al espacio de nombres principal.
-* Las solicitudes de envío a la misma entidad que se realicen en el futuro desde otros remitentes provocarán que el [BrokeredMessage][BrokeredMessage] enviado se modifique para permanecer en la cola de trabajos pendientes. La modificación quita algunas de las propiedades del objeto [BrokeredMessage][BrokeredMessage] y las almacena en otro lugar. Las siguientes propiedades se borran y se agregan con un nuevo alias, lo que permite que el bus de servicio y el SDK procesen los mensajes de manera uniforme:
+* Las solicitudes de envío a la misma entidad que se realicen en el futuro desde otros remitentes provocarán que el [BrokeredMessage][BrokeredMessage] enviado se modifique para permanecer en la cola de trabajos pendientes. La modificación elimina algunas de las propiedades del objeto [BrokeredMessage][BrokeredMessage] y las almacena en otro lugar. Las siguientes propiedades se borran y se agregan con un nuevo alias, lo que permite que el bus de servicio y el SDK procesen los mensajes de manera uniforme:
 
 | Nombre de propiedad anterior | Nombre de propiedad nuevo |
 | --- | --- |
@@ -81,10 +82,10 @@ Cuando se envían, todos los mensajes pasan a través de un objeto [MessageSende
 
 La ruta de acceso de destino original se almacena también en el mensaje como una propiedad denominada x-ms-path. Este diseño permite que coexistan mensajes de varias entidades en una única cola de trabajos pendientes. El sifón vuelve a convertir las propiedades.
 
-El objeto [MessageSender][MessageSender] personalizado puede encontrar problemas cuando los mensajes se acerquen al límite de 256 KB y se active la conmutación por error. El objeto [MessageSender][MessageSender] personalizado almacena los mensajes de todas las colas y temas juntos en las colas de trabajos pendientes. Este objeto mezcla los mensajes de muchas entidades principales en las colas de trabajos pendientes. Para controlar el equilibrio de carga entre diferentes clientes que no se conocen entre sí, el SDK elige de forma aleatoria una cola de trabajos pendientes para cada [QueueClient][QueueClient] o [TopicClient][TopicClient] que se crea en el código.
+El objeto [MessageSender][MessageSender] personalizado puede encontrar problemas cuando los mensajes se acerquen al límite de 256 KB y se active la conmutación por error. El objeto [MessageSender][MessageSender] personalizado almacena los mensajes de todas las colas y temas juntos en las colas de trabajos pendientes. Este objeto mezcla los mensajes de muchas entidades principales en las colas de trabajos pendientes. Para controlar el equilibrio de carga entre muchos clientes que no se conocen entre sí, el SDK elige aleatoriamente una cola de trabajos pendientes para cada [QueueClient][QueueClient] o [TopicClient que se crea en el código][TopicClient].
 
 ## <a name="pings"></a>Pings
-Un mensaje Ping es un [BrokeredMessage][BrokeredMessage] vacío con su propiedad [ContentType][ContentType] establecida en application/vnd.ms-servicebus-ping y un valor de [TimeToLive][TimeToLive] de 1 segundo. Este ping tiene una característica especial en Service Bus: el servidor nunca entrega un ping cuando un llamador pide un [BrokeredMessage][BrokeredMessage]. Por lo tanto, nunca tendrá que aprender a recibir e ignorar estos mensajes. Se hará ping a todas las entidades (cola o tema únicos) por instancia de [MessagingFactory][MessagingFactory] por cliente cuando se considere que no están disponibles. De forma predeterminada, esto ocurre una vez por minuto. Se considera que los mensajes Ping son mensajes normales del bus de servicio y pueden dar lugar a gastos de ancho de banda y mensajes. En cuanto los clientes detectan que el sistema está disponible, los mensajes se detienen.
+Un mensaje Ping es un [BrokeredMessage][BrokeredMessage] vacío con su propiedad [ContentType][ContentType] establecida en application/vnd.ms-servicebus-ping y un valor de [TimeToLive][TimeToLive] de 1 segundo. Este ping tiene una característica especial en Service Bus: el servidor nunca entrega un ping cuando algún llamador solicita un [BrokeredMessage][BrokeredMessage]. Por lo tanto, nunca tendrá que aprender a recibir e ignorar estos mensajes. Se hará ping a todas las entidades (cola o tema únicos) por instancia de [MessagingFactory][MessagingFactory] por cliente cuando se considere que no están disponibles. De forma predeterminada, esto ocurre una vez por minuto. Se considera que los mensajes Ping son mensajes normales del bus de servicio y pueden dar lugar a gastos de ancho de banda y mensajes. En cuanto los clientes detectan que el sistema está disponible, los mensajes se detienen.
 
 ## <a name="the-syphon"></a>El sifón
 Al menos uno de los programas ejecutables de la aplicación debe ejecutar activamente el sifón. El sifón realiza una recepción de sondeo largo que dura 15 minutos. Si todas las entidades están disponibles y tiene 10 colas de trabajos pendientes, la aplicación que hospeda el sifón llama a la operación de recepción 40 veces por hora, 960 veces al día y 28800 veces en 30 días. Cuando el sifón mueve activamente mensajes desde la cola de trabajos pendientes a la cola principal, cada mensaje experimenta los siguientes cargos (se aplican cargos estándar según el tamaño del mensaje y el ancho de banda en todas las fases):
@@ -95,33 +96,28 @@ Al menos uno de los programas ejecutables de la aplicación debe ejecutar activa
 4. Recibir de la cola principal.
 
 ## <a name="closefault-behavior"></a>Comportamiento de cierre o error
-Dentro de una aplicación que hospeda el sifón, cuando el elemento principal o secundario [MessagingFactory][MessagingFactory] genera un error o se cierra sin que su asociado genere un error o se cierre y el sifón se encuentra este estado, el sifón actuará. Si el otro [MessagingFactory][MessagingFactory] no se cierra en 5 segundos, el sifón producirá errores en el [MessagingFactory][MessagingFactory] que aún esté abierto.
+Dentro de una aplicación que hospeda el sifón, una vez que el elemento principal o secundario [MessagingFactory][MessagingFactory] genera un error o se cierra sin que su partner genere un error o se cierre y el sifón detecta este estado, el sifón actúa. Si el otro [MessagingFactory][MessagingFactory] no se cierra en 5 segundos, el sifón generará un error en el [MessagingFactory][MessagingFactory] que aún está abierto.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre la mensajería asincrónica de Service Bus, vea [Patrones de mensajería asincrónica y alta disponibilidad][Patrones de mensajería asincrónica y alta disponibilidad]. 
+Para más información sobre la mensajería asincrónica de Service Bus, consulte [Patrones de mensajería asincrónica y alta disponibilidad][Asynchronous messaging patterns and high availability]. 
 
-[PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
-[SendAvailabilityPairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[FailoverInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.pairednamespaceoptions.failoverinterval.aspx
-[MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[FailoverInterval]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions#Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_FailoverInterval
+[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
-[PingPrimaryInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.pingprimaryinterval.aspx
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-[ContentType]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx
-[TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
-[Patrones de mensajería asincrónica y alta disponibilidad]: service-bus-async-messaging.md
+[PingPrimaryInterval]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_PingPrimaryInterval
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
+[ContentType]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType
+[TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive
+[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png
 [2]: ./media/service-bus-paired-namespaces/IC673407.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

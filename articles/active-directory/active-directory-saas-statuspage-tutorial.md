@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: accfb64dfe167de9c6481954e00af6c8f732ab1d
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 3b901bcb08a194f72c3dc75e33f2b94fffea370e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,27 +36,26 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con StatusPage, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para inicio de sesión único en StatusPage
+* Una suscripción habilitada para inicio de sesión único (SSO) en StatusPage
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. 
 
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de StatusPage desde la galería 
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+* Incorporación de StatusPage desde la galería 
+* Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-statuspage-from-the-gallery"></a>Incorporación de StatusPage desde la galería
+## <a name="add-statuspage-from-the-gallery"></a>Incorporación de StatusPage desde la galería
 Para configurar la integración de StatusPage en Azure AD, deberá agregar StatusPage desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar StatusPage desde la galería, realice los pasos siguientes:**
@@ -80,7 +80,7 @@ Para configurar la integración de StatusPage en Azure AD, deberá agregar Statu
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con StatusPage con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de StatusPage para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de StatusPage.
@@ -89,13 +89,13 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 
 Para configurar y probar el inicio de sesión único de Azure AD con StatusPage, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de StatusPage](#creating-a-statuspage-test-user)** : para tener un homólogo de Britta Simon en StatusPage que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación StatusPage. 
 
 **Para configurar el inicio de sesión único de Azure AD con StatusPage, realice los pasos siguientes:**
@@ -110,49 +110,39 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_04.png) 
    
-   > [!NOTE]
-   > Póngase en contacto con el equipo de soporte técnico de StatusPage [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)a fin de solicitar los metadatos necesarios para configurar el inicio de sesión único.
+   >[!NOTE]
+   >Póngase en contacto con el equipo de soporte técnico de StatusPage [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)a fin de solicitar los metadatos necesarios para configurar el inicio de sesión único. 
    > 
-   > 
+  1. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Identificador** .
+  2. En los metadatos, copie el valor de URL de respuesta y luego péguelo en el cuadro de texto **URL de respuesta** .
+  3. Haga clic en **Siguiente**.
 
-    a. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Identificador** .
-
-    b. En los metadatos, copie el valor de URL de respuesta y luego péguelo en el cuadro de texto **URL de respuesta** .
-
-    c. Haga clic en **Siguiente**.
-
-
-1. En la página **Configurar inicio de sesión único en StatusPage** , siga estos pasos:
+4. En la página **Configurar inicio de sesión único en StatusPage** , siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_05.png) 
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
-2. En otra ventana del explorador, inicie sesión en su sitio de la empresa de StatusPage como administrador.
-3. En la barra de herramientas principal, haga clic en **Administrar cuenta**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_05.png)   
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
+5. En otra ventana del explorador, inicie sesión en su sitio de la empresa de StatusPage como administrador.
+6. En la barra de herramientas principal, haga clic en **Administrar cuenta**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_06.png) 
-4. Haga clic en la pestaña **Inicio de sesión único** . 
+7. Haga clic en la pestaña **Inicio de sesión único** . 
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_07.png) 
-5. En la página Configuración de SSO, realice los pasos siguientes:
+8. En la página Configuración de SSO, realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_08.png) 
-   
-    a. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en StatusPage**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de destino SSO**. 
-   
-    b. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado** . 
-   
-    c. Haga clic en **Guardar**.
-6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_08.png)  
+  1. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en StatusPage**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de destino SSO**. 
+  2. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado** . 
+  3. Haga clic en **Guardar**.
+9. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. 
    
     ![Inicio de sesión único de Azure AD ][10]
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+10. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
@@ -171,38 +161,30 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_04.png) 
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes: 
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_05.png)  
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_05.png) 
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.  
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes: 
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   e. Haga clic en **Siguiente**.
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_06.png)  
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**.  
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-a-statuspage-test-user"></a>Creación de un usuario de prueba de StatusPage
+### <a name="create-a-statuspage-test-user"></a>Creación de un usuario de prueba de StatusPage
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en StatusPage.
+
 StatusPage admite el aprovisionamiento Just-In-Time. Ya lo ha habilitado en [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
 
 **Para crear un usuario llamado Britta Simon en StatusPage, realice los pasos siguientes:**
@@ -221,8 +203,8 @@ StatusPage admite el aprovisionamiento Just-In-Time. Ya lo ha habilitado en [Con
 6. En **Rol**, elija **Administrador de clientes**.
 7. Click **Crear cuenta**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a StatusPage.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo cual se le concederá acceso a StatusPage.
 
 ![Asignar usuario][200] 
 
@@ -242,7 +224,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de StatusPage en el panel de acceso, debería iniciar sesión automáticamente en su aplicación StatusPage.
@@ -273,10 +255,5 @@ Al hacer clic en el icono de StatusPage en el panel de acceso, debería iniciar 
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

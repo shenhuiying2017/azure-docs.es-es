@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 02/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: a7b05db6af721a62b7cbb795c329b383bd391e0a
-ms.openlocfilehash: fbb3933ef2dff882467fb2db34f9aa14dec13b1f
+ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
+ms.openlocfilehash: 875b344d6ed1f467c8d7a51f46e1c39ec42cfacd
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -41,15 +42,20 @@ Establezca el número de tipos de nodos con los que el clúster tiene que empeza
 * Puesto que no puede predecir el futuro, parta de hechos que conozca y decida el número de tipos de nodo que con el que deben empezar las aplicaciones. Siempre puede agregar o quitar tipos de nodos más adelante. Un clúster de Service Fabric debe tener como mínimo un tipo de nodo.
 
 ## <a name="the-properties-of-each-node-type"></a>Las propiedades de cada tipo de nodo.
-El **tipo de nodo** puede considerarse similar a los roles de Servicios en la nube. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquina virtual independiente. Los conjuntos de escalado de máquina virtual son un recurso de proceso de Azure que se pueden usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Al definirse como diferentes conjuntos de escalado de máquina virtual, cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente, tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.
+El **tipo de nodo** puede considerarse similar a los roles de Servicios en la nube. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuals independiente (VMSS). Los conjuntos de escalado de máquina virtual son un recurso de proceso de Azure que se pueden usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Al definirse como diferentes conjuntos de escalado de máquina virtual, cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente, tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.
+
+Lea [este documento](service-fabric-cluster-nodetypes.md) para más información sobre la relación entre Nodetypes y VMSS, cómo usar el protocolo RDP en una de las instancias, abrir nuevos puertos, etc.
 
 El clúster puede tener más de un tipo de nodo, pero el tipo de nodo principal (el primero que se define en el portal) debe tener al menos cinco máquinas virtuales para los clústeres que se usan en cargas de trabajo de producción (o al menos tres máquinas virtuales en clústeres de prueba). Si va a crear el clúster con una plantilla de Resource Manager, encontrará un atributo **Es principal** en la definición de tipo de nodo. El tipo de nodo principal es el tipo de nodo en que se colocan los servicios del sistema de Service Fabric.  
 
 ### <a name="primary-node-type"></a>Tipo de nodo principal
 En el caso de un clúster con varios tipos de nodo, tendrá elegir uno de ellos como principal. Estas son las características de un tipo de nodo principal:
 
-* El tamaño mínimo de las máquinas virtuales del tipo de nodo principal se determina mediante el nivel de durabilidad que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.  
-* El número mínimo de máquinas virtuales del tipo de nodo principal se determina mediante el nivel de confiabilidad que se elija. El valor predeterminado del nivel de confiabilidad es Silver. Desplácese hacia abajo para más información sobre el nivel de confiabilidad y los valores que puede adoptar.
+* El **tamaño mínimo de las máquinas virtuales** del tipo de nodo principal se determina mediante el **nivel de durabilidad** que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.  
+* El **número mínimo de máquinas virtuales** del tipo de nodo principal se determina mediante el **nivel de confiabilidad** que se elija. El valor predeterminado del nivel de confiabilidad es Silver. Desplácese hacia abajo para más información sobre el nivel de confiabilidad y los valores que puede adoptar. 
+
+ 
+
 * Los servicios del sistema de Service Fabric (por ejemplo, el servicio Administrador de clústeres o el servicio de almacén de imágenes) se colocan en el tipo de nodo principal y así la confiabilidad y la durabilidad del clúster se determinan mediante el valor de nivel de confiabilidad y el valor de nivel de durabilidad que se seleccionen para el tipo de nodo principal.
 
 ![Captura de pantalla de un clúster que tiene dos tipos de nodos ][SystemServices]
@@ -86,18 +92,73 @@ El nivel de confiabilidad puede adoptar los siguientes valores.
 
  Siempre puede actualizar la confiabilidad del clúster de un nivel a otro. Esto desencadenará las actualizaciones de clúster necesarias para cambiar el recuento de conjunto de réplicas de los servicios del sistema. Espere a que finalice la actualización en curso antes de realizar otros cambios en el clúster, como agregar nodos etc.  Puede supervisar el progreso de la actualización en Service Fabric Explorer o puede ejecutar [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx).
 
+
+## <a name="primary-node-type---capacity-guidance"></a>Tipo de nodo principal: guía de capacidad
+
+Esta es la guía para planear la capacidad del tipo de nodo principal.
+
+1. **Número de instancias de máquina virtual:**: para ejecutar cualquier carga de trabajo de producción en Azure, debe especificar un nivel de confiabilidad de Plata o superior, que luego se traduce en un tamaño mínimo de tipo de nodo principal de 5.
+2. **SKU de máquina virtual**: el tipo de nodo principal es donde se ejecutan los servicios del sistema, así que la SKU de máquina virtual que elija, debe tener en cuenta la carga máxima global que planea colocar en el clúster. En esta analogía se ilustra el significado de esto: considere que el tipo de nodo principal son sus "pulmones", es lo que lleva oxígeno a su cerebro, de modo que si no se obtiene oxígeno suficiente, el cuerpo sufre. 
+
+Las necesidades de capacidad de un clúster vienen completamente determinadas por la carga de trabajo que planea ejecutar en el clúster. Por lo tanto, no es posible proporcionar una guía cualitativa de su carga específica, aunque sí una amplia información para ayudarle a comenzar.
+
+Para cargas de trabajo de producción 
+
+
+- La SKU de máquina virtual recomendada es Standard D3 o Standard D3_V2 o equivalente con un SSD local de 14 GB como mínimo.
+- La SKU de máquina virtual mínima admitida es Standard D1 o Standard D1_V2 o equivalente con un SSD local de 14 GB como mínimo. 
+- Las SKU de máquina virtual de núcleo parcial, como Standard A0, no se admiten en cargas de trabajo de producción.
+- En concreto, la SKU Standard A1 no se admite en cargas de producción por motivos de rendimiento.
+
+
+## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Tipo de nodo no principal: guía de capacidad para cargas de trabajo con estado
+
+Lea la siguiente información para cargas de trabajo que usan Reliable Collections o Reliable Actors de Service Fabric. Lea más aquí sobre los [modelos de programación.](service-fabric-choose-framework.md)
+
+1. **Número de instancias de máquina virtual**: para cargas de trabajo de producción con estado, se recomienda ejecutarlas con un número mínimo de réplicas de destino de 5. Esto significa que en estado estable acabará con una réplica (de un conjunto de réplicas) en cada dominio de error y dominio de actualización. Todo el concepto de nivel de confiabilidad para los servicios del sistema es en realidad una forma de especificar este valor para los servicios del sistema.
+
+Por lo tanto, para cargas de trabajo de producción, el tamaño mínimo recomendado de tipo de nodo no principal es 5, si ejecuta en él cargas de trabajo con estado.
+
+2. **SKU de máquina virtual**: es el tipo de nodo donde se ejecutan los servicios de aplicación, de modo que la SKU de máquina virtual que elija para él debe tener en cuenta la carga máxima que planea colocar en cada nodo. Las necesidades de capacidad de un tipo de nodo vienen completamente determinadas por la carga de trabajo que planea ejecutar en el clúster. Por lo tanto, no es posible proporcionar una guía cualitativa de su carga específica, aunque sí una amplia información para ayudarle a comenzar.
+
+Para cargas de trabajo de producción 
+
+- La SKU de máquina virtual recomendada es Standard D3 o Standard D3_V2 o equivalente con un SSD local de 14 GB como mínimo.
+- La SKU de máquina virtual mínima admitida es Standard D1 o Standard D1_V2 o equivalente con un SSD local de 14 GB como mínimo. 
+- Las SKU de máquina virtual de núcleo parcial, como Standard A0, no se admiten en cargas de trabajo de producción.
+- En concreto, la SKU Standard A1 no se admite en cargas de producción por motivos de rendimiento.
+
+
+## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Tipo de nodo no principal: guía de capacidad para cargas de trabajo sin estado
+
+Lea la información siguiente para cargas de trabajo sin estado.
+
+**Número de instancias de máquina virtual**: para cargas de trabajo de producción sin estado, el tamaño mínimo admitido de tipo de nodo no principal es 2. Esto le permite ejecutar dos instancias sin estado de la aplicación y permite que el servicio para sobreviva a la pérdida de una instancia de máquina virtual. 
+
+> [!NOTE]
+> Si el clúster se ejecuta en una versión de Service Fabric inferior a la 5.6 debido a un defecto en el entorno de tiempo de ejecución (que se prevé fijar en 5.6), al reducir verticalmente un tipo de nodo no principal a menos de 5, el mantenimiento del clúster pasará a un estado incorrecto hasta que llame a [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) con el nombre de nodo adecuado. Para más información, lea [Escalado o reducción horizontal de un clúster de Service Fabric ](service-fabric-cluster-scale-up-down.md).
+> 
+>
+
+**SKU de máquina virtual**: es el tipo de nodo donde se ejecutan los servicios de aplicación, de modo que la SKU de máquina virtual que elija para él debe tener en cuenta la carga máxima que planea colocar en cada nodo. Las necesidades de capacidad de un tipo de nodo vienen completamente determinadas por la carga de trabajo que planea ejecutar en el clúster. Por lo tanto, no es posible proporcionar una guía cualitativa de su carga específica, aunque sí una amplia información para ayudarle a comenzar.
+
+Para cargas de trabajo de producción 
+
+
+- La SKU de máquina virtual recomendada es Standard D3 o Standard D3_V2 o equivalente. 
+- La SKU de máquina virtual mínima admitida es Standard D1 o Standard D1_V2 o equivalente. 
+- Las SKU de máquina virtual de núcleo parcial, como Standard A0, no se admiten en cargas de trabajo de producción.
+- En concreto, la SKU Standard A1 no se admite en cargas de producción por motivos de rendimiento.
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## <a name="next-steps"></a>Pasos siguientes
 Después de finalizar la planeación de capacidad y configurar un clúster, lea lo siguiente:
 
 * [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md)
 * [Introducción al modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md)
+* [Relación de Nodetypes con VMSS](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

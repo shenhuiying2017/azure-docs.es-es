@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
-ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
+ms.sourcegitcommit: 83881cda043fc9f1ef48281e8160a882c1f9bced
+ms.openlocfilehash: 5aa7353e681a16d2032fecaf8a2de50e241ac4ad
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -33,7 +34,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 | Problema | Description |
 | --- | --- |
 | Varios encabezados comunes HTTP no se proporcionan en la API de REST. |Si desarrolla aplicaciones de Servicios multimedia mediante la API de REST, encontrará que algunos campos de encabezado comunes HTTP (como CLIENT-REQUEST-ID, REQUEST-ID y RETURN-CLIENT-REQUEST-ID) no se admiten. Los encabezados se agregarán en una futura actualización. |
-| No se permite la codificación porcentual. |Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name **no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo. |
+| No se permite la codificación porcentual. |Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo. |
 | El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funciona correctamente. |Los Servicios multimedia generan URL de SAS basadas en la versión del [12-02-2012](https://docs.microsoft.com/rest/api/storageservices/fileservices/Version-2012-02-12) . Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente. |
 | El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503). |Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema [Azure Media Services Error Codes](media-services-encoding-error-codes.md) (Códigos de error de Servicios multimedia de Azure). |
 | Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. |Debe usar **Skip** y **Take** (.NET)/ **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
@@ -103,6 +104,12 @@ El nombre de las unidades reservadas de codificación se cambia para reducir la 
 Los nombres de las unidades reservadas de codificación Básica, Estándar y Premium se cambian por unidades reservadas S1, S2 y S3, respectivamente.  Los clientes que usan unidades reservadas de codificación Básica ahora verán S1 como etiqueta en el Portal de Azure (y en la factura), mientras que para las ediciones Estándar y Premium aparecerán las etiquetas S2 y S3, respectivamente. 
 
 ## <a name="a-iddecchanges15adecember-2015-release"></a><a id="dec_changes_15"></a>Versión de diciembre de 2015
+
+### <a name="azure-media-encoder-deprecation-announcement"></a>Anuncio de degradación de Azure Media Encoder
+
+Azure Media Encoder se suspenderá en 12 meses. Comience a usar el codificador [Media Encoder Standard](media-services-media-encoder-standard-formats.md).
+
+### <a name="azure-sdk-for-php"></a>SDK de Azure para PHP
 El equipo del SDK de Azure publicó una nueva versión del paquete [SDK de Azure para PHP](http://github.com/Azure/azure-sdk-for-php) que contiene las actualizaciones y nuevas características de los Servicios multimedia de Microsoft Azure. En concreto, el SDK de Servicios multimedia de Azure para PHP admite ahora las características más recientes de la [protección de contenido](media-services-content-protection-overview.md) : el cifrado dinámico con AES y DRM (PlayReady y Widevine) con y sin ninguna restricción de tokens. También admite el escalado de [unidades de codificación](media-services-dotnet-encoding-units.md).
 
 Para más información, consulte:
@@ -535,10 +542,5 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

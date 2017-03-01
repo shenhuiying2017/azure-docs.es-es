@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5b32c40c1887d6695c4ad1379ac14e0aa525bb43
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 9c3927b64009c51fb8236e42fa9e6137a9909a4a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,11 +36,10 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Tidemark, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para el inicio de sesión único en Tidemark
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Tidemark
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -52,10 +52,10 @@ El objetivo de este tutorial es permitirle probar el inicio de sesión único de
 
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Tidemark desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+* Adición de Tidemark desde la galería
+* Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-tidemark-from-the-gallery"></a>Adición de Tidemark desde la galería
+## <a name="add-tidemark-from-the-gallery"></a>Adición de Tidemark desde la galería
 Para configurar la integración de Tidemark en Azure AD, será preciso que agregue Tidemark desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Tidemark desde la galería, realice los pasos siguientes:**
@@ -80,7 +80,7 @@ Para configurar la integración de Tidemark en Azure AD, será preciso que agreg
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Tidemark con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Tidemark para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Tidemark.
@@ -89,13 +89,13 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 
 Para configurar y probar el inicio de sesión único de Azure AD con Tidemark, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Tidemark](#creating-a-tidemark-test-user)** : para tener un homólogo de Britta Simon en Tidemark vinculado a su representación en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Tidemark.
 
 **Para configurar el inicio de sesión único de Azure AD con Tidemark, realice los pasos siguientes:**
@@ -108,27 +108,22 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     ![Configurar inicio de sesión único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_03.png) 
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png) 
-
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL de inicio de sesión utilizada por los usuarios para iniciar sesión en la aplicación Tidemark con los siguientes patrones: **“https://contoso.tidemark.com/login”** o **"https://contoso.tidemark.net/login"**.
-
-
-1. En la página **Configure single sign-on at Tidemark** (Configurar inicio de sesión único en Tidemark), siga estos pasos:
+    ![Configurar inicio de sesión único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png)
+  * En el cuadro de texto URL de inicio de sesión, escriba la dirección URL de inicio de sesión utilizada por los usuarios para iniciar sesión en la aplicación Tidemark con los siguientes patrones: **“https://contoso.tidemark.com/login”** o **"https://contoso.tidemark.net/login"**.
+4. En la página **Configure single sign-on at Tidemark** (Configurar inicio de sesión único en Tidemark), siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png) 
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
-2. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Tidemark y adjunte el archivo de certificado descargado al correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
-3. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png)   
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
+5. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Tidemark y adjunte el archivo de certificado descargado al correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
-4. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
@@ -148,46 +143,35 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**. 
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.   
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Complete**.   
 
-### <a name="creating-a-tidemark-test-user"></a>Creación de un usuario de prueba de Tidemark
+### <a name="create-a-tidemark-test-user"></a>Creación de un usuario de prueba de Tidemark
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Tidemark. Trabaje con el equipo de soporte técnico de Tidemark para agregar los usuarios en la cuenta de Tidemark. 
 
-> [!NOTE]
-> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el equipo de soporte técnico de Tidemark.
-> 
+>[!NOTE]
+>Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el equipo de soporte técnico de Tidemark. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Tidemark.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo cual se le concederá acceso a Tidemark.
 
 ![Asignar usuario][200] 
 
@@ -207,7 +191,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Tidemark en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Tidemark.
@@ -233,9 +217,4 @@ Al hacer clic en el icono de Tidemark en el panel de acceso, debería iniciar se
 [203]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

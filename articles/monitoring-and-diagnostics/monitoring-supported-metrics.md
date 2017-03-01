@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: e64b544d8785b7453f4d77333fd0eb6673d32504
-ms.openlocfilehash: f5a6ee866891fdfb27ed00a22cbd784484ae5e5f
+ms.sourcegitcommit: 354bf45625c209c22118804d3835ca71e3128580
+ms.openlocfilehash: deda64fb779e176bb00c3256fa3028e7e3567eb4
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -34,6 +35,23 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|
 |qpu_metric|QPU|Recuento|Media|QPU. Intervalo de 0-100 para S1, 0-200 para S2 y 0-400 para S4|
 |memory_metric|Memoria|Bytes|Media|Memoria. Intervalo de 0-25 GB para S1, 0-50 GB para S2 y 0-100 GB para S4|
+|TotalConnectionRequests|Número total de solicitudes de conexión|Recuento|Media|Número total de solicitudes de conexión. Se trata de llegadas.|
+|SuccessfullConnectionsPerSec|Conexiones correctas por segundo|CountPerSecond|Media|Tasa de finalizaciones de conexión correctas.|
+|TotalConnectionFailures|Número total de errores de conexión|Recuento|Media|Número total de intentos de conexión con error.|
+|CurrentUserSessions|Sesiones de usuario actuales|Recuento|Media|Número actual de sesiones de usuario establecidas.|
+|QueryPoolBusyThreads|Subprocesos ocupados de grupo de consultas|Recuento|Media|Número de subprocesos ocupados del grupo de subprocesos de consulta.|
+|CommandPoolJobQueueLength|Longitud de cola de trabajos de grupo de comandos|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos de comandos.|
+|ProcessingPoolJobQueueLength|Longitud de cola de trabajos de grupo de procesamiento|Recuento|Media|Número de trabajos que no son de E/S en la cola del grupo de subprocesos de procesamiento.|
+
+## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
+|---|---|---|---|---|
+|TotalRequests|Solicitudes de puerta de enlace en total|Recuento|Total|Número de solicitudes de puerta de enlace|
+|SuccessfulRequests|Solicitudes de puerta de enlace correctas|Recuento|Total|Número de solicitudes de puerta de enlace correctas|
+|UnauthorizedRequests|Solicitudes de puerta de enlace no autorizadas|Recuento|Total|Número de solicitudes de puerta de enlace no autorizadas|
+|FailedRequests|Solicitudes de puerta de enlace con error|Recuento|Total|Número de errores en solicitudes de puerta de enlace|
+|OtherRequests|Otras solicitudes de puerta de enlace|Recuento|Total|Número de otras solicitudes de puerta de enlace|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -282,29 +300,66 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
-| Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
-| --- | --- | --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol |Intentos de envío de mensaje de telemetría |Recuento |Total |Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub |
-| d2c.telemetry.ingress.success |Mensajes de telemetría enviados |Recuento |Total |Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub |
-| d2c.telemetry.egress.success | Mensajes de telemetría entregados | Recuento | Total | El recuento de todas las escrituras correctas en un punto de conexión |
-| d2c.telemetry.egress.invalid | Intentos de entrega de mensajes de telemetría no válidos | Recuento | Total | El recuento de mensajes no entregados debido a incompatibilidad con el punto de conexión |
-| d2c.telemetry.egress.dropped | Mensajes de telemetría descartados | Recuento | Total | El recuento de mensajes descartados debido a un punto de conexión incorrecto |
-| d2c.telemetry.egress.fallback | Mensajes de telemetría que coinciden con la condición de reserva | Recuento | Total | El recuento de mensajes que coinciden con la ruta de reserva |
-| d2c.telemetry.egress.orphaned | Mensajes de telemetría huérfanos | Recuento | Total | El recuento de mensajes no coincide con ninguna ruta, incluida la ruta de reserva |
-| d2c.endpoints.latency.eventHubs | Latencia de mensajes para los puntos de conexión del Centro de eventos | Milisegundos | Media | La latencia media, mínima y máxima entre la entrada de mensajes en IoT Hub y la entrada de mensajes en un punto de conexión del Centro de eventos, en milisegundos |
-| d2c.endpoints.latency.serviceBusQueues | Latencia de mensajes para los puntos de conexión de la cola de Service Bus | Milisegundos | Media | La latencia media, mínima y máxima entre la entrada de mensajes en IoT Hub y la entrada de mensajes en un punto de conexión de la cola de Service Bus, en milisegundos |
-| d2c.endpoints.latency.serviceBusTopics | Latencia de mensajes para los puntos de conexión del tema de Service Bus | Milisegundos | Media | La latencia media, mínima y máxima entre la entrada de mensajes en IoT Hub y la entrada de mensajes en un punto de conexión del tema de Service Bus, en milisegundos |
-| c2d.commands.egress.complete.success |Comandos completados |Recuento |Total |Número de comandos de dispositivo a la nube que el dispositivo ha completado correctamente |
-| c2d.commands.egress.abandon.success |Comandos abandonados |Recuento |Total |Número de comandos de dispositivo a la nube que el dispositivo ha abandonado |
-| c2d.commands.egress.reject.success |Comandos rechazados |Recuento |Total |Número de comandos de dispositivo a la nube que el dispositivo ha rechazado |
-| devices.totalDevices |Número total de dispositivos |Recuento |Total |Número de dispositivos registrados en IoT Hub |
-| devices.connectedDevices.allProtocol |Dispositivos conectados |Recuento |Total |Número de dispositivos conectados a IoT Hub |
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
+|---|---|---|---|---|
+|d2c.telemetry.ingress.allProtocol|Intentos de envío de mensajes de telemetría|Recuento|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|
+|d2c.telemetry.ingress.success|Mensajes de telemetría enviados|Recuento|Total|Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub|
+|c2d.commands.egress.complete.success|Comandos completados|Recuento|Total|Número de comandos de la nube al dispositivo que el dispositivo ha completado correctamente|
+|c2d.commands.egress.abandon.success|Comandos abandonados|Recuento|Total|Número de comandos de la nube al dispositivo que el dispositivo ha abandonado|
+|c2d.commands.egress.reject.success|Comandos rechazados|Recuento|Total|Número de comandos de la nube al dispositivo que el dispositivo ha rechazado|
+|devices.totalDevices|Número total de dispositivos|Recuento|Total|Número de dispositivos registrados en IoT Hub|
+|devices.connectedDevices.allProtocol|Dispositivos conectados|Recuento|Total|Número de dispositivos conectados a IoT Hub|
+|d2c.telemetry.egress.success|Mensajes de telemetría entregados|Recuento|Total|Número de veces que los mensajes se han escrito correctamente mensajes en los puntos de conexión (total)|
+|d2c.telemetry.egress.dropped|Mensajes descartados|Recuento|Total|Número de mensajes descartados porque no coincidían con ninguna ruta y porque la ruta de reserva se deshabilitó|
+|d2c.telemetry.egress.orphaned|Mensajes huérfanos|Recuento|Total|El recuento de mensajes no coincide con ninguna ruta, incluida la ruta de reserva|
+|d2c.telemetry.egress.invalid|Mensajes no válidos|Recuento|Total|El recuento de mensajes no entregados debido a incompatibilidad con el punto de conexión|
+|d2c.telemetry.egress.fallback|Mensajes que coinciden con la condición de reserva|Recuento|Total|Número de mensajes escritos en el punto de conexión de reserva|
+|d2c.endpoints.egress.eventHubs|Mensajes entregados a los puntos de conexión de Event Hub|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en los puntos de conexión de Event Hub|
+|d2c.endpoints.latency.eventHubs|Latencia de mensajes para los puntos de conexión del Centro de eventos|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión de Event Hubs, en milisegundos|
+|d2c.endpoints.egress.serviceBusQueues|Mensajes entregados a los puntos de conexión de la cola de Service Bus|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en los puntos de conexión de la cola de Service Bus|
+|d2c.endpoints.latency.serviceBusQueues|Latencia de mensajes para los puntos de conexión de la cola de Service Bus|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión de la cola de Service Bus, en milisegundos|
+|d2c.endpoints.egress.serviceBusTopics|Mensajes entregados a los puntos de conexión del tema de Service Bus|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en los puntos de conexión del tema de Service Bus|
+|d2c.endpoints.latency.serviceBusTopics|Latencia de mensajes para los puntos de conexión del tema de Service Bus|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión del tema de Service Bus, en milisegundos|
+|d2c.endpoints.egress.builtIn.events|Mensajes entregados al punto de conexión integrado (mensajes y eventos)|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en el punto de conexión integrado (mensajes y eventos)|
+|d2c.endpoints.latency.builtIn.events|Latencia de mensajes para el punto de conexión integrado (mensajes y eventos)|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en el punto de conexión integrado (mensajes/eventos), en milisegundos |
+|d2c.twin.read.success|Lecturas gemelas correctas de los dispositivos|Recuento|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el dispositivo.|
+|d2c.twin.read.failure|Lecturas gemelas con error de los dispositivos|Recuento|Total|El recuento de todas las lecturas gemelas con error iniciadas por el dispositivo.|
+|d2c.twin.read.size|Tamaño de la respuesta de las lecturas gemelas de dispositivos|Bytes|Media|El valor medio, mínimo y máximo de todas las lecturas gemelas correctas iniciadas por el dispositivo.|
+|d2c.twin.update.success|Actualizaciones gemelas correctas de los dispositivos|Recuento|Total|El recuento de todas las actualizaciones gemelas correctas iniciadas por el dispositivo.|
+|d2c.twin.update.failure|Actualizaciones gemelas con error de los dispositivos|Recuento|Total|El recuento de todas las actualizaciones gemelas con error iniciadas por el dispositivo.|
+|d2c.twin.update.size|Tamaño de las actualizaciones gemelas de los dispositivos|Bytes|Media|El tamaño medio, mínimo y máximo de todas las actualizaciones gemelas correctas iniciadas por el dispositivo.|
+|c2d.methods.success|Invocaciones correctas al método directo|Recuento|Total|El número de todas las llamadas correctas al método directo.|
+|c2d.methods.failure|Invocaciones al método directo con error|Recuento|Total|El número de todas las llamadas al método directo con error.|
+|c2d.methods.requestSize|Tamaño de la solicitud de las invocaciones a métodos directos|Bytes|Media|El valor medio, mínimo y máximo de todas las solicitudes correctas de método directo.|
+|c2d.methods.responseSize|Tamaño de la respuesta de las invocaciones a métodos directos|Bytes|Media|El valor medio, mínimo y máximo de todas las respuestas correctas de método directo.|
+|c2d.twin.read.success|Lecturas gemelas correctas del back-end|Recuento|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el back-end.|
+|c2d.twin.read.failure|Lecturas gemelas con error del back-end|Recuento|Total|El recuento de todas las lecturas gemelas con error iniciadas por el back-end.|
+|c2d.twin.read.size|Tamaño de la respuesta de las lecturas gemelas del back-end|Bytes|Media|El valor medio, mínimo y máximo de todas las lecturas gemelas correctas iniciadas por el back-end.|
+|c2d.twin.update.success|Actualizaciones gemelas correctas del back-end|Recuento|Total|El recuento de todas las actualizaciones gemelas correctas iniciadas por el back-end.|
+|c2d.twin.update.failure|Actualizaciones gemelas con error del back-end|Recuento|Total|El recuento de todas las actualizaciones gemelas con error iniciadas por el back-end.|
+|c2d.twin.update.size|Tamaño de las actualizaciones gemelas del back-end|Bytes|Media|El tamaño medio, mínimo y máximo de todas las actualizaciones gemelas correctas iniciadas por el back-end.|
+|twinQueries.success|Consultas gemelas correctas|Recuento|Total|El recuento de todas las consultas gemelas correctas.|
+|twinQueries.failure|Consultas gemelas con error|Recuento|Total|El recuento de todas las consultas gemelas con error.|
+|twinQueries.resultSize|Tamaño de resultado de consultas gemelas|Bytes|Media|El valor medio, mínimo y máximo del tamaño del resultado de todas las consultas gemelas correctas.|
+|jobs.createTwinUpdateJob.success|Creaciones correctas de trabajos de actualización gemelos|Recuento|Total|El recuento de todas las creaciones correctas de trabajos de actualización gemelos.|
+|jobs.createTwinUpdateJob.failure|Creaciones con error de trabajos de actualización gemelos|Recuento|Total|El recuento de todas las creaciones con error de trabajos de actualización gemelos.|
+|jobs.createDirectMethodJob.success|Creaciones correctas de trabajos de invocación de método|Recuento|Total|El recuento de todas las creaciones correctas de los trabajos de invocación de método directos.|
+|jobs.createDirectMethodJob.failure|Creaciones con error de trabajos de invocación de método|Recuento|Total|El recuento de todas las creaciones con error de los trabajos de invocación de método directos.|
+|jobs.listJobs.success|Llamadas correctas para enumerar trabajos|Recuento|Total|El recuento de todas las llamadas correctas para enumerar trabajos.|
+|jobs.listJobs.failure|Llamadas con error para enumerar trabajos|Recuento|Total|El recuento de todas las llamadas con error para enumerar trabajos.|
+|jobs.cancelJob.success|Cancelaciones de trabajos correctas|Recuento|Total|El recuento de todas las llamadas correctas para cancelar un trabajo.|
+|jobs.cancelJob.failure|Cancelaciones de trabajos con error|Recuento|Total|El recuento de todas las llamadas con error para cancelar un trabajo.|
+|jobs.queryJobs.success|Consultas de trabajo correctas|Recuento|Total|El recuento de todas las llamadas correctas para consultar trabajos.|
+|jobs.queryJobs.failure|Consultas de trabajo con error|Recuento|Total|El recuento de todas las llamadas con error para consultar trabajos.|
+|jobs.completed|Trabajos completados|Recuento|Total|El recuento de todos los trabajos completados.|
+|jobs.failed|Trabajos con error|Recuento|Total|El recuento de todos los trabajos con error.|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
-|INREQS|Solicitudes entrantes|Recuento|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres|
+|INREQS|Solicitudes entrantes|Recuento|Total|Número total de solicitudes de un espacio de nombres entrantes|
 |SUCCREQ|Solicitudes correctas|Recuento|Total|Número total de solicitudes correctas para un espacio de nombres|
 |FAILREQ|Solicitudes con error|Recuento|Total|Número total de solicitudes erróneas para un espacio de nombres|
 |SVRBSY|Errores de servidor ocupado|Recuento|Total|Errores totales de servidor ocupado para un espacio de nombres|
@@ -312,8 +367,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MISCERR|Otros errores|Recuento|Total|Número total de solicitudes erróneas para un espacio de nombres|
 |INMSGS|Mensajes entrantes|Recuento|Total|Total de mensajes entrantes para un espacio de nombres|
 |OUTMSGS|Mensajes salientes|Recuento|Total|Total de mensajes salientes para un espacio de nombres|
-|EHINMBS|Bytes entrantes por segundo|BytesPerSecond|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres|
-|EHOUTMBS|Bytes salientes por segundo|BytesPerSecond|Total|Total de mensajes salientes para un espacio de nombres|
+|EHINMBS|Bytes de entrada|BytesPerSecond|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres|
+|EHOUTMBS|Bytes de salida|BytesPerSecond|Total|Total de mensajes salientes para un espacio de nombres|
 |EHABL|Mensajes de trabajo pendiente de archivado|Recuento|Total|Mensajes de archivo del centro de eventos en el trabajo pendiente para un espacio de nombres|
 |EHAMSGS|Mensajes de archivado|Recuento|Total|Mensajes archivados del centro de eventos en un espacio de nombres|
 |EHAMBS|Rendimiento de mensajes de archivado|BytesPerSecond|Total|Rendimiento de mensajes archivados del centro de eventos en un espacio de nombres|
@@ -359,6 +414,70 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|
 |Rendimiento|Rendimiento|BytesPerSecond|Media||
 
+## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
+|---|---|---|---|---|
+|registration.all|Operación de registro|Recuento|Total|El recuento de todas las operaciones de registro correctas (creaciones, actualizaciones, consultas y eliminaciones). |
+|registration.create|Operaciones de creación de registros|Recuento|Total|El recuento de todas las creaciones de registros correctas.|
+|registration.update|Operaciones de actualización de registros|Recuento|Total|El recuento de todas las actualizaciones de registros correctas.|
+|registration.get|Operaciones de lectura de registros|Recuento|Total|El recuento de todas las consultas de registros correctas.|
+|registration.delete|Operaciones de eliminación de registros|Recuento|Total|El recuento de todas las eliminaciones de registros correctas.|
+|entrante|Mensajes entrantes|Recuento|Total|El recuento de todas las llamadas a la API de envío. |
+|incoming.scheduled|Notificaciones push programadas enviadas|Recuento|Total|Notificaciones push programadas canceladas|
+|incoming.scheduled.cancel|Notificaciones push programadas canceladas|Recuento|Total|Notificaciones push programadas canceladas|
+|scheduled.pending|Notificaciones programadas pendientes|Recuento|Total|Notificaciones programadas pendientes|
+|installation.all|Operaciones de administración de instalaciones|Recuento|Total|Operaciones de administración de instalaciones|
+|installation.get|Obtener operaciones de instalación|Recuento|Total|Obtener operaciones de instalación|
+|installation.upsert|Crear o actualizar operaciones de instalación|Recuento|Total|Crear o actualizar operaciones de instalación|
+|installation.patch|Aplicar revisión a operaciones de instalación|Recuento|Total|Aplicar revisión a operaciones de instalación|
+|installation.delete|Eliminar operaciones de instalación|Recuento|Total|Eliminar operaciones de instalación|
+|outgoing.allpns.success|Notificaciones correctas|Recuento|Total|El recuento de todas las notificaciones correctas.|
+|outgoing.allpns.invalidpayload|Errores de carga útil|Recuento|Total|El recuento de las inserciones que provocaron un error porque el PNS devolvió un error de carga útil incorrecta.|
+|outgoing.allpns.pnserror|Errores del sistema de notificación externo|Recuento|Total|El recuento de inserciones que provocaron un error porque se produjo un problema al comunicarse con el PNS (excluye los problemas de autenticación).|
+|outgoing.allpns.channelerror|Errores de canal|Recuento|Total|El recuento de inserciones que provocaron un error porque el canal no era válido no está asociado a la aplicación correcta limitada o expirada.|
+|outgoing.allpns.badorexpiredchannel|Errores de canal incorrecto o expirado|Recuento|Total|El recuento de inserciones que provocaron un error porque el canal/token/registrationId del registro ha expirado o no es válido.|
+|outgoing.wns.success|Notificaciones de WNS correctas|Recuento|Total|El recuento de todas las notificaciones correctas.|
+|outgoing.wns.invalidcredentials|Errores de autorización de WNS (credenciales no válidas)|Recuento|Total|El recuento de inserciones que provocaron un error porque el PNS no aceptó las credenciales proporcionadas o las credenciales están bloqueadas. (Windows Live no reconoce las credenciales).|
+|outgoing.wns.badchannel|Error de canal incorrecto de WNS|Recuento|Total|El recuento de inserciones que provocaron un error porque no se reconoció ChannelURI en el registro (estado de WNS: 404 No encontrado).|
+|outgoing.wns.expiredchannel|Error de canal expirado de WNS|Recuento|Total|El recuento de inserciones que provocaron un error porque ChannelURI expiró (estado de WNS: 410 Ya no existe).|
+|outgoing.wns.throttled|Notificaciones limitadas de WNS|Recuento|Total|El recuento de inserciones que provocaron un error porque WNS limita esta aplicación (estado de WNS: 406 No aceptable).|
+|outgoing.wns.tokenproviderunreachable|Errores de autorización de WNS (inaccesible)|Recuento|Total|No se puede acceder a Windows Live.|
+|outgoing.wns.invalidtoken|Errores de autorización de WNS (token no válido)|Recuento|Total|El token que se proporciona a WNS no es válido (estado de WNS: 401 No autorizado).|
+|outgoing.wns.wrongtoken|Errores de autorización de WNS (token erróneo)|Recuento|Total|El token que se proporciona a WNS es válido, pero para otra aplicación (estado de WNS: 403 Prohibido). Esto puede ocurrir si la instancia de ChannelURI en el registro está asociada a otra aplicación. Compruebe que la aplicación cliente está asociada a la misma aplicación cuyas credenciales están en el centro de notificaciones.|
+|outgoing.wns.invalidnotificationformat|Formato de notificación no válido de WNS|Recuento|Total|El formato de la notificación no es válido (estado de WNS: 400). Tenga en cuenta que WNS no rechaza todas las cargas útiles no válidas.|
+|outgoing.wns.invalidnotificationsize|Error de tamaño de notificación no válido de WNS|Recuento|Total|La carga útil de la notificación es demasiado grande (estado de WNS: 413).|
+|outgoing.wns.channelthrottled|Canal de WNS limitado|Recuento|Total|La notificación se descartó porque la instancia de ChannelURI del registro está limitada (encabezado de respuesta WNS: X-WNS-NotificationStatus:channelThrottled).|
+|outgoing.wns.channeldisconnected|Canal de WNS desconectado|Recuento|Total|La notificación se descartó porque la instancia de ChannelURI del registro está limitada (encabezado de respuesta WNS: X-WNS-DeviceConnectionStatus: desconectado).|
+|outgoing.wns.dropped|Notificaciones descartadas de WNS|Recuento|Total|La notificación se descartó porque la instancia de ChannelURI del registro está limitada (X-WNS-NotificationStatus: descartado pero no X-WNS-DeviceConnectionStatus: desconectado).|
+|outgoing.wns.pnserror|Errores de WNS|Recuento|Total|La notificación no se entregó debido a errores de comunicación con WNS.|
+|outgoing.wns.authenticationerror|Errores de autenticación de WNS|Recuento|Total|La notificación no se entregó debido a errores de comunicación con Windows Live, credenciales no válidas o token erróneo.|
+|outgoing.apns.success|Notificaciones de APNS correctas|Recuento|Total|El recuento de todas las notificaciones correctas.|
+|outgoing.apns.invalidcredentials|Errores de autorización de APNS|Recuento|Total|El recuento de inserciones que provocaron un error porque el PNS no aceptó las credenciales proporcionadas o las credenciales están bloqueadas.|
+|outgoing.apns.badchannel|Error de canal incorrecto de APNS|Recuento|Total|El recuento de inserciones que provocaron un error porque el token no es válido (código de estado de APNS: 8).|
+|outgoing.apns.expiredchannel|Error de canal expirado de APNS|Recuento|Total|El recuento de tokens invalidados por el canal de comentarios de APNS.|
+|outgoing.apns.invalidnotificationsize|Error de tamaño de notificación no válido de APNS|Recuento|Total|El recuento de inserciones que provocaron un error porque la carga útil era demasiado grande (código de estado de APNS: 7).|
+|outgoing.apns.pnserror|Errores de APNS|Recuento|Total|El recuento de inserciones que provocaron un error debido a errores de comunicación con APNS.|
+|outgoing.gcm.success|Notificaciones de GCM correctas|Recuento|Total|El recuento de todas las notificaciones correctas.|
+|outgoing.gcm.invalidcredentials|Errores de autorización de GCM (credenciales no válidas)|Recuento|Total|El recuento de inserciones que provocaron un error porque el PNS no aceptó las credenciales proporcionadas o las credenciales están bloqueadas.|
+|outgoing.gcm.badchannel|Error de canal incorrecto de GCM|Recuento|Total|El recuento de inserciones que provocaron un error porque la instancia de registrationId del registro no se ha reconocido (resultado de GCM: registro no válido).|
+|outgoing.gcm.expiredchannel|Error de canal expirado de GCM|Recuento|Total|El recuento de inserciones que provocaron un error porque la instancia de registrationId del registro ha expirado (resultado de GCM: NotRegistered).|
+|outgoing.gcm.throttled|Notificaciones limitadas de GCM|Recuento|Total|El recuento de inserciones que provocaron un error porque GCM limitó esta aplicación (código de estado de GCM: 501-599 o resultado: no disponible).|
+|outgoing.gcm.invalidnotificationformat|Formato de notificación no válido de GCM|Recuento|Total|El recuento de inserciones que provocaron un error porque la carga útil no tenía el formato correcto (resultado de GCM: InvalidDataKey o InvalidDataKey o InvalidTtl).|
+|outgoing.gcm.invalidnotificationsize|Error de tamaño de notificación no válido de GCM|Recuento|Total|El recuento de inserciones que provocaron un error porque la carga útil era demasiado grande (resultado de GCM: MessageTooBig).|
+|outgoing.gcm.wrongchannel|Error de canal incorrecto de GCM|Recuento|Total|El recuento de inserciones que provocaron un error porque la instancia de registrationId del registro no está asociado a la aplicación actual (resultado de GCM: InvalidPackageName).|
+|outgoing.gcm.pnserror|Errores de GCM|Recuento|Total|El recuento de inserciones que provocaron un error debido a errores de comunicación con GCM.|
+|outgoing.gcm.authenticationerror|Errores de autenticación de GCM|Recuento|Total|El recuento de inserciones que provocaron un error debido a que el PNS no aceptó las credenciales proporcionadas, las credenciales están bloqueadas o el Id. del remitente no está configurado correctamente en la aplicación (resultado de GCM: MismatchedSenderId).|
+|outgoing.mpns.success|Notificaciones de MPNS correctas|Recuento|Total|El recuento de todas las notificaciones correctas.|
+|outgoing.mpns.invalidcredentials|Credenciales no válidas de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error porque el PNS no aceptó las credenciales proporcionadas o las credenciales están bloqueadas.|
+|outgoing.mpns.badchannel|Error de canal incorrecto de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error porque no se reconoció ChannelURI en el registro (estado de MPNS: 404 No encontrado).|
+|outgoing.mpns.throttled|Notificaciones limitadas de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error porque MPNS limita esta aplicación (MPNS de WNS: 406 No aceptable).|
+|outgoing.mpns.invalidnotificationformat|Formato de notificación no válido de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error porque la carga útil de la notificación era demasiado grande.|
+|outgoing.mpns.channeldisconnected|Canal de MPNS desconectado|Recuento|Total|El recuento de inserciones que provocaron un error porque se desconectó la instancia ChannelURI en el registro (estado de MPNS: 412 No encontrado).|
+|outgoing.mpns.dropped|Notificaciones descartadas de MPNS|Recuento|Total|El recuento de inserciones que MPNS ha descartado (encabezado de respuesta MPNS: X-NotificationStatus: QueueFull o Suppressed).|
+|outgoing.mpns.pnserror|Errores de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error debido a errores de comunicación con MPNS.|
+|outgoing.mpns.authenticationerror|Errores de autenticación de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error porque el PNS no aceptó las credenciales proporcionadas o las credenciales están bloqueadas.|
+
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
@@ -388,7 +507,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |blocked_by_firewall|Bloqueado por el firewall|Recuento|Total|Bloqueado por el firewall|
 |deadlock|Interbloqueos|Recuento|Total|Interbloqueos|
 |storage_percent|Porcentaje de tamaño de base de datos|Percent|Máxima|Porcentaje de tamaño de base de datos|
-|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria (versión preliminar)|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria (versión preliminar)|
+|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria|
 |workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos|
 |sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|
 |dtu_limit|Límite de DTU|Recuento|Media|Límite de DTU|
@@ -413,6 +532,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |storage_limit|Límite de almacenamiento|Bytes|Media|Límite de almacenamiento|
 |eDTU_used|eDTU utilizada|Recuento|Media|eDTU utilizada|
 |storage_used|Almacenamiento utilizado|Bytes|Media|Almacenamiento utilizado|
+|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -441,7 +561,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
 |BytesSent|Salida de datos|Bytes|Total|Salida de datos|
 
-## <a name="microsoftwebsites-including-azure-functions"></a>Microsoft.Web/sitios (se incluye Azure Functions)
+## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sitios (se incluye Functions)
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
@@ -458,8 +578,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Http406|Http 406|Recuento|Total|Http 406|
 |Http4xx|Http 4xx|Recuento|Total|Http 4xx|
 |Http5xx|Errores de servidor HTTP|Recuento|Total|Errores de servidor HTTP|
-|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Total|Espacio de trabajo de memoria|
-|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Total|Espacio de trabajo de memoria promedio|
+|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|
+|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|
 |AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|
 |FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Media|Unidades de ejecución de función|
 |FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Media|Recuento de ejecución de funciones|
@@ -481,8 +601,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Http406|Http 406|Recuento|Total|Http 406|
 |Http4xx|Http 4xx|Recuento|Total|Http 4xx|
 |Http5xx|Errores de servidor HTTP|Recuento|Total|Errores de servidor HTTP|
-|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Total|Espacio de trabajo de memoria|
-|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Total|Espacio de trabajo de memoria promedio|
+|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|
+|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|
 |AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|
 |FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Media|Unidades de ejecución de función|
 |FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Media|Recuento de ejecución de funciones|
@@ -491,10 +611,5 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 * [Lea información sobre las métricas en Azure Monitor](monitoring-overview.md#monitoring-sources)
 * [Creación de alertas basadas en métricas](insights-receive-alert-notifications.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
