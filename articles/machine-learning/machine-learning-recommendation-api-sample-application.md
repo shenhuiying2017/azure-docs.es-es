@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26c492ebdb40bef23247487c2f3015ecd9314cb6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: 9afbae9b7c24c72cbb2ef64e693f7a317dc81a46
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -61,7 +62,7 @@ Para habilitar el escenario anterior, haga lo siguiente en el servicio de recome
 Normalmente, se ejecuta la recomendación Get para un cierto período de tiempo. Durante ese período de tiempo, puede redirigir los datos de uso al sistema de recomendación de Aprendizaje automático, que agrega estos datos al contenedor del modelo especificado. Cuando tenga suficientes datos de uso, puede crear un nuevo modelo de recomendación que incorpore los datos de uso adicionales. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Visual Studio 2013
+* Visual Studio 2013 o posterior.
 * Acceso a Internet 
 * Suscripción a la API de recomendaciones (https://datamarket.azure.com/dataset/amla/recommendations).
 
@@ -90,10 +91,5 @@ Para obtener una descripción completa de la API, consulte la documentación de 
 
 ## <a name="disclaimer"></a>Renuncia de responsabilidades
 La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

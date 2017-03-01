@@ -17,8 +17,9 @@ ms.topic: support-article
 ms.date: 01/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 5398d262bf1f54c40663d6ee76e8dfb48aa3226b
+ms.sourcegitcommit: 3a4516d267dbedc6fc0a4afda93e052d9798434a
+ms.openlocfilehash: cf1d80f52ac61845083e9c28c0ad3e88a029fc4f
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -107,13 +108,7 @@ Asegúrese de que la cuenta que usa para conectarse tiene derechos de inicio de 
 ## <a name="next-steps"></a>Pasos siguientes
 Si no se produjo ninguno de estos errores y tiene un problema desconocido al conectarse mediante RDP, consulte la [Guía de solución de problemas de Escritorio remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* [Paquete de diagnóstico de Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 * Para ver los pasos sobre cómo solucionar problemas de acceso a las aplicaciones, consulte [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Si tiene problemas con Secure Shell (SSH) para conectarse a una máquina virtual Linux en Azure, consulte el artículo sobre cómo [solucionar problemas con las conexiones SSH en una máquina virtual Linux en Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
