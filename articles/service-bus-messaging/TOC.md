@@ -39,6 +39,7 @@
 ### [Temas y colas con particiones](service-bus-partitioning.md)
 ### [Colas de mensajes fallidos](service-bus-dead-letter-queues.md)
 ### [Procesamiento de transacciones](service-bus-transactions.md)
+### [Registros de diagnóstico](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
