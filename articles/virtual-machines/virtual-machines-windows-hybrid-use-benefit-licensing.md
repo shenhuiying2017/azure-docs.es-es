@@ -3,7 +3,7 @@ title: "Ventaja de uso híbrido de Azure para Windows Server | Microsoft Docs"
 description: "Descubra cómo maximizar las ventajas de Software Assurance de Windows Server para incorporar licencias locales a Azure"
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: george-moore
 manager: timlt
 editor: 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -17,6 +17,7 @@ ms.author: georgem
 translationtype: Human Translation
 ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
 ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -187,9 +188,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 Más información sobre las [ventajas del uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Más información sobre el [uso de plantillas de Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

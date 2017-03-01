@@ -4,7 +4,7 @@ description: "Solucionar los errores 502 Puerta de enlace no válida y 503 Servi
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: "502 Puerta de enlace no válida, 503 Servicio no disponible, error 503, error 502"
@@ -19,6 +19,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -129,10 +130,5 @@ Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lu
  ![reiniciar la aplicación para solucionar los errores HTTP de 502 Puerta de enlace no válida y 503 Servicio no disponible](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

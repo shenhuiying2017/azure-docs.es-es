@@ -4,7 +4,7 @@ description: "En este artículo se describe cómo puede usar Servicios multimedi
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c02b75dc2c783b96dc9e1256051b8c6df290d425
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -200,10 +201,5 @@ Los parámetros siguientes son necesarios en la minisolución que saca partido d
 
 ### <a name="acknowledgments"></a>Agradecimientos
 Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Kristjan Jõgi de Axinom, Mingfei Yan y Amit Rajput.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

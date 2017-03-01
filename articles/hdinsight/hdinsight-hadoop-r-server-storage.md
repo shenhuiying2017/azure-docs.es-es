@@ -12,11 +12,12 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
 ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -190,10 +191,5 @@ Ahora que comprende las opciones de Azure Storage, use los vínculos siguientes 
 * [Introducción al servidor de R en Hadoop](hdinsight-hadoop-r-server-get-started.md)
 * [Instalación de RStudio con R Server en HDInsight (si no está instalado durante la creación del clúster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-compute-contexts.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Aprenda a actualizar fácilmente la aplicación de Servicios móvi
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 596bcd2f38a39cc1404d422214ab49ae79df744c
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -272,9 +273,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [precios del Servicio de aplicaciones]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Información general del SDK de .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

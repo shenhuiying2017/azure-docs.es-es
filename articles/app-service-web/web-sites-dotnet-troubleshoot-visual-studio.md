@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo solucionar problemas de una a
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -641,9 +642,4 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -4,7 +4,7 @@ description: Aprenda a usar la compatibilidad con CORS en el Servicio de aplicac
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -248,10 +249,5 @@ Para más información acerca de las características de Visual Studio que simpl
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript del cliente pueda llamar a una API de un dominio diferente. Para aprender más sobre las aplicaciones de API, consulte la [introducción a la autenticación en App Service](../app-service/app-service-authentication-overview.md) y, después, vaya al tutorial sobre [autenticación de usuario para aplicaciones de API](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

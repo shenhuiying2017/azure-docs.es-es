@@ -4,7 +4,7 @@ description: "Obtenga información sobre qué ventajas aporta Servicios de aplic
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -63,10 +64,5 @@ Realice una copia de seguridad automática del back-end y la base de datos. El c
 Con *Servicio de aplicaciones de Azure* ahora puede crear varios entornos de ensayo y prueba privados para las aplicaciones móviles. Úselos para realizar la prueba antes de la implementación. Cambie a una producción sin tiempo de inactividad. Las aplicaciones web se cargan previamente, por lo que se garantiza la mejor experiencia del cliente.
 
 Para comenzar a aprovechar el *Servicio de aplicaciones* en su servicio móvil existente, siga este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

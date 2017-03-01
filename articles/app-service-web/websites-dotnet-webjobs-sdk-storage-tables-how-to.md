@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo usar el almacenamiento de tablas 
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -156,10 +157,5 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

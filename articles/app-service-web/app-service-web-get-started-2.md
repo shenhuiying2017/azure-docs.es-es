@@ -4,7 +4,7 @@ description: "Agregue características interesantes a su primera aplicación web
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
 ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -153,10 +154,5 @@ Averigüe también qué más puede hacer con la aplicación que ha implementado.
   Examine la aplicación web en busca de amenazas modernas con el servicio proporcionado por [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Ejecute trabajos en segundo plano](../azure-functions/functions-overview.md) : ejecute trabajos de procesamiento de datos, informes, etc.
 * [Obtener información acerca de cómo funciona el Servicio de aplicaciones](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

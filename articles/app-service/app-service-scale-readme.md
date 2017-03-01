@@ -5,7 +5,7 @@ keywords: servicio de aplicaciones, servicio de aplicaciones de azure, escala, e
 services: app-service
 documentationcenter: 
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f403c971-4450-432b-8cea-3eeb426c0147
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ec043a9e01aca2e843e50cef8b90328ba1939ea5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -41,10 +42,5 @@ Sin embargo, el escalado de una aplicación es un problema complejo que no tiene
 Esta sección lo ayudará a comprender todos los factores y a diseñar una estrategia que aproveche las características necesarias de App Service para lograr sus objetivos de escalabilidad.
 
 [!INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

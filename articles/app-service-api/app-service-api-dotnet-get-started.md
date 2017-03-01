@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo crear, implementar y consumir
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -438,10 +439,5 @@ Si desea crear proyectos de aplicación de API desde cero, use la plantilla **Ap
 ![Plantilla Aplicación de API en Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 La elección de la plantilla de proyecto **Azure API App** equivale a elegir la plantilla **vacía** de ASP.NET 4.5.2, hacer clic en la casilla para agregar compatibilidad con Web API e instalar el paquete NuGet Swashbuckle. Además, la plantilla agrega algún código de configuración de Swashbuckle diseñado para evitar la creación de identificadores de operación de Swagger duplicados. Una vez que haya creado un proyecto de aplicación de API, puede implementarlo en una aplicación de API del mismo modo que el mostrado en este tutorial.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

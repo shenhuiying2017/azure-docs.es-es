@@ -2,7 +2,7 @@
 title: "Administración de entidades de Media Services con REST| Microsoft Docs"
 description: "Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST."
 author: juliako
-manager: dwrede
+manager: erikre
 editor: 
 services: media-services
 documentationcenter: 
@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
 ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -179,10 +180,5 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

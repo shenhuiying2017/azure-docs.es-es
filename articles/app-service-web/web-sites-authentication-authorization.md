@@ -4,7 +4,7 @@ description: "Obtenga información acerca de las diferentes opciones de las apli
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: dde6b7e6-bf6a-4fa5-8390-3a18155d21bd
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f989ea86c76706af9413b2bb945956b1c6432e1d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -41,10 +42,5 @@ Si tiene un servicio de token seguro (STS) local como Servicios de federación d
 * El acceso a datos de AD locales requiere una solución independiente a través del firewall corporativo.
 
 Para ver cómo se escribe una aplicación de línea de negocio de Azure que se autentica con STS local, consulte [Creación de una aplicación de Azure de línea de negocio con autenticación de AD FS](web-sites-dotnet-lob-application-adfs.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

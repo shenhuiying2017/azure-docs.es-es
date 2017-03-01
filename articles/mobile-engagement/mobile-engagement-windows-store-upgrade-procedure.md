@@ -4,7 +4,7 @@ description: "Procedimientos de actualización del SDK de Windows Universal Apps
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -276,7 +277,7 @@ En Package.appxmanifest `File Type Associations` se ha actualizado de:
 * capptain\_reach\_content to engagement\_reach\_content
 * capptain\_log\_file to engagement\_log\_file
 
-### <a name="application-id-sdk-key"></a>Identificador de aplicación o clave SDK
+### <a name="application-id--sdk-key"></a>Identificador de aplicación o clave SDK
 Engagement usa una cadena de conexión. No es necesario especificar un identificador de aplicación y una clave SDK con Mobile Engagement, solo tiene que especificar una cadena de conexión. Esta se puede configurar en el archivo EngagementConfiguration.
 
 La configuración de Engagement se puede establecer en el archivo `Resources\EngagementConfiguration.xml` del proyecto.
@@ -308,10 +309,5 @@ Ejemplos de elementos Capptain que se usan habitualmente:
 * GetCapptainPageName ahora se llama GetEngagementPageName
 
 Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidados.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
