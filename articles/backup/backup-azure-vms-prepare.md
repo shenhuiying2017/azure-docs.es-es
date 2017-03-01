@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: cbd7e36c5ef5c78b38a2cc7791b442cac1711b95
-ms.openlocfilehash: 92e8e25abc047811fc0ff45f424bd1b97a045e1f
+ms.sourcegitcommit: f517a649a6c6aa65b350767bc66cf4d60c7988b5
+ms.openlocfilehash: 9a114e954d59dcecaf3310e024428770bc4a2349
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -85,7 +86,7 @@ Almacén de copia de seguridad** > **Creación rápida** (vea la imagen siguient
 6. Haga clic en **Crear almacén**. La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Supervise las notificaciones de estado en la parte inferior del portal.
 
     ![Crear la notificación del sistema del almacén](./media/backup-azure-vms-prepare/creating-vault.png)
-7. Un mensaje confirmará que el almacén se creó correctamente. En la página de **Recovery Services** se mostrará como **Activo**. Asegúrese de elegir la opción de redundancia de almacenamiento apropiada justo después de crear el almacén. Más información acerca de cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](backup-configure-vault.md#step-1-create-a-recovery-services-vault).
+7. Un mensaje confirmará que el almacén se creó correctamente. En la página de **Recovery Services** se mostrará como **Activo**. Asegúrese de elegir la opción de redundancia de almacenamiento apropiada justo después de crear el almacén. Más información acerca de cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](backup-configure-vault.md#create-a-recovery-services-vault).
 
     ![Lista de copias de seguridad](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 8. Haga clic en el almacén de copia de seguridad para ir a la página **Inicio rápido** , donde se muestran las instrucciones para realizar la copia de seguridad de las máquinas virtuales de Azure.
@@ -232,9 +233,4 @@ Ahora que ha preparado el entorno para realizar la copia de seguridad de la máq
 * [Copia de seguridad de máquinas virtuales](backup-azure-vms.md)
 * [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
 * [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

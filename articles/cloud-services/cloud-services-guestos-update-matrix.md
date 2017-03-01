@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/31/2017
+ms.date: 2/23/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 47d5a9173d8791124a3071b090d6db027dba9448
-ms.openlocfilehash: c070fa326688d94ce2cbf4e0471c4afc9d78c93c
+ms.sourcegitcommit: 244471c5e90a0e2d89c34b255f2da077a94f91cf
+ms.openlocfilehash: 1e87486dc7a186c0ab7147719ac47177c87be148
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -50,35 +51,6 @@ La implementación del SO invitado de noviembre comienza hoy, 8 de noviembre de 
 ###### <a name="october-23-2016"></a>**23 de octubre de 2016**
 Windows Server 2016 se publicará como Familia del SO 5 el 1 de noviembre de 2016, con compatibilidad con .NET 4.6.
 
-###### <a name="september-13-2016"></a>**13 de septiembre de 2016**
-La implementación del SO invitado de septiembre comienza el 13 de septiembre de 2016, y está previsto que se lance el 13 de octubre de 2016.
-
-###### <a name="august-9-2016"></a>**9 de agosto de 2016**
-La implementación del SO invitado de agosto comienza el 9 de agosto de 2016, y está previsto que se lance el 8 de septiembre de 2016. 
-
-###### <a name="july-13-2016"></a>**13 de julio de 2016**
-La implementación del SO invitado de julio comienza el 13 de julio de 2016, y está previsto que se lance el 12 de agosto de 2016. 
-
-###### <a name="june-15-2016"></a>**15 de junio de 2016**
-La implementación del SO invitado de junio comienza el 15 de junio de 2016, y está previsto que se lance el 14 de julio de 2016. 
-
-###### <a name="may-17-2016"></a>**17 de mayo de 2016**
-La implementación del SO invitado de mayo comienza el 17 de mayo de 2016 y está previsto que se publique el 10 de junio de 2016. 
-
-###### <a name="april-18-2016"></a>**18 de abril de 2016**
-La implementación del SO invitado de abril comienza el 18 de abril de 2016 y está previsto que se publique el 12 de mayo de 2016. 
-
-###### <a name="march-14-2016"></a>**14 de marzo de 2016**
-La implementación del SO invitado de marzo comienza el 14 de marzo de 2016 y está previsto que se publique el 8 de abril de 2016. 
-
-###### <a name="february-22-2016"></a>**22 de febrero de 2016**
-La implementación del SO invitado de febrero comienza el 22 de febrero de 2016 y está previsto que se publique el 9 de marzo de 2016.
-
-###### <a name="january-18-2016"></a>**18 de enero de 2016**
-La implementación del SO invitado de enero comienza el 18 de enero de 2016 y está previsto que se publique el 12 de febrero de 2016.
-
-###### <a name="january-4-2016"></a>**4 de enero de 2016**
-El SO invitado 201511-02 de noviembre se publicó el 4 de enero de 2016 para la implementación. Esta versión del SO no está establecida como el SO predeterminado para actualización automática, por lo que el tiempo de aprovisionamiento de la implementación del SO invitado a la versión de SO 201511-02 de noviembre sería un poco más largo. 
 
 ## <a name="releases"></a>Lanzamientos
 ## <a name="family-5-releases"></a>Lanzamientos de la familia 5
@@ -251,10 +223,5 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
