@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
-ms.openlocfilehash: 175e8620828a2b0a0aff6de0b1a39860ea59514b
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 67b780d66eac4199b0a2367f575477191542cfa7
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -24,7 +25,8 @@ ms.openlocfilehash: 175e8620828a2b0a0aff6de0b1a39860ea59514b
 > [!div class="op_single_selector"]
 > * [Portal de Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [CLI de Azure](dns-getstarted-create-recordset-cli.md)
+> * [CLI de Azure 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [CLI de Azure 2.0](dns-getstarted-create-recordset-cli.md)
 
 Este artículo le guiará a través del proceso de creación de registros y conjuntos de registros mediante Azure PowerShell.
 
@@ -48,7 +50,7 @@ Si el nuevo registro tiene el mismo nombre y tipo que un registro existente, deb
 
 Los conjuntos de registros se crean mediante el cmdlet `New-AzureRmDnsRecordSet`. Al crear un conjunto de registros, deberá especificar el nombre del conjunto de registros, la zona, el período de vida (TTL), el tipo de registro y los registros que se crearán.
 
-Para crear un conjunto de registros en el vértice de la zona (en este caso, "contoso.com"), utilice el nombre de registro "@",, incluidas las comillas. Esta es una convención común de DNS.
+Para crear un conjunto de registros en el vértice de la zona (en este caso, "contoso.com"), utilice el nombre de registro "@", incluidas las comillas. Esta es una convención común de DNS.
 
 En el ejemplo siguiente se crea un nuevo conjunto de registros con el nombre relativo "www" en la zona DNS "contoso.com". El nombre completo del conjunto de registros es www.contoso.com. El tipo de registro es "A" y el valor de TTL es de 3600 segundos. El conjunto de registros contiene un único registro con la dirección IP "1.2.3.4".
 
@@ -114,10 +116,5 @@ Aprenda a [administrar zonas DNS mediante PowerShell](dns-operations-dnszones.md
 
 Aprenda a [administrar registros y conjuntos de registros DNS mediante PowerShell](dns-operations-recordsets.md).
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

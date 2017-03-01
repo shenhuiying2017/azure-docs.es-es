@@ -4,7 +4,7 @@ description: "Aprenda a proteger una aplicación web, un back-end de aplicación
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 5ce560b4-42d7-4b20-935c-0445fd539e39
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
 ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -116,10 +117,5 @@ Para más datos sobre la información de registro para aplicaciones del Servicio
 
 ## <a name="whats-changed"></a>Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

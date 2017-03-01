@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo migrar fácilmente la aplicac
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 029a2b03d29fa581373328489678ad5039daba47
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: d5bceb8dd53850f0f11be05be2d5e5d3fbd01c5d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -69,7 +70,7 @@ Planee la prueba del sitio desde un cliente móvil al final del proceso de migra
 ### <a name="a-nameupdate-app-service-tieraselect-an-appropriate-app-service-pricing-tier"></a><a name="update-app-service-tier"></a>Selección de un plan de tarifa adecuado del Servicio de aplicaciones
 Después de migrar al Servicio de aplicaciones de Azure, dispone de una mayor flexibilidad en los precios.
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. La hoja Configuración se abre de forma predeterminada.
 4. Haga clic en **Plan de App Service** en el menú Configuración.
@@ -95,7 +96,7 @@ Hay una flexibilidad considerable en la elección del plan de tarifa adecuado pa
 Los trabajos del Programador no estarán visibles hasta unos 30 minutos después de la migración.  Los trabajos programados se siguen ejecutando en segundo plano.
 Para ver los trabajos programados cuando vuelven a estar visibles:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Examinar >**, escriba **Programación** en el cuadro *Filtro* y luego seleccione **Scheduler Collections** (Colecciones de Scheduler).
 
 Existe un número limitado de trabajos de Programador gratuitos que están disponibles después de la migración.  Revise su uso y los [planes de Azure Scheduler].
@@ -105,7 +106,7 @@ El uso compartido de recursos entre orígenes es una técnica que permite que un
 
 La configuración de CORS migrada está disponible como la configuración de aplicación **MS_CrossDomainWhitelist**.  Para migrar el sitio a las instalaciones de CORS del Servicio de aplicaciones:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. La hoja Configuración se abre de forma predeterminada.
 4. Haga clic en **CORS** en el menú API.
@@ -120,7 +121,7 @@ La configuración de CORS migrada está disponible como la configuración de apl
 ### <a name="a-namedownload-publish-profileadownload-a-new-publishing-profile"></a><a name="download-publish-profile"></a>Descarga de un nuevo perfil de publicación
 El perfil de publicación del sitio cambia al migrar al Servicio de aplicaciones de Azure.  Si va a publicar el sitio desde dentro de Visual Studio, necesita un perfil de publicación nuevo.  Para descargar el nuevo perfil de publicación:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. Haga clic en **Obtener perfil de publicación**.
 
@@ -134,12 +135,12 @@ El archivo PublishSettings se descarga en su equipo.  Normalmente se llama *nomb
 6. Haga clic en **Publicar** para publicar el sitio.
 
 ## <a name="a-nameworking-with-your-siteaworking-with-your-site-post-migration"></a><a name="working-with-your-site"></a>Migración posterior al sitio
-Empiece a trabajar con la nueva instancia de App Service en la fase posterior a la migración de [Portal de Azure].  Las siguientes son algunas notas sobre operaciones específicas que se suelen realizar en el [Portal de Azure clásico], junto con su equivalente del Servicio de aplicaciones.
+Empiece a trabajar con la nueva instancia de App Service en la fase posterior a la migración de [Azure Portal].  Las siguientes son algunas notas sobre operaciones específicas que se suelen realizar en el [Portal de Azure clásico], junto con su equivalente del Servicio de aplicaciones.
 
 ### <a name="a-namepublishing-your-siteadownloading-and-publishing-your-migrated-site"></a><a name="publishing-your-site"></a>Descarga y publicación del sitio migrado
 El sitio está disponible a través de git o ftp, y se puede volver a publicar con varios mecanismos diferentes, como WebDeploy, TFS, Mercurial, GitHub y FTP.  Las credenciales de implementación se migran con el resto del sitio.  Si no estableció las credenciales de implementación o no las recuerda, puede restablecerlas:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. La hoja Configuración se abre de forma predeterminada.
 4. Haga clic en **Credenciales de implementación** en el menú PUBLICACIÓN.
@@ -148,10 +149,10 @@ El sitio está disponible a través de git o ftp, y se puede volver a publicar c
 Dichas credenciales se pueden usar para clonar el sitio con git o configurar implementaciones automatizadas desde GitHub, TFS o Mercurial.  Para más información, consulte la [documentación de implementación del Servicio de aplicaciones de Azure].
 
 ### <a name="a-nameappsettingsaapplication-settings"></a><a name="appsettings"></a>Configuración de aplicación
-La mayoría de las configuraciones de un servicio móvil migrado están disponible a través de Configuración de aplicación.  En [Portal de Azure] puede obtener una lista de las opciones de la aplicación.
+La mayoría de las configuraciones de un servicio móvil migrado están disponible a través de Configuración de aplicación.  En [Azure Portal] puede obtener una lista de las opciones de la aplicación.
 Para ver o cambiar la configuración de aplicación:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. La hoja Configuración se abre de forma predeterminada.
 4. Haga clic en **Configuración de aplicación** en el menú GENERAL.
@@ -188,7 +189,7 @@ Nota: **MS\_AadTenants** se almacena como una lista de dominios de inquilino sep
 ### <a name="a-nameeasytablesadata"></a><a name="easytables"></a>Datos
 La pestaña *Datos* de Mobile Services se ha reemplazado por *Tablas fáciles* en Azure Portal.  Para tener acceso a Tablas fáciles:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. La hoja Configuración se abre de forma predeterminada.
 4. Haga clic en **Tablas fáciles** en el menú MÓVIL.
@@ -205,7 +206,7 @@ Para agregar una tabla, haga clic en el botón **Agregar** o acceda a sus tablas
 ### <a name="a-nameeasyapisaapi"></a><a name="easyapis"></a>API
 La pestaña *API* de Mobile Services se ha reemplazado por *API fáciles* en Azure Portal.  Para obtener acceso a las API fáciles:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. La hoja Configuración se abre de forma predeterminada.
 4. Haga clic en **API fáciles** en el menú MÓVIL.
@@ -216,7 +217,7 @@ Desde la nueva hoja, puede ajustar los permisos y editar los scripts de la API.
 ### <a name="a-nameon-demand-jobsascheduler-jobs"></a><a name="on-demand-jobs"></a>Trabajos del Programador
 Todos los trabajos de Programador están disponibles a través de la sección de colecciones de trabajo de Programador.  Para acceder a los trabajos de Programador:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Examinar >**, escriba **Programación** en el cuadro *Filtro* y luego seleccione **Scheduler Collections** (Colecciones de Scheduler).
 3. Seleccione la colección de trabajos para su sitio.  Se denomina *nombre_del_sitio*-Jobs.
 4. Haga clic en **Configuración**.
@@ -241,21 +242,21 @@ Los Servicios móviles usan Centros de notificaciones para las notificaciones pu
 | **MS\_NotificationHubConnectionString** |La cadena de conexión del centro de notificaciones |
 | **MS\_NamespaceName** |Un alias para MS_PushEntityNamespace |
 
-El Centro de notificaciones se administra mediante [Portal de Azure].  Anote el nombre del centro de notificaciones (puede encontrarlo mediante la configuración de aplicación):
+El Centro de notificaciones se administra mediante [Azure Portal].  Anote el nombre del centro de notificaciones (puede encontrarlo mediante la configuración de aplicación):
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Examinar**> y luego **Notification Hubs**
 3. Haga clic en el nombre del Centro de notificaciones asociado al servicio móvil.
 
 > [!NOTE]
-> Si el Centro de notificaciones es del tipo "Mixto", no está visible.  Los centros de notificaciones mixtos usan características de Centros de notificaciones y características heredadas de Bus de servicio.  [Convierta los espacios de nombres mixtos] antes de continuar.  Una vez finalizada la conversión, el Centro de notificaciones aparece en [Portal de Azure].
+> Si el Centro de notificaciones es del tipo "Mixto", no está visible.  Los centros de notificaciones mixtos usan características de Centros de notificaciones y características heredadas de Bus de servicio.  [Convierta los espacios de nombres mixtos] antes de continuar.  Una vez finalizada la conversión, el Centro de notificaciones aparece en [Azure Portal].
 > 
 > 
 
 Para más información, revise la documentación de [Centros de notificaciones] .
 
 > [!TIP]
-> Las características de administración de Notification Hubs en [Portal de Azure] se encuentran aún en versión preliminar.  El [Portal de Azure clásico] sigue estando disponible para administrar todos los centros de notificaciones.
+> Las características de administración de Notification Hubs en [Azure Portal] se encuentran aún en versión preliminar.  El [Portal de Azure clásico] sigue estando disponible para administrar todos los centros de notificaciones.
 > 
 > 
 
@@ -306,7 +307,7 @@ Edite los archivos y publique su sitio mediante ftp o git.
 ### <a name="a-namediagnosticsadiagnostics-and-logging"></a><a name="diagnostics"></a>Diagnósticos y registro
 El registro de diagnóstico está normalmente deshabilitado en un Servicio de aplicaciones de Azure.  Para habilitar el registro de diagnóstico:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. La hoja Configuración se abre de forma predeterminada.
 4. Seleccione **Registros de diagnóstico** en el menú de CARACTERÍSTICAS.
@@ -316,7 +317,7 @@ El registro de diagnóstico está normalmente deshabilitado en un Servicio de ap
 
 Para ver los registros:
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Seleccione **Todos los recursos** o **App Services**, y luego haga clic en el nombre del servicio móvil migrado.
 3. Haga clic en el botón **Herramientas**
 4. Seleccione **Secuencia de registro** en el menú de RESPETAR.
@@ -379,8 +380,8 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [documentación de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
 [Portal de Azure clásico]: https://manage.windowsazure.com
-[Portal de Azure]: https://portal.azure.com
-[Región de Azure]: https://azure.microsoft.com/en-us/regions/
+[Azure Portal]: https://portal.azure.com
+[Azure Region]: https://azure.microsoft.com/en-us/regions/
 [planes de Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
 [implementar de forma continuada]: ../app-service-web/app-service-continuous-deployment.md
 [Convierta los espacios de nombres mixtos]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
@@ -400,9 +401,4 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Funciones]: ../azure-functions/functions-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

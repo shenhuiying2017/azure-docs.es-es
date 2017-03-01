@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 1887b777fbe113d59cffb6ba5409e33ca1380880
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -92,13 +93,8 @@ La siguiente tabla describe las propiedades de la máquina Virtual que se pueden
 | imageVersion |Especifica la versión de la imagen para la SKU elegida |
 
 ## <a name="create-the-policy"></a>Creación de la directiva
-Una directiva se puede crear fácilmente mediante la API de REST directamente o los cmdlets de PowerShell. Más información sobre la [creación y la asignación de una directiva](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
+Una directiva se puede crear fácilmente mediante la API de REST directamente o los cmdlets de PowerShell. Más información sobre la [creación y la asignación de una directiva](../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="apply-the-policy"></a>Aplicación de la directiva
-Después de crear la directiva, debe aplicarla en un ámbito definido. El ámbito puede ser una suscripción, un grupo de recursos o incluso un recurso. Más información sobre la [creación y la asignación de una directiva](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+Después de crear la directiva, debe aplicarla en un ámbito definido. El ámbito puede ser una suscripción, un grupo de recursos o incluso un recurso. Más información sobre la [creación y la asignación de una directiva](../azure-resource-manager/resource-manager-policy.md).
 

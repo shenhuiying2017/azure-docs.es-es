@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4dfd9690f2e3e017ca308649f79a84466d49d844
-ms.openlocfilehash: 91ee5da0885fc0b044150e524757eac659a003a4
+ms.sourcegitcommit: e37f1716b459ea8eb0f2d0a5a12e7a3a8ab2c083
+ms.openlocfilehash: e2ec0cefb6e009f22c3406ccd1570748dc467ed0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -135,7 +136,7 @@ En la tabla siguiente se enumeran los distintos tipos de eventos de riesgo y el 
 | Inicios de sesión desde direcciones IP anónimas |Inicios de sesión desde orígenes desconocidos |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |Inicios de sesión desde direcciones IP con actividad sospechosa |
 | Inicios de sesión desde ubicaciones desconocidas |- |
-| Eventos de bloqueo |- |
+
 
 Los siguientes informes de actividades anómalas de Azure AD no se incluyen como eventos de riesgo en Azure AD Identity Protection y, por tanto, no estarán disponibles mediante Identity Protection. Estos informes siguen estando disponibles en el Portal de Azure clásico. Sin embargo, dejarán de estar en uso en el futuro, ya que se están reemplazando por los eventos de riesgo de Identity Protection.
 
@@ -149,10 +150,5 @@ Los siguientes informes de actividades anómalas de Azure AD no se incluyen como
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

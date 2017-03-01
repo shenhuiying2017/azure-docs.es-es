@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
 ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -171,10 +172,5 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
     ![Sí](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

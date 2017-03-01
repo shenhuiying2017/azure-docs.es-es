@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 892c42cf28ef1861f9422c8bcabcbc229c6033b0
-ms.openlocfilehash: 794cfa21f46981c031217687f591c35a4706ae8b
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 501e5e8501c6106ba2e51b3523332fd224a5a142
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -46,13 +47,8 @@ En esta sección se describen los pasos de implementación en el nuevo Portal de
 4. [Configure las opciones de replicación](site-recovery-vmware-to-azure.md#set-up-replication-settings). Cree una directiva de replicación y asígnela al servidor de configuración.
 5. [Instale el servicio de Movilidad](site-recovery-vmware-to-azure.md#prepare-vms-for-replication). Cada máquina virtual que desea proteger necesita tener instalado el servicio de Movilidad. Este servicio envía datos al servidor de procesos. El servicio de Movilidad puede instalarse manualmente o insertarse e instalarse automáticamente mediante el servidor de procesos cuando está habilitada la protección para la máquina virtual. Las reglas de firewall de las máquinas virtuales que quiera migrar deben configurarse para permitir la instalación de inserción de este servicio.
 6. [Habilite la replicación](site-recovery-vmware-to-azure.md#enable-replication). Habilite la replicación para las máquinas virtuales que desee migrar. Puede detectar las máquinas virtuales de IaaS que desea migrar a Azure usando la dirección IP privada de las máquinas virtuales. Busque esta dirección en el panel de la máquina virtual de Azure. Cuando habilite la replicación, establezca el tipo de máquina para las VM como máquinas físicas.
-7. [ Ejecute una conmutación por error no planeada](site-recovery-failover.md#run-an-unplanned-failover). Una vez completada la replicación inicial, puede ejecutar una conmutación por error no planeada desde una región de Azure a otra. Si lo desea, puede crear un plan de recuperación y una conmutación por error no planeada para migrar varias máquinas virtuales entre las regiones. [Obtenga más información](site-recovery-create-recovery-plans.md) sobre los planes de recuperación.
+7. [ Ejecute una conmutación por error no planeada](site-recovery-failover.md). Una vez completada la replicación inicial, puede ejecutar una conmutación por error no planeada desde una región de Azure a otra. Si lo desea, puede crear un plan de recuperación y una conmutación por error no planeada para migrar varias máquinas virtuales entre las regiones. [Obtenga más información](site-recovery-create-recovery-plans.md) sobre los planes de recuperación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre otros escenarios de replicación en [¿Qué es Site Recovery?](site-recovery-overview.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

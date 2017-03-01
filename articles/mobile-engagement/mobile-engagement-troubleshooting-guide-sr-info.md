@@ -4,7 +4,7 @@ description: "Información de solicitud de servicio requerido por el equipo de s
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 05abc6a620468aff9a26ed1d37562c8cd2b2acc8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -40,10 +41,5 @@ Cuando abra una solicitud de servicio de Mobile Engagement, proporcione la sigui
 * Versión del SDK y plataforma de la aplicación (SDK de Android 2.4.1, iOS 1.16.2, etc.)
 * Ubicación de descarga de la aplicación de producción (o los archivos APK/TGZ de la aplicación de desarrollo)
 * "AndroidManifest.xml" o cualquier fragmento de código de la aplicación relacionado con Azure Mobile Engagement (para la solución avanzada de problemas)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

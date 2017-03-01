@@ -44,8 +44,9 @@
 ### [Copia de seguridad y restauración](documentdb-online-backup-and-restore.md)
 ### [Retirada de S1, S2, S3](documentdb-performance-levels.md)
 ### [Unidades de solicitud](documentdb-request-units.md)
-### Azure CLI
-#### [Crear una cuenta](documentdb-automation-resource-manager-cli.md)
+### [CLI de Azure 2.0](documentdb-automation-resource-manager-cli.md)
+### CLI de Azure 1.0
+#### [Crear una cuenta](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Agregar o quitar regiones](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Compatibilidad de firewall](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [Coherencia de datos explicada a través del béisbol](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Libro: Uso de Microsoft Azure DocumentDB en una aplicación de Node.js](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

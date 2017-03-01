@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ce0e0ce9004e1b331328fca5830f01b6ce6af6c
+ms.sourcegitcommit: eec9b73cbaccfa50eec6f237e4d1d810c6efa1d9
+ms.openlocfilehash: e5b8ac91914203156bd395d7f462385e9f6dbcb4
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -113,7 +114,7 @@ Habilite o deshabilite la sección "Notificaciones de correo electrónico de ini
 ### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integración con la API de informes de Azure AD
 Consulte [Introducción a la API de informes](active-directory-reporting-api-getting-started.md).
 
-### <a name="engage-multifactor-authentication-on-users"></a>Uso de Multi-Factor Authentication en usuarios
+### <a name="engage-multi-factor-authentication-on-users"></a>Uso de Multi-Factor Authentication en usuarios
 Seleccione un usuario en un informe.
 
 Haga clic en el botón "Habilitar MFA" en la parte inferior de la pantalla.
@@ -139,10 +140,5 @@ Envíe un correo electrónico a [aadreportinghelp@microsoft.com](mailto:aadrepor
 > Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

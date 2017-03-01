@@ -3,7 +3,7 @@ title: Uso de Blob Storage (almacenamiento de objetos) en C++ | Microsoft Docs
 description: Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 1f87e40edc8b6ad8567f2409e6df435ed66f2bbc
 ms.openlocfilehash: 8571011cac1182a5bfdfe722c194fcd681712a02
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -55,8 +56,8 @@ Para instalar la biblioteca de cliente de almacenamiento de Azure para C++, pued
 Agregue las siguientes instrucciones include en la parte superior del archivo C++ en el que desea usar las API de almacenamiento de Azure para obtener acceso a los blobs:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/blob.h"
+include <was/storage_account.h>
+include <was/blob.h>
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configuración de una cadena de conexión de almacenamiento de Azure
@@ -272,10 +273,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 * [Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 * [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

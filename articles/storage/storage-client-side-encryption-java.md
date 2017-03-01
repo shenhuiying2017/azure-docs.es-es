@@ -3,7 +3,7 @@ title: Cifrado del lado de cliente con Java para el Microsoft Azure Storage | Mi
 description: "La biblioteca de cliente de Almacenamiento de Azure para Azure ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure para obtener una seguridad máxima para sus aplicaciones de Almacenamiento de Azure."
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 3df49907-554c-404a-9b0c-b3e3269ad04f
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 7e182ee18e3c2c12eb29f864dd875d764ca5d534
 ms.openlocfilehash: 116693fdb8a8fa0e332b74459f7827bbf44c9ed7
+ms.lasthandoff: 11/22/2016
 
 
 ---
@@ -254,8 +255,3 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
   * [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
   * [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
 * Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

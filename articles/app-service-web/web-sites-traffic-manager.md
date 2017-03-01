@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.service: app-service-web
@@ -18,6 +18,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e5711e9c9d3ff70b38a4d19aa6be7b037cdb38aa
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -54,10 +55,5 @@ Cuando utilice el Administrador de tráfico de Azure con Azure, tenga en cuenta 
 Si desea obtener información general de carácter técnico y conceptual del Administrador de tráfico de Azure, consulte [Información general sobre el Administrador de tráfico](../traffic-manager/traffic-manager-overview.md).
 
 Para más información sobre el uso de Traffic Manager con Web Apps, consulte las publicaciones del blog [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) (Uso de Azure Traffic Manager con Azure Web Sites) y [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/) (Azure Traffic Manager ya se puede integrar con Azure Web Sites).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

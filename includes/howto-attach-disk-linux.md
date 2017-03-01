@@ -1,5 +1,5 @@
 
-Para más información acerca de los discos, consulte [Acerca de los discos y los discos duros virtuales para Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información acerca de los discos, consulte [Acerca de los discos y los discos duros virtuales para Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
@@ -114,9 +114,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 > Después de agregar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usarlo para el almacenamiento (para más información sobre cómo realizar la inicialización del disco, consulte los pasos siguientes).
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

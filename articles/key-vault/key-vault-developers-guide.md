@@ -33,6 +33,7 @@ Para obtener más información sobre Almacén de claves de Azure, consulte [¿Qu
 ## <a name="videos"></a>Vídeos
 Este vídeo muestra cómo crear su propio almacén de claves y cómo usarlo desde la aplicación de ejemplo 'Hello Key Vault'.
 
+
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player]
 
 

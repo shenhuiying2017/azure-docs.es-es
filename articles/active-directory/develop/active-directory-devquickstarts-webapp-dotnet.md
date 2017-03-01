@@ -1,6 +1,6 @@
 ---
-title: "Introducción a .NET de Azure AD | Microsoft Docs"
-description: "Cómo crear una aplicación web de .NET MVC que se integra con Azure AD para el inicio de sesión."
+title: "Introducción a la aplicación web de .NET de Azure AD | Microsoft Docs"
+description: "Creación de una aplicación web de .NET MVC que se integra con Azure AD para el inicio de sesión."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -12,179 +12,176 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 3972d899a85b7eabe54ab963b136898fa87abd38
+ms.sourcegitcommit: 4094759caba015b9d609b616d5099a6e109bf1d4
+ms.openlocfilehash: 6ac0c3b2893b96f93bf2aeadd61b263654957477
+ms.lasthandoff: 02/17/2017
 
 
 ---
-# <a name="aspnet-web-app-sign-in--sign-out-with-azure-ad"></a>Inicio y cierre de sesión de la aplicación web de ASP.NET con Azure AD
+# <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Inicio y cierre de sesión de la aplicación web de ASP.NET con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código.  En las aplicaciones web Asp.NET, puede realizar esto con la implementación de Microsoft del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5.  Aquí usaremos OWIN para:
+Azure Active Directory (Azure AD) facilita la externalización de la administración de identidad de las aplicaciones web al proporcionar un inicio y cierre de sesión únicos con unas cuantas líneas de código. Puede iniciar y cerrar la sesión de los usuarios en las aplicaciones web de ASP.NET mediante la implementación de Microsoft del middleware Open Web Interface for .NET (OWIN). El middleware OWIN controlado por la comunidad se incluye en .NET Framework 4.5. En este artículo se muestra cómo usar OWIN para:
 
-* Iniciar sesión del usuario en la aplicación con Azure AD como proveedor de identidades.
-* Mostrar información sobre el usuario.
-* Cerrar la sesión del usuario en la aplicación.
+* Iniciar la sesión de los usuarios en aplicaciones web mediante Azure AD como proveedor de identidades.
+* Mostrar información del usuario.
+* Cerrar la sesión de los usuarios en las aplicaciones.
 
-Para ello, deberá hacer lo siguiente:
+## <a name="before-you-get-started"></a>Antes de comenzar
+* Descargue el [esqueleto de la aplicación](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) o el [ejemplo completado](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
+* También necesita a un inquilino de Azure AD en el que se va a registrar la aplicación. Si aún no tiene uno, [descubra cómo conseguirlo](active-directory-howto-tenant.md).
 
-1. Registrar una aplicación con Azure AD
-2. Configurar la aplicación para usar la canalización de autenticación OWIN.
-3. Use OWIN para emitir solicitudes de inicio y cierre de sesión a Azure AD.
-4. Imprima datos sobre el usuario.
+Cuando esté listo, siga los procedimientos descritos en las cuatro secciones siguientes.
 
-Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).  También necesitará a un inquilino de Azure AD en el que registrar la aplicación.  Si aún no tiene uno, [descubra cómo conseguirlo](active-directory-howto-tenant.md).
-
-## <a name="1-register-an-application-with-azure-ad"></a>1. Registro de una aplicación con Azure AD
-Para habilitar su aplicación a fin de autenticar a los usuarios, primero deberá registrar una nueva aplicación en su inquilino.
+## <a name="step-1-register-the-new-app-with-azure-ad"></a>Paso 1: Registro de la nueva aplicación en Azure AD
+Para configurar la aplicación para autenticar a los usuarios, primero regístrela mediante estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En la barra superior, haga clic en su cuenta y, en la lista **Directorio**, elija el inquilino de Active Directory en el que desee registrar la aplicación.
-3. Haga clic en **Más servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y elija **Agregar**.
-5. Siga las indicaciones y cree una nueva **Aplicación web y/o API web**.
-  * El **nombre** de la aplicación describirá su aplicación a los usuarios finales
-  * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación.  El valor predeterminado del esquema es `https://localhost:44320/`.
-  * El **URI de id. de aplicación** es un identificador único de su aplicación.  La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `https://contoso.onmicrosoft.com/my-first-aad-app`
-6. Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de aplicación único.  Necesitará este valor en las secciones siguientes, así que cópielo de la página de la aplicación.
+2. En la barra superior, haga clic en el nombre de su cuenta. En la lista **Directorio** lista, seleccione el inquilino de Active Directory donde quiere registrar la aplicación.
+3. Haga clic en **Más servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
+4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
+5. Siga las indicaciones para crear una nueva **aplicación web o WebAPI**.
+  * **Nombre**: describe la aplicación a los usuarios.
+  * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación. La dirección URL predeterminada del esqueleto es https://localhost:44320/.
+  * El **URI de id. de aplicación** es un identificador único para la aplicación. La convención de nomenclatura es `https://<tenant-domain>/<app-name>` (por ejemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`).
+6. Después de haber completado el registro, Azure AD le asigna a la aplicación un id. de aplicación único. Copie el valor de la página de aplicación para usarlo en las secciones siguientes.
 
-## <a name="2-set-up-your-app-to-use-the-owin-authentication-pipeline"></a>2. Configurar la aplicación para que use la canalización de autenticación OWIN
-Aquí configuraremos el middleware OWIN para usar el protocolo de autenticación OpenID Connect.  OWIN se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
+## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Paso 2: Configuración de la aplicación para que use la canalización de autenticación OWIN
+En este paso, configuraremos el middleware OWIN para usar el protocolo de autenticación OpenID Connect. Usará OWIN para emitir solicitudes de inicio y cierre de sesión, administrar sesiones de usuario, obtener información del usuario, etc.
 
-* Para comenzar, agregue los paquetes NuGet de middleware OWIN al proyecto mediante la Consola del Administrador de paquetes.
+1. Para comenzar, agregue al proyecto los paquetes NuGet del middleware OWIN mediante la Consola del Administrador de paquetes.
 
-```
-PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
-PM> Install-Package Microsoft.Owin.Security.Cookies
-PM> Install-Package Microsoft.Owin.Host.SystemWeb
-```
+     ```
+     PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
+     PM> Install-Package Microsoft.Owin.Security.Cookies
+     PM> Install-Package Microsoft.Owin.Host.SystemWeb
+     ```
 
-* Agregue una Clase de inicio OWIN al proyecto denominado `Startup.cs`. Haga clic con el botón derecho en el proyecto **Agregar** --> **Nuevo elemento** --> Busque "OWIN".  El middleware OWIN invocará el método `Configuration(...)` al iniciarse la aplicación.
-* Cambie la declaración de clase a `public partial class Startup` (ya hemos implementado parte de esta clase para usted en otro archivo).  En el método `Configuration(...)` , realice una llamada a ConfigureAuth(...) para configurar la autenticación para la aplicación web.  
+2. Para agregar una clase de inicio de OWIN al proyecto denominado `Startup.cs`, haga clic con el botón derecho en el proyecto, seleccione **Agregar**, **Nuevo elemento** y luego busque **OWIN**. El middleware de OWIN invoca el método **Configuration(...) ** cuando se inicia la aplicación.
+3. Cambie la declaración de clase a `public partial class Startup`. Ya hemos implementado parte de esta clase en otro archivo. En el método **Configuration(...)**, realice una llamada a **ConfgureAuth(...)** para configurar la autenticación de la aplicación.  
 
-```C#
-public partial class Startup
-{
-    public void Configuration(IAppBuilder app)
+     ```C#
+     public partial class Startup
+     {
+         public void Configuration(IAppBuilder app)
+         {
+             ConfigureAuth(app);
+         }
+     }
+     ```
+
+4. Abra el archivo App_Start\Startup.Auth.cs y luego implemente el método **ConfigureAuth(...) **. Los parámetros que se proporcionan en *OpenIDConnectAuthenticationOptions* sirven de coordenadas de la aplicación para comunicarse con Azure AD. También debe configurar la autenticación con cookies, ya que el middleware OpenID Connect usa cookies en segundo plano.
+
+     ```C#
+     public void ConfigureAuth(IAppBuilder app)
+     {
+         app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+
+         app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+         app.UseOpenIdConnectAuthentication(
+             new OpenIdConnectAuthenticationOptions
+             {
+                 ClientId = clientId,
+                 Authority = authority,
+                 PostLogoutRedirectUri = postLogoutRedirectUri,
+             });
+     }
+     ```
+
+5. Abra el archivo web.config en la raíz del proyecto y luego especifique los valores de configuración en la sección `<appSettings>`.
+  * `ida:ClientId`: el GUID que copió de Azure Portal en "Paso 1: Registro de la nueva aplicación en Azure AD".
+  * `ida:Tenant`: el dominio del inquilino de Azure AD, por ejemplo, contoso.onmicrosoft.com.
+  * `ida:PostLogoutRedirectUri`: el indicador que señala a Azure AD dónde se debe redirigir a un usuario después de completarse correctamente una solicitud de cierre de sesión.
+
+## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Paso 3: Uso de OWIN para emitir solicitudes de inicio y cierre de sesión a Azure AD
+Ahora la aplicación está correctamente configurada para comunicarse con Azure AD mediante el protocolo de autenticación OpenID Connect. OWIN se ha ocupado de todos los detalles de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de sesiones de usuario. Lo único que queda consiste en ofrecer a sus usuarios una forma de iniciar y cerrar sesión.
+
+1. Puede usar etiquetas de autorización en los controladores para exigir que los usuarios inicien sesión para poder acceder a determinadas páginas. Para ello, abra Controllers\HomeController.cs y luego agregue la etiqueta `[Authorize]` al controlador About.
+
+     ```C#
+     [Authorize]
+     public ActionResult About()
+     {
+       ...
+     ```
+
+2. También puede usar OWIN para emitir directamente solicitudes de autenticación desde dentro de su código. Para ello, abra Controllers\AccountController.cs. A continuación, en las acciones SignIn() y SignOut(), emita las solicitudes de desafío y cierre de sesión de OpenID Connect.
+
+     ```C#
+     public void SignIn()
+     {
+         // Send an OpenID Connect sign-in request.
+         if (!Request.IsAuthenticated)
+         {
+             HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+         }
+     }
+     public void SignOut()
+     {
+         // Send an OpenID Connect sign-out request.
+         HttpContext.GetOwinContext().Authentication.SignOut(
+              OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+     }
+     ```
+
+3. Abra Views\Shared\_LoginPartial.cshtml para mostrar al usuario los vínculos de inicio y cierre de sesión de la aplicación y para imprimir el nombre del usuario en una vista.
+
+    ```HTML
+    @if (Request.IsAuthenticated)
     {
-        ConfigureAuth(app);
+     <text>
+         <ul class="nav navbar-nav navbar-right">
+             <li class="navbar-text">
+                 Hello, @User.Identity.Name!
+             </li>
+             <li>
+                 @Html.ActionLink("Sign out", "SignOut", "Account")
+             </li>
+         </ul>
+     </text>
     }
-}
-```
-
-* Abra el archivo `App_Start\Startup.Auth.cs` e implemente el método `ConfigureAuth(...)`.  Los parámetros que proporciona en `OpenIDConnectAuthenticationOptions` servirán como coordenadas para que su aplicación se comunique con Azure AD.  También tendrá que configurar la autenticación con cookies (el middleware OpenID Connect usa cookies debajo de las portadas).
-
-```C#
-public void ConfigureAuth(IAppBuilder app)
-{
-    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-
-    app.UseCookieAuthentication(new CookieAuthenticationOptions());
-
-    app.UseOpenIdConnectAuthentication(
-        new OpenIdConnectAuthenticationOptions
-        {
-            ClientId = clientId,
-            Authority = authority,
-            PostLogoutRedirectUri = postLogoutRedirectUri,
-        });
-}
-```
-
-* Por último, abra el archivo `web.config` en la raíz del proyecto y escriba sus valores de configuración en la sección `<appSettings>`.
-  * `ida:ClientId` de su aplicación es el GUID que copió desde el Portal de Azure en Paso 1.
-  * `ida:Tenant` es el nombre de su inquilino de Azure AD, p. ej., "contoso.onmicrosoft.com".
-  * Su `ida:PostLogoutRedirectUri` indica a Azure AD dónde se debe redirigir a un usuario después de completarse correctamente una solicitud de cierre de sesión.
-
-## <a name="3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>3. Use OWIN para emitir solicitudes de inicio y cierre de sesión a Azure AD
-Ahora la aplicación está correctamente configurada para comunicarse con Azure AD mediante el protocolo de autenticación OpenID Connect.  OWIN se ha ocupado de todos los detalles feos de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión de usuario.  Lo único que queda consiste en ofrecer a sus usuarios una forma de iniciar y cerrar sesión.
-
-* Puede usar etiquetas Autorizar en sus controladores para solicitar que el usuario inicie sesión antes de tener acceso a una página determinada.  Abra `Controllers\HomeController.cs` y agregue la etiqueta `[Authorize]` al controlador Acerca de.
-
-```C#
-[Authorize]
-public ActionResult About()
-{
-  ...
-```
-
-* También puede usar OWIN para emitir directamente solicitudes de autenticación desde dentro de su código.  Abra `Controllers\AccountController.cs`.  En las acciones SignIn() y SignOut(), emita un concurso de OpenID Connect y solicitudes de cierre de sesión, respectivamente.
-
-```C#
-public void SignIn()
-{
-    // Send an OpenID Connect sign-in request.
-    if (!Request.IsAuthenticated)
+    else
     {
-        HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+     <ul class="nav navbar-nav navbar-right">
+         <li>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+     </ul>
     }
-}
-public void SignOut()
-{
-    // Send an OpenID Connect sign-out request.
-    HttpContext.GetOwinContext().Authentication.SignOut(
-        OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
-}
-```
+    ```
 
-* Ahora, abra `Views\Shared\_LoginPartial.cshtml`.  Aquí mostrará al usuario los vínculos de inicio y cierre de sesión de su aplicación e imprimirá el nombre del usuario en una vista.
+## <a name="step-4-display-user-information"></a>Paso 4: Visualización de la información del usuario
+Cuando los usuarios se autentican con OpenID Connect, Azure AD devuelve un id_token a la aplicación que contiene "notificaciones" o aserciones sobre el usuario. Puede usar estas notificaciones para personalizar la aplicación de la manera siguiente:
 
-```HTML
-@if (Request.IsAuthenticated)
-{
-    <text>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-text">
-                Hello, @User.Identity.Name!
-            </li>
-            <li>
-                @Html.ActionLink("Sign out", "SignOut", "Account")
-            </li>
-        </ul>
-    </text>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
-```
+1. Abra el archivo Controllers\HomeController.cs. Puede tener acceso a las solicitudes del usuario en sus controladores a través del objeto principal de seguridad `ClaimsPrincipal.Current` .
 
-## <a name="4-display-user-information"></a>4. Mostrar información de usuario
-Al autenticar usuarios con OpenID Connect, Azure AD devuelve id_token a la aplicación que contiene "notificaciones" o aserciones sobre el usuario.  Puede usar estas notificaciones para personalizar su aplicación:
+ ```C#
+ public ActionResult About()
+ {
+     ViewBag.Name = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Name).Value;
+     ViewBag.ObjectId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+     ViewBag.GivenName = ClaimsPrincipal.Current.FindFirst(ClaimTypes.GivenName).Value;
+     ViewBag.Surname = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Surname).Value;
+     ViewBag.UPN = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Upn).Value;
 
-* Abra el archivo `Controllers\HomeController.cs` .  Puede tener acceso a las solicitudes del usuario en sus controladores a través del objeto principal de seguridad `ClaimsPrincipal.Current` .
+     return View();
+ }
+ ```
 
-```C#
-public ActionResult About()
-{
-    ViewBag.Name = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Name).Value;
-    ViewBag.ObjectId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-    ViewBag.GivenName = ClaimsPrincipal.Current.FindFirst(ClaimTypes.GivenName).Value;
-    ViewBag.Surname = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Surname).Value;
-    ViewBag.UPN = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Upn).Value;
+2. Compile y ejecute la aplicación. Si aún no ha creado un nuevo usuario en el inquilino con un dominio onmicrosoft.com, ahora es el momento de hacerlo. Este es el procedimiento:
 
-    return View();
-}
-```
+  a. Inicie sesión con ese usuario y observe cómo se refleja la identidad del usuario en la barra superior.
 
-Por último, compile y ejecute su aplicación.  Si aún no lo ha hecho, ahora es el momento de crear un nuevo usuario en su inquilino con un dominio *.onmicrosoft.com.  Inicie sesión con ese usuario y observe cómo se refleja la identidad del usuario en la barra de navegación superior.  Cierre la sesión y vuelva a iniciarla como otro usuario en su inquilino.  Si se siente especialmente ambicioso, registre y ejecute otra instancia de esta aplicación (con su propio clientId) y vea Inicio de sesión único en acción.
+  b. Cierre la sesión y vuelva a iniciarla con otro usuario en su inquilino.
 
-Como referencia, [aquí puede ver](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip)el ejemplo finalizado (sin sus valores de configuración).  
+  c. Si se siente especialmente ambicioso, registre y ejecute otra instancia de esta aplicación (con su propio clientId) y vea el inicio de sesión único en acción.
 
-Ahora puede pasar a temas más avanzados.  Es posible que desee probar:
+## <a name="next-steps"></a>Pasos siguientes
+Como referencia, consulte el [ejemplo completado](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (sin sus valores de configuración).
 
-[Protección de una API web con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
+Ahora puede pasar a temas más avanzados. Por ejemplo, intente [proteger una API web con Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
-ms.openlocfilehash: d623c4172a654b90d68c6e6e488a2c791abe8647
+ms.sourcegitcommit: 8209eb8df45d8c7c42e303ab3377dbde3255154a
+ms.openlocfilehash: 924b3621e03b678e158cd1240864a903db6c8510
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V
+# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>Información general
@@ -214,9 +216,4 @@ Si encuentra cualquier otro error durante la configuración inicial mediante la 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configurar la matriz virtual de StorSimple como servidor de archivos](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurar la matriz virtual de StorSimple como servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

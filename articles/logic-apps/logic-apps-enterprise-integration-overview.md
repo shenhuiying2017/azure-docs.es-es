@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: 03cd3f4edd7bb7895efa02475411d813ef44b8b3
-ms.openlocfilehash: 538ba17e2b90ca1b30aee79c1f1835f3c4cdfb3c
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: 514942b2552564f669d73b997a2d355ddb477b22
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -36,7 +37,7 @@ En cuanto a la arquitectura, Enterprise Integration Pack se basa en "cuentas de 
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>¿Cómo se puede empezar a disfrutar de Enterprise Integration Pack?
 
-Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el diseñador de Logic Apps en **Azure Portal**. También puede administrar las aplicaciones lógicas con [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Temas de Logic Apps y PowerShell").
+Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el Diseñador de aplicación lógica en **Azure Portal**. También puede administrar las aplicaciones lógicas con [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Temas de Logic Apps y PowerShell").
 
 A continuación, estos son los pasos de alto nivel que debe llevar a cabo para crear aplicaciones en Azure Portal:
 
@@ -74,10 +75,5 @@ Enterprise Integration Pack admite estos estándares del sector:
 * [Metadatos de la cuenta de integración](../logic-apps/logic-apps-enterprise-integration-metadata.md "Obtenga más información acerca de los metadatos de la cuenta de integración")
 * [Supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md "Más información acerca de la supervisión de mensajes B2B")
 * [Seguimiento de mensajes B2B en el Portal de OMS](logic-apps-track-b2b-messages-omsportal.md "Más información acerca del seguimiento de mensajes B2B en el Portal de OMS")
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

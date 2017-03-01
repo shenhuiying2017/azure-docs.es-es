@@ -13,10 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-experiment_id: heidist-experiment1-20170221
+experimental: true
+experiment_id: heidist-20170221
 translationtype: Human Translation
 ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
 ms.openlocfilehash: 99b3babee9b252b2d741515391295d8b1dc5c747
+ms.lasthandoff: 01/14/2017
 
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Búsqueda de Azure?
@@ -86,10 +88,5 @@ Si no es suscriptor, puede [abrir una cuenta de Azure de manera gratuita](https:
 
 Además, puede [activar las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago. 
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Un tutorial que le enseña cómo implementar una aplicación web e
 services: app-service\web,cdn
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: b81ee930-dd6d-4b65-971f-c4cb7902168c
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 0b1f13f816c7836557cd6f646f2d9b38f7bc5b14
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -544,10 +545,5 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 * [Uso de CDN de Azure](../cdn/cdn-create-new-endpoint.md)
 * [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](../cdn/cdn-cloud-service-with-cdn.md)
 * [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

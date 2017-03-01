@@ -5,7 +5,7 @@ keywords: "servicio de aplicaciones, servicio de aplicaciones de azure, implemen
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: de12cd6e-e124-4e48-90bc-c3a3801305da
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2778057e772fcba7e6021ac11ec5bdcf3720a703
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -25,10 +26,5 @@ ms.openlocfilehash: 2778057e772fcba7e6021ac11ec5bdcf3720a703
 Servicio de aplicaciones de Azure proporciona un conjunto de características enriquecido e integrado para permitir la creación de flujos de trabajo de implementación eficaces y flexibles. La implementación de aplicaciones puede aprovechar opciones como la integración continua, la publicación de control de código fuente local, WebDeploy y FTP. El método recomendado para la implementación de aplicaciones de producción es el intercambio de ranuras de implementación. Las ranuras de implementación representan entornos de ensayo e integración asociados con aplicaciones de producción. Las ranuras de implementación pueden configurarse y dirigirse con tráfico web para su validación, y el tráfico se puede intercambiar bajo demanda para su implementación en producción sin tiempo de inactividad o de preparación automatizada. Los pasos de un flujo de trabajo de implementación se pueden automatizar fácilmente mediante productos de administración de versiones como Release Management para Visual Studio. Esto es útil para la coordinación con otros recursos de la solución (por ejemplo, almacén de datos), periodicidad y replicación en varias unidades de implementación. 
 
 [!INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/23/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 48fc6d16c2a9c0a5e617f5c0fd9d5e6aebe6ce05
-ms.openlocfilehash: 2c45857dea0d9962b724d5c890cd7d5595cf89dc
+ms.sourcegitcommit: ca6774310d97cb1c3e72ed43a3340e3bb3d9c70a
+ms.openlocfilehash: 9900183d8207a664b47426209ab3b3b0f6154b2a
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="list-of-tutorials-on-how-to-integrate-saas-apps-with-azure-active-directory"></a>Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory
 Para ayudarle a integrar todas las aplicaciones en la nube [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) con Azure Active Directory, hemos desarrollado un conjunto de tutoriales que muestran todos los pasos de configuración necesarios.
 
-Para obtener una lista completa de las aplicaciones SaaS que fueron previamente integradas en Azure AD, consulte [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Para obtener una lista completa de las aplicaciones SaaS que fueron previamente integradas en Azure AD, consulte [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
 ## <a name="list-of-tutorials"></a>Lista de tutoriales
 
@@ -323,10 +324,5 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

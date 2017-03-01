@@ -4,7 +4,7 @@ description: "Aprenda cómo proteger el nombre de dominio personalizado para la 
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 ms.assetid: 613d7932-73aa-4318-867c-1ce1416224dc
@@ -18,6 +18,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -553,10 +554,5 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

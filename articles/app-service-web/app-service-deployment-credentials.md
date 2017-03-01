@@ -4,7 +4,7 @@ description: "Aprenda a usar las credenciales de implementación de Azure App Se
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.service: app-service
 ms.workload: na
@@ -16,6 +16,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
 ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -88,8 +89,3 @@ Para restablecer las credenciales de nivel de aplicación:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar estas credenciales para implementar la aplicación desde [GIT local](app-service-deploy-local-git.md) o con [FTP/S](app-service-deploy-ftp.md).
-
-
-<!--HONumber=Jan17_HO1-->
-
-

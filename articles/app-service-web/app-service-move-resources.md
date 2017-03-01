@@ -4,7 +4,7 @@ description: Se describen los escenarios donde puede trasladar aplicaciones web 
 services: app-service
 documentationcenter: 
 author: ZainRizvi
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 22f97607-072e-4d1f-a46f-8d500420c33c
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: zarizvi
 translationtype: Human Translation
 ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
 ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -31,10 +32,5 @@ Las aplicaciones web de Azure admiten actualmente los siguientes escenarios de t
 
 * Trasladar aplicaciones web individuales a un grupo de recursos diferente, manteniéndolas hospedadas en el plan de App Service en que se encuentran actualmente (el plan de App Service se encuentra en el grupo de recursos anterior).
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

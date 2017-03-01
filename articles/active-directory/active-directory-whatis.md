@@ -12,24 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/23/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c28d84bf59c161cfe6a80062f13f10f44bf43f34
-ms.openlocfilehash: 09261f739d2cd3976f68c499d0e83fe25beef0b8
+ms.sourcegitcommit: b40ae90ea313638cbd0b60792dc4803d3d08aa0a
+ms.openlocfilehash: 03c1442daf07f57476af64491229f1f38f6ffeff
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 Azure Active Directory (Azure AD) es el directorio basado en la nube multiempresa y el servicio de administración de identidades de Microsoft.
 
-Para los administradores de TI, Azure AD proporciona una solución asequible y fácil de usar para dar a los empleados y asociados comerciales acceso de inicio de sesión único (SSO) a [miles de aplicaciones SaaS en la nube](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx) como Office365, Salesforce.com, DropBox y Concur.
+Para los administradores de TI, Azure AD proporciona una solución asequible y fácil de usar para dar a los empleados y asociados comerciales acceso de inicio de sesión único (SSO) a [miles de aplicaciones SaaS en la nube](active-directory-saas-tutorial-list.md) como Office365, Salesforce.com, DropBox y Concur.
 
 Para los desarrolladores de aplicaciones, Azure AD permite al usuario centrarse en la creación de su aplicación facilitando y acelerando la integración de la misma con una solución de administración de identidades de clase mundial usada por millones de organizaciones de todo el mundo.
 
 Azure AD también incluye una serie completa de capacidades de administración de identidades, incluida Multi-Factor Authentication, el registro de dispositivos, la administración de contraseñas de autoservicio, la administración de grupos de autoservicio, la administración de cuentas con privilegios, el control de acceso basado en roles, la supervisión del uso de aplicaciones, la auditoría enriquecida y la supervisión y alertas de seguridad. Estas funcionalidades pueden ayudar a proteger aplicaciones basadas en la nube, optimizar los procesos de TI, reducir costos y asegurar que se cumplen los objetivos de cumplimiento normativo corporativos.
 
-Además, con solo [cuatro clics](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx), Azure AD puede integrarse con un Windows Server Active Directory existente, lo que da a las organizaciones la capacidad de aprovechar sus inversiones en identidad locales existentes para administrar el acceso a aplicaciones SaaS basadas en la nube.
+Además, con solo [cuatro clics](./connect/active-directory-aadconnect-get-started-express.md), Azure AD puede integrarse con un Windows Server Active Directory existente, lo que da a las organizaciones la capacidad de aprovechar sus inversiones en identidad locales existentes para administrar el acceso a aplicaciones SaaS basadas en la nube.
 
 Si es un cliente de Office365, Azure o Dynamics CRM Online, es posible que no se dé cuenta de que ya está usando Azure AD. Cada inquilino de Office365, Azure y Dynamics CRM ya es en realidad un inquilino de Azure AD. ¡Siempre que lo desee, puede empezar a usar ese inquilino para administrar el acceso a miles de otras aplicaciones en la con las que se integra Azure AD!
 
@@ -58,86 +59,6 @@ Azure Active Directory (Azure AD) y Active Directory local (Active Directory Dom
 AD DS es un rol del servidor en Windows Server, lo que significa que se pueden implementar en máquinas físicas o virtuales. Tiene una estructura jerárquica basada en X.500. Utiliza DNS para localizar objetos, se puede interactuar usando LDAP y principalmente usa Kerberos para la autenticación. Active Directory habilita las unidades organizativas (OU) y los objetos de directiva de grupo (GPO), además de unir máquinas al dominio, y se crean confianzas entre dominios.
 
 Azure AD es un servicio de directorio público de varios clientes, lo que significa que en Azure AD puede crear un inquilino para los servidores de la nube y aplicaciones como Office 365. Los usuarios y los grupos se crean en una estructura plana sin unidades organizativas ni objetos de directiva de grupo. La autenticación se realiza mediante protocolos como SAML, WS-Federation y OAuth. Es posible consultar Azure AD, pero en lugar de usar LDAP debe usar una API de REST denominada API Graph de AD. Todos funcionan mediante HTTP y HTTPS.
-
-Puede usar Azure AD Connect para sincronizar las identidades locales con Azure AD.
-
----
-
-### <a name="authentication-and-authorization-details"></a>Más detalles sobre la autenticación y la autorización
-
-#### <a name="azure-ad"></a>Azure AD
-`SAML`, `WS-Federation`, interactiva con las credenciales admitidas, OAuth 2.0 y OpenID Connect 
-
-#### <a name="on-premises-ad-ds"></a>AD DS local
-`SAML`, `WS-Federation`, NTLM, Kerberos, MD5 y Basic
-
----
-
-### <a name="object-repository-details"></a>Detalles del repositorio de objetos
-
-#### <a name="azure-ad"></a>Azure AD
-Acceso a través de Azure AD Graph y Microsoft Graph 
-
-#### <a name="on-premises-ad-ds"></a>AD DS local
-X.500 LDAP  
-
----
-
-
-### <a name="programmatic-access-details"></a>Más detalles sobre el acceso mediante programación
-
-#### <a name="azure-ad"></a>Azure AD
-API de REST de MS/Azure AD Graph 
-
-#### <a name="on-premises-ad-ds"></a>AD DS local
-LDAP 
-
----
-
-### <a name="sso-to-applications-details"></a>Más detalles sobre SSO para aplicaciones
-
-#### <a name="azure-ad"></a>Azure AD
-`OpenID Connect`, `SAML` 
-
-#### <a name="on-premises-ad-ds"></a>AD DS local
-`Open-ID Connect`, `SAML` y WS-Fed 
-
----
-
-### <a name="access-management-details"></a>Más detalles sobre la administración de acceso
-
-#### <a name="azure-ad"></a>Azure AD
-Ámbito definido por los recursos y control de acceso basado en roles, permisos delegados definidos por el cliente y de aplicación, y marco de trabajo del consentimiento (exige el consentimiento de usuario/administrador apropiado de la forma definida/solicitada por el cliente y el recurso). 
-
-Mediante el rol de aplicación, se puede aplicar individualmente o a través de grupos, es compatible con: administrado por un administrador, acceso de autoservicio a las aplicaciones y consentimiento del usuario.
-
-#### <a name="on-premises-ad-ds"></a>AD DS local
-Mediante ACL, se puede aplicar individualmente o a través de grupos, es compatible con: administrado por un administrador. 
-
----
-
-### <a name="group-management-details"></a>Más detalles sobre la administración de grupos
-
-#### <a name="azure-ad"></a>Azure AD
-`Admin managed`, administrados por reglas o de forma dinámica y administración de grupos de autoservicio 
-
-#### <a name="on-premises-ad-ds"></a>AD DS local
-`Admin managed` y sistema externo (FIM u otros) necesario la administración por reglas o de forma dinámica |
-
----
-
-### <a name="supported-credentials-details"></a>Más detalles sobre credenciales admitidas
-
-#### <a name="azure-ad"></a>Azure AD
-`Username + password`, `Smartcard` 
-
-#### <a name="on-premises-ad-ds"></a>AD DS local
-`Username + password`, `Smartcard` 
- 
----
-
-
-
 
 
 
@@ -170,9 +91,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [¿Qué es la licencia de Microsoft Azure Active Directory?](active-directory-licensing-what-is.md)
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

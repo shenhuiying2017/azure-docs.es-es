@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: 51901a28878f25292ba3d09848bc45a04f867345
+ms.openlocfilehash: 75fb695ea2ce9d859119445ae42eb170a9493876
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -75,7 +76,7 @@ Defina parámetros con la estructura siguiente:
 | Nombre del elemento | ¿Necesario? | Description |
 | --- | --- | --- |
 | type |Sí |Tipo del valor de parámetro. Vea la siguiente lista para conocer los tipos permitidos: |
-| displayName    Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. | |
+| DisplayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. | |
 | Description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
 
 Los tipos permitidos son:
@@ -129,10 +130,5 @@ Cree su artefacto personalizado siguiendo estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

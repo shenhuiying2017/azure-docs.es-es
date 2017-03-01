@@ -4,7 +4,7 @@ description: "Aprenda lo fácil que es ejecutar aplicaciones web en App Service 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 82accfbfa92dfe77d17da05425c2e05af33e5a31
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Implementación de la primera aplicación web Java en Azure en 5 minutos (versión preliminar de CLI 2.0)
-
-> [!div class="op_single_selector"]
-> * [Primer sitio HTML](app-service-web-get-started-html-cli-nodejs.md)
-> * [Primera aplicación .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Primera aplicación PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [Primera aplicación Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Primera aplicación Python](app-service-web-get-started-python-cli-nodejs.md)
-> * [Primera aplicación Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Este tutorial le ayudará a implementar su primera aplicación web de Java en [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -127,10 +119,5 @@ También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 
 * Pruebe [otras formas de implementar el código en Azure](web-sites-deploy.md). 
 * Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

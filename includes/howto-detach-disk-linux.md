@@ -1,7 +1,7 @@
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Cuando se separa un disco de la máquina virtual, el disco no lo elimina del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede volver a conectarlo a la misma máquina virtual (o a otra).  
 
 > [!NOTE]
-> Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Para más información, consulte [Acerca de los discos y los discos duros virtuales para Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Un disco del sistema operativo no se puede desconectar, salvo que también se elimine la máquina virtual.
+> Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Para más información, consulte [Acerca de los discos y los discos duros virtuales para Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Un disco del sistema operativo no se puede desconectar, salvo que también se elimine la máquina virtual.
 
 ## <a name="find-the-disk"></a>Buscar el disco
 Antes de poder desconectar un disco de una máquina virtual, es necesario conocer el número de unidad lógica (LUN), que es un identificador para el disco que se va a desconectar. Para ello, sigue estos pasos:
@@ -111,9 +111,4 @@ Después de encontrar el número LUN del disco y de quitar las referencias del s
     ```
 
 El disco desacoplado permanece en el almacenamiento pero ya no estará acoplado a una máquina virtual.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

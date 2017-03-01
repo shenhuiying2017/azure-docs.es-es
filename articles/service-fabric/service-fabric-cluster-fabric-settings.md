@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2016
+ms.date: 02/15/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2f4911d012b0e63f90ad1567a6fc3ff429516d75
-ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
+ms.sourcegitcommit: 1b2e22150f9cea004af4892cd7fa2fb2b59c8787
+ms.openlocfilehash: 16e53dbdb4ce6de02a9c8acb2fb1d8a3ac265b8f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -44,7 +45,7 @@ Esta es la configuración de Fabric que se puede personalizar:
 ### <a name="section-name-traceetw"></a>Nombre de sección: Trace/Etw
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
 | --- | --- | --- |
-| Nivel |Int, el valor predeterminado es 4. |Nivel de ETW de seguimiento. |
+| Nivel |Int, el valor predeterminado es 4. |El nivel de seguimiento de eventos puede adoptar los valores 1, 2, 3, 4. Para que sea admitido, debe mantener el nivel de seguimiento en 4. |
 
 ### <a name="section-name-performancecounterlocalstore"></a>Nombre de sección: PerformanceCounterLocalStore
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
@@ -58,11 +59,11 @@ Esta es la configuración de Fabric que se puede personalizar:
 ### <a name="section-name-setup"></a>Nombre de sección: Setup
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
 | --- | --- | --- |
-| FabricDataRoot |Cadena |El directorio raíz de datos de Windows Fabric. |
-| FabricLogRoot |Cadena |El directorio raíz de registro de Windows Fabric. |
+| FabricDataRoot |string |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
+| FabricLogRoot |string |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
 | ServiceRunAsAccountName |string |El nombre de la cuenta con el que se ejecuta el servicio Fabric Host. |
 | ServiceStartupType |Cadena |El tipo de inicio del servicio Fabric Host. |
-| SkipFirewallConfiguration |Bool, el valor predeterminado es false. |Si se omitirá la configuración de firewall. |
+| SkipFirewallConfiguration |Bool, el valor predeterminado es false. |Especifica si el sistema debe establecer o no la configuración de firewall. Solo aplicable si usa Firewall de Windows. Si usa firewalls de terceros, debe abrir los puertos para que los usen el sistema y las aplicaciones. |
 
 ### <a name="section-name-transactionalreplicator"></a>Nombre de sección: TransactionalReplicator
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
@@ -172,10 +173,6 @@ Esta es la configuración de Fabric que se puede personalizar:
 | EnableServiceFabricBaseUpgrade |Bool, el valor predeterminado es false. |Sirve para habilitar la actualización básica en el servidor. |
 | EnableRestartManagement |Bool, el valor predeterminado es false. |Sirve para habilitar el reinicio del servidor. |
 
-### <a name="section-name-votes"></a>Nombre de sección: Votes
-| **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
-| --- | --- | --- |
-| PropertyGroup |VoteConfig |Un voto representa un recuento único hacia un cuórum de un clúster. Una entidad de voto asigna un voto a un propietario de voto (nodo). Las entidades de voto son normalmente nodos (nodos raíz) del clúster. Un clúster debe tener un cuórum de votos para garantizar su mantenimiento y la posibilidad de permanecer activo.  La pérdida de un cuórum de votos provoca la inactividad del clúster. Una alternativa a los nodos raíz son los votos SQL, donde la entidad de voto no es un nodo del clúster, sino una instancia de SQL Server. En este caso, el nodo con el identificador más cercano al id. de voto de SQL funciona como proxy. Los votos seleccionados mediante configuración deben ser iguales en todos los nodos. El id. es una cadena que se pasa a un entero largo que representa el identificador del voto en el clúster. El tipo puede ser: SeedNode o SqlServer, según la entidad de voto usada por el clúster. El formato de la cadena de conexión depende del tipo. La cadena de conexión para SeedNode es NodeEndpoint para el nodo con el mismo NodeID. Para el tipo SqlServer es una cadena de conexión a una instancia de SQL Server 2008 activa. Un ejemplo para un elemento SeedNode es : '0 = SeedNode;10.0.0.1:10000'. Un ejemplo para un voto SQL es: 'sqlvote1 = SqlServer;Provider=SQLNCLI10;Server=.\SQLEXPRESS;Database=master;Integrated Security=SSPI'. |
 
 ### <a name="section-name-failovermanager"></a>Nombre de sección: FailoverManager
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
@@ -189,8 +186,23 @@ Esta es la configuración de Fabric que se puede personalizar:
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, el valor predeterminado es 7. |El número de conjuntos de réplicas para cada partición del almacén de servicio de nomenclatura. Aumentar el número de conjuntos de réplica aumenta el nivel de confiabilidad de la información del almacén del servicio de nomenclatura al reducirse la oportunidad de que la información se pierda como resultado de errores en los nodos. A cambio, aumenta la carga en Windows Fabric y la cantidad de tiempo que tarda en realizar actualizaciones en los datos de nomenclatura.|
-
-|MinReplicaSetSize | Int, el valor predeterminado es 3. | El número mínimo de réplicas del servicio de nomenclatura en las que es necesario escribir para completar una actualización. Si hay un número menor de réplicas de las que están activas en el sistema, el sistema de confiabilidad rechaza las actualizaciones al almacén del servicio de nomenclatura hasta que las réplicas se restauran. Este valor nunca debe ser mayor que el de TargetReplicaSetSize. | |ReplicaRestartWaitDuration | Tiempo en segundos, el valor predeterminado es (60.0 * 30)| Especifique el intervalo de tiempo en segundos. Cuando una réplica del servicio de nomenclatura deja de funcionar, el temporizador se inicia.  Cuando expira, el FM comienza a reemplazar las réplicas inactivas (aún no las considera perdidas). | |QuorumLossWaitDuration | Tiempo en segundos, el valor predeterminado es MaxValue. | Especifique el intervalo de tiempo en segundos. Cuando un servicio de nomenclatura entra en pérdida de cuórum, este temporizador se inicia.  Cuando expira, el FM considera las réplicas inactivas perdidas e intenta recuperar el cuórum. Observe que esto puede dar lugar a una pérdida de datos. | |StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es 3600.0. * 2 | Especifique el intervalo de tiempo en segundos. Cuando una réplica del servicio de nomenclatura vuelve de un estado inactivo, puede que ya se haya reemplazado.  Este temporizador determina cuánto tiempo el FM mantendrá la réplica en espera antes de descartarla. | |PlacementConstraints | Wstring, el valor predeterminado es "". | Restricción de selección de ubicación para el servicio de nomenclatura. | |ServiceDescriptionCacheLimit | Int, el valor predeterminado es 0. | El número máximo de entradas mantenidas en la caché de descripción del servicio LRU en el almacén del servicio de nomenclatura (se establece en 0 para un número ilimitado). | |RepairInterval | Tiempo en segundos, el valor predeterminado es 5. | Especifique el intervalo de tiempo en segundos. Intervalo dentro del cual se inicia la reparación de la incoherencia de nomenclatura entre el propietario de la entidad y el propietario del nombre. | |MaxNamingServiceHealthReports | Int, el valor predeterminado es 10. | El número máximo de operaciones lentas que el almacén del servicio de nomenclatura notifica como incorrectas al mismo tiempo. Si es 0, se envían todas las operaciones lentas. | | MaxMessageSize |Int, el valor predeterminado es 4*1024*1024 |El tamaño de mensaje máximo para la comunicación del nodo cliente cuando se usa la nomenclatura. Mitigación de ataque de DOS; el valor predeterminado es 4 MB. | | MaxFileOperationTimeout |Tiempo en segundos, el valor predeterminado es 30. |Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo permitido para la operación del servicio de almacén de archivos. Las solicitudes que especifiquen un tiempo de espera mayor se rechazarán. | | MaxOperationTimeout |Tiempo en segundos, el valor predeterminado es 600. |Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo permitido para las operaciones de cliente. Las solicitudes que especifiquen un tiempo de espera mayor se rechazarán. | | MaxClientConnections |Int, el valor predeterminado es 1000. |El número máximo permitido de conexiones de cliente por puerta de enlace. | | ServiceNotificationTimeout |Tiempo en segundos, el valor predeterminado es 30. |Especifique el intervalo de tiempo en segundos. El tiempo de espera usado al entregar notificaciones de servicio al cliente. | | MaxOutstandingNotificationsPerClient |Int, el valor predeterminado es 1000. |El número máximo de notificaciones pendientes antes de que la puerta de enlace cierre a la fuerza un registro de cliente. | | MaxIndexedEmptyPartitions |Int, el valor predeterminado es 1000. |El número máximo de particiones vacías que permanecerán indexadas en la caché de notificaciones para la sincronización de los clientes que se vuelven a conectar. Cualquier partición vacía por encima de este número se quitará del índice en orden ascendente de la versión de búsqueda. Durante la reconexión, los clientes se pueden seguir sincronizando y pueden recibir actualizaciones de particiones vacías que faltan, pero el protocolo de sincronización se encarece. | | GatewayServiceDescriptionCacheLimit |Int, el valor predeterminado es 0. |El número máximo de entradas mantenidas en la caché de descripción del servicio LRU en la puerta de enlace de nomenclatura (se establece en 0 para un número ilimitado). | | PartitionCount |Int, el valor predeterminado es 3. |El número de particiones del almacén del servicio de nomenclatura que se creará. Cada partición posee una única clave de partición que corresponde a su índice; de modo que existen [0; PartitionCount] claves de partición. Al aumentar el número de particiones del servicio de nomenclatura, aumenta la escala a la que puede ejecutarse el servicio de nomenclatura ya que se reduce la cantidad media de datos que contiene cualquier conjunto de réplicas de respaldo; a cambio, aumenta la utilización de recursos (dado que se deben mantener las réplicas de servicio PartitionCount*ReplicaSetSize).|
+|MinReplicaSetSize | Int, el valor predeterminado es 3. | El número mínimo de réplicas del servicio de nomenclatura en las que es necesario escribir para completar una actualización. Si hay un número menor de réplicas de las que están activas en el sistema, el sistema de confiabilidad rechaza las actualizaciones al almacén del servicio de nomenclatura hasta que las réplicas se restauran. Este valor nunca debe ser mayor que el de TargetReplicaSetSize. |
+|ReplicaRestartWaitDuration | Tiempo en segundos, el valor predeterminado es (60.0 * 30).| Especifique el intervalo de tiempo en segundos. Cuando una réplica del servicio de nomenclatura deja de funcionar, el temporizador se inicia.  Cuando expira, el FM comenzará a sustituir las réplicas inactivas (aún no se consideran perdidas). |
+|QuorumLossWaitDuration | Tiempo en segundos, el valor predeterminado es MaxValue. | Especifique el intervalo de tiempo en segundos. Cuando un servicio de nomenclatura entra en pérdida de cuórum, este temporizador se inicia.  Cuando expira, el FM considera las réplicas inactivas perdidas e intenta recuperar el cuórum. Tenga en cuenta que esto puede dar lugar a la pérdida de datos. |
+|StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es 3600.0 * 2. | Especifique el intervalo de tiempo en segundos. Cuando una réplica del servicio de nomenclatura vuelve de un estado inactivo, puede que ya se haya reemplazado.  Este temporizador determina cuánto tiempo el FM mantendrá la réplica en espera antes de descartarla. |
+|PlacementConstraints | Wstring, el valor predeterminado es "". | Restricción de selección de ubicación para el servicio de nomenclatura. |
+|ServiceDescriptionCacheLimit | Int, el valor predeterminado es 0. | El número máximo de entradas mantenidas en la caché de descripción del servicio LRU en el almacén del servicio de nomenclatura (se establece en 0 para un número ilimitado). |
+|RepairInterval | Tiempo en segundos, el valor predeterminado es 5. | Especifique el intervalo de tiempo en segundos. Intervalo dentro del cual se inicia la reparación de la incoherencia de nomenclatura entre el propietario de la entidad y el propietario del nombre. |
+|MaxNamingServiceHealthReports | Int, el valor predeterminado es 10. | El número máximo de operaciones lentas que el almacén del servicio de nomenclatura notifica como incorrectas al mismo tiempo. Si es 0, se envían todas las operaciones lentas. |
+| MaxMessageSize |Int, el valor predeterminado es 4*1024*1024. |El tamaño de mensaje máximo para la comunicación del nodo cliente cuando se usa la nomenclatura. Mitigación de ataque de DOS; el valor predeterminado es 4 MB. |
+| MaxFileOperationTimeout |Tiempo en segundos, el valor predeterminado es 30. |Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo permitido para la operación del servicio de almacén de archivos. Las solicitudes que especifiquen un tiempo de espera mayor se rechazarán. |
+| MaxOperationTimeout |Tiempo en segundos, el valor predeterminado es 600. |Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo permitido para las operaciones de cliente. Las solicitudes que especifiquen un tiempo de espera mayor se rechazarán. |
+| MaxClientConnections |Int, el valor predeterminado es 1000. |El número máximo permitido de conexiones de cliente por puerta de enlace. |
+| ServiceNotificationTimeout |Tiempo en segundos, el valor predeterminado es 30. |Especifique el intervalo de tiempo en segundos. El tiempo de espera usado al entregar notificaciones de servicio al cliente. |
+| MaxOutstandingNotificationsPerClient |Int, el valor predeterminado es 1000. |El número máximo de notificaciones pendientes antes de que la puerta de enlace cierre a la fuerza un registro de cliente. |
+| MaxIndexedEmptyPartitions |Int, el valor predeterminado es 1000. |El número máximo de particiones vacías que permanecerán indexadas en la caché de notificaciones para la sincronización de los clientes que se vuelven a conectar. Cualquier partición vacía por encima de este número se quitará del índice en orden ascendente de la versión de búsqueda. Durante la reconexión, los clientes se pueden seguir sincronizando y pueden recibir actualizaciones de particiones vacías que faltan, pero el protocolo de sincronización se encarece. |
+| GatewayServiceDescriptionCacheLimit |Int, el valor predeterminado es 0. |El número máximo de entradas mantenidas en la caché de descripción del servicio LRU en la puerta de enlace de nomenclatura (se establece en 0 para un número ilimitado). |
+| PartitionCount |Int, el valor predeterminado es 3. |El número de particiones del almacén del servicio de nomenclatura que se creará. Cada partición posee una única clave de partición que corresponde a su índice; de modo que existen [0; PartitionCount] claves de partición. Al aumentar el número de particiones del servicio de nomenclatura, aumenta la escala a la que puede ejecutarse el servicio de nomenclatura ya que se reduce la cantidad media de datos que contiene cualquier conjunto de réplicas de respaldo; a cambio, aumenta la utilización de recursos (dado que se deben mantener las réplicas de servicio PartitionCount*ReplicaSetSize).|
 
 ### <a name="section-name-runas"></a>Nombre de sección: RunAs
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
@@ -235,7 +247,7 @@ Esta es la configuración de Fabric que se puede personalizar:
 |WriteBufferMemoryPoolMaximumInKB | Int, el valor predeterminado es 0. |El número de KB que se permite que crezca el bloque de memoria del búfer de escritura. Use 0 para indicar que no hay límite. |
 |MaximumDestagingWriteOutstandingInKB | Int, el valor predeterminado es 0. | El número de KB que se permite que vaya por delante el registro compartido con respecto al registro dedicado. Use 0 para indicar que no hay límite.
 |SharedLogPath |Wstring, el valor predeterminado es "". | Nombre de archivo y ruta a la ubicación para colocar el contenedor de registros compartidos. Use "" para utilizar la ruta de acceso predeterminada en la raíz de datos de Fabric. |
-|SharedLogId |Wstring, el valor predeterminado es "". |GUID único del contenedor de registros compartidos. Use "" para utilizar la ruta de acceso predeterminada en la raíz de datos de Fabric. |
+|SharedLogId |Wstring, el valor predeterminado es "". |GUID único del contenedor de registros compartidos. Use "" si utiliza la ruta de acceso predeterminada en la raíz de datos de Fabric. |
 |SharedLogSizeInMB |Int, el valor predeterminado es 8192. | El número de MB para asignar en el contenedor de registros compartidos. |
 
 ### <a name="section-name-applicationgatewayhttp"></a>Nombre de sección: ApplicationGateway/Http
@@ -246,7 +258,7 @@ Esta es la configuración de Fabric que se puede personalizar:
 |DefaultHttpRequestTimeout |Tiempo en segundos. El valor predeterminado es 60. |Especifique el intervalo de tiempo en segundos.  Proporciona el tiempo de espera de solicitud predeterminado para las solicitudes HTTP que se van a procesar en la puerta de enlace de aplicaciones HTTP. |
 |ResolveServiceBackoffInterval |Tiempo en segundos, el valor predeterminado es 5. |Especifique el intervalo de tiempo en segundos.  Proporciona el intervalo de retroceso predeterminado antes de reintentar una operación errónea del servicio de resolución. |
 |BodyChunkSize |Uint, el valor predeterminado es 4096. |  Proporciona el tamaño del fragmento en bytes usado para leer el cuerpo. |
-|GatewayAuthCredentialType |Wstring, el valor predeterminado es "None" | Indica el tipo de credenciales de seguridad que se usarán en el punto de conexión de la puerta de enlace de aplicaciones HTTP. Valores válidos son "None/X509. |
+|GatewayAuthCredentialType |Wstring, el valor predeterminado es "None". | Indica el tipo de credenciales de seguridad que se usarán en el punto de conexión de la puerta de enlace de aplicaciones HTTP. Valores válidos son "None/X509. |
 |GatewayX509CertificateStoreName |Wstring, el valor predeterminado es "My". | Nombre del almacén de certificados X.509 que contiene el certificado de puerta de enlace de aplicaciones HTTP. |
 |GatewayX509CertificateFindType |Wstring, el valor predeterminado es "FindByThumbprint". | Indica cómo buscar el certificado en el almacén especificado mediante el valor admitido GatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | Wstring, el valor predeterminado es "". | Valor del filtro de búsqueda usado para encontrar el certificado de puerta de enlace de aplicaciones HTTP. Este certificado se configura en el punto de conexión HTTP y también puede usarse para comprobar la identidad de la aplicación en caso de que la necesiten los servicios. Primero se busca FindValue y, si no existe, se busca FindValueSecondary. |
@@ -342,10 +354,6 @@ Esta es la configuración de Fabric que se puede personalizar:
 | --- | --- | --- |
 | Proveedores |Wstring, el valor predeterminado es "DSTS". |Lista separada por comas de proveedores de validación de tokens para habilitar (proveedores válidos son: DSTS; AAD). Actualmente solo se puede habilitar un único proveedor cada vez. |
 
-### <a name="section-name-dststokenvalidationservice"></a>Nombre de sección: DSTSTokenValidationService
-| **Parámetro** | **Valores permitidos** | **Instrucciones o una breve descripción** |
-| DSTSDnsName | Wstring, el valor predeterminado es "". | Nombre de DNS del servidor de DST. | | DSTSRealm | Wstring, el valor predeterminado es "". | Nombre de dominio del servidor DSTS. | | CloudServiceDnsName | Wstring, el valor predeterminado es "". | Nombre de DNS del servicio en la nube para el que se solicita el token de seguridad de DSTS. | | CloudServiceDnsName | Wstring, el valor predeterminado es "". | Nombre del servicio en la nube para el que se solicita el token de seguridad de DSTS. | | PublicCertificateFindValue | Wstring, el valor predeterminado es "". | Valor de búsqueda de certificado X509 para el certificado público de DSTS. | | PublicCertificateFindType | Wstring, el valor predeterminado es "". | Valor de búsqueda de certificado X509 para el certificado público de DSTS. FindByThumbprint. | | PublicCertificateStoreName | Wstring, el valor predeterminado es "My".| Nombre de almacén donde se almacena el certificado público de los servidores DSTS. |
-
 ### <a name="section-name-upgradeorchestrationservice"></a>Nombre de sección: UpgradeOrchestrationService
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
 | --- | --- | --- |
@@ -436,31 +444,31 @@ Esta es la configuración de Fabric que se puede personalizar:
 | StartClusterConfigurationUpgrade |Wstring, el valor predeterminado es "Admin". | Produce StartClusterConfigurationUpgrade en una partición. |
 | GetUpgradesPendingApproval |Wstring, el valor predeterminado es "Admin". | Produce GetUpgradesPendingApproval en una partición. |
 | StartApprovedUpgrades |Wstring, el valor predeterminado es "Admin". | Produce StartApprovedUpgrades en una partición. |
-| Ping |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para pings de cliente. |
-| Consultar |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para consultas. |
-| NameExists |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para comprobaciones de existencia de URI de nomenclatura. |
-| EnumerateSubnames |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para enumeración de URI de nomenclatura. |
-| EnumerateProperties |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para enumeración de propiedad de nomenclatura. |
-| PropertyReadBatch |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para operaciones de lectura de propiedad de nomenclatura. |
-| GetServiceDescription |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para notificaciones de servicio de sondeo largo y descripciones de servicio de lectura. |
-| ResolveService |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para resolución de servicio basada en reclamaciones. |
-| ResolveNameOwner |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para resolver propietario de URI de nomenclatura. |
-| ResolvePartition |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para resolver servicios del sistema. |
-| ServiceNotifications |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para notificaciones del servicio basadas en eventos. |
-| PrefixResolveService |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para resolución de prefijo de servicio basada en reclamaciones. |
-| GetUpgradeStatus |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para sondeo de estado de actualización de aplicaciones. |
-| GetFabricUpgradeStatus |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para sondeo de estado de actualización del clúster. |
-| InvokeInfrastructureQuery |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para consultar tareas de infraestructura. |
-| Enumerar |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
-| ResetPartitionLoad |Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para restablecer una carga para una unidad de conmutación por error. |
-| ToggleVerboseServicePlacementHealthReporting | Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para alternar informes de mantenimiento detallados de ubicación de servicio. |
-| GetPartitionDataLossProgress | Wstring, el valor predeterminado es "Admin\.|\|User" | Captura el progreso de una llamada de API para invocar la pérdida de datos. |
-| GetPartitionQuorumLossProgress | Wstring, el valor predeterminado es "Admin\.|\|User" | Captura el progreso de una llamada de API para invocar la pérdida de cuórum. |
-| GetPartitionRestartProgress | Wstring, el valor predeterminado es "Admin\.|\|User" | Captura el progreso de una llamada de API para el reinicio de una partición. |
-| GetChaosReport | Wstring, el valor predeterminado es "Admin\.|\|User" | Captura el estado de Chaos dentro de un intervalo de tiempo determinado. |
-| GetNodeTransitionProgress | Wstring, el valor predeterminado es "Admin\.|\|User" | Configuración de seguridad para obtener el progreso en un comando de transición de nodo. |
-| GetClusterConfigurationUpgradeStatus | Wstring, el valor predeterminado es "Admin\.|\|User" | Produce GetClusterConfigurationUpgradeStatus en una partición. |
-| GetClusterConfiguration | Wstring, el valor predeterminado es "Admin\.|\|User" | Produce GetClusterConfiguration en una partición. |
+| Ping |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para pings de cliente. |
+| Consultar |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para consultas. |
+| NameExists |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para comprobaciones de existencia de URI de nomenclatura. |
+| EnumerateSubnames |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para enumeración de URI de nomenclatura. |
+| EnumerateProperties |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para enumeración de propiedad de nomenclatura. |
+| PropertyReadBatch |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para operaciones de lectura de propiedad de nomenclatura. |
+| GetServiceDescription |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para notificaciones de servicio de sondeo largo y descripciones de servicio de lectura. |
+| ResolveService |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para resolución de servicio basada en reclamaciones. |
+| ResolveNameOwner |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para resolver propietario de URI de nomenclatura. |
+| ResolvePartition |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para resolver servicios del sistema. |
+| ServiceNotifications |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para notificaciones del servicio basadas en eventos. |
+| PrefixResolveService |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para resolución de prefijo de servicio basada en reclamaciones. |
+| GetUpgradeStatus |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para sondeo de estado de actualización de aplicaciones. |
+| GetFabricUpgradeStatus |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para sondeo de estado de actualización del clúster. |
+| InvokeInfrastructureQuery |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para consultar tareas de infraestructura. |
+| Enumerar |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para operación de lista de archivos de cliente del almacén de imágenes. |
+| ResetPartitionLoad |Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para restablecer una carga para una unidad de conmutación por error. |
+| ToggleVerboseServicePlacementHealthReporting | Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para alternar informes de mantenimiento detallados de ubicación de servicio. |
+| GetPartitionDataLossProgress | Wstring, el valor predeterminado es "Admin"\.|\|User" | Captura el progreso de una llamada de API para invocar la pérdida de datos. |
+| GetPartitionQuorumLossProgress | Wstring, el valor predeterminado es "Admin"\.|\|User" | Captura el progreso de una llamada de API para invocar la pérdida de cuórum. |
+| GetPartitionRestartProgress | Wstring, el valor predeterminado es "Admin"\.|\|User" | Captura el progreso de una llamada de API para el reinicio de una partición. |
+| GetChaosReport | Wstring, el valor predeterminado es "Admin"\.|\|User" | Captura el estado de Chaos dentro de un intervalo de tiempo determinado. |
+| GetNodeTransitionProgress | Wstring, el valor predeterminado es "Admin"\.|\|User" | Configuración de seguridad para obtener el progreso en un comando de transición de nodo. |
+| GetClusterConfigurationUpgradeStatus | Wstring, el valor predeterminado es "Admin"\.|\|User" | Produce GetClusterConfigurationUpgradeStatus en una partición. |
+| GetClusterConfiguration | Wstring, el valor predeterminado es "Admin"\.|\|User" | Produce GetClusterConfiguration en una partición. |
 
 ### <a name="section-name-reconfigurationagent"></a>Nombre de sección: ReconfigurationAgent
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
@@ -583,10 +591,5 @@ Esta es la configuración de Fabric que se puede personalizar:
 Lea estos artículos para más información sobre la administración de clúster:
 
 [Agregar o quitar certificados del clúster de Azure ](service-fabric-cluster-security-update-certs-azure.md) 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

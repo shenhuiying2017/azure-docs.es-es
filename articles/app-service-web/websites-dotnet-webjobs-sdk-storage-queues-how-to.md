@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo usar el almacenamiento de colas d
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -578,9 +579,4 @@ También puede deshabilitar y habilitar de manera dinámica las funciones para c
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

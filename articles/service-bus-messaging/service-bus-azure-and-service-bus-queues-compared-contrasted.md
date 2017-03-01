@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/19/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: ea973dab1ec68324b24d067e7e07868983a5b151
+ms.sourcegitcommit: f236f6f2155e1bf7471eba8aedea5b77bb5995d0
+ms.openlocfilehash: fd86979339b0ff661dcc6447585ca594b680911d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -82,7 +83,6 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 
 ### <a name="additional-information"></a>Información adicional
 * El sistema de los mensajes en las colas de Storage es normalmente primero en entrar, primero en salir; sin embargo, en ocasiones, pueden estar desordenados; por ejemplo, cuando expira la duración de tiempo de espera de visibilidad de un mensaje (por ejemplo, como resultado de una aplicación cliente que se bloquea durante el proceso). Cuando expira el tiempo de espera de visibilidad, el mensaje se vuelve visible en la cola para que otro trabajador lo quite de la cola. En ese momento, el mensaje recién visible se puede colocar en la cola (para quitarlo después) después de un mensaje que se colocó originalmente en cola después de él.
-* Si ya está usando las tablas o blobs de almacenamiento de blobs de Azure y empieza a usar colas, se le garantiza una disponibilidad del 99,9 %. Si usa blobs o tablas con las colas de Service Bus, tendrá una disponibilidad menor.
 * El patrón de FIFO garantizado en las colas de Service Bus requiere el uso de sesiones de mensajería. En caso de que la aplicación se bloquee al procesar un mensaje recibido en el modo **Ojear y bloquear**, la próxima vez que un receptor de la cola acepte una sesión de mensajería, empezará con el mensaje de error después de que expire su período de vida (TTL).
 * Las colas de Storage están diseñadas para admitir escenarios de puesta en cola estándar, como componentes de aplicación de desacoplamiento para aumentar la escalabilidad y tolerancia a errores, nivelación de carga y creación de flujos de trabajo de proceso.
 * Las colas de Service Bus admiten la garantía de entrega *Al menos una vez*. Además, la semántica de *Una vez como máximo* se puede admitir mediante el estado de la sesión para almacenar el estado de la aplicación y mediante transacciones para recibir mensajes y actualizar el estado de la sesión.
@@ -200,10 +200,5 @@ En los artículos siguientes se ofrece más orientación e información sobre el
 * [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

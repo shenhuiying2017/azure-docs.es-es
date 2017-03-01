@@ -4,7 +4,7 @@ description: "Solución de problemas de interacción de usuario y notificación 
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 3f1886b7-1fdd-47f4-b6b0-d79f158d5ef3
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -99,10 +100,5 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Iniciar más de una campaña al mismo tiempo puede provocar que se tarde más tiempo en analizar su base de usuarios (intente iniciar solo una campaña a la vez con un máximo de cuatro, y efectúe la orientación solamente a los usuarios activos para que los usuarios antiguos no se tengan que analizar).
 * Si utiliza la opción "Omitir audiencia, la inserción se enviará a los usuarios a través de la API" de la sección "Campaña" de una campaña de cobertura, la campaña NO se enviará automáticamente, deberá enviarla de forma manual mediante la API de cobertura.
 * Si usa una categoría personalizada en cobertura para mostrar las notificaciones de la aplicación, deberá seguir el ciclo de vida correcto de una notificación, o puede que la notificación no se borre cuando el usuario la descarte.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

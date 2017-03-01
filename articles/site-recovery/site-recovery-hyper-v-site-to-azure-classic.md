@@ -1,6 +1,6 @@
 ---
 title: "Replicación de máquinas virtuales de Hyper-V en Azure en el Portal clásico | Microsoft Docs"
-description: "En este artículo se describe cómo replicar máquinas virtuales de Hyper-V en Azure con Azure Site Recovery cuando las máquinas no se administran en nubes de VMM."
+description: "En este artículo se describe cómo replicar máquinas virtuales de Hyper-V en Azure cuando las máquinas no se administran en nubes de VMM."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2bd4b44bea641bcfcb576f0ba5d53564277dfe34
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -28,16 +29,9 @@ ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
 >
 >
 
-¡Bienvenido al servicio Azure Site Recovery!
-
-Site Recovery es un servicio de Azure que contribuye a su estrategia de recuperación ante desastres y continuidad empresarial (BCDR). Este servicio organiza la replicación de máquinas virtuales y servidores físicos locales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, se realiza la conmutación por error a la ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. La conmutación por recuperación a la ubicación principal se produce cuando vuelve a su funcionamiento normal. Más información en [¿Qué es Azure Site Recovery?](site-recovery-overview.md)
-
-Este artículo describe cómo replicar máquinas virtuales locales de Hyper-V en Azure mediante Azure Site Recovery en Azure Portal. En este escenario, los servidores Hyper-V no se administran en nubes VMM.
+En este artículo, se describe cómo replicar máquinas virtuales de Hyper-V locales en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md) en Azure Portal. En este escenario, los servidores Hyper-V no se administran en nubes VMM.
 
 Cuando haya terminado de leer este artículo, publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
 
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery en el Portal de Azure
@@ -67,7 +61,7 @@ Las organizaciones necesitan una estrategia de recuperación ante desastres y co
 * Ejecutar las revisiones descritas en el artículo de KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## <a name="virtual-machine-prerequisites"></a>Requisitos previos de las máquinas virtuales
-Las máquinas virtuales que quiere proteger deben cumplir los [requisitos para las máquinas virtuales de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Las máquinas virtuales que quiere proteger deben cumplir los [requisitos para las máquinas virtuales de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="provider-and-agent-prerequisites"></a>Requisitos previos del proveedor y del agente
 Como parte de la implementación de Azure Site Recovery, instalará el proveedor de Azure Site Recovery y el Agente de Servicios de recuperación de Azure en cada servidor de Hyper-V. Observe lo siguiente:
@@ -248,7 +242,7 @@ Hay dos maneras de ejecutar una prueba de conmutación por error en Azure.
 
 Si desea ejecutar una conmutación por error de prueba sin especificar una red de Azure, no es necesario preparar nada.
 
-Para ejecutar una conmutación por error de prueba con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure). Para más detalles, lea [Ejecución de una conmutación por error de prueba](site-recovery-failover.md#run-a-test-failover) .
+Para ejecutar una conmutación por error de prueba con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure). Para más detalles, lea [Ejecución de una conmutación por error de prueba](site-recovery-failover.md) .
 
 Para probar completamente la implementación de la replicación y de la red, deberá configurar la infraestructura para que la máquina virtual replicada funcione como está previsto. Una manera de hacerlo es configurar una máquina virtual como controlador de dominio con DNS y replicarla en Azure mediante Site Recovery con el fin de crearla en la red de prueba mediante la ejecución de una conmutación por error de prueba.  [Más información sobre](site-recovery-active-directory.md#test-failover-considerations) consideraciones de la conmutación por error de prueba para Active Directory.
 
@@ -283,9 +277,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
