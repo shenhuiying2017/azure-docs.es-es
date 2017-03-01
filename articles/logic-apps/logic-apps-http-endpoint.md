@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: f8ce1215861da2db49f5148400195c4fefb9a01d
+ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
+ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -53,6 +54,31 @@ O bien, mediante:
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
+
+### <a name="changing-http-method-of-the-trigger"></a>Cambio del método HTTP del desencadenador
+De forma predeterminada, el desencadenador de solicitud en Logic Apps espera solicitudes HTTP POST. Pero se puede configurar el método HTTP en `Show advanced options`.
+
+ > [!NOTE]
+ > Solo se permite un tipo de método.
+
+### <a name="relative-trigger-url"></a>Dirección URL relativa del desencadenador
+También puede personalizar la ruta de acceso relativa de la URL de la solicitud para aceptar parámetros.
+
+1. Expanda `Show advanced options` del desencadenador de **solicitud**.
+ - En `Relative path`, escriba `customer/{customerId}`.
+
+  ![Desencadenador de direcciones URL relativas](./media/logic-apps-http-endpoint/relativeurl.png)
+
+2. Actualice la acción **Respond** para crear el usuario del parámetro.
+ - Verá que `customerId` se muestra en el selector de tokens.
+ - Actualice el cuerpo de la respuesta para que devuelva `Hello {customerId}`.
+
+  ![Dirección URL relativa](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+3. Guarde la aplicación lógica; observe que la actualización de la dirección URL de solicitud incluye la ruta de acceso relativa.
+
+4. Copie la nueva dirección URL de solicitud y péguela en una nueva ventana del explorador. Sustituya `{customerId}` por `123` y presione Entrar.
+ - Verá que se devuelve `Your customer Id is 123`.
 
 ### <a name="security-for-the-trigger-url"></a>Seguridad para la dirección URL del desencadenador
 Las direcciones URL de devolución de llamada de la aplicación lógica se generan de forma segura con una firma de acceso compartido.  La firma pasa como un parámetro de consulta y debe validarse antes de que se active la aplicación lógica.  Se genera mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se está realizando.  A menos que alguien tenga acceso a la clave de aplicación lógica secreta, no será posible generar una firma válida.
@@ -154,9 +180,4 @@ Esta funcionalidad está disponible a través de **Administración de API**:
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [2]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

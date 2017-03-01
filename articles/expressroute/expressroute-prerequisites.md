@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: c38e324c68d382f74a6140952b7900afd509d319
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 304acc7d2bfdefffde700ecd469b6335b08b85e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -30,7 +31,7 @@ Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que 
 * Una suscripción activa de Office 365 (si usa los servicios de Office 365). Para más información, consulte la sección [Requisitos específicos de Office 365](#office-365-specific-requirements) de este artículo.
 
 ## <a name="connectivity-provider"></a>Proveedor de conectividad
-* Para conectarse a la nube de Microsoft, puede trabajar con un [asociado de conectividad ExpressRoute](expressroute-locations.md#partners) . Se puede configurar una conexión entre la red local y Microsoft de [tres maneras](expressroute-introduction.md#howtoconnect). 
+* Para conectarse a la nube de Microsoft, puede trabajar con un [asociado de conectividad ExpressRoute](expressroute-locations.md#partners) . Se puede configurar una conexión entre la red local y Microsoft de [tres maneras](expressroute-introduction.md). 
 * Aunque el proveedor no sea un asociado de conectividad ExpressRoute, puede conectarse a la nube de Microsoft mediante un [proveedor de intercambio de nube](expressroute-locations.md#nonpartners).
 
 ## <a name="network-requirements"></a>Requisitos de red
@@ -64,10 +65,5 @@ Si tiene pensado habilitar CRM Online en ExpressRoute, revise los siguientes doc
   * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
   * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

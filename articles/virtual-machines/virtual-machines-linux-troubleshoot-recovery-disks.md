@@ -1,6 +1,6 @@
 ---
 
-title: "Uso de una máquina virtual Linux de solución de problemas con la CLI de Azure 1.0 | Microsoft Docs"
+title: "Uso de una máquina virtual Linux de solución de problemas con la CLI de Azure 2.0 (versión preliminar) | Microsoft Docs"
 description: "Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 1.0"
 services: virtual-machines-linux
 documentationCenter: 
@@ -12,17 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: cb876ea4281fefa334e0aaf4ed66d87fa5653099
-ms.openlocfilehash: 2d0eedd3dfd2b9c754b450228fa65d06fe0514f5
+ms.sourcegitcommit: c4dd7f0cc0a5f7ca42554da95ef215a5a6ae0dbc
+ms.openlocfilehash: 8157e6fd3c4e01d0f99acedfc119fd65879c4979
+ms.lasthandoff: 02/17/2017
 
 
 ---
 
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-10"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 1.0
-Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar la CLI de Azure para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-20-preview"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 2.0 (versión preliminar)
+Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar la CLI de Azure 2.0 (versión preliminar) para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
+
+
+## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
+Puede completar la tarea mediante una de las siguientes versiones de la CLI:
+
+- [CLI de Azure 1.0](virtual-machines-linux-troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
+- [CLI de Azure 2.0 (versión preliminar)](#recovery-process-overview): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
 
 
 ## <a name="recovery-process-overview"></a>Introducción al proceso de recuperación
@@ -34,11 +42,7 @@ El proceso de solución de problemas es el siguiente:
 4. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 5. Cree una máquina virtual mediante el disco duro virtual original.
 
-Asegúrese de haber instalado la [CLI de Azure 1.0 más reciente](../xplat-cli-install.md) y de usar el modo de Resource Manager:
-
-```azurecli
-azure config mode arm
-```
+Para realizar estos pasos para la solución de problemas, es preciso tener instalada la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `mystorageaccount` y `myVM`.
 
@@ -46,52 +50,36 @@ En los ejemplos siguientes, reemplace los nombres de parámetros por los suyos p
 ## <a name="determine-boot-issues"></a>Determinación de los problemas de arranque
 Examine la salida de serie para determinar por qué la máquina virtual no es capaz de arrancar correctamente. Un ejemplo habitual es una entrada no válida en `/etc/fstab` o el disco duro virtual subyacente que se va a eliminar o mover.
 
-En el ejemplo siguiente se obtiene la salida de serie de la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
+Obtenga los registros de arranque con [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#get-boot-log). En el ejemplo siguiente se obtiene la salida de serie de la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
 
 ```azurecli
-azure vm get-serial-output --resource-group myResourceGroup --name myVM
+az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
 ```
 
 Revise la salida de serie para determinar por qué la máquina virtual no arranca correctamente. Si la salida de serie no proporciona ninguna indicación, debe revisar los archivos de registro en `/var/log` una vez que tenga el disco duro virtual conectado a una máquina virtual de solución de problemas.
 
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Visualización de los detalles del disco duro virtual existente
-Antes de poder conectar el disco duro virtual a otra máquina virtual, debe identificar el nombre del disco duro virtual (VHD). 
+Para poder conectar el disco duro virtual (VHD) a otra máquina virtual, es preciso que identifique el identificador URI del disco del sistema operativo. 
 
-En el ejemplo siguiente se obtiene información de la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
-
-```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
-```
-
-Busque `Vhd URI` en la salida del comando anterior. La siguiente salida de ejemplo truncado muestra `Vhd URI` en la última línea:
+Vea información acerca de la máquina virtual con [az vm show](/cli/azure/vm#show). Use la marca `--query` para extraer el identificador URI al disco del sistema operativo. En el ejemplo siguiente se obtiene información de los discos de la máquina virtual denominada `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
 ```azurecli
-info:    Executing command vm show
-+ Looking up the VM "myVM"
-+ Looking up the NIC "myNic"
-+ Looking up the public ip "myPublicIP"
-...
-data:
-data:      OS Disk:
-data:        OSType                      :Linux
-data:        Name                        :myVM
-data:        Caching                     :ReadWrite
-data:        CreateOption                :FromImage
-data:        Vhd:
-data:          Uri                       :https://mystorageaccount.blob.core.windows.net/vhds/myVM201610292712.vhd
+az vm show --resource-group myResourceGroup --name myVM \
+    --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
+El identificador URI es similar a **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
 
 ## <a name="delete-existing-vm"></a>Eliminación de la VM existente
 Los discos duros virtuales y las máquinas virtuales son dos recursos diferentes de Azure. Un disco duro virtual es el recurso donde se almacenan el propio sistema operativo, las aplicaciones y las configuraciones. La propia máquina virtual consiste solo en metadatos que definen el tamaño o la ubicación y hace referencia a recursos como un disco duro virtual o una tarjeta de interfaz de red virtual (NIC). Cada disco duro virtual tiene una concesión que se asigna cuando se conecta a una máquina virtual. Aunque los discos de datos se pueden conectar y desconectar incluso mientras se está ejecutando la máquina virtual, no se puede desasociar el disco del sistema operativo, a menos que se elimine el recurso de máquina virtual. La concesión continúa para asociar el disco del sistema operativo a una máquina virtual incluso cuando esa máquina virtual está en un estado detenido o desasignado.
 
 El primer paso para recuperar la máquina virtual es eliminar el propio recurso de máquina virtual. Al eliminar la máquina virtual, los discos duros virtuales se dejan en su cuenta de almacenamiento. Después de eliminar la máquina virtual, conecte el disco duro virtual a otra máquina virtual para localizar y solucionar los errores.
 
-En el ejemplo siguiente se elimina la máquina virtual llamada `myVM` del grupo de recursos `myResourceGroup`:
+Elimine la máquina virtual con [az vm delete](/cli/azure/vm#delete). En el ejemplo siguiente se elimina la máquina virtual llamada `myVM` del grupo de recursos `myResourceGroup`:
 
 ```azurecli
-azure vm delete --resource-group myResourceGroup --name myVM 
+az vm delete --resource-group myResourceGroup --name myVM 
 ```
 
 Espere hasta que la máquina virtual haya terminado la eliminación antes de conectar el disco duro virtual a otra máquina virtual. La concesión en el disco duro virtual que lo asocia a la máquina virtual debe liberarse antes de poder conectar el disco duro virtual a otra máquina virtual.
@@ -100,11 +88,11 @@ Espere hasta que la máquina virtual haya terminado la eliminación antes de con
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Conexión del disco duro virtual existente a otra máquina virtual
 Para los pasos siguientes, se usa otra máquina virtual con el fin de solucionar problemas. Conecte el disco duro virtual existente a esta máquina virtual de solución de problemas para examinar y modificar el contenido del disco. Por ejemplo, este proceso le permite corregir todos los errores de configuración o revisar archivos de registro adicionales de la aplicación o sistema. Elija o cree otra máquina virtual que se usará con fines de solución de problemas.
 
-Cuando conecte el disco duro virtual existente, especifique la dirección URL en el disco obtenido en el comando `azure vm show` anterior. En el ejemplo siguiente se conecta un disco duro virtual existente a la máquina virtual de solución de problemas con el nombre `myVMRecovery` en el grupo de recursos denominado `myResourceGroup`:
+Conecte el disco duro virtual existente con [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#attach). Cuando conecte el disco duro virtual existente, especifique el identificador URI en el disco obtenido en el comando `az vm show` anterior. En el ejemplo siguiente se conecta un disco duro virtual existente a la máquina virtual de solución de problemas con el nombre `myVMRecovery` en el grupo de recursos denominado `myResourceGroup`:
 
 ```azurecli
-azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
-    --vhd-url https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
+az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
+    --vhd-uri https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
 ```
 
 
@@ -166,76 +154,45 @@ Una vez resueltos los errores, desmonte y desconecte el disco duro virtual exist
     sudo umount /dev/sdc1
     ```
 
-2. Ahora, desconecte el disco duro virtual de la máquina virtual. Salga de la sesión SSH a la máquina virtual de solución de problemas. En la CLI de Azure, primero se muestran los discos de datos conectados a la máquina virtual de solución de problemas. En el ejemplo siguiente se muestran los discos de datos conectados a la máquina virtual denominada `myVMRecovery` en el grupo de recursos denominado `myResourceGroup`:
+2. Ahora, desconecte el disco duro virtual de la máquina virtual. Salga de la sesión SSH a la máquina virtual de solución de problemas. Enumere los discos de datos conectados a la máquina virtual de solución de problemas con [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk#list). En el ejemplo siguiente se muestran los discos de datos conectados a la máquina virtual denominada `myVMRecovery` en el grupo de recursos denominado `myResourceGroup`:
 
     ```azurecli
-    azure vm disk list --resource-group myResourceGroup --vm-name myVMRecovery
+    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
+        --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    Tenga en cuenta el valor `Lun` para el disco duro virtual existente. La salida del comando de ejemplo siguiente muestra el disco virtual existente conectado en LUN 0:
+    Anote el nombre del disco duro virtual existente. Por ejemplo, el nombre de un disco con el identificador URI de **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** es **myVHD**. 
+
+    Desconecte el disco de datos de la máquina virtual [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#detach). En el ejemplo siguiente se desconecta el disco llamado `myVHD` de la máquina virtual llamada `myVMRecovery` del grupo de recursos `myResourceGroup`:
 
     ```azurecli
-    info:    Executing command vm disk list
-    + Looking up the VM "myVMRecovery"
-    data:    Name              Lun  DiskSizeGB  Caching  URI
-    data:    ------            ---  ----------  -------  ------------------------------------------------------------------------
-    data:    myVM              0                None     https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
-    info:    vm disk list command OK
-    ```
-
-    Desconecte el disco de datos de la máquina virtual mediante el valor aplicable `Lun`:
-
-    ```azurecli
-    azure vm disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
-        --lun 0
+    az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
+        --name myVHD
     ```
 
 
 ## <a name="create-vm-from-original-hard-disk"></a>Creación de máquina virtual a partir del disco duro original
-Para crear una máquina virtual a partir del disco duro virtual original, utilice [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-specialized-vm-in-existing-vnet). La plantilla JSON real está en el siguiente vínculo:
+Para crear una máquina virtual a partir del disco duro virtual original, utilice [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). La plantilla JSON real está en el siguiente vínculo:
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
+- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-La plantilla implementa una máquina virtual en una red virtual existente mediante la dirección URL del disco duro virtual del comando anterior. En el ejemplo siguiente se implementa la plantilla en el grupo de recursos denominado `myResourceGroup`:
-
-```azurecli
-azure group deployment create --resource-group myResourceGroup --name myDeployment \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
-```
-
-Responda a las indicaciones de la plantilla como, por ejemplo, las relacionadas con el nombre de la máquina virtual (`myDeployedVM` en el ejemplo siguiente), el tipo de sistema operativo (`Linux`) y el tamaño de la máquina virtual (`Standard_DS1_v2`). `osDiskVhdUri` es el mismo que se usó anteriormente al conectar el disco duro virtual existente a la máquina virtual de solución de problemas. Un ejemplo de la salida del comando y las indicaciones se muestra a continuación:
+La plantilla implementa una máquina virtual mediante el identificador URI del VHD del comando anterior. Implemente la plantilla con [az group deployment create](/cli/azure/vm/deployment#create). Especifique el identificador URI en el VHD original y, después, especifique tanto el tipo de sistema operativo, como el tamaño y nombre de la máquina virtual como se indica a continuación:
 
 ```azurecli
-info:    Executing command group deployment create
-info:    Supply values for the following parameters
-vmName:  myDeployedVM
-osType:  Linux
-osDiskVhdUri:  https://mystorageaccount.blob.core.windows.net/vhds/myVM201610292712.vhd
-vmSize:  Standard_DS1_v2
-existingVirtualNetworkName:  myVnet
-existingVirtualNetworkResourceGroup:  myResourceGroup
-subnetName:  mySubnet
-dnsNameForPublicIP:  mypublicipdeployed
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "mydeployment"
-+ Waiting for deployment to complete
-+
+az group deployment create --resource-group myResourceGroup --name myDeployment \
+  --parameters '{"osDiskVhdUri": {"value": "https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd"},
+    "osType": {"value": "Linux"},
+    "vmSize": {"value": "Standard_DS1_v2"},
+    "vmName": {"value": "myDeployedVM"}}' \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 ```
-
 
 ## <a name="re-enable-boot-diagnostics"></a>Rehabilitación de los diagnósticos de arranque
-
-Cuando se crea la máquina virtual desde el disco duro virtual existente, puede que no se habilite automáticamente el diagnóstico de arranque. En el ejemplo siguiente se habilita la extensión de diagnóstico en la máquina virtual denominada `myDeployedVM` en el grupo de recursos `myResourceGroup`:
+Cuando se crea la máquina virtual desde el disco duro virtual existente, puede que no se habilite automáticamente el diagnóstico de arranque. Habilite el diagnóstico de arranque con [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics#enable). En el ejemplo siguiente se habilita la extensión de diagnóstico en la máquina virtual denominada `myDeployedVM` en el grupo de recursos `myResourceGroup`:
 
 ```azurecli
-azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
+az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual de Linux en Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

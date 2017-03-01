@@ -4,7 +4,7 @@ description: "Aprenda a proteger una aplicación de API en el Servicio de aplica
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 7ca0bab2-1d29-4d51-b779-dce0edd34f8b
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -348,10 +349,5 @@ Para más información acerca de Azure Active Directory, consulte los siguientes
     El ejemplo [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) es similar al que se muestra en este tutorial, pero sin utilizar la autenticación del Servicio de aplicaciones.
 
 Para más información sobre otras formas de implementar proyectos de Visual Studio en aplicaciones de API, ya sea con Visual Studio o mediante la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Documentación de implementación de Azure App Service](../app-service-web/web-sites-deploy.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

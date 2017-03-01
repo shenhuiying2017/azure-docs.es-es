@@ -3,7 +3,7 @@ title: "Procedimientos recomendados: administración de contraseñas de Azure AD
 description: "Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de aprendizaje para la administración de contraseñas en Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
 > [!IMPORTANT]
 > **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 Después de habilitar el restablecimiento de contraseña, la siguiente tarea es conseguir que los usuarios de su organización utilicen este servicio. Para ello, deberá asegurarse de que los usuarios están configurados para usar el servicio correctamente y también de que los usuarios tienen la formación que necesitan para administrar correctamente sus propias contraseñas. En este artículo se explican los conceptos siguientes:
 
@@ -122,11 +123,11 @@ Puede cargar los datos de autenticación a través del [Portal de administració
 2. Haga clic en la pestaña **Usuarios** .
 3. Seleccione en la lista el usuario que le interese.
 4. En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña.
-   
+
    ![][005]
 5. Haga clic en la pestaña **Información laboral** .
 6. En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**.  Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña.
-   
+
    ![][006]
 
 Consulte [Qué datos se utilizan por el restablecimiento de contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) para ver cómo se puede utilizar cada una de estas propiedades.
@@ -140,7 +141,7 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Vínculos a la documentación de restablecimiento de la contraseña
+## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
 * **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
@@ -159,9 +160,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

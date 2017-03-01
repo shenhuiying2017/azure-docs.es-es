@@ -4,7 +4,7 @@ description: "Obtenga información sobre el contenido del SDK de Windows Phone S
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,10 +33,5 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 * `EngagementIconCloseLight.png` : el icono "Cerrar" de la notificación de Cobertura de Engagement para el tema claro de Windows Phone.
 * `EngagementIconCloseDark.png` : el icono "Cerrar" de la notificación de Cobertura de Engagement para el tema oscuro de Windows Phone.
 * `EngagementConfiguration.xml` : el archivo de configuración de Mobile Engagement, donde puede personalizar la configuración de Engagement (cadena de conexión, bloqueo de informes, etc.).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

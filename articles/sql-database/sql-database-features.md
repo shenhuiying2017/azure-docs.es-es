@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -57,12 +58,12 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 | Grupos de disponibilidad AlwaysOn | [Compatible](https://msdn.microsoft.com/library/hh510230.aspx) | No compatible; consulte el artículo sobre [replicación geográfica activa](sql-database-geo-replication-overview.md). |
 | Adjuntar una base de datos | [Compatible](https://msdn.microsoft.com/library/ms190209.aspx) | No compatible |
 | Roles de la aplicación | [Compatible](https://msdn.microsoft.com/library/ms190998.aspx) | [Compatible](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Escalado automático | No compatible | [Compatible](sql-database-scale-up.md) |
+| Escalado automático | No compatible | [Compatible](sql-database-service-tiers.md) |
 | Azure Active Directory | No compatible | [Compatible](sql-database-aad-authentication.md) |
 | Factoría de datos de Azure | No compatible; consulte [SQL Server Integration Services](https://msdn.microsoft.com/library/ms141026.aspx). | [Compatible](https://azure.microsoft.com/services/data-factory/) |
-| Auditoría | [Compatible](https://msdn.microsoft.com/library/cc280386.aspx) | [Compatible](sql-database-auditing-get-started.md) |
+| Auditoría | [Compatible](https://msdn.microsoft.com/library/cc280386.aspx) | [Compatible](sql-database-auditing.md) |
 | Archivo BACPAC (exportar) | [Compatible](https://msdn.microsoft.com/library/hh213241.aspx) | [Compatible](sql-database-export.md) |
-| Archivo BACPAC (importar) | [Compatible](https://msdn.microsoft.com/library/hh710052.aspx) | [Compatible](sql-database-import.md) |
+| Archivo BACPAC (importar) | [Compatible](https://msdn.microsoft.com/library/hh710052.aspx) | [Compatible](sql-database-import-portal.md) |
 | Instrucciones BACKUP y RESTORE | [Compatible](https://msdn.microsoft.com/library/ff848768.aspx) | No compatible |
 | Funciones integradas | [Compatible](https://msdn.microsoft.com/library/ms174318.aspx) | [La mayoría](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Captura de datos modificados | [Compatible](https://msdn.microsoft.com/library/cc645937.aspx) | No compatible |
@@ -132,7 +133,7 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 | SQL Server Integration Services (SSIS) | [Compatible](https://msdn.microsoft.com/library/ms141026.aspx) | No compatible; consulte [Data Factory de Azure](https://azure.microsoft.com/services/data-factory/). |
 | SQL Server PowerShell | [Compatible](https://msdn.microsoft.com/library/hh245198.aspx) | [Compatible](https://msdn.microsoft.com/library/hh245198.aspx) |
 | Analizador de SQL Server | [Compatible](https://msdn.microsoft.com/library/ms181091.aspx) | No compatible; consulte el artículo sobre los [eventos extendidos](https://msdn.microsoft.com/library/ms181091.aspx). |
-| Replicación de SQL Server | [Compatible](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo los suscriptores de replicación transaccional y replicación de instantáneas](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Replicación de SQL Server | [Compatible](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo los suscriptores de replicación transaccional y replicación de instantáneas](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Compatible](https://msdn.microsoft.com/library/ms159106.aspx) | No compatible |
 | Procedimientos almacenados | [Compatible](https://msdn.microsoft.com/library/ms190782.aspx) | [Compatible](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Funciones almacenadas del sistema | [Compatible](https://msdn.microsoft.com/library/ff848780.aspx) | [Algunos](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -158,9 +159,4 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 - En el siguiente vínculo, encontrará información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**. Para obtener una descripción general de los niveles de servicio, consulte [Niveles de servicio de la Base de datos SQL](sql-database-service-tiers.md).
 - Para obtener información general sobre la seguridad, consulte [Introducción a la seguridad de Azure SQL Database](sql-database-security-overview.md).
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

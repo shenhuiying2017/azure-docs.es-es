@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
 ms.openlocfilehash: 18d64f1ad4ef0dd41ae9302d08e02e94d1c608f5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -66,10 +67,5 @@ Si se produce un error al realizar una implementación en una tabla, es probable
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que tiene el modelo tabular implementado en el servidor, está listo para conectarse a él. Puede [conectarse a él con SSMS](analysis-services-manage.md) para administrarlo. Además, puede [conectarse a él mediante una herramienta cliente](analysis-services-connect.md) como Power BI, Power BI Desktop o Excel y empezar a crear informes.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: Uso de Hudson con Blob Storage | Microsoft Docs
 description: "Describe cómo usar Hudson con almacenamiento de blobs de Azure como un repositorio para artefactos de compilación."
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 37ad86ce34d7f9ed6642e6f0fa98cf5fbf26e8bc
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -169,8 +170,3 @@ A continuación se ofrece información general acerca de los componentes del ser
 * [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 Para obtener más información, consulte también el [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

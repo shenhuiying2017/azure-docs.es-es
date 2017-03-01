@@ -12,24 +12,17 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: b80b3240cdc4917c0b7be8868e75feaf1efc24cc
-ms.openlocfilehash: c6ddae85ef44bd91ca33d99e8194bc87a0081df3
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 84efba61fbb0248edef3036de702e3a1aa8ae903
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="configure-azure-sql-database-server-level-and-database-level-firewall-rules-using-t-sql"></a>Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante T-SQL
-> [!div class="op_single_selector"]
-> * [Información general](sql-database-firewall-configure.md)
-> * [Portal de Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [API DE REST](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexiones con servidores y bases de datos. Puede definir la configuración de firewall de nivel de servidor y de base de datos para el maestro o una base de datos de usuario en el servidor de Base de datos SQL de Azure para permitir el acceso a la base de datos de forma selectiva.
 
@@ -77,28 +70,23 @@ Solo un usuario de base de datos con el permiso **CONTROL** en la base de datos 
 Para más información sobre estos procedimientos almacenados, consulte [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) y [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
 > [!NOTE]
-> Para obtener un tutorial que muestre el uso de firewalls en el nivel de base de datos, consulte [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de SQL Server, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos).
+> Para ver un tutorial que muestre el uso de firewalls de nivel de base de datos, consulte [Autenticación y autorización de SQL](sql-database-control-access-sql-authentication-get-started.md).
 >
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si desea consultar artículos sobre cómo crear reglas de firewall de nivel de servidor con otros métodos, visite: 
+Si desea consultar artículos sobre cómo crear reglas de firewall de nivel de servidor con otros métodos, consulte: 
 
 * [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md)
 * [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante PowerShell](sql-database-configure-firewall-settings-powershell.md)
 * [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante la API de REST](sql-database-configure-firewall-settings-rest.md)
 
-Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md).
+Para obtener un tutorial sobre la creación de una base de datos, consulte [Creación de la primera base de datos de Azure SQL](sql-database-get-started.md).
 Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx)(Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Protección de bases de datos](sql-database-security-overview.md)
 * [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

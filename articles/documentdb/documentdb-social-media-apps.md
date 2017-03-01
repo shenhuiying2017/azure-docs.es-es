@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 19e8c9de137e10abb563fcd60cf89502dbf94cfd
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 238c74c020625006384a1b31aef320e1346d9ac4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -102,7 +103,7 @@ Para la creación de fuentes solo es necesario crear documentos que puedan conte
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Podríamos tener un flujo "más reciente" con publicaciones ordenadas por fecha de creación o un flujo "favoritos" con las publicaciones que más han gustado en las últimas 24 horas. Incluso se puede implementar un flujo personalizado para cada usuario basado en lógica como seguidores e intereses, y seguiría siendo una lista de publicaciones. La cuestión es cómo crear estas listas, pero el rendimiento de lectura no se verá afectado. Una vez que se adquiere una de estas listas, se emite una consulta única a DocumentDB con el [operador IN](documentdb-sql-query.md#where-clause) para obtener páginas de publicaciones a la vez.
+Podríamos tener un flujo "más reciente" con publicaciones ordenadas por fecha de creación o un flujo "favoritos" con las publicaciones que más han gustado en las últimas 24 horas. Incluso se puede implementar un flujo personalizado para cada usuario basado en lógica como seguidores e intereses, y seguiría siendo una lista de publicaciones. La cuestión es cómo crear estas listas, pero el rendimiento de lectura no se verá afectado. Una vez que se adquiere una de estas listas, se emite una consulta única a DocumentDB con el [operador IN](documentdb-sql-query.md#WhereClause) para obtener páginas de publicaciones a la vez.
 
 Los flujos de fuente se pueden generar mediante procesos en segundo plano de [Azure App Service](https://azure.microsoft.com/services/app-service/): [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Una vez que se crea una publicación, el procesamiento en segundo plano puede activarse mediante el uso de [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/storage-dotnet-how-to-use-queues.md) y Webjobs desencadenados mediante el [SDK Azure Webjobs](../app-service-web/websites-dotnet-webjobs-sdk.md), implementando la propagación de publicaciones dentro de los flujos en función de nuestra lógica personalizada. 
 
@@ -230,10 +231,5 @@ La verdad es que no hay ninguna fórmula milagrosa para este tipo de escenarios,
 Obtenga más información sobre el modelado de datos en el artículo [Modelado de datos en DocumentDB](documentdb-modeling-data.md) . Si está interesado en otros casos de uso de DocumentDB, consulte [Casos de uso comunes de DocumentDB](documentdb-use-cases.md).
 
 También puede obtener más información sobre DocumentDB siguiendo la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: be2752f46ebedf35a28277ad853207ae8038e345
-ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
+ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
+ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,12 +40,12 @@ No se puede convertir una máquina virtual no administrada creada en el modelo d
 
 **Discos de datos**:
 1.    Desconecte el disco de datos de la máquina virtual.
-2.    Copie el disco duro virtual a una cuenta de almacenamiento que nunca se haya habilitado para SSE. Para copiar el disco a otra cuenta de almacenamiento, use [AzCopy](../storage/storage-use-azcopy.md): `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copie el disco duro virtual a una cuenta de almacenamiento que nunca se haya habilitado para SSE. Para copiar el disco a otra cuenta de almacenamiento, use [AzCopy](../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
 3.    Conecte el disco copiado a la máquina virtual y convierta la máquina virtual.
 
 **Disco de sistema operativo**:
 1.    Detenga (desasigne) la máquina virtual. Guarde la configuración de la máquina virtual si es necesario.
-2.    Copie el disco duro virtual de sistema operativo a una cuenta de almacenamiento que nunca se haya habilitado para SSE. Para copiar el disco a otra cuenta de almacenamiento, use [AzCopy](../storage/storage-use-azcopy.md): `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copie el disco duro virtual de sistema operativo a una cuenta de almacenamiento que nunca se haya habilitado para SSE. Para copiar el disco a otra cuenta de almacenamiento, use [AzCopy](../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Cree una máquina virtual que use discos administrados y conecte ese archivo VHD como disco de sistema operativo durante la creación.
 
 
@@ -176,10 +177,5 @@ También puede tener una mezcla de discos que usan almacenamiento premium y est�
 ## <a name="next-steps"></a>Pasos siguientes
 
 Realizar una copia de solo lectura de una máquina virtual mediante [instantáneas](virtual-machines-windows-snapshot-copy-managed-disk.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

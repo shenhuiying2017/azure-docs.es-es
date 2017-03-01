@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
-ms.openlocfilehash: debc2a1671ed8fc2507408a887a7604ee02625f3
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: b30b3ed88ab271b5fa3db61ef276cba9b7fcdfdb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,8 +27,13 @@ ms.openlocfilehash: debc2a1671ed8fc2507408a887a7604ee02625f3
 En este tema se describe cómo cargar modelos de Machine Learning (ML) creados con Spark MLlib y almacenados en Azure Blob Storage (WASB), además de cómo puntuarlos con conjuntos de datos que también se han guardado en WASB. Muestra cómo procesar previamente los datos de entrada, transformar las características mediante las funciones de indexación y codificación en el kit de herramientas MLlib, y cómo crear un objeto de datos de punto con etiqueta que se puede usar como entrada para la puntuación con los modelos de aprendizaje automático. Los modelos usados para la puntuación son regresión lineal, regresión logística, modelos de bosque aleatorio y modelos de árboles impulsados por gradiente.
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Necesita una cuenta de Azure y un clúster de Spark 1.6 o Spark 2.0 HDInsight para completar este tutorial. Consulte el artículo [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para obtener instrucciones sobre cómo satisfacer estos requisitos. Ese tema también contiene una descripción de los datos de taxis de Nueva York de 2013 que se usan aquí, además de instrucciones sobre cómo ejecutar el código de un cuaderno de Jupyter Notebook en el clúster Spark. El cuaderno **pySpark-machine-learning-data-science-spark-model-consumption.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
-2. También debe crear los modelos de aprendizaje automático que se puntuarán aquí; para ello, consulte el tema [Exploración y modelado de datos con Spark](machine-learning-data-science-spark-data-exploration-modeling.md) .   
+
+1. Necesita una cuenta de Azure y un clúster de Spark 1.6 o Spark 2.0 HDInsight para completar este tutorial. Consulte el artículo [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para obtener instrucciones sobre cómo satisfacer estos requisitos. Ese tema también contiene una descripción de los datos de taxis de Nueva York de 2013 que se usan aquí, además de instrucciones sobre cómo ejecutar el código de un cuaderno de Jupyter Notebook en el clúster Spark. 
+2. También debe crear los modelos de aprendizaje automático que se puntuarán aquí; para ello, consulte el tema [Exploración y modelado de datos con Spark](machine-learning-data-science-spark-data-exploration-modeling.md) relativo al clúster de Spark 1.6 o los cuadernos de Spark 2.0. Tenga en cuenta que los cuadernos de Spark 2.0 usan un conjunto de datos adicional para la tarea de clasificación, el conocido conjunto de datos Airline On-time departure de 2011 y 2012. Se proporciona una descripción de los cuadernos y de los vínculos a estos en el archivo [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) del repositorio de GitHub que los contiene. No obstante, este código y los cuadernos vinculados son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight. 
+
+
+## <a name="setup-spark-clusters-and-notebooks"></a>Configuración: clústeres y cuadernos de Spark
+Los pasos de instalación y el código proporcionado en este tutorial son para HDInsight Spark 1.6. El cuaderno [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) muestra cómo operacionalizar un modelo guardado con Python en clústeres de HDInsight. Para modificar este cuaderno de Jupyter para usarlo con un clúster de HDInsight Spark 2.0, reemplace el archivo de código Python por [este archivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -579,10 +585,5 @@ Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.mi
 
 ## <a name="whats-next"></a>Pasos siguientes
 **Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

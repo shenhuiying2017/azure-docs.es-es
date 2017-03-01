@@ -4,7 +4,7 @@ description: "Cómo integrar Azure Mobile Engagement con aplicaciones Windows Ph
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -246,10 +247,5 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 > El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/12/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 370f81a618da4605581b70443fd0cf3641185ca0
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: a1e6f6738a3e6426a5ec5e0dab6f479a0a74b0ad
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -37,9 +38,8 @@ Para configurar la integración de Azure AD con YouEarnedIt, se necesitan los si
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en YouEarnedIt
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -55,7 +55,7 @@ La situación descrita en este tutorial consta de dos bloques de creación princ
 1. Incorporación de YouEarnedIt desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-youearnedit-from-the-gallery"></a>Incorporación de YouEarnedIt desde la galería
+## <a name="add-youearnedit-from-the-gallery"></a>Incorporación de YouEarnedIt desde la galería
 Para configurar la integración de YouEarnedIt en Azure AD, es preciso agregar YouEarnedIt desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar YouEarnedIt desde la galería, realice los pasos siguientes:**
@@ -80,7 +80,7 @@ Para configurar la integración de YouEarnedIt en Azure AD, es preciso agregar Y
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_06.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con YouEarnedIt con una usuaria de prueba llamada "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD tiene que saber cuál es el usuario homólogo de YouEarnedIt para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de YouEarnedIt.
@@ -89,13 +89,13 @@ Esta relación de vínculo se establece asignando el valor de **nombre de usuari
 
 Para configurar y probar el inicio de sesión único de Azure AD con YouEarnedIt, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de YouEarnedIt](#creating-a-predictix-price-reporting-test-user)**: para tener un homólogo de Britta Simon en YouEarnedIt que esté vinculado a su representación en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación YouEarnedIt.
 
 **Para configurar el inicio de sesión único de Azure AD con YouEarnedIt, realice los pasos siguientes:**
@@ -109,25 +109,18 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_04.png) 
-   
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de YouEarnedIt con el siguiente patrón: 
-   
-   * Entorno de espacio aislado: `https://<company name>.sandbox.youearnedit.com/users/sign_in`
-   * Entorno de producción: `https://<company name>.youearnedit.com/users/sign_in`
-     
-     b. click **Siguiente**
+  1. En el cuadro de texto **URL de inicio de sesión** , escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de YouEarnedIt con el siguiente patrón:  
+    * Entorno de espacio aislado: `https://<company name>.sandbox.youearnedit.com/users/sign_in`
+    * Entorno de producción: `https://<company name>.youearnedit.com/users/sign_in`  
+   2. click **Siguiente**
 4. En la página **Configurar inicio de sesión único en YouEarnedIt** , siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_05.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
-5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de YouEarnedIt y proporcione lo siguiente:
-   
-    • El **certificado**
-   
-    • La **dirección URL de inicio de sesión único de SAML**
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.  
+  2. Haga clic en **Siguiente**.
+5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de YouEarnedIt y proporcione lo siguiente:  
+    • El archivo de **certificado**
+    descargado • La **dirección URL de SSO de SAML**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -135,7 +128,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 ![Creación de un usuario de Azure AD][20]
@@ -152,44 +145,37 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_04.png) 
-5. En el cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_05.png)  
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.  
+  3. Haga clic en **Siguiente**.
+6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
+
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_06.png)    
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-an-youearnedit-test-user"></a>Creación de un usuario de prueba de YouEarnedIt
+### <a name="create-an-youearnedit-test-user"></a>Creación de un usuario de prueba de YouEarnedIt
 En esta sección, creará una usuaria llamada Britta Simon en YouEarnedIt. Colabore con el equipo de soporte técnico de YouEarnedIt para agregar los usuarios a la plataforma de YouEarnedIt.
 
-> [!NOTE]
-> YouEarnedIt espera que el proveedor de identidades proporcione una dirección de correo electrónico o un nombre de usuario en el atributo NameID. Si no se encuentra el nombre de usuario o dirección de correo electrónico correspondiente dentro de la base de datos o estos no coinciden exactamente, se producirá un error en la autenticación. Para que esto se realice correctamente es necesario que las cuentas se importen en el sistema YouEarnedIt antes de la integración de inicio de sesión único (normalmente mediante la importación CSV o API).
-> 
-> 
+>[!NOTE]
+>YouEarnedIt espera que el proveedor de identidades proporcione una dirección de correo electrónico o un nombre de usuario en el atributo NameID. Si no se encuentra el nombre de usuario o dirección de correo electrónico correspondiente dentro de la base de datos o estos no coinciden exactamente, se producirá un error en la autenticación. Para que esto se realice correctamente es necesario que las cuentas se importen en el sistema YouEarnedIt antes de la integración de inicio de sesión único (normalmente mediante la importación CSV o API).
+>  
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 En esta sección, va a habilitar a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a YouEarnedIt.
 
 ![Asignar usuario][200] 
@@ -210,7 +196,7 @@ En esta sección, va a habilitar a Britta Simon para que use el inicio de sesió
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de YouEarnedIt en el panel de acceso, debería iniciar sesión automáticamente en su aplicación YouEarnedIt.
@@ -236,9 +222,4 @@ Al hacer clic en el icono de YouEarnedIt en el panel de acceso, debería iniciar
 [203]: ./media/active-directory-saas-youearnedit-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-youearnedit-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-youearnedit-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: aeaf8d06749d63d19e02573b5bf66ceac644cb3e
+ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
+ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -201,7 +202,7 @@ Observe lo siguiente:
 | **Almacenamiento de Azure** |Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados<br/><br/> La cuenta debe ser una [cuenta de almacenamiento estándar](../storage/storage-redundancy.md#geo-redundant-storage) con redundancia geográfica o una [cuenta de Premium Storage](../storage/storage-premium-storage.md).<br/><br/> Debe estar en la misma región que el servicio Azure Site Recovery y debe estar asociado a la misma suscripción. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.<br/><br/> Para más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md) | |
 | **Red virtual de Azure** |Necesitará una red virtual en la que se implementarán el servidor de configuración y el servidor de destino principal. Debe estar en la misma región y suscripción que el almacén de Azure Site Recovery. Si desea replicar datos a través de una conexión VPN o ExpressRoute, la red virtual de Azure debe estar conectada a su red local a través de una conexión de ExpressRoute o una VPN de sitio a sitio. | |
 | **Recursos de Azure** |Asegúrese de que tiene recursos de Azure suficientes para implementar todos los componentes. Más información en [Límites de suscripción de Azure](../azure-subscription-service-limits.md). | |
-| **Máquinas virtuales de Azure** |Las máquinas virtuales que quiere proteger deben cumplir los [requisitos previos de Azure](site-recovery-best-practices.md).<br/><br/> **Recuento de disco**: se admite un máximo de 31 discos en un único servidor protegido<br/><br/> **Tamaños de disco**: la capacidad del disco individual no debe superar los 1023 GB<br/><br/> **Agrupación en clústeres**: no se admiten los servidores en clúster<br/><br/> **Arranque**: no se admite el arranque de Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI)<br/><br/> **Volúmenes**: no se admiten los volúmenes cifrados de Bitlocker<br/><br/> **Nombres de servidor**: los nombres deben contener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de proteger un equipo, puede modificar el nombre de Azure. | |
+| **Máquinas virtuales de Azure** |Las máquinas virtuales que quiere proteger deben cumplir los [requisitos previos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/> **Recuento de disco**: se admite un máximo de 31 discos en un único servidor protegido<br/><br/> **Tamaños de disco**: la capacidad del disco individual no debe superar los 1023 GB<br/><br/> **Agrupación en clústeres**: no se admiten los servidores en clúster<br/><br/> **Arranque**: no se admite el arranque de Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI)<br/><br/> **Volúmenes**: no se admiten los volúmenes cifrados de Bitlocker<br/><br/> **Nombres de servidor**: los nombres deben contener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de proteger un equipo, puede modificar el nombre de Azure. | |
 | **Servidor de configuración** |Se crea en su suscripción una máquina virtual A3 estándar basada en una imagen de la galería de Windows Server 2012 R2 de Azure Site Recovery para el servidor de configuración. Se crea como la primera instancia de un nuevo servicio en la nube. Si selecciona Internet pública como el tipo de conectividad para el servidor de configuración, el servicio en la nube se creará con una dirección IP pública reservada.<br/><br/> La ruta de instalación solo debe tener caracteres de inglés. | |
 | **Servidor de destino principal** |Máquina virtual de Azure estándar A4, D14 o DS4.<br/><br/> La ruta de instalación solo debe tener caracteres de inglés. Por ejemplo, la ruta debe ser **/usr/local/ASR** para un servidor de destino principal que ejecuta Linux. | |
 | **Servidor de proceso** |Puede implementar el servidor de proceso en la máquina virtual o física que ejecuta Windows Server 2012 R2 con las actualizaciones más recientes. Instálelo en la unidad C:/.<br/><br/> Se recomienda que ubique el servidor en la misma red y subred que los equipos que desea proteger.<br/><br/> Instale VMware vSphere CLI 5.5.0 en el servidor de procesos. El componente de CLI de VMware vSphere es necesario en el servidor de procesos para detectar máquinas virtuales administradas por un servidor vCenter o máquinas virtuales que se ejecutan en un host ESXi.<br/><br/> La ruta de instalación solo debe tener caracteres de inglés.<br/><br/> No se admite el sistema de archivos ReFS. | |
@@ -739,9 +740,4 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

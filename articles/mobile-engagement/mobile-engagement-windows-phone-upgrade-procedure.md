@@ -4,7 +4,7 @@ description: "Procedimientos de actualización de SDK de Windows Phone Silverlig
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -110,7 +111,7 @@ Una vez completados estos pasos, solo tendrá que reemplazar las referencias de 
         </engagement:EngagementPage>
 4. En el caso de otros recursos, como imágenes Capptain, tenga en cuenta que su nombre también habrá cambiado para usar "Engagement".
 
-### <a name="application-id-sdk-key"></a>Identificador de aplicación o clave SDK
+### <a name="application-id--sdk-key"></a>Identificador de aplicación o clave SDK
 Engagement usa una cadena de conexión. No es necesario especificar un identificador de aplicación y una clave SDK con Mobile Engagement, solo tiene que especificar una cadena de conexión. Esta se puede configurar en el archivo EngagementConfiguration.
 
 La configuración de Engagement se puede establecer en el archivo `Resources\EngagementConfiguration.xml` del proyecto.
@@ -142,10 +143,5 @@ Ejemplos de elementos Capptain que se usan habitualmente:
 * GetCapptainPageName ahora se llama GetEngagementPageName
 
 Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidados.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

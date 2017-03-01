@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7519ff07efd5bb450362fca8d54e4d9e3be8f0df
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -289,10 +290,5 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 * [Introducción a Almacenamiento de Azure](storage-introduction.md)
 * Introducción al almacenamiento para [Blob](storage-dotnet-how-to-use-blobs.md), [Table](storage-dotnet-how-to-use-tables.md), [Queues](storage-dotnet-how-to-use-queues.md) y [Files](storage-dotnet-how-to-use-files.md)
 * Arquitectura de almacenamiento – [Almacenamiento de Azure: un servicio de almacenamiento en la nube altamente disponible con coherencia fuerte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

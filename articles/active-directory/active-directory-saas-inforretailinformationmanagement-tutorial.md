@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/06/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9ab2950715850d0c2ee0f398cd44399a5974c1a9
-ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
+ms.sourcegitcommit: ad9c78483af88a85a1b790269231683155760d76
+ms.openlocfilehash: aef560c2b05a80c59743c4cc6d68d6d2c14bdc3f
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -93,7 +94,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Infor Retai
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Infor Retail – Information Management](#creating-an-infor-retail---information-management-user)**: para tener un homólogo de Britta Simon en Infor Retail – Information Management que esté vinculado a su representación en Azure AD.
+3. **[Creación de un usuario de prueba de Infor Retail – Information Management](#creating-an-infor-retail---information-management-test-user)**: para tener un homólogo de Britta Simon en Infor Retail – Information Management que esté vinculado a su representación en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -115,26 +116,26 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_02.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL con el siguiente patrón: `http://<company name>.mingle.infor.com`.
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.mingle.infor.com`
     
-    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: `http://<company name>.mingle.infor.com:443/sp/ACS.saml2`.
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.mingle.infor.com/sp/ACS.saml2`.
     
 4. Si quiere configurar la aplicación en **SP initiated mode** (Modo iniciado por SP), en la sección **Dominio y direcciones URL de Infor Retail – Information Management**, realice los siguientes pasos:
     
     ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_03.png)
 
-    a. Haga clic en la opción **Mostrar configuración avanzada de URL**
+    a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
 
-    b. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón: `https://<company name>.mingle.infor.com/<company code>`.
+    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.mingle.infor.com/<company code>`.
 
     > [!NOTE] 
-    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizar estos valores con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Infor Retail – Information Management](http://www.infor.com/contact/) para obtener esos valores.
+    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizar estos valores con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de administración de aplicaciones de Infor Retail](mailto:innovate@infor.com).
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
+5. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)   
+    ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)     
 
-6. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una **fecha de expiración**. Luego haga clic en el botón **Guardar**.
+6. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_300.png)
 
@@ -142,15 +143,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_05.png)
 
-8. En la ventana emergente **Rollover certificate ** (Certificado de sustitución), haga clic en **Aceptar**.
+8. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-9. En la sección **Certificado de firma de SAML**, haga clic en **Descargar** y, a continuación, guarde el archivo de metadatos en el equipo.
+9. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-10. Para configurar SSO para su aplicación, póngase en contacto con el [equipo de soporte técnico de Infor Retail – Information Management](http://www.infor.com/contact/) y proporcione el archivo de **metadatos** descargado.
+10. Para configurar SSO para su aplicación, póngase en contacto con el [equipo de soporte técnico de Infor Retail – Information Management](mailto:innovate@infor.com) y proporcione el archivo de **metadatos** descargado.
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -188,7 +189,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
 ### <a name="creating-an-infor-retail--information-management-test-user"></a>Creación de un usuario de prueba de Infor Retail – Information Management
 
-En esta sección, creará un usuario llamado Britta Simon en Infor Retail – Information Management. Trabaje con el [equipo de soporte técnico de Infor Retail – Information Management](http://www.infor.com/contact/) para agregar los usuarios en la plataforma correspondiente.
+En esta sección, creará un usuario llamado Britta Simon en Infor Retail – Information Management. Trabaje con el [equipo de soporte técnico de Infor Retail – Information Management](mailto:innovate@infor.com) para agregar los usuarios en la plataforma correspondiente.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
@@ -250,8 +251,3 @@ Si hace clic en el icono de Infor Retail – Information Management en el Panel 
 [201]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Jan17_HO3-->
-
-

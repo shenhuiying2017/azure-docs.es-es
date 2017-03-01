@@ -17,14 +17,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: bc1a78a2891c73df23bc2a57cec67e6b73414165
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Uso de C# para crear una instancia de SQL Database con la biblioteca de SQL Database para .NET
 
-Aprenda a usar C# para crear una instancia de Azure SQL Database con la [biblioteca de administración de Microsoft Azure SQL para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). En este artículo se describe cómo crear una base de datos única con SQL y C#. Para crear grupos elásticos, consulte [Creación de un grupo elástico](sql-database-elastic-pool-create-csharp.md).
+Aprenda a usar C# para crear una instancia de Azure SQL Database con la [biblioteca de administración de Microsoft Azure SQL para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). En este artículo se describe cómo crear una base de datos única con SQL y C#. Para crear grupos elásticos, consulte [Creación de un grupo elástico](sql-database-elastic-pool-manage-csharp.md).
 
 La biblioteca de administración de Azure SQL Database para .NET ofrece una API basada en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que encapsula la [API de REST de SQL Database basada en Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -284,9 +285,4 @@ Ahora que probó la Base de datos SQL y configuró una base de datos con C#, est
 [7]: ./media/sql-database-get-started-csharp/add-application.png
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -4,7 +4,7 @@ description: Aprenda a usar los temas y las colas del Bus de servicio de Azure c
 services: app-service\web, service-bus
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -172,10 +173,5 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

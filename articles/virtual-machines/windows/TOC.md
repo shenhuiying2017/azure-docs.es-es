@@ -150,7 +150,6 @@
 ### [Ejemplo de infraestructura](../virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Mantenimiento planeado de Azure](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Programación](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Eventos programados](../virtual-machines-scheduled-events.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Administración de cargas de trabajo
 ### [Informática de alto rendimiento (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -184,7 +183,7 @@
 
 # Referencia
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/vm)
+## [CLI de Azure 2.0](/cli/azure/vm)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Java](/java/api)
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
@@ -199,8 +198,3 @@
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo proteger una aplicación de API d
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
 ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -280,10 +281,5 @@ Para más información sobre cómo crear una aplicación de una página de Angul
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial ha aprendido a utilizar la autenticación del Servicio de aplicaciones para una aplicación de API y a llamar a la aplicación de API mediante la biblioteca de ADAL JS. En el siguiente tutorial aprenderá a [acceder de forma segura a la aplicación de API en escenarios de servicio a servicio](app-service-api-dotnet-service-principal-auth.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

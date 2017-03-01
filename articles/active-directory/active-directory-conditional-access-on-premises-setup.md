@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
+ms.sourcegitcommit: f42e31c99bf43e8f034c8d6f4f98d777661c3d81
+ms.openlocfilehash: 204ec83dc1000bb1e10df6fecc303b6ac7795739
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -176,9 +177,6 @@ Existen varias formas de comunicar la URL a los usuarios. Una forma que se recom
 ### <a name="join-a-windows-7-device-using-azure-active-directory-device-registration"></a>Unión de un dispositivo Windows 7 al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
 Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Unión al lugar de trabajo para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
-### <a name="join-an-android-device-using-azure-active-directory-device-registration"></a>Unión de un dispositivo Android al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
-El [tema sobre Microsoft Authenticator para Android](active-directory-conditional-access-azure-authenticator-app.md) incluye instrucciones sobre cómo instalar la aplicación Microsoft Authenticator en el dispositivo Android y agregar una cuenta profesional. Cuando una cuenta profesional se crea correctamente en un dispositivo Android, el dispositivo queda unido al área de trabajo en la organización.
-
 ## <a name="verify-registered-devices-are-written-back-to-active-directory"></a>Comprobación de que los dispositivos registrados se reescriben en Active Directory
 Puede ver y comprobar que los objetos de dispositivo se reescribieron en Active Directory con LDP.exe o con el Editor ADSI. Ambos están disponibles con las herramientas del administrador de Active Directory.
 
@@ -234,10 +232,5 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

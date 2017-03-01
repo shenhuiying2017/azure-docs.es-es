@@ -4,7 +4,7 @@ description: "Guías de solución de problemas de Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
   * Use una coma "," como carácter separador (puede abrir una solicitud de servicio para solicitar cambiar el carácter separador de .csv de una coma "," a otro carácter como un punto y coma ";").
   * Use minúsculas para los valores booleanos "true" y "false".
   * Use un archivo que de tamaño inferior al tamaño máximo de archivo de 35 MB.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

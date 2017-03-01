@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/20/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8b2ffd922df97ea3873f0c8559a6e3db97e8632c
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -70,7 +71,7 @@ Azure cobra un [precio por hora](https://azure.microsoft.com/pricing/details/vir
 Su suscripción tiene [límites de cuota](../azure-subscription-service-limits.md) predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites, cree una incidencia de soporte técnico y solicite un aumento.
 
 ### <a name="operating-system-disks-and-images"></a>Imágenes y discos del sistema operativo
-Las máquinas virtuales usan [discos duros virtuales (VHD)](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para almacenar el sistema operativo y los datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. 
+Las máquinas virtuales usan [discos duros virtuales (VHD)](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para almacenar el sistema operativo y los datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. 
 
 Azure proporciona muchas [imágenes de Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) que se pueden usar con diversas versiones y tipos de sistemas operativos Windows Server. Las imágenes de Marketplace se identifican mediante el publicador de la imagen, la oferta, la SKU y la versión (normalmente, la versión se especifica como la más reciente). 
 
@@ -148,10 +149,5 @@ Un [almacén de Recovery Services](../backup/backup-introduction-to-azure-backup
 * Si tiene intención de trabajar con máquinas virtuales Linux, consulte [Azure y Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Conozca las directrices para configurar la infraestructura en el [Tutorial de la infraestructura de Azure de ejemplo](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Debe seguir los [Procedimientos recomendados para ejecutar una máquina virtual Windows en Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

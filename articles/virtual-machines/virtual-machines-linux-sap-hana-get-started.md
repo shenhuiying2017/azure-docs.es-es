@@ -1,5 +1,5 @@
 ---
-title: SAP HANA en VM de Linux en Azure | Microsoft Docs
+title: "Guía de inicio rápido: instalación manual de SAP Hana de única instancia en máquinas virtuales de Azure | Microsoft Docs"
 description: "Guía de inicio rápido para la instalación manual de SAP Hana de única instancia en máquinas virtuales de Azure"
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0c7f550e9fe9c27315f8381a8b2a91ff75ba1535
+ms.sourcegitcommit: bd70596bcc34684a6f751076e71cb3d0aa3877dd
+ms.openlocfilehash: 4c40fd95f42f4e89e86d829c8a32583a0398c74e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -60,7 +61,7 @@ Antes de iniciar una instalación, no olvide leer "Preparación de las máquinas
 Esta sección enumera los pasos principales de una instalación manual de SAP HANA de instancia única, para fines de demostración o de creación de prototipos cuando usa SAP SWPM para realizar una instalación distribuida de SAP NetWeaver 7.5. Los elementos individuales se explican con más detalle mediante las capturas de pantalla que aparecen a lo largo de la guía.
 
 * Cree una red virtual de Azure que incluya las dos máquinas virtuales de prueba.
-* Implemente dos máquinas virtuales de Azure con el sistema operativo SLES 12 SP1 según el modelo de Azure Resource Manager.
+* Implemente dos máquinas virtuales de Azure con OS SLES/SLES para aplicaciones SAP 12 SP1 según el modelo de Azure Resource Manager.
 * Conecte dos discos de almacenamiento estándar a la máquina virtual del servidor de aplicaciones (por ejemplo, discos de 75 GB y 500 GB).
 * Conecte cuatro discos a la máquina virtual del servidor de HANA DB: dos discos de almacenamiento estándar (como aquellos para la máquina virtual del servidor de aplicaciones) + dos discos de almacenamiento premium (por ejemplo, 2 discos de 512 GB).
 * Dependiendo de los requisitos de tamaño o rendimiento, conecte varios discos y cree volúmenes seccionados mediante la administración de volúmenes lógicos (LVM) o una utilidad de administración de varios dispositivos (mdadm) en el nivel de sistema operativo dentro de la máquina virtual.
@@ -82,7 +83,7 @@ Esta sección enumera los pasos principales de una instalación manual de SAP HA
 Esta sección enumera los pasos principales de una instalación manual de SAP HANA de instancia única, para fines de demostración o de creación de prototipos cuando usa SAP hdblcm para realizar una instalación distribuida de SAP NetWeaver 7.5. Los elementos individuales se explican con más detalle mediante las capturas de pantalla que aparecen a lo largo de la guía.
 
 * Cree una red virtual de Azure que incluya las dos máquinas virtuales de prueba.
-* Implemente dos máquinas virtuales de Azure con el sistema operativo SLES 12 SP1 según el modelo de Azure Resource Manager.
+* Implemente dos máquinas virtuales de Azure con OS SLES/SLES para aplicaciones SAP 12 SP1 según el modelo de Azure Resource Manager.
 * Conecte dos discos de almacenamiento estándar a la máquina virtual del servidor de aplicaciones (por ejemplo, discos de 75 GB y 500 GB).
 * Conecte cuatro discos a la máquina virtual del servidor de HANA DB: dos discos de almacenamiento estándar (como aquellos para la máquina virtual del servidor de aplicaciones) + dos discos de almacenamiento premium (por ejemplo, 2 discos de 512 GB).
 * Dependiendo de los requisitos de tamaño o rendimiento, conecte varios discos y cree volúmenes seccionados mediante la administración de volúmenes lógicos (LVM) o una utilidad de administración de varios dispositivos (mdadm) en el nivel de sistema operativo dentro de la máquina virtual.
@@ -103,13 +104,40 @@ Esta sección enumera los pasos principales de una instalación manual de SAP HA
 * Inicie la consola de administración de SAP y conéctese mediante SAP GUI/HANA Studio.
 
 ## <a name="prepare-azure-vms-for-a-manual-installation-of-sap-hana"></a>Preparación de las máquinas virtuales de Azure para una instalación manual de SAP HANA
-En esta sección se describen los cinco temas siguientes:
+En esta sección se describen los temas siguientes:
 
+* Actualizaciones de SO
 * Configuración de disco
 * Parámetros de kernel
 * Sistemas de archivos
 * /etc/hosts
 * /etc/fstab
+
+### <a name="os-updates"></a>Actualizaciones de SO
+Como SUSE proporciona actualizaciones y revisiones para el SO que ayudan a mantener la seguridad y el funcionamiento sin problemas, es bueno preguntar si hay actualizaciones disponibles antes de instalar software adicional.
+Muchas veces, se podría evitar una llamada de soporte técnico si el sistema está en el nivel de revisión real.
+
+Las imágenes a petición de Azure están conectadas automáticamente a la infraestructura de actualización de SUSE donde existen software y actualizaciones adicionales.
+Las imágenes de BYOS se deben registrar en SUSE Customer Center (https://scc.suse.com )
+
+Compruebe de forma sencilla las revisiones disponibles con:
+
+ `sudo zypper list-patches`
+
+Según el tipo de defecto, las revisiones se clasifican por categoría y gravedad.
+
+Los valores usados normalmente para categoría son: seguridad, recomendada, opcional, característica, documento o yast.
+
+Los valores usados normalmente para gravedad son: crítica, importante, moderada, baja o no especificada.
+
+zypper solo busca las actualizaciones necesarias para los paquetes instalados.
+
+Así que un comando de ejemplo podría ser:
+
+`sudo zypper patch  --category=security,recommended --severity=critical,important`
+
+Si agrega el parámetro *--dry-run*, puede probar la actualización, pero realmente no actualiza el sistema.
+
 
 ### <a name="disk-setup"></a>Configuración de disco
 El sistema de archivos raíz en una máquina virtual Linux en Azure tiene un tamaño limitado. Por lo tanto, es necesario agregar espacio adicional en disco a una máquina virtual para ejecutar SAP. Si la máquina virtual de servidor de aplicaciones SAP se usa en un entorno completamente de prototipo o demostración, usar discos de almacenamiento estándar de Azure es suficiente. Para los archivos de datos y de registro de SAP HANA DB, use discos de almacenamiento premium de Azure, incluso en entornos que no sean de producción.
@@ -121,7 +149,7 @@ Para almacenar en caché de disco de Azure, escriba **Ninguno** para los discos 
 Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
 Para buscar plantillas de JSON de ejemplo para crear máquinas virtuales, vaya a [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
-La plantilla de "101-vm-simple-linux" muestra una plantilla básica, que incluye una sección de almacenamiento con un disco de datos adicional de 100 GB.
+La plantilla "vm-simple-sles" muestra una plantilla básica, que incluye una sección de almacenamiento con un disco de datos adicional de 100 GB.
 
 Para más información acerca de cómo buscar una imagen de SUSE mediante PowerShell o CLI y entender la importancia de conectar un disco mediante UUID, consulte [Ejecución de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -146,20 +174,18 @@ A diferencia del escenario con máquina virtual del servidor de aplicaciones, se
 ### <a name="kernel-parameters"></a>Parámetros de kernel
 SAP HANA requiere configuraciones específicas para el kernel de Linux que no forman parte de las imágenes estándar de la galería de Azure y que se deben establecer manualmente. Una nota de SAP HANA describe la configuración de sistema operativo recomendada para SLES 12/SLES for SAP Applications 12: [ Nota de SAP 2205917](https://launchpad.support.sap.com/#/notes/2205917).
 
-Para un tema adicional de caché de páginas que está relacionado con la ejecución de SAP HANA en SLES, consulte la sección "6.1 Kernel: Page-Cache Limit" (Kernel: límite de caché de páginas) de la guía sobre [SUSE Linux Enterprise Server for SAP Applications 12 SP1](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache).
 
-Otra nota de SAP describe el límite de caché de páginas: [Nota de SAP 1557506](https://launchpad.support.sap.com/#/notes/1557506).
+SLES-for-SAP Applications 12 GA y SP1 tienen una nueva herramienta que sustituye a la utilidad sapconf anterior. Se llama tuned-adm y hay un perfil de SAP HANA especial disponible para ella. Para optimizar el sistema para SAP HANA, escriba como usuario raíz: "tuned-adm profile sap-hana".
 
-SLES 12 tiene una herramienta nueva que reemplaza a la utilidad sapconf anterior. Se llama tuned-adm y hay un perfil de SAP HANA especial disponible para ella. Para más información acerca de tuned-adm, consulte los siguientes artículos:
+Para más información sobre tuned-adm, consulte la documentación de SUSE en:
 
-* [Documentación de SLES sobre tuned-adm y el perfil de SAP Hana.](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html)
-* [Documentación de SLES sobre tuned-adm y el perfil de SAP Hana (capítulo 6.2 sobre el ajuste de sistemas para cargas de trabajo de SAP con tuned-adm)](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf).
+* [Documentación de SLES-for-SAP Applications 12 SP1 sobre tuned-adm profile sap-hana.](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip)
 
 En la siguiente captura de pantalla se ve cómo "tuned-adm" ha cambiado los valores de transparent_hugepage y de numa_balancing en función de las configuraciones de SAP HANA necesarias.
 
 ![La herramienta tuned-adm cambia los valores en función de la configuración necesaria de SAP HANA](./media/virtual-machines-linux-sap-hana-get-started/image005.jpg)
 
-Para convertir en permanentes las configuraciones de kernel de SAP HANA, se debe usar grub2 en SLES 12. Para más información sobre grub2, vaya a la [sección sobre "estructura de archivos de configuración" de la documentación de SUSE](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_grub2_file_structure.html).
+Para convertir en permanentes las configuraciones de kernel de SAP HANA, se debe usar grub2 en SLES 12. Para más información sobre grub2, vaya a la [sección sobre "estructura de archivos de configuración" de la documentación de SUSE](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
 La siguiente captura de pantalla muestra cómo se han cambiado las configuraciones del kernel en el archivo de configuración y después se han "compilado" mediante grub2-mkconfig.
 
@@ -181,7 +207,7 @@ Con respecto a la máquina virtual de SAP HANA DB, es importante saber que, si u
 Para ver una descripción del diseño del sistema de archivos estándar de SAP HANA, consulte la [guía de instalación y actualización del servidor de SAP HANA](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
 ![Se crearon dos sistemas de archivos adicionales en la máquina virtual del servidor de aplicaciones SAP](./media/virtual-machines-linux-sap-hana-get-started/image009.jpg)
 
-Si instala SAP NetWeaver en una imagen de galería estándar de SLES 12 de Azure, aparecerá un mensaje que informa de que no hay espacio de intercambio. Para descartar este mensaje, puede agregar manualmente un archivo de intercambio mediante dd, mkswap y swapon. Para obtener información sobre cómo hacerlo, busque "Adding a Swap File Manually" (Incorporación manual de un archivo de intercambio) en la [sección "Using the YaST Partitioner" (Uso del particionador YaST) de la documentación de SUSE](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html).
+Cuando instala SAP NetWeaver en una imagen estándar de la galería de Azure de SLES/SLES-for-SAP Applications 12, se muestra un mensaje que dice que no hay espacio de intercambio. Para descartar este mensaje, puede agregar manualmente un archivo de intercambio mediante dd, mkswap y swapon. Para obtener información sobre cómo hacerlo, busque "Adding a Swap File Manually" (Incorporación manual de un archivo de intercambio) en la [sección "Using the YaST Partitioner" (Uso del particionador YaST) de la documentación de SUSE](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
 Otra opción consiste en configurar el espacio de intercambio mediante el agente de la máquina virtual Linux. Consulte la [Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
 
@@ -199,16 +225,16 @@ Durante la fase de pruebas, se observó que era buena idea agregar el parámetro
 
 ![Adición del parámetro nofail a fstab](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
 
-## <a name="install-graphical-gnome-desktop-on-sles-12"></a>Instalación del escritorio Gnome gráfico en SLES 12
+## <a name="install-graphical-gnome-desktop-on-sles-12sles-for-sap-applications-12"></a>Instalación del escritorio gráfico Gnome en SLES 12/SLES-for-SAP Applications 12
 En esta sección se describen los temas siguientes:
 
-* Instalación del escritorio Gnome y xrdp en SLES 12
-* Ejecución de la consola de administración de SAP basada en Java con Firefox en SLES 12
+* Instalación del escritorio Gnome y xrdp en SLES 12/SLES-for-SAP Applications 12
+* Ejecución de la consola de administración de SAP basada en Java mediante Firefox en SLES 12/SLES-for-SAP Applications 12
 
 También puede utilizar otras alternativas, como Xterminal o VNC, pero, a partir de septiembre de 2016, la guía describe solo xrdp.
 
-### <a name="installing-gnome-desktop-and-xrdp-on-sles-12"></a>Instalación del escritorio Gnome y xrdp en SLES 12
-Si conoce Microsoft Windows, puede usar fácilmente un escritorio gráfico directamente dentro de las máquinas virtuales Linux de SAP para ejecutar Firefox, Sapinst, GUI de SAP, SAP MC o HANA Studio y conectarse a la máquina virtual a través de RDP desde un equipo Windows. Aunque este procedimiento podría no ser adecuado para un servidor de bases de datos de producción, sí lo es para un entorno de prototipo o demostración puro. Aquí se explica cómo instalar el escritorio Gnome en una máquina virtual SLES 12 de Azure:
+### <a name="installing-gnome-desktop-and-xrdp-on-sles-12sles-for-sap-applications-12"></a>Instalación del escritorio Gnome y xrdp en SLES 12/SLES-for-SAP Applications 12
+Si conoce Microsoft Windows, puede usar fácilmente un escritorio gráfico directamente dentro de las máquinas virtuales Linux de SAP para ejecutar Firefox, Sapinst, GUI de SAP, SAP MC o HANA Studio y conectarse a la máquina virtual a través de RDP desde un equipo Windows. Aunque este procedimiento podría no ser adecuado para un servidor de bases de datos de producción, sí lo es para un entorno de prototipo o demostración puro. Así es como se instala el escritorio Gnome en una máquina virtual SLES 12/SLES-for-SAP Applications 12 de Azure:
 
 Instale el escritorio Gnome y, para ello, escriba el siguiente comando (por ejemplo, en una ventana de PuTTY):
 
@@ -237,7 +263,7 @@ Si el reinicio de xrdp mencionado antes no funciona, compruebe si hay un archivo
 Quítelo y, luego, intente reiniciar de nuevo.
 
 ### <a name="sap-mc"></a>Consola de administración de SAP
-Después de instalar el escritorio Gnome, si inicia la consola de administración de SAP gráfica basada en Java desde Firefox ejecutándose en una máquina virtual SLES 12 de Azure podría aparecer un error debido al complemento de explorador de Java que falta.
+Después de instalar el escritorio Gnome, al iniciarse la consola de administración gráfica de SAP basada en Java desde Firefox que se ejecuta en una máquina virtual SLES 12/SLES-for-SAP Applications 12 de Azure, podría mostrarse un error porque falta el complemento del explorador de Java.
 
 La dirección URL para iniciar la consola de administración de SAP <server>:5<número_de_instancia>13.
 
@@ -255,7 +281,9 @@ Si repite la URL de la consola de administración de SAP, aparecerá un cuadro d
 
 ![Cuadro de diálogo que solicita la activación del complemento](./media/virtual-machines-linux-sap-hana-get-started/image015.jpg)
 
-Otro problema que podría producirse es la aparición de un mensaje de error acerca de un archivo que falta, javafx.properties. El error está relacionado probablemente con la instalación de Java 1.8, que es necesaria para GUI de SAP 7.4. La versión de IBM Java que se ve en Yast no incluye este archivo. La solución se encuentra una descarga de Java de Oracle. Para más información acerca de este problema, consulte [SAPGui 7.4 Java for openSUSE 42.1 Leap](https://scn.sap.com/thread/3908306) (SAPGui 7.4 Java para openSUSE 42.1 Leap).
+Otro problema que podría producirse es la aparición de un mensaje de error acerca de un archivo que falta, javafx.properties. Este problema está relacionado con el requisito de Oracle Java 1.8 for SAP GUI 7.4. [Consulte la nota de SAP 2059429](https://launchpad.support.sap.com/#/notes/2059424). Ni la versión de IBM Java ni el paquete openjdk que se proporciona con SLES/SLES-for-SAP Applications 12 incluyen la plataforma JavaFX necesaria. La solución es descargar e instalar Java SE8 desde Oracle.
+
+Se puede encontrar un artículo que trata sobre un problema similar en openSUSE con openjdk en [SAPGui 7.4 Java for openSUSE 42.1 Leap](https://scn.sap.com/thread/3908306).
 
 ## <a name="install-sap-hana-manually-by-using-swpm-as-part-of-a-netweaver-75-installation"></a>Instalación manual de SAP HANA mediante SWPM como parte de una instalación de NetWeaver 7.5
 La serie de capturas de pantalla de esta sección muestra los pasos principales para la instalación de SAP NetWeaver 7.5 y SAP HANA SP12 cuando usa SWPM (SAPinst). Como parte de la instalación de NetWeaver 7.5, SWPM también puede instalar la base de datos de HANA como una sola instancia.
@@ -397,9 +425,4 @@ Puede descargar el software desde SAP Service Marketplace, como se muestra en la
 * Descargue HANA SP12 Platform Edition:
 
  ![Ventana de instalación y actualización de SAP Service para la descarga de HANA SP12 Platform Edition](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

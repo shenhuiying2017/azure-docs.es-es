@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
-ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
+ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
+ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -81,7 +82,8 @@ Son los límites de una instancia de aplicación lógica.
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Ejecuciones de acciones por segundo|100|Puede distribuir los flujos de trabajo entre varias aplicaciones, según sea necesario.|
+|Ejecuciones de acciones por segundo (ráfagas)|1000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
+|Ejecuciones de acciones por hora (sostenidas)|1&000;&000;|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
 
 ### <a name="definition-limits"></a>Límites de definición
 
@@ -180,9 +182,4 @@ Las llamadas realizadas desde un [conector](../connectors/apis-list.md) proceder
 - [Ejemplos de aplicaciones lógicas y escenarios comunes](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
