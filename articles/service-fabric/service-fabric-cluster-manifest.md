@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
-ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
+ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
+ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -156,7 +157,7 @@ La sección **nodeTypes** describe el tipo de los nodos que tiene el clúster. S
 * *applicationPorts* son los puertos que utilizarán las aplicaciones de Service Fabric. Deben ser un subconjunto de *ephemeralPorts*, suficiente para cubrir el requisito de punto de conexión de las aplicaciones. Service Fabric los usará siembre que se requieran nuevos puertos, así que tenga en cuenta que debe abrir el firewall para estos puertos. 
 * *reverseProxyEndpointPort* es un punto de conexión de proxy inverso opcional. Consulte [Proxy inverso de Service Fabric](service-fabric-reverseproxy.md) para más detalles. 
 
-### <a name="other-settings"></a>Otras configuraciones
+### <a name="log-settings"></a>Configuración del registro
 La sección **fabricSettings** permite establecer los directorios raíz de los registros y datos de Service Fabric. Puede personalizarlos solo durante la creación inicial del clúster. Vea el siguiente fragmento de código de ejemplo de esta sección.
 
     "fabricSettings": [{
@@ -171,12 +172,19 @@ La sección **fabricSettings** permite establecer los directorios raíz de los r
 
 Se recomienda usar una unidad sin sistema operativo como FabricDataRoot y FabricLogRoot, dado que proporciona una mayor confiabilidad frente a bloqueos del sistema operativo. Tenga en cuenta que si solo personaliza la raíz de los datos, la raíz del registro se colocará un nivel por debajo de la raíz de los datos.
 
+### <a name="stateful-reliable-service-settings"></a>Configuración del servicio de confianza con estado
+La sección **KtlLogger** permite definir la configuración global de Reliable Services. Para obtener más información sobre estas opciones, lea [Configurar Reliable Services con estado](service-fabric-reliable-services-configuration.md).
+En el ejemplo siguiente se muestra cómo cambiar el registro de transacciones compartido que se crea para realizar copias de cualquier colección confiable de servicios con estado.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando ya tenga un archivo ClusterConfig.JSON completo configurado según la configuración del clúster independiente, puede implementar el clúster siguiendo el artículo [Creación de un clúster de Azure Service Fabric independientes](service-fabric-cluster-creation-for-windows-server.md) y luego continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

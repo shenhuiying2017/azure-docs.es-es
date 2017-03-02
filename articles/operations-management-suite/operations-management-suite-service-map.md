@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cf3e083f17bf8b2245373bced5823afd21fe1af9
-ms.openlocfilehash: d2e55846667cccec824e31f648beac1c84fbcf50
+ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
+ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -91,14 +92,17 @@ La opción Load Server Map (Mapa del servidor de carga) le remitirá a un nuevo 
 ### <a name="showhide-self-links"></a>Mostrar u ocultar autovínculos
 La opción Mostrar autovínculos volverá a dibujar el nodo de servidor junto con los autovínculos, que son las conexiones de TCP que empiezan y terminan en procesos dentro del servidor.  Si se muestran autovínculos, el menú cambia a Hide Self Links (Ocultar autovínculos), lo que permite a los usuarios alternar el dibujo de autovínculos.
 
+## <a name="computer-summary"></a>Resumen del equipo
+El panel de resumen de la máquina incluye información general del sistema operativo de un servidor y el número de dependencias, además de diversos datos de otras soluciones de OMS, como Métricas de rendimiento, Seguimiento de cambios, Seguridad, Actualizaciones, etc.
 
+![Resumen de la máquina](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propiedades de proceso y de equipo
 Al navegar por una asignación de Mapa de servicio, puede seleccionar equipos y procesos para obtener contexto adicional sobre sus propiedades.  Las máquinas proporcionan información sobre el nombre DNS, las direcciones IPv4, la capacidad de CPU y memoria, el tipo de VM, la versión del sistema operativo, el reinicio de última hora y los identificadores de sus agentes de OMS y Mapa de servicio.
 
 ![Propiedades de la máquina](media/oms-service-map/machine-properties.png)
 
-Los detalles de proceso se recopilan de los metadatos del sistema operativo sobre procesos de ejecución, como el nombre del proceso, la descripción del proceso, el nombre de usuario y dominio (en Windows), el nombre de la compañía, el nombre del producto, la versión del producto, el directorio de trabajo, la línea de comandos y la hora de inicio del proceso.
+Proceso: los detalles de proceso se recopilan de los metadatos del sistema operativo sobre procesos de ejecución, como el nombre del proceso, la descripción del proceso, el nombre de usuario y dominio (en Windows), el nombre de la compañía, el nombre del producto, la versión del producto, el directorio de trabajo, la línea de comandos y la hora de inicio del proceso.
 
 ![Propiedades del proceso](media/oms-service-map/process-properties.png)
 
@@ -106,10 +110,22 @@ El panel de resumen de procesos proporciona información adicional acerca de la 
 
 ![Resumen del proceso](media/oms-service-map/process-summary.png)
 
-## <a name="computer-summary"></a>Resumen del equipo
-El panel de resumen de la máquina incluye información general del sistema operativo de un servidor y el número de dependencias, además de diversos datos de otras soluciones de OMS, como Métricas de rendimiento, Seguimiento de cambios, Seguridad, Actualizaciones, etc.
+## <a name="oms-alerts-integration"></a>Integración de alertas de OMS
+Mapa de servicio se integra con Alertas de OMS para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado.  El servidor mostrará un icono si hay alertas actuales, y el panel de alertas de la máquina enumerará las alertas
 
-![Resumen de la máquina](media/oms-service-map/machine-summary.png)
+![Panel de alertas de la máquina](media/oms-service-map/machine-alerts.png)
+
+Tenga en cuenta que para que Mapa de servicio pueda mostrar las alertas pertinentes, debe crearse la regla de alerta para que se desencadene en un equipo específico.  Para crear alertas apropiadas, realice estos pasos:
+- Incluya una cláusula para realizar agrupaciones por equipo: "by Computer interval 1minute".
+- Elija que se envíen alertas según Unidades métricas.
+
+![Configuración de alertas](media/oms-service-map/alert-configuration.png)
+
+
+## <a name="oms-log-events-integration"></a>Integración de eventos de registro de OMS
+Mapa de servicio se integra con Búsqueda de registros para mostrar un recuento de todos los eventos de registro disponibles para el servidor seleccionado durante el intervalo de tiempo elegido.  Puede hacer clic en cualquier fila de la lista de recuentos de eventos para acceder a Búsqueda de registros y ver los eventos de registro individuales.
+
+![Eventos de registro](media/oms-service-map/log-events.png)
 
 ## <a name="oms-change-tracking-integration"></a>Integración del seguimiento de cambios de OMS
 La integración de Mapa de servicio con Seguimiento de cambios es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de OMS.
@@ -138,19 +154,6 @@ La solución Integración de Mapa de servicio con Administración de actualizaci
 
 En el panel de actualizaciones de la máquina se muestran datos de la solución Administración de actualizaciones de OMS del servidor seleccionado.  El panel mostrará un resumen de las actualizaciones que faltan en el servidor durante el intervalo de tiempo seleccionado.
 ![Panel de seguimiento de cambios del equipo](media/oms-service-map/machine-updates.png)
-
-
-## <a name="oms-alerts-integration"></a>Integración de alertas de OMS
-Mapa de servicio se integra con Alertas de OMS para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado.  El servidor mostrará un icono si hay alertas actuales, y el panel de alertas de la máquina enumerará las alertas
-
-![Panel de alertas de la máquina](media/oms-service-map/machine-alerts.png)
-
-Tenga en cuenta que para que Mapa de servicio pueda mostrar las alertas pertinentes, debe crearse la regla de alerta para que se desencadene en un equipo específico.  Para crear alertas apropiadas, realice estos pasos:
-- Incluya una cláusula para realizar agrupaciones por equipo: "by Computer interval 1minute".
-- Elija que se envíen alertas según Unidades métricas.
-
-![Configuración de alertas](media/oms-service-map/alert-configuration.png)
-
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 Los datos de inventario de equipos y procesos de Mapa de servicio están disponibles para realizar [búsquedas](../log-analytics/log-analytics-log-searches.md) en Log Analytics.  Esto se puede aplicar a escenarios como la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento ad hoc.
@@ -251,10 +254,14 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## <a name="rest-api"></a>API de REST
+Todos los datos de servidores, procesos y dependencias de Mapa de servicio están disponibles a través de la [API de REST de Mapa de servicio](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+
+
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 Microsoft recopila automáticamente datos de uso y rendimiento a través del servicio Mapa de servicio. Microsoft usa estos datos para proporcionar y mejorar la calidad, la seguridad y la integridad del servicio Mapa de servicio. Los datos incluyen información sobre la configuración del software como sistema operativo y la versión, y también incluyen la dirección IP, el nombre DNS y el nombre de la estación de trabajo con el fin de proporcionar funcionalidades de solución de problemas precisas y eficientes. No recopilamos los nombres, las direcciones ni otra información de contacto.
 
-Para obtener más información sobre el uso y la recopilación de datos, consulte la [Declaración de privacidad de Microsoft Online Services](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
+Para obtener más información sobre el uso y la recopilación de datos, consulte la [Declaración de privacidad de Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -263,9 +270,4 @@ Para obtener más información sobre el uso y la recopilación de datos, consult
 
 ## <a name="feedback"></a>Comentarios
 ¿Quiere hacernos llegar algún comentario acerca de Mapa de servicio o esta documentación?  Visite nuestra [página Voz del usuario](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), donde puede sugerir características o votar sugerencias existentes.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

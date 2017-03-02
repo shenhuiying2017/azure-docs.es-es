@@ -18,6 +18,7 @@ ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
 ms.openlocfilehash: 71c896673706fad3eb215f12893b65af7b697843
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -90,7 +91,7 @@ Para usar las herramientas de cliente de HPC Pack para enviar trabajos a la máq
 1. En el nodo principal, agregue el complemento Certificados a Microsoft Management Console para la cuenta del equipo local. Para que conocer los pasos para agregar el complemento, consulte [Agregar el complemento Certificados a MMC](https://technet.microsoft.com/library/cc754431.aspx).
 2. En el árbol de consola, expanda **Certificados – Equipo local** > **Personal** y, a continuación, haga clic en **Certificados**.
 3. Busque el certificado que configuró para los componentes web de HPC Pack en [Paso 1: Instalar y configurar los componentes web en el nodo principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (por ejemplo, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
-4. Haga clic con el botón derecho en el certificado y haga clic en **Todas las tareas** > **Exportar**..
+4. Haga clic con el botón derecho en el certificado y haga clic en **Todas las tareas** > **Exportar**.
 5. En el Asistente para exportar certificados, haga clic en **Siguiente** y asegúrese de que **No exportar la clave privada** está seleccionado.
 6. Siga los restantes pasos del asistente para exportar el certificado en formato DER binario codificado X.509 (.CER).
 
@@ -173,9 +174,4 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

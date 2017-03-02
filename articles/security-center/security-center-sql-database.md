@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
-ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ Security Center ayuda a proteger los datos de SQL Database ofreciendo visibilida
 * Definir las directivas de auditoría y cifrado de SQL Database
 * Supervisar la seguridad de los recursos de SQL Database de todas sus suscripciones
 * Identificar y corregir problemas de seguridad rápidamente
-* Integrar las alertas de [detección de amenazas de Azure SQL Database](../sql-database/sql-database-threat-detection-get-started.md)
+* Integrar las alertas de [detección de amenazas de Azure SQL Database](../sql-database/sql-database-threat-detection.md)
 
 Además de ayudarlo a proteger los recursos de SQL Database, Security Center también proporciona funcionalidades de administración y supervisión de seguridad de máquinas virtuales de Azure, Cloud Services, App Services, redes virtuales y mucho más. Obtenga más información sobre Security Center [aquí](security-center-intro.md).
 
@@ -79,7 +80,7 @@ Si quiere ver recomendaciones para los recursos de Azure, seleccione el icono de
 Tal y como se muestra a continuación, Security Center muestra los servidores SQL en los que no están habilitadas la auditoría y la detección de amenazas. Cuando haya activado la auditoría, podrá configurar las opciones de Detección de amenazas y los correos electrónicos donde se recibirán alertas de seguridad. Detección de amenazas avisa cuando se detectan actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos. Las alertas se muestran en el panel de Security Center.
 ![Detección de amenazas y auditoría][5]
 
-Siga los pasos del artículo de [introducción a la característica Detección de amenazas de SQL Database](../sql-database/sql-database-threat-detection-get-started.md) para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
+Siga los pasos de [SQL Database Threat Detection in the Azure portal](../sql-database/sql-database-threat-detection-portal.md) (Detección de amenazas de SQL Database en Azure Portal)/// para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
 
 Para obtener más información sobre las recomendaciones, consulte el artículo sobre cómo [administrar recomendaciones de seguridad](security-center-recommendations.md).
 
@@ -90,7 +91,7 @@ Después de habilitar las [directivas de seguridad](security-center-policies.md)
 Para obtener más información, consulte el artículo sobre cómo [supervisar el estado de seguridad](security-center-monitoring.md).
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Administración de las alertas de seguridad y respuesta a ellas
-Security Center recopila, analiza e integra automáticamente los datos de registro de la característica [Detección de amenazas de SQL de Azure](../sql-database/sql-database-threat-detection-get-started.md), así como otros recursos de Azure, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
+Security Center recopila, analiza e integra automáticamente los datos de registro de la característica [Detección de amenazas de SQL de Azure](../sql-database/sql-database-threat-detection.md), así como otros recursos de Azure, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
 
 Para ver las alertas, seleccione el icono de **Alertas de seguridad** de la hoja Security Center. En la hoja **Alertas de seguridad**, seleccione una alerta para ver más información sobre los eventos que la desencadenaron y, si existen, los pasos que debe seguir para corregir un ataque. En este ejemplo, vamos a seleccionar el **posible ataque por inyección de código SQL**.
 ![Alertas de seguridad][7]
@@ -115,9 +116,4 @@ Para obtener más información, consulte el artículo sobre cómo [administrar l
 [6]: ./media/security-center-sql-database/monitor-health.png
 [7]: ./media/security-center-sql-database/alert.png
 [8]: ./media/security-center-sql-database/sql-injection.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -1,8 +1,8 @@
 ---
-title: Formato del archivo de manifiesto de servicio Import-Export | Microsoft Docs
+title: Formato del archivo de manifiesto de Azure Import/Export | Microsoft Docs
 description: "Obtenga información acerca del formato del archivo de manifiesto de la unidad que describe la asignación entre los blobs de Azure Blob Storage y un archivo de la unidad en un trabajo de importación o exportación del servicio Import-Export"
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: c79d4e4b088bab056459ed4add442acfb0176692
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="import-export-service-manifest-file-format"></a>Formato del archivo de manifiesto de servicio Import-Export
+# <a name="azure-importexport-service-manifest-file-format"></a>Formato del archivo de manifiesto de servicio de Azure Import/Export
 El archivo de manifiesto de la unidad describe la asignación entre los blobs de Azure Blob Storage y los archivos de la unidad que componen un trabajo de importación o exportación. En el caso de una operación de importación, el archivo de manifiesto se crea como parte del proceso de preparación de la unidad y se almacena en la unidad antes de que esta se envíe al centro de datos de Azure. Durante una operación de exportación, el servicio Azure Import/Export crea y almacena el manifiesto en la unidad.  
   
 Tanto en los trabajos de importación como en los de exportación, el archivo de manifiesto de la unidad se almacena en la unidad de importación o exportación; no se transmite al servicio mediante ninguna operación de API.  
@@ -100,7 +101,7 @@ Los elementos de datos y atributos del formato XML del manifiesto de la unidad s
 |`Drive`|Elemento XML anidado|Contiene el manifiesto de cada unidad.|  
 |`DriveId`|string|Identificador único de la unidad. Para encontrar el identificador de la unidad es preciso consultar su número de serie. El número de serie de la unidad normalmente también está impreso en la parte exterior de la unidad. El elemento `DriveID` debe aparecer antes de todos los elementos `BlobList` en el archivo de manifiesto.|  
 |`StorageAccountKey`|string|Se requiere para trabajos de importación si, y solo si, no se ha especificado `ContainerSas`. La clave de la cuenta de Azure Storage asociada al job.<br /><br /> Este elemento se omite del manifiesto en las operaciones de exportación.|  
-|`ContainerSas`|string|Se requiere para trabajos de importación si, y solo si, no se ha especificado `StorageAccountKey`. El SAS del contenedor para acceder a los blobs asociados al trabajo. Consulte [Put Job](/rest/api/storageservices/importexport/Put-Job) para conocer su formato. Este elemento se omite del manifiesto en las operaciones de exportación.|  
+|`ContainerSas`|string|Se requiere para trabajos de importación si, y solo si, no se ha especificado `StorageAccountKey`. El SAS del contenedor para acceder a los blobs asociados al trabajo. Consulte [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) para conocer su formato. Este elemento se omite del manifiesto en las operaciones de exportación.|  
 |`ClientCreator`|String|Especifica que el cliente que creó el archivo XML. El servicio Import/Export no interpreta este valor.|  
 |`BlobList`|Elemento XML anidado|Contiene una lista de los blobs que forman parte del trabajo de importación o exportación. Todos los blobs de una lista de blobs comparten los mismos metadatos y propiedades.|  
 |`BlobList/MetadataPath`|string|Opcional. Especifica la ruta de acceso relativa de un archivo en el disco que contiene los metadatos predeterminados que se establecerán los blobs de la lista en una operación de importación. Opcionalmente, estos metadatos se pueden reemplazar en función del blob.<br /><br /> Este elemento se omite del manifiesto en las operaciones de exportación.|  
@@ -131,10 +132,5 @@ Los elementos de datos y atributos del formato XML del manifiesto de la unidad s
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Especifica el hash MD5 con codificación Base16 del archivo de propiedades del blob.|  
   
 ## <a name="see-also"></a>Otras referencias  
-[Azure Storage Import-Export REST API Reference](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference) (Referencia de la API de REST de Azure Storage Import-Export)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[Azure Storage Import-Export REST API Reference](/rest/api/storageimportexport/) (Referencia de la API de REST de Azure Storage Import-Export)
 

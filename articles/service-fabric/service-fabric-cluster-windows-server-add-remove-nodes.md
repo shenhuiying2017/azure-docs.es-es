@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
-ms.author: ryanwi;chackdan
+ms.date: 2/02/2017
+ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f7d2861512ba02e3b158db78fbee771da1c788b
-ms.openlocfilehash: 0d15e9a68c91c85e6a9250cc31e03e24b32cf7bf
+ms.sourcegitcommit: af121309be44852ee51f34130330533adf19d586
+ms.openlocfilehash: 68474b24519a46db71fe59b5d0574cc4700efccb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 0d15e9a68c91c85e6a9250cc31e03e24b32cf7bf
 Una vez que [cree su clúster de Service Fabric independiente en máquinas de Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades empresariales cambien y que deba agregar o quitar varios nodos del clúster. En este artículo, se muestran los pasos detallados para lograr este objetivo.
 
 ## <a name="add-nodes-to-your-cluster"></a>Incorporación de nodos al clúster
-1. Prepare la VM o la máquina que desea agregar al clúster con los pasos que se indican en la sección [Preparar las máquinas para cumplir los requisitos previos de la implementación del clúster](service-fabric-cluster-creation-for-windows-server.md#preparemachines) .
+1. Prepare la VM o la máquina que desea agregar al clúster con los pasos que se indican en la sección [Preparar las máquinas para cumplir los requisitos previos de la implementación del clúster](service-fabric-cluster-creation-for-windows-server.md) .
 2. Planee a qué dominio de error y de actualización va a agregar esta máquina o VM.
 3. Abra una conexión de Escritorio remoto (RDP) en la máquina o VM que desea agregar al clúster.
 4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) en esta máquina o VM y descomprímalo.
@@ -39,7 +40,7 @@ Puede comprobar si el nuevo nodo se agrega al ejecutar el cmdlet [ServiceFabricN
 
 
 ## <a name="remove-nodes-from-your-cluster"></a>Eliminación de nodos del clúster
-Según el nivel de confiabilidad elegido para el clúster, no podrá quitar los primeros nodos de n (3/5/7/9) del tipo de nodo principal También tenga en cuenta que no se admite la ejecución del comando RemoveNode en un clúster de desarrollo.
+Según el nivel de confiabilidad elegido para el clúster, no podrá quitar los primeros x (3/5/7/9) nodos del tipo de nodo principal. También tenga en cuenta que no se admite la ejecución del comando RemoveNode en un clúster de desarrollo.
 
 1. Abra una conexión de Escritorio remoto (RDP) en la máquina o máquina virtual que desea quitar del clúster.
 2. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprima el paquete en esta VM o máquina.
@@ -47,7 +48,9 @@ Según el nivel de confiabilidad elegido para el clúster, no podrá quitar los 
 4. Ejecute *RemoveNode.ps1* en PowerShell. En el ejemplo siguiente se quita el nodo actual del clúster. *ExistingClientConnectionEndpoint* es un punto de conexión de cliente para cualquier nodo que permanecerá en el clúster. Elija la dirección IP y el puerto del punto de conexión de *cualquier* **otro nodo** del clúster. Este **otro nodo** a su vez actualizará la configuración del clúster para el nodo quitado. 
 
 ```
+
 .\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
+
 ```
 
 > [!NOTE]
@@ -57,15 +60,18 @@ Según el nivel de confiabilidad elegido para el clúster, no podrá quitar los 
 
 Incluso después de quitar un nodo, puede que aparezca como si estuviera inactivo en las consultas y SFX, tenga en cuenta que se trata de un defecto conocido. Se corregirá en una próxima versión. 
 
+
+## <a name="remove-node-types-from-your-cluster"></a>Eliminación de tipos de nodo del clúster
+Para quitar un tipo de nodo, se debe ejercer especial cautela. Antes de quitar un tipo de nodo, compruebe de nuevo si no hay algún nodo que haga referencia a dicho tipo.
+
+
+## <a name="replace-primary-nodes-of-your-cluster"></a>Sustitución de los nodos principales del clúster
+Los nodos principales se deben sustituir uno por uno, en lugar de quitarlos y agregarlos de forma masiva.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md)
-* [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md)
 * [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md)
 * [Creación de un clúster de Service Fabric independiente con VM de Azure con Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

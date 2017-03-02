@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/21/2017
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 4192369f2e7758200131aa85c60d07436f7cbbdc
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 5987b1034fc9c52b13606c469683adff06729984
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,11 +29,8 @@ ms.openlocfilehash: 4192369f2e7758200131aa85c60d07436f7cbbdc
 ## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que ha [creado un clúster de Kubernetes con Azure Container Service](container-service-kubernetes-walkthrough.md).
 
-> [!NOTE]
-> La compatibilidad con Kubernetes en Azure Container Service está actualmente en versión preliminar.
->
 
-También se da por supuesto que tiene herramientas de kubectl y de la CLI de Azure instaladas.
+También se da por supuesto que tiene la CLI de Azure 2.0 y las herramientas de `kubectl` instaladas.
 
 Puede probar si tiene la herramienta `az` instalada mediante la ejecución de:
 
@@ -57,7 +55,7 @@ $ az acs kubernetes install-cli
 ## <a name="overview"></a>Información general
 
 ### <a name="connect-to-the-web-ui"></a>Conexión a la interfaz de usuario web
-Puede iniciar la interfaz de usuario web de Kubernetes ejecutando:
+Puede iniciar la interfaz de usuario web de Kubernetes ejecutando lo siguiente:
 
 ```console
 $ az acs kubernetes browse
@@ -66,76 +64,74 @@ $ az acs kubernetes browse
 Debería abrirse un explorador web configurado para comunicarse con un proxy seguro que conecta la máquina local con la interfaz de usuario web de Kubernetes.
 
 ### <a name="create-and-expose-a-service"></a>Creación y exposición de un servicio
-En la interfaz de usuario web de Kubernetes, debería ver un botón 'Crear' en la ventana derecha superior.
+1. En la interfaz de usuario web de Kubernetes, haga clic en el botón **Create** (Crear) de la ventana derecha superior.
 
-![Interfaz de usuario de creación de Kubernetes](media/k8s/create.png)
+    ![Interfaz de usuario de creación de Kubernetes](media/k8s/create.png)
 
-Se debería abrir un cuadro de diálogo en el que puede comenzar a crear la aplicación.
-Utilice el nombre `hello-nginx`. Use el contenedor [ `nginx` de Docker](https://hub.docker.com/_/nginx/) e implemente las tres réplicas de este servicio web.
+    Se debería abrir un cuadro de diálogo en el que puede comenzar a crear la aplicación.
 
-![Cuadro de diálogo de creación de pod de Kubernetes](media/k8s/nginx.png)
+2. Utilice el nombre `hello-nginx`. Use el contenedor [ `nginx` de Docker](https://hub.docker.com/_/nginx/) e implemente las tres réplicas de este servicio web.
 
-Después, cree un servicio de Kubernetes "externo" para equilibrar la carga del tráfico en nuestras tres réplicas.  Seleccione 'Externo' y escriba el puerto 80.
+    ![Cuadro de diálogo de creación de pod de Kubernetes](media/k8s/nginx.png)
 
-![Cuadro de diálogo de creación del servicio de Kubernetes](media/k8s/service.png)
+3. En **Service** (Servicio), seleccione **External** (Externo) y escriba el puerto 80.
 
-Por último, pulse el botón 'Implementar' para implementar estos contenedores y servicios.
+    Esta configuración equilibra la carga de tráfico a las tres réplicas.
 
-![Implementación de Kubernetes](media/k8s/deploy.png)
+    ![Cuadro de diálogo de creación del servicio de Kubernetes](media/k8s/service.png)
+
+4. Haga clic en **Deploy** (Implementar) para implementar estos contenedores y servicios.
+
+    ![Implementación de Kubernetes](media/k8s/deploy.png)
 
 ### <a name="view-your-containers"></a>Visualización de los contenedores
-Después de presionar 'Implementar', la interfaz de usuario muestra una vista de su servicio tal y como se implementa:
+Después de hacer clic en **Deploy** (Implementar), la interfaz de usuario muestra una vista de su servicio tal y como se implementa:
 
 ![Estado de Kubernetes](media/k8s/status.png)
 
-Puede ver el estado de cada objeto de Kubernetes en el círculo en el lado izquierdo de la interfaz de usuario. Si es un círculo parcialmente completo, el objeto se sigue implementando. Cuando un objeto está totalmente implementado, muestra una marca de verificación verde:
+Puede ver el estado de cada objeto de Kubernetes en el círculo en el lado izquierdo de la interfaz de usuario, bajo **Pods** (Pods). Si es un círculo parcialmente completo, el objeto se sigue implementando. Cuando un objeto está totalmente implementado, muestra una marca de verificación verde:
 
 ![Implementación de Kubernetes](media/k8s/deployed.png)
 
-Una vez que todo funciona, puede hacer clic en uno de los pod para ver detalles sobre la ejecución del servicio web
+Cuando todo funcione, puede hacer clic en uno de los pod para ver detalles sobre el servicio web que se esté ejecutando.
 
 ![Pod de Kubernetes](media/k8s/pods.png)
 
-En la vista específica del pod, puede ver información acerca de los contenedores en el pod, así como los recursos de CPU y memoria utilizados por los contenedores:
+En la vista específica **Pods**, puede ver información sobre los contenedores del pod, así como los recursos de CPU y memoria utilizados por los contenedores:
 
 ![Recursos de Kubernetes](media/k8s/resources.png)
 
 Si no ve los recursos, es posible que tenga que esperar unos minutos para que los datos de supervisión de propaguen.
 
-También puede hacer clic en el vínculo 'Registros' para ver los registros para el contenedor:
+Para ver los registros para el contenedor, haga clic en **View logs** (Ver registros).
 
 ![Registros de Kubernetes](media/k8s/logs.png)
 
 ### <a name="viewing-your-service"></a>Visualización del servicio
 Además de ejecutar los contenedores, la interfaz de usuario de Kubernetes ha creado una referencia externa `Service` que aprovisiona un equilibrador de carga para proporcionar tráfico a los contenedores en el clúster.
 
-Puede hacer clic en 'Servicios' en el panel de navegación izquierdo para ver todos los servicios (actualmente debe ser solo uno)
+En el panel de navegación izquierdo, haga clic en **Services** (Servicios) para ver todos los servicios (debería haber solo uno).
 
 ![Servicios de Kubernetes](media/k8s/service-deployed.png)
 
-En esa vista, podrá ver una dirección IP externa asignada a su servicio.
-Si hace clic en esa dirección IP, debería ver el contenedor de nginx que se ejecuta detrás del equilibrador de carga.
+En esa vista debe ver un punto de conexión externo (dirección IP) asignado a su servicio.
+Si hace clic en esa dirección IP, debería ver el contenedor de Nginx que se ejecuta detrás del equilibrador de carga.
 
 ![vista de nginx](media/k8s/nginx-page.png)
 
 ### <a name="resizing-your-service"></a>Cambio del tamaño del servicio
 Además de ver los objetos en la interfaz de usuario, también puede editar y actualizar los objetos de la API de Kubernetes.
 
-En primer lugar, vaya a `Deployment` para su servicio y haga clic en las 'Implementaciones' en el panel de navegación izquierdo.
+En primer lugar, vaya a **Deployments** (Implentaciones) del panel de navegación izquierdo para ver la implementación de su servicio.
 
-Una vez que esté en esa vista, haga clic en ReplicaSet y, luego, haga clic en el botón 'Editar' en la barra de navegación superior:
+Cuando esté en esa vista, haga clic en el conjunto de réplicas y, luego, haga clic en **Edit** (Editar) en la barra de navegación superior:
 
 ![Edición de Kubernetes](media/k8s/edit.png)
 
-Edite el campo `spec.replicas` para que sea '2' y presione 'Actualizar'.
+Edite el campo `spec.replicas` para establecerlo en `2`y haga clic en **Update** (Actualizar).
 
 Esto hará que el número de réplicas descienda a dos mediante la eliminación de uno de los pod.
 
  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

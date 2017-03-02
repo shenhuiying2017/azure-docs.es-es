@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: da682645640d74485a1caaff82fd0483a0e3f149
-ms.openlocfilehash: 6f10ea05edd3cb5b472b1102946b8da2dd1862d2
+ms.sourcegitcommit: 93ac6629df82b1a5b8d14a1ad289e1e462b49b17
+ms.openlocfilehash: 8883b2d15592ea5e0c286bd6e6fc7c38134326a7
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>Automatización de la instalación de Servicio de movilidad mediante herramientas de implementación de software
@@ -83,8 +84,10 @@ En este artículo se proporciona un ejemplo de cómo puede usar System Center Co
 | Línea de comandos | install.bat |
 | El programa se puede ejecutar | Tanto si un usuario inició sesión como si no |
 9. En la página siguiente, seleccione los sistemas operativos de destino. El Servicio de movilidad se puede instalar solo en Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 R2.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Haga clic en Siguiente dos veces para completar el asistente.
+
 > [!NOTE]
 > El script es compatible con ambas instalaciones de los agentes del Servicio de movilidad y la actualización de agentes ya instalados.
 
@@ -199,9 +202,4 @@ Más información sobre otras formas de instalar los servicios de movilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora está listo para [habilitar la protección](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) de las máquinas virtuales.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

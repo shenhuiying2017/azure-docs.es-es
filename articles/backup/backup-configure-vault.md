@@ -1,10 +1,10 @@
 ---
-title: "Copia de seguridad de un servidor o cliente de Windows en Azure con Azure Backup mediante el modelo de implementación de Resource Manager | Microsoft Docs"
+title: Copia de seguridad de Windows Server en Azure (Resource Manager) | Microsoft Docs
 description: "Cree una copia de seguridad de los servidores o clientes de Windows en Azure mediante la creación de un almacén de copia de seguridad, la descarga de credenciales, la instalación del agente de copia de seguridad y la realización de una copia de seguridad inicial de sus archivos y carpetas."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "almacén de copia de seguridad; copia de seguridad de un equipo de Windows Server; ventanas de copia de seguridad;"
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: jimpark; trinadhk; markgal
+ms.date: 2/16/2017
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 738b8e29fbc139753ea59f1a20416386383f942d
-ms.openlocfilehash: c6b662883919d81a4895c85deed8f50f9e578444
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: 018a1bde8163eda660fd50a41839b6c1ec622d79
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -222,9 +223,4 @@ Para más información sobre la copia de seguridad de máquinas virtuales u otra
 
 * Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
