@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 479425fe3e19b843fed2aeae94dcf1fd7e9a0a77
+ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
+ms.openlocfilehash: 84cd0c3eb2753a209d0aebda405f0b98a487140d
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Tutorial: Integración de Azure Active Directory con Litmos
 El objetivo de este tutorial es mostrar cómo integrar Litmos con Azure Active Directory (Azure AD).  
+
 La integración de Litmos con Azure AD le proporciona las siguientes ventajas: 
 
 * En Azure AD se puede controlar quién tiene acceso a Litmos 
-* Puede permitir que los usuarios inicien sesión automáticamente en Litmos (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en el inicio de sesión único (SSO) de Litmos con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central, Azure Active Directory. 
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -36,9 +38,8 @@ Para configurar la integración de Azure AD con Litmos, necesita los siguientes 
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en Litmos
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -48,12 +49,13 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.  
+
 El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
 1. Adición de Litmos desde la galería 
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-litmos-from-the-gallery"></a>Adición de Litmos desde la galería
+## <a name="add-litmos-from-the-gallery"></a>Incorporación de Litmos desde la galería
 Para configurar la integración de Litmos en Azure AD, deberá agregar Litmos desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Litmos desde la galería, realice los pasos siguientes:**
@@ -82,19 +84,22 @@ Para configurar la integración de Litmos en Azure AD, deberá agregar Litmos de
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Litmos con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Litmos para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Litmos.  
+
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Litmos.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Litmos, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba en Litmos](#creating-a-halogen-software-test-user)** : para tener un homólogo de Britta Simon en Litmos que esté vinculado a la representación de ella en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba en Litmos](#creating-a-halogen-software-test-user)**: para tener un homólogo de Britta Simon en Litmos que esté vinculado a la representación de ella en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD clásico y configurar el inicio de sesión único en la aplicación Litmos.  
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base&64;.  
+
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 Como parte de la configuración, debe personalizar los **atributos de token de SAML** para la aplicación Litmos.  
@@ -126,34 +131,32 @@ Como parte de la configuración, debe personalizar los **atributos de token de S
     ![Inicio de sesión único de Azure AD][26] 
 8. En el Portal de Azure clásico, en la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
-    ![Inicio de sesión único de Azure AD][8] 
+    ![Inicio de sesión único de Azure AD ][8] 
    
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Litmos (por ejemplo, *https://azureapptest.litmos.com/account/Login*).
+    1. En el cuadro de texto **Identificador**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Litmos (por ejemplo, *https://azureapptest.litmos.com/account/Login*).
    
-    b. En el cuadro de texto **URL de respuesta** , pegue el valor que ha copiado de la aplicación Litmos en el paso anterior.
+    2. En el cuadro de texto **URL de respuesta** , pegue el valor que ha copiado de la aplicación Litmos en el paso anterior.
    
-    c. Haga clic en **Siguiente**.
+    3. Haga clic en **Siguiente**.
 9. En la página **Configurar inicio de sesión único en Litmos** , siga estos pasos:
    
-    ![Inicio de sesión único de Azure AD][2] 
+    ![Inicio de sesión único de Azure AD ][2] 
    
-    a. Haga clic en Descargar certificado y después guarde el archivo en el equipo.
+    * Haga clic en Descargar certificado y después guarde el archivo en el equipo.
 10. En la aplicación **Litmos** , realice los pasos siguientes:
     
-     ![Inicio de sesión único de Azure AD][25] 
+     ![Inicio de sesión único de Azure AD ][25] 
     
-     a. Haga clic en **Enable SAML**(Habilitar SAML).
+     1. Haga clic en **Enable SAML**(Habilitar SAML).
     
-     b. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+     2. Cree un archivo **codificado en base&64;** a partir del certificado descargado.  
+    >[!TIP]
+    >Para más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     >
+
+     3. Abra el certificado codificado en base&64; en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509 de SAML** .
     
-    > [!TIP]
-    > Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
-    
-     c. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509 de SAML** .
-    
-     d. Haga clic en **Guardar cambios**.
+     4. Haga clic en **Guardar cambios**.
 11. En el Portal de Azure AD clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. 
     
      ![Inicio de sesión único de Azure AD ][10]
@@ -175,22 +178,18 @@ Como parte de la configuración, debe personalizar los **atributos de token de S
     
     En cada fila de datos de la tabla anterior, realice los pasos siguientes:
     
-    a. Haga clic en **agregar atributo de usuario**. 
-    
-    ![Configurar inicio de sesión único][15]
-
-    a. En el cuadro de texto **Nombre de atributo**, escriba el **nombre de atributo** que se muestra para la fila.
-
-    b. Seleccione el **valor de atributo** que se muestra en dicha fila.
-
-    c. Haga clic en **Completar** para cerrar el diálogo **Agregar atributo de usuario**.
+ 1. Haga clic en **agregar atributo de usuario**.    
+   ![Configurar inicio de sesión único][15]
+ 2. En el cuadro de texto **Nombre de atributo**, escriba el **nombre de atributo** que se muestra para la fila.
+ 3. Seleccione el **valor de atributo** que se muestra en dicha fila.
+ 4. Haga clic en **Completar** para cerrar el diálogo **Agregar atributo de usuario**.
 
 
 1. Haga clic en **Aplicar cambios**. 
    
    ![Configurar inicio de sesión único][16]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.  
 
 ![Creación de un usuario de Azure AD][20]
@@ -211,23 +210,23 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_05.png)  
    
-    a. En **Tipo de usuario**, seleccione **Nuevo usuario de la organización**.
+    1. En **Tipo de usuario**, seleccione **Nuevo usuario de la organización**.
    
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+    2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
    
-    c. Haga clic en **Siguiente**.
+    3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes: 
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+   1. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+   2. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+   3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
-   e. Haga clic en **Siguiente**.
+   4. En la lista **Rol**, seleccione **Usuario**.
+   5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png) 
@@ -235,11 +234,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_08.png) 
    
-    a. Anote el valor del campo **Nueva contraseña**.
+    1. Anote el valor del campo **Nueva contraseña**.
    
-    b. Haga clic en **Completo**.   
+    2. Haga clic en **Completo**.   
 
-### <a name="creating-a-litmos-test-user"></a>Creación de un usuario de prueba en Litmos
+### <a name="create-a-litmos-test-user"></a>Creación de un usuario de prueba en Litmos
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Litmos.  
 La aplicación Litmos admite el aprovisionamiento Just-in-Time. Esto significa que, si es necesario, se crea automáticamente una cuenta de usuario durante un intento de acceso a la aplicación mediante el panel de acceso.
 
@@ -259,9 +258,9 @@ La aplicación Litmos admite el aprovisionamiento Just-in-Time. Esto significa q
     ![Inicio de sesión único de Azure AD ][24] 
 5. Seleccione **Autogenerate Users:**(Generar usuarios automáticamente).
    
-    ![Inicio de sesión único de Azure AD][27] 
+    ![Inicio de sesión único de Azure AD ][27] 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Litmos.
 
 ![Asignar usuario][200] 
@@ -282,8 +281,9 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
+
 Al hacer clic en el icono de Litmos en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Litmos.
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -337,10 +337,5 @@ Al hacer clic en el icono de Litmos en el panel de acceso, debería iniciar sesi
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

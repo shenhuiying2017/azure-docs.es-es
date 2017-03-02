@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 3c19c2035b8dc9717dced5164b0214ab8019afd1
+ms.sourcegitcommit: 7bd403bb8569950a5bf4da3bd84905604753cda7
+ms.openlocfilehash: f29128dd156576276014e159afa9050364169c46
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -51,6 +52,8 @@ Los roles de administrador disponibles son los siguientes:
   > En la API Graph de Microsoft, la API Graph de Azure AD y Azure AD PowerShell, este rol se identifica como "Administrador de soporte técnico".
   >
   >
+* **Administrador del servicio Power BI**: los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando el servicio está presente. Puede obtener más información en [Making It Easier To Administer Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/) (Simplificación de la administración de Power BI).
+* **Administrador de roles con privilegios**: los usuarios con este rol pueden administrar Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) y actualizar las asignaciones de roles de otros usuarios.
 * **Administrador del servicio SharePoint**: los usuarios con este rol tienen permisos globales en Microsoft SharePoint Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **[Administrador de servicios](#service-administrator)**: administra las solicitudes de servicio y supervisa el estado del servicio.
 
@@ -114,6 +117,17 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 6. Especifique una ubicación en la lista desplegable **Ubicación de uso** .
 7. Cuando haya terminado, haga clic en **Guardar**.
 
+## <a name="deprecated-roles"></a>Roles en desuso
+
+Los siguientes roles no deben usarse. Están en desuso y se eliminarán de Azure AD más adelante.
+
+* Administrador de licencias ad hoc
+* Creador de usuarios comprobados de correo electrónico
+* Combinación de dispositivos
+* Administradores de dispositivos
+* Usuarios de dispositivos
+* Combinación de dispositivos de área de trabajo
+
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
@@ -121,9 +135,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 * [Administrar usuarios](active-directory-create-users.md)
 * [Administrar contraseñas](active-directory-manage-passwords.md)
 * [Administrar grupos](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

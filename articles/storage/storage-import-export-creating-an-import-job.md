@@ -1,5 +1,5 @@
 ---
-title: "Creación de un trabajo de importación para el servicio Azure Import/Export | Microsoft Docs"
+title: "Creación de un trabajo de importación para Azure Import/Export | Microsoft Docs"
 description: "Obtenga información sobre cómo crear un trabajo de importación para el servicio Microsoft Azure Import/Export."
 author: muralikk
 manager: syadav
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 348757809fb5820e2c5c2d5806ec3c74353f3fc8
+ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
+ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="creating-an-import-job"></a>Creación de un trabajo de importación
+# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creación de un trabajo de importación para el servicio Azure Import/Export
 
 Para crear un trabajo de importación para el servicio Microsoft Azure Import/Export con la API de REST, debe seguir estos pasos:
 
@@ -106,9 +107,4 @@ Cuando tenga el número de seguimiento, llame a la operación [Update Job Proper
 
 ## <a name="see-also"></a>Otras referencias
 [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

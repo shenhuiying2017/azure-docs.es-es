@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9bc03ee35436180e7c8639233ca80fb7e7e200f6
-ms.openlocfilehash: e4ce74244ceb7a493d33a1ed2aad8f7a36b96ad9
+ms.sourcegitcommit: bd280fabf22d569f3c4dae9f00f44b08700c8fc4
+ms.openlocfilehash: f034f028b0b1e0011e152b88d304dd54cfbc8320
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -68,7 +69,7 @@ Los siguientes pasos le ayudarán a agregar un repositorio al laboratorio a trav
 1. Seleccione **+ Add** (+ Agregar) para agregar el repositorio de plantillas de Azure Resource Manager.
 1. Cuando se abra la segunda hoja **Repositories** (Repositorios), escriba la información necesaria como se indica a continuación:
     - **Name** (Nombre): nombre del repositorio que se utiliza en el laboratorio.
-    - **Git clone URI** (URI de clonación de Git): dirección URL de clonación HTTPS de Git de GitHub o Visual Studio Team Services.  
+    - **URL de clonación de Git**: escriba la URL de clonación HTTPS de GIT de GitHub o Visual Studio Team Services.  
     - **Branch** (Rama): nombre de la rama para acceder a las definiciones de plantilla de Azure Resource Manager. 
     - **Personal access token** (Token de acceso personal): se usa para acceder de forma segura al repositorio. Para obtener el token de Visual Studio Team Services, seleccione ** &lt;SuNombre> > Mi perfil > Seguridad > Public access token** (Token de acceso público). Para obtener el token de GitHub, seleccione su avatar seguido de la selección **Configuración > Public access token** (Token de acceso público). 
     - **Rutas de acceso de carpeta**: en uno de los dos campos de entrada, escriba la ruta de acceso de carpeta que comienza con una barra diagonal (/) correspondiente a la URI de clonación de Git de cualquiera de las definiciones de artefacto (primer campo de entrada) o las definiciones de plantilla de Azure Resource Manager.   
@@ -115,8 +116,4 @@ Una vez configurado un repositorio de plantillas de Azure Resource Manager en el
 ## <a name="next-steps"></a>Pasos siguientes
 * Una vez creada la máquina virtual, puede conectarse a esta al seleccionar **Connect** (Conectar) en la hoja de la máquina virtual.
 * Explore las [plantillas de Azure Resource Manager de la galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates)
-
-
-<!--HONumber=Feb17_HO1-->
-
 

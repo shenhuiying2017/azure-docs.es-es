@@ -1,6 +1,6 @@
 ---
 title: "Compilación de configuraciones en DSC de Azure Automation | Microsoft Docs"
-description: "Información general sobre las dos formas de compilar las configuraciones de configuración de estado deseado (DSC): en el Portal de Azure y con Windows PowerShell. "
+description: "En este artículo se describe cómo compilar configuraciones de configuración de estado deseado (DSC) para Azure Automation."
 services: automation
 documentationcenter: na
 author: eslesar
@@ -11,18 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 12/13/2016
-ms.author: eslesar
+ms.date: 02/07/2017
+ms.author: magoedte; eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 30c93d801c68e24b45f5fbc119724e0a18076a13
+ms.sourcegitcommit: 146fe63ba2c9efd8b734eb8cc8cb5dee82a94f2a
+ms.openlocfilehash: 97757f2cc78dc02f4efdcb3c09cee7741504448b
+ms.lasthandoff: 02/21/2017
 
 ---
+
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilación de configuraciones en DSC de Automatización de Azure
 
-Puede compilar las configuraciones de configuración de estado deseado (DSC) de dos formas con la Automatización de Azure: en el Portal de Azure y con Windows PowerShell. La tabla siguiente le ayudará a determinar cuándo se debe usar cada método en base a las características de cada uno:
+Puede compilar las configuraciones de configuración de estado deseado (DSC) de dos formas con Azure Automation: en Azure Portal y con Windows PowerShell. La tabla siguiente le ayudará a determinar cuándo se debe usar cada método en base a las características de cada uno:
 
-### <a name="azure-preview-portal"></a>Portal de vista previa de Azure
+### <a name="azure-portal"></a>Portal de Azure
 
 * Método más sencillo con la interfaz de usuario interactiva
 * Forma para proporcionar valores de parámetro simples
@@ -43,7 +45,7 @@ Una vez que haya decidido un método de compilación, puede seguir los procedimi
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilación de una configuración de DSC con el Portal de Azure
 
-1. En su cuenta de automatización, haga clic en **Configuraciones**.
+1. En su cuenta de Automation, haga clic en **DSC Configurations** (Configuraciones DSC).
 2. Haga clic en una configuración para abrir su hoja.
 3. Haga clic en **Compilar**.
 4. Si la configuración no tiene parámetros, se le pedirá que confirme si desea compilarla. Si la configuración tiene parámetros, se abrirá la hoja **Compilar configuración** para que pueda proporcionar valores de parámetro. Consulte más abajo la sección [**Parámetros básicos**](#basic-parameters) para más información sobre los parámetros.
@@ -204,7 +206,7 @@ En el ejemplo siguiente se muestra una configuración de DSC que usa un recurso 
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
+    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {
@@ -239,8 +241,39 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
 
+## <a name="importing-node-configurations"></a>Importación de configuraciones de nodo
+
+También puede importar configuraciones de nodo (MOF) que se hayan compilado fuera de Azure. Una ventaja de esta posibilidad es que las configuraciones de nodo pueden estar firmadas.
+Una configuración de nodo firmada se comprueba localmente en un nodo administrado mediante el agente DSC; de este modo, se garantiza que la configuración que se va a aplicar al nodo proviene de una fuente autorizada.
+
+> [!NOTE]
+> Puede usar importar configuraciones firmadas en su cuenta de Azure Automation, pero Azure Automation no admite actualmente la compilación de configuraciones firmadas.
+
+> [!NOTE]
+> Un archivo de configuración de nodo debe ocupar más de 1 MB para poderlo importar en Azure Automation.
+
+Puede descubrir cómo firmar configuraciones de nodo en https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+
+### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importación de una configuración de nodo en Azure Portal
+
+1. En su cuenta de Automation, haga clic en **DSC node configurations** (Configuraciones de nodo DSC).
+
+    ![Configuraciones de nodo DSC](./media/automation-dsc-compile/node-config.png)
+2. En la hoja **Configuraciones de nodo DSC**, haga clic en **Agregar NodeConfiguration**.
+3. En la hoja **Importar**, haga clic en el icono de carpeta situado junto al cuadro de texto **Node Configuration File** (Archivo de configuración de nodo) para buscar un archivo de configuración de nodo (MOF) en el equipo local.
+
+    ![Buscar archivo local](./media/automation-dsc-compile/import-browse.png)
+4. Escriba un nombre en el cuadro de texto **Nombre de la configuración**. Este nombre debe coincidir con el de la configuración desde la que se compiló la configuración del nodo.
+5. Haga clic en **Aceptar**.
+
+### <a name="importing-a-node-configuration-with-powershell"></a>Importación de una configuración de nodo con PowerShell
+
+Puede usar el cmdlet [Import-AzureRmAutomationDscNodeConfiguration](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.automation/v1.0.12/import-azurermautomationdscnodeconfiguration) para importar una configuración de nodo en su cuenta de Automation.
+
+```powershell
+Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
+```
 
 
-<!--HONumber=Dec16_HO2-->
 
 

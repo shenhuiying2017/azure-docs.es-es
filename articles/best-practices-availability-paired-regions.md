@@ -1,6 +1,6 @@
 ---
 title: "Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure | Microsoft Docs"
-description: "Las parejas regionales de Azure garantizan que las aplicaciones serán resistentes durante los errores en el centro de datos."
+description: "Conozca más sobre el emparejamiento de regiones de Azure para asegurarse de que las aplicaciones sean resistentes durante los errores del centro de datos."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 56fe2f8d65379c9e957e46e1f44195b3ad2d0055
-ms.openlocfilehash: 30ec787997c0c622e8ade6eec2b2dcc635a5a664
+ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
+ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -47,7 +48,7 @@ Ilustración 1: Diagrama de pareja regional de Azure
 | Gobierno de Estados Unidos |Gobierno de EE. UU. - Iowa |Gobierno de EE. UU. - Virginia |
 | India |India Central |Sur de la India |
 | Canadá |Centro de Canadá |Este de Canadá |
-| Reino Unido |Oeste de Reino Unido |Sur del Reino Unido 2 |
+| Reino Unido |Oeste de Reino Unido |Sur del Reino Unido&2; |
 
 Tabla 1: Asignación de las parejas regionales de Azure
 
@@ -91,9 +92,4 @@ Como se indica en la ilustración 2.
 
 ![Datos](./media/best-practices-availability-paired-regions/9Orange.png)
 **Residencia de datos**: una región reside dentro de la misma ubicación geográfica que su pareja (a excepción del Sur de Brasil) con el objeto de cumplir los requisitos de residencia de datos para fines de jurisdicción de impuestos y aplicación de la ley.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

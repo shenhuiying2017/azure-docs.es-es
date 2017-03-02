@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/13/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: 118ea84abb0de095ac515ee98a643718ca54c043
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,6 +67,13 @@ Antes de establecer la conexión, es necesario obtener el nombre del servidor. E
 
 Se admite la conexión al servidor de Azure Analysis Services en Excel mediante Obtener datos en Excel 2016 o Power Query en versiones anteriores. Es obligatorio un [proveedor MSOLAP.7](analysis-services-data-providers.md). No se admite la conexión mediante el Asistente para importar tablas en Power Pivot.
 
+> [!NOTE]
+> Algunas organizaciones implementan actualizaciones de Office 365 con el canal diferido; es decir, que las actualizaciones de versión se retrasan hasta cuatro meses de la versión actual. Para la compilación de la versión 1609.7369.2115 de Excel 2016 y anteriores, o Excel 2013, puede crear un archivo de conexión de datos de Office (.odc) y actualizar manualmente el proveedor MSOLAP.7 para conectarse a un servidor de Azure Analysis Services. Para obtener más información, consulte [el artículo en el que se explica cómo crear un archivo .odc](analysis-services-odc.md).
+> 
+> 
+
+**Para conectarse desde Excel 2016**
+
 1. En Excel 2016, en la cinta de opciones **Datos**, haga clic en **Obtener datos externos** > **De otros orígenes** > **Desde Analysis Services**.
 2. En el Asistente para la conexión de datos, en **Nombre del servidor**, pegue el nombre del servidor desde el Portapapeles. A continuación, en **Credenciales de inicio de sesión**, seleccione **	Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización, por ejemplo nancy@adventureworks.com,, y la contraseña.
 
@@ -94,10 +102,5 @@ La autenticación integrada selecciona la memoria caché de credenciales de Azur
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Administración del servidor](analysis-services-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

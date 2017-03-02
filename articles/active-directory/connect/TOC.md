@@ -22,8 +22,10 @@
 ## Planeamiento y diseño
 ### [Conceptos de diseño](active-directory-aadconnect-design-concepts.md)
 ### [Topologías de Azure AD Connect](active-directory-aadconnect-topologies.md)
+### [Inicio de sesión único](active-directory-aadconnect-sso.md)
+### [Active Directory Federation Services en Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Consideraciones especiales para instancias](active-directory-aadconnect-instances.md)
-
+### [Cuando ya tiene una cuenta de Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Administración de Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renovación de certificados para Office&365; y Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Habilitación de la escritura diferida](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Administración de Azure AD Connect Sync
 ### [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md)
 ### [Cuenta de servicio de Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Asistente para la instalación](active-directory-aadconnectsync-installation-wizard.md)
 ### [Cambio de la configuración predeterminada](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configuración del filtrado](active-directory-aadconnectsync-configure-filtering.md)
 ### [Programador](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Operaciones](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Operaciones](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Diseñador de metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Búsqueda de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Administración de servicios de federación
 ### [Administración y personalización](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # resources
 ##[Preguntas más frecuentes sobre Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Degradación de la sincronización de directorios](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

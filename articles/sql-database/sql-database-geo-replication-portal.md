@@ -3,7 +3,7 @@ title: "Configuración de replicación geográfica para Azure SQL Database con A
 description: "Configuración de replicación geográfica para Azure SQL Database con Azure Portal"
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
@@ -14,21 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure
-> [!div class="op_single_selector"]
-> * [Información general](sql-database-geo-replication-overview.md)
-> * [Portal de Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configuración de replicación geográfica activa para Azure SQL Database con Azure Portal
 
 En este artículo se muestra cómo configurar la replicación geográfica activa para SQL Database con [Azure Portal](http://portal.azure.com).
 
@@ -39,7 +33,7 @@ Para iniciar una conmutación por error planeada con el Portal de Azure, consult
 > 
 > 
 
-Para configurar la replicación geográfica mediante Azure Portal, necesita el siguiente recurso:
+Para configurar la replicación geográfica activa mediante Azure Portal, necesita el siguiente recurso:
 
 * Una instancia de Azure SQL Database: la base de datos principal que quiere replicar en una región geográfica diferente.
 
@@ -51,7 +45,7 @@ Los pasos siguientes crean otra base de datos secundaria en una asociación de r
 
 Para agregar una base de datos secundaria, debe ser el propietario o copropietario de la suscripción.
 
-La base de datos secundaria tiene el mismo nombre que la base de datos principal y, de forma predeterminada, presentan el mismo nivel de servicio. La base de datos secundaria puede ser una base de datos independiente o una de un grupo elástico. Para obtener más información, consulte el artículo sobre [niveles de servicio](sql-database-service-tiers.md).
+La base de datos secundaria tiene el mismo nombre que la base de datos principal y, de forma predeterminada, presentan el mismo nivel de servicio. La base de datos secundaria puede ser una base de datos única o una de un grupo elástico. Para obtener más información, consulte el artículo sobre [niveles de servicio](sql-database-service-tiers.md).
 Después de crear e inicializar la base de datos secundaria, los datos comienzan a replicarse desde la base de datos principal a la nueva base de datos secundaria.
 
 > [!NOTE]
@@ -88,12 +82,7 @@ Esta operación termina de forma permanente la replicación en la base de datos 
 5. Se abrirá una ventana de confirmación. Haga clic en **Sí** para quitar la base de datos de la asociación de replicación geográfica. (Establezca el valor en una base de datos de lectura y escritura que no forme parte de ninguna replicación).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener más información sobre la replicación geográfica activa, consulte [este artículo](sql-database-geo-replication-overview.md).
+* Si quiere conocer más detalles sobre la replicación geográfica activa, consulte [este artículo](sql-database-geo-replication-overview.md).
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

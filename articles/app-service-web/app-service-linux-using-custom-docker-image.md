@@ -5,7 +5,7 @@ keywords: "azure app service, aplicación web, linux, docker, contenedor"
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 54b38c7f8cf685387ac639653d208a00cefbc3fa
-ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -27,8 +28,8 @@ ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
 App Service proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad para versiones específicas, como PHP 7.0 y Node.js 4.5. App Service en Linux utiliza contenedores de Docker para hospedar estas pilas de aplicaciones incorporadas. También puede usar una imagen personalizada de Docker para implementar la aplicación web a una pila de aplicaciones aún sin definir en Azure. Las imágenes de Docker personalizadas se pueden hospedar en un repositorio de Docker público o privado.
 
 
-## <a name="how-to-set-a-custom-docker-image-for-a-new-web-app"></a>Establecimiento de una imagen de Docker personalizada para una nueva aplicación web
-Puede establecer la imagen de Docker personalizada para aplicaciones web nuevas y existentes. Cuando cree una nueva aplicación web en Linux en el [Azure Portal](https://portal.azure.com), haga clic en **Configurar contenedor** para establecer una imagen de Docker personalizada:
+## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>Establecimiento de una imagen de Docker personalizada para una aplicación web
+Puede establecer la imagen de Docker personalizada para aplicaciones web nuevas y existentes. Cuando cree una nueva aplicación web en Linux en [Azure Portal](https://portal.azure.com), haga clic en **Configurar contenedor** para establecer una imagen de Docker personalizada:
 
 ![Imagen de Docker personalizada para una nueva aplicación web en Linux][1]
 
@@ -53,7 +54,7 @@ Para usar una imagen de Docker de un registro de imágenes privado:
 
 1. En [Azure Portal](https://portal.azure.com), busque la aplicación web en Linux y, en **Configuración**, haga clic en **Contenedor de Docker**.
 
-2.  Seleccione **Registro privado** como **Origen de imagen**, escriba el nombre en **Imagen y etiqueta opcional (por ejemplo, 'image:tag')**, la **URL de servidor** del registro privado y las credenciales (**nombre de usuario de inicio de sesión** y **contraseña**); a continuación, haga clic en **Guardar**.
+2.  Haga clic en **Registro privado** como **Origen de imagen**. Especifique valores para el **nombre de la imagen y la etiqueta opcional** y la **dirección URL del servidor** para el registro privado, junto con las credenciales (**nombre de usuario de inicio de sesión** y **contraseña**). Haga clic en **Guardar**.
 
     ![Configuración de la imagen de Docker del registro privado][4]
 
@@ -71,9 +72,7 @@ Cuando use una imagen personalizada de Docker para la aplicación web, puede usa
 
 En la última línea del comando, puede ver que la variable de entorno de PORT se pasa en tiempo de ejecución. Recuerde que en los comandos se distingue entre mayúsculas y minúsculas.
 
-Al usar una imagen de Docker existente creada por otra persona, para la aplicación debe especificar un puerto distinto al 80. 
-
-Para ello, agregue una configuración de aplicación denominada `PORT` con el valor que espera la imagen:
+Al usar una imagen de Docker existente creada por otra persona, para la aplicación debe especificar un puerto distinto al 80. Para configurar el puerto, agregue una configuración de la aplicación llamada `PORT` con el valor tal y como se muestra a continuación:
 
 ![Configuración de aplicación PORT para una imagen personalizada de Docker][6]
 
@@ -104,6 +103,7 @@ Siga los vínculos a continuación para empezar a trabajar con App Service en Li
 * [Introducción a App Service en Linux](./app-service-linux-intro.md)
 * [Creación de aplicaciones web en App Service en Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md) (Uso de la configuración de PM2 para Node.js en Web Apps en Linux)
+* [Preguntas más frecuentes sobre Azure App Service Web Apps en Linux](app-service-linux-faq.md)
 
 Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -116,9 +116,4 @@ Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.micro
 [5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
 [6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
 [7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

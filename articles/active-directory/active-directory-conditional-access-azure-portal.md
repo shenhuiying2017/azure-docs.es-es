@@ -16,8 +16,9 @@ ms.workload: identity
 ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
-ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
+ms.sourcegitcommit: 4dad4bd824f199562cb972c98cfcb452f2823828
+ms.openlocfilehash: b85b10b9504c5efa7ec05b92b544ad777e3abacc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -167,6 +168,26 @@ No, no se puede usar Exchange ActiveSync en una directiva de acceso condicional 
 Actualmente, se le solicita al usuario la autenticación multifactor con independencia del dispositivo.
 
 
+## <a name="what-you-should-avoid-doing"></a>¿Qué no debería hacer?
+
+El marco de trabajo de acceso condicional le proporciona una flexibilidad de configuración excelente. Sin embargo, una gran flexibilidad también implica revisar cuidadosamente cada directiva de configuración antes de liberarla para evitar resultados no deseados. En este contexto, debe prestar especial atención a las asignaciones que afectan a conjuntos completos, como **todos los usuarios / grupos / aplicaciones en la nube**.
+
+En su entorno, debería evitar las siguientes configuraciones:
+
+
+**Para todos los usuarios, todas las aplicaciones en la nube:**
+
+- **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
+
+- **Requerir dispositivo compatible**: para usuarios que aún no han inscrito sus dispositivos, esta directiva bloquea todo el acceso, incluido el acceso al portal Intune. Si es un administrador y no tiene un dispositivo inscrito, esta directiva le impide volver a acceder Azure Portal para cambiar la directiva.
+
+- **Requerir unión a un dominio** : este acceso al bloqueo de directivas también ofrece la posibilidad de bloquear el acceso a todos los usuarios de su organización si aún no tiene un dispositivo unido al dominio.
+ 
+
+**Para todos los usuarios, todas las aplicaciones en la nube, todas las plataformas de dispositivos:** 
+
+- **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
+
 
 ## <a name="common-scenarios"></a>Escenarios comunes
 
@@ -193,9 +214,4 @@ Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
