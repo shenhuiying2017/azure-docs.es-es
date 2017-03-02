@@ -408,7 +408,7 @@ En esta sección, se muestra el código que agrega una notificación de webhook 
 
                 ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.None);
 
 
