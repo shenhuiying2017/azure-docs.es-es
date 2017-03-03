@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
 ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -408,9 +409,4 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 * Azure DocumentDB: [Niveles de rendimiento en DocumentDB](../documentdb/documentdb-performance-levels.md)
 * Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -18,6 +18,7 @@ ms.author: janeng
 translationtype: Human Translation
 ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
 ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -132,9 +133,4 @@ La prueba comparativa Base de datos SQL de Azure Benchmark mide el rendimiento r
 [Niveles de servicio y niveles de rendimiento](sql-database-service-tiers.md)
 
 [Guía de rendimiento de Base de datos SQL de Azure para bases de datos únicas](sql-database-performance-guidance.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

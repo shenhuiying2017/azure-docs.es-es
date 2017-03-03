@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -129,10 +130,5 @@ Desde que Umbraco eligió Azure como asociado de soluciones en la nube, ha podid
 * Para conocer más detalles sobre la copia de seguridad y recuperación, vea [este artículo](sql-database-business-continuity.md).    
 * Si quiere obtener más información sobre los grupos de supervisión, consulte [este artículo](sql-database-elastic-pool-manage-portal.md).    
 * Si necesita más detalles sobre Umbraco as a Service, lea [este artículo](https://umbraco.com/cloud).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

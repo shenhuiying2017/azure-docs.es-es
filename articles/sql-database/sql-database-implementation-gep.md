@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
 ms.openlocfilehash: 5730556f4d5af04481c771c8a70f003d6cd2917c
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -103,10 +104,5 @@ Desde que GEP migró los centros de datos locales a Azure y desarrolló SMART by
 * Huzaifa Matawala, director asociado y arquitecto de GEP
 * Sathyan Narasingh, administrador de ingeniería de GEP
 * Deepa Velukutty, arquitecto de bases de datos de GEP
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

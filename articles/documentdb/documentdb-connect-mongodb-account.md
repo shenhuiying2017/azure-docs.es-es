@@ -18,6 +18,7 @@ ms.author: anhoh
 translationtype: Human Translation
 ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
 ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -83,9 +84,4 @@ Por ejemplo, considere la cuenta que aparece en la hoja Información de cadena d
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB con compatibilidad de protocolo con MongoDB.
 * Explore DocumentDB con soporte de protocolo para buscar [ejemplos](documentdb-mongodb-samples.md)de MongoDB.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

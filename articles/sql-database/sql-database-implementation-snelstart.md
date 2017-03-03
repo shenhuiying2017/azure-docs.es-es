@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -107,10 +108,5 @@ El objetivo inmediato de SnelStart es seguir aumentando la base de clientes sati
 * Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Si quiere conocer más información sobre Azure este artículo, lea [este artículo](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Para obtener más información sobre SnelStart, vea [este artículo](http://www.snelstart.nl).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
