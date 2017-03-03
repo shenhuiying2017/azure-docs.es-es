@@ -19,6 +19,7 @@ ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
 ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -294,10 +295,5 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

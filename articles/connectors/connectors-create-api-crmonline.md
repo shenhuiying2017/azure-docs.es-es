@@ -17,6 +17,7 @@ ms.author: matp
 translationtype: Human Translation
 ms.sourcegitcommit: fa426f474f4efd4023da5dfd9954dacf96f635ab
 ms.openlocfilehash: 99d5379ad1e6965dd9ed88de456cc850d7e40d5a
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -309,9 +310,4 @@ Las acciones y los desencadenadores pueden devolver uno o varios de los siguient
 
 ## <a name="next-steps"></a>Pasos siguientes
 Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

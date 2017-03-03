@@ -17,6 +17,7 @@ ms.author: jarrettr
 translationtype: Human Translation
 ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
 ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -77,9 +78,4 @@ Consulte [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para 
 ### <a name="moving-data-faq"></a>Preguntas más frecuentes sobre movimiento de datos:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>¿Puedo migrar VHD de una región a otra sin copiar?
 La única manera de copiar VHD entre regiones es copiar los datos entre las cuentas de almacenamiento en cada región. Puede utilizar AZCopy para ello. Consulte Transferencia de datos con la utilidad en línea de comandos AzCopy para obtener más información. Para grandes cantidades de datos, también puede importar/exportar de Azure. Consulte [Importación/Exportación de Azure](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) para más información.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
