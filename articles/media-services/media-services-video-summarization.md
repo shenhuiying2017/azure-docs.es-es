@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/16/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
+ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -26,7 +27,11 @@ El procesador de multimedia (PM) **Miniaturas de vídeo multimedia de Azure** le
 
 El PM **Miniatura de vídeo multimedia de Azure** está actualmente en versión preliminar.
 
-En este tema se proporcionan detalles acerca de **Miniatura de vídeo multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET
+En este tema se proporcionan detalles sobre **Miniatura de vídeo multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET.
+
+## <a name="limitations"></a>Limitaciones
+
+En algunos casos, si el vídeo no está formado por diferentes escenas, el resultado solo será una fotografía.
 
 ## <a name="video-summary-example"></a>Ejemplo de resumen de vídeo
 Estos son algunos ejemplos de lo que puede hacer el procesador de multimedia Miniaturas de vídeo multimedia de Azure:
@@ -262,10 +267,5 @@ El programa siguiente muestra cómo:
 [Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

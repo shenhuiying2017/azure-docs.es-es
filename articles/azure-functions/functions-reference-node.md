@@ -19,6 +19,7 @@ ms.author: chrande, glenga
 translationtype: Human Translation
 ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
 ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -194,10 +195,5 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
 * [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

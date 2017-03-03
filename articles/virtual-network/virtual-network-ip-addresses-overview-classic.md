@@ -18,6 +18,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
 ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -178,10 +179,5 @@ A continuación, se muestra una comparación de las características de direccio
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a5c84d7ef67c49042eb85965593f44915a666df9
+ms.sourcegitcommit: 00124aa9d0729880bf2314f5c35c1797b7a6827f
+ms.openlocfilehash: 79d844f8fa3d3d0898b642f561df34588e044f9a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -53,8 +54,8 @@ Las reglas de acceso condicional que utilizan una red "en el trabajo" dependen d
 Opciones para especificar redes "en el trabajo"
 
 1. Configurar intervalos de direcciones IP de confianza en la [página de configuración de la autenticación multifactor](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La directiva de acceso condicional usará los intervalos configurados en cada solicitud de autenticación y emisión de tokens para evaluar las reglas. 
-2. Configurar el uso de la notificación "dentro de la red corporativa"; esta opción se puede usar con directorios federados mediante AD FS. [Aprenda más sobre las notificaciones "dentro de la red corporativa"](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
-3. Configurar intervalos de direcciones IP públicas. En la pestaña Configurar de su directorio, puede configurar direcciones IP públicas. Estas direcciones se usarán en el acceso condicional como direcciones IP "en el trabajo", lo que permite la configuración de intervalos adicionales por encima del límite de 50 direcciones IP que se aplica en la página de configuración de MFA.
+2. Configurar el uso de la notificación "dentro de la red corporativa"; esta opción se puede usar con directorios federados mediante AD FS. Para obtener más información sobre las notificaciones internas de corpnet , consulte [IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+
 
 ## <a name="rules-based-on-application-sensitivity"></a>Reglas basadas en la confidencialidad de las aplicaciones
 Las reglas se configuran por aplicación, lo que permite a los servicios de alto valor estar protegidos sin que se vea afectado el acceso a otros servicios. Se pueden configurar reglas de acceso condicional en la pestaña **Configurar** de la aplicación. 
@@ -74,10 +75,5 @@ Reglas que se ofrecen actualmente:
 ## <a name="related-topics"></a>Temas relacionados
 * [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

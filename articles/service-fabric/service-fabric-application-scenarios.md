@@ -12,18 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
+ms.date: 2/17/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dfc2af63c7acb1fef47abb329a385cd7448d2186
-ms.openlocfilehash: 6bbffcfd8acc531fd70c9db90a9f57d8db942002
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: feeba5c8e663b9ea571e4410a2d3ad3505394127
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="service-fabric-application-scenarios"></a>Escenarios de aplicación de Service Fabric
 Azure Service Fabric ofrece una plataforma confiable y flexible que le permite escribir y ejecutar muchos tipos de aplicaciones y servicios empresariales. Estas aplicaciones y microservicios pueden tener estado o no tenerlo, y se equilibran mediante recursos en las máquinas virtuales para maximizar su eficacia. La arquitectura única de Service Fabric le permite realizar análisis de datos casi en tiempo real, cálculo en memoria, transacciones paralelas y procesamiento de eventos en sus aplicaciones. Puede escalar o reducir verticalmente sus aplicaciones con facilidad (en realidad hacia dentro o hacia fuera), dependiendo de sus requisitos de recursos variables.
 
-La plataforma Service Fabric de Azure es ideal para las siguientes categorías de aplicaciones y servicios:
+La plataforma Service Fabric de Azure es ideal para las siguientes categorías de aplicaciones:
 
 * **Servicios de alta disponibilidad**: los servicios de Service Fabric proporcionan conmutación por error rápida mediante la creación de varias réplicas de servicio secundarias. Si un nodo, proceso o servicio individual deja de funcionar por un error de hardware u otro fallo, una de las réplicas secundarias se amplía a una réplica principal con una pérdida mínima de servicio.
 * **Servicios escalables**: los servicios individuales pueden tener particiones, permitiendo que el estado se escale horizontalmente en el clúster. Además, pueden crearse y eliminarse servicios individuales sobre la marcha. Los servicios se pueden escalar horizontalmente de forma rápida y fácil en unas pocas instancias de unos cuantos nodos hasta miles de instancias en muchos nodos y, a continuación, reducir horizontalmente otra vez, dependiendo de sus necesidades de recursos. Puede usar Service Fabric para crear estos servicios y administrar su ciclo de vida completo.
@@ -31,9 +32,11 @@ La plataforma Service Fabric de Azure es ideal para las siguientes categorías d
 * **Aplicaciones interactivas basadas en sesión**: Service Fabric es útil si sus aplicaciones, como juegos en línea o mensajería instantánea, requieren lecturas y escrituras de baja latencia. Service Fabric le permite crear estas aplicaciones con estado interactivas sin tener que crear un almacén o memoria caché independientes necesarios para las aplicaciones sin estado. (Esto aumenta la latencia y es posible que presente problemas de coherencia).
 * **Procesamiento gráfico distribuido**: el crecimiento de las redes sociales ha aumentado en gran medida la necesidad de analizar gráficos a gran escala en paralelo. El escalado rápido y el procesamiento de carga paralelo convierten Service Fabric en una plataforma natural para el procesamiento de gráficos a gran escala. Service Fabric le permite crear servicios altamente escalables para grupos como redes sociales, inteligencia empresarial e investigación científica.
 * **Análisis y flujos de trabajo de datos**: las lecturas y escrituras rápidas de Service Fabric permiten las aplicaciones que deben procesar de forma confiable eventos o secuencias de datos. Service Fabric también permite aplicaciones que describen las canalizaciones de procesamiento, donde los resultados deben ser confiables y pasar a la siguiente fase de procesamiento sin pérdida. Estos incluyen sistemas transaccionales y financieros, donde las garantías de procesamiento y coherencia de datos son fundamentales.
+* **Recopilación de datos, procesamiento e IoT**: como Service Fabric controla conjuntos a gran escala y tiene una latencia baja gracias sus servicios con estado, es idóneo para el procesamiento de datos de millones de dispositivos en los que los datos para el dispositivo y el cálculo se ubican conjuntamente.
+Hemos visto varios clientes que han desarrollado sistemas IoT con Service Fabric incluido [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/), [Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/) y [Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/).
 
 ## <a name="application-design-case-studies"></a>Casos prácticos de diseño de aplicaciones
-Un número de casos prácticos para ver cómo se usa Service Fabric para diseñar aplicaciones se publica en el [sitio de soluciones de microservicios](https://azure.microsoft.com/solutions/microservice-applications/)
+Un número de casos prácticos para ver cómo se usa Service Fabric para diseñar aplicaciones se publica en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) y en el [sitio de soluciones de microservicios](https://azure.microsoft.com/solutions/microservice-applications/)
 
 ## <a name="design-applications-composed-of-stateless-and-stateful-microservices"></a>Diseño de aplicaciones compuestas por microservicios sin y con estado
 La creación de aplicaciones con roles de trabajo del servicio en la nube de Azure es un ejemplo de servicios sin estado. Por el contrario, los microservicios con estado mantienen el estado autorizado más allá de la solicitud y su respuesta. Esto proporciona alta disponibilidad y coherencia del estado a través de API sencillas que proporcionan garantías transaccionales respaldadas por la replicación. Los servicios con estado de Service Fabric democratizan la alta disponibilidad, llevándola a todos los tipos de aplicaciones, no solo a las bases de datos y otros almacenes de datos. Se trata de una progresión natural. Las aplicaciones ya han pasado de usar bases de datos puramente relacionales de alta disponibilidad a bases de datos NoSQL. Ahora las mismas aplicaciones pueden tener su estado "activo" y sus datos administrados en ellas para mejoras adicionales del rendimiento sin sacrificar la confiabilidad, la coherencia o la disponibilidad.
@@ -63,9 +66,4 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

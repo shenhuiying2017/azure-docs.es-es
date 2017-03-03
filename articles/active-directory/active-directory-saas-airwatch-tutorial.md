@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
+ms.sourcegitcommit: 8bb5433fb8d81635185d8bfc765ea240461e8a33
+ms.openlocfilehash: 4659531575e21823441eb75905b79d79592fa695
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -24,23 +25,24 @@ El objetivo de este tutorial es mostrar la integración de Azure y AirWatch.
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en AirWatch
+* Una suscripción habilitada para el inicio de sesión único (SSO) en AirWatch
 
 Después de completar este tutorial, los usuarios de Azure AD que ha asignado a AirWatch podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de AirWatch (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
-1. Habilitación de la integración de aplicaciones para AirWatch
-2. Configuración del inicio de sesión único
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+* Habilitación de la integración de aplicaciones para AirWatch
+* Configuración del inicio de sesión único (SSO)
+* Configuración del aprovisionamiento de usuario
+* Asignación de usuarios
 
 ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791913.png "AirWatch")
 
-## <a name="enabling-the-application-integration-for-airwatch"></a>Habilitación de la integración de aplicaciones para AirWatch
+## <a name="enable-the-application-integration-for-airwatch"></a>Habilitación de la integración de aplicaciones para AirWatch
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para AirWatch.
 
-### <a name="to-enable-the-application-integration-for-airwatch-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para AirWatch:
+**Siga estos pasos para habilitar la integración de aplicaciones para AirWatch:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-airwatch-tutorial/IC700993.png "Active Directory")
@@ -61,13 +63,14 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
    
    ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
    
-   ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en AirWatch con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
-Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64.  
-Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base&64;. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **AirWatch**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configurar inicio de sesión único")
@@ -95,15 +98,13 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
    ![Servidor](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Servidor")
 10. Lleve a cabo los siguiente pasos:
     
-    ![Cargar](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Cargar")
-    
+   ![Cargar](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Cargar")    
     1. En **Directory Type** (Tipo de directorio), seleccione **None** (Ninguno).
     2. Seleccione **Use SAML For Authentication**(Usar SAML para autenticación).
     3. Para cargar el certificado descargado, haga clic en **Upload**(Cargar).
 11. En la sección **Request** (Solicitud), siga estos pasos:
     
-    ![Solicitud](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Solicitud")
-    
+    ![Solicitud](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Solicitud")  
     1. En **Request Binding Type** (Tipo de enlace de solicitud), seleccione **POST**.
     2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Airwatch**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de proveedor de identidades**.
     3. En la lista **NameID Format** (Formato de NameID), seleccione **Email address** (Dirección de correo electrónico).
@@ -114,7 +115,6 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 13. En la sección **Attribute** (Atributo), realice estos pasos:
     
     ![Atributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Atributo")
-    
     1. En el cuadro de texto **Identificador de objeto**, escriba **http://schemas.microsoft.com/identity/claims/objectidentifier**.
     2. En el cuadro de texto **Nombre de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
     3. En el cuadro de texto **Nombre para mostrar**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
@@ -124,14 +124,16 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
     7. Haga clic en **Guardar**.
 14. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configurar inicio de sesión único")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configurar inicio de sesión único")
     
-    ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
-Para permitir que los usuarios de Azure AD inicien sesión en AirWatch, tienen que aprovisionarse en AirWatch.  
-En el caso de AirWatch, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en AirWatch, tienen que aprovisionarse en AirWatch.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario, realice estos pasos:
+* En el caso de AirWatch, el aprovisionamiento es una tarea manual.
+
+**Para aprovisionar cuentas de usuario, realice estos pasos:**
+
 1. Inicie sesión en el sitio de la compañía de **AirWatch** como administrador.
 2. En el panel de navegación izquierdo, haga clic en **Accounts** (Cuentas) y luego en **Users** (Usuarios).
    
@@ -141,20 +143,19 @@ En el caso de AirWatch, el aprovisionamiento es una tarea manual.
    ![Agregar usuario](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Agregar usuario")
 4. En el cuadro de diálogo **Add / Edit User** (Agregar/Editar usuario), realice los siguientes pasos:
    
-   ![Agregar usuario](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Agregar usuario")
-   
+   ![Agregar usuario](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Agregar usuario")   
    1. Especifique **Username** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **First Name** (Nombre), **Last Name** (Apellido), **Email Address** (Correo electrónico) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
    2. Haga clic en **Guardar**.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AirWatch ofrecida por AirWatch para aprovisionar cuentas de usuario de AAD.
-> 
-> 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AirWatch ofrecida por AirWatch para aprovisionar cuentas de usuario de AAD.
+>  
 
-## <a name="assigning-users"></a>Asignación de usuarios
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+## <a name="assign-users"></a>Asignar usuarios
+Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-airwatch-perform-the-following-steps"></a>Para asignar usuarios a AirWatch, siga estos pasos:
+**Para asignar usuarios a AirWatch, siga estos pasos:**
+
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **AirWatch**, haga clic en **Asignar usuarios**.
    
@@ -164,10 +165,5 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
    ![Sí](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
 ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
@@ -127,10 +128,5 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 ## <a name="next-step"></a>Paso siguiente
 * [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

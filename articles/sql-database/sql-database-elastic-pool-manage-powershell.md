@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
 ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -275,9 +276,4 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md) : los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
 * Consulte [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md): use herramientas elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

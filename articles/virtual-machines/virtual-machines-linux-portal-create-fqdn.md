@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: f687e73b4106118a89df9258f128b2ae850edd3c
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -32,10 +33,5 @@ Ahora puede conectarse de manera remota a la máquina virtual con este nombre DN
 Ahora que la máquina virtual tiene un nombre DNS y una IP pública, puede implementar marcos y servicios de aplicaciones comunes, como nginx, MongoDB, Docker, etc.
 
 También puede leer más sobre el [uso de Resource Manager](../azure-resource-manager/resource-group-overview.md) para obtener sugerencias sobre la creación de las implementaciones de Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

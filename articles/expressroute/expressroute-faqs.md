@@ -17,6 +17,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
 ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -246,10 +247,5 @@ Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a travé
 
 ### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>¿Se puede acceder a Dynamics 365 for Operations (antes conocido como Dynamics AX Online) mediante una conexión ExpressRoute?
 Sí. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) se hospeda en Azure. Puede habilitar el emparejamiento público de Azure en su circuito de ExpressRoute para conectarse a él. 
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

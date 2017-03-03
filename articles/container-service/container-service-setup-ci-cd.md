@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
-ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,7 +30,7 @@ En este tutorial, se explica cómo automatizar completamente la creación e impl
 ## <a name="get-started"></a>Primeros pasos
 Puede realizar este tutorial en OS X, Windows o Linux.
 - Necesita una suscripción de Azure. Si no tiene ninguna, puede [registrarse para obtener una cuenta](https://azure.microsoft.com/).
-- Instale las [herramientas de línea de comandos de Azure](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Instale la [CLI de Azure 2.0](/cli/azure/install-az-cli2).
 
 ## <a name="what-well-create"></a>Qué vamos a crear
 Vamos a ver algunos aspectos claves de la aplicación y el flujo de implementación que estamos configurando:
@@ -319,7 +320,7 @@ Algunos de los siguientes pasos:
 ## <a name="clean-up"></a>Limpieza
 Para limitar los cargos de proceso relacionado con este tutorial, ejecute el comando siguiente y anote los recursos de canalización de la implementación que están relacionados con un clúster de ACS:
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -345,9 +346,4 @@ Elimine la definición de la versión en VSTS:
 2. En la lista Definición de versiones, situada en la parte izquierda, haga clic en la lista desplegable situada junto a la definición de la versión que desea eliminar y seleccione **Eliminar**.
 
 `![Eliminación de la definición de la versión en VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

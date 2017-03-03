@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c65c4021f5d0beda8005abdd375ac51729acf0a8
-ms.openlocfilehash: 8ff246ab7d70bd00ce989d3049e016d692722d18
+ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
+ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -78,11 +79,13 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+## <a name="throughput-faq"></a>Preguntas más frecuentes sobre el rendimiento
+
+**¿Se puede configurar el rendimiento a menos de 400 RU/s?**
+
+400 RU/s es el rendimiento mínimo disponible en las recopilaciones de una sola partición de DocumentDB (2500 RU/s es el valor mínimo para las colecciones particionadas). Las unidades de solicitud se establecen en intervalos de 100 RU/s pero el rendimiento no se puede establecer en 100 RU/s o en ningún valor inferior a 400 RU/s. Si está buscando un método rentable para desarrollar y probar DocumentDB, puede usar gratuitamente el [Emulador de DocumentDB](documentdb-nosql-local-emulator.md), que puede implementar localmente sin costo alguno. 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender más sobre el aprovisionamiento y cómo pasar a escala planetaria con DocumentDB, consulte [Partición y escalado en Azure DocumentDB](documentdb-partition-data.md).
-
-
-<!--HONumber=Feb17_HO2-->
-
 

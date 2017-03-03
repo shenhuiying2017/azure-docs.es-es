@@ -17,6 +17,7 @@ ms.author: clemensv;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
 ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -80,10 +81,5 @@ Consulte los siguientes artículos para más información sobre las colas de Bus
 * [Ejemplo de transacciones atómicas con Service Bus](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 * [Comparación de colas de Azure y colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

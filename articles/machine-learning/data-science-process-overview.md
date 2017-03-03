@@ -17,6 +17,7 @@ ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -196,10 +197,5 @@ El [ciclo de vida del proceso de ciencia de datos en equipo](http://aka.ms/datas
 
 ## <a name="next-steps"></a>Pasos siguientes
 También se proporcionan tutoriales completos que muestran todos los pasos del proceso en **escenarios concretos** . Se enumeran y enlazan con descripciones en miniatura en el tema [Tutoriales del proceso de ciencia de datos en equipos](data-science-process-walkthroughs.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 86b2358b045bd5bc0c9f4fc2674efd03b098212f
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: f53fa3763edb1d9164278d1e3c418e200d7ada89
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -54,10 +55,5 @@ Para resolver este error, haga uno de los siguientes:
 * Actualice el nivel de servicio a uno con suficiente espacio de almacenamiento en memoria para los datos que necesita mantener en tablas optimizadas en memoria.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la [supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+Para obtener instrucciones sobre la supervisión, consulte [Supervisión de Azure SQL Database con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md).
 

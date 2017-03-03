@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/18/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 8725687a5700df72026f9154659758b9280872f4
-ms.openlocfilehash: 35247a68588ab8593c40ed0d62f37062350f9aec
+ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
+ms.openlocfilehash: 039ed6f4be9f3e0f6b92e5a9f11e12392912df9d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,14 +80,17 @@ En este ejemplo, un usuario y un grupo se agregan al rol Usuarios de la base de 
 }
 ```
 
+## <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
+
+Los administradores de suscripciones pueden utilizar **Access Control** en la hoja de control para configurar los roles. No pasa lo mismo con los administradores de servidor o los usuarios de base de datos, que, como se ha descrito anteriormente, se configuran en el nivel de base de datos o de servidor. 
+
+![Control de acceso en Azure Portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+
+Los roles se aplican a los usuarios o cuentas que necesitan realizar tareas que se pueden completar en el portal o mediante plantillas de Azure Resource Manager. Para más información, consulte el artículo sobre el [control de acceso basado en roles](../active-directory/role-based-access-control-what-is.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no ha implementado un modelo tabular en el servidor, ahora es buen momento para hacerlo. Para más información, consulte [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Implementación en Azure Analysis Services).
 
 Si ha implementado un modelo en un servidor, está listo para conectarse a él mediante un cliente o un explorador. Para más información, consulte [Get data from Azure Analysis Services](analysis-services-connect.md) (Obtención de datos del servidor de Azure Analysis Services).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

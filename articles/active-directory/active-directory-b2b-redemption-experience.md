@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 92bf625a9e62a24287b752bc1cbe061f1ef83a03
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,9 +33,7 @@ Para los usuarios con cuentas Microsoft o de Azure AD existentes, la experiencia
 ## <a name="social-id-user-first-time-redemption"></a>Primer canje para usuarios de identificadores sociales
 La colaboración B2B de Azure AD facilita el uso de cualquier dirección de correo electrónico para realizar canjes. Eche un vistazo a la experiencia de canje cuando se utiliza una dirección de correo electrónico que no es de Microsoft para la colaboración B2B. Se trata de un flujo de canje más interactivo porque podría tener que crear una cuenta durante el canje. Véalo en el siguiente vídeo:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
-
-Si este vídeo no aparece incrustado, puede verlo [aquí](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -51,9 +50,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

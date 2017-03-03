@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
+ms.sourcegitcommit: 3d7e28c1cd221d704cf9cfec66da535e079fb472
+ms.openlocfilehash: 30044abc0d7d42b11ddd210dfb9ea3eadb94dda6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -124,7 +125,7 @@ y comenzar una actualización de la configuración. Consulte el [cmd Start-Servi
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>Flujo de trabajo de actualización del clúster.
-1. Descargue la versión más reciente del paquete del documento [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md) 
+1. Descargue la versión más reciente del paquete del documento [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 2. Conéctese al clúster desde cualquier máquina con acceso de administrador a todas las máquinas que se muestran como nodos en el clúster. La máquina donde se ejecuta este script no tiene que formar parte del clúster 
    
     ```powershell
@@ -152,7 +153,7 @@ y comenzar una actualización de la configuración. Consulte el [cmd Start-Servi
 
     ```
 
-1. Registro del paquete copiado 
+4. Registro del paquete copiado 
    
     ```powershell
    
@@ -163,7 +164,7 @@ y comenzar una actualización de la configuración. Consulte el [cmd Start-Servi
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Inicie una actualización de clúster a una de las versiones disponibles. 
+5. Inicie una actualización de clúster a una de las versiones disponibles. 
    
     ```Powershell
    
@@ -184,6 +185,17 @@ y comenzar una actualización de la configuración. Consulte el [cmd Start-Servi
 
 Una vez que haya solucionado los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos que antes.
 
+
+## <a name="cluster-configuration-upgrade"></a>Actualización de la configuración del clúster
+Para llevar a cabo la actualización de la configuración de clúster, ejecute Start-ServiceFabricClusterConfigurationUpgrade. El dominio de actualización procesa la actualización de la configuración.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprender a personalizar la [configuración de Service Fabric para el clúster](service-fabric-cluster-fabric-settings.md)
 * Aprenda cómo [escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-up-down.md)
@@ -191,9 +203,4 @@ Una vez que haya solucionado los problemas que provocaron la reversión, debe in
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 1a5af0b498cfdf1946f5c405d9557b0c2d2c8e63
-ms.openlocfilehash: 1e9e54ee935b4c27eb93f72eb99c3ce52cc6c7e2
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="authenticate-with-a-container-registry"></a>Autenticación con un registro de contenedor
@@ -59,7 +60,7 @@ Las entidades de servicio permiten el [acceso basado en roles](../active-directo
 
 
 ## <a name="admin-account"></a>Cuenta de administrador
-Con cada registro que se crea, se crea una cuenta de administrador automáticamente. De forma predeterminada, la cuenta está deshabilitada, pero puede habilitarla y administrar las credenciales, por ejemplo, a través del [portal](container-registry-get-started-portal.md#manage-registry-settings) o mediante los [comandos de versión preliminar de la CLI de Azure 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Si la cuenta está habilitada, puede pasar el nombre de usuario y la contraseña al comando `docker login` para la autenticación básica en el registro. Por ejemplo:
+Con cada registro que se crea, se crea una cuenta de administrador automáticamente. De forma predeterminada, la cuenta está deshabilitada, pero puede habilitarla y administrar las credenciales, por ejemplo, a través del [portal](container-registry-get-started-portal.md#manage-registry-settings) o mediante los [comandos de la CLI de Azure 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Si la cuenta está habilitada, puede pasar el nombre de usuario y la contraseña al comando `docker login` para la autenticación básica en el registro. Por ejemplo:
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
@@ -74,10 +75,5 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 * [Inserte la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md).
 * Para más información sobre la autenticación en la vista previa del registro de contenedor, consulte el [entrada de blog](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/). 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

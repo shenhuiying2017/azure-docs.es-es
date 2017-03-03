@@ -1,6 +1,6 @@
 ---
-title: "Supervisión, diagnóstico y solución de problemas de Storage | Microsoft Docs"
-description: "Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Almacenamiento de Azure."
+title: "Supervisión, diagnóstico y solución de problemas de Azure Storage | Microsoft Docs"
+description: "Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage."
 services: storage
 documentationcenter: 
 author: jasonnewyork
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/16/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: b0abc4df06849ef2a887a190a8ea306849d40b3d
-ms.openlocfilehash: e7613084c6a7f20913b49b1f3c33bb681897c118
+ms.sourcegitcommit: d755a94bc8c5165480291d891c5feb0cf3b26e75
+ms.openlocfilehash: e6915bf94b56b9c9ff3deb131d18d1d5457f0e85
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -84,8 +85,6 @@ En esta guía se explica cómo usar algunas características, como el análisis 
 
 ![][1]
 
-*Figura 1. Supervisión, diagnóstico y solución de problemas*
-
 Esta guía está dirigida, principalmente, a los desarrolladores de servicios en línea que usan los servicios de Almacenamiento de Azure y a los profesionales de TI responsables de administrar esos servicios en línea. Los objetivos de esta guía son:
 
 * Ayudarle a mantener el estado y el rendimiento de las cuentas de Almacenamiento de Azure.
@@ -106,11 +105,11 @@ Los "[Apéndices]" contienen información sobre el uso de otras herramientas, co
 ## <a name="a-namemonitoring-your-storage-serviceamonitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Supervisión del servicio de almacenamiento
 Si conoce la supervisión de rendimiento de Windows, las métricas de Almacenamiento son algo así como los contadores del monitor de rendimiento de Windows, pero en Almacenamiento de Azure. En las métricas de almacenamiento encontrará un conjunto completo de métricas (o "contadores", según la terminología del Monitor de rendimiento de Windows), tales como la disponibilidad del servicio, el número total de solicitudes realizadas al servicio o el porcentaje de solicitudes correctas realizadas al servicio. Si quiere obtener la lista completa de métricas disponibles, consulte [Esquema de tabla de métricas de análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343264.aspx). Puede especificar si quiere que el servicio de almacenamiento recopile y agregue métricas cada hora o cada minuto. Para más información sobre cómo habilitar las métricas y supervisar las cuentas de almacenamiento, consulte el tema sobre cómo [Habilitar las métricas de almacenamiento y ver los datos de métricas](http://go.microsoft.com/fwlink/?LinkId=510865).
 
-Puede elegir las métricas horarias que quiere mostrar en el [Portal de Azure](https://portal.azure.com) y configurar reglas que notifiquen a los administradores por correo electrónico cada vez que una métrica horaria supere un umbral determinado. Para más información, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md). 
+Puede elegir las métricas horarias que quiere mostrar en [Azure Portal](https://portal.azure.com) y configurar reglas que notifiquen a los administradores por correo electrónico cada vez que una métrica horaria supere un umbral determinado. Para más información, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md). 
 
 El servicio de almacenamiento recopila métricas con un modelo de mejor esfuerzo, pero es posible que no registre todas las operaciones de almacenamiento.
 
-En el Portal de Azure, puede ver métricas con cifras acerca de la disponibilidad, el número total de solicitudes y la latencia media de una cuenta de almacenamiento. También se configuró una regla de notificación para que se envíe una alerta a un administrador si la disponibilidad desciende por debajo de un nivel determinado. Al observar estos datos, uno de los aspectos que podría examinar es que el porcentaje de operaciones correctas del servicio Tabla sea inferior al 100 % (para obtener más información, consulte la sección "[Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors]").
+En Azure Portal, puede ver métricas con cifras sobre la disponibilidad, el número total de solicitudes y la latencia media de una cuenta de almacenamiento. También se configuró una regla de notificación para que se envíe una alerta a un administrador si la disponibilidad desciende por debajo de un nivel determinado. Al observar estos datos, uno de los aspectos que podría examinar es que el porcentaje de operaciones correctas del servicio Tabla sea inferior al 100 % (para obtener más información, consulte la sección "[Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors]").
 
 Debe supervisar continuamente las aplicaciones de Azure para asegurarse de que el estado es correcto y el rendimiento es el esperado, haciendo lo siguiente:
 
@@ -119,25 +118,25 @@ Debe supervisar continuamente las aplicaciones de Azure para asegurarse de que e
 * Registrar métricas horarias y usarlas para supervisar los valores medios, como el número medio de errores y las tasas medias de solicitudes.
 * Investigar problemas potenciales con herramientas de diagnóstico, como se examina más adelante en la sección “[Diagnóstico de problemas de almacenamiento]”.
 
-Los gráficos de la figura 3 de abajo ilustran cómo el promedio resultante de las métricas horarias puede ocultar picos de actividad. Las métricas horarias parecen mostrar una tasa de solicitudes regular, mientras que las métricas por minuto revelan las fluctuaciones que se están produciendo en realidad.
+Los gráficos de la siguiente imagen ilustran cómo el promedio resultante de las métricas horarias puede ocultar picos de actividad. Las métricas horarias parecen mostrar una tasa de solicitudes regular, mientras que las métricas por minuto revelan las fluctuaciones que se están produciendo en realidad.
 
 ![][3]
 
 En el resto de esta sección, se explica qué métricas debe supervisar y por qué.
 
 ### <a name="a-namemonitoring-service-healthamonitoring-service-health"></a><a name="monitoring-service-health"></a>Supervisión del estado del servicio
-Puede usar el [Portal de Azure](https://portal.azure.com) para ver el estado del servicio de almacenamiento (y de otros servicios de Azure) en todas las regiones de Azure del mundo. Así, podrá ver al momento si hay algún problema que no controle y que esté afectando al servicio de almacenamiento en la región que use para la aplicación.
+Puede usar [Azure Portal](https://portal.azure.com) para ver el estado del servicio de almacenamiento (y de otros servicios de Azure) en todas las regiones de Azure del mundo. Así, podrá ver al momento si hay algún problema que no controle y que esté afectando al servicio de almacenamiento en la región que use para la aplicación.
 
-El [Portal de Azure](https://portal.azure.com) también puede proporcionar notificaciones sobre los incidentes que afectan a los diversos servicios de Azure.
+[Azure Portal](https://portal.azure.com) también puede proporcionar notificaciones sobre los incidentes que afectan a los diversos servicios de Azure.
 Nota: Anteriormente esta información estaba disponible, junto con los datos históricos, en el [Panel de servicios de Azure](http://status.azure.com).
 
-Mientras que el [Portal de Azure](https://portal.azure.com) recopila información sobre el estado del servicio desde el interior de los centros de datos de Azure (esto es, una supervisión desde el interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) y Application Insights para Visual Studio Team Services, son algunos de ejemplos de este enfoque detallado. Para obtener más información sobre Application Insights para Visual Studio Team Services, consulte el apéndice "[Apéndice 5: supervisión de Visual Studio Team Services mediante Application Insights](#appendix-5)".
+Mientras que [Azure Portal](https://portal.azure.com) recopila información sobre el estado del servicio desde el interior de los centros de datos de Azure (esto es, una supervisión desde el interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) y Application Insights para Visual Studio Team Services, son algunos de ejemplos de este enfoque detallado. Para obtener más información sobre Application Insights para Visual Studio Team Services, consulte el apéndice "[Apéndice 5: supervisión de Visual Studio Team Services mediante Application Insights](#appendix-5)".
 
 ### <a name="a-namemonitoring-capacityamonitoring-capacity"></a><a name="monitoring-capacity"></a>Supervisión de la capacidad
 Las métricas de Almacenamiento solo almacenan las métricas de capacidad del servicio BLOB, porque los BLOB suelen representar la mayor parte de los datos almacenados (en el momento de la escritura, no se pueden usar las métricas de Almacenamiento para supervisar la capacidad de las tablas y las colas). Puede encontrar estos datos en la tabla **$MetricsCapacityBlob** si habilitó la supervisión del servicio BLOB. Las métricas de Almacenamiento registran estos datos una vez al día, y puede usar el valor de **RowKey** para saber si la fila contiene una entidad relacionada con datos de usuarios (valor **data**) o con datos de análisis (valor **analytics**). Cada entidad almacenada contiene información sobre la cantidad de almacenamiento utilizada (**Capacity**, medida en bytes) y el número actual de contenedores (**ContainerCount**) y BLOB (**ObjectCount**) que se están usando en la cuenta de almacenamiento. Para más información sobre las métricas de capacidad almacenadas en la tabla **$MetricsCapacityBlob** , consulte [Esquema de tabla de métricas de análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
-> Debe supervisar estos valores para saber con antelación si se está acercando a los límites de capacidad de la cuenta de almacenamiento. En el Portal de Azure, puede agregar reglas de alertas para que le avisen si el uso del almacenamiento agregado es superior o inferior a los umbrales que usted mismo especifique.
+> Debe supervisar estos valores para saber con antelación si se está acercando a los límites de capacidad de la cuenta de almacenamiento. En Azure Portal puede agregar reglas de alertas para que le notifiquen si el uso del almacenamiento agregado es superior o inferior a los umbrales que usted mismo especifique.
 > 
 > 
 
@@ -148,7 +147,7 @@ Debe supervisar la disponibilidad de los servicios de almacenamiento de la cuent
 
 Si el valor es inferior al 100%, significa que algunas solicitudes de almacenamiento no se están realizando correctamente. Puede ver a qué se deben los errores examinando las demás columnas de los datos de métricas, que muestran el número de solicitudes con diferentes tipos de errores, como **ServerTimeoutError**. Normalmente, observará que la **disponibilidad** desciende temporalmente por debajo del 100% por motivos como, por ejemplo, que se agotA de forma transitoria el tiempo de espera del servidor mientras el servicio mueve las particiones para equilibrar mejor la carga de las solicitudes. La lógica de reintento de la aplicación cliente debería administrar estas condiciones intermitentes. En el artículo [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx) (Operaciones registradas y mensajes de estado de análisis de almacenamiento) se enumeran los tipos de transacciones que las métricas de almacenamiento incluyen en su cálculo de **disponibilidad**.
 
-En el [Portal de Azure](https://portal.azure.com), puede agregar reglas de alertas que desee para que le notifiquen si la **disponibilidad** de un servicio desciende por debajo del umbral que especifique.
+En [Azure Portal](https://portal.azure.com), puede agregar reglas de alertas para que le notifiquen si la **disponibilidad** de un servicio desciende por debajo del umbral que especifique.
 
 La sección “[Guía de solución de problemas]” de esta guía describe varios problemas habituales de los servicios de almacenamiento relacionados con la disponibilidad.
 
@@ -161,7 +160,7 @@ Para supervisar el rendimiento de los servicios de almacenamiento, puede usar la
 
 Normalmente, deberá supervisar estos valores para ver si se produce algún cambio inesperado: son indicadores de que existe un error que se tiene que investigar.
 
-En el [Portal de Azure](https://portal.azure.com), puede agregar reglas de alertas que desee para que le notifiquen si alguna de las métricas de rendimiento de este servicio llega a ser inferior o superior al umbral que especifique.
+[Azure Portal](https://portal.azure.com), puede agregar reglas de alertas para que le notifiquen si alguna de las métricas de rendimiento de este servicio llega a ser inferior o superior al umbral que especifique.
 
 La sección “[Guía de solución de problemas]” de esta guía describe varios problemas habituales de los servicios de almacenamiento relacionados con el rendimiento.
 
@@ -183,7 +182,7 @@ Normalmente, los problemas relacionados con los servicios de almacenamiento de A
 En las siguientes secciones, se describen los pasos que debe seguir para diagnosticar y resolver los problemas de cada una de estas cuatro categorías. La sección “[Guía de solución de problemas]”, más adelante en esta misma guía, proporciona más detalles sobre algunos problemas habituales que puede encontrarse.
 
 ### <a name="a-nameservice-health-issuesaservice-health-issues"></a><a name="service-health-issues"></a>Problemas de estado del servicio
-Los problemas de estado del servicio suelen estar fuera de su control. El [Portal de Azure](https://portal.azure.com) proporciona información sobre todos los problemas que se estén produciendo en los servicios de Azure, incluidos los servicios de almacenamiento. Si eligió el almacenamiento con redundancia geográfica con acceso de lectura al crear la cuenta de almacenamiento, si los datos no estuvieran disponibles en la ubicación principal, la aplicación podría cambiar temporalmente a la copia de solo lectura de la ubicación secundaria. Para ello, la aplicación debe ser capaz de cambiar entre las ubicaciones principal y secundaria, y debe poder funcionar en un modo de funcionalidad reducida con datos de solo lectura. Las bibliotecas de cliente de Almacenamiento de Azure le permiten definir una directiva de reintentos que pueda leer el almacenamiento secundario si se produce un error al leer el almacenamiento principal. Además, la aplicación tiene que saber que los datos de la ubicación secundaria tienen coherencia final. Para más información, consulte la entrada de blog sobre [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+Los problemas de estado del servicio suelen estar fuera de su control. [Azure Portal](https://portal.azure.com) proporciona información sobre todos los problemas que se estén produciendo en los servicios de Azure, incluidos los servicios de almacenamiento. Si eligió el almacenamiento con redundancia geográfica con acceso de lectura al crear la cuenta de almacenamiento, si los datos no estuvieran disponibles en la ubicación principal, la aplicación podría cambiar temporalmente a la copia de solo lectura de la ubicación secundaria. Para ello, la aplicación debe ser capaz de cambiar entre las ubicaciones principal y secundaria, y debe poder funcionar en un modo de funcionalidad reducida con datos de solo lectura. Las bibliotecas de cliente de Almacenamiento de Azure le permiten definir una directiva de reintentos que pueda leer el almacenamiento secundario si se produce un error al leer el almacenamiento principal. Además, la aplicación tiene que saber que los datos de la ubicación secundaria tienen coherencia final. Para más información, consulte la entrada de blog sobre [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ### <a name="a-nameperformance-issuesaperformance-issues"></a><a name="performance-issues"></a>Problemas de rendimiento
 El rendimiento de una aplicación puede ser subjetivo, especialmente desde el punto de vista de los usuarios. Por ello, es importante tener métricas de línea base disponibles con las que le resulte más fácil identificar los casos en los que puede haber un problema de rendimiento. Hay muchos factores que pueden afectar al rendimiento de un servicio de almacenamiento de Azure desde la perspectiva de la aplicación cliente. Estos factores pueden operar en el servicio de almacenamiento, en el cliente o en la infraestructura de red: por eso, es importante disponer de una estrategia para identificar el origen del problema de rendimiento.
@@ -571,11 +570,11 @@ En la siguiente tabla, puede ver una muestra de un mensaje de registro del lado 
 | Hora de inicio de la solicitud | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operación     | GetBlobProperties            |
 | Estado de la solicitud     | SASAuthorizationError        |
-| Código de estado HTTP   | 404                          |
+| Código de estado HTTP   | 404                            |
 | Tipo de autenticación| Sas                          |
 | Tipo de servicio       | Blob                         |
-| URL de la solicitud        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL de la solicitud         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Encabezado de id. de solicitud  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Id. de solicitud de cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -890,9 +889,4 @@ Puede encontrar más información en [¿Qué es Application Insights?](../applic
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

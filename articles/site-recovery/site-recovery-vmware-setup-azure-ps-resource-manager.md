@@ -15,8 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: 8ea724c49664ca4803b1c91aefb94b490bd3d283
+ms.sourcegitcommit: edf190031e87cc5a433eaa8fb86187b41fc1dd4e
+ms.openlocfilehash: 61db9c89ff84db89323b55990dc1049d636958f7
+ms.lasthandoff: 02/22/2017
 
 ---
 
@@ -28,7 +29,7 @@ ms.openlocfilehash: 8ea724c49664ca4803b1c91aefb94b490bd3d283
 Durante la conmutación por recuperación, se recomienda implementar el servidor de procesos en Azure si hay una latencia elevada entre la red virtual de Azure y la red local. En este artículo se describe cómo instalar, configurar y administrar los servidores de procesos que se ejecutan en Azure.
 
 > [!NOTE]
-> Este artículo se utiliza si usa **Resource Manager** como modelo de implementación para las máquinas virtuales durante la conmutación por error. Si ha usado el modelo **clásico** como modelo de implementación, siga los pasos de [Administración de un servidor de procesos de conmutación por recuperación (clásico)](./site-recovery-vmware-setup-azure-ps-classic.md).
+> Este artículo se utiliza si usa **Resource Manager** como modelo de implementación para las máquinas virtuales durante la conmutación por error. Si ha usado el modelo **clásico** para la implementación, siga los pasos descritos en [artículo sobre cómo instalar y configurar un servidor de procesos de conmutación por recuperación (clásico)](./site-recovery-vmware-setup-azure-ps-classic.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -76,10 +77,5 @@ Durante la conmutación por recuperación, se recomienda implementar el servidor
 
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Anulación del registro del servidor de procesos (que se ejecuta en Azure) desde un servidor de configuración (que se ejecuta de forma local)
 
-[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 

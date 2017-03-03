@@ -1,6 +1,6 @@
 ---
-title: Explorador de scripts de DocumentDB, un editor de JavaScript | Microsoft Docs
-description: "Obtenga información sobre el Explorador de scripts de DocumentDB, una herramienta del Portal de Azure para administrar los artefactos de programación del lado servidor de DocumentDB, entre los que se incluyen procedimientos almacenados, desencadenadores y funciones definidas por el usuario."
+title: 'Herramienta del Portal de Azure DocumentDB: Explorador de scripts | Microsoft Docs'
+description: "Obtenga información sobre el Explorador de scripts de DocumentDB, una herramienta de Azure Portal para administrar los artefactos de programación del lado servidor de DocumentDB, entre los que se incluyen procedimientos almacenados de JavaScript, desencadenadores y funciones definidas por el usuario."
 keywords: editor de javascript
 services: documentdb
 author: kirillg
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/14/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
+ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
+ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -25,7 +26,9 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
 En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , un editor de JavaScript del Portal de Azure que le permite ver los artefactos de programación del lado servidor de DocumentDB, entre los que se incluyen procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Más información sobre programación del lado servidor de DocumentDB en el artículo [Procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md)
 
 ## <a name="launch-script-explorer"></a>Inicio del Explorador de scripts
-1. En la barra de accesos directos del Portal de Azure, haga clic en **DocumentDB (NoSQL)**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Más servicios** y, después, en **DocumentDB (NoSQL)**.
+1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en ![icono de Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Si **NoSQL (DocumentDB)** no se muestra, haga clic en **Más servicios** en la parte inferior y después haga clic en el ![icono de Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. En el menú de recursos, haga clic en **Explorador de scripts**.
    
     ![Captura de pantalla del comando del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -36,7 +39,8 @@ En este artículo se ofrece información general sobre el Explorador de scripts 
    
     ![Captura de pantalla del Explorador de scripts con los resultados filtrados](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] La funcionalidad de filtro del Explorador de scripts solo filtra desde el conjunto de documentos cargado ***actualmente*** y no actualiza la colección seleccionada actualmente.
+    > [!IMPORTANT] 
+    > La funcionalidad de filtro del Explorador de scripts solo filtra desde el conjunto de documentos cargado ***actualmente*** y no actualiza la colección seleccionada actualmente.
 
 1. Para actualizar la lista de scripts cargados en el Explorador de scripts, simplemente haga clic en el comando **Actualizar** de la parte superior de la hoja.
    
@@ -106,10 +110,5 @@ El Explorador de scripts en el Portal de Azure es simplemente una forma de traba
 Más información sobre programación del lado servidor de DocumentDB en el artículo [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md) .
 
 La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarlo durante el proceso que le llevará a familiarizarse con DocumentDB.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

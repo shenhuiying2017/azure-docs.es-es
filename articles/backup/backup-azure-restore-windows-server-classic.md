@@ -17,6 +17,7 @@ ms.author: saurse;trinadhk;markgal;
 translationtype: Human Translation
 ms.sourcegitcommit: be6bc58ab856309004904626db166331b29199a8
 ms.openlocfilehash: aa8ccc15971bed76d7ce8fd554e6a0f89d985fb8
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -232,9 +233,4 @@ La terminología usada en estos pasos incluye:
 * [Información general de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 * [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

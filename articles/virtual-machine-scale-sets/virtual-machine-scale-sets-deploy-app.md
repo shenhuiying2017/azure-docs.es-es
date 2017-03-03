@@ -18,6 +18,7 @@ ms.author: guybo
 translationtype: Human Translation
 ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
 ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -57,10 +58,5 @@ Las máquinas virtuales de conjunto de escalado, se convierten así en un sustra
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>¿Cómo aplicar una actualización de sistema operativo a través de dominios de actualización?
 Suponga que desea actualizar la imagen de sistema operativo al tiempo que mantiene el conjunto de escalado de máquina virtual en ejecución. Una manera de hacerlo es actualizar las imágenes de máquina virtual en las máquinas virtuales una por una. Puede hacerlo con PowerShell o la CLI de Azure. Hay comandos diferentes para actualizar el modelo de conjunto de escalado de máquinas virtuales (cómo se define su configuración) y para emitir llamadas de "actualización manual" en máquinas virtuales concretas. En el documento de Azure [Actualización de un conjunto de escalado de máquinas virtuales](./virtual-machine-scale-sets-upgrade-scale-set.md) también se proporciona más información sobre qué opciones hay disponibles para realizar actualizaciones del sistema operativo en un conjunto de escalado de máquinas virtuales.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: e628143db9ceba5e159022d2eefe3e6dd9f4bf22
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -76,6 +77,8 @@ Lea [Conexión y comunicación con servicios en Service Fabric](service-fabric-c
 
 **Servicio de almacenamiento de imágenes**: cada clúster de Service Fabric tiene un servicio de almacenamiento de imágenes donde se guardan los paquetes de aplicación implementados y con versión. Copie un paquete de aplicación en el almacén de imágenes y luego registre el tipo de aplicación en dicho paquete. Después de aprovisionar el tipo de aplicación, cree una aplicación con nombre a partir de él. El registro de un tipo de aplicación del servicio de almacenamiento de imágenes se puede anular una vez eliminadas todas sus aplicaciones con nombre.
 
+Lea [Descripción del valor ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para obtener más información sobre el servicio del almacén de imágenes.
+
 Para obtener más información sobre la implementación en el almacén de imágenes, consulte el artículo [Implementación de una aplicación](service-fabric-deploy-remove-applications.md) .
 
 ## <a name="built-in-programming-models"></a>Modelos de programación integrados
@@ -94,10 +97,5 @@ Para más información acerca de Service Fabric:
 * [Información general de Service Fabric](service-fabric-overview.md)
 * [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 * [Escenarios de aplicación](service-fabric-application-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -20,8 +20,10 @@
 ### [Consideraciones de infraestructuras de red](site-recovery-network-design.md)
 ### [Uso de Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
 ### [Planeamiento de la capacidad y escalado de la replicación de VMware a Azure](site-recovery-plan-capacity-vmware.md)
+### [Ejecución de Deployment Planner para la replicación de VMware en Azure](site-recovery-deployment-planner.md)
 ## Configuración
-### [Configuración del entorno de replicación de origen](site-recovery-set-up-vmware-to-azure.md)
+### [Configuración del entorno de origen](site-recovery-set-up-vmware-to-azure.md)
+### [Configuración del entorno de destino](site-recovery-prepare-target-vmware-to-azure.md)
 ### [Configuración de opciones de replicación](site-recovery-setup-replication-settings-vmware.md)
 ### [Implementación de Mobility Service para la replicación de VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Implementación de Mobility Service con System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
@@ -32,7 +34,8 @@
 #### [Adicción de runbooks de Azure a los planes de recuperación](site-recovery-runbook-automation.md)
 ### [Ejecución de una conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md)
 ### [Ejecución de una conmutación por error de prueba entre dos sitios VMM](site-recovery-test-failover-vmm-to-vmm.md)
-### [Conmutación por recuperación de VM de VMware y servidores físicos](site-recovery-failback-azure-to-vmware.md)
+### [Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure](site-recovery-how-to-failback-azure-to-vmware.md)
+### [Conmutación por recuperación de máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 ## Migrar
 ### [Migración a Azure](site-recovery-migrate-to-azure.md)
@@ -53,8 +56,8 @@
 ### [Automatización de la replicación de Hyper-V en un sitio secundario (con VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Administrar
 ### [Quitar servidores y deshabilitar la protección](site-recovery-manage-registration-and-protection.md)
-### [Edición de la configuración de replicación](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
-## [Supervisión y solución de problemas](site-recovery-monitoring-and-troubleshooting.md)
+### [Escalado horizontal de servidores de proceso](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Supervisión y solución de problemas](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
@@ -70,8 +73,3 @@
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Precios](https://azure.microsoft.com/pricing/details/site-recovery/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=site-recovery)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

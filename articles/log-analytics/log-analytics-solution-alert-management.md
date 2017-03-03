@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 02/17/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2caa3118785fab6919dd088e440bf3483a77bd69
+ms.sourcegitcommit: 885de1e94e3ce520621dc8dc7a4a495501f6a429
+ms.openlocfilehash: 35b4c30de20c46312bd7e4524a4264450184138a
+ms.lasthandoff: 02/18/2017
 
 
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solución de administración de alertas de Operations Management Suite (OMS)
-![Icono Administración de alertas](media/log-analytics-solution-alert-management/icon.png) La solución Administración de alertas le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de OMS, importa las alertas de los grupos de administración de System Center Operations Manager (SCOM) conectados en Log Analytics.  En entornos con varios grupos de administración, la solución Administración de alertas proporcionará una vista consolidada de alertas en todos los grupos de administración.
+
+![Icono Administración de alertas](media/log-analytics-solution-alert-management/icon.png)
+
+La solución Administración de alertas le ayuda a analizar todas las alertas del repositorio de Log Analytics.  Estas alertas pueden proceder de diversos orígenes, incluidos los [creados por Log Analytics ](log-analytics-alerts.md) o los [importados de Nagios o Zabbix](log-analytics-linux-agents.md#linux-alerts).  La solución también importa alertas desde cualquier [grupo de administración conectado de System Center Operations Manager (SCOM)](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Para importar alertas desde SCOM, esta solución requiere una conexión entre el área de trabajo OMS y un grupo de administración de SCOM mediante el proceso descrito en [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).  
+La solución funcionará con todos los registros del repositorio de Log Analytics con un tipo de **Alerta**, por lo que debe realizar las configuraciones que sean necesaria para recopilar estos registros.
+
+- Para las alertas de Log Analytics, [cree reglas de alerta](log-analytics-alerts.md) para crear registros de alerta directamente en el repositorio.
+- Para las alertas de Nagios y Zabbix, [configure esos servidores](log-analytics-linux-agents.md#linux-alerts) para que envíen alertas a Log Analytics.
+- Para las alertas de SCOM,[conecte el grupo de administración de Operations Manager para el área de trabajo de Log Analytics](log-analytics-om-agents.md).  Todas las alertas creadas en SCOM se importarán a Log Analytics.  
 
 ## <a name="configuration"></a>Configuración
 Agregue la solución Administración de alertas al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
@@ -42,13 +50,14 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Soporte técnico | Descripción |
 |:--- |:--- |:--- |
-| [Agentes de Windows](log-analytics-windows-agents.md) |No |Los agentes directos de Windows no generan alertas de SCOM. |
-| [Agentes de Linux](log-analytics-linux-agents.md) |No |Los agentes directos de Linux no generan alertas de SCOM. |
-| [Grupo de administración de SCOM](log-analytics-om-agents.md) |Sí |Las alertas que se generan en agentes de SCOM se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere una conexión directa entre el agente de SCOM y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de OMS. |
-| [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) |No |Las alertas de SCOM no se almacenan en cuentas de almacenamiento de Azure. |
+| [Agentes de Windows](log-analytics-windows-agents.md) | No |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
+| [Agentes de Linux](log-analytics-linux-agents.md) | No |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
+| [Grupo de administración de SCOM](log-analytics-om-agents.md) |Sí |Las alertas que se generan en agentes de SCOM se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere una conexión directa entre los agentes de SCOM y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
+
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
-Las alertas generadas dentro de OMS están disponibles para la solución inmediatamente.  Los datos de alerta se envían desde el grupo de administración de SCOM a Log Analytics cada 3 minutos.  
+- Todos los registros de alerta están disponibles para la solución en cuanto se almacenan en el repositorio.
+- Los datos de alerta se envían desde el grupo de administración de SCOM a Log Analytics cada 3 minutos.  
 
 ## <a name="using-the-solution"></a>Uso de la solución
 Al agregar la solución Administración de alertas al área de trabajo de OMS, se agrega el icono **Administración de alertas** al panel de OMS.  Este icono muestra un recuento y una representación gráfica del número de alertas actualmente activas que se generaron en las últimas 24 horas.  Este intervalo de tiempo no se puede cambiar.
@@ -61,23 +70,18 @@ Haga clic en el icono **Administración de alertas** para abrir el panel **Admin
 |:--- |:--- |
 | Alertas críticas |Todas las alertas con una gravedad crítica agrupadas por nombre de alerta.  Haga clic en un nombre de la alerta para ejecutar una búsqueda de registros que devuelva todos los registros de esa alerta. |
 | Alertas de advertencia |Todas las alertas con una gravedad de advertencia agrupadas por nombre de alerta.  Haga clic en un nombre de la alerta para ejecutar una búsqueda de registros que devuelva todos los registros de esa alerta. |
-| Alertas de SCOM activas |Todas las alertas de SCOM con cualquier estado distinto de *Cerrado* agrupadas por el origen que generó la alerta. |
+| Alertas de SCOM activas |Todas las alertas recopiladas desde SCOM con cualquier estado distinto de *Cerrado* agrupadas por el origen que generó la alerta. |
 | Todas las alertas activas |Todas las alertas con cualquier gravedad agrupadas por nombre de alerta. Solo incluye las alertas de SCOM con cualquier estado distinto de *Cerrado*. |
 
 Si se desplaza a la derecha, el panel mostrará varias consultas comunes en las que puede hacer clic para realizar un [búsqueda de registros](log-analytics-log-searches.md) para datos de alertas.
 
 ![Panel Administración de alertas](media/log-analytics-solution-alert-management/dashboard.png)
 
-## <a name="scope-and-time-range"></a>Ámbito e intervalo de tiempo
-De forma predeterminada, el ámbito de las alertas que se analizan en la solución Administración de alertas es de todos los grupos de administración conectados generadas en los últimos 7 días.  
-
-![Ámbito Administración de alertas](media/log-analytics-solution-alert-management/scope.png)
-
-* Para cambiar los grupos de administración incluidos en el análisis, haga clic en **Ámbito** en la parte superior del panel.  Puede seleccionar una opción **Global** para todos los grupos de administración conectados o **By Management Group** (Por grupo de administración) para seleccionar un solo grupo de administración.
-* Para cambiar el intervalo de tiempo de las alertas, seleccione **Data based on** (Datos basados en) en la parte superior del panel.  Puede seleccionar las alertas generadas en los últimos 7 días, 1 día o 6 horas.  O puede seleccionar **Personalizado** y especificar un intervalo de fechas personalizado.
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
-La solución Administración de alertas analiza todos los registros con un tipo de **Alerta**.  También importará alertas desde SCOM y creará un registro correspondiente para cada una con un tipo de **Alerta** y un SourceSystem de **OpsManager**.  Estos registros tienen las propiedades de la tabla siguiente.  
+La solución Administración de alertas analiza todos los registros con un tipo de **Alerta**.  La solución no recopila directamente las alertas creadas por Log Analytics o recopiladas desde Nagios o Zabbix.
+
+La solución importa alertas desde SCOM y crea un registro correspondiente para cada una con un tipo de **Alerta** y un SourceSystem de **OpsManager**.  Estos registros tienen las propiedades de la tabla siguiente.  
 
 | Propiedad | Descripción |
 |:--- |:--- |
@@ -117,10 +121,5 @@ La tabla siguiente proporciona búsquedas de registros de ejemplo para los regis
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre [alertas en Log Analytics](log-analytics-alerts.md) para más detalles sobre la generación de alertas desde Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

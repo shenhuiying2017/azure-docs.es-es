@@ -1,22 +1,23 @@
 ---
 title: "Esquema de configuración de Diagnósticos de Azure 1.0 | Microsoft Docs"
 description: "SOLO es pertinente si utiliza Azure SDK 2.4 y versiones anteriores con Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric o Cloud Services."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 92bb7ca3414962f18da8505b87ca23f0b704e811
+ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
+ms.openlocfilehash: c749a0929d292913e03fa7340bbbebad411fb44d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 92bb7ca3414962f18da8505b87ca23f0b704e811
 > Diagnósticos de Azure es el componente que se usa para recopilar contadores de rendimiento y otras estadísticas de Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric y Cloud Services.  Esta página solo es pertinente si está usando uno de estos servicios.
 >
 
-Diagnósticos de Azure se usa junto con otros productos de diagnósticos de Microsoft, como Azure Monitor, Application Insights y Log Analytics.
+Diagnósticos de Azure se usa con otros productos de diagnósticos de Microsoft, como Azure Monitor, Application Insights y Log Analytics.
 
 El archivo de configuración de Diagnósticos de Azure define los valores que se usan para inicializar el monitor de diagnóstico. Este se usa para inicializar la configuración de diagnóstico al iniciar el monitor de diagnóstico.  
 
@@ -274,9 +275,4 @@ Atributos:
 |Atributo|Tipo|Descripción|  
 |---------------|----------|-----------------|  
 |**name**|string|Obligatorio. Expresión XPath que especifica el registro que se va a recopilar.|  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

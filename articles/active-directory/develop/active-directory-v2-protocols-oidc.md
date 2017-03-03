@@ -1,4 +1,3 @@
-
 ---
 title: Azure Active Directory v2.0 y el protocolo OpenID Connect | Microsoft Docs
 description: "Cree aplicaciones web mediante la implementación de Azure AD v2.0 del protocolo de autenticación OpenID Connect."
@@ -13,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 1d81be4ba596f7bc0ed7d16cb8bb9b375bd1e223
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 4e43304c108fceb7df70fc37898ffcf989beb922
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -199,6 +199,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
+## <a name="single-sign-out"></a>Cierre de sesión único
+El punto de conexión de v2.0 usa cookies para identificar una sesión de usuario. Cuando un usuario inicia sesión por vez primera en una aplicación, el punto de conexión de v2.0 establece una cookie en el explorador del usuario. Si el usuario inicia sesión en otra aplicación posteriormente, Azure AD comprobará primero la cookie para determinar si el usuario tiene una sesión válida de inicio de sesión con el punto de conexión de Azure AD v2.0, en lugar de volver a autenticar al usuario.
+
+De igual manera, si el usuario cierra sesión primero en una aplicación, el punto de conexión de v2.0 borrará la cookie del explorador. Sin embargo, el usuario podrá permanecer conectado a otras aplicaciones que utilizan el punto de conexión de Azure AD v2.0 para la autenticación. Para asegurarse de que el usuario cierra la sesión de todas las aplicaciones, el punto de conexión de v2.0 envía una solicitud HTTP GET a la `LogoutUrl` de todas las aplicaciones a las que el usuario está conectado en este momento. Las aplicaciones deben responder a esta solicitud borrando las cookies que identifican la sesión del usuario. Puede habilitar `LogoutUrl` desde Azure Portal.
+
+1. Vaya a [Azure Portal](https://portal.azure.com).
+2. Para elegir la instancia de Active Directory, haga clic en su cuenta en la esquina superior derecha de la página.
+3. En el panel de navegación izquierdo, elija **Azure Active Directory**, a continuación, elija **Registros de aplicaciones** y seleccione la aplicación.
+4. Haga clic en **Propiedades** y busque el cuadro de texto **URL de cierre de sesión**. 
+
 ## <a name="protocol-diagram-token-acquisition"></a>Diagrama de protocolo: adquisición de tokens
 Muchas aplicaciones web no solo deben iniciar la sesión del usuario, sino también obtener acceso a un servicio web en nombre del usuario mediante OAuth. En este escenario se combina OpenID Connect para la autenticación de usuario, al tiempo que se obtiene, a la vez, un código de autorización que puede usar para obtener tokens de acceso si usa el flujo de código de autorización de OAuth.
 
@@ -268,10 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Para una descripción de los posibles códigos de error y las respuestas de cliente recomendadas, consulte [Códigos de error correspondientes a errores de puntos de conexión de autorización](#error-codes-for-authorization-endpoint-errors).
 
 Cuando tiene un código de autorización y un token de identificador, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre. Para iniciar la sesión del usuario, debe validar el token de identificador [exactamente como se describió](#validate-the-id-token). Para obtener tokens de acceso, siga los pasos descritos en nuestra [documentación del protocolo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

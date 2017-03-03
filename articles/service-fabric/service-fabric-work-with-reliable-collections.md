@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: jeffreyr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5aa9b594da6b9f386f88c667106c735ed4fd233b
+ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
+ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -142,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definición de tipos de datos inmutables para evitar errores de programador
-Idealmente, nos gustaría que el compilador informara de errores cuando se crea accidentalmente código que transforma el estado de un objeto que se supone que se considera inmutable. Sin embargo, el compilador de C# no tiene la posibilidad de hacer esto. Por lo tanto, para evitar posibles errores de programador, es muy recomendable que defina los tipos que usa con colecciones confiables para que sean tipos inmutables. En concreto, esto significa que se debe ceñir a tipos de valor principales (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan y similares). Y, por supuesto, también puede usar String. Es mejor evitar las propiedades de la colección ya que la serialización y deserialización de las mismas puede, con frecuencia, afectar negativamente al rendimiento. Sin embargo, si desea utilizar las propiedades de la colección, es muy recomendable el uso de la biblioteca de colecciones inmutables de .NET (System.Collections.Immutable). Esta biblioteca está disponible para descargarse desde http://nuget.org. También se recomienda sellar las clases y establecer los campos como solo lectura siempre que sea posible.
+Idealmente, nos gustaría que el compilador informara de errores cuando se crea accidentalmente código que transforma el estado de un objeto que se supone que se considera inmutable. Sin embargo, el compilador de C# no tiene la posibilidad de hacer esto. Por lo tanto, para evitar posibles errores de programador, es muy recomendable que defina los tipos que usa con colecciones confiables para que sean tipos inmutables. En concreto, esto significa que se debe ceñir a tipos de valor principales (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan y similares). Y, por supuesto, también puede usar String. Es mejor evitar las propiedades de la colección ya que la serialización y deserialización de las mismas puede, con frecuencia, afectar negativamente al rendimiento. Sin embargo, si desea utilizar las propiedades de la colección, es muy recomendable el uso de la biblioteca de colecciones inmutables de .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponible para descargarse desde http://nuget.org. También se recomienda sellar las clases y establecer los campos como solo lectura siempre que sea posible.
 
 El tipo UserInfo siguiente muestra cómo definir un tipo inmutable aprovechando las recomendaciones mencionados anteriormente.
 
@@ -199,7 +200,7 @@ public struct ItemId {
 ## <a name="schema-versioning-upgrades"></a>Control de versiones de esquema (actualizaciones)
 Internamente, Reliable Collections serializa los objetos mediante DataContractSerializer de NET. Los objetos serializados se conservan en el disco local de la réplica principal y también se transmiten a las réplicas secundarias. A medida que se desarrolle el servicio, es probable que desee cambiar el tipo de datos (esquema) que el servicio requiere. Debe abordar el control de versiones de los datos con mucho cuidado. En primer lugar y ante todo, siempre debe ser capaz de deserializar los datos antiguos. En concreto, esto significa que el código de deserialización debe ser compatible con versiones anteriores de forma ilimitada: la versión 333 del código de servicio debe ser capaz de funcionar en los datos colocados en una colección confiable por la versión 1 del código de servicio de hace 5 años.
 
-Además, el código de servicio se actualiza con un dominio de actualización en cada momento. Por lo tanto, durante una actualización, tiene dos versiones diferentes del código de servicio ejecutándose simultáneamente. Debe evitar que la nueva versión del código de servicio utilice el nuevo esquema, ya que las versiones anteriores de dicho código podrían no ser capaces de controlar el nuevo esquema. Cuando sea posible, debería diseñar cada versión del servicio para que sea compatible con versiones posteriores mediante la versión 1. En concreto, esto significa que la versión 1 (V1) del código de servicio simplemente debe ser capaz de omitir cualquier elemento de esquema que no controla explícitamente. Sin embargo, debe ser capaz de guardar todos los datos que no conoce explícitamente y simplemente reescribirlos al actualizar un valor o una clave de diccionario.
+Además, el código de servicio se actualiza con un dominio de actualización en cada momento. Por lo tanto, durante una actualización, tiene dos versiones diferentes del código de servicio ejecutándose simultáneamente. Debe evitar que la nueva versión del código de servicio utilice el nuevo esquema, ya que las versiones anteriores de dicho código podrían no ser capaces de controlar el nuevo esquema. Cuando sea posible, debería diseñar cada versión del servicio para que sea compatible con versiones posteriores mediante la versión 1. En concreto, esto significa que la versión&1; (V1) del código de servicio simplemente debe ser capaz de omitir cualquier elemento de esquema que no controla explícitamente. Sin embargo, debe ser capaz de guardar todos los datos que no conoce explícitamente y simplemente reescribirlos al actualizar un valor o una clave de diccionario.
 
 > [!WARNING]
 > Aunque puede modificar el esquema de una clave, debe asegurarse de que el código hash de la clave y los algoritmos de igualdades son estables. Si cambia la forma en la que cualquiera de estos algoritmos opera, no podrá volver a buscar la clave del diccionario confiable nunca más.
@@ -216,9 +217,4 @@ Para obtener procedimientos recomendados sobre el control de versiones de contra
 Para más información sobre cómo implementar contratos de datos tolerantes a versiones, consulte [Devoluciones de llamadas en la serialización tolerante a versiones](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Para más información sobre cómo proporcionar una estructura de datos que pueda interoperar entre varias versiones, consulte [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

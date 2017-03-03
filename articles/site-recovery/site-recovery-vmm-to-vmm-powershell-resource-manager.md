@@ -17,6 +17,7 @@ ms.author: sutalasi
 translationtype: Human Translation
 ms.sourcegitcommit: 0400369eb7ae3a2ebd506605b50afe08fe563d22
 ms.openlocfilehash: 33b3e7322afafd623a10661e33abe7b959eeb512
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -319,9 +320,4 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre los cmdlets de PowerShell de Azure Site Recovery con Azure Resource Manager.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

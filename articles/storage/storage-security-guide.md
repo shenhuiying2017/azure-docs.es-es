@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
 ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -533,8 +534,3 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 * [Efectos de la configuración de seguridad "Criptografía de sistema: usar algoritmos que cumplan FIPS para cifrado, firma y operaciones hash" en Windows XP y en versiones posteriores de Windows](https://support.microsoft.com/kb/811833)
   
   Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

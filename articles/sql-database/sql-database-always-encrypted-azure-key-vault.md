@@ -1,6 +1,6 @@
 ---
-title: "Always Encrypted: protección de datos confidenciales en Azure SQL Database con cifrado de base de datos | Microsoft Docs"
-description: "Proteger datos confidenciales en la base de datos SQL en cuestión de minutos."
+title: 'Always Encrypted: SQL Database: Azure Key Vault | Microsoft Docs'
+description: "En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de datos mediante el asistente de Always Encrypted en SQL Server Management Studio. También incluye instrucciones para almacenar cada clave de cifrado en Almacén de claves de Azure."
 keywords: cifrado de datos, clave de cifrado, cifrado en la nube
 services: sql-database
 documentationcenter: 
@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Always Encrypted: protección de datos confidenciales en Base de datos SQL y almacenamiento de las claves de cifrado en Almacén de claves de Azure
-> [!div class="op_single_selector"]
-> * [Almacén de claves de Azure](sql-database-always-encrypted-azure-key-vault.md)
-> * [Almacén de certificados de Windows](sql-database-always-encrypted.md)
-> 
-> 
 
 En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de datos mediante el [asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) en [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). También incluye instrucciones para almacenar cada clave de cifrado en Almacén de claves de Azure.
 
@@ -62,7 +58,7 @@ Primero debe habilitar la aplicación cliente para obtener acceso al servicio SQ
 5. En **URL DE INICIO DE SESIÓN** y **URI DE ID. DE APLICACIÓN**, escriba una dirección URL válida (por ejemplo, *http://myClientApp*) y continúe.
 6. Haga clic en **CONFIGURAR**.
 7. Copie el **ID. DE CLIENTE**. (Necesitará este valor en el código más adelante).
-8. En la sección **Claves**, seleccione **1 año** en la lista desplegable **Seleccionar duración**. (Copiará la clave después de guardar en el paso 14).
+8. En la sección **Claves**, seleccione **1 año** en la lista desplegable **Seleccionar duración**. (Copiará la clave después de guardar en el paso 13).
 9. Desplácese hacia abajo y haga clic en **Agregar aplicación**.
 10. Deje **MOSTRAR** en **Aplicaciones de Microsoft** y seleccione **Microsoft Azure Service Management**. Haga clic en la marca de verificación para continuar.
 11. En la lista desplegable **Permisos delegados**, seleccione **Acceso a Azure Service Management**.
@@ -86,7 +82,7 @@ Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
@@ -98,7 +94,7 @@ Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para
 ## <a name="create-a-blank-sql-database"></a>Crear una base de datos SQL en blanco
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Vaya a **Nuevo** > **Datos y almacenamiento** > **SQL Database**.
-3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en el Portal de Azure, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md).
+3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera instancia de Azure SQL Database](sql-database-get-started.md).
    
     ![Crear una base de datos en blanco](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
@@ -646,10 +642,5 @@ Después de crear una base de datos que usa Always Encrypted, es posible que qui
 * [Cifrado de SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

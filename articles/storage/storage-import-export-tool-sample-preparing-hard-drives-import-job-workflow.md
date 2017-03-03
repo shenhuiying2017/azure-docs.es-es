@@ -1,5 +1,5 @@
 ---
-title: "Flujo de trabajo de ejemplo para preparar unidades de disco duro para un trabajo de importación de Azure Import/Export | Microsoft Docs"
+title: "Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación de Azure| Microsoft Docs"
 description: "Vea un tutorial para conocer el proceso completo de preparación de las unidades para un trabajo de importación en el servicio Azure Import/Export."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: 763ad16242da2d895686934422e345555d5b0e05
+ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
+ms.openlocfilehash: ebed1f1d4cb6cca96e02322d2f76abd6e9810ecc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -135,9 +136,4 @@ Cuando se hayan completado las sesiones de copia, podrá desconectar las dos uni
 
 * [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import.md)
 * [Quick reference for frequently used commands for import jobs](storage-import-export-tool-quick-reference.md) (Referencia rápida para comandos usados con frecuencia)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -18,6 +18,7 @@ ms.author: daleche
 translationtype: Human Translation
 ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
 ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -89,10 +90,5 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 * [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
 * [Orientación general sobre reintentos](../best-practices-retry-general.md)
 * [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

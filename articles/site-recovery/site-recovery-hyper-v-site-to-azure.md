@@ -1,6 +1,6 @@
 ---
 title: "Replicación de máquinas virtuales de Hyper-V en Azure | Microsoft Docs"
-description: "Describe cómo implementar Azure Site Recovery para orquestar la replicación, ejecutar la conmutación por error y la recuperación de máquinas virtuales de Hyper-V locales no administradas por VMM en Azure mediante el Portal de Azure."
+description: "Describe cómo coordinar la replicación, la conmutación por error y la recuperación de máquinas virtuales de Hyper-V locales en Azure."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,64 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/23/2017
+ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: aac1d2016043cd64d94ec0d10921d6e208db1d7f
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: c4129d5b5ebd0295035e81760b2a39f3caf16499
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure-using-azure-site-recovery-with-the-azure-portal"></a>Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure usando Azure Site Recovery con Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
+> * [Portal de Azure](site-recovery-hyper-v-site-to-azure.md)
 > * [Azure clásico](site-recovery-hyper-v-site-to-azure-classic.md)
 > * [PowerShell: administrador de recursos](site-recovery-deploy-with-powershell-resource-manager.md)
 >
 >
 
-¡Gracias por usar el servicio Azure Site Recovery!
+En este artículo se describe cómo replicar máquinas virtuales locales de Hyper-V en Azure mediante [Azure Site Recovery[](site-recovery-overview.md) en Azure Portal.
 
-Site Recovery es un servicio de Azure que contribuye a su estrategia de recuperación ante desastres y continuidad empresarial (BCDR). Este servicio organiza la replicación de máquinas virtuales y servidores físicos locales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, se realiza la conmutación por error a la ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. La conmutación por recuperación a la ubicación principal se produce cuando vuelve a su funcionamiento normal. Más información en [¿Qué es Site Recovery?](site-recovery-overview.md)
-
-Este artículo describe cómo replicar o migrar máquinas virtuales locales de Hyper-V en Azure mediante Azure Site Recovery en Azure Portal. En este escenario, los servidores Hyper-V no se administran en nubes VMM. Implemente la replicación para conmutar por error las máquinas virtuales en Azure cuando el sitio primario no esté disponible y conmutarlas por recuperación en el entorno local desde Azure cuando el sitio primario vuelva su funcionamiento normal. Para migrar máquinas virtuales a Azure (sin realizar la conmutación por recuperación), complete los pasos descritos en este artículo. Después de ejecutar una prueba correcta de conmutación por error, puede realizar una conmutación por error planeada para completar la migración.
-
+Puede replicar las máquinas virtuales de Hyper-V a Azure Storage y conmutar estas últimas por error si su sitio primario deja de estar disponible. Puede acceder a cargas de trabajo en Azure y conmutar por error al entorno local cuando vuelva a funcionar con normalidad. También puede usar las instrucciones en este artículo para migrar máquinas virtuales a Azure. En una situación de migración, replicará y conmutará por error máquinas virtuales, pero no las conmuta por recuperación.
 
 Cuando haya terminado de leer este artículo, publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## <a name="quick-reference"></a>Referencia rápida
-
-Para una implementación completa, se recomienda que siga todos los pasos del artículo. Pero si se está quedando sin tiempo, aquí tiene un resumen rápido.
-
- **Ámbito** | **Detalles**
- --- | ---
- **Escenario de implementación** | Replicación de máquinas virtuales de Hyper-V, que están en nubes VMM, en Azure mediante Azure Portal
- **Requisitos locales** | Uno o varios servidores de Hyper-V que ejecuten Windows Server 2012 R2 con el rol de Hyper-V y las actualizaciones más recientes instaladas, o bien Microsoft Hyper-V Server 2012 R2 con las últimas actualizaciones.<br/><br/> Los hosts de Hyper-V necesitan acceso a Internet y deben poder acceder a direcciones URL específicas directamente o a través de un proxy. [Detalles completos](#on-premises-prerequisites).
- **Limitaciones locales** | No se admite un proxy basado en HTTPS
- **Proveedor/agente** | El proveedor de Azure Site Recovery y el agente de Azure Recovery Services se instalan en el host de Hyper-V durante la implementación.
- **Requisitos de Azure** | Cuenta de Azure<br/><br/> Almacén de Servicios de recuperación<br/><br/> Cuenta de almacenamiento LRS o GRS en una región de almacenes<br/><br/> Cuenta de almacenamiento estándar<br/><br/> Red virtual de Azure en una región de almacenes. [Detalles completos](#azure-prerequisites).
- **Limitaciones de Azure** | Si usa GRS, necesita otra cuenta LRS para el registro<br/><br/> Las cuentas de almacenamiento creadas en Azure Portal no pueden moverse entre grupos de recursos en la misma suscripción o en otra diferente. <br/><br/> Premium Storage no se admite.<br/><br/> Las redes de Azure usadas para Site Recovery no se pueden mover entre grupos de recursos en la misma suscripción o en otra diferente.
- **Replicación de máquina virtual** | Las máquinas virtuales deben cumplir los[ requisitos previos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
- **Limitaciones de replicación** | No se pueden replicar máquinas virtuales de Hyper_V que ejecutan Linux con una dirección IP estática.<br/><br/> Puede excluir discos específicos de la replicación, pero no el disco de sistema operativo.
- **Pasos de implementación** | **1)** Cree un almacén de Recovery Services. -> **2)** Cree un sitio de Hyper-V que incluya todos los hosts de Hyper-V. -> **3)** Configure los hosts de Hyper-V. -> **4**) Prepare Azure (suscripciones, almacenamientos y redes). -> **5)** Configure las opciones de replicación. -> **6)** Habilite la replicación. -> **7)** Pruebe la replicación y la conmutación por error. **8)** Si está realizando una migración, ejecute una conmutación por error planeada.
-
-## <a name="azure-deployment-models"></a>Modelos de implementación de Azure
-
-Azure tiene dos [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md) diferentes para crear recursos y trabajar con ellos: el modelo de Azure Resource Manager y el clásico. Azure también tiene dos portales: el [Portal de Azure clásico](https://manage.windowsazure.com/) que admite el modelo de implementación clásico y [Azure Portal](https://ms.portal.azure.com/) que es compatible con ambos modelos de implementación.
-
- En este artículo, se describe cómo realizar la implementación en Azure Portal, donde se lleva a cabo de forma más simplificada. Se puede usar el portal clásico para mantener los almacenes existentes. No se pueden crear almacenes con el portal clásico.
-
-## <a name="site-recovery-in-your-business"></a>Site Recovery en su empresa
-
-Las organizaciones necesitan una estrategia de recuperación ante desastres y continuidad empresarial (BCDR) que determine cómo seguirán en funcionamiento y disponibles las aplicaciones y los datos durante los tiempos de inactividad planeados y no planeados, y cómo recuperar las condiciones de funcionamiento normales lo antes posible. Esto es lo que Site Recovery puede hacer:
-
- - Protección remota para aplicaciones empresariales que se ejecutan en máquinas virtuales de Hyper-V.
- - Una ubicación única para configurar, administrar y supervisar la replicación, la conmutación por error y la recuperación.
- - Conmutación por error sencilla en Azure y conmutaciones por recuperación (restauración) desde Azure a servidores host de Hyper-V del sitio local.
- - Planes de recuperación que incluyen varias máquinas virtuales de modo que las cargas de trabajo de la aplicación en capas experimenten la conmutación por error al mismo tiempo.
-
-
-
 
 
 ## <a name="scenario-architecture"></a>Arquitectura del escenario
@@ -101,7 +65,7 @@ Esto es lo que se necesita en el entorno local.
 ## <a name="virtual-machine-prerequisites"></a>Requisitos previos de las máquinas virtuales
 | **Requisito previo** | **Detalles** |
 | --- | --- |
-| **Máquinas virtuales protegidas** |Antes de conmutar por error una máquina virtual, tiene que asegurarse de que el nombre que se asignará a la máquina virtual de Azure cumple con los [requisitos previos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Puede modificar el nombre después de habilitar la replicación para la máquina virtual.<br/><br/> La capacidad del disco individual en máquinas protegidas no debe ser superior a 1023 GB. Una máquina virtual puede tener hasta 64 discos (es decir, hasta 64 TB).<br/><br/> No se admiten clústeres de invitados de disco compartido.<br/><br/> Si la máquina virtual de origen tiene la formación de equipos NIC, se convierte en una sola NIC después de la conmutación por error a Azure.<br/><br/>No se admite la protección de máquinas virtuales que ejecutan Linux con una dirección IP estática. |
+| **Máquinas virtuales protegidas** |Antes de conmutar por error una máquina virtual, tiene que asegurarse de que el nombre que se asignará a la máquina virtual de Azure cumple con los [requisitos previos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). Puede modificar el nombre después de habilitar la replicación para la máquina virtual.<br/><br/> La capacidad del disco individual en máquinas protegidas no debe ser superior a 1023 GB. Una máquina virtual puede tener hasta 64 discos (es decir, hasta 64 TB).<br/><br/> No se admiten clústeres de invitados de disco compartido.<br/><br/> Si la máquina virtual de origen tiene la formación de equipos NIC, se convierte en una sola NIC después de la conmutación por error a Azure.<br/><br/>No se admite la protección de máquinas virtuales que ejecutan Linux con una dirección IP estática. |
 
 ## <a name="prepare-for-deployment"></a>Preparación de la implementación
 Para preparar la implementación debe:
@@ -192,17 +156,17 @@ Configure el sitio Hyper-V, instale el Proveedor de Azure Site Recovery y el age
 
 5. En **Configuración de proxy**, especifique cómo se conectará el proveedor que se instalará en el servidor a Azure Site Recovery a través de Internet.
 
-* Si quiere que el proveedor se conecte directamente, seleccione **Connect directly without a proxy**(Conectarse directamente sin un proxy).
-* Si quiere conectarse con el proxy configurado actualmente en el servidor, seleccione **Connect with existing proxy settings**(Conectarse con la configuración de proxy existente).
-* Si el proxy existente requiere autenticación, o quiere utilizar un proxy personalizado para la conexión del proveedor, seleccione **Connect with custom proxy settings**(Conectarse con una configuración de proxy personalizada).
-* Si utiliza un proxy personalizado, deberá especificar la dirección, el puerto y las credenciales.
-* Si usa un proxy, asegúrese de que las direcciones URL descritas en los [requisitos previos](#on-premises-prerequisites) se permiten a través de él.
+    * Si quiere que el proveedor se conecte directamente, seleccione **Connect directly without a proxy**(Conectarse directamente sin un proxy).
+    * Si quiere conectarse con el proxy configurado actualmente en el servidor, seleccione **Connect with existing proxy settings**(Conectarse con la configuración de proxy existente).
+    * Si el proxy existente requiere autenticación, o quiere utilizar un proxy personalizado para la conexión del proveedor, seleccione **Connect with custom proxy settings** (Conectarse con una configuración de proxy personalizada).
+    * Si utiliza un proxy personalizado, deberá especificar la dirección, el puerto y las credenciales.
+    * Si usa un proxy, asegúrese de que las direcciones URL descritas en los [requisitos previos](#on-premises-prerequisites) se permiten a través de él.
 
     ![Internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
 6. Una vez finalizada la instalación, haga clic en **Registrar** para registrar el servidor en el almacén.
 
-![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+    ![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
 7. Después de que finalice el registro, los metadatos del servidor de Hyper-V se recuperan mediante Azure Site Recovery y el servidor se muestra en la hoja **Configuración** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Hyper-V Hosts** (Hosts de Hyper-V).
 
@@ -225,12 +189,12 @@ El agente y el proveedor de Azure Site Recovery también pueden instalarse media
 <br/>
 Donde:
 
-* **/Credentials** : parámetro obligatorio que especifica la ubicación donde se encuentra el archivo de clave de registro.  
-* **/FriendlyName** : parámetro obligatorio para el nombre del servidor host Hyper-V que aparece en el portal de Azure Site Recovery.
-* **/proxyAddress** : parámetro opcional que especifica la dirección del servidor proxy.
+* **/Credentials**: parámetro obligatorio que especifica la ubicación donde se encuentra el archivo de clave de registro.  
+* **/FriendlyName**: parámetro obligatorio para el nombre del servidor host Hyper-V que aparece en el portal de Azure Site Recovery.
+* **/proxyAddress**: parámetro opcional que especifica la dirección del servidor proxy.
 * **/proxyport** : parámetro opcional que especifica el puerto del servidor proxy.
-* **/proxyUsername** : parámetro opcional que especifica el nombre de usuario de proxy (si el proxy requiere autenticación).
-* **/proxyPassword** : parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).
+* **/proxyUsername**: parámetro opcional que especifica el nombre de usuario de proxy (si el proxy requiere autenticación).
+* **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).
 
 ## <a name="step-3-set-up-the-target-environment"></a>Paso 3: Configuración del entorno de destino
 
@@ -240,12 +204,12 @@ Especifique la cuenta de almacenamiento de Azure que se utilizará para la repli
 
 3. Site Recovery comprueba que tiene una o más cuentas de almacenamiento y redes compatibles.
 
-    ![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png))
+      ![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png))
 
 
 4. Si no ha creado una cuenta de almacenamiento y desea crear una con Resource Manager, haga clic en **+Cuenta de almacenamiento** para hacerlo directamente. En la hoja **Crear cuenta de almacenamiento** , especifique el nombre, el tipo, la suscripción y la ubicación de la cuenta. La cuenta debe estar en la misma ubicación que el almacén de Servicios de recuperación.
 
-    ![Almacenamiento](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
+      ![Almacenamiento](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
 
 Si desea crear una cuenta de almacenamiento mediante el modelo clásico, lo hará [en el Portal de Azure](../storage/storage-create-storage-account-classic-portal.md).
@@ -274,7 +238,7 @@ Cuando se crea una nueva directiva se asocia automáticamente con el sitio Hyper
 ## <a name="step-5-capacity-planning"></a>Paso 5: Pleaneamiento de capacidad
 Ahora que tiene la infraestructura básica configurada, puede planear la capacidad y averiguar si necesitará recursos adicionales.
 
-Site Recovery proporciona una herramienta de planeación de capacidad para ayudarle a asignar los recursos adecuados para el entorno de origen, los componentes de recuperación del sitio, las redes y el almacenamiento. Puede ejecutar la herramienta de planeación en modo rápido para obtener resultados basados en un promedio de máquinas virtuales, discos y almacenamiento o en el modo detallado en el que podrá especificar las cifras en el nivel de carga de trabajo. Antes de empezar necesitará:
+Site Recovery proporciona una herramienta de planeación de capacidad para ayudarle a asignar los recursos adecuados para el entorno de origen, los componentes de Site Recovery, las redes y el almacenamiento. Puede ejecutar la herramienta de planeación en modo rápido para obtener resultados basados en un promedio de máquinas virtuales, discos y almacenamiento o en el modo detallado en el que podrá especificar las cifras en el nivel de carga de trabajo. Antes de empezar necesitará:
 
 * Recopilar información sobre su entorno de replicación, incluidas las máquinas virtuales, discos por máquina virtual y almacenamiento por disco.
 * Calcular la tasa de cambio (renovación) diaria para los datos replicados. Para ayudarle a ello, puede usar la [herramienta de planeamiento de capacidad para réplicas de Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) .
@@ -326,17 +290,17 @@ Ahora habilite la replicación como sigue:
 6. En **Máquinas virtuales** > **Seleccionar máquinas virtuales** , haga clic en cada máquina que desea replicar y selecciónela. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. y, a continuación, haga clic en **Aceptar**.
 
     ![Habilitar replicación](./media/site-recovery-hyper-v-site-to-azure/enable-replication5-for-exclude-disk.png)
-7. En **Propiedades** > **Configurar propiedades**, seleccione el sistema operativo para las máquinas virtuales seleccionadas y el disco del sistema operativo. De forma predeterminada se seleccionan todos los discos de la máquina virtual para la replicación. Puede que quiera excluir discos de la replicación con el fin de reducir el consumo de ancho de banda por la replicación de datos innecesarios en Azure. Por ejemplo, es posible que no desee replicar los discos con datos temporales, o los datos que se actualizan cada vez que se reinicia una máquina o aplicación (por ejemplo, pagefile.sys o tempdb de Microsoft SQL Server). Para excluir el disco de la replicación, deselecciónelo. Compruebe que el nombre de la máquina virtual de Azure (nombre de destino) cumple los [requisitos de la máquina virtual de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) y modifíquelo si es necesario. y, a continuación, haga clic en **Aceptar**. Puede establecer propiedades adicionales más adelante.
+7. En **Propiedades** > **Configurar propiedades**, seleccione el sistema operativo para las máquinas virtuales seleccionadas y el disco del sistema operativo. De forma predeterminada se seleccionan todos los discos de la máquina virtual para la replicación. Puede que quiera excluir discos de la replicación con el fin de reducir el consumo de ancho de banda por la replicación de datos innecesarios en Azure. Por ejemplo, es posible que no desee replicar los discos con datos temporales, o los datos que se actualizan cada vez que se reinicia una máquina o aplicación (por ejemplo, pagefile.sys o tempdb de Microsoft SQL Server). Para excluir el disco de la replicación, deselecciónelo. Compruebe que el nombre de la máquina virtual de Azure (nombre de destino) cumple los [requisitos de la máquina virtual de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) y modifíquelo si es necesario. y, a continuación, haga clic en **Aceptar**. Puede establecer propiedades adicionales más adelante.
 
-    ![Habilitar replicación](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
+     ![Habilitar replicación](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
 
      > [!NOTE]
      >
-     > * Solo se pueden excluir los discos básicos de la replicación. No se puede excluir el disco de sistema operativo y no se recomienda excluir los discos dinámicos. ASR no puede identificar qué disco VHD es básico o dinámico dentro de la máquina virtual invitada.  Si todos los discos del volumen dinámico dependientes no se excluyen, los discos dinámicos protegidos aparecerán como erróneos en la máquina virtual de conmutación por error y no se podrá acceder a los datos de ese disco.
-    > * Una vez habilitada la replicación, no puede agregar ni quitar discos para la replicación. Si quiere agregar o excluir un disco, deberá deshabilitar la protección de la máquina y luego volver a habilitarla.
+     > * Solo se pueden excluir los discos básicos de la replicación. No se pueden excluir los discos de sistema operativo y no se recomienda excluir los discos dinámicos. Site Recovery no se puede identificar si un disco VHD es básico o dinámico dentro de la máquina virtual invitada.  Si no se excluyen todos los discos de volumen dinámico dependientes, el disco dinámico protegido se mostrará como uno fallido cuando la máquina virtual se conmute por error, y no se podrá acceder a los datos de dicho disco.
+    > * Una vez habilitada la replicación, no puede agregar ni quitar discos para la replicación. Si quiere agregar o excluir un disco, tendrá que deshabilitar la protección de la máquina y luego volver a habilitarla.
     > * Si excluye un disco necesario para que una aplicación funcione, después de la conmutación por error a Azure, debe crearlo manualmente en Azure para poder ejecutar la aplicación replicada. Como alternativa, podría integrar Azure
     > * Automation en un plan de recuperación para crear el disco durante la conmutación por error de la máquina.
-    > * No se producirá una conmutación por recuperación de los discos creados manualmente en Azure. Por ejemplo, si realiza la conmutación por error de tres discos y crea dos directamente en una máquina virtual de Azure, solo tres discos que se conmutaran por error se conmutarán por recuperación desde Azure hasta Hyper-V. No puede incluir los discos creados manualmente en la conmutación por recuperación o en la replicación inversa de Hyper-V a Azure.
+    > * No se producirá una conmutación por recuperación de los discos creados manualmente en Azure. Por ejemplo, si realiza la conmutación por error de tres discos y crea dos directamente en una máquina virtual de Azure, solo tres discos que se conmutaron por error se conmutarán por recuperación desde Azure hasta Hyper-V. No puede incluir los discos creados manualmente en la conmutación por recuperación o en la replicación inversa de Hyper-V a Azure.
     >
     >       
 
@@ -373,7 +337,7 @@ Es recomendable que compruebe las propiedades de la máquina de origen.
 
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
-Si desea conectarse a máquinas virtuales de Azure mediante RDP después de la conmutación por error, asegúrese de que hace lo siguiente: 
+Si desea conectarse a máquinas virtuales de Azure mediante RDP después de la conmutación por error, asegúrese de que hace lo siguiente:
 
 **En la máquina local antes de la conmutación por error**:
 
@@ -406,14 +370,12 @@ Si desea acceder a una máquina virtual de Azure con Linux después de la conmut
 Para probar la implementación, puede ejecutar una conmutación por error de prueba para una sola máquina virtual o un plan de recuperación que contenga una o varias máquinas virtuales.
 
 1. Para conmutar por error una sola máquina, en **Configuración** > **Elementos replicados**, haga clic en el icono Máquina virtual > **+Probar conmutación por error**.
-
-    ![Probar conmutación por error](./media/site-recovery-vmware-to-azure/test-failover1.png)
-1. Para conmutar por error un plan de recuperación, en **Configuración** > **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).
-1. En **Probar conmutación por error**, seleccione la red de Azure a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error.
-1. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede realizar un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo **Probar conmutación por error** en nombre de almacén > **Configuración** > **Trabajos** > **Trabajos de Site Recovery**.
-1. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure en Azure Portal > **Virtual Machines**. Debe asegurarse de que la máquina virtual tiene el tamaño adecuado, que se ha conectado a la red correspondiente y que se está ejecutando.
-1. Si se [preparó para las conexiones después de la conmutación por error](#prepare-to-connect-to-azure-vms-after-failover), debe ser capaz de conectarse a la máquina virtual de Azure.
-1. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En **Notas** , registre y guarde las observaciones asociadas a la conmutación por error de prueba. Así se eliminarán las máquinas virtuales que se crearon durante la conmutación por error de prueba. 
+2. Para conmutar por error un plan de recuperación, en **Configuración** > **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).
+3. En **Probar conmutación por error**, seleccione la red de Azure a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error.
+4. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede realizar un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo **Probar conmutación por error** en nombre de almacén > **Configuración** > **Trabajos** > **Trabajos de Site Recovery**.
+5. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure en Azure Portal > **Virtual Machines**. Debe asegurarse de que la máquina virtual tiene el tamaño adecuado, que se ha conectado a la red correspondiente y que se está ejecutando.
+6. Si se [preparó para las conexiones después de la conmutación por error](#prepare-to-connect-to-azure-vms-after-failover), debe ser capaz de conectarse a la máquina virtual de Azure.
+7. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En **Notas** , registre y guarde las observaciones asociadas a la conmutación por error de prueba. Así se eliminarán las máquinas virtuales que se crearon durante la conmutación por error de prueba.
 
 Para más información, consulte el documento sobre [conmutación por error de prueba de Azure](site-recovery-test-failover-to-azure.md).
 
@@ -423,7 +385,7 @@ Cuando se haya completado la replicación inicial para las máquinas, podrá inv
 [Obtenga más información](site-recovery-failover.md) sobre los distintos tipos de conmutaciones por error, además de una descripción detallada sobre cuándo y cómo realizar cada una de ellas.
 
 > [!NOTE]
-> Si pretende migrar máquinas virtuales a Azure, recomendamos encarecidamente ejecutar una [operación de conmutación por error planeada](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) para migrar las máquinas virtuales a Azure. Cuando se haya validado la aplicación migrada en Azure mediante la conmutación por error de prueba, realice los pasos mencionados en [Completar migración](#Complete-migration-of-your-virtual-machines-to-Azure) para finalizar el proceso de migración de sus máquinas virtuales. No tiene que realizar una operación de confirmación ni de eliminación. Con el paso Completar migración se termina el proceso, se quita la protección de la máquina virtual y se detiene la facturación de la máquina en Azure Site Recovery.
+> Si pretende migrar máquinas virtuales a Azure, recomendamos encarecidamente ejecutar una [operación de conmutación por error planeada](site-recovery-failover.md) para migrar las máquinas virtuales a Azure. Cuando se haya validado la aplicación migrada en Azure mediante la conmutación por error de prueba, realice los pasos mencionados en [Completar migración](#Complete-migration-of-your-virtual-machines-to-Azure) para finalizar el proceso de migración de sus máquinas virtuales. No tiene que realizar una operación de confirmación ni de eliminación. Con el paso Completar migración se termina el proceso, se quita la protección de la máquina virtual y se detiene la facturación de la máquina en Azure Site Recovery.
 
 
 ### <a name="run-a-planned-failover"></a>Ejecución de una conmutación por error planeada
@@ -431,7 +393,7 @@ Se debe elegir para satisfacer los requisitos de cumplimiento o durante el mante
 
 1. Seleccione **Planes de recuperación > nombre_PlanDeRecuperación**.
 2. En la hoja Plan de recuperación, haga clic en **Conmutación por error planeada**.
-3. En la página **Confirmar conmutación por error planeada **, elija las ubicaciones de origen y de destino. 
+3. En la página **Confirmar conmutación por error planeada **, elija las ubicaciones de origen y de destino.
 4. Cuando se inicia una conmutación por error planeada, el primer paso es apagar las máquinas virtuales para garantizar que se no se produce ninguna pérdida de datos. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** . Si se produce un error en la conmutación por error (ya sea en una máquina virtual o en un script incluido en el plan de recuperación), la conmutación por error planeada de un plan de recuperación se detiene. Puede iniciar la conmutación por error nuevo.
 6. Una vez creadas las máquinas virtuales de réplica, pasan a estar en estado pendiente de confirmación. Haga clic en **Confirmar** para confirmar la conmutación por error.
 7. Cuando se ha completado la replicación, las máquinas virtuales se inician en la ubicación secundaria.
@@ -446,7 +408,7 @@ Esta opción debe seleccionarse cuando no se puede acceder a un sitio principal 
 4. Seleccione **Apagar máquinas virtuales y sincronizar los últimos datos** para especificar que Site Recovery debe intentar apagar las máquinas virtuales protegidas y sincronizar los datos para que se realice la conmutación por error de la versión más reciente de los datos.
 5. Después de la conmutación por error, las máquinas virtuales se encontrarán en un estado de confirmación pendiente.  Haga clic en **Confirmar** para confirmar la conmutación por error.
 
-[Más información](site-recovery-failover.md#run-an-unplanned-failover)
+[Más información](site-recovery-failover.md)
 
 ## <a name="complete-migration-of-your-virtual-machines-to-azure"></a>Finalización de la migración de las máquinas virtuales a Azure
 > [!NOTE]
@@ -468,9 +430,4 @@ Le mostramos cómo puede supervisar la configuración y el estado de la implemen
     ![Essentials](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 2. En el icono de **Estado** puede supervisar los servidores del sitio que están experimentando el problema y los eventos provocados por Site Recovery en las últimas 24 horas.
 3. Puede administrar y supervisar la replicación en los iconos de **Elementos replicados**, **Planes de recuperación** y **Trabajos de Site Recovery**. Puede ver más detalles de los trabajos en **Configuración** -> **Trabajos** -> **Site Recovery Jobs** (Trabajos de Site Recovery).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

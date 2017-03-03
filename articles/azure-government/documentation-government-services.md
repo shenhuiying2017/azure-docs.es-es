@@ -1,10 +1,10 @@
 ---
-title: Servicios de Azure Government | Microsoft Docs
+title: Servicios disponibles de Azure Government | Microsoft Docs
 description: "Proporciona información general de los servicios disponibles en Azure Government."
 services: azure-government
 cloud: gov
 documentationcenter: 
-author: zakramer
+author: smichelotti
 manager: liki
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/29/2017
-ms.author: zakramer
+ms.date: 02/13/2017
+ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
-ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
+ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
+ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="azure-government-services"></a>Servicios de Azure Government
-Azure Government está expandiendo continuamente los servicios que están disponibles.  Estos servicios se implementan con el mismo código que el usado en Azure público.  En esta sección se describen dos tipos principales de información:
+# <a name="available-services-on-azure-government"></a>Servicios disponibles en Azure Government
+Azure Government está expandiendo continuamente los servicios que están disponibles.  Estos servicios se implementan con el mismo código que el usado en Azure público.  Esta sección documenta los servicios que están actualmente disponibles en Azure Government, incluidos los dos tipos principales de información:
 
 * **Variaciones:** variaciones debido a características que aún no se han implementado, o propiedades (por ejemplo, direcciones URL) que son únicas en el entorno del gobierno.  
 * **Consideraciones:** detalles de implementación específicos de Government para garantizar que los datos permanecen dentro del límite de compatibilidad.
@@ -30,73 +31,124 @@ Todo lo que necesita saber sobre estos servicios se puede encontrar en su docume
 
 Para obtener la lista más reciente de servicios, consulte los [productos por región](https://azure.microsoft.com/regions/services/). 
 
+En las tablas siguientes, los servicios especificados como Resource Manager habilitado tienen proveedores de recursos y se pueden administrar mediante PowerShell. Para más información sobre los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [aquí](../azure-resource-manager/resource-manager-supported-services.md). Los servicios especificados como disponibles en el portal se pueden administrar en el portal de [Azure Government](https://portal.azure.us/). 
+
+
 ## <a name="computedocumentation-government-computemd"></a>[Proceso](documentation-government-compute.md)
-* [Máquinas virtuales Windows](documentation-government-compute.md#virtual-machines)
-* [Máquinas virtuales Linux](documentation-government-compute.md#virtual-machines)
-* Servicios en la nube
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| [Máquinas virtuales](documentation-government-compute.md#virtual-machines) | Sí | Sí |
+| Lote | Sí | Sí |
+| Servicios en la nube | Sí | Sí |
+| Service Fabric | Sí | Sí |
+| Conjuntos de escalas de máquina virtual | Sí | Sí |
+
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Redes](documentation-government-networking.md)
-* [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
-* [Soporte técnico para las comunidades de BGP](documentation-government-networking.md#support-for-bgp-communities)
-* Red virtual
-* [Equilibrador de carga](documentation-government-networking.md#support-for-load-balancer)
-* Application Gateway
-* [Administrador de tráfico](documentation-government-networking.md#support-for-traffic-manger)
-* [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | Sí | Sí |
+| Red virtual | Sí | Sí |
+| [Load Balancer](documentation-government-networking.md#support-for-load-balancer) | Sí | Sí |
+| [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | Sí | Sí |
+| [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | Sí | Sí |
+| Puerta de enlace de aplicaciones | Sí | Sí |
+| ExpressRoute | Sí | Sí |
+
+
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Almacenamiento](documentation-government-services-storage.md)
-* [Azure Storage](documentation-government-services-storage.md#azure-storage)
-* [Blob Storage](documentation-government-services-storage.md#azure-storage)
-* [Table Storage](documentation-government-services-storage.md#azure-storage)
-* [Queue Storage](documentation-government-services-storage.md#azure-storage)
-* [File Storage](documentation-government-services-storage.md#azure-storage)
-* [Almacenamiento caliente/frío](documentation-government-services-storage.md#azure-storage)
-* [Cifrado del servicio de almacenamiento](documentation-government-services-storage.md#azure-storage)
-* [Premium Storage](documentation-government-services-storage.md#azure-storage)
-* [Importación y exportación de blobs](documentation-government-services-storage.md#azure-storage)
-* [StorSimple](documentation-government-services-storage.md)
-* [Copia de seguridad](documentation-government-services-backup.md)
-* [Recuperación de sitios](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* Importación/Exportación
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| [Storage: blobs](documentation-government-services-storage.md#azure-storage) | Sí | Sí |
+| [Storage: tablas](documentation-government-services-storage.md#azure-storage) | Sí | Sí |
+| [Storage: colas](documentation-government-services-storage.md#azure-storage) | Sí | Sí |
+| [Storage: archivos](documentation-government-services-storage.md#azure-storage) | Sí | Sí |
+| [Storage: discos](documentation-government-services-storage.md#azure-storage) | Sí | Sí |
+| [StorSimple](documentation-government-services-storage.md) | Sí | Sí |
+| [Copia de seguridad](documentation-government-services-storage.md#azure-storage) | Sí | Sí |
+| [Recuperación de sitios](documentation-government-services-storage.md#azure-storage) | Sí | Sí |
+| [Importación/Exportación](documentation-government-services-storage.md#azure-storage) | Sí | No |
+
+
 
 ## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Web y móvil](documentation-government-services-webandmobile.md)
-* [App Services](documentation-government-services-webandmobile.md#app-services)
-* Media Services
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| [App Service: aplicaciones web](documentation-government-services-webandmobile.md#app-services) | Sí | Sí |
+| [App Service: aplicaciones de API](documentation-government-services-webandmobile.md#app-services) | Sí | Sí |
+| [App Service: aplicaciones móviles](documentation-government-services-webandmobile.md#app-services) | Sí | Sí |
+| Servicios multimedia | Sí | Sí |
+
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Bases de datos](documentation-government-services-database.md)
-* [Base de datos SQL](documentation-government-services-database.md#sql-database)
-* SQL Server Stretch Database
-* [Redis Cache](documentation-government-services-database.md#azure-redis-cache)
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| [Base de datos SQL](documentation-government-services-database.md#sql-database) | Sí | Sí |
+| SQL Data Warehouse | Sí | Sí |
+| SQL Server Stretch Database | Sí | Sí |
+| [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Sí | Sí |
+
+
+
 
 ## <a name="internet-of-things-iot"></a>Internet de las cosas (IoT)
-* Centros de eventos
-* Centros de notificaciones
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| Centros de eventos | Sí | Sí |
+| Centros de notificaciones | No | No (vaya al [portal heredado](https://manage.windowsazure.us/)) |
+
 
 ## <a name="enterprise-integration"></a>Enterprise Integration
-* Service Bus
-* [StorSimple](documentation-government-services-storage.md)
-* SQL Server Stretch Database
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| SERVICE BUS | Sí | Sí |
+| [StorSimple](documentation-government-services-storage.md) | Sí | Sí |
+| SQL Server Stretch Database | Sí | Sí |
+
+
 
 ## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Seguridad + Identidad](documentation-government-services-securityandidentity.md)
-* [Almacén de claves](documentation-government-services-securityandidentity.md#key-vault)
-* Azure Active Directory
-* Multi-Factor Authentication
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| Azure Active Directory | Sí | Sí |
+| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Sí | No (próximamente) |
+| Multi-Factory Authentication | Sí | Sí |
+| Intune | Sí | No |
+
+
+## <a name="intelligence--analytics"></a>Inteligencia y análisis
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| Power BI | Sí | No |
+| HDInsight | Sí | Sí |
+
+
 
 ## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Supervisión + Administración](documentation-government-services-monitoringandmanagement.md)
-* [Automatización](documentation-government-services-monitoringandmanagement.md#automation)
-* [Copia de seguridad](documentation-government-services-backup.md) 
-* [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* [Recuperación de sitios](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* Scheduler
-* [Administrador de tráfico](documentation-government-networking.md#support-for-traffic-manger)
-* Supervisión y diagnóstico
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| [Automatización](documentation-government-services-monitoringandmanagement.md#automation) | Sí | Sí |
+| [Copia de seguridad](documentation-government-services-backup.md) | Sí | Sí |
+| [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | Sí | Sí |
+| [Recuperación de sitios](documentation-government-services-monitoringandmanagement.md#site-recovery) | Sí | Sí |
+| Programador | Sí | No |
+| Supervisión y diagnóstico | Sí | Sí |
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información complementaria y actualizaciones, suscríbase al [blog de Microsoft Azure Government](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

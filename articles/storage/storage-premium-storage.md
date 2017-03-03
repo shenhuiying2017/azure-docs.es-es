@@ -17,6 +17,7 @@ ms.author: ramankum
 translationtype: Human Translation
 ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
 ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -277,8 +278,3 @@ Para más información sobre el Almacenamiento premium de Azure, consulte los si
 ### <a name="blog-posts"></a>Entradas de blog
 * [Azure Premium Storage Generally Available (Disponibilidad general del Almacenamiento premium de Azure)](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud (Anuncio de la serie GS: Incorporación de compatibilidad con el Almacenamiento premium a las mayores máquinas virtuales en la nube pública)](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -17,6 +17,7 @@ ms.author: aungoo
 translationtype: Human Translation
 ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
 ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -119,10 +120,5 @@ Obtenga más información sobre cómo crear instantáneas de un blob y planear l
 
 * [Crear una instantánea de un blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](../backup/backup-azure-vms-introduction.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 3f0af43c103e34535fd114e33c40da010ea69d69
-ms.openlocfilehash: b8a2a33909f77dd1bbe0a7b454e15df7432164a8
+ms.sourcegitcommit: 2461f706f8fc1150e69312098640c0676206a531
+ms.openlocfilehash: 4edd728fe4798450106a4991b353b9dac9de0d88
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -60,9 +61,4 @@ Cuando necesite exportar una base de datos para archivar o migrar a otra platafo
 * Para información sobre el proceso de migración de bases de datos SQL Server completo, consulte [Migración de una base de datos SQL Server a Azure SQL Database](sql-database-cloud-migrate.md).
 * Para información general sobre cómo copiar una base de datos dentro de Azure, consulte también [Copia de una base de datos Azure SQL Database](sql-database-copy.md).
 * Puede copiar una base de datos Azure SQL Database dentro de Azure mediante [Azure Portal](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) o [Transact-SQL](sql-database-copy-transact-sql.md). 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

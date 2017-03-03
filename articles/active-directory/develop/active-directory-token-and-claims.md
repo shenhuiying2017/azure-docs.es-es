@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4612c1f516dca51aea925343f79649761448c05d
+ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
+ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -74,18 +75,20 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `ver` |Versión |Almacena el número de versión del token. <br><br> **Valor de JWT de ejemplo**: <br> `"ver": "1.0"` |
 
 ## <a name="access-tokens"></a>Tokens de acceso
+Tras una autenticación correcta, Azure AD devuelve un token de acceso, que puede utilizarse para acceder a recursos protegidos. El token de acceso es un JSON Web Token (JWT) con codificación Base 64 y se puede inspeccionar su contenido pasándolo por un descodificador.
 
 Si la aplicación solo *utiliza* tokens de acceso para obtener acceso a las API, puede (y debe) tratar los tokens de acceso como completamente opacos: son simplemente cadenas que su aplicación puede pasar a los recursos en las solicitudes HTTP.
 
 Al solicitar un token de acceso, Azure AD también devuelve algunos metadatos sobre el token de acceso para el consumo de la aplicación.  Esta información incluye la hora de expiración del token de acceso y los ámbitos para los que es válido.  Esto permite a la aplicación realizar un almacenamiento inteligente en caché de los tokens de acceso sin tener que analizar y abrir el mismo token de acceso.
 
-Si la aplicación es una API protegida con Azure AD que espera tokens de acceso en las solicitudes HTTP, debe llevar a cabo la validación y la inspección de los tokens que recibe. Para obtener más información acerca de cómo hacer esto con. NET, consulte cómo [proteger una API web mediante tokens de portador de Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Si la aplicación es una API protegida con Azure AD que espera tokens de acceso en las solicitudes HTTP, debe llevar a cabo la validación y la inspección de los tokens que recibe. La aplicación debe realizar la validación del token de acceso antes de usarlo para acceder a los recursos. Para obtener más información sobre la validación, consulte [Validación de los tokens](#validating-tokens).  
+Para obtener más información acerca de cómo hacer esto con. NET, consulte cómo [proteger una API web mediante tokens de portador de Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## <a name="refresh-tokens"></a>Tokens de actualización
 
 Los tokens de actualización son tokens de seguridad que la aplicación puede utilizar para adquirir nuevos tokens de acceso en un flujo de OAuth 2.0.  Permite a la aplicación obtener acceso a largo plazo a los recursos en nombre de un usuario sin necesidad de que intervenga el usuario.
 
-Los tokens de actualización tienen varios recursos, lo que significa que se pueden recibir en una solicitud de token para un recurso, pero se pueden canjear por tokens de acceso para un recurso completamente diferente. Para especificar la existencia de varios recursos, establezca el parámetro `resource` en la solicitud para el recurso de destino.
+Los tokens de actualización tienen varios recursos.  Es decir, un token de actualización recibido durante una solicitud de token para un recurso se puede canjear para los tokens de acceso a un recurso completamente diferente. Para ello, establezca el parámetro `resource` en la solicitud para el recurso de destino.
 
 Los tokens de actualización son totalmente opacos para su aplicación. También son de larga duración, pero no se debe componer la aplicación esperando que un token de actualización dure por cualquier período de tiempo.  Los tokens de actualización pueden ser invalidados en cualquier momento por varios motivos.  La única forma para que su aplicación sepa si un token de actualización es válido es intentar canjearlo; para ello, realice una solicitud de token a un punto de conexión de token de Azure AD.
 
@@ -93,9 +96,9 @@ Al canjear un token de actualización por un nuevo token de acceso, recibirá un
 
 ## <a name="validating-tokens"></a>Validación de los tokens
 
-Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token.
+Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, la versión independiente de inquilino del documento se encuentra en [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration). El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
-Proporcionamos bibliotecas y ejemplos de código que muestran cómo realizar fácilmente la validación de tokens, por si se desea conocer el proceso subyacente.  También hay varias bibliotecas de código abierto de terceros para la validación de JWT; como mínimo hay una opción para casi todos los lenguajes y plataformas. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md).
+Ofrecemos bibliotecas y ejemplos de código que muestran cómo realizar fácilmente la validación del token; la siguiente información se proporciona solo para quienes quieran entender el proceso subyacente.  También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md).
 
 #### <a name="validating-the-signature"></a>Validación de la firma
 
@@ -300,10 +303,4 @@ Además de las notificaciones, el token incluye un número de versión en **ver*
 ## <a name="related-content"></a>Contenido relacionado
 * Para más información acerca de la administración de la directiva de vigencia de token mediante la API de Azure AD Graph, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
 * Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](../active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,6 +17,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: ac0d7d9aaf1208c97e0ae797ac7c2b0ffecb88ae
 ms.openlocfilehash: daa0d0a7a0816f16f62904dc0e407105eb25c4ec
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -250,9 +251,4 @@ Según esos requisitos, podría agregar usuarios desde el equipo de red al rol *
 * Comprender cómo [equilibrar la carga](../load-balancer/load-balancer-overview.md) de las máquinas virtuales IaaS y [administrar el enrutamiento en varias regiones de Azure](../traffic-manager/traffic-manager-overview.md).
 * Obtener más información sobre los [NSG y cómo planear y diseñar](virtual-networks-nsg.md) una solución de NSG.
 * Obtener más información sobre las [opciones de conectividad local y redes virtuales](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -16,14 +16,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e80f41533d82fbb2086d4d766c3ba4a4e34a5032
-ms.openlocfilehash: be569200e4c4a125a275687d82c3204dcfb5b39a
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: c511a73794a4b1333e149d286ae43c6929d58f75
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-cx23"></a>Creación y administración de un grupo elástico con C&#x23;
 
-En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con [C#](sql-database-elastic-pool-manage-csharp.md). También puede crear y administrar un grupo elástico de Azure en [Azure Portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), la API de REST. También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con C#. También puede crear y administrar un grupo elástico de Azure en [Azure Portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), la API de REST. También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 > [!NOTE]
 > Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), por lo que siempre debe usar la **biblioteca de administración más reciente de Azure SQL Database para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las antiguas [bibliotecas basadas en el modelo de implementación clásico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) solo se admiten para la compatibilidad con versiones anteriores, así que se recomienda usar las bibliotecas más basadas en Resource Manager más nuevas.
@@ -303,7 +304,7 @@ El siguiente script de PowerShell crea la aplicación de Active Directory (AD) y
 
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
-* Un grupo elástico. Para crear un grupo elástico, consulte [Creación de un grupo elástico con C#](sql-database-elastic-pool-create-csharp.md).
+* Un grupo elástico. Para crear un grupo elástico, consulte [Creación de un grupo elástico con C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. Para obtener una copia gratis de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Movimiento de una base de datos a un grupo elástico
@@ -370,10 +371,5 @@ Recupere las propiedades del grupo existentes. Modifique los valores y ejecute e
 *  Para ver los códigos de error de SQL para las aplicaciones cliente de SQL Database y otros problemas, consulte [Mensajes de error](sql-database-develop-error-messages.md).
 * [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 * Para una guía de los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: b8edebd4e7dfdbf85a9beb6d126acaf7ec66dd01
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -75,10 +76,5 @@ R: Esta posibilidad no se admite en la versión actual.
 * [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md) a las aplicaciones publicadas.
 * [Incorporación de su nombre de dominio personalizado a Azure AD](active-directory-add-domain.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

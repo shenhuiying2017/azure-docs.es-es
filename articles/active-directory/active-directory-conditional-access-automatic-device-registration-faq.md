@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 918c2b096b9b6d935c8d5bc2588a978cdf8878cf
-ms.openlocfilehash: 0c4f1489893f464eee1f76e94f2b35650f06e44e
+ms.sourcegitcommit: 90327223d19ffc6697237d697b93fe88e1654e2c
+ms.openlocfilehash: fc668e1b4af662506da6652bbf21bab6cf91b114
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -53,21 +54,21 @@ Solo los dispositivos siguientes aparecen en la información del USUARIO:
 
 **P: ¿Por qué aún aparece registrado un dispositivo que ya he eliminado de Azure Portal o con Windows PowerShell?**
 
-**R:** Se debe al diseño. El dispositivo no puede acceder a los recursos en la nube. Si desea volver a registrar el dispositivo, es necesario realizar una acción manual en el dispositivo. 
+**R:** Se debe al diseño. El dispositivo no puede acceder a los recursos en la nube. Si desea quitar el dispositivo y registrarlo de nuevo, es necesario realizar una acción manual en el dispositivo. 
 
 Para dispositivos Windows 10 y Windows Server 2016 unidos a un dominio AD local:
 
-1.  Abra el símbolo del sistema como administrador.
+1.    Abra el símbolo del sistema como administrador.
 
-2.  Escriba **dsregcmd.exe /leave**.
+2.    Escriba **dsregcmd.exe /debug /leave**.
 
-3.  Escriba **dsregcmd.exe**.
+3.    **Cierre la sesión y luego iníciela para desencadenar la tarea programada que registra el dispositivo de nuevo**. 
 
 Para otras plataformas de Windows unidas a un dominio AD local:
 
-1.  Abra el símbolo del sistema como administrador.
-2.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.    Abra el símbolo del sistema como administrador.
+2.    Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.    Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -75,13 +76,13 @@ Para otras plataformas de Windows unidas a un dominio AD local:
 
 **R:**
 
--   Para Windows 10 y Windows Server 2016, si se dan varios intentos para desunir y volver a unir el mismo dispositivo, pueden aparecer entradas duplicadas. 
+-    Para Windows 10 y Windows Server 2016, si se dan varios intentos para desunir y volver a unir el mismo dispositivo, pueden aparecer entradas duplicadas. 
 
--   Si ha usado Agregar cuenta profesional o educativa, cada usuario de Windows que usa Agregar cuenta profesional o educativa creará un nuevo registro de dispositivo con el mismo nombre de dispositivo.
+-    Si ha usado Agregar cuenta profesional o educativa, cada usuario de Windows que usa Agregar cuenta profesional o educativa creará un nuevo registro de dispositivo con el mismo nombre de dispositivo.
 
--   Otras plataformas de Windows unidas a un dominio AD local con el registro automático crearán un nuevo registro de dispositivo con el mismo nombre de dispositivo para cada usuario del dominio registrado en el dispositivo. 
+-    Otras plataformas de Windows unidas a un dominio AD local con el registro automático crearán un nuevo registro de dispositivo con el mismo nombre de dispositivo para cada usuario del dominio registrado en el dispositivo. 
 
--   Una máquina AADJ que se ha borrado, se ha vuelto a instalar y se ha vuelto a unir con el mismo nombre, aparece como otro registro con el mismo nombre de dispositivo.
+-    Una máquina AADJ que se ha borrado, se ha vuelto a instalar y se ha vuelto a unir con el mismo nombre, aparece como otro registro con el mismo nombre de dispositivo.
 
 ---
 
@@ -112,13 +113,13 @@ Para otras plataformas de Windows unidas a un dominio AD local:
 
 **R:** Las razones comunes para este escenario son:
 
-1.  Las credenciales de usuario ya no son válidas.
+1.    Las credenciales de usuario ya no son válidas.
 
-2.  El equipo no puede comunicarse con Azure Active Directory. Compruebe si existen errores de conectividad de red.
+2.    El equipo no puede comunicarse con Azure Active Directory. Compruebe si existen errores de conectividad de red.
 
-3.  No se han cumplido los requisitos previos para Azure AD Join. Asegúrese de que haya seguido los pasos para la [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
+3.    No se han cumplido los requisitos previos para Azure AD Join. Asegúrese de que haya seguido los pasos para la [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
 
-4.  Los inicios de sesión federados requieren que el servidor de federación admita un punto de conexión activo de WS-Trust. 
+4.    Los inicios de sesión federados requieren que el servidor de federación admita un punto de conexión activo de WS-Trust. 
 
 ---
 
@@ -134,19 +135,20 @@ Para otras plataformas de Windows unidas a un dominio AD local:
 
 ---
 
+**P: ¿Dónde puedo encontrar instrucciones para la configuración de registro automático de dispositivos?**
+
+**R:** Para ver instrucciones detalladas, consulte [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+---
+
 **P: ¿Dónde puedo encontrar información para solucionar problemas con el registro automático de dispositivos?**
 
 **R:** Para consultar información sobre solución de problemas, vea:
 
-1. [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md) (Solución de problemas de registro automático de equipos unidos a un dominio Azure AD para Windows 10 y Windows Server 2016)
+1. [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD: Windows 10 y Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
 
-2. [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md) (Solución de problemas de registro automático de equipos unidos a un dominio Azure AD para clientes de nivel inferior de Windows)
+2. [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD para clientes de nivel inferior de Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
  
 ---
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

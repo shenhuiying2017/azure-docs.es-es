@@ -19,6 +19,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -77,10 +78,5 @@ Una vez conectados a la base de datos, los pasos siguientes muestran cómo ejecu
 ## <a name="next-steps"></a>Pasos siguientes
 * La apertura de bases de datos SQL en Visual Studio SQL Server Data Tools. Para más información, consulte [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
 * Para conectarse a una base de datos SQL mediante código, consulte [Conexión a Base de datos SQL mediante .NET (C#)](sql-database-develop-dotnet-simple.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

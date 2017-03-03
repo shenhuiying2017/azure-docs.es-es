@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
-ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 242cc7d58acb4af66d7ea5da4502db4ce2b414c6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -141,7 +142,7 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
     a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
    
     b. Haga clic en **Siguiente**.
-2. Para obtener SSO configurado para su aplicación, póngase en contacto con el equipo de soporte de Lesson.ly a través de dev@lessonly.com. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de metadatos (identidad de entidad, dirección URL de inicio de sesión SSO y dirección URL de cierre de sesión de SSO) con el equipo de Lesson.ly para configurar SSO en su lado.
+2. Para configurar SSO para su aplicación, póngase en contacto con el equipo de soporte de Lesson.ly a través de dev@lessonly.com. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de metadatos (identidad de entidad, dirección URL de inicio de sesión SSO y dirección URL de cierre de sesión de SSO) con el equipo de Lesson.ly para configurar SSO en su lado.
 3. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
    ![Inicio de sesión único de Azure AD ][10]
@@ -257,9 +258,4 @@ Al hacer clic en el icono de Lesson.ly en el panel de acceso, debería iniciar s
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

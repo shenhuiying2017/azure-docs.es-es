@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2c41c2df135caaead328d8fe05407cfa75cbcb91
 ms.openlocfilehash: a486fbe46f9892f6f70dcdcf27edbac63728af6e
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -663,9 +664,4 @@ Puede mover una factoría de datos a un grupo de recursos o una suscripción dif
 Junto con la factoría de datos, también puede mover todos los recursos relacionados (como las alertas asociadas a la factoría de datos).
 
 ![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

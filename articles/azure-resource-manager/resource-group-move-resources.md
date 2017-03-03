@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
+ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
+ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -43,7 +44,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  Para la CLI de Azure 2.0 (versión preliminar), utilice:
+  Para la CLI de Azure 2.0, use:
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -80,7 +81,6 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 * CDN
 * Servicios en la nube (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Cognitive Services
-* Container Service
 * Content Moderator
 * Data Catalog
 * Data Factory
@@ -127,6 +127,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Application Gateway
 * Application Insights
 * Servicios de BizTalk
+* Container Service
 * ExpressRoute
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
@@ -319,7 +320,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli-20-preview"></a>CLI de Azure 2.0. (versión preliminar)
+## <a name="use-azure-cli-20"></a>Uso de la CLI de Azure 2.0
 Para trasladar recursos existentes a otro grupo de recursos o a una suscripción, use el comando `az resource move`. Proporcione los identificadores de recursos de los recursos que se van a mover. Puede obtener los identificadores de recurso con el siguiente comando:
 
 ```azurecli
@@ -382,10 +383,5 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
 * Para obtener información sobre los comandos de la CLI de Azure para administrar su suscripción, vea [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Si desea conocer las funciones del portal que permiten administrar la suscripción, consulte [Uso del Azure Portal para implementar y administrar los recursos de Azure](resource-group-portal.md).
 * Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

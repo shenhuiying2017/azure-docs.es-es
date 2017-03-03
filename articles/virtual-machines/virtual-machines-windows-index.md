@@ -18,6 +18,7 @@ ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
 ms.openlocfilehash: 263b3a1edc94a60e756850b2d917840be87e7a5a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -163,9 +164,4 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Solución de problemas de la implementación clásica con la creación de una máquina virtual de Windows en Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
+ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,7 +40,7 @@ Después de agregar la solución y completar una evaluación, se muestra informa
 Use la siguiente información para instalar y configurar las soluciones.
 
 * Los agentes deben instalarse en controladores que sean miembros del dominio que se va a evaluar.
-* La solución de evaluación de Active Directory requiere que .NET Framework 4 esté instalado en cada equipo que tenga un agente de OMS.
+* La solución de evaluación de Active Directory requiere que esté instalada una versión compatible de .NET Framework 4 (4.5.2 o superior) en todos los equipos que tengan un agente de OMS.
 * Agregue la solución de evaluación de Active Directory al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
 
   > [!NOTE]
@@ -170,9 +171,4 @@ Después de que se ejecute la siguiente evaluación programada, de forma predete
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver recomendaciones y datos detallados de evaluación de AD.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

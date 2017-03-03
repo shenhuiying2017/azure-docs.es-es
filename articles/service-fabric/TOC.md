@@ -105,6 +105,7 @@
 #### Creación de un clúster en Azure
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio y Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Tipos de nodos y conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md)
 #### [Escalado de un clúster](service-fabric-cluster-scale-up-down.md)
 #### [Actualización de un clúster](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Prueba de un Party Cluster gratis](http://aka.ms/tryservicefabric)
 
 ### Clústeres independientes
+#### [Planeación y preparación para la implementación](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Contenido del paquete independiente de Service Fabric](service-fabric-cluster-standalone-package-contents.md)
 #### [Creación de un clúster independiente](service-fabric-cluster-creation-for-windows-server.md)
 #### [Creación de un clúster independiente en Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Escalado de un clúster](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

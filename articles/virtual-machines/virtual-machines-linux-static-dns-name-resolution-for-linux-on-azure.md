@@ -1,6 +1,6 @@
 ---
-title: "Uso de DNS interno para la resolución de nombre de máquina virtual en Azure | Microsoft Docs"
-description: "Uso de DNS interno para la resolución de nombre de máquina virtual en Azure."
+title: "Uso de DNS interno para la resolución de nombres de máquina virtual con la CLI de Azure 2.0 (versión preliminar) | Microsoft Docs"
+description: "Creación de tarjetas de interfaz de red virtual y uso de DNS interno para la resolución de nombres de máquina virtual en Azure con la CLI de Azure 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -13,174 +13,167 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 02/16/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
-ms.openlocfilehash: 41276b7f025ded0b70cc9ab906f447f4cd77094d
+ms.sourcegitcommit: 8584606666fe93630f6486c16350a619787c8d14
+ms.openlocfilehash: 389416818df272cf09c1a35bd23ea882ecf3b0fc
+ms.lasthandoff: 02/17/2017
 
 
 ---
 
-# <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Uso de DNS interno para la resolución de nombre de máquina virtual en Azure
-
-Este artículo muestra cómo establecer nombres de DNS internos estáticos para máquinas virtuales Linux mediante tarjetas NIC virtuales (VNic) y los nombres de etiqueta DNS. Los nombres de DNS estáticos se utilizan para los servicios de infraestructura permanente como un servidor de compilación Jenkins, que se usa para este documento o un servidor de Git.
+# <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creación de tarjetas de interfaz de red virtual y uso de DNS interno para la resolución de nombres de máquina virtual en Azure
+En este artículo se muestra cómo establecer nombres de DNS internos estáticos para máquinas virtuales Linux mediante tarjetas de interfaz de red virtual (vNic) y nombres de etiqueta DNS. Los nombres de DNS estáticos se utilizan para los servicios de infraestructura permanente como un servidor de compilación Jenkins, que se usa para este documento o un servidor de Git.
 
 Los requisitos son:
 
 * [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/);
 * [archivos de clave SSH pública y privada](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+
+## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
+Puede completar la tarea mediante una de las siguientes versiones de la CLI:
+
+- [CLI de Azure 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
+- [CLI de Azure 2.0 (versión preliminar)](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
+
+
 ## <a name="quick-commands"></a>Comandos rápidos
+Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos necesarios. En el resto del documento puede encontrar información más detallada y el contexto de cada paso, comenzando [aquí](#detailed-walkthrough). Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
-Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos necesarios. Se puede encontrar información más detallada y contexto para cada paso en el resto del documento, [comenzando aquí](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).  
+Requisitos previos: grupo de recursos, red virtual y subred, grupo de seguridad de red con SSH entrante.
 
-Requisitos previos: grupo de recursos, red virtual, NSG con SSH entrante, subred.
-
-### <a name="create-a-vnic-with-a-static-internal-dns-name"></a>Creación de VNic con un nombre de DNS interno estático
-
-La marca de la CLI de `-r` sirve para configurar la etiqueta de DNS, que proporciona el nombre de DNS estático de VNic.
+### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Creación de una tarjeta de interfaz de red virtual con un nombre DNS interno estático
+Cree la vNic con [az network nic create](/cli/azure/network/nic#create). La marca de la CLI `--internal-dns-name` sirve para configurar la etiqueta DNS, que proporciona el nombre de DNS para la tarjeta de interfaz de red virtual (vNic). En el ejemplo siguiente se crea una vNic llamada `myNic`, se conecta a la red virtual `myVnet` y se crea un registro de nombre de DNS interno llamado `jenkins`:
 
 ```azurecli
-azure network nic create jenkinsVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet \
--r jenkins
+az network nic create \
+    --resource-group myResourceGroup \
+    --name myNic \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --internal-dns-name jenkins
 ```
 
-### <a name="deploy-the-vm-into-the-vnet-nsg-and-connect-the-vnic"></a>Implementación de la máquina virtual en la red virtual y NSG, y conexión de VNic
-
-`-N` se conecta VNic a la nueva máquina virtual durante la implementación en Azure.
+### <a name="deploy-a-vm-and-connect-the-vnic"></a>Implementación de una máquina virtual y su conexión a la vNic
+Cree la máquina virtual con [az vm create](/cli/azure/vm#create). La marca `--nics` conecta la vNic a la máquina virtual durante la implementación en Azure. En el ejemplo siguiente se crea una máquina virtual llamada `myVM` con Azure Managed Disks y se conecta la vNic llamada `myNic` del paso anterior:
 
 ```azurecli
-azure vm create jenkins \
--g myResourceGroup \
--l westus \
--y linux \
--Q Debian \
--o myStorageAcct \
--u myAdminUser \
--M ~/.ssh/id_rsa.pub \
--F myVNet \
--j mySubnet \
--N jenkinsVNic
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --nics myNic \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 ## <a name="detailed-walkthrough"></a>Tutorial detallado
 
-Una integración completa continua y una infraestructura de implementación continua (CiCd) en Azure requiere que determinados servidores sean servidores estáticos o de larga duración.  Se recomienda que los recursos de Azure como las redes virtuales (vNet) y los grupos de seguridad de red (NSG) sean estáticos y de larga duración que se implementan con poca frecuencia.  Una vez que se ha implementado una red virtual, se puede volver a utilizar con nuevas implementaciones sin efectos adversos para la infraestructura.  La adición a esta red estática de un R Serverepositorio de Git y un servidor de automatización Jenkins proporciona CiCd a los entornos de desarrollo o prueba.  
+Una integración completa continua y una infraestructura de implementación continua (CiCd) en Azure requiere que determinados servidores sean servidores estáticos o de larga duración. Se recomienda que los recursos de Azure como las redes virtuales y los grupos de seguridad de red sean estáticos y de larga duración que se implementan con poca frecuencia. Una vez que se ha implementado una red virtual, se puede volver a utilizar con nuevas implementaciones sin efectos adversos para la infraestructura. Más adelante puede agregar un servidor de repositorio GIT o un servidor de automatización de Jenkins para proporcionar CiCd a esta red virtual para los entornos de desarrollo y prueba.  
 
-Los nombres de DNS internos solo pueden resolverse dentro de una red virtual de Azure.  Dado que los nombres de DNS son internos, no pueden resolverse en Internet exterior, lo que proporciona una seguridad adicional a la infraestructura.
+Los nombres de DNS internos solo pueden resolverse dentro de una red virtual de Azure. Dado que los nombres de DNS son internos, no pueden resolverse en Internet exterior, lo que proporciona una seguridad adicional a la infraestructura.
 
-_Reemplace los ejemplos por su propia nomenclatura._
+En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `myNic` y `myVM`.
 
 ## <a name="create-the-resource-group"></a>Creación del grupo de recursos
-
-Se precisa un grupo de recursos para organizar todo lo que se va a crear en este tutorial.  Para más información sobre los grupos de recursos de Azure, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-```azurecli
-azure group create myResourceGroup \
---location westus
-```
-
-## <a name="create-the-vnet"></a>Crear la red virtual
-
-El primer paso es crear una red virtual en la que iniciar las máquinas virtuales.  La red virtual contiene una subred para este tutorial.  Para más información, consulte [Creación de una red virtual usando la CLI de Azure](../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+En primer lugar, cree el grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westus`:
 
 ```azurecli
-azure network vnet create myVNet \
---resource-group myResourceGroup \
---address-prefixes 10.10.0.0/24 \
---location westus
+az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-the-nsg"></a>Crear el NSG
+## <a name="create-the-virtual-network"></a>Crear la red virtual
 
-La subred se crea de forma subyacente a un grupo de seguridad de red existente, por lo que crearemos el grupo antes de crear la subred.  Los grupos de seguridad de red de Azure equivalen a un firewall en la capa de red.  Para más información sobre los grupos de seguridad de red de Azure, consulte [Creación de grupos de seguridad de red en la CLI de Azure](../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+El siguiente paso es crear una red virtual en las que iniciar las máquinas virtuales. En este tutorial, la red virtual contiene una subred. Para más información sobre las redes virtuales de Azure, consulte [Creación de una red virtual mediante la CLI de Azure](../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+
+Cree la red virtual con [az network vnet create](/cli/azure/network/vnet#create). En el ejemplo siguiente se crea una red virtual denominada `myVnet` y una subred llamada `mySubnet`:
 
 ```azurecli
-azure network nsg create myNSG \
---resource-group myResourceGroup \
---location westus
+az network vnet create \
+    --resource-group myResourceGroup \
+    --name myVnet \
+    --address-prefix 192.168.0.0/16 \
+    --subnet-name mySubnet \
+    --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="add-an-inbound-ssh-allow-rule"></a>Agregar regla de permiso de SSH entrante
+## <a name="create-the-network-security-group"></a>Creación del grupo de seguridad de red
+Los grupos de seguridad de red de Azure equivalen a un firewall en el nivel de red. Para más información sobre los grupos de seguridad de red, consulte [Creación de grupos de seguridad de red en la CLI de Azure](../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-La máquina virtual Linux debe tener acceso desde Internet por lo que es necesaria una regla que permita el tráfico entrante en el puerto 22 que pase a través de la red y vaya al puerto 22 de la máquina virtual Linux.
+Cree el grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#create). En el ejemplo siguiente, se crea un grupo de seguridad de red denominado `myNetworkSecurityGroup`:
 
 ```azurecli
-azure network nsg rule create inboundSSH \
---resource-group myResourceGroup \
---nsg-name myNSG \
---access Allow \
---protocol Tcp \
---direction Inbound \
---priority 100 \
---source-address-prefix * \
---source-port-range * \
---destination-address-prefix 10.10.0.0/24 \
---destination-port-range 22
+az network nsg create \
+    --resource-group myResourceGroup \
+    --name myNetworkSecurityGroup
 ```
 
-## <a name="add-a-subnet-to-the-vnet"></a>Agregar una subred a la red virtual
-
-Las máquinas virtuales dentro de la red virtual deben estar ubicadas en una subred.  Cada red virtual puede tener varias subredes.  Cree la subred y asóciela con el grupo de seguridad de red para le agregue un firewall.
+## <a name="add-an-inbound-rule-to-allow-ssh"></a>Adición de una regla de entrada para permitir SSH
+Agregue una regla de entrada para el grupo de seguridad de red con [az network nsg rule create](/cli/azure/network/nsg/rule#create). En el ejemplo siguiente se crea una regla denominada `myRuleAllowSSH`:
 
 ```azurecli
-azure network vnet subnet create mySubNet \
---resource-group myResourceGroup \
---vnet-name myVNet \
---address-prefix 10.10.0.0/26 \
---network-security-group-name myNSG
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name myRuleAllowSSH \
+    --protocol tcp \
+    --direction inbound \
+    --priority 1000 \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 22 \
+    --access allow
 ```
 
-Ahora, la subred ya se agregó dentro de la red virtual y se asoció con el grupo de seguridad de red y la regla de este.
-
-## <a name="creating-static-dns-names"></a>Creación de nombres de DNS estáticos
-
-Azure es muy flexible, pero para utilizar nombres de DNS para la resolución de nombres de máquinas virtuales, debe crearlos como tarjetas de red virtual (VNic) con el etiquetado de DNS.  Las VNic son importantes ya que se pueden reutilizar conectándolas a diferentes máquinas virtuales, lo que hace que las VNic sean un recurso estático mientras que las máquinas virtuales pueden ser temporales.  Mediante el uso del etiquetado de DNS, se pueden habilitar la resolución de nombre simple desde otras máquinas virtuales en la red virtual.  El uso de nombres que se resuelven permite que otras máquinas virtuales tengan acceso al servidor de automatización mediante el nombre de DNS `Jenkins` o el servidor de Git como `gitrepo`.  Cree una VNic y asóciela a la subred que creó en el paso anterior.
+## <a name="associate-the-subnet-with-the-network-security-group"></a>Asociación de la subred al grupo de seguridad de red
+Para asociar la subred al grupo de seguridad de red, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#update). En el ejemplo siguiente se asocia el nombre de la subred `mySubnet` al grupo de seguridad de red llamado `myNetworkSecurityGroup`:
 
 ```azurecli
-azure network nic create jenkinsVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet \
--r jenkins
+az network vnet subnet update \
+    --resource-group myResourceGroup \
+    --vnet-name myVnet \
+    --name mySubnet \
+    --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="deploy-the-vm-into-the-vnet-and-nsg"></a>Implemente la máquina virtual en la red virtual y el grupo de seguridad de red
 
-Ahora tenemos una red virtual, una subred dentro de esa red virtual y un grupo de seguridad de red que actúa como un firewall para proteger nuestra subred bloqueando todo el tráfico entrante excepto el del puerto 22 para SSH.  Ahora se puede implementar la máquina virtual dentro de esta infraestructura de red existente.
+## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>Creación de la tarjeta de interfaz de red virtual y los nombres de DNS estáticos
+Azure es muy flexible, pero para usar nombres de DNS para la resolución de nombres de máquina virtual, debe crear tarjetas de interfaz de red virtual (VNic) que incluyan una etiqueta DNS. Las vNics son importantes ya que puede reutilizarlas conectándolas a diferentes máquinas virtuales a través del ciclo de vida de infraestructura. En este enfoque la vNic se mantiene como recurso estático mientras que las máquinas virtuales pueden ser temporales. Mediante el uso de etiquetado de DNS en la vNic, se puede habilitar la resolución de nombres sencilla desde otras máquinas virtuales de la red virtual. El uso de nombres que se resuelven permite que otras máquinas virtuales tengan acceso al servidor de automatización mediante el nombre de DNS `Jenkins` o el servidor de Git como `gitrepo`.  
 
-Mediante la CLI de Azure y el comando `azure vm create`, se implementa la máquina virtual Linux en el grupo de recursos de Azure, la red virtual, la subred y la VNic ya existentes.  Para más información sobre el uso de la CLI para implementar una máquina virtual completa, consulte [Creación de un entorno de Linux completo mediante la CLI de Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Cree la vNic con [az network nic create](/cli/azure/network/nic#create). En el ejemplo siguiente se crea una vNic llamada `myNic`, se conecta a la red virtual `myVnet``myVnet` y se crea un registro de nombre de DNS interno llamado `jenkins`:
 
 ```azurecli
-azure vm create jenkins \
---resource-group myResourceGroup myVM \
---location westus \
---os-type linux \
---image-urn Debian \
---storage-account-name mystorageaccount \
---admin-username myAdminUser \
---ssh-publickey-file ~/.ssh/id_rsa.pub \
---vnet-name myVNet \
---vnet-subnet-name mySubnet \
---nic-name jenkinsVNic
+az network nic create \
+    --resource-group myResourceGroup \
+    --name myNic \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --internal-dns-name jenkins
 ```
 
-Mediante el uso de los marcadores CLI para llamar a los recursos existentes, se indica a Azure que implemente la máquina virtual dentro de la red existente.  Permítanos insistir en que una vez que se ha implementado una red virtual y una subred, estas pueden dejarse como recursos estáticos o permanentes dentro de su región de Azure.  
+## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implementación de la máquina virtual en la infraestructura de la red virtual
+Ahora tenemos una red virtual, una subred, una vNic y un grupo de seguridad de red que actúa como firewall para proteger nuestra subred al bloquear todo el tráfico entrante excepto el del puerto 22 para SSH. Ahora se puede implementar la máquina virtual dentro de esta infraestructura de red existente.
+
+Cree la máquina virtual con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual llamada `myVM` con Azure Managed Disks y se conecta la vNic llamada `myNic` del paso anterior:
+
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --nics myNic \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub
+```
+
+Mediante el uso de los marcadores CLI para llamar a los recursos existentes, se indica a Azure que implemente la máquina virtual dentro de la red existente. Permítanos insistir en que una vez que se ha implementado una red virtual y una subred, estas pueden dejarse como recursos estáticos o permanentes dentro de su región de Azure.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de una plantilla de Azure Resource Manager para crear una implementación específica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

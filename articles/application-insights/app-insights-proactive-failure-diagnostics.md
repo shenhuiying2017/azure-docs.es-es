@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 24ca63e69d181f0d2c236b1fb6761984ce89520b
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -151,9 +152,4 @@ Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le g
 
 * [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

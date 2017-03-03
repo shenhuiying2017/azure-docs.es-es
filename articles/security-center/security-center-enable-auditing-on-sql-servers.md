@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 7aab37882e3f831627281bcd197fb6098dc50cc6
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 10206327b628358151ad4585b1d962538ea17bcd
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -42,13 +43,13 @@ Esta recomendación solo se aplica en el servicio SQL de Azure; no se incluyen l
 3. En la hoja **Configuración de auditoría**, seleccione la opción **ACTIVAR** de **Auditoría**.
 
    ![Activación de la configuración de auditoría][3]
-4. Siga los pasos de [Introducción a la auditoría de bases de datos SQL](../sql-database/sql-database-auditing-get-started.md) para configurar el almacenamiento donde se guardarán los registros de auditoría. La cuenta de almacenamiento de la suscripción en la que se recopilarán datos es la predeterminada.
-5. Siga los pasos de [Introducción a Detección de amenazas de Base de datos SQL](../sql-database/sql-database-threat-detection-get-started.md) para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
+4. Siga los pasos del artículo sobre [auditoría de bases de datos SQL en Azure Portal](../sql-database/sql-database-auditing-portal.md) para configurar el almacenamiento donde se guardarán los registros de auditoría. La cuenta de almacenamiento de la suscripción en la que se recopilarán datos es la predeterminada.
+5. Siga los pasos de [Introducción a Detección de amenazas de Base de datos SQL](../sql-database/sql-database-threat-detection.md) para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
 
 ## <a name="see-also"></a>Consulte también
 En este artículo, mostramos cómo implementar la recomendación Habilitar la auditoría en servidores SQL de Azure Security Center. Para obtener más información sobre cómo proteger bases de datos SQL, consulte los siguientes recursos:
 
-* [Protección de bases de datos SQL](../sql-database/sql-database-security.md)
+* [Protección de bases de datos SQL](../sql-database/sql-database-security-overview.md)
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
@@ -64,9 +65,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
 [2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

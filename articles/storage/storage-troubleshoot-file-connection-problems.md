@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
-ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
+ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
+ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,11 +29,13 @@ En este artículo se enumeran los problemas habituales relacionados con Microsof
 
 * [Error de cuota al tratar de abrir un archivo](#quotaerror)
 * [Rendimiento reducido al acceder a Azure File Storage desde Windows o Linux](#slowboth)
+* [Seguimiento de las operaciones de lectura y escritura en Azure File Storage](#traceop)
 
 **Problemas del cliente de Windows**
 
 * [Rendimiento reducido al acceder a Azure File Storage desde Windows 8.1 o Windows Server 2012 R2](#windowsslow)
 * [Error 53 al tratar de montar un recurso compartido de archivos de Azure](#error53)
+* [Error 87 El parámetro es incorrecto al intentar montar un recurso compartido de archivos de Azure](#error87)
 * [El comando net use se ha procesado correctamente, pero no veo el recurso compartido de archivos de Azure montado en el Explorador de Windows](#netuse)
 * [Mi cuenta de almacenamiento contiene "/" y el comando net use genera un error](#slashfails)
 * [Mi aplicación o servicio no puede acceder a la unidad de Azure Files montada](#accessfiledrive)
@@ -41,28 +44,29 @@ En este artículo se enumeran los problemas habituales relacionados con Microsof
 **Problemas del cliente de Linux**
 
 * [Error "El archivo se va a copiar a un destino que no es compatible con el cifrado" al cargar archivos a Azure Files o copiarlos.](#encryption)
-* [Error "El host está apagado" en los recursos compartidos de archivos, o bien el shell se bloquea al realizar la lista de comandos del punto de montaje](#errorhold)
+* [Error intermitente de ES: Error "El host está apagado" en los recursos compartidos de archivos, o bien el shell se bloquea al realizar la lista de comandos del punto de montaje](#errorhold)
 * [Error de montaje 115 al tratar de montar Azure Files en la VM de Linux](#error15)
 * [La VM de Linux presenta retrasos aleatorios en comandos como "ls"](#delayproblem)
+* [Error 112: error de tiempo de espera](#error112)
+
+**Acceso desde otras aplicaciones**
+
+* [¿Puedo hacer referencia al recurso compartido de archivos de Azure para mi aplicación a través de un trabajo web?](#webjobs)
 
 <a id="quotaerror"></a>
 
 ## <a name="quota-error-when-trying-to-open-a-file"></a>Error de cuota al tratar de abrir un archivo
 En Windows, recibe mensajes de error similares a los siguientes:
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Cuota insuficiente para procesar este comando.**
-
-**Invalid handle value GetLastError: 53** (Valor de identificador no válido GetLastError: 53)
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 En Linux, recibirá mensajes de error similares a los siguientes:
 
-**<filename> [permiso denegado]**
-
-**Se excedió la cuota de disco**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### <a name="cause"></a>Causa
 El problema se produce porque se ha alcanzado el límite de identificadores abiertos simultáneos permitidos para un archivo.
@@ -89,14 +93,21 @@ Puede ejecutar el siguiente script para comprobar si se ha instalado la revisió
 
 Si la revisión está instalada, se muestra el siguiente resultado:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > Las imágenes de Windows Server 2012 R2 de Azure Marketplace tienen la revisión KB3114025 instalada de manera predeterminada desde diciembre de 2015.
 >
 >
+
+<a id="traceop"></a>
+
+### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Seguimiento de las operaciones de lectura y escritura en Azure File Storage
+
+[Analizador de mensajes de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=44226) puede mostrarle la solicitud de un cliente en texto simple, y hay una relación bastante aproximada entre las solicitudes de conexión y las transacciones (suponiendo que aquí esté SMB y no REST).  El inconveniente es que tendrá que ejecutar esto en cada cliente, lo que requiere mucho tiempo si tiene muchos trabajadores de VM IaaS.
+
+Si usa el análisis de mensajes con ProcMon, puede obtener una idea bastante aproximada de qué código de aplicación es responsable de las transacciones.
 
 <a id="additional"></a>
 
@@ -130,8 +141,9 @@ Para obtener más información sobre el uso de Portqry, consulte [Descripción d
 ### <a name="solution-for-cause-2"></a>Solución para la causa 2
 Colabore con su organización de TI para abrir el puerto 445, de modo que acepte las conexiones salientes a los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a id="error87"></a>
 ### <a name="cause-3"></a>Causa 3
-También es posible recibir el error del sistema 53 si se ha habilitado la comunicación NTLMv1 en el cliente. Si se habilita NTLMv1, el cliente será menos seguro. Por lo tanto, se bloqueará la comunicación con Azure Files. Para comprobar si esta es la causa del error, averigüe si la siguiente subclave del Registro tiene establecido un valor de 3:
+También es posible recibir los errores del sistema 53 u 87 si se ha habilitado la comunicación NTLMv1 en el cliente. Si se habilita NTLMv1, el cliente será menos seguro. Por lo tanto, se bloqueará la comunicación con Azure Files. Para comprobar si esta es la causa del error, averigüe si la siguiente subclave del Registro tiene establecido un valor de 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -234,16 +246,33 @@ Esto puede suceder cuando el comando de montaje no incluya la opción **serverin
 ### <a name="solution"></a>Solución
 Compruebe la opción **serverino** en la entrada "/etc/fstab":
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Si la opción **serverino** no está presente, desmonte y monte Azure Files de nuevo con **serverino** seleccionada.
+También puede comprobar si se está utilizando esa opción simplemente ejecutando el comando **sudo mount | grep cifs** y buscando como salida:
 
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+
+Si la opción **serverino** no está presente, desmonte y monte Azure Files de nuevo con la opción **serverino** seleccionada.
+
+<a id="error112"></a>
+## <a name="error-112---timeout-error"></a>Error 112 - error de tiempo de espera
+
+Este error indica errores de comunicación que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje flexible, que es el valor predeterminado.
+
+### <a name="cause"></a>Causa
+
+Este error puede deberse a un problema de reconexión de Linux o a otros problemas que impiden la reconexión, como errores de red. La especificación de un montaje forzado obligará al cliente a esperar hasta que se establezca una conexión o hasta que se interrumpa explícitamente, y puede usarse para evitar errores debidos a los tiempos de espera de la red. Sin embargo, los usuarios deben tener en cuenta que esto podría provocar la espera indefinida y que deben considerar la detención de una conexión según sea necesario.
+
+### <a name="workaround"></a>Solución alternativa
+
+Se ha solucionado el problema de Linux; sin embargo, no se ha llevado a las distribuciones de Linux todavía. Si el problema se debe al asunto de la reconexión en Linux, es posible solucionarlo evitando que entre en estado de inactividad. Para ello, escriba cada 30 segundos como mínimo en un archivo del recurso compartido de archivos de Azure Files. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la conexión.
+
+<a id="webjobs"></a>
+
+## <a name="accessing-from-other-applications"></a>Acceso desde otras aplicaciones
+### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>¿Puedo hacer referencia al recurso compartido de archivos de Azure para mi aplicación a través de un trabajo web?
+No es posible montar recursos compartidos de SMB en un espacio aislado de servicio de aplicaciones. Como alternativa, puede asignar el recurso compartido de archivos de Azure como una unidad asignada y permitir que la aplicación pueda tener acceso a él como una letra de unidad.
 ## <a name="learn-more"></a>Más información
 * [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
 * [Introducción a Azure File Storage en Linux](storage-how-to-use-files-linux.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

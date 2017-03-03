@@ -18,6 +18,7 @@ ms.author: raprasa
 translationtype: Human Translation
 ms.sourcegitcommit: b5419efbaf51476cfc662c8aa814001e2757b4b7
 ms.openlocfilehash: db7b24c049153b6622f50fd9934611d48c98a1e8
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -58,10 +59,5 @@ En caso de que elimine accidentalmente sus datos, puede [presentar una incidenci
 Para replicar la base de datos NoSQL en varios centros de datos, consulte [Distribución global de datos con DocumentDB](documentdb-distribute-data-globally.md). 
 
 Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
