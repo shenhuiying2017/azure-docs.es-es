@@ -17,6 +17,7 @@ ms.author: msfussell
 translationtype: Human Translation
 ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
 ms.openlocfilehash: abf5e4bc69aa32ca9af8998ef81de20baae24560
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -92,9 +93,4 @@ En este artículo, ha aprendido acerca de los contenedores y que Service Fabric 
 [Implementación de un contenedor de Docker en Service Fabric en Linux](service-fabric-deploy-container-linux.md)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

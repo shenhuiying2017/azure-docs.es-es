@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -228,9 +229,4 @@ Puede comenzar a trabajar de varias maneras, según las características de la a
 * Aplicaciones ya implementadas hospedadas en [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) o [Azure](app-insights-azure.md).
 * [Páginas web](app-insights-javascript.md): aplicación de una sola página o una página web normal. Use esta característica por su cuenta o además de las opciones de servidor.
 * [Pruebas de disponibilidad](app-insights-monitor-web-app-availability.md) para probar la aplicación desde la red Internet pública.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

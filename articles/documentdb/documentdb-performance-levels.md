@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
 ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -178,8 +179,3 @@ Para obtener más información sobre los precios y la administración de datos c
 2.  [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Aprenda sobre los costes de rendimiento del aprovisionamiento y el consumo de almacenamiento.
 3.  [Unidades de solicitud](documentdb-request-units.md). Información sobre el consumo de rendimiento para diferentes tipos de operaciones; por ejemplo, lectura, escritura o consulta.
 4.  [Modelado de datos en DocumentDB](documentdb-modeling-data.md). Aprenda a modelar los datos para DocumentDB.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

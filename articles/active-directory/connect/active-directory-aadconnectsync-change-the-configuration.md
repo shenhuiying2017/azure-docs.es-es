@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
 ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -179,9 +180,4 @@ Puede tener muchas reglas de sincronización personalizadas con el mismo valor *
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

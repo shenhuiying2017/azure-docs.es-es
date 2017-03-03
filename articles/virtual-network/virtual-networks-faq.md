@@ -17,6 +17,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: e1f7b85308d7482e0066809737749e73029cd758
 ms.openlocfilehash: eed133ba2f0a5e1665afd39b2122d3aacd3cc40a
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -215,9 +216,4 @@ Sí. Más información acerca del uso de:
 - Azure Portal para implementar redes virtuales a través de los modelos de implementación con [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) y [clásica](virtual-networks-create-vnet-classic-pportal.md).
 - PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) y [clásica](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking).
 - La [interfaz de la línea de comandos (CLI) de Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) para administrar las redes virtuales que se implementan a través de ambos modelos de implementación.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

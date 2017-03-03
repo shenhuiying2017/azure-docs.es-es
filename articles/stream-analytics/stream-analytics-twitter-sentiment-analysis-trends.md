@@ -18,6 +18,7 @@ ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 110bf7df8753ec83a5a8b4219891700b462d4eb1
 ms.openlocfilehash: 339301772b1ee3bf22e543d4d4183adda5b54c2e
+ms.lasthandoff: 02/04/2017
 
 ---
 
@@ -245,10 +246,5 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
