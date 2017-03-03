@@ -17,6 +17,7 @@ ms.author: nisoneji
 translationtype: Human Translation
 ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
 ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -133,9 +134,4 @@ Cuando haya terminado de planear la capacidad, puede comenzar a implementar Site
 * [Replicación de máquinas virtuales de Hyper-V de nubes VMM en Azure](site-recovery-vmm-to-azure.md)
 * [Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicación de máquinas virtuales de Hyper-V entre sitios VMM](site-recovery-vmm-to-vmm.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

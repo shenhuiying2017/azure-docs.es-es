@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
 ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -128,10 +129,5 @@ Dependiendo de la conexión de red y del tamaño del archivo VHD, este comando t
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación una VM en Azure a partir de un VHD generalizado](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Creación una VM en Azure a partir de un VHD generalizado](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) asociándola como un disco del SO cuando crea una nueva VM.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

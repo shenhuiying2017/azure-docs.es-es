@@ -17,6 +17,7 @@ ms.author: msfussell
 translationtype: Human Translation
 ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
 ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -302,9 +303,4 @@ Ahora que ha implementado un servicio en contenedor, consulte [Ciclo de vida de 
 
 * [Información general: Service Fabric y contenedores](service-fabric-containers-overview.md)
 * Para una aplicación de ejemplo [consulte los ejemplos de código de contenedor de Service Fabric en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

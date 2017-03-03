@@ -17,6 +17,7 @@ ms.author: richrund
 translationtype: Human Translation
 ms.sourcegitcommit: 14df6b49d79aa1bf6f414070c60e7acac6578301
 ms.openlocfilehash: 7267b41d5d1a7903a084eea2c813bc40249fbf6a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -210,10 +211,5 @@ Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre los diagnósticos de Azure.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

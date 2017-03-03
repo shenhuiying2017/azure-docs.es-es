@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -40,10 +41,5 @@ Para restaurar una base de datos eliminada en Azure Portal:
 * Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte cómo [restaurar una base de datos a partir de las copias de seguridad iniciadas por el servicio](sql-database-recovery-using-backups.md)
 * Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)  
 * Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
