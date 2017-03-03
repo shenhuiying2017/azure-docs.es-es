@@ -18,6 +18,7 @@ ms.author: asaxton
 translationtype: Human Translation
 ms.sourcegitcommit: 89e16687f858708cdfd1432114c39bd9109dc6ac
 ms.openlocfilehash: 31624b9d15772a4f08cf013ac713b3aa636acfca
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -466,10 +467,5 @@ En este momento, Power BI Embedded solo muestra el informe en el iframe. No obst
 * [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
 ¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

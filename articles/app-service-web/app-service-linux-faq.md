@@ -5,7 +5,7 @@ keywords: "azure app service, web app, preguntas más frecuentes, linux, oss"
 services: app-service
 documentationCenter: 
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: d4a5260dde1994bbf4ef4467eddd2fb80a2199b0
-ms.openlocfilehash: 22c6c22ba3123555d279fac087a6be2f99bde8d7
+ms.sourcegitcommit: 831ef097027721146531e8d699fe3f67417a57ea
+ms.openlocfilehash: b88aa3d0ae89aec81c2b9144fb5de3210a0b8d1e
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -43,19 +44,25 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 **P:** ¿Puedo usar SSH en la VM?
 
-**R:** No, próximamente le proporcionaremos una forma de usar SSH en el contenedor de la aplicación.
+**R:** No, le proporcionaremos una forma de usar SSH en el contenedor de la aplicación en una próxima versión.
 
-## <a name="continous-integration--deployment"></a>Integración e implementación continuas ##
+## <a name="continuous-integration--deployment"></a>Integración e implementación continuas ##
 
 **P: ** ¿Mi aplicación web sigue usando una imagen de contenedor de Docker antigua después de actualizar la imagen en DockerHub? ¿Se admite la integración e implementación continuas de contenedores personalizados?
 
-**R:** Puede actualizar el contenedor, ya sea deteniendo y luego iniciando la aplicación web, ya cambiando o agregando una configuración de aplicación ficticia para exigir una actualización del contenedor. Próximamente tendremos una característica de integración e implementación continuas para contenedores personalizados.
+**R:** Puede actualizar el contenedor, ya sea deteniendo y luego iniciando la aplicación web, ya cambiando o agregando una configuración de aplicación ficticia para exigir una actualización del contenedor. En una próxima versión tendremos una característica de integración e implementación continuas para contenedores personalizados.
 
 ## <a name="language-support"></a>Compatibilidad con lenguajes ##
 
 **P:** ¿Se admiten aplicaciones de .net core sin compilar?
 
-**R:** No, debe implementar la aplicación de .net core compilada con todas las dependencias. Próximamente disfrutará de una experiencia de implementación y compilación completa.
+**R:** No, debe implementar la aplicación de .net core compilada con todas las dependencias. En una versión próxima disfrutará de una experiencia de implementación y compilación completa.
+
+## <a name="built-in-images"></a>Imágenes integradas ##
+
+**P:** ¿Cuál es el valor previsible para la sección del archivo de inicio cuando se configura la pila en tiempo de ejecución?
+
+**R:** Para Node.Js, puede especificar el archivo de configuración de PM2 o el archivo de script. Para .Net Core, debe especificar el nombre del archivo dll compilado. Para Ruby, puede especificar un script de Ruby con el que quiera inicializar la aplicación.
 
 ## <a name="custom-containers"></a>Contenedores personalizados ##
 
@@ -69,11 +76,15 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 **P:** ¿Puedo traer mi propio almacenamiento?
 
-**R:** Actualmente esto no se admite; estamos pensando en proporcionar esta compatibilidad próximamente.
+**R:** Actualmente no se admite.
 
 **P: ** No puedo examinar el sistema de archivos de mi contenedor personalizado o ejecutar procesos desde el sitio SCM. ¿Por qué ocurre esto?
 
 **R:** El sitio SCM se ejecuta en un contenedor independiente; no puede comprobar el sistema de archivos o los procesos en ejecución del contenedor de la aplicación.
+
+**P:** Mi contenedor personalizado escucha a un puerto distinto al puerto 80. ¿Cómo puedo configurar mi aplicación para enrutar las solicitudes hacia ese puerto?
+
+**R:** Puede especificar un parámetro de la aplicación llamado **PORT** y asignarle el valor del número de puerto esperado.
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio ##
 
@@ -92,12 +103,6 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 **R:** Puede enviar su idea aquí: https://aka.ms/webapps-uservoice. Agregue [Linux] en el título de la idea.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción a App Service en Linux](./app-service-linux-intro.md) 
 * [¿Qué es App Service en Linux?](app-service-linux-intro.md)
-* [Creación de aplicaciones web en App Service en Linux](./app-service-linux-how-to-create-a-web-app.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Creación de aplicaciones web en App Service en Linux](app-service-linux-how-to-create-a-web-app.md)
 

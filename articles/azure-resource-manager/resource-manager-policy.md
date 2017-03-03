@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
 ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -328,10 +329,5 @@ En el ejemplo siguiente se muestra el uso de caracteres comodín que admite la c
 * Después de definir una regla de directiva, asígnela a un ámbito. Para obtener información acerca de la asignación de directivas, consulte [Asignación y administración de directivas](resource-manager-policy-create-assign.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
 * El esquema de la directiva está publicado en [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

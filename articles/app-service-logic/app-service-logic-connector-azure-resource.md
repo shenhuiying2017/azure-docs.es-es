@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: d230450535613e85c607ef120929ea61bc2085bc
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ Para configurarlo, tendrá que establecer una entidad de servicio con permisos p
 
 David Ebbo ha escrito [una gran cantidad de entradas de blog](http://blog.davidebbo.com/2014/12/azure-service-principal.html) sobre su configuración. Siga todas las instrucciones y obtenga el **id. del inquilino**, el **id. de cliente** y el **secreto**. Estos tres campos, más el de **Id. de suscripción**son los necesarios para configurar el Conector.
 
-## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>Uso del Conector de recursos de Azure en el diseñador de aplicaciones lógicas
+## <a name="using-the-azure-resource-connector-in-logic-app-designer"></a>Uso del conector de recursos de Azure en el diseñador de aplicaciones lógicas
 ### <a name="trigger"></a>Desencadenador
 Hay dos desencadenadores admitidos en el Conector:
 
@@ -106,9 +107,4 @@ Consulte la referencia de API de REST de Swagger en [Referencia de Aplicaciones 
 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

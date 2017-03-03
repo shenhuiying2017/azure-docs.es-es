@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -187,7 +188,7 @@ El ejemplo de código de esta sección realiza lo siguiente:
                 // Create a task with the conversion details, using a configuration file.
                 ITask task = job.Tasks.AddNew("My encoding Task",
                     processor,
-                    "H264 Multiple Bitrate 720p",
+                    "Adaptive Streaming",
                     Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 
                 // Specify the input asset to be encoded.
@@ -351,9 +352,4 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

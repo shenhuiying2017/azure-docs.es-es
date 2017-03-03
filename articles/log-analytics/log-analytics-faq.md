@@ -1,6 +1,6 @@
 ---
 title: Preguntas frecuentes de Log Analytics | Microsoft Docs
-description: Respuestas a las preguntas frecuentes sobre el servicio Log Analytics.
+description: Respuestas a las preguntas frecuentes sobre el servicio Azure Log Analytics.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 4695669dc20b4b4b90ccdaf4db06df2cfcba2167
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -63,7 +64,7 @@ a. En la [documentación de ExpressRoute](../expressroute/expressroute-faqs.md#s
 
 El tráfico dirigido a Log Analytics utiliza el circuito de ExpressRoute de emparejamiento público.
 
-**P. ¿Hay alguna manera fácil y directa de transferir un área de trabajo existente de Log Analytics a otra suscripción de Azure o a otra área de trabajo de Log Analytics?**   Estamos realizando pruebas y evaluaciones con áreas de trabajo de OMS de varios clientes en nuestra suscripción de Azure; pero, como van a pasar a la fase de producción, nuestro objetivo es realizar su migración a su propia suscripción de Azure u OMS.  
+**P. ¿Hay alguna manera fácil y directa de transferir un área de trabajo existente de Log Analytics a otra suscripción de Azure o a otra área de trabajo de Log Analytics?**  Estamos realizando pruebas y evaluaciones con áreas de trabajo de OMS de varios clientes en nuestra suscripción de Azure; pero, como van a pasar a la fase de producción, nuestro objetivo es realizar su migración a su propia suscripción de Azure u OMS.  
 
 a. El cmdlet `Move-AzureRmResource` le permitirá mover un área de trabajo de Log Analytics y también una cuenta de Automation de una suscripción de Azure a otra. Para más información, consulte [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
@@ -89,6 +90,13 @@ Por su parte, un icono de advertencia amarillo significa que el agente está ten
 
 R.: En SCOM, quite el equipo de la lista administrada de OMS. Con ello, se detienen todas las comunicaciones de ese agente a través de SCOM. En el caso de los agentes conectados directamente a OMS, puede detener la comunicación con OMS yendo a Panel de control, Security & Settings (Seguridad y configuración), **Microsoft Monitoring Agent**.
 Quite todas las áreas de trabajo enumeradas en **Azure Log Analytics (OMS)**.
+
+**P.: ¿Por qué recibo un error al tratar de mover mi área de trabajo de una suscripción de Azure a otra?**
+
+R.: Al agregar una solución, Azure crea un recurso en la suscripción de Azure del área de trabajo en la que se encuentra.
+
+Normalmente, la persona que agrega la suscripción es un administrador o un colaborador de la *suscripción de Azure*. Ser administrador o colaborador en el portal de OMS no es suficiente si el usuario no tiene los mismos permisos en Azure Portal para la suscripción de Azure.
+
 
 ## <a name="agent-data"></a>Datos del agente
 **P. ¿Qué cantidad de datos puedo enviar a Log Analytics a través del agente? ¿Hay un volumen máximo de información por cliente?**  
@@ -121,9 +129,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Log Analytics](log-analytics-get-started.md) , encontrará más información sobre esta solución y cómo empezar a utilizarla en cuestión de minutos.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

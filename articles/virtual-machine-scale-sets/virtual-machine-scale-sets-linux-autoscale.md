@@ -18,6 +18,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 3c00742d9686b986841d676872cc93b58827a8e8
 ms.openlocfilehash: b87b507118244f0f275f54cd65cea13a92cdaec6
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -591,10 +592,5 @@ azure group delete vmsstestrg1
 * Aprenda sobre las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 * Aprenda cómo [usar registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
 * Consulte la plantilla [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app (Escalado automático de un conjunto de escala de VM que ejecuta una aplicación Ubuntu, Apache o PHP)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) , en la que se define una pila LAMP para ejercer la funcionalidad de escalado automático de los conjuntos de escalas de máquina virtual.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

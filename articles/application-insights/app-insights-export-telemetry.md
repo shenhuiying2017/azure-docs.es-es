@@ -11,18 +11,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/21/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: 3b1654355ee84610d25da8b6ad4a66036285faba
+ms.sourcegitcommit: 4df32e7e03f17ec46e46a3f2718d24783424ab9e
+ms.openlocfilehash: fc1f3c7160a4956ed7372a2797c03c2892fbfb65
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.  
 
-La exportación continua está disponible en el [modelo de precios de Enterprise](http://azure.microsoft.com/pricing/details/application-insights/).
+El uso de la exportación continua puede conllevar un cargo adicional. Consulte su [modelo de fijación de precios](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
 
@@ -84,7 +85,7 @@ No se incluyen otras métricas calculadas. Por ejemplo, no exportamos el uso med
 Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](app-insights-monitor-web-app-availability.md) que haya configurado. 
 
 > [!NOTE]
-> **Muestreo.**  Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+> **Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
 > 
 > 
 
@@ -143,7 +144,7 @@ En una pequeña escala, puede escribir código para separar sus datos, leerlos e
       }
     }
 
-Para obtener un ejemplo de código más grande, consulte [el uso de un rol de trabajo][exportasa].
+Para obtener un ejemplo de código más grande, consulte el [uso de un rol de trabajo][exportasa].
 
 ## <a name="a-namedeleteadelete-your-old-data"></a><a name="delete"></a>Eliminación de los datos antiguos
 Tenga en cuenta que usted es responsable de administrar su capacidad de almacenamiento y eliminar los datos antiguos si es necesario. 
@@ -192,7 +193,7 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
     Sí. Haga clic en Deshabilitar.
 
 ## <a name="code-samples"></a>Ejemplos de código
-* [Análisis de JSON exportado mediante un rol de trabajo][exportcode]
+* [Analizar JSON exportado mediante un rol de trabajo][exportcode]
 * [Ejemplo de Stream Analytics](app-insights-export-stream-analytics.md)
 * [Exportación a SQL con Stream Analytics][exportasa]
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
@@ -203,10 +204,5 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

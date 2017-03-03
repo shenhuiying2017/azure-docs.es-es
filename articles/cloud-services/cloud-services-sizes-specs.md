@@ -17,6 +17,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
 ms.openlocfilehash: 88032b3855c2f89b935064abe496a8455dcff88b
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -197,9 +198,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
 * Más información [cerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabajo, como la informática de alto rendimiento (HPC).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

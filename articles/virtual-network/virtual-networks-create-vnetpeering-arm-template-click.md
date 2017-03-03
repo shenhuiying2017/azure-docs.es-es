@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: ddfa2998d7e9305891c5a976dff5c2365d5eb1d4
-ms.openlocfilehash: 351b77482c07160fa62155e90dcb8eb280e9087c
+ms.sourcegitcommit: d68c2f496cfdfa52c33243542ee141c44639e5c0
+ms.openlocfilehash: 7b4fda3ffb269c6a9de407bbd9af32d90768504f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -336,7 +337,7 @@ Para crear un emparejamiento de VNET entre suscripciones, siga estos pasos:
 Para crear un emparejamiento entre redes virtuales de diferentes modelos de implementación, siga estos pasos:
 
 1. Si va a crear un emparejamiento entre redes virtuales implementadas a través de diferentes modelos de la *misma* suscripción, vaya al paso 2. La capacidad para crear un emparejamiento de VNET entre redes virtuales implementadas a través de distintos modelos de implementación de suscripciones *diferentes* está en **versión preliminar**. Las funcionalidades que están en versión preliminar no tienen el mismo nivel de confiabilidad y el acuerdo de nivel de servicio que las funcionalidades generales de la versión. Si va a crear un emparejamiento entre redes virtuales implementadas a través de distintos modelos de suscripciones diferentes, primero debe completar las siguientes tareas:
-    - Registre la funcionalidad de versión preliminar en su suscripción de Azure, para lo que debe escribir el siguiente comando de PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+    - Registre la funcionalidad de versión preliminar en su suscripción de Azure, para lo que debe escribir el siguiente comando de PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` y `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`
     - Complete los pasos 1 y 2 de la sección [Emparejamiento entre suscripciones](#x-sub) de este artículo.
 2. En el texto siguiente se muestra la definición de un vínculo de emparejamiento de redes virtuales entre VNET1 y VNET2 en este escenario. Solo se requiere un vínculo para emparejar una red virtual clásica a una red virtual de Azure Resource Manager.
 
@@ -417,10 +418,5 @@ Para crear un emparejamiento entre redes virtuales de diferentes modelos de impl
         RemoteVirtualNetworkAddressSpace : null
 
     Una vez establecido el emparejamiento entre una red virtual clásica y una red virtual de Resource Manager, podrá iniciar conexiones desde cualquier máquina virtual de VNET1 a cualquier máquina virtual de VNET2 y viceversa.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

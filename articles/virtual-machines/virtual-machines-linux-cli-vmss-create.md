@@ -19,6 +19,7 @@ ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
 ms.openlocfilehash: 8d274127a4e1947e42b5544c3c1f62c4e48dcee9
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -46,10 +47,5 @@ Para obtener información general, consulte la [página de aterrizaje principal 
 Para consultar más documentación, consulte la [página de documentación principal de los conjuntos de escalado](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
 Para las plantillas de Azure Resource Manager de ejemplo que usan conjuntos de escalado, busque "vmss" en el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

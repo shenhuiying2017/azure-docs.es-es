@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
+ms.sourcegitcommit: 935246ad590af0dcdb6d52257a94169f94dd66e5
+ms.openlocfilehash: 3ff7256578cffd30ae9b75ead2dd7f08babca171
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
 El documento siguiente es una referencia técnica sobre los puertos y protocolos para implementar una solución de identidad híbrida. Use la siguiente ilustración y consulte la tabla correspondiente.
 
-![Qué es Azure AD Connect](./media/active-directory-aadconnect-ports/required2.png)
+![Qué es Azure AD Connect](./media/active-directory-aadconnect-ports/required3.png)
 
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>Tabla 1: Azure AD Connect y AD local
 En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre el servidor de Azure AD Connect y AD local.
@@ -71,10 +72,11 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 | HTTPS |443 (TCP/UDP) |Se usa para la autenticación de dispositivos. |
 | TCP |49443 (TCP) |Se usa para la autenticación de certificados. |
 
-## <a name="table-6---pass-through-authentication"></a>Tabla 6: autenticación de paso a través
-En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre el conector y Azure AD.
+## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>Tabla 6a y 6b: autenticación de paso a través con inicio de sesión único (SSO) y sincronización de Hash de contraseña con inicio de sesión único (SSO)
+Las siguientes tablas describen los puertos y protocolos que son necesarios para la comunicación entre Azure AD Connect y Azure AD.
 
-|Protocolo|Número de puerto|Descripción
+### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabla 6a: autenticación de paso a través con SSO
+|Protocol|Número de puerto|Descripción
 | --- | --- | ---
 |HTTP|80|Habilita el tráfico HTTP saliente para la validación de seguridad, como SSL.
 |HTTPS|443|    Habilita la autenticación de usuario en Azure AD.
@@ -84,6 +86,12 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 |HTTPS|8080/443|    Habilita la secuencia de arranque del conector y la actualización automática del conector
 |HTTPS|9090|    Habilita el registro de conector (solo es necesario para el proceso de registro del conector)
 |HTTPS|9091|    Habilita la renovación automática de certificados de confianza del conector
+
+### <a name="table-6b---password-hash-sync-with-sso"></a>Tabla 6b: sincronización de Hash de contraseña con SSO
+
+|Protocol|Número de puerto|Descripción
+| --- | --- | ---
+|HTTPS|9090|    Habilita el registro de SSO (solo es necesario para el proceso de registro de SSO).
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabla 7a y 7b: Agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 En las tablas siguientes se describen los puntos de conexión, puertos y protocolos que son necesarios para la comunicación entre los agentes de Azure AD Connect Health y Azure AD.
@@ -98,10 +106,5 @@ En esta tabla se describen los siguientes puertos y protocolos de salida que son
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 Para ver una lista de puntos de conexión, consulte [la sección de requisitos para el agente de Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

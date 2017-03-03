@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8d370f98a4ef2501afc692af8a19a0625f54b678
-ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
+ms.sourcegitcommit: e657e901900b4879d649ac82d8de026957a409c2
+ms.openlocfilehash: 36a872e3e5bd3230dcfe2abdab9b4dbf25212cdb
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,7 +32,14 @@ Puede habilitar las siguientes categorías de registro de diagnóstico para los 
 > [!NOTE]
 > Los registros de diagnóstico solo están disponibles para los NSG implementados a través del modelo de implementación de Azure Resource Manager. No se puede habilitar el registro de diagnóstico para los NSG implementados a través del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Understanding Azure deployment models](../resource-manager-deployment-model.md) (Descripción de los modelos de implementación de Azure).
 
-El registro de actividad (conocido anteriormente como registro operativo o de auditoría) está habilitado de forma predeterminada para los NSG creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG en el registro de actividad, busque las entradas que contienen los siguientes tipos de recursos: Microsoft.ClassicNetwork/networkSecurityGroups, Microsoft.ClassicNetwork/networkSecurityGroups/securityRules, Microsoft.Network/networkSecurityGroups y Microsoft.Network/networkSecurityGroups/securityRules. Lea el artículo [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) para obtener más información sobre los registros de actividad. 
+El registro de actividad (conocido anteriormente como registro operativo o de auditoría) está habilitado de forma predeterminada para los NSG creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG del registro de actividad, busque las entradas que contengan los siguientes tipos de recursos: 
+
+- Microsoft.ClassicNetwork/networkSecurityGroups 
+- Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+- Microsoft.Network/networkSecurityGroups
+- Microsoft.Network/networkSecurityGroups/securityRules 
+
+Lea el artículo [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) para obtener más información sobre los registros de actividad. 
 
 ## <a name="enable-diagnostic-logging"></a>Activación del registro de diagnóstico
 
@@ -116,9 +124,4 @@ Este registro contiene información acerca de cada regla que se aplica a los rec
 ## <a name="view-and-analyze-logs"></a>Visualización y análisis de los registros
 
 Para obtener información sobre cómo ver los datos de registro de actividad, lea el artículo [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Para obtener información sobre cómo ver los datos de registro de diagnóstico, lea el artículo [Información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Si envía datos de diagnóstico a Log Analytics, puede usar la solución de administración [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) (versión preliminar) para obtener una mejor perspectiva. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

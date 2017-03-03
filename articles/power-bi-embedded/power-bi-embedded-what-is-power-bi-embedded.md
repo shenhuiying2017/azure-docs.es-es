@@ -18,6 +18,7 @@ ms.author: asaxton
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 81215430b5731a53d4f4700499c1d9af963e712c
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -37,7 +38,7 @@ En el modelo de uso de **Microsoft Power BI Embedded** , la administración de l
 Al igual que cualquier otro servicio en Azure, los recursos de Power BI Embedded se aprovisionan mediante las [API de Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). En este caso, el recurso que aprovisiona es una **Colección de áreas de trabajo de Power BI**.
 
 ## <a name="workspace-collection"></a>Colección de área de trabajo
-Una **colección de áreas de trabajo** es el contenedor de Azure de nivel superior para aquellos recursos que contienen 0 o más **áreas de trabajo**.  Una **Área de trabajo** **áreas de trabajo** has all of the standard Unazure properties, as well as the following:
+Una **colección de áreas de trabajo** es el contenedor de Azure de nivel superior para aquellos recursos que contienen 0 o más **áreas de trabajo**.  Una **colección** de **áreas de trabajo** tiene todas las propiedades estándar de Azure, así como las siguientes:
 
 * **Claves de acceso** : claves que se usan al llamar de forma segura a las API de Power BI (se describen en una sección posterior).
 * **Usuarios**: los usuarios de Azure Active Directory (AAD) que tienen derechos de administrador para administrar la Colección de áreas de trabajo de Power BI a través de Azure Portal o de la API de Azure Resource Manager.
@@ -68,9 +69,4 @@ Estos tokens se usan para las diversas fases de las interacciones con **Microsof
 ## <a name="see-also"></a>Otras referencias
 * [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
 * [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

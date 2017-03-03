@@ -5,7 +5,7 @@ keywords: "azure app service, aplicación web, linux, oss"
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3a71d10a-a0fe-4d28-af95-03b2860057d5
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
-ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: 19a42a8dc9a4026d93c10dd209e84d4e14b8f00a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -41,7 +42,7 @@ Una vez que haya creado la aplicación, puede cambiar la pila de aplicaciones de
 ![Configuración de la aplicación][3]
 
 ## <a name="deploy-your-web-app"></a>Implementación de la aplicación web
-Elegir **Opciones de implementación** de Management Portal permite implementar la aplicación en un repositorio de Git o GitHub local. El resto de instrucciones son similares a las de una aplicación web fuera de Linux; puede seguir las instrucciones de nuestro artículo sobre [implementación local de Git](app-service-deploy-local-git.md) o [implementación continua](app-service-continuous-deployment.md) para GitHub.
+Elegir **Opciones de implementación** de Management Portal permite implementar la aplicación en un repositorio de Git o GitHub local. El resto de las instrucciones son similares a las de una aplicación web que no es de Linux. Puede seguir las instrucciones descritas en [implementación de Git local](app-service-deploy-local-git.md) o [implementación continua](app-service-continuous-deployment.md) para implementar la aplicación.
 
 También puede usar FTP para cargar la aplicación al sitio. En la sección de registros de diagnóstico puede obtener el punto de conexión FTP para la aplicación web, como se muestra en la siguiente imagen:
 
@@ -50,15 +51,12 @@ También puede usar FTP para cargar la aplicación al sitio. En la sección de r
 ## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es App Service en Linux?](app-service-linux-intro.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md) (Uso de la configuración de PM2 para Node.js en Web Apps en Linux)
+* [Uso de Ruby en Azure App Service Web Apps en Linux](app-service-linux-using-ruby.md)
+* [Preguntas más frecuentes sobre Azure App Service Web Apps en Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-how-to-create-a-web-app/top-level-create.png
 [2]: ./media/app-service-linux-how-to-create-a-web-app/create-blade.png
 [3]: ./media/app-service-linux-how-to-create-a-web-app/application-settings-change-stack.png
 [4]: ./media/app-service-linux-how-to-create-a-web-app/diagnostic-logs-ftp.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

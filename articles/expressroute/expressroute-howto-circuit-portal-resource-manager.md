@@ -18,6 +18,7 @@ ms.author: cherylmc;ganesr
 translationtype: Human Translation
 ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
 ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -145,10 +146,5 @@ Después de crear el circuito, asegúrese de hacer lo siguiente:
 
 * [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 * [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

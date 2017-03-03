@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: 35bd4561f6e8f4482cb084eb293b506eb9269cf7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -59,7 +60,7 @@ Para obtener más información sobre cómo configurar el Administrador de conexi
 Una vez creada la aplicación de API, puede usar el conector de archivos como acción para la aplicación lógica. Para ello, necesita lo siguiente:
 
 1. Cree una aplicación lógica y elija el mismo grupo de recursos que tiene el conector de archivos. Siga las instrucciones para [crear una aplicación lógica].
-2. Abra "Triggers and Actions" (Desencadenadores y acciones) en la aplicación lógica creada para abrir el diseñador de aplicaciones lógicas y configurar el flujo.
+2. Abra Desencadenadores y acciones en la aplicación lógica creada para abrir el diseñador de aplicaciones lógicas y configurar el flujo.
 3. El conector de archivos aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho.
 4. Puede quitar la aplicación de API del conector de archivos en el editor haciendo clic en "Conector de archivos". El conector de archivos muestra un desencadenador y cuatro acciones:   
    ![][5]
@@ -100,9 +101,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [crear una aplicación lógica]: app-service-logic-create-a-logic-app.md
 [File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

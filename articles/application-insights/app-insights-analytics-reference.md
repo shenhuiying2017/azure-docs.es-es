@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
+ms.sourcegitcommit: 802086b95b949cf4aa14af044f69e500b31def44
+ms.openlocfilehash: 5241a36fbc7008baad5369452d3332d84335a661
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ Fuentes adicionales de información:
 ## <a name="index"></a>Índice
 **Let** [let](#let-clause)
 
-**Consultas y operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Consultas y operadores** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agregaciones** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -43,9 +44,9 @@ Fuentes adicionales de información:
 
 **Fecha y hora** [Expresiones de fecha y hora](#date-and-time-expressions) | [Literales de fecha y hora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**Cadena** [GUID](#guids) | [Literales de cadena confusos](#obfuscated-string-literals) | [Literales de cadena](#string-literals) | [Comparaciones de cadena](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**Cadena** [GUID](#guids) | [Literales de cadena confusos](#obfuscated-string-literals) | [Literales de cadena](#string-literals) | [Comparaciones de cadena](#string-comparisons) | [countof](#countof) | [extract](#extract) | [in, !in](#in) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
-**Matrices, objetos y dinámica** [Literales de matriz y objeto](#array-and-object-literals) | [Funciones del objeto dinámico](#dynamic-object-functions) | [Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses) | [Expresiones de ruta de JSON](#json-path-expressions) | [nombres](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+**Matrices, objetos y dinámica** [Literales de matriz y objeto](#array-and-object-literals) | [Funciones del objeto dinámico](#dynamic-object-functions) | [Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses) | [Expresiones de ruta de JSON](#json-path-expressions) | [nombres](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [in, !in](#in) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 ## <a name="let"></a>Let
 ### <a name="let-clause"></a>Cláusula let
@@ -94,6 +95,18 @@ Una cláusula let enlaza un [nombre](#names) a un resultado tabular, un valor es
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+Conversión de un resultado de tabla en un valor escalar y uso en una consulta:
+
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
 Autocombinación:
 
@@ -157,6 +170,63 @@ Esta función devuelve una tabla con un único registro y una columna de tipo `l
 ```AIQL
 requests | count
 ```
+
+### <a name="datatable-operator"></a>Operador datatable
+
+Especifique una tabla insertada. El esquema y los valores se definen en la propia consulta.
+
+Tenga en cuenta que este operador no tiene una entrada de canalización.
+
+**Sintaxis**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName*: un nombre para una columna.
+* *ColumnType* un [tipo de datos](#scalars). 
+* *ScalarValue*: un valor del tipo adecuado. El número de valores debe ser múltiplo del número de columnas. 
+
+**Devuelve**
+
+Una tabla que contiene los valores especificados.
+
+**Ejemplo**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### <a name="distinct-operator"></a>Operador distinct
+
+Devuelve una tabla que contiene el conjunto de filas que tienen distintas combinaciones de valores. Opcionalmente, se proyecta a un subconjunto de columnas antes de la operación.
+
+**Sintaxis**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**Ejemplo**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Frutas|Precio|
+|---|---|
+|Grapes (Uvas)|22|
+|Apples (Manzanas)|14|
+|Apples (Manzanas)|15|
+
 
 ### <a name="evaluate-operator"></a>Operador evaluate
 `evaluate` es un mecanismo de extensión que permite anexar algoritmos especializados a las consultas.
@@ -370,7 +440,10 @@ traces
 
 ### <a name="find-operator"></a>Operador find
 
-    find in (Table1, Table2, Table3) where id=='42'
+    find in (Table1, Table2, Table3) where id=="a string"
+    find in (Table1, Table2, Table3) where id=="a string" project column1, column2
+    find in (Table1, Table2, Table3) where * has "a string"
+    find in (Table1, Table2, Table3) where appName in ("string 1", "string 2", "string 3")
 
 Busca filas que coinciden con un predicado a través de un conjunto de tablas.
 
@@ -384,6 +457,7 @@ Busca filas que coinciden con un predicado a través de un conjunto de tablas.
 
 * *Table1* Un nombre de tabla o consulta. Puede ser una tabla definida por let, pero no una función. Un nombre de tabla se comporta mejor que una consulta.
 * *Predicado* una expresión booleana que se evalúa en cada fila de las tablas especificadas.
+ * Puede usar "*" en lugar de un nombre de columna en las comparaciones de cadenas
 * *Column1* La opción `project` le permite especificar qué columnas deben aparecer siempre en la salida. 
 
 **Resultado**
@@ -571,32 +645,32 @@ La columna expandida siempre tiene el tipo dinámico. Use una conversión como `
 Se admiten dos modos de expansiones de contenedor de propiedades:
 
 * `bagexpansion=bag`: los contenedores de propiedades se expanden en contenedores de propiedades de entrada única. Esta es la expansión predeterminada.
-* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`*clave*`,`*valor*`]`, lo que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
+* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`*clave*`,`*valor*`]`, lo que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad).
 
 **Ejemplos**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 Divide un registro de excepciones en filas para cada elemento en el campo de detalles.
 
 ### <a name="parse-operator"></a>Operador parse
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got " present " for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 Extrae los valores de una cadena. Puede usar la coincidencia de expresión regular o simple.
 
 **Sintaxis**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **Argumentos**
@@ -844,6 +918,50 @@ Especifica el conjunto de nombres de tabla disponibles para los operadores que s
     restrict access to (e1, e2);
     union * |  take 10 
 
+### <a name="sample-operator"></a>Operador sample
+
+Devuelve filas aleatorias distribuidas uniformemente de la tabla de entrada.
+
+
+**Sintaxis**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows*: el número de filas que se devolverán en el ejemplo.
+
+**Sugerencia**
+
+Utilice `Take` cuando no necesite un ejemplo distribuido uniformemente.
+
+
+### <a name="sample-distinct-operator"></a>Operador sample-distinct
+
+Devuelve una única columna que contiene hasta el número especificado de valores distintos de la columna solicitada. No devuelve actualmente un ejemplo distribuido uniformemente.
+
+**Sintaxis**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues*: la longitud de la tabla que desea.
+* *ColumnName*: la columna que desea.
+
+**Sugerencias**
+
+Puede resultar útil para aplicar un muestreo sobre una población colocando sample-distinct en una instrucción let y más adelante filtrar con el operador in (ver ejemplo).
+ 
+Si prefiere obtener los valores superiores en lugar de simplemente un ejemplo, puede utilizar el operador top-hitters.
+
+Si desea aplicar el muestreo sobre filas de datos (en lugar de sobre valores de una columna específica), consulte el [operador sample](#sample-operator).
+
+**Ejemplo**
+
+El hecho de aplicar un muestreo sobre una población y realizar cálculos adicionales conociendo el resumen no superará los límites de la consulta.
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+
 ### <a name="sort-operator"></a>Operador sort
     T | sort by country asc, price desc
 
@@ -853,7 +971,7 @@ Ordena las filas de la tabla de entrada en una o más columnas.
 
 **Sintaxis**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **Argumentos**
 
@@ -886,9 +1004,9 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 **Sintaxis**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **Argumentos**
 
@@ -919,7 +1037,7 @@ Devuelve los primeros *N* registros ordenados por las columnas especificadas.
 
 **Sintaxis**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **Argumentos**
 
@@ -933,11 +1051,11 @@ Devuelve los primeros *N* registros ordenados por las columnas especificadas.
 `top 5 by name` es superficialmente equivalente a `sort by name | take 5`. En cambio, se ejecuta más rápido y siempre devuelve resultados ordenados, mientras que `take` no ofrece dicha garantía.
 
 ### <a name="top-nested-operator"></a>top-nested operator
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 Genera resultados jerárquicos, donde cada nivel es un desglose del nivel anterior. Es útil para responder a preguntas del tipo "¿Cuáles son las 5 solicitudes principales?", para cada una de ellas, "¿cuáles son los 3 depósitos de rendimiento más importantes" y, para cada uno de ellos, "¿cuáles son los 3 principales países de donde proceden dichas solicitudes?"
 
@@ -1027,7 +1145,7 @@ Para obtener el mismo orden cada vez que ejecute la consulta, anexe una columna 
 Tenga en cuenta el [operador join](#join-operator) como alternativa.
 
 ### <a name="where-operator"></a>Operador where
-     requests | where resultCode==200
+     requests | where resultCode=="200"
 
 Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 
@@ -1070,24 +1188,7 @@ Registros con antigüedad no superior a 1 hora y que proceden desde el origen de
 
 Observe que colocamos la comparación entre dos columnas al final, ya que no puede utilizar el índice y exige un examen.
 
-### <a name="where-in-operator"></a>operador where-in
-    requests | where resultCode !in (200, 201)
 
-    requests | where resultCode in (403, 404)
-
-**Sintaxis**
-
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
-
-**Argumentos**
-
-* `col`: una columna de la tabla.
-* `expr1`...: una lista de expresiones escalares.
-
-Use `in` para incluir solo las filas en las que `col` es igual a una de las expresiones `expr1...`.
-
-Use `!in` para incluir solo las filas en las que `col` no es igual a ninguna de las expresiones `expr1...`.  
 
 ## <a name="aggregations"></a>Agregaciones
 Las agregaciones son funciones utilizadas para combinar valores de los grupos creados en la [operación summarize](#summarize-operator). Por ejemplo, en esta consulta, dcount() es una función de agregación:
@@ -1160,10 +1261,10 @@ El tipo de columna del parámetro debe ser `dynamic` , una matriz o un contenedo
 
 Resultado:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1195,11 +1296,11 @@ Suponga que la columna de entrada tiene tres valores dinámicos:
 
 El esquema resultante sería:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 El esquema indica que:
@@ -1216,19 +1317,19 @@ El esquema indica que:
 La sintaxis del esquema devuelto es:
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 Son equivalentes a un subconjunto de las anotaciones de tipo TypeScript, codificados como valor dinámico. En Typescript, el esquema de ejemplo sería:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -1634,6 +1735,12 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
     and 
     or 
 
+### <a name="convert-to-boolean"></a>Conversión en un valor booleano
+
+Si tiene una cadena `aStringBoolean` que contiene un valor "true" o "false", puede convertirla en un valor booleano como sigue:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## <a name="numbers"></a>Números
@@ -1785,13 +1892,6 @@ La función de raíz cuadrada.
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
-### <a name="tolong"></a>tolong
-    tolong(20.7) == 20 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
-
 
 ### <a name="todouble"></a>todouble
     todouble(20) == 20.0 // conversion from long or int
@@ -1799,6 +1899,13 @@ La función de raíz cuadrada.
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### <a name="tolong"></a>tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## <a name="date-and-time"></a>Fecha y hora
@@ -2066,7 +2173,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Equals |Sí |`"aBc" == "aBc"` |
 | `<>` `!=` |Not Equals |Sí |`"abc" <> "ABC"` |
-| `=~` |Equals |No |`"abc" =~ "ABC"` |
+| `=~` |Equals |No |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Not Equals |No |`"aBc" !~ "xyz"` |
 | `has` |El lado derecho (RHS) es un término completo en el lado izquierdo (LHS) |No |`"North America" has "america"` |
 | `!has` |RHS no es un término completo en LHS |No |`"North America" !has "amer"` |
@@ -2083,8 +2190,8 @@ h"hello"
 | `endswith` |RHS es una subcadena terminal de LHS. |No |`"Fabrikam" endswith "kam"` |
 | `!endswith` |RHS no es una subcadena terminal de LHS. |No |`"Fabrikam" !endswith "ka"` |
 | `matches regex` |LHS contiene una coincidencia para RHS |Sí |`"Fabrikam" matches regex "b.*k"` |
-| `in` |Igual a cualquiera de los elementos |Sí |`"abc" in ("123", "345", "abc")` |
-| `!in` |No es igual a ninguno de los elementos |yes |`"bc" !in ("123", "345", "abc")` |
+| [`in`](#in) |Igual a cualquiera de los elementos |Sí |`"abc" in ("123", "345", "abc")` |
+| [`!in`](#in) |No es igual a ninguno de los elementos |yes |`"bc" !in ("123", "345", "abc")` |
 
 Use `has` o `in` si va a probar la presencia de un término léxico completo (es decir, un símbolo o una palabra alfanumérica delimitada por caracteres no alfanuméricos o el inicio o el final del campo). `has` se ejecuta con mayor rapidez que `contains`, `startswith` o `endswith`. La primera de estas consultas se ejecuta más rápido:
 
@@ -2167,6 +2274,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
+
+
 
 ### <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
     isempty("") == true
@@ -2375,8 +2484,8 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Literals** : Para crear un objeto explícito de matriz o contenedor de propiedades, escríbalo como una cadena JSON y conviértalo:
@@ -2386,7 +2495,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 **mvexpand** : Para separar las propiedades de un objeto en filas independientes, use mvexpand:
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2394,8 +2503,8 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 **treepath** : Para buscar todas las rutas de acceso en un objeto complejo:
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2407,10 +2516,10 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 Resultado:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2436,7 +2545,7 @@ Observe que `indexer` se utiliza para marcar el punto en el que debe utilizar un
 Para crear un literal dinámico, use `parsejson` (alias `todynamic`) con un argumento de cadena de JSON:
 
 * `parsejson('[43, 21, 65]')` : Una matriz de números.
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` : Un valor único de tipo dinámico que contiene un número.
 * `parsejson('"21"')` : Un valor único de tipo dinámico que contiene una cadena.
 
@@ -2455,8 +2564,8 @@ T
 ### <a name="dynamic-object-functions"></a>Funciones del objeto dinámico
 |  |  |
 | --- | --- |
-| *value* `in` *array* |True si hay un elemento de *array* == *value*<br/>`where City in ('London', 'Paris', 'Rome')` |
-| *value* `!in` *array* |True si no hay ningún elemento de *array* == *value* |
+| [*value* `in` *array*](#in) |*array* contiene *value* |
+| [*value* `!in` *array*](#in) |*array* no contiene *value* |
 | [`arraylength(`array`)`](#arraylength) |Es null si no es una matriz |
 | [`extractjson(`path,object`)`](#extractjson) |Usa una ruta para navegar al objeto. |
 | [`parsejson(`source`)`](#parsejson) |Convierte una cadena JSON en un objeto dinámico. |
@@ -2475,7 +2584,57 @@ Las [cláusulas let](#let-clause) almacenan valores dinámicos como cadenas, por
     T | project parsejson(list1).a, parsejson(list2).a
 
 
+### <a name="in"></a>bucear
+    value in (listExpression)
+    value !in (listExpression)
 
+Determina si hay (o no) algún elemento de la lista que sea igual al valor. Distingue mayúsculas de minúsculas en aquellos casos en los que el valor es una cadena.
+
+**Argumentos**
+
+* `value`: una expresión escalar.
+* `listExpression`...: una lista de expresiones escalares o una expresión que evalúa sobre una lista. 
+
+Una matriz anidada se aplana en una sola lista; por ejemplo, `where x in (dynamic([1,[2,3]]))` se convierte en `where x in (1,2,3)`.  
+
+**Ejemplos**
+
+```AIQL
+    requests | where client_City in ("London", "Paris", "Rome")
+```
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Lista calculada:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Uso de una llamada de función como expresión de lista:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ### <a name="arraylength"></a>arraylength
 El número de elementos de una matriz dinámica.
@@ -2672,15 +2831,10 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 | --- | --- |
 | ['path\\file\n\'x\''] |Se utiliza \ como carácter de escape. |
 | ["d-e.=/f#\n"] | |
-| [@'path\file'] |No se utilizan caracteres de escape: \ es literal. |
-| [@"\now & then\"] | |
+| [@'ruta\archivo'] |No se utilizan caracteres de escape: \ es literal. |
+| [@"\de vez en cuando\"] | |
 | [where] |Se utiliza una palabra clave del lenguaje como nombre. |
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

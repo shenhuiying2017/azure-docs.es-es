@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2016
+ms.date: 02/17/2017
 ms.author: pajosh
 translationtype: Human Translation
-ms.sourcegitcommit: 4a846e86fa8cefbee04e1e30078a0d2aabdd834d
-ms.openlocfilehash: 1b7df71f103e8284bdcc7bc3a27fe44815b12305
+ms.sourcegitcommit: 5c49de40401235d38142efd60d22b0591752fe75
+ms.openlocfilehash: f17802bf455b82f0b5239356c35024ecde7f1f35
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -29,13 +30,14 @@ Cada vez más clientes tienen problemas de seguridad como malware, ransomware, i
 
 > [!NOTE]
 > Las características de seguridad solo se deben habilitar si se usa: <br/>
-> * **Agente de MAB**: la versión mínima del agente es la 2.0.9052. Una vez que estas características estén habilitadas, debe realizar la actualización a esta versión del agente para realizar operaciones críticas, como cambiar la frase de contraseña i detener la copia de seguridad con eliminación de datos <br/>
-> * **Servidor de copia de seguridad de Azure**: la versión mínima del agente de MAB es la 2.0.9052 con la actualización 1 del servidor de copia de seguridad de Azure <br/>
-> * **DPM**: no habilite estas características para DPM. Estas características se incorporarán en futuros paquetes acumulativos de actualizaciones, por lo que su habilitación actual no afectará a la funcionalidad existente. <br/>
+> * **Agente de MAB**: la versión mínima del agente es la 2.0.9052. Cuando haya habilitado estas características, debe realizar la actualización a esta versión del agente para realizar operaciones críticas, como cambiar la frase de contraseña y detener la copia de seguridad con eliminación de datos. <br/>
+> * **Servidor de copia de seguridad de Azure**: la versión mínima del agente de MAB es la 2.0.9052 con la actualización 1 del servidor de copia de seguridad de Azure. <br/>
+> * **DPM**: la versión mínima del agente de MAB es la 2.0.9052 con DPM 2012 R2 UR12 o DPM 2016 UR2. <br/>
 > * **Copia de seguridad de VM de IaaS**: no habilite estas características en la copia de seguridad de VM de IaaS. Estas características no están aún disponibles para la copia de seguridad de VM de IaaS, por lo que su habilitación no afectará a la copia de seguridad de VM de IaaS.
-> * Una vez habilitadas, obtendrá las características de seguridad de todos los equipos del agente de Azure Recovery Services (MARS) y servidores de copia de seguridad de Azure registrados en el almacén. <br/>
+> * Estas características solo están disponibles para el almacén de Recovery Services.
+> * Todos los almacenes de Recovery Services recién creados tienen las siguientes características habilitadas de forma predeterminada. En el caso de los almacenes de Recovery Services existentes, los usuarios necesitan habilitar estas características mediante los pasos mencionados en la sección siguiente.
+> * Una vez habilitadas, obtendrá las características de seguridad de todos los equipos del agente de Azure Recovery Services (MARS) y los servidores DPM registrados en el almacén. <br/>
 > * La habilitación a esta configuración es una acción única, por lo que una vez que se habiliten estas características no será posible deshabilitarlas. <br/>
-> * Esta característica solo está disponible para el almacén de Recovery Services.
 >
 >
 
@@ -70,13 +72,18 @@ Como medida de seguridad, Azure Backup conserva los datos de copia de seguridad 
 
 Para los usuarios del **agente de Microsoft Recovery Services (MARS)**:
 
-1. Si la máquina en la que se realizaron las copias de seguridad aún está disponible, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-the-same-machine) (Recuperar los datos en el mismo equipo) en MARS para realizar la recuperación desde todos los puntos de recuperación antiguos.
+1. Si la máquina en la que se realizaron las copias de seguridad aún está disponible, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) (Recuperar los datos en el mismo equipo) en MARS para realizar la recuperación desde todos los puntos de recuperación antiguos.
 2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) (Recuperar los datos en otro equipo) para usar otro equipo MARS para obtener estos datos.
 
 Para los usuarios del **servidor de copia de seguridad de Azure**:
 
 1. Si el servidor en que se realizan las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica Recuperar datos para realizar la recuperación desde todos los puntos de recuperación antiguos.
 2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) (Recuperar datos de otro servidor de copia de seguridad de Azure) para usar otro servidor de copia de seguridad de Azure para obtener estos datos.
+
+Para los usuarios de **Data Protection Manager (DPM)**:
+
+1. Si el servidor en que se realizan las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica Recuperar datos para realizar la recuperación desde todos los puntos de recuperación antiguos.
+2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otro servidor DPM para obtener estos datos.
 
 ## <a name="preventing-attacks"></a>Prevención de ataques
 Como parte de esta característica, se han agregado comprobaciones para asegurarse de que los usuarios válidos son los únicos que pueden realizar varias operaciones.
@@ -108,9 +115,5 @@ Las características de seguridad que se mencionan en este artículo proporciona
 * [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características
 * [Descargue la versión más reciente del agente de Azure Recovery Services](http://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques
 * [Descargue la versión más reciente del servidor de copia de seguridad de Azure](https://aka.ms/latest_azurebackupserver) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Descargue UR12 para System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) o [descargue UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques
 

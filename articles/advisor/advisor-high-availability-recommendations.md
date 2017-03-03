@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: 91b6fec93d4226af755be553e544a4ea7b1081ca
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: a6ee1d018bf33aa76d089d20f6e71318a3586aa8
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -57,7 +58,7 @@ El Almacenamiento premium de Azure le ofrece soporte de disco de alto rendimient
 3. En el panel de Advisor, haga clic en la pestaña **High Availability** (Alta disponibilidad) y seleccione la suscripción para la que le gustaría recibir las recomendaciones.
 
 > [!NOTE]
-> Advisor genera recomendaciones para las suscripciones en las que se le ha asignado el rol de **propietario, colaborador o lector**.
+> Para obtener acceso a las recomendaciones de Advisor, primero debe **registrar** su suscripción en él. Una suscripción se registra cuando el **propietario de esta** inicia el panel de Advisor y hace clic en el botón **Get recommendations** (Obtener recomendaciones). Esta operación **solo se realiza una vez**. Una vez registrada la suscripción, los **propietarios**, **contribuidores**, o **lectores** de dicha suscripción, un grupo de recursos o un recursos concreto pueden acceder a las recomendaciones de Advisor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -67,9 +68,4 @@ Para obtener más información sobre las recomendaciones de Advisor, consulte lo
 -  [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 -  [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 -  [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

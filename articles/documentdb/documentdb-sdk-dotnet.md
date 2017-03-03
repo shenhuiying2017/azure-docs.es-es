@@ -1,5 +1,5 @@
 ---
-title: SDK y API para .NET de DocumentDB | Microsoft Docs
+title: 'API de .NET y recursos del SDK: Azure DocumentDB | Microsoft Docs'
 description: "Obtenga toda la información sobre el SDK y la API para .NET como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para .NET de DocumentDB."
 services: documentdb
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 02/15/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: efd154811ebbcf2170ffb001344a954be72b1d92
-ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
+ms.sourcegitcommit: de2b914ddb7238c9939066570d8fba78aa5c231e
+ms.openlocfilehash: 73e9c8491520d47bbc60b1556b97918977d29d7f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -50,6 +51,25 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Reducción del procesamiento mínimo en las colecciones particionadas de 10 100 RU/s a 2500 RU/s.
+
+### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Corrección para un problema por el cual algunas de las consultas entre particiones no funcionaban correctamente en el proceso de host de 32 bits.
+* Corrección para un problema por el cual el contenedor de la sesión no se actualizaba con el token para solicitudes erróneas en el modo de puerta de enlace.
+* Corrección para un problema por el cual una consulta con llamadas UDF en proyección daba error en algunos casos.
+* Revisiones de rendimiento de lado cliente para aumentar el procesamiento de lectura y escritura de las solicitudes.
+
+### <a name="a-name11131113httpswwwnugetorgpackagesmicrosoftazuredocumentdb1113"></a><a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+* Corrección para un problema por el cual el contenedor de la sesión no se actualizaba con el token para solicitudes erróneas.
+* Se agregó compatibilidad para que el SDK funcione en un proceso de host de 32 bits. Tenga en cuenta que si utiliza consultas entre particiones, se recomienda el procesamiento de host de 64 bits para obtener un mejor rendimiento.
+* Se mejoró el rendimiento en escenarios con consultas que tienen un número elevado de valores de clave de partición en una expresión IN.
+* Se rellenaron diversas estadísticas de cuotas de recursos en ResourceResponse para las solicitudes de lectura de recopilación de documentos al establecer la opción de solicitud de PopulateQuotaInfo.
+
+### <a name="a-name11111111httpswwwnugetorgpackagesmicrosoftazuredocumentdb1111"></a><a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
+* Corrección menor del rendimiento de la API de CreateDocumentCollectionIfNotExistsAsync incluida en 1.11.0.
+* Corrección del rendimiento en el SDK para escenarios que implican un alto grado de solicitudes simultáneas.
 
 ### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
 * Compatibilidad con nuevas clases y nuevos métodos para procesar la [fuente de cambios](documentdb-change-feed.md) de documentos que forman parte de una colección.
@@ -110,7 +130,7 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 * Se han implementado [colecciones particionadas](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
 
 ### <a name="a-name153153httpswwwnugetorgpackagesmicrosoftazuredocumentdb153"></a><a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-* **[Corregido]** La consulta del punto de conexión de DocumentDB genera el error System.Net.Http.HttpRequestException al copiar el contenido en una secuencia.
+* **[Corregido]** La consulta del punto de conexión de DocumentDB genera: "System.Net.Http.HttpRequestException: Error al copiar contenido a una secuencia".
 
 ### <a name="a-name152152httpswwwnugetorgpackagesmicrosoftazuredocumentdb152"></a><a name="1.5.2"/>[1.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
 * Compatibilidad de LINQ ampliada, incluidos nuevos operadores de paginación, expresiones condicionales y comparación de intervalos.
@@ -161,9 +181,9 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
   * Compatibilidad del proveedor LINQ para OrderBy() u OrderByDescending()
   * IndexingPolicy para admitir Order By 
     
-        **NB: Possible breaking change** 
+    **NB: Posible cambio brusco** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    Si tiene un código existente que aprovisiona colecciones con una directiva de indexación personalizada, habrá que actualizar el código existente para admitir la nueva clase IndexingPolicy. Si no tiene ninguna directiva de indexación personalizada, este cambio no le afectará.
 
 ### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Compatibilidad para las particiones de datos mediante las nuevas clases HashPartitionResolver y RangePartitionResolver y el IPartitionResolver
@@ -174,15 +194,6 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 * SDK de GA
 
-> [!NOTE]
-> Se produjo un cambio del nombre de paquete de NuGet entre la vista previa y la disponibilidad general. Pasamos de **Microsoft.Azure.Documents.Client** a **Microsoft.Azure.DocumentDB**
-> <br/>
-> 
-> 
-
-### <a name="a-name09x-preview09x-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentsclient"></a><a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
-* SDK de vista previa [obsoleto]
-
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
@@ -190,23 +201,20 @@ Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK a
 
 El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un SDK retirado.
 
-> [!WARNING]
-> Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versión **1.0.0** se retirarán el **29 de febrero de 2016**. 
-> 
-> 
-
 <br/>
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |15 de febrero de 2017 |--- |
+| [1.11.4](#1.11.4) |06 de febrero de 2017 |--- |
+| [1.11.3](#1.11.3) |26 de enero de 2017 |--- |
+| [1.11.1](#1.11.1) |21 de diciembre de 2016 |--- |
 | [1.11.0](#1.11.0) |08 de diciembre de 2016 |--- |
 | [1.10.0](#1.10.0) |27 de septiembre de 2016 |--- |
 | [1.9.5](#1.9.5) |01 de septiembre de 2016 |--- |
 | [1.9.4](#1.9.4) |24 de agosto de 2016 |--- |
 | [1.9.3](#1.9.3) |15 de agosto de 2016 |--- |
 | [1.9.2](#1.9.2) |23 de julio de 2016 |--- |
-| 1.9.1 |En desuso |--- |
-| 1.9.0 |En desuso |--- |
 | [1.8.0](#1.8.0) |14 de junio de 2016 |--- |
 | [1.7.1](#1.7.1) |06 de mayo de 2016 |--- |
 | [1.7.0](#1.7.0) |26 de abril de 2016 |--- |
@@ -222,20 +230,12 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 | [1.2.0](#1.2.0) |06 de julio de 2015 |--- |
 | [1.1.0](#1.1.0) |30 de abril de 2015 |--- |
 | [1.0.0](#1.0.0) |08 de abril de 2015 |--- |
-| [0.9.3-prelease](#0.9.x-preview) |12 de marzo de 2015 |29 de febrero de 2016 |
-| [0.9.2-prelease](#0.9.x-preview) |Enero de 2015 |29 de febrero de 2016 |
-| [.9.1-prelease](#0.9.x-preview) |13 de octubre de 2014 |29 de febrero de 2016 |
-| [0.9.0-prelease](#0.9.x-preview) |21 de agosto de 2014 |29 de febrero de 2016 |
 
-## <a name="faq"></a>P+F
+
+## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>Otras referencias
-Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
+Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
 
 

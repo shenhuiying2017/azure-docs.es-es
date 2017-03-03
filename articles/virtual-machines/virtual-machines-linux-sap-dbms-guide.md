@@ -19,6 +19,7 @@ ms.author: sedusch
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: db6d4de6f88672f2258fdeac8416c795bc0c4613
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -1390,10 +1391,5 @@ No utilice la replicación geográfica de Tienda de Azure. Para más informació
 Todos los demás temas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, se aplican como se describen en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales también con IBM DB2 para LUW.
 
 Consulte también el capítulo [Resumen general de SQL Server para SAP en Azure][dbms-guide-5.8].
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

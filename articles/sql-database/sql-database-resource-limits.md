@@ -18,6 +18,7 @@ ms.author: janeng
 translationtype: Human Translation
 ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
 ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -75,10 +76,5 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md)
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

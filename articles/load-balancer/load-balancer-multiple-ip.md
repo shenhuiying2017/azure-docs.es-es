@@ -17,6 +17,7 @@ ms.author: annahar
 translationtype: Human Translation
 ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
 ms.openlocfilehash: d7df8f3271c6c92df427a840d73fdb9a0c6b54a1
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -167,9 +168,4 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
     ```
 
 13. Por último, debe configurar los registros de recursos DNS para que apunten a la dirección IP de front-end correspondiente del equilibrador de carga. Puede hospedar los dominios en Azure DNS. Para más información sobre el uso de Azure DNS con Load Balancer, consulte [Uso de Azure DNS con otros servicios de Azure](../dns/dns-for-azure-services.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

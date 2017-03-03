@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
-ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
+ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
+ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -98,7 +99,7 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 ## <a name="data-rate"></a>Velocidad de datos
 Hay tres formas en que se limita el volumen de envío de datos:
 
-* **Límite diario.** De forma predeterminada, se establece en 500 GB/día. Cuando la aplicación alcanza el límite, se envía un correo electrónico y se descartan los datos hasta el final del día. Para cambiarlo, use la hoja Data Volume Management (Administración del volumen de datos).
+* **Límite diario.** El límite máximo es de 500 GB/día. La capacidad predeterminada al crear un recurso de Application Insights desde Visual Studio, es pequeña (solo 32,3 MB/día). Al crear un recurso de Application Insights desde Azure Portal este recurso se establece en su valor máximo. Tenga cuidado al cambiar esto, puesto que si se alcanza el límite hará que se pierdan datos durante el resto del día. Para cambiarlo, use la hoja de límite de volumen diario, vinculada desde la hoja Administración de datos.
 * **[Muestreo](app-insights-sampling.md).** Este mecanismo puede reducir la cantidad de telemetría enviada desde las aplicaciones de servidor y de cliente, con mínima distorsión de las métricas.
 * La **limitación** restringe la velocidad de datos a 32 000 eventos por segundo, promediados durante 1 minuto. 
 
@@ -117,12 +118,14 @@ Si se produce la limitación, verá una notificación de advertencia que indica 
 ## <a name="to-reduce-your-data-rate"></a>Reducción de la velocidad de datos
 Estas son algunas cosas que puede hacer para reducir el volumen de datos:
 
-* Reduzca el límite de volumen diario. El valor predeterminado es 500 GB/día.
 * Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda. En las aplicaciones de servidor, funciona automáticamente.
 * [Limite el número de llamadas AJAX que se pueden notificar](app-insights-javascript.md#detailed-configuration) en cada vista de página o desactive los informes de AJAX.
 * Desactivar los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
 * Divida la telemetría para separar las claves de instrumentación. 
-* Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+* Por último, puede reducir el límite de volumen diario, lo cual limitará los datos recopilados pero dará como resultado una pérdida de datos durante el resto del día. Para cambiarlo, abra **Características y precios**, **Administración de datos**.
+
+    ![Ajuste del límite de volumen de telemetría diario](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>muestreo
 [Sampling](app-insights-sampling.md)es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos. 
@@ -172,10 +175,5 @@ Las aplicaciones existentes pueden seguir usando los planes de tarifa antiguos h
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

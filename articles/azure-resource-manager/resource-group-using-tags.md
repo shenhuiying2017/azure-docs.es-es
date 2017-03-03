@@ -1,6 +1,6 @@
 ---
-title: Uso de etiquetas para organizar los recursos de Azure | Microsoft Docs
-description: "Muestra cómo aplicar etiquetas para organizar los recursos para la facturación y administración."
+title: "Etiquetado de recursos de Azure para organización lógica | Microsoft Docs"
+description: "Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -12,100 +12,98 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 87973df7bb1b81c2d1cbdeb31e2fabb584f7e625
-ms.openlocfilehash: 61e47f479b7cb05e1aca06e12ff5997769b2097d
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 2f56314769d90a1f0f9ebb5ece9c8e54b23b8936
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="using-tags-to-organize-your-azure-resources"></a>Uso de etiquetas para organizar los recursos de Azure
-El Administrador de recursos le permite organizar recursos de manera lógica mediante la aplicación de etiquetas. Las etiquetas constan de pares clave-valor que identifican los recursos con las propiedades que define. Si desea marcar los recursos como pertenecientes a la misma categoría, aplique la misma etiqueta a esos recursos.
-
-Cuando consulta los recursos con una etiqueta determinada, puede ver recursos de todos los grupos de recursos. No esta limitado únicamente a los recursos del mismo grupo de recursos, lo que le permite organizar los recursos de manera independiente de las relaciones de implementación. Las etiquetas pueden resultar útiles si necesita organizar recursos para facturación o administración.
-
-Cada etiqueta que agrega a un recurso o a un grupo de recursos se agrega automáticamente a la taxonomía en toda la suscripción. También puede rellenar previamente la taxonomía de la suscripción con los nombres y los valores de etiquetas que desearía usar cuando los recursos se etiqueten en un futuro.
-
-Cada recurso o grupo de recursos puede tener un máximo de 15 etiquetas. El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256.
+# <a name="use-tags-to-organize-your-azure-resources"></a>Uso de etiquetas para organizar los recursos de Azure
+[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
 > [!NOTE]
 > Solo puede aplicar etiquetas a recursos que admiten operaciones del Administrador de recursos. Si creó una máquina virtual, una red virtual o un almacenamiento mediante el modelo de implementación clásica (por ejemplo, a través del Portal clásico), no podrá aplicar una etiqueta a ese recurso. Para admitir el etiquetado, vuelva a implementar estos recursos mediante Resource Manager. Todos los demás recursos admiten el etiquetado.
 > 
 > 
 
+## <a name="ensure-tag-consistency-with-policies"></a>Garantía de consistencia de etiquetas con directivas
+
+Las directivas de recursos le permiten crear reglas estándar para su organización. Puede crear directivas que se aseguren de que los recursos están etiquetados con los valores adecuados. Para más información, consulte [Aplicación de directivas de recursos para etiquetas](resource-manager-policy-tags.md).
+
 ## <a name="templates"></a>Plantillas
-Para etiquetar un recurso durante su implementación, agregue el elemento **tags** al recurso que se va a implementar y especificar el nombre y valor de la etiqueta. No es necesario que el nombre y el valor de la etiqueta existan previamente en su suscripción. Puede proporcionar hasta 15 etiquetas para cada recurso.
 
-En el ejemplo siguiente se muestra una cuenta de almacenamiento con una etiqueta.
-
-```json
-"resources": [
-    {
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2015-06-15",
-        "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "dept": "Finance"
-        },
-        "properties": 
-        {
-            "accountType": "Standard_LRS"
-        }
-    }
-]
-```
-
-Actualmente, el administrador de recursos no admite el procesamiento de un objeto para los valores y los nombres de etiqueta. En su lugar, pase un objeto para los valores de etiqueta, pero de todos modos debe especificar los nombres de etiqueta, tal como se muestra en el ejemplo siguiente:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "tagvalues": {
-      "type": "object",
-      "defaultValue": {
-        "dept": "Finance",
-        "project": "Test"
-      }
-    }
-  },
-  "resources": [
-  {
-    "apiVersion": "2015-06-15",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "examplestorage",
-    "tags": {
-      "dept": "[parameters('tagvalues').dept]",
-      "project": "[parameters('tagvalues').project]"
-    },
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "accountType": "Standard_LRS"
-    }
-  }]
-}
-```
+[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="powershell"></a>PowerShell
-[!INCLUDE [resource-manager-tag-resources](../../includes/resource-manager-tag-resources-powershell.md)]
+[!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli-20"></a>CLI de Azure 2.0
+
+Con la CLI de Azure 2.0, puede agregar etiquetas a recursos y grupos de recursos, además de consultar recursos por valores de etiqueta.
+
+Cada vez que aplique etiquetas a un recurso o grupo de recursos, sobrescribirá las etiquetas existentes en ese recurso o grupo de recursos. Por lo tanto, tiene que utilizar un enfoque diferente en función de si el recurso o grupo de recursos tiene etiquetas existentes que desea conservar. Para agregar etiquetas a un:
+
+* grupo de recursos sin etiquetas existentes.
+
+  ```azurecli
+  az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
+  ```
+
+* recurso sin etiquetas existentes.
+
+  ```azurecli
+  az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+  ``` 
+
+Para agregar una etiqueta a un recurso que ya tiene etiquetas, primero recupere las etiquetas existentes: 
+
+```azurecli
+az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+Que devuelve el siguiente formato:
+
+```
+Dept        : Finance
+Environment : Test
+```
+
+Aplique de nuevo las etiquetas existentes al recurso y agregue las nuevas etiquetas.
+
+```azurecli
+az resource tag --tags Dept=Finance Environment=Test CostCenter=IT -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+``` 
+
+Para obtener grupos de recursos con una etiqueta específica, use `az group list`.
+
+```azurecli
+az group list --tag Dept=IT
+```
+
+Para obtener todos los recursos con una etiqueta y un valor concretos, use `az resource list`.
+
+```azurecli
+az resource list --tag Dept=Finance
+```
+
+## <a name="azure-cli-10"></a>CLI de Azure 1.0
 [!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
 
 ## <a name="rest-api"></a>API de REST
 Tanto el portal como PowerShell usan la [API de REST del Administrador de recursos](https://docs.microsoft.com/rest/api/resources/) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando GET en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada PATCH.
 
 ## <a name="tags-and-billing"></a>Etiquetas y facturación
-Para los servicios compatibles, puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, las máquinas virtuales integradas con Azure Resource Manager permiten definir y aplicar etiquetas para organizar el uso de facturación en las máquinas virtuales. Si va a ejecutar varias máquinas virtuales para organizaciones diferentes, puede usar etiquetas para agrupar el uso por centro de costo.  
-También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
+Las etiquetas le permiten agrupar los datos de facturación. Por ejemplo, si va a ejecutar varias máquinas virtuales para organizaciones diferentes, use etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
-Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](../billing-usage-rate-card-overview.md) o mediante el archivo de valores separados por coma (CSV). Puede descargar el archivo de uso en el [Portal de cuentas de Azure](https://account.windowsazure.com/) o el [portal EA](https://ea.azure.com). Para obtener más información sobre el acceso a información de facturación mediante programación, vea [Obtención de información sobre el consumo de recursos de Microsoft Azure](../billing-usage-rate-card-overview.md). Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+
+Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](../billing/billing-usage-rate-card-overview.md) o mediante el archivo de valores separados por coma (CSV). Puede descargar el archivo de uso en el [Portal de cuentas de Azure](https://account.windowsazure.com/) o el [portal EA](https://ea.azure.com). Para obtener más información sobre el acceso a información de facturación mediante programación, vea [Obtención de información sobre el consumo de recursos de Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+
 
 Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas** . Para más información, consulte [Comprender la factura de Microsoft Azure](../billing/billing-understand-your-bill.md).
 
@@ -117,10 +115,5 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 * Para obtener información sobre cómo usar la interfaz de la línea de comandos (CLI) de Azure al implementar recursos, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
 * Para obtener información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](resource-group-portal.md)  
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -17,6 +17,7 @@
 ### [Creación de plantillas](resource-group-authoring-templates.md)
 ### [Funciones de plantillas](resource-group-template-functions.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
+### [Establecimiento del nombre y tipo del recurso secundario](resource-manager-template-child-resource.md)
 ### [Creación de varias instancias de un tipo de recurso](resource-group-create-multiple.md)
 ### [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md)
 ### [Vínculo a otras plantillas](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

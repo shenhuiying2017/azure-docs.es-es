@@ -1,5 +1,5 @@
 ---
-title: "Creación de un informe del historial de cambios de acceso | Microsoft Docs"
+title: Informe de acceso - RBAC de Azure | Microsoft Docs
 description: "Utilice Control de acceso basado en rol para generar un informe con todos los cambios en el acceso a las suscripciones de Azure en los últimos 90 días."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44295ff647cbfd2d63ffe08d101da66b83a924f6
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: bb15538a37fd610207c77fe2cf89fbfa16bbba11
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -43,7 +44,7 @@ Al llamar a este comando, puede especificar qué propiedad de las asignaciones d
 | **SubscriptionId** |El GUID de la suscripción de Azure. |
 | **SubscriptionName** |El nombre de la suscripción de Azure. |
 
-En el siguiente comando de ejemplo se muestran todos los cambios de acceso de la suscripción que tuvieron lugar en los últimos 7 días:
+En el siguiente comando de ejemplo se muestran todos los cambios de acceso de la suscripción que tuvieron lugar en los últimos&7; días:
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
@@ -59,13 +60,8 @@ Para guardar el informe o manipular los datos, exporte los cambios de acceso a u
 
 ![Changelog visto como una hoja de cálculo ( captura de pantalla)](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>Otras referencias
-* Introducción al [control de acceso basado en roles de Azure](role-based-access-control-configure.md)
+## <a name="next-steps"></a>Pasos siguientes
 * Uso de [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Información sobre cómo administrar [RBAC de Azure con PowerShell](role-based-access-control-manage-access-powershell.md)
 
 

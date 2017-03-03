@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 9bb7878836c0444d3ccc058fd89b8bbd9f6e255a
 ms.openlocfilehash: 3ba234eca45e643a235abf120efc6d8f82af461f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -32,10 +33,5 @@ Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes 
 
 * [Acoplamiento de un disco de datos a una máquina virtual Linux](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

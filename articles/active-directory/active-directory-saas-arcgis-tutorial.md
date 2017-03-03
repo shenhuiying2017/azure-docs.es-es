@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3a373d1b8ae73f5b978414718dc93906ac5b16b7
+ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
+ms.openlocfilehash: 9867af8c5f18e2412e73c2ae5fa95825e367e275
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -23,23 +24,24 @@ ms.openlocfilehash: 3a373d1b8ae73f5b978414718dc93906ac5b16b7
 El objetivo de este tutorial es mostrar la integración de Azure y ArcGIS. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en ArcGIS
+* Una suscripción habilitada para el inicio de sesión único (SSO) en ArcGIS
 
 Después de completar este tutorial, los usuarios de Azure AD que ha asignado a ArcGIS podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de ArcGIS (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
-1. Habilitación de la integración de aplicaciones para ArcGIS
-2. Configuración del inicio de sesión único
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+* Habilitación de la integración de aplicaciones para ArcGIS
+* Configuración del inicio de sesión único (SSO)
+* Configuración del aprovisionamiento de usuario
+* Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-arcgis-tutorial/IC784735.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-arcgis"></a>Habilitación de la integración de aplicaciones para ArcGIS
+## <a name="enable-the-application-integration-for-arcgis"></a>Habilitación de la integración de aplicaciones para ArcGIS
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para ArcGIS.
 
-### <a name="to-enable-the-application-integration-for-arcgis-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para ArcGIS:
+**Siga estos pasos para habilitar la integración de aplicaciones para ArcGIS:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-arcgis-tutorial/IC700993.png "Active Directory")
@@ -60,11 +62,12 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
    
    ![ArcGIS](./media/active-directory-saas-arcgis-tutorial/IC784737.png "ArcGIS")
    
-   ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en ArcGIS con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **ArcGIS**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784738.png "Configurar inicio de sesión único")
@@ -99,12 +102,14 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     
     ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar inicio de sesión único")
     
-    ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
-Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS.  
-En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
+* En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
+
+**Siga estos pasos para configurar el aprovisionamiento de usuario:**
+
 1. Inicie sesión en su inquilino de **ArcGIS** .
 2. Haga clic en **Invitar a miembros**.
    
@@ -115,35 +120,28 @@ En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
 4. En la página de diálogo **Miembros** , realice los pasos siguientes:
    
    ![Agregar y revisar](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Agregar y revisar")
-   
    1. Escriba**Nombre**, **Apellido** y **Correo electrónico** de una cuenta válida de AAD que quiera aprovisionar.
    2. Haga clic en **Agregar y revisar**.
 5. Revise los datos que ha escrito y luego haga clic en **Agregar miembros**.
    
    ![Agregar miembros](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Agregar miembros")
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ArcGIS ofrecida por ArcGIS para aprovisionar cuentas de usuario de AAD.
-> 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ArcGIS ofrecida por ArcGIS para aprovisionar cuentas de usuario de AAD. 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+## <a name="assign-users"></a>Asignar usuarios
+Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-arcgis-perform-the-following-steps"></a>Para asignar usuarios a ArcGIS, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a ArcGIS, lleve a cabo los siguientes pasos:**
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **ArcGIS**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-arcgis-tutorial/IC784751.png "Asignar usuarios")
+  ![Asignar usuarios](./media/active-directory-saas-arcgis-tutorial/IC784751.png "Asignar usuarios")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-arcgis-tutorial/IC767830.png "Sí")
+  ![Sí](./media/active-directory-saas-arcgis-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

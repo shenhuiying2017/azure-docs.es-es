@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/31/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 31b86898552ef9eb6708c83968736f14597223b1
+ms.sourcegitcommit: 57175ddc53d5856cd3492d4c631a92d4bf9247c4
+ms.openlocfilehash: 859f87356448041a320c2e126478aabf1efa0d44
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -49,9 +50,9 @@ En este tutorial, se escribirá una aplicación de consola de .NET Core para rec
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Agregue el paquete NuGet de Event Hubs.
 
-1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
-
-2. Haga clic en la pestaña **Examinar** y, después, busque "Microsoft Azure Event Processor Host" y seleccione el elemento **Microsoft Azure Event Processor Host**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
+* Agregue los siguientes paquetes de NuGet al proyecto:
+  * [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
+  * [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
 
 ### <a name="implement-the-ieventprocessor-interface"></a>Implemente la interfaz de IEventProcessor.
 
@@ -218,10 +219,5 @@ En este tutorial, se escribirá una aplicación de consola de .NET Core para rec
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Creación de un Centro de eventos](event-hubs-create.md)
+* [Creación de un centro de eventos](event-hubs-create.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

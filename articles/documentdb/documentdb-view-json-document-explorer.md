@@ -1,5 +1,5 @@
 ---
-title: Explorador de documentos de DocumentDB, para ver JSON | Microsoft Docs
+title: 'Herramienta del Portal de Azure DocumentDB: Explorador de documentos | Microsoft Docs'
 description: "Mas información acerca del Explorador de documentos de DocumentDB, una herramienta del Portal de Azure para ver, editar, crear y cargar documentos JSON con DocumentDB, una base de datos de documentos NoSQL."
 keywords: ver json
 services: documentdb
@@ -13,21 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
+ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
+ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB
 En este artículo se proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , una herramienta del Portal de Azure que permite ver, editar, crear, cargar y filtrar documentos JSON con DocumentDB. 
 
-Tenga en cuenta que el Explorador de documentos no está habilitado en las cuentas de DocumentDB que ofrecen compatibilidad de protocolos con MongoDB. Esta página se actualizará cuando se habilite esta característica.
+> [!NOTE]
+> El Explorador de documentos no está habilitado en las cuentas de DocumentDB que ofrecen compatibilidad de protocolos con MongoDB. Esta página se actualizará cuando se habilite esta característica.
 
-## <a name="launch-document-explorer"></a>Inicio del Explorador de documentos
-1. En la barra de accesos directos del Portal de Azure, haga clic en **DocumentDB (NoSQL)**. Si **DocumentDB (NoSQL)** no está visible, haga clic en **Más servicios** y, después, en **DocumentDB (NoSQL)**.
+<a id="launch-document-explorer"></a>
+
+## <a name="launch-document-explorer-in-the-azure-portal"></a>Inicio del Explorador de documentos en Azure Portal
+1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en ![icono de Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Si **NoSQL (DocumentDB)** no se muestra, haga clic en **Más servicios** en la parte inferior y después haga clic en el ![icono de Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Seleccione el nombre de la cuenta. 
 3. En el menú de recursos, haga clic en **Explorador de documentos**. 
    
@@ -35,7 +41,7 @@ Tenga en cuenta que el Explorador de documentos no está habilitado en las cuent
    
     En la hoja **Explorador de documentos**, las listas desplegables **Bases de datos** y **Colecciones** se rellenan previamente según el contexto en el que se inició el Explorador de documentos. 
 
-## <a name="create-a-document"></a>Creación de un documento
+## <a name="create-a-json-document"></a>Creación de un documento JSON
 1. [Inicie el Explorador de documentos](#launch-document-explorer).
 2. En la hoja **Explorador de documentos**, haga clic en **Crear documento**. 
    
@@ -53,7 +59,7 @@ Tenga en cuenta que el Explorador de documentos no está habilitado en las cuent
    
     Si ya dispone de datos procedentes de archivos JSON, MongoDB, SQL Server, archivos CSV, almacenamiento de tablas de Azure, Amazon DynamoDB, HBase o de otras colecciones de DocumentDB, puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB para importar rápidamente los datos.
 
-## <a name="edit-a-document"></a>Edición de un documento
+## <a name="edit-a-json-document"></a>Edición de un documento JSON
 1. [Inicie el Explorador de documentos](#launch-document-explorer).
 2. Para editar un documento que ya exista, selecciónelo en la hoja **Explorador de documentos**, edite el documento en la hoja **Documento** y haga clic en **Guardar**.
    
@@ -63,7 +69,7 @@ Tenga en cuenta que el Explorador de documentos no está habilitado en las cuent
    
     ![Captura de pantalla del comando descartar del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document"></a>Eliminar un documento
+## <a name="delete-a-document-from-documentdb"></a>Eliminación de un documento de DocumentDB
 1. [Inicie el Explorador de documentos](#launch-document-explorer).
 2. Seleccione el documento en **Explorador de documentos**, haga clic en **Eliminar** y confirme la eliminación. Después de realizar la confirmación, el documento se quita inmediatamente de la lista del Explorador de documentos.
    
@@ -156,12 +162,5 @@ Si tiene que importar o migrar archivos desde otro origen (archivos JSON, MongoD
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre la gramática de SQL de DocumentDB compatible con el Explorador de documentos, consulte el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md).
-
-La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarlo durante el proceso que le llevará a familiarizarse con DocumentDB. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

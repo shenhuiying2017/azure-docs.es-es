@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -441,9 +442,4 @@ Tenga en cuenta que será diferente del recuento de "Excepciones" calculado por 
 * [Supervisar REST, SQL y otras llamadas a las dependencias](app-insights-asp-net-dependencies.md)
 * [Supervisar los tiempos de carga de página, las excepciones del explorador y las llamadas AJAX](app-insights-javascript.md)
 * [Supervisar los contadores de rendimiento](app-insights-performance-counters.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

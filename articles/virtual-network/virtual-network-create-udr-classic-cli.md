@@ -18,6 +18,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: 71153e46d1695611c8286d2e57b109db9e7ad9df
 ms.openlocfilehash: 4a610a65b33f91f46d011e07c6cb11523d3dae0d
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -137,10 +138,5 @@ Para crear la tabla de rutas y la ruta necesarias para la subred back-end según
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

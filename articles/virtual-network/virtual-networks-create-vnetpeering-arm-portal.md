@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c19ad7c0c466d178e97e83bb2d46b9905130d00e
-ms.openlocfilehash: a97aff9cb7071edc0b7fd1046bdd10d440d75eab
+ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
+ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -120,7 +121,7 @@ Cada vínculo de un emparejamiento de VNET tiene el conjunto anterior de propied
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si fuera necesario, inicie sesión con su cuenta de Azure.
 2. Si va a crear un emparejamiento entre redes virtuales implementadas a través de diferentes modelos de la *misma* suscripción, vaya al paso 3. La capacidad para crear un emparejamiento de VNET entre redes virtuales implementadas a través de distintos modelos de implementación de suscripciones *diferentes* está en **versión preliminar**. Las funcionalidades que están en versión preliminar no tienen el mismo nivel de confiabilidad y el acuerdo de nivel de servicio que las funcionalidades generales de la versión. Si va a crear un emparejamiento entre redes virtuales implementadas a través de distintos modelos de suscripciones diferentes, primero debe completar las siguientes tareas:
-    - Registre la funcionalidad de versión preliminar en su suscripción de Azure, para lo que debe escribir el siguiente comando de PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` Este paso no se puede completar en el portal.
+    - Registre la funcionalidad de versión preliminar en su suscripción de Azure, para lo que debe escribir el siguiente comando de PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` y `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network` Este paso no se puede completar en el portal.
     - Complete los pasos 1 a 6 de la sección [Emparejamiento entre suscripciones](#x-sub) de este artículo.
 3. Para establecer la red virtual de emparejamiento en este escenario, debe crear solo un vínculo desde la red virtual de Azure Resource Manager a la de la implementación clásica. Es decir, desde **VNET1** a **VNET2**. En el portal, haga clic en **Examinar** > elija **Redes virtuales**.
 4. En la hoja de redes virtuales, elija **VNET1**. Haga clic en **Emparejamientos** y, a continuación, haga clic en **Agregar**.
@@ -141,10 +142,5 @@ Cada vínculo de un emparejamiento de VNET tiene el conjunto anterior de propied
 
     ![Delete2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. En este estado, no se puede volver a crear el vínculo hasta que cambie el estado del vínculo de emparejamiento a iniciado. Se recomienda quitar ambos vínculos antes de volver a crear el emparejamiento de VNET.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

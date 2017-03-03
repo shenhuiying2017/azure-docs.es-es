@@ -17,6 +17,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
 ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -128,10 +129,5 @@ Y para comprobar el contenedor en funcionamiento, escriba `docker-machine ip <VM
 Si le interesa, puede probar la [extensión de máquina virtual de Docker](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de Azure para realizar la misma operación mediante la CLI de Azure o las plantillas de Azure Resource Manager. 
 
 Para ver más ejemplos de cómo trabajar con Docker, consulte [cómo trabajar con Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) en la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) realizada en Connect 2015. Para ver más guías rápidas de la demostración de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

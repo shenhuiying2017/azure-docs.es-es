@@ -18,6 +18,7 @@ ms.author: bonova
 translationtype: Human Translation
 ms.sourcegitcommit: dd09cf5f9ad4bc82d9685b656eb40d31ac13fbd2
 ms.openlocfilehash: a0f5ef966bf4de86d337a561a4b9e2ded8b55488
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -186,10 +187,5 @@ Para obtener más información sobre cómo usar las tablas temporales en las apl
 Visite Channel 9 para escuchar un [caso real de éxito de implementación](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) y vea una[demostración en directo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
 Para más información sobre las tablas temporales, revise la [documentación de MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

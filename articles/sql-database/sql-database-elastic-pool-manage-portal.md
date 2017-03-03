@@ -17,13 +17,14 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
-ms.openlocfilehash: 40f04d92acce3096baec251824cb23a70b52ff83
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: 52cc3c74e05dc3934e0536dea02b4870f6ed86c2
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-the-azure-portal"></a>Creación y administración de un grupo elástico con Azure Portal
-En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con [Azure Portal](https://portal.azure.com/). También puede crear y administrar un grupo elástico de Azure en [PowerShell](sql-database-elastic-pool-manage-powershell.md), la API de REST o [C#][Creación y administración de un grupo elástico con C#](sql-database-elastic-pool-manage-csharp.md). También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con Azure Portal. También puede crear y administrar un grupo elástico de Azure en [PowerShell](sql-database-elastic-pool-manage-powershell.md), la API de REST o [C#][Creación y administración de un grupo elástico con C#](sql-database-elastic-pool-manage-csharp.md). También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 ## <a name="create-an-elastic-pool"></a>Creación de un grupo elástico 
 
@@ -296,9 +297,4 @@ Para cambiar los límites de almacenamiento o eDTU por grupo y las eDTU por base
 [7]: ./media/sql-database-elastic-pool-manage-portal/select-dbs.png
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
 ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
 ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -273,10 +274,5 @@ Este paso garantiza que el estado recuperado sea coherente.
 * [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Configuración de Reliable Services](service-fabric-reliable-services-configuration.md)
 * [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

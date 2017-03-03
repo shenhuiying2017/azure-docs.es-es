@@ -17,6 +17,7 @@ ms.author: SubramaR
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 175edd2c45319f197d1df65ae22853ca0dc3d310
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -46,10 +47,5 @@ La vista previa admite la interacción con el clúster a través de la CLI de Az
 2. [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 3. [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 4. [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

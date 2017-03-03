@@ -1,5 +1,5 @@
 ---
-title: Formato de archivo de propiedades y metadatos del servicio Import-Export | Microsoft Docs
+title: Formato del archivo de propiedades y metadatos de Azure Import/Export | Microsoft Docs
 description: "Obtenga información sobre cómo especificar metadatos y propiedades para uno o más blobs que forman parte de un trabajo de importación o exportación"
 author: muralikk
 manager: syadav
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: 8c8800682a0ce2c52962a41c1c09fbc59595dee2
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 0cac5419d4b481a5b783b4b9fbd4ad2d4d637042
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="import-export-service-metadata-and-properties-file-format"></a>Formato de archivo de propiedades y metadatos del servicio Import-Export
+# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato del archivo de propiedades y metadatos de Azure Import/Export
 Puede especificar metadatos y propiedades para uno o más blobs como parte de un trabajo de importación o exportación. Para establecer los metadatos o las propiedades para blobs que se crean como parte de un trabajo de importación, proporcione un archivo de metadatos o propiedades en la unidad de disco duro que contiene los datos que se van a importar. Para un trabajo de exportación, los metadatos y las propiedades se escriben en un archivo de metadatos o propiedades que se incluye en la unidad de disco duro que se le devuelve.  
   
 ## <a name="metadata-file-format"></a>Formato del archivo de metadatos  
@@ -70,9 +71,4 @@ El formato de un archivo de propiedades es el siguiente:
 |`Cache-Control`|String|Opcional. Cadena de control de caché para el blob.|  
   
  Vea [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties) (Establecer propiedades del blob), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata) (Establecer metadatos del blob) y [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Configuración y recuperación de propiedades y metadatos para los recursos del blob) para reglas detalladas sobre cómo establecer propiedades y metadatos del blob.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

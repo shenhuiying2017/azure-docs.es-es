@@ -17,6 +17,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -31,10 +32,5 @@ Este menú redirige a temas en los que se describe cómo configurar los diversos
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 **Microsoft Data Science Virtual Machine (DSVM)** también está disponible como una imagen de máquina virtual (VM) de Azure. Esta máquina virtual se preinstala y configura con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. DSVM está disponible en Windows y Linux. Para más información, consulte [Introducción a la máquina virtual de la ciencia de datos basada en la nube para Linux y Windows](machine-learning-data-science-virtual-machine-overview.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

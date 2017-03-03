@@ -8,28 +8,26 @@ manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 09/19/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 130f2341eca570a982ab5c22ba429f6b48006f90
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="manage-azure-sql-databases-using-the-azure-portal"></a>Administración de instancias de Azure SQL Database mediante Azure Portal
-> [!div class="op_single_selector"]
-> * [Portal de Azure](sql-database-manage-portal.md)
-> * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 [Azure Portal](https://portal.azure.com/) le permite crear, supervisar y administrar servidores y bases de datos SQL de Azure. Este artículo proporciona una descripción rápida y vínculos a información detallada de las tareas más comunes.
+
+> [!TIP]
+> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started.md).
 
 ## <a name="view-your-azure-sql-databases-servers-and-pools"></a>Visualización de los servidores, grupos y bases de datos SQL de Azure
 Para ver los servicios de SQL Database disponibles, haga clic en **Más servicios** y escriba **SQL** en el cuadro de búsqueda:
@@ -37,17 +35,17 @@ Para ver los servicios de SQL Database disponibles, haga clic en **Más servicio
 ![SQL Database](./media/sql-database-manage-portal/sql-services.png)
 
 ## <a name="how-do-i-create-or-view-azure-sql-databases"></a>¿Cómo se crean o se ven las bases de datos SQL de Azure?
-Para abrir la hoja **Bases de datos SQL**, haga clic en **Bases de datos SQL** y, después, haga clic en la base de datos con la que desea trabajar, o haga clic en **+Agregar** para crear una base de datos SQL. Para más información, consulte cómo [crear una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started.md).
+Para abrir la hoja **Bases de datos SQL**, haga clic en **Bases de datos SQL** y, después, haga clic en la base de datos con la que desea trabajar, o haga clic en **+Agregar** para crear una base de datos SQL. Para más información, consulte [Su primera base de datos de Azure SQL Database mediante Azure Portal](sql-database-get-started.md).
 
 ![Bases de datos SQL](./media/sql-database-manage-portal/sql-databases.png)
 
 ## <a name="how-do-i-create-or-view-azure-sql-servers"></a>¿Cómo se crean o se ven los servidores SQL de Azure?
-Para abrir la hoja **Servidores SQL**, haga clic en **Servidores SQL** y, después, haga clic en el servidor con el que desea trabajar, o haga clic en **+Agregar** para crear un servidor SQL. Para más información, consulte cómo [crear una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started.md).
+Para abrir la hoja **Servidores SQL**, haga clic en **Servidores SQL** y, después, haga clic en el servidor con el que desea trabajar, o haga clic en **+Agregar** para crear un servidor SQL. Para más información, consulte [Su primera base de datos de Azure SQL Database mediante Azure Portal](sql-database-get-started.md).
 
 ![Servidores SQL Server](./media/sql-database-manage-portal/sql-servers.png)
 
 ## <a name="how-do-i-create-or-view-sql-elastic-pools"></a>¿Cómo se crean o se ven los grupos elásticos SQL?
-Para abrir la hoja **Grupos elásticos SQL**, haga clic en **Grupos elásticos SQL** y, después, haga clic en el grupo con el que desea trabajar, o haga clic en **+Agregar** para crear un grupo. Para más información, consulte [Creación de un grupo de bases de datos elásticas con Azure Portal](sql-database-elastic-pool-create-portal.md).
+Para abrir la hoja **Grupos elásticos SQL**, haga clic en **Grupos elásticos SQL** y, después, haga clic en el grupo con el que desea trabajar, o haga clic en **+Agregar** para crear un grupo. Para más información, consulte [Creación de un grupo de bases de datos elásticas con Azure Portal](sql-database-elastic-pool-manage-portal.md).
 
 ![Grupos elásticos SQL](./media/sql-database-manage-portal/elastic-pools.png)
 
@@ -67,12 +65,12 @@ Para ver, crear, o actualizar las reglas de firewall, haga clic en **Establecer 
 ![reglas de firewall](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 ## <a name="how-do-i-change-my-sql-database-service-tier-or-performance-level"></a>¿Cómo se cambia el nivel de rendimiento o de servicio de mi base de datos SQL?
-Para actualizar el nivel de rendimiento o de servicio de una base de datos SQL, haga clic en **Plan de tarifa (escalar DTU)** en la hoja **Base de datos SQL**. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (plan de tarifa) de una base de datos SQL](sql-database-scale-up.md).
+Para actualizar el nivel de rendimiento o de servicio de una base de datos SQL, haga clic en **Plan de tarifa (escalar DTU)** en la hoja **Base de datos SQL**. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (plan de tarifa) de una base de datos SQL](sql-database-service-tiers.md).
 
 ![planes de tarifa](./media/sql-database-manage-portal/pricing-tier.png)
 
 ## <a name="how-do-i-configure-auditing-and-threat-detection-for-a-sql-database"></a>¿Cómo se configura la auditoría y la detección de amenazas para una base de datos SQL?
-Para configurar la auditoría y la detección de amenazas para una base de datos SQL, haga clic en **Auditoría y detección de amenazas** en la hoja **Base de datos SQL**. Para más información, consulte [Introducción a la auditoría de bases de datos SQL](sql-database-auditing-get-started.md) e [Introducción a la detección de amenazas de bases de datos SQL](sql-database-threat-detection-get-started.md).
+Para configurar la auditoría y la detección de amenazas para una base de datos SQL, haga clic en **Auditoría y detección de amenazas** en la hoja **Base de datos SQL**. Para más información, consulte [Auditoría de bases de datos](sql-database-auditing.md) e [Introducción a la detección de amenazas de bases de datos SQL](sql-database-threat-detection.md).
 
 ## <a name="how-do-i-configure-dynamic-data-masking-for-a-sql-database"></a>¿Cómo se configura el enmascaramiento de datos dinámicos para una base de datos SQL?
 Para configurar el enmascaramiento de datos dinámicos para una base de datos SQL, haga clic en **Enmascaramiento de datos dinámicos** en la hoja **Base de datos SQL**. Para más información, consulte [Introducción al enmascaramiento de datos dinámicos de SQL Database](sql-database-dynamic-data-masking-get-started.md).
@@ -81,7 +79,7 @@ Para configurar el enmascaramiento de datos dinámicos para una base de datos SQ
 Para configurar el cifrado de datos transparente para una base de datos SQL, haga clic en **Cifrado de datos transparente** en la hoja **Base de datos SQL**. Para más información, consulte [Habilitar TDE en una base de datos mediante el portal](https://msdn.microsoft.com/library/dn948096#Anchor_1).
 
 ## <a name="how-do-i-view-or-change-the-max-size-of-a-sql-database"></a>¿Cómo se ve o se cambia el tamaño máximo de una base de datos SQL?
-Para ver o cambiar el tamaño de una base de datos SQL, haga clic en **Tamaño de base de datos** en la hoja **Base de datos SQL**. Para actualizar el tamaño máximo de una base de datos, cambie el nivel de rendimiento o de servicio. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (plan de tarifa) de una base de datos SQL](sql-database-scale-up.md).
+Para ver o cambiar el tamaño de una base de datos SQL, haga clic en **Tamaño de base de datos** en la hoja **Base de datos SQL**. Para actualizar el tamaño máximo de una base de datos, cambie el nivel de rendimiento o de servicio. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (plan de tarifa) de una base de datos SQL](sql-database-service-tiers.md).
 
 ## <a name="how-do-i-monitor-and-improve-the-performance-of-a-sql-database"></a>¿Cómo se supervisa y se mejora el rendimiento de una base de datos SQL?
 Para supervisar y mejorar las características de rendimiento de una base de datos SQL, haga clic en **Información general de rendimiento** en la hoja **Base de datos SQL**. Para más información, consulte [Información de rendimiento de SQL Database](sql-database-performance.md).
@@ -108,7 +106,7 @@ Para restaurar una base de datos SQL, haga clic en **Restaurar** en la hoja **Ba
 ![Configuración de la base de datos SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
 ## <a name="how-do-i-create-an-azure-sql-database-from-a-bacpac-file"></a>¿Cómo se crea una base de datos SQL de Azure a partir de un archivo BACPAC?
-Para crear una base de datos SQL a partir de un archivo BACPAC, haga clic en **Importar base de datos** en la hoja **Servidor SQL**. Para más información, consulte [Importación de un archivo BACPAC para crear una base de datos SQL de Azure](sql-database-import.md).
+Para crear una base de datos SQL a partir de un archivo BACPAC, haga clic en **Importar base de datos** en la hoja **Servidor SQL**. Para más información, consulte [Importación de un archivo BACPAC para crear una base de datos SQL de Azure](sql-database-import-portal.md).
 
 ![Servidor SQL](./media/sql-database-manage-portal/server-commands.png)
 
@@ -122,11 +120,6 @@ Para eliminar una base de datos SQL, haga clic en **Eliminar** en la hoja **Base
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Base de datos SQL](sql-database-technical-overview.md)
-* [Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
+* [Supervisión y administración de un grupo elástico con Azure Portal](sql-database-elastic-pool-manage-portal.md)
 
 

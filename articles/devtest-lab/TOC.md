@@ -4,10 +4,10 @@
 ## [Conceptos de DevTest Labs](devtest-lab-concepts.md)
 
 # Introducción
-## [Creación de un laboratorio](devtest-lab-create-lab.md)
-## [Creación de artefactos de máquina virtual](devtest-lab-add-vm-with-artifacts.md)
+## [Creación de laboratorio](devtest-lab-create-lab.md)
+## [Creación de una máquina virtual](devtest-lab-add-vm.md)
 ## [Creación de un laboratorio para entrenamiento](devtest-lab-training-lab.md)
-## [P+F](devtest-lab-faq.md)
+## [Preguntas más frecuentes](devtest-lab-faq.md)
 
 # Procedimientos
 ## Administración de laboratorios
@@ -20,6 +20,7 @@
 ## Administración de artefactos
 ### [Adición de un repositorio de artefactos](devtest-lab-add-artifact-repo.md)
 ### [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
+### [Administración de artefactos](devtest-lab-add-vm-with-artifacts.md)
 
 ## Administración de bases de datos y plantillas de máquinas virtuales
 ### [Creación de entornos de varias máquinas virtuales con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

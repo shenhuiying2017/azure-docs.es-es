@@ -1,5 +1,5 @@
 ---
-title: "Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services | Microsoft Docs"
+title: "Copia de seguridad de máquinas virtuales de Azure | Microsoft Docs"
 description: "Detecte y registre máquinas virtuales de Azure y haga copias de seguridad de las mismas en un almacén de Recovery Services."
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
+ms.date: 2/15/2017
 ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
-ms.openlocfilehash: 28a5014f7ee73b30f879d249811e7fc303b13ac6
+ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
+ms.openlocfilehash: 981c8652629e96f482d9a62b70b0f0992517019f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -44,32 +45,57 @@ A menos que la copia de seguridad inicial vaya a comenzar pronto, se recomienda 
 
 Para ejecutar el trabajo de copia de seguridad inicial:
 
-1. En el panel del almacén, en el icono **Copia de seguridad**, haga clic en **Azure Virtual Machines**. <br/>
-    ![Icono Configuración](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. En el panel del almacén, haga clic en el número situado bajo **Elementos de copia de seguridad** o haga clic en el icono **Elementos de copia de seguridad**. <br/>
+  ![Icono Configuración](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-    Se abrirá la hoja **Elementos de copia de seguridad** .
-2. En la hoja **Elementos de copia de seguridad**, haga clic con el botón derecho en el almacén del que desea realizar una copia de seguridad y haga clic en **Realizar copia de seguridad ahora**.
+  Se abrirá la hoja **Elementos de copia de seguridad** .
 
-    ![Icono Configuración](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+  ![Elementos de copias de seguridad](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-    Se desencadena el trabajo de copia de seguridad. <br/>
+2. En la hoja **Elementos de copia de seguridad**, seleccione el elemento.
 
-    ![Trabajo de copia de seguridad desencadenado](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
-3. Para ver si la copia de seguridad inicial se ha completado, en el panel del almacén, en el icono **Trabajos de copia de seguridad**, haga clic en **Azure Virtual Machines**.
+  ![Icono Configuración](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-    ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+  Se abrirá la lista **Elementos de copia de seguridad**. <br/>
 
-    Se abrirá la hoja Trabajos de copia de seguridad.
-4. En la hoja **Trabajos de copia de seguridad** , puede ver el estado de todos los trabajos.
+  ![Trabajo de copia de seguridad desencadenado](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-    ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+3. En la lista **Elementos de copia de seguridad**, haga clic en el botón de puntos suspensivos **...** para abrir el menú contextual.
 
-   > [!NOTE]
-   > Durante la operación de copia de seguridad, la extensión de copia de seguridad de cada máquina virtual vacía todas las escrituras y toma una instantánea coherente.
-   >
-   >
+  ![Menú contextual](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-    Cuando finalice el trabajo de copia de seguridad, el estado será *Completado*.
+  Aparece el menú contextual.
+
+  ![Menú contextual](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
+
+4. En el menú contextual, haga clic en **Realizar copia de seguridad ahora**.
+
+  ![Menú contextual](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
+
+  Se abrirá la hoja Realizar copia de seguridad ahora.
+
+  ![muestra la hoja Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+
+5. En la hoja Realizar copia de seguridad ahora, haga clic en el icono del calendario, use el control del calendario para seleccionar el último día en el que se mantendrá este punto de recuperación y haga clic en **Copia de seguridad**.
+
+  ![establece el último día en que se mantiene el punto de recuperación de Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+
+  Las notificaciones de implementación le permiten saber si se ha desencadenado el trabajo de copia de seguridad y que puede supervisar el progreso del trabajo en la página de trabajos de copia de seguridad. Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar un tiempo.
+
+6. Para ver o realizar el seguimiento del estado de la copia de seguridad inicial, en el panel del almacén, en el icono **Trabajos de copia de seguridad**, haga clic en **En curso**.
+
+  ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
+
+  Se abrirá la hoja Trabajos de copia de seguridad.
+
+  ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
+
+  En la hoja **Trabajos de copia de seguridad** , puede ver el estado de todos los trabajos. Compruebe si el trabajo de copia de seguridad para la máquina virtual aún está en curso o si se ha terminado. Cuando finalice un trabajo de copia de seguridad, el estado será *Completado*.
+
+  > [!NOTE]
+  > Como parte de la operación de copia de seguridad, el servicio Azure Backup emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.
+  >
+  >
 
 ## <a name="troubleshooting-errors"></a>Solución de errores
 Si se encuentra con problemas mientras realiza la copia de seguridad de la máquina virtual, vea el [artículo sobre cómo solucionar problemas de máquinas virtuales](backup-azure-vms-troubleshoot.md) para obtener ayuda.
@@ -79,9 +105,4 @@ Ahora que ha protegido su máquina virtual, vea los siguientes artículos para o
 
 * [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 * [Restauración de máquinas virtuales](backup-azure-arm-restore-vms.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

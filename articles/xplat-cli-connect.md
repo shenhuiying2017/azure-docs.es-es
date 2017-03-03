@@ -19,6 +19,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -165,9 +166,4 @@ Si las suscripciones asociadas a la cuenta solo se autentican con Active Directo
 * Para usar los comandos de la CLI de Azure, consulte [Comandos de la CLI de Azure en el modo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Si desea obtener más información acerca de la CLI de Azure, descargar el código fuente, informar sobre problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la CLI de Azure](https://github.com/azure/azure-xplat-cli).
 * Si tiene problemas al usar la CLI de Azure o Azure, visite los [Foros de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

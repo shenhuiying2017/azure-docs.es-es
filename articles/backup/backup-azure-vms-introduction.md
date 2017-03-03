@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
-ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
+ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
+ms.openlocfilehash: 4fae07988dea260776368162c03374d83bc55664
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,6 +33,11 @@ Después de tomar la instantánea, el servicio Copia de seguridad de Azure trans
 ![Arquitectura de copia de seguridad de máquinas virtuales de Azure](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
 Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
+
+> [!NOTE]
+> Azure Backup no incluye el disco temporal asociado a la máquina virtual cuando hace la copia de seguridad. Obtenga más información sobre [disco temporal](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+>
+>
 
 ### <a name="data-consistency"></a>Coherencia de datos
 La copia de seguridad y restauración de datos críticos para el negocio resulta complicada por el hecho de que es necesario realizar la copia de seguridad mientras se ejecutan las aplicaciones que producen los datos. Para solucionar este problema, el servicio Copia de seguridad de Azure proporciona copias de seguridad coherentes con la aplicación para las cargas de trabajo de Microsoft utilizando VSS para garantizar que los datos se escriben correctamente en el almacenamiento.
@@ -72,7 +78,7 @@ Cuando los datos de copia de seguridad se copian de una cuenta de almacenamiento
 El proceso de copia de seguridad intenta realizar el trabajo lo más rápido posible. Con ello, se consume tantos recursos como es posible. Pero todas las operaciones de E/S están limitadas por la *capacidad de proceso de destino de un blob*, que tiene un límite de 60 MB por segundo. En un intento por maximizar la velocidad, el proceso de copia de seguridad trata de hacer copia de seguridad de cada uno de los discos de la máquina virtual *en paralelo*. Por lo tanto, si una máquina virtual tiene cuatro discos, el servicio Copia de seguridad de Azure intentará hacer copia de seguridad de los cuatro discos en paralelo. Por ello, el factor más importante que determina el tráfico de copia de seguridad que sale de una cuenta de almacenamiento de cliente es el **número de discos** cuya copia de seguridad se realiza desde la cuenta de almacenamiento.
 
 ### <a name="backup-schedule"></a>Programación de copia de seguridad
-Un factor secundario que afecta al rendimiento es la **programación de copia de seguridad**. Si configura las directivas para que se realice la copia de seguridad de todas las máquinas virtuales al mismo tiempo, habrá programado un atasco de tráfico. El proceso de copia de seguridad intentará realizar la copia de todos los discos en paralelo. A la vista de esto, una forma de reducir el tráfico de copia de seguridad de una cuenta de almacenamiento es asegurarse de que se realizan copias de seguridad de diferentes máquinas virtuales en distintos momentos del día, sin superponerse.
+Un factor secundario que afecta al rendimiento es la **programación de copia de seguridad**. Si configura las directivas para que se realice la copia de seguridad de todas las máquinas virtuales al mismo tiempo, habrá programado un atasco de tráfico. El proceso de copia de seguridad intentará realizar la copia de todos los discos en paralelo. Una forma de reducir el tráfico de copia de seguridad de una cuenta de almacenamiento es asegurarse de que se realizan copias de seguridad de las diferentes máquinas virtuales en distintos momentos del día, sin superponerse.
 
 ## <a name="capacity-planning"></a>Planificación de capacidad
 Reunir todos estos factores significa que el uso de cuentas de almacenamiento debe planearse correctamente. Descargue la [hoja cálculo de Excel de planeación de la capacidad de copia de seguridad de máquinas virtuales](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver el impacto de las opciones de programación de las copias de seguridad y los discos.
@@ -91,6 +97,10 @@ Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar lo
 * Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-vms.md)
 * Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
 * Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad o de Servicios de recuperación podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
+* Tiempo de transferencia de datos, el tiempo necesario para que el servicio de copia de seguridad calcule los cambios incrementales de la copia de seguridad anterior y transfiera esos cambios al almacén de almacenamiento.
+
+### <a name="why-am-i-observing-longer15-hours-backup-time"></a>¿Por qué veo un tiempo de copia de seguridad más largo (>15 horas)?
+La copia de seguridad consta de dos fases: toma de la instantánea y transferencia de instantáneas al almacén. En la segunda fase, la de transferencia de datos al almacén, solo transferimos los cambios incrementales con respecto a la instantánea anterior para así optimizar el almacenamiento utilizado para la copia de seguridad. Para lograr esto, procesamos la suma de comprobación de los bloques y, si hay un bloque cambiado, lo identificamos para enviarlo al almacén. De nuevo, profundizamos más en el bloque para ver si podemos minimizar la cantidad de datos transferidos, fusionamos todos los bloques cambiados y los enviamos al almacén. En el caso de algunas aplicaciones heredadas, hemos observado que las escrituras de las aplicaciones no son óptimas para el almacenamiento porque esas escrituras son pequeñas y fragmentados. Por ello, es necesario dedicar más tiempo al procesamiento de los datos escritos por estas aplicaciones. Se recomienda que el bloque de escritura de las aplicaciones de Azure que se ejecutan dentro de una máquina virtual sea de 8 kB como mínimo. Si la aplicación utiliza un bloque de menos de 8 kB, el rendimiento de las copias de seguridad se verá afectado, ya que esto no es lo recomendado por Azure. Es recomendable echar un vistazo a las [aplicaciones de alto rendimiento con Azure Storage](../storage/storage-premium-storage-performance.md) y ver si puede optimizar la aplicación para escribir de manera óptima y así mejorar el rendimiento de copia de seguridad. Aunque el artículo se centra en el almacenamiento Premium, es aplicable incluso a los discos que se ejecuten en almacenamiento estándar.
 
 ## <a name="total-restore-time"></a>Tiempo total de restauración
 Una operación de restauración consta de dos tareas secundarias principales: copiar datos desde el almacén a la cuenta de almacenamiento del cliente seleccionada y crear la máquina virtual. La copia datos desde el almacén depende de dónde se almacenan internamente las copias de seguridad en Azure y donde se almacena la cuenta de almacenamiento del cliente. El tiempo necesario para copiar los datos depende de:
@@ -138,9 +148,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 * [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 * [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 * [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

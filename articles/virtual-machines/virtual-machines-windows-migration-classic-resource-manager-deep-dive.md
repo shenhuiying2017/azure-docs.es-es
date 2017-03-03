@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: d835d5825268a4ec0fa5b761f9b5714e3236b0ce
 ms.openlocfilehash: 2dd35a65d1b5b6db1401cdf5737b5355aa6d564b
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -69,10 +70,5 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 * [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 * [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Revisión de los errores más comunes en la migración](virtual-machines-migration-errors.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Establecimiento de las propiedades y los metadatos durante el proceso de importación de Azure Import/Export| Microsoft Docs"
+title: "Configuración de propiedades y metadatos mediante Azure Import/Export | Microsoft Docs"
 description: "Obtenga información sobre cómo especificar las propiedades y los metadatos que se van a establecer en los blobs de destino cuando se ejecuta la herramienta Azure Import/Export para preparar las unidades."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: 2f597da2c056a2b4ea2af751e955fafdd7016744
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 26fb4d030341001238e7206c3856597c95d84719
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -75,9 +76,4 @@ K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorit
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Formato de archivo de propiedades y metadatos del servicio Import-Export](storage-import-export-file-format-metadata-and-properties.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: ronitr
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: d225a6156ea3672ed214f8308d7e944e6ff08576
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría
-[Auditoría de tablas de SQL Database](sql-database-auditing-get-started.md) funciona automáticamente con clientes de SQL que admiten el redireccionamiento de TDS. Tenga en cuenta que el redireccionamiento no se aplica cuando se usa el método de auditoría de blobs.
+[Auditoría de base de datos](sql-database-auditing.md) funciona automáticamente con los clientes SQL que admiten el redireccionamiento de TDS. Tenga en cuenta que el redireccionamiento no se aplica cuando se usa el método de auditoría de blobs.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Compatibilidad con clientes de nivel inferior
 Cualquier cliente que implementa TDS 7.4 también debe admitir el redireccionamiento. Entre las excepciones a esto se incluyen JDBC 4.0, en el que la función de redireccionamiento no es totalmente compatible y Tedious para Node.JS, en cuya redireccionamiento no se ha implementado.
@@ -77,9 +78,4 @@ El nuevo punto de conexión de IP de la base de datos dependerá de la región d
 | Este de Canadá |40.86.227.82, 40.86.225.194 |
 | Norte del Reino Unido |13.87.101.18, 13.87.100.232 |
 | Sur del Reino Unido 2 |13.87.32.202, 13.87.32.226 |
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

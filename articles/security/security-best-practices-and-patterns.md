@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 02/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
-ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+ms.sourcegitcommit: e3d01fadc5597efa7beb5ee690470f428ee12b62
+ms.openlocfilehash: 216146ffaa0f2732b2f2369107e80de0bbc4e466
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,6 +32,7 @@ Actualmente se pueden consultar los siguientes artículos de patrones y procedim
 * [Procedimientos recomendados para actualizaciones de software en IaaS de Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 * [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure (Implementación de una arquitectura de red híbrida segura en Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Azure PaaS Best Practices] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
 Azure ofrece una plataforma segura en la que puede crear sus soluciones. También proporcionamos servicios y tecnologías para proteger sus soluciones de Azure. Debido a las numerosas opciones disponibles, muchos usuarios han expresado su interés en los procedimientos recomendados y patrones que Microsoft podría recomendar para mejorar la seguridad.
 
@@ -47,9 +49,4 @@ Para cada procedimiento recomendado, explicaremos:
 * Cómo aprender a habilitar el procedimiento recomendado
 
 Esperamos incluir muchos más artículos sobre arquitectura de seguridad de Azure y procedimientos recomendados. Si hay algún tema que le gustaría que incluyéramos, háganoslo saber en el área de discusión en la parte inferior de esta página.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 
