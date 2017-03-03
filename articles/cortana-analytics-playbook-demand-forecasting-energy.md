@@ -17,6 +17,7 @@ ms.author: ilanr9;yijichen;garye
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -400,10 +401,5 @@ El siguiente diagrama muestra una arquitectura típica basada en Cortana Intelli
 ![Arquitectura de implementación de un extremo a otro](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 Para más información tanto acerca de cada uno de los componentes como de la arquitectura completa, consulte la plantilla de soluciones energéticas.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
