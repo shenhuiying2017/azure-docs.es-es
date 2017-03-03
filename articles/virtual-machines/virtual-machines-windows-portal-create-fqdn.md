@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: e89e5769701f00c6f403bd54cb2b29bcce53bf15
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -32,10 +33,5 @@ Ahora puede conectarse de forma remota a la máquina virtual con este nombre DNS
 Ahora que la máquina virtual tiene un nombre DNS y una IP pública, puede implementar marcos o servicios de aplicaciones comunes, como IIS, SQL o SharePoint.
 
 En [Información general sobre Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) encontrará sugerencias sobre la creación de implementaciones de Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

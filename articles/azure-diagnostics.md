@@ -17,6 +17,7 @@ ms.author: robb
 translationtype: Human Translation
 ms.sourcegitcommit: 7814e02df5c6aa0ea9c38e3a048dd52e39436c3c
 ms.openlocfilehash: 349a7d82a96868f65598597c1db192484da9b34d
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -78,10 +79,5 @@ Empiece por el artículo sobre la [supervisión de una aplicación de Service Fa
 * Aprenda a [utilizar los contadores de rendimiento en Diagnósticos de Azure](cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
 * Aprenda a [redirigir la información de diagnóstico de Azure a Application Insights](azure-diagnostics-configure-applicationinsights.md).
 * Si tiene problemas al iniciar los diagnósticos o al buscar datos en las tablas de Azure Storage, consulte [Solución de problemas de Diagnósticos de Azure](azure-diagnostics-troubleshooting.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

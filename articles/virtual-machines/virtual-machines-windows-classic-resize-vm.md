@@ -18,6 +18,7 @@ ms.author: drewm
 translationtype: Human Translation
 ms.sourcegitcommit: 3352e5d17777a213a91911440274419f2058940b
 ms.openlocfilehash: 381cf34b9e65a46a8033880a95e94446bd01edf1
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -68,10 +69,5 @@ Para cambiar el tamaño de una máquina virtual a uno que no esté disponible en
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cambie el tamaño de una máquina virtual con el modelo de implementación de Resource Manager](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

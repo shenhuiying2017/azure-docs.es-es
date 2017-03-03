@@ -17,6 +17,7 @@ ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
 ms.sourcegitcommit: 6e6d0539c35d403c24ddd5e0b5d49f4d6116eead
 ms.openlocfilehash: 86f7e0565fe30af613f06764a494cbb996abcabe
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -354,9 +355,4 @@ Una vez que la conmutación por recuperación se haya completado, puede volver a
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Obtenga información](site-recovery-vmware-to-azure-classic.md) sobre la replicación de máquinas virtuales de VMware y servidores físicos a Azure mediante la implementación mejorada.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

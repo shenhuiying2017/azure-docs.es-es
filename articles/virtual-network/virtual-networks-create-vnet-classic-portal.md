@@ -18,6 +18,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: d365f7137527d60eb509b4f431295de2218ea706
 ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -84,9 +85,4 @@ Para crear una red virtual mediante un archivo netcfg en el Portal de Azure clá
 10. Para crear la red virtual, haga clic en el botón de marca de verificación en la esquina inferior derecha del cuadro de la imagen anterior. Tras unos segundos la red virtual se muestra en la lista de redes virtuales disponibles, como se muestra en la imagen siguiente:
 
     ![Nueva red virtual](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure6.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

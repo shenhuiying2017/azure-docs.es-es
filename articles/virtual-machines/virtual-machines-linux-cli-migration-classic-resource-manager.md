@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
 ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -159,10 +160,5 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 * [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

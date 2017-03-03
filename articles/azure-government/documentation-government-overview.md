@@ -17,6 +17,7 @@ ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 8e5dd57f4ff55e350aebce339f9f723cc6ca917b
 ms.openlocfilehash: 2a1e9c6e001280451ae01330ee659d1e27c2d89a
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -94,10 +95,5 @@ Los clientes pueden aislar aún más sus recursos mediante suscripciones, grupos
 Para más información acerca del aislamiento en Microsoft Azure, consulte la [sección Aislamiento de la Guía de seguridad de Azure](/azure-security-getting-started/#isolation).
 
 Para información complementaria y actualizaciones, suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

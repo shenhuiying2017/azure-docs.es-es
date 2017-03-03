@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
@@ -264,10 +265,5 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

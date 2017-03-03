@@ -17,6 +17,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
 ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -70,10 +71,5 @@ Es importante tener en cuenta que el uso de un grupo de afinidad puede tener dos
 No es necesario quitar las máquinas virtuales que están en un grupo de afinidad de dicho grupo.
 
 Una vez implementada una máquina virtual, se implementa en una sola unidad de escalado. Los grupos de afinidad pueden restringir el conjunto de tamaños de máquina virtual disponibles para una nueva implementación de máquina virtual, pero cualquier máquina virtual existente que esté implementa ya está restringida al conjunto de tamaños de máquina virtual disponible en la unidad de escalado en el que se implementa la máquina virtual. Por este motivo, quitar una máquina virtual del grupo de afinidad no tendrá ningún efecto.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

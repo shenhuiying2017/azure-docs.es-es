@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: e43027cdea291f34aa60ad123e0de86b385efb30
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure
@@ -172,10 +173,5 @@ Para obtener más información acerca del uso de OAuth 2.0 y Administración de 
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

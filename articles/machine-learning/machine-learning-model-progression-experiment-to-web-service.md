@@ -17,6 +17,7 @@ ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -118,10 +119,5 @@ Para ver ejemplos de todo el proceso, consulte:
 
 * [Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md)
 * [Tutorial: Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

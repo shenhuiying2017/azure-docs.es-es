@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
@@ -308,10 +309,5 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
