@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
 ms.openlocfilehash: 856d75c58cd911c641ec74b78f5c6133e605b2ec
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -219,9 +220,4 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 * [Conexión a un clúster basado en Linux mediante SSH desde un cliente de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 * [Conexión a un clúster basado en Linux mediante SSH desde un cliente de Linux, Unix o Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Administración de un clúster basado en Linux mediante Ambari](hdinsight-hadoop-manage-ambari.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
