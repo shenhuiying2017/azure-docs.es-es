@@ -17,6 +17,7 @@ ms.author: muralikk
 translationtype: Human Translation
 ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
 ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -407,9 +408,4 @@ La herramienta WAImportExport lee y escribe archivos lote por lote, un lote cont
 **.xml**: para cada unidad de disco duro que prepare con la herramienta Azure Import/Export, esta creará un único archivo de diario con el nombre "&lt;DriveID&gt;.xml", donde el identificador de la unidad es el número de serie asociado a la unidad que la herramienta lee desde el disco. Necesitará los archivos de diario de todas las unidades para crear el trabajo de importación en Azure Portal. También se puede utilizar el archivo de diario para reanudar la preparación de la unidad si la herramienta sufre una interrupción.
 
 **.jrn**: el archivo de diario con el sufijo .jrn contiene el estado de todas las sesiones de copia de una unidad de disco duro. También contiene la información necesaria para crear el trabajo de importación. Siempre debe especificar un archivo de diario al ejecutar la herramienta WAImportExport, así como un identificador de sesión de copia.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
