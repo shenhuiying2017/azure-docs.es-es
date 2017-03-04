@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -113,7 +114,7 @@ Puede usar un EventListener personalizado para escuchar el evento de servicio y,
             using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
         {  
                  // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+          Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                 if (eventData.Message != null)              
             Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
             else             
@@ -140,9 +141,4 @@ Los ejemplos de [C# Samples](https://github.com/Azure-Samples/service-fabric-dot
 ## <a name="next-steps"></a>Pasos siguientes
 El mismo código de seguimiento que agregó a la aplicación también funciona con los diagnósticos de la aplicación en un clúster de Azure. Consulte estos artículos que tratan sobre las distintas opciones de las herramientas y describen cómo configurarlas.
 * [Recopilación de registros con Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-lad.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

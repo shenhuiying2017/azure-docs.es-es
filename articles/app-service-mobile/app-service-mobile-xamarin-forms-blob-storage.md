@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c8568846837f404eee0293be284c70bd27f06380
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -688,9 +689,4 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
 [Firmas de acceso compartido, Parte&1;: Descripción del modelo SAS]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Creación de una cuenta de almacenamiento de Azure]:  ../storage/storage-create-storage-account.md#create-a-storage-account
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

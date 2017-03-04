@@ -18,6 +18,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 60c1d307ede5d66f8e92b048581148d6c7112dac
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -396,10 +397,5 @@ En la tabla siguiente se enumeran y describen las respuestas a las acciones y lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

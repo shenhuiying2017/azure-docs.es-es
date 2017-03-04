@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
+ms.lasthandoff: 01/21/2017
 
 
 
@@ -56,10 +57,5 @@ La indexación de DocumentDB está diseñada en función de la eficacia de almac
 * Descargar ["Indexación independiente del esquema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)que se presentará en la Edición nº 41 de la conferencia interna sobre bases de datos de gran tamaño, a celebrar entre el 31 de agosto y el 4 de septiembre de 2015.
 * [Consulta con SQL de Base de datos de documentos](documentdb-sql-query.md)
 * Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

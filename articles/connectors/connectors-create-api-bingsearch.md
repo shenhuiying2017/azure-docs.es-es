@@ -19,6 +19,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: dbb920f212d46365233e83ba1e0a0ae99917e405
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -277,10 +278,5 @@ Recupera todos los sitios web, vídeos, imágenes, etc., de una búsqueda de Bin
 [Crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Volver a la [lista de API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

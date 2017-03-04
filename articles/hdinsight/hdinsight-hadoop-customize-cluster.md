@@ -18,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: b5fafb9603957a93a0ca8fbc6dd53798070641a4
 ms.openlocfilehash: da013207a2c804898d1a93dfd7875ed2a2deed22
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -329,9 +330,4 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fases durante la creación del clúster"
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
