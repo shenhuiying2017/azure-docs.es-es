@@ -16,6 +16,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: 9af9f95e9638eda71fbc4508bea8e35ce5191734
 ms.openlocfilehash: 3caabe366db4def4f8332c64d08f86f271c31bb2
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -44,10 +45,5 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
   * Almacene datos compartidos en ubicaciones de almacenamiento externos al servicio, como recursos compartidos de archivos locales o OneDrive.
   * Configure la configuración de todo el sistema en la imagen de plantilla en lugar de en las máquinas virtuales individuales de un servicio.
   * Deshabilite las actualizaciones de software automáticas para las aplicaciones publicadas: en su lugar, aplíquelas manualmente a la imagen de plantilla y pruébelas antes de implementar desde la plantilla.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

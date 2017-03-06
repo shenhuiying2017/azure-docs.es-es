@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -68,10 +69,5 @@ Llevar a cabo la tarea de escalado de procesamiento de medios con alguna de esta
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

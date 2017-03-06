@@ -1,5 +1,5 @@
 ---
-title: Uso del control de acceso basado en rol en Azure Portal | Microsoft Docs
+title: "Control de acceso basado en roles en el Portal de Azure clásico | Microsoft Docs"
 description: "Introducción a la administración del acceso con el control de acceso basado en rol en el Portal de Azure. Use las asignaciones de roles para asignar permisos a los recursos."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
 > [!div class="op_single_selector"]
 > * [Administrar el acceso por usuario o grupo](role-based-access-control-manage-assignments.md)
 > * [Administrar el acceso por recurso](role-based-access-control-configure.md)
-> 
-> 
 
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Con RBAC, puede conceder únicamente el grado de acceso que los usuarios necesiten para realizar sus trabajos. Este artículo lo ayuda a ponerse en funcionamiento con RBAC en el Portal de Azure. Si desea más detalles sobre cómo RBAC ayuda a administrar el acceso, consulte [¿Qué es el control de acceso basado en rol?](role-based-access-control-what-is.md)
 
@@ -44,8 +43,6 @@ Tenga en cuenta que algunos usuarios tienen un acceso **Asignado** mientras que 
 
 > [!NOTE]
 > Los administradores y coadministradores de la suscripción clásica se consideran los propietarios de la suscripción en el nuevo modelo RBAC.
-> 
-> 
 
 ## <a name="add-access"></a>Agregación de acceso
 Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de roles.
@@ -61,12 +58,11 @@ Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción q
 Después de agregar correctamente una asignación de roles, aparecerá en la hoja **Usuarios** .
 
 ## <a name="remove-access"></a>Eliminación de acceso
-1. Seleccione la asignación de rol en la hoja Control de acceso.
-2. Seleccione **Quitar** en la hoja de detalles de asignación.  
-3. Seleccione **Sí** para confirmar la eliminación.  
-    ![Hoja Usuarios: quitar del rol (captura de pantalla)](./media/role-based-access-control-configure/remove-access1.png)
+1. Use las casillas de la hoja Control de acceso para seleccionar una o más asignaciones de roles.
+2. Seleccione **Quitar**.  
+3. Aparecerá una ventana emergente que le pedirá confirmar la acción. Seleccione **Sí** para quitar las asignaciones de roles.
 
-Las asignaciones heredadas no se pueden quitar. Observe en la imagen siguiente que el botón Quitar está atenuado. En su lugar, mire el detalle de **Asignado en** . Vaya a los recursos indicados ahí para quitar la asignación de roles.
+Las asignaciones heredadas no se pueden quitar. Si necesita quitar una asignación heredada, debe hacerlo en el ámbito donde se creó la asignación de roles. En la columna **Ámbito**, junto a **Heredado**, hay un vínculo que lo dirige a los recursos donde se asignó este rol. Vaya a los recursos indicados ahí para quitar la asignación de roles.
 
 ![Hoja de usuario: acceso heredado deshabilita el botón de eliminación (captura de pantalla)](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -81,10 +77,5 @@ Puede asignar roles y administrar el acceso con los comandos de RBAC de Azure en
 * [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md)
 * Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md)
 * Defina sus propios [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

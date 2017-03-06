@@ -17,6 +17,7 @@ ms.author: anandy
 translationtype: Human Translation
 ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
 ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -47,9 +48,4 @@ Este tema constituye la principal referencia de las funcionalidades relacionadas
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md)
 * [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

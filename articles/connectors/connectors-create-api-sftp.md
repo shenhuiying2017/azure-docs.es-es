@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 2977404fb408ea5301c88caa7ce6767a906ca9c7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -342,10 +343,5 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

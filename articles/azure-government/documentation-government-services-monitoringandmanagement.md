@@ -17,6 +17,7 @@ ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
 ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -120,9 +121,4 @@ Para más información, consulte [Documentación pública de Log Analytics](../l
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información complementaria y actualizaciones suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -15,20 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9d20050dada974c0c2a54399e2db7b9a289f7e89
-ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4531aeb00cff7eee12ab0ab9c7466446fc50d5b1
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Análisis de datos de retraso de vuelos con Hive en HDInsight
-Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en Linux y luego exportar los datos a la Base de datos SQL de Azure con Sqoop.
+# <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Análisis de datos de retraso de vuelos mediante Hive en HDInsight basado en Linux
+
+Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en Linux y luego exportar los datos a Azure SQL Database mediante Sqoop.
 
 > [!IMPORTANT]
 > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Requisitos previos
-Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Un clúster de HDInsight**. Vea [Introducción al uso de Hadoop con Hive en HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md) para conocer los pasos sobre la creación de un clúster de HDInsight basado en Linux.
 
@@ -78,9 +79,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
     unzip FILENAME.zip
     ```
    
-    Así extrae un archivo .csv que tiene un tamaño aproximado de 60 MB.
+    Este comando extrae un archivo .csv que tiene un tamaño aproximado de 60 MB.
 
-4. Use la instrucción siguiente para crear un nuevo directorio en WASB (el almacén de datos distribuidos que usa HDInsight) y copie el archivo:
+4. Use el siguiente comando para crear un directorio en el almacenamiento para HDInsight y luego copie el archivo en el directorio:
    
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
@@ -88,15 +89,16 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
     ```
 
 ## <a name="create-and-run-the-hiveql"></a>Creación y ejecución de HiveQL
+
 Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive denominada **Delays**.
 
-1. Use la instrucción siguiente para crear y editar un nuevo archivo denominado **flightdelays.hql**:
+1. Use el comando siguiente para crear y editar un nuevo archivo denominado **flightdelays.hql**:
    
     ```
     nano flightdelays.hql
     ```
    
-    Use el siguiente contenido para este archivo:
+    Use el texto siguiente como contenido de este archivo:
    
     ```hiveql
     DROP TABLE delays_raw;
@@ -160,7 +162,7 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
 
 2. Use **Ctrl+X** y luego **Y** para guardar el archivo.
 
-3. Use la instrucción siguiente para iniciar Hive y ejecutar el archivo **flightdelays.hql** :
+3. Use el comando siguiente para iniciar Hive y ejecutar el archivo **flightdelays.hql** :
    
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -175,7 +177,7 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
-5. Cuando reciba el símbolo del sistema `jdbc:hive2://localhost:10001/>` , use lo siguiente para recuperar datos de los datos de retrasos de vuelos importados.
+5. Cuando reciba el símbolo del sistema `jdbc:hive2://localhost:10001/>`, use la consulta siguiente para recuperar datos de los datos de retrasos de vuelos importados.
    
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -187,20 +189,20 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
     GROUP BY origin_city_name;
     ```
    
-    Se recupera una lista de ciudades que experimentaron demoras debidas a inclemencias del tiempo, junto con el tiempo medio de retraso; guárdela en `/tutorials/flightdelays/output`. Más adelante, Sqoop leerá los datos desde esta ubicación y los exportará a Azure SQL Database.
+    Esta consulta recupera una lista de ciudades que experimentaron demoras debidas a inclemencias del tiempo, junto con el tiempo medio de retraso, y la guarda en `/tutorials/flightdelays/output`. Más adelante, Sqoop leerá los datos desde esta ubicación y los exportará a Azure SQL Database.
 
 6. Para salir de Beeline, escriba `!quit` en el símbolo del sistema.
 
 ## <a name="create-a-sql-database"></a>una Base de datos SQL
 
-Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Puede encontrarlo en el [Portal Azure](https://portal.azure.com) seleccionando **Bases de datos SQL**y, después, filtrando el nombre de la base de datos que desee usar. El nombre del servidor aparece en la columna **SERVIDOR** .
+Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Puede encontrar el nombre del servidor en [Azure Portal](https://portal.azure.com) seleccionando **SQL Database** y, después, filtrando por el nombre de la base de datos que desee usar. El nombre del servidor aparece en la columna **SERVIDOR** .
 
 Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos](../sql-database/sql-database-get-started.md) . Tiene que guardar el nombre del servidor usado para la base de datos.
 
 ## <a name="create-a-sql-database-table"></a>Creación de una tabla de Base de datos SQL
 
 > [!NOTE]
-> Hay muchas maneras de conectarse a la base de datos SQL para crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
+> Hay muchas maneras de conectarse a SQL Database y crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
 
 
 1. Use SSH para conectarse al clúster de HDInsight basado en Linux y ejecute los siguientes pasos en la sesión SSH.
@@ -217,7 +219,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
    
-    Recibirá una salida similar a la siguiente:
+    Recibirá una salida similar al texto siguiente:
    
     ```
     locale is "en_US.UTF-8"
@@ -238,7 +240,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
     GO
     ```
    
-    Cuando se haya especificado la instrucción `GO`, se evaluarán las instrucciones anteriores. Se creará una nueva tabla denominada **delays** con un índice agrupado (que requiere SQL Database).
+    Cuando se haya especificado la instrucción `GO`, se evaluarán las instrucciones anteriores. Se creará una tabla denominada **delays** con un índice agrupado.
    
     Para comprobar que se ha creado la tabla, utilice lo siguiente:
    
@@ -264,7 +266,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
    
-    Se debe devolver una lista de bases de datos, incluida la que creó anteriormente en la tabla delays.
+    Este comando devuelve una lista de bases de datos, incluida la que creó anteriormente en la tabla delays.
 
 2. Use el comando siguiente para exportar los datos de hivesampletable a la tabla mobiledata:
    
@@ -272,7 +274,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
    
-    Esto indica a Sqoop que debe conectarse a SQL Database, a la base de datos que contiene la tabla delays, así como exportar los datos desde el directorio `/tutorials/flightdelays/output` (donde se almacenó la salida de la consulta de Hive anterior) a la tabla delays.
+    Sqoop se conecta a la base de datos que contiene la tabla delays y exporta datos del directorio `/tutorials/flightdelays/output` a dicha tabla.
 
 3. Una vez completado el comando, utilice lo siguiente para conectarse a la base de datos mediante TSQL:
    
@@ -291,9 +293,8 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
 
-Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo rellenar una tabla de Hive con los datos del almacenamiento de blobs de Azure, cómo ejecutar consultas de Hive y cómo usar Sqoop para exportar datos de HDFS a la Base de datos SQL de Azure. Para obtener más información, consulte los artículos siguientes:
+Para conocer más formas para trabajar con datos en Hive en HDInsight, consulte los siguientes documentos:
 
-* [Introducción a HDInsight][hdinsight-get-started]
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Uso de Oozie con HDInsight][hdinsight-use-oozie]
 * [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]
@@ -325,10 +326,5 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

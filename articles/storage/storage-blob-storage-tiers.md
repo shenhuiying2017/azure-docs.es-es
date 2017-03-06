@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Almacenamiento de blobs de Azure: capas de almacenamiento de acceso frecuente y esporádico
 ## <a name="overview"></a>Información general
-Azure Storage ahora ofrece dos capas de almacenamiento para almacenamiento de objetos de blobs, por lo que puede almacenar los datos de forma más rentable en función de cómo los use. La **capa de almacenamiento de acceso frecuente** de Azure está optimizada para almacenar datos que se consultan con frecuencia. La **capa de almacenamiento de acceso esporádico** de Azure está optimizada para almacenar datos a los que se accede con poca frecuencia y tienen larga duración. Los datos de la capa de almacenamiento de acceso esporádico toleran una disponibilidad ligeramente inferior, pero aun así requieren una gran durabilidad y un tiempo de acceso y unas características de rendimiento similares a las de los datos de acceso frecuente. En el caso de los datos de acceso esporádico, un Acuerdo de Nivel de Servicio con una disponibilidad ligeramente inferior y unos costos de acceso mayores es aceptable a cambio de unos costos de almacenamiento mucho menores.
+Azure Storage ofrece dos capas de almacenamiento para almacenamiento de objetos de blobs, por lo que puede almacenar los datos de forma más rentable en función de cómo los use. La **capa de almacenamiento de acceso frecuente** de Azure está optimizada para almacenar datos que se consultan con frecuencia. La **capa de almacenamiento de acceso esporádico** de Azure está optimizada para almacenar datos a los que se accede con poca frecuencia y tienen larga duración. Los datos de la capa de almacenamiento de acceso esporádico toleran una disponibilidad ligeramente inferior, pero aun así requieren una gran durabilidad y un tiempo de acceso y unas características de rendimiento similares a las de los datos de acceso frecuente. En el caso de los datos de acceso esporádico, un Acuerdo de Nivel de Servicio con una disponibilidad ligeramente inferior y unos costos de acceso mayores es aceptable a cambio de unos costos de almacenamiento mucho menores.
 
 Hoy en día, los datos almacenados en la nube está creciendo a un ritmo exponencial. Para administrar los costos de las crecientes necesidades de almacenamiento, resulta útil organizar los datos en función de atributos como la frecuencia de acceso y el período de retención planeado. Los datos almacenados en la nube pueden ser diferentes en cuanto a la forma en que se generan, se procesan y se accede a ellos a lo largo de su duración. A algunos datos se accede y se modifican activamente a lo largo de su duración. A algunos datos se accede con frecuencia al principio de su duración, mientras que el acceso cae drásticamente a medida que envejecen los datos. Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca.
 
@@ -80,18 +81,18 @@ La tabla siguiente compara las dos capas de almacenamiento:
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>capa de almacenamiento de acceso frecuente</center></strong></td>
-    <td><strong><center>capa de almacenamiento de acceso esporádico</center></strong></td
+    <td><strong><center>Capa de almacenamiento de acceso frecuente</center></strong></td>
+    <td><strong><center>Capa de almacenamiento de acceso esporádico</center></strong></td
 </tr>
 <tr>
     <td><strong><center>Disponibilidad</center></strong></td>
-    <td><center>99,9 %</center></td>
+    <td><center>99.9%</center></td>
     <td><center>99%</center></td>
 </tr>
 <tr>
     <td><strong><center>Disponibilidad<br>(lecturas de RA-GRS)</center></strong></td>
-    <td><center>99,99%</center></td>
-    <td><center>99,9 %</center></td>
+    <td><center>99.99%</center></td>
+    <td><center>99.9%</center></td>
 </tr>
 <tr>
     <td><strong><center>Cargos de uso</center></strong></td>
@@ -107,7 +108,7 @@ La tabla siguiente compara las dos capas de almacenamiento:
     <td colspan="2"><center>N/D</center></td>
 </tr>
 <tr>
-    <td><strong><center>Latency<br>(tiempo hasta el primer byte)<center></strong></td>
+    <td><strong><center>Latencia<br>(tiempo hasta el primer byte)<center></strong></td>
     <td colspan="2"><center>milisegundos</center></td>
 </tr>
 <tr>
@@ -341,10 +342,5 @@ Para más información, consulte [Introducción al Almacenamiento de blobs de Az
 [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
 [Examen y exploración de cuentas de almacenamiento](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
 ms.openlocfilehash: 8fb880a03548540059ad896925adb57577d1aed2
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -95,10 +96,5 @@ Puede obtener más información acerca de cómo implementar el registro de dispo
 * [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

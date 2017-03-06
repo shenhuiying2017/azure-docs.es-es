@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 03/02/2017
 ms.author: seanmck
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0f0db912ac3cee02f4268996bf2409440afade86
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -89,10 +90,5 @@ Asegúrese de que no tenga ningún proyecto de servicio establecido como proyect
 ## <a name="next-steps"></a>Pasos siguientes
 * [Comprensión y solución de problemas de clústeres con informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Este artículo está pensado para ayudarle a entender cómo utiliz
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,6 +25,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 La solución Administración de actualizaciones de OMS permite administrar las actualizaciones de los equipos Windows y Linux.  Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente e iniciar el proceso de instalación de las actualizaciones necesarias para los servidores. 
 
 ## <a name="prerequisites"></a>Requisitos previos
+* La solución solo admite realizar evaluaciones de actualizaciones en Windows Server 2008 y versiones superiores, y las implementaciones de actualización en Windows Server 2012 y versiones superiores.  No se admiten las opciones de instalación de Server Core y Nano Server.
+* No se admiten los sistemas operativos cliente Windows.  
 * Los agentes de Windows deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o tener acceso a Microsoft Update.  
   
   > [!NOTE]
@@ -36,7 +39,7 @@ La solución Administración de actualizaciones de OMS permite administrar las a
 Realice los pasos siguientes para agregar la solución Administración de actualizaciones al área de trabajo de OMS y agregar agentes de Linux. Los agentes de Windows se agregan automáticamente sin ninguna configuración adicional.
 
 > [!NOTE]
-> Actualmente, si habilita esta solución, los equipos con Windows conectados a su área de trabajo OMS se configurarán automáticamente como Hybrid Runbook Worker para admitir los runbooks que forman parte de esta solución.  Sin embargo, no se registran con ningún grupo de Hybrid Worker que haya creado en la cuenta de Automation, y no puede agregarlos a un grupo de Hybrid Worker para ejecutar sus propios runbooks.  Si un equipo con Windows ya está designado como Hybrid Runbook Worker y está conectado al área de trabajo OMS, debe quitarlo del área de trabajo OMS antes de agregar la solución con el fin de impedir que los runbooks dejen de funcionar según lo previsto.  
+> Si habilita esta solución, los equipos Windows conectados al área de trabajo OMS se configurarán automáticamente como Hybrid Runbook Worker para admitir los runbooks que se incluyen en esta solución.  Sin embargo, no está registrado con ningún grupo de Hybrid Worker que ya puede tener definidos en la cuenta de Automation.  Se puede agregar a un grupo de Hybrid Runbook Worker en la cuenta de Automation para admitir los runbooks de Automation siempre que use la misma cuenta para la solución y la pertenencia a grupos.  Esta funcionalidad se agregó a la versión 7.2.12024.0 de Hybrid Runbook Worker.   
 
 1. Agregue la solución Administración de actualizaciones al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones de OMS](../log-analytics/log-analytics-add-solutions.md) desde la galería de soluciones.  
 2. En el portal de OMS, seleccione **Configuración** y, a continuación, **Orígenes conectados**.  Anote el **Identificador del área de trabajo** y la **Clave principal** o la **Clave secundaria**.
@@ -104,7 +107,9 @@ Haga clic en el icono de **Administración de actualizaciones** para abrir el pa
 ## <a name="installing-updates"></a>Instalación de actualizaciones
 Una vez que se han evaluado las actualizaciones para todos los equipos Windows de su entorno, puede instalar las actualizaciones necesarias mediante la creación de una *implementación de actualizaciones*.  Una implementación de actualizaciones es una instalación programada de las actualizaciones necesarias en uno o más equipos Windows.  Especifique la fecha y hora para la implementación, además de un equipo o grupo de equipos que se deben incluir.  
 
-Los Runbooks instalan las actualizaciones en Azure Automation.  Actualmente, no puede ver estos Runbooks, que no requieren ninguna configuración.  Cuando se crea una implementación de actualizaciones, crea una programación que inicia un Runbook de actualización maestra a la hora especificada para los equipos incluidos.  Este Runbook maestro inicia un Runbook secundario en cada agente de Windows que realiza la instalación de las actualizaciones necesarias.  
+Los Runbooks instalan las actualizaciones en Azure Automation.  No puede ver estos runbooks, que no requieren ninguna configuración.  Cuando se crea una implementación de actualizaciones, crea una programación que inicia un Runbook de actualización maestra a la hora especificada para los equipos incluidos.  Este Runbook maestro inicia un Runbook secundario en cada agente de Windows que realiza la instalación de las actualizaciones necesarias.  
+
+En el caso de las máquinas virtuales creadas a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) en Azure Marketplace se registran para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implementada en Azure.  Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de distribuciones según los métodos admitidos de cada una de ellas.  
 
 ### <a name="viewing-update-deployments"></a>Visualización de implementaciones de actualizaciones
 Haga clic en el icono **Implementación de actualizaciones** para ver la lista de implementaciones de actualizaciones existentes.  Se agrupan por estado: **Programado**, **En ejecución** y **Completado**.<br><br> ![Página de programación de las implementaciones de actualizaciones](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -243,10 +248,5 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 * Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre la actualización.
 * [Crear sus propios paneles](../log-analytics/log-analytics-dashboards.md) que muestren el cumplimiento de las actualizaciones de los equipos administrados.
 * [Crear alertas](../log-analytics/log-analytics-alerts.md) cuando se detectan actualizaciones críticas pendientes en equipos, o bien cuando un equipo tiene las actualizaciones automáticas deshabilitadas.  
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

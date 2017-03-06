@@ -17,6 +17,7 @@ ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
 ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -250,10 +251,5 @@ Quizás, uno de los principales impedimentos para adoptar la tecnología de nube
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Ahora que ha obtenido información sobre el gobierno de suscripciones, es hora de ver estas recomendaciones en la práctica. Vea [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md) (Ejemplos de implementación de un sistema de gobierno de suscripciones).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

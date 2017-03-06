@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
+ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
+ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -24,13 +25,13 @@ ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
 ## <a name="overview"></a>Información general
 Es fácil empezar a realizar tareas de desarrollo con Almacenamiento de Azure. Este tutorial muestra cómo ejecutar rápidamente una aplicación de Almacenamiento de Azure. Usará las plantillas de inicio rápido incluidas con el SDK de Azure para. NET. Estos tutoriales contienen código listo para ejecutarse que muestra algunos escenarios básicos de programación con Almacenamiento de Azure.
 
-Para obtener más información sobre Almacenamiento de Azure antes de entrar en el código, consulte [Pasos siguientes](#next-steps).
+Para más información sobre Azure Storage antes de profundizar en el código, vea los [Pasos siguientes](#next-steps).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Tendrá que cumplir los siguientes requisitos previos antes de empezar:
 
-1. Para compilar y crear la aplicación, es necesario tener [Visual Studio](https://www.visualstudio.com/) instalado en el equipo.
-2. Instale la versión más reciente de [SDK de Azure para .NET](https://azure.microsoft.com/downloads/). SDK incluye los proyectos de ejemplo de la guía rápida de Azure, Emulador de almacenamiento de Azure y el [Biblioteca de cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+1. Para compilar y crear la aplicación, es necesitará tener instalado en el equipo [Visual Studio 2015](https://www.visualstudio.com/) o una versión superior.
+2. Instale la versión más reciente del [SDK de Azure para .NET](https://azure.microsoft.com/downloads/). SDK incluye los proyectos de ejemplo de la guía rápida de Azure, Emulador de almacenamiento de Azure y el [Biblioteca de cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 3. Asegúrese de que tiene [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) instalado en su equipo ya que es necesario para los proyectos de ejemplo de la guía rápida de Azure que usaremos en este tutorial.
 
     Si no está seguro de qué versión de .NET Framework está instalada en su equipo, consulte [Cómo saber qué versiones de .NET Framework tengo instaladas](https://msdn.microsoft.com/vstudio/hh925568.aspx). O pulse el botón **Inicio** o la tecla de Windows y escriba **Panel de Control**. A continuación, haga clic en **Programas** > **Programas y características**, y compruebe si .NET Framework 4.5 aparece en la lista de los programas instalados.
@@ -45,9 +46,12 @@ Una vez que tenga la cuenta, cree una sencilla aplicación de Almacenamiento de 
 1. Inicie Visual Studio.
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Instalado** > **Plantillas** > **Visual C#** > **Nube** > **Tutoriales rápidos** > **Servicios de datos**.
-    a. Seleccione una de las siguientes plantillas: **Azure Storage: blobs**, **Azure Storage: archivos**, **Azure Storage: colas** o **Azure Storage: tablas**.
-    b. Asegúrese de que **.NET Framework 4.5** es el marco de destino seleccionado.
-    c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio, como se muestra aquí:
+   
+   a. Seleccione una de las siguientes plantillas: **Azure Storage: blobs**, **Azure Storage: archivos**, **Azure Storage: colas** o **Azure Storage: tablas**.
+   
+   b. Asegúrese de que **.NET Framework 4.5** es el marco de destino seleccionado.
+   
+   c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio, como se muestra aquí:
 
     ![Tutoriales de Azure][Image1]
 
@@ -55,11 +59,11 @@ Es aconsejable revisar el código fuente antes de ejecutar la aplicación. Para 
 
 A continuación, ejecute la aplicación de ejemplo:
 
-1. En Visual Studio, seleccione **Explorador de soluciones** en el menú **Vista**. Abra el archivo App.config y marque como comentario la cadena de conexión del Emulador de almacenamiento de Azure:
+1. En Visual Studio, seleccione **Explorador de soluciones** en el menú **Vista**. Abra el archivo **App.config** y marque como comentario la cadena de conexión del Emulador de almacenamiento de Azure:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2. Quite el comentario de la cadena de conexión del Servicio de almacenamiento de Azure y proporcione la clave de acceso y el nombre de la cuenta de almacenamiento en el archivo App.config:
+2. Quite el comentario de la cadena de conexión del servicio Azure Storage en el archivo App.config y reemplace `[AccountName]` y `[AccountKey]` por sus credenciales de cuenta:
 
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
@@ -76,8 +80,11 @@ Para probarlo, crearemos una sencilla aplicación de Almacenamiento de Azure con
 1. Inicie Visual Studio.
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Instalado** > **Plantillas** > **Visual C#** > **Nube** > **Tutoriales rápidos** > **Servicios de datos**.
+    
     a. Seleccione una de las siguientes plantillas: **Azure Storage: blobs**, **Azure Storage: archivos**, **Azure Storage: colas** o **Azure Storage: tablas**.
+    
     b. Asegúrese de que **.NET Framework 4.5** es el marco de destino seleccionado.
+    
     c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio, como se muestra aquí:
 
     ![Tutoriales de Azure][Image1]
@@ -109,9 +116,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 * [API de REST de servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

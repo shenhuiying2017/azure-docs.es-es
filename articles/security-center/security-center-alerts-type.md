@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -182,7 +183,7 @@ A continuación se muestra un ejemplo de este tipo de alerta:
 ![Denegación de servicio saliente](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>Análisis de recursos
-El análisis de los recursos de Security Center se centra en los servicios de PaaS, como la integración con la característica [detección de amenazas de Azure SQL Database](../sql-database/sql-database-threat-detection-get-started.md) . En función de los resultados del análisis de estas áreas, Security Center desencadena una alerta relacionada con los recursos.
+El análisis de los recursos de Security Center se centra en los servicios de PaaS, como la integración con la característica [detección de amenazas de Azure SQL Database](../sql-database/sql-database-threat-detection.md). En función de los resultados del análisis de estas áreas, Security Center desencadena una alerta relacionada con los recursos.
 
 ### <a name="potential-sql-injection"></a>Posible inyección de código SQL
 La inyección de código SQL es un ataque en el que se inserta código malintencionado en cadenas que posteriormente se pasan a una instancia de SQL Server para su análisis y ejecución. Deben revisarse todos los procedimientos que crean instrucciones SQL en busca de vulnerabilidades por inyección de código, ya que SQL Server ejecuta todas las consultas sintácticamente válidas que recibe. La detección de amenazas de SQL utiliza el aprendizaje automático, el análisis del comportamiento y la detección de anomalías para determinar eventos sospechosos que podrían estar teniendo lugar en sus instancias de Azure SQL Database. Por ejemplo:
@@ -213,9 +214,4 @@ En este documento, ha aprendido acerca de los distintos tipos de alertas de segu
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
