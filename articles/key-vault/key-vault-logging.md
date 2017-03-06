@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,8 +40,6 @@ Use este tutorial para tener ayuda para empezar a trabajar con el registro del A
 > Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell.
 > 
 > 
-
-Los registros recopilados se pueden visualizar mediante el uso de Log Analytics de Operations Management Suite. Para más información, consulte [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md)(Solución de Almacén de claves de Azure (versión preliminar) en Log Analytics).
 
 Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
 
@@ -254,6 +253,10 @@ En la tabla siguiente se muestra el operationName y el comando de API de REST co
 | SecretList |[Enumerar secretos en un almacén](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Enumerar versiones de un secreto](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Uso de Log Analytics
+
+Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros AuditEvents de Azure Key Vault. Para más información, incluido cómo configurar esta opción, consulte [Solución Azure Key Vault en Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). En este artículo también se incluyen instrucciones si necesita migrar desde la solución Key Vault anterior que se ofrecía durante la versión preliminar de Log Analytics, cuando enrutó por primera vez los registros a una cuenta de Azure Storage y configuró Log Analytics para que leyera desde ahí.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Pasos siguientes
 Para ver un tutorial que use Azure Key Vault en una aplicación web, consulte [Uso de Azure Key Vault desde una aplicación web](key-vault-use-from-web-application.md).
 
@@ -262,10 +265,5 @@ Para conocer las referencias de programación, consulte la [Guía del desarrolla
 Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Azure Key Vault, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx)(Cmdlets de Azure Key Vault).
 
 Para ver un tutorial sobre la rotación de claves y la auditoría de registros con Azure Key Vault, consulte [Configuración de Key Vault con rotación de claves y auditoría integrales](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

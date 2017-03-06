@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
+ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
+ms.openlocfilehash: 8248e0a02cb0775a87f0c8130e53b98f8bcfe581
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 ## <a name="introduction"></a>Introducción
 Las [soluciones preconfiguradas][lnk-preconfigured-solutions] del Conjunto de aplicaciones de IoT de Azure combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios empresariales de IoT comunes. La solución preconfigurada de *supervisión remota* permite conectar y supervisar los dispositivos. Puede utilizar la solución para analizar la transmisión de datos de los dispositivos y mejorar los resultados de negocio realizando procesos para responder automáticamente a esa transmisión de datos.
 
-Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota. También le guía por las características básicas de la solución de supervisión remota. Puede acceder a muchas de estas características a través del panel de soluciones que se implementa junto con la solución preconfigurada:
+Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota. También le guía por las características básicas de la solución preconfigurada. Puede acceder a muchas de estas características desde el panel de soluciones que se implementa como parte de la solución preconfigurada:
 
 ![Panel de la solución preconfigurada de supervisión remota][img-dashboard]
 
@@ -53,28 +54,68 @@ El panel muestra la siguiente información:
 * El mapa muestra la ubicación de cada dispositivo conectado a la solución. La primera vez que se ejecuta la solución hay cuatro dispositivos simulados. Los dispositivos simulados se implementan como WebJobs de Azure y la solución utiliza la API de Mapas de Bing para trazar la información en el mapa.
 * El panel **Historial de telemetría** traza los datos de telemetría de temperatura y humedad de un dispositivo seleccionado prácticamente en tiempo real y muestra los datos agregados, como la humedad máxima, mínima y media.
 * El panel **Historial de alarmas** muestra los últimos eventos de alarma cuando un valor de telemetría ha superado un umbral. Puede definir sus propias alarmas, además de los ejemplos que crea la solución preconfigurada.
+* El panel **Trabajos** muestra información acerca de los trabajos programados. En la página **Trabajos de administración** puede programar sus propios trabajos.
 
 ## <a name="view-the-device-list"></a>Visualización de la lista de dispositivos
-La lista de dispositivos muestra todos los dispositivos registrados en la solución. Puede ver y editar los metadatos de los dispositivos, agregar o quitar dispositivos y enviar comandos a los dispositivos.
+La *lista de dispositivos* muestra todos los dispositivos registrados de la solución. En la lista de dispositivos puede ver y editar los metadatos del dispositivo, agregar o quitar dispositivos e invocar métodos en los dispositivos.
 
-1. Haga clic en **Dispositivos** en el menú izquierdo para mostrar la *lista de dispositivos* para esta solución.
+1. Haga clic en **Dispositivos** en el menú izquierdo para mostrar la lista de dispositivos de la solución.
    
    ![Lista de dispositivos en el panel][img-devicelist]
-2. La lista de dispositivos muestra que hay cuatro dispositivos simulados creados por el proceso de aprovisionamiento.
-3. Haga clic en un dispositivo en la lista de dispositivos para ver sus detalles.
+2. La lista de dispositivos muestra inicialmente cuatro dispositivos simulados creados por el proceso de aprovisionamiento, pero se pueden agregar más dispositivos simulados y físicos a la solución.
+3. Para personalizar la información que se muestra en la lista de dispositivos, haga clic en **Editor de columnas**. Puede agregar y quitar las columnas que muestran los valores de propiedad y etiqueta notificados. Las columnas también se pueden reordenar y cambiar de nombre:
+   
+   ![Editor de columnas del panel][img-columneditor]
+4. Para ver los detalles de un dispositivo, haga clic en él en la lista de dispositivos.
    
    ![Detalles de los dispositivos en el panel][img-devicedetails]
 
-El panel **Detalles del dispositivo** contiene tres secciones:
+El panel **Detalles del dispositivo** contiene seis secciones:
 
-* En la sección **Acciones** se enumeran las acciones que se pueden realizar en el dispositivo. Si se deshabilita el dispositivo, no se podrán enviar datos de telemetría ni recibir comandos. Aunque se deshabilite un dispositivo, se puede volver a habilitar posteriormente. Se puede agregar una regla asociada con el dispositivo que desencadena una alarma cuando un valor de telemetría supera un umbral. También se puede enviar un comando a un dispositivo. La primera vez que un dispositivo se conecta indica a la solución los comandos a los que puede responder.
-* En la sección **Propiedades de dispositivo** se enumeran los metadatos del dispositivo. Algunos de estos metadatos proceden del propio dispositivo (como por ejemplo, el fabricante), mientras que otros los genera la solución (como la hora de creación). Los metadatos del dispositivo se pueden editar desde aquí.
-* En la sección **Clave de autenticación** se enumeran las claves que puede usar el dispositivo para autenticarse en la solución.
+* Una colección de vínculos que permiten personalizar el icono del dispositivo, deshabilitar el dispositivo, agregar una regla, invocar un método o enviar un comando. Para ver una comparación de comandos (mensajes de dispositivo a la nube) y métodos (métodos directos), consulte [Guía de comunicación de nube a dispositivo][lnk-c2d-guidance].
+* La sección **Device Twin - Tags** (Dispositivo gemelo - Etiquetas) permite editar los valores de las etiquetas del dispositivo. Los valores de etiquetas se pueden mostrar en la lista de dispositivos y se pueden usar para filtrar la lista de dispositivos.
+* La sección **Device Twin - Desired Properties** (Dispositivo gemelo - Propiedades deseadas) permite establecer los valores de las propiedades que se van a enviar al dispositivo.
+* La sección **Device Twin - Reported Properties** (Dispositivo gemelo - Propiedades notificadas) muestra los valores de las propiedades enviados desde el dispositivo.
+* La sección **Device Properties** (Propiedades del dispositivo) muestra la información del registro de identidades, como el id. de dispositivo y las claves de autenticación.
+* La sección **Recent Jobs** (Trabajos recientes) muestra información acerca de todos los trabajos cuyo destino reciente ha sido este dispositivo.
+
+## <a name="customize-the-device-icon"></a>Personalización del icono del dispositivo
+
+El icono del dispositivo que se muestra en la lista de dispositivos del panel **Detalles del dispositivo** se puede personalizar como se indica a continuación:
+
+1. Haga clic en el icono del lápiz para abrir el panel **Modificar imagen** de un dispositivo:
+   
+   ![Abrir el editor de imágenes del dispositivo][img-startimageedit]
+2. Cargue una nueva imagen o utilice una de las imágenes existentes y, después, haga clic en **Guardar**:
+   
+   ![Modificar editor de imágenes del dispositivo][img-imageedit]
+3. La imagen que seleccionó se muestra ahora en la columna **Icono** del dispositivo.
+
+> [!NOTE]
+> La imagen se almacena en Blob Storage. Una etiqueta del dispositivo gemelo contiene un vínculo a la imagen en Blob Storage.
+> 
+> 
+
+## <a name="invoke-a-method-on-a-device"></a>Invocación a un método en un dispositivo
+En el panel **Detalles del dispositivo** se pueden invocar métodos en el dispositivo. La primera vez que se inicia un dispositivo, este envía a la solución información acerca de los métodos que admite.
+
+1. Haga clic en **Métodos** en el panel **Detalles del dispositivo** del dispositivo seleccionado:
+   
+   ![Métodos de dispositivo en el panel][img-devicemethods]
+2. Seleccione **Reiniciar** en la lista de métodos.
+3. Haga clic en **Invocar método**.
+4. El estado de la invocación del método se puede ver en el historial del método.
+   
+   ![Estado del método en el panel][img-pingmethod]
+
+La solución hace un seguimiento del estado de cada método al que invoca. Cuando el dispositivo completa el método, se ve una nueva entrada en la tabla del historial del método.
+
+Algunos métodos inician trabajos asincrónicos en el dispositivo. Por ejemplo, el método **InitiateFirmwareUpdate** inicia una tarea asincrónica para realizar la actualización. El dispositivo utiliza propiedades notificadas para informar acerca del estado de la actualización de firmware a medida que progresa.
 
 ## <a name="send-a-command-to-a-device"></a>Envío de un comando a un dispositivo
-El panel de detalles del dispositivo muestra todos los comandos que admite un dispositivo concreto y le permite enviar comandos a un dispositivo. La primera vez que se inicia un dispositivo, este envía a la solución información acerca de los comandos que admite.
+En el panel **Detalles del dispositivo**, se pueden enviar comandos al dispositivo. La primera vez que se inicia un dispositivo, este envía a la solución información acerca de los comandos que admite.
 
-1. Haga clic en **Comandos** en el panel de detalles del dispositivo para el dispositivo seleccionado.
+1. Haga clic en **Comandos** en el panel **Detalles del dispositivo** del dispositivo seleccionado:
    
    ![Comandos de los dispositivos en el panel][img-devicecommands]
 2. Seleccione **PingDevice** en la lista de comandos.
@@ -86,12 +127,12 @@ El panel de detalles del dispositivo muestra todos los comandos que admite un di
 La solución hace un seguimiento del estado de cada comando que envía. Inicialmente, el resultado es **Pendiente**. Cuando el dispositivo informa de que ha ejecutado el comando, el resultado se establece en **Correcto**.
 
 ## <a name="add-a-new-simulated-device"></a>Adición de un nuevo dispositivo simulado
-Al implementar la solución preconfigurada, aprovisiona automáticamente los cuatro dispositivos de ejemplo que se pueden ver en la lista de dispositivos. Estos dispositivos son *dispositivos simulados* que se ejecutan en un WebJob de Azure. Los dispositivos simulados facilitan la experimentación de la solución preconfigurada sin necesidad de implementar dispositivos físicos reales. Si quiere conectar un dispositivo real a la solución, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
+Al implementar la solución preconfigurada, se aprovisionan automáticamente los cuatro dispositivos de ejemplo que se pueden ver en la lista de dispositivos. Estos dispositivos son *dispositivos simulados* que se ejecutan en un WebJob de Azure. Los dispositivos simulados facilitan la experimentación de la solución preconfigurada sin necesidad de implementar dispositivos físicos reales. Si quiere conectar un dispositivo real a la solución, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
 
 Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la solución:
 
 1. Vuelva a navegar hasta la lista de dispositivos.
-2. Haga clic en **+ Agregar un dispositivo** en la esquina inferior izquierda para agregar un nuevo dispositivo.
+2. Haga clic en **+ Agregar un dispositivo** en la esquina inferior izquierda.
    
    ![Agregar un dispositivo a la solución preconfigurada][img-adddevice]
 3. Haga clic en **Agregar nuevo** en el icono **Simulated Device** (Dispositivo simulado).
@@ -111,29 +152,70 @@ Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la s
    
     ![Ver telemetría desde el nuevo dispositivo][img-runningnew-2]
 
-## <a name="edit-the-device-metadata"></a>Edición de los metadatos del dispositivo
-Cuando el dispositivo se conecta por primera vez a la solución envía sus metadatos a esta. Al editar los metadatos del dispositivo mediante el panel de soluciones, envía los nuevos valores de metadatos al dispositivo y los almacena en la base de datos de DocumentDB. Para más información, consulte [Registro de identidades de dispositivo y DocumentDB][lnk-devicemetadata].
+## <a name="device-properties"></a>Propiedades del dispositivo
+La solución preconfigurada de supervisión remota usa [dispositivos gemelos][lnk-device-twin] para sincronizar los metadatos de dispositivo entre los dispositivos y el back-end de la solución. Un dispositivo gemelo es un documento JSON almacenado en IoT Hub que almacena los valores de las propiedades de un dispositivo individual. Los dispositivos envían de forma regular metadatos al back-end de la solución como *propiedades notificadas* que se almacenan en el dispositivo gemelo. El back-end de la solución puede establecer las *propiedades deseadas* en el dispositivo gemelo para enviar las actualizaciones de los metadatos a los dispositivos. Las propiedades notificadas muestran los valores de metadatos más recientes enviados por el dispositivo. Para más información, consulte [Registro de identidades de dispositivo y DocumentDB][lnk-devicemetadata].
+
+> [!NOTE]
+> La solución también utiliza una base de datos de DocumentDB para almacenar datos específicos del dispositivo relacionados con comandos y métodos.
+> 
+> 
 
 1. Vuelva a navegar hasta la lista de dispositivos.
-2. Seleccione el nuevo dispositivo en la **lista de dispositivos** y haga clic en **Editar** para editar las **propiedades del dispositivo**:
+2. Seleccione el nuevo dispositivo en la **lista de dispositivos** y haga clic en **Editar** para editar la sección **Device Twin - Desired Properties** (Dispositivo gemelo - Propiedades deseadas):
    
-   ![Editar los metadatos del dispositivo][img-editdevice]
-3. Desplácese hacia abajo y realice un cambio en los valores de latitud y longitud. Luego, haga clic en **Guardar cambios en registro de dispositivos**.
+   ![Editar propiedades deseadas de dispositivo][img-editdevice]
+3. En **Nombre de la propiedad deseada**, seleccione **Latitud** y establezca el valor en **47,639521**. Luego, haga clic en **Save Changes to Device Registry** (Guardar cambios en registro de dispositivo):
    
-    ![Editar los metadatos del dispositivo][img-editdevice2]
-4. Vuelva a navegar al panel y observará que ha cambiado la ubicación del dispositivo en el mapa:
+    ![Editar propiedad deseada de dispositivo][img-editdevice2]
+4. En el panel **Detalles del dispositivo**, el valor de la nueva latitud se muestra como una propiedad deseada, mientras que el valor de latitud anterior se muestra como una propiedad notificada:
    
-    ![Editar los metadatos del dispositivo][img-editdevice3]
+    ![Ver propiedad notificada][img-editdevice3]
+5. Actualmente, los dispositivos simulados de la solución preconfigurada solo procesan las propiedades deseadas **Desired.Config.TemperatureMeanValue** y **Desired.Config.TelemetryInterval**. Un dispositivo real debe leer todas las propiedades deseadas de IoT Hub, realizar los cambios necesarios en su configuración y notificar los nuevos valores al centro como propiedades notificadas.
+
+En el panel **Detalles del dispositivo**, también se puede editar la sección **Device Twin - Tags** (Dispositivo gemelo - Etiquetas) de la misma manera que se edita **Device Twin - Desired Properties** (Dispositivo gemelo - Propiedades deseadas). Sin embargo, a diferencia de las propiedades deseadas, las etiquetas no se sincronizan con el dispositivo. Las etiquetas solo está presente en el dispositivo gemelo en IoT Hub. Las etiquetas son útiles para la creación de filtros personalizados en la lista de dispositivos.
+
+## <a name="sort-the-device-list"></a>Ordenar la lista de dispositivos
+
+Para ordenar la lista de dispositivos, haga clic al lado del encabezado de columna. Con el primer clic la clasificación se realiza en orden ascendente, mientras que con el segundo, se realiza en orden descendente:
+
+![Ordenar lista de dispositivos][img-sortdevices]
+
+## <a name="filter-the-device-list"></a>Filtro de la lista de dispositivos
+
+En la lista de dispositivos, puede crear, guardar y volver a cargar filtros para mostrar una lista personalizada de los dispositivos conectados al centro. Para crear un filtro:
+
+1. Haga clic en el icono de edición de filtro situado encima de la lista de dispositivos:
+   
+   ![Abra el editor de filtros][img-editfiltericon]
+2. En el **editor de filtros**, agregue los campos, operadores y valores necesarios para filtrar la lista de dispositivos. Para refinar el filtro puede agregar varias cláusulas. Haga clic en **Filtro** para aplicar el filtro:
+   
+   ![Crear un filtro][img-filtereditor]
+3. En este ejemplo, la lista se filtra por fabricante y número de modelo:
+   
+   ![Lista filtrada][img-filterelist]
+4. Para guardar el filtro con un nombre personalizado, haga clic en el icono **Guardar como**:
+   
+   ![Agregar un filtro][img-savefilter]
+5. Para volver a aplicar un filtro que se ha guardado previamente, haga clic en el **Abrir el filtro guardado**:
+   
+   ![Abrir un filtro][img-openfilter]
+
+Se pueden crear filtros basados en el Id. de dispositivo, estado del dispositivo, propiedades deseadas, propiedades notificadas y etiquetas.
+
+> [!NOTE]
+> En el **editor de filtros**, se puede usar la **vista avanzada** para editar el texto de consulta directamente.
+> 
+> 
 
 ## <a name="add-a-rule-for-the-new-device"></a>Adición de una regla para el nuevo dispositivo
 No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, agregará una regla que desencadenará una alarma cuando la temperatura notificada por el nuevo dispositivo supere los 47 grados. Antes de comenzar, observe que el historial de telemetría del nuevo dispositivo en el panel muestra que la temperatura de dispositivo nunca supera los 45 grados.
 
 1. Vuelva a navegar hasta la lista de dispositivos.
-2. Seleccione el dispositivo nuevo en la **lista de dispositivos** y haga clic en **Add rule** (Agregar regla) para agregar una regla al dispositivo.
+2. Para agregar una regla al dispositivo, seleccione el dispositivo nuevo en la **lista de dispositivos** y haga clic en **Agregar regla**.
 3. Cree una regla que utilice **Temperature** como campo de datos y **AlarmTemp** como resultado cuando la temperatura supere los 47 grados:
    
     ![Agregar una regla de dispositivo][img-adddevicerule]
-4. Haga clic en **Guardar y ver reglas** para guardar los cambios.
+4. Para guardar los cambios, haga clic en **Guardar y ver reglas**.
 5. Haga clic en **Comandos** en el panel de detalles del dispositivo nuevo.
    
    ![Agregar una regla de dispositivo][img-adddevicerule2]
@@ -155,14 +237,55 @@ No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, 
 > 
 > 
 
-## <a name="other-features"></a>Otras características
-Con el portal de soluciones, se puede buscar dispositivos con características específicas, como un número de modelo:
-
-![Buscar un dispositivo][img-search]
-
+## <a name="disable-and-remove-devices"></a>Deshabilitación y eliminación de dispositivos
 Puede deshabilitar un dispositivo y, después, quitarlo:
 
 ![Deshabilitar y quitar un dispositivo][img-disable]
+
+## <a name="run-jobs"></a>Ejecución de trabajos
+Para realizar operaciones masivas en los dispositivos se pueden programar trabajos. Cada trabajo se crea para una lista de dispositivos. Dicha lista puede contener todos los dispositivos o puede ser una lista filtrada que se creó mediante las [herramientas de filtro](#filter-the-device-list) en la lista de dispositivos. Un trabajo puede invocar un método en cada dispositivo de la lista o puede actualizar el dispositivo gemelo para todos los dispositivos de la lista.
+
+### <a name="create-a-job-to-invoke-a-method"></a>Creación de un trabajo para invocar un método
+
+Los pasos siguientes muestran cómo crear un trabajo que invoca el método de actualización del firmware en todos los dispositivos de una lista. El método solo se invoca en los dispositivos compatibles con el método:
+
+1. Use las herramientas de filtro en la lista de dispositivos para crear una lista de dispositivos que reciban la actualización del firmware:
+   
+   ![Abra el editor de filtros][img-editfiltericon]
+2. En la lista filtrada, haga clic en **Programador de trabajos**:
+   
+   ![Abra al programador de trabajos][img-clickjobscheduler]
+3. En el panel **Programar trabajo**, haga clic en **Invocar método**.
+4. En la página **Invocar método**, escriba los detalles del método que se va a invocar y, después, haga clic en **Programación**:
+   
+   ![Configurar trabajo de método][img-invokemethodjob]
+
+El método **InitiateFirmwareUpdate** inicia una tarea de forma asincrónica en el dispositivo y vuelve inmediatamente. Después, el proceso de actualización de firmware utiliza propiedades notificadas para informar acerca del proceso de actualización mientras se ejecuta.
+
+### <a name="create-a-job-to-edit-the-device-twin"></a>Creación de un trabajo para editar al dispositivo gemelo
+
+Los pasos siguientes muestran cómo crear un trabajo que edita el dispositivo gemelo en todos los dispositivos de una lista:
+
+1. Use las herramientas de filtro en la lista de dispositivos para crear una lista de dispositivos que reciban las ediciones de dispositivos gemelos:
+   
+   ![Abra el editor de filtros][img-editfiltericon]
+2. En la lista filtrada, haga clic en **Programador de trabajos**:
+   
+   ![Abra al programador de trabajos][img-clickjobscheduler]
+3. En el panel **Programar trabajo**, haga clic en **Editar dispositivo gemelo**.
+4. En la página **Editar dispositivo gemelo**, escriba los detalles de las **propiedades deseadas** y las **etiquetas** que se van a editar y, después, haga clic en **Programación**:
+   
+   ![Configurar trabajo de método][img-edittwinjob]
+
+### <a name="monitor-the-job"></a>Supervisión del trabajo
+En la página **Trabajos de administración** se puede supervisar el estado de los trabajos que se programan. El panel **Detalles del trabajo** muestra información acerca del trabajo seleccionado:
+   
+   ![Ver estado del trabajo][img-jobstatus]
+
+La información acerca de los trabajos también se puede ver en el **panel**:
+   
+   ![Ver trabajos en el panel][img-jobdashboard]
+
 
 ## <a name="behind-the-scenes"></a>Entre bambalinas
 Al implementar una solución preconfigurada, el proceso de implementación crea varios recursos en la suscripción de Azure seleccionada. Dichos recursos se pueden ver en Azure [Portal][lnk-portal]. El proceso de implementación crea un **grupo de recursos** cuyo nombre se basa en el nombre que eligió para la solución preconfigurada:
@@ -196,7 +319,9 @@ Ahora que ha implementado una solución preconfigurada de trabajo, puede continu
 [img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
 [img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
 [img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
+[img-devicemethods]: media/iot-suite-getstarted-preconfigured-solutions/devicemethods.png
 [img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
+[img-pingmethod]: media/iot-suite-getstarted-preconfigured-solutions/pingmethod.png
 [img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
 [img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
 [img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
@@ -212,8 +337,21 @@ Ahora que ha implementado una solución preconfigurada de trabajo, puede continu
 [img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
 [img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
 [img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
-[img-search]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_07.png
 [img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
+[img-columneditor]: media/iot-suite-getstarted-preconfigured-solutions/columneditor.png
+[img-startimageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit1.png
+[img-imageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit2.png
+[img-sortdevices]: media/iot-suite-getstarted-preconfigured-solutions/sortdevices.png
+[img-editfiltericon]: media/iot-suite-getstarted-preconfigured-solutions/editfiltericon.png
+[img-filtereditor]: media/iot-suite-getstarted-preconfigured-solutions/filtereditor.png
+[img-filterelist]: media/iot-suite-getstarted-preconfigured-solutions/filteredlist.png
+[img-savefilter]: media/iot-suite-getstarted-preconfigured-solutions/savefilter.png
+[img-openfilter]:  media/iot-suite-getstarted-preconfigured-solutions/openfilter.png
+[img-clickjobscheduler]: media/iot-suite-getstarted-preconfigured-solutions/clickscheduler.png
+[img-invokemethodjob]: media/iot-suite-getstarted-preconfigured-solutions/invokemethodjob.png
+[img-edittwinjob]: media/iot-suite-getstarted-preconfigured-solutions/edittwinjob.png
+[img-jobstatus]: media/iot-suite-getstarted-preconfigured-solutions/jobstatus.png
+[img-jobdashboard]: media/iot-suite-getstarted-preconfigured-solutions/jobdashboard.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -221,14 +359,10 @@ Ahora que ha implementado una solución preconfigurada de trabajo, puede continu
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
+[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-device-twin-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
 [lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

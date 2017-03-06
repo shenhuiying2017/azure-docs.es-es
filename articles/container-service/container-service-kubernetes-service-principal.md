@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5af9b5fdaf228edd54900855d0eac5d90ea3db38
-ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
+ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
+ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,17 +30,15 @@ ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
 
 En Azure Container Service, Kubernetes requiere una [entidad de servicio de Azure Active Directory](../active-directory/active-directory-application-objects.md), como una cuenta de servicio para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos, como las rutas definidas por el usuario y Azure Load Balancer de nivel 4.
 
-Este artículo muestra distintas opciones para especificar a una entidad de servicio para el clúster de Kubernetes. Por ejemplo, si instaló y configuró la [CLI de Azure 2.0 (versión preliminar)](https://docs.microsoft.com/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para crear el clúster de Kubernetes y la entidad de servicio al mismo tiempo.
+Este artículo muestra distintas opciones para especificar a una entidad de servicio para el clúster de Kubernetes. Por ejemplo, si instaló y configuró la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para crear el clúster de Kubernetes y la entidad de servicio al mismo tiempo.
 
-> [!NOTE]
-> La compatibilidad con Kubernetes en Azure Container Service está actualmente en versión preliminar.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisitos de la entidad de servicio
 
 A continuación se indican los requisitos de la entidad de servicio de Azure Active Directory en un clúster de Kubernetes en Azure Container Service. 
 
-* **Ámbito**: la suscripción de Azure en la que se implementa el clúster
+* **Ámbito**: el grupo de recursos en el que se implementa el clúster
 
 * **Rol**: **colaborador**
 
@@ -56,13 +55,13 @@ A continuación se indican los requisitos de la entidad de servicio de Azure Act
 
 Especifique el **identificador de cliente** (a menudo denominado `appId`, para el identificador de aplicación) y el **secreto de cliente** (`password`) de una entidad de servicio existente como parámetros al crear el clúster de Kubernetes. Si utiliza una entidad de servicio existente, asegúrese de que cumple los requisitos de la sección anterior. Si necesita crear una entidad de servicio, consulte [Creación de una entidad de servicio](#create-a-service-principal-in-azure-active-directory) en este mismo artículo.
 
-Estos parámetros se pueden especificar al [implementar el clúster de Kubernetes](./container-service-deployment.md) desde el portal, la interfaz de la línea de comandos (CLI) de Azure 2.0 (versión preliminar), Azure PowerShell u otros métodos.
+Estos parámetros se pueden especificar al [implementar el clúster de Kubernetes](./container-service-deployment.md) desde el portal, la interfaz de la línea de comandos (CLI) de Azure 2.0, Azure PowerShell u otros métodos.
 
 >[!TIP] 
 >Al especificar el **identificador de cliente**, asegúrese de utilizar `appId`, no `ObjectId`, de la entidad de servicio.
 >
 
-En el ejemplo siguiente se muestra una forma de pasar los parámetros con la versión preliminar de la CLI de Azure 2.0 (consulte las [instrucciones de instalación y configuración](/cli/azure/install-az-cli2)). En este ejemplo se utiliza la [plantilla de inicio rápido de Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+En el ejemplo siguiente se muestra una forma de pasar los parámetros con la CLI de Azure 2.0 (consulte las [instrucciones de instalación y configuración](/cli/azure/install-az-cli2)). En este ejemplo se utiliza la [plantilla de inicio rápido de Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Descargue](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) el archivo de parámetros de plantilla `azuredeploy.parameters.json` de GitHub.
 
@@ -83,9 +82,9 @@ En el ejemplo siguiente se muestra una forma de pasar los parámetros con la ver
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Opción 2: generar la entidad de servicio al crear el clúster con la CLI de Azure 2.0 (versión preliminar)
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20"></a>Opción 2: Generar la entidad de servicio al crear el clúster con la CLI de Azure 2.0
 
-Si ha instalado y configurado la [CLI de Azure 2.0 (versión preliminar)](https://docs.microsoft.com/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para [crear el clúster](./container-service-create-acs-cluster-cli.md).
+Si ha instalado y configurado la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para [crear el clúster](./container-service-create-acs-cluster-cli.md).
 
 Al igual que sucede con otras opciones de creación de clústeres de Kubernetes, al ejecutar `az acs create` se pueden especificar los parámetros de una entidad de servicio existente. Sin embargo, si se omiten estos parámetros, Azure Container Service crea una entidad de servicio automáticamente. Esta operación se realiza de forma transparente durante la implementación. 
 
@@ -99,7 +98,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Si desea crear una entidad de servicio en Azure Active Directory para usarla en un clúster de Kubernetes, Azure le proporciona varios métodos. 
 
-Los siguientes comandos de ejemplo muestran cómo hacerlo con la [ CLI de Azure 2.0 (versión preliminar)](https://docs.microsoft.com/cli/azure/install-az-cli2). Como alternativa, puede crear una entidad de servicio mediante [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), el [portal clásico](../azure-resource-manager/resource-group-create-service-principal-portal.md) u otros métodos.
+Los siguientes comandos de ejemplo muestran cómo hacerlo con la [ CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Como alternativa, puede crear una entidad de servicio mediante [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), el [portal clásico](../azure-resource-manager/resource-group-create-service-principal-portal.md) u otros métodos.
 
 > [!IMPORTANT]
 > Asegúrese de revisar los requisitos de la entidad de servicio, que encontrará al principio de este artículo.
@@ -140,9 +139,4 @@ az vm list-sizes --location westus
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Kubernetes](container-service-kubernetes-walkthrough.md) en el clúster de Container Service.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

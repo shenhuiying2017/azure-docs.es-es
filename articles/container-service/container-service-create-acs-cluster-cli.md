@@ -1,6 +1,6 @@
 ---
 title: "Implementación de un clúster de contenedores de Docker: CLI de Azure | Microsoft Docs"
-description: "Implementación de un clúster de Azure Container Service mediante la versión preliminar de Azure CLI 2.0"
+description: "Implementación de un clúster de Azure Container Service mediante la CLI de Azure 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,31 +17,32 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Uso de la CLI de Azure 2.0 (versión preliminar) para crear un clúster de Azure Container Service
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Uso de la CLI de Azure 2.0 para crear un clúster de Azure Container Service
 
-Use los comandos `az acs` de la CLI de Azure 2.0 (versión preliminar) para crear y administrar clústeres en Azure Container Service. También se puede implementar un clúster de Azure Container Service mediante [Azure Portal](container-service-deployment.md) o las API de Azure Container Service.
+Use los comandos `az acs` de la CLI de Azure 2.0 para crear y administrar clústeres en Azure Container Service. También se puede implementar un clúster de Azure Container Service mediante [Azure Portal](container-service-deployment.md) o las API de Azure Container Service.
 
 Para obtener ayuda sobre los comandos `az acs`, use el parámetro `-h` con cualquier comando. Por ejemplo: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para crear un clúster de Azure Container Service mediante la CLI de Azure 2.0 (versión preliminar), debe:
+Para crear un clúster de Azure Container Service mediante la CLI de Azure 2.0, debe:
 * tener una cuenta de Azure ([obtenga aquí una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/))
-* tener instalado y configurado la [CLI de Azure, versión 2.0 (versión preliminar)](/cli/azure/install-az-cli2)
+* tener instalada y configurada la [CLI de Azure 2.0](/cli/azure/install-az-cli2)
 
-## <a name="get-started"></a>Introducción 
+## <a name="get-started"></a>Primeros pasos 
 ### <a name="log-in-to-your-account"></a>Inicie sesión en su cuenta.
 ```azurecli
 az login 
 ```
 
-Siga las indicaciones para iniciar sesión forma interactiva. Para ver otros métodos para iniciar sesión, consulte [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) [Primeros pasos con la CLI de Azure 2.0 (versión preliminar)].
+Siga las indicaciones para iniciar sesión forma interactiva. Para ver otros métodos de inicio de sesión, consulte [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2) (Introducción a la CLI de Azure 2.0).
 
 ### <a name="set-your-azure-subscription"></a>Establecimiento de una suscripción a Azure
 
@@ -74,7 +75,7 @@ Se establecen los valores predeterminados de otras entradas (vea la siguiente pa
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Uso rápido de `acs create` con los valores predeterminados
-Si tiene un archivo de clave pública SSH `id_rsa.pub` en la ubicación predeterminada (o ha creado uno para [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md), o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use un comando como al siguiente:
+Si tiene un archivo de clave pública RSA de SSH `id_rsa.pub` en la ubicación predeterminada (o ha creado uno para [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md), o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use un comando como al siguiente:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -143,8 +144,3 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 * [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
 * [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 * [Trabajo con Azure Container Service y Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

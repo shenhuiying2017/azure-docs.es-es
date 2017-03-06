@@ -1,21 +1,22 @@
 ---
-title: "Incorporación del SDK de Application Insights para supervisar la aplicación de Node.js | Microsoft Docs"
+title: "Supervisión de la aplicación de Node.js con el SDK de Azure Application Insights | Microsoft Docs"
 description: "Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,7 +32,6 @@ El SDK proporciona la recopilación automática de las tasas de solicitudes HTTP
 #### <a name="before-you-start"></a>Antes de comenzar
 Necesita:
 
-* Visual Studio 2013 o posterior. Es mejor que sea superior.
 * Una suscripción a [Microsoft Azure](http://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarle a esta con su [cuenta Microsoft](http://live.com).
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Creación de recursos en Application Insights
@@ -39,7 +39,7 @@ Inicie sesión en [Azure Portal][portal] y cree un nuevo recurso de Application 
 
 ![Haga clic en Nuevo, Application Insights.](./media/app-insights-nodejs/01-new-asp.png)
 
-Elija Otro como tipo de aplicación. La elección del tipo de aplicación establece el contenido predeterminado de las hojas de recursos y las propiedades que estarán visibles en el [Explorador de métricas][metrics].
+Elija General como el tipo de aplicación. La elección del tipo de aplicación establece el contenido predeterminado de las hojas de recursos y las propiedades que estarán visibles en el [Explorador de métricas][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Copia de la clave de instrumentación
 La clave identifica al recurso y se instalará pronto en el SDK para dirigir los datos al recurso.
@@ -197,9 +197,4 @@ server.on("listening", () => {
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

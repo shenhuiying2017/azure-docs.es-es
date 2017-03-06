@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: cce15fa7042b29de055a62b1b7a6efa4d0539acf
-ms.openlocfilehash: fd73f2eae7f89c237a6a2ff75c6022cb0684e613
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: 9a97a5a3fe8937d51c9e196df2929edac67a25ec
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ En este artículo se muestra cómo usar las etiquetas de la CLI para implementar
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#quick-commands): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0 (versión preliminar)](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos.
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -166,9 +167,4 @@ Mediante el uso de los marcadores CLI para llamar a los recursos existentes, se 
 * [Uso de una plantilla de Azure Resource Manager para crear una implementación específica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

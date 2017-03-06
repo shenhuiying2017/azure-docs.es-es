@@ -1,10 +1,10 @@
 ---
-title: "Creación de una máquina virtual (clásica) con varias NIC mediante la CLI de Azure | Microsoft Docs"
-description: "Aprenda a crear una máquina virtual con varias NIC mediante el modelo de implementación clásica con la CLI de Azure."
+title: "Creación de una máquina virtual (clásica) con varias NIC: CLI de Azure 1.0 | Microsoft Docs"
+description: "Aprenda a crear una máquina virtual (clásica) con varias NIC mediante la interfaz de la línea de comandos (CLI) de Azure 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
@@ -15,26 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f1a4dc135721a1c2a134806fbae031ee60e23074
-ms.openlocfilehash: 4d9f5f918e8f06dedcce14a880e436f807a5a7b0
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b62421b7289650818748d0016dccfdf42ef0a768
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli"></a>Creación de una máquina virtual (clásica) con varias NIC mediante la CLI de Azure
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Creación de una máquina virtual (clásica) con varias NIC mediante la CLI de Azure 1.0
+
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 Puede crear máquinas virtuales (VM) en Azure y asociar varias interfaces de red (NIC) a cada una de las máquinas virtuales. Varias NIC permiten la separación de tipos de tráfico a través de las NIC. Por ejemplo, una NIC podría comunicarse con Internet, mientras que la otra solo se comunica con los recursos internos no conectados a Internet. La capacidad de separar el tráfico de red a través de varias NIC es necesaria para muchos dispositivos virtuales de red, como la entrega de aplicaciones y soluciones para la optimización de WAN.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Aprenda a realizar estos pasos con el [modelo de implementación de Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo realizar estos pasos con el [modelo de implementación de Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
 En los pasos siguientes se usa un grupo de recursos denominado *IaaSStory* para los servidores web y un grupo de recursos denominado *IaaSStory-BackEnd* para los servidores de base de datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de crear los servidores de base de datos, debe crear el grupo de recursos *IaaSStory* con todos los recursos necesarios para este escenario. Para crear estos recursos, complete los pasos siguientes. Cree una red virtual siguiendo los pasos del artículo [Creación de una red virtual](virtual-networks-create-vnet-classic-cli.md).
+Antes de crear los servidores de base de datos, necesita crear el grupo de recursos *IaaSStory* con todos los recursos necesarios para este escenario. Para crear estos recursos, complete los pasos siguientes. Cree una red virtual siguiendo los pasos del artículo [Creación de una red virtual](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -186,9 +189,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
         info:    Getting virtual machines
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

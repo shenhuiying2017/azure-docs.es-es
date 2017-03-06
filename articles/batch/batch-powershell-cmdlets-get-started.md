@@ -1,6 +1,6 @@
 ---
 title: "Introducción a PowerShell para Azure Batch | Microsoft Docs"
-description: "Obtenga una rápida introducción a los cmdlets de Azure PowerShell que puede usar para administrar el servicio Lote de Azure"
+description: "Una rápida introducción a los cmdlets de Azure PowerShell que puede usar para administrar recursos de Batch."
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Introducción a los cmdlets de lotes PowerShell de Azure
+# <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
+
 Con los cmdlets de PowerShell de Lote de Azure puede realizar directamente y mediante scripts muchas de las mismas tareas que se llevan a cabo con las API de Lote, el Portal de Azure y la interfaz de la línea de comandos (CLI) de Azure. Esta es una breve introducción a los cmdlets que se pueden usar para administrar cuentas de Lote y trabajar con recursos de Lote tales como grupos, trabajos y tareas.
 
 Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada de los cmdlets, consulte la [referencia de los cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
@@ -236,10 +239,5 @@ Ahora, las propiedades del grupo están actualizadas en el servicio Batch. Para 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para conocer la sintaxis detallada de cmdlets y ejemplos de los mismos, consulte [Azure Batch Cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx)(Cmdlets de Lote de Azure).
 * Para más información sobre las aplicaciones y los paquetes de aplicación de Batch, consulte [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

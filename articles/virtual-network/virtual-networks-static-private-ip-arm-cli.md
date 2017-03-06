@@ -1,10 +1,10 @@
 ---
-title: "Establecimiento de una dirección IP privada estática en el modo ARM mediante la CLI | Microsoft Docs"
-description: "Descripción de las IP estáticas (DIP) y su administración en el modo ARM mediante la CLI"
+title: "Configuración de direcciones IP privadas para máquinas virtuales en la CLI de Azure 2.0 | Microsoft Docs"
+description: "Aprenda a configurar direcciones IP privadas para máquinas virtuales mediante la interfaz de línea de comandos (CLI) de Azure 2.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
@@ -13,16 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 02/16/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 782f4260b00fed11921da97fed8a98452f91ba08
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: ea54b413b92a4d4e312b741ce42090c77de0e6f5
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-in-azure-cli"></a>Configuración de una dirección IP privada estática en la CLI de Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Configuración de direcciones IP privadas para una máquina virtual mediante la CLI de Azure 2.0
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
+
+
+## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea 
+
+Puede completar la tarea mediante una de las siguientes versiones de la CLI: 
+
+- [CLI de Azure 1.0](virtual-networks-static-private-ip-cli-nodejs.md): la CLI para los modelos de implementación clásico y de Resource Manager 
+- [CLI de Azure 2.0](#specify-a-static-private-ip-address-when-creating-a-vm): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo).
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -32,238 +43,243 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-En los siguientes comandos de ejemplo de la CLI de Azure se presupone que ya se creó un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-arm-cli.md).
+> [!NOTE]
+> En los siguientes comandos de ejemplo de la CLI de Azure 2.0 se presupone que ya se creó un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-arm-cli.md).
 
-## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificación de una dirección IP privada estática al crear una VM
-Para crear una VM denominada *DNS01* en la subred de *FrontEnd* de una red virtual denominada *TestVNet* con una dirección IP privada estática de *192.168.1.101*, siga los siguientes pasos:
+## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificación de una dirección IP privada estática al crear una VM
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de una red virtual denominada *TestVNet* con una dirección IP privada estática de *192.168.1.101*, siga estos pasos:
+
+1. Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login). 
+
+2. Cree una dirección IP pública para la máquina virtual con el comando [az network public-ip create](/cli/azure/network/public-ip#create). En la lista que se muestra en la salida se explican los parámetros utilizados.
+
+    > [!NOTE]
+    > Puede que quiera o necesite usar valores diferentes para los argumentos de este paso y los siguientes, dependiendo de su entorno.
    
-        azure config mode arm
-   
+    ```azurecli
+    az network public-ip create \
+    --name TestPIP \
+    --resource-group TestRG \
+    --location centralus \
+    --allocation-method Static
+    ```
+
     Resultado esperado:
    
-        info:    New mode is arm
-3. Ejecuta **azure network public-ip create** para crear una dirección IP pública para la VM. En la lista que se muestra en la salida se explican los parámetros utilizados.
-   
-        azure network public-ip create -g TestRG -n TestPIP -l centralus
-   
-    Resultado esperado:
-   
-        info:    Executing command network public-ip create
-        + Looking up the public ip "TestPIP"
-        + Creating public ip address "TestPIP"
-        + Looking up the public ip "TestPIP"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP
-        data:    Name                            : TestPIP
-        data:    Type                            : Microsoft.Network/publicIPAddresses
-        data:    Location                        : centralus
-        data:    Provisioning state              : Succeeded
-        data:    Allocation method               : Dynamic
-        data:    Idle timeout                    : 4
-        info:    network public-ip create command OK
-   
-   * **-g (or --resource-group)**. Nombre del grupo de recursos en el que se creará la dirección IP pública.
-   * **-n (or --name)**. Nombre de la dirección IP pública.
-   * **-l (or --location)**. Región de Azure donde se creará la dirección IP pública. En este escenario, *centralus*.
-4. Ejecuta el comando **azure network nic create** para crear una NIC con una dirección IP privada estática. En la lista que se muestra en la salida se explican los parámetros utilizados.
-   
-        azure network nic create -g TestRG -n TestNIC -l centralus -a 192.168.1.101 -m TestVNet -k FrontEnd
-   
-    Resultado esperado:
-   
-        + Looking up the network interface "TestNIC"
-        + Looking up the subnet "FrontEnd"
-        + Creating network interface "TestNIC"
-        + Looking up the network interface "TestNIC"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
-        data:    Name                            : TestNIC
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : centralus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.1.101
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-        data:
-        info:    network nic create command OK
-   
-   * **-a (or --private-ip-address)**. Dirección IP privada estática para la NIC.
-   * **-m (or --subnet-vnet-name)**. Nombre de la red virtual donde se creará la NIC.
-   * **-k (or --subnet-name)**. Nombre de la subred donde se creará la NIC.
-5. Ejecuta el comando **azure vm create** para crear la máquina virtual mediante la dirección IP pública y la NIC creadas anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
-   
-        azure vm create -g TestRG -n DNS01 -l centralus -y Windows -f TestNIC -i TestPIP -F TestVNet -j FrontEnd -o vnetstorage -q bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 -u adminuser -p AdminP@ssw0rd
-   
-    Resultado esperado:
-   
-        info:    Executing command vm create
-        + Looking up the VM "DNS01"
-        info:    Using the VM Size "Standard_A1"
-        warn:    The image "bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2" will be used for VM
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        + Looking up the storage account vnetstorage
-        + Looking up the NIC "TestNIC"
-        info:    Found an existing NIC "TestNIC"
-        info:    Found an IP configuration with virtual network subnet id "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd" in the NIC "TestNIC"
-        info:    Found public ip parameters, trying to setup PublicIP profile
-        + Looking up the public ip "TestPIP"
-        info:    Found an existing PublicIP "TestPIP"
-        info:    Configuring identified NIC IP configuration with PublicIP "TestPIP"
-        + Updating NIC "TestNIC"
-        + Looking up the NIC "TestNIC"
-        + Creating VM "DNS01"
-        info:    vm create command OK
-   
-   * **-y (or --os-type)**. Tipo de sistema operativo para la VM, ya sea *Windows* o *Linux*.
-   * **-f (or --nic-name)**. Nombre de la NIC que usará la máquina virtual.
-   * **-i (or --public-ip-name)**. Nombre de la dirección IP pública que usará la máquina virtual.
-   * **-F (or --vnet-name)**. Nombre de la red virtual donde se creará la VM.
-   * **-j (or --vnet-subnet-name)**. Nombre de la subred donde se creará la VM.
+   ```json
+   {
+        "publicIp": {
+            "idleTimeoutInMinutes": 4,
+            "ipAddress": "52.176.43.167",
+            "provisioningState": "Succeeded",
+            "publicIPAllocationMethod": "Static",
+            "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
+        }
+    }
+    ```
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperación de la información de la dirección IP privada estática para una VM
-Para ver la información de la dirección IP privada estática para la VM que se ha creado con el script anterior, ejecute el siguiente comando de la CLI de Azure y observe los valores para *Método de asignación de dirección IP privada* y *Dirección IP privada*:
+   * `--resource-group`: nombre del grupo de recursos en el que se creará la dirección IP pública.
+   * `--name`: nombre de la dirección IP pública.
+   * `--location`: región de Azure donde se va a crear la dirección IP pública.
 
-    azure vm show -g TestRG -n DNS01
+3. Ejecute el comando [azure network nic create](/cli/azure/network/nic#create) para crear una NIC con una dirección IP privada estática. En la lista que se muestra en la salida se explican los parámetros utilizados. 
+   
+    ```azurecli
+    az network nic create \
+    --resource-group TestRG \
+    --name TestNIC \
+    --location centralus \
+    --subnet FrontEnd \
+    --private-ip-address 192.168.1.101 \
+    --vnet-name TestVNet
+    ```
+
+    Resultado esperado:
+   
+    ```json
+    {
+        "newNIC": {
+            "dnsSettings": {
+            "appliedDnsServers": [],
+            "dnsServers": []
+            },
+            "enableIPForwarding": false,
+            "ipConfigurations": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
+                "name": "ipconfig1",
+                "properties": {
+                "primary": true,
+                "privateIPAddress": "192.168.1.101",
+                "privateIPAllocationMethod": "Static",
+                "provisioningState": "Succeeded",
+                "subnet": {
+                    "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                    "resourceGroup": "TestRG"
+                }
+                },
+                "resourceGroup": "TestRG"
+            }
+            ],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "<guid>"
+        }
+    }
+        ```
+    
+    Parameters:
+
+    * `--private-ip-address`: Static private IP address for the NIC.
+    * `--vnet-name`: Name of the VNet in wihch to create the NIC.
+    * `--subnet`: Name of the subnet in which to create the NIC.
+
+4. Run the [azure vm create](/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
+   
+    ```azurecli
+    az vm create \
+    --resource-group TestRG \
+    --name DNS01 \
+    --location centralus \
+    --image Debian \
+    --admin-username adminuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --nics TestNIC
+    ```
+
+    Resultado esperado:
+   
+    ```json
+    {
+        "fqdns": "",
+        "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01",
+        "location": "centralus",
+        "macAddress": "00-0D-3A-92-C1-66",
+        "powerState": "VM running",
+        "privateIpAddress": "192.168.1.101",
+        "publicIpAddress": "",
+        "resourceGroup": "TestRG"
+    }
+    ```
+   
+   Parámetros que no sean las opciones básicas de [az vm create](/cli/azure/vm#create).
+
+   * `--nics`: nombre de la NIC a la que está conectada la máquina virtual.
+   
+
+## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperación de la información de la dirección IP privada estática para una VM
+
+Para ver la información de la dirección IP privada estática que se ha creado, ejecute el siguiente comando de la CLI de Azure y observe los valores de *Método de asignación de dirección IP privada* y *Dirección IP privada*:
+
+```azurecli
+az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
+```
 
 Resultado esperado:
 
-    info:    Executing command vm show
-    + Looking up the VM "DNS01"
-    + Looking up the NIC "TestNIC"
-    + Looking up the public ip "TestPIP
-    data:    Id                              :/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01
-    data:    ProvisioningState               :Succeeded
-    data:    Name                            :DNS01
-    data:    Location                        :centralus
-    data:    Type                            :Microsoft.Compute/virtualMachines
-    data:
-    data:    Hardware Profile:
-    data:      Size                          :Standard_A1
-    data:
-    data:    Storage Profile:
-    data:      Source image:
-    data:        Id                          :/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/services/images/bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2
-    data:
-    data:      OS Disk:
-    data:        OSType                      :Windows
-    data:        Name                        :cli08d7bd987a0112a8-os-1441774961355
-    data:        Caching                     :ReadWrite
-    data:        CreateOption                :FromImage
-    data:        Vhd:
-    data:          Uri                       :https://vnetstorage2.blob.core.windows.net/vhds/cli08d7bd987a0112a8-os-1441774961355vhd
-    data:
-    data:    OS Profile:
-    data:      Computer Name                 :DNS01
-    data:      User Name                     :adminuser
-    data:      Windows Configuration:
-    data:        Provision VM Agent          :true
-    data:        Enable automatic updates    :true
-    data:
-    data:    Network Profile:
-    data:      Network Interfaces:
-    data:        Network Interface #1:
-    data:          Id                        :/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
-    data:          Primary                   :true
-    data:          MAC Address               :00-0D-3A-90-1A-A8
-    data:          Provisioning State        :Succeeded
-    data:          Name                      :TestNIC
-    data:          Location                  :centralus
-    data:            Private IP alloc-method :Static
-    data:            Private IP address      :192.168.1.101
-    data:            Public IP address       :40.122.213.159
-    info:    vm show command OK
+```json
+"192.168.1.101"
+```
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Eliminación de una dirección IP privada estática de una VM
-No se puede eliminar una dirección IP privada estática de una NIC de la CLI de Azure para el Administrador de recursos. Tienes que crear una nueva NIC que use una dirección IP dinámica, eliminar la NIC anterior de la VM y después agregar la nueva a la VM. Para cambiar la NIC para la VM usada en los comandos anteriores, sigue estos pasos.
+Para mostrar la información específica de la dirección IP de la NIC de esa máquina virtual, consulte la NIC específicamente:
 
-1. Ejecuta el comando **azure network nic create** para crear una nueva NIC con la asignación de IP dinámica. Observa cómo no tienes que especificar la dirección IP en este momento.
-   
-        azure network nic create -g TestRG -n TestNIC2 -l centralus -m TestVNet -k FrontEnd
+```azurecli
+az network nic show \
+-g testrg \
+-n testnic \
+--query 'ipConfigurations[0].{PrivateAddress:privateIpAddress,IPVer:privateIpAddressVersion,IpAllocMethod:p
+rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
+```
+
+La salida es similar a esta:
+
+```json
+{
+    "IPVer": "IPv4",
+    "IpAllocMethod": "Static",
+    "PrivateAddress": "192.168.1.101",
+    "PublicAddress": null
+}
+```
+
+## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Eliminación de una dirección IP privada estática de una VM
+
+No se puede eliminar una dirección IP privada estática de una NIC en la CLI de Azure para implementaciones de Resource Manager. Debe:
+- Crear una nueva NIC que use una dirección IP dinámica.
+- Establecer que la NIC de la máquina virtual sea la NIC recién creada. 
+
+Para cambiar la NIC de la máquina virtual usada en los comandos anteriores, siga estos pasos.
+
+1. Ejecute el comando **azure network nic create** para crear una nueva NIC mediante asignación de IP dinámica con una dirección IP nueva. Tenga en cuenta que, como no se especifica ninguna dirección IP, el método de asignación es **Dynamic**.
+
+    ```azurecli
+    az network nic create     \
+    --resource-group TestRG     \
+    --name TestNIC2     \
+    --location centralus     \
+    --subnet FrontEnd    \
+    --vnet-name TestVNet
+    ```        
    
     Resultado esperado:
-   
-        info:    Executing command network nic create
-        + Looking up the network interface "TestNIC2"
-        + Looking up the subnet "FrontEnd"
-        + Creating network interface "TestNIC2"
-        + Looking up the network interface "TestNIC2"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC2
-        data:    Name                            : TestNIC2
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : centralus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.1.6
-        data:      Private IP Allocation Method  : Dynamic
-        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-        data:
-        info:    network nic create command OK
+
+    ```json
+    {
+        "newNIC": {
+            "dnsSettings": {
+            "appliedDnsServers": [],
+            "dnsServers": []
+            },
+            "enableIPForwarding": false,
+            "ipConfigurations": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC2/ipConfigurations/ipconfig1",
+                "name": "ipconfig1",
+                "properties": {
+                "primary": true,
+                "privateIPAddress": "192.168.1.4",
+                "privateIPAllocationMethod": "Dynamic",
+                "provisioningState": "Succeeded",
+                "subnet": {
+                    "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                    "resourceGroup": "TestRG"
+                }
+                },
+                "resourceGroup": "TestRG"
+            }
+            ],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "0808a61c-476f-4d08-98ee-0fa83671b010"
+        }
+    }
+    ```
+
 2. Ejecuta el comando **azure vm set** para cambiar la NIC que usó la VM.
    
-        azure vm set -g TestRG -n DNS01 -N TestNIC2
-   
+    ```azurecli
+    azure vm set -g TestRG -n DNS01 -N TestNIC2
+    ```
+
     Resultado esperado:
    
-        info:    Executing command vm set
-        + Looking up the VM "DNS01"
-        + Looking up the NIC "TestNIC2"
-        + Updating VM "DNS01"
-        info:    vm set command OK
-3. Si quieres, puedes ejecutar el comando **azure network nic delete** para eliminar la NIC antigua.
+    ```json
+    [
+        {
+            "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC3",
+            "primary": true,
+            "resourceGroup": "TestRG"
+        }
+    ]
+    ```
+
+    > [!NOTE]
+    > Si la máquina virtual es suficientemente grande para tener más de una NIC, ejecute el comando **azure network nic delete** para eliminar la NIC antigua.
    
-        azure network nic delete -g TestRG -n TestNIC --quiet
-   
-    Resultado esperado:
-   
-        info:    Executing command network nic delete
-        + Looking up the network interface "TestNIC"
-        + Deleting network interface "TestNIC"
-        info:    network nic delete command OK
-
-## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Adición de una dirección IP privada estática a una VM existente
-Para agregar una dirección IP privada estática a la NIC que usó la VM y creada con el script anterior, ejecuta el siguiente comando:
-
-    azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
-
-Resultado esperado:
-
-    info:    Executing command network nic set
-    + Looking up the network interface "TestNIC2"
-    + Updating network interface "TestNIC2"
-    + Looking up the network interface "TestNIC2"
-    data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC2
-    data:    Name                            : TestNIC2
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : centralus
-    data:    Provisioning state              : Succeeded
-    data:    MAC address                     : 00-0D-3A-90-29-25
-    data:    Enable IP forwarding            : false
-    data:    Virtual machine                 : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01
-    data:    IP configurations:
-    data:      Name                          : NIC-config
-    data:      Provisioning state            : Succeeded
-    data:      Private IP address            : 192.168.1.101
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-    data:
-    info:    network nic set command OK
-
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
 * Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

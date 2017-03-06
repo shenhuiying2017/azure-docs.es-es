@@ -1,5 +1,5 @@
 ---
-title: "Introducción al servicio Azure Batch | Microsoft Docs"
+title: Azure Batch ejecuta soluciones de procesos paralelos a gran escala en la nube | Microsoft Docs
 description: "Información acerca del servicio Lote de Azure para cargas de trabajo HPC y paralelas a gran escala"
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Datos básicos de Azure Batch
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Ejecución de cargas de trabajo paralelas intrínsecamente con Batch
+
 Azure Batch es un servicio de plataforma para ejecutar aplicaciones en paralelo a gran escala y de informática de alto rendimiento (HPC) de manera eficaz en la nube. Azure Batch programa el trabajo que conlleva mucho proceso para que se ejecute en una colección administrada de máquinas virtuales y puede escalar automáticamente los recursos de proceso para satisfacer las necesidades de sus trabajos.
 
 Con Azure Batch, se pueden definir fácilmente los recursos de proceso de Azure para ejecutar las aplicaciones en paralelo y a escala. No es preciso crear, configurar ni administrar manualmente un clúster de HPC, máquinas virtuales individuales, redes virtuales ni una infraestructura compleja de programación de tareas y trabajos. Azure Batch automatiza o simplifica estas tareas automáticamente.
@@ -156,9 +159,4 @@ Ahora que ha visto información general de alto nivel del servicio Lote, es hora
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

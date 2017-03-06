@@ -1,6 +1,6 @@
 ---
-title: "Copia de seguridad de archivos y carpetas de Windows a Azure con Azure Backup mediante el modelo de implementación de Resource Manager | Microsoft Docs"
-description: "Aprenda a realizar copias de seguridad de archivos y carpetas de Windows en Azure en una implementación de Resource Manager."
+title: Copia de seguridad de archivos y carpetas de Windows en Azure (Resource Manager) | Microsoft Docs
+description: "Aprenda a realizar una copia de seguridad de los archivos y las carpetas de Windows en Azure en una implementación de Resource Manager."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ En este artículo se explica cómo realizar una copia de seguridad de los archiv
 
 Si desea más información acerca de Copia de seguridad de Azure, lea esta [introducción](backup-introduction-to-azure-backup.md).
 
-La copia de seguridad de archivos y carpetas en Azure requiere estas actividades:
-
-![Paso 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obtener una suscripción de Azure, si no tiene una.<br>
-![Paso 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Crear un almacén de Recovery Services.<br>
-![Paso 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Descargar los archivos necesarios.<br>
-![Paso 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Instalar y registrar el agente de Recovery Services.<br>
-![Paso 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Realizar copias de seguridad de los archivos y las carpetas.
-
-![Cómo realizar copias de la máquina de Windows con Copia de seguridad de Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Obtener una suscripción de Azure
 Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a todos los servicios de Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
@@ -70,6 +60,7 @@ Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crea
   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. Esta elección determina la región geográfica a la que se envían los datos de copia de seguridad.
+
 8. En la parte inferior de la hoja de almacén de recovery Services, haga clic en **Create** (Crear).
 
     La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de servicios de recuperación. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
@@ -229,9 +220,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 * Obtenga más información acerca de cómo [realizar copias de seguridad de máquinas Windows](backup-configure-vault.md).
 * Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

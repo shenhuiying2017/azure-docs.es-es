@@ -1,10 +1,10 @@
 ---
-title: "¿Qué son las rutas definidas por el usuario y el reenvío IP?"
-description: "Aprenda a utilizar rutas definidas por el usuario (UDR) y el reenvío IP para reenviar el tráfico a la red de aplicaciones virtuales de Azure."
+title: "Rutas definidas por el usuario y reenvío IP en Azure | Microsoft Docs"
+description: "Aprenda a configurar rutas definidas por el usuario (UDR) y el reenvío IP para reenviar el tráfico a las aplicaciones de red virtual de Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
-ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
+ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
+ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>¿Qué son las rutas definidas por el usuario y el reenvío IP?
+# <a name="user-defined-routes-and-ip-forwarding"></a>Rutas definidas por el usuario y reenvío IP
+
 Al agregar máquinas virtuales (VM) a una red virtual (VNet) en Azure, observará que las máquinas virtuales son capaces de comunicarse automáticamente con otras máquinas por toda la red. No es necesario que especifique una puerta de enlace, incluso si las máquinas virtuales están en subredes diferentes. Cuando existe una conexión híbrida de Azure a su centro de datos, puede aplicar esto a la comunicación de las máquinas virtuales en la red pública e incluso a su red local.
 
 Este flujo de comunicación es posible porque Azure usa varias rutas del sistema que definen cómo fluye el tráfico IP. Las rutas del sistema controlan el flujo de comunicación de los escenarios siguientes:
@@ -53,8 +56,8 @@ Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento
 | Propiedad | Description | Restricciones | Consideraciones |
 | --- | --- | --- | --- |
 | Prefijo de dirección |El CIDR de destino al que se aplica la ruta, por ejemplo, 10.1.0.0/16. |Debe ser un intervalo de CIDR válidos que representan direcciones en la red Internet pública, la red virtual o el centro de datos local. |Asegúrese de que **Prefijo de dirección** no contiene la dirección de **Siguiente dirección de salto**; de lo contrario, los paquetes entrarán en un bucle que va desde el origen al próximo salto sin llegar nunca al destino. |
-| Tipo de próximo salto |El tipo de salto de Azure al que debe enviarse el paquete. |Debe ser uno de los siguientes valores:  <br/> **Red virtual**. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16, en la misma red virtual, la ruta de cada una de ellas en la tabla de rutas tendrá un valor de próximo salto de *Red virtual*. <br/> **Puerta de enlace de red virtual**. Representa una puerta de enlace de VPN S2S de Azure. <br/> **Internet**. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure. <br/> **Dispositivo virtual**. Representa un dispositivo virtual agregado a la red virtual de Azure. <br/> **No**. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera. |Considere la posibilidad de usar el tipo **No** para evitar que los paquetes vayan a un destino dado. |
-| Siguiente dirección de salto |La siguiente dirección de salto contiene la dirección IP a la que se deben reenviar los paquetes. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*. |Debe ser una dirección IP accesible dentro de la red virtual donde se aplica la ruta definida por el usuario. |Si la dirección IP representa una máquina virtual, asegúrese de habilitar el [reenvío de IP](#IP-forwarding) en Azure para la máquina virtual. |
+| Tipo de próximo salto |El tipo de salto de Azure al que debe enviarse el paquete. |Debe ser uno de los siguientes valores:  <br/> **Red virtual**. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16, en la misma red virtual, la ruta de cada una de ellas en la tabla de rutas tendrá un valor de próximo salto de *Red virtual*. <br/> **Puerta de enlace de red virtual**. Representa una puerta de enlace de VPN S2S de Azure. <br/> **Internet**. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure. <br/> **Dispositivo virtual**. Representa un dispositivo virtual agregado a la red virtual de Azure. <br/> **No**. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera. |Considere la posibilidad de usar **Aplicación virtual** para dirigir el tráfico a una máquina virtual o a una dirección IP interna de Azure Load Balancer.  Este tipo permite la especificación de una dirección IP, tal y como se describe a continuación. Considere la posibilidad de usar el tipo **No** para evitar que los paquetes vayan a un destino dado. |
+| Siguiente dirección de salto |La siguiente dirección de salto contiene la dirección IP a la que se deben reenviar los paquetes. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*. |Debe ser una dirección IP accesible dentro de la red virtual donde se aplica la ruta definida por el usuario. |Si la dirección IP representa una máquina virtual, asegúrese de habilitar el [reenvío de IP](#IP-forwarding) en Azure para la máquina virtual. Si la dirección IP representa la dirección IP interna de Azure Load Balancer, asegúrese de que tenga una regla de equilibrio de carga coincidente para cada puerto en el que quiera equilibrar la carga.|
 
 En Azure PowerShell, algunos de los valores de "NextHopType" tienen otros nombres:
 
@@ -100,7 +103,7 @@ Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilit
 > 
 > 
 
-## <a name="ip-forwarding"></a>reenvío de IP
+## <a name="ip-forwarding"></a>Reenvío IP
 Como se describió anteriormente, una de las razones principales para crear una ruta definida por el usuario es reenviar el tráfico a un dispositivo virtual. Un dispositivo virtual no es más que una máquina virtual que ejecuta una aplicación utilizada para controlar el tráfico de red de alguna manera, como un firewall o un dispositivo NAT.
 
 La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP de la máquina virtual. Esta es una opción de configuración de Azure, no de la configuración del sistema operativo invitado.
@@ -108,10 +111,5 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-template.md) y asociarlos a subredes. 
 * Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](virtual-network-create-udr-classic-ps.md) y asociarlos a subredes.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

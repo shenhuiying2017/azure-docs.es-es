@@ -3,7 +3,7 @@ title: "Incorporación de su nombre de dominio personalizado a Azure Active Dire
 description: "Cómo agregar nombres de dominio de la empresa a Azure Active Directory y comprobar el nombre de dominio."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 > 
 > 
 
-Dispone de uno o varios nombres de dominio que su organización usa para su actividad empresarial, y los usuarios inician sesión en la red corporativa mediante su nombre de dominio corporativo. Ahora que usa Azure Active Directory (Azure AD), también puede agregar el nombre de dominio corporativo a Azure AD. Esto permite asignar en el directorio nombres de usuario que resultan familiares a los usuarios, como ‘alice@contoso.com.’ El proceso es sencillo:
+Dispone de uno o varios nombres de dominio que su organización usa para su actividad empresarial, y los usuarios inician sesión en la red corporativa mediante su nombre de dominio corporativo. Ahora que usa Azure Active Directory (Azure AD), también puede agregar el nombre de dominio corporativo a Azure AD. De esta forma puede asignar nombres de usuario en el directorio que resulten familiares para sus usuarios, como "alice@contoso.com". El proceso es simple:
 
 1. Incorporación de nombres de dominio personalizados al directorio
 2. Incorporación de la entrada DNS para el nombre de dominio en el registrador de nombres de dominio
@@ -85,10 +86,5 @@ Si su organización usa varios nombres de dominio personalizados, como 'contoso.
 * [Información general conceptual de nombres de dominio personalizado en Azure Active Directory](active-directory-add-domain-concepts.md)
 * [Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 * [Utilización de PowerShell para administrar los nombres de dominio en Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

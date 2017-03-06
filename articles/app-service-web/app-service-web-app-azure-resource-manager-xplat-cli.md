@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 7a03e1417617453c43edcc3787da10d171359757
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +31,7 @@ Con el lanzamiento de la versión 0.10.5 de las herramientas de línea de comand
 Para más información sobre cómo administrar grupos de recursos, consulte [Uso de la CLI de Azure para administrar los recursos y grupos de recursos de Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md). 
 
 > [!NOTE] 
-> Además, pruebe [Azure CLI 2.0 (versión preliminar)](https://github.com/Azure/azure-cli), una CLI de última generación escrita en Python para el modelo de implementación de administración de recursos.
+> Además, pruebe la [CLI de Azure 2.0](https://github.com/Azure/azure-cli), una CLI de última generación escrita en Python para el modelo de implementación de administración de recursos.
 >
 >
 
@@ -178,9 +179,4 @@ Para eliminar enlaces de nombre de host, use:
 * Para aprender sobre la compatibilidad con la CLI de Azure Resource Manager, consulte [Uso de la CLI de Azure para administrar los recursos y grupos de recursos de Azure.](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
 * Para más información sobre cómo administrar App Service con PowerShell, consulte [Uso de PowerShell basado en Azure Resource Manager para administrar aplicaciones web de Azure.](app-service-web-app-azure-resource-manager-powershell.md)
 * Para más información sobre Azure App Service, consulte [Introducción a App Service en Linux](app-service-linux-intro.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

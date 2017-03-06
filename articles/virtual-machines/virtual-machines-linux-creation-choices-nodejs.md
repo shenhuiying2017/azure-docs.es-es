@@ -10,14 +10,15 @@ tags: azure-resource-manager
 ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cbc3534aa0415a14d8b955dbcd291d2200c276e
-ms.openlocfilehash: 2ffc8d1f8ec924914c624f882bf35a08f0dd5888
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: e038515302acc4871687ad592c44fcf9a352bfe6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ En Azure, tiene la flexibilidad crear una máquina virtual Linux con las herrami
 En Azure se pueden crear máquinas virtuales con cualquiera de las siguientes versiones de la CLI:
 
 - CLI de Azure 1.0: la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0 (versión preliminar)](virtual-machines-linux-creation-choices.md): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0 ](virtual-machines-linux-creation-choices.md): la CLI de última generación para el modelo de implementación de administración de recursos.
 
 La CLI de Azure 1.0 se puede usar en distintas plataformas mediante un paquete de npm, paquetes proporcionados por la distribución o un contenedor de Docker. Puede leer más sobre [cómo instalar y configurar la CLI de Azure](../xplat-cli-install.md). Los siguientes tutoriales proporcionan ejemplos sobre el uso de la CLI de Azure 1.0. Lea cada artículo para más información sobre los comandos de inicio rápido de la CLI mostrados:
 
@@ -130,10 +131,5 @@ Si necesita realizar cambios personalizados específicos, use una imagen basada 
 * Cree una máquina virtual Linux desde el [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con la [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o mediante una [plantilla de Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Después de crear una máquina virtual Linux, [agregue un disco de datos](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pasos rápidos para [restablecer una contraseña o las claves SSH y administrar usuarios](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

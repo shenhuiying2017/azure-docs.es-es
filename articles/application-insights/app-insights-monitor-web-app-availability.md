@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
-ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -78,37 +79,20 @@ Estos gráficos combinan los resultados de todas las pruebas web de esta aplicac
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Si ve errores
 Haga clic en un punto rojo.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-O bien, desplácese hacia abajo y haga clic en una prueba donde vea un éxito de menos del 100%.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Desde un resultado de la prueba web, puede:
 
-Los resultados de esta prueba abierta.
+* Inspeccionar la respuesta recibida desde el servidor.
+* Abrir la telemetría enviada por la aplicación de servidor durante el procesamiento de la instancia de solicitud con error.
+* Registrar un problema o elemento de trabajo en GIT o VSTS para realizar un seguimiento del problema. El error contiene un vínculo a este evento.
+* Abra el resultado de la prueba web en Visual Studio.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
-
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Desplácese hacia abajo hasta las **pruebas con errores** y elija un resultado.
-
-Haga clic en el resultado para evaluarlo en el portal y ver el motivo del error.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-También puede descargar el archivo de resultados e inspeccionarlo en Visual Studio.
 
 *¿Parece que se ha completado correctamente pero se notifica como un error?* Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
 
-### <a name="open-the-server-request-and-exceptions"></a>Abra la solicitud del servidor y las excepciones
-
-En las propiedades detalladas de una prueba determinada, puede abrir el informe del lado servidor de la solicitud y cualquier otro evento, por ejemplo, las excepciones.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Si no ve elementos relacionados, puede deberse a que hay un [muestreo](app-insights-sampling.md) en curso.
+*¿No hay elementos relacionados?* Puede ser porque está funcionando el [muestreo](app-insights-sampling.md).
 
 ## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.
@@ -291,9 +275,4 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
