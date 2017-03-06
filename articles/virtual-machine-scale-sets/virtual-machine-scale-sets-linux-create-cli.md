@@ -1,6 +1,6 @@
 ---
-title: "Conjunto de escalado de máquinas virtuales| Microsoft Docs"
-description: "Creación de un conjunto de escalas de máquina virtual con la CLI de Azure"
+title: "Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0 | Microsoft Docs"
+description: "Aprenda a crear un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -13,20 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2016
+ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 89e8e1dd9524c80e76aea8927bbd0578d475fc39
+ms.sourcegitcommit: 9b2ef23effa32e9b7507ad6e6eb29e97609a2034
+ms.openlocfilehash: e4f12b0d2959a0238753499e7068c930155072d9
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-virtual-machine-scale-set-using-azure-cli"></a>Creación de un conjunto de escalas de máquina virtual Linux con la CLI de Azure
+# <a name="create-a-linux-virtual-machine-scale-set-with-the-azure-cli-20"></a>Creación de un conjunto de escalado de máquinas virtuales Linux con la CLI de Azure 2.0
+
+En este artículo usa la CLI de Azure 2.0. Si quiere usar la CLI de Azure 1.0, consulte [este artículo](./virtual-machine-scale-sets-linux-create-cli-nodejs.md).
+
 [!INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

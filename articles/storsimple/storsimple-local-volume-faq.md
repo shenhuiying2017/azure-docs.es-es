@@ -17,6 +17,7 @@ ms.author: manuaery
 translationtype: Human Translation
 ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
 ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -214,10 +215,5 @@ Más información acerca de las [conmutación por error y la recuperación ante 
 **P.** ¿Puedo conmutar un contenedor de volúmenes con volúmenes anclados localmente en el dispositivo en la nube?
 
 **R.** Sí, puede hacerlo. Los volúmenes anclados localmente se conmutarán por error como volúmenes en capas. Más información acerca de las [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

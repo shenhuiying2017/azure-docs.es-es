@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 31495f402b810c524bd7b906498774302500b732
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -78,7 +79,7 @@ Analicemos estos pasos con más atención para asegurarnos de que entiende el pr
 1. Inicie sesión en su cuenta.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
 2. Cree una nueva aplicación de Active Directory; para ello, proporcione un nombre para mostrar, el URI que describe la aplicación, los URI que identifican la aplicación y la contraseña de la identidad de aplicación.
@@ -152,7 +153,7 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
 4. Inicie sesión como la entidad de servicio especificando que esta cuenta es una entidad de servicio, y proporcione el objeto de credenciales. 
    
    ```powershell
-   Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
+   Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
    ```
    
      Ahora está autenticado como la entidad de servicio para la aplicación de Active Directory que ha creado.
@@ -234,7 +235,7 @@ Ya tiene el certificado y puede continuar con la creación de la aplicación de 
 2. Inicie sesión en la cuenta de Azure.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 3. Cree una nueva aplicación de Active Directory; para ello, proporcione un nombre para mostrar, el URI que describe la aplicación, los URI que identifican la aplicación y la contraseña de la identidad de aplicación.
    
@@ -304,7 +305,7 @@ $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 Para realizar la autenticación en el script, especifique que la cuenta es una entidad de servicio y proporcione la huella digital de certificado, el id. de aplicación y el id. de inquilino. Para automatizar el script, puede almacenar estos valores como variables de entorno y recuperarlos durante la ejecución o puede incluirlos en el script.
 
 ```powershell
-Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 ```
 
 Ahora está autenticado como la entidad de servicio para la aplicación de Active Directory que ha creado.
@@ -363,10 +364,5 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entid
 * Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](../active-directory/active-directory-application-objects.md). 
 * Para obtener más información sobre la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](../active-directory/active-directory-authentication-scenarios.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -60,10 +61,5 @@ Un * significa que es un campo obligatorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

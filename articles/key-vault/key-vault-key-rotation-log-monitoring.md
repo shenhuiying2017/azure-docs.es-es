@@ -17,6 +17,7 @@ ms.author: jodehavi;stgriffi
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -437,9 +438,4 @@ Ahora, cree una acción en la opción **If no, do nothing** (Si no, no hacer nad
 En la acción, elija **Office 365 - send email**(Office 365 - enviar correo electrónico). Rellene los campos para crear el correo electrónico que se enviará cuando la condición definida devuelva **false**. Si no tiene Office 365, puede buscar otras alternativas para conseguir los mismos resultados.
 
 En este momento, tiene una canalización integral que, una vez por minuto, busca nuevos registros de auditoría del almacén de claves. Inserta los nuevos registros que encuentra en una cola de Service Bus. La aplicación lógica se activa cuando un nuevo mensaje llega a la cola. Si el *appid* dentro del evento no coincide con el identificador de la aplicación de la aplicación que llama, envía un correo electrónico.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

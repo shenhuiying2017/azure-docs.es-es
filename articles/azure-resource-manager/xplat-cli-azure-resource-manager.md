@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
 ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -151,10 +152,5 @@ Con la CLI de Azure, puede exportar una plantilla que representa el estado actua
 * Para obtener detalles de las operaciones de implementación y solucionar los errores de implementación con la CLI de Azure, consulte [View deployment operations](resource-manager-deployment-operations.md) (Visualización de operaciones de implementación).
 * Si desea usar la CLI para configurar una aplicación o un script con objeto de obtener acceso a los recursos, consulte [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal-cli.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

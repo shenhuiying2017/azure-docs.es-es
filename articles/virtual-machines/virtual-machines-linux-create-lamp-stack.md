@@ -1,6 +1,6 @@
 ---
-title: "Implementación de LAMP en una máquina virtual Linux | Microsoft Docs"
-description: "Sepa cómo instalar la pila LAMP en una máquina virtual Linux."
+title: "Implementación de LAMP en una máquina virtual Linux en Azure | Microsoft Docs"
+description: Aprender a instalar la pila LAMP en una VM Linux en Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: jluk
@@ -13,148 +13,152 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: NA
 ms.topic: article
-ms.date: 06/07/2016
+ms.date: 2/21/2017
 ms.author: juluk
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 29b295b7e061b16e187db59cdf9b777e12d63034
+ms.sourcegitcommit: 61e8824fe1a63efb215c7be25d3e6d7c1649d8a5
+ms.openlocfilehash: 3709add7fd8d97138fd858e2b260c23300dad378
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="deploy-lamp-stack-on-azure"></a>Implementación de la pila LAMP en Azure
-En este artículo se ofrecen instrucciones paso a paso sobre cómo implementar un servidor web Apache, MySQL y PHP (la pila LAMP) en Azure. Necesitará una cuenta de Azure ([consiga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y la [CLI de Azure](../xplat-cli-install.md) que esté [conectada a su cuenta de Azure](../xplat-cli-connect.md).
-
-En este artículo explicamos dos métodos para instalar LAMP:
+En este artículo se ofrecen instrucciones paso a paso sobre cómo implementar un servidor web Apache, MySQL y PHP (la pila LAMP) en Azure. Necesita una cuenta de Azure ([obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y la [CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2). También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](virtual-machines-linux-create-lamp-stack-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-command-summary"></a>Resumen rápido de comandos
-1) Implementar LAMP en una nueva máquina virtual
 
-```
-# One command to create a resource group holding a VM with LAMP already on it
-$ azure group create -n uniqueResourceGroup -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
-```
+1. Guarde y edite el [archivo azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) según sus preferencias en la máquina local.
+2. Ejecute los dos comandos siguientes para crear un grupo de recursos y luego implemente la plantilla:
 
-2) Implementar LAMP en una máquina virtual existente
-
-```
-# Two commands: one updates packages, the other installs Apache, MySQL, and PHP
-user@ubuntu$ sudo apt-get update
-user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+```azurecli
+az group create -l westus -n myResourceGroup
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
 ```
 
-## <a name="deploy-lamp-on-new-vm-walkthrough"></a>Tutorial de implementación de LAMP en una nueva máquina virtual
-Para empezar, cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) que contendrá la máquina virtual:
+### <a name="deploy-lamp-on-existing-vm"></a>Implementar LAMP en una máquina virtual existente
+El siguiente comando actualiza paquetes y luego instala Apache, MySQL y PHP:
 
-    $ azure group create uniqueResourceGroup westus
-    info:    Executing command group create
-    info:    Getting resource group uniqueResourceGroup
-    info:    Creating resource group uniqueResourceGroup
-    info:    Created resource group uniqueResourceGroup
-    data:    Id:                  /subscriptions/########-####-####-####-############/resourceGroups/uniqueResourceGroup
-    data:    Name:                uniqueResourceGroup
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: null
-    data:
-    info:    group create command OK
+```bash
+sudo apt-get update
+sudo apt-get install apache2 mysql-server php5 php5-mysql
+```
 
+## <a name="deploy-lamp-on-new-vm-walkthrough"></a>Tutorial de implementación de LAMP en una nueva VM
+
+1. Cree un grupo de recursos con [az group create](/cli/azure/group#create) para que contenga la nueva VM:
+
+```azurecli
+az group create -l westus -n myResourceGroup
+```
 Para crear la máquina virtual, puede usar una de las plantillas de Azure Resource Manager que se encuentran [en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
 
-    $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
+2. Guarde el [archivo azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) en la máquina local.
+3. Edite el archivo **azuredeploy.parameters.json** según estime oportuno.
+4. Implemente la plantilla con [az group deployment create] remitiéndose al archivo json descargado:
 
-Debería obtener una respuesta en la que se pide introducir algunos datos más:
+```azurecli
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
+```
 
-    info:    Executing command group deployment create
-    info:    Supply values for the following parameters
-    storageAccountNamePrefix: lampprefix
-    location: westus
-    adminUsername: someUsername
-    adminPassword: somePassword
-    mySqlPassword: somePassword
-    dnsLabelPrefix: azlamptest
-    info:    Initializing template configurations and parameters
-    info:    Creating a deployment
-    info:    Created template deployment "uniqueLampName"
-    info:    Waiting for deployment to complete
-    data:    DeploymentName     : uniqueLampName
-    data:    ResourceGroupName  : uniqueResourceGroup
-    data:    ProvisioningState  : Succeeded
-    data:    Timestamp          :
-    data:    Mode               : Incremental
-    data:    CorrelationId      : d51bbf3c-88f1-4cf3-a8b3-942c6925f381
-    data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
-    data:    ContentVersion     : 1.0.0.0
-    data:    DeploymentParameters :
-    data:    Name                      Type          Value
-    data:    ------------------------  ------------  -----------
-    data:    storageAccountNamePrefix  String        lampprefix
-    data:    location                  String        westus
-    data:    adminUsername             String        someUsername
-    data:    adminPassword             SecureString  undefined
-    data:    mySqlPassword             SecureString  undefined
-    data:    dnsLabelPrefix            String        azlamptest
-    data:    ubuntuOSVersion           String        14.04.2-LTS
-    info:    group deployment create command OK
+La salida es similar a la del ejemplo siguiente:
 
-Ahora ha creado una máquina virtual Linux con la pila LAMP ya instalada. Si lo desea, puede comprobar la instalación pasando directamente a la sección [Comprobación de que la pila LAMP se haya instalado correctamente].
+```json
+{
+"id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/azuredeploy",
+"name": "azuredeploy",
+"properties": {
+    "correlationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "debugSetting": null,
+}
+...
+"provisioningState": "Succeeded",
+"template": null,
+"templateLink": {
+    "contentVersion": "1.0.0.0",
+    "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json"
+    },
+    "timestamp": "2017-02-22T00:05:51.860411+00:00"
+},
+"resourceGroup": "myResourceGroup"
+}
+```
 
-## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>Tutorial de implementación de LAMP en una máquina virtual existente
-Si necesita ayuda con el proceso de creación de una máquina virtual Linux, puede visitar [esta página para aprender a hacerlo](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). A continuación, necesitará acceder mediante SSH a la máquina virtual Linux. Si necesita ayuda con el proceso de creación de una clave SSH, puede visitar [esta página para aprender a hacerlo en Linux o Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-Si ya tiene una clave SSH, continúe y acceda mediante SSH a la máquina virtual Linux con `ssh username@uniqueDNS`.
+Ahora ha creado una máquina virtual Linux con la pila LAMP ya instalada. Si lo desea, puede comprobar la instalación pasando directamente a la sección [Comprobación de que LAMP se ha instalado correctamente](#verify-lamp-successfully-installed).
 
-Ahora que ya puede entrar en la máquina virtual Linux para trabajar, le enseñaremos a instalar paso a paso la pila LAMP en distribuciones basadas en Debian. Los comandos exactos podrían ser diferentes en otras distribuciones de Linux.
+## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>Tutorial de implementación de LAMP en una VM existente
+Si necesita ayuda con el proceso de creación de una VM Linux, puede visitar [esta página para aprender a hacerlo](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli). A continuación, necesita acceder mediante SSH a la VM Linux. Si necesita ayuda con el proceso de creación de una clave SSH, puede visitar [esta página para aprender a hacerlo en Linux o Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si ya tiene una clave SSH, continúe y acceda mediante SSH desde la línea de comandos a la VM Linux con `ssh azureuser@mypublicdns.westus.cloudapp.azure.com`.
+
+Ahora que ya puede entrar en la VM Linux para trabajar, le enseñaremos a instalar paso a paso la pila LAMP en distribuciones basadas en Debian. Los comandos exactos podrían ser diferentes en otras distribuciones de Linux.
 
 #### <a name="installing-on-debianubuntu"></a>Instalación en Debian y Ubuntu
-Necesitará tener instalados los siguientes paquetes: `apache2`, `mysql-server`, `php5` y `php5-mysql`. Puede instalarlos directamente o mediante Tasksel. A continuación, se muestran las instrucciones para ambas opciones.
+Necesitará tener instalados los siguientes paquetes: `apache2`, `mysql-server`, `php5` y `php5-mysql`. Puede instalarlos directamente o mediante Tasksel.
 Antes de instalarlos, debe descargar y actualizar las listas de paquetes.
 
-    user@ubuntu$ sudo apt-get update
+```bash
+sudo apt-get update
+```
 
 ##### <a name="individual-packages"></a>Paquetes individuales
 Uso de apt-get:
 
-    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+```bash
+sudo apt-get install apache2 mysql-server php5 php5-mysql
+```
 
-##### <a name="using-tasksel"></a>Uso de Tasksel
+##### <a name="using-tasksel"></a>Uso de tasksel
 Como alternativa, puede descargar Tasksel, una herramienta de Debian y Ubuntu que instala varios paquetes relacionados como una tarea coordinada en el sistema.
 
-    user@ubuntu$ sudo apt-get install tasksel
-    user@ubuntu$ sudo tasksel install lamp-server
+```bash
+sudo apt-get install tasksel
+sudo tasksel install lamp-server
+```
 
-Tras ejecutar cualquiera de las dos opciones anteriores, se le pedirá que instale estos paquetes y una serie de dependencias. Pulse 'y' seguido por 'Enter' para continuar, y siga cualquier otra instrucción que aparezca para establecer un contraseña administrativa para MySQL. Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. 
+Tras ejecutar una de las opciones anteriores, se le pedirá que instale estos paquetes y una serie de dependencias. Para establecer un contraseña administrativa para MySQL, presione 'y' seguido de 'Intro' para continuar y siga cualquier otra instrucción que aparezca. Este proceso instala las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. 
 
 ![][1]
 
 Ejecute el siguiente comando para ver otras extensiones PHP disponibles como paquetes:
 
-    user@ubuntu$ apt-cache search php5
-
+```bash
+apt-cache search php5
+```
 
 #### <a name="create-infophp-document"></a>Creación de documento info.php
 Ahora podrá comprobar qué versión de Apache, MySQL y PHP tiene a través de la línea de comandos. Para ello, escriba `apache2 -v`, `mysql -v` o `php -v`.
 
-Si desea realizar más pruebas, puede crear una página PHP de información rápida para verla en un explorador. Cree un nuevo archivo con el editor de texto Nano ejecutando este comando:
+Si desea realizar más pruebas, puede crear una página PHP de información rápida para verla en un explorador. Cree un archivo con el editor de texto Nano ejecutando este comando:
 
-    user@ubuntu$ sudo nano /var/www/html/info.php
+```bash
+sudo nano /var/www/html/info.php
+```
 
 En el editor de texto GNU Nano, agregue las siguientes líneas:
 
-    <?php
-    phpinfo();
-    ?>
+```php
+<?php
+phpinfo();
+?>
+```
 
 Después, guarde y salga del editor de texto.
 
 Reinicie Apache con este comando para que todas las nuevas instalaciones surtan efecto.
 
-    user@ubuntu$ sudo service apache2 restart
+```bash
+sudo service apache2 restart
+```
 
-## <a name="verify-lamp-successfully-installed"></a>Comprobación de que la pila LAMP se haya instalado correctamente
-Ahora puede comprobar la página PHP de información que acaba de crear en el explorador visitando http://suDNSúnica/info.php. Debería ser parecida a la siguiente.
+## <a name="verify-lamp-successfully-installed"></a>Comprobación de que LAMP se ha instalado correctamente
+Ahora puede comprobar la página de información PHP que creó abriendo un explorador y yendo a http://youruniqueDNS/info.php. Debe tener un aspecto similar a esta imagen.
 
 ![][2]
 
-Puede comprobar la instalación de Apache visitando la página predeterminada de Apache2 en Ubuntu (http://suDNSúnica/info.php). Puede ver algo parecido a lo siguiente:
+Puede comprobar la instalación de Apache visitando la página predeterminada de Apache2 en Ubuntu (http://suDNSúnica/info.php). La salida es similar a la del ejemplo siguiente:
 
 ![][3]
 
@@ -168,9 +172,4 @@ Consulte la documentación de Ubuntu relacionada con la pila LAMP:
 [1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
 [3]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

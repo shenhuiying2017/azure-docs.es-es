@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 6187106a9aa98107d89e65fe4c7a0e8a27befa87
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -254,9 +255,4 @@ Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster d
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

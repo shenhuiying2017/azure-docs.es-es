@@ -3,8 +3,8 @@ title: "Preguntas más frecuentes (P+F) sobre los discos de máquina virtual de 
 description: "Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium (administrados y no administrados)"
 services: storage
 documentationcenter: 
-author: ramankumarlive
-manager: aungoo-msft
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0746c954e669bd739b8ecfcddaf287cb5172877f
-ms.openlocfilehash: 95b627738726f3c108fff38bfeda413303b2c718
+ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
+ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -120,6 +121,48 @@ Sí.
 
 Actualmente, Azure Managed Disks solo admite almacenamiento con redundancia local (LRS).
 
+## <a name="managed-disks-and-port-8443"></a>Managed Disks y puerto 8443
+
+**¿Por qué los clientes tienen que desbloquear el tráfico saliente en el puerto 8443 para VM con Azure Managed Disks?**
+
+El agente de VM de Azure usa el puerto 8443 para informar del estado de cada extensión de VM a la plataforma de Azure. Si este puerto no se desbloquea, el agente de VM no podrá informar del estado de ninguna extensión de VM. Para más información sobre el agente de VM, consulte [Información general del agente de máquina virtual de Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+
+**¿Qué ocurre si una VM se implementa con extensiones y el puerto no se desbloquea?**
+
+La implementación generará un error. 
+
+**¿Qué ocurre si una VM se implementa sin extensiones y el puerto no se desbloquea?**
+
+La implementación no se verá afectada. 
+
+**¿Qué ocurre si una extensión se instala en una VM que ya está aprovisionado y en ejecución y dicha VM no tiene el puerto 8443 desbloqueado?**
+
+La extensión no se implementará correctamente. El estado de la extensión se desconocerá. 
+
+**¿Qué ocurre si se usa una plantilla de ARM para aprovisionar varias VM con el puerto 8443 bloqueado, una VM con extensiones y una segunda VM dependiente de la primera VM?**
+
+La primera VM se mostrará como una implementación con error porque las extensiones no se implementaron correctamente. La segunda VM no se implementará. 
+
+**¿Se aplicará este requisito del puerto desbloqueado a todas las extensiones de VM?**
+
+Sí.
+
+**¿Deben estar desbloqueadas tanto las conexiones entrantes como las conexiones salientes en el puerto 8443?**
+
+No. Solamente las conexiones salientes tienen que estar desbloqueadas en el puerto 8443. 
+
+**¿Es necesario tener conexiones salientes en el puerto 8443 desbloqueado durante todo el ciclo de vida de la VM?**
+
+Sí.
+
+**¿Afecta al rendimiento de la VM el hecho de tener este puerto desbloqueado?**
+
+No.
+
+**¿Hay una fecha estimada para la corrección de este problema de forma que ya no sea necesario desbloquear el puerto 8443?**
+
+Sí, a finales de mayo de 2017.
+
 ## <a name="premium-disks--both-managed-and-unmanaged"></a>Discos premium: tanto administrados como no administrados
 
 **Si una máquina virtual usa una serie de tamaño que admite Premium Storage, como DSv2, ¿puedo conectar discos de datos tanto premium como estándar?** 
@@ -151,8 +194,3 @@ El SSD local es un almacenamiento temporal que se incluye con una máquina virtu
 Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta. Puede publicar una pregunta al final de este artículo en los comentarios o en el [foro de Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) en MSDN para ponerse en contacto con el equipo de Azure Storage y otros miembros de la comunidad sobre este artículo.
 
 Para presentar una solicitud de característica, envíe sus solicitudes e ideas al [foro de comentarios de Azure Storage](https://feedback.azure.com/forums/217298-storage).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

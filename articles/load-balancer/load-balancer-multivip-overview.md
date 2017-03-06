@@ -17,6 +17,7 @@ ms.author: chkuhtz
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -135,9 +136,4 @@ El tipo de regla de dirección IP flotante es el fundamento de varios modelos de
 * Con la regla de dirección IP flotante, la aplicación debe utilizar la DIP para los flujos salientes. Si la aplicación se enlaza a la dirección IP virtual configurada en la interfaz de bucle invertido en el sistema operativo invitado, a continuación, SNAT no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.
 * Las direcciones IP públicas repercuten en la facturación. Para obtener más información, vea [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Se aplican los límites de suscripción. Para más información, vea los [límites de servicio](../azure-subscription-service-limits.md#networking-limits) .
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 91eb30aaa1ab3891d8e97d48a9a0fe9fa9b2b82b
-ms.openlocfilehash: 3130104427b2a1873690617c6d726375c89876cf
+ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
+ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -79,8 +80,8 @@ La comunicación B2B implica el intercambio de mensajes entre dos aplicaciones o
 | Remitente | Asociado invitado que se define en la configuración de recepción o asociado anfitrión que se define en la configuración de envío de un contrato AS2. |
 | Receptor | Asociado anfitrión que se define en la configuración de recepción o asociado invitado que se define en la configuración de envío de un contrato AS2. |
 | Aplicación lógica | Aplicación lógica donde se configuran las acciones AS2. |
-| Estado | Estado del mensaje AS2. Operación correcta = Se ha recibido o enviado un mensaje AS2 bueno, no hay MDN configurada; Operación correcta = Se ha recibido o enviado un mensaje AS2 bueno, MDN configurada y recibida o MDN enviada; Error = Se ha recibido un mensaje AS2 malo, no hay MDN configurada; Pendiente = Se ha recibido o enviado un mensaje de AS2 bueno, MDN configurada y en espera de una confirmación funcional. |
-| Ack | Estado del mensaje MDN. |
+| Estado | Estado del mensaje AS2 <br>Correcto = Se ha recibido o enviado un mensaje AS2 bueno; MDN sin configurar <br>Correcto = Se ha recibido o enviado un mensaje AS2 bueno; MDN se ha configurado y recibido o se ha enviado MDN <br>Error = Se ha recibido un mensaje AS2 malo; MDN sin configurar <br>Pendiente = Se ha recibido o enviado un mensaje AS2 bueno; MDN se ha configurado y se espera una confirmación funcional |
+| Ack | Estado del mensaje MDN. <br>Aceptado = Se ha recibido o enviado una MDN positiva <br>Pendiente = Esperando a recibir o enviar una MDN <br>Rechazado = Se ha recibido o enviado una MDN negativa <br>No necesario = MDN no se ha configurado en el contrato |
 | Dirección | Dirección del mensaje AS2. |
 | Id. de correlación | Identificador para poner en correlación todos los desencadenadores y acciones dentro de una aplicación lógica. |
 | Id. de mensaje |  Identificador del mensaje AS2, de los encabezados del mensaje AS2. |
@@ -93,8 +94,8 @@ La comunicación B2B implica el intercambio de mensajes entre dos aplicaciones o
 | Remitente | Asociado invitado que se define en la configuración de recepción o asociado anfitrión que se define en la configuración de envío de un contrato AS2. |
 | Receptor | Asociado anfitrión que se define en la configuración de recepción o asociado invitado que se define en la configuración de envío de un contrato AS2. |
 | Aplicación lógica | Aplicación lógica donde se configuran las acciones AS2. |
-| Estado | Estado del mensaje X12. Operación correcta = Se ha recibido o enviado un mensaje X12 bueno, no hay confirmación funcional configurada; Operación correcta = Se ha recibido o enviado un mensaje X12 bueno, confirmación funcional configurada y recibida o se ha enviado una confirmación funcional; Error = Se ha recibido un mensaje X12 malo; Pendiente = Se ha recibido o enviado un mensaje X12 bueno, confirmación funcional configurada y en espera de una confirmación funcional. |
-| Ack | Estado de confirmación funcional (997).  Aceptada = Se ha recibido o enviado una confirmación funcional positiva; Rechazada = Se ha recibido o enviado una confirmación funcional negativa; Pendiente = Se esperaba una confirmación funcional pero no se recibió; Pendiente = Se generó una confirmación funcional, pero no se pudo enviar al asociado. |
+| Estado | Estado del mensaje X12 <br>Correcto = Se ha recibido o enviado un mensaje X12 bueno; no se ha configurado una confirmación funcional <br>Correcto = Se ha recibido o enviado un mensaje X12 bueno; se ha configurado y recibido una confirmación funcional o se ha enviado una confirmación funcional <br>Error = Se ha recibido o enviado un mensaje X12 malo <br>Pendiente = Se ha recibido o enviado un mensaje X12 bueno; se ha configurado una confirmación funcional y se espera una confirmación funcional. |
+| Ack | Estado de confirmación funcional (997) <br>Aceptada = Se ha recibido o enviado una confirmación funcional positiva <br>Rechazada = Se ha recibido o enviado una confirmación funcional negativa <br>Pendiente = Se esperaba una confirmación funcional, pero no se recibió <br>Pendiente = Confirmación funcional generada, pero no se pudo enviar al asociado <br>No necesaria = No se ha configurado una confirmación funcional |
 | Dirección | Dirección del mensaje X12. |
 | Id. de correlación | Identificador para poner en correlación todos los desencadenadores y acciones dentro de una aplicación lógica. |
 | Tipo de mensaje |  Tipo de mensaje EDI X12. |
@@ -130,9 +131,4 @@ En la página de búsqueda, puede crear una consulta. Al realizar una búsqueda,
 [Esquema de seguimiento de AS2](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
 [Esquema de seguimiento de X12](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
 [Más información acerca de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

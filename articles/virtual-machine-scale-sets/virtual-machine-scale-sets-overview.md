@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Información general de conjuntos de escala de máquinas virtuales
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
 Los conjuntos de escala de máquinas virtuales son un recurso de Proceso de Azure que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escala de máquinas virtuales están diseñados para admitir el escalado automático verdadero (no es necesario aprovisionar las máquinas virtuales antes) y, por tanto, facilitan la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
 
 Para las aplicaciones que necesiten escalar y reducir horizontalmente los recursos de proceso, las operaciones de escala se equilibran implícitamente en dominios de actualización y de error. Para ver una introducción a los conjuntos de escalado de máquinas virtuales, consulte el [anuncio en el blog de Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 **P.** ¿Funcionan los conjuntos de escala de máquinas virtuales con los conjuntos de disponibilidad de Azure?
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con cinco dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. Los conjuntos de escalado de más de 100 máquinas virtuales abarcan varios "grupos de ubicación", que son equivalentes a varios conjuntos de disponibilidad. En la misma red virtual puede existir un conjunto de disponibilidad de máquinas virtuales como un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control, que a menudo necesitan una configuración única en el conjunto de disponibilidad, y nodos de datos en el conjunto de escalado.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
