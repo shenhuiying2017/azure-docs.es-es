@@ -16,44 +16,38 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 translationtype: Human Translation
-ms.sourcegitcommit: c7f552825f3230a924da6e5e7285e8fa7fa42842
-ms.openlocfilehash: 541709ca17b96f8334e67dbdbbd9a10eefffa06b
+ms.sourcegitcommit: bb4f7c4977de290e6e148bbb1ae8b28791360f96
+ms.openlocfilehash: 1a385de3c00b9288d9e1245f04969a9099bf5b45
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-metadata-service---scheduled-events"></a>Azure Metadata Service: Eventos programados
+# <a name="azure-metadata-service---scheduled-events-preview"></a>Azure Metadata Service: eventos programados (versión preliminar)
 
-Azure Metadata Service le permite descubrir información sobre una máquina virtual hospedada en Azure. Eventos programados, una de las categorías expuestas, muestra información relacionada con próximos eventos (por ejemplo, un reinicio) para que la aplicación se pueda preparar y limitar la interrupción. Está disponible para todos los tipos de máquina virtual de Azure, incluso para IaaS y PaaS. El servicio permite que la máquina virtual tenga el tiempo para realizar tareas de prevención y minimizar el efecto de un evento. Por ejemplo, el servicio podría purgar las sesiones, elegir un líder nuevo o copiar datos después de observar que una instancia está programada para reinicio a fin de evitar la interrupción.
+> [!NOTE] 
+> Las versiones preliminares están a su disposición con la condición de que acepte los términos de uso. Para más información, consulte [Términos de uso complementarios de las Vistas Previas de Microsoft Azure.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
+>
 
+Eventos programados es uno de los servicios secundarios bajo Azure Metadata Service que muestra información relacionada con próximos eventos (por ejemplo, un reinicio) para que la aplicación se pueda preparar y limitar la interrupción. Está disponible para todos los tipos de máquina virtual de Azure, incluso para IaaS y PaaS. Eventos programados permite que la máquina virtual tenga tiempo para realizar tareas de prevención y minimizar el efecto de un evento. 
 
 
 ## <a name="introduction---why-scheduled-events"></a>Introducción: ¿Por qué Eventos programados?
 
-Con Eventos programados, puede obtener información (es decir, descubrir) sobre eventos próximos que puedan afectar la disponibilidad de la máquina virtual y tomar medidas proactivas para limitar el impacto en el servicio.
-Las cargas de trabajo de varias instancias, que usan técnicas de replicación para mantener el estado, pueden ser vulnerables a las interrupciones frecuentes que se producen en varias instancias. Esas interrupciones pueden dar lugar a tareas costosas (por ejemplo, volver a elaborar los índices) o, incluso, a una pérdida de las réplicas.
-En muchos otros casos, usar una secuencia de cierre estable mejora la disponibilidad general del servicio. Por ejemplo, completar (o cancelar) transacciones en curso, reasignar otras tareas a otras máquinas virtuales en el clúster (conmutación por error manual) o quitar la máquina virtual de un grupo de equilibradores de carga.
-Hay casos en los que notificar a un administrador sobre un evento próximo o incluso simplemente registrar dicho evento puede mejorar el mantenimiento de las aplicaciones hospedadas en la nube.
-
-Azure Metadata Service muestra los eventos programados en los siguientes casos de uso:
--   Mantenimiento "de alto impacto" iniciado por la plataforma (por ejemplo, la implementación del sistema operativo del host).
--   Mantenimiento "sin impacto" iniciado por la plataforma (por ejemplo, la migración de la máquina virtual local).
--   Llamadas interactivas (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual).
-
+Con Eventos programados, puede tomar medidas para limitar el impacto en el servicio. Las cargas de trabajo de varias instancias, que usan técnicas de replicación para mantener el estado, pueden ser vulnerables a las interrupciones frecuentes que se producen en varias instancias. Esas interrupciones pueden dar lugar a tareas costosas (por ejemplo, volver a elaborar los índices) o, incluso, a una pérdida de las réplicas. En muchos otros casos, usar una secuencia de cierre estable mejora la disponibilidad general del servicio. Por ejemplo, completar (o cancelar) transacciones en curso, reasignar otras tareas a otras máquinas virtuales en el clúster (conmutación por error manual) o quitar la máquina virtual de un grupo de equilibradores de carga. Hay casos en los que notificar a un administrador sobre un evento próximo o incluso simplemente registrar dicho evento puede mejorar el mantenimiento de las aplicaciones hospedadas en la nube.
+Azure Metadata Service muestra Eventos programados en los siguientes casos de uso:
+-    Mantenimiento iniciado por la plataforma (por ejemplo, la implementación del SO del host)
+-    Llamadas iniciadas por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una VM)
 
 
 ## <a name="scheduled-events---the-basics"></a>Eventos programados: conceptos básicos  
 
 Azure Metadata Service expone información sobre las máquinas virtuales en ejecución mediante un punto de conexión de REST desde dentro de la máquina virtual. La información se encuentra disponible a través de una dirección IP no enrutable, de modo que no se expone fuera de la máquina virtual.
 
-### <a name="scope"></a>Scope 
-Los eventos programados se presentan a todas las máquinas virtuales en un servicio en la nube o a todas las máquinas virtuales en un conjunto de disponibilidad. Como resultado, debe revisar el campo **Recursos** del evento para identificar cuáles son las máquinas virtuales que se verán afectadas.
+### <a name="scope"></a>Scope
+Los eventos programados se presentan a todas las máquinas virtuales en un servicio en la nube o a todas las máquinas virtuales en un conjunto de disponibilidad. Como resultado, debe revisar el campo **Recursos** del evento para identificar cuáles son las máquinas virtuales que se verán afectadas. 
 
 ### <a name="discover-the-endpoint"></a>Detección del punto de conexión
-Cuando una máquina virtual se crea dentro de una red virtual (VNet), el servicio de metadatos está disponible desde la dirección IP no enrutable: 169.254.169.254
-
-Cuando una máquina virtual se usa para los servicios en la nube (PaaS), el punto de conexión del servicio de metadatos se debe detectar mediante el registro.
-
-    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+En el caso donde se crea una máquina virtual dentro de una red virtual (VNet), el servicio de metadatos está disponible en la dirección IP no enrutable 169.254.169.254. De lo contrario, en los casos predeterminados para los servicios en la nube y las VM clásicas, es necesaria una lógica adicional para detectar el punto de conexión que se va a utilizar. Consulte este ejemplo para aprender a [detectar el punto de conexión del host.] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### <a name="versioning"></a>Control de versiones 
 El servicio de metadatos usa una API con versión en el formato siguiente: http://{dirección ip}/metadata/{versión}/scheduledevents. Se recomienda que el servicio use la versión más reciente disponible en: http://{dirección ip}/metadata/latest/scheduledevents
@@ -62,8 +56,11 @@ El servicio de metadatos usa una API con versión en el formato siguiente: http:
 Cuando consulta el Servicio de metadatos, debe proporcionar el siguiente encabezado*Metadata: true*. 
 
 ### <a name="enable-scheduled-events"></a>Habilitación de eventos programados
-La primera vez que llama a los eventos programados, Azure habilita de manera implícita la característica en la máquina virtual. Como resultado, debe esperar una respuesta diferida en hasta un minuto en la primera llamada. 
+La primera vez que llama a los eventos programados, Azure habilita de manera implícita la característica en la máquina virtual. Como resultado, debe esperar una respuesta diferida de hasta dos minutos en la primera llamada.
 
+### <a name="testing-your-logic-with-user-initiated-operations"></a>Prueba de la lógica con operaciones iniciadas por el usuario
+Para probar la lógica, puede usar Azure Portal, la API, la CLI o PowerShell para iniciar operaciones que dan lugar a eventos programados. El reinicio de una máquina virtual da lugar a un evento programado con un tipo de evento igual a Reboot. La nueva implementación de una máquina virtual da lugar a un evento programado con un tipo de evento igual a Redeploy.
+En ambos casos, la operación iniciada por el usuario tarda más tiempo en completarse, porque los eventos programados dan más tiempo a una aplicación para que se cierre correctamente. 
 
 ## <a name="using-the-api"></a>Uso de la API
 
@@ -76,10 +73,11 @@ Una respuesta contiene una matriz de eventos programados. Una matriz vacía sign
 En caso de que haya eventos programados, la respuesta contiene una matriz de eventos: 
 
     {
+     "DocumentIncarnation":{IncarnationID},
      "Events":[
           {
                 "EventId":{eventID},
-                "EventType":"Reboot" | "Redeploy" | "Pause",
+                "EventType":"Reboot" | "Redeploy" | "Freeze",
                 "ResourceType":"VirtualMachine",
                 "Resources":[{resourceName}],
                 "EventStatus":"Scheduled" | "Started",
@@ -89,7 +87,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
     }
 
 EventType captura el impacto esperado en la máquina virtual donde:
-- Pause: la máquina virtual está programada para pausarse por unos segundos. No hay ningún impacto en la memoria, los archivos abiertos ni las conexiones de red.
+- Freeze: la máquina virtual está programada para pausarse durante unos segundos. No hay ningún impacto en la memoria, los archivos abiertos ni las conexiones de red.
 - Reboot: la máquina virtual está programada para reiniciarse (se borra la memoria).
 - Redeploy: la máquina virtual está programada para moverse a otro nodo (el disco efímero se pierde). 
 
@@ -136,7 +134,7 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 
 
 ## <a name="c-sample"></a>Ejemplo de C\# 
-El código siguiente es de un cliente que muestra API para comunicarse con el Servicio de metadatos
+El ejemplo siguiente es de un cliente que muestra API para comunicarse con Metadata Service:
 ```csharp
    public class ScheduledEventsClient
     {
@@ -304,9 +302,4 @@ if __name__ == '__main__':
 ```
 ## <a name="next-steps"></a>Pasos siguientes 
 [Mantenimiento planeado de máquinas virtuales en Azure](./virtual-machines-linux-planned-maintenance.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

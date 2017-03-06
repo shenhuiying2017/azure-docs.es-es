@@ -1,5 +1,5 @@
 ---
-title: "Creación de la primera aplicación de Service Fabric en Visual Studio | Microsoft Docs"
+title: "Creación de la primera aplicación de microservicios de Azure | Microsoft Docs"
 description: "Creación, implementación y depuración de una aplicación de Service Fabric con Visual Studio"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
-ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -36,7 +37,7 @@ Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](se
 ## <a name="video-walkthrough"></a>Tutorial en vídeo
 El siguiente vídeo le guía a través de los pasos de este tutorial:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +123,19 @@ De forma predeterminada, el clúster de desarrollo local está configurado para 
 
 El clúster de desarrollo se restablece al cambiar el modo del clúster y todas las aplicaciones aprovisionadas o en funcionamiento en el clúster se eliminan.
 
+También puede cambiar el modo de clúster mediante PowerShell:
+
+1. Inicie una ventana nueva de PowerShell como administrador.
+2. Ejecute el script de instalación del clúster desde la carpeta del SDK:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    La instalación del clúster tardará unos instantes. Una vez finalizada la instalación, debería ver una salida similar a esta:
+   
+    ![Salida de instalación de clúster][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Limpiar
 Antes de concluir, es importante recordar que el clúster local es real. La detención del depurador elimina la instancia de la aplicación y anula el registro del tipo de aplicación. No obstante, el clúster se sigue ejecutando en segundo plano. Tiene varias opciones para administrar el clúster:
 
@@ -150,9 +164,5 @@ Antes de concluir, es importante recordar que el clúster local es real. La dete
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 

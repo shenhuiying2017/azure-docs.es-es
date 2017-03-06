@@ -1,5 +1,5 @@
 ---
-title: "Configuración del entorno de desarrollo | Microsoft Docs"
+title: "Configuración de un entorno de desarrollo para microservicios de Azure | Microsoft Docs"
 description: "Instale las herramientas, el SDK y el motor en tiempo de ejecución y cree un clúster de desarrollo local. Después de completar esta instalación, estará listo para crear aplicaciones."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 02/14/2017
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
+ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -37,6 +38,7 @@ Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 * Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,29 +46,33 @@ Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Instalar el motor en tiempo de ejecución, el SDK y las herramientas
-El instalador de plataforma web ofrece dos configuraciones para el desarrollo de Service Fabric:
+## <a name="install-the-sdk-and-tools"></a>Instalación de SDK y herramientas
+### <a name="to-use-visual-studio-2017-rc"></a>Para usar Visual Studio 2017 RC
+Las herramientas de Service Fabric forman parte de la carga de trabajo de Azure Development and Management de Visual Studio 2017 RC. Habilite esta carga de trabajo durante la instalación de Visual Studio.
+Además, debe instalar el SDK de Microsoft Azure Service Fabric mediante el Instalador de plataforma web.
 
-Visual Studio 2017 (se debe instalar Azure Development y Management Workload):
+* [Instalación del SDK de Microsoft Azure Service Fabric][core-sdk]
 
-* [Instalar el entorno de tiempo de ejecución de Service Fabric y el SDK (sin las herramientas de Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Para utilizar Visual Studio 2015 (es necesario usar Visual Studio 2015 Update 2 o versiones posteriores)
+En Visual Studio 2015, las herramientas de Service Fabric se instalan con el SDK mediante el Instalador de plataforma web:
 
-Visual Studio 2015 (requiere Visual Studio 2015 Update 2 o posterior):
+* [Instalación del SDK y las herramientas de Microsoft Azure Service Fabric][full-bundle-vs2015]
 
-* [Instalar el entorno de tiempo de ejecución, el SDK y las herramientas de Service Fabric][full-bundle-vs2015]
-* [Instalar solo el entorno de tiempo de ejecución y el SDK de Service Fabric (sin herramientas de Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Para instalar solamente el SDK
+Si únicamente necesita el SDK, puede instalar este paquete:
+* [Instalación del SDK de Microsoft Azure Service Fabric][core-sdk]
 
 > [!WARNING]
-> Los clientes han notificado errores durante la instalación al usar estos vínculos de inicio o cuando estos vínculos se usan en el explorador Chrome. Estos son problemas conocidos del Instalador de plataforma web que se están solucionando.  Como alternativa, intente una de estas opciones:
+> Los clientes han notificado errores durante la instalación al usar estos vínculos de inicio o cuando estos vínculos se usan en el explorador Chrome. Estos errores son problemas conocidos del Instalador de plataforma web que se están solucionando.  Pruebe estas soluciones alternativas:
 >- Inicie los vínculos anteriores en Internet Explorer o Edge.
 >- Inicie el Instalador de plataforma web desde el menú Inicio, busque "Service Fabric" e instale el SDK.
 > 
 > Sentimos las molestias. 
 
 Las versiones actuales son:
-* SDK de Service Fabric 2.4.145
-* Entorno de tiempo de ejecución de Service Fabric 5.4.145
-* Herramientas de Visual Studio 2015 1.4.41209
+* SDK de Service Fabric 2.4.164
+* Entorno de tiempo de ejecución de Service Fabric 5.4.164
+* Herramientas de Visual Studio 2015 1.4.50124
 
 Para obtener una lista de las versiones admitidas, consulte [Compatibilidad con Service Fabric](service-fabric-support.md).
 
@@ -94,9 +100,4 @@ Ahora que ha terminado la configuración del entorno de desarrollo, puede empeza
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Vínculo de WebPI de Dev15"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Vínculo de WebPI de SDK de núcleo"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

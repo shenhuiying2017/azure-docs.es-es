@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 02/16/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
-ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
+ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
+ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -30,7 +31,7 @@ Ahora que hemos determinado que se usa una instancia local del Servidor Multi-Fa
 Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través de Azure Portal. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un proveedor de Multi-Factor Authentication o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
 
 > [!Important]
-> Estas dos opciones parecen similares pero, sin embargo, es importante saber cuál utilizar. Si los usuarios tienen licencias incluidas con MFA, no cree un proveedor de Multi-Factor Authentication para conseguir la descarga del servidor. En su lugar, use la opción 2 para descargar el servidor de la página de configuración del servicio. 
+> Estas dos opciones parecen similares pero, sin embargo, es importante saber cuál utilizar. Si los usuarios tienen licencias incluidas con MFA (Azure MFA, Azure AD Premium o Enterprise Mobility + Security), no cree un proveedor de Multi-Factor Authentication para conseguir la descarga del servidor. En su lugar, use la opción 2 para descargar el servidor de la página de configuración del servicio. 
 
 ### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Opción 1: descargue el Servidor Azure Multi-Factor Authentication del Portal de Azure clásico.
 
@@ -163,9 +164,4 @@ Para más información sobre las opciones de configuración e instalación avanz
 | [Sincronización con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md) |Información sobre la instalación y configuración de la sincronización entre Active Directory y el servidor de MFA de Azure. |
 | [Implementación del servicio web móvil de la aplicación móvil del servidor de Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md) |Información sobre la instalación y configuración del servicio web del servidor de Azure MFA. |
 | [Escenarios avanzados con Azure Multi-Factor Authentication y VPN de terceros](multi-factor-authentication-advanced-vpn-configurations.md) | Guías paso a paso para la configuración de dispositivos VPN de Cisco, Citrix y Juniper. |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

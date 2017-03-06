@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Uso SSH con HDInsight (Hadoop) desde Windows, Linux, Unix u OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>Uso de SSH con HDInsight (Hadoop) desde Bash en Windows 10, Linux, Unix u OS X
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -31,7 +32,7 @@ ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 ## <a name="what-is-ssh"></a>¿Qué es SSH?
 
-SSH es un protocolo de red criptográfico que permite comunicarse de forma segura con un servidor remoto a través de una red no segura. SSH se utiliza para proporcionar un inicio de sesión seguro de línea de comandos en un servidor remoto. En este caso, los nodos principales o el nodo perimetral de un clúster de HDInsight.
+SSH es un protocolo de red criptográfico que permite comunicarse de forma segura con un servidor remoto a través de una red no segura. SSH se usa para proporcionar un inicio de sesión seguro de línea de comandos en un servidor remoto. En este caso, los nodos principales o el nodo perimetral de un clúster de HDInsight.
 
 También se puede usar SSH para tunelizar el tráfico de red desde el cliente al clúster de HDInsight. Con un túnel se puede acceder a los servicios del clúster de HDInsight que no se exponen directamente en Internet. Para más información sobre cómo utilizar la tunelización SSH con HDInsight, consulte [Uso de la tunelización SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -42,13 +43,11 @@ Muchos sistemas operativos proporcionan funcionalidad de cliente SSH a través d
 * __ssh__: cliente SSH general que se puede usar para establecer una sesión de línea de comandos remota y crear túneles.
 * __scp__: utilidad que copia los archivos entre los sistemas locales y remotos mediante el protocolo SSH.
 
-Históricamente, Windows no ha proporcionado ningún cliente SSH hasta Windows 10 Anniversary Edition. Esta versión de Windows incluye la función Bash en Windows 10 para desarrolladores, que proporciona los comandos `ssh`, `scp` y otros comandos de Linux. Para más información acerca del uso de Bash en Windows 10, consulte [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash en Ubuntu en Windows).
+Windows 10 Anniversary Edition proporciona Bash como una característica para el desarrollador. Proporciona `ssh`, `scp` y otros comandos de Linux. Para más información acerca del uso de Bash en Windows 10, consulte [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash en Ubuntu en Windows).
 
 Si se utiliza Windows y no se tiene acceso a Bash en Windows 10, se recomiendan los siguientes clientes SSH:
 
 * [GIT para Windows](https://git-for-windows.github.io/): proporciona las utilidades de línea de comandos `ssh` y `scp`.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): facilita un cliente SSH gráfico.
-* [MobaXterm](http://mobaxterm.mobatek.net/): ofrece un cliente SSH gráfico.
 * [Cygwin](https://cygwin.com/): proporciona las utilidades de línea de comandos `ssh` y `scp`.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ El uso de criptografía de clave pública implica la creación de un par de clav
 
 * La **clave privada** es lo que se muestra al clúster de HDInsight al iniciar sesión con un cliente SSH para verificar la identidad. Esta clave se debe proteger, por lo que no se debe compartir.
 
-    Se puede agregar seguridad adicional mediante la creación de una frase de contraseña para la clave privada. Se debe proporcionar esta frase de contraseña para poder usar la clave.
+    Se puede agregar seguridad adicional mediante la creación de una frase de contraseña para la clave privada. Si usa una frase de contraseña, debe escribirla al autenticarse mediante SSH.
 
 ### <a name="create-a-public-and-private-key"></a>Creación de una clave pública y privada
 
@@ -91,7 +90,7 @@ Al finalizar el comando, tendrá dos nuevos archivos:
 * __id\_rsa__: este archivo contiene la clave privada.
 
     > [!WARNING]
-    > Debe restringir el acceso a este archivo para impedir el acceso no autorizado a los servicios protegidos por la clave pública.
+    > Restrinja el acceso a este archivo para impedir el acceso no autorizado a los servicios protegidos por la clave pública.
 
 * __id\_rsa.pub__: este archivo contiene la clave pública. Use este archivo al crear un clúster de HDInsight.
 
@@ -115,13 +114,13 @@ Para más información sobre la configuración de SSH durante la creación del c
 
 Aunque se pueden agregar más usuarios SSH al clúster después de crearlo, no es lo recomendable.
 
-* Los nuevos usuarios SSH se deben agregar manualmente a cada nodo del clúster.
+* Se deben agregar nuevos usuarios de SSH a cada nodo del clúster.
 
 * Los nuevos usuarios SSH tienen el mismo acceso a HDInsight que el usuario predeterminado. No hay forma de restringir el acceso a datos o trabajos de HDInsight en función de la cuenta de usuario SSH.
 
 Para restringir el acceso usuario por usuario, debe usar un clúster de HDInsight unido a un dominio. HDInsight unido a un dominio utiliza Active Directory para controlar el acceso a los recursos del clúster.
 
-Un clúster de HDInsight unido a un dominio permite autenticarse mediante Active Directory después de conectarse con SSH. Varios usuarios pueden conectarse con SSH y autenticarse en sus cuentas de Active Directory una vez conectados. Consulte la sección [HDInsight unido a un dominio](#domainjoined) para más información.
+Un clúster de HDInsight unido a un dominio permite autenticarse mediante Active Directory después de conectarse con SSH. Varios usuarios pueden conectarse con SSH y autenticarse en sus cuentas de Active Directory una vez conectados. Para más información, consulte la sección [HDInsight unido a un dominio](#domainjoined).
 
 ##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Conexión a HDInsight
 
@@ -147,7 +146,7 @@ Si utiliza una clave pública para proteger la cuenta SSH, quizá deba especific
 
 ### <a name="connect-to-other-nodes"></a>Conexión a otros nodos
 
-No es posible tener acceso a los nodos de trabajador y nodos Zookeeper directamente desde fuera del clúster, pero sí es posible hacerlo desde los nodos principales o perimetrales del clúster. Los siguientes son los pasos generales para lograrlo:
+No es posible tener acceso a los nodos de trabajador y nodos Zookeeper directamente desde fuera del clúster, pero sí es posible hacerlo desde los nodos principales o perimetrales del clúster. Estos son los pasos generales para conectarse a otros nodos:
 
 1. Use SSH para conectarse al nodo principal o perimetral:
 
@@ -183,7 +182,7 @@ Si usa una clave SSH para autenticar la cuenta de usuario, debe asegurarse de qu
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Si no se devuelve nada, indica que `ssh-agent` no está en ejecución. Consulte la información de los scripts de inicio de agente en [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Uso de ssh-agent con ssh) o la documentación del cliente SSH para ver pasos específicos sobre cómo instalar y configurar `ssh-agent`.
+    Si no se devuelve nada, `ssh-agent` no se está ejecutando. Consulte la información de los scripts de inicio de agente en [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Uso de ssh-agent con ssh) o la documentación del cliente SSH para ver pasos específicos sobre cómo instalar y configurar `ssh-agent`.
 
 4. Una vez que haya comprobado que **ssh-agent** está en ejecución, use lo siguiente para agregar la clave privada SSH al agente:
 
@@ -196,7 +195,7 @@ Si usa una clave SSH para autenticar la cuenta de usuario, debe asegurarse de qu
 
 [HDInsight unido a un dominio](hdinsight-domain-joined-introduction.md) integra Kerberos con Hadoop en HDInsight. Dado que el usuario SSH no es un usuario de dominio de Active Directory, no puede ejecutar comandos de Hadoop hasta que se autentique con Active Directory. Siga estos pasos para autenticar la sesión SSH con Active Directory:
 
-1. Conéctese a un clúster de HDInsight unido a un dominio mediante el SSH tal como se menciona en la sección [Conexión a HDInsight](#connect). Por ejemplo, el siguiente comando se conecta a un clúster de HDInsight denominado __myhdi__ con una cuenta SSH denominada __sshuser__.
+1. Conéctese a un clúster de HDInsight unido a un dominio mediante SSH. Por ejemplo, el siguiente comando se conecta a un clúster de HDInsight denominado __myhdi__ con una cuenta SSH denominada __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -212,7 +211,7 @@ Después de autenticar mediante el comando `kinit`, ya puede usar comandos de Ha
 
 ## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunelización de SSH
 
-SSH se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. Luego, la solicitud se enrutará al recurso solicitado como si se hubiese originado en el nodo principal del clúster de HDInsight.
+SSH se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se reenvía al clúster y, a continuación, se resuelve en el clúster.
 
 > [!IMPORTANT]
 > El túnel SSH es un requisito para acceder a la interfaz de usuario web de algunos servicios de Hadoop. Por ejemplo, solo se puede acceder a la interfaz de usuario del historial de trabajos o la interfaz de usuario del administrador de recursos usando un túnel SSH.
@@ -228,9 +227,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

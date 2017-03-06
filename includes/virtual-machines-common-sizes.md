@@ -17,7 +17,7 @@ El tamaño de la máquina virtual afecta a los precios. El tamaño también afec
 
 Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
-* Los tamaños A8-A11 los de la serie H también se conocen como *instancias de proceso intensivo*. El hardware que ejecuta estos tamaños está diseñado y optimizado para aplicaciones de proceso intensivo que consumen muchos recursos de red, incluidas las aplicaciones de clúster de proceso de alto rendimiento (HPC), el modelado y las simulaciones. La serie A8-A11 utiliza Intel Xeon E5-2670 @ 2,6 GHz y la serie H, Intel Xeon E5-2667 v3 @ 3,2 GHz. Para más información y consideraciones sobre el uso de estos tamaños, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+* Los tamaños A8-A11 los de la serie H también se conocen como *instancias de proceso intensivo*. El hardware que ejecuta estos tamaños está diseñado y optimizado para aplicaciones de proceso intensivo que consumen muchos recursos de red, incluidas las aplicaciones de clúster de proceso de alto rendimiento (HPC), el modelado y las simulaciones. La serie A8-A11 utiliza Intel Xeon E5-2670 a 2,6 GHz y la serie H, Intel Xeon E5-2667 v3 a 3,2 GHz. Para más información y consideraciones sobre el uso de estos tamaños, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 * Las series Dv2, D, G y DS/GS son ideales para las aplicaciones que requieren CPU más rápidas, mejor rendimiento de disco local, o tienen mayor demanda de memoria.  Ofrecen una combinación eficaz para muchas aplicaciones de clase empresarial.
 * Las máquinas virtuales de la serie F son una opción excelente para cargas de trabajo que exigen CPU más rápidas, pero que no necesitan tanta memoria o SSD local por núcleo de CPU.  Las cargas de trabajo, como análisis, servidores de juegos, servidores web y procesamiento por lotes se beneficiarán del valor de la serie F.
 * Puede que algunos de los hosts físicos de los centros de datos de Azure no admitan tamaños de máquinas virtuales grandes, como A5 – A11. En consecuencia, puede ver el mensaje de error **No se pudo configurar la máquina virtual <machine name>** o **No se pudo crear la máquina virtual <machine name>** al cambiar el tamaño de una máquina virtual existente a un nuevo tamaño, al crear una nueva máquina virtual en una red virtual creada antes de 16 de abril de 2013 o al agregar una nueva máquina virtual a un servicio en la nube existente. Consulte [Error: "No se pudo configurar la máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) en el foro de soporte técnico para ver una lista de soluciones alternativas para cada escenario de implementación.  
@@ -50,6 +50,7 @@ Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma d
 | [G1-G5](#g-series) |180 - 240* |
 | [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
+| [L4s-L32s](#l-series) |180 - 240* |
 
 Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento.  El volumen de la mejora puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
 
@@ -91,44 +92,45 @@ Para información y consideraciones sobre el uso de estos tamaños, consulte [Ac
 
 ## <a name="av2-series"></a>Serie Av2
 
-| Tamaño        | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2 x&500;              | 1 / moderado              |
-| Standard_A2_v2 | 2         | 4            | 20 |                   | 4              | 4x500              | 2 / moderado              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4 / alto                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8 / alto                  |
-| Standard_A2m_v2 | 2        | 16           | 20 |                   | 4              | 4x500              | 2 / moderado              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4 / alto                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8 / alto                  |
-
+| Tamaño            | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Rendimiento máximo del disco local: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Ancho de banda de red/NIC máx. |
+|-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500                         | 1 / moderado                 |
+| Standard_A2_v2  | 2         | 4           | 20 |             | 2000 / 40 / 20                                           | 4 / 4x500                         | 2 / moderado                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / alto                     |
+| Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / alto                     |
+| Standard_A2m_v2 | 2         | 16          | 20 |             | 2000 / 40 / 20                                           | 4 / 4X500                         | 2 / moderado                 |
+| Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / alto                     |
+| Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / alto                     |
 
 ## <a name="d-series"></a>Serie D
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2 x&500; |1 / moderado |
-| Standard_D2 |2 |7 |100 |4 |4x500 |2 / alto |
-| Standard_D3 |4 |14 |200 |8 |8x500 |4 / alto |
-| Standard_D4 |8 |28 |400 |16 |16x500 |8 / alto |
-| Standard_D11 |2 |14 |100 |4 |4x500 |2 / alto |
-| Standard_D12 |4 |28 |200 |8 |8x500 |4 / alto |
-| Standard_D13 |8 |56 |400 |16 |16x500 |8 / alto |
-| Standard_D14 |16 |112 |800 |32 |32x500 |8 / muy alto |
 
+| Tamaño         | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Rendimiento máximo del disco local: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Ancho de banda de red/NIC máx. |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2x500                         | 1 / moderado                 |
+| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / alto                     |
+| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / alto                     |
+| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / alto                     |
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / alto                     |
+| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / alto                     |
+| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / alto                     |
+| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / muy alto                |
 <br>
 
 ## <a name="dv2-series"></a>Serie Dv2
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2 x&500; |1 / moderado |
-| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2 / alto |
-| Standard_D3_v2 |4 |14 |200 |8 |8x500 |4 / alto |
-| Standard_D4_v2 |8 |28 |400 |16 |16x500 |8 / alto |
-| Standard_D5_v2 |16 |56 |800 |32 |32x500 |8 / extremadamente alto |
-| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2 / alto |
-| Standard_D12_v2 |4 |28 |200 |8 |8x500 |4 / alto |
-| Standard_D13_v2 |8 |56 |400 |16 |16x500 |8 / alto |
-| Standard_D14_v2 |16 |112 |800 |32 |32x500 |8 / extremadamente alto |
-| Standard_D15_v2** |20 | |140 |1000 |40 |40 x&500; |8 / extremadamente alto* |
+
+
+| Tamaño              | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Rendimiento máximo del disco local: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Ancho de banda de red/NIC máx. |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2x500                         | 1 / moderado                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / alto                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / alto                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / alto                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremadamente alto           |
+| Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / alto                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / alto                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / alto                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremadamente alto           |
+| Standard_D15_v2** | 20 |        | 140         | 1000          | 60000 / 937 / 468                                        | 40 / 40x500                       | 8 / extremadamente alto*          |
 
 * En algunas regiones, Accelerated Networking está disponible para el tamaño Standard_D15_v2. Para más información acerca del uso y la disponibilidad, consulte [Accelerated Networking is in preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Accelerated Networking está en la fase de versión preliminar) y [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Accelerated Networking para una máquina virtual).
 
@@ -137,7 +139,7 @@ Para información y consideraciones sobre el uso de estos tamaños, consulte [Ac
 <br>
 
 ## <a name="ds-series"></a>Serie DS*
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché máx.: E/S por segundo / Mbps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
+| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché y local máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 32 |1 / moderado |
 | Standard_DS2 |2 |7 |14 |4 |8000 / 64 (86) |6400 / 64 |2 / alto |
@@ -178,18 +180,18 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 <br>
 
 ## <a name="f-series"></a>Serie F
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2 x&500; |1 / moderado |
-| Standard_F2 |2 |4 |32 |4 |4x500 |2 / alto |
-| Standard_F4 |4 |8 |64 |8 |8x500 |4 / alto |
-| Standard_F8 |8 |16 |128 |16 |16x500 |8 / alto |
-| Standard_F16 |16 |32 |256 |32 |32x500 |8 / extremadamente alto |
 
+| Tamaño         | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Rendimiento máximo del disco local: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Ancho de banda de red/NIC máx. |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2x500                         | 1 / moderado                 |
+| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / alto                     |
+| Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / alto                     |
+| Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / alto                     |
+| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremadamente alto           |
 <br>
 
 ## <a name="fs-series"></a>Serie Fs*
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché máx.: E/S por segundo / Mbps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
+| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché y local máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |2 |4000 / 32 (12) |3200 / 48 |1 / moderado |
 | Standard_F2s |2 |4 |8 |4 |8000 / 64 (24) |6400 / 96 |2 / alto |
@@ -204,19 +206,20 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 <br>
 
 ## <a name="g-series"></a>Serie G
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de discos máx.: E/S por segundo | Ancho de banda de red/NIC máx. |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 x 500 |1 / alto |
-| Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / alto |
-| Standard_G3 |8 |112 |1536 |16 |16 x 500 |4 / muy alto |
-| Standard_G4 |16 |224 |3072 |32 |32 x 500 |8 / extremadamente alto |
-| Standard_G5* |32 |448 |6144 |64 |64 x 500 |8 / extremadamente alto |
+
+| Tamaño         | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Rendimiento máximo del disco local: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Ancho de banda de red/NIC máx. |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 x 500                       | 1 / alto                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8 / 8 x 500                       | 2 / alto                     |
+| Standard_G3  | 8         | 112         | 1536          | 24000 / 375 / 187                                        | 16 / 16 x 500                     | 4 / muy alto                |
+| Standard_G4  | 16        | 224         | 3072          | 48000 / 750 / 375                                        | 32 / 32 x 500                     | 8 / extremadamente alto           |
+| Standard_G5* | 32        | 448         | 6144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / extremadamente alto           |
 
 *La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
 
 ## <a name="gs-series"></a>Serie GS*
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché máx.: E/S por segundo / Mbps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
+| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché y local máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10 000 / 100 (264) |5000 / 125 |1 / alto |
 | Standard_GS2 |4 |56 |112 |8 |20 000 / 200 (528) |10 000 / 250 |2 / alto |
@@ -226,7 +229,7 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
 MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
-*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie GS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. 
+*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie GS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md) 
 
 **La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
@@ -251,8 +254,30 @@ Para información y consideraciones sobre el uso de estos tamaños, consulte [Ac
 
 <br>
 
+
+## <a name="ls-series"></a>Serie Ls* 
+
+La serie Ls está optimizada para las cargas de trabajo que requieren almacenamiento local de baja latencia, como bases de datos NoSQL (por ejemplo, Cassandra, MongoDB, Cloudera y Redis). La serie LS ofrece hasta 32 núcleos de CPU, con el [procesador Intel® Xeon® de la familia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Se trata del mismo rendimiento de CPU de las series G/GS y viene con 8 GiB de memoria por núcleo de CPU.  
+
+ 
+| Tamaño          | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché máx.: E/S por segundo / Mbps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. | 
+|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s  | 4    | 32   | 678   | 8              | ND / ND (0)          | 5000 / 125                               | 2 / alto       | 
+| Standard_L8s  | 8    | 64   | 1,388 | 16             | ND / ND (0)          | 10 000 / 250                              | 4 / muy alto  | 
+| Standard_L16s | 16   | 128  | 2,807 | 32             | ND / ND (0)          | 20 000 / 500                              | 8 / extremadamente alto | 
+| Standard_L32s** | 32   | 256  | 5,630 | 64             | ND / ND (0)          | 40 000 / 1000                            | 8 / extremadamente alto | 
+ 
+MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes. 
+
+*El rendimiento de disco máx. (E/S por segundo o MBps) posible con una VM de la serie Ls puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md) 
+
+**La instancia está aislada en el hardware dedicado a un solo cliente.
+
+
+
 ## <a name="n-series"></a>Serie N
 Los tamaños de NC y NV también se conocen como instancias habilitadas para GPU. Se trata de máquinas virtuales especializadas que incluyen tarjetas GPU de NVIDIA, optimizadas para diferentes escenarios y casos de uso. Los tamaños de NV están optimizados y diseñados para la visualización remota, streaming, juegos, codificación y escenarios VDI mediante marcos como OpenGL y DirectX. Los tamaños de NC están más optimizados para las aplicaciones de uso intensivo de procesos y red, así como algoritmos, incluidas simulaciones y aplicaciones basadas en CUDA y OpenCL. 
+
 
 ### <a name="nv-instances"></a>Instancias de NV
 Las instancias de NV disponen de tarjetas GPU Tesla M60 de NVIDIA y NVIDIA GRID para aplicaciones aceleradas de escritorio y escritorios virtuales donde los clientes podrán visualizar sus datos o simulaciones. Los usuarios podrán visualizar sus flujos de trabajo con muchos gráficos en las instancias de NV para obtener una excelente capacidad gráfica y ejecutar además cargas de trabajo de precisión sencilla como la codificación y la representación. Tesla M60 ofrece 4096 núcleos CUDA con un diseño de GPU dual con hasta 36 secuencias de H.264 1080p. 
@@ -303,9 +328,4 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../articles/azure-subscription-service-limits.md).
 * Más información [cerca de las máquinas virtuales de la serie H y A de proceso intensivo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabajo, como la informática de alto rendimiento (HPC).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -136,7 +136,7 @@ Use el [control de acceso basado en rol][rbac] (RBAC) para controlar el acceso a
 
 Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
 
-> [!NOTE]
+d> [!NOTE]
 > RBAC no limita las acciones que puede realizar un usuario que ha iniciado sesión en una máquina virtual. Esos permisos están determinados por el tipo de cuenta en el sistema operativo invitado.   
 > 
 > 
@@ -146,7 +146,6 @@ Use los [registros de auditoría][audit-logs] para ver las acciones de aprovisio
 Considere la posibilidad de usar [Azure Disk Encryption][disk-encryption] si necesita cifrar los discos de datos y del sistema operativo. 
 
 ## <a name="solution-deployment"></a>Implementación de la solución
-
 Hay disponible una implementación de esta arquitectura de referencia en [GitHub][github-folder]. Incluye una red virtual, un grupo de seguridad de red y una única máquina virtual. Para implementar la arquitectura, siga estos pasos: 
 
 1. Haga clic con el botón derecho en el botón siguiente y seleccione "Abrir vínculo en una nueva pestaña" o "Abrir vínculo en una nueva ventana".
@@ -156,7 +155,7 @@ Hay disponible una implementación de esta arquitectura de referencia en [GitHub
    * El nombre del **Grupo de recursos** ya está definido en el archivo de parámetros, así que seleccione **Crear nuevo** y escriba `ra-single-vm-rg` en el cuadro de texto.
    * Seleccione la región en el cuadro de lista desplegable **Ubicación**.
    * No modifique los cuadros de texto **URI raíz de plantilla** o **URI raíz de parámetro**.
-   * Seleccione **linux** en el cuadro de lista desplegable **Tipo de SO**.
+.   * Seleccione **Linux** en el cuadro de lista desplegable **Tipo de OS**.
    * Revise los términos y condiciones, y haga clic en la casilla **Acepto los términos y condiciones indicados anteriormente**.
    * Haga clic en el botón **Comprar**.
 3. Espere a que la implementación se complete.
@@ -176,7 +175,7 @@ Para una mayor disponibilidad, implemente dos o más máquinas virtuales detrás
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
@@ -215,9 +214,4 @@ Para una mayor disponibilidad, implemente dos o más máquinas virtuales detrás
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitectura de una única máquina virtual Linux en Azure"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

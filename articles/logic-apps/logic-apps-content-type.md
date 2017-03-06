@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: f65e5c42a42dfaef8100935d979375bcb7a06e92
+ms.sourcegitcommit: 84f1968a4bda08232bb260f74915ef8889b53f3c
+ms.openlocfilehash: 77daea3da5bdb8de374058ef7b1ab5926ed59aa7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ Hay muchos tipos diferentes de contenido que puede pasar a través de una aplica
 ## <a name="content-type-header"></a>Encabezado Content-Type
 Para empezar por lo sencillo, echemos un vistazo a los dos tipos `Content-Types` que no requieren pasar por procesos de conversión dentro de una aplicación lógica: `application/json` y `text/plain`.
 
-### <a name="applicationjson"></a>Application/json
+## <a name="applicationjson"></a>Application/json
 El motor de flujo de trabajo se basa en el encabezado `Content-Type` de las llamadas HTTP para determinar el control adecuado.  Cualquier solicitud con el tipo de contenido `application/json` se almacena y administra como objeto JSON.  Además, se puede analizar el contenido JSON de forma predeterminada sin necesidad de realizar ninguna conversión.  Por tanto, una solicitud que tenga el encabezado content-type `application/json ` como este:
 
 ```
@@ -40,8 +41,18 @@ El motor de flujo de trabajo se basa en el encabezado `Content-Type` de las llam
 
 podría analizarse en un flujo de trabajo con una expresión como `@body('myAction')['foo'][0]` para obtener un valor (en este caso, `bar`).  No se requieren procesos de conversión adicionales.  Si trabaja con datos JSON, pero no tienen un encabezado especificado, puede convertirlos manualmente a JSON mediante la función `@json()` (por ejemplo: `@json(triggerBody())['foo']`).
 
-### <a name="textplain"></a>Text/plain
-De forma similar a `application/json`, los mensajes HTTP recibidos con el encabezado `Content-Type` de `text/plain` se almacenarán en formato sin procesar.  Además, si se incluyen en las acciones posteriores sin ninguna conversión, la solicitud se enviará con un encabezado `Content-Type`: `text/plain`.  Por ejemplo, si trabaja con un archivo plano puede recibir el siguiente contenido HTTP:
+### <a name="schema-and-schema-generator"></a>Esquema y generador de esquemas
+El desencadenador de solicitud le permite especificar un esquema JSON para la carga que espera recibir. Esto permite al diseñador generar tokens para ayudar al usuario a consumir el contenido de la solicitud. Si no tiene un esquema preparado, seleccione `Use sample payload to generate schema` para generar un esquema JSON a partir de una carga de ejemplo.
+
+![Esquema](./media/logic-apps-http-endpoint/manualtrigger.png)
+
+### <a name="use-parse-json-action"></a>Use la acción Parse JSON
+La acción `Parse JSON` le permite analizar un contenido JSON en tokens descriptivos para consumir en la aplicación lógica. Al igual que el desencadenador de solicitud, le permite especificar o generar un esquema JSON para el contenido que desea analizar. Se trata de una herramienta excelente para facilitar mucho más el consumo de datos de Service Bus, DocumentDB, etc.
+
+![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
+
+## <a name="textplain"></a>Text/plain
+De forma similar a `application/json`, los mensajes HTTP recibidos con el encabezado `Content-Type` de `text/plain` se almacenarán en formato sin procesar.  Además, si se incluyen en acciones posteriores sin ninguna conversión, la solicitud se enviará con un encabezado `Content-Type`: `text/plain`.  Por ejemplo, si trabaja con un archivo plano puede recibir el siguiente contenido HTTP:
 
 ```
 Date,Name,Address
@@ -50,8 +61,8 @@ Oct-1,Frank,123 Ave.
 
 como `text/plain`.  Si en la siguiente acción que envíe como el cuerpo de otra solicitud (`@body('flatfile')`), la solicitud tendría un encabezado `text/plain` Content-Type.  Si trabaja con datos de texto sin formato, pero no tienen un encabezado especificado, puede convertirlos manualmente a texto mediante la función `@string()` (por ejemplo: `@string(triggerBody())`)
 
-### <a name="applicationxml-and-applicationoctet-stream-and-converter-functions"></a>Application/xml, Application/octet-stream y funciones de conversión
-El motor de las aplicaciones lógicas siempre conservará el encabezado `Content-Type` que se recibió en la solicitud o respuesta HTTP.  Es decir, si se recibe un contenido con `Content-Type` de `application/octet-stream` incluyendo esto en una acción posterior sin realizar ninguna conversión, se generará una solicitud saliente con `Content-Type`: `application/octet-stream`.  De este modo, el motor puede garantizar que no perderán datos mientras se desplaza por el flujo de trabajo.  Sin embargo, el estado de acción (entradas y salidas) se almacena en un objeto JSON cuando pasa por el flujo de trabajo.  Es decir, para conservar algunos tipos de datos, el motor convertirá el contenido en una cadena con codificación binaria base64 con los metadatos adecuados que conserva `$content` y `$content-type`, que se convertirán automáticamente.  Puede realizar conversiones manualmente entre los tipos de contenido utilizando las funciones de conversión:
+## <a name="applicationxml-and-applicationoctet-stream-and-converter-functions"></a>Application/xml, Application/octet-stream y funciones de conversión
+El motor de las aplicaciones lógicas siempre conservará el encabezado `Content-Type` que se recibió en la solicitud o respuesta HTTP.  Es decir, si se recibe un contenido con `Content-Type` de `application/octet-stream` incluyendo esto en una acción posterior sin realizar ninguna conversión, se generará una solicitud saliente con `Content-Type`: `application/octet-stream`.  De este modo, el motor puede garantizar que no se perderán datos mientras se desplaza por el flujo de trabajo.  Sin embargo, los estados de acción (entradas y salidas) se almacenan en un objeto JSON cuando pasa por el flujo de trabajo.  Es decir, para conservar algunos tipos de datos, el motor convertirá el contenido en una cadena con codificación binaria base64 con los metadatos adecuados que conserva `$content` y `$content-type`, que se convertirán automáticamente.  Puede realizar conversiones manualmente entre los tipos de contenido utilizando las funciones de conversión:
 
 * `@json()`: convierte los datos a `application/json`.
 * `@xml()`: convierte los datos a `application/xml`.
@@ -63,7 +74,7 @@ El motor de las aplicaciones lógicas siempre conservará el encabezado `Content
 * `@encodeDataUri()` : codifica una cadena como una matriz de bytes dataUri.
 * `@decodeDataUri()` : descodifica dataUri en una matriz de bytes.
 
-Por ejemplo, si recibe una solicitud HTTP con `Content-Type`: `application/xml` de:
+Por ejemplo, si recibió una solicitud HTTP con `Content-Type`: `application/xml` de:
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -72,7 +83,7 @@ Por ejemplo, si recibe una solicitud HTTP con `Content-Type`: `application/xml` 
 
 Podría convertirla y usarla posteriormente con `@xml(triggerBody())`, por ejemplo, o en una función como `@xpath(xml(triggerBody()), '/CustomerName')`.
 
-### <a name="other-content-types"></a>Otros tipos de contenido
+## <a name="other-content-types"></a>Otros tipos de contenido
 Otros tipos de contenido son compatibles con las aplicaciones lógicas, pero es posible que haya que recuperar manualmente el cuerpo del mensaje descodificando `$content`.  Por ejemplo, si desencadenara una solicitud `application/x-www-url-formencoded` similar a la siguiente:
 
 ```
@@ -90,10 +101,3 @@ como no se trata de texto sin formato ni JSON, se almacenará en la acción como
 ```
 
 Donde `$content` es la carga codificada como cadena base64 para conservar todos los datos.  Como en estos momentos no hay una función nativa para datos de formulario, podría seguir usando estos datos dentro de un flujo de trabajo mediante el acceso manual a los datos con una función como `@string(body('formdataAction'))`.  Si quisiéramos que la solicitud saliente tenga también el encabezado content-type `application/x-www-url-formencoded`, solo tendría que agregarla al cuerpo de la acción sin realizar ninguna conversión como `@body('formdataAction')`.  Sin embargo, esto solo funcionará si el cuerpo es el único parámetro de la entrada `body` .  Si trata de agregar `@body('formdataAction')` dentro de una solicitud `application/json`, obtendrá un error en runtime, ya que se enviará al cuerpo codificado.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
