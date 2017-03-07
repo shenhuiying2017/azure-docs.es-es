@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 3c479ed2450927a4e7c6cd07250873c556735b8b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: ade388f38b7c1f11668c7a356868c9cacd3386f0
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ Antes de ejecutar este script, asegúrese de que se haya creado una conexión co
 
 Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en Windows, consulte [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 
-## <a name="create-vm-sample-with-operations-management-suite"></a>Ejemplo de creación de una máquina virtual con Operations Management Suite
+## <a name="sample-script"></a>Script de ejemplo
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-monitor-oms.sh "Creación rápida de una máquina virtual")]
 

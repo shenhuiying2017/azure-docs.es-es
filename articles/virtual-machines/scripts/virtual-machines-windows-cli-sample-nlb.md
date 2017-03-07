@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 941e6885ac26184ee011a34968aec29b120ed7dd
-ms.openlocfilehash: 98339ecadfdd31754e422a3c42c5d9f3842b16cb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 4437ed8a1d32b1d56a48b88051189daab35f02ac
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ Antes de ejecutar este script, asegúrese de que se haya creado una conexión co
 
 Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en Windows, consulte [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 
-## <a name="create-vm-with-network-load-balancer"></a>Creación de una máquina virtual con el equilibrador de carga de red
+## <a name="sample-script"></a>Script de ejemplo
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-windows-vm-nlb.sh "Creación rápida de una máquina virtual")]
 

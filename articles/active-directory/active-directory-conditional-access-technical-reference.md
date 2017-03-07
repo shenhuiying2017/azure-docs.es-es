@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 03/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 00124aa9d0729880bf2314f5c35c1797b7a6827f
-ms.openlocfilehash: 79d844f8fa3d3d0898b642f561df34588e044f9a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
+ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -24,16 +24,19 @@ ms.lasthandoff: 02/17/2017
 ## <a name="services-enabled-with-conditional-access"></a>Servicios habilitados con acceso condicional
 Las reglas de acceso condicional se admiten en varios tipos de aplicaciones de Azure AD. Esta lista incluye:
 
-* Aplicaciones federadas de la Galería de aplicaciones de Azure AD
-* Aplicaciones de inicio de sesión único con contraseña de la Galería de aplicaciones de Azure AD
+
 * Aplicaciones registradas con el proxy de aplicación de Azure
-* Aplicaciones desarrolladas de línea de negocio y multiinquilino registradas con Azure AD
-* Visual Studio Online
 * Azure RemoteApp
+* Aplicaciones desarrolladas de línea de negocio y multiinquilino registradas con Azure AD
 * Dynamics CRM
+* Aplicaciones federadas de la Galería de aplicaciones de Azure AD
 * Yammer de Microsoft Office 365
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online (incluye OneDrive para la Empresa)
+* Microsoft Power BI 
+* Aplicaciones de inicio de sesión único con contraseña de la Galería de aplicaciones de Azure AD
+* Visual Studio Online
+
 
 ## <a name="enable-access-rules"></a>Habilitación de reglas de acceso
 Cada regla puede habilitarse o deshabilitarse en función de la aplicación. Cuando las reglas estén **ACTIVADAS** , se habilitarán y se aplicarán a los usuarios que accedan a la aplicación. Cuando estén **DESACTIVADAS** , no se usarán ni afectarán a la experiencia de inicio de sesión de los usuarios.

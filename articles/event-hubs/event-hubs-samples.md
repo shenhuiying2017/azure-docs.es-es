@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/01/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5b02054546ebf25766be6bb2837aebc502b67a67
-ms.openlocfilehash: 9c50b7caefe06bceac8035a0d274e13a96547fea
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 32b57664fcf15daed75fe7050b672383e79c50cf
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -43,9 +44,9 @@ El ejemplo de [introducción a los envíos](https://github.com/Azure/azure-event
 
 ### <a name="receive-events"></a>Recepción de eventos 
 
-El ejemplo de [introducción a la recepción con el host del procesador de eventos](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver) es una aplicación de consola de .NET Core que recibe mensajes desde un centro de eventos mediante el [host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
+El ejemplo de [introducción a la recepción con el host del procesador de eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) es una aplicación de consola de .NET Core que recibe mensajes desde un centro de eventos mediante el [host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
 
-## <a name="net-framework"></a>.NET Framework   
+## <a name="net-framework"></a>.NET Framework    
 
 Estos ejemplos muestran otras características de Azure Event Hubs que tienen como destino la [biblioteca de .NET Framework](https://msdn.microsoft.com/library/w0x726c2.aspx).
  
@@ -79,10 +80,5 @@ Si desea conocer más información sobre las versiones de .NET Framework, visite
 Si desea conocer más información acerca de Event Hubs, consulte los siguientes artículos:
 
 - [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Creación de un Centro de eventos](event-hubs-create.md)
+- [Creación de un centro de eventos](event-hubs-create.md)
 - [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
