@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 44be67cd5c59a57cafd244ce0a49a6fadf44bdda
 ms.openlocfilehash: 8abde97ecb906384cd6e62811fcbb833bdc8be51
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -30,7 +31,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 2. Un **directorio de Azure AD** : sincronizado con un directorio local o solo en la nube.
 3. **Servicios de dominio de Azure AD** deben estar habilitado en el directorio de Azure AD. Si no lo ha hecho, siga todas las tareas descritas en [Servicios de dominio de Azure AD (vista previa): introducción](active-directory-ds-getting-started.md).
 4. Un **certificado que se usará para habilitar LDAP seguro**.
-   
+
    * **Recomendado**: obtenga un certificado de una entidad de certificación pública de confianza. Esta opción de configuración es más segura.
    * Si lo prefiere, puede elegir [crear un certificado autofirmado](#task-1---obtain-a-certificate-for-secure-ldap) , tal y como se muestra más adelante en este artículo.
 
@@ -47,8 +48,8 @@ Antes de habilitar LDAP seguro, adquiera un certificado válido de acuerdo con l
 
 > [!NOTE]
 > **Entidades de certificación empresariales:** Azure AD Domain Services no admite actualmente el uso de certificados de LDAP seguros emitidos por la entidad de certificación empresarial de su organización. Esta restricción se debe a que el servicio no confía en la entidad de certificación empresarial como una entidad de certificación raíz. Tenemos pensado agregar compatibilidad con las entidades de certificación empresariales en el futuro. Si debe usar obligatoriamente certificados emitidos por su entidad de certificación empresarial [póngase en contacto con nosotros](active-directory-ds-contact-us.md) para obtener ayuda.
-> 
-> 
+>
+>
 
 <br>
 
@@ -65,8 +66,8 @@ Al solicitar un certificado, asegúrese de seguir los requisitos descritos en [R
 
 > [!NOTE]
 > Los equipos cliente que necesitan conectarse al dominio administrado mediante LDAP seguro deben confiar en el emisor del certificado de LDAP seguro.
-> 
-> 
+>
+>
 
 ### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Opción B: creación de un certificado autofirmado para LDAP seguro
 Si prevé que no usará un certificado de una entidad de certificación pública, puede crear un certificado autofirmado para LDAP seguro.
@@ -176,8 +177,8 @@ Realice los siguientes pasos de configuración para habilitar LDAP seguro:
 
    > [!NOTE]
    > Se tardará entre unos 10 y 15 minutos en habilitar LDAP seguro para el dominio administrado. Si el certificado LDAP seguro proporcionado no coincide con los criterios necesarios, no se habilitará LDAP seguro para el directorio y aparecerá un mensaje de error. Por ejemplo, se indicará que el nombre de dominio es incorrecto, que el certificado ha expirado o que lo hará pronto.
-   > 
-   > 
+   >
+   >
 
 9. Cuando LDAP seguro se haya habilitado correctamente para su dominio administrado, el mensaje **Pendiente** debería desaparecer. Debería ver la huella digital del certificado.
 
@@ -233,9 +234,4 @@ Eso es todo: ya está listo para conectarse al dominio administrado mediante LDA
 * [Introducción a Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services](active-directory-ds-admin-guide-administer-group-policy.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
