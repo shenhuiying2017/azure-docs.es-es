@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
 ms.openlocfilehash: 8b1029075178fbc591645a5fd6a112ad0a7f8b86
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -756,7 +757,7 @@ Para generar el segmento de conjunto de datos [**start**, **end**], se necesita 
 
 ```
 DatasetSlice = [start, end]
-DependecyPeriod = [f(start, end), g(start, end)]
+DependencyPeriod = [f(start, end), g(start, end)]
 ```
 
 **F** y **g** son funciones de asignación que calculan el inicio y el fin del período de dependencia para cada entrada de actividad.
@@ -855,10 +856,5 @@ Tenga en cuenta lo siguiente:
 * La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.  
 * La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
 * Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
