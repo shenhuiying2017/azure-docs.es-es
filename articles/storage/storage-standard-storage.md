@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: e6ee3ea5e59e402d69ad255d2210d7092786c9d1
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -41,7 +42,7 @@ Para empezar a usar el almacenamiento estándar de Azure, visite la página de [
 Para obtener información acerca de cómo crear una máquina virtual con Managed Disks, consulte uno de los artículos siguientes.
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Creación de una máquina virtual Linux con la CLI de Azure 2.0 (versión preliminar)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Características del almacenamiento estándar 
 
@@ -152,9 +153,4 @@ El servicio Azure Backup también se puede usar con Managed Disks para crear un 
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Creación de una máquina virtual Linux con la CLI de Azure 2.0 (versión preliminar)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)

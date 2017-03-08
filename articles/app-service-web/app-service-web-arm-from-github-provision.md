@@ -4,7 +4,7 @@ description: "Use una plantilla de Administrador de recursos de Azure para imple
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 32739607-85fe-43c8-a4dc-1feb46d93a4d
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: a2f0cbd56ebb90411de882f5b80b80c21d2ce884
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 92408d6358516cdb2cea068553757c036143e955
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -104,7 +105,7 @@ En lugar de codificar de forma rígida la dirección URL del repositorio, puede 
 
     azure group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
-### <a name="azure-cli-20-preview"></a>Versión preliminar de la CLI de Azure 2.0
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
     az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
@@ -112,10 +113,5 @@ En lugar de codificar de forma rígida la dirección URL del repositorio, puede 
 > Para el contenido del archivo JSON de parámetros, consulte [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
 >
 >
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

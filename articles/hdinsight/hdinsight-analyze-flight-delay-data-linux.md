@@ -291,7 +291,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
     
     Debería ver una lista de los datos de la tabla. Escriba `exit` para salir de la utilidad de tsql.
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
+## <a id="nextsteps"></a> Pasos siguientes
 
 Para conocer más formas para trabajar con datos en Hive en HDInsight, consulte los siguientes documentos:
 
