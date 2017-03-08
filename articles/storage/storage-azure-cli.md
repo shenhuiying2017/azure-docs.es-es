@@ -1,6 +1,6 @@
 ---
-title: "Uso de la CLI de Azure 2.0 (versión preliminar) con Azure Storage | Microsoft Docs"
-description: "Aprenda a usar la interfaz de la línea de comandos (CLI) de Azure 2.0 (versión preliminar) con Azure Storage para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure 2.0 es una herramienta multiplataforma."
+title: Uso de la CLI de Azure 2.0 con Azure Storage | Microsoft Docs
+description: "Aprenda a usar la interfaz de línea de comandos (CLI de Azure) 2.0 de Azure con Azure Storage para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure 2.0 es una herramienta multiplataforma escrita en Python."
 services: storage
 documentationcenter: na
 author: mmacy
@@ -12,21 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/18/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 9a9ae2758aba17f35b7262560f8d980404ecd394
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 5008bb0292bc7513a6264ff1768976fd5ba11bfa
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-with-azure-storage"></a>Uso de la CLI de Azure 2.0 (versión preliminar) con Azure Storage
+# <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso de la CLI de Azure 2.0 con Azure Storage
 
 ## <a name="overview"></a>Información general
 
-La CLI de Azure 2.0 (versión preliminar) es de código abierto y multiplataforma, y proporciona un conjunto de comandos para trabajar con la plataforma de Azure. Proporciona muchas de las funciones que se encuentran en el [portal de Azure](https://portal.azure.com), incluido el acceso a datos enriquecidos.
+La CLI de Azure 2.0 es de código abierto y multiplataforma, y proporciona un conjunto de comandos para trabajar con la plataforma de Azure. Proporciona muchas de las funciones que se encuentran en el [portal de Azure](https://portal.azure.com), incluido el acceso a datos enriquecidos.
 
-En esta guía, se muestra cómo utilizar la [CLI de Azure 2.0 (versión preliminar)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) para realizar varias tareas trabajando con recursos en su cuenta de Azure Storage. Antes de usar esta guía es aconsejable descargar e instalar la versión de la CLI 2.0 más reciente, o actualizarse a ella.
+En esta guía, se muestra cómo utilizar la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) para realizar varias tareas trabajando con recursos en su cuenta de Azure Storage. Antes de usar esta guía es aconsejable descargar e instalar la versión de la CLI 2.0 más reciente, o actualizarse a ella.
 
 Los ejemplos de la guía se basan en el shell Bash en Ubuntu, pero el resto de las plataformas tienen un comportamiento semejante. 
 
@@ -39,9 +40,9 @@ En esta guía se supone que conoce los conceptos básicos de Almacenamiento de A
 * **Cuenta de Azure**: si aún no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 * **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
-### <a name="install-the-azure-cli-20-preview"></a>Instalación de la CLI de Azure 2.0 (versión preliminar)
+### <a name="install-the-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
 
-Descargue e instale la CLI de Azure 2.0 (versión preliminar) siguiendo las instrucciones que encontrará en [Instalación de la CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2).
+Descargue e instale la CLI de Azure 2.0 siguiendo las instrucciones que encontrará en [Instalación de la CLI de Azure 2.0](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > Si tiene problemas con la instalación, consulte la sección [Solución de problemas de instalación](/cli/azure/install-az-cli2#installation-troubleshooting) del artículo y la guía [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) (Solución de problemas de instalación) en GitHub.
@@ -70,21 +71,24 @@ Here are the base commands:
                 resources.
     appservice: Commands to manage your Azure web apps and App Service plans.
     cloud     : Manage the Azure clouds registered.
-    component : Commands to manage and update Azure CLI 2.0 (Preview) components.
-    configure : Configure Azure CLI 2.0 Preview or view your configuration. The command is
+    component : Commands to manage and update Azure CLI 2.0 components.
+    configure : Configure Azure CLI 2.0 or view your configuration. The command is
                 interactive, so just type `az configure` and respond to the prompts.
     container : Set up automated builds and deployments for multi-container Docker applications.
-    context   : Manage contexts.
+    disk      : Commands to manage 'Managed Disks'.
     feature   : Commands to manage resource provider features, such as previews.
     feedback  : Loving or hating the CLI?  Let us know!
     group     : Commands to manage resource groups.
+    image     : Commands to manage custom virtual machine images based on managed disks/snapshots.
+    lock
     login     : Log in to access Azure subscriptions.
-    logout    : Log out to remove accesses to Azure subscriptions.
+    logout    : Log out to remove access to Azure subscriptions.
     network   : Manages Network resources.
     policy    : Commands to manage resource policies.
     provider  : Manage resource providers.
     resource  : Generic commands to manage Azure resources.
     role      : Use role assignments to manage access to your Azure resources.
+    snapshot  : Commands to manage snapshots.
     storage   : Durable, highly available, and massively scalable cloud storage.
     tag       : Manage resource tags.
     vm        : Provision Linux and Windows virtual machines in minutes.
@@ -191,7 +195,7 @@ test_blob.txt
 Done
 ```
 
-> [!NOTE]
+> [!TIP]
 > El resultado anterior está en formato de **tabla**. Puede especificar el formato de salida que se usa indicando el argumento `--output` en los comandos de la CLI, o definirlo a nivel global mediante `az configure`.
 >
 
@@ -344,32 +348,19 @@ az storage file list -s myshare/myDir
 az storage file list -s myshare -p myDir/mySubDir/MySubDir2
 ```
 
-### <a name="copy-files"></a>Copiar archivos      
+### <a name="copy-files"></a>Copiar archivos        
 Puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo. Por ejemplo, para copiar un archivo en un directorio de un recurso compartido diferente:        
         
 ```azurecli
-# Get the URL for the source file you want to copy
-az storage file url -s myshare -p /mydir/image.png
-
-# Copy the file to another share
 az storage file copy start \
-    --source-uri https://mystorageaccount.file.core.windows.net/myshare/mydir/image.png \   
-    --destination-share myshare2 --destination-path mydir2/image.png        
+--source-share share1 --source-path dir1/file.txt \
+--destination-share share2 --destination-path dir2/file.txt        
 ```
 
-> [!NOTE]
-> Hay un problema conocido en la CLI 2.0 (versión preliminar) que impide usar `--source-share` y `--source-path`. Puede usar el argumento `--source-uri` como solución alternativa hasta que se resuelva el problema.
->
-
 ## <a name="next-steps"></a>Pasos siguientes
-Estos son algunos recursos adicionales para obtener más información acerca de cómo trabajar con la CLI de Azure 2.0 (versión preliminar).
+Estos son algunos recursos adicionales para obtener más información acerca de cómo trabajar con la CLI de Azure 2.0.
 
-* [Get started with Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Introducción a la CLI Azure 2.0 [versión preliminar])
-* [Azure CLI 2.0 (Preview) command reference ](/cli/azure)(Referencia de comandos de la CLI de Azure 2.0 [versión preliminar])
-* [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) (CLI de Azure 2.0 [versión preliminar]) en GitHub
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+* [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Referencia de comandos de la CLI de Azure 2.0](/cli/azure)
+* [CLI de Azure 2.0 en GitHub](https://github.com/Azure/azure-cli)
 

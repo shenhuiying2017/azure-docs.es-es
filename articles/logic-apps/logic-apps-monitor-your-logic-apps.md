@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de las aplicaciones lógicas en Azure | Microsoft Docs"
-description: "Visualización de lo que han hecho las aplicaciones lógicas"
+title: "Habilitación del registro y las alertas, comprobación del historial de ejecución, seguimiento de las entradas y salidas: Azure Logic Apps | Microsoft Docs"
+description: "Supervisión del estado de los flujos de trabajo de aplicaciones lógicas mediante el registro, el seguimiento y la visualización del historial y los diagnósticos"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: db3684fc5cc4ae7933454a02d8440d1eb4948828
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-your-logic-apps"></a>Supervisión de aplicaciones lógicas
-Tras [crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md), podrá ver el historial completo de su ejecución en el Portal de Azure.  También puede configurar servicios, como Diagnósticos de Azure y alertas de Azure, para supervisar eventos en tiempo real y avisarle en el caso de eventos como "cuando más de 5 ejecuciones produzcan error en una hora".
+# <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>Comprobación del rendimiento, e inicio del registro y las alertas de diagnóstico de los flujos de trabajo de las aplicaciones lógicas
+Tras [crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md), podrá ver el historial completo de su ejecución en Azure Portal.  También puede configurar servicios, como Diagnósticos de Azure y alertas de Azure, para supervisar eventos en tiempo real y avisarle en el caso de eventos como "cuando más de 5 ejecuciones produzcan error en una hora".
 
 ## <a name="monitor-in-the-azure-portal"></a>Supervisión en el Portal de Azure
 Para ver el historial, seleccione **Examinar** y, luego, **Logic Apps**. Aparecerá una lista con todas las aplicaciones lógicas incluidas en la suscripción.  Seleccione la aplicación lógica que quiere supervisar.  Verá una lista de todas las acciones y desencadenadores que se han producido para esta aplicación lógica.
@@ -137,10 +139,5 @@ Los datos de telemetría de Event Hub o de Storage se pueden aprovechar en otros
 * [Ejemplos y escenarios habituales de las aplicaciones lógicas](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Creación de una implementación de aplicación lógica](../logic-apps/logic-apps-create-deploy-template.md)
 * [Características de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

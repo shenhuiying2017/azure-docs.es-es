@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo ejecutar tareas en segundo plano 
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
-ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5d0d46447c3e0a3a1047e2bbedd44bbd46dd7f1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ El SDK de trabajos web de Azure simplifica muchas de las tareas de programación
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-nameacceptablefilesaacceptable-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Tipos de archivo válidos para scripts o programas
+## <a name="acceptablefiles"></a>Tipos de archivo válidos para scripts o programas
 Se aceptan los siguientes tipos de archivo:
 
 * .cmd, .bat, .exe (con windows cmd)
@@ -43,7 +44,7 @@ Se aceptan los siguientes tipos de archivo:
 * .js (con node)
 * .jar (con java)
 
-## <a name="a-namecreateondemandacreate-an-on-demand-webjob-in-the-portal"></a><a name="CreateOnDemand"></a>Creación de un trabajo web a petición en el portal
+## <a name="CreateOnDemand"></a>Creación de un trabajo web a petición en el portal
 1. En la hoja **Aplicación web** de [Azure Portal](https://portal.azure.com), haga clic en **Toda la configuración > Webjobs** para mostrar la hoja **Webjobs**.
    
     ![Hoja de WebJobs](./media/web-sites-create-web-jobs/wjblade.png)
@@ -60,7 +61,7 @@ Se aceptan los siguientes tipos de archivo:
    
     ![Ejecución de WebJobs](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="a-namecreatecontinuousacreate-a-continuously-running-webjob"></a><a name="CreateContinuous"></a>Creación de un trabajo web de ejecución continua
+## <a name="CreateContinuous"></a>Creación de un trabajo web de ejecución continua
 1. Para crear un WebJob de ejecución continua, siga los pasos descritos para crear un WebJob que se ejecuta solo una vez, pero en el cuadro **Cómo ejecutar**, elija **Continua**.
 2. Para iniciar o detener un WebJob continuo, haga clic con el botón derecho en el WebJob en la lista y haga clic en **Iniciar** o **Detener**.
 
@@ -71,7 +72,7 @@ Se aceptan los siguientes tipos de archivo:
 > 
 > 
 
-## <a name="a-namecreatescheduledcronacreate-a-scheduled-webjob-using-a-cron-expression"></a><a name="CreateScheduledCRON"></a>Creación de un trabajo web programado utilizando una expresión CRON
+## <a name="CreateScheduledCRON"></a>Creación de un trabajo web programado utilizando una expresión CRON
 Esta técnica está disponible para aplicaciones web que se ejecutan en modo Básico, Estándar o Premium y requiere que la opción **AlwaysOn** esté habilitada en la aplicación.
 
 Para convertir un trabajo web a petición en un trabajo web programado, basta con incluir un archivo `settings.job` en la raíz del archivo ZIP del trabajo web. Este archivo JSON debe incluir una propiedad `schedule` con una [expresión CRON](https://en.wikipedia.org/wiki/Cron)como la siguiente.
@@ -95,7 +96,7 @@ Otros ejemplos de programación CRON:
 
 **Nota**: Cuando se implemente un WebJob desde Visual Studio, asegúrese de marcar las propiedades de archivo `settings.job` como "Copiar si es posterior".
 
-## <a name="a-namecreatescheduledacreate-a-scheduled-webjob-using-the-azure-scheduler"></a><a name="CreateScheduled"></a>Creación de un trabajo web programado mediante el programador de Azure
+## <a name="CreateScheduled"></a>Creación de un trabajo web programado mediante el programador de Azure
 La técnica alternativa siguiente hace uso del programador de Azure. En este caso, el trabajo web no tiene ningún conocimiento directo de la programación. En su lugar, se debe configurar el programador de Azure para desencadenar el trabajo web según una programación. 
 
 El Portal de Azure aún no tiene la capacidad para crear un trabajo web programado, pero hasta que se agregue esa característica, puede hacerlo con el [Portal clásico](http://manage.windowsazure.com).
@@ -133,7 +134,7 @@ El Portal de Azure aún no tiene la capacidad para crear un trabajo web programa
     
     ![Lista de trabajos][WebJobsListWithSeveralJobs]
 
-### <a name="a-nameschedulerascheduled-jobs-and-azure-scheduler"></a><a name="Scheduler"></a>Trabajos programados y Programador de Azure
+### <a name="Scheduler"></a>Trabajos programados y Programador de Azure
 Los trabajos programados se pueden configurar adicionalmente en las páginas del Programador de Azure del [Portal clásico](http://manage.windowsazure.com).
 
 1. En la página WebJobs, haga clic en el vínculo **Programar** para desplazarse a la página del portal del Programador de Azure. 
@@ -146,7 +147,7 @@ Los trabajos programados se pueden configurar adicionalmente en las páginas del
    
     ![Página de acción del trabajo en el Programador][JobActionPageInScheduler]
 
-## <a name="a-nameviewjobhistoryaview-the-job-history"></a><a name="ViewJobHistory"></a>Visualización del historial de trabajos
+## <a name="ViewJobHistory"></a>Visualización del historial de trabajos
 1. Para ver el historial de ejecución de un trabajo, incluidos los trabajos creados con el SDK de WebJobs, haga clic en su vínculo correspondiente en la columna **Registros** de la hoja WebJobs. (Puede utilizar el icono del Portapapeles para copiar la dirección URL de la página de archivo de registro en el Portapapeles si lo desea).
    
     ![Vínculo de registros](./media/web-sites-create-web-jobs/wjbladelogslink.png)
@@ -167,15 +168,15 @@ Los trabajos programados se pueden configurar adicionalmente en las páginas del
    
     Al hacer clic en uno de estos vínculos, obtendrá acceso a la página de detalles de WebJob para el trabajo que ha seleccionado.
 
-## <a name="a-namewhpnotesanotes"></a><a name="WHPNotes"></a>Notas
+## <a name="WHPNotes"></a>Notas
 * Las aplicaciones web en modo libre pueden agotar su tiempo de espera tras 20 minutos si no se realizan solicitudes al sitio de scm (implementación) y el portal de la aplicación web no está abierto en Azure. Las solicitudes al sitio real no restablecerán esto.
 * Debe escribirse el código para un trabajo continuo para que se ejecute en un bucle infinito.
 * Los trabajos continuos solo se ejecutan continuamente cuando la aplicación web está activa.
 * Los modos básico y estándar ofrecen la característica Siempre disponible que, cuando está habilitada, impide que las aplicaciones web se vuelvan inactivas.
 * Solo se pueden depurar WebJobs que se ejecutan continuamente. No se admite la depuración de WebJobs programada o a petición.
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Pasos siguientes
-Para más información, consulte [Recursos recomendados de WebJobs de Azure][WebJobsRecommendedResources].
+## <a name="NextSteps"></a>Pasos siguientes
+Para obtener más información, consulte [Recursos recomendados de WebJobs de Azure][WebJobsRecommendedResources].
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
@@ -195,7 +196,7 @@ Para más información, consulte [Recursos recomendados de WebJobs de Azure][Web
 [RunOnce]: ./media/web-sites-create-web-jobs/13RunOnce.png
 [WebJobsListWithSeveralJobs]: ./media/web-sites-create-web-jobs/13WebJobsListWithSeveralJobs.png
 [WebJobLogs]: ./media/web-sites-create-web-jobs/14WebJobLogs.png
-[Detalles del trabajo web]: ./media/web-sites-create-web-jobs/15WebJobDetails.png
+[WebJobDetails]: ./media/web-sites-create-web-jobs/15WebJobDetails.png
 [WebJobRunDetails]: ./media/web-sites-create-web-jobs/16WebJobRunDetails.png
 [DownloadLogOutput]: ./media/web-sites-create-web-jobs/17DownloadLogOutput.png
 [WebJobsLinkToDashboardList]: ./media/web-sites-create-web-jobs/18WebJobsLinkToDashboardList.png
@@ -203,10 +204,5 @@ Para más información, consulte [Recursos recomendados de WebJobs de Azure][Web
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

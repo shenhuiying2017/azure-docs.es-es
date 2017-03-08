@@ -12,35 +12,41 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 1f6fd5b4e10e2f94256f5a3dac7609265b1f2cc4
-
+ms.sourcegitcommit: 51338924f5c8eff4234c7d57f7efc0619316bb38
+ms.openlocfilehash: 157a5130755f2092d044f3361e4fb5bc3a7a1053
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="how-to-auto-scale-a-cloud-service"></a>Cómo escalar automáticamente un servicio en la nube
+
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
 > [!div class="op_single_selector"]
 > * [Portal de Azure](cloud-services-how-to-scale-portal.md)
 > * [Portal de Azure clásico](cloud-services-how-to-scale.md)
-> 
-> 
 
 Las condiciones se pueden definir para un rol de trabajo de servicio en la nube que desencadene una operación de reducción horizontal y de escalabilidad horizontal. Las condiciones del rol pueden basarse en la CPU, el disco o la carga de red del rol. También puede establecer una condición basada en una cola de mensajes o en la métrica de algún otro recurso de Azure asociado a la suscripción.
 
 > [!NOTE]
 > Este artículo se centra en los roles de trabajo y en los roles web de Servicio en la nube. Al crear una máquina virtual (clásica) directamente, esta se hospeda en un servicio en la nube. Puede escalar una máquina virtual estándar asociándola con un [conjunto de disponibilidad](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) y activándola o desactivándola manualmente.
-> 
-> 
 
 ## <a name="considerations"></a>Consideraciones
 Debe considerar la siguiente información antes de configurar el escalado para su aplicación:
 
-* El uso de núcleos afecta el escalado. Las instancias de rol más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, si su suscripción tiene un límite de veinte núcleos y ejecuta una aplicación con dos servicios en la nube de tamaño mediano (un total de cuatro núcleos), solo puede escalar verticalmente otras implementaciones del servicio en la nube en su suscripción con dieciséis núcleos. Consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](cloud-services-sizes-specs.md) para obtener más información sobre los tamaños.
+* El uso de núcleos afecta el escalado.
+
+    Las instancias de rol más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, supongamos que su suscripción tiene un límite de 20 núcleos. Si ejecuta una aplicación con dos servicios en la nube de tamaño mediano (un total de 4 núcleos), solo puede escalar verticalmente otras implementaciones del servicio en la nube en su suscripción con los 16 núcleos restantes. Para obtener más información sobre los tamaños, consulte [Tamaños de los servicios en la nube](cloud-services-sizes-specs.md).
+
 * Puede realizar una operación de escalabilidad basada en un umbral de mensajes de cola. Para obtener más información sobre las colas, consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](../storage/storage-dotnet-how-to-use-queues.md).
+
 * También puede escalar otros recursos asociados a la suscripción.
+
 * Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
+
+> [!WARNING]
+> El escalado automático solo funciona con cuentas de Azure Storage clásico. No funciona con cuentas de almacenamiento de Azure Resource Manager.
+
 
 ## <a name="where-scale-is-located"></a>Ubicación de la escala
 Después de seleccionar el servicio en la nube, debe tener visible la hoja del servicio en la nube.
@@ -103,17 +109,12 @@ Vaya a la [configuración de escala](#where-scale-is-located) y establezca el va
 
 ![Configuración de escala de servicios en la nube con el perfil y la regla](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Con esta acción se elimina la escala automática del rol y podrá establecer el recuento de instancias directamente. 
+Con esta configuración se elimina la escala automática del rol y podrá establecer el recuento de instancias directamente. 
 
 1. La opción de escala (manual o automática).
 2. Un regulador de instancias de rol para definir las instancias en las que se realizará la operación de escala.
 3. Las instancias del rol en las que se realizar la operación de escala.
 
 Después de configurar la configuración de escala, seleccione el icono de **Guardar** situado en la parte superior.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

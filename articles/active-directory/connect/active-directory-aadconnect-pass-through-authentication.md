@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 67b832253619afe789a4dfdb95893e8c0ae62bee
 ms.openlocfilehash: 17890fddf948ddc0e89a9107ac5fe65223cd05e1
+ms.lasthandoff: 01/30/2017
 
 ---
 
@@ -40,6 +41,7 @@ La autenticación de paso a través se puede configurar mediante Azure AD Connec
 >Pueden admitirse entornos de varios bosques si hay relaciones de confianza entre los bosques y el enrutamiento de sufijos de nombre está configurado correctamente.
 
 ## <a name="supported-clients-in-the-preview"></a>Clientes compatibles en la versión preliminar
+
 La autenticación de paso a través es compatible mediante clientes basados en explorador web y clientes de Office compatibles con la [autenticación moderna](https://aka.ms/modernauthga). Para los clientes incompatibles, como los clientes de Office heredados o Exchange Active Sync (es decir, clientes de correo electrónico nativos en dispositivos móviles), se recomienda a los usuarios que utilicen el equivalente a la autenticación moderna. Estos clientes no solo permiten la autenticación de paso a través, sino también que se aplique el acceso condicional, como la autenticación multifactor.
 
 Actualmente no se admite la autenticación de paso a través para clientes que usen Windows 10 y se hayan unido a Azure AD. No obstante, los clientes pueden utilizar la sincronización de contraseña como reserva automática para Windows 10, además de para los clientes heredados.
@@ -154,9 +156,4 @@ A continuación, se detallan otros errores notificados en la pantalla de inicio 
 |AADSTS80004|El nombre de usuario transferido al conector no era válido.|Asegúrese de que el usuario esté intentando iniciar sesión con el nombre de usuario correcto.
 |AADSTS80005|La validación encontró una excepción WebException impredecible|Se trata de un problema transitorio. Vuelva a intentarlo. Si continúa, póngase en contacto con el soporte técnico de Microsoft.
 |AADSTS80007|Error al establecer comunicación con Active Directory.|Compruebe los registros del conector para más información y verifique que Active Directory está funcionando según lo previsto.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

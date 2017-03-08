@@ -1,6 +1,6 @@
 ---
-title: "Conexión de equipos Windows a Log Analytics | Microsoft Docs"
-description: "En este artículo, se explican los pasos necesarios para conectar los equipos Windows de la infraestructura local directamente a OMS a través de una versión personalizada de Microsoft Monitoring Agent (MMA)."
+title: "Conexión de equipos Windows a Azure Log Analytics | Microsoft Docs"
+description: "En este artículo, se explican los pasos necesarios para conectar los equipos Windows de la infraestructura local directamente al servicio Log Analytics a través de una versión personalizada de Microsoft Monitoring Agent (MMA)."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ca573f743325b29d43c4b1a0c3bc7001a54fcfae
-ms.openlocfilehash: f7d740c164df5fe2341a3a0dc3ca0149aed68386
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ecee44194c32569f1d50001543ef4b37ecdb5eb3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-windows-computers-to-log-analytics"></a>Conexión de equipos Windows a Log Analytics
+# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 
-En este artículo, se explican los pasos necesarios para conectar los equipos Windows de la infraestructura local directamente a áreas de trabajo de OMS a través de una versión personalizada de Microsoft Monitoring Agent (MMA). Deberá instalar y conectar agentes en todos los equipos que quiera incorporar a OMS para que puedan enviar datos a OMS y puedan ver esos datos y actuar sobre ellos en el portal de OMS. Cada agente puede informar a varias áreas de trabajo.
+En este artículo, se explican los pasos necesarios para conectar los equipos Windows de la infraestructura local a áreas de trabajo de OMS a través de una versión personalizada de Microsoft Monitoring Agent (MMA). Deberá instalar y conectar agentes en todos los equipos que quiera incorporar para que puedan enviar datos al servicio Log Analytics, así como ver esos datos y actuar sobre ellos. Cada agente puede informar a varias áreas de trabajo.
 
 Puede instalar los agentes a través del programa de instalación, a través de la línea de comandos o utilizando Configuración de estado deseado (DSC) en Automatización de Azure.  
 
@@ -107,10 +109,10 @@ Puede usar el siguiente script de ejemplo para instalar el agente mediante DSC e
 Este ejemplo de script y procedimiento no actualizará un agente existente.
 
 1. Importe el módulo de DSC xPSDesiredStateConfiguration desde [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) en Automatización de Azure.  
-2.  En Azure Automation, cree los recursos de variable *OPSINSIGHTS_WS_ID* y *OPSINSIGHTS_WS_KEY*. Establezca *OPSINSIGHTS_WS_ID* en el identificador del área de trabajo de Log Analytics de OMS y *OPSINSIGHTS_WS_KEY* en la clave principal del área de trabajo.
-3.  Utilice el script siguiente y guárdelo como MMAgent.ps1.
-4.  Después de modificar el ejemplo, úselo para instalar el agente utilizando DSC en Automatización de Azure. Importe MMAgent.ps1 en Automatización de Azure a través de la interfaz o el cmdlet de Automatización de Azure.
-5.  Asigne un nodo a la configuración. Durante los 15 minutos siguientes, el nodo comprobará la configuración y MMA se insertará en el nodo.
+2.    En Azure Automation, cree los recursos de variable *OPSINSIGHTS_WS_ID* y *OPSINSIGHTS_WS_KEY*. Establezca *OPSINSIGHTS_WS_ID* en el identificador del área de trabajo de Log Analytics de OMS y *OPSINSIGHTS_WS_KEY* en la clave principal del área de trabajo.
+3.    Utilice el script siguiente y guárdelo como MMAgent.ps1.
+4.    Después de modificar el ejemplo, úselo para instalar el agente utilizando DSC en Automatización de Azure. Importe MMAgent.ps1 en Automatización de Azure a través de la interfaz o el cmdlet de Automatización de Azure.
+5.    Asigne un nodo a la configuración. Durante los 15 minutos siguientes, el nodo comprobará la configuración y MMA se insertará en el nodo.
 
 ```
 Configuration MMAgent
@@ -199,17 +201,17 @@ Una vez que los datos se hayan recopilado de los equipos supervisados por el age
 Si utiliza Operations Manager en su infraestructura de TI, también puede usar el agente de MMA como agente de Operations Manager.
 
 ### <a name="to-configure-mma-agents-to-report-to-an-operations-manager-management-group"></a>Si desea configurar los agentes de MMA para que envíen notificaciones a un grupo de administración de Operations Manager
-1.  En el equipo en el que está instalado el agente, abra el **Panel de control**.  
-2.  Abra **Microsoft Monitoring Agent** y haga clic en la pestaña **Operations Manager**.  
+1.    En el equipo en el que está instalado el agente, abra el **Panel de control**.  
+2.    Abra **Microsoft Monitoring Agent** y haga clic en la pestaña **Operations Manager**.  
     ![Pestaña Operations Manager de Microsoft Monitoring Agent](./media/log-analytics-windows-agents/om-mg01.png)
-3.  Si los servidores de Operations Manager tienen integración con Active Directory, haga clic en **Actualizar automáticamente asignaciones de grupos de administración desde AD DS**.
-4.  Haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar un grupo de administración**.  
+3.    Si los servidores de Operations Manager tienen integración con Active Directory, haga clic en **Actualizar automáticamente asignaciones de grupos de administración desde AD DS**.
+4.    Haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar un grupo de administración**.  
     ![Agregar un grupo de administración de Microsoft Monitoring Agent](./media/log-analytics-windows-agents/oms-mma-om02.png)
-5.  En el cuadro **Nombre del grupo de administración** , especifique un nombre para el grupo de administración.
-6.  En el cuadro **Servidor de administración principal** , escriba el nombre de equipo del servidor de administración principal.
-7.  En el cuadro **Puerto de servidor de administración** , escriba el número de puerto TCP.
-8.  En **Cuenta de acción del agente**, seleccione la cuenta de sistema local o una cuenta de dominio local.
-9.  Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar un grupo de administración** y después haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de Microsoft Monitoring Agent**.
+5.    En el cuadro **Nombre del grupo de administración** , especifique un nombre para el grupo de administración.
+6.    En el cuadro **Servidor de administración principal** , escriba el nombre de equipo del servidor de administración principal.
+7.    En el cuadro **Puerto de servidor de administración** , escriba el número de puerto TCP.
+8.    En **Cuenta de acción del agente**, seleccione la cuenta de sistema local o una cuenta de dominio local.
+9.    Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar un grupo de administración** y después haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de Microsoft Monitoring Agent**.
 
 ## <a name="optionally-configure-agents-to-use-the-oms-gateway"></a>De manera opcional, configure agentes para que usen la puerta de enlace de OMS.
 
@@ -226,9 +228,4 @@ Si en su entorno hay servidores proxy o firewalls que restringen el acceso a Int
 
 - [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar información.
 - [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) si la organización utiliza un servidor proxy o un firewall para que los agentes puedan comunicarse con el servicio Log Analytics.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
 ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -109,8 +110,8 @@ Puede que tenga casos de uso de implementación donde necesite algunas de las fu
 
 > [!NOTE]
 > Puede determinar que una opción de implementación personal es más adecuada para sus casos de uso de implementación. Considere la posibilidad de [enviarnos comentarios](active-directory-ds-contact-us.md) para ayudarnos a comprender qué características lo ayudarán a decantarse por Azure AD Domain Services en un futuro. Estos comentarios nos ayudan a mejorar el servicio para que se ajuste mejor a sus necesidades de implementación y casos de uso.
-> 
-> 
+>
+>
 
 Hemos publicado [directrices de implementación de Windows Server Active Directory en Microsoft Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) para ayudar a simplificar las instalaciones personales.
 
@@ -118,10 +119,4 @@ Hemos publicado [directrices de implementación de Windows Server Active Directo
 * [Características de Azure AD Domain Services](active-directory-ds-features.md)
 * [Escenarios de implementación de Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

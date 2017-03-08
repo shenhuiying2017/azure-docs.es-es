@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: b78d8167ec5aacee34ed235637bc396f9b869a39
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-start-or-delete-an-application-gateway"></a>Creación, inicio o eliminación de una puerta de enlace de aplicaciones
+# <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Creación, inicio o eliminación de una puerta de enlace de aplicaciones con PowerShell 
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-create-gateway-portal.md)
@@ -444,9 +446,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 * [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

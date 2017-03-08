@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 320285d97b3ef723ec2b5715fd02580d058cbbcf
+ms.openlocfilehash: 2304c85177cefa6505d92679ec7f791cb87e69e4
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,14 +30,11 @@ Los clústeres de Kubernetes, DC/OS y Docker Swarm proporcionan los puntos de co
 
 En el caso de DC/OS y Docker Swarm, es preciso crear un túnel SSH (Secure Shell) a un sistema interno. Después de establecer el túnel, puede ejecutar comandos que utilizan los puntos de conexión HTTP y ver la interfaz de web del clúster desde el sistema local. 
 
-> [!NOTE]
-> La compatibilidad con Kubernetes en Azure Container Service está actualmente en versión preliminar.
->
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Kubernetes, DC/OS o Swarm [implementado en Azure Container Service](container-service-deployment.md).
-* Archivo de clave privada SSH, correspondiente a la clave pública agregada al clúster en la implementación. Estos comandos asumen que la clave privada SSH está en `$HOME/.ssh/id_rsa` en el equipo. Para más información, consulte estas instrucciones para [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Si la conexión SSH no funciona, es posible que tenga que [restablecer las claves SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* Archivo de clave privada RSA de SSH, correspondiente a la clave pública agregada al clúster durante la implementación. Estos comandos asumen que la clave privada SSH está en `$HOME/.ssh/id_rsa` en el equipo. Para más información, consulte estas instrucciones para [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Si la conexión SSH no funciona, es posible que tenga que [restablecer las claves SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Conexión a un clúster de Kubernetes
 
@@ -47,7 +45,7 @@ Para instalar y configurar `kubectl` en el equipo, siga estos pasos.
 > 
 
 ### <a name="install-kubectl"></a>Instalación de kubectl
-Una forma de instalar esta herramienta es usar la el comando `az acs kubernetes install-cli` de la CLI de Azure 2.0 (versión preliminar). Para ejecutar este comando, asegúrese de que [ha instalado](/cli/azure/install-az-cli2) la CLI de Azure 2.0 (versión preliminar) y que ha iniciado sesión en una cuenta de Azure (`az login`).
+Una forma de instalar esta herramienta es usar la el comando `az acs kubernetes install-cli` de la CLI de Azure 2.0. Para ejecutar este comando, asegúrese de que [ha instalado](/cli/azure/install-az-cli2) la CLI de Azure 2.0 más reciente y que ha iniciado sesión en una cuenta de Azure (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +55,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Como alternativa, puede descargar el cliente directamente desde la [página de versiones](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+Como alternativa, puede descargar el cliente más reciente directamente desde la [página de versiones de Kubernetes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Para más información, consulte [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/) (Instalación y configuración de kubectl).
 
 ### <a name="download-cluster-credentials"></a>Descarga de las credenciales del clúster
 Una vez que tenga `kubectl` instalado, debe copiar las credenciales del clúster en la máquina. Una manera de obtener las credenciales es usar el comando `az acs kubernetes get-credentials`. Pase el nombre del grupo de recursos y el nombre del recurso del servicio de contenedor:
@@ -128,7 +126,7 @@ Lo primero que se hace al crear un túnel de SSH en Linux u OS X es buscar el no
     **PATH_TO_PRIVATE_KEY** [OPCIONAL] es la ruta de acceso a la clave privada correspondiente a la clave pública que proporcionó al crear el clúster. Esta opción se usa con la marca `-i`.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > El puerto de conexión SSH es el 2200 y no el puerto 22 estándar. En un clúster con más de una máquina virtual maestra, éste es el puerto de conexión a la primera máquina virtual maestra.
@@ -203,7 +201,7 @@ Existen varias opciones para crear túneles de SSH en Windows. En esta sección 
 
     ![Registro de eventos de PuTTY](media/putty4.png)
 
-Cuando haya configurado el túnel de DC/OS, podrá acceder al punto de conexión relacionado en:
+Cuando haya configurado el túnel de DC/OS, podrá acceder a los puntos de conexión relacionados en:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
@@ -217,10 +215,5 @@ Implementar y administrar contenedores en un clúster:
 * [Trabajo con Azure Container Service y Kubernetes](container-service-kubernetes-ui.md)
 * [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
 * [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

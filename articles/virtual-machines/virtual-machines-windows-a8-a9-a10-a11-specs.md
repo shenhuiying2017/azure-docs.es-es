@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5a46b53f42fce7577485517e9d345cf2ad3f0926
-ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
+ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
+ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>Acerca de las máquinas virtuales de la serie H y A de proceso intensivo
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>Acerca de las máquinas virtuales de la serie H y A de procesos intensivos para Windows
 Aquí se proporciona información general y algunas consideraciones sobre el uso de las series H de Azure más recientes y las antiguas instancias A8, A9, A10 y A11, también conocidas como instancias de *proceso intensivo* . Este artículo se centra en el uso de estas instancias para máquinas virtuales de Windows. Este artículo también está disponible para [máquinas virtuales Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -63,10 +65,5 @@ Para más información y ver listas de comprobación para usar instancias de pro
 * Para más información sobre las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Para empezar a implementar y usar instancias de proceso intensivo con HPC Pack en Windows, consulte [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Para obtener más información sobre el uso de instancias de proceso intensivo para ejecutar aplicaciones MPI con Azure Batch, consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Azure Batch](../batch/batch-mpi.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -18,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 26cdaf4dc68876fa2bed4ca15d8bfb7fd3ac4b6d
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -144,7 +145,7 @@ Puede haber varios motivos por los que podría querer instalar Jupyter en el equ
 >
 >
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Otras referencias
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
@@ -156,7 +157,7 @@ Puede haber varios motivos por los que podría querer instalar Jupyter en el equ
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -168,9 +169,4 @@ Puede haber varios motivos por los que podría querer instalar Jupyter en el equ
 ### <a name="manage-resources"></a>Administración de recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

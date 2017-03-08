@@ -4,7 +4,7 @@ description: "Aquí encontrará información sobre cómo crear y eliminar el ser
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: byronr
+manager: timlt
 editor: 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f507eb6986f7c62965dc00673ee5ebe38e70f1d7
-ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
+ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
+ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deploy-the-storsimple-manager-service"></a>Implementar el servicio StorSimple Manager
+# <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Implementación del servicio StorSimple Manager en el Portal de Azure clásico
+
 ## <a name="overview"></a>Información general
 El servicio StorSimple Manager se ejecuta en Microsoft Azure y se conecta a varios dispositivos StorSimple. Después de crear el servicio, puede usarlo para administrar los dispositivos desde el Portal de Microsoft Azure clásico, ejecutándolo en un explorador. Esto permite supervisar todos los dispositivos que están conectados al servicio StorSimple Manager desde una única ubicación central, reduciendo la carga administrativa.
 
@@ -99,9 +102,4 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 * Obtenga más información sobre el [proceso de implementación de StorSimple](storsimple-deployment-walkthrough-u2.md).
 * Obtenga más información sobre cómo [administrar su cuenta de almacenamiento de StorSimple](storsimple-manage-storage-accounts.md).
 * Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

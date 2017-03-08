@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
-ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
+ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -246,13 +246,15 @@ Esto puede suceder cuando el comando de montaje no incluya la opción **serverin
 ### <a name="solution"></a>Solución
 Compruebe la opción **serverino** en la entrada "/etc/fstab":
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 También puede comprobar si se está utilizando esa opción simplemente ejecutando el comando **sudo mount | grep cifs** y buscando como salida:
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Si la opción **serverino** no está presente, desmonte y monte Azure Files de nuevo con la opción **serverino** seleccionada.
+
+Otra razón para un rendimiento lento podría ser que el almacenamiento en caché está deshabilitado. Con el fin de comprobar si está habilitado, busque "caché =".  *cache=none* indica que el almacenamiento en caché está deshabilitado. Vuelva a montar el recurso compartido con el comando de montaje predeterminado o agregue expresamente la opción **caché=strict** para montar el comando con el fin de asegurarse de que el almacenamiento en caché predeterminado o el modo de almacenamiento en caché "strict" estén habilitados.
 
 <a id="error112"></a>
 ## <a name="error-112---timeout-error"></a>Error 112 - error de tiempo de espera
@@ -263,9 +265,10 @@ Este error indica errores de comunicación que impiden el restablecimiento de un
 
 Este error puede deberse a un problema de reconexión de Linux o a otros problemas que impiden la reconexión, como errores de red. La especificación de un montaje forzado obligará al cliente a esperar hasta que se establezca una conexión o hasta que se interrumpa explícitamente, y puede usarse para evitar errores debidos a los tiempos de espera de la red. Sin embargo, los usuarios deben tener en cuenta que esto podría provocar la espera indefinida y que deben considerar la detención de una conexión según sea necesario.
 
+
 ### <a name="workaround"></a>Solución alternativa
 
-Se ha solucionado el problema de Linux; sin embargo, no se ha llevado a las distribuciones de Linux todavía. Si el problema se debe al asunto de la reconexión en Linux, es posible solucionarlo evitando que entre en estado de inactividad. Para ello, escriba cada 30 segundos como mínimo en un archivo del recurso compartido de archivos de Azure Files. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la conexión.
+Se ha solucionado el problema de Linux; sin embargo, no se ha llevado a las distribuciones de Linux todavía. Si el problema se debe al asunto de la reconexión en Linux, es posible solucionarlo evitando que entre en estado de inactividad. Para ello, escriba cada 30 segundos como mínimo en un archivo del recurso compartido de archivos de Azure Files. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la conexión. Esta es la lista de los kernels de Linux más conocidos que tienen esta y otras correcciones de reconexión: 4.4.40+ 4.8.16+ 4.9.1+
 
 <a id="webjobs"></a>
 

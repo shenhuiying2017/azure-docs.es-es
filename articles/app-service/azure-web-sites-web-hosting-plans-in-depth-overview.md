@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ceaf35eed16fda272e4b3c501e3e9ab570855101
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 47f1a3e50639af80472c63cba30141a032f76443
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -36,7 +36,7 @@ Web Apps, Mobile Apps, Function Apps o API Apps, en [Azure App Service](http://g
 
 Todas las aplicaciones asignadas a un **plan de App Service** comparten los recursos definidos por él, lo que permite ahorrar costos al hospedar varias aplicaciones.
 
-Su **plan de App Service** puede escalarse de SKU **gratis** y **compartidas** a SKU **básicas**, **estándar** y **Premium**, lo que permite acceder a más recursos y características. 
+Su **plan de App Service** puede escalarse de SKU **Gratis** y **Compartido** a SKU **Básico**, **Estándar** y **Premium**, lo que permite acceder a más recursos y características. 
 
 Si su plan de App Service está establecido en **Básico** o superior, también puede controlar el **tamaño** y el recuento de escala de las máquinas virtuales.
 
@@ -90,7 +90,7 @@ Puede mover una aplicación a un plan distinto de App Service en [Azure Portal](
 
 Para mover una aplicación a otro plan, vaya a la aplicación que desea mover. En el menú **Configuración**, busque **Change App Service plan** (Cambiar plan de App Service).
 
-Se abre el selector del **plan de App Service **. Llegados a este punto, puede elegir un plan existente o crear uno nuevo. Se muestran únicamente los planes válidos (es decir, los que están en el mismo grupo de recursos y ubicación geográfica).
+Se abre el selector del **plan de App Service ******. Llegados a este punto, puede elegir un plan existente o crear uno nuevo. Se muestran únicamente los planes válidos (es decir, los que están en el mismo grupo de recursos y ubicación geográfica).
 
 ![Selector de plan del Servicio de aplicaciones.][change]
 

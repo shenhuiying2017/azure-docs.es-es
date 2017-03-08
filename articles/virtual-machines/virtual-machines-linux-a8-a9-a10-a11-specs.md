@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f73cbfec2ce2e41589b84997891ff0b60266c9b2
-ms.openlocfilehash: 10a10e138c9c8ed8c15136bf1d6565edc57758b5
-
+ms.sourcegitcommit: f3b1593a80e6eedc08005988d485a317951efd33
+ms.openlocfilehash: ad2beff5bbc6aaa18247939ccfe310460f9ccdee
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>Acerca de las máquinas virtuales de la serie H y A de proceso intensivo
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Acerca de las máquinas virtuales de la serie H y A de procesos intensivos para Linux
 Aquí se proporciona información general y algunas consideraciones sobre el uso de las series H de Azure más recientes y los antiguos tamaños A8, A9, A10 y A11, también conocidos como instancias de *proceso intensivo* . Este artículo se centra en el uso de estos tamaños con las máquinas virtuales con Linux. Este artículo también está disponible para [máquinas virtuales con Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -128,10 +129,5 @@ done
 * Para más información sobre la disponibilidad y los precios de los tamaños de proceso intensivo, consulte los [precios de las máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 * Para más información sobre las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Para empezar a implementar y usar los tamaños de proceso intensivo con RDMA en Linux, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

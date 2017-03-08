@@ -1,10 +1,10 @@
 ---
-title: "Configuración de una IP privada estática en modo clásico con la CLI | Microsoft Docs"
-description: "Descripción de las IP privadas estáticas (DIP) y su administración en el modo clásico con la CLI"
+title: "Configuración de direcciones IP privadas para máquinas virtuales (implementación clásica) en la CLI de Azure 1.0 | Microsoft Docs"
+description: "Aprenda a configurar direcciones IP privadas para máquinas virtuales (implementación clásica) mediante la interfaz de línea de comandos (CLI) de Azure 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 0d0b896e64dfba0081e2ec23f2181e07226faebe
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-classic-in-azure-cli"></a>Configuración de una dirección IP privada estática (clásica) en la CLI de Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configuración de direcciones IP privadas para una máquina virtual (implementación clásica) mediante la CLI de Azure 1.0
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -117,10 +120,5 @@ Resultado esperado:
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
 * Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,23 +1,25 @@
 ---
-title: "Creación de una red virtual usando Azure Portal | Microsoft Docs"
-description: Aprenda a crear una red virtual mediante Azure Portal | Resource Manager.
+title: "Creación de una red virtual (Azure Portal) | Microsoft Docs"
+description: "Obtenga información sobre cómo crear una red virtual usando el portal de Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/8/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: c7257faad9a41174fb1d65e04c99cd96a8af3ea9
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 54094c18dcbb751835bfa56d53358ce19e08387d
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -81,8 +83,3 @@ Aprenda a conectar:
 - Una máquina virtual (VM) a una red virtual, para lo cual debería leer los artículos [Creación de una máquina virtual Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creación de una máquina virtual Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md). En lugar de crear una red virtual y la subred en los pasos de los artículos, puede seleccionar una red virtual y una subred a la que conectar una máquina virtual.
 - La red virtual a otras redes virtuales. Para ello, lea el artículo [Conexión de redes virtuales](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 - La red virtual a una red local mediante una red privada virtual (VPN) de sitio a sitio o un circuito ExpressRoute. Aprenda cómo hacerlo mediante los artículos [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Conexión de una red virtual a una red local mediante una VPN de sitio a sitio) y [Vinculación de una red virtual a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-
-
-<!--HONumber=Jan17_HO1-->
-
-

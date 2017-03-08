@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
-ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -33,7 +34,7 @@ Existen dos tipos de prueba web:
 
 Puede crear hasta 10 pruebas web por recurso de aplicación.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Creación de un recurso para los informes de prueba
+## <a name="create"></a>1. Creación de un recurso para los informes de prueba
 Omita este paso si ya ha [configurado un recurso de Application Insights][start] para esta aplicación y desea ver los informes de disponibilidad en el mismo lugar.
 
 Suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
@@ -42,7 +43,7 @@ Suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https:/
 
 Haga clic en **Todos los recursos** para abrir la hoja Información general del nuevo recurso.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
+## <a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
 En el recurso de Application Insights, busque el icono de disponibilidad. Haga clic para abrir la hoja de pruebas web para la aplicación y agregue una prueba web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 ### <a name="test-more-urls"></a>Prueba de más URL
 Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Visualización de los resultados de las prueba web
+## <a name="monitor"></a>3. Visualización de los resultados de las prueba web
 Después de 1 o 2 minutos, los resultados aparecen en la hoja Prueba web.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,40 +76,23 @@ Haga clic en cualquier barra del gráfico de resumen para obtener una vista más
 
 Estos gráficos combinan los resultados de todas las pruebas web de esta aplicación.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Si ve errores
+## <a name="failures"></a>Si ve errores
 Haga clic en un punto rojo.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-O bien, desplácese hacia abajo y haga clic en una prueba donde vea un éxito de menos del 100%.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Desde un resultado de la prueba web, puede:
 
-Los resultados de esta prueba abierta.
+* Inspeccionar la respuesta recibida desde el servidor.
+* Abrir la telemetría enviada por la aplicación de servidor durante el procesamiento de la instancia de solicitud con error.
+* Registrar un problema o elemento de trabajo en GIT o VSTS para realizar un seguimiento del problema. El error contiene un vínculo a este evento.
+* Abra el resultado de la prueba web en Visual Studio.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
-
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Desplácese hacia abajo hasta las **pruebas con errores** y elija un resultado.
-
-Haga clic en el resultado para evaluarlo en el portal y ver el motivo del error.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-También puede descargar el archivo de resultados e inspeccionarlo en Visual Studio.
 
 *¿Parece que se ha completado correctamente pero se notifica como un error?* Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
 
-### <a name="open-the-server-request-and-exceptions"></a>Abra la solicitud del servidor y las excepciones
-
-En las propiedades detalladas de una prueba determinada, puede abrir el informe del lado servidor de la solicitud y cualquier otro evento, por ejemplo, las excepciones.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Si no ve elementos relacionados, puede deberse a que hay un [muestreo](app-insights-sampling.md) en curso.
+*¿No hay elementos relacionados?* Puede ser porque está funcionando el [muestreo](app-insights-sampling.md).
 
 ## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.
@@ -224,7 +208,7 @@ Si la prueba debe iniciar sesión con OAuth, el enfoque general es el siguiente:
 * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio.
   (Visual Studio intenta parametrizar la prueba pero no parametriza correctamente los tokens).
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Modificación o deshabilitación de una prueba
+## <a name="edit"></a> Modificación o deshabilitación de una prueba
 Abra una prueba individual para editarla o deshabilitarla.
 
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -273,12 +257,12 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
     Lo sentimos, pero eso no está admitido.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Vídeo
+## <a name="video"></a>Vídeo
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
+## <a name="next"></a>Pasos siguientes
 [Búsqueda de registros de diagnóstico][diagnostic]
 
 [Solución de problemas][qna]
@@ -291,9 +275,4 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

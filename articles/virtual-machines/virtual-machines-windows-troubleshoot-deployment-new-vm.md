@@ -1,5 +1,5 @@
 ---
-title: "Solución de problemas de implementación de máquinas virtuales de Windows-RM | Microsoft Docs"
+title: "Solución de problemas de implementación de máquinas virtuales Windows en Azure | Microsoft Docs"
 description: "Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Windows en Azure"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
-ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
+ms.sourcegitcommit: ec36172909398fbcae9ad39827307de758b855f0
+ms.openlocfilehash: 18767fe6bc08fd8ccb3670de686df39f58269e80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual de Windows en Azure
+# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solución de problemas de implementación al crear una nueva máquina virtual Windows en Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -84,10 +86,5 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Windows detenida o al cambiar el tamaño de una máquina virtual Windows existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

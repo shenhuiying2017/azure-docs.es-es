@@ -1,6 +1,6 @@
 ---
-title: "Captura de una VM con Linux mediante la CLI de Azure 2.0 (versión preliminar) | Microsoft Docs"
-description: "Captura y generalización de una imagen de una VM de Azure basada en Linux mediante discos administrados creados con la CLI de Azure 2.0 (versión preliminar)"
+title: "Captura de una máquina virtual Linux con la CLI de Azure 2.0 | Microsoft Docs"
+description: "Captura y generalización de una imagen de una máquina virtual de Azure basada en Linux mediante discos administrados creados con la CLI de Azure 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,29 +16,25 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 4620ace217e8e3d733129f69a793d3e2f9e989b2
-ms.openlocfilehash: 64b829de4389ba6aa46dc51afd0cff3f40265d68
+ms.sourcegitcommit: 93abc8b1b14f58b0d0be52517a2b63dfe2dc32fb
+ms.openlocfilehash: c72f576d992c9adfa83b9744672397045833c43f
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="how-to-generalize-and-capture-a-linux-virtual-machine-using-the-azure-cli-20-preview"></a>Generalización y captura de una máquina virtual con Linux mediante la CLI de Azure 2.0 (versión preliminar)
-Para volver a usar máquinas virtuales (VM) implementadas y configuradas en Azure, capture una imagen de la VM. El proceso implica también la generalización de la VM para quitar la información de cuenta personal antes de implementar nuevas VM a partir de la imagen. En este artículo se detalla cómo capturar una imagen de VM con la CLI de Azure 2.0 (versión preliminar) para una VM mediante Azure Managed Disks. Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para más información, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Información general sobre Azure Managed Disks). 
+# <a name="how-to-generalize-and-capture-a-linux-virtual-machine"></a>Procedimiento para generalizar y capturar una máquina virtual Linux
+Para volver a usar máquinas virtuales (VM) implementadas y configuradas en Azure, capture una imagen de la VM. El proceso implica también la generalización de la VM para quitar la información de cuenta personal antes de implementar nuevas VM a partir de la imagen. En este artículo se detalla cómo capturar una imagen de máquina virtual con la CLI de Azure 2.0 para una máquina virtual mediante Azure Managed Disks. Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para obtener más información, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Información general sobre Azure Managed Disks). En este artículo se detalla cómo capturar una máquina virtual Linux con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!TIP]
 > Si desea crear una copia de la máquina virtual de Linux existente con su estado especializado para copia de seguridad o depuración, consulte [Creación de una copia de una máquina virtual Linux que se ejecuta en Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Y si desea cargar un VHD de Linux desde una máquina virtual local, consulte [Carga y creación de una máquina virtual Linux desde una imagen de disco personalizada](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar) - Azure Managed Disks](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
 * **VM de Azure creada en el modelo de implementación de Resource Manager**: si no ha creado una VM de Linux, puede usar el [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), la [CLI de Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [plantillas de Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Configure la máquina virtual como considere necesario. Por ejemplo, [agregue discos de datos](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), aplique actualizaciones e instale aplicaciones. 
 
-También necesita tener instalada la última versión de la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+También necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#login).
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos base para capturar una imagen de una VM con Linux en Azure. En el resto del documento puede encontrar información más detallada y el contexto de cada paso, comenzando [aquí](#detailed-steps). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `myVM` y `myImage`.
@@ -95,7 +91,7 @@ Para que la VM esté lista para la generalización, debe desaprovisionar la VM c
 4. Una vez que se complete el comando, escriba **exit**. Este paso cierra el cliente de SSH.
 
 ## <a name="step-2-capture-the-vm"></a>Paso 2: Capturar la máquina virtual
-Use la CLI de Azure 2.0 (versión preliminar) para generalizar y capturar la VM. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen **myResourceGroup**, **myVnet** y **myVM**.
+Use la CLI de Azure 2.0 para generalizar y capturar la máquina virtual. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen **myResourceGroup**, **myVnet** y **myVM**.
 
 1. Desasigne la VM que desaprovisionó con [az vm deallocate](/cli//azure/vm#deallocate). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`:
    
@@ -153,14 +149,10 @@ az vm show --resource-group myResourceGroup --name myVM --show-details
 ## <a name="next-steps"></a>Pasos siguientes
 Puede crear varias VM a partir de la imagen de VM de origen. Si necesita realizar cambios en la imagen: 
 
-- Encienda el recurso de VM de origen.
+- Cree una máquina virtual a partir de la imagen.
 - Realice actualizaciones o cambios de configuración.
-- Vuelva a seguir los pasos para desaprovisionar, desasignar, generalizar y capturar la VM. 
+- Vuelva a seguir los pasos para desaprovisionar, desasignar, generalizar y crear una imagen.
+- Use esta nueva imagen para implementaciones futuras. Si lo desea, elimine la imagen original.
 
-Para obtener más información sobre la administración de las VM con la CLI, vea [CLI de Azure 2.0 (versión preliminar)](/cli/azure/overview).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Para obtener más información sobre la administración de las máquinas virtuales con la CLI, vea [CLI de Azure 2.0](/cli/azure/overview).
 

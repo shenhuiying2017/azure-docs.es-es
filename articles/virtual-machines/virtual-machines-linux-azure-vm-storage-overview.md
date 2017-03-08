@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
-ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -47,7 +48,7 @@ Al crear una máquina virtual desde `azure-cli` puede elegir entre estándar y p
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Creación de una VM con un disco administrado
 
-El ejemplo siguiente requiere la CLI de Azure 2.0 (versión preliminar) que puede [instalar aquí].
+El ejemplo siguiente requiere la CLI de Azure 2.0 que puede [instalar aquí].
 
 En primer lugar, cree un grupo de recursos para administrar los recursos:
 
@@ -238,10 +239,5 @@ Hablaremos acerca del cifrado del servicio de almacenamiento (SSE) y el modo de 
 
 ## <a name="storage-limits"></a>Límites de almacenamiento
 * [Límites del servicio Storage](../azure-subscription-service-limits.md#storage-limits)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

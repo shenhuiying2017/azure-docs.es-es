@@ -4,7 +4,7 @@ description: "Explica cómo instalar Update 3 de la serie StorSimple 8000 en un 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c6c4634d-4f3a-4bc4-b307-a22bf18664e1
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f1e67f591ea32cab814257658d023395f1350773
-ms.openlocfilehash: 28f26edc36f0850ba21db3ba501793780e61612c
+ms.sourcegitcommit: f48f9dff289c556aea1912ecf7b6415abb902f33
+ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="install-update-3-on-your-storsimple-device"></a>Instalación de Update 3 en el dispositivo StorSimple
+# <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Instalación de Update 3 en el dispositivo StorSimple serie 8000
 
 ## <a name="overview"></a>Información general
 
@@ -117,10 +119,5 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [lanzamiento de Update 3](storsimple-update3-release-notes.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

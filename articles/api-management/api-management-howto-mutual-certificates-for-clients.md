@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b04ce0fe0db7649cebc7a1eeb2a35f1d53bf9636
-ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
+ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
+ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -23,7 +24,7 @@ ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
 
 API Management proporciona la capacidad de proteger el acceso a las API (es decir, de cliente a API Management) mediante certificados de cliente. Actualmente, puede comprobar la huella digital de un certificado de cliente en relación con un valor deseado. También puede comprobar la huella digital en relación con certificados existentes que se hayan cargado en API Management.  
 
-Para obtener información acerca de cómo proteger el acceso al servicio de back-end de una API mediante certificados de cliente (por ejemplo, de API Management a back-end), consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).
+Para obtener información acerca de cómo proteger el acceso al servicio de back-end de una API mediante certificados de cliente (por ejemplo, de API Management a back-end), consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 
 ## <a name="checking-a-thumbprint-against-a-desired-value"></a>Comprobación de una huella digital en relación con un valor deseado
 
@@ -59,10 +60,5 @@ En el ejemplo siguiente se muestra cómo comprobar la huella digital de un certi
 
 *  [Cómo asegurar servicios back-end con la autenticación de certificados de cliente](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 *  [¿Cómo se cargan certificados?](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

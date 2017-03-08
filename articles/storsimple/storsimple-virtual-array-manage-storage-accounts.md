@@ -4,7 +4,7 @@ description: "Se explica cómo usar la página de configuración de StorSimple D
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 6df75f229b95de99fb7f97714336fdc857e672eb
+ms.sourcegitcommit: 4b5c86314bde2acb7d5723909f89691bf7ed8b98
+ms.openlocfilehash: 6bb07bc1e3ab439352b444016167541eca54f788
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar credenciales de cuentas de almacenamiento de StorSimple Virtual Array
+# <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Uso de StorSimple Device Manager para administrar credenciales de cuentas de almacenamiento de StorSimple Virtual Array
 
 ## <a name="overview"></a>Información general
 La sección **Configuración** de la hoja del servicio StorSimple Device Manager de StorSimple Virtual Array presenta los parámetros de servicio globales que se pueden crear en el servicio StorSimple Manager. Estos parámetros se pueden aplicar a todos los dispositivos conectados al servicio e incluyen:
@@ -150,10 +151,5 @@ Para informar al servicio StorSimple Device Manager del cambio, tendrá que acce
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

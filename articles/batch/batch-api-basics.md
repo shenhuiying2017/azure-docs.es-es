@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 9a17b749a50c0f75890fa71b4ae00391aa63876a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-feature-overview-for-developers"></a>Información general de las características de Lote para desarrolladores
+# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
+
 En este artículo se proporciona información general acerca los componentes principales del servicio Lote de Azure y se describen los principales recursos y características del servicio que pueden usar los desarrolladores de Lote para crear soluciones de proceso en paralelo a gran escala.
 
 Utilizará muchos de los recursos y las características que se describen en este artículo, tanto si está desarrollando una aplicación informática distribuida o un servicio que emita llamadas directas a la [API de REST][batch_rest_api], como si usa uno de los [SDK de Batch](batch-technical-overview.md#batch-development-apis).
@@ -486,9 +489,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

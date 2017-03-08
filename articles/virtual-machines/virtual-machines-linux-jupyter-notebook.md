@@ -15,13 +15,14 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/10/2015
 ms.author: crwilcox
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e33a3314fc127673a8bf7659b72bd91e1a2d1712
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: ad53cb9bb58064aeed49cb05fdcb936e408346d2
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="jupyter-notebook-on-azure"></a>Jupyter Notebook en Azure
+# <a name="creating-an-azure-vm-installing-jupyter-and-running-a-jupyter-notebook-on-azure"></a>Creación de una máquina virtual de Azure, e instalación y ejecución de cuadernos de Jupyter Notebook en Azure
 El [proyecto Jupyter](http://jupyter.org), anteriormente conocido como el [proyecto IPython](http://ipython.org), proporciona una colección de herramientas para la informática científica mediante eficaces shells interactivos que combinan la ejecución de código con la creación de documentos informáticos activos. Estos archivos del bloc de notas pueden contener texto arbitrario, fórmulas matemáticas, código de entrada, resultados, gráficos, vídeos y cualquier otra clase de contenido multimedia que pueda mostrar cualquier explorador web moderno. Independientemente de si no tiene experiencia con Python y desea aprender en un entorno entretenido e interactivo, o bien desea realizar informática técnica o en paralelo, Jupyter Notebook es una excelente elección.
 
 ![Captura de pantalla](./media/virtual-machines-linux-jupyter-notebook/ipy-notebook-spectral.png) Uso de los paquetes SciPy y Matplotlib para analizar la estructura de una grabación de sonido.
@@ -172,22 +173,17 @@ Este paradigma de combinar la potencia de la web moderna con la informática act
 * Para proporcionar "documentos ejecutables" que presentan los resultados de la investigación de manera que otras puedan reproducirlos, validarlos y ampliarlos inmediatamente.
 * Como plataforma de informática de colaboración: varios usuarios pueden iniciar sesión en el mismo servidor de IPython Notebook para compartir una sesión de cálculo dinámica.
 
-Si va al [repositorio][repositorio] de código fuente de IPython, encontrará un directorio completo con ejemplos de cuadernos que se pueden descargar para experimentar en su propia máquina virtual de Jupyter de Azure.  Solo tiene que descargar los archivos `.ipynb` desde el sitio y cargarlos en el panel de la máquina virtual del bloc de notas de Azure (o descargarlos directamente en la máquina virtual).
+Si va al [repositorio][repository] de código fuente de IPython, encontrará un directorio completo con ejemplos de cuadernos que se pueden descargar para experimentar en su propia máquina virtual de Jupyter de Azure.  Solo tiene que descargar los archivos `.ipynb` desde el sitio y cargarlos en el panel de la máquina virtual del bloc de notas de Azure (o descargarlos directamente en la máquina virtual).
 
 ## <a name="conclusion"></a>Conclusión
 Jupyter Notebook brinda una sólida interfaz para tener acceso de manera interactiva a la potencia del ecosistema Python en Azure.  Abarca una amplia variedad de casos de uso que incluye la exploración simple y el aprendizaje de Python, análisis de datos y visualización, simulación e informática en paralelo. Los documentos de Notebook resultantes contienen un registro completo de los cálculos que se realizan y que se pueden compartir con otros usuarios de Jupyter.  Jupyter Notebook se puede usar como aplicación local, pero es perfectamente adecuado para implementaciones de nube en Azure.
 
-Las características centrales de Jupyter también está disponibles en Visual Studio mediante [Python Tools para Visual Studio][Python Tools para Visual Studio] (PTVS). PTVS es un complemento gratuito y de código abiertode Microsoft que convierte a Visual Studio unentorno de desarrollo avanzado de Python, que incluye un editor avanzado con la integración de IntelliSense, depuración,creación de perfiles y la informática en paralelo.
+Las características centrales de Jupyter también está disponibles en Visual Studio mediante [Python Tools para Visual Studio][Python Tools for Visual Studio] (PTVS). PTVS es un complemento gratuito y de código abiertode Microsoft que convierte a Visual Studio unentorno de desarrollo avanzado de Python, que incluye un editor avanzado con la integración de IntelliSense, depuración,creación de perfiles y la informática en paralelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
+Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
 [portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
-[repositorio]: https://github.com/ipython/ipython
-[Python Tools para Visual Studio]: http://aka.ms/ptvs
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[repository]: https://github.com/ipython/ipython
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 

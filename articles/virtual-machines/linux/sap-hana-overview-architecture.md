@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 42a2f5488bac192311cd0652286e45a2280032f2
-ms.openlocfilehash: 8bb2c8138d5f5ef76490e5439ba2427cbaf9b33d
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a412304c33d915be6e30c6b748c8431a9c7e9f34
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Introducción y arquitectura de SAP HANA en Azure (Instancias grandes)
+# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Introducción y arquitectura de SAP HANA en Azure (instancias grandes) 
 En esta guía de implementación técnica y arquitectura en cinco partes, se proporciona información que lo ayudará a implementar SAP en la nueva oferta SAP HANA en Azure (Instancias grandes) en Azure. No es exhaustiva ni trata detalles específicos sobre la configuración de soluciones SAP. En su lugar, proporciona información útil para ayudar con la implementación inicial y las operaciones continuadas. No debe usarse en lugar de la documentación de SAP sobre la instalación de SAP HANA (ni las muchas notas de soporte técnico de SAP que tratan sobre el tema). Además, proporciona detalles sobre la instalación de SAP HANA en Azure (Instancias grandes).
 
 
@@ -358,10 +360,5 @@ En la ilustración anterior, se muestra cómo las distintas redes virtuales de A
 > [!IMPORTANT] 
 > Si se usan varios circuitos de ExpressRoute, deben utilizarse las configuraciones de anteposición de AS Path y de preferencia local de BGP para garantizar el enrutamiento adecuado del tráfico.
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

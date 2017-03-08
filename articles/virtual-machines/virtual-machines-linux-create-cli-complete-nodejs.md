@@ -1,6 +1,6 @@
 
 ---
-title: "Creación de un entorno de Linux completo mediante la CLI de Azure 1.0 | Microsoft Docs"
+title: "Creación de un entorno de Linux completo con la CLI de Azure 1.0 | Microsoft Docs"
 description: "Cree almacenamiento, una máquina virtual Linux, una red virtual y subred, un equilibrador de carga, una NIC, una dirección IP pública, un grupo de seguridad de red, todo desde el principio mediante la CLI de Azure 1.0."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,12 +17,13 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 8c051aca8aa9eb0ebbd55098917218f6f874c1be
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-10"></a>Creación de un entorno de Linux completo mediante la CLI de Azure 1.0
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Creación de un entorno de Linux completo con la CLI de Azure 1.0
 En este artículo, vamos a crear una red sencilla con un equilibrador de carga y un par de máquinas virtuales útiles para el desarrollo y la computación simple. Lo vamos a guiar por el proceso comando a comando, hasta que tenga funcionando dos máquinas virtuales Linux seguras a las que se pueda conectar desde cualquier parte de Internet. Luego, podrá pasar a redes y entornos más complejos.
 
 Tras su lectura, conocerá la jerarquía de dependencias que ofrece el modelo de implementación de Resource Manager y la potencia que proporciona. Cuando vea cómo se compila el sistema, puede recompilarlo mucho más rápido mediante [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Además, cuando vea cómo encajan las distintas partes del entorno, la creación de plantillas para automatizarlas se volverá más fácil.
@@ -42,7 +43,7 @@ Para crear este entorno personalizado, es preciso tener la versión más recient
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#quick-commands): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0 (versión preliminar)](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos.
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -1292,9 +1293,4 @@ Es posible que quiera leer [más sobre cómo realizar implementaciones desde pla
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya está listo para empezar a trabajar con varios componentes de red y máquinas virtuales. Puede usar este entorno de ejemplo para crear la aplicación con los componentes principales aquí presentados.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

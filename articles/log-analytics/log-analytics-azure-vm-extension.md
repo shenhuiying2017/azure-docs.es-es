@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics"></a>Conexión de máquinas virtuales de Azure a Log Analytics
+# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Conexión de máquinas virtuales de Azure al agente de Log Analytics
+
 En equipos Windows y Linux, para recopilar registros y métricas se recomienda instalar el agente de Log Analytics.
 
 Para instalar al agente de Log Analytics en máquinas virtuales de Azure, lo más sencillo es utilizar la extensión de máquina virtual de Log Analytics.  El uso de una extensión simplifica el proceso de instalación y configura automáticamente el agente para enviar datos al área de trabajo de Log Analytics que especifique. El agente también se actualiza automáticamente, garantizando así que disponga de las características y correcciones más recientes.
@@ -34,8 +37,8 @@ Cuando se usa una recopilación basada en agente para los datos de registro, deb
 
 > [!IMPORTANT]
 > Si configura Log Analytics para indexar los datos de registro mediante [Diagnósticos de Azure](log-analytics-azure-storage.md) y configura el agente para recopilar los mismos registros, los registros se recopilan dos veces. Se le cobrará por los dos orígenes de datos. Si tiene instalado el agente, debe recopilar datos de registro solo mediante el agente; no configure Log Analytics para recopilar datos de registro de Diagnósticos de Azure.
-> 
-> 
+>
+>
 
 Existen tres maneras sencillas de habilitar la extensión de la máquina virtual de Log Analytics:
 
@@ -400,10 +403,4 @@ Para equipos que no se ejecutan en Azure, puede instalar el agente de Log Analyt
 
 * [Conexión de equipos Windows a Log Analytics](log-analytics-windows-agents.md)
 * [Conexión de equipos Linux a Log Analytics](log-analytics-linux-agents.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

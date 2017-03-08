@@ -4,7 +4,7 @@ description: "Explica cómo configurar el dispositivo para la administración re
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 923377aa-f451-4656-87de-5e95a34a6a2a
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64f6f245b86d9194a52e40ed226de9960a36f3f9
-ms.openlocfilehash: 63bdf5e5cecbb473a18965e311be06abc72cacc7
+ms.sourcegitcommit: 5760c4a381a10fd1619b0239dd38e41d88f495e5
+ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-remotely-to-your-storsimple-device"></a>Conectarse de forma remota al dispositivo StorSimple
+# <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conexión de forma remota al dispositivo StorSimple serie 8000
+
 ## <a name="overview"></a>Información general
 Puede usar la conexión remota de Windows PowerShell para conectarse al dispositivo StorSimple. Cuando se conecta de este modo, no verá un menú. (Verá un menú solo si utiliza la consola en serie del dispositivo para conectarse). Con la conexión remota de Windows PowerShell, se conecta a un espacio de ejecución específico. También puede especificar el idioma de visualización. 
 
@@ -233,10 +236,5 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca del [uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 * Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

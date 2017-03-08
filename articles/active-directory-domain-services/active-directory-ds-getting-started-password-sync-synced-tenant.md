@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,8 +31,8 @@ Los pasos que se deben seguir son distintos en función de si su organización t
 > [!div class="op_single_selector"]
 > * [Inquilino de Azure AD solo de nube](active-directory-ds-getting-started-password-sync.md)
 > * [Inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-> 
-> 
+>
+>
 
 <br>
 
@@ -47,8 +48,8 @@ Versión recomendada: **1.1.281.0** , publicada el 7 de septiembre de 2016.
 
 > [!WARNING]
 > Para permitir que las credenciales de contraseñas heredadas (necesarias para la autenticación de NTLM y Kerberos) se sincronicen con el inquilino de Azure AD, DEBE instalar la versión recomendada más reciente de Azure AD Connect. Esta funcionalidad no está disponible en versiones anteriores de Azure AD Connect o con la herramienta DirSync heredada.
-> 
-> 
+>
+>
 
 Puede encontrar las instrucciones de instalación de Azure AD Connect en el siguiente artículo: [Introducción a Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
@@ -78,10 +79,4 @@ En función del tamaño de su directorio (número de usuarios o grupos, por ejem
 * [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Windows a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
-ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
+ms.sourcegitcommit: a8b570cfbab594e1a21417e081eaf6d34a4659d0
+ms.openlocfilehash: 40f10b1cb860ca0c018cc3589417c54588269b0c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,6 +37,10 @@ Un blob puede tener cualquier número de instantáneas. Las instantáneas se con
 Cuando se crea una instantánea de un blob, las propiedades del sistema se copian en la instantánea con los mismos valores. Los metadatos del blob base también se copian en la instantánea, a menos que especifique metadatos independientes para la instantánea al crearla.
 
 Las concesiones asociadas con el blob base no afectan la instantánea. No puede adquirir una concesión en una instantánea.
+
+Se usa un archivo VHD para almacenar el estado y la información actual de un disco de máquina virtual. Puede desconectar un disco desde la máquina virtual o apagándola y, después, realizar una instantánea de su archivo VHD. Puede usar ese archivo de instantánea más adelante para recuperar el archivo VHD en ese momento y volver a crear la máquina virtual.
+
+Si está habilitado el cifrado del servicio Storage (SSE) en la cuenta de almacenamiento en la que reside el blob, todas las instantáneas realizadas de dicho blob se cifrarán en reposo.
 
 ## <a name="create-a-snapshot"></a>Crear una instantánea
 En el ejemplo de código siguiente se muestra cómo crear una instantánea en .NET. Este ejemplo especifica metadatos independientes para la instantánea cuando se crea.
@@ -163,10 +168,5 @@ En la situación 4, el blob de base se ha actualizado totalmente y no contiene n
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener ejemplos adicionales mediante Almacenamiento de blobs, consulte [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Puede descargar una aplicación de ejemplo y ejecutarla, así como ver el código en GitHub.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

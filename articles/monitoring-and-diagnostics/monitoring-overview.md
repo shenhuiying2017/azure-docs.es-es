@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
-ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
+ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
+ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 En este artículo se proporciona información general conceptual de la supervisión de recursos de Azure. Proporciona punteros a la información sobre determinados tipos de recursos.  Para obtener información detallada sobre la supervisión de las aplicaciones desde el punto de vista no de Azure, consulte [Guía de supervisión y diagnóstico](../best-practices-monitoring.md).
 
 Hay un tutorial en vídeo de Azure Monitor en  
-[Funcionalidad de supervisión y diagnósticos de Microsoft Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) En [Funcionalidad de supervisión y diagnósticos de Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234), encontrará un vídeo adicional que explica un escenario donde puede usar Azure Monitor.  
+[Introducción a Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) En [Funcionalidad de supervisión y diagnósticos de Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234), encontrará un vídeo adicional que explica un escenario donde puede usar Azure Monitor.  
 
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
 
@@ -55,7 +56,7 @@ Para otros servicios de Azure, no hay necesariamente una asignación 1:1 entre l
 ### <a name="resource---metrics-and-diagnostics-logs"></a>Recurso: métricas y registros de diagnóstico
 Las métricas que se pueden recopilar varían según el tipo de recurso. Por ejemplo, Virtual Machines proporciona estadísticas sobre la E/S de disco y % de CPU. Pero esas estadísticas no existen para una cola de Service Bus, sino métricas como el tamaño de cola y el rendimiento de mensajes.
 
-En el caso de los recursos de proceso, puede obtener métricas sobre el SO invitado y los módulos de diagnóstico como Diagnósticos de Diagnostics. Diagnósticos de Azure ayuda a recopilar y enrutar los datos de diagnóstico recopilados a otras ubicaciones, como el almacenamiento de Azure.
+En el caso de los recursos de proceso, puede obtener métricas sobre el SO invitado y los módulos de diagnóstico como Diagnósticos de Diagnostics. Diagnósticos de Azure ayuda a recopilar y enrutar los datos de diagnóstico recopilados a otras ubicaciones, como Azure Storage.
 
 Una lista de métricas que se pueden recopilar está disponible en [métricas admitidas](monitoring-supported-metrics.md).
 
@@ -113,7 +114,7 @@ Algunos ejemplos son:
 * Enviarlas a Event Hubs para poder enrutarlos a herramientas de terceros y realizar el análisis en tiempo real.
 
 ### <a name="automate"></a>Automatizar
-Puede usar los datos de supervisión para desencadenar eventos o incluso procesos completos. Algunos ejemplos son:
+Puede usar datos de supervisión para desencadenar alertas o, incluso, procesos enteros. Algunos ejemplos son:
 
 * Usar los datos para aumentar o reducir automáticamente el número de instancias de proceso según la carga de la aplicación.
 * Enviar mensajes de correo electrónico cuando una métrica cruza un umbral predeterminado.
@@ -145,9 +146,4 @@ Más información acerca de
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : si está intentando diagnosticar problemas en su aplicación web de Servicio de aplicaciones.
 * [Solución de problemas de Azure Storage](../storage/storage-e2e-troubleshooting.md) : si usa Blob Storage, Table Storage o Queue Storage.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/oms/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

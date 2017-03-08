@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 52fa2ceb13e6c14d0dd4ba72a76328a2a9356bab
-ms.openlocfilehash: 79acdf2c29c3520fc38adf6270bcae68e87aac18
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-b2b-messages"></a>Supervisión de mensajes B2B
+# <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>Inicio o habilitación del registro de mensajes AS2, X12 y EDIFACT para supervisar propiedades de mensaje, errores y éxitos
 
-La comunicación B2B implica intercambios de mensajes entre dos aplicaciones o procesos empresariales en ejecución. La relación define un contrato entre los procesos empresariales. Una vez establecida la comunicación, puede configurar la supervisión de mensajes para comprobar que la comunicación funciona según lo previsto.
-Puede configurar la cuenta de integración para que use diagnósticos, con el fin de aumentar el grado de detalle y realizar la depuración.
+La comunicación B2B implica intercambios de mensajes entre dos aplicaciones o procesos empresariales en ejecución. La relación define un contrato entre los procesos empresariales. Una vez establecida la comunicación, puede configurar la supervisión de mensajes para comprobar que la comunicación funciona según lo previsto. Puede configurar la cuenta de integración para que use diagnósticos, con el fin de aumentar el grado de detalle y realizar la depuración.
 
 El seguimiento de mensajes está disponible para estos protocolos B2B: AS2, X12 y EDIFACT. 
 
@@ -94,10 +95,5 @@ Se admiten los siguientes tipos de esquema de seguimiento, de los que todos, sal
 [Seguimiento de mensajes B2B en el Portal de OMS](logic-apps-track-b2b-messages-omsportal.md "Seguimiento de mensajes B2B")
 
 [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

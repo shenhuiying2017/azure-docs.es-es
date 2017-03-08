@@ -1,3 +1,14 @@
+### <a name="disk-persistence"></a>Persistencia de disco 
+
+En la tabla siguiente se ilustran los diferentes estados de los diferentes discos de una máquina virtual de Azure y se indica si los datos se guardan o no en cada estado.
+
+| Disco | Iniciar | Detener/<br>desasignar | Pausar | Reiniciar<br>boot | Apagar<br>Abajo | Eliminar | Error | Cambiar de tamaño | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| Disco de SO | Sí | Sí  | Sí | Sí | Sí  | No | No  | Sí | 
+| RAM  | Sí | Sí | Sí | Sí | No   | No | No | No | 
+| Disco temporal local | Sí | No | Sí | No | No  | No | No | No | 
+| Disco de datos conectado | Sí | Sí | Sí | Sí | Sí  | Sí | Sí | Sí | 
+
 ## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
 Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para más información sobre Premium Storage, consulte [Premium Storage de alto rendimiento y máquinas virtuales de Azure](../articles/storage/storage-premium-storage.md).
@@ -47,14 +58,8 @@ En la tabla siguiente se ofrece una comparación de almacenamiento premium y est
 |    | Disco Premium de Azure | Disco Estándar de Azure |
 |--- | ------------------ | ------------------- |
 | Tipo de disco | Unidades de estado sólido (SSD) | Unidades de disco duro (HDD)  |
-| Información general  | Compatibilidad de disco de alto rendimiento y baja latencia basado en SSD para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S o que albergan un entorno de producción crítico | Compatibilidad de disco rentable basado en HHD para escenarios de máquinas virtuales de desarrollo o pruebas |
+| Información general  | Compatibilidad con discos de alto rendimiento y baja latencia basados en SSD para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S o que hospedan un entorno de producción crítico | Compatibilidad rentable con discos basados en HHD para escenarios de máquinas virtuales de desarrollo o pruebas |
 | Escenario  | Cargas de trabajo confidenciales de producción y rendimiento | Desarrollo y pruebas, no crítico, <br>Acceso infrecuente |
-| Tamaño del disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Discos no administrados: 1 GB – 1 TB <br><br>Discos administrados:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
+| Tamaño del disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Discos no administrados: de 1 GB a 1 TB <br><br>Discos administrados:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Rendimiento máximo por disco | 200 MB/s | 60 MB/s |
 | IOPS máximas por disco | 5000 IOPS | 500 IOPS |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -15,8 +15,9 @@ ums.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: aaa69e2e4fed314e8bc363f60e7538b12bb3a56d
-ms.openlocfilehash: ca7f05534113752f3607268c15a9fe3e0e2982e0
+ms.sourcegitcommit: 9c27ea02ae341197a70d2b399cf8d534d79c9e4c
+ms.openlocfilehash: 001cc873960733bfe3e37fad95dbac29872ba00a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -62,11 +63,9 @@ El servicio de integración de registro de Azure recolecta datos de telemetría 
 
        Replace the Cloud with any of the following
        AzureCloud
-       AzureChinaCloud
        AzureUSGovernment
-       AzureGermanCloud
 
-       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate.
+       Note that at this time, an Azlog integrator only supports integrating logs from a cloud that you choose to integrate.
 
 ## <a name="integrate-azure-vm-logs-from-your-azure-diagnostics-storage-accounts"></a>Integración de registros de la máquina virtual de Azure desde las cuentas de almacenamiento de Diagnósticos de Azure
 1. Compruebe los requisitos previos mencionados anteriormente para asegurarse de que la cuenta de almacenamiento WAD recopila los registros antes de continuar con la integración de registro de Azure. No realice los pasos siguientes si su cuenta de almacenamiento WAD no está recopilando registros.
@@ -99,7 +98,7 @@ Si sigue sin ver los eventos haga lo siguiente:
 2. Conéctese a la cuenta de almacenamiento agregada en el comando **azlog source add**.
 3. En el Explorador de almacenamiento de Microsoft Azure, vaya a la tabla **WADWindowsEventLogsTable** para ver si hay datos. Si no es así, los diagnósticos de la máquina virtual no se han configurado correctamente.
 
-## <a name="integrate-azure-audit-logs-and-security-center-alerts"></a>Integración de los registros de auditoría de Azure y las alertas de Security Center
+## <a name="integrate-azure-activity-logs-and-security-center-alerts"></a>Integración de los registros de actividad de Azure y las alertas de Security Center
 1. Abra el símbolo del sistema y ejecute**cd** en **c:\Program Files\Microsoft Azure Log Integration**.
 2. Ejecute el comando
 
@@ -128,7 +127,19 @@ Si sigue sin ver los eventos haga lo siguiente:
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
 6. Dirija el conector del reenviador de archivos SIEM estándar a la carpeta adecuada para canalizar los datos a la instancia SIEM. Puede que necesite algunas asignaciones de campo según el producto de SIEM que utilice.
 
-Si tiene dudas sobre la integración del registro de Azure, envíe un correo electrónico a [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+## <a name="integrate-azure-active-directory-audit-logs"></a>Integración de los registros de auditoría de Azure Active Directory
+1. Abra el símbolo del sistema y ejecute **cd** en **c:\Program Files\Microsoft Azure Log Integration**.
+2. Ejecute el comando .\AZLOG.exe authorizedirectoryreader <TenantID> Sample - 
+
+.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+
+3. Compruebe las siguientes carpetas para confirmar que se han creado los archivos JSON de registro de auditoría de Azure Active Directory en las siguientes rutas: 
+* **C:\Users\azlog\AzureActiveDirectoryJson**   
+* **C:\Users\azlog\AzureActiveDirectoryJsonLD**
+
+4. Dirija el conector del reenviador de archivos SIEM estándar a la carpeta adecuada para canalizar los datos a la instancia SIEM. Puede que necesite algunas asignaciones de campo según el producto de SIEM que utilice.
+
+Si experimenta problemas durante la instalación y configuración, abra una [solicitud de soporte técnico](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), seleccione Integración de registros como el servicio para el que está solicitando soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a instalar la integración de registro de Azure y a integrar los registros de Almacenamiento de Azure. Para obtener más información, consulte:
@@ -139,9 +150,4 @@ En este tutorial, aprendió a instalar la integración de registro de Azure y a 
 * [Preguntas más frecuentes sobre la integración de registro de Azure (P+F)](security-azure-log-integration-faq.md). Este artículo de preguntas más frecuentes responde a preguntas sobre la integración de registro de Azure.
 * [Integración de las alertas de Security Center con la integración de registro de Azure (versión preliminar)](../security-center/security-center-integrating-alerts-with-log-integration.md). Este documento le explica cómo sincronizar las alertas de Security Center, además de los eventos de seguridad de máquina virtual recopilados por Diagnósticos de Azure y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM.
 * [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Nuevas características de Diagnósticos de Azure y registros de auditoría de Azure): esta entrada de blog es una introducción a los registros de auditoría de Azure y a otras características que le ayudarán a obtener información sobre las operaciones de los recursos de Azure.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,7 +1,7 @@
 ---
 
-title: "Uso de una máquina virtual Linux de solución de problemas con la CLI de Azure 2.0 (versión preliminar) | Microsoft Docs"
-description: "Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 1.0"
+title: "Uso de una máquina virtual Linux de solución de problemas con la CLI de Azure 2.0 | Microsoft Docs"
+description: "Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 2.0"
 services: virtual-machines-linux
 documentationCenter: 
 authors: iainfoulds
@@ -15,22 +15,15 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: c4dd7f0cc0a5f7ca42554da95ef215a5a6ae0dbc
-ms.openlocfilehash: 8157e6fd3c4e01d0f99acedfc119fd65879c4979
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 3a3086ed1509bb9e72896b0e4e1bcc89a56b8e03
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-20-preview"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 2.0 (versión preliminar)
-Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar la CLI de Azure 2.0 (versión preliminar) para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](virtual-machines-linux-troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](#recovery-process-overview): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 2.0
+Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar la CLI de Azure 2.0 para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](virtual-machines-linux-troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="recovery-process-overview"></a>Introducción al proceso de recuperación
@@ -42,7 +35,7 @@ El proceso de solución de problemas es el siguiente:
 4. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 5. Cree una máquina virtual mediante el disco duro virtual original.
 
-Para realizar estos pasos para la solución de problemas, es preciso tener instalada la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
+Para realizar estos pasos para la solución de problemas, es preciso tener instalada la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `mystorageaccount` y `myVM`.
 

@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 01e1728d9658ac69659e31aca584cb574338a238
+ms.sourcegitcommit: 7196b4eddc8a00cf2c15e8d8447ef8381db738a3
+ms.openlocfilehash: a1ef4ccb6546f011c405a98cab3cae514de813ea
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -152,7 +153,7 @@ En este paso, se crea un conjunto de datos denominado **InputDataset** que apunt
    
    Si no especifica un valor de **fileName** para un conjunto de datos de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada.
    
-   Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.&lt;Guid\&txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.&lt;Guid&gt;.txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se está procesando) y fileName usa Hour de SliceStart. Por ejemplo, si se produce un segmento para 2016-09-20T08:00:00, folderName se establece en wikidatagateway/wikisampledataout/2016/09/20 y fileName se establece en 08.csv. 
   
@@ -379,10 +380,5 @@ Consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-copy
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

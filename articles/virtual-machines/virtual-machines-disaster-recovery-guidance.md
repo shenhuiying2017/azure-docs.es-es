@@ -1,5 +1,5 @@
 ---
-title: "Qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure | Microsoft Docs"
+title: "Escenarios de recuperación ante desastres para las máquinas virtuales de Azure | Microsoft Docs"
 description: "Obtenga información sobre qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure."
 services: virtual-machines
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a70f30f380bf110271cb597d8755611da5d2d78c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>Qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure
 En Microsoft, hacemos todo lo posible para garantizar que nuestros servicios estén siempre disponibles cuando los necesite. En ocasiones, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas.
 
 Microsoft proporciona Acuerdos de Nivel de Servicio para sus servicios como un compromiso en cuanto al tiempo de actividad y la conectividad. Puede encontrar el Acuerdo de Nivel de Servicio para los diferentes servicios de Azure en [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
@@ -76,10 +78,5 @@ Para obtener información sobre cómo realizar copias de seguridad de máquinas 
 Si desea aprender a utilizar Azure Site Recovery para organizar y automatizar la protección de las máquinas físicas (y virtuales) Windows y Linux que se ejecutan en máquinas virtuales de Hyper-V y VMWare, consulte [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
 Si las instrucciones no están claras, o si desea que Microsoft realice las operaciones en su lugar, póngase en contacto con el [servicio de asistencia al cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

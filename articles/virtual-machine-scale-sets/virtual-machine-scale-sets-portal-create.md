@@ -16,14 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: negat
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 35d4c8593dd9698017df85675395430f345f4e86
-ms.openlocfilehash: 17054073e921708cc0c9392ed1b94e9579a9f940
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 06e7418111762a0388ce1704ba5abaa9c3a10349
+ms.openlocfilehash: e0853070b5a3f9d44baebecac625a5ad6b9ef755
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-virtual-machine-scale-set-using-the-azure-portal"></a>Creación de un conjunto de escalado de máquinas virtuales con Azure Portal
+# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal"></a>Procedimiento para crear un conjunto de escalado de máquinas virtuales con Azure Portal
 En este tutorial se muestra lo fácil que resulta crear un conjunto de escalado de máquinas virtuales en unos minutos con Azure Portal. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>Selección de la imagen de la máquina virtual de Marketplace

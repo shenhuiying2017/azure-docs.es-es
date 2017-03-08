@@ -36,8 +36,6 @@
 ### [API de REST](resource-manager-rest-api.md)
 ### [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md)
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
-### [Vínculo a recursos relacionados](resource-group-link-resources.md)
-### [Explorador de recursos de Azure](resource-manager-resource-explorer.md)
 ## Control de acceso
 ### [Creación de una entidad de servicio con PowerShell](resource-group-authenticate-service-principal.md)
 ### [Creación de una entidad de servicio con la CLI de Azure](resource-group-authenticate-service-principal-cli.md)

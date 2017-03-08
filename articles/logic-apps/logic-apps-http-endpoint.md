@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
-ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 6964ff18532ccf4b67eecfe12122bc16819a7b4b
+ms.openlocfilehash: 9b2e0797317c6e0268e8ae90f4091fea96c78726
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Hay tres tipos de desencadenadores que pueden recibir solicitudes:
 En el resto del artículo, usaremos como ejemplo **solicitud** , pero todos los principios se aplican de forma idéntica a los otros dos tipos de desencadenadores.
 
 ## <a name="adding-a-trigger-to-your-definition"></a>Incorporación de un desencadenador a la definición
-El primer paso consiste en agregar un desencadenador a la definición de aplicación lógica que puede recibir solicitudes entrantes.  Puede buscar en el diseñador "solicitud HTTP" para agregar la tarjeta desencadenadora. Puede definir un esquema JSON de cuerpo de solicitud y el diseñador generará tokens para ayudarlo a analizar y pasar datos del desencadenador manual a través del flujo de trabajo.  Recomiendo usar una herramienta como [jsonschema.net](http://jsonschema.net) para generar un esquema JSON a partir de la carga útil de un cuerpo de muestra.
+El primer paso consiste en agregar un desencadenador a la definición de aplicación lógica que puede recibir solicitudes entrantes.  Puede buscar en el diseñador "solicitud HTTP" para agregar la tarjeta desencadenadora. Puede definir un esquema JSON de cuerpo de solicitud y el diseñador generará tokens para ayudarlo a analizar y pasar datos del desencadenador manual a través del flujo de trabajo. Si no tiene un esquema preparado, seleccione `Use sample payload to generate schema` para generar un esquema JSON a partir de una carga útil de ejemplo.
 
 ![Tarjeta desencadenadora de solicitud][2]
 

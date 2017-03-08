@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 195ee1537df6ed8c0afe245f414061a7af6fed73
-ms.openlocfilehash: 036dc46cd3a2944500b068038a3d15a2cccaaf40
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: da712db02fe91f7d075e5203b627a12f341fac78
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshooting-and-monitoring-of-sap-hana-on-azure-large-instances"></a>Solución de problemas y supervisión de SAP HANA en Azure (Instancias grandes)
+# <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Procedimiento para solucionar problemas y supervisar SAP HANA en Azure (instancias grandes)
 
 
 ## <a name="monitoring-in-sap-hana-on-azure-large-instances"></a>Supervisión de SAP HANA en Azure (Instancias grandes)
@@ -187,10 +189,5 @@ Ejemplo de salidas:
 **HANA\_Configuration\_Parameters\_Rev70+** para comprobar los parámetros de SAP HANA.
 
 ![HANA\_Configuration\_Parameters\_Rev70+ para comprobar los parámetros de SAP HANA](./media/sap-hana-overview-troubleshooting-monitoring/image15-configuration-parameters.png)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0749a73569286daf9bbbe2c4064db472f41d7171
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -29,7 +30,7 @@ Las siguientes directrices le ayudan a seleccionar una red virtual para usarla c
 * Azure AD Domain Services **no se puede habilitar en las redes virtuales creadas mediante Azure Resource Manager**.
 * Una red virtual basada en Resource Manager se puede conectar a una red virtual clásica en la que Azure AD Domain Services está habilitado. A partir de ahí, Azure AD Domain Services se puede usar en la red virtual basada en Resource Manager. Para más información, consulte la sección [Conectividad de red](active-directory-ds-networking.md#network-connectivity).
 * **Redes virtuales regionales**: si planea usar una red virtual existente, asegúrese de que sea una red virtual regional.
-  
+
   * Las redes virtuales que usan el mecanismo de grupos de afinidad heredados no se puede usar con Azure AD Domain Services.
   * Para usar Azure AD Domain Services, [migre las redes virtuales heredadas a redes virtuales regionales](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -45,8 +46,8 @@ Las siguientes directrices le ayudan a seleccionar una red virtual para usarla c
 
 > [!WARNING]
 > Domain Services no se puede mover a otra red virtual después de haber habilitado el servicio.
-> 
-> 
+>
+>
 
 ## <a name="network-security-groups-and-subnet-design"></a>Grupos de seguridad de red y diseño de subred
 Un [grupo de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md) contiene una lista de reglas de lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a sus instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred. Además, el tráfico que se llega a una máquina virtual se puede restringir aún más, para lo que se debe asociar un NSG directamente a dicha máquina virtual.
@@ -61,8 +62,8 @@ Un [grupo de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md)
 
 > [!WARNING]
 > Al asociar un NSG a una subred en la que Azure AD Domain Services está habilitado, puede interrumpir la capacidad de Microsoft para mantener y administrar el dominio. Además, se interrumpe la sincronización entre el inquilino de Azure AD y el dominio administrado. **El SLA no es pertinente para aquellas implementaciones en las que se ha aplicado un NSG que impide que Azure AD Domain Services actualice y administre el dominio.**
-> 
-> 
+>
+>
 
 ### <a name="ports-required-for-azure-ad-domain-services"></a>Puertos necesarios para Azure AD Domain Services
 Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga el dominio administrado. Asegúrese de que no estén bloqueados para la subred en la que ha habilitado el dominio administrado.
@@ -92,14 +93,14 @@ Una red virtual basada en Resource Manager se puede conectar a una red virtual d
 
 ### <a name="network-connection-options"></a>Opciones de conexión de red
 * **Conexiones de red virtual a red virtual mediante conexiones VPN de sitio a sitio**: la conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE.
-  
+
     ![Conectividad de red virtual mediante VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
-  
+
     [Más información: conectar redes virtuales mediante VPN Gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * **Conexiones de red virtual a red virtual mediante el emparejamiento de red virtual**: el emparejamiento de red virtual es un mecanismo que conecta dos redes virtuales de la misma región mediante la red troncal de Azure. Una vez emparejadas, las dos redes virtuales aparecen como una sola a efectos de conectividad. No obstante, se administran como recursos independientes, pero las máquinas virtuales de estas redes virtuales pueden comunicarse entre sí directamente mediante sus direcciones IP privadas.
-  
+
     ![Conectividad de red virtual mediante emparejamiento](./media/active-directory-domain-services-design-guide/vnet-peering.png)
-  
+
     [Más información: emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md)
 
 <br>
@@ -108,10 +109,4 @@ Una red virtual basada en Resource Manager se puede conectar a una red virtual d
 * [Emparejamiento de red virtual de Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Grupos de seguridad de la red de Azure](../virtual-network/virtual-networks-nsg.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

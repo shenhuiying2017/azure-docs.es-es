@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
-ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
+ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
+ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,6 @@ Si la configuración de proxy no permite el acceso a Azure Storage directamente,
 Anexe el **subscriptionid** al nombre descriptivo al agregar el origen.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-
 El archivo XML de eventos presenta los metadatos como se muestra a continuación, incluido el identificador de suscripción.
 
 ![XML de eventos][1]
@@ -65,7 +65,7 @@ Error:
 ### <a name="when-running-command-azlog-authorize-why-do-i-get-the-following-error"></a>Cuando ejecuto el comando **azlog authorize**, ¿por qué obtengo el siguiente error?
 Error:
 
-  *Advertencia de creación de la asignación de rol - AuthorizationFailed: el cliente janedo@microsoft.com' con objeto de identificador fe9e03e4-4dad-4328-910f-fd24a9660bd2 no tiene autorización para realizar la acción Microsoft.Authorization/roleAssignments/write en el ámbito /subscriptions/70d95299-d689-4c97-b971-0d8ff0000000.*
+  *Advertencia de creación de la asignación de rol - AuthorizationFailed: el cliente janedo@microsoft.com con objeto de identificador fe9e03e4-4dad-4328-910f-fd24a9660bd2 no tiene autorización para realizar la acción Microsoft.Authorization/roleAssignments/write en el ámbito /subscriptions/70d95299-d689-4c97-b971-0d8ff0000000.*
 
 El comando **Azlog authorize** asigna el rol Lector a la entidad de servicio de Azure AD (creada con **Azlog createazureid**) para las suscripciones proporcionadas. Si el inicio de sesión de Azure no se realiza mediante una cuenta de coadministrador o de propietario de la suscripción, se producirá el error ‘Error de autorización’. Se necesita el control de acceso basado en roles de Azure (RBAC) de una cuenta de coadministrador o de propietario para completar esta acción.
 
@@ -104,13 +104,9 @@ El ejemplo siguiente muestra una configuración en la que se recopilan solo los 
 
 Después de realizar cambios, compruebe la cuenta de almacenamiento para asegurarse de que se recopilan los eventos correctos.
 
-Si tiene dudas sobre la integración del registro de Azure, envíe un correo electrónico a [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+Si experimenta problemas durante la instalación y configuración, abra una [solicitud de soporte técnico](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), seleccione Integración de registros como el servicio para el que está solicitando soporte técnico.
+
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

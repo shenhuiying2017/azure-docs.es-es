@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 20cc8290663b4931ed3c7ef6769312da1b4b34e1
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -45,28 +46,28 @@ El primer paso consiste en configurar una máquina virtual Windows Server que es
 Realice los pasos siguientes para instalar las herramientas de administración de DNS en la máquina virtual unida al dominio. Para más información sobre cómo [instalar y usar Herramientas de administración remota del servidor](https://technet.microsoft.com/library/hh831501.aspx), consulte TechNet.
 
 1. Vaya al nodo **Máquinas virtuales** del Portal de Azure clásico. Seleccione la máquina virtual que acaba de crear en la tarea 1 y haga clic en la opción **Conectar** de la barra de comandos situada en la parte inferior de la ventana.
-   
+
     ![Conexión a máquina virtual de Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. El portal clásico le solicitará que abra o guarde un archivo con extensión .rdp, que se utiliza para conectarse a la máquina virtual. Haga clic en el archivo cuando haya terminado de descargarse.
 3. En el aviso de inicio de sesión, utilice las credenciales de un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Por ejemplo, usamos 'bob@domainservicespreview.onmicrosoft.com' en nuestro caso.
 4. En la pantalla Inicio, abra **Administrador del servidor**. Haga clic en **Agregar roles y características** en el panel central de la ventana Administrador del servidor.
-   
+
     ![Inicio del Administrador del servidor en la máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 5. En la página **Antes de comenzar** del **Asistente para agregar roles y características**, haga clic en **Siguiente**.
-   
+
     ![Página Antes de comenzar](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 6. En la página **Tipo de instalación**, deje la opción **Instalación basada en características o en roles** activada y haga clic en **Siguiente**.
-   
+
     ![Página Tipo de instalación](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
 7. En la página **Selección del servidor**, seleccione la máquina virtual actual del grupo de servidores y haga clic en **Siguiente**.
-   
+
     ![Página Selección de servidor](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 8. En la página **Roles de servidor**, haga clic en **Siguiente**. Se omitirá esta página ya que no se van a instalar roles en el servidor.
 9. En la página **Características**, haga clic para expandir el nodo **Herramientas de administración remota del servidor** y, después, haga clic para expandir el nodo **Herramientas de administración de roles**. Seleccione la característica **Herramientas del servidor DNS** en la lista de herramientas de administración de roles.
-   
+
     ![Página Características](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 10. En la página **Confirmación**, haga clic en **Instalar** para instalar la característica de herramientas del servidor DNS en la máquina virtual. Cuando finalice correctamente la instalación de la característica, haga clic en **Cerrar** para salir del **Asistente para agregar roles y características**.
-    
+
     ![Página de confirmación](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
 
 ## <a name="task-3---launch-the-dns-management-console-to-administer-dns"></a>Tarea 3: Inicio de la consola de administración de DNS para administrar DNS
@@ -74,25 +75,25 @@ Ahora que la característica Herramientas del servidor DNS está instalada en la
 
 > [!NOTE]
 > Tendrá que ser miembro del grupo Administradores del controlador de dominio de AAD para administrar DNS en el dominio administrado.
-> 
-> 
+>
+>
 
 1. En la pantalla Inicio, haga clic en **Herramientas administrativas**. Debería ver la consola **DNS** instalada en la máquina virtual.
-   
+
     ![Herramientas administrativas: consola DNS](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
 2. Haga clic en **DNS** para iniciar la consola de administración de DNS.
 3. En el cuadro de diálogo **Conectar a servidor DNS**, haga clic en la opción **El siguiente equipo** y escriba el nombre de dominio DNS del dominio administrado (por ejemplo, contoso100.com).
-   
+
     ![Consola DNS: conexión al dominio](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 4. La consola DNS se conecta al dominio administrado.
-   
+
     ![Consola DNS: administración del dominio](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
 5. Ahora puede usar la consola DNS para agregar entradas de DNS para los equipos de la red virtual en la que ha habilitado Servicios de dominio de AAD.
 
 > [!WARNING]
 > Tenga cuidado al administrar DNS para el dominio administrado con las herramientas de administración de DNS. Asegúrese de **no eliminar ni modificar los registros DNS integrados que usan los Servicios de dominio en el dominio**. Los registros DNS integrados incluyen registros DNS de dominio, registros de servidor de nombres y otros registros usados para la ubicación del controlador de dominio. Si modifica estos registros, se interrumpirán los servicios de dominio en la red virtual.
-> 
-> 
+>
+>
 
 Para más información sobre la administración de DNS, consulte el [artículo de herramientas de DNS en Technet](https://technet.microsoft.com/library/cc753579.aspx).
 
@@ -101,10 +102,4 @@ Para más información sobre la administración de DNS, consulte el [artículo d
 * [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Herramientas de DNS](https://technet.microsoft.com/library/cc753579.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

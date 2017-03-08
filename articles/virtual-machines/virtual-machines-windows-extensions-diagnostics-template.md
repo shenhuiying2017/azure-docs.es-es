@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: saurabh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e9258143cae9d9f8ba1f357617e2c45cf8487ab9
-ms.openlocfilehash: 2bd7efaaf45267ccdad390354ea98fafff1a6cb5
+ms.sourcegitcommit: 855ecb73854e20eb52f343e5d190cbcbaa9ad080
+ms.openlocfilehash: 85adb953254496e969fb8d459a0c79592708c835
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-windows-virtual-machine-with-monitoring-and-diagnostics-using-azure-resource-manager-template"></a>Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla del Administrador de recursos de Azure
+# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
 La extensión de Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla del Administrador de recursos de Azure. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Incorporación de la extensión de Diagnósticos de Azure a la definición de recursos de máquina virtual
@@ -167,10 +169,5 @@ Cada tabla WADMetrics contendrá las columnas siguientes:
 * Para obtener una plantilla de ejemplo de una máquina virtual de Windows con la extensión de diagnósticos, consulte [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Implemente la plantilla de Azure Resource Manager mediante [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o la [ínea de comandos de Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

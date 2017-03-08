@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
-ms.openlocfilehash: 2a1215b5065fc690e539000aa1e89049617f8902
+ms.sourcegitcommit: ec79ec654505f3e082f9ff106ce24801eae66faf
+ms.openlocfilehash: c33270d17cd32e32fac926f62441f0787c056a3e
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -123,17 +124,17 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
    * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número AS privado para esta configuración entre pares. Asegúrese de que no usa 65515.
    * Un hash MD5, en caso de que haya decidido usarlo. **Esto es opcional**.
      
-     Puede ejecutar el siguiente cmdlet para realizar la configuración entre pares privados de Azure para el circuito.
+    Puede ejecutar el siguiente cmdlet para realizar la configuración entre pares privados de Azure para el circuito.
      
-       Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+         Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
      
-       Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
      
-     Puede usar el cmdlet siguiente si decide usar un hash MD5.
+    Puede usar el cmdlet siguiente si decide usar un hash MD5.
      
-       Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+         Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
      
-       Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
      
      > [!IMPORTANT]
      > Asegúrese de especificar su número AS como ASN de configuración entre pares, no como cliente ASN.
@@ -388,10 +389,5 @@ Siguiente paso, [Vinculación de redes virtuales a circuitos ExpressRoute](expre
 * Para más información sobre los flujos de trabajo de ExpressRoute, vea [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 * Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 * Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

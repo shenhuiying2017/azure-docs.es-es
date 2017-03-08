@@ -4,7 +4,7 @@ description: "Introducción a la arquitectura de la topología de red de los ent
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.service: app-service
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a5fdbc73f5d30c8dacfb8f7039bf70a450ea251
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: b2afe86d8774b449a257312d4e60b5f6125336ca
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones
 ## <a name="introduction"></a>Introducción
-Las instancias de siempre se crean dentro de una subred de una [red virtual][virtualnetwork]; las aplicaciones que se ejecutan en App Service Environment pueden comunicarse con puntos de conexión privados ubicados que se encuentran de la misma topología de red virtual.  Puesto que los clientes pueden bloquear partes de su infraestructura de red virtual, es importante conocer los tipos de flujos de comunicación de red que se producen con un entorno del Servicio de aplicaciones.
+Los entornos de App Service siempre se crean dentro de una subred de una [red virtual][virtualnetwork]; las aplicaciones que se ejecutan en un entorno de App Service pueden comunicarse con puntos de conexión privados ubicados dentro de la misma topología de red virtual.  Puesto que los clientes pueden bloquear partes de su infraestructura de red virtual, es importante conocer los tipos de flujos de comunicación de red que se producen con un entorno del Servicio de aplicaciones.
 
 ## <a name="general-network-flow"></a>Flujo de red general
-Cuando un entorno del Servicio de aplicaciones (ASE) utiliza una dirección IP virtual pública (VIP) para las aplicaciones, todo el tráfico entrante llega a esa VIP pública,  incluido el tráfico HTTP y HTTPS para las aplicaciones, así como otro tráfico de FTP, la funcionalidad de depuración remota y las operaciones de administración de Azure.  Para obtener una lista completa de los puertos específicos (obligatorios y opcionales) disponibles en la VIP pública, consulte el artículo sobre el [control del tráfico entrante][controllinginboundtraffic] en App Service Environment. 
+Cuando un entorno del Servicio de aplicaciones (ASE) utiliza una dirección IP virtual pública (VIP) para las aplicaciones, todo el tráfico entrante llega a esa VIP pública,  incluido el tráfico HTTP y HTTPS para las aplicaciones, así como otro tráfico de FTP, la funcionalidad de depuración remota y las operaciones de administración de Azure.  Para obtener una lista completa de los puertos específicos (necesarios y opcionales) que están disponibles en la VIP pública, consulte el artículo sobre el [control del tráfico entrante][controllinginboundtraffic] en un entorno de App Service. 
 
 Los entornos del Servicio de aplicaciones también admiten aplicaciones en ejecución enlazadas únicamente a una dirección de red virtual interna, que también se denomina "dirección del ILB" (equilibrador de carga interno).  En un ASE con un ILB, el tráfico HTTP y HTTPS de las aplicaciones, así como las llamadas de depuración remota, proceden de la dirección del ILB.  En las configuraciones de ASE con un ILB más habituales, el tráfico FTP y FTPS también llegan desde esa dirección.  Sin embargo, las operaciones de administración de Azure seguirán fluyendo a los puertos 454 y 455 en la VIP pública de un ASE con un ILB.
 
@@ -42,9 +43,9 @@ Un entorno del Servicio de aplicaciones puede comunicarse con una variedad de ex
 
 Los entornos del Servicio de aplicaciones también se comunican con la base de datos SQL y los recursos del Almacenamiento de Azure necesarios para administrar y operar un entorno del Servicio de aplicaciones.  Algunos recursos de almacenamiento y SQL con los que se comunica un entorno del Servicio de aplicaciones se encuentran en la misma región que el entorno del Servicio de aplicaciones, mientras que otros se encuentran en regiones de Azure remotas.  Como resultado, la conectividad saliente a Internet siempre es necesaria para que un entorno del Servicio de aplicaciones funcione correctamente. 
 
-Puesto que un entorno del Servicio de aplicaciones se implementa en una subred, los grupos de seguridad de red pueden usarse para controlar el tráfico entrante a la subred.  Para obtener información acerca de cómo controlar el tráfico de entrada a App Service Environment, consulte el siguiente [artículo][controllinginboundtraffic].
+Puesto que un entorno del Servicio de aplicaciones se implementa en una subred, los grupos de seguridad de red pueden usarse para controlar el tráfico entrante a la subred.  Para obtener información detallada sobre cómo controlar el tráfico entrante a un entorno de App Service, consulte el siguiente [artículo][controllinginboundtraffic].
 
-Para obtener información detallada acerca de cómo permitir la conectividad de salida a Internet desde App Service Environment, consulte el artículo siguiente sobre cómo trabajar con [Express Route][ExpressRoute].  El mismo enfoque que se describe en este artículo se aplica al trabajar con conectividad de sitio a sitio y al usar la tunelización forzada.
+Para obtener información detallada sobre cómo permitir la conectividad saliente de Internet desde un entorno de App Service, consulte el artículo siguiente sobre cómo trabajar con [Express Route][ExpressRoute].  El mismo enfoque que se describe en este artículo se aplica al trabajar con conectividad de sitio a sitio y al usar la tunelización forzada.
 
 ## <a name="outbound-network-addresses"></a>Direcciones de red de salida
 Cuando un entorno del Servicio de aplicaciones realiza las llamadas salientes, una dirección IP siempre se asocia con las llamadas salientes.  La dirección IP específica que se usa depende de si el extremo al que se llama se encuentra dentro de la topología de red virtual o fuera de ella.
@@ -82,9 +83,9 @@ Aunque las llamadas entre diferentes entornos de Servicio de aplicaciones se tra
 ## <a name="additional-links-and-information"></a>Información y vínculos adicionales
 Todos los artículos y procedimientos para los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
-[Aquí][controllinginboundtraffic] se puede obtener más información acerca de los puertos de entrada que usan las instancias de App Service Environment y del uso de grupos de seguridad de red para controlar el tráfico de entrada.
+Se puede obtener más información sobre los puertos de entrada usados por los entornos de App Service y sobre el uso de grupos de seguridad de red para controlar el tráfico entrante [aquí][controllinginboundtraffic].
 
-En este [artículo][ExpressRoute] encontrará información detallada acerca del uso de rutas definidas por el usuario para conceder acceso de salida a Internet a las instancias de App Service Environment. 
+Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso saliente a Internet a los entornos de App Service están disponibles en este [artículo][ExpressRoute]. 
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
@@ -96,10 +97,5 @@ En este [artículo][ExpressRoute] encontrará información detallada acerca del 
 [OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

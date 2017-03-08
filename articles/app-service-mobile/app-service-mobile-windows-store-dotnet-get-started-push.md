@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo usar Aplicaciones móviles de
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 78976e591d2eaacb286465b1ad0926a04143cecc
-ms.openlocfilehash: 6cb3033b302e2506252707856e4ce676bf576c77
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 5e71ecc6539179efdcfa6bfc4567bddaa96a59d9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -28,7 +29,7 @@ En este tutorial, agregará notificaciones de inserción al proyecto de [inicio 
 
 Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el paquete de extensión de la notificación de inserción. Vea [Trabajar con el SDK de servidor de back-end de .NET para Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obtener más información.
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Configurar un Centro de notificaciones
+## <a name="configure-hub"></a>Configurar un Centro de notificaciones
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Registro de la aplicación para notificaciones push
@@ -53,10 +54,10 @@ Debe enviar la aplicación a la Tienda Windows y, después, configurar el proyec
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Configuración del back-end para enviar notificaciones push
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-## <a name="a-idupdate-serviceaupdate-the-server-to-send-push-notifications"></a><a id="update-service"></a>Actualización del servidor para enviar notificaciones de inserción
-Use el procedimiento siguiente que se ajuste al tipo de proyecto de back-end&mdash;: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
+## <a id="update-service"></a>Actualización del servidor para enviar notificaciones de inserción
+Use uno de los procedimientos siguientes que se ajusten al tipo de proyecto de back-end&mdash;: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Proyecto de back-end de .NET
+### <a name="dotnet"></a>Proyecto de back-end de .NET
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes NuGet**, busque Microsoft.Azure.NotificationHubs y haga clic en **Instalar**. Esto instala la biblioteca de cliente de Centros de notificaciones.
 2. Expanda **Controladores**, abra TodoItemController.cs y agregue las siguientes instrucciones using:
 
@@ -100,7 +101,7 @@ Use el procedimiento siguiente que se ajuste al tipo de proyecto de back-end&mda
     Este código indica al centro de notificaciones que envíe una notificación push después de la inserción de un elemento nuevo.
 4. Vuelva a publicar el proyecto de servidor.
 
-### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Proyecto de back-end de Node.js
+### <a name="nodejs"></a>Proyecto de back-end de Node.js
 1. Si aún no lo ha hecho, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea de Azure Portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
 
@@ -147,7 +148,7 @@ Use el procedimiento siguiente que se ajuste al tipo de proyecto de back-end&mda
     Esta acción envía una notificación del sistema de WNS que contiene el item.text cuando se inserta un nuevo elemento todo.
 3. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
 
-## <a name="a-idupdate-appaadd-push-notifications-to-your-app"></a><a id="update-app"></a>Incorporación de notificaciones de inserción a la aplicación
+## <a id="update-app"></a>Incorporación de notificaciones de inserción a la aplicación
 Después, debe registrarse la aplicación para recibir notificaciones push en el inicio. Cuando tenga habilitada la autenticación, asegúrese de que el usuario inicia sesión antes de intentar registrarse para recibir notificaciones push.
 
 1. Abra el archivo de proyecto **App.xaml.cs** y agregue las siguientes instrucciones `using`:
@@ -179,10 +180,10 @@ Después, debe registrarse la aplicación para recibir notificaciones push en el
     Esto garantiza que el valor de ChannelURI de corta duración se registra cada vez que se inicia la aplicación.
 4. Recompile el proyecto de aplicación para UWP. La carpeta ahora ya está lista para recibir notificaciones.
 
-## <a name="a-idtestatest-push-notifications-in-your-app"></a><a id="test"></a>Prueba de las notificaciones push en su aplicación
+## <a id="test"></a>Prueba de las notificaciones push en su aplicación
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-## <a name="a-idmoreanext-steps"></a><a id="more"></a>Pasos siguientes
+## <a id="more"></a>Pasos siguientes
 Más información sobre las notificaciones de inserción:
 
 * [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
@@ -203,9 +204,4 @@ También podría continuar con uno de los siguientes tutoriales:
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

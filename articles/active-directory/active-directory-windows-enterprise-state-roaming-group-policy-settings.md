@@ -5,7 +5,7 @@ description: "Proporciona información sobre la configuración de directiva de g
 services: active-directory
 keywords: "¿cuál es la configuración de directiva de grupo y MDM para Enterprise State Roaming, Enterprise State Roaming, nube de windows"
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
@@ -19,6 +19,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec
 ms.openlocfilehash: 5ca48cf3cc4b2f4d86463e36c73de47e386cff25
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -59,10 +60,5 @@ La configuración de directiva de grupo se aplica a dispositivos de Windows 10 q
 * [Preguntas más frecuentes sobre itinerancia de datos y configuración](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

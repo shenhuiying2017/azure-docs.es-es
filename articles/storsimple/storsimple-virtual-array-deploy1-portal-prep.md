@@ -12,19 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
-ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
+ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
+ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Implementación de la matriz virtual de StorSimple: preparación del portal
+# <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 ## <a name="overview"></a>Información general
 
-Este es el primer artículo de la serie de tutoriales de implementación requeridos para implementar completamente una matriz virtual como un servidor de archivos o un servidor iSCSI mediante el modelo con Resource Manager. En este artículo se describe la preparación necesaria para crear y configurar el servicio de StorSimple Manager antes de aprovisionar una matriz virtual. Este artículo también incluye vínculos a una lista de comprobación de la configuración de la implementación, así como a los requisitos previos de configuración.
+Este es el primer artículo de la serie de tutoriales de implementación requeridos para implementar completamente una matriz virtual como un servidor de archivos o un servidor iSCSI mediante el modelo con Resource Manager. En este artículo se describe la preparación necesaria para crear y configurar el servicio de StorSimple Device Manager antes de aprovisionar una matriz virtual. Este artículo también incluye vínculos a una lista de comprobación de la configuración de la implementación, así como a los requisitos previos de configuración.
 
 Para completar el proceso de instalación y configuración se necesitan privilegios de administrador. Se recomienda que revise la lista de comprobación de configuración antes de comenzar. La preparación del portal dura menos de 10 minutos.
 
@@ -168,10 +170,5 @@ El siguiente paso es aprovisionar una máquina virtual para StorSimple Virtual A
 
 * [Aprovisionamiento de la matriz virtual de StorSimple en Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [Aprovisionamiento de la matriz virtual de StorSimple en VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

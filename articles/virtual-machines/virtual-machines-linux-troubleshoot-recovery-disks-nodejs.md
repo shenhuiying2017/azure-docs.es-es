@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2d29659a0964d2be1cd1f3c86be79de495fc25a9
-ms.openlocfilehash: c7d87bf21aaa1a8c4cd7114f607c025c63251834
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 214d968c95fec4695f22152cca53a369299b6e10
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +30,7 @@ Si la máquina virtual Linux se encuentra un error de disco o de arranque, deber
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#recovery-process-overview): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0 (versión preliminar)](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
 
 
 ## <a name="recovery-process-overview"></a>Introducción al proceso de recuperación

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -173,7 +174,7 @@ Aproveche estas oportunidades para obtener las últimas versiones de API:
 
 - API de REST: [Mostrar todos los proveedores de recursos](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell: [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
-- CLI 2.0 de Azure (versión preliminar): [Proveedores de recursos de la A a la Z](https://docs.microsoft.com/cli/azure/provider#show)
+- CLI de Azure 2.0: [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>Parámetros y variables
 
@@ -481,7 +482,7 @@ Puede ver el estado de las extensiones instaladas en la configuración de extens
 
 ![Consulta del estado de la extensión](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
-También puede obtener información de la extensión mediante el comando de PowerShell **Get-AzureRmVMExtension**, el comando de la CLI 2.0 de Azure (versión preliminar), **vm extension get** o la API de REST de **obtención de información de extensiones**.
+También puede obtener información de la extensión mediante el comando de PowerShell **Get-AzureRmVMExtension**, el comando de la CLI 2.0 de Azure, **vm extension get** o la API de REST de **obtención de información de extensiones**.
 
 ## <a name="deployments"></a>Implementaciones
 
@@ -498,8 +499,3 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 - Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md).
 - Aprenda a administrar la máquina virtual que ha creado consultando [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

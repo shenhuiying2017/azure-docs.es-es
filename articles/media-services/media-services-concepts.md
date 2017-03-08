@@ -12,18 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: d94b3c59ba23220f7cb377ada8fa2231eaa9838b
+ms.sourcegitcommit: 672d1518e22c5ab5595fb5c7c708f584e80b68e9
+ms.openlocfilehash: c6117296c8bd12e3bb8f276709bc4d4c2aa81719
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services
 En este tema se proporciona información general sobre los conceptos más importantes de Media Services.
 
-## <a name="a-idassetsaassets-and-storage"></a><a id="assets"></a>Activos y almacenamiento
+## <a id="assets"></a>Activos y almacenamiento
 ### <a name="assets"></a>Recursos
 Un [recurso](https://docs.microsoft.com/rest/api/media/operations/asset) contiene archivos digitales (como vídeos, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos) y metadatos de estos archivos. Una vez que los archivos digitales se cargan en un recurso, se pueden utilizar en los flujos de trabajo de codificación y streaming en Servicios multimedia.
 
@@ -67,7 +68,7 @@ Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los 
 > 
 > 
 
-### <a name="a-idlocatorsalocators"></a><a id="locators"></a>Localizadores
+### <a id="locators"></a>Localizadores
 Los [localizador](https://docs.microsoft.com/rest/api/media/operations/locator)es proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Se usa una directiva de acceso para definir los permisos y la duración en que un cliente tiene acceso a un recurso determinado. Los localizadores pueden tener de varias a una relación con una directiva de acceso, de manera tal que distintos localizadores pueden proporcionar distintas horas de inicio y tipos de conexión a distintos clientes, mientras que todos usan la misma configuración de permiso y duración; sin embargo, debido a una restricción en la directiva de acceso compartido definida por los servicios de almacenamiento de Azure, no puede tener más de cinco localizadores únicos asociados con un recurso determinado a la vez. 
 
 Servicios multimedia admite dos tipos de localizadores: los localizadores OnDemandOrigin, que se usan para hacer streaming de elementos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o para descargarelementos  multimedia de manera progresiva, y los localizadores SAS URL, que se usan para cargar o descargar archivos multimedia hacia y desde el almacenamiento de Azure. 
@@ -82,7 +83,7 @@ Un [trabajo](https://https://docs.microsoft.com/rest/api/media/operations/job) s
 
 Un trabajo contiene metadatos acerca del procesamiento que se realizará. Cada trabajo contiene una o varias [tareas](https://docs.microsoft.com/rest/api/media/operations/task)que especifican una tarea de procesamiento atómica, sus recursos de entrada, recursos de salida, un procesador de multimedia y su configuración asociada. Las tareas dentro de un trabajo se pueden encadenar en conjunto, donde el recurso de salida de una de las tareas se indica como el recurso de entrada de la tarea siguiente. De este modo, un trabajo puede contener todos los procesos necesarios para una presentación multimedia.
 
-## <a name="a-idencodingaencoding"></a><a id="encoding"></a>Codificación
+## <a id="encoding"></a>Codificación
 Servicios multimedia de Azure ofrece varias opciones para la codificación de medios en la nube.
 
 Cuando comience con Servicios multimedia, es importante comprender la diferencia entre códecs y formatos de archivo.
@@ -112,13 +113,13 @@ Puede obtener la dirección URL de introducción y la dirección URL de vista pr
 
 Cada cuenta de Servicios multimedia puede contener varios canales, varios programas y varios StreamingEndpoints. Según las necesidades de ancho de banda y seguridad, los servicios de StreamingEndpoint pueden dedicarse a uno o más canales. Puede extraer cualquier StreamingEndpoint de cualquier canal.
 
-### <a name="program"></a>Programa
-Un [programa](https://docs.microsoft.com/rest/api/media/operations/program) le permite controlar la publicación y almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
+### <a name="program-event"></a>Programa (evento)
+Un [programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite controlar la publicación y el almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas (eventos). La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
 Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la propiedad **ArchiveWindowLength** . Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas.
 
 ArchiveWindowLength también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
 
-Cada programa está asociado a un recurso. Para publicar el programa, debe crear un localizador para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
+Cada programa (evento) está asociado a un recurso. Para publicar el programa, debe crear un localizador para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
 
 Un canal es compatible con hasta tres programas en ejecución simultánea, por lo que puede crear varios archivos del mismo flujo entrante. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Por ejemplo, el requisito de su empresa es solo archivar seis horas de un programa, pero difundir solo los últimos diez minutos. Para lograrlo, necesita crear dos programas en ejecución simultánea. Un programa está definido para archivar seis horas del evento, pero no está publicado. El otro programa está definido para archivar durante diez minutos y este programa sí se publica.
 
@@ -152,7 +153,7 @@ Para más información, consulte los siguientes artículos.
 [Protección con DRM](media-services-protect-with-drm.md)
 
 ## <a name="delivering"></a>Entrega
-### <a name="a-iddynamicpackagingadynamic-packaging"></a><a id="dynamic_packaging"></a>Empaquetado dinámico
+### <a id="dynamic_packaging"></a>Empaquetado dinámico
 Cuando se trabaja con Servicios multimedia, es aconsejable codificar los archivos intermedios en una conjunto MP4 de velocidad de bits adaptable y, a continuación, convertir el conjunto en el formato deseado con el [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>punto de conexión de streaming
@@ -223,10 +224,5 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -35,13 +35,13 @@ Hive y Pig resultan excelentes para trabajar con datos en HDInsight, pero en oca
 
 * Un editor de texto
 
-## <a name="a-namepythonapython-on-hdinsight"></a><a name="python"></a>Python en HDInsight
+## <a name="python"></a>Python en HDInsight
 
 Python2.7 se instala de forma predeterminada en los clústeres de HDInsight 3.0 y posteriores. Hive se puede usar con esta versión de Python para el procesamiento por secuencias (los datos se pasan entre Hive y Python mediante STDOUT/STDIN).
 
 HDInsight incluye también Jython, que es una implementación de Python escrita en Java. Pig comprende cómo hablar con Jython sin tener que recurrir a la transmisión por secuencias, de modo que es preferible cuando se usa Pig. También puede usar Python normal (C Python), con Pig.
 
-## <a name="a-namehivepythonahive-and-python"></a><a name="hivepython"></a>Hive y Python
+## <a name="hivepython"></a>Hive y Python
 
 Python se puede usar como UDF desde Hive a través de la instrucción **TRANSFORM** de HiveQL. Por ejemplo, el siguiente HiveQL invoca un script de Python almacenado en el archivo **streaming.py** .
 
@@ -109,7 +109,7 @@ La salida del script es una concatenación de los valores de entrada de `devicem
 
 Consulte [Ejecución de los ejemplos](#running) para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
 
-## <a name="a-namepigpythonapig-and-python"></a><a name="pigpython"></a>Pig y Python
+## <a name="pigpython"></a>Pig y Python
 
 Un script de Python se puede usar como UDF desde Pig a través de la instrucción **GENERATE** . Puede ejecutar el script mediante Jython o C Python.
 
@@ -178,7 +178,7 @@ Recuerde que anteriormente hemos definido la entrada **LINE** como chararray por
 
 Es entonces cuando tendremos un esquema coherente tal y como se define en la instrucción **@outputSchema**.
 
-## <a name="a-namerunningarunning-the-examples"></a><a name="running"></a>Ejecución de los ejemplos
+## <a name="running"></a>Ejecución de los ejemplos
 Si está usando un clúster de HDInsight basado en Linux, siga los pasos de **SSH**. Si usa un clúster de HDInsight basado en Windows y un cliente de Windows, siga los pasos de **PowerShell** .
 
 ### <a name="ssh"></a>SSH
@@ -437,7 +437,7 @@ La salida del trabajo de **Pig** debe parecerse a la siguiente:
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="errors-when-running-jobs"></a>Errores en la ejecución de trabajos
 
@@ -474,7 +474,7 @@ La información de error (STDERR) y el resultado del trabajo (STDOUT) también s
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
+## <a name="next"></a>Pasos siguientes
 
 Si necesita cargar módulos de Python que no se proporcionan de forma predeterminada, consulte [How to deploy a module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (Implementación de un módulo en HDInsight de Azure).
 

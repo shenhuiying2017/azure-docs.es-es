@@ -1,6 +1,6 @@
 ---
-title: "Creación de un entorno de Linux mediante la CLI de Azure 2.0 | Microsoft Docs"
-description: "Cree almacenamiento, una máquina virtual Linux, una red virtual y subred, un equilibrador de carga, una NIC, una dirección IP pública y un grupo de seguridad de red, todo desde el principio mediante la versión preliminar de la CLI de Azure 2.0."
+title: "Creación de un entorno de Linux con la CLI de Azure 2.0 | Microsoft Docs"
+description: "Cree almacenamiento, una máquina virtual Linux, una red virtual y subred, un equilibrador de carga, una NIC, una dirección IP pública, un grupo de seguridad de red, todo desde el principio mediante la CLI de Azure 2.0."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/8/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 39ce158ae52b978b74161cdadb4b886a7ddbf87a
-ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
+ms.sourcegitcommit: d4cff286de1abd492ce7276c300b50d71f06345b
+ms.openlocfilehash: f07a326aa2fcd659f69265001293c9ed332bb842
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-20-preview"></a>Creación de un entorno de Linux completo mediante la versión preliminar de la CLI de Azure 2.0
-En este artículo, vamos a crear una red sencilla con un equilibrador de carga y un par de máquinas virtuales útiles para el desarrollo y la computación simple. Lo vamos a guiar por el proceso comando a comando, hasta que tenga funcionando dos máquinas virtuales Linux seguras a las que se pueda conectar desde cualquier parte de Internet. Luego, podrá pasar a redes y entornos más complejos.
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-20"></a>Creación de un entorno de Linux completo con la CLI de Azure 2.0
+En este artículo, vamos a crear una red sencilla con un equilibrador de carga y un par de máquinas virtuales útiles para el desarrollo y la computación simple. Lo vamos a guiar por el proceso comando a comando, hasta que tenga funcionando dos máquinas virtuales Linux seguras a las que se pueda conectar desde cualquier parte de Internet. Luego, podrá pasar a redes y entornos más complejos. Este artículo describe cómo crear el entorno con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Tras su lectura, conocerá la jerarquía de dependencias que ofrece el modelo de implementación de Resource Manager y la potencia que proporciona. Cuando vea cómo se compila el sistema, puede recompilarlo mucho más rápido mediante [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Además, cuando vea cómo encajan las distintas partes del entorno, la creación de plantillas para automatizarlas se volverá más fácil.
 
@@ -34,18 +35,12 @@ El entorno contiene:
 
 ![Información general del entorno básico](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
-
 ## <a name="quick-commands"></a>Comandos rápidos
 Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos base para cargar una máquina virtual en Azure. En el resto del documento puede encontrar información más detallada y el contexto de cada paso, comenzando [aquí](#detailed-walkthrough).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `mystorageaccount` y `myVM`.
 
-Para crear este entorno personalizado, necesita la [versión preliminar de la CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
+Para crear este entorno personalizado, necesita la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
 En primer lugar, cree el grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`:
 
@@ -53,7 +48,7 @@ En primer lugar, cree el grupo de recursos con [az group create](/cli/azure/grou
 az group create --name myResourceGroup --location westeurope
 ```
 
-El paso siguiente es opcional. La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 (versión preliminar) consiste en usar Azure Managed Disks. Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks). En cambio, si desea usar discos no administrados, debe crear una cuenta de almacenamiento con [az storage account create](/cli/azure/storage/account#create). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount`. El nombre de la cuenta de almacenamiento debe ser único, así que indique su propio nombre único.
+El paso siguiente es opcional. La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 consiste en usar Azure Managed Disks. Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks). En cambio, si desea usar discos no administrados, debe crear una cuenta de almacenamiento con [az storage account create](/cli/azure/storage/account#create). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount`. El nombre de la cuenta de almacenamiento debe ser único, así que indique su propio nombre único.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -226,7 +221,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 ## <a name="detailed-walkthrough"></a>Tutorial detallado
 A través de los pasos detallados que aparecen a continuación se explica lo que hace cada comando mientras crea su entorno. Estos conceptos sirven de ayuda mientras crea sus propios entornos personalizados con fines de desarrollo o producción.
 
-Asegúrese de que ha instalado la [versión preliminar de la CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciado sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciado sesión en una cuenta de Azure con [az login](/cli/azure/#login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `mystorageaccount` y `myVM`.
 
@@ -252,7 +247,7 @@ De forma predeterminada, la salida está en JSON (notación de objetos JavaScrip
 ```
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
-El paso siguiente es opcional. La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 (versión preliminar) consiste en usar Azure Managed Disks. Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks). Vaya a [Creación de una red virtual y una subred](#create-a-virtual-network-and-subnet) si desea usar Azure Managed Disks. 
+El paso siguiente es opcional. La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 consiste en usar Azure Managed Disks. Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks). Vaya a [Creación de una red virtual y una subred](#create-a-virtual-network-and-subnet) si desea usar Azure Managed Disks. 
 
 Si desea usar discos no administrados, necesita crear una cuenta de almacenamiento para los discos de la VM y para todos los discos de datos adicionales que desea agregar.
 
@@ -1114,9 +1109,4 @@ Es posible que quiera leer [más sobre cómo realizar implementaciones desde pla
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya está listo para empezar a trabajar con varios componentes de red y máquinas virtuales. Puede usar este entorno de ejemplo para crear la aplicación con los componentes principales aquí presentados.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

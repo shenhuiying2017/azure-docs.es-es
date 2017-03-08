@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
 ms.sourcegitcommit: 7fc30c4283a96f3202e7010828e178895d3613b6
 ms.openlocfilehash: 08245a850e3c78ce893ef18030ee09e701241d1b
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -243,10 +244,5 @@ Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster d
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

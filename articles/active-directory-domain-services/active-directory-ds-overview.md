@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -61,8 +62,8 @@ Litware Corporation ha implementado [Azure AD Connect](../active-directory/activ
 
 > [!NOTE]
 > **La sincronización de contraseñas es obligatoria para las organizaciones híbridas para usar Azure AD Domain Services**. El motivo de este requisito es que se necesitan las credenciales de los usuarios en el dominio administrado proporcionado por Azure AD Domain Services para autenticar a estos usuarios mediante los métodos de autenticación NTLM o Kerberos.
-> 
-> 
+>
+>
 
 ![Servicios de dominio de Azure AD para Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
@@ -82,10 +83,4 @@ Con los Servicios de dominio de Azure AD, puede disfrutar de las siguientes vent
 * **Integración** : los Servicios de dominio de Azure AD están profundamente integrados con su inquilino de Azure AD. Ahora puede usar Azure AD como un directorio de integración empresarial basado en la nube que satisface tanto las necesidades de sus aplicaciones modernas y las aplicaciones tradicionales que tienen en cuenta el directorio.
 * **Compatible** : Azure AD Domain Services se basa en la infraestructura de grado empresarial comprobada de Windows Server Active Directory. Por tanto, las aplicaciones pueden depender de un mayor grado de compatibilidad con características de Windows Server Active Directory. No todas las características disponibles en Windows Server AD están actualmente disponibles en Azure AD Domain Services. Sin embargo, las características disponibles son compatibles con las características de Windows Server AD correspondientes en las que confía en su infraestructura local. Las funcionalidades de LDAP, Kerberos, NTLM, directiva de grupo y unión a un dominio constituyen una oferta acabada que se ha probado y perfeccionado a través de diversas versiones de Windows Server.
 * **Rentabilidad** : con los Servicios de dominio de Azure AD, puede evitar el inconveniente de administración e infraestructura asociado con la administración de infraestructuras de identidad compatibles con las aplicaciones tradicionales que tienen en cuenta el directorio. Puede mover estas aplicaciones a los Servicios de infraestructura de Azure y beneficiarse de mayores ahorros en los gastos operativos.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

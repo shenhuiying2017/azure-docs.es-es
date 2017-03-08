@@ -15,8 +15,9 @@ ms.workload: azure-government
 ms.date: 01/03/2016
 ms.author: sdubeymsft
 translationtype: Human Translation
-ms.sourcegitcommit: 40e2eea5c1a11dadb232c6ac7c224ca5fc847c02
-ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 159c891dedb66dfaa238981b395b4bba074c5716
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ En este artículo describe cómo implementar una aplicación de Azure App Servic
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Consulte los [Requisitos previos de Visual Studio] (../app-service-api/app-service-api-dotnet-get-started.md#prerequisites) para instalar y configurar Visual Studio 2015 y Azure SDK.
-* Siga [estas instrucciones] (documentation-government-manage-subscriptions.md#connecting-via-visual-studio) para configurar Visual Studio para conectarse a la cuenta de Azure Government.
+* Siga [estas instrucciones] (documentation-government-manage-subscriptions.md) para configurar Visual Studio para conectarse a la cuenta de Azure Government.
 
 ## <a name="open-app-project-in-visual-studio"></a>Apertura del proyecto de aplicación en Visual Studio
 * Abra el proyecto o solución existente en Visual Studio, cree un proyecto siguiendo [estas instrucciones] (../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) o descargue la aplicación de ejemplo siguiendo [estos pasos] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
@@ -42,9 +43,4 @@ En este artículo describe cómo implementar una aplicación de Azure App Servic
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información complementaria y actualizaciones, suscríbase al [blog de Microsoft Azure Government](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

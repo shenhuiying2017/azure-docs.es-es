@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/14/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
-ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: 559ecab373adf6441635f2ed0d572ab02159f50c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -37,7 +38,7 @@ Al final de este tutorial tendrá tres aplicaciones de consola de Java:
 Para completar este tutorial, necesitará lo siguiente:
 
 * Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
-* Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
+* Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar [Maven][lnk-maven] para este tutorial en Windows o Linux.
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -471,9 +472,4 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html

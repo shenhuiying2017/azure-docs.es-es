@@ -12,16 +12,17 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>Agregar cuentas de almacenamiento de Azure adicionales a HDInsight
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
 Aprenda a usar acciones de script para agregar cuentas de almacenamiento de Azure adicionales a un clúster de HDInsight existente que usa Linux como sistema operativo.
 
@@ -44,7 +45,7 @@ Durante el procesamiento, el script realiza las siguientes acciones:
 
 * Comprueba que la cuenta de almacenamiento existe y que se puede acceder a ella mediante la clave.
 
-* Cifra la clave con la credencial del clúster. Esto impide que los usuarios de HDInsight puedan extraer y usar fácilmente la clave de la cuenta de almacenamiento desde Ambari.
+* Cifra la clave con la credencial del clúster.
 
 * Agrega la cuenta de almacenamiento al archivo core-site.xml.
 
@@ -76,7 +77,7 @@ Cuando se use la información proporcionada en el documento de personalización,
 
 Cuando vea el clúster de HDInsight en Azure Portal, si selecciona la entrada __Cuentas de almacenamiento__ en __Propiedades__, no se mostrarán las cuentas de almacenamiento agregadas mediante esta acción de script. Azure PowerShell y la CLI de Azure tampoco mostrarán la cuenta de almacenamiento adicional.
 
-Esto se debe a que el script solo modifica la configuración de core-site.xml del clúster. Esta información no se usa actualmente al recuperar la información del clúster mediante las API de administración de Azure.
+Esto se debe a que el script solo modifica la configuración de core-site.xml del clúster. Esta información no se usa al recuperar la información del clúster mediante las API de administración de Azure.
 
 Para ver información de la cuenta de almacenamiento agregada al clúster mediante este script, use la API de REST de Ambari. El comando siguiente muestra cómo usar [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) y [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar y analizar datos JSON desde Ambari:
 
@@ -96,13 +97,11 @@ Este texto es un ejemplo de una clave cifrada que se usa para acceder a la cuent
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>No se puede acceder a almacenamiento después de cambiar la clave
 
-Si cambia la clave de una cuenta de almacenamiento, HDInsight ya no podrá acceder a dicha cuenta.
+Si cambia la clave de una cuenta de almacenamiento, HDInsight ya no podrá acceder a dicha cuenta. HDInsight usa una copia en caché de clave del archivo core-site.xml para el clúster. Esta copia en caché debe actualizarse para que coincida con la nueva.
 
-Esto se debe a que la clave almacenada en core-site.xml para el clúster es la antigua.
+La ejecución nuevamente de la acción de script __no__ actualizará la clave, ya que el script comprueba si ya existe una entrada para la cuenta de almacenamiento. Si ya existe una entrada, no realice ningún cambio.
 
-La ejecución nuevamente de la acción de script __no__ actualizará la clave, ya que el script comprueba si ya existe una entrada para la cuenta de almacenamiento. Si existe, no realiza ningún cambio.
-
-Para solucionar este problema, debe quitar la entrada existente para la cuenta de almacenamiento. Para ello, puede usar los siguientes pasos:
+Para solucionar este problema, debe quitar la entrada existente para la cuenta de almacenamiento. Realice los siguientes pasos para quitar la entrada:
 
 1. Abra un explorador web y abra la interfaz de usuario web de Ambari de su clúster de HDInsight. El identificador URI es https://CLUSTERNAME.azurehdinsight.net. Reemplace __CLUSTERNAME__ por el nombre del clúster.
 
@@ -131,9 +130,4 @@ Si la cuenta de almacenamiento se encuentra en una región distinta a la del cl�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento ha aprendido a agregar cuentas de almacenamiento adicionales a un clúster de HDInsight existente. Para más información sobre las acciones de script, consulte [Personalización de clústeres de HDInsight basados en Linux mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+En este documento ha aprendido a agregar más cuentas de almacenamiento a un clúster de HDInsight. Para más información sobre las acciones de script, consulte [Personalización de clústeres de HDInsight basados en Linux mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
