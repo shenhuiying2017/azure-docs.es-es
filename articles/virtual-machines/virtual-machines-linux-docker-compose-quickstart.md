@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9fc3f1fbe9ab03257d613e31f5890a63d1aeba1f
-ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
+ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
+ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-on-an-azure-virtual-machine"></a>Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en una máquina virtual de Azure
+# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en Azure
 Con [Compose](http://github.com/docker/compose), usará un archivo de texto simple para definir una aplicación compuesta de varios contenedores de Docker. Después, puede poner en marcha la aplicación con un solo comando que realiza todos los pasos para implementarla en el entorno definido. Como ejemplo, en este artículo se muestra cómo configurar rápidamente un blog de WordPress con una base de datos SQL MariaDB de back-end en una máquina virtual Ubuntu. También puede utilizar Compose para configurar aplicaciones más complejas.
 
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>Paso 1: Configuración de una máquina virtual de Linux como host de Docker
@@ -29,28 +30,11 @@ Puede emplear diversos procedimientos de Azure, así como las imágenes y planti
 
 Cuando utilice la extensión de máquina virtual de Docker, la máquina virtual se configurará automáticamente como un host de Docker. Puede crear una VM y utilizar la extensión de VM de Docker mediante alguna de las siguientes versiones de la CLI:
 
+- [CLI de Azure 2.0](#azure-cli-20): la CLI de última generación para el modelo de implementación de administración de recursos
 - [CLI de Azure 1.0](#azure-cli-10): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](#azure-cli-20-preview): la CLI de última generación para el modelo de implementación de Resource Manager
 
-
-### <a name="azure-cli-10"></a>CLI de Azure 1.0
-Instale la última versión de la [CLI de Azure 1.0](../xplat-cli-install.md) e inicie sesión en una cuenta de Azure. Asegúrese de que está usando el modo de Resource Manager para crear la VM (`azure config mode arm`).
-
-El ejemplo siguiente crea un grupo de recursos llamado `myResourceGroup` en la ubicación `West US` e implementa una VM con la extensión de VM de Docker para Azure. Se utiliza una [plantilla de Azure Resource Manager desde Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) para implementar el entorno:
-
-```azurecli
-azure group create --name myResourceGroup --location "West US" \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
-```
-
-La CLI de Azure regresa al símbolo del sistema tras unos segundos, se sigue creando y configurando el host de Docker. La implementación tarda unos minutos en finalizar. Puede ver detalles sobre el estado del host de Docker con el comando `azure vm show`. En el ejemplo siguiente, se comprueba el estado de la máquina virtual denominada `myDockerVM` (se trata del nombre predeterminado de la plantilla; no lo cambie) del grupo de recursos denominado `myResourceGroup`. Escriba el nombre del grupo de recursos que creó en el paso anterior:
-
-```azurecli
-azure vm show --resource-group myResourceGroup --name myDockerVM
-```
-
-### <a name="azure-cli-20-preview"></a>Versión preliminar de la CLI de Azure 2.0
-Instale la última versión de la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login).
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+Instale la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login).
 
 En primer lugar, cree un grupo de recursos para su entorno de Docker con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `West US`:
 
@@ -80,8 +64,24 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 
 Cuando este comando devuelve `Succeeded`, ha terminado la implementación y puede implementar SSH en la VM en el paso siguiente.
 
+### <a name="azure-cli-10"></a>CLI de Azure 1.0
+Instale la última versión de la [CLI de Azure 1.0](../xplat-cli-install.md) e inicie sesión en una cuenta de Azure. Asegúrese de que está usando el modo de Resource Manager para crear la VM (`azure config mode arm`).
+
+El ejemplo siguiente crea un grupo de recursos llamado `myResourceGroup` en la ubicación `West US` e implementa una VM con la extensión de VM de Docker para Azure. Se utiliza una [plantilla de Azure Resource Manager desde Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) para implementar el entorno:
+
+```azurecli
+azure group create --name myResourceGroup --location "West US" \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```
+
+La CLI de Azure regresa al símbolo del sistema tras unos segundos, se sigue creando y configurando el host de Docker. La implementación tarda unos minutos en finalizar. Puede ver detalles sobre el estado del host de Docker con el comando `azure vm show`. En el ejemplo siguiente, se comprueba el estado de la máquina virtual denominada `myDockerVM` (se trata del nombre predeterminado de la plantilla; no lo cambie) del grupo de recursos denominado `myResourceGroup`. Escriba el nombre del grupo de recursos que creó en el paso anterior:
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
 ## <a name="step-2-verify-that-compose-is-installed"></a>Paso 2: Comprobación de que se ha instalado Compose
-Una vez que haya terminado la implementación, aplique SSH a su nuevo host de Docker mediante el nombre DNS que proporcionó durante la implementación. Puede usar `azure vm show -g myResourceGroup -n myDockerVM` (CLI de Azure 1.0) o `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (versión preliminar de la CLI de Azure 2.0) para ver los detalles de la VM, incluido el nombre DNS.
+Una vez que haya terminado la implementación, aplique SSH a su nuevo host de Docker mediante el nombre DNS que proporcionó durante la implementación. Puede usar `azure vm show -g myResourceGroup -n myDockerVM` (CLI de Azure 1.0) o `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (CLI de Azure 2.0) para ver los detalles de la máquina virtual, incluido el nombre DNS.
 
 Para comprobar que Compose esté instalado en la máquina virtual, ejecute el siguiente comando:
 
@@ -170,9 +170,4 @@ Ahora puede conectarse a WordPress directamente en la máquina virtual a través
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

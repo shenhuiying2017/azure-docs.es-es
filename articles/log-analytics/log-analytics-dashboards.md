@@ -1,6 +1,6 @@
 ---
-title: "Creación de un panel personalizado en Log Analytics | Microsoft Docs"
-description: "Con esta guía le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le proporciona una sola imagen de visualización de su entorno."
+title: "Creación de un panel personalizado en Azure Log Analytics | Microsoft Docs"
+description: "Con esta guía le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le permite ver su entorno en una sola vista."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: afd1e5359edbdfdbd4a8afaac139f5877b306c2b
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a8c9766bf066a7f0dfd28ebb4e41bf0eaf3f05bd
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-custom-dashboard-in-log-analytics"></a>Creación de un panel personalizado en Log Analytics
+# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Creación de un panel personalizado para usarse en Log Analytics
 Con esta guía le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le permite ver su entorno en una sola vista.
 
 ![Panel de ejemplo](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
@@ -83,9 +85,4 @@ Para quitar un icono, vaya a la vista Mi panel y haga clic en **Personalizar** p
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Cree [alertas](log-analytics-alerts.md) en Log Analytics para generar notificaciones y solucionar problemas.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

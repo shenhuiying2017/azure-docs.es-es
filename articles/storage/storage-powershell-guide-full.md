@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 70a03b39eb49ed96b649e63f6f2c728147ebddec
+ms.sourcegitcommit: b046dcb32e6796f4e66009361783fa95936794b8
+ms.openlocfilehash: 662fbbdda2c6d4d7da2c7c94dabb984a6bfc7296
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -38,7 +39,7 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
 
 **Después de crear una suscripción y una cuenta de Microsoft Azure:**
 
-1. Descargue e instale [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+1. Descargue e instale la última versión de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
 2. Inicie el Entorno de scripting integrado (ISE) de Windows PowerShell: en el equipo local, vaya al menú **Inicio** . Escriba **Herramientas administrativas** y haga clic en ella para ejecutarla. En la ventana **Herramientas administrativas**, haga clic con el botón derecho en **Windows PowerShell ISE** y haga clic en **Ejecutar como administrador**.
 3. En **Windows PowerShell ISE**, haga clic en **Archivo** > **Nuevo** para crear un nuevo archivo de script.
 4. A continuación le proporcionaremos un simple script que le mostrará los comandos básicos de PowerShell para poder acceder a Almacenamiento de Azure. El script le pedirá sus credenciales de cuenta de Azure para agregar su cuenta al entorno local de PowerShell. Una vez hecho esto, el script establecerá una suscripción predeterminada de Azure y creará una nueva cuenta de almacenamiento en Azure. Posteriormente, el script creará un nuevo contenedor en la nueva cuenta de almacenamiento y cargará un archivo de imagen existente (blob) en ese contenedor. Una vez el script ha enumerado todos los blobs en ese contenedor, creará un nuevo directorio de destino en el equipo local y descargará el archivo de imagen.
@@ -847,9 +848,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -4,7 +4,7 @@ description: "Describe las nuevas características, problemas y soluciones alter
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6c9aae87-6f77-44b8-b7fa-ebbdc9d8517c
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2cc83aec80acceff64774a10d9542183fb0308b9
+ms.sourcegitcommit: 148f3920b92892781ed09380644b05b5bef7c952
+ms.openlocfilehash: 325c688e4da81fd9e6b73bd350a739ac43a480c0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-8000-series-update-12-release-notes"></a>Notas de la versión de la actualización 1.2 de la serie StorSimple 8000
+# <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Actualización de las notas de la versión Update 1.2 del dispositivo StorSimple serie 8000
+
 ## <a name="overview"></a>Información general
 Las siguientes notas de la versión describen las características nuevas e identifican los problemas críticos abiertos de la actualización 1.2 de la serie StorSimple 8000. También contienen una lista de las actualizaciones de software, controlador y firmware de StorSimple incluidas en esta versión. 
 
@@ -110,10 +113,5 @@ No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nu
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Instalación de la actualización 1.2 en el dispositivo](storsimple-install-update-1.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

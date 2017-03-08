@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
-ms.openlocfilehash: a3bb9851d0f7e6f40f456f7989ae949fb38549e0
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 9a663a4e79c30b97e6390b7ff7f83deec131384a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="custom-tracking-schemas"></a>Esquemas de seguimiento personalizados
-Puede usar estos esquemas de seguimiento personalizados en su cuenta de integración de Azure para ayudarle a supervisar las transacciones de negocio a negocio (B2B):
+# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Habilitación del seguimiento para supervisar el flujo de trabajo completo de manera integral
+Hay disponible una característica de seguimiento integrada que puede habilitar para las distintas partes de su flujo de trabajo de negocio a negocio, por ejemplo, para realizar un seguimiento de mensajes AS2 o X12. Cuando cree flujos de trabajo que incluyan una lógica de aplicación, BizTalk Server, SQL Server o cualquier otra capa, podrá habilitar el seguimiento personalizado que registre los eventos desde el principio hasta el final del flujo de trabajo. 
+
+En este tema se proporciona un código personalizado que puede usar en las capas externas de la aplicación lógica. 
 
 ## <a name="custom-tracking-schema"></a>Esquema de seguimiento personalizado
 ````java
@@ -84,9 +88,4 @@ Para obtener información sobre los esquemas de seguimiento de protocolos B2B, c
 * Más información sobre la [supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md)   
 * Más información sobre el [seguimiento de mensajes B2B en el portal de Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
 * Más información sobre el [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

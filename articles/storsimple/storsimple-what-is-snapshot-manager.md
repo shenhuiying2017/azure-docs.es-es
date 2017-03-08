@@ -4,7 +4,7 @@ description: "Describe Administrador de instantáneas StorSimple, su arquitectur
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1300262c5306ab76ae90be76dc19639e26665b69
+ms.sourcegitcommit: 43eb76f2d51c586f3cd44d4d34b307257a655182
+ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="what-is-storsimple-snapshot-manager"></a>¿Qué es Administrador de instantáneas StorSimple?
+# <a name="an-introduction-to-storsimple-snapshot-manager"></a>Una introducción a StorSimple Snapshot Manager
+
 ## <a name="overview"></a>Información general
 Administrador de instantáneas StorSimple es un complemento de Microsoft Management Console (MMC) que simplifica la protección de datos y la administración de las copias de seguridad en un entorno de Microsoft Azure StorSimple. Con Administrador de instantáneas StorSimple, puede administrar los datos de Microsoft Azure StorSimple en el centro de datos y en la nube como una solución de almacenamiento integrada y, por consiguiente, simplificar los procesos de copia de seguridad y reducir los costos.
 
@@ -137,10 +140,5 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 * Descargue el [Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

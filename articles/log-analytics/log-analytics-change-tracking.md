@@ -1,7 +1,7 @@
 ---
-title: "Solución de seguimiento de cambios de Log Analytics | Microsoft Docs"
-description: "Puede usar la solución de seguimiento de cambios de configuración de Log Analytics para facilitar el proceso de identificación de los cambios de los servicios de Windows y software que se producen en su entorno. La identificación de estos cambios de configuración puede ayudarle a identificar problemas de funcionamiento."
-services: operations-management-suite
+title: Seguimiento de cambios con Azure Log Analytics | Microsoft Docs
+description: "La solución de seguimiento de cambios de Log Analytics lo ayuda a identificar los cambios de software y servicios de Windows que se producen en su entorno."
+services: log-analytics
 documentationcenter: 
 author: bandersmsft
 manager: carmonm
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
-ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="change-tracking-solution-in-log-analytics"></a>Solución de seguimiento de cambios de Log Analytics
+# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
+
 Este artículo le ayudará a usar la solución de seguimiento de cambios de Log Analytics para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux; en los archivos y servicios de Windows, y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
 La solución se instala para actualizar el tipo de agente que ha instalado. Los cambios en los demonios de Linux, los Servicios de Windows y el software instalados en los servidores supervisados se leen y, a continuación, los datos se envían al servicio de Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
@@ -90,9 +93,4 @@ Puede ver los cambios en la infraestructura y, a continuación, profundizar en l
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

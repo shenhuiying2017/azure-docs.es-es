@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
-ms.openlocfilehash: 7faa219c7c21c768419f6c5e98712a0f0f471924
+ms.sourcegitcommit: af3ba5a4d1bd457f19038b9917ce55920e5e882b
+ms.openlocfilehash: 7d97e0f8be183c8858520d795ac28b7ad63a6dae
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7faa219c7c21c768419f6c5e98712a0f0f471924
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
-En este tutorial, aprenderá a realizar operaciones básicas en el servicio File Storage de Microsoft Azure. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si no está familiarizado con el servicio File Storage de Microsoft Azure, le resultará muy útil repasar los conceptos de las secciones siguientes comprender los ejemplos.
+En este tutorial, aprenderá a realizar operaciones básicas en el servicio File Storage de Microsoft Azure. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si no está familiarizado con el servicio File Storage de Microsoft Azure, le resultará útil repasar los conceptos de las secciones siguientes comprender los ejemplos.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -50,8 +51,8 @@ Install-Package wastorage
 Agregue las siguientes instrucciones include en la parte superior del archivo de C++ en el que desea usar las API de Azure Storage para acceder a los archivos:
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/file.h"
+#include <was/storage_account.h>
+#include <was/file.h>
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configuración de una cadena de conexión de Almacenamiento de Azure
@@ -354,12 +355,8 @@ Para más información sobre la creación y el uso de firmas de acceso compartid
 Para obtener más información sobre Almacenamiento de Azure, consulte los siguientes recursos:
 
 * [Biblioteca de cliente de almacenamiento para C++](https://github.com/Azure/azure-storage-cpp)
+* [Ejemplos del servicio Azure Storage File en C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Explorador de almacenamiento de Azure](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

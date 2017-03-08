@@ -16,13 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: f7562c2bb6ad354ece3aa3c51fdaabad8e878fa9
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: a221f3bc9e058a46e46edf8f7177d21151ae3595
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
+# <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Aumento de la disponibilidad de máquinas virtuales mediante la creación de un conjunto de disponibilidad de Azure 
 Los conjuntos de disponibilidad proporcionan redundancia en la aplicación. Se recomienda agrupar dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información, consulte [Acuerdo de Nivel de Servicio para máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
@@ -94,10 +95,5 @@ Para más información, consulte [New-AzureRmAvailabilitySet](/powershell/new-az
 
 ## <a name="next-steps"></a>Pasos siguientes
 Agregue almacenamiento adicional a la máquina virtual mediante la adición de un [disco de datos](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3827e74433a859e65071a1041c5ed6c8253db8df
-ms.openlocfilehash: be17b2de227ef6d93f8d326ff060c3c4788eb622
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 0d998b5347a9da6dd209b0ba106792ab5c34164d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="install-sap-hana-on-sap-hana-on-azure-large-instances"></a>Instalación de SAP HANA en SAP HANA en Azure (instancias grandes)
+# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Procedimiento para instalar y configurar SAP HANA en Azure (instancias grandes)
 
 La instalación de SAP HANA es su responsabilidad y puede hacerlo inmediatamente después de la entrega de un nuevo SAP HANA en el servidor de Azure (instancias de grandes). Tenga en cuenta que, según la directiva de SAP, la instalación de SAP HANA la debe realizar un instalador de SAP HANA certificado (alguien que haya superado el examen de certificación de Certified SAP Technology Associate - Instalación de SAP HANA), o un integrador de sistemas (SI) certificado por SAP.
 
@@ -80,10 +82,5 @@ SAP es sumamente sensible a las diferencias horarias para los distintos componen
 
 Para SAP HANA en Azure (instancias grandes), la sincronización de la hora que se realiza en Azure no se aplica a las unidades de proceso en las marcas de instancia grande. Esto no se aplica para ejecutar aplicaciones de SAP de forma nativa en Azure (en VM), ya que Azure garantiza que la hora del sistema está correctamente sincronizada. Como consecuencia de esto, se debe configurar un servidor horario independiente, que lo puedan usar servidores de aplicaciones SAP que se ejecutan en VM de Azure y las instancias de base de datos de SAP HANA que se ejecutan en instancias grandes de HANA. La infraestructura de almacenamiento en marcas de instancias grandes se sincronizado con los servidores NTP.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

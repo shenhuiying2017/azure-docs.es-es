@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/23/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
-ms.openlocfilehash: e9780d487043a86df5a627b92579b67154c59279
+ms.sourcegitcommit: d9efecfaf0b9e461182328b052252b114d78ce39
+ms.openlocfilehash: 840db75456e8383cf4343e2170a55dc50cbb68dd
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -32,6 +33,11 @@ En este tutorial usará Jupyter Notebook, disponible con los clústeres de HDIns
 * Cuenta de Azure Data Lake Store. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
 * Clúster de Azure HDInsight Spark con Data Lake Store como almacenamiento. Consulte las instrucciones que se indican en [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+    > [!IMPORTANT]
+       > Si está usando Data Lake Store como el almacenamiento principal del clúster, asegúrese de crear un clúster de Spark 1.6.
+      >
+       >
 
 ## <a name="prepare-the-data"></a>Preparación de los datos
 
@@ -89,35 +95,39 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
 
 5. Cargue datos de ejemplo en una tabla temporal mediante el archivo **HVAC.csv** que copió a la cuenta de Azure Data Lake Store. Ahora puede acceder a los datos de la cuenta del Almacén de Data Lake con el siguiente patrón de dirección URL.
 
-    Si dispone de Data Lake Store como almacenamiento predeterminado, HVAC.csv estará en la ruta de acceso similar a la siguiente dirección URL:
+    * Si dispone de Data Lake Store como almacenamiento predeterminado, HVAC.csv estará en la ruta de acceso similar a la siguiente dirección URL:
 
-         adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+            adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+    
+        También podría usar un formato abreviado como el siguiente:
 
-    Si cuenta con Data Lake Store como almacenamiento adicional, HVAC.csv estará en la ubicación donde lo copió, por ejemplo:
+            adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-        adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+    * Si cuenta con Data Lake Store como almacenamiento adicional, HVAC.csv estará en la ubicación donde lo copió, por ejemplo:
+
+            adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
 
      En una celda vacía, pegue el siguiente ejemplo de código, reemplace **MYDATALAKESTORE** por el nombre de su cuenta de Azure Data Lake Store y presione **MAYÚS+ENTRAR**. Este ejemplo de código registra los datos en una tabla temporal llamada **hvac**.
 
-         # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
-         hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-         # Create the schema
-         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-
-         # Parse the data in hvacText
-         hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
-         # Create a data frame
-         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
-         # Register the data fram as a table to run queries against
-         hvacdf.registerTempTable("hvac")
+            # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
+            hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            
+            # Create the schema
+            hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+            
+            # Parse the data in hvacText
+            hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+            
+            # Create a data frame
+            hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+            
+            # Register the data fram as a table to run queries against
+            hvacdf.registerTempTable("hvac")
 
 6. Al usar un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para obtener más información sobre la función mágica `%%sql` , así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
-         %%sql
-         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+        %%sql
+        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
 7. Una vez que el trabajo se completa correctamente, se muestra de forma predeterminada el resultado tabular siguiente.
 
@@ -135,9 +145,4 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
 * [Creación de una aplicación independiente con Scala para ejecutarla en un clúster de Apache Spark](hdinsight-apache-spark-create-standalone-application.md)
 * [Uso de las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Uso de las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)](hdinsight-apache-spark-eclipse-tool-plugin.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

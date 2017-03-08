@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 59e3402fbeb6356c164a9a7a80728ec06ca7e141
-
+ms.sourcegitcommit: 2fd9fd50be79e8af239101147e5ae0a39eb2dc07
+ms.openlocfilehash: 7cef940b26003578a3b08c453ed4f91d3e617b2e
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="access-and-security-in-azure-resource-manager-templates"></a>Acceso y seguridad en plantillas de Azure Resource Manager
+# <a name="access-and-security-in-azure-resource-manager-templates-for-linux-vms"></a>Acceso y seguridad en plantillas de Azure Resource Manager para máquinas virtuales Linux
+
 Por lo general, para acceder a las aplicaciones hospedadas en Azure, se requiere una conexión a Internet o una conexión VPN/ExpressRoute con Azure. En el ejemplo de la aplicación Music Store, el sitio web pasa a estar disponible en Internet con una dirección IP pública. Una vez establecido el acceso, se deben proteger las conexiones a la aplicación y el acceso a los propios recursos de la máquina virtual. Esta acceso protegido se proporciona mediante un grupo de seguridad de red. 
 
 Este documento describe cómo se protege la aplicación Music Store en la plantilla de Azure Resource Manager de ejemplo. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Implementación de Music Store en Ubuntu). 
@@ -137,10 +139,5 @@ Para más información sobre los grupos de seguridad de red, consulte [¿Qué es
 <hr>
 
 [Paso 3: disponibilidad y escala en plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

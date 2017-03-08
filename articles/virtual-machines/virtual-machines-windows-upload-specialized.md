@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: fc8cb82e952a05b161f00ef9ebfbd4852d3987d4
+ms.sourcegitcommit: c859b789b564ee79022823e8d796775f58eeeccd
+ms.openlocfilehash: 7acd58989da14ea49374e86edb0dba5762557d79
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="upload-a-specialized-vhd-to-azure-to-use-for-creating-a-new-vm"></a>Carga de un VHD especializado en Azure para usarlo en la creación de una VM
+# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>Procedimiento para cargar un VHD especializado con el fin de crear una máquina virtual en Azure
 
 Un disco duro virtual especializado mantiene las cuentas de usuario, las aplicaciones y otros datos de estado de la máquina virtual original. Puede cargar un VHD especializado en Azure y usarlo para crear una VM que use Managed Disks o una cuenta de almacenamiento no administrada. Se recomienda que use [Managed Disks](../storage/storage-managed-disks-overview.md) para aprovechar la administración simplificada y las características adicionales que ofrece Managed Disks.
 
@@ -39,7 +41,7 @@ Un disco duro virtual especializado mantiene las cuentas de usuario, las aplicac
 * Para ver los límites generales de las máquinas virtuales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Si usa PowerShell, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell. Ejecute el siguiente comando para realizar la instalación.
+Si usa PowerShell, asegúrese de que tiene la versión más reciente del módulo de PowerShell AzureRM.Compute. Ejecute el siguiente comando para instalarla.
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -263,7 +265,7 @@ o
     -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
-Opcional: adjunte discos administrados adicionales como discos de datos. Esta opción da por hecho que ha creado los discos de datos administrados mediante la [creación de discos de datos administrados](virtual-machines-windows-create-managed-disk-ps.md). 
+Opcional: conecte discos administrados adicionales como discos de datos. Esta opción da por hecho que ha creado los discos de datos administrados mediante la [creación de discos de datos administrados](virtual-machines-windows-create-managed-disk-ps.md). 
 
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
@@ -321,9 +323,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para iniciar sesión en la nueva máquina virtual, examine la máquina virtual en el [Portal](https://portal.azure.com), haga clic en **Conectar**y abra el archivo RDP del Escritorio remoto. Utilice las credenciales de cuenta de la máquina virtual original para iniciar sesión en la nueva máquina virtual. Para más información, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

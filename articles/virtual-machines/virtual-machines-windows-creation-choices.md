@@ -1,5 +1,5 @@
 ---
-title: "Diferentes formas de crear una máquina virtual Windows | Microsoft Docs"
+title: "Diferentes formas de crear una máquina virtual Windows en Azure | Microsoft Docs"
 description: "Enumera las diferentes formas de crear una máquina virtual de Windows con el Administrador de recursos."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/27/2016
+ms.date: 03/02/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bc3921003bf3b91de88e70ff18b5c397687c288c
-ms.openlocfilehash: 6f4a825faac413652b1dc3880d899e0e40caedbc
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: d01b71257a4a95294aebcde8c1d056e3fc3ed1be
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="different-ways-to-create-a-windows-vm"></a>Distintas formas de crear una máquina virtual
+# <a name="different-ways-to-create-a-windows-virtual-machine"></a>Diferentes formas de crear una máquina virtual de Windows
+
 Azure ofrece varias formas de crear una máquina virtual porque las máquinas virtuales son adecuadas para distintos usuarios y objetivos. Esto significa que tendrá tomar algunas decisiones sobre la máquina virtual y cómo crearla. Este artículo ofrece un resumen de estas opciones y vínculos a instrucciones.
 
 ## <a name="azure-portal"></a>Portal de Azure
@@ -43,10 +46,5 @@ Si prefiere trabajar en un shell de comandos, puede usar PowerShell de Azure.
 Utilice Visual Studio para crear, administrar e implementar máquinas virtuales con Azure Tools para Visual Studio y el SDK de Azure.
 
 [Herramientas de Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 
