@@ -57,7 +57,7 @@ Funciones de Azure ofrece plantillas para comenzar con situaciones clave, inclui
 
 Azure Functions admite *desencadenadores* que son formas de iniciar la ejecución del código, y *enlaces* que son formas de simplificar la codificación para los datos de entrada y salida. Para una descripción detallada de los desencadenadores y los enlaces que proporciona Funciones de Azure, consulte [Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure](functions-triggers-bindings.md).
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integraciones
+## <a name="integrations"></a>Integraciones
 Azure Functions se integra con diversos servicios de Azure y de terceros. Dichos servicios pueden desencadenar una función e iniciar su ejecución, o bien servir de entrada y salida del código. Las siguientes integraciones de servicio son compatibles con Funciones de Azure. 
 
 * DocumentDB de Azure
@@ -70,7 +70,7 @@ Azure Functions se integra con diversos servicios de Azure y de terceros. Dichos
 * Local (mediante el Bus de servicio)
 * Twilio (mensajes SMS)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>¿Cuánto cuesta Funciones de Azure?
+## <a name="pricing"></a>¿Cuánto cuesta Funciones de Azure?
 Funciones de Azure tiene dos tipos de planes de precios, elija el que mejor se adapte a sus necesidades: 
 
 * **Plan de Consumo**: cuando se ejecuta la función, Azure proporciona todos los recursos informáticos necesarios. No tiene que preocuparse de la administración de recursos y solo paga por el tiempo que haya empleado ejecutando el código. 

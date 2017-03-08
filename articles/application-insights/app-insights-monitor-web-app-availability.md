@@ -34,7 +34,7 @@ Existen dos tipos de prueba web:
 
 Puede crear hasta 10 pruebas web por recurso de aplicación.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Creación de un recurso para los informes de prueba
+## <a name="create"></a>1. Creación de un recurso para los informes de prueba
 Omita este paso si ya ha [configurado un recurso de Application Insights][start] para esta aplicación y desea ver los informes de disponibilidad en el mismo lugar.
 
 Suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
@@ -43,7 +43,7 @@ Suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https:/
 
 Haga clic en **Todos los recursos** para abrir la hoja Información general del nuevo recurso.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
+## <a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
 En el recurso de Application Insights, busque el icono de disponibilidad. Haga clic para abrir la hoja de pruebas web para la aplicación y agregue una prueba web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -67,7 +67,7 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 ### <a name="test-more-urls"></a>Prueba de más URL
 Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Visualización de los resultados de las prueba web
+## <a name="monitor"></a>3. Visualización de los resultados de las prueba web
 Después de 1 o 2 minutos, los resultados aparecen en la hoja Prueba web.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -76,7 +76,7 @@ Haga clic en cualquier barra del gráfico de resumen para obtener una vista más
 
 Estos gráficos combinan los resultados de todas las pruebas web de esta aplicación.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Si ve errores
+## <a name="failures"></a>Si ve errores
 Haga clic en un punto rojo.
 
 ![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -208,7 +208,7 @@ Si la prueba debe iniciar sesión con OAuth, el enfoque general es el siguiente:
 * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio.
   (Visual Studio intenta parametrizar la prueba pero no parametriza correctamente los tokens).
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Modificación o deshabilitación de una prueba
+## <a name="edit"></a> Modificación o deshabilitación de una prueba
 Abra una prueba individual para editarla o deshabilitarla.
 
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -257,12 +257,12 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
     Lo sentimos, pero eso no está admitido.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Vídeo
+## <a name="video"></a>Vídeo
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
+## <a name="next"></a>Pasos siguientes
 [Búsqueda de registros de diagnóstico][diagnostic]
 
 [Solución de problemas][qna]

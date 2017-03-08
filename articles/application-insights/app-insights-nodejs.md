@@ -34,7 +34,7 @@ Necesita:
 
 * Una suscripción a [Microsoft Azure](http://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarle a esta con su [cuenta Microsoft](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Creación de recursos en Application Insights
+## <a name="add"></a>Creación de recursos en Application Insights
 Inicie sesión en [Azure Portal][portal] y cree un nuevo recurso de Application Insights. Un [recurso][roles] de Azure es una instancia de un servicio. Este recurso es donde se le presentará telemetría de su aplicación analizada.
 
 ![Haga clic en Nuevo, Application Insights.](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ La clave identifica al recurso y se instalará pronto en el SDK para dirigir los
 
 ![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Instale el SDK en su aplicación.
+## <a name="sdk"></a> Instale el SDK en su aplicación.
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ La clave de instrumentación también se puede establecer en la variable de ento
 
 Puede probar el SDK sin enviar datos de telemetría: establezca la clave de instrumentación como una cadena no vacía.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Ejecución del proyecto
+## <a name="run"></a> Ejecución del proyecto
 Ejecute la aplicación y pruébela: abra varias páginas para generar datos de telemetría.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visualización de los datos de telemetría
+## <a name="monitor"></a> Visualización de los datos de telemetría
 Vuelva al [Portal de Azure](https://portal.azure.com) y busque el recurso de Application Insights.
 
 Busque los datos en la página Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:

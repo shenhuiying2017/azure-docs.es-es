@@ -34,7 +34,7 @@ Si está interesado, puede examinar otros temas:
 * [Instrumentación de aplicaciones web en tiempo de ejecución con Application Insights](app-insights-monitor-performance-live-website-now.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a>Paso 1: Agregue el SDK de Application Insights
+## <a name="ide"></a>Paso 1: Agregue el SDK de Application Insights
 
 Haga clic con el botón derecho en su proyecto de aplicación web en el Explorador de soluciones y elija **Agregar**, **Telemetría de Application Insights...** o **Configurar Application Insights**.
 
@@ -53,7 +53,7 @@ Vaya a la página de configuración de Application Insights:
 5. Como alternativa, puede agregar el SDK de Application Insights a la aplicación. En ese caso, podrá ver la telemetría en Visual Studio mientras se realiza la depuración. Posteriormente, puede volver a esta página de configuración, o bien puede esperar hasta que haya implementado la aplicación y [activar la telemetría en tiempo de ejecución](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a>Paso 2: Ejecute la aplicación
+## <a name="run"></a>Paso 2: Ejecute la aplicación
 Ejecute la aplicación con F5. Abra distintas páginas para generar telemetría.
 
 En Visual Studio, aparece un recuento de los eventos que se han registrado.
@@ -124,7 +124,7 @@ También puede seguir analizando la telemetría en [Visual Studio](app-insights-
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a> ¿Qué hace el comando Agregar Application Insights?
+## <a name="land"></a> ¿Qué hace el comando Agregar Application Insights?
 Application Insights envía los datos de telemetría de una aplicación al portal de Application Insights (que está hospedado en Microsoft Azure).
 
 ![Diagrama del movimiento de la telemetría](./media/app-insights-asp-net/01-scheme.png)

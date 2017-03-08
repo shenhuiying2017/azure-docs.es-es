@@ -162,7 +162,7 @@ Aunque el Servicio de aplicaciones admite muchas maneras de implementar el códi
    
     ![Interfaz de usuario de Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Creación de una nueva aplicación de API
+## <a id="createapiapp"></a> Creación de una nueva aplicación de API
 En esta sección, use el Portal de Azure para crear una nueva aplicación de API en Azure. Esta aplicación de API representa los recursos de procesos que proporcionará Azure para ejecutar su código. En secciones posteriores, implementará su código en la nueva aplicación de API.
 
 1. Vaya al [Portal de Azure](https://portal.azure.com/). 

@@ -122,7 +122,7 @@ Para restringir el acceso usuario por usuario, debe usar un clúster de HDInsigh
 
 Un clúster de HDInsight unido a un dominio permite autenticarse mediante Active Directory después de conectarse con SSH. Varios usuarios pueden conectarse con SSH y autenticarse en sus cuentas de Active Directory una vez conectados. Para más información, consulte la sección [HDInsight unido a un dominio](#domainjoined).
 
-##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Conexión a HDInsight
+##<a id="connect"></a> Conexión a HDInsight
 
 Aunque todos los nodos de un clúster de HDInsight ejecutan el servidor SSH, solo puede conectarse a los nodos principales o nodos perimetrales a través de la red de Internet pública.
 
@@ -209,7 +209,7 @@ Si usa una clave SSH para autenticar la cuenta de usuario, debe asegurarse de qu
 
 Después de autenticar mediante el comando `kinit`, ya puede usar comandos de Hadoop como `hdfs dfs -ls /` o `hive`.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunelización de SSH
+## <a id="tunnel"></a>Tunelización de SSH
 
 SSH se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se reenvía al clúster y, a continuación, se resuelve en el clúster.
 

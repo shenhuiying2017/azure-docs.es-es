@@ -57,7 +57,7 @@ Muchos clientes comienzan con el servicio gratis. Esta versión está limitada a
 > ![Iconos para indexadores y orígenes de datos][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Creación de un índice y carga de datos
+## <a name="create-index"></a> Creación de un índice y carga de datos
 Las consultas de búsqueda recorren en iteración un *índice* que contiene datos de búsqueda, metadatos y construcciones usados para optimizar determinados comportamientos de búsqueda.
 
 Para mantener esta tarea en el portal, usamos un conjunto de datos de ejemplo integrado que se puede rastrear mediante un indexador con el **Asistente para la importación de datos**. 
@@ -100,7 +100,7 @@ Para supervisar la importación de datos, vuelva al panel de servicio, despláce
 
    ![Mensaje de progreso del indexador][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Consulta del índice
+## <a name="query-index"></a> Consulta del índice
 Ahora tiene un índice de búsqueda listo para su consulta. **Explorador de búsqueda** es una herramienta de consulta integrada en el portal. Proporciona un cuadro de búsqueda para que pueda comprobar si los resultados de búsqueda son los esperados. 
 
 > [!TIP]

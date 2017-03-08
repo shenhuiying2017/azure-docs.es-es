@@ -71,7 +71,7 @@ Varios trabajos de WebHCat, incluidos Hive, MapReduce, streaming de Hadoop y Pig
 
 El almacenamiento de blobs puede usarse para datos estructurados y no estructurados. Los contenedores del almacenamiento de blobs almacenan los datos como pares de clave/valor y no hay jerarquía de directorios. No obstante, el carácter de barra diagonal ( / ) se puede usar en el nombre de la clave para que parezca que el archivo está almacenado dentro de una estructura de directorios. Por ejemplo, la clave de un blob puede ser *input/log1.txt*. No hay directorios *input* , pero dada la presencia del carácter de barra diagonal en el nombre de la clave, parece la ruta de un archivo.
 
-### <a name="a-idbenefitsabenefits-of-blob-storage"></a><a id="benefits"></a>Ventajas del almacenamiento de blobs
+### <a id="benefits"></a>Ventajas del almacenamiento de blobs
 El costo de rendimiento implícito por no tener ubicados juntos los recursos de almacenamiento y clústeres de proceso se ve mitigado por el modo en que los clústeres de proceso se crean cerca de los recursos de la cuenta de almacenamiento dentro de la región de Azure, donde la red de alta velocidad consigue que los nodos de proceso sean muy eficientes en el acceso a los datos del Almacenamiento de blobs de Azure.
 
 Hay varias ventajas asociadas al almacenamiento de datos en el almacenamiento de blobs de Azure en lugar de utilizar HDFS:
