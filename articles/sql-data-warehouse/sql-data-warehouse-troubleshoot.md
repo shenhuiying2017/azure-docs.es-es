@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 03/03/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: ecc008469ba754af12583d350706f626ec6690b5
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 73f10984b7fe2636f5b9f664b831adc910e7ac7a
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -57,7 +58,6 @@ En este tema se describen algunas de las preguntas de solución de problemas má
 ## <a name="polybase"></a>PolyBase
 | Problema | Resolución |
 |:--- |:--- |
-| Error de UTF-8 |Actualmente, PolyBase solo admite la carga de archivos de datos que se han codificado con UTF-8.  Consulte [Evitar el requisito UTF-8 de PolyBase][Working around the PolyBase UTF-8 requirement] para obtener instrucciones sobre cómo superar esta limitación. |
 | Se produce un error en la carga porque hay filas de gran tamaño |Actualmente la compatibilidad con filas de gran tamaño no está disponible en Polybase.  Esto significa que si su tabla contiene VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX), no se pueden utilizar tablas externas para cargar los datos.  Las cargas de filas de gran tamaño solo se admiten mediante Data Factory de Azure (con BCP), Análisis de transmisiones de Azure, SSIS, BCP o la clase SQLBulkCopy de .NET. La compatibilidad con filas de gran tamaño en PolyBase se agregará en una versión futura. |
 | La carga de la tabla bcp con el tipo de datos MAX está dando error |Existe un problema conocido que requiere la colocación de VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX) al final de la tabla en algunos escenarios.  Intente mover las columnas MAX al final de la tabla. |
 
@@ -93,7 +93,7 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
@@ -133,9 +133,4 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

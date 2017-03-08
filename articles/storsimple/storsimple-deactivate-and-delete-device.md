@@ -4,7 +4,7 @@ description: "Describe cómo desactivar y eliminar en primer lugar el dispositiv
 services: storsimple
 documentationcenter: 
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 155cda38-c5ae-45dc-b7e8-6444494afc9e
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/27/2017
 ms.author: anbacker
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 014d4faeb478690168b44f88e7a0bda2b406cd4b
+ms.sourcegitcommit: 80fde4dfe7de89dffd39242d94fe46f68e41d611
+ms.openlocfilehash: 833dee54ef9de46c50e9e760594359baf4f89b5e
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deactivate-and-delete-a-storsimple-device"></a>Desactivación y eliminación de un dispositivo de StorSimple
+# <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Desactivación o eliminación de un dispositivo StorSimple serie 8000 mediante el servicio StorSimple Manager
 ## <a name="overview"></a>Información general
 Puede que desee eliminar un dispositivo de StorSimple (por ejemplo, si va a reemplazar o actualizar el dispositivo o si ya no usa StorSimple). En su caso, debe desactivar el dispositivo para poder eliminarlo. La desactivación interrumpe la conexión entre el dispositivo y el servicio StorSimple Manager correspondiente. En este tutorial se explica cómo eliminar un dispositivo de StorSimple desactivándolo primero y eliminándolo después. 
 
@@ -93,10 +95,5 @@ Los resultados de la desactivación de las siguientes acciones:
 * Para restaurar los valores de fábrica del dispositivo desactivado, vaya a [Restablecer el dispositivo a los valores de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 * Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

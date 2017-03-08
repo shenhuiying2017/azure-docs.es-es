@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
-ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
+ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
+ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -52,10 +53,10 @@ Observe cómo la infraestructura de Azure toma el rol del enrutador, lo que le p
   >
 
 ## <a name="subnets"></a>Subredes
-La subred es un intervalo de direcciones IP en la red virtual; puede dividir una red virtual en varias subredes para la organización y la seguridad. Las instanacias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar tablas de rutas y NSG para una subred.
+La subred es un intervalo de direcciones IP en la red virtual; puede dividir una red virtual en varias subredes para los fines de organización y seguridad. Las instanacias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar tablas de rutas y NSG para una subred.
 
 ## <a name="ip-addresses"></a>Direcciones IP
-Hay dos tipos de direcciones IP asignadas a recursos en Azure: *públicas* y *privadas*. Las direcciones IP públicas permiten a los recursos de Azure comunicarse con Internet y otros servicios de acceso público de Azure, como [Azure Redis Cache](https://azure.microsoft.com/services/cache/) y [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Las direcciones IP privadas permite la comunicación entre los recursos de una red virtual, junto con aquellos conectados a través de una VPN, sin usar direcciones IP enrutables por Internet.
+Hay dos tipos de direcciones IP asignadas a recursos en Azure: *públicas* y *privadas*. Las direcciones IP públicas permiten a los recursos de Azure comunicarse con Internet y otros servicios de acceso público de Azure, como [Azure Redis Cache](https://azure.microsoft.com/services/cache/) y [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Las direcciones IP privadas permiten la comunicación entre los recursos de una red virtual, junto con aquellos conectados a través de una red privada virtual, sin usar direcciones IP enrutables por Internet.
 
 Para más información sobre las direcciones IP en Azure, visite [Direcciones IP de red virtual](virtual-network-ip-addresses-overview-arm.md)
 
@@ -88,9 +89,4 @@ No hay ningún coste adicional para el uso de redes virtuales en Azure. A las in
 * [Creación de una máquina virtual en una red virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Más información sobre [NSG](virtual-networks-nsg.md).
 * Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

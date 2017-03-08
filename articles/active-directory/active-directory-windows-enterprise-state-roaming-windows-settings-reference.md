@@ -4,7 +4,7 @@ description: Una lista completa de todas las opciones que se movilizan o de las 
 services: active-directory
 keywords: enterprise state roaming, nube de windows
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
 ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -164,9 +165,4 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 * [Preguntas más frecuentes sobre itinerancia de datos y configuración](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Búsquedas de registros en Log Analytics | Microsoft Docs"
+title: "Búsqueda de datos con búsquedas de registros en Azure Log Analytics | Microsoft Docs"
 description: "Las búsquedas de registros permiten combinar y correlacionar datos de equipo procedentes de varios orígenes dentro de su entorno."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="log-searches-in-log-analytics"></a>Búsquedas de registros en Log Analytics
+# <a name="find-data-using-log-searches"></a>Búsqueda de datos mediante búsquedas de registros
+
 La base de Log Analytics es la característica de búsqueda de registros que permite combinar y correlacionar datos de equipo procedentes de varios orígenes en el entorno. Las soluciones también se basan en la búsqueda de registros con el objeto de proporcionarle métricas dinamizadas en torno a una área de problema determinada.
 
 En la página Buscar, puede crear una consulta y luego, al buscar, puede filtrar los resultados mediante controles de faceta. También puede crear consultas avanzadas para transformar, filtrar y informar sobre sus resultados.
@@ -257,7 +260,7 @@ Los resultados de cualquier consulta de búsqueda como `Type=Event`, muestran fi
 
 ![search measure count](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
-Por ejemplo, en la imagen anterior verá el campo **Computer**, y se muestra que entre los casi 739 000 eventos de los resultados, hay 68 valores únicos y distintos para ese campo. El icono solo muestra los cinco principales, que son los cinco valores más comunes que están escritos en el campo **Computer** , ordenados por el número de documentos que contienen ese valor específico en ese campo. En la imagen se ve que, entre esos eventos casi 369 000 eventos, 90 000 proceden del equipo OpsInsights04.contoso.com, 83 000 del equipo DB03.contoso.com y así sucesivamente.
+Por ejemplo, en la imagen anterior verá el campo **Computer**, y muestra que dentro de los casi 739 000 eventos de los resultados, hay 68 valores únicos y distintos para ese** **campo en esos registros. El icono solo muestra los cinco principales, que son los cinco valores más comunes que están escritos en el campo **Computer** , ordenados por el número de documentos que contienen ese valor específico en ese campo. En la imagen se ve que, entre esos eventos casi 369 000 eventos, 90 000 proceden del equipo OpsInsights04.contoso.com, 83 000 del equipo DB03.contoso.com y así sucesivamente.
 
 ¿Y si quisiera ver todos los valores, ya que el icono solo muestra los cinco primeros?
 
@@ -560,7 +563,7 @@ Puede especificar varias cláusulas de agregado en un comando measure.  A cada u
  ```
 Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval 1hour
 ```
-![Varios agregados en OMS 1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
+![Varios agregados en OMS&1;](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Este es otro ejemplo:
 
@@ -574,9 +577,4 @@ Para más información acerca de las búsquedas de registros, consulte:
 
 * Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) (Campos personalizados en Log Analytics) para ampliar las búsquedas de registros.
 * Revise la [Referencia sobre búsqueda de registros de Log Analytics](log-analytics-search-reference.md) para ver todos los campos de búsqueda y las facetas disponibles en Log Analytics.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

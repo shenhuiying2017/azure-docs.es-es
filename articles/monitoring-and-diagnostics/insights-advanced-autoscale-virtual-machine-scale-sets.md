@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
+ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
+ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -243,6 +244,8 @@ Ha actualizado un valor de escalado automático en un conjunto de escala de máq
 ## <a name="next-steps"></a>Pasos siguientes
 Siga estos vínculos para más información sobre el escalado automático:
 
+[Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+
 [Métricas comunes de escalado automático](insights-autoscale-common-metrics.md)
 
 [Procedimientos recomendados de escalado automático](insights-autoscale-best-practices.md)
@@ -252,9 +255,4 @@ Siga estos vínculos para más información sobre el escalado automático:
 [Administración del escalado automático con CLI](insights-cli-samples.md#autoscale)
 
 [Configuración de webhooks y notificaciones por correo electrónico en el escalado automático](insights-autoscale-to-webhook-email.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

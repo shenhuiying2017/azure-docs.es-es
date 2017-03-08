@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 5254ea3f072402e2fa4cffcdc23b2e9eae2aad57
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 006d8e10acd6b4b756c0b78988176f71c3802080
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -59,7 +60,7 @@ Al definir las dependencias, puede incluir el espacio de nombres de proveedor de
 ]
 ``` 
 
-Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. El uso de dependsOn podría llegar a repercutir en el tiempo de implementación, ya que Resource Manager no implementa dos recursos en paralelo que tengan una dependencia. Para documentar las relaciones entre los recursos, utilice en su lugar la [vinculación de recursos](resource-group-link-resources.md).
+Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. El uso de dependsOn podría llegar a repercutir en el tiempo de implementación, ya que Resource Manager no implementa dos recursos en paralelo que tengan una dependencia. Para documentar las relaciones entre los recursos, utilice en su lugar la [vinculación de recursos](/rest/api/resources/resourcelinks).
 
 ## <a name="child-resources"></a>Recursos secundarios
 La propiedad resources permite especificar los recursos secundarios que están relacionados con el recurso que se está definiendo. Los recursos secundarios solo se pueden definir en cinco niveles de profundidad. Es importante tener en cuenta que no se crea una dependencia implícita entre un recurso secundario y el recurso primario. Si necesita que el recurso secundario se implemente después del recurso primario, debe declarar explícitamente esa dependencia con la propiedad dependsOn. 
@@ -158,10 +159,5 @@ Para más información sobre la evaluación del orden de implementación y resol
 * Para aprender a solucionar los problemas de dependencias durante la implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md). 
 * Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](resource-group-template-functions.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

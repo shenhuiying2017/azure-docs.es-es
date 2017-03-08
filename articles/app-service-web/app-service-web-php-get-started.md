@@ -4,7 +4,7 @@ description: "Un tutorial que muestra cómo hacer que una aplicación web PHP (L
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: mysql
 ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 487fde71fb28d5ee4666be208d3acfc0de27bed9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,7 +44,7 @@ Puede aplicar lo que aprenda aquí a otras aplicaciones web PHP que implemente e
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](app-service-web-php-get-started-cli-nodejs.md): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](app-service-web-php-get-started.md): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0](app-service-web-php-get-started.md): la CLI de última generación para el modelo de implementación de administración de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [PHP 7.0](http://php.net/downloads.php)
@@ -274,10 +275,5 @@ Obtenga información acerca de cómo agregar datos a la aplicación mediante la 
 * [Configuración de PHP en Aplicaciones web de Servicio de aplicaciones de Azure](web-sites-php-configure.md)
 * [Conversión de WordPress en multisitios en Servicio de aplicaciones de Azure](web-sites-php-convert-wordpress-multisite.md)
 * [WordPress de clase empresarial en el Servicio de aplicaciones de Azure](web-sites-php-enterprise-wordpress.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Apertura de puertos para una máquina virtual Linux con la CLI de Azure 2.0 | Microsoft Docs"
-description: "Más información sobre cómo abrir un puerto o crear un punto de conexión a la máquina virtual de Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure 2.0 (versión preliminar)"
+description: "Más información sobre cómo abrir un puerto o crear un punto de conexión a la máquina virtual Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,24 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: aae141307a0ea68f0d9e481cf22a9055216c98c0
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: bb5065d0b541c7f8a51cd4c508b2d5455cc82957
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-20"></a>Apertura de puertos y puntos de conexión para una máquina virtual Linux en Azure con la CLI de Azure 2.0
-En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80. Este artículo muestra cómo abrir un puerto a una máquina virtual mediante la CLI de Azure 2.0 (versión preliminar).
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
+# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-with-the-azure-cli-20"></a>Apertura de puertos y puntos de conexión para una máquina virtual Linux en Azure con la CLI de Azure 2.0
+En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80. Este artículo muestra cómo abrir un puerto a una máquina virtual mediante la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Para crear reglas y un grupo de seguridad de red, necesita la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) más reciente instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
+Para crear reglas y un grupo de seguridad de red, necesita la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `myNetworkSecurityGroup` y `myVnet`.
 
@@ -80,10 +74,5 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 * [Información general sobre Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 * [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

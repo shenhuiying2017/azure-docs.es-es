@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo implementar una aplicación de No
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 55c349f19055e4e4d17f5c7290a2ee82d2d3d19d
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 9482315aba089f3f00e114b835963c247a4f5007
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -34,7 +35,7 @@ En este tutorial se muestra cómo crear una aplicación de [Node.js] sencilla e 
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](app-service-web-nodejs-get-started.md): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0 ](app-service-web-nodejs-get-started.md): la CLI de última generación para el modelo de implementación de administración de recursos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Node.js]
@@ -270,9 +271,4 @@ Para habilitar Node-Inspector, siga estos pasos:
 [iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

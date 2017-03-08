@@ -13,15 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: 12b2d12c5152c6e9b8f2e8c78fbbd6663cb24e45
+ms.sourcegitcommit: 0f6bd85668533ee79700caead2edc6bc6c7d70de
+ms.openlocfilehash: 45383cb3b8238d72bf9ba398a22fe0a005941c3f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="how-to-capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una VM generalizada en Azure
+# <a name="capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
 Se puede crear un recurso de imagen administrado a partir de una VM generalizada que se almacena como un disco administrado o como discos no administrados en una cuenta de almacenamiento. Se puede utilizar la imagen para crear varias VM que usan discos administrados para almacenamiento. 
 
@@ -39,13 +40,14 @@ Debe tener ya la [VM generalizada](virtual-machines-windows-generalize-vhd.md?to
 4. Seleccione **Imagen** en los resultados.
 5. En la hoja **Imagen**, haga clic en **Crear**.
 6. En **Nombre**, escriba un nombre para la imagen.
-7. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre o seleccione **From existing** (De existentes) y seleccione en la lista desplegable el grupo de recursos que desea utilizar.
+7. Si tiene más de una suscripción, seleccione la correcta de la lista desplegable **Suscripción**.
+7. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre o elija **From existing** (De existentes) y seleccione en la lista desplegable el grupo de recursos que desea utilizar.
 8. En **Ubicación**, elija la ubicación del grupo de recursos.
 9. En **Tipo de SO**, seleccione el tipo de sistema operativo, es decir, Windows o Linux.
 11. En **Blob de almacenamiento**, haga clic en **Examinar** para buscar el VHD en Azure Storage.
 12. En **Tipo de cuenta**, elija Standard_LRS o Premium_LRS. Standard utiliza unidades de disco duro y Premium utiliza unidades de estado sólido. Ambas opciones emplean almacenamiento con redundancia local.
 13. En **Almacenamiento en caché de disco**, seleccione la opción de caché de disco adecuada. Las opciones son **None** (Ninguno), **Read-only** (Solo lectura) y **Read\write** (Lectura y escritura).
-14. Opcional: también puede agregar un disco de datos existente a la imagen.  
+14. Opcional: puede agregar un disco de datos existente a la imagen haciendo clic en **+ Agregar disco de datos**.  
 15. Cuando haya terminado de realizar todas las selecciones, haga clic en **Crear**.
 16. Después de crear la imagen, esta aparecerá como un recurso **Imagen** en la lista de recursos del grupo de recursos que ha seleccionado.
 
@@ -171,10 +173,5 @@ También puede crear una imagen administrada a partir de una instantánea del VH
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Ahora puede [crear una VM a partir de la imagen administrada generalizada](virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

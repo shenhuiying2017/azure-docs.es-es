@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: adegeo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
-ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
+ms.sourcegitcommit: 3f1fdddcf382026e25ac6bca0b835e560152be9f
+ms.openlocfilehash: 98b302c26867d2fb2ade296e6983306266fa6f63
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Escalado automático y conjuntos de escalas de máquinas virtuales
+# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Procedimiento para usar el escalado automático y los conjuntos de escalado de máquinas virtuales
 El escalado automático de máquinas virtuales en un conjunto de escalado consiste en la creación o eliminación de máquinas del conjunto según sea necesario para cumplir los requisitos de rendimiento. A medida que crece el volumen de trabajo, una aplicación puede requerir recursos adicionales para poder realizar sus tareas de manera eficaz.
 
 El escalado automático es un proceso automatizado que ayuda a reducir la sobrecarga de administración. Al reducir la sobrecarga, no es necesario supervisar el rendimiento del sistema continuamente o decidir cómo administrar los recursos. El escalado es un proceso flexible. A medida que aumenta la carga pueden agregarse más recursos, pero, al reducirse la demanda, se pueden quitar recursos para minimizar los costos y mantener los niveles de rendimiento.
@@ -220,10 +222,5 @@ Para ver un ejemplo de uso de Azure Portal para configurar el escalado automáti
 * Información acerca de las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 * Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
 * Más información sobre los [escenarios avanzados de escalado automático](virtual-machine-scale-sets-advanced-autoscale.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

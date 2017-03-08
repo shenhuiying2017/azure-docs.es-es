@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 02579f138f957e5d245290e2cb8fc448120a4701
-ms.openlocfilehash: e77fee96710e99dab664f61d4c64aea0b12944ad
-
+ms.sourcegitcommit: 07ee32a293d53dd9c0e0afa5da2bac7ec146a536
+ms.openlocfilehash: c7f39a5396f0f9b6f9a577a3225ccadff1fd0dc9
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="azure-linux-agent-user-guide"></a>Guía de usuario del Agente de Linux de Azure
+# <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="introduction"></a>Introducción
@@ -305,10 +306,5 @@ Tenga en cuenta que Ubuntu Cloud Images usan [cloud-init](https://launchpad.net/
   
   * [Ubuntu Wiki: Configure Swap Partitions (Configuración de particiones de intercambio)](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Inyección de datos personalizados en una máquina virtual de Azure](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

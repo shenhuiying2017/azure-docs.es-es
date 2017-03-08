@@ -3,7 +3,7 @@ title: "Experiencias de conexión de dispositivos unidos a un dominio a Azure AD
 description: "Explica cómo los administradores pueden configurar directivas de grupo para permitir que los dispositivos se unan mediante dominio a la red empresarial."
 services: active-directory
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: 
 tags: azure-classic-portal
@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 7d141adf04cfb99e57c63ba62de4a7dad9ab8326
 ms.openlocfilehash: 290645b920bc4a83c610e80266854450b6e1509a
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -63,10 +64,5 @@ Para implementar, siga los pasos de [Configuración del registro automático de 
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

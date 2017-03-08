@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 902c6ae45e7809e2847c9e45a35803f40c0b0ff3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -38,8 +39,8 @@ Seleccione una de las tareas y haga clic en **Siguiente** para continuar.
 
 > [!IMPORTANT]
 > Mientras tiene abierto el Asistente para la instalación, todas las operaciones en el motor de sincronización se suspenden. Asegúrese de cerrar el Asistente para instalación tan pronto como haya terminado los cambios de configuración que desea realizar.
-> 
-> 
+>
+>
 
 ## <a name="view-current-configuration"></a>Visualización de la configuración actual.
 Esta opción le proporciona una vista rápida de las opciones configuradas en ese momento.
@@ -81,7 +82,7 @@ Para cambiar el estado, seleccione esta opción y seleccione o anule la selecci�
 ## <a name="change-user-sign-in"></a>Cambiar inicio de sesión de usuario
 Esta opción permite cambiar de sincronización de contraseñas a la federación o al revés. No se puede cambiar a **No configurar**.
 
-Para más información sobre esta opción, consulte [Opciones para el inicio de sesión de los usuarios en Azure AD Connect](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+Para más información sobre esta opción, consulte [Opciones para el inicio de sesión de los usuarios en Azure AD Connect](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el modelo de configuración que emplea la sincronización de Azure AD Connect en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
@@ -90,10 +91,4 @@ Para más información sobre esta opción, consulte [Opciones para el inicio de 
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

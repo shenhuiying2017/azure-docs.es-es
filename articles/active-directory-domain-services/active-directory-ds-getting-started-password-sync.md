@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c625fdf679c282bb62fdcbc864cd5b65d1014231
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d75f6a9db55595ab6b40052b8609709eacf30d4e
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,36 +31,36 @@ Los pasos que se deben seguir son distintos en función de si su organización t
 > [!div class="op_single_selector"]
 > * [Inquilino de Azure AD solo de nube](active-directory-ds-getting-started-password-sync.md)
 > * [Inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-> 
-> 
+>
+>
 
 <br>
 
-## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloudonly-azure-ad-tenant"></a>Tarea 5: Habilitación de la sincronización de contraseñas con Azure AD Domain Services para un inquilino de Azure AD solo de nube
+## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Tarea 5: Habilitación de la sincronización de contraseñas con Azure AD Domain Services para un inquilino de Azure AD solo de nube
 Azure AD Domain Services necesita hashes de credenciales en un formato adecuado para la autenticación de NTLM y Kerberos para poder autenticar a los usuarios en el dominio administrado. A menos que habilite AAD Domain Services para el inquilino, Azure AD no genera ni almacena hashes de credenciales en el formato necesario para la autenticación NTLM o Kerberos. Por motivos de seguridad obvios, Azure AD tampoco almacena las credenciales en forma de texto sin cifrar. Por lo tanto, Azure AD no tiene forma de generar estos hashes de credenciales de NTLM o Kerberos basados en las credenciales de los usuarios existentes.
 
 > [!NOTE]
 > Si su organización tiene un inquilino de Azure AD solo de nube, los usuarios que tengan que usar Azure AD Domain Services deberán cambiar sus contraseñas.
-> 
-> 
+>
+>
 
 Este proceso de cambio de contraseña hace que los valores de hash de credenciales que necesitan los Servicios de dominio de Azure AD para la autenticación Kerberos y NTLM se generen en Azure AD. Puede caducar las contraseñas de todos los usuarios en el inquilino que tiene que usar los Servicios de dominio de Azure AD o indicar a estos usuarios que cambien sus contraseñas.
 
-### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloudonly-azure-ad-tenant"></a>Habilitación de la generación de hash de credenciales de NTLM y Kerberos en el inquilino de Azure AD solo de nube
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Habilitación de la generación de hash de credenciales de NTLM y Kerberos en el inquilino de Azure AD solo de nube
 Estas son las instrucciones que tiene que proporcionar a los usuarios finales para que puedan cambiar sus contraseñas:
 
 1. Navegue a la página del panel de acceso de Azure AD de su organización en [http://myapps.microsoft.com](http://myapps.microsoft.com).
 2. Seleccione la pestaña **Perfil** en esta página.
 3. Haga clic en el icono **Cambiar contraseña** de esta página.
-   
+
     ![Creación de una red virtual para los Servicios de dominio de Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password.png)
-   
+
    > [!NOTE]
    > Si no ve la opción **Cambiar contraseña** en la página Panel de acceso, asegúrese de que su organización ha configurado la [administración de contraseñas en Azure AD](../active-directory/active-directory-passwords-getting-started.md).
-   > 
-   > 
+   >
+   >
 4. En la página **Cambiar contraseña** , escriba la contraseña existente (anterior) y luego escriba una nueva contraseña y confírmela. Haga clic en **Enviar**.
-   
+
     ![Creación de una red virtual para los Servicios de dominio de Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
 Después de haber cambiado su contraseña, la nueva contraseña se podrá usar en breve en Azure AD Domain Services. Después de unos minutos (por lo general, unos 20 minutos), los usuarios pueden iniciar sesión en equipos unidos al dominio administrado con su contraseña recién cambiada.
@@ -73,10 +74,4 @@ Después de haber cambiado su contraseña, la nueva contraseña se podrá usar e
 * [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Windows a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

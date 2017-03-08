@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
-ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
+ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
+ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -36,7 +37,7 @@ Este artículo explica cómo comprar y configurar un certificado SSL para su **[
 > 
 > 
 
-## <a name="a-namebkmkoverviewaoverview"></a><a name="bkmk_Overview"></a>Información general
+## <a name="bkmk_Overview"></a>Información general
 > [!NOTE]
 > No intente adquirir un certificado SSL mediante una suscripción que no tenga una tarjeta de crédito activa asociada. Esto podría provocar que se deshabilite la suscripción. 
 > 
@@ -47,7 +48,7 @@ Para habilitar HTTPS para un dominio personalizado, como contoso.com, primero de
 
 Antes de solicitar un certificado SSL, primero debe determinar los nombres de dominio que contarán con la protección del certificado. De este modo, se determinará el tipo de certificado que debe obtener. Si necesita proteger un solo nombre de dominio, como contoso.com o www.contoso.com, será suficiente con un certificado de tipo Estándar (básico). Si necesita proteger varios nombres de dominio, como contoso.com, www.contoso.com y mail.contoso.com, puede obtener un **[certificado comodín](http://en.wikipedia.org/wiki/Wildcard_certificate)**.
 
-## <a name="a-namebkmkpurchasecertastep-0-place-an-ssl-certificate-order"></a><a name="bkmk_purchasecert"></a>Paso 0: Hacer un pedido de certificado SSL
+## <a name="bkmk_purchasecert"></a>Paso 0: Hacer un pedido de certificado SSL
 En este paso, aprenderá a realizar un pedido de un certificado SSL de su elección.
 
 1. En **[Azure Portal](https://portal.azure.com/)**, haga clic en Examinar, escriba "Certificados de App Service" en la barra de búsqueda, seleccione "Certificados de App Service" en el resultado y haga clic en Agregar. 
@@ -83,7 +84,7 @@ En este paso, aprenderá a realizar un pedido de un certificado SSL de su elecci
 > 
 > 
 
-## <a name="a-namebkmkstorekeyvaultastep-1-store-the-certificate-in-azure-key-vault"></a><a name="bkmk_StoreKeyVault"></a>Paso 1: Almacenar el certificado en el Almacén de claves de Azure
+## <a name="bkmk_StoreKeyVault"></a>Paso 1: Almacenar el certificado en el Almacén de claves de Azure
 En este paso, aprenderá a almacenar un certificado SSL que adquirió en el Almacén de claves de Azure de su elección.
 
 1. Una vez completada la compra del certificado SSL debe abrir manualmente la hoja de recursos **Certificados del Servicio de aplicaciones** examinándola de nuevo (consulte el paso 1 anterior).   
@@ -104,7 +105,7 @@ En este paso, aprenderá a almacenar un certificado SSL que adquirió en el Alma
    
     Esto debe completar el paso para almacenar el certificado adquirido con el Almacén de claves de Azure de su elección. Al actualizar la hoja, también debe ver marca de verificación verde marcar en este paso.
 
-## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Paso 2: Comprobar la propiedad del dominio
+## <a name="bkmk_VerifyOwnership"></a>Paso 2: Comprobar la propiedad del dominio
 En este paso, aprenderá a comprobar la verificación de la propiedad del dominio para un certificado SSL para el que acaba de hacer un pedido. 
 
 1. Haga clic en **"Paso 2: Comprobar"** desde la hoja **"Configuración del certificado"**. Los certificados App Service Certificate admiten 3 tipos de comprobación de dominio.
@@ -121,14 +122,23 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
      * Si necesita volver a enviar el correo electrónico de comprobación, haga clic en el botón **"Reenviar correo electrónico"** .
    * **Comprobación manual**    
      
-      **Comprobación del registro TXT de DNS**
-        
-        * Mediante el administrador de DNS, cree un registro TXT en el subdominio **"DZC"** con valor igual al **token de comprobación de dominio.**
+      **Comprobación de página web HTML (solo funciona con la SKU de certificados estándar)**
+
+        * Creación de un archivo HTML denominado "**starfield.html**"
+        * El contenido de este archivo debe ser exactamente el mismo nombre de Token de comprobación de dominio (puede copiar el token de la hoja de estado de comprobación de dominio)
+        * Cargue este archivo en la raíz del servidor web que hospeda el dominio **/.well-known/pki-validation/starfield.html**.
         * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
           
-          Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host **\**.contosocertdemo.com** o **\**.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**     
+          Por ejemplo, si va a comprar un certificado estándar de **contosocertdemo.com** con el token de comprobación de dominio **tgjgthq8d11ttaeah97s3fr2sh**, una solicitud web realizada a **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** debe devolver **tgjgthq8d11ttaeah97s3fr2sh**.
 
-## <a name="a-namebkmkassigncertificateastep-3-assign-certificate-to-app-service-app"></a><a name="bkmk_AssignCertificate"></a>Paso 3: Asignar el certificado a la aplicación del Servicio de aplicaciones
+      **Comprobación del registro TXT de DNS**
+        
+        * Mediante el administrador de DNS, cree un registro TXT en el subdominio **"@"** con valor igual al **token de comprobación de dominio.**
+        * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
+          
+          Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host **\**.contosocertdemo.com** o **\**.subdomain.contosocertdemo.com** y el token de comprobación de dominio **tgjgthq8d11ttaeah97s3fr2sh**, deberá crear un registro TXT en **contosocertdemo.com** con el valor **tgjgthq8d11ttaeah97s3fr2sh**.     
+
+## <a name="bkmk_AssignCertificate"></a>Paso 3: Asignar el certificado a la aplicación del Servicio de aplicaciones
 En este paso, aprenderá a asignar este certificado recién adquirido a las aplicaciones del Servicio de aplicaciones. 
 
 > [!NOTE]
@@ -163,7 +173,7 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 1. Mediante las herramientas proporcionadas por su registrador de nombres de dominio, modifique el registro D de su nombre de dominio personalizado para que apunte a la dirección IP del paso anterior.
    Llegados a este punto, debería ser capaz de visitar su aplicación con HTTPS://, en lugar de HTTP://, para comprobar que el certificado se ha configurado correctamente.
 
-## <a name="a-namebkmkrekeyarekey-and-sync-the-certificate"></a><a name="bkmk_Rekey"></a>Regeneración de la clave del certificado y sincronización de este
+## <a name="bkmk_Rekey"></a>Regeneración de la clave del certificado y sincronización de este
 1. Por motivos de seguridad, si necesita regenerar la clave del certificado, simplemente seleccione la opción **"Regenerar clave y sincronizar"** en la hoja **"Propiedades del certificado"**. 
 2. Haga clic en el botón **"Regenerar clave"** para iniciar el proceso. Este proceso puede tardar de 1 a 10 minutos en completarse. 
    
@@ -185,10 +195,5 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

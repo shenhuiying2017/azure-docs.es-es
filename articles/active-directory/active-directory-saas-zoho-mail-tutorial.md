@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
-ms.author: markvi
+ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
 ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -176,10 +177,5 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
     ![Sí](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

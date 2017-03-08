@@ -3,8 +3,8 @@ title: "Información general de las versiones Premium y Estándar de Azure Manag
 description: "Introducción a Azure Managed Disks, que controla las cuentas de almacenamiento automáticamente cuando se usan máquinas virtuales de Azure"
 services: storage
 documentationcenter: na
-author: ramankumarlive
-manager: tadb
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 58c395a45115c9db0027cffe96d20863c928a63d
-ms.openlocfilehash: 74ec73388af06dbf5682c5aa1c84b153dfc4a744
+ms.sourcegitcommit: 388e4c8f46662200a0e05db06d417f086ad41b11
+ms.openlocfilehash: b53feeb08d469363a52303cad4577b752a570900
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -26,7 +27,8 @@ ms.openlocfilehash: 74ec73388af06dbf5682c5aa1c84b153dfc4a744
 Azure Managed Disks simplifica la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las [cuentas de almacenamiento](storage-introduction.md) asociadas a los discos de la máquina virtual. Solo tiene que especificar el tipo ([premium](storage-premium-storage.md) o [estándar](storage-standard-storage.md)) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente.
 
 >[!NOTE]
-> Managed Disks requiere la disponibilidad del puerto 8443; si desea bloquear dicho puerto, debe usar discos no administrados.
+>Las máquinas virtuales con Managed Disks requieren que el tráfico saliente en el puerto 8443 informe del estado de las [extensiones de máquina virtual](../virtual-machines/virtual-machines-windows-extensions-features.md) instaladas en la plataforma Azure. Si no está disponible ese puerto, se producirá un error de aprovisionamiento de una máquina virtual. Además, el estado de implementación de una extensión será desconocido si está instalada en una máquina virtual en ejecución. Si no se puede desbloquear el puerto 8443, debe usar discos no administrados. Estamos trabajando activamente para solucionar este problema. Consulte las [preguntas más frecuentes sobre discos de máquina virtual de IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443) para obtener más información. 
+>
 >
 
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
@@ -102,7 +104,7 @@ Managed Disks también admite la creación de una imagen personalizada administr
 
 Para obtener información sobre la creación de imágenes, consulte los artículos siguientes:
 * [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md) (Captura de una imagen administrada de una máquina virtual generalizada en Azure)
-* [Captura de una máquina virtual Linux que se ejecuta en Azure](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md) (Procedimiento de generalización y captura de una máquina virtual Linux con la CLI de Azure 2.0)
 
 ## <a name="images-versus-snapshots"></a>Imágenes frente a instantáneas
 
@@ -134,7 +136,7 @@ Para más información acerca de Managed Disks, consulte los siguientes artícul
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Creación de una máquina virtual Linux con la CLI de Azure 2.0 (versión preliminar)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creación de una máquina virtual con Linux desde cero con la CLI de Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 * [Conexión de un disco de datos administrado a una máquina virtual Windows con PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 
@@ -151,9 +153,4 @@ Para más información acerca de Managed Disks, consulte los siguientes artícul
 * [Migración desde AWS y otras plataformas a Managed Disks en Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 
 * [Conversión de máquinas virtuales de Azure a discos administrados en Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

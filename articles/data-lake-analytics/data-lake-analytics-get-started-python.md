@@ -16,6 +16,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 5618650671badfc54860c3ad8af5d1e727d3d8c9
 ms.openlocfilehash: 40ccfc59cccd86a7634ec89656571b3cd23566b4
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -65,8 +66,8 @@ El módulo azure-datalake-store incluye las operaciones de administración de cu
         from azure.mgmt.resource.resources.models import ResourceGroup
 
         ## Required for Azure Data Lake Store account management
-        from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-        from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+        from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+        from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
         ## Required for Azure Data Lake Store filesystem management
         from azure.datalake.store import core, lib, multithread
@@ -205,10 +206,5 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para m�
 - Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para conocer las tareas de administración, consulte [Administración de Azure Data Lake Analytics mediante el Azure Portal](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general acerca de Análisis de Data Lake, consulte la página de [información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

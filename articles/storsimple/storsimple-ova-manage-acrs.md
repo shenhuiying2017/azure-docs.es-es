@@ -4,7 +4,7 @@ description: "Describe cómo administrar los registros de control de acceso (ACR
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 11252938-5b97-4178-8c37-f58eaa3d00b1
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037da7a5647f5b3d2b0cf1364fab050406be3b62
+ms.sourcegitcommit: f45d8e2b848e930a790e7bf38c2b09fbdaaf2fab
+ms.openlocfilehash: 30b6aedd9b4b7913f6862b34582f3ae96c9eae5f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Manager para administrar los registros de control de acceso para la matriz virtual de StorSimple
+# <a name="use-storsimple-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Uso del servicio StorSimple Manager para administrar los registros de control de acceso para la matriz virtual de StorSimple
+
 ## <a name="overview"></a>Información general
 Los registros de control de acceso (ACR) le permiten especificar qué hosts pueden conectarse a un volumen de la matriz virtual de StorSimple (también conocido como dispositivo virtual local de StorSimple). Los ACR se establecen en un volumen específico y contienen los nombres calificados iSCSI (IQNs) de los hosts. Cuando un host intenta conectarse a un volumen, el dispositivo comprueba el ACR asociado a ese volumen para el nombre IQN y, a continuación, si hay una coincidencia, se establece la conexión. La sección de **registros de control de acceso** de la página **Configurar** muestra todos los registros de control de acceso con los IQN correspondientes de los hosts.
 
@@ -103,10 +106,5 @@ Realice los pasos siguientes para eliminar un registro de control de acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre la [adición de volúmenes y la configuración de ACR](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

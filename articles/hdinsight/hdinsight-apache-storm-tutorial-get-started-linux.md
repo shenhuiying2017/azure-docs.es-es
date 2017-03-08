@@ -199,7 +199,7 @@ Vuelva a la página **Resumen de la topología** de la topología de recuento de
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Pasos siguientes
+## <a id="next"></a>Pasos siguientes
 
 En este tutorial de Apache Storm, ha aprendido los conceptos básicos sobre cómo trabajar con Storm en HDInsight. A continuación, aprenda a [desarrollar topologías basadas en Java con Maven](hdinsight-storm-develop-java-topology.md).
 

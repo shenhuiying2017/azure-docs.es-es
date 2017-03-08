@@ -17,6 +17,7 @@ ms.author: priyamo
 translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -34,9 +35,4 @@ Azure Active Directory expone puntos de conexión de inicio y cierre de sesión 
 * El punto de conexión independiente del inquilino está en `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. En esta dirección de punto de conexión, se muestra **common**, en lugar de un id. o nombre de dominio del inquilino.
 
 Para obtener información sobre los documentos de metadatos de federación que publica Azure AD, consulte [Metadatos de federación](active-directory-federation-metadata.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

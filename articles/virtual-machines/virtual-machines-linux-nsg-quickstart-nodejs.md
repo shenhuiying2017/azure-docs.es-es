@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: b29b7fc56e1797d9daa33ff18df0fe5590b12612
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: 33c658bc15ee266d519a2ca403d2fc0d057b36fd
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -27,7 +28,7 @@ En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtu
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#quick-commands): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0 (versión preliminar)](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -83,10 +84,5 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 * [Información general sobre Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 * [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

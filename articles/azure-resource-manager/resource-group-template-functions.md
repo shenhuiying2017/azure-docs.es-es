@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
 ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -721,7 +722,7 @@ En el ejemplo siguiente se muestra cómo combinar dos matrices.
         }
      },
      "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]"
      }
 
 
@@ -1217,10 +1218,5 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md)
 * Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

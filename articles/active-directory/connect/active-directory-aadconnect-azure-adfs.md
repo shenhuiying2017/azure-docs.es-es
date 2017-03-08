@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2016
+ms.date: 02/27/2017
 ms.author: anandy;billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6cf809dd6d3c74d1459179f9b16ae9dbfec99757
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>Implementación de AD FS en Azure
-AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
+# <a name="deloying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
+AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office&365; permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
 La implementación de AD FS en Azure tiene varias ventajas; a continuación se enumeran algunas:
 
 * **Alta disponibilidad** : con la potencia de Conjuntos de disponibilidad de Azure, se asegura una infraestructura de alta disponibilidad.
@@ -209,7 +210,7 @@ Esto garantizará que todas las comunicaciones relativas a fs.contoso.com termin
 ### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Configuración del servidor proxy de aplicación web
 **7.1.    Configuración de los servidores proxy de aplicación web para acceder a servidores AD FS**
 
-Con el fin de garantizar que los servidores proxy de aplicación web puedan llegar a los servidores AD FS detrás del ILB, cree un registro en %systemroot%\system32\drivers\etc\hosts para el ILB. Tenga en cuenta que el nombre distintivo (DN) debe ser el nombre del servicio de federación; por ejemplo, fs.contoso.com. Y la entrada IP debe ser la de la dirección IP del ILB (en el ejemplo, 10.3.0.8).
+Con el fin de garantizar que los servidores proxy de aplicación web puedan llegar a los servidores AD FS detrás del ILB, cree un registro en %systemroot%\system32\drivers\etc\hosts para el ILB. Tenga en cuenta que el nombre distintivo (DN) debe ser el nombre del servicio de federación; por ejemplo, fs.contoso.com. Y la entrada IP debe ser la de la dirección IP del ILB (en el ejemplo,&10;.3.0.8).
 
 **7.2.    Instalación del rol de proxy de aplicación web**
 
@@ -353,10 +354,5 @@ Puede usar una red virtual existente o crear una nueva red virtual durante la im
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Proporciona información sobre la configuración de Enterprise Sta
 services: active-directory
 keywords: "qué es Enterprise State Roaming, sincronización empresarial, nube de windows"
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
 ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -37,10 +38,5 @@ Enterprise State Roaming está disponible en varias regiones de Azure. En la pá
 | [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 proporciona configuración de la directiva de directiva de grupo y de administración de dispositivos móviles (MDM) para limitar la sincronización de configuración. |
 | [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Lo siguiente es una lista completa de todas las opciones que se movilizan o se copian en Windows 10. |
 | [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |En este tema se llevan a cabo algunos pasos básicos de solución de problemas y en él se incluye una lista de problemas conocidos. |
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

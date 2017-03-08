@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -59,8 +59,8 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 | Método | Descripción |
 | --- | --- |
 | Portal de Azure |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
-| Azure PowerShell |Use el comando [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx). |
-| API de REST |Use la operación para [mostrar la lista de ubicaciones](https://msdn.microsoft.com/library/dn790540.aspx). |
+| Azure PowerShell |Use el comando [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| API de REST |Use la operación para [mostrar la lista de ubicaciones](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
 ### <a name="vm-size"></a>Tamaño de VM
 El [tamaño](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la máquina virtual que use depende de la carga de trabajo que vaya a ejecutar. El tamaño que elija determina factores tales como la capacidad de almacenamiento, la memoria y la capacidad de procesamiento. Azure ofrece una amplia variedad de tamaños para admitir muchos tipos de usos.
@@ -80,8 +80,8 @@ En esta tabla se muestran algunas maneras de encontrar la información sobre una
 | Método | Descripción |
 | --- | --- |
 | Portal de Azure |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "ubicación"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "ubicación" -Publisher "nombreDePublicador"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "ubicación" -Publisher "nombreDePublicador" -Offer "nombreDeOferta" |
-| API de REST |[List image publishers](https://msdn.microsoft.com/library/mt743702.aspx) (Lista de publicadores de imágenes)<BR>[List image offers](https://msdn.microsoft.com/library/mt743700.aspx) (Lista de ofertas de imágenes)<BR>[List image skus](https://msdn.microsoft.com/library/mt743701.aspx) (Lista de SKU de imágenes) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "ubicación"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "ubicación" -Publisher "nombreDePublicador"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "ubicación" -Publisher "nombreDePublicador" -Offer "nombreDeOferta" |
+| API de REST |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
 
 Puede elegir [cargar y usar su propia imagen](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y, cuando lo haga, no se usan el nombre del publicador, la oferta ni la SKU.
 
@@ -92,7 +92,7 @@ Pueden llevarse a cabo estas tareas comunes mediante las extensiones:
 
 * **Ejecutar scripts personalizados**: la [extensión de script personalizado](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ayuda a configurar cargas de trabajo en la máquina virtual al ejecutar su script cuando se aprovisiona la máquina virtual.
 * **Implementar y administrar configuraciones**: la [extensión de configuración de estado deseado (DSC) de PowerShell](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ayuda a configurar DSC en una máquina virtual para administrar entornos y configuraciones.
-* **Recopilar datos de diagnóstico**: la [extensión Diagnósticos de Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) ayuda a configurar la máquina virtual para que recopile datos de diagnóstico que sirvan para supervisar el estado de la aplicación.
+* **Recopilar datos de diagnóstico**: la [extensión Diagnósticos de Azure](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ayuda a configurar la máquina virtual para que recopile datos de diagnóstico que sirvan para supervisar el estado de la aplicación.
 
 ### <a name="related-resources"></a>Recursos relacionados
 Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o crearse al tiempo que la máquina virtual.
@@ -117,7 +117,7 @@ En esta tabla se proporciona información para comenzar a crear la máquina virt
 | Plantillas |[Creación de una máquina virtual Windows con una plantilla del Administrador de recursos](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Creación de una máquina virtual Windows con PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | SDK de cliente |[Implementación de recursos de Azure mediante C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| API de REST |[Create or update a VM](https://msdn.microsoft.com/library/mt163591.aspx) (Creación o actualización de una máquina virtual) |
+| API de REST |[Create or update a VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) (Creación o actualización de una máquina virtual) |
 
 Aunque se espera que nunca suceda, en ocasiones algo sale mal. Si se ve en esta situación, consulte la información en [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual Windows en Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -131,7 +131,7 @@ En esta tabla se muestran algunas maneras en que puede obtener información sobr
 | --- | --- |
 | Portal de Azure |En el menú central, haga clic en **Máquinas virtuales** y seleccione la máquina virtual en la lista. En la hoja de la máquina virtual, puede ver información general, establecer valores y supervisar métricas. |
 | Azure PowerShell |Para información sobre cómo usar PowerShell para administrar máquinas virtuales, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| API de REST |Use la operación para [obtener información sobre la máquina virtual](https://msdn.microsoft.com/library/mt163682.aspx) para conseguir información acerca de una máquina virtual. |
+| API de REST |Use la operación para [obtener información sobre la máquina virtual](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) para conseguir información acerca de una máquina virtual. |
 | SDK de cliente |Para información sobre cómo usar C# para administrar máquinas virtuales, consulte [Administración de máquinas virtuales de Azure con Azure Resource Manager y C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>Inicio de sesión en la máquina virtual

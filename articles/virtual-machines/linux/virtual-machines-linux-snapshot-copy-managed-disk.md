@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 673b979520b0e6fd4d0b0c00d2be26c41d112677
-ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 8bc6ac01f1592d371abbb2df3ff6ecf4ee2a993c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -24,12 +25,12 @@ Cree una instantánea de un disco administrado para copias de seguridad o cree u
 
 Para información sobre los precios, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
-Utilice Azure Portal o la CLI de Azure 2.0 (versión preliminar) para realizar una instantánea del disco administrado.
+Use Azure Portal o la CLI de Azure 2.0 para realizar una instantánea del disco administrado.
 
-## <a name="use-azure-cli-20-preview-to-take-a-snapshot"></a>Uso de la CLI de Azure 2.0 (versión preliminar) para realizar una instantánea
+## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Uso de la CLI de Azure 2.0 para realizar una instantánea
 
 > [!NOTE] 
-> En el ejemplo siguiente, es necesario que la CLI de Azure 2.0 (versión preliminar) esté instalada y que haya iniciado sesión en la cuenta de Azure.
+> En el ejemplo siguiente, es necesario que la CLI de Azure 2.0 esté instalada y que haya iniciado sesión en la cuenta de Azure.
 
 En los pasos siguientes se explica cómo obtener y realizar una instantánea de un disco administrado del SO usando el comando `az snapshot create` con el parámetro `--source-disk`. En el siguiente ejemplo se supone que hay una VM denominada `myVM` creada con un disco administrado del SO en el grupo de recursos `myResourceGroup`.
 
@@ -80,10 +81,5 @@ La salida debe tener un aspecto similar al siguiente:
 
 Si tiene previsto utilizar la instantánea para crear un disco administrado y conectarle una VM que precisa de un alto rendimiento, use el parámetro `--sku Premium_LRS` con el comando `az snapshot create`. De esta forma, se crea la instantánea para que se almacene como un disco administrado premium. Los Managed Disks Premium tienen un rendimiento mayor porque son discos de estado sólido (SSD), pero cuestan más que los discos estándar (HDD).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

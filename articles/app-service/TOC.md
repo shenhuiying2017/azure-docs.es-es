@@ -28,21 +28,7 @@
 ### [Aplicación de Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Ejemplos comunes
-## Ejemplos de la CLI
-### [Creación de una aplicación web e implementación de código desde GitHub](./scripts/app-service-cli-deploy-github.md)
-### [Creación de una aplicación web con implementación continua desde GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
-### [Creación de una aplicación web e implementación de código desde un repositorio local de GitHub](./scripts/app-service-cli-deploy-local-git.md)
-### [Creación de una aplicación web e implementación de código en un entorno de ensayo](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Creación de una aplicación web de ASP.NET Core en un contenedor de Docker](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [Asignación de un dominio personalizado a una aplicación web](./scripts/app-service-cli-configure-custom-domain.md)
-### [Escalado manual de una aplicación web](./scripts/app-service-cli-scale-manual.md)
-### [Escalado de una aplicación web en todo el mundo con una arquitectura de alta disponibilidad](./scripts/app-service-cli-scale-high-availability.md)
-### [Conexión de una aplicación web a SQL Database](./scripts/app-service-cli-app-service-sql.md)
-### [Conexión de una aplicación web a una cuenta de almacenamiento](./scripts/app-service-cli-app-service-storage.md)
-### [Supervisión de una aplicación web con registros de servidor web](./scripts/app-service-cli-monitor.md)
-
-# Procedimientos
+# Cómo
 
 ## Planeamiento y diseño
 ### [Procedimientos recomendados para Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)

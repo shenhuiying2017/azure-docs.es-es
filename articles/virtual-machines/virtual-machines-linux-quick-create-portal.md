@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/17/2016
+ms.date: 1/17/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
 ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -103,10 +104,5 @@ Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fine
 * [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de una máquina virtual Linux protegida con SSH en Azure mediante plantillas](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de una máquina virtual con Linux desde cero con la CLI de Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 34123faec2efc85ff6e6686c79eadc04f7f08a52
-ms.openlocfilehash: aa8161e2ae96ce67a20e87fc1e4b27b6ff24d439
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 60e4ee8ff7e9252e3116d15e19ae378570e37196
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ En este artículo se muestra cómo cargar un disco duro virtual (VHD) en Azure m
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#quick-commands): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0 (versión preliminar)](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de Resource Manager
+- [CLI de Azure 2.0](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -246,10 +247,5 @@ azure group deployment create --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de haber preparado y cargado el disco virtual personalizado, puede leer más sobre el [uso de Resource Manager y las plantillas](../azure-resource-manager/resource-group-overview.md). También es posible que quiera [agregar un disco de datos](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) a las nuevas máquinas virtuales. Si tiene aplicaciones que se ejecutan en las máquinas virtuales a las que necesite tener acceso, asegúrese de [abrir puertos y puntos de conexión](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

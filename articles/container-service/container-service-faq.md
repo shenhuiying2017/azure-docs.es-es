@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
-ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,15 +30,15 @@ ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>¿Qué orquestadores de contenedor son compatibles con Azure Container Service? 
 
-Hay compatibilidad con Kubernetes, Docker Swarm y DC/OS de código abierto. Aunque la compatibilidad con DC/OS y Docker Swarm es global, con Kubernetes es actualmente una versión preliminar. Para más información, consulte la [introducción](container-service-intro.md).
+Hay compatibilidad con Kubernetes, Docker Swarm y DC/OS de código abierto. Para más información, consulte la [introducción](container-service-intro.md).
  
-### <a name="do-you-support-swarm-mode"></a>¿Se admite el modo Swarm? 
+### <a name="do-you-support-docker-swarm-mode"></a>¿Se admite el modo de Docker Swarm? 
 
 Actualmente no se admite el modo Swarm, pero está en el plan de servicio. 
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>¿Admite Azure Container Service contenedores de Windows?  
 
-Actualmente se admiten los contenedores de Linux. La compatibilidad con los contenedores de Windows con orquestadores de DC/OS, Docker Swarm y Kubernetes está en el plan de servicio. 
+Los contenedores de Linux se admiten con todos los orquestadores. La compatibilidad de contenedores de Windows con Kubernetes está en versión preliminar.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>¿Se recomienda un organizador específico en Azure Container Service? 
 Por lo general, no se recomienda un organizador específico. Si tiene experiencia con uno de los orquestadores compatibles, puede aplicarla a Azure Container Service. Sin embargo, las tendencias de datos sugieren que DC/OS es productivo para cargas de trabajo de IoT y macrodatos, Kubernetes es adecuado para las cargas de trabajo nativo de la nube y Docker Swarm se conoce por su integración con herramientas de Docker y su fácil curva de aprendizaje.
@@ -55,29 +56,23 @@ Azure Container Service es un servicio de Azure basado en SLA con característic
 
 Puede utilizar las herramientas estándar del sistema operativo para crear un par de claves SSH RSA públicas y privadas para la autenticación en las máquinas virtuales Linux del clúster. Para conocer los pasos, consulte las instrucciones para [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
-Si usa los [comandos de CLI de Azure 2.0 (versión preliminar)](container-service-create-acs-cluster-cli.md) para implementar un clúster de servicio de contenedor, se pueden generar claves SSH para el clúster automáticamente.
+Si usa los [comandos de la CLI de Azure 2.0](container-service-create-acs-cluster-cli.md) para implementar un clúster de servicio de contenedor, se pueden generar claves SSH para el clúster automáticamente.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>¿Cómo creo una entidad de servicio para el clúster de Kubernetes?
 
-Para crear un clúster de Kubernetes en Azure Container Service también se necesitan ID y contraseña de la entidad de servicio de Azure Active Directory. Para más información, consulte el artículo [acerca de la entidad de servicio para un clúster de Kubernetes](container-service-kubernetes-service-principal.md).
+Para crear un clúster de Kubernetes en Azure Container Service también se necesitan ID y contraseña de la entidad de servicio de Azure Active Directory. Para más información, consulte [About the Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service](container-service-kubernetes-service-principal.md) (Acerca de la entidad de servicio de Azure Active Directory para un clúster de Kubernetes de Azure Container Service).
 
 
-Si usa los [comandos de CLI de Azure 2.0 (versión preliminar)](container-service-create-acs-cluster-cli.md) para implementar un clúster de Kubernetes, se pueden generar credenciales de entidad de servicio para el clúster automáticamente.
+Si usa los [comandos de la CLI de Azure 2.0](container-service-create-acs-cluster-cli.md) para implementar un clúster de Kubernetes, se pueden generar credenciales de entidad de servicio para el clúster automáticamente.
 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>¿Cómo se aumenta el número de patrones una vez creado un clúster? 
-Una vez creado el clúster, el número de patrones es fijo y no se puede cambiar. Durante la creación del clúster, lo ideal es seleccionar de tres a cinco patrones para lograr alta disponibilidad.
+Una vez creado el clúster, el número de patrones es fijo y no se puede cambiar. Durante la creación del clúster, lo ideal es seleccionar varios maestros para lograr una alta disponibilidad.
 
-> [!NOTE]
-> En la versión preliminar, un clúster de Kubernetes en Azure Container Service solo puede tener un patrón.
->
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>¿Cómo se aumenta el número de agentes una vez creado un clúster? 
 Puede aumentar el número de agentes del clúster mediante Azure Portal o las herramientas de la línea de comandos. Consulte [Escalado de un clúster de Azure Container Service](container-service-scale.md).
 
-> [!NOTE]
-> En la versión preliminar, un clúster de Kubernetes en Azure Container Service tiene un número fijo de agentes. 
->
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>¿Cuáles son las direcciones URL de mis patrones y agentes? 
 Las direcciones URL de los recursos de clúster en Azure Container Service se basan en el prefijo del nombre DNS y el nombre de la región de Azure que haya elegido para la implementación. Por ejemplo, el nombre de dominio completo (FQDN) del nodo principal es de esta forma:
@@ -114,9 +109,4 @@ Para más información, consulte [Conexión a un clúster de Azure Container Ser
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información](container-service-intro.md) sobre Azure Container Service.
-* Implementación de un clúster de servicio de contenedor mediante el [portal](container-service-deployment.md) o la [CLI de Azure 2.0 (versión preliminar)](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+* Implementar un clúster del servicio de contenedores mediante el [portal](container-service-deployment.md) o la [CLI de Azure 2.0](container-service-create-acs-cluster-cli.md).

@@ -28,7 +28,7 @@ ms.lasthandoff: 02/23/2017
 
 Aprenda a enviar consultas de Hive a un clúster de HDInsight mediante las herramientas de HDInsight para Visual Studio.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
+## <a id="prereq"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
@@ -45,7 +45,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Herramientas de HDInsight para Visual Studio o Azure Data Lake Tools for Visual Studio. Consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md) para ejecutar una consulta de Hive para conocer los pasos que le permitirán instalar y configurar las herramientas.
 
-## <a name="a-idruna-run-hive-queries-using-the-visual-studio"></a><a id="run"></a> Ejecución de las consultas de Hive usando Visual Studio
+## <a id="run"></a> Ejecución de las consultas de Hive usando Visual Studio
 
 1. Abra **Visual Studio** y seleccione **Nuevo** > **Proyecto** > **Azure Data Lake** > **HIVE** > **Hive Application** (Aplicación de Hive). Indique un nombre para este proyecto.
 
@@ -114,7 +114,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 9. Para comprobar que el trabajo ha creado una nueva tabla, utilice el **Explorador de servidores** y expanda **Azure** > **HDInsight** > el clúster de HDInsight > **Bases de datos de Hive** > **predeterminado**. La tabla **errorLogs** y la tabla **log4jLogs** aparecen en la lista.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a id="nextsteps"></a>Pasos siguientes
 
 Como puede ver, las herramientas de HDInsight para Visual Studio proporcionan una manera sencilla de trabajar con consultas de Hive en HDInsight.
 

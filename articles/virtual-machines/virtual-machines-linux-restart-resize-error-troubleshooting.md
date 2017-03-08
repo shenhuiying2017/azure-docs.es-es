@@ -1,5 +1,5 @@
 ---
-title: "Problemas de reinicio o cambio de tamaño de las máquinas virtuales | Microsoft Docs"
+title: "Problemas de reinicio o cambio de tamaño de las máquinas virtuales de Azure | Microsoft Docs"
 description: "Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure"
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.workload: required
 ms.date: 01/10/2017
 ms.author: delhan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: f237c5ffe9e95d538959e2d622bb643c9986f0d2
+ms.sourcegitcommit: 38930edfc470a5c40ef1ccd73f4fa2353f84b2bf
+ms.openlocfilehash: 663783fbdf1d59cc72babe87ba2a769706e7fd80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure
+# <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-linux-vm-in-azure"></a>Solución de problemas de implementación con el reinicio o el cambio de tamaño de una máquina virtual Linux existente en Azure
 Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño de una máquina virtual de Azure existente, es común encontrarse un error de asignación. Dicho error se produce cuando el clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -64,10 +66,5 @@ La solicitud de cambiar el tamaño de la máquina virtual se debe realizar en el
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si surgen problemas al crear una nueva máquina virtual Linux en Azure, consulte [Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual de Linux en Azure](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

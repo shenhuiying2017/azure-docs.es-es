@@ -29,7 +29,7 @@ En este tema se muestra cómo usar Media Encoder Standard (MES) para generar aut
 
 Para usar esta característica, debe especificar el valor preestablecido **Adaptive Streaming** al crear una tarea de codificación. Cuando se usa el valor preestablecido **Adaptive Streaming**, el codificador MES limitará inteligentemente una escalera de velocidad de bits. Sin embargo, no será capaz de controlar los costos de codificación, ya que el servicio determina cuántos niveles usar y con qué resolución. Puede ver ejemplos de los niveles de salida generados por MES como resultado de la codificación con el valor preestablecido **Adaptive Streaming** al [final](#output) de este tema.
 
-## <a name="a-idencodingwithdotnetaencoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Servicios multimedia
+## <a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Servicios multimedia
 
 En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios multimedia para realizar las siguientes tareas:
 
@@ -151,7 +151,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
         }
 
-## <a name="a-idoutputaoutput"></a><a id="output"></a>Salida
+## <a id="output"></a>Salida
 
 Esta sección muestra tres niveles de salida generados por MES como resultado de la codificación con el valor preestablecido **Adaptive Streaming**. 
 

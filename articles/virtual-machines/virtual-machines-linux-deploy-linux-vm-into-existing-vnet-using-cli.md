@@ -1,6 +1,6 @@
 ---
-title: "Implementación de la máquina virtual con Linux en la red existente con la CLI de Azure 2.0 (versión preliminar) | Microsoft Docs"
-description: "Obtenga información acerca de cómo implementar una máquina virtual con Linux en una red virtual existente mediante la CLI de Azure 2.0 (versión preliminar)"
+title: "Implementación de una máquina virtual Linux en la red existente con la CLI de Azure 2.0 | Microsoft Docs"
+description: "Obtenga información acerca de cómo implementar una máquina virtual Linux en una red virtual existente mediante la CLI de Azure 2.0"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,31 +16,27 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 34e9b401444aeec233d846a6b52f4a452c54cdaf
-ms.openlocfilehash: 106571bf36454ab20e75cb4ee42b2aca787a9d5a
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: c56ad780a1d67102d23c84a18c712ae48cec1eb6
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-virtual-network-using-the-azure-cli-20-preview"></a>Implementación de la máquina virtual con Linux en la red existente con la CLI de Azure 2.0 (versión preliminar)
+# <a name="deploy-a-linux-vm-into-an-existing-virtual-network"></a>Implementación de una máquina virtual Linux en una red virtual existente
 
-En este artículo se muestra cómo utilizar la CLI de Azure 2.0 (versión preliminar) para implementar una máquina virtual (VM) en una red virtual existente. Los requisitos son:
+En este artículo se muestra cómo utilizar la CLI de Azure 2.0 para implementar una máquina virtual (VM) en una red virtual existente. Los requisitos son:
 
 - [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/);
 - [archivos de clave SSH pública y privada](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
+También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos necesarios. Se puede encontrar información más detallada y contexto para cada paso en el resto del documento, [comenzando aquí](#detailed-walkthrough).
 
-Para crear este entorno personalizado, necesita la [versión preliminar de la CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
+Para crear este entorno personalizado, necesita la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `myVnet` y `myVM`.
 
@@ -62,7 +58,7 @@ az vm create \
 
 Se recomienda que los recursos de Azure como las redes virtuales y los grupos de seguridad de red sean estáticos y de larga duración que se implementan con poca frecuencia. Una vez que se ha implementado una red virtual, se puede volver a utilizar con nuevas implementaciones sin efectos adversos para la infraestructura. Piense en una red virtual como un conmutador de red de hardware tradicional. En ese caso no necesitaría configurar un nuevo conmutador de hardware con cada implementación. Con una red virtual configurada correctamente, podemos seguir implementando nuevas máquinas virtuales en esa red virtual una y otra vez con pocos, en caso de que haya, cambios necesarios durante la vida útil de la red virtual.
 
-Para crear este entorno personalizado, necesita la [versión preliminar de la CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
+Para crear este entorno personalizado, necesita la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) instalada y con la sesión iniciada en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup`, `myVnet` y `myVM`.
 
@@ -149,7 +145,7 @@ az network nic create \
 
 Ahora tenemos una red virtual, una subred y un grupo de seguridad de red que actúa como un firewall para proteger nuestra subred bloqueando todo el tráfico entrante excepto el del puerto 22 para SSH. Ahora se puede implementar la máquina virtual dentro de esta infraestructura de red existente.
 
-Creee la máquina virtual con [az vm create](/cli/azure/vm#create). Para más información sobre las marcas que se deben usar con la CLI de Azure 2.0 (versión preliminar) para implementar una máquina virtual completa, consulte [Creación de un entorno de Linux completo mediante la versión preliminar de la CLI de Azure 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Creee la máquina virtual con [az vm create](/cli/azure/vm#create). Para más información sobre las marcas que se deben usar con la CLI de Azure 2.0 para implementar una máquina virtual completa, consulte [Creación de un entorno de Linux completo mediante la versión preliminar de la CLI de Azure 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 En el ejemplo siguiente se crea una máquina virtual mediante Azure Managed Disks. Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a los discos administrados de Azure). Si desea usar discos no administrados, consulte la nota adicional a continuación.
 
@@ -178,9 +174,4 @@ Para obtener más información acerca de los modos de crear máquinas virtuales 
 * [Uso de una plantilla de Azure Resource Manager para crear una implementación específica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,19 +13,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/18/2017
+ms.date: 2/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e6167db5f9b6c8b2520b1f3c2d443c7497d44552
-ms.openlocfilehash: b3e625852648e15ccde427ec8c5bb8fe0393cb74
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: de252e1d2945f236a4192c5737ed8ec88a6f7444
+ms.openlocfilehash: da5929df1e5db0acae41d757a7e7272014bf9dee
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de la versión de los componentes de Hadoop en HDInsight de Azure
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte el [artículo de control de versiones de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+##<a name="notes-for-02282017-release-of-spark-21-on-hdinsight-36-preview"></a>Notas de la versión del 28/02/2017 de Spark 2.1 en HDInsight 3.6 (versión preliminar)
+* [2.1 Spark](http://spark.apache.org/releases/spark-release-2-1-0.html) mejora muchos de los problemas de estabilidad y uso que había en las versiones anteriores. También ofrece características nuevas en todas las cargas de trabajo de Spark, como Spark Core, SQL, ML y Streaming.
+* Se ha mejorado la escalabilidad del streaming estructurado y se ha agregado compatibilidad con las marcas de agua de horas de evento y el conector Kafka 0.10.
+* Ahora se puede controlar la creación de particiones de Spark SQL mediante el nuevo mecanismo de control de particiones escalable. Consulte más información sobre cómo actualizar [aquí](http://spark.apache.org/releases/spark-release-2-1-0.html).
+* En estos momentos, Spark 2.1 en HDInsight 3.6 (versión preliminar) de Azure no admite la conectividad de herramientas de BI con el controlador ODBC.
+* En esta versión preliminar tampoco se puede acceder al almacén de Azure Data Lake Store desde los clústeres de Spark 2.1.
+
 
 ##<a name="notes-for-11182016-release-of-spark-201-on-hdinsight-35"></a>Notas de la versión del 18/11/2016 de Spark 2.0.1 Spark en HDInsight 3.5
 Spark 2.0.1 ahora está disponible en los clústeres Spark (HDInsight versión 3.5).

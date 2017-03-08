@@ -1,6 +1,6 @@
 ---
 title: "Administración de áreas de trabajo | Microsoft Docs"
-description: "Para administrar las áreas de trabajo en Log Analytics, puede usar una serie de tareas administrativas en usuarios, cuentas, áreas de trabajo y cuentas de Azure."
+description: "Para administrar las áreas de trabajo en Azure Log Analytics, puede usar una serie de tareas administrativas en usuarios, cuentas, áreas de trabajo y cuentas de Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -97,10 +98,13 @@ Algunos aspectos relativos a Azure Portal que deben tenerse en cuenta:
 
   La dirección URL tiene el siguiente aspecto: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+Por ejemplo, para agregar o quitar soluciones de administración, el usuario debe ser un administrador o colaborador en la suscripción de Azure cuando usa Azure Portal. Además, el usuario debe ser miembro del rol de administrador o colaborador del área de trabajo de OMS en el portal de OMS.
+
 ### <a name="managing-users-in-the-oms-portal"></a>Administración de usuarios en el portal de OMS
 Los usuarios y grupos se administran en la pestaña **Administrar usuarios** de la pestaña **Cuentas** de la página Configuración.   
 
 ![administrar usuarios](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Agregar un usuario a un área de trabajo existente
 Siga estos pasos para agregar un usuario o un grupo a un área de trabajo.
@@ -295,9 +299,4 @@ Si es administrador y hay varios usuarios asociados al área de trabajo, se inte
 * Consulte [Conexión de equipos Windows a Log Analytics](log-analytics-windows-agents.md) para agregar agentes y recopilar información.
 * [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar información.
 * [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) si la organización utiliza un servidor proxy o un firewall para que los agentes puedan comunicarse con el servicio Log Analytics.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

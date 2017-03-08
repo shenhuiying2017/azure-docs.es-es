@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: vakarand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
-ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="using-azure-ad-connect-health-for-sync"></a>Uso de Azure AD Connect Health para sincronización
+# <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Supervisión de Azure AD Connect sync con Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Para obtener información adicional sobre la supervisión de los Servicios de dominio de Active Directory con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
 
 ![Azure AD Connect Health para sincronización](./media/active-directory-aadconnect-health-sync/sync-blade.png)
@@ -117,8 +118,3 @@ Si selecciona el botón "Exportar" puede descargar un archivo CSV con todos los 
 * [Uso de Azure AD Connect Health con AD DS](active-directory-aadconnect-health-adds.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

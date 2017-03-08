@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8115205c674221ee3dc46b0c3149c64081135b8
+ms.sourcegitcommit: 53973b27ae6531d5c4eaceb862ca5bd2bc5f9249
+ms.openlocfilehash: dec07803397ec5df17dfb57703e276ba071e942a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: a8115205c674221ee3dc46b0c3149c64081135b8
 
 Aprenda a usar la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) para administrar clústeres de Hadoop en Azure HDInsight. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
 
-Este artículo solo trata del uso de la CLI de Azure con HDInsight. Para obtener información general sobre cómo usar la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure][azure-command-line-tools].
+Este artículo solo trata del uso de la CLI de Azure con HDInsight. Para obtener información general sobre cómo usar la CLI de Azure CLI, consulte [Instalación y configuración de la CLI de Azure][azure-command-line-tools].
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -87,8 +88,8 @@ Para cambiar el tamaño del clúster de Hadoop:
 En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal]
-* [Administración de HDInsight mediante Azure PowerShell][hdinsight-admin-powershell]
-* [Introducción a HDInsight de Azure][hdinsight-get-started]
+* [Administración de HDInsight con Azure PowerShell][hdinsight-admin-powershell]
+* [Introducción a Azure HDInsight][hdinsight-get-started]
 * [Uso de la CLI de Azure][azure-command-line-tools]
 
 [azure-command-line-tools]: ../xplat-cli-install.md
@@ -105,10 +106,5 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumerar y mostrar los clústeres"
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
 

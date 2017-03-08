@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 02/28/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 71476ae63d2394e7edefa10b8c71d15c04190290
-ms.openlocfilehash: 299e06bf6d4bd3af5d6dc7496ba9a947f42c19b7
+ms.sourcegitcommit: 02b905b12344f23e0eb3b8d0a1969bf7c491119e
+ms.openlocfilehash: 0f7412d9ed3cacb043a5cf3f21d6109eeeeb074c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,7 +28,7 @@ Con **Microsoft Power BI Embedded**, puede integrar informes de Power BI directa
 
 Antes de avanzar, probablemente deseará guardar los recursos siguientes. Nos permitirán integrar informes de Power BI en la aplicación de ejemplo y también sus propias aplicaciones.
 
-* [Aplicación web de panel de ejemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Aplicación web de área de trabajo de ejemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referencia de API Power BI Embedded](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
 * [SDK de .NET de Power BI Embedded ](http://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
 * [Ejemplo de inserción de informe de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
@@ -68,7 +69,7 @@ Checking import state... Succeeded
 En este momento, tiene un informe PBIX de Power BI importado en su **área de trabajo**. Ahora, veamos cómo ejecutar la aplicación web de ejemplo introductorio de **Power BI Embedded**.
 
 ## <a name="run-the-sample-web-app"></a>Ejecución de la aplicación web de ejemplo
-El ejemplo de aplicación web es un panel de ejemplo que representa los informes importados a su **área de trabajo**. Vea cómo configurar el ejemplo de aplicación web.
+El ejemplo de aplicación web es una aplicación de ejemplo que representa los informes importados a su **área de trabajo**. Vea cómo configurar el ejemplo de aplicación web.
 
 1. En la solución de Visual Studio **PowerBI-embedded**, haga clic con el botón derecho en la aplicación web **EmbedSample** y elija **Establecer como proyecto de inicio**.
 2. En **web.config**, en la aplicación web **EmbedSample**, edite los valores de **appSettings**: **AccessKey**, nombre de **WorkspaceCollection** y **WorkspaceId**.
@@ -241,13 +242,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > {tableName/fieldName} no puede incluir espacios ni caracteres especiales. {fieldValue} acepta un único valor de categoría.  
 
 ## <a name="see-also"></a>Consulte también
-* [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
-* [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
+[Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)  
+[Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 ¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

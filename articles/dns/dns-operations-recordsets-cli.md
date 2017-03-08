@@ -1,6 +1,6 @@
 ---
-title: "Administración de registros de DNS en la DNS de Azure mediante la CLI de Azure | Microsoft Docs"
-description: "Administración de conjuntos de registros y registros DNS en DNS de Azure al hospedar dominios en DNS de Azure. Todos los comandos de CLI para operaciones en conjuntos de registros y registros."
+title: "Administración de registros de DNS en Azure DNS mediante la CLI de Azure 2.0 | Microsoft Docs"
+description: "Administración de conjuntos de registros y registros DNS en DNS de Azure al hospedar dominios en DNS de Azure. Todos los comandos de la CLI 2.0 para operaciones en conjuntos de registros y registros."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -10,25 +10,35 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/20/2016
+ms.date: 02/27/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 5508413543a229cb639a55832b3253fe86e21f2c
-ms.openlocfilehash: 6a80423f9550f3df218c247673dbdbf25ea5d4e3
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: a9a5fff4cffe072b031e29d3a6dbe0e3c6fba5ea
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="manage-dns-records-in-azure-dns-using-the-azure-cli"></a>Administre registros de DNS en la DNS de Azure mediante la CLI de Azure.
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Administración de conjuntos de registros y registros de DNS en Azure DNS mediante la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](dns-operations-recordsets-portal.md)
-> * [CLI de Azure](dns-operations-recordsets-cli.md)
+> * [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI de Azure 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-En este artículo se muestra cómo administrar los registros de DNS para su zona DNS mediante la interfaz de la línea de comandos (CLI) multiplataforma de Azure, que se encuentra disponible para Windows, Mac y Linux. También puede administrar sus registros de DNS mediante [Azure PowerShell](dns-operations-recordsets.md) o [Azure Portal](dns-operations-recordsets-portal.md).
+En este artículo se muestra cómo administrar los registros de DNS para su zona DNS mediante la versión 2.0 de la interfaz de la línea de comandos (CLI) multiplataforma de Azure, disponible para Windows, Mac y Linux. También puede administrar sus registros de DNS mediante [Azure PowerShell](dns-operations-recordsets.md) o [Azure Portal](dns-operations-recordsets-portal.md).
 
-En los ejemplos de este artículo se supone que ya ha [instalado la CLI de Azure, iniciado sesión y creado una zona DNS](dns-operations-dnszones-cli.md).
+## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
+
+Puede completar la tarea mediante una de las siguientes versiones de la CLI:
+
+* [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md): la CLI para los modelos de implementación clásica y de administración de recursos.
+* [CLI de Azure 2.0](dns-operations-recordsets-cli.md): la CLI de última generación para el modelo de implementación de administración de recursos.
+
+En los ejemplos de este artículo se supone que ya ha [instalado la CLI de Azure 2.0, iniciado sesión y creado una zona DNS](dns-operations-dnszones-cli.md).
 
 ## <a name="introduction"></a>Introducción
 
@@ -40,7 +50,7 @@ Para más información sobre los registros DNS en Azure DNS, consulte [DNS zones
 
 ## <a name="create-a-dns-record"></a>Creación de un registro de DNS
 
-Para crear un registro de DNS, use el comando `azure network dns record-set add-record`. Para obtener ayuda, consulte `azure network dns record-set add-record -h`.
+Para crear un registro de DNS, use el comando `az network dns record-set <recordtype> add-record`. (Donde recordtype es el tipo de registro, es decir, A, SRV, TXT, etc.). Para más información, consulte `az network dns record-set --help`.
 
 Al crear un registro, debe especificar los nombres del grupo de recursos, de la zona y del conjunto de registros, el tipo de registro y los detalles del registro que se están creando. El nombre del conjunto de registros especificado debe ser un nombre *relativo*; es decir, debe excluir el nombre de zona.
 
@@ -51,33 +61,33 @@ Si se crea un conjunto de registros, se utiliza el valor predeterminado del per�
 En el ejemplo siguiente se crea un registro A denominado *www* en la zona *contoso.com* del grupo de recursos *MyResourceGroup*. La dirección IP del registro A es *1.2.3.4*.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Para crear un registro en el vértice de la zona (en este caso, "contoso.com"), utilice el nombre de registro "@",, incluidas las comillas:
+Para crear un conjunto de registros en el vértice de la zona (en este caso, "contoso.com"), utilice el nombre de registro "@", incluidas las comillas:
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>Creación de un conjunto de registros de DNS
 
 En los ejemplos anteriores, bien se agregó el registro de DNS en un conjunto de registros existente, bien se creó el conjunto de registros *implícitamente*. También puede crear el conjunto de registros *explícitamente* antes de agregarle registros. La DNS de Azure admite conjuntos de registros "vacíos" que pueden funcionar como marcador de posición para reservar un nombre DNS antes de crear registros de DNS. Los conjuntos de registros vacíos se pueden ver en el panel de control de DNS de Azure, pero no aparecen en los servidores de nombres de DNS de Azure.
 
-Los conjuntos de registros se crean con el comando `azure network dns record-set create`. Para obtener ayuda, consulte `azure network dns record-set create -h`.
+Los conjuntos de registros se crean con el comando `az network dns record-set create`. Para obtener ayuda, consulte `az network dns record-set create --help`.
 
 Al crear el conjunto de registros explícitamente, podrá especificar las propiedades de este, como el [período de vida (TTL)](dns-zones-records.md#time-to-live) y los metadatos. Se pueden usar [metadatos del conjunto de registros](dns-zones-records.md#tags-and-metadata) para asociar datos específicos de la aplicación con cada conjunto de registros como pares clave-valor.
 
 En el ejemplo siguiente se crea un conjunto de registros vacío con un TTL de 60 segundos mediante el parámetro `--ttl` (forma abreviada `-l`):
 
 ```azurecli
-azure network dns record-set create MyResourceGroup contoso.com www A --ttl 60
+az network dns record-set create --resource-group myresourcegroup --zone-name contoso.com --name www --type A --ttl 60
 ```
 
-En el siguiente ejemplo, se crea un conjunto de registros con dos entradas de metadatos, "dept=finance" y "environment=production", mediante el parámetro `--metadata` (forma abreviada `-m`):
+En el siguiente ejemplo, se crea un conjunto de registros con dos entradas de metadatos, "dept=finance" y "environment=production", mediante el parámetro `--metadata`:
 
 ```azurecli
-azure network dns record-set create MyResourceGroup contoso.com www A --metadata "dept=finance;environment=production"
+az network dns record-set create --resource-group myresourcegroup --zone-name contoso.com --name www --type A --metadata "dept=finance" "environment=production"
 ```
 
 Tras haber creado un conjunto de registros vacío, se podrán añadir el registro mediante `azure network dns record-set add-record`, como se describe en [Creación de un registro de DNS](#create-a-dns-record).
@@ -86,7 +96,7 @@ Tras haber creado un conjunto de registros vacío, se podrán añadir el registr
 
 Después de haber visto de forma detallada cómo crear registros "A", en los siguientes ejemplos se muestra cómo crear registros de otros tipos compatibles con DNS de Azure.
 
-Los parámetros utilizados para especificar los datos del registro varían según el tipo del registro. Por ejemplo, para un registro de tipo "A", especifique la dirección IPv4 con el parámetro `-a <IPv4 address>`. Es posible obtener una lista de los parámetros de cada tipo de registro con `azure network dns record-set add-record -h`.
+Los parámetros utilizados para especificar los datos del registro varían según el tipo del registro. Por ejemplo, para un registro de tipo "A", especifique la dirección IPv4 con el parámetro `-a <IPv4 address>`. Es posible obtener una lista de los parámetros de cada tipo de registro con `az network dns record-set <type> add-record --help`.
 
 En cada caso, se muestra cómo crear un único registro. Se agrega el registro al conjunto de registros existente o a uno creado de forma implícita. Para obtener más información sobre cómo crear conjuntos de registros y definir explícitamente los parámetros de un conjunto de registros, consulte [Creación de un conjunto de registros de DNS](#create-a-dns-record-set).
 
@@ -95,18 +105,18 @@ No se proporciona un ejemplo para crear un conjunto de registros SOA, dado que l
 ### <a name="create-an-aaaa-record"></a>Creación de un registro AAAA
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com test-aaaa AAAA --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
 ### <a name="create-a-cname-record"></a>Creación de un registro CNAME
 
 > [!NOTE]
-> Los estándares DNS no permiten registros CNAME en el vértice de una zona (`-Name "@"`), ni permiten conjuntos de registros que contengan más de un registro.
+> Los estándares DNS no permiten registros CNAME en el vértice de una zona (`--Name "@"`), ni permiten conjuntos de registros que contengan más de un registro.
 > 
 > Para más información, consulte [Registros CNAME](dns-zones-records.md#cname-records).
 
 ```azurecli
-azure network dns record-set add-record  MyResourceGroup contoso.com  test-cname CNAME --cname www.contoso.com
+az network dns record-set cname add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
 ```
 
 ### <a name="create-an-mx-record"></a>Creación de un registro MX
@@ -114,13 +124,13 @@ azure network dns record-set add-record  MyResourceGroup contoso.com  test-cname
 En este ejemplo, se utiliza el nombre de conjunto de registros "@" para crear el registro MX en el vértice de la zona (en este caso, "contoso.com").
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com  "@" MX --exchange mail.contoso.com --preference 5
+az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>Creación de un registro NS
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup  contoso.com  test-ns NS --nsdname ns1.contoso.com
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "test-ns" --nsdname ns1.contoso.com
 ```
 
 ### <a name="create-a-ptr-record"></a>Creación de un registro PTR
@@ -128,7 +138,7 @@ azure network dns record-set add-record MyResourceGroup  contoso.com  test-ns NS
 En este caso "my-arpa-zone.com" representa la zona ARPA que representa el intervalo IP. Cada registro PTR establecido en esta zona se corresponde con una dirección IP dentro de este intervalo IP.  El nombre de registro "10" es el último octeto de la dirección IP dentro del intervalo IP que representa dicho registro.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup my-arpa-zone.com "10" PTR --ptrdname "myservice.contoso.com"
+az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "my-arpa.zone.com" --ptrdname "myservice.contoso.com"
 ```
 
 ### <a name="create-an-srv-record"></a>Creación de un registro SRV
@@ -136,7 +146,7 @@ azure network dns record-set add-record MyResourceGroup my-arpa-zone.com "10" PT
 Al crear un [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique el * \_servicio* y el * \_protocolo* en el nombre del conjunto de registros. No es necesario incluir "@" en el nombre del conjunto de registros al crear un conjunto de registros SRV en el vértice de la zona.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com  "_sip._tls" SRV --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"
+az network dns record srv add --resource-group myresourcegroup --zone-name contoso.com --record-set-name "_sip.tls" --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"
 ```
 
 ### <a name="create-a-txt-record"></a>Creación de un registro TXT
@@ -144,57 +154,57 @@ azure network dns record-set add-record MyResourceGroup contoso.com  "_sip._tls"
 En el ejemplo siguiente se muestra cómo crear un registro TXT. Para más información sobre la longitud de cadena máxima admitida en registros TXT, consulte [Registros TXT](dns-zones-records.md#txt-records).
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com test-txt TXT --text "This is a TXT record"
+az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "test-txt" --value "This is a TXT record"
 ```
 
 ## <a name="get-a-record-set"></a>Recuperación de un conjunto de registros
 
-Para recuperar un conjunto de registros existente, use `azure network dns record-set show`. Para obtener ayuda, consulte `azure network dns record-set show -h`.
+Para recuperar un conjunto de registros existente, use `az network dns record-set show`. Para obtener ayuda, consulte `az network dns record-set show --help`.
 
 Al igual que sucede con la creación de un registro o conjunto de registros, el nombre del conjunto de registros especificado debe ser un nombre *relativo*, lo que significa que debe excluir el nombre de zona. También debe especificar el tipo de registro, la zona que contiene el conjunto de registros y el grupo de recursos que contiene la zona.
 
 En el ejemplo siguiente se recupera el registro *www* de tipo A de la zona *contoso.com*, que se encuentra en el grupo de recursos *MyResourceGroup*:
 
 ```azurecli
-azure network dns record-set show MyResourceGroup contoso.com www A
+az network dns record-set show --resource-group myresourcegroup --zone-name contoso.com --name www --type A
 ```
 
 ## <a name="list-record-sets"></a>Enumeración de conjuntos de registros
 
-Puede mostrar todos los registros de una zona DNS con el comando `azure network dns record-set list` . Para obtener ayuda, consulte `azure network dns record-set list -h`.
+Puede mostrar todos los registros de una zona DNS con el comando `az network dns record-set list` . Para obtener ayuda, consulte `az network dns record-set list --help`.
 
 En este ejemplo, se devuelve todos los conjuntos de registros de la zona *contoso.com*, que se encuentra en el grupo de recursos *MyResourceGroup*, con independencia del nombre o del tipo de registro:
 
 ```azurecli
-azure network dns record-set list MyResourceGroup contoso.com
+az network dns record-set list --resource-group myresourcegroup --zone-name contoso.com
 ```
 
 En este ejemplo, se devuelven todos los conjuntos de registros que coinciden con el tipo de registro especificado (en este caso, los registros "A"):
 
 ```azurecli
-azure network dns record-set list MyResourceGroup contoso.com --type A
+az network dns record-setA a list --resource-group myresourcegroup --zone-name contoso.com 
 ```
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>Adición de un registro a un conjunto de registros existente
 
-Puede usar `azure network dns record-set add-record` tanto para crear un registro en un nuevo conjunto de registros como para agregar un registro a un conjunto de registros existente.
+Puede usar `az network dns record-set add-record` tanto para crear un registro en un nuevo conjunto de registros como para agregar un registro a un conjunto de registros existente.
 
 Para obtener más información, consulte las secciones [Creación de un registro de DNS](#create-a-dns-record) y [Creación de registros de otros tipos](#create-records-of-other-types).
 
 ## <a name="remove-a-record-from-an-existing-record-set"></a>Quite un registro de un conjunto de registros existente.
 
-Para quitar un registro de DNS de un conjunto de registros existente, use `azure network dns record-set delete-record`. Para obtener ayuda, consulte `azure network dns record-set delete-record -h`.
+Para quitar un registro de DNS de un conjunto de registros existente, use `az network dns record-set ? remove-record`, donde ? es el tipo de registro). Para obtener ayuda, consulte `az network dns record-set -h`.
 
 Este comando elimina un registro de DNS de un conjunto de registros. Aunque se elimine el último registro de un conjunto de registros, dicho conjunto de registros **no** se elimina. En su lugar, se conservará un conjunto de registros vacío. Si desea eliminar el conjunto de registros, consulte [Eliminación de un conjunto de registros](#delete-a-record-set).
 
 Debe especificar el registro que desee eliminar y la zona de la que se debe eliminar; para ello, use los mismos parámetros empleados al crear el registro con `azure network dns record-set add-record`. Estos parámetros se describen en las secciones [Creación de un registro de DNS](#create-a-dns-record) y [Creación de registros de otros tipos](#create-records-of-other-types).
 
-Este comando solicita confirmación. Este mensaje se puede suprimir con el modificador `--quiet` (forma abreviada `-q`).
+Este comando solicita confirmación. Este mensaje se puede suprimir con el modificador `--yes`.
 
 En el ejemplo siguiente se elimina el registro A con el valor "1.2.3.4" del conjunto de registros con el nombre *www* de la zona *contoso.com*, que se encuentra en el grupo de recursos *MyResourceGroup*. Se suprime el mensaje de confirmación.
 
 ```azurecli
-azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4 --quiet
+az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4 --yes
 ```
 
 ## <a name="modify-an-existing-record-set"></a>Modificación de un conjunto de registros existente
@@ -208,30 +218,30 @@ Para modificar un registro existente de tipo A, AAAA, MX, NS, PTR, SRV o TXT, de
 En el ejemplo siguiente se muestra cómo modificar un registro "A", de la dirección IP 1.2.3.4 a la 5.6.7.8:
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com www A -a 5.6.7.8
-azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 5.6.7.8
+az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4
 ```
 
-No puede agregar, quitar ni modificar los registros del conjunto de registros NS creado automáticamente en el vértice de zona (`-Name "@"`, comillas incluidas). En el caso de este conjunto de registros, los únicos cambios permitidos son modificar el TTL del conjunto de registros y los metadatos.
+No puede agregar, quitar ni modificar los registros del conjunto de registros NS creado automáticamente en el vértice de zona (`--Name "@"`, comillas incluidas). En el caso de este conjunto de registros, los únicos cambios permitidos son modificar el TTL del conjunto de registros y los metadatos.
 
 ### <a name="to-modify-a-cname-record"></a>Para modificar un registro CNAME
 
-Si desea modificar un registro CNAME, utilice `azure network dns record-set add-record` para agregar el nuevo valor del registro. A diferencia de otros tipos de registros, un conjunto de registros CNAME solo puede contener un único registro. Por lo tanto, el registro existente se *sustituye* cuando se agrega el nuevo registro y no hace falta eliminarlo por separado.  Se le pedirá que acepte esta sustitución.
+Si desea modificar un registro CNAME, use `az network dns record-set update` con el modificador --set para agregar el nuevo valor del registro. A diferencia de otros tipos de registros, un conjunto de registros CNAME solo puede contener un único registro.
 
 En el ejemplo se modifica el conjunto de registros CNAME *www* de la zona *contoso.com*, que se encuentra en el grupo de recursos *MyResourceGroup*, para que apunte a "www.fabrikam.net" en lugar de a su valor existente:
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com www CNAME --cname www.fabrikam.net
+az network dns record-set update --resource-group myresourcegroup --zone-name contoso.com --name test-cname --type cname --set cnameRecord.cname=www.fabrikam.net
 ``` 
 
 ### <a name="to-modify-an-soa-record"></a>Para modificar un registro SOA
 
-Utilice `azure network dns record-set set-soa-record` para modificar el SOA de una zona DNS especificada. Para obtener ayuda, consulte `azure network dns record-set set-soa-record -h`.
+Utilice `az network dns record-set soa update` para modificar el SOA de una zona DNS especificada. Para obtener ayuda, consulte `az network dns record soa update --help`.
 
 En el ejemplo siguiente se muestra cómo establecer la propiedad "email" del registro SOA de la zona *contoso.com* del grupo de recursos *MyResourceGroup*:
 
 ```azurecli
-azure network dns record-set set-soa-record rg1 contoso.com --email admin.contoso.com
+az network dns record-set soa update --resource-group myresourcegroup --zone-name contoso.com --email admin.contoso.com
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Para modificar el TTL de un conjunto de registros existente
@@ -241,17 +251,17 @@ Para modificar el TTL de un conjunto de registros existente, utilice `azure netw
 En el ejemplo siguiente se muestra cómo modificar el TTL de un conjunto de registros, en este caso a 60 segundos:
 
 ```azurecli
-azure network dns record-set set MyResourceGroup contoso.com www A --ttl 60
+az network dns record-set update --resource-group myresourcegroup --zone-name contoso.com --name "www" --type A --set ttl=60
 ```
 
 ### <a name="to-modify-the-metadata-of-an-existing-record-set"></a>Para modificar los metadatos de un conjunto de registros existente
 
-Se pueden usar [metadatos del conjunto de registros](dns-zones-records.md#tags-and-metadata) para asociar datos específicos de la aplicación con cada conjunto de registros como pares clave-valor. Para modificar los metadatos de un conjunto de registros existente, utilice `azure network dns record-set set`. Para obtener ayuda, consulte `azure network dns record-set set -h`.
+Se pueden usar [metadatos del conjunto de registros](dns-zones-records.md#tags-and-metadata) para asociar datos específicos de la aplicación con cada conjunto de registros como pares clave-valor. Para modificar los metadatos de un conjunto de registros existente, utilice `az network dns record-set update`. Para obtener ayuda, consulte `az network dns record-set update --help`.
 
 En el siguiente ejemplo, se muestra cómo modificar un conjunto de registros con dos entradas de metadatos, "dept=finance" y "environment=production", mediante el parámetro `--metadata` (forma abreviada `-m`): Tenga en cuenta que los metadatos existentes se *sustituyen* por los valores especificados.
 
 ```azurecli
-azure network dns record-set set MyResourceGroup contoso.com www A --metadata "dept=finance;environment=production"
+az network dns record-set update --resource-group myresourcegroup --zone-name contoso.com --name "www" --type A --set metadata.dept=finance metadata.environment=production
 ```
 
 ## <a name="delete-a-record-set"></a>Eliminación de un conjunto de registros
@@ -264,19 +274,14 @@ Los conjuntos de registros pueden eliminarse mediante el comando `azure network 
 En el ejemplo siguiente se elimina el conjunto de registros con el nombre *www* de tipo A de la zona *contoso.com*, la cual se encuentra en el grupo de recursos *MyResourceGroup*:
 
 ```azurecli
-azure network dns record-set delete MyResourceGroup contoso.com www A
+az network dns record-set delete --resource-group myresourcegroup --zone-name contoso.com --name www --type a
 ```
 
-Se le pide que confirme la operación de eliminación. Para suprimir este mensaje, utilice el modificador `--quiet` (forma abreviada `-q`).
+Se le pide que confirme la operación de eliminación. Para suprimir este mensaje, use el modificador `--yes`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre [zonas y registros en Azure DNS](dns-zones-records.md).
 <br>
 Aprenda a [proteger las zonas y los registros](dns-protect-zones-recordsets.md) cuando se usa Azure DNS.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

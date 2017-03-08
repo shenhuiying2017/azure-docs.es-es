@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-a-3-node-deis-cluster"></a>Implementar un clúster Deis de 3 nodos
+# <a name="deploy-and-configure-a-3-node-deis-cluster-in-azure"></a>Implementación y configuración de un clúster Deis de 3 nodos en Azure
 Este artículo le guiará a través de aprovisionamiento de un clúster [Deis](http://deis.io/) en Azure. Abarca todos los pasos de creación de los certificados necesarios para implementar y escalar una aplicación **Go** de ejemplo en el clúster recién suministrado.
 
 El siguiente diagrama muestra la arquitectura del sistema implementado. Un administrador del sistema administra el clúster con herramientas Deis como **deis** y **deisctl**. Las conexiones se establecen a través de un equilibrador de carga de Azure, que reenvía las conexiones a uno de los nodos de los miembros del clúster. Los clientes acceden a aplicaciones implementadas a través del equilibrador de carga también. En este caso, el equilibrador de carga reenvía el tráfico a una malla de enrutador Deis, que enruta el tráfico a los contenedores Docker correspondientes alojados en el clúster.
@@ -251,9 +253,4 @@ En este artículo le guiamos a través de todos los pasos para aprovisionar un n
 [azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

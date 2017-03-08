@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ec82fb896bc6c7212660746445af940f52546ad9
-ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
+ms.sourcegitcommit: a62cd616f0abd59c83c834bf13b4ba8549a9c73e
+ms.openlocfilehash: 83aabe0e5161cd3f94caa996dec29bc020e5308b
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -60,15 +61,17 @@ Para que sea más fácil configurar los entornos, hemos creado algunas [plantill
 
 ### <a name="configure-one-virtual-network"></a>Configuración de una única red virtual
 
-Haga clic en la imagen siguiente para crear dos clústeres de HBase en la misma red virtual. La plantilla se encuentra almacenada en un contenedor de blobs de Azure público.
+Haga clic en la imagen siguiente para crear dos clústeres de HBase en la misma red virtual. La plantilla se encuentra en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ### <a name="configure-two-virtual-networks-in-the-same-region"></a>Configuración de dos redes virtuales en la misma región
 
-Haga clic en la imagen siguiente para crear dos redes virtuales con emparejamiento de VNet y dos clústeres de HBase en la misma región. La plantilla se encuentra almacenada en un contenedor de blobs de Azure público.
+Haga clic en la imagen siguiente para crear dos redes virtuales con emparejamiento de VNet y dos clústeres de HBase en la misma región. La plantilla se encuentra en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-replication-with-two-vnets-peering-in-one-region.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+
 
 Este escenario requiere [emparejamiento de VNet](../virtual-network/virtual-network-peering-overview.md). La plantilla permite el emparejamiento de VNet.   
 
@@ -250,9 +253,4 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

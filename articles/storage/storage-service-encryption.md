@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 130100a4f1710a7820c8e9793db73144d7d68808
-ms.openlocfilehash: 26b1f0708b3705297b9a35cce0692d3503b03246
+ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
+ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,10 +39,10 @@ SSE funciona mediante el cifrado de los datos cuando se escribe en Azure Storage
 
 Storage Service Encryption: SSE Files Preview se puede utilizar para cifrar los datos de File Storage. Esto se encuentra actualmente en versión preliminar. A continuación se proporciona la lista de las regiones en las que SSE para File Storage está disponible.
 
-Para participar en SSE Files Preview, póngase en contacto con ssdiscussions@microsoft.com.
+Para participar en SSE Files Preview, póngase en contacto con ssediscussions@microsoft.com.
 
 Para más información, consulte la sección de preguntas más frecuentes.
-Disponibilidad de File Storage Storage Service Encryption para File Storage está disponible en la región Asia oriental.
+Disponibilidad de File Storage Storage Service Encryption para File Storage está disponible en la región Asia oriental, Europa del Norte y este de EE. UU. 2.
 
 
 Para habilitar o deshabilitar el cifrado del servicio Storage para una cuenta de almacenamiento, inicie sesión en [Azure Portal](https://azure.portal.com) y seleccione una cuenta de almacenamiento. En la hoja Configuración, busque la sección Blob service como se muestra en esta captura de pantalla y haga clic en Cifrado.
@@ -198,10 +199,5 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 ## <a name="next-steps"></a>Pasos siguientes
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

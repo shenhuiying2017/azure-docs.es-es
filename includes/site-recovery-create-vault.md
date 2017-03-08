@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Site Recovery**.
 2. Haga clic en **Nueva** > **Administración** >
 3. En **Nombre**, especifique un nombre descriptivo para identificar el almacén. Si tiene más de una suscripción, seleccione una de ellas.

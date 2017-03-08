@@ -1,6 +1,6 @@
 ---
 title: "¿Qué es Azure Backup? | Microsoft Docs"
-description: "Con Azure Backup y Recovery Services, se pueden realizar una copia de seguridad y restaurar los datos y aplicaciones de servidores de Windows, equipos Windows, servidores de System Center DPM y máquinas virtuales de Azure."
+description: "Con Azure Backup y Recovery Services, puede realizar una copia de seguridad y restaurar los datos y aplicaciones de servidores y estaciones de trabajo de Windows, servidores y cargas de trabajo System Center DPM y máquinas virtuales de Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 2/23/2017
 ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
-ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
+ms.sourcegitcommit: 39ad8e07659a228e4a4b861cc98e9f3e830aaab0
+ms.openlocfilehash: 63d3d95300f3d2353471b8ca4923f3bf682464bb
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -45,7 +46,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 **Copia de seguridad coherente con la aplicación**: tanto si va a realizar una copia de seguridad de un servidor de archivos, una máquina virtual o una base de datos SQL, debe saber que un punto de recuperación tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitan correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que le permite volver rápidamente a un estado de ejecución.
 
-**Retención a largo plazo**: en lugar de pasar las copias de seguridad de disco a cinta y luego llevar dicha cinta a una ubicación externa para su almacenamiento a largo plazo, puede usar Azure para la retención a corto y largo plazo. Azure no limita la cantidad de tiempo que los datos se conservan en un almacén de Backup o Recovery Services. Los datos se pueden conservar en un almacén tanto tiempo como se desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. Consulte la sección [Copia de seguridad y retención](backup-introduction-to-azure-backup.md#backup-and-retention) de este artículo para obtener una explicación de la forma en que este límite puede afectar a sus necesidades de copia de seguridad.  
+**Retención a largo plazo**: en lugar de pasar las copias de seguridad de disco a cinta y luego trasladar la cinta a una ubicación externa, puede usar Azure para la retención a corto y largo plazo. Azure no limita la cantidad de tiempo que los datos permanecen en un almacén de Backup o Recovery Services. Los datos se pueden conservar en un almacén tanto tiempo como se desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. Consulte la sección [Copia de seguridad y retención](backup-introduction-to-azure-backup.md#backup-and-retention) de este artículo para obtener una explicación de la forma en que este límite puede afectar a sus necesidades de copia de seguridad.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>¿Qué componentes de Azure Backup debo usar?
 Si no está seguro de qué componentes de Azure Backup vienen bien para sus necesidades, consulte la siguiente tabla para información sobre lo que puede proteger con cada uno. Azure Portal proporciona un asistente, que está integrado en el portal, para guiarle a través de la elección de los componentes para descargar e implementar. El asistente, que forma parte de la creación del almacén de Recovery Services, le lleva por los pasos para seleccionar un objetivo de copia de seguridad y elegir los datos o la aplicación para proteger.
@@ -96,7 +97,7 @@ En la siguiente tabla se muestran los componentes de Azure Backup que son compat
 Azure Backup protege las máquinas virtuales con Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Copia de seguridad de máquinas virtuales de almacenamiento premium
-Durante la copia de seguridad de máquinas virtuales de almacenamiento premium, el servicio de copia de seguridad crea una ubicación de ensayo temporal en la cuenta de almacenamiento premium. La ubicación de ensayo, denominada "AzureBackup-" es igual al tamaño total de los datos de los discos premium conectados a la máquina virtual. Compruebe si hay suficiente espacio disponible para una ubicación de almacenamiento provisional temporal en la cuenta de almacenamiento. Para más información, consulte las [limitaciones del almacenamiento premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Durante la copia de seguridad de máquinas virtuales de almacenamiento premium, el servicio de copia de seguridad crea una ubicación de ensayo temporal en la cuenta de almacenamiento premium. La ubicación de ensayo, denominada "AzureBackup-" es igual al tamaño total de los datos de los discos premium conectados a la máquina virtual. Compruebe si hay suficiente espacio disponible para una ubicación de almacenamiento provisional temporal en la cuenta de almacenamiento. Para más información, consulte las [limitaciones de Premium Storage](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
 
 > [!NOTE]
 > No modifique ni edite la ubicación de ensayo.
@@ -112,10 +113,10 @@ Las máquinas virtuales de Premium Storage se pueden restaurar a cualquier almac
 Azure Backup protege las máquinas virtuales de disco administrado. Los discos administrados le liberan de la administración de cuentas de almacenamiento de máquinas virtuales simplifican en gran medida el aprovisionamiento de las máquinas virtuales.
 
 ### <a name="back-up-managed-disk-vms"></a>Copia de seguridad de máquinas virtuales de disco administrado
-La copia de seguridad de las máquinas virtuales en discos administrados no difiere de la de máquinas virtuales de Resource Manager. Puede hacer una copia de seguridad directamente desde la vista de la máquina virtual o desde la vista de almacén de Recovery Services. Se admite la copia de seguridad de máquinas virtuales en discos administrados a través de colecciones de RestorePoint basadas en discos administrados. Actualmente Azure Backup no es compatible con la copia de seguridad de máquinas virtuales de disco administrado que cifradas mediante Azure Disk Encryption (ADE).
+Realizar copias de seguridad de máquinas virtuales en discos administrados no es tan diferente a realizar copias de seguridad de máquinas virtuales de Resource Manager. En Azure Portal, puede configurar el trabajo de copia de seguridad directamente en la vista de máquina virtual o la vista del almacén de Recovery Services. Puede realizar la copia de seguridad de máquinas virtuales en discos administrados mediante colecciones de RestorePoint basadas en discos administrados. Actualmente Azure Backup no admite la copia de seguridad de máquinas virtuales de discos administrados cifradas mediante Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Restauración de máquinas virtuales de disco administrado
-Azure Backup le permite restaurar una máquina virtual completa con discos administrados o de restauración administrada a una cuenta de almacenamiento de Resource Manager. Aunque los discos creados durante la restauración los administra Azure, la cuenta de almacenamiento creada como parte de este proceso es similar a cualquier otra de Resource Manager y se espera que la administre el cliente.
+Azure Backup le permite restaurar una máquina virtual completa con discos administrados o restaurar discos administrados en una cuenta de almacenamiento de Resource Manager. Azure administra los discos administrados durante el proceso de restauración. Usted (el cliente) administra la cuenta de almacenamiento creada como parte del proceso de restauración.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>¿Cuáles son las características de cada componente de Backup?
 En las secciones siguientes se proporcionan tablas que resumen la disponibilidad o la compatibilidad de diversas características de cada componente de Azure Backup. Consulte la siguiente información de cada tabla para obtener ayuda o información adicional.
@@ -137,8 +138,6 @@ El almacén de Copia de seguridad es el destino de almacenamiento preferido en t
 #### <a name="compression"></a>Compresión
 Las copias de seguridad se comprimen para reducir el espacio de almacenamiento necesario. El único componente que no utiliza compresión es la extensión de VM. La extensión de máquina virtual copia todos los datos de copia de seguridad desde su cuenta de almacenamiento en el Almacén de copia de seguridad de la misma región. Al transferir los datos, no se usa ningún tipo de compresión. Cuando se transfieren los datos sin comprimir, aumenta ligeramente el almacenamiento usado. Sin embargo, el almacenamiento de datos sin compresión permite tiempos de restauración más rápidos, en caso de que necesite ese punto de recuperación.
 
-#### <a name="incremental-backup"></a>Copia de seguridad incremental
-Cada componente admite la copia de seguridad incremental independientemente del tipo de almacenamiento de destino (disco, cinta, almacén de copia de seguridad). La copia de seguridad incremental garantiza que las copias de seguridad sean eficaces desde el punto de vista del almacenamiento y del tiempo, transfiriendo solo los cambios realizados desde la última copia de seguridad.
 
 #### <a name="disk-deduplication"></a>Desduplicación de disco
 Puede aprovechar las ventajas de la desduplicación al implementar System Center DPM o Azure Backup Server [en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server realiza la desduplicación de los datos (en el nivel de host) en discos duros virtuales (VHD) que están conectados a la máquina virtual como almacenamiento de copia de seguridad.
@@ -147,6 +146,21 @@ Puede aprovechar las ventajas de la desduplicación al implementar System Center
 > La desduplicación no está disponible en Azure para ninguno de los componentes de Backup. Cuando System Center DPM y el Servidor de Copia de seguridad se implementan en Azure, los discos de almacenamiento conectados a la VM no se pueden desduplicar.
 >
 >
+
+### <a name="incremental-backup-explained"></a>Explicación de una copia de seguridad incremental
+Cada componente de Azure Backup admite la copia de seguridad incremental, con independencia del almacenamiento de destino (disco, cinta, almacén de copia de seguridad). La copia de seguridad incremental garantiza que las copias de seguridad sean eficaces desde el punto de vista del almacenamiento y del tiempo, transfiriendo solo los cambios realizados desde la última copia de seguridad.
+
+#### <a name="comparing-full-differential-and-incremental-backup"></a>Comparación entre copia de seguridad completa, diferencial o incremental
+
+El consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el consumo de red varían según el tipo de método de copia de seguridad. Para reducir el costo total de propiedad (TCO), debe comprender cómo elegir la mejor solución de copia de seguridad. En la imagen siguiente se comparan la copia de seguridad completa, la copia de seguridad diferencial y la copia de seguridad incremental. En la imagen, el origen de datos A se compone de 10 bloques de almacenamiento A1-A10, de los que se hace una copia de seguridad cada mes. Los bloques A2, A3, A4 y A9 cambian en el primer mes y el bloque A5 cambia en el siguiente mes.
+
+![imagen que muestra las comparaciones de métodos de copia de seguridad](./media/backup-introduction-to-azure-backup/backup-method-comparison.png)
+
+Con la **copia de seguridad completa**, cada copia de seguridad contiene el origen de datos completo. La copia de seguridad completa consume una gran cantidad de ancho de banda de red y almacenamiento, cada vez que se transfiere una copia de seguridad.
+
+La **copia de seguridad diferencial** almacena solo los bloques que cambiaron desde la copia de seguridad completa inicial, lo que da lugar a un consumo menor de red y almacenamiento. Las copias de seguridad diferenciales no conservan copias redundantes de los datos sin modificar. Sin embargo, como los bloques de datos permanecen sin cambios entre las sucesivas copias de seguridad que se transfieren y almacenan, las copias de seguridad diferenciales no son eficaces. En el segundo mes, se realiza una copia de seguridad de los bloques modificados A2, A3, A4 y A9. En el tercer mes, se vuelve a hacer una copia de seguridad de estos mismos bloques, junto con el bloque A5 modificado. Los bloques modificados se siguen copiando hasta que tiene lugar la siguiente copia de seguridad completa.
+
+La **copia de seguridad incremental** logra una alta eficacia de almacenamiento y red al almacenar solo los bloques de datos que cambiaron desde la copia de seguridad anterior. Con la copia de seguridad incremental, no hay ninguna necesidad de realizar copias de seguridad completas periódicas. En el ejemplo, después de realizar la copia de seguridad completa el primer mes, los bloques modificados A2, A3, A4 y A9 se marcan como modificados y se transfieren al segundo mes. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere. Mover menos datos ahorra recursos de almacenamiento y red, lo que reduce el TCO.   
 
 ### <a name="security"></a>Seguridad
 | Característica | Agente de copia de seguridad de Azure | System Center DPM | Servidor de Copia de seguridad de Azure | Copia de seguridad de máquina virtual de IaaS de Azure |
@@ -203,8 +217,8 @@ Una instancia protegida es una referencia genérica a un equipo de Windows, un s
 Algunos ejemplos comunes de instancias protegidas son máquinas virtuales, servidores de aplicaciones, bases de datos y equipos personales que ejecutan el sistema operativo Windows. Por ejemplo:
 
 * Una máquina virtual que ejecuta el tejido de hipervisor de Hyper-V o IaaS de Azure. Los sistemas operativos invitados de la máquina virtual puede ser Windows Server o Linux.
-* Un servidor de aplicaciones: el servidor de aplicaciones puede ser una máquina física o virtual con Windows Server y las cargas de trabajo con los datos de los que es necesario realizar copias de seguridad. Las cargas de trabajo habituales son las siguientes: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics y el rol Servidor de archivos en Windows Server. Para realizar copias de seguridad de estas cargas de trabajo se necesita System Center Data Protection Manager (DPM) o servidor de copia de seguridad de Azure.
-* Un equipo personal o portátil que ejecuta el sistema operativo Windows.
+* Un servidor de aplicaciones: el servidor de aplicaciones puede ser una máquina física o virtual con Windows Server y las cargas de trabajo con los datos de los que es necesario realizar copias de seguridad. Las cargas de trabajo habituales son las siguientes: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server y el rol Servidor de archivos en Windows Server. Para realizar copias de seguridad de estas cargas de trabajo se necesita System Center Data Protection Manager (DPM) o servidor de copia de seguridad de Azure.
+* Un equipo personal, estación de trabajo o portátil con el sistema operativo Windows.
 
 
 ## <a name="what-is-the-vault-credential-file"></a>¿Qué es el archivo de credenciales de almacén?
@@ -213,7 +227,7 @@ El archivo de credenciales de almacén es un certificado generado por el portal 
 La credencial de almacén solo se usa para registrar los servidores o los equipos. Sin embargo, tenga cuidado con las credenciales de almacén; si se pierden o las consiguen otros usuarios, se pueden usar para registrar otras máquinas con el mismo almacén. Puesto que los datos de copia de seguridad se cifran con una frase de contraseña, a la que solo usted puede acceder, los datos de copia de seguridad existentes no pueden estar en peligro. Las credenciales de almacén expiran a las 48 horas. Aunque puede descargar las credenciales de almacén del almacén de copia de seguridad con tanta frecuencia como desee, solo las más recientes se pueden usar para el registro.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>¿Qué diferencias hay entre Copia de seguridad de Azure y Azure Site Recovery?
-Azure Backup y Azure Site Recovery están relacionados porque ambos servicios realizan una copia de seguridad de los datos y pueden restaurarlos, pero sus propuestas clave de valor son distintas.
+Azure Backup y Azure Site Recovery tienen en común que ambos servicios realizan una copia de seguridad de los datos y pueden restaurar dichos datos. Sin embargo, estos servicios tienen propuestas de valor diferentes.
 
 Azure Backup protege los datos locales y en la nube. Azure Site Recovery coordina la replicación de la máquina virtual y el servidor físico, la conmutación por error y la conmutación por recuperación. Ambos servicios son importantes porque la solución de recuperación ante desastres debe mantener los datos seguros y recuperables (Copia de seguridad) *y* mantener las cargas de trabajo disponibles (Recuperación del sitio) cuando se producen interrupciones.
 
@@ -240,9 +254,4 @@ Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

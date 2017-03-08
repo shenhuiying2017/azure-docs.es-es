@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 7c75fd870efb93bcf6c69ccf8a8ea9b56288c749
-ms.openlocfilehash: 0744b317f595786b91afce3c9e9d59f64ceef25d
+ms.sourcegitcommit: 801eef31e4a06fd1b89ddf504d643d9dcfcdcbdc
+ms.openlocfilehash: 99e6f4c1be6fa73db05fc4635fa5c34a579af588
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -61,6 +62,21 @@ Obtenga más información sobre [Citrix XenApp Express](http://now.citrix.com/re
 ### <a name="citrix-service-provider-program"></a>**Programa de proveedor de servicios de Citrix**
 Gracias al programa de proveedor de servicios de Citrix, los proveedores de servicios pueden brindar a las pymes informática en la nube virtual de forma fácil, de modo que pueden ofrecer los servicios que estos quieran con un modelo de pago por uso sencillo. Los proveedores de servicios de Citrix aumentan su volumen de negocios de SPLA de Microsoft y amplían sus inversiones en plataformas RDS con acceso desde cualquier dispositivo y ubicación, la compatibilidad con aplicaciones más extensa del mercado, una experiencia de usuario fructífera, mayor seguridad y más escalabilidad. A su vez, proveedores de servicios de Citrix atraen a más suscriptores, aumentan la satisfacción del cliente y reducen los costos operativos. [Obtenga más información](http://www.citrix.com/products/service-providers.html) o [busque un asociado](https://www.citrix.com/buy/partnerlocator.html).
 
+### <a name="frame"></a>Frame
+
+Las organizaciones de TI de empresas y equipos gubernamentales, los proveedores de servicios administrados y los proveedores de software líderes eligen Frame para crear y administrar en la nube sus áreas de trabajo seguras y definidas por software. Frame facilita el trabajo enormemente a todo tipo de organizaciones, desde pequeñas hasta grandes, ya que permite a los usuarios acceder a aplicaciones de Windows en cualquier explorador y desde cualquier dispositivo. La plataforma Frame incluye todo lo que necesita un administrador para implementar aplicaciones desde la nube, incluidos la infraestructura de Azure y las licencias de RDS (es opcional incluir licencias y cuentas de Azure personalizadas). 
+
+Obtenga más información sobre [Frame en Azure](https://www.fra.me/ara). 
+
+Ubicación principal: San Mateo, California (Estados Unidos)
+
+Región operativa: en todo el mundo
+
+Asociado de Microsoft: Sí
+
+1-480-269-4668
+
+
 ### <a name="microsoft-hosted-service-provider"></a>**Proveedor de servicios hospedados de Microsoft**
 Los asociados de hospedaje suelen ofrecen un servicio hospedado de aplicaciones y escritorio de Windows totalmente administrado, que puede incluir la administración de recursos de Azure, sistemas operativos, aplicaciones y el departamento de soporte técnico a través de los contratos de licencias de contratos del asociado con Microsoft y otros proveedores de software, además de constituir un contrato de licencia de proveedor de servicios para permitir la reventa de licencias de acceso de suscriptor (SAL). La siguiente información proporciona detalles e información de contacto de algunos de los proveedores de hospedaje que están especializados en ayudar a los clientes con su migración de Azure RemoteApp. Consulte la [lista actual de proveedores de servicios hospedados](http://aka.ms/rdsonazurecertified) que finalizaron la evaluación y la ruta de aprendizaje de RDS en IaaS.  
 
@@ -86,7 +102,7 @@ Soluciones de migración de Azure RemoteApp: sí [(más información)](https://w
 * Sitio web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
 
 #### <a name="conexlink-platform-name-mycloudit"></a>**Conexlink (nombre de la plataforma: MyCloudIT)**
-[MyCloudIT](http://www.mycloudit.com) es una plataforma de automatización que permite a las empresas de TI simplificar, optimizar, y escalar la migración y la entrega de aplicaciones y escritorios remotos, además de la infraestructura en la nube de Microsoft Azure. 
+[MyCloudIT](https://mycloudit.com) es una plataforma de automatización que permite a las empresas de TI simplificar, optimizar, y escalar la migración y la entrega de aplicaciones y escritorios remotos, además de la infraestructura en la nube de Microsoft Azure. 
 
 La plataforma MyCloudIT reduce el tiempo de implementación al 95 %, los costos de Azure al 30 % y mueve toda la infraestructura de TI del cliente a la nube en muy poco tiempo. Ahora, los asociados pueden administrar, desde un panel global, clientes y usuarios finales de servicios de todo el mundo como nunca antes, además de aumentar los ingresos, sin tener que agregar más sobrecarga ni ampliar el aprendizaje de Azure.  
 
@@ -208,10 +224,5 @@ Oferta de soluciones de RemoteApp y escritorio basadas en sesiones: Sí, ambas
 1. Envíenos un correo electrónico a [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
 2. Póngase en contacto con el equipo de [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Comience abriendo un [caso de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 3. Llámenos. [Encuentre un número de ventas local](https://azure.microsoft.com/overview/sales-number/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

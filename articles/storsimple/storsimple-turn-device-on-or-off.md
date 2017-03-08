@@ -4,7 +4,7 @@ description: "Explica cómo encender un dispositivo de StorSimple nuevo, encende
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5943276236d239e8ee2eba302f52e9445203564d
+ms.sourcegitcommit: 6bfbb0b5eaae3fb3ce45d719ea1d3dec48ed0467
+ms.openlocfilehash: 359aaa1af6765270d9fe0f449007fcb4323b0ad4
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="turn-your-storsimple-device-on-or-off"></a>Encendido o apagado del dispositivo de StorSimple
+# <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activación o desactivación del dispositivo StorSimple serie 8000
 ## <a name="overview"></a>Información general
 No se requiere apagar el dispositivo de Microsoft Azure StorSimple como parte del funcionamiento normal del sistema. Sin embargo, es posible que sea necesario encender un dispositivo nuevo o puede que se haya debido apagar un dispositivo. Por lo general, se requiere apagar un dispositivo en casos en que se debe reemplazar algún hardware con error, mover físicamente una unidad o quitar un dispositivo del servicio. En este tutorial, se describe el procedimiento necesario para encender y apagar el dispositivo de StorSimple en distintos escenarios.
 
@@ -187,10 +189,5 @@ Después de obtener acceso a Windows PowerShell para StorSimple o al Portal de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Contact Microsoft Support](storsimple-contact-microsoft-support.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

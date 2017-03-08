@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
 ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -179,10 +180,5 @@ AdlCopy admite la copia de datos que contienen miles de archivos y carpetas. Sin
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

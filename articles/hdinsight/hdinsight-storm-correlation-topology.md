@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 6c9e70c3de404a3a5af343570203d6724342e062
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: 2f2792c409b579ba721195e5749a38c6396f339d
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="correlate-events-over-time-with-storm-and-hbase-on-hdinsight"></a>Poner en correlación eventos con el tiempo con Storm y HBase en HDInsight
+# <a name="correlate-events-that-arrive-at-differnet-times-using-storm-and-hbase"></a>Correlación de eventos que llegan a diferentes horas con Storm y HBase
 
 Si utiliza un almacén de datos persistente con Apache Storm, puede poner en correlación entradas de datos que llegan en distintos momentos. Por ejemplo, puede vincular eventos de inicio y cierre de sesión de una sesión de usuario para calcular cuánto tiempo duró la sesión.
 
@@ -217,10 +218,5 @@ Cuando esté listo para detener la topología, vuelva al proyecto **CorrelationT
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

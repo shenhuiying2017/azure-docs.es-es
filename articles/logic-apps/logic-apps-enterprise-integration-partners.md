@@ -1,11 +1,11 @@
 ---
-title: "Información acerca de asociados y Enterprise Integration Pack | Microsoft Docs"
-description: "Sepa cómo usar partners con las Aplicaciones lógicas y Enterprise Integration Pack"
+title: "Creación de asociados para mensajes de negocio a negocio (B2B): Azure Logic Apps | Microsoft Docs"
+description: "Información sobre cómo agregar asociados a una cuenta de integración con Enterprise Integration Pack y Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: estfan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2549531d21c8e15e5bbb4321c4119e6aaac53e96
-ms.openlocfilehash: de12b83c811dcdd93ed691ddade9d748383110df
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 2a886d1eaf1253b55d8c95786139a2bbdc6f145e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="partners-in-b2b-scenarios"></a>Asociados en escenarios de B2B
+# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Incorporación o actualización de asociados de contratos de negocio a negocio del flujo de trabajo
 
 Los asociados son entidades que participan en transacciones de negocio a negocio (B2B) e intercambian mensajes entre ellos. Antes de poder crear asociados que le representen a usted y a otra organización en estas transacciones, debe compartir la información que identifica y valida los mensajes enviados por cada uno. Después de analizar estos detalles y prepararse para comenzar la relación de negocios, podrá crear asociados en la cuenta de integración para que los represente a ambos.
 
@@ -89,10 +91,5 @@ La configuración de recepción y de envío afecta exclusivamente al partner anf
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre los contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

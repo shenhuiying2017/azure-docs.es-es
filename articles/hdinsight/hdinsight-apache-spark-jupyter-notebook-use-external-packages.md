@@ -18,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -97,7 +98,7 @@ Debe tener lo siguiente:
    
         df.select("Time").count()
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Otras referencias
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
@@ -109,7 +110,7 @@ Debe tener lo siguiente:
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 
@@ -123,10 +124,5 @@ Debe tener lo siguiente:
 ### <a name="manage-resources"></a>Administración de recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

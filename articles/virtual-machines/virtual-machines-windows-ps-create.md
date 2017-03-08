@@ -13,18 +13,26 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c1262b7708918cbdc8ce35f3e65a47a04797f195
-ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
+ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
+ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Creación de una máquina virtual de Windows con Resource Manager y PowerShell
 
-En este artículo se muestra cómo crear rápidamente una máquina virtual de Azure con Windows Server y los recursos que necesita mediante [Resource Manager](../azure-resource-manager/resource-group-overview.md) y PowerShell. Todos los pasos de este artículo son necesarios para crear una máquina virtual; se tardará unos 30 minutos en realizarlos. Reemplace los valores de parámetros de ejemplo en los comandos por nombres que tengan sentido para su entorno.
+En este artículo se muestra cómo crear rápidamente una máquina virtual de Azure que ejecuta Windows Server y los recursos que necesita mediante [Resource Manager](../azure-resource-manager/resource-group-overview.md) y Azure PowerShell.  
+
+Todos los pasos de este artículo son necesarios para crear una máquina virtual; se tardará unos 30 minutos en realizarlos. Reemplace los valores de parámetros de ejemplo en los comandos por nombres que tengan sentido para su entorno.
 
 ## <a name="step-1-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
 
 Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta.
+
+> [!NOTE]
+> Puede que deba volver a instalar Azure PowerShell para usar la funcionalidad de este artículo. Las funcionalidades de Managed Disks están en la versión 3.5 y superior.
+> 
+> 
 
 ## <a name="step-2-create-a-resource-group"></a>Paso 2: Creación de un grupo de recursos
 
@@ -175,10 +183,5 @@ Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina
 * Si se produjeron problemas durante la implementación, el paso siguiente sería consultar [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 * Aprenda a administrar la máquina virtual que ha creado. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

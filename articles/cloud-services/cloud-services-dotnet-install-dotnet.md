@@ -12,19 +12,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/24/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: d67271ebf90ac2a1870787de7cfe6459526fcb37
-ms.openlocfilehash: 60cd63540d91e11729f2a305b999548d5c6b9320
-
+ms.sourcegitcommit: 0ac8ca0c5407925728ed0431294a3234b58d6e63
+ms.openlocfilehash: 04506596ba21c3ebef7237eaad8c5d786ad672fe
+ms.lasthandoff: 02/27/2017
 
 ---
+
 # <a name="install-net-on-a-cloud-service-role"></a>Instalación de .NET en un rol de servicio en la nube
 En este artículo se describe cómo instalar diferentes versiones de .NET Framework en roles web de servicio en la nube y de trabajo distintos a los que vienen con el sistema operativo invitado. Por ejemplo, puede utilizar estos pasos para instalar .NET 4.6.1 en la familia de SO invitado de Azure 4 que no se incluye con ninguna versión de .NET 4.6. Para obtener la información más reciente sobre las versiones de sistema operativo invitado, consulte [Novedades de la versión del SO invitado de Azure](cloud-services-guestos-update-matrix.md).
 
 >[!NOTE]
 >SO invitado 5 incluye .NET 4.6
+
+>[!IMPORTANT]
+>Azure SDK 2.9 contiene una restricción sobre la implementación de .NET 4.6 en SO invitados de versión 4 o inferior. Hay disponible una corrección [aquí](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 El proceso de instalación de .NET en el rol web y el rol de trabajo implica incluir el paquete del instalador de .NET como parte del proyecto en la nube e iniciar el instalador como parte de las tareas de inicio del rol.  
 
@@ -189,22 +193,17 @@ Esto configurará los diagnósticos de Azure para transferir todos los archivos 
 Cuando implemente el servicio, se ejecutarán las tareas de inicio e instalarán .NET Framework si todavía no está instalado. Los roles tendrán un estado de ocupado mientras se esté instalando el marco e, incluso, podrían reiniciarse si la instalación del marco así lo requiere. 
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Instalar .NET Framework][Instalar .NET Framework]
-* [Determinación de las versiones instaladas de .NET Framework][Determinación de las versiones instaladas de .NET Framework]
-* [Solución de problemas en instalaciones de .NET Framework][Solución de problemas en instalaciones de .NET Framework]
+* [Instalar .NET Framework][Installing the .NET Framework]
+* [Determinación de las versiones instaladas de .NET Framework][How to: Determine Which .NET Framework Versions Are Installed]
+* [Solución de problemas en instalaciones de .NET Framework][Troubleshooting .NET Framework Installations]
 
-[Determinación de las versiones instaladas de .NET Framework]: https://msdn.microsoft.com/library/hh925568.aspx
-[Instalar .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
-[Solución de problemas en instalaciones de .NET Framework]: https://msdn.microsoft.com/library/hh925569.aspx
+[How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
+[Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
+[Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/library/hh925569.aspx
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 62b5469d06974dfbe1b243091d34e1141416c971
+ms.sourcegitcommit: 4652795b8bef910b4e5eb83ef836e7b75621ab8a
+ms.openlocfilehash: bbea6700f7abc7822c3530f151c224cb59104cb1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -43,8 +44,8 @@ Si tiene dudas sobre la integración del registro de Azure, envíe un correo ele
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, se ha presentado la integración de registros de Azure. Para más información al respecto y los tipos de registros admitidos, consulte:
 
-* [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) (Integración de registro de Microsoft Azure para registros de Azure) (versión preliminar): centro de descarga para conocer los detalles, los requisitos del sistema y las instrucciones de instalación de la integración de registro de Azure.
-* [Get started with Azure log integration](security-azure-log-integration-get-started.md) (Introducción a la integración de registros de Azure): este tutorial le lleva por la instalación de la integración de registros de Azure y la integración de registros de Almacenamiento de Azure, registros de auditoría de Azure y alertas de Security Center.
+* [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center (Integración de registro de Microsoft Azure para registros de Azure (versión preliminar): Centro de descargas), para más información, los requisitos del sistema y las instrucciones de instalación de la integración de registro de Azure.
+* [Get started with Azure log integration](security-azure-log-integration-get-started.md) (Introducción a la integración de registros de Azure): este tutorial lo guía a través de la instalación de la integración de registros de Azure y de almacenamiento de Azure WAD, de registros de actividad de Azure, de alertas de Azure Security Center, y de registros de auditoría de Azure Active Directory.
 * [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : esta entrada de blog le muestra cómo configurar la integración de registros de Azure para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar.
 * [Preguntas más frecuentes sobre la integración de registro de Azure (P+F)](security-azure-log-integration-faq.md). Este artículo de preguntas más frecuentes responde a preguntas sobre la integración de registro de Azure.
 * [Integración de las alertas de Security Center con la integración de registro de Azure (versión preliminar)](../security-center/security-center-integrating-alerts-with-log-integration.md). Este documento le explica cómo sincronizar las alertas de Security Center, además de los eventos de seguridad de máquina virtual recopilados por Diagnósticos de Azure y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM.
@@ -52,9 +53,4 @@ En este documento, se ha presentado la integración de registros de Azure. Para 
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

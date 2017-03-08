@@ -1,6 +1,6 @@
 ---
 title: "Conversión de una VM con Linux en Azure de discos no administrados a discos administrados | Microsoft Docs"
-description: "Cómo convertir una VM de discos no administrados a discos administrados de Azure mediante la CLI de Azure 2.0 (versión preliminar)"
+description: "Procedimiento para convertir una máquina virtual de discos no administrados a discos administrados de Azure mediante la CLI de Azure 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ef59fc785847f09706a565dc0a0471f8c08e7955
-ms.openlocfilehash: 71e0bfb230cc0c385a09243fa195e918bbade865
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 937b22dd9ad26211b006326b39cafe9c5da4e8bd
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -38,7 +39,7 @@ No puede convertir un disco no administrado en un disco administrado si el disco
 En esta sección se explica cómo convertir las VM de Azure existentes de discos no administrados a discos administrados. Puede utilizar este proceso para realizar conversiones de discos no administrados premium (SDD) a discos administrados premium, o bien de discos no administrados estándar (HDD) a discos administrados estándar. 
 
 > [!IMPORTANT]
-> Después de realizar el procedimiento siguiente, hay un blob en bloques único que permanece en el contenedor de VHD predeterminado. El nombre del archivo es "VMName.xxxxxxx.status". No elimine este objeto de estado restante. En los futuros trabajos se debe abordar este problema.
+> Después de realizar el procedimiento siguiente, hay un blob en bloques único que permanece en el contenedor de VHD predeterminado. El nombre del archivo es "VMName.xxxxxxx.status". No elimine este objeto de estado de mantenimiento restante. En los futuros trabajos se debe abordar este problema.
 
 1. Desasigne la VM con [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
@@ -98,9 +99,4 @@ Todas las VM del conjunto de disponibilidad deben desasignarse antes de converti
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las opciones de almacenamiento, vea [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

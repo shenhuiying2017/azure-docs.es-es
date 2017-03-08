@@ -3,10 +3,10 @@ En la tabla siguiente se enumeran los límites asociados a los diferentes nivele
 | Recurso | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
 | --- | --- | --- | --- | --- |
 | Mensajes por día |400.000 |6.000.000 |300.000.000 |8.000 |
-| Unidades máximas |200 |200 |200 |1 |
+| Unidades máximas |200 |200 |10 |1 |
 
 > [!NOTE]
-> Si prevé usar más de 200 unidades con un centro de nivel S1, S2 o S3, póngase en contacto con el soporte técnico de Microsoft.
+> Si prevé usar más de 200 unidades con un centro de nivel S1 o S2, o 10 unidades con un centro de nivel S3, póngase en contacto con el soporte técnico de Microsoft.
 > 
 > 
 
@@ -16,7 +16,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | --- | --- |
 | Cantidad máxima de Centros de IoT de pago por suscripción a Azure |10 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
-| Número máximo de identidades del dispositivo<br/>  devueltas en una sola llamada |1000 |
+| Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1000 |
 | Retención máxima de mensajes del Centro de IoT para los mensajes de dispositivo a la nube |7 días |
 | Tamaño máximo de mensaje del dispositivo a la nube |256 KB |
 | Tamaño máximo de lote de dispositivo a la nube |256 KB |
@@ -37,7 +37,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 
 
 > [!NOTE]
-> Si necesita más de 10 Centros de IoT de pago en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
+> Si necesita más de 10 IoT Hub de pago en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
 > 
 > 
 
@@ -56,7 +56,3 @@ El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas
 | Actualizaciones de dispositivos gemelos | 50/s/unidad (para S3), 10/s o 1/s/unidad como máximo (para S2), 10/s (para S1) |
 | Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | 5000/min./unidad (para¡ S3), 100/min./unidad (para S2), 100/min./unidad (para S1) |
 | Resultado de operaciones por dispositivo de trabajos | 50/s/unidad (para S3), 10/s o 1/s/unidad como máximo (para S2), 10/s (para S1) |
-
-<!--HONumber=Feb17_HO1-->
-
-
