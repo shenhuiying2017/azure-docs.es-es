@@ -44,7 +44,7 @@ ms.lasthandoff: 02/28/2017
 
 Puede completar esta tarea mediante la CLI de Azure 1.0 (en este artículo) o la [CLI de Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md). 
 
-## <a name="a-name--createastep-1---start-your-script"></a><a name = "create"></a>Paso 1: Inicio del script
+## <a name = "create"></a>Paso 1: Inicio del script
 Puede descargar el script de Bash completo que haya usado [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Complete los pasos siguientes para cambiar el script de forma que funcione en su entorno:
 
 Cambie los valores de las variables siguientes según los valores que desee usar para la implementación. Los valores siguientes se asignan al escenario usado en este artículo:

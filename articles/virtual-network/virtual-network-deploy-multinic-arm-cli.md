@@ -33,7 +33,7 @@ ms.lasthandoff: 02/28/2017
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md).  En este artículo se describe el uso del modelo de implementación de Resource Manager, recomendado por Microsoft para la mayoría de las nuevas implementaciones en lugar del [modelo de implementación clásica](virtual-network-deploy-multinic-classic-cli.md).
 >
 
-## <a name="a-namecreateacreate-the-vm"></a><a name="create"></a>Creación de la máquina virtual
+## <a name="create"></a>Creación de la máquina virtual
 
 Puede completar esta tarea mediante la CLI de Azure 2.0 (en este artículo) o la [CLI de Azure 1.0](virtual-network-deploy-multinic-cli-nodejs.md). Los valores entre "" para las variables de los pasos siguientes crean recursos con la configuración del escenario. Modifique los valores del modo adecuado para su entorno.
 
@@ -163,14 +163,14 @@ Puede completar esta tarea mediante la CLI de Azure 2.0 (en este artículo) o la
     - Un único disco administrado premium de forma predeterminada, pero tiene otras opciones para el tipo de disco que puede crear. Consulte el artículo [Creación de una máquina virtual Linux con la CLI de Azure 2.0 ](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para más información.
     - Una red virtual con dos subredes y una única dirección IP pública. Como alternativa, puede usar una red virtual, una subred, una NIC o una dirección IP pública *existentes*. Para aprender a utilizar los recursos de red existentes, en lugar de crear recursos adicionales, escriba `az vm create -h`.
 
-## <a name="a-name--validateavalidate-vm-creation-and-nics"></a><a name = "validate"></a>Validación de la creación de máquinas virtuales y NIC
+## <a name = "validate"></a>Validación de la creación de máquinas virtuales y NIC
 
 1. Escriba el comando `az resource list --resouce-group Multi-NIC-VM --output table` para ver una lista de los recursos creados por el script. Debería haber seis recursos en la salida devuelta: dos NIC, un disco, una dirección IP pública, una red virtual y una máquina virtual.
 2. Escriba el comando `az network public-ip show --name PIP-WEB --resource-group Multi-NIC-VM --output table`. En la salida devuelta, observe que el valor de **IpAddress** y el de **PublicIpAllocationMethod** es *Static*.
 3. Antes de ejecutar el siguiente comando, quite los <>, reemplace *Username* por el nombre utilizado para la variable **Username** del script y reemplace *ipAddress* por el valor de **ipAddress** del paso anterior. Ejecute el siguiente comando para conectarse a la máquina virtual: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
 4. Una vez conectado a la máquina virtual, ejecute el comando `sudo ifconfig` para ver las interfaces *eth0* y *eth1*. Se ha asignado a cada NIC las direcciones IP privadas estáticas especificadas en el script por los servidores DHCP de Azure. Las direcciones IP y MAC asignadas a las NIC no cambian hasta que se elimine la máquina virtual. Se recomienda no cambiar las direcciones IP dentro de un sistema operativo, ya que esto puede deshabilitar la conectividad con el equipo. Las direcciones IP públicas no aparecen dentro del sistema operativo, ya que son direcciones de red traducidas a la dirección IP privada y desde ella por la infraestructura de Azure.
 
-## <a name="a-name-clean-uparemove-the-vm-and-associated-resources"></a><a name= "clean-up"></a>Eliminación de la máquina virtual y los recursos asociados
+## <a name= "clean-up"></a>Eliminación de la máquina virtual y los recursos asociados
 
 Si crea un grupo de recursos únicamente con el fin de ejecutar los pasos descritos en este artículo, puede quitar todos los recursos eliminando el grupo de recursos con el comando `az group delete --name Multi-NIC-VM`.
 

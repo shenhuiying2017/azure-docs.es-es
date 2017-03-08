@@ -137,10 +137,10 @@ La mayoría de las aplicaciones se desarrollan a partir de una combinación de d
 
 Puede obtener mucha más información sobre los grupos de recursos de Azure y su utilidad en [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Si está interesado en la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-documentdb-accountatask-create-a-single-region-documentdb-account"></a><a id="quick-create-documentdb-account"></a>Tarea: Creación de una cuenta de DocumentDB de una sola región
+## <a id="quick-create-documentdb-account"></a>Tarea: Creación de una cuenta de DocumentDB de una sola región
 Siga las instrucciones de esta sección para crear una cuenta de DocumentDB de una sola región. Puede hacerlo con la CLI de Azure 1.0, con las plantillas de Resource Manager o sin ellas.
 
-### <a name="a-idcreate-single-documentdb-account-cli-arma-create-a-single-region-documentdb-account-using-azure-cli-10-without-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Creación de una cuenta de DocumentDB de una sola región utilizando la CLI de Azure 1.0 sin las plantillas de Resource Manager
+### <a id="create-single-documentdb-account-cli-arm"></a> Creación de una cuenta de DocumentDB de una sola región utilizando la CLI de Azure 1.0 sin las plantillas de Resource Manager
 Cree una cuenta de DocumentDB en el grupo de recursos nuevo o existente escribiendo el siguiente comando en el símbolo del sistema:
 
 > [!TIP]
@@ -180,7 +180,7 @@ Si se producen errores, consulte [Solución de problemas](#troubleshooting).
 
 Cuando el comando responda, la cuenta se encontrará en el estado **Creando** unos minutos antes de pasar al estado **En línea**, en el que está lista para usarse. Puede comprobar el estado de la cuenta en el [Portal de Azure](https://portal.azure.com), en la hoja **Cuentas de DocumentDB** .
 
-### <a name="a-idcreate-single-documentdb-account-cli-arma-create-a-single-region-documentdb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Creación de una cuenta de DocumentDB de una sola región utilizando la CLI de Azure 1.0 con las plantillas de Resource Manager
+### <a id="create-single-documentdb-account-cli-arm"></a> Creación de una cuenta de DocumentDB de una sola región utilizando la CLI de Azure 1.0 con las plantillas de Resource Manager
 En las instrucciones de esta sección se describe cómo crear una cuenta de DocumentDB con una plantilla de Azure Resource Manager y un archivo opcional de parámetros (los dos recursos son archivos JSON). El uso de una plantilla le permite describir exactamente lo que desea y repetirlo sin errores.
 
 Cree un archivo de plantilla local con el siguiente contenido. Asigne al archivo el nombre azuredeploy.json.
@@ -292,10 +292,10 @@ Si se producen errores, consulte [Solución de problemas](#troubleshooting).
 
 Cuando el comando responda, la cuenta se encontrará en el estado **Creando** unos minutos antes de pasar al estado **En línea**, en el que está lista para usarse. Puede comprobar el estado de la cuenta en el [Portal de Azure](https://portal.azure.com), en la hoja **Cuentas de DocumentDB** .
 
-## <a name="a-idquick-create-documentdb-with-mongodb-api-accountatask-create-a-single-region-documentdb-api-for-mongodb-account"></a><a id="quick-create-documentdb-with-mongodb-api-account"></a>Tarea: Creación de una cuenta de la API para MongoDB de una sola región
+## <a id="quick-create-documentdb-with-mongodb-api-account"></a>Tarea: Creación de una cuenta de la API para MongoDB de una sola región
 Siga las instrucciones de esta sección para crear una cuenta de la API para MongoDB de una sola región. Puede hacerlo con la CLI de Azure 1.0 con plantillas de Resource Manager.
 
-### <a name="a-idcreate-single-documentdb-with-mongodb-api-account-cli-arma-create-a-single-region-mongodb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Creación de una cuenta de MongoDB de una sola región utilizando la CLI de Azure 1.0 con las plantillas de Resource Manager
+### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Creación de una cuenta de MongoDB de una sola región utilizando la CLI de Azure 1.0 con las plantillas de Resource Manager
 En las instrucciones de esta sección se describe cómo crear una cuenta de la API para MongoDB con una plantilla de Azure Resource Manager y un archivo opcional de parámetros (los dos recursos son archivos JSON). El uso de una plantilla le permite describir exactamente lo que desea y repetirlo sin errores.
 
 Cree un archivo de plantilla local con el siguiente contenido. Asigne al archivo el nombre azuredeploy.json.
@@ -410,10 +410,10 @@ Si se producen errores, consulte [Solución de problemas](#troubleshooting).
 
 Cuando el comando responda, la cuenta se encontrará en el estado **Creando** unos minutos antes de pasar al estado **En línea**, en el que está lista para usarse. Puede comprobar el estado de la cuenta en el [Portal de Azure](https://portal.azure.com), en la hoja **Cuentas de DocumentDB** .
 
-## <a name="a-idcreate-multi-documentdb-accountatask-create-a-multi-region-documentdb-account"></a><a id="create-multi-documentdb-account"></a>Tarea: Creación de una cuenta de DocumentDB de varias regiones
+## <a id="create-multi-documentdb-account"></a>Tarea: Creación de una cuenta de DocumentDB de varias regiones
 DocumentDB puede [distribuir a escala internacional los datos][distribute-globally] entre diversas [regiones de Azure](https://azure.microsoft.com/regions/#services). Al crear una cuenta de DocumentDB, se pueden especificar las regiones donde desea que resida el servicio. Siga las instrucciones de esta sección para crear una cuenta de DocumentDB de varias regiones. Puede hacerlo con la CLI de Azure 1.0, con las plantillas de Resource Manager o sin ellas.
 
-### <a name="a-idcreate-multi-documentdb-account-clia-create-a-multi-region-documentdb-account-using-azure-cli-10-without-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli"></a> Creación de una cuenta de DocumentDB de varias regiones utilizando la CLI de Azure 1.0 sin las plantillas de Resource Manager
+### <a id="create-multi-documentdb-account-cli"></a> Creación de una cuenta de DocumentDB de varias regiones utilizando la CLI de Azure 1.0 sin las plantillas de Resource Manager
 Cree una cuenta de DocumentDB en el grupo de recursos nuevo o existente escribiendo el siguiente comando en el símbolo del sistema:
 
 > [!TIP]
@@ -453,7 +453,7 @@ Si se producen errores, consulte [Solución de problemas](#troubleshooting).
 
 Cuando el comando responda, la cuenta se encontrará en el estado **Creando** unos minutos antes de pasar al estado **En línea**, en el que está lista para usarse. Puede comprobar el estado de la cuenta en el [Portal de Azure](https://portal.azure.com), en la hoja **Cuentas de DocumentDB** .
 
-### <a name="a-idcreate-multi-documentdb-account-cli-arma-create-a-multi-region-documentdb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli-arm"></a> Creación de una cuenta de DocumentDB de varias regiones utilizando la CLI de Azure 1.0 con las plantillas de Resource Manager
+### <a id="create-multi-documentdb-account-cli-arm"></a> Creación de una cuenta de DocumentDB de varias regiones utilizando la CLI de Azure 1.0 con las plantillas de Resource Manager
 En las instrucciones de esta sección se describe cómo crear una cuenta de DocumentDB con una plantilla de Azure Resource Manager y un archivo opcional de parámetros (los dos recursos son archivos JSON). El uso de una plantilla le permite describir exactamente lo que desea y repetirlo sin errores.
 
 Cree un archivo de plantilla local con el siguiente contenido. Asigne al archivo el nombre azuredeploy.json.

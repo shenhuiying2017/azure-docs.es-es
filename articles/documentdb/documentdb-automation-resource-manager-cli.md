@@ -51,7 +51,7 @@ Si aún no tiene un [grupo de recursos](../azure-resource-manager/resource-group
 * Ejecute 'az documentdb -h' para obtener una lista completa de los comandos disponibles o visite la [página de referencia][az-documentdb-ref].
 * Ejecute ' az documentdb <command> - h' para obtener una lista los parámetros obligatorios y opcionales por comando.
 
-## <a name="a-idcreate-documentdb-account-clia-create-a-documentdb-database-account"></a><a id="create-documentdb-account-cli"></a> Creación de una cuenta de base de datos de DocumentDB
+## <a id="create-documentdb-account-cli"></a> Creación de una cuenta de base de datos de DocumentDB
 
 Este comando permite crear una cuenta de base de datos de DocumentDB. Configure la nueva cuenta de base de datos como de región única o de [varias regiones][scaling-globally] con una determinada [directiva de coherencia](documentdb-consistency-levels.md). 
 
@@ -93,7 +93,7 @@ Ejemplos:
 ### <a name="notes"></a>Notas
 * Las ubicaciones deben ser regiones donde DocumentDB esté disponible de forma general. Se proporciona la lista actual de regiones en la [página Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
-## <a name="a-idupdate-documentdb-account-clia-update-a-documentdb-database-account"></a><a id="update-documentdb-account-cli"></a> Actualización de una cuenta de base de datos de DocumentDB
+## <a id="update-documentdb-account-cli"></a> Actualización de una cuenta de base de datos de DocumentDB
 
 Este comando permite actualizar las propiedades de la cuenta de base de datos de DocumentDB. Esto incluye la directiva de coherencia y las ubicaciones en las que existe la cuenta de la base de datos.
 
@@ -128,7 +128,7 @@ Ejemplos:
     az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
     az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
-## <a name="a-idadd-remove-region-documentdb-account-clia-addremove-region-from-a-documentdb-database-account"></a><a id="add-remove-region-documentdb-account-cli"></a> Incorporación o eliminación de una región de una cuenta de DocumentDB
+## <a id="add-remove-region-documentdb-account-cli"></a> Incorporación o eliminación de una región de una cuenta de DocumentDB
 
 Para agregar o quitar regiones de la cuenta de base de datos de DocumentDB existente, use el comando [update](#update-documentdb-account-cli) con el indicador `--locations`. En el ejemplo siguiente se muestra cómo crear una nueva cuenta y, más tarde, agregar y quitar regiones de esa cuenta.
 
@@ -138,7 +138,7 @@ Ejemplo:
     az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
 
 
-## <a name="a-iddelete-documentdb-account-clia-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-cli"></a> Eliminación de una cuenta de base de datos de DocumentDB
+## <a id="delete-documentdb-account-cli"></a> Eliminación de una cuenta de base de datos de DocumentDB
 
 Este comando permite eliminar una cuenta de base de datos de DocumentDB existente.
 
@@ -152,7 +152,7 @@ Ejemplo:
 
     az documentdb delete -g rg-test -n docdb-test
 
-## <a name="a-idget-documentdb-properties-clia-get-properties-of-a-documentdb-database-account"></a><a id="get-documentdb-properties-cli"></a> Obtención de las propiedades de una cuenta de base de datos de DocumentDB
+## <a id="get-documentdb-properties-cli"></a> Obtención de las propiedades de una cuenta de base de datos de DocumentDB
 
 Este comando permite obtener las propiedades de una cuenta de base de datos de DocumentDB.
 
@@ -166,7 +166,7 @@ Ejemplo:
 
     az documentdb show -g rg-test -n docdb-test
 
-## <a name="a-idlist-account-keys-clia-list-account-keys"></a><a id="list-account-keys-cli"></a> Enumeración de claves de cuenta
+## <a id="list-account-keys-cli"></a> Enumeración de claves de cuenta
 
 Cuando se crea una cuenta de DocumentDB, el servicio genera dos claves de acceso principal que se pueden usar para la autenticación cuando se tiene acceso a la cuenta de DocumentDB. Al proporcionar dos claves de acceso, DocumentDB permite regenerar las claves sin interrupción en la cuenta de esta base de datos. También están disponibles las claves de solo lectura para autenticar las operaciones de solo lectura. Hay dos claves de lectura y escritura (principal y secundaria) y dos claves de solo lectura (principal y secundaria).
 
@@ -180,7 +180,7 @@ Ejemplo:
 
     az documentdb list-keys -g rg-test -n docdb-test
 
-## <a name="a-idregenerate-account-key-clia-regenerate-account-key"></a><a id="regenerate-account-key-cli"></a> Regeneración de la clave de cuenta
+## <a id="regenerate-account-key-cli"></a> Regeneración de la clave de cuenta
 
 Cambie las claves de acceso de la cuenta de DocumentDB de forma periódica para mantener sus conexiones más seguras. Se asignan dos claves de acceso para que pueda mantener las conexiones con la cuenta de DocumentDB, de modo que puede usar una clave de acceso mientras regenera la otra.
 
@@ -196,7 +196,7 @@ Ejemplo:
 
     az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
-## <a name="a-idmodify-failover-priority-clia-modify-failover-priority-of-a-documentdb-database-account"></a><a id="modify-failover-priority-cli"></a> Modificación de la prioridad de conmutación por error de una cuenta de base de datos de DocumentDB
+## <a id="modify-failover-priority-cli"></a> Modificación de la prioridad de conmutación por error de una cuenta de base de datos de DocumentDB
 
 Para las cuentas de bases de datos de varias regiones, puede cambiar la prioridad de conmutación por error de las distintas regiones en las que existe la cuenta de base de datos de DocumentDB. Para más información sobre la conmutación por error en la cuenta de base de datos de DocumentDB, consulte [Distribución de datos global con DocumentDB][distribute-data-globally].
 
