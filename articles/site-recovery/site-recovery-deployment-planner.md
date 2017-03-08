@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -309,7 +309,7 @@ El **total de máquinas virtuales de las que se ha generado el perfil** es el n�
 
 **Para satisfacer el RPO en el 90% de las ocasiones**: debido a los precios del ancho de banda o por cualquier otra razón, si no se puede proporcionar el ancho de banda necesario para satisfacer el RPO deseado en el 100% de los casos, puede decidir aprovisionar una cantidad de ancho de banda inferior que le permita satisfacer el RPO deseado en el 90% de las ocasiones. Para entender las implicaciones de aprovisionar este ancho de banda inferior, el informe proporciona el análisis de hipótesis del número y la duración de las infracciones de RPO que es previsible.
 
-**Rendimiento obtenido:** es el rendimiento del servidor donde ha ejecutado el comando GetThroughput para la región de Microsoft Azure en la que se encuentra la cuenta de Azure Storage. Indica el rendimiento aproximado que se puede lograr al proteger las máquinas virtuales compatibles con Azure Site Recovery, siempre y cuando las características de red y de almacenamiento del servidor de configuración o el servidor de procesos sean las mismas que aquellas del servidor en el que se ha ejecutado la herramienta. El rendimiento obtenido es el rendimiento del servidor donde ha ejecutado el comando GetThroughput para la región de Microsoft Azure en la que se encuentra la cuenta de Azure Storage. Indica el rendimiento aproximado que se puede lograr al proteger las máquinas virtuales compatibles con Azure Site Recovery, siempre y cuando las características de red y de almacenamiento del servidor de configuración o el servidor de procesos sean las mismas que aquellas del servidor en el que se ha ejecutado la herramienta.
+**Rendimiento obtenido:** es el rendimiento del servidor donde ha ejecutado el comando GetThroughput para la región de Microsoft Azure en la que se encuentra la cuenta de Azure Storage. Indica el rendimiento aproximado que se puede lograr al proteger las máquinas virtuales compatibles con Azure Site Recovery, siempre y cuando las características de red y de almacenamiento del servidor de configuración o el servidor de procesos sean las mismas que aquellas del servidor en el que se ha ejecutado la herramienta.    
 
 En la replicación, debe aprovisionar el ancho de banda que se recomienda para satisfacer el RPO en el 100% de las ocasiones. Incluso después de aprovisionar el ancho de banda adecuado, si no ve algún aumento en el rendimiento obtenido notificado por esta herramienta, compruebe lo siguiente:
 

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -51,7 +51,7 @@ En este tutorial, utilizamos un secreto de cliente de la aplicación de Azure AD
 2. Recupere el identificador de cliente, el secreto de cliente y el punto de conexión del token para la aplicación web de Azure AD.
 3. Configure el acceso para la aplicación web de Azure AD en el archivo o carpeta Data Lake Store al que desee acceder desde la aplicación de Java que está creando.
 
-Para ver instrucciones sobre cómo realizar estos pasos, consulte [Creación de una aplicación de Active Directory](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Para ver instrucciones sobre cómo realizar estos pasos, consulte [Creación de una aplicación de Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 Azure Active Directory ofrece también otras opciones para recuperar un token. Puede elegir entre una serie de diferentes mecanismos de autenticación para adaptarlos a su escenario; por ejemplo, una aplicación que se ejecuta en un explorador, una aplicación distribuida como una aplicación de escritorio o una aplicación de servidor que se ejecuta de forma local o en una máquina virtual de Azure. También puede elegir entre distintos tipos de credenciales, como contraseñas, certificados, autenticación en dos fases, etc. Además, Azure Active Directory permite sincronizar los usuarios de Active Directory local con la nube. Para más detalles, consulte [Escenarios de autenticación para Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 
