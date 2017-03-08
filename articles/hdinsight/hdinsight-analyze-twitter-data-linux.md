@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 394f29548b25cb317c836fde28f760b335240b37
-ms.openlocfilehash: e64d90f80cd9b0214a7c483977202e5022956d5d
-ms.lasthandoff: 02/21/2017
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: db0f94bdeefac577765586f6b07ba13f9cfd2867
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Análisis de datos de Twitter con Hive en HDInsight
+# <a name="analyze-twitter-data-using-hive-on-linux-based-hdinsight"></a>Análisis de datos de Twitter mediante Hive en HDInsight basado en Linux
 
 Aprenda a usar Apache Hive en un clúster de HDInsight para procesar los datos de Twitter. El resultado es una lista de usuarios de Twitter que enviaron la mayoría de los tweets que contienen una palabra determinada.
 

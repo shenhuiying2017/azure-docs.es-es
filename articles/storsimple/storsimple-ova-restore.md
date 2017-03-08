@@ -4,7 +4,7 @@ description: "Obtenga más información sobre cómo restaurar una copia de segur
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 1b2156f2768e02be8030d91352422bd935fa7543
+ms.sourcegitcommit: 840deacac773846a9c57d9437cb6f331cd8fcecb
+ms.openlocfilehash: 5ec5cab591907ccc5d9139da2ba149325daf8422
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Restaurar desde una copia de seguridad de la matriz virtual de StorSimple
+# <a name="restore-from-a-backup-set-of-shares-and-volumes-on-your-storsimple-virtual-array"></a>Restauración a partir de un conjunto de copia de seguridad de recursos compartidos y volúmenes de la matriz virtual de StorSimple
+
 ## <a name="overview"></a>Información general
 Este artículo se aplica a la matiz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016 o versiones posteriores. Asimismo, en este artículo se describe paso a paso cómo realizar una restauración a partir de un conjunto de copias de seguridad de los recursos compartidos o de los volúmenes de la matriz virtual de StorSimple. El artículo también describe cómo funciona la recuperación a nivel de elemento en la matriz virtual de StorSimple que se haya configurado como un servidor de archivos.
 
@@ -104,10 +107,5 @@ Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar c
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
