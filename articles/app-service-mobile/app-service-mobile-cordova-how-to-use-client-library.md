@@ -4,7 +4,7 @@ description: "Uso del complemento de Apache Cordova para Aplicaciones móviles d
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
@@ -34,7 +34,7 @@ Este SDK es compatible con la versión&6;.0.0 y posterior de Apache Cordova en d
 * Windows Phone 8.1
 * Plataforma universal de Windows
 
-## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Configuración y requisitos previos
+## <a name="Setup"></a>Configuración y requisitos previos
 En esta guía se asume que ha creado un back-end con una tabla. En esta guía se asume que la tabla tiene el mismo esquema que las tablas de dichos tutoriales. En esta guía también se supone que ha agregado el complemento de Apache Cordova al código.  Si no lo ha hecho, puede agregar el complemento Apache Cordova al proyecto en la línea de comandos:
 
 ```
@@ -43,7 +43,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 Para más información sobre la creación de [su primera aplicación de Apache Cordova], consulte su documentación.
 
-## <a name="a-nameionicasetting-up-an-ionic-v2-app"></a><a name="ionic"></a>Configuración de una aplicación de Ionic v2
+## <a name="ionic"></a>Configuración de una aplicación de Ionic v2
 
 Para configurar correctamente un proyecto de Ionic v2, primero cree una aplicación básica y agregue el complemento de Cordova:
 
@@ -71,7 +71,7 @@ El complemento de Cordova de Azure Mobile Apps es compatible con Ionic v1 y v2. 
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>Autenticación de usuarios
+## <a name="auth"></a>Autenticación de usuarios
 Azure App Service es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externos: Facebook, Google, Cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación] .
 
 Al utilizar la autenticación en una aplicación de Apache Cordova, los siguientes complementos de Cordova deben estar disponibles:
@@ -83,7 +83,7 @@ Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de clie
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Cómo configurar el servicio de Mobile Apps para URL de redireccionamiento externas
+### <a name="configure-external-redirect-urls"></a>Cómo configurar el servicio de Mobile Apps para URL de redireccionamiento externas
 Varios tipos de aplicaciones de Apache Cordova utilizan una función de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth.  Los flujos de interfaz de usuario de OAuth conllevan problemas, ya que el servicio de autenticación solo sabe cómo utilizar el servicio de manera predeterminada.  Ejemplos de flujos de interfaz de usuario de OAuth problemáticos:
 
 * El emulador Ripple
@@ -123,7 +123,7 @@ Agregue también estas URL de bucle invertido a la configuración de CORS:
 
 Los nuevos ajustes tardarán aproximadamente entre 10 y 15 segundos en surtir efecto.
 
-## <a name="a-nameregister-for-pushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>Registrar notificaciones de inserción
+## <a name="register-for-push"></a>Registrar notificaciones de inserción
 Instale [phonegap-plugin-push] para administrar las notificaciones push.  Este complemento se puede agregar fácilmente mediante el comando `cordova plugin add` en la línea de comandos o por medio del instalador de complementos Git dentro de Visual Studio.  El siguiente código de la aplicación de Apache Cordova registrará el dispositivo para notificaciones push:
 
 ```

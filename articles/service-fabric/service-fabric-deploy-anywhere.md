@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
+ms.date: 03/08/2017
 ms.author: chackdan
 translationtype: Human Translation
 ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
 ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -71,10 +72,5 @@ La ejecución de clústeres de Service Fabric en Azure proporciona ventajas fren
 * Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows Server: [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Creación de un clúster en máquinas virtuales o equipos que ejecutan Linux: [Service Fabric en Linux](service-fabric-linux-overview.md)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

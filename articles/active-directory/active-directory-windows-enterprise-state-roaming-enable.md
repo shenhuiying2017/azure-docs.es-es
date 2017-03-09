@@ -5,7 +5,7 @@ description: "Preguntas más frecuentes sobre la configuración Enterprise State
 services: active-directory
 keywords: "enterprise state roaming, nube de windows, cómo habilitar enterprise state roaming"
 documentationcenter: 
-author: femila
+author: ningtan
 manager: femila
 editor: curtand
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -14,11 +14,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 0628dafc9cc4cb05e678f741d913e00116013459
 ms.openlocfilehash: 435f801b254a6c423a6ec3e96037ade62e14af29
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -76,9 +77,4 @@ Los datos sincronizados con Azure a través de Enterprise State Roaming se conse
 * [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

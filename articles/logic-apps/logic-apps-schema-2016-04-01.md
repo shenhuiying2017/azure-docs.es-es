@@ -1,6 +1,6 @@
 ---
-title: "Nueva versión de esquema 2016-06-01 | Microsoft Docs"
-description: "Aprenda a escribir la definición de JSON de la versión más reciente de Aplicaciones lógicas"
+title: Actualizaciones de esquema,&1; de junio de&2016; (Azure Logic Apps) | Microsoft Docs
+description: "Creación de definiciones de JSON para Azure Logic Apps con la versión de esquema del 1 de junio de 2016"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,25 +12,30 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: aaacb76fe845ca8892e4fe3979be5ea6ac5e902b
+ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
+ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="new-schema-version-2016-06-01"></a>Nueva versión de esquema 2016-06-01
-La nueva versión de esquema y API de Aplicaciones lógicas presenta varias mejoras que optimizan la confiabilidad y la facilidad de uso de estas aplicaciones. Hay tres diferencias principales:
+# <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Actualizaciones de esquema para Azure Logic Apps, 1 de junio de 2016
 
-1. Adición de ámbitos, que son acciones que contienen una colección de acciones.
-2. Las condiciones y los bucles son acciones de primera clase.
-3. Orden de ejecución más detallada mediante la propiedad `runAfter` (que reemplaza a `dependsOn`)
+Esta nueva versión de esquema y API de Azure Logic Apps incluye importantes mejoras que aportan una mayor confiabilidad a las aplicaciones lógicas y facilitan su uso:
 
-Para ver información acerca de cómo actualizar las aplicaciones lógicas del esquema 2015-08-01-preview al esquema 2016-06-01-preview, [consulte la sección de actualización, más adelante](#upgrading-to-2016-06-01-schema)
+* [Ámbitos](#scopes): le permiten agrupar o anidar acciones como una colección de acciones.
+* [Condiciones y bucles](#conditions-loops): ahora son acciones de primera clase.
+* Ordenación más precisa para ejecutar acciones con la propiedad `runAfter`, sustituyendo `dependsOn`.
 
-## <a name="1-scopes"></a>1. Ámbitos
-Uno de los cambios más importantes en este esquema es la adición de ámbitos y la capacidad para anidar acciones.  Esto es útil al agrupar un conjunto de acciones o cuando es necesario anidar acciones (por ejemplo, una condición puede contener otra condición).  Puede encontrar más detalles sobre la sintaxis de los ámbitos [aquí](../logic-apps/logic-apps-loops-and-scopes.md), pero se puede encontrar un ejemplo simple de ámbito a continuación:
+Para actualizar las aplicaciones lógicas del esquema de versión preliminar del 1 de agosto de 2015 al esquema del 1 de junio de 2016, [consulte la sección de actualización](#upgrading-to-2016-06-01-schema).
+
+<a name="scopes"></a>
+## <a name="scopes"></a>Ámbitos
+
+Este esquema incluye ámbitos, que le permiten agrupar acciones o anidar acciones unas dentro de otras. Por ejemplo, una condición puede contener otra condición. Aprenda más sobre la [sintaxis de los ámbitos](../logic-apps/logic-apps-loops-and-scopes.md), o revise este ejemplo básico de ámbitos:
 
 ```
 {
@@ -52,14 +57,16 @@ Uno de los cambios más importantes en este esquema es la adición de ámbitos y
 }
 ```
 
-## <a name="2-conditions-and-loops-changes"></a>2. Cambios de condiciones y bucles
-En las versiones anteriores del esquema, las condiciones y los bucles eran parámetros asociados a una sola acción.  Esta limitación se ha eliminado soluciona en este esquema y ahora las condiciones y los bucles aparecen como un tipo de acción.  Puede encontrar más información [en este artículo](../logic-apps/logic-apps-loops-and-scopes.md), y un ejemplo sencillo de una acción de condición a continuación:
+<a name="conditions-loops"></a>
+## <a name="conditions-and-loops-changes"></a>Cambios de condiciones y bucles
+
+En las versiones anteriores del esquema, las condiciones y los bucles eran parámetros asociados a una sola acción. Este esquema elimina esta limitación, por lo que las condiciones y los bucles aparecen ahora como tipos de acción. Aprenda más sobre [bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md), o revise este ejemplo básico de una acción de condición:
 
 ```
 {
-    "If_trigger_is_foo": {
+    "If_trigger_is_some-trigger": {
         "type": "If",
-        "expression": "@equals(triggerBody(), 'foo')",
+        "expression": "@equals(triggerBody(), 'some-trigger')",
         "runAfter": { },
         "actions": {
             "Http_2": {
@@ -73,14 +80,18 @@ En las versiones anteriores del esquema, las condiciones y los bucles eran pará
         },
         "else": 
         {
-            "if_trigger_is_bar": "..."
+            "if_trigger_is_another-trigger": "..."
         }      
     }
 }
 ```
 
-## <a name="3-runafter-property"></a>3. Propiedad RunAfter
-La nueva propiedad `runAfter` reemplaza a `dependsOn`, lo que proporciona mayor precisión a las órdenes de ejecución.  `dependsOn` era sinónimo de "la acción se ejecutó correctamente"; sin embargo, muchas veces es necesario ejecutar una acción si la acción anterior es correcta, tiene un error o se omite.  `runAfter` permite dicha flexibilidad.  Es un objeto que especifica todos los nombres de acciones que se ejecutarán después y define una matriz de los estados desde los que se puede desencadenar.  Por ejemplo, si desea ejecutarlo después de que el paso A se haya realizado correctamente y el paso B se haya realizado correctamente o no, cree la siguiente propiedad `runAfter` :
+<a name="run-after"></a>
+## <a name="runafter-property"></a>Propiedad "runAfter"
+
+La propiedad `runAfter` reemplaza a `dependsOn`, por lo que se proporciona una mayor precisión al especificar el orden de ejecución de las acciones según el estado de acciones anteriores.
+
+La propiedad `dependsOn` era sinónimo de "la acción se ejecutó correctamente", no importa cuántas veces quisiera ejecutar una acción, en función de si la acción anterior era correcta, tenía un error o se había omitido. La propiedad `runAfter` ofrece esa flexibilidad como un objeto que especifica todos los nombres de acciones después de los cuales se ejecuta el objeto. Esta propiedad también define una matriz de estados que son aceptables como desencadenadores. Por ejemplo, si quisiera ejecutar una acción después de que el paso A se realiza correctamente y también después de que el paso B se realiza correctamente o produce error, construiría esta propiedad `runAfter`:
 
 ```
 {
@@ -92,47 +103,62 @@ La nueva propiedad `runAfter` reemplaza a `dependsOn`, lo que proporciona mayor 
 }
 ```
 
-## <a name="upgrading-to-2016-06-01-schema"></a>Actualización al esquema 2016-06-01
-La actualización al nuevo esquema 2016-06-01-preview se realiza con solo unos cuantos pasos.  Puede encontrar detalles sobre los cambios del esquema [en este artículo](../logic-apps/logic-apps-schema-2016-04-01.md).  El proceso de actualización incluye ejecutar el script de actualización, guardar como una nueva aplicación lógica y, posiblemente, sobrescribir la antigua aplicación lógica, si es necesario.
+## <a name="upgrade-your-schema"></a>Actualización del esquema
 
-1. Abra la aplicación lógica actual.
-2. Haga clic en el botón **Actualizar esquema** de la barra de herramientas.
+La actualización al nuevo esquema se realiza en solo unos cuantos pasos. El proceso de actualización incluye ejecutar el script de actualización, guardarlo como una nueva aplicación lógica y, posiblemente, sobrescribir la antigua aplicación lógica, si lo desea.
+
+1. Abra la aplicación lógica en Azure Portal.
+
+2. Vaya a **Overview** (Información general). En la barra de herramientas de aplicaciones lógicas, elija **Actualizar esquema**.
    
-    ![][1]
+    ![Selección del esquema de actualización][1]
    
-    Se devolverá la definición actualizada.  Puede copiarla y pegarla en una definición de recursos si es necesario, pero se **recomienda encarecidamente** utilizar el botón **Guardar como** para asegurarse de que todas las referencias de conexión son válidas en la aplicación lógica actualizada.
-3. Haga clic en el botón **Guardar como** de la barra de herramientas de la hoja de la actualización.
-4. Rellene el nombre y la el estado de la aplicación lógica y haga clic en **Crear** para implementar la aplicación lógica actualizada.
-5. Compruebe que la aplicación lógica actualizada funciona según lo esperado.
+    Se devuelve la definición actualizada, que puede copiar y pegar en una definición de recurso si es necesario. 
+    Sin embargo, se **recomienda firmemente** elegir **Guardar como** 
+    para asegurarse de que todas las referencias de conexión sean válidas en la aplicación lógica actualizada.
+
+3. En la barra de herramientas de la hoja de actualización, elija **Guardar como**.
+
+4. Escriba el nombre y el estado de la aplicación lógica. Para implementar la aplicación lógica actualizada, elija **Crear**.
+
+5. Confirme que la aplicación lógica actualizada funciona según lo previsto.
    
    > [!NOTE]
-   > Si usa un desencadenador manual o de solicitud, la dirección URL de devolución de llamada habrá cambiado en la nueva aplicación lógica.  Use la nueva dirección URL para comprobar que funciona de principio a fin, y puede clonar la aplicación lógica existente para conservar las direcciones URL anteriores.
-   > 
-   > 
-6. *Opcional* Utilice el botón **Clonar** de la barra de herramientas (junto al icono **Actualizar esquema** de la imagen anterior) para sobrescribir la aplicación lógica anterior con la nueva versión del esquema.  Esto solo es necesario si desea mantener el mismo identificador del recurso o la dirección URL del desencadenador de la solicitud de la aplicación lógica.
+   > Si usa un desencadenador manual o de solicitud, la dirección URL de devolución de llamada cambia en la nueva aplicación lógica. Pruebe la nueva dirección URL para asegurarse de que funciona completamente. Para conservar las direcciones URL anteriores, puede clonarlas a través de la aplicación lógica existente.
+
+6. *Opcional*: para sobrescribir la aplicación lógica anterior con la nueva versión de esquema, en la barra de herramientas, elija **Clonar**, junto a **Actualizar esquema**. Este paso solo es necesario si quiere mantener el mismo identificador de recurso o dirección URL del desencadenador de solicitud de la aplicación lógica.
 
 ### <a name="upgrade-tool-notes"></a>Notas de la herramienta de actualización
-#### <a name="condition-mapping"></a>Asignación de condiciones
-La herramienta hará todo lo posible para agrupar las acciones de las ramas verdaderas y falsas en un ámbito de la definición actualizada.  Específicamente, el patrón del diseñador de `@equals(actions('a').status, 'Skipped')` debe aparecer como una acción `else`.  Sin embargo, si la herramienta detecta patrones que no reconoce, potencialmente creará condiciones independientes para las ramas verdaderas y falsas.  Las acciones pueden reasignarse después de la actualización si es necesario.
 
-#### <a name="foreach-with-condition"></a>ForEach con condición
-El patrón anterior de un bucle foreach con una condición por elemento se puede replicar en el nuevo esquema con la acción de filtro.  Esto debería producirse automáticamente durante la actualización.  La condición se convierte en una acción de filtro antes del bucle foreach (para devolver solo una matriz de los elementos que coinciden con la condición), y esa matriz se pasa a la acción de foreach.  Puede ver un ejemplo de esto [en este artículo](../logic-apps/logic-apps-loops-and-scopes.md)
+#### <a name="mapping-conditions"></a>Condiciones de asignación
+
+En la definición actualizada, la herramienta hace todo lo posible por agrupar las acciones de bifurcación true y false como un ámbito. En concreto, el patrón de diseñador de `@equals(actions('a').status, 'Skipped')` debe aparecer como una acción `else`. Sin embargo, si la herramienta detecta patrones irreconocibles, podría crear condiciones distintas para la bifurcación true y false. Si es necesario, puede volver a asignar acciones después de la actualización.
+
+#### <a name="foreach-loop-with-condition"></a>Bucle "foreach" con condición
+
+En el nuevo esquema, puede usar la acción de filtro para replicar el patrón de un bucle `foreach` con una condición por elemento, pero este cambio debe ocurrir automáticamente al actualizar. La condición se convierte en una acción de filtro delante del bucle foreach para devolver solo una matriz de elementos que coincidan con la condición, y esa matriz se pasa a la acción de foreach. Para ver un ejemplo, consulte [Bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md).
 
 #### <a name="resource-tags"></a>Etiquetas del recurso
-Las etiquetas del recurso se quitarán durante la actualización y deberá establecerlas de nuevo para el flujo de trabajo actualizado.
+
+Después de actualizar, se quitan las etiquetas del recurso, por lo que debe restablecerlas para el flujo de trabajo actualizado.
 
 ## <a name="other-changes"></a>Otros cambios
-### <a name="manual-trigger-renamed-to-request-trigger"></a>Nombre del desencadenador manual cambiado a desencadenador de solicitud
-El tipo `manual` está ahora en desuso y su nombre se ha cambiado a `request` con la variante de `http`.  Esto es más coherente con el tipo de patrón de desencadenador que se utiliza para generarlo.
+
+### <a name="renamed-manual-trigger-to-request-trigger"></a>Cambio de nombre de desencadenador "manual" a desencadenador "request"
+
+El tipo de desencadenador `manual` está en desuso y ahora se llama `request` con el tipo `http`. Este cambio crea una mayor coherencia para la clase de patrón que el desencadenador suele compilar.
 
 ### <a name="new-filter-action"></a>Nueva acción 'filtro'
-Si está trabajando con una matriz de gran tamaño y necesita filtrar un conjunto de elementos más pequeño, puede usar el nuevo tipo 'filtro'.  Acepta una matriz y una condición, y evalúa la condición para cada elemento y devuelve una matriz de elementos que cumplen la condición.
 
-### <a name="foreach-and-until-action-restrictions"></a>Restricciones de acción forEach y until
-Los bucles foreach y until están restringidos a una sola acción.
+Para filtrar una matriz grande hasta un conjunto de elementos más pequeño, el nuevo tipo `filter` acepta una matriz y una condición, evalúa la condición de cada elemento y devuelve una matriz con los elementos que cumplen la condición.
 
-### <a name="trackedproperties-on-actions"></a>TrackedProperties en acciones
-Las acciones pueden tener una propiedad adicional (del mismo nivel que `runAfter` y `type`) llamada `trackedProperties`.  Se trata de un objeto que especifica ciertas entradas o salidas de acción que se incluirán en la telemetría de diagnóstico de Azure generada como parte de un flujo de trabajo.  Por ejemplo:
+### <a name="restrictions-for-foreach-and-until-actions"></a>Restricciones de las acciones "foreach" y "until"
+
+Los bucles `foreach` y `until` están limitados a una sola acción.
+
+### <a name="new-trackedproperties-for-actions"></a>Nueva propiedad "trackedProperties" para las acciones
+
+Las acciones pueden tener ahora una propiedad adicional llamada `trackedProperties`, que está relacionada con las propiedades `runAfter` y `type`. Este objeto especifica determinadas entradas o salidas de acciones que desea incluir en la telemetría de Azure Diagnostic, que se emiten como parte de un flujo de trabajo. Por ejemplo:
 
 ```
 {                
@@ -152,14 +178,9 @@ Las acciones pueden tener una propiedad adicional (del mismo nivel que `runAfter
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Uso de la definición del flujo de trabajo de la aplicación lógica](../logic-apps/logic-apps-author-definitions.md)
-* [Creación de una plantilla de implementación de aplicación lógica](../logic-apps/logic-apps-create-deploy-template.md)
+* [Creación de definiciones de flujo de trabajo para aplicaciones lógicas](../logic-apps/logic-apps-author-definitions.md)
+* [Creación de plantillas de implementación de aplicaciones lógicas](../logic-apps/logic-apps-create-deploy-template.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

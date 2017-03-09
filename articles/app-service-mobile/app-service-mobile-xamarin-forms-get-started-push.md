@@ -4,7 +4,7 @@ description: Aprenda a usar los servicios de Azure para enviar notificaciones pu
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
 ms.service: app-service-mobile
@@ -32,7 +32,7 @@ Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el p
 ## <a name="prerequisites"></a>Requisitos previos
 Para iOS, necesitará una [suscripción de Apple Developer Program](https://developer.apple.com/programs/ios/) y un dispositivo de iOS físico. El [simulador de iOS no admite notificaciones de inserción](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Configurar un Centro de notificaciones
+## <a name="configure-hub"></a>Configurar un Centro de notificaciones
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="update-the-server-project-to-send-push-notifications"></a>Actualización del proyecto de servidor para enviar notificaciones push

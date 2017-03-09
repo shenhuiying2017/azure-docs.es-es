@@ -3,7 +3,7 @@ title: "Activación de la sincronización sin conexión para la aplicación móv
 description: "Obtenga información acerca de cómo usar la aplicación móvil de Servicios de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS."
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
@@ -38,7 +38,7 @@ Las características sin conexión de Aplicaciones móviles de Azure permiten in
 2. Abra el archivo QSTodoService.cs y quite la marca de comentario de la definición de `#define OFFLINE_SYNC_ENABLED`.
 3. Vuelva a compilar la aplicación cliente y ejecútela. La aplicación funciona igual que lo hacía antes de habilitar la sincronización sin conexión. Sin embargo, la base de datos se rellena con datos que pueden utilizarse en un escenario sin conexión.
 
-## <a name="a-nameupdate-syncaupdate-the-app-to-disconnect-from-the-backend"></a><a name="update-sync"></a>Actualización de la aplicación para desconectarla del back-end
+## <a name="update-sync"></a>Actualización de la aplicación para desconectarla del back-end
 En esta sección, se interrumpe la conexión con el back-end de aplicación móvil para simular un escenario sin conexión. Al agregar elementos de datos, el controlador de excepciones le indicará que la aplicación está en modo sin conexión. En este estado, se agregan nuevos elementos al almacén local y se sincronizarán con el back-end de aplicación móvil cuando se vuelva a ejecutar la inserción en estado conectado.
 
 1. Editar QSToDoService.cs en el proyecto compartido. Cambie **applicationURL** para que apunte a una dirección URL no válida:
@@ -52,7 +52,7 @@ En esta sección, se interrumpe la conexión con el back-end de aplicación móv
 5. (Opcional) Si Visual Studio está instalado en un equipo, abra **Explorador de servidores**. Vaya a la base de datos en **Azure**-> **SQL Databases**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido. Compruebe que no han cambiado los datos de la base de datos back-end.
 6. (Opcional) Use una herramienta REST como Fiddler o Postman para consultar el back-end móvil mediante una consulta GET con la forma `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="a-nameupdate-online-appaupdate-the-app-to-reconnect-your-mobile-app-backend"></a><a name="update-online-app"></a>Actualización de la aplicación para volver a conectar el back-end de la aplicación móvil
+## <a name="update-online-app"></a>Actualización de la aplicación para volver a conectar el back-end de la aplicación móvil
 En esta sección, vuelva a conectar la aplicación al back-end de la aplicación móvil. De este modo se simula que la aplicación pasa de un estado sin conexión a un estado en línea con el back-ende de aplicación móvil.   Si ha simulado daños en la red mediante la desactivación de la conectividad de red, no se necesitan cambios en el código.
 Vuelva a activar la red.  La primera vez que se ejecuta la aplicación, se realiza una llamada al método `RefreshDataAsync`. Este, a su vez, llama a `SyncAsync` para sincronizar el almacén local con la base de datos back-end.
 

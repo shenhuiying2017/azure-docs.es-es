@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo usar Servicio de aplicaciones
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
@@ -120,7 +120,7 @@ Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el p
 
 Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
 
-## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>Prueba de las notificaciones push en su aplicación
+## <a name="test"></a>Prueba de las notificaciones push en su aplicación
 1. Presione el botón **Run** (Ejecutar) para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **OK** (Aceptar) para aceptar las notificaciones push.
    
    > [!NOTE]

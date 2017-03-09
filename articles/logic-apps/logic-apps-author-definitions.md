@@ -1,6 +1,6 @@
 ---
-title: "Creación de definiciones de aplicación lógica | Microsoft Docs"
-description: "Obtenga información sobre cómo escribir la definición de JSON para aplicaciones lógicas."
+title: "Definición de flujos de trabajo con JSON: Azure Logic Apps | Microsoft Docs"
+description: "Definiciones de flujo de trabajo en JSON para aplicaciones lógicas"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,22 +12,27 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
+ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
+ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="author-logic-app-definitions"></a>Creación de definiciones de aplicación lógica
-En este tema se explica cómo usar definiciones de [Azure Logic Apps](logic-apps-what-are-logic-apps.md) , que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](logic-apps-create-a-logic-app.md) . También puede leer el [material de referencia completo del lenguaje de definición en MSDN](http://aka.ms/logicappsdocs).
+# <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Creación de definiciones de flujo de trabajo para aplicaciones lógicas mediante JSON
 
-## <a name="several-steps-that-repeat-over-a-list"></a>Varios pasos que se repiten en una lista
-Puede aprovechar el [tipo foreach](logic-apps-loops-and-scopes.md) para repetir los elementos de una matriz de hasta 10 000 elementos y realizar una acción para cada uno.
+Puede crear definiciones de flujo de trabajo para [Azure Logic Apps](logic-apps-what-are-logic-apps.md) con un lenguaje JSON sencillo y declarativo. Si no lo ha hecho ya, primero consulte [cómo crear su primera aplicación lógica con el diseñador de aplicaciones lógicas](logic-apps-create-a-logic-app.md). Consulte también la [referencia completa del lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs).
 
-## <a name="a-failure-handling-step-if-something-goes-wrong"></a>Un paso de control de errores si algo va mal
-Normalmente desea poder escribir un *paso de corrección* ; cierta lógica que se ejecuta, si, **y solo si**, una o varias llamadas no se han podido realizar correctamente. En este ejemplo, obtenemos datos desde diversos lugares, pero si se produce un error en la llamada, es necesario PUBLICAR un mensaje en alguna parte para poder localizar ese error más adelante:  
+## <a name="repeat-steps-over-a-list"></a>Repetición de los pasos de una lista
+
+Para repetir los elementos de una matriz que contiene hasta 10 000 elementos y realizar una acción para cada elemento, utilice el [tipo foreach](logic-apps-loops-and-scopes.md).
+
+## <a name="handle-failures-if-something-goes-wrong"></a>Control de errores si algo va mal
+
+Normalmente desea incluir un *paso de corrección*, es decir, cierta lógica que se ejecuta *si, y solo si*, una o varias llamadas no se han podido realizar correctamente. En este ejemplo, obtenemos datos desde diversos lugares, pero si se produce un error en la llamada, es necesario PUBLICAR un mensaje en alguna parte para poder localizar ese error más adelante:  
 
 ```
 {
@@ -60,12 +65,13 @@ Normalmente desea poder escribir un *paso de corrección* ; cierta lógica que s
 }
 ```
 
-Puede hacer uso de la propiedad `runAfter` para especificar que el elemento `postToErrorMessageQueue` solo debe ejecutarse cuando `readData` genere un **error**.  También podría ser una lista de los valores posibles, por lo que `runAfter` podría ser `["Succeeded", "Failed"]`.
+Para especificar que `postToErrorMessageQueue` solo se ejecuta si `readData` es `Failed`, use la propiedad `runAfter`, por ejemplo, para especificar una lista de posibles valores, para que `runAfter` pueda ser `["Succeeded", "Failed"]`.
 
-Por último, dado que ahora se ha controlado el error, la ejecución ya no genera ningún **error**. Como puede ver aquí, esta ejecución es **correcta** a pesar de que antes generara errores, porque escribí este paso para solucionar este error.
+Por último, dado que en este ejemplo ya se ha controlado el error, la ejecución ya no se marcará como `Failed`. Como hemos agregado el paso para controlar este error en este ejemplo, la ejecución es `Succeeded` aunque un paso `Failed`.
 
-## <a name="two-or-more-steps-that-execute-in-parallel"></a>Dos pasos (o más) que se ejecutan en paralelo
-Para tener varias acciones que se ejecuten en paralelo, la propiedad `runAfter` debe ser equivalente en tiempo de ejecución. 
+## <a name="execute-two-or-more-steps-in-parallel"></a>Ejecución de dos o más pasos en paralelo
+
+Para ejecutar varias acciones en paralelo, la propiedad `runAfter` debe ser equivalente en tiempo de ejecución. 
 
 ```
 {
@@ -104,14 +110,13 @@ Para tener varias acciones que se ejecuten en paralelo, la propiedad `runAfter` 
 }
 ```
 
-Como puede ver en el ejemplo anterior, se ha establecido que `branch1` y `branch2` se ejecuten después de `readData`. Como resultado, ambas ramas se ejecutarán en paralelo:
+En este ejemplo, se ha establecido que `branch1` y `branch2` se ejecuten después de `readData`. Como consecuencia, ambas acciones se ejecutan en paralelo. La marca de tiempo para ambas acciones es idéntica.
 
 ![Paralelo](media/logic-apps-author-definitions/parallel.png)
 
-Puede ver que la marca de tiempo para ambas bifurcaciones es idéntica. 
-
 ## <a name="join-two-parallel-branches"></a>Unión de dos ramas paralelas
-Puede unir dos acciones que se han establecido para ejecutarse en paralelo al agregar elementos a la propiedad `runAfter` similares a los anteriores.
+
+Puede unir dos acciones que se han establecido para ejecutarse en paralelo al agregar elementos a la propiedad `runAfter` como en el ejemplo anterior.
 
 ```
 {
@@ -182,8 +187,9 @@ Puede unir dos acciones que se han establecido para ejecutarse en paralelo al ag
 
 ![Paralelo](media/logic-apps-author-definitions/join.png)
 
-## <a name="mapping-items-in-a-list-to-some-different-configuration"></a>Asignación de elementos de una lista a una configuración diferente
-A continuación, supongamos que queremos obtener contenido completamente diferente según un valor de una propiedad. Podemos crear una asignación de valores a destinos como un parámetro:  
+## <a name="map-list-items-to-a-different-configuration"></a>Asignación de elementos de lista a una configuración diferente
+
+A continuación, supongamos que queremos obtener contenido diferente según un valor de una propiedad. Podemos crear una asignación de valores a destinos como un parámetro:  
 
 ```
 {
@@ -234,12 +240,17 @@ A continuación, supongamos que queremos obtener contenido completamente diferen
 }
 ```
 
-En este caso, en primer lugar, obtenemos una lista de artículos y, a continuación, el segundo paso busca en una asignación, según la categoría que se ha definido como un parámetro, la dirección URL en la que obtener el contenido. 
+En este caso, primero debemos obtener una lista de artículos. Según la categoría que se haya definido como parámetro, el segundo paso será utilizar una asignación para buscar la dirección URL para obtener el contenido.
 
-Prestemos atención aquí a dos elementos: la función [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) se utiliza para comprobar si la categoría coincide con una de las categorías conocidas definidas. En segundo lugar, una vez que obtenemos la categoría, podemos extraer el elemento de la asignación mediante corchetes: `parameters[...]`. 
+Algunas observaciones a tener en cuenta aquí: 
 
-## <a name="working-with-strings"></a>Trabajo con cadenas
-Existen diversas funciones que pueden usarse para manipular la cadena. Veamos un ejemplo donde tenemos una cadena que se va a pasar a un sistema, pero no estamos seguros de que la codificación de caracteres se controlará correctamente. Una opción consiste en codificar esta cadena con base64. Sin embargo, para evitar escapes en una dirección URL, vamos a reemplazar algunos caracteres. 
+*    La función [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) comprueba si la categoría coincide con alguna de las categorías definidas conocidas.
+
+*    Una vez que se obtiene la categoría, se puede extraer el elemento de la asignación mediante corchetes: `parameters[...]`.
+
+## <a name="process-strings"></a>Cadenas de proceso
+
+Puede usar varias funciones para manipular cadenas. Por ejemplo, supongamos que tenemos una cadena que queremos pasar a un sistema, pero no estamos seguros acerca del control adecuado para la codificación de caracteres. Una opción consiste en codificar esta cadena con base64. Sin embargo, para evitar escapes en una dirección URL, vamos a reemplazar algunos caracteres. 
 
 También queremos una subcadena del nombre del pedido, porque los cinco primeros caracteres no se usan.
 
@@ -275,17 +286,23 @@ También queremos una subcadena del nombre del pedido, porque los cinco primeros
 }
 ```
 
-Trabajar desde dentro hacia fuera:
+Si trabajamos desde dentro hacia fuera:
 
-1. Obtener el valor de [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) del nombre del solicitante, lo que devuelve el número total de caracteres
-2. Restar 5 (porque desearemos una cadena más corta).
-3. Obtener realmente la [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . Comenzamos con el índice `5` y pasamos al resto de la cadena.
-4. Convertir esta subcadena en una cadena [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) .
-5. Usar [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) para reemplazar todos los caracteres `+` por `-`
-6. Usar [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) para reemplazar todos los caracteres `/` por `_`
+1. Obtenga el valor de [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) del nombre del solicitante, lo que devuelve el número total de caracteres.
 
-## <a name="working-with-date-times"></a>Trabajo con fechas
-Las fechas puede ser útiles, especialmente cuando intenta extraer datos de un origen de datos que no admite de forma natural **desencadenadores**.  También puede utilizar las fechas para averiguar cuánto duran los distintos pasos. 
+2. Reste 5 porque deseamos una cadena más corta.
+
+3. Realmente, quitamos [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Comenzamos con el índice `5` y pasamos al resto de la cadena.
+
+4. Convierta esta subcadena en una cadena [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64).
+
+5. Use [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) para reemplazar todos los caracteres `+` por `-`.
+
+6. Use [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) para reemplazar todos los caracteres `/` por `_`.
+
+## <a name="work-with-date-times"></a>Trabajo con fechas
+
+Las fechas pueden ser útiles, especialmente cuando intenta extraer datos de un origen de datos que no admite de forma natural *desencadenadores*. También puede utilizar las fechas para averiguar cuánto duran los distintos pasos.
 
 ```
 {
@@ -337,16 +354,20 @@ Las fechas puede ser útiles, especialmente cuando intenta extraer datos de un o
 }
 ```
 
-En este ejemplo, vamos a extraer el valor `startTime` del paso anterior. A continuación, vamos a obtener la hora actual y le vamos a restar un segundo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (puede utilizar otras unidades de tiempo como `minutes` o `hours`). Por último, podemos comparar estos dos valores. Si el primero es menor que el segundo, significa que ha transcurrido más de un segundo desde la primera vez que se realizó el pedido. 
+En este ejemplo, vamos a extraer el valor `startTime` del paso anterior. A continuación, obtenemos la hora actual y restamos un segundo:
 
-Observe también que podemos utilizar formateadores de cadena para dar formato a fechas: en la cadena de consulta utilizo [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) para obtener el RFC1123. Todos los formatos de fecha [están documentados en MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-## <a name="using-deployment-time-parameters-for-different-environments"></a>Uso de parámetros de tiempo de implementación para entornos diferentes
-Es habitual tener un ciclo de vida de implementación donde tiene un entorno de desarrollo, un entorno de ensayo y, a continuación, un entorno de producción. En todos ellos puede querer la misma definición, pero usar bases de datos distintas, por ejemplo. Del mismo modo, es posible que desee utilizar la misma definición en muchas regiones diferentes para lograr una alta disponibilidad, pero que cada instancia de aplicación lógica se comunique con la base de datos de dicha región. 
+Puede usar otras unidades de tiempo, como `minutes` o `hours`. Por último, podemos comparar estos dos valores. Si el primero es inferior al segundo, significa que ha transcurrido más de un segundo desde la primera vez que se realizó el pedido.
 
-Tenga en cuenta que esto no es lo mismo que usar distintos parámetros en el *tiempo de ejecución*, para lo que debe usar la función `trigger()`, tal como se ha descrito anteriormente. 
+Para dar formato a fechas, podemos usar formateadores de cadena. Por ejemplo, para obtener el valor de RFC1123, usamos [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Para obtener información sobre los formatos de fecha, consulte [Lenguaje de definición de flujo de trabajo](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
-Puede empezar con una definición muy sencilla, como esta:
+## <a name="deployment-parameters-for-different-environments"></a>Parámetros de implementación para entornos diferentes
+
+Por lo general, un ciclo de vida de implementación tiene un entorno de desarrollo, un entorno de ensayo y un entorno de producción. Por ejemplo, puede utilizar la misma definición en todos estos entornos pero utilizar diferentes bases de datos. Del mismo modo, es posible que desee utilizar la misma definición en muchas regiones diferentes para lograr una alta disponibilidad, pero que cada instancia de aplicación lógica se comunique con la base de datos de esa región.
+Este escenario no tiene que ver nada con tomar parámetros en *tiempo de ejecución* en aquellas ocasiones en las que debe utilizar la función `trigger()` como en el ejemplo anterior.
+
+Puede empezar con una definición muy básica, como la de este ejemplo:
 
 ```
 {
@@ -375,7 +396,7 @@ Puede empezar con una definición muy sencilla, como esta:
 }
 ```
 
-A continuación, en la solicitud `PUT` real para la aplicación lógica, puede proporcionar el parámetro `uri`. Tenga en cuenta que, como ya no hay ningún valor predeterminado, este parámetro es necesario en la carga de la aplicación lógica:
+En la solicitud `PUT` real para las aplicaciones lógicas, puede proporcionar el parámetro `uri`. Dado que ya no existe un valor predeterminado, la carga útil de la aplicación lógica requiere este parámetro:
 
 ```
 {
@@ -393,13 +414,7 @@ A continuación, en la solicitud `PUT` real para la aplicación lógica, puede p
 }
 ``` 
 
-En cada entorno puede proporcionar un valor diferente para el parámetro `connection` . 
+En cada entorno puede proporcionar un valor diferente para el parámetro `connection`. 
 
 Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas. 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
