@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
+ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
+ms.openlocfilehash: d9264e4268bb0418d64d4da680bd6e8b756a9ea6
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -61,22 +62,27 @@ Para configurar la integración de RightScale en Azure AD, deberá agregar Right
 1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**. 
    
     ![Active Directory][1]
+
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
     ![Applications][2]
+
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
     ![Aplicaciones][3]
+
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
     ![Aplicaciones][4]
+
 6. En el cuadro de búsqueda, escriba **RightScale**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
+
 7. En el panel de resultados, seleccione **RightScale** y, luego, haga clic en **Completar** para agregar la aplicación.
    
-    ![Selección de la aplicación en la galería](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con RightScale con un usuario de prueba llamado "Britta Simon".
@@ -99,9 +105,11 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 1. En el Portal clásico, en la página de integración de aplicaciones de **RightScale**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único][6] 
+
 2. En la página **¿Cómo desea que los usuarios inicien sesión en RightScale?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png) 
+
 3. En el cuadro de diálogo **Configurar las opciones de la aplicación**, si desea configurar la aplicación en el **modo iniciado por el proveedor de identidades**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
@@ -117,13 +125,15 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de RightScale con el siguiente patrón: `https://login.rightscale.com/`
    
     b. Haga clic en **Siguiente**
+
 2. En la página **Configurar inicio de sesión único en RightScale**, lleve a cabo estos pasos y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
    
-    a. Haga clic en **Descargar certificado**y luego guarde el archivo de certificado codificado en base 64 en el equipo.
+    a. Haga clic en **Descargar certificado**y luego guarde el archivo de certificado codificado en base&64; en el equipo.
    
     b. Haga clic en **Siguiente**.
+
 3. Para configurar SSO para la aplicación, debe iniciar sesión en su inquilino de RightScale como administrador.
    
     a. En el menú de la parte superior, haga clic en la pestaña **Configuración** y seleccione **Inicio de sesión único**.
@@ -154,14 +164,16 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
    
-    g. Haga clic en el botón **Explorador** para cargar el certificado que descargó en el paso 4.
+    g. Haga clic en el botón **Explorador** para cargar el certificado que descargó en el paso&4;.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
    
     h. Haga clic en **Save**.
+
 4. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
+
 5. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
@@ -176,13 +188,17 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
 1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png) 
+
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+
 3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png) 
+
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png) 
+
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
@@ -192,22 +208,25 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
     b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
    
     c. Haga clic en **Siguiente**.
+
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png) 
+
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png) 
@@ -229,13 +248,17 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 1. En el Portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
    
     ![Asignar usuario][201] 
+
 2. En la lista de aplicaciones, seleccione **RightScale**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png) 
+
 3. En el menú de la parte superior, haga clic en **Usuarios**.
    
     ![Asignar usuario][203] 
+
 4. En la lista Usuarios, seleccione **Britta Simon**.
+
 5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
    
     ![Asignar usuario][205]
@@ -265,9 +288,4 @@ Al hacer clic en el icono de RightScale en el Panel de acceso, debería iniciar 
 [203]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
