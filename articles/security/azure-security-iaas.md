@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 03/06/2017
 ms.author: barclayn
 translationtype: Human Translation
-ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
-ms.openlocfilehash: 8416de09a4a3c2cdf9c73b9f79e8df9e292514ca
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 774feff39bee6f34b1fb292f130d8240ec070c81
+ms.lasthandoff: 03/07/2017
 
 
 
@@ -195,8 +196,6 @@ Para los entornos hospedados de forma independiente del entorno de producción, 
 
 **Instalación de las últimas actualizaciones de seguridad** Algunas de las primeras cargas de trabajo que vemos que los clientes mueven a Azure son los laboratorios y los sistemas con conexión con el exterior. Si hospeda máquinas virtuales en Azure que hospedan aplicaciones o servicios a los que debe de poder accederse desde Internet, es preciso que esté atento a la aplicación de revisiones. Recuerde que esto es algo más que la aplicación de revisiones al sistema operativo. Las vulnerabilidades de aplicaciones de otros fabricantes a las que no se han aplicado revisiones también pueden provocar problemas que podrían haberse evitado fácilmente si hubiera una buena administración de revisiones vigente.
 
-Para más información acerca de cómo administrar la aplicación de revisiones en IaaS de Azure, consulte [Prácticas recomendadas para actualizaciones de software en IaaS de Microsoft Azure](azure-security-best-practices-software-updates-iaas.md).
-
 **Implementación y comprobación de una solución de copia de seguridad**
 
 Al igual que las actualizaciones de seguridad, la copia de seguridad se debe realizar de la misma manera que cualquier otra operación, al menos en los sistemas que formen parte del entorno de producción que se extiende a la nube. Los sistemas de prueba y desarrollo deben seguir estrategias de copia de seguridad que puedan proporcionar funcionalidades de restauración similares a los que los usuarios están acostumbrado en función de su experiencia en entornos locales.
@@ -244,9 +243,4 @@ La captura de pantalla siguiente muestra un ejemplo del tipo de información que
 * [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Centro de respuesta de seguridad de Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
 * [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
