@@ -4,6 +4,7 @@
 # Introducción
 ## [Creación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
 ## [Creación de un conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
+## [Creación de un conjunto de escalado mediante una plantilla de Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Procedimientos
 ## Planeamiento y diseño
@@ -46,8 +47,3 @@
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

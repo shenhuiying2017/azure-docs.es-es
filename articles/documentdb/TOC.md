@@ -1,6 +1,7 @@
 
 # Información general
 ## [¿Qué es DocumentDB?](documentdb-introduction.md)
+## [¿Qué es DocumentDB: API para MongoDB?](documentdb-protocol-mongodb.md)
 ## [Conceptos principales](documentdb-resources.md)
 ## [Distribución global](documentdb-distribute-data-globally.md)
 ## [Análisis del TCO de NoSQL](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [Aplicación de consola de .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Aplicación de consola de Java](documentdb-java-get-started.md)
 ### [Aplicación de consola de Node.js](documentdb-nodejs-get-started.md)
+### [Aplicación de consola de Node.js para API de MongoDB](documentdb-mongodb-samples.md)
 ### [Aplicación de la consola de C++](documentdb-cpp-get-started.md)
 ## Compilación de una aplicación web
 ### [Aplicación web de .NET](documentdb-dotnet-application.md)
+### [Aplicación web de .NET para API de MongoDB](documentdb-mongodb-application.md)
 ### [Aplicación web de Node.js](documentdb-nodejs-application.md)
 ### [Aplicaciones web de Java](documentdb-java-application.md)
 ### [Aplicación web de Python Flask](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Administrar
 ### [Importación de datos](documentdb-import-data.md)
+### [Importación a la API de MongoDB](documentdb-mongodb-migrate.md)
+### [Conexión a una cuenta de MongoDB](documentdb-connect-mongodb-account.md)
+### [Uso de MongoChef](documentdb-mongodb-mongochef.md)
+### [Conexión mediante Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modelado de datos](documentdb-modeling-data.md)
 ### [Uso de datos geoespaciales](documentdb-geospatial.md)
 ### [Desarrollo para varias regiones](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Prácticas recomendadas
 #### [Configuración de varios maestros](documentdb-multi-region-writers.md)
 #### [Fecha y hora](documentdb-working-with-dates.md)
-
-## Uso de la compatibilidad de DocumentDB con MongoDB
-### [Compatibilidad de protocolo para MongoDB](documentdb-protocol-mongodb.md)
-### [Creación de cuenta](documentdb-create-mongodb-account.md)
-### [Conexión a una cuenta](documentdb-connect-mongodb-account.md)
-### [Migración de los datos](documentdb-mongodb-migrate.md)
-### [Uso de Robomongo](documentdb-mongodb-robomongo.md)
-### [Uso de MongoChef](documentdb-mongodb-mongochef.md)
-### [Ejemplos de protocolos compatibles](documentdb-mongodb-samples.md)
 
 ## Uso del portal
 ### [Creación de una cuenta de base de datos](documentdb-create-account.md)
