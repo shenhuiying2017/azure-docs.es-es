@@ -60,7 +60,8 @@
 ## Solución de problemas
 ### [Conectividad](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Errores durante la sincronización](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [El objeto no está sincronizado](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Sincronización de contraseñas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Referencia
 ## [Sincronización de identidades y resistencia de atributos duplicados](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

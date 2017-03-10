@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: df4b11210aca695a04abf145b6efd9e98c870b67
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 66c06ab6beb5e1de9cba25382834f4f9f209fa2f
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portal de Azure: Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell: administrador de recursos](expressroute-howto-routing-arm.md)
-> * [PowerShell: clásico](expressroute-howto-routing-classic.md)
+> * [Resource Manager: Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
+> * [Modelo de implementación clásica de Azure: PowerShell](expressroute-howto-routing-classic.md)
+> * [Vídeo: pares privados](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vídeo: pares públicos](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vídeo: emparejamiento de Microsoft](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -306,10 +310,5 @@ A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](ex
 
 * Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 * Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

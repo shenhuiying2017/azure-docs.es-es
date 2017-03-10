@@ -11,9 +11,8 @@
 ### [Interfaces de red](virtual-network-network-interface-overview.md)
 ### [Resolución de nombres](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-# Primeros pasos
-## [Crear una red virtual](virtual-networks-create-vnet-arm-pportal.md)
-## [Implementación de una VM en una red virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+# Introducción
+## [Creación de su primera red virtual](virtual-network-get-started-vnet-subnet.md)
 
 # Procedimientos
 ## Planeamiento y diseño
@@ -146,8 +145,3 @@
 ## [Foro de redes](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

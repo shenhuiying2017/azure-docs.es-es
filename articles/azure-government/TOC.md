@@ -1,3 +1,4 @@
+
 # Información general
 ## [¿Qué es Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,6 +32,7 @@
 ### [Proceso](documentation-government-compute.md)
 ### [Almacenamiento](documentation-government-services-storage.md)
 ### [Base de datos](documentation-government-services-database.md)
+### [Inteligencia y análisis](documentation-government-services-intelligenceandanalytics.md)
 ### [Redes](documentation-government-networking.md)
 ### [Seguridad + Identidad](documentation-government-services-securityandidentity.md)
 ### [Supervisión + Administración](documentation-government-services-monitoringandmanagement.md)
@@ -42,8 +44,3 @@
 ## [Versión de prueba](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Sitio web de Azure Government](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

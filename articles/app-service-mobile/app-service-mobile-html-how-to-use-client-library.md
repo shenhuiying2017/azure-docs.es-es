@@ -4,7 +4,7 @@ description: "Uso de v para Aplicaciones móviles de Azure"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
@@ -31,7 +31,7 @@ Limitamos la compatibilidad del explorador con la versión actual y con las más
 
 El paquete se distribuye como un módulo de JavaScript universal, por lo que es compatible con formatos globales, AMD y CommonJS.
 
-## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Configuración y requisitos previos
+## <a name="Setup"></a>Configuración y requisitos previos
 En esta guía se asume que ha creado un back-end con una tabla. En esta guía se asume que la tabla tiene el mismo esquema que las tablas de dichos tutoriales.
 
 Se puede instalar el SDK de JavaScript para Aplicaciones móviles de Azure con el comando `npm` :
@@ -57,14 +57,14 @@ También puede utilizar una versión previamente compilada del SDK descargándol
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>Autenticación de usuarios
+## <a name="auth"></a>Autenticación de usuarios
 Azure App Service es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externos: Facebook, Google, Cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación] .
 
 Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de cliente.  El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con funcionalidades específicas del dispositivo, como el inicio de sesión único, ya que se basa en SDK específicos del proveedor.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Cómo configurar el servicio de Mobile Apps para URL de redireccionamiento externas
+### <a name="configure-external-redirect-urls"></a>Cómo configurar el servicio de Mobile Apps para URL de redireccionamiento externas
 Varios tipos de aplicaciones de JavaScript utilizan funcionalidades de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth.  Estas son algunas de ellas:
 
 * Ejecución del servicio de manera local

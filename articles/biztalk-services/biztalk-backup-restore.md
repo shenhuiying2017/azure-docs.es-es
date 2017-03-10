@@ -17,6 +17,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
 ms.openlocfilehash: 589b95fdd05478305fa8ef629fc6758bdd716da6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,7 +51,7 @@ Puede realizar una copia de seguridad en cualquier momento y controlarla por com
 
 [Programación de una copia de seguridad](#backupschedule)
 
-#### <a name="a-namebackupnowaon-demand-backup"></a><a name="backupnow"></a>Copia de seguridad bajo demanda
+#### <a name="backupnow"></a>Copia de seguridad bajo demanda
 1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk**y luego el servicio de BizTalk del que quiera realizar la copia de seguridad.
 2. En la pestaña **Panel**, seleccione **Hacer una copia de seguridad** en la parte inferior de la página.
 3. Escriba un nombre para la copia de seguridad. Por ejemplo, escriba *myBizTalkService*BU*Fecha*.
@@ -58,7 +59,7 @@ Puede realizar una copia de seguridad en cualquier momento y controlarla por com
 
 Una vez que finalice la copia de seguridad, en la cuenta de almacenamiento se creará un contenedor con el nombre de copia de seguridad que escriba. Este contenedor contiene la configuración de la copia de seguridad del servicio de BizTalk.
 
-#### <a name="a-namebackupscheduleaschedule-a-backup"></a><a name="backupschedule"></a>Programación de una copia de seguridad
+#### <a name="backupschedule"></a>Programación de una copia de seguridad
 1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk**, seleccione el nombre del servicio de BizTalk del que quiere programar la copia de seguridad y luego seleccione la pestaña **Configurar**.
 2. Establezca **Estado de la copia de seguridad** en **Automático**. 
 3. Seleccione la **Cuenta de almacenamiento** para almacenar la copia de seguridad, especifique la **Frecuencia** con la que desea crear las copias de seguridad y cuánto tiempo quiere conservar las copias de seguridad (**Días de retención**):
@@ -79,7 +80,7 @@ Si el panel del Servicios de BizTalk muestra un estado **Con error** :
 
 El vínculo abre los Registros de operaciones de Servicios de administración para ayudar a solucionar problemas. Consulte [Servicios de BizTalk: solución de problemas mediante registros de operaciones](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
-## <a name="restore"></a>Restauración
+## <a name="restore"></a>Restore
 Puede restaurar las copias de seguridad desde el Portal de Azure clásico o desde la [API REST para la restauración del Servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). En esta sección se muestran los pasos para realizar la restauración mediante el portal clásico.
 
 #### <a name="before-restoring-a-backup"></a>Antes de restaurar una copia de seguridad
@@ -109,7 +110,7 @@ Puede restaurar las copias de seguridad desde el Portal de Azure clásico o desd
 
 Cuando se haya realizado correctamente la restauración, se incluye un nuevo servicio de BizTalk cuyo estado está suspendido en la página de servicios de BizTalk del Portal de Azure clásico.
 
-### <a name="a-namepostrestoreaafter-restoring-a-backup"></a><a name="postrestore"></a>Después de restaurar una copia de seguridad
+### <a name="postrestore"></a>Después de restaurar una copia de seguridad
 El servicio de BizTalk siempre está restaurado en un estado **Suspendido** . En este estado, puede realizar cambios de configuración antes de que el nuevo entorno sea funcional, incluyendo:
 
 * Si ha creado aplicaciones del servicio de BizTalk mediante el SDK de los Servicios de BizTalk de Azure, puede que tenga que actualizar las credenciales de control de acceso (ACS) en dichas aplicaciones para que puedan funcionar con el entorno restaurado.
@@ -206,13 +207,8 @@ Para crear los Servicios de BizTalk de Azure en el Portal de Azure clásico, vay
 * [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
-[Restauración]: ./media/biztalk-backup-restore/restore-ui.png
+[Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

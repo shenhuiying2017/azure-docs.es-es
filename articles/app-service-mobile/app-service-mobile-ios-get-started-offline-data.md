@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dc5f98fd548512801c705f942e30df5e6b95d542
 ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -30,7 +31,7 @@ Si esta es la primera vez que usa Mobile Apps, primero debería completar el tut
 
 Para aprender acerca de la característica de sincronización sin conexión, consulte [Sincronización de datos sin conexión en Mobile Apps].
 
-## <a name="a-namereview-syncareview-the-client-sync-code"></a><a name="review-sync"></a>Revisión del código de sincronización de cliente
+## <a name="review-sync"></a>Revisión del código de sincronización de cliente
 El proyecto de cliente que descargó para el tutorial [Creación de una aplicación iOS] ya contiene el código que admite la sincronización sin conexión con una base de datos local basada en Core Data. En esta sección, se resume lo que ya está incluido en el código del tutorial. Para ver información general conceptual sobre la característica, consulte [Sincronización de datos sin conexión en Mobile Apps].
 
 Mediante la característica de sincronización de datos sin conexión de Mobile Apps, los usuarios finales pueden interactuar con una base de datos local incluso si la red no está accesible. Para utilizar estas características en su aplicación, inicialice el contexto de sincronización de `MSClient` y haga referencia a un almacén local. Después, haga referencia a la tabla mediante la interfaz **MSSyncTable**.
@@ -48,6 +49,7 @@ Antes de poder realizar cualquier operación de tabla, se debe inicializar el al
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
 * **Swift**. En el método **ToDoTableViewController.viewDidLoad**:
+
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
@@ -135,7 +137,7 @@ La aplicación Swift se sincroniza cuando el usuario realiza el gesto de actuali
 
 Dado que la aplicación se sincroniza cada vez que se modifican datos (Objective-C) o siempre que se inicia la aplicación (Objective-C y Swift), la aplicación supone que el usuario está en línea. En una sección posterior, actualizará la aplicación para que los usuarios puedan editar incluso cuando estén sin conexión.
 
-## <a name="a-namereview-core-dataareview-the-core-data-model"></a><a name="review-core-data"></a>Revisión del modelo Core Data
+## <a name="review-core-data"></a>Revisión del modelo Core Data
 Cuando use el almacén sin conexión Core Data, debe definir tablas y campos determinados en el modelo de datos. La aplicación de ejemplo ya incluye un modelo de datos con el formato correcto. En esta sección se le guiará por estas tablas y el modo de utilizarlas.
 
 Abra **QSDataModel.xcdatamodeld**. Hay cuatro tablas definidas: tres usadas por el SDK y una para las tareas pendientes en sí:
@@ -202,7 +204,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 | updatedAt | Date | (opcional) Se asigna a la propiedad del sistema **updatedAt** |
 | versión | String | (opcional) Se usa para detectar conflictos; se asigna a version |
 
-## <a name="a-namesetup-syncachange-the-sync-behavior-of-the-app"></a><a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
+## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
 En esta sección, modifique la aplicación para que no se sincronice al iniciarse la aplicación ni cuando se inserten y actualicen elementos. Solo se sincroniza cuando se realiza el gesto de actualización.
 
 **Objective-C**:
@@ -231,7 +233,7 @@ En `viewDidLoad`, en **ToDoTableViewController.swift**, convierta en comentario 
   self.onRefresh(self.refreshControl)
 ```
 
-## <a name="a-nametest-appatest-the-app"></a><a name="test-app"></a>Prueba de la aplicación
+## <a name="test-app"></a>Prueba de la aplicación
 En esta sección, se conecta a una dirección URL no válida para simular un escenario sin conexión. Cuando agrega elementos de datos, se guardan en el almacén local Core Data, pero no se sincronizan con el back-end de la aplicación móvil.
 
 1. Cambie la dirección URL de la aplicación móvil en **QSTodoService.m** por una no válida y vuelva a ejecutar la aplicación:
@@ -285,9 +287,4 @@ Cuando el almacén local se sincroniza con el servidor, se usa el método **MSSy
 
 [Cloud Cover: sincronización sin conexión en Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

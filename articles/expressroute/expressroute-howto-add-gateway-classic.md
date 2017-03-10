@@ -16,15 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d079003674a3025a8ce8f39ab61d9ca544e132a
+ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
+ms.openlocfilehash: 1679bc2f2344ce3dd78599a1e6a8e2cc974ee905
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>Configure a virtual network gateway for ExpressRoute using the classic deployment model and PowerShell (Configuración de una puerta de enlace de red virtual en ExpressRoute con el modelo de implementación clásica y PowerShell)
 > [!div class="op_single_selector"]
-> * [PowerShell: administrador de recursos](expressroute-howto-add-gateway-resource-manager.md)
-> * [PowerShell: clásico](expressroute-howto-add-gateway-classic.md)
+> * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+> * [Clásico: PowerShell](expressroute-howto-add-gateway-classic.md)
+> * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -35,16 +37,11 @@ Este artículo le guiará por los pasos para agregar, cambiar el tamaño y quita
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Antes de comenzar
-Compruebe que ha instalado los cmdlets de Azure PowerShell necesarios para esta configuración (1.0.2 o posterior). Si no, deberá hacerlo antes de comenzar con los pasos de configuración. Para más información sobre cómo instalar Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+Compruebe que ha instalado los cmdlets de Azure PowerShell necesarios para esta configuración (1.0.2 o posterior). Si no, deberá hacerlo antes de comenzar con los pasos de configuración. Para más información sobre cómo instalar Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de crear la puerta de enlace de red virtual, puede vincular la red virtual a un circuito ExpressRoute. Consulte el artículo [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

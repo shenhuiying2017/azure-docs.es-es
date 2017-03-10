@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -166,7 +167,7 @@ Un clúster de HDInsight 3.5 deshabilita de forma predeterminada el uso de rutas
 3. En **livy-default**, agregue el nombre de propiedad `livy.file.local-dir-whitelist` y establezca su valor en **"/"** si desea permitir el acceso total al sistema de archivos. Si desea permitir el acceso únicamente a un directorio específico, proporcione la ruta de acceso a ese directorio como valor.
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Otras referencias
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
@@ -190,10 +191,5 @@ Un clúster de HDInsight 3.5 deshabilita de forma predeterminada el uso de rutas
 ### <a name="manage-resources"></a>Administración de recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

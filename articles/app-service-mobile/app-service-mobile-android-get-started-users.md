@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo usar la característica Mobile Ap
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
 ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -26,10 +27,10 @@ ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 ## <a name="summary"></a>Resumen
 En este tutorial podrá agregar la autenticación al proyecto de inicio rápido todolist en Android con un proveedor de identidades admitido. Este tutorial está basado en el tutorial [Introducción a Mobile Apps] , que debe completar primero.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>Registro de la aplicación para la autenticación y configuración de Azure App Service
+## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de Azure App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 * En Android Studio, abra el proyecto que ha completado con el tutorial [Introducción a Mobile Apps]. En el menú **Run** (Ejecutar), haga clic en **Run app** (Ejecutar aplicación). A continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
@@ -41,7 +42,7 @@ A continuación, actualice la aplicación para autenticar usuarios antes de soli
 ## <a name="add-authentication-to-the-app"></a>Incorporación de autenticación a la aplicación
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-## <a name="a-namecache-tokensacache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>Almacenamiento en caché de tokens de autenticación en el cliente
+## <a name="cache-tokens"></a>Almacenamiento en caché de tokens de autenticación en el cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -63,9 +64,4 @@ Ahora que ha completado este tutorial de autenticación básica, considere la po
 
 <!-- URLs. -->
 [Introducción a Mobile Apps]: app-service-mobile-android-get-started.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

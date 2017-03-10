@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -41,9 +41,6 @@ Puede personalizar prácticamente cualquier elemento del proceso invitador con l
 
 ### <a name="can-the-invited-external-user-leave-the-organization-to-which-he-was-invited"></a>¿Puede dejar el usuario externo invitado la organización a la que se le invitó?
 En estos momentos no está disponible en esta actualización de la versión preliminar pública.
-
-### <a name="can-i-use-my-microsoft-account-johncontosomicrosoftacctcom-to-sign-in-to-resources"></a>¿Puedo usar mi cuenta Microsoft (John@contosomicrosoftacct.com) para iniciar sesión en los recursos?
-No podrá usar la cuenta Microsoft durante esta actualización de la versión preliminar pública. Si tiene un sufijo de cuenta Microsoft no estándar (posiblemente para correo corporativo, como @contoso.com),), se creará un inquilino de Azure Active Directory para que pueda usarlo.
 
 ### <a name="now-that-multi-factor-authentication-mfa-is-available-for-guest-users-can-they-also-reset-their-mfa-method"></a>¿Ahora que la autenticación multifactor (MFA) está disponible para los usuarios invitados, también pueden restablecer su método MFA?
 Sí, de la misma manera que los usuarios normales.

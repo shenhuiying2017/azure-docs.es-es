@@ -43,6 +43,7 @@
 ### [Introducción a la conversión de una máquina virtual a Managed Disks](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Uso de Azure PowerShell](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Expansión del disco del SO](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Expansión de un disco de datos](../virtual-machines-windows-expand-data-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Uso de D: como disco de datos](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Cifrado de disco](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
