@@ -15,25 +15,28 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: c03122972228f30d56a8e0636b1c35ac92b42977
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
 
-En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [Herramientas de Python para Visual Studio][Herramientas de Python para Visual Studio]. Aprenderá a usar Visual Studio para crear e implementar un servicio en la nube básico que use Python.
+En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [herramientas de Python para Visual Studio][Python Tools for Visual Studio]. Aprenderá a usar Visual Studio para crear e implementar un servicio en la nube básico que use Python.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Visual Studio 2013 o 2015
-* [Herramientas de Python para Visual Studio][Herramientas de Python para Visual Studio] (PTVS)
-* [Herramientas de Azure SDK para VS 2013][Herramientas de Azure SDK para VS 2013] o [Herramientas de Azure SDK para VS 2015][Herramientas de Azure SDK para VS 2015]
-* [Python 2.7 de 32 bits][Python 2.7 de 32 bits] o [Python 3.5 de 32 bits][Python 3.5 de 32 bits]
+* [Visual Studio 2013, 2015 o 2017](https://www.visualstudio.com/)
+* [Herramientas de Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
+* [Herramientas de Azure SDK para VS 2013][Azure SDK Tools for VS 2013] o  
+[Herramientas de Azure SDK para VS 2015][Azure SDK Tools for VS 2015] o  
+[Herramientas de Azure SDK para VS 2017][Azure SDK Tools for VS 2017]
+* [Python 2.7 de 32 bits][Python 2.7 32-bit] o [Python 3.5 de 32 bits][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>¿Qué son los roles web y de trabajo de Python?
-Azure proporciona tres modelos de proceso para ejecutar aplicaciones: [característica Web Apps en Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] y [Azure Cloud Services][execution model-cloud services]. Los tres modelos admiten Python. Cloud Services, que incluye roles web y de trabajo, proporciona una *Plataforma como servicio (PaaS)*. En un servicio en la nube, un rol web ofrece un servidor web dedicado de Internet Information Services (IIS) para hospedar aplicaciones web front-end, mientras que un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas independientes de la entrada o la interacción del usuario.
+Azure ofrece tres modelos de proceso para la ejecución de aplicaciones: [característica Web Apps de Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. Los tres modelos admiten Python. Cloud Services, que incluye roles web y de trabajo, proporciona una *Plataforma como servicio (PaaS)*. En un servicio en la nube, un rol web ofrece un servidor web dedicado de Internet Information Services (IIS) para hospedar aplicaciones web front-end, mientras que un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas independientes de la entrada o la interacción del usuario.
 
 Para más información, consulte [¿Qué es un servicio en la nube?]
 
@@ -329,15 +332,15 @@ Después de que la máquina virtual del servicio en la nube se inicie e instale 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información detallada sobre el trabajo con roles web y de trabajo en Python Tools para Visual Studio, consulte la documentación de PTVS:
 
-* [Proyectos de servicio en la nube][Proyectos de servicio en la nube]
+* [Proyectos de servicio en la nube][Cloud Service Projects]
 
 Para obtener más información sobre el uso de servicios de Azure desde roles web y de trabajo, como el uso de almacenamiento o el Bus de servicio de Azure, consulte los siguientes artículos:
 
 * [Blob Service][Blob Service]
 * [Table Service][Table Service]
 * [Queue Service][Queue Service]
-* [Colas de Service Bus][Colas de Service Bus]
-* [Temas de Service Bus][Temas de Service Bus]
+* [Colas de Service Bus][Service Bus Queues]
+* [Temas de Service Bus][Service Bus Topics]
 
 <!--Link references-->
 
@@ -345,27 +348,23 @@ Para obtener más información sobre el uso de servicios de Azure desde roles we
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
 [execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
 [execution model-cloud services]: cloud-services-choose-me.md
-[Centro para desarrolladores de Python]: /develop/python/
+[Python Developer Center]: /develop/python/
 
 [Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
 [Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
 [Table Service]: ../storage/storage-python-how-to-use-table-storage.md
-[Colas de Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Temas de Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
-[Documentación sobre Python Tools para Visual Studio]: http://aka.ms/ptvsdocs
-[Proyectos de servicio en la nube]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Herramientas de Azure SDK para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Herramientas de Azure SDK para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 de 32 bits]: https://www.python.org/downloads/
-[Python 3.5 de 32 bits]: https://www.python.org/downloads/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
 

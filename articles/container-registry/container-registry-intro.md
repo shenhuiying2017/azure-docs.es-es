@@ -1,5 +1,5 @@
 ---
-title: Registro de contenedores privado de Docker en Azure | Microsoft Docs
+title: Registros de contenedores privados de Docker en Azure | Microsoft Docs
 description: "Introducción al servicio Azure Container Registry, que proporciona registros de Docker basados en la nube, administrados y privados."
 services: container-registry
 documentationcenter: 
@@ -16,12 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: 69d1750f13b5507268229b29a392c38662c0f5f0
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="what-is-azure-container-registry"></a>¿Qué es Azure Container Registry?
+# <a name="introduction-to-private-docker-container-registries"></a>Introducción a los registros de contenedores privados de Docker
 > [!NOTE]
 > Container Registry está actualmente en vista previa.
 
@@ -68,9 +70,4 @@ Los desarrolladores también pueden insertar en un registro de contenedor como p
 * [Insertar la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md)
 * Para crear una integración continua y un flujo de trabajo de implementación mediante Visual Studio Team Services, Azure Container Service y Azure Container Registry, consulte [este tutorial](../container-service/container-service-setup-ci-cd.md).
 * Si desea configurar su propio Docker Registry privado en Azure (sin un punto de conexión público), consulte [Implementación de su propio Docker Registry privado en Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

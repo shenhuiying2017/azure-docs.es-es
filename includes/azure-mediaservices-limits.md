@@ -4,20 +4,20 @@
 | Recurso | Límite predeterminado | 
 | --- | --- | 
 | Cuentas de Servicios multimedia de Azure (AMS) en una única suscripción | 25 (fijo) |
-| Unidades reservadas de multimedia (RU) por cuenta de AMS |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| Trabajos por cuenta de AMS | 50&000;<sup>2</sup> |
+| Unidades reservadas de multimedia (RU) por cuenta de AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Trabajos por cuenta de AMS | 50,000<sup>(2)</sup> |
 | Tareas encadenadas por trabajo | 30 (fijo) |
 | Recursos por cuenta de AMS | 1&000;&000;|
 | Recursos por tarea. | 50 |
 | Recursos por trabajo | 100 |
-| Localizadores únicos asociados a un recurso al mismo tiempo | 5<sup>4</sup> |
+| Localizadores únicos asociados a un recurso al mismo tiempo | 5<sup>(4)</sup> |
 | Canales activos por cuenta de AMS |5|
 | Programas en estado detenido por canal  |50|
 | Programas en estado de ejecución por canal  |3|
 | Extremos de streaming en estado de ejecución por cuenta de ASM|2|
 | Unidades de streaming por extremo de streaming |10 |
-| Cuentas de almacenamiento | 1000<sup>5</sup> (fijo) |
-| Directivas | 1,000,000<sup>6</sup> |
+| Cuentas de almacenamiento | 1000 <sup>(5)</sup> (fijo) |
+| Directivas | 1 000 000<sup>(6)</sup> |
 | Tamaño de archivo| En algunos casos, existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. <sup>7</sup> |
   
 <sup>1</sup> Las RU S3 no están disponibles en India occidental.
@@ -44,8 +44,3 @@ A partir del 1 de abril de 2017, se eliminarán automáticamente los registros d
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-
