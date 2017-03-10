@@ -4,7 +4,7 @@ description: Una lista completa de todas las opciones que se movilizan o de las 
 services: active-directory
 keywords: enterprise state roaming, nube de windows
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf

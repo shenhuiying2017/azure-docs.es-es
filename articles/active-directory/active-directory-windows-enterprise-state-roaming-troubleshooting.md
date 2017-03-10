@@ -4,7 +4,7 @@ description: "Responde a algunas preguntas que los administradores de TI podría
 services: active-directory
 keywords: "configuración de enterprise state roaming, nube de windows, preguntas más frecuentes sobre enterprise state roaming"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: swadhwa
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5

@@ -5,7 +5,7 @@ description: "Preguntas más frecuentes sobre la configuración Enterprise State
 services: active-directory
 keywords: "enterprise state roaming, nube de windows, cómo habilitar enterprise state roaming"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4

@@ -5,7 +5,7 @@ description: "Proporciona información sobre la configuración de directiva de g
 services: active-directory
 keywords: "¿cuál es la configuración de directiva de grupo y MDM para Enterprise State Roaming, Enterprise State Roaming, nube de windows"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252

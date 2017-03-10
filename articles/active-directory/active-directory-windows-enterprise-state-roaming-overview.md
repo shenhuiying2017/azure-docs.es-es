@@ -4,7 +4,7 @@ description: "Proporciona información sobre la configuración de Enterprise Sta
 services: active-directory
 keywords: "qué es Enterprise State Roaming, sincronización empresarial, nube de windows"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0

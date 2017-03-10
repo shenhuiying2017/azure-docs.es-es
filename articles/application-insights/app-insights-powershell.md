@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -191,9 +192,8 @@ Después de crear un recurso de aplicación, querrá el iKey:
 Para configurar una alerta de métrica al mismo tiempo que el recurso de aplicación, combine código similar al siguiente en el archivo de plantilla:
 
 ```JSON
-
+{
     parameters: { ... // existing parameters ...
-       ,       
             "responseTime": {
               "type": "int",
               "defaultValue": 3,
@@ -203,12 +203,10 @@ Para configurar una alerta de métrica al mismo tiempo que el recurso de aplicac
               }
     },
     variables: { ... // existing variables ...
-      ,
       // Alert names must be unique within resource group.
       "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
     }, 
     resources: { ... // existing resources ...
-     ,
      {
       //
       // Metric alert on response time
@@ -250,7 +248,7 @@ Para configurar una alerta de métrica al mismo tiempo que el recurso de aplicac
         ]
       }
     }
-
+}
 ```
 
 Al invocar la plantilla, tiene la opción de agregar este parámetro:
@@ -271,19 +269,16 @@ Este ejemplo es para una prueba de ping (para probar una sola página).
 Combine el código siguiente en el archivo de plantilla que crea la aplicación.
 
 ```JSON
-
+{
     parameters: { ... // existing parameters here ...
-      ,
       "pingURL": { "type": "string" },
       "pingText": { "type": "string" , defaultValue: ""}
     },
     variables: { ... // existing variables here ...
-      ,
       "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
       "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
     },
     resources: { ... // existing resources here ...
-    ,  
     { //
       // Availability test: part 1 configures the test
       //
@@ -365,7 +360,7 @@ Combine el código siguiente en el archivo de plantilla que crea la aplicación.
         ]
       }
     }
-
+}
 ```
 
 Para detectar los códigos de otras ubicaciones de prueba, o para automatizar la creación de pruebas web más complejas, cree un ejemplo manualmente y luego parametrice el código en [Azure Resource Manager](https://resources.azure.com/).
@@ -434,10 +429,5 @@ Otros artículos de automatización:
 * [Envío de Azure Diagnostics a Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Implementación de Azure desde Github](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Creación de anotaciones de versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
