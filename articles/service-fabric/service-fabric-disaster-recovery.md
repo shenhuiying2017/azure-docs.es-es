@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 03/01/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 6dc2a6dbf4b26363f1ad714baec8d48045aa97b6
-ms.openlocfilehash: 81d818afb1a15db646a20b4001493d9df7e24d27
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 73f5413fb7dd0ca179bf5012478a453963e996a1
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -41,7 +42,7 @@ Puede visualizar el diseño del clúster en los dominios de error mediante el ma
 > 
 
 ### <a name="geographic-distribution"></a>Distribución geográfica
-Actualmente, [hay 30 regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
+Actualmente, [hay&30; regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
 
 ## <a name="dealing-with-failures"></a>Gestión de los errores
 Hay varios tipos de errores que pueden afectar al clúster, cada uno con su propia solución. Los veremos en orden de probabilidad de que ocurran.
@@ -94,6 +95,7 @@ Entre las causas de pérdida de datos, los defectos en el código de los servici
   * [Lista de comprobación de disponibilidad](../best-practices-availability-checklist.md)
   * [Exploración en profundidad de la recuperación ante desastres](../sql-database/sql-database-disaster-recovery-drills.md)
   * [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure][dr-ha-guide]
+* Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 <!-- External links -->
 
@@ -106,9 +108,4 @@ Entre las causas de pérdida de datos, los defectos en el código de los servici
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

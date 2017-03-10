@@ -3,7 +3,7 @@ title: "Sincronización de datos sin conexión en Azure Mobile Apps | Microsoft 
 description: "Referencia e información general conceptual de la característica de sincronización de datos sin conexión para Aplicaciones móviles de Azure"
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -62,7 +62,7 @@ Un *contexto de sincronización* está asociado a un objeto de cliente móvil (c
 
 Un almacén local se asocia con el contexto de sincronización mediante un método de inicialización como `IMobileServicesSyncContext.InitializeAsync(localstore)` en el [SDK de cliente de .NET].
 
-## <a name="a-namehow-sync-worksahow-offline-synchronization-works"></a><a name="how-sync-works"></a>Funcionamiento de la sincronización sin conexión
+## <a name="how-sync-works"></a>Funcionamiento de la sincronización sin conexión
 Al usar tablas de sincronización, el código de cliente determina el momento en que se sincronizan los cambios locales con un back-end de Azure Mobile App. No se envía nada al back-end hasta que hay una llamada a los cambios locales de *inserción* . De forma similar, el almacén local se rellena con datos nuevos solo cuando hay una llamada a los datos de *extracción* .
 
 * **Inserción**: la inserción es una operación en el contexto de sincronización que envía todos los cambios CUD realizados desde la última inserción. Tenga en cuenta que no es posible enviar solo los cambios de una tabla individual porque las operaciones se podrían enviar desordenadas. La inserción ejecuta una serie de llamadas REST al back-end de Azure Mobile App, que a su vez, modifica la base de datos del servidor.

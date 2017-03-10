@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
 ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -72,7 +73,7 @@ Tenga en cuenta que  las notificaciones de los tokens de identificador no se dev
 | Name | Notificación | Valor de ejemplo | Descripción |
 | --- | --- | --- | --- |
 | Público |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Una notificación de audiencia identifica al destinatario previsto del token. En el caso de Azure AD B2C, la audiencia es el identificador de la aplicación asignado a su aplicación en el portal de registro de aplicaciones. La aplicación tiene que validar este valor y rechazar el token si no coincide. |
-| Emisor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |La notificación identifica el servicio de token de seguridad (STS) que construye y devuelve el token. También identifica el directorio de Azure AD en el que se autenticó el usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del extremo de la versión 2.0. |
+| Emisor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |La notificación identifica el servicio de token de seguridad (STS) que construye y devuelve el token. También identifica el directorio de Azure AD en el que se autenticó el usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del extremo de la versión&2;.0. |
 | Emitido a las |`iat` |`1438535543` |Esta notificación es la hora a la que se emitió el token, representada en tiempo de época. |
 | Fecha de expiración |`exp` |`1438539443` |Esta notificación es la hora de expiración a la que el token deja de ser válido, representada en tiempo de época. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
 | No antes de |`nbf` |`1438535543` |Esta notificación es la hora a la que el token pasa a ser válido, representada en tiempo de época. Suele ser la misma hora a la que se emitió el token. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
@@ -122,7 +123,7 @@ Azure AD B2C tiene un punto de conexión de metadatos OpenID Connect. Esto permi
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com` es el directorio de B2C que se usa para autenticar el usuario, mientras que `b2c_1_sign_in` es la directiva que se emplea para adquirir el token. Para determinar qué directiva se usó para firmar un token (y dónde obtener los metadatos), tiene dos opciones. En primer lugar, el nombre de la directiva se incluye en la notificación `acr` del token. Las notificaciones se pueden analizar fuera del cuerpo del JWT; para ello, descodifique la descodificación en base 64 del cuerpo y deserialice la cadena JSON resultante. La notificación `acr` será el nombre de la directiva que se usó para emitir el token.  La otra opción consiste en codificar la directiva en el valor del parámetro `state` al emitir la solicitud y descodificarla para determinar qué directiva se ha usado. Cualquiera de estos métodos es válido.
+`fabrikamb2c.onmicrosoft.com` es el directorio de B2C que se usa para autenticar el usuario, mientras que `b2c_1_sign_in` es la directiva que se emplea para adquirir el token. Para determinar qué directiva se usó para firmar un token (y dónde obtener los metadatos), tiene dos opciones. En primer lugar, el nombre de la directiva se incluye en la notificación `acr` del token. Las notificaciones se pueden analizar fuera del cuerpo del JWT; para ello, descodifique la descodificación en base&64; del cuerpo y deserialice la cadena JSON resultante. La notificación `acr` será el nombre de la directiva que se usó para emitir el token.  La otra opción consiste en codificar la directiva en el valor del parámetro `state` al emitir la solicitud y descodificarla para determinar qué directiva se ha usado. Cualquiera de estos métodos es válido.
 
 El documento de metadatos es un objeto JSON que contiene varias piezas de información útiles. Estas son la ubicación de los puntos de conexión necesarios para realizar la autenticación de OpenID Connect. También incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se usan para firmar los tokens. La ubicación se proporciona aquí, pero es mejor capturarla dinámicamente mediante el documento de metadatos y el análisis de `jwks_uri`:
 
@@ -152,10 +153,5 @@ Las siguientes vigencias de los tokens se proporcionan para ampliar sus conocimi
 | Tokens de identificador |Una hora |Los tokens de identificador normalmente son válidos durante una hora. La aplicación web puede usar esta vigencia para mantener sus propias sesiones con los usuarios (recomendado). También puede elegir una vigencia de sesión diferente. Si la aplicación necesita obtener un nuevo token de identificador, solo tiene que realizar una nueva solicitud de inicio de sesión a Azure AD. Si el usuario tiene una sesión de explorador válida con Azure AD, es posible que el usuario no tenga que volver a escribir sus credenciales. |
 | Tokens de actualización |Hasta 14 días |Un token de actualización solo es válido durante un máximo de 14 días. Sin embargo, un token de actualización puede dejar de ser válido en cualquier momento por diversos motivos. La aplicación debe continuar intentando usar un token de actualización hasta que se produce un error en la solicitud o hasta que la aplicación reemplaza el token de actualización por uno nuevo.  Un token de actualización también puede dejar de ser válido si transcurrieron 90 días desde que el usuario especificó sus credenciales por última vez. |
 | Códigos de autorización |Cinco minutos |Los códigos de autorización son de corta duración intencionadamente. Deben canjearse inmediatamente por tokens de acceso, tokens de identificador o tokens de actualización cuando se reciben. |
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

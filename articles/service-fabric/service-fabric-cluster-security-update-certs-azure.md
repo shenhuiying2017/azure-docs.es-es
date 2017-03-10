@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: 86df3e74cd0060652a3223cfbd1516643985275e
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -140,7 +141,7 @@ Las propiedades tendrán ahora un aspecto similar al siguiente:
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-Si no desea **sustituir el certificado**, especifique el nuevo certificado como principal y cambie el principal actual a secundario. Esto provoca la sustitución del certificado actual por el nuevo certificado en un paso de implementación. 
+Si desea **sustituir el certificado**, especifique el nuevo certificado como principal y cambie el principal actual a secundario. Esto provoca la sustitución del certificado actual por el nuevo certificado en un paso de implementación. 
 
 
 ```JSON
@@ -312,10 +313,5 @@ Lea estos artículos para más información sobre la administración de clúster
 [Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
 [Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

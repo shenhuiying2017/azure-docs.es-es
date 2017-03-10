@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 43197f7402795c37fa7ed43658bc3b8858a41080
-ms.openlocfilehash: 8568978a558b09220eff14a13ccefb3e60c18e87
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 9780fa4461e32a4518c1b6ef019161a01fffecb3
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -190,15 +191,10 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte [Colas, temas y suscripciones][Queues, topics, and subscriptions], donde encontrará más información.
 
-Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
+Para obtener más información, consulte el [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/).
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 

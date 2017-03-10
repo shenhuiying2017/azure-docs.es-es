@@ -3,7 +3,7 @@ title: "Adición del nombre de dominio personalizado a la versión preliminar de
 description: "Cómo agregar nombres de dominio de la empresa a Azure Active Directory y comprobar el nombre de dominio."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: d97e57c6-578a-4929-8fb8-42e858a711c7
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 5153926f34961a397ef9632ca1f8ac868ba1986e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
 > 
 > 
 
-Dispone de uno o varios nombres de dominio que su organización usa para su actividad empresarial, y los usuarios inician sesión en la red corporativa mediante su nombre de dominio corporativo. Con la versión preliminar de Azure Active Directory (Azure AD), también puede agregar el nombre del dominio corporativo a Azure AD. [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md) Esto permite asignar en el directorio nombres de usuario que resultan familiares a los usuarios, como ‘alice@contoso.com.’. El proceso es sencillo:
+Dispone de uno o varios nombres de dominio que su organización usa para su actividad empresarial, y los usuarios inician sesión en la red corporativa mediante su nombre de dominio corporativo. Con la versión preliminar de Azure Active Directory (Azure AD), también puede agregar el nombre del dominio corporativo a Azure AD. [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md) De esta forma puede asignar nombres de usuario en el directorio que resulten familiares para sus usuarios, como "alice@contoso.com". El proceso es simple:
 
 1. Incorporación de nombres de dominio personalizados al directorio
 2. Incorporación de la entrada DNS para el nombre de dominio en el registrador de nombres de dominio
@@ -83,10 +84,5 @@ Si su organización usa varios nombres de dominio personalizados, como 'contoso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Managing custom domain names (Administración de nombres de dominio).](active-directory-domains-manage-azure-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

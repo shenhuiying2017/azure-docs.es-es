@@ -3,7 +3,7 @@ title: "Adición de notificaciones push a una aplicación de Apache Cordova con 
 description: "Obtenga información acerca de cómo usar las aplicaciones móviles de Azure para enviar notificaciones push a su aplicación de Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: erikre
+manager: adrianha
 editor: 
 author: ysxu
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
 ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
+ms.lasthandoff: 12/01/2016
 
 
 ---
@@ -28,7 +29,7 @@ En este tutorial, agregará notificaciones push al proyecto de [inicio rápido d
 
 Si no usa el proyecto de servidor de inicio rápido descargado, necesita el paquete de extensión de la notificación de inserción. Para más información, consulte [Trabajar con el SDK de servidor de back-end de .NET para Azure Mobile Apps][1].
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Este tutorial describe el desarrollo de una aplicación de Apache Cordova con Visual Studio 2015 y su ejecución en el emulador de Google Android, un dispositivo con Android, un dispositivo con Windows y un dispositivo con iOS.
 
 Para completar este tutorial, necesita:
@@ -41,7 +42,7 @@ Para completar este tutorial, necesita:
 * (iOS) La [pertenencia a un programa para desarrolladores de Apple][7] y un dispositivo iOS (el simulador de iOS no admite la inserción).
 * (Windows) Una [cuenta de desarrollador para la Tienda Windows][8] y un dispositivo con Windows 10.
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Configurar un Centro de notificaciones
+## <a name="configure-hub"></a>Configurar un Centro de notificaciones
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 [Ver un vídeo que muestra los pasos de esta sección][9]
@@ -49,7 +50,7 @@ Para completar este tutorial, necesita:
 ## <a name="update-the-server-project"></a>Actualización del proyecto de servidor
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="a-nameadd-push-to-appamodify-your-cordova-app"></a><a name="add-push-to-app"></a>Modificación de la aplicación de Cordova
+## <a name="add-push-to-app"></a>Modificación de la aplicación de Cordova
 Asegúrese de que el proyecto de aplicación de Apache Cordova está listo para controlar las notificaciones push al instalar el complemento de inserción de Cordova además de cualquier servicio de inserción específico de la plataforma.
 
 #### <a name="update-the-cordova-version-in-your-project"></a>Actualización de la versión de Cordova en el proyecto.
@@ -160,12 +161,12 @@ Inicialmente, se incluirá el código mínimo para Android. Más tarde, puede mo
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(Opcional) Configuración y ejecución de la aplicación en Android
 Complete esta sección para habilitar las notificaciones push en Android.
 
-#### <a name="a-nameenable-gcmaenable-firebase-cloud-messaging"></a><a name="enable-gcm"></a>Habilitar la mensajería en la nube Firebase
+#### <a name="enable-gcm"></a>Habilitar la mensajería en la nube Firebase
 Dado que, en principio, el objetivo es la plataforma Android de Google, es preciso habilitar el Servicio de mensajería en la nube de Firebase.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-#### <a name="a-nameconfigure-backendaconfigure-the-mobile-app-backend-to-send-push-requests-using-fcm"></a><a name="configure-backend"></a>Configuración del back-end de aplicación móvil para enviar solicitudes push mediante FCM
+#### <a name="configure-backend"></a>Configuración del back-end de aplicación móvil para enviar solicitudes push mediante FCM
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
 #### <a name="configure-your-cordova-app-for-android"></a>Configuración de una aplicación Cordova para Android
@@ -183,7 +184,7 @@ Abra index.js y actualice el código para usar el identificador numérico del pr
             wns: {}
         });
 
-#### <a name="a-nameconfigure-deviceaconfigure-your-android-device-for-usb-debugging"></a><a name="configure-device"></a>Configuración de un dispositivo Android para la depuración USB
+#### <a name="configure-device"></a>Configuración de un dispositivo Android para la depuración USB
 Antes de implementar su aplicación en su dispositivo Android, debe habilitar la depuración USB.  Realice los pasos siguientes en su teléfono Android:
 
 1. Vaya a **Ajustes** > **Información del teléfono** y pulse **Número de compilación** hasta que se habilite el modo de desarrollador (unas 7 veces).
@@ -327,7 +328,7 @@ En la aplicación, escriba un nombre para un elemento todoitem nuevo y haga clic
 
 Compruebe que se recibe una notificación cuando se agrega el artículo.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Lea acerca de [Notification Hubs][17] para obtener información sobre las notificaciones push.
 * Si aún no lo ha hecho, siga el tutorial y [agregue autenticación][14] a su aplicación de Apache Cordova.
 
@@ -362,9 +363,4 @@ Obtenga información sobre cómo usar los SDK.
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
 [21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
