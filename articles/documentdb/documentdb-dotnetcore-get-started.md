@@ -209,7 +209,7 @@ Copie y pegue el código siguiente en el método **GetStartedDemo** debajo de la
         await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+         await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
 
 Presione el botón **DocumentDBGettingStarted** para ejecutar la aplicación.
 
