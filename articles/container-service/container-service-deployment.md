@@ -1,6 +1,6 @@
 ---
 title: "Implementación de un clúster de contenedores de Docker en Azure | Microsoft Docs"
-description: "Implementación de un clúster de Azure Container Service mediante Azure Portal o la plantilla de Azure Resource Manager."
+description: "Implementación de una solución de Kubernetes, DC/OS o Docker Swarm en Azure Container Service mediante Azure Portal o una plantilla de Resource Manager."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 716a6f4507b05b8a8548cd34f8227e8366a91645
-ms.openlocfilehash: 17a4ab1920e020ddf453e9b42319ba260e9700a5
-ms.lasthandoff: 02/24/2017
-
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 003d975f57d63bcb95d6b0de9dcfaf8816fcdd6f
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="deploy-an-azure-container-service-cluster"></a>Implementación de un clúster del servicio Contenedor de Azure
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Implementación de una solución de hospedaje de contenedor de Docker mediante Azure Portal
 
 
 

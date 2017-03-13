@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Preguntas más frecuentes: Azure Container Service
+# <a name="container-service-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Container Service
 
 
 ## <a name="orchestrators"></a>Orquestadores
@@ -82,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 Encontrará direcciones URL de clúster comunes en Azure Portal, el Explorador de recursos de Azure u otras herramientas de Azure.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>¿Cómo se puede saber qué versión de orquestador se está ejecutando en mi clúster?
+
+* DC/OS: Consulte la [documentación de Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: ejecute `docker version`
+* Kubernetes: ejecute `kubectl version`
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>¿Cómo puedo actualizar el orquestador después de la implementación?
+
+Actualmente, Azure Container Service no proporciona herramientas para actualizar la versión del orquestador que implementó en el clúster. Si Container Service es compatible con una versión posterior, puede implementar un nuevo clúster. Otra opción es usar herramientas específicas de orquestador si están disponibles para actualizar un clúster local. Por ejemplo, consulte [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/) (Actualización de DC/OS).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>¿Dónde se encuentra la cadena de conexión de SSH para el clúster?
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -161,6 +162,9 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | Sur de India |12076:51019 |
 | India occidental |12076:51018 |
 | India central |12076:51017 |
+| **Corea** | |
+| Corea del Sur |12076:51028 |
+| Corea Central |12076:51029 |
 
 Todas las rutas anunciadas de Microsoft se etiquetarán con el valor de la comunidad adecuado. 
 
@@ -212,10 +216,5 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
   * [Cree un circuito ExpressRoute según el modelo clásico de implementación](expressroute-howto-circuit-classic.md) o [Cree y modifique un circuito ExpressRoute mediante Azure Resource Manager](expressroute-howto-circuit-arm.md).
   * [Configure el enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configure el enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md).
   * [Vincule una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vincule una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

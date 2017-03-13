@@ -16,19 +16,20 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 9b24fe8139d50b7c37a380fcc52b7ac302f5ee5d
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="a-nametoc395809351aaspnet-mvc-tutorial-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>Tutorial de ASP.NET MVC: Desarrollo de una aplicación web con DocumentDB
+# <a name="_Toc395809351"></a>Tutorial de ASP.NET MVC: Desarrollo de una aplicación web con DocumentDB
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-get-started.md)
-> * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
-> * [Node.js](documentdb-nodejs-get-started.md)
-> * [C++](documentdb-cpp-get-started.md)
->  
+> * [.NET](documentdb-dotnet-application.md)
+> * [.NET para MongoDB](documentdb-mongodb-application.md)
+> * [Node.js](documentdb-nodejs-application.md)
+> * [Java](documentdb-java-application.md)
+> * [Python](documentdb-python-application.md)
+> 
 > 
 
 Para resaltar cómo puede aprovechar eficazmente Azure DocumentDB para almacenar y consultar documentos JSON, este artículo proporciona un tutorial completo que muestra cómo crear una aplicación ToDo mediante Azure DocumentDB. Las tareas se almacenarán como documentos JSON en Azure DocumentDB.
@@ -42,7 +43,7 @@ Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por
 > 
 > 
 
-## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Requisitos previos del tutorial de base de datos
+## <a name="_Toc395637760"></a>Requisitos previos del tutorial de base de datos
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
 * Una cuenta de Azure activa. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -55,7 +56,7 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
 Todas las capturas de pantalla en este artículo se han tomado con Visual Studio 2013 con Update 4 aplicado y el SDK de Azure para .NET versión 2.5.1. Si el sistema está configurado con versiones diferentes, es probable que las pantallas y las opciones no coincidan completamente, pero si cumple los requisitos previos mencionados, esta solución debe funcionar.
 
-## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de DocumentDB
+## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de DocumentDB
 Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta o si usa el Emulador de DocumentDB en este tutorial, puede ir directamente a [Creación de una nueva aplicación de ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
@@ -63,9 +64,9 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta o si usa
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
 <br/>
- Ahora veremos cómo crear una aplicación ASP.NET MVC nueva desde el principio. 
+Ahora veremos cómo crear una aplicación ASP.NET MVC nueva desde el principio. 
 
-## <a name="a-nametoc395637762astep-2-create-a-new-aspnet-mvc-application"></a><a name="_Toc395637762"></a>Paso 2: Creación de una aplicación ASP.NET MVC nueva
+## <a name="_Toc395637762"></a>Paso 2: Creación de una aplicación ASP.NET MVC nueva
 Ahora que tiene una cuenta, creemos nuestro nuevo proyecto de ASP.NET.
 
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego haga clic en **Proyecto**.
@@ -97,7 +98,7 @@ Ahora que tiene una cuenta, creemos nuestro nuevo proyecto de ASP.NET.
    
     Omitiremos la ejecución del proyecto localmente, ya que estoy seguro de que todos hemos visto la aplicación "Hola a todos" de ASP.NET. Vayamos directo a agregar DocumentDB a este proyecto y compilar la aplicación.
 
-## <a name="a-nametoc395637767astep-3-add-documentdb-to-your-mvc-web-application-project"></a><a name="_Toc395637767"></a>Paso 3: Incorporación de DocumentDB al proyecto de aplicación web MVC
+## <a name="_Toc395637767"></a>Paso 3: Incorporación de DocumentDB al proyecto de aplicación web MVC
 Ahora que ya tenemos la mayoría de los mecanismos de ASP.NET MVC que necesitamos para esta solución vayamos ahora al objetivo real de este tutorial, la incorporación de Azure DocumentDB a nuestra aplicación web MVC.
 
 1. El SDK .NET de DocumentDB se empaqueta y distribuye como un paquete de NuGet. Para obtener el paquete de NuGet en Visual Studio, utilice el Administrador de paquetes de NuGet en Visual Studio haciendo clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, a continuación, haciendo clic en **Administrar paquetes de NuGet**.
@@ -118,14 +119,14 @@ Ahora que ya tenemos la mayoría de los mecanismos de ASP.NET MVC que necesitamo
    
       ![Captura de pantalla de las dos referencias agregadas al proyecto de datos JSON en el Explorador de soluciones](./media/documentdb-dotnet-application/image22.png)
 
-## <a name="a-nametoc395637763astep-4-set-up-the-aspnet-mvc-application"></a><a name="_Toc395637763"></a>Paso 4: Configuración de la aplicación ASP.NET MVC
+## <a name="_Toc395637763"></a>Paso 4: Configuración de la aplicación ASP.NET MVC
 Ahora vamos a agregar a esta aplicación de MVC modelos, vistas y controladores:
 
 * [Adición de un modelo](#_Toc395637764).
 * [Adición de un controlador](#_Toc395637765).
 * [Adición de vistas](#_Toc395637766).
 
-### <a name="a-nametoc395637764aadd-a-json-data-model"></a><a name="_Toc395637764"></a>Adición de un modelo de datos JSON
+### <a name="_Toc395637764"></a>Adición de un modelo de datos JSON
 Comencemos creando la **M** en MVC, el modelo. 
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Modelos**, haga clic en **Agregar** y después en **Clase**.
@@ -162,7 +163,7 @@ Comencemos creando la **M** en MVC, el modelo.
    
     No solo puede controlar el formato del nombre de propiedad cuando va en JSON, sino que puede cambiar el nombre por completo de las propiedades de .NET como hice con la propiedad **Description** . 
 
-### <a name="a-nametoc395637765aadd-a-controller"></a><a name="_Toc395637765"></a>Adición de un controlador
+### <a name="_Toc395637765"></a>Adición de un controlador
 Esto se encarga de **M**. Creemos ahora la **C** de MVC, una clase de controlador.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Controladores** y, a continuación, haga clic en **Agregar** y, por último, en **Controlador**.
@@ -181,14 +182,14 @@ Esto se encarga de **M**. Creemos ahora la **C** de MVC, una clase de controlado
    
     Puede cerrar ItemController.cs, volveremos a él más tarde. 
 
-### <a name="a-nametoc395637766aadd-views"></a><a name="_Toc395637766"></a>Adición de vistas
+### <a name="_Toc395637766"></a>Adición de vistas
 Por último, vamos a crear la **V** de MVC, las vistas.
 
 * [Adición de una vista de índice de elementos](#AddItemIndexView).
 * [Adición de una vista de elementos nuevos](#AddNewIndexView).
 * [Adición de una vista de edición de elementos](#_Toc395888515).
 
-#### <a name="a-nameadditemindexviewaadd-an-item-index-view"></a><a name="AddItemIndexView"></a>Adición de una vista de índice de elementos
+#### <a name="AddItemIndexView"></a>Adición de una vista de índice de elementos
 1. En el **Explorador de soluciones**, expanda la carpeta **Vistas**, haga clic con el botón derecho en la carpeta **Elemento** vacía que ha creado Visual Studio para usted cuando agregó **ItemController** anteriormente, haga clic en **Agregar** y, a continuación, haga clic en **Vista**.
    
     ![Captura de pantalla del Explorador de soluciones que muestra la carpeta Elemento con los comandos Agregar vista resaltados](./media/documentdb-dotnet-application/image17.png)
@@ -203,7 +204,7 @@ Por último, vamos a crear la **V** de MVC, las vistas.
      ![Captura de pantalla que muestra el cuadro de diálogo Agregar vista](./media/documentdb-dotnet-application/image18.png)
 3. Después de que se hayan establecido todos estos valores, haga clic en **Agregar** y permita que Visual Studio cree una nueva vista de plantilla. Después de esto, se abrirá el archivo cshtml que se creó. Podemos cerrar este archivo en Visual Studio, ya que volveremos a él más tarde.
 
-#### <a name="a-nameaddnewindexviewaadd-a-new-item-view"></a><a name="AddNewIndexView"></a>Adición de una vista de elementos nuevos
+#### <a name="AddNewIndexView"></a>Adición de una vista de elementos nuevos
 De forma parecida a cómo se crea una vista de **índice de elementos**, crearemos ahora una nueva vista para crear nuevos **elementos**.
 
 1. En el **Explorador de soluciones**, vuelva a hacer clic con el botón derecho en la carpeta **Elemento**, haga clic en **Agregar** y después en **Vista**.
@@ -216,7 +217,7 @@ De forma parecida a cómo se crea una vista de **índice de elementos**, crearem
    * En el cuadro de página de diseño, escriba ***~/Views/Shared/_Layout.cshtml***.
    * Haga clic en **Agregar**.
 
-#### <a name="a-nametoc395888515aadd-an-edit-item-view"></a><a name="_Toc395888515"></a>Adición de una vista de edición de elementos
+#### <a name="_Toc395888515"></a>Adición de una vista de edición de elementos
 Finalmente, agregue una última vista para editar un **elemento** como se hizo anteriormente.
 
 1. En el **Explorador de soluciones**, vuelva a hacer clic con el botón derecho en la carpeta **Elemento**, haga clic en **Agregar** y después en **Vista**.
@@ -231,7 +232,7 @@ Finalmente, agregue una última vista para editar un **elemento** como se hizo a
 
 Una vez hecho esto, cierre todos los documentos cshtml en Visual Studio, ya que volveremos a estas vistas más tarde.
 
-## <a name="a-nametoc395637769astep-5-wiring-up-documentdb"></a><a name="_Toc395637769"></a>Paso 5: Conexión de DocumentDB
+## <a name="_Toc395637769"></a>Paso 5: Conexión de DocumentDB
 Ahora que el material de MVC estándar se tiene en cuenta, agreguemos el código para DocumentDB. 
 
 En esta sección, agregaremos código para controlar lo siguiente:
@@ -240,7 +241,7 @@ En esta sección, agregaremos código para controlar lo siguiente:
 * [Adición de elementos](#_Toc395637771).
 * [Edición de elementos](#_Toc395637772).
 
-### <a name="a-nametoc395637770alisting-incomplete-items-in-your-mvc-web-application"></a><a name="_Toc395637770"></a>Lista de elementos incompletos en la aplicación web MVC
+### <a name="_Toc395637770"></a>Lista de elementos incompletos en la aplicación web MVC
 Lo primero que debe hacerse es agregar una clase que contenga toda la lógica para utilizar y conectarse a DocumentDB. Para este tutorial, encapsularemos toda esta lógica en una clase de repositorio denominada DocumentDBRepository. 
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y después en **Clase**. Ponga a la nueva clase el nombre **DocumentDBRepository** y haga clic en **Agregar**.
@@ -391,7 +392,7 @@ Si crea y ejecuta este proyecto ahora, deberá ver algo parecido a esto.
 
 ![Captura de pantalla de la aplicación web de lista de tareas pendientes creada con este tutorial](./media/documentdb-dotnet-application/image23.png)
 
-### <a name="a-nametoc395637771aadding-items"></a><a name="_Toc395637771"></a>Adición de elementos
+### <a name="_Toc395637771"></a>Adición de elementos
 Pongamos algunos elementos en nuestra base de datos de modo que tengamos algo más que una cuadrícula vacía que ver.
 
 Agreguemos algo de código a DocumentDBRepository e ItemController para mantener el registro en DocumentDB.
@@ -437,7 +438,7 @@ Agreguemos algo de código a DocumentDBRepository e ItemController para mantener
 
 Esto finaliza el código necesario para agregar elementos nuevos en nuestra base de datos.
 
-### <a name="a-nametoc395637772aediting-items"></a><a name="_Toc395637772"></a>Edición de elementos
+### <a name="_Toc395637772"></a>Edición de elementos
 Hay una última cosa que tenemos que hacer, que es agregar la capacidad de editar **elementos** en la base de datos y marcarlos como completados. La vista de edición ya se ha agregado al proyecto, por lo que necesitamos agregar código a nuestro controlador y a la clase **DocumentDBRepository** de nuevo.
 
 1. Agregue lo siguiente a la clase **DocumentDBRepository** .
@@ -511,7 +512,7 @@ Hay una última cosa que tenemos que hacer, que es agregar la capacidad de edita
 
 Esto es todo lo que necesitamos para ejecutar la aplicación, enumerar **elementos** incompletos, agregar nuevos **elementos** y editar **elementos**.
 
-## <a name="a-nametoc395637773astep-6-run-the-application-locally"></a><a name="_Toc395637773"></a>Paso 6: Ejecución de la aplicación de forma local
+## <a name="_Toc395637773"></a>Paso 6: Ejecución de la aplicación de forma local
 Lleve a cabo los siguientes pasos para probar la aplicación en su máquina local:
 
 1. Presione F5 en Visual Studio para compilar la aplicación en modo de depuración. De esa forma, se debe compilar la aplicación e iniciar un explorador con la página de cuadrícula vacía que vimos anteriormente:
@@ -532,7 +533,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
     ![Captura de pantalla de la vista de índice con el cuadro Completado activado](./media/documentdb-dotnet-application/image27.png)
 5. Una vez que haya probado la aplicación, presione Ctrl+F5 para detener la depuración de la aplicación. Está listo para la implementación.
 
-## <a name="a-nametoc395637774astep-7-deploy-the-application-to-azure-websites"></a><a name="_Toc395637774"></a>Paso 7: Implementación de la aplicación en Sitios web Azure
+## <a name="_Toc395637774"></a>Paso 7: Implementación de la aplicación en Sitios web Azure
 Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB, vamos a implementar esta aplicación web en Sitios web Azure. Si seleccionó **Hospedar en la nube** cuando creó el proyecto vacío ASP.NET MVC, Visual Studio realmente facilita la tarea y hace gran parte del trabajo por usted. 
 
 1. Para publicar esta aplicación, todo lo que necesita hacer es hacer clic con el botón derecho en el proyecto en el **Explorador de soluciones** y hacer clic en **Publicar**.
@@ -544,7 +545,7 @@ Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB
 
 En pocos segundos, Visual Studio terminará de publicar su aplicación web y ejecutará un explorador donde podrá ver su útil trabajo ejecutándose en Azure.
 
-## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Solución de problemas
+## <a name="Troubleshooting"></a>Solución de problemas
 
 Si recibe el error "Error al procesar la solicitud" mientras intenta implementar la aplicación web, haga lo siguiente: 
 
@@ -563,7 +564,7 @@ Si recibe el error "Error al procesar la solicitud" mientras intenta implementar
     Seguidamente la aplicación aparece en su explorador.
 
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Pasos siguientes
+## <a name="_Toc395637775"></a>Pasos siguientes
 ¡Enhorabuena! Acaba de compilar su primera aplicación web ASP.NET MVC mediante Azure DocumentDB y la ha publicado en Sitios web de Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación, que no se incluyeron en este tutorial, se puede descargar o clonar desde [GitHub][GitHub]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
 
 Para agregar la funcionalidad adicional a la aplicación, revise las API disponibles en la [biblioteca de .NET de DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) y haga sus aportaciones libremente a la biblioteca de .NET de DocumentDB en [GitHub][GitHub]. 
@@ -574,9 +575,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

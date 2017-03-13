@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,10 +93,10 @@ Recupere todos los proveedores de recursos con el siguiente cmdlet de PowerShell
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-O bien, en la CLI de Azure, recupere todos los proveedores de recursos con el siguiente comando:
+O bien, en la CLI de Azure 2.0, recupere todos los proveedores de recursos con el siguiente comando:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Puede examinar la lista devuelta de los proveedores de recursos que necesita usar.
@@ -106,10 +107,10 @@ Para obtener detalles acerca de un proveedor de recursos, agregue su espacio de 
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-O bien, en la CLI de Azure, recupere los tipos de recursos admitidos, las ubicaciones y las versiones de API para Microsoft.Compute con el siguiente comando:
+O bien, en la CLI de Azure 2.0, recupere los tipos de recursos admitidos, las ubicaciones y las versiones de API para Microsoft.Compute con el siguiente comando:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 Para más información, consulte [Proveedores, regiones, versiones de API y esquemas de Resource Manager](resource-manager-supported-services.md).
@@ -214,10 +215,10 @@ Para recuperar todos los recursos con un valor de etiqueta, utilice el siguiente
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-O bien, el siguiente comando de la CLI de Azure:
+O bien, el siguiente comando de la CLI de Azure 2.0:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 También puede ver recursos etiquetados mediante Azure Portal.
@@ -343,9 +344,4 @@ La siguiente es una demostración de esta introducción.
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

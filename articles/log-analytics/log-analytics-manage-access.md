@@ -1,6 +1,6 @@
 ---
-title: "Administración de áreas de trabajo | Microsoft Docs"
-description: "Para administrar las áreas de trabajo en Azure Log Analytics, puede usar una serie de tareas administrativas en usuarios, cuentas, áreas de trabajo y cuentas de Azure."
+title: "Administrar áreas de trabajo en Azure Log Analytics y el portal de OMS | Documentos de Microsoft"
+description: "Puede administrar las áreas de trabajo en Azure Log Analytics y el portal de OMS usando una serie de tareas administrativas en usuarios, cuentas, áreas de trabajo y cuentas de Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ Siga estos pasos para quitar un usuario de un área de trabajo. La eliminación 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Vincular un área de trabajo existente a una suscripción de Azure
 Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben estar vinculadas a una suscripción de Azure en el momento de la creación. Las áreas de trabajo creadas antes de esta fecha deben estar vinculadas a un área de trabajo la próxima vez que inicie sesión. Al crear el área de trabajo desde Azure Portal, o al vincular el área de trabajo a una suscripción de Azure, su instancia de Azure Active Directory quedará vinculada como su cuenta de organización.
 
-![vínculo a la suscripción de Azure](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> Para vincular un área de trabajo, su cuenta de Azure debe tener acceso al área de trabajo que quiere vincular.  En otras palabras, la cuenta que use para acceder a Azure Portal deberá ser **la misma** cuenta que usa para acceder al área de trabajo. Si no lo es, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Para vincular un área de trabajo a una suscripción de Azure en el portal OMS
-Para vincular un área de trabajo a una suscripción de Azure en el portal OMS, el usuario que ha iniciado sesión debe tener una cuenta de Azure de pago.
 
-1. En el portal de OMS, haga clic en el icono **Configuración**.
-2. Haga clic en la pestaña **Cuentas** y, luego, en la pestaña **Azure Subscription & Data Plan** (Suscripción y plan de datos de Azure).
-3. Haga clic en el plan de datos que desee usar.
-4. Haga clic en **Guardar**.  
-   ![suscripción y planes de datos](./media/log-analytics-manage-access/subscription-tab.png)
+- Cuando inicie sesión en el portal de OMS, se le pedirá que seleccione una suscripción de Azure. Seleccione la suscripción que desea vincular al área de trabajo y haga clic en **Vínculo**.  
+    ![Vínculo a la suscripción de Azure](./media/log-analytics-manage-access/required-link.png)
 
-Su nuevo plan de datos se muestra en la cinta de opciones del portal OMS, que se encuentra en la parte superior de la página web.
+    > [!IMPORTANT]
+    > Para vincular un área de trabajo, su cuenta de Azure debe tener acceso al área de trabajo que quiere vincular.  En otras palabras, la cuenta que use para acceder a Azure Portal deberá ser **la misma** cuenta que usa para acceder al área de trabajo. Si no lo es, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
 
-![cinta de opciones de OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Para vincular un área de trabajo a una suscripción de Azure en Azure Portal
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
@@ -236,7 +227,7 @@ Si previamente ha pagado una cierta cantidad a Azure como parte de la inscripci�
 
 Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Cambio de un área de trabajo a un plan de tarifa de pago
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Cambio de un área de trabajo a un plan de tarifa de pago en Azure Portal
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
@@ -250,6 +241,21 @@ Si necesita cambiar la suscripción de Azure a la que está vinculada el área d
 > Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>Cambio del plan de datos en el portal de OMS
+
+Para cambiar un plan de datos mediante el portal de OMS, el usuario que inició sesión tiene que tener ya una cuenta de Azure.
+
+1. En el portal de OMS, haga clic en el icono **Configuración**.
+2. Haga clic en la pestaña **Cuentas** y, luego, en la pestaña **Azure Subscription & Data Plan** (Suscripción y plan de datos de Azure).
+3. Haga clic en el plan de datos que desee usar.
+4. Haga clic en **Guardar**.  
+   ![suscripción y planes de datos](./media/log-analytics-manage-access/subscription-tab.png)
+
+Su nuevo plan de datos se muestra en la cinta de opciones del portal OMS, que se encuentra en la parte superior de la página web.
+
+![cinta de opciones de OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Cambio de la duración del almacenamiento de datos de Log Analytics
 
@@ -266,8 +272,8 @@ Para cambiar la duración de la retención de datos:
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
 4. En la hoja del área de trabajo, en **General**, haga clic en **Retención**.  
-5. Use el control deslizante para aumentar o disminuir el número de días de retención y, después, haga clic en **Save** (Guardar) 
-![Change retention](./media/log-analytics-manage-access/manage-access-change-retention01.png) (Cambiar retención).
+5. Use el control deslizante para aumentar o disminuir el número de días de retención y haga clic en **Guardar**.  
+    ![Cambio de la retención](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Cambio de la organización de Azure Active Directory para un área de trabajo
 

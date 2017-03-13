@@ -13,39 +13,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ba659fe42fa2264708833f5674711334845defcc
-ms.openlocfilehash: 283e71f03f3907fd1e72283059ba7acbdac054d4
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio
 Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante una puerta de enlace de VPN se requiere un dispositivo VPN. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración.
 
-> [!NOTE]
-> Al configurar una conexión de sitio a sitio, una dirección IP IPv4 pública es necesaria para el dispositivo VPN.                                                                                                                                                                               
->
->
-
-Si el dispositivo no aparece en la tabla de [dispositivos VPN validadoss](#devicetable), consulte la sección [Dispositivos VPN no validados](#additionaldevices) de este artículo. Es posible que el dispositivo funcione aún con Azure. Para obtener soporte con los dispositivos VPN, póngase en contacto con el fabricante.
 
 > [!IMPORTANT]
-> Si experimenta problemas de conectividad entre los dispositivos VPN locales y las puertas de enlace VPN de Azure, consulte [Problemas conocidos de compatibilidad de dispositivos](#known).
+> Si experimenta problemas de conectividad entre los dispositivos VPN locales y las puertas de enlace de VPN de Azure, consulte [Problemas conocidos de compatibilidad de dispositivos](#known).
+> 
+> 
 
-**Elementos que hay que tener en cuenta para consultar las tablas:**
+
+###<a name="items-to-note-when-viewing-the-tables"></a>Elementos que hay que tener en cuenta para consultar las tablas:
 
 * Ha habido un cambio de terminología del enrutamiento estático y dinámico. Es probable que realice la ejecución en ambos términos. No hay ningún cambio de funcionalidad; solo cambian los nombres.
   * Enrutamiento estático = PolicyBased
   * Enrutamiento dinámico = RouteBased
 * Las especificaciones de puerta de enlace de VPN de alto rendimiento y de puerta de enlace de VPN RouteBased son las mismas, a menos que se indique lo contrario. Por ejemplo, los dispositivos VPN validados que son compatibles con las puertas de enlace de VPN RouteBased también son compatibles con la puerta de enlace de VPN de alto rendimiento de Azure.
 
-## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Dispositivos VPN validados
+> [!NOTE]
+> Al configurar una conexión de sitio a sitio, una dirección IP IPv4 pública es necesaria para el dispositivo VPN.                                                                                                                                                                               
+>
+>
+
+
+## <a name="devicetable"></a>Dispositivos VPN validados
 Hemos validado un conjunto de dispositivos VPN estándar en colaboración con proveedores de dispositivos. Todos los dispositivos de las familias de dispositivos incluidos en la lista siguiente deben funcionar con las puertas de enlace de VPN de Azure. Consulte el artículo [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md) para comprobar el tipo de puerta de enlace que debe crear para la solución que desea configurar.
 
-Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondientes a la familia de dispositivos apropiada. Para obtener soporte con los dispositivos VPN, póngase en contacto con el fabricante.
+Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondientes a la familia de dispositivos apropiada. Para obtener soporte para los dispositivos VPN, póngase en contacto con el fabricante.
 
 | **Proveedor** | **Familia de dispositivos** | **Versión mínima de sistema operativo** | **PolicyBased** | **RouteBased** |
 | --- | --- | --- | --- | --- |
@@ -74,13 +77,13 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 
 (*) Los enrutadores de la serie ISR 7200 solo admiten VPN PolicyBased.
 
-## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Dispositivos VPN no validados
-Si el dispositivo no aparece en la tabla de dispositivos VPN validados, es posible que todavía funcione con una conexión de sitio a sitio. Verifique que el dispositivo VPN cumple los requisitos mínimos descritos en la sección Requisitos de las puertas de enlace del artículo [Información acerca de VPN Gateway](vpn-gateway-about-vpngateways.md). Los dispositivos que cumplen los requisitos mínimos deberían funcionar correctamente también con las puertas de enlace de VPN. Póngase en contacto con el fabricante del dispositivo para obtener instrucciones adicionales de soporte técnico y configuración.
+## <a name="additionaldevices"></a>Dispositivos VPN no validados
+Si el dispositivo no aparece en la tabla de dispositivos VPN validados, es posible que todavía funcione con una conexión de sitio a sitio. Póngase en contacto con el fabricante del dispositivo para obtener instrucciones adicionales de soporte técnico y configuración.
 
-## <a name="editing-device-configuration-samples"></a>Editar los ejemplos de configuración de dispositivos
+## <a name="editing"></a>Edición de ejemplos de configuración de dispositivos
 Después de descargar el ejemplo de configuración del dispositivo VPN proporcionado, deberá reemplazar algunos de los valores para reflejar la configuración de su entorno.
 
-**Para editar una muestra:**
+###<a name="to-edit-a-sample"></a>Para editar una muestra:
 
 1. Abra el ejemplo con el Bloc de notas.
 2. Busque y reemplace todas las cadenas de <*texto*> por los valores que pertenezcan al entorno. Asegúrese de incluir < y >. Cuando se especifica un nombre, el nombre que seleccione debe ser único. Si un comando no funciona, consulte la documentación del fabricante del dispositivo.
@@ -99,7 +102,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | &lt;SP_AzureGatewayIpAddress&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración como **Dirección IP de puerta de enlace**. |
 | &lt;SP_PresharedKey&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración, en Administrar clave. |
 
-## <a name="ipsec-parameters"></a>Parámetros de IPsec
+## <a name="IPSec"></a>Parámetros de IPsec
 > [!NOTE]
 > Aunque los valores que se enumeran en la siguiente tabla son compatibles con la Puerta de enlace de VPN de Azure, actualmente no hay ninguna forma de especificar o seleccionar una combinación específica en la Puerta de enlace de VPN de Azure. Debe especificar las restricciones en el dispositivo VPN local. Además, tiene que fijar el tamaño de segmento máximo en 1350.
 >
@@ -122,7 +125,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | Algoritmo hash |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 |3.600 segundos |3.600 segundos |
 | Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 |102.400.000 KB |- |
-| Ofertas de autenticación y cifrado de SA de IPsec (en orden de preferencia) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D |Vea *Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) |
+| Ofertas de autenticación y cifrado de SA de IPsec (en orden de preferencia) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D |Consulte "Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento" (a continuación). |
 | Confidencialidad directa perfecta (PFS) |No |No (*) |
 | Detección de cuellos del mismo nivel |No compatible |Compatible |
 
@@ -155,16 +158,16 @@ En la siguiente tabla encontrará una lista de las ofertas de autenticación y c
 * Puede especificar el cifrado IPsec ESP NULL con puertas de enlace de VPN de alto rendimiento y RouteBased. El cifrado basado en null no proporciona protección de datos en tránsito, solo se debe usar al máximo rendimiento y es necesaria la mínima latencia.  Los clientes pueden elegir usarlo en escenarios de comunicación entre redes virtuales o cuando se aplique el cifrado en otra parte de la solución.
 * Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-## <a name="a-nameknownaknown-device-compatibility-issues"></a><a name="known"></a>Problemas conocidos de compatibilidad de dispositivos
+## <a name="known"></a>Problemas conocidos de compatibilidad de dispositivos
 
 > [!IMPORTANT]
-> Estos son problemas conocidos de compatibilidad entre dispositivos VPN de terceros y puertas de enlace VPN de Azure. El equipo de Azure está trabajando activamente con los proveedores para solucionar los problemas enumerados aquí. Una vez que se resuelvan, esta página se actualizará con la información más reciente. Consúltela periódicamente.
+> Estos son los problemas conocidos de compatibilidad entre dispositivos VPN de terceros y puertas de enlace de VPN de Azure. El equipo de Azure está trabajando activamente con los proveedores para solucionar los problemas enumerados aquí. Una vez que se resuelvan, esta página se actualizará con la información más reciente. Consúltela periódicamente.
 
 ###<a name="feb-16-2017"></a>16 de febrero de 2017
 
-**Dispositivos de Palo Alto Networks con una versión anterior a la 7.1.4** para VPN basada en rutas de Azure: si usa dispositivos VPN de Palo Alto Networks con una versión de PAN-OS anterior a la 7.1.4 y experimenta problemas de conectividad a las puertas de enlace VPN basadas en rutas de Azure, realice los siguientes pasos:
+**Dispositivos de Palo Alto Networks con una versión anterior a la 7.1.4** para VPN basada en rutas de Azure: si usa dispositivos VPN de Palo Alto Networks con una versión de PAN-OS anterior a la 7.1.4 y experimenta problemas de conectividad a las puertas de enlace de VPN basadas en rutas de Azure, realice los siguientes pasos:
 
 1. Compruebe la versión de firmware del dispositivo de Palo Alto Networks. Si su versión de PAN-OS es anterior a la 7.1.4, actualice a esta versión.
-2. En el dispositivo de Palo Alto Networks, cambie la duración de la fase 2 SA (o SA de modo rápido) a 28 800 segundos (8 horas) al conectarse a la puerta de enlace VPN de Azure.
-3. Si sigue experimentando el problema de conectividad, abra una solicitud de soporte técnico desde Azure Portal. 
+2. En el dispositivo de Palo Alto Networks, cambie la duración de la fase 2 SA (o SA de modo rápido) a 28 800 segundos (8 horas) al conectarse a la puerta de enlace de VPN de Azure.
+3. Si sigue experimentando problemas de conectividad, presente una solicitud de soporte técnico desde Azure Portal.
 

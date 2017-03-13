@@ -1,9 +1,33 @@
 ---
-title: Creación de una instancia de Azure Container Registry: portal | Microsoft Docs description: Introducción a la creación y administración de registros de contenedor de Azure mediante Azure Portal services: container-registry documentationcenter: '' author: stevelas manager: balans editor: dlepow tags: ''keywords: ''
+title: "Creación de un registro privado de Docker: Azure Portal | Microsoft Docs"
+description: "Introducción a la creación y la administración de registros de contenedor privados de Docker mediante Azure Portal"
+services: container-registry
+documentationcenter: 
+author: stevelas
+manager: balans
+editor: dlepow
+tags: 
+keywords: 
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
+ms.service: container-registry
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/14/2016
+ms.author: stevelas
+ms.custom: H1Hack27Feb2017
+translationtype: Human Translation
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 33944d34ce695e1729b761a7f762e24a6dce70a2
+ms.lasthandoff: 03/06/2017
 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry ms.devlang: na ms.topic: get-started-article ms.tgt_pltfrm: na ms.workload: na ms.date: 11/14/2016 ms.author: stevelas ---# Creación de un registro de contenedor mediante Azure Portal Use Azure Portal para crear un registro de contenedor y administrar su configuración. También puede crear y administrar registros de contenedor mediante los [comandos de la CLI 2.0 de Azure](container-registry-get-started-azure-cli.md) o mediante programación con la [API de REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+---
 
-Para más información y conceptos, vea [¿Qué es Azure Container Registry?](container-registry-intro.md)
+# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Creación de un registro de contenedor privado de Docker con Azure Portal
+Use Azure Portal para crear un registro de contenedor y administrar su configuración. También puede crear y administrar registros de contenedor mediante los [comandos de la CLI 2.0 de Azure](container-registry-get-started-azure-cli.md) o mediante programación con la [API de REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+
+Para más información sobre el entorno y los conceptos, consulte [la información general](container-registry-intro.md)
 
 
 > [!NOTE]
@@ -28,10 +52,10 @@ Para más información y conceptos, vea [¿Qué es Azure Container Registry?](co
    
     d. **Usuario administrador**: si lo desea, habilite un usuario administrador para acceder al registro. Puede cambiar esta configuración después de crear el registro.
    
-   > [!IMPORTANT]
-   > Además de proporcionar acceso a través de una cuenta de usuario de administrador, los registros de contenedor admiten la autenticación respaldada por entidades de servicio de Azure Active Directory. Para más información y otras consideraciones, consulte [Authenticate with the container registry](container-registry-authentication.md) (Autenticación con el registro de contenedor).
-   
-
+    > [!IMPORTANT]
+    > Además de proporcionar acceso a través de una cuenta de usuario de administrador, los registros de contenedor admiten la autenticación respaldada por entidades de servicio de Azure Active Directory. Para más información y otras consideraciones, consulte [Authenticate with the container registry](container-registry-authentication.md) (Autenticación con el registro de contenedor).
+    >
+    
     e. **Cuenta de almacenamiento**: use la configuración predeterminada para crear una [cuenta de almacenamiento](../storage/storage-introduction.md) o seleccione una cuenta de almacenamiento existente en la misma ubicación. Premium Storage no se admite actualmente.
 
 
@@ -52,6 +76,7 @@ Después de crear el registro, busque la configuración de este iniciando la hoj
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Insertar la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md)
+
 
 
 
