@@ -25,7 +25,7 @@ ms.lasthandoff: 03/01/2017
 ## <a name="overview"></a>Información general
 Los firewalls de aplicaciones web como [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure), que está disponible en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) ayuda a proteger las aplicaciones web mediante la inspección del tráfico web entrante para bloquear las inyecciones de código SQL, scripts de sitios, cargas de malware, DDoS de aplicaciones y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Combinado con el aislamiento y la escala adicional proporcionados por los entornos del Servicio de aplicaciones, esto proporciona un entorno ideal para hospedar importantes aplicaciones web empresariales que deben soportar peticiones malintencionadas y tráfico de gran volumen.
 
-+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Configuración
 Para este documento, configuraremos nuestro entorno del Servicio de aplicaciones detrás de varias instancias de equilibrio de carga de Barracuda WAF para que únicamente el tráfico del WAF pueda ponerse en contacto con el entorno del Servicio de aplicaciones, y no se podrá obtener acceso desde la red perimetral. También dispondremos del Administrador de tráfico de Azure delante de nuestras instancias de Barracuda WAF para equilibrar la carga entre las regiones y los centros de datos de Azure. Un diagrama de alto nivel del programa de instalación tendría el aspecto que se muestra a continuación.

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -37,8 +38,11 @@ Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Visual Studio 2013 o 2015**. Las instrucciones siguientes usan Visual Studio 2015.
+
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Cuenta del Almacén de Azure Data Lake**. Para obtener instrucciones acerca de cómo crear una cuenta, consulte [Introducción a Azure Data Lake Store mediante Azure Portal](data-lake-store-get-started-portal.md)
+
 * **Cree una aplicación de Azure Active Directory**. Utilice la aplicación Azure AD para autenticar la aplicación Data Lake Store con Azure AD. Existen diferentes enfoques para realizar la autenticación con Azure AD, que son la **autenticación de usuario final** o la **autenticación de servicio a servicio**. Para instrucciones y más información acerca de cómo realizar la autenticación, consulte [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Autenticación con Data Lake Store mediante Azure Active Directory).
 
 ## <a name="create-a-net-application"></a>Creación de una aplicación .NET
@@ -58,9 +62,9 @@ Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.
    2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** esté establecida en **nuget.org** y que esté activada la casilla **Incluir versión previa**.
    3. Busque e instale los siguientes paquetes NuGet:
       
-      * `Microsoft.Azure.Management.DataLake.Store` - En este tutorial se usa v0.12.5 (versión preliminar).
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - En este tutorial se usa v0.10.6 (versión preliminar).
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - En este tutorial se usa v2.2.8 (versión preliminar).
+      * `Microsoft.Azure.Management.DataLake.Store` - En este tutorial se usa v1.0.4.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` - En este tutorial se usa v1.0.1 (versión preliminar).
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - En este tutorial se usa v2.2.11.
         
         ![Incorporación de un origen de Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creación de una cuenta de Azure Data Lake")
    4. Cierre el **Administrador de paquetes Nuget**.
@@ -71,7 +75,11 @@ Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.
    
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+
 7. Declare las variables como se muestra a continuación y especifique los valores del nombre de Data Lake Store y del nombre del grupo de recursos que ya existen. Además, asegúrese de que la ruta de acceso local y el nombre de archivo que proporcione aquí deben existir en el equipo. Agregue el siguiente fragmento de código después de las declaraciones de espacios de nombres.
    
         namespace SdkSample
@@ -104,32 +112,31 @@ Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.
 En las restantes secciones de este artículo, se puede ver cómo se utilizan los métodos .NET disponibles para realizar operaciones como la autenticación, la carga de archivos, etc.
 
 ## <a name="authentication"></a>Autenticación
+
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Si utiliza la autenticación de usuario final (recomendada para este tutorial)
-Se utiliza con una aplicación "Native Client" de Azure AD existente; se proporciona una a continuación. Para ayudarle a completar este tutorial más rápido, se recomienda que utilice este enfoque.
+
+Úsela con una aplicación nativa existente de Azure AD para autenticar la aplicación **interactivamente**, lo que significa que se le pedirá que escriba sus credenciales de Azure. 
+
+Para facilitar su uso, el siguiente fragmento de código usa valores predeterminados para un identificador de cliente y un URI de redirección que funcionan con cualquier suscripción de Azure. Para ayudarle a completar este tutorial más rápido, se recomienda que utilice este enfoque. En el siguiente fragmento de código, bastará con que proporcione el valor del identificador del inquilino. Puede recuperarlo mediante las instrucciones proporcionadas en [Creación de una aplicación de Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD Web application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
 Dos cosas que conviene saber acerca del fragmento de código anterior.
 
 * Para ayudarle a completar este tutorial más rápido, este fragmento de código usa un identificador de dominio y cliente de Azure AD que está disponible de manera predeterminada para todas las suscripciones de Azure. Por lo tanto, puede **usar este fragmento de código tal cual en la aplicación**.
-* Sin embargo, si desea utilizar su propio identificador de cliente de dominio y de aplicación de Azure AD, debe crear una aplicación nativa de Azure AD y, después, utilizar el dominio de Azure AD, el identificador de cliente y el identificador URI de redirección para la aplicación que ha creado. Para obtener instrucciones, consulte [Creación de una aplicación de Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) .
-
-> [!NOTE]
-> Las instrucciones de los vínculos anteriores son para una aplicación web de Azure AD. Sin embargo, los pasos son exactamente iguales, aunque decida crear una aplicación cliente nativa. 
-> 
-> 
+* Sin embargo, si desea utilizar su propio identificador de cliente de dominio y de aplicación de Azure AD, debe crear una aplicación nativa de Azure AD y, después, utilizar el identificador de inquilino de Azure AD, el identificador de cliente y el identificador URI de redirección para la aplicación que ha creado. Consulte [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) para obtener instrucciones.
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Si utiliza la autenticación de servicio a servicio con el secreto de cliente
-El siguiente fragmento de código se puede utilizar para autenticar la aplicación de forma no interactiva, para lo que se usa el secreto o la clave del cliente para una identidad de servicio o aplicación. Utilícelo con una [aplicación de "aplic. web" de Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+El siguiente fragmento de código se puede utilizar para autenticar la aplicación de forma **no interactiva**, para lo que se usa el secreto o la clave del cliente para una identidad de entidad de servicio o aplicación. Utilícelo con una aplicación web de Azure AD ya existente. Para obtener instrucciones sobre cómo crear la aplicación web de Azure AD y cómo recuperar el identificador y el secreto de cliente y necesarios en el siguiente fragmento de código, consulte [Autenticación entre servicios con Data Lake Store mediante Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
     // Service principal / appplication authentication with client secret / key
-    // Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -138,7 +145,7 @@ El siguiente fragmento de código se puede utilizar para autenticar la aplicaci�
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Si utilice autenticación de servicio a servicio con certificado
-Como alternativa, el siguiente fragmento de código puede utilizarse para autenticar la aplicación de forma no interactiva, para lo que se usa el secreto de cliente o la clave para una identidad de servicio o aplicación. Utilícelo con una [aplicación de "aplic. web" de Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Como alternativa, el siguiente fragmento de código puede utilizarse para autenticar la aplicación de forma **no interactiva**, para lo que se usará el certificado para una entidad de servicio o aplicación de Azure Active Directory. Utilícelo con una [aplicación de Azure AD con certificados](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) ya existente.
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -257,10 +264,5 @@ El siguiente fragmento muestra un método `DownloadFile` que se utiliza para des
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Referencia de SDK de .NET de Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Referencia de REST de Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

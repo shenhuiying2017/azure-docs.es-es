@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2016
+ms.date: 02/24/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b0c3c5dfd695b28b75bf44c9f835b34966413a9a
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -29,7 +30,7 @@ La verificación en dos pasos está disponible de forma predeterminada para los 
 Se necesita un proveedor de Azure Multi-Factor Authentication para descargar el SDK.
 
 > [!IMPORTANT]
-> Para descargar el SDK, cree un proveedor de Azure Multi-Factor Authentication, incluso si tiene licencias de Azure MFA, AAD Premium o EMS.  Si crea un proveedor de Azure Multi-Factor Authentication para este propósito y ya tiene licencias, asegúrese de crear el proveedor con el modelo **Por usuario habilitado**. A continuación, vincule el proveedor al directorio que contiene las licencias de Azure MFA, Azure AD Premium o EMS.  De este modo, se asegura de que no se le cobrará, salvo que tenga más usuarios únicos mediante el SDK que el número de licencias que posee.
+> Para descargar el SDK, cree un proveedor de Azure Multi-Factor Authentication, incluso si tiene licencias de Azure MFA, AAD Premium o EMS.  Si crea un proveedor de Azure Multi-Factor Authentication para este propósito y ya tiene licencias, asegúrese de crear el proveedor con el modelo **Por usuario habilitado**. A continuación, vincule el proveedor al directorio que contiene las licencias de Azure MFA, Azure AD Premium o EMS.  Gracias a esta configuración, se asegura de que no se le cobrará, salvo que tenga más usuarios únicos ejecutando la verificación en dos pasos que el número de licencias que posee.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Creación de un proveedor de autenticación multifactor
 Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentication.
@@ -46,7 +47,7 @@ Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentic
    ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 7. Rellene los campos siguientes y seleccione **Crear**.
    1. **Nombre** : nombre del Proveedor de Multi-Factor Authentication.
-   2. **Modelo de uso**: si desea habilitar a los usuarios individuales o pagar por verificación. Elija una de las dos opciones:
+   2. **Modelo de uso**: puede elegir una de las dos opciones a continuación:
       * Por autenticación: modelo de adquisición que se carga por autenticación. Normalmente se usa para escenarios que utilizan Azure Multi-Factor Authentication en una aplicación orientada al consumidor.
       * Por usuario habilitado: modelo de adquisición que se carga por usuario habilitado. Suele utilizarse para el acceso de los empleados a aplicaciones como Office 365. Elija esta opción si tiene algunos usuarios que ya tienen una licencia de Azure MFA.
    3. **Directorio** : inquilino de Azure Active Directory con el que está asociado el proveedor de Multi-Factor Authentication. Tenga en cuenta lo siguiente:
@@ -56,10 +57,5 @@ Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentic
         ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 8. Al hacer clic en Crear, se crea el Proveedor de Multi-Factor Authentication y debe ver un mensaje que indica: **El proveedor de Multi-Factor Authentication se creó correctamente**. Haga clic en **Aceptar**.
    ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

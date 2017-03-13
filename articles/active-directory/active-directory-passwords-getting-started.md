@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ Para configurar la directiva de restablecimiento de contraseña del usuario, com
 
    ![][003]
 
-5. En la pestaña **Configurar**, desplácese hasta la sección de la **directiva de restablecimiento de la contraseña de usuario**.  Ahí puede configurar todos los aspectos de la directiva de restablecimiento de contraseña del usuario de un directorio determinado. *Si no ve la pestaña Configurar, asegúrese de haberse suscrito a Azure Active Directory Premium o Basic y de haber **asignado una licencia** a la cuenta de administrador que configura esta característica.*  
+5. En la pestaña **Configurar**, desplácese hasta la sección de la **directiva de restablecimiento de la contraseña de usuario**.  Ahí puede configurar todos los aspectos de la directiva de restablecimiento de contraseña del usuario de un directorio determinado. *Si no ve la pestaña Configurar, asegúrese de haberse suscrito a Azure Active Directory Premium o Básico y de haber __asignado una licencia__ a la cuenta de administrador que configura esta característica.*  
 
    > [!NOTE]
    > **La directiva que establezca solo se aplica a los usuarios finales de su organización, no a los administradores**. Por motivos de seguridad, Microsoft controla la directiva de restablecimiento de contraseña de los administradores. La directiva actual para los administradores requiere dos desafíos: teléfono móvil y dirección de correo electrónico.
-
-   >
-   >
 
    ![][004]
 6. Para configurar la directiva de restablecimiento de la contraseña de usuario, deslice el botón de alternancia **Usuarios habilitados para restablecer la contraseña** a **Sí**.  Con esto se revelan muchos controles más que le permitirán configurar cómo funciona esta característica en el directorio.  Puede personalizar el restablecimiento de contraseña como desee.  Si desea obtener más información sobre qué hace cada uno de los controles de la directiva de restablecimiento de contraseña, consulte [Personalización de la administración de contraseñas de Azure AD](active-directory-passwords-customize.md).
@@ -264,13 +261,19 @@ También puede comprobar que el servicio se ha instalado correctamente. Para ell
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Paso 3: configurar el firewall
-Después de haber habilitado la Escritura diferida de contraseñas, debe asegurarse de que la máquina que ejecuta Azure AD Connect puede llegar a los servicios en la nube de Microsoft para recibir las solicitudes de escritura diferida de contraseñas. Este paso implica actualizar las reglas de conexión de los dispositivos de red (servidores proxy, firewalls, etc.) para permitir conexiones salientes a determinadas direcciones URL propiedad de Microsoft y a direcciones IP a través de puertos de red específicos. Estos cambios pueden variar en función de la versión de la herramienta Azure AD Connect. Para obtener más contexto, puede leer más sobre el [Funcionamiento de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#how-password-writeback-works) y el [Modelo de seguridad de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model).
+Después de haber habilitado la Escritura diferida de contraseñas, debe asegurarse de que la máquina que ejecuta Azure AD Connect puede llegar a los servicios en la nube de Microsoft para recibir las solicitudes de escritura diferida de contraseñas. Este paso implica actualizar las reglas de conexión de los dispositivos de red (servidores proxy, firewalls, etc.) para permitir conexiones salientes a determinadas [direcciones URL propiedad de Microsoft y a direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) a través de puertos de red específicos. Estos cambios pueden variar en función de la versión de la herramienta Azure AD Connect. Para obtener más contexto, puede leer más sobre el [Funcionamiento de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#how-password-writeback-works) y el [Modelo de seguridad de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### <a name="why-do-i-need-to-do-this"></a>¿Por qué tengo que hacerlo?
 
 Para que la Escritura diferida de contraseñas funcione correctamente, la máquina que ejecuta Azure AD Connect debe poder establecer conexiones HTTPS salientes a **.servicebus.windows.net* y la dirección IP específica usada por Azure, tal como se define en la [lista de intervalos de IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Para la herramienta Azure AD Connect, versiones 1.0.8667.0 y posteriores:
+Para la herramienta Azure AD Connect, **1.1.439.0** (la más reciente) y versiones posteriores:
+
+- La versión más reciente de la herramienta Azure AD Connect necesita acceso de **HTTPS salientes** a:
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+Para las versiones **1.0.8667.0** a **1.1.380.0** de la herramienta Azure AD Connect:
 
 - **Opción 1:** permitir todas las conexiones HTTPS salientes a través del puerto 443 (mediante la dirección URL o la dirección IP).
     - Cuándo utilizarlo:
@@ -298,6 +301,9 @@ Para la herramienta Azure AD Connect, versiones 1.0.8667.0 y posteriores:
 > Si está en una versión de Azure AD Connect anterior a la 1.0.8667.0, Microsoft recomienda encarecidamente actualizar a la [versión más reciente de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), que incluye una serie de mejoras de red para la escritura diferida, con el fin de facilitar la configuración.
 
 Una vez configurados los dispositivos de red, reinicie el equipo que ejecuta la herramienta Azure AD Connect.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Conexiones inactivas en Azure AD Connect (1.1.439.0 y superiores)
+La herramienta Azure AD Connect enviará pings o keepalives periódicos a los puntos de conexión del bus de servicio para garantizar que las conexiones se mantengan activas. Si la herramienta detecta que se están terminando demasiadas conexiones, automáticamente aumentará la frecuencia de envío de pings al punto de conexión. Los "intervalos de envío de pings" más bajos se reducirán a 1 ping cada 60 segundos. No obstante, **es aconsejable que los proxy y los firewalls permitan que la conexiones inactivas se mantengan durante al menos 2-3 minutos.** \*En las versiones anteriores, sugerimos 4 minutos o más.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Paso 4: configurar los permisos adecuados de Active Directory
 En todos los bosques que contengan usuarios cuyas contraseñas se van a restablecer, si X es la cuenta que se especificó para ese bosque en el Asistente para configuración (durante la configuración inicial), X debe contar con los derechos extendidos **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet` sobre el objeto raíz de cada dominio de dicho bosque. El derecho debe estar marcado como heredado por todos los objetos de usuario.  

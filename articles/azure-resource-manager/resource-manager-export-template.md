@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 4f1e8850aee2cc9578ce80ceb4a5eecf121c4c60
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -36,7 +37,7 @@ En este tutorial, va a iniciar sesión en el Portal de Azure, a crear una cuenta
 1. En [Azure Portal](https://portal.azure.com), seleccione **Nuevo** > **Almacenamiento** > **Cuentas de almacenamiento**.
    
       ![Crear almacenamiento](./media/resource-manager-export-template/create-storage.png)
-2. Cree una cuenta de almacenamiento con el nombre **storage**, sus iniciales y la fecha. El nombre de la cuenta de almacenamiento debe ser único en Azure. Si el nombre ya está en uso, aparecerá un mensaje de error indicándoselo. Pruebe con otro nombre. Para un grupo de recursos, cree un nuevo grupo de recursos y asígnele el nombre **ExportGroup**. Puede usar los valores predeterminados para los demás campos. Seleccione **Crear**.
+2. Cree una cuenta de almacenamiento con el nombre **storage**, sus iniciales y la fecha. El nombre de la cuenta de almacenamiento debe ser único en Azure. Si el nombre ya está en uso, aparecerá un mensaje de error indicándoselo. Pruebe con otro nombre. Para el grupo de recursos, seleccione **Create new** (Crear nuevo) y escriba el nombre **ExportGroup**. Puede usar los valores predeterminados para los demás campos. Seleccione **Crear**.
    
       ![Proporcionar los valores de almacenamiento](./media/resource-manager-export-template/provide-storage-values.png)
 
@@ -57,6 +58,7 @@ La implementación puede tardar un momento. Una vez finalizada la implementació
    1. **Plantilla** : la plantilla que define la infraestructura de la solución. Cuando creó la cuenta de almacenamiento por medio del portal, Resource Manager usó una plantilla para implementarla y la guardó para futura referencia.
    2. **Parámetros** : un archivo de parámetros que puede usar para pasar valores durante la implementación. Contiene los valores que proporcionó durante la primera implementación, pero puede cambiar cualquiera de ellos al volver a implementar la plantilla.
    3. **CLI** : un archivo de script de la interfaz de la línea de comandos (CLI) de Azure que puede usar para implementar la plantilla.
+   3. **CLI 2.0**: archivo de script de la interfaz de línea de comandos (CLI) de Azure que puede usar para implementar la plantilla.
    4. **PowerShell** : un archivo de script de Azure PowerShell que puede usar para implementar la plantilla.
    5. **.NET** : una clase .NET que puede utilizar para implementar la plantilla.
    6. **Ruby** : una clase Ruby que puede utilizar para implementar la plantilla.
@@ -67,48 +69,49 @@ La implementación puede tardar un momento. Una vez finalizada la implementació
       
       Preste especial atención a la plantilla. Su plantilla debería parecerse a esta:
       
-        {
-      
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "name": {
-              "type": "String"
-            },
-            "accountType": {
-              "type": "String"
-            },
-            "location": {
-              "type": "String"
-            },
-            "encryptionEnabled": {
-              "defaultValue": false,
-              "type": "Bool"
-            }
+      ```json
+      {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "name": {
+            "type": "String"
           },
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "sku": {
-                "name": "[parameters('accountType')]"
-              },
-              "kind": "Storage",
-              "name": "[parameters('name')]",
-              "apiVersion": "2016-01-01",
-              "location": "[parameters('location')]",
-              "properties": {
-                "encryption": {
-                  "services": {
-                    "blob": {
-                      "enabled": "[parameters('encryptionEnabled')]"
-                    }
-                  },
-                  "keySource": "Microsoft.Storage"
-                }
+          "accountType": {
+            "type": "String"
+          },
+          "location": {
+            "type": "String"
+          },
+          "encryptionEnabled": {
+            "defaultValue": false,
+            "type": "Bool"
+          }
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+              "name": "[parameters('accountType')]"
+            },
+            "kind": "Storage",
+            "name": "[parameters('name')]",
+            "apiVersion": "2016-01-01",
+            "location": "[parameters('location')]",
+            "properties": {
+              "encryption": {
+                "services": {
+                  "blob": {
+                    "enabled": "[parameters('encryptionEnabled')]"
+                  }
+                },
+                "keySource": "Microsoft.Storage"
               }
             }
-          ]
-        }
+          }
+        ]
+      }
+      ```
 
 Esta plantilla es la que se usó para crear la cuenta de almacenamiento. Observe que contiene parámetros que le permiten implementar distintos tipos de cuentas de almacenamiento. Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md). Para ver la lista completa de funciones que puede usar en una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
 
@@ -144,25 +147,29 @@ Para obtener el estado actual de su grupo de recursos, exporte una plantilla que
    
      No todos los tipos de recursos admiten la función de exportación de plantilla. Si el grupo de recursos solo contiene la cuenta de almacenamiento y la red virtual mostradas en este artículo, no verá ningún error. Sin embargo, si ha creado otros tipos de recursos, verá un error que indica que hay un problema con la exportación. Puede aprender más sobre cómo resolver estos problemas en la sección [Solución de problemas de exportación](#fix-export-issues) .
 2. Se vuelven a ver los seis archivos que puede usar para volver a implementar la solución, pero esta vez la plantilla es algo diferente. Esta plantilla solo contiene dos parámetros (uno para el nombre de la cuenta de almacenamiento y otro para el nombre de la red virtual).
-   
-        "parameters": {
-          "virtualNetworks_VNET_name": {
-            "defaultValue": "VNET",
-            "type": "String"
-          },
-          "storageAccounts_storagetf05092016_name": {
-            "defaultValue": "storagetf05092016",
-            "type": "String"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "virtualNetworks_VNET_name": {
+      "defaultValue": "VNET",
+      "type": "String"
+    },
+    "storageAccounts_storagetf05092016_name": {
+      "defaultValue": "storagetf05092016",
+      "type": "String"
+    }
+  },
+  ```
    
      Resource Manager no recuperó las plantillas usadas durante la implementación. En su lugar, generó una nueva plantilla basada en la configuración actual de los recursos. Por ejemplo, la plantilla establece los valores de ubicación de la cuenta de almacenamiento y replicación en:
-   
-        "location": "northeurope",
-        "tags": {},
-        "properties": {
-            "accountType": "Standard_RAGRS"
-        },
+
+  ```json 
+  "location": "northeurope",
+  "tags": {},
+  "properties": {
+    "accountType": "Standard_RAGRS"
+  },
+  ```
 3. Tiene dos opciones para continuar trabajando con esta plantilla. Puede descargar la plantilla y trabajar en ella localmente con un editor de JSON. O bien, puede guardar la plantilla en la biblioteca y trabajar en ella a través del portal.
    
      Si está familiarizado con el uso de un editor de JSON como [VS Code](resource-manager-vs-code.md) o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), es posible que prefiera descargar la plantilla localmente y usar ese editor. Si no lo está, es preferible editar la plantilla a través del portal. En el resto de este tema se supone que ha guardado la plantilla en la biblioteca en el portal. No obstante, tendrá que realizar los mismos cambios de sintaxis en la plantilla tanto si trabaja localmente con un editor de JSON o a través del portal.
@@ -197,81 +204,90 @@ En esta sección, agregará parámetros a la plantilla exportada para poder reut
    
      ![editar plantilla](./media/resource-manager-export-template/edit-template.png)
 3. Para poder pasar los valores que desee especificar durante la implementación, reemplace la sección **parámetros** por las nuevas definiciones de parámetro. Observe los valores de **allowedValues** para **storageAccount_accountType**. Si proporciona accidentalmente un valor no válido, se reconoce ese error antes de que se inicie la implementación. Además, observe que solo va a proporcionar un prefijo para el nombre de la cuenta de almacenamiento y que está limitado a 11 caracteres. Al limitarlo a 11 caracteres, se asegura de que el nombre completo no supere el número máximo de caracteres para una cuenta de almacenamiento. El prefijo permite aplicar una convención de nomenclatura a las cuentas de almacenamiento. Verá cómo crear un nombre único en el paso siguiente.
-   
-        "parameters": {
-          "storageAccount_prefix": {
-            "type": "string",
-            "maxLength": 11
-          },
-          "storageAccount_accountType": {
-            "defaultValue": "Standard_RAGRS",
-            "type": "string",
-            "allowedValues": [
-              "Standard_LRS",
-              "Standard_ZRS",
-              "Standard_GRS",
-              "Standard_RAGRS",
-              "Premium_LRS"
-            ]
-          },
-          "virtualNetwork_name": {
-            "type": "string"
-          },
-          "addressPrefix": {
-            "defaultValue": "10.0.0.0/16",
-            "type": "string"
-          },
-          "subnetName": {
-            "defaultValue": "subnet-1",
-            "type": "string"
-          },
-          "subnetAddressPrefix": {
-            "defaultValue": "10.0.0.0/24",
-            "type": "string"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "storageAccount_prefix": {
+      "type": "string",
+      "maxLength": 11
+    },
+    "storageAccount_accountType": {
+      "defaultValue": "Standard_RAGRS",
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    },
+    "virtualNetwork_name": {
+      "type": "string"
+    },
+    "addressPrefix": {
+      "defaultValue": "10.0.0.0/16",
+      "type": "string"
+    },
+    "subnetName": {
+      "defaultValue": "subnet-1",
+      "type": "string"
+    },
+    "subnetAddressPrefix": {
+      "defaultValue": "10.0.0.0/24",
+      "type": "string"
+    }
+  },
+  ```
+
 4. La sección **variables** de la plantilla está vacía actualmente. En la sección **variables** puede crear valores que simplifican la sintaxis para el resto de la plantilla. Reemplace esta sección con una nueva definición de variable. La variable **storageAccount_name** concatena el prefijo del parámetro con una cadena única que se genera basándose en el identificador del grupo de recursos. Ya no tiene que adivinar un nombre único al proporcionar un valor de parámetro.
-   
-        "variables": {
-          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-        },
+
+  ```json
+  "variables": {
+    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+  },
+  ```
+
 5. Para usar los parámetros y la variable en las definiciones de recursos, reemplace la sección **recursos** por las nuevas definiciones de recursos. Observe que se ha cambiado muy poco en las definiciones de recursos, aparte del valor que se asigna a la propiedad de recurso. Las propiedades son iguales que las de la plantilla exportada. Simplemente va a asignar propiedades a los valores de parámetro, en lugar de valores codificados de forma rígida. La ubicación de los recursos se establece en la misma que la del grupo de recursos por medio de la expresión **resourceGroup().location** . Se hace referencia a la variable que creó para el nombre de la cuenta de almacenamiento mediante la expresión **variables** .
-   
-        "resources": [
+
+  ```json
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetwork_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('addressPrefix')]"
+          ]
+        },
+        "subnets": [
           {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetwork_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
+            "name": "[parameters('subnetName')]",
             "properties": {
-              "addressSpace": {
-                "addressPrefixes": [
-                  "[parameters('addressPrefix')]"
-                ]
-              },
-              "subnets": [
-                {
-                  "name": "[parameters('subnetName')]",
-                  "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
-                  }
-                }
-              ]
-            },
-            "dependsOn": []
-          },
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccount_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "properties": {
-                "accountType": "[parameters('storageAccount_accountType')]"
-            },
-            "dependsOn": []
+              "addressPrefix": "[parameters('subnetAddressPrefix')]"
+            }
           }
         ]
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccount_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "accountType": "[parameters('storageAccount_accountType')]"
+      },
+      "dependsOn": []
+    }
+  ]
+  ```
+
 6. Seleccione **Aceptar** cuando haya terminado la edición de la plantilla.
 7. Seleccione **Guardar** para guardar los cambios en la plantilla.
    
@@ -286,7 +302,7 @@ Si está trabajando con los archivos descargados (en lugar de con la biblioteca 
 
 Reemplace el contenido del archivo parameters.json por:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
@@ -304,7 +320,7 @@ Reemplace el contenido del archivo parameters.json por:
 El archivo de parámetros actualizado solamente proporciona valores para los parámetros que carecen de valor predeterminado. Puede proporcionar valores para los demás parámetros cuando desee un valor diferente al predeterminado.
 
 ## <a name="fix-export-issues"></a>Solución de problemas de exportación
-No todos los tipos de recursos admiten la función de exportación de plantilla. Específicamente, Resource Manager no exporta algunos tipos de recursos para evitar que se exponga información confidencial. Por ejemplo, si tiene una cadena de conexión en la configuración del sitio, probablemente no querrá que se muestre explícitamente en una plantilla exportada. Puede evitar este problema si agrega manualmente los recursos que faltan a la plantilla.
+No todos los tipos de recursos admiten la función de exportación de plantilla. Específicamente, Resource Manager no exporta algunos tipos de recursos para evitar que se exponga información confidencial. Por ejemplo, si tiene una cadena de conexión en la configuración del sitio, probablemente no querrá que se muestre explícitamente en una plantilla exportada. Para evitar este problema, agregue manualmente los recursos que faltan a la plantilla.
 
 > [!NOTE]
 > Solo se encuentran problemas de exportación si se exporta desde un grupo de recursos en lugar de desde el historial de implementación. Si su última implementación representa con precisión el estado actual del grupo de recursos, debe exportar la plantilla desde el historial de implementación en lugar de desde el grupo de recursos. Exporte solo desde un grupo de recursos si ha realizado cambios en el grupo de recursos que no están definidos en una única plantilla.
@@ -324,7 +340,7 @@ Este tema muestra las correcciones más comunes.
 ### <a name="connection-string"></a>Cadena de conexión
 En el recurso de sitios web, agregue una definición para la cadena de conexión a la base de datos:
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -350,7 +366,7 @@ En el recurso de sitios web, agregue una definición para la cadena de conexión
 ### <a name="web-site-extension"></a>Extensión de sitio web
 En el recurso de sitio web, agregue una definición para el código que se instalará:
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -382,7 +398,7 @@ Para ver ejemplos de extensiones de máquina virtual, consulte [Ejemplos de conf
 ### <a name="virtual-network-gateway"></a>Puerta de enlace de red virtual
 Agregue un tipo de recurso de puerta de enlace de red virtual.
 
-```
+```json
 {
   "type": "Microsoft.Network/virtualNetworkGateways",
   "name": "[parameters('<gateway-name>')]",
@@ -417,7 +433,7 @@ Agregue un tipo de recurso de puerta de enlace de red virtual.
 ### <a name="local-network-gateway"></a>Puerta de enlace de red local
 Agregue un tipo de recurso de puerta de enlace de red local.
 
-```
+```json
 {
     "type": "Microsoft.Network/localNetworkGateways",
     "name": "[parameters('<local-network-gateway-name>')]",
@@ -434,7 +450,7 @@ Agregue un tipo de recurso de puerta de enlace de red local.
 ### <a name="connection"></a>Conexión
 Agregue un tipo de recurso de conexión.
 
-```
+```json
 {
     "apiVersion": "2015-06-15",
     "name": "[parameters('<connection-name>')]",
@@ -461,10 +477,5 @@ Agregue un tipo de recurso de conexión.
 * Puede implementar una plantilla mediante [PowerShell](resource-group-template-deploy.md), [CLI de Azure](resource-group-template-deploy-cli.md), o [API de REST](resource-group-template-deploy-rest.md).
 * Para ver cómo exportar una plantilla mediante PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 * Para ver cómo exportar una plantilla mediante la CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

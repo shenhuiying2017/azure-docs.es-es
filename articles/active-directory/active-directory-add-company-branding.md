@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ Si su preferencia de idioma es alemán, obtiene el logotipo del banner predeterm
 
 Aunque técnicamente podría configurar un conjunto diferente para cada idioma admitido por Azure AD, se recomienda que mantenga reducidas las variantes por razones de mantenimiento y rendimiento.
 
+> [!IMPORTANT]
+> Yammer no muestra la página de inicio de sesión de marca de Azure AD hasta después de que el usuario inicia sesión. El usuario ve la página de inicio de sesión genérica de Office 365 primero y, a continuación, la página de marca.   
+ 
+ 
 **Para agregar una personalización de marca de la empresa a su directorio, realice los pasos siguientes:**
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como administrador del directorio que desea personalizar.
@@ -148,7 +153,7 @@ Puede transcurrir hasta una hora para que el cambio efectuado se muestre en la p
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como administrador del directorio que desea personalizar.
 2. Seleccione el directorio que desea personalizar.
-3. En la barra de herramientas de la parte superior, haga clic en **Configurar**.
+fs3. En la barra de herramientas de la parte superior, haga clic en **Configurar**.
 4. Haga clic en **Personalizar la información de marca**.
 5. Haga clic en **Agregar personalización de marca para un idioma específico**.
 6. Seleccione el idioma que para el que desea personalizar el logotipo y, después, haga clic en **Siguiente**.
@@ -221,9 +226,4 @@ Algunos elementos personalizables de Azure AD disponen de múltiples casos de us
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

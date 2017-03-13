@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,11 +35,13 @@ Esta introducción sin código le permitirá comenzar a trabajar con datos prede
 
 **Tiempo estimado:** unos 15 minutos, o más si también es necesario registrar la cuenta o el servicio. 
 
-Como alternativa, puede ver una demostración de 6 minutos de los pasos de este tutorial en aproximadamente 3 minutos en este [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Como alternativa, puede empezar con la [introducción basada en código a la programación de Azure Search en .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial se supone que tiene una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y un [servicio de Azure Search](search-create-service-portal.md). 
+
+Si no desea aprovisionar un servicio inmediatamente, puede ver una demostración de 6 minutos de los pasos de este tutorial, a partir del minuto 3 de este [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Búsqueda del servicio
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
