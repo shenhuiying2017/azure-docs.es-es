@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Puede descargar datos en un experimento de Machine Learning Studio de tres maner
 
 Para más información acerca de los formatos de archivo compatibles, consulte [Importación de datos de entrenamiento en Machine Learning Studio desde varios orígenes de datos](machine-learning-data-science-import-data.md).
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>¿Cómo de grande puede ser el conjunto de datos para mis módulos?
+#### <a id="ModuleLimit"></a>¿Cómo de grande puede ser el conjunto de datos para mis módulos?
 Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, el valor de 10 GB es el total de todos los tamaños de entrada. También puede realizar el muestreo de conjuntos de datos grandes mediante consultas de Hive o Azure SQL Database, o usar el procesamiento previo de aprendizaje por recuentos antes de la ingesta.  
 
 Los siguientes tipos de datos se pueden expandir en conjuntos de datos grandes durante la normalización de características y están limitados a menos de 10 GB:
@@ -101,7 +102,7 @@ Los siguientes módulos están limitados a conjuntos de datos de menos de 10 GB
 * Módulos donde el tamaño de los datos de salida puede ser mayor que el tamaño de los datos de entrada, como en la aplicación de hash de característica o unión.
 * Validación cruzada, ajuste de los hiperparámetros del modelo, regresión ordinal y multiclase uno contra todos, cuando el número de iteraciones sea muy grande.
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>¿Cuáles son los límites de carga de datos?
+#### <a id="UploadLimit"></a>¿Cuáles son los límites de carga de datos?
 En el caso de conjuntos de datos que tengan más de dos gigas, cargue datos en Azure Storage o en Azure SQL Database, o use Azure HDInsight, en lugar de cargarlos directamente desde el archivo local.
 
 **¿Se pueden leer datos de Amazon S3?**
@@ -429,7 +430,11 @@ Le recomendamos que empiece por el nivel Estándar S1 y supervise el uso que hac
 
 **¿Qué regiones están disponibles para los nuevos planes?**
 
-Para más información sobre la disponibilidad regional, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+Los nuevos planes de facturación están disponibles en las tres regiones de producción en las que ofertamos los nuevos servicios web:
+
+* Centro-Sur de EE. UU
+* Europa occidental
+* Sudeste de Asia
 
 **Tengo servicios web en varias regiones. ¿Necesito un plan para cada región?**
 
@@ -464,7 +469,13 @@ Sí. Los servicios web clásicos siguen disponibles en Azure Machine Learning.
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Nivel Gratis y Estándar de Azure Machine Learning
 **¿Qué incluye el nivel Gratis de Aprendizaje automático de Azure?**
 
-El nivel Gratis de Aprendizaje automático de Azure está pensado para proporcionar una introducción detallada de Estudio de aprendizaje automático de Azure. Todo lo que necesita para suscribirse es una cuenta de Microsoft. El nivel Gratis incluye acceso gratuito a un área de trabajo de Estudio de aprendizaje automático de Azure por cada [cuenta de Microsoft](https://www.microsoft.com/account/default.aspx). En este nivel, puede usar hasta 10 GB de almacenamiento y aplicar modelos como API de ensayo. No hay ningún Acuerdo de Nivel de Servicio que cubra las cargas de trabajo del nivel Gratis, ya que estas cargas de trabajo están destinadas exclusivamente a desarrollo y uso personal. Las cargas de trabajo del nivel Gratis no pueden acceder a los datos conectándose a un servidor local que ejecute SQL.
+El nivel Gratis de Aprendizaje automático de Azure está pensado para proporcionar una introducción detallada de Estudio de aprendizaje automático de Azure. Todo lo que necesita para suscribirse es una cuenta de Microsoft. El nivel Gratis incluye acceso gratuito a un área de trabajo de Estudio de aprendizaje automático de Azure por cada [cuenta de Microsoft](https://www.microsoft.com/account/default.aspx). En este nivel, puede usar hasta 10 GB de almacenamiento y aplicar modelos como API de ensayo. No hay ningún Acuerdo de Nivel de Servicio que cubra las cargas de trabajo del nivel Gratis, ya que estas cargas de trabajo están destinadas exclusivamente a desarrollo y uso personal. 
+
+Las áreas de trabajo de nivel Gratis tienen las limitaciones siguientes:
+
+* Las cargas de trabajo no pueden acceder a los datos conectándose a un servidor local que ejecute SQL.
+* No se pueden implementar nuevos servicios web de base de Resource Manager.
+
 
 **¿Qué incluyen los planes y el nivel Estándar de Aprendizaje automático de Azure?**
 
@@ -546,9 +557,4 @@ El acceso de invitado es una experiencia de evaluación restringida. Puede crear
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

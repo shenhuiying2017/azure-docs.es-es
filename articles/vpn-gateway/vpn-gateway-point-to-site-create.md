@@ -108,7 +108,7 @@ Si no usa una solución de certificación de empresa, será preciso que cree un 
 
 #### <a name="to-obtain-the-cer-file-from-a-self-signed-root-certificate"></a>Para obtener el archivo .cer de un certificado raíz autofirmado
 
-1. Para obtener un archivo .cer de un certificado raíz autofirmado, abra **certmgr.msc** y busque el certificado raíz que creó. El certificado se encuentra normalmente en "Certificates-Current User/Personal/Certificates" y se llama como decidiera llamarlo cuando lo creó. Haga clic con el botón derecho en el certificado raíz autofirmado, luego en **Todas las tareas** y, por último, en **Exportar**. Se abre el **Asistente para exportar certificados**.
+1. Para obtener un archivo .cer de un certificado raíz autofirmado, abra **certmgr.msc** y busque el certificado raíz que creó. El certificado se encuentra normalmente en "Certificates-Current User/Personal/Certificates" y su nombre es el que le asignara cuando lo creó. Haga clic con el botón derecho en el certificado raíz autofirmado, luego en **Todas las tareas** y, por último, en **Exportar**. Se abre el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**, seleccione **No exportar la clave privada** y, después, en **Siguiente**.
 3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base&64; (.CER)**. A continuación, haga clic en **Siguiente**.
 4. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.

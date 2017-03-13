@@ -19,8 +19,8 @@ Ejecute el cmdlet en ambos controladores.
 
 Si ha comprobado que existe conectividad y sigue apareciendo este problema, póngase en contacto con servicio de soporte técnico de Microsoft para los pasos siguientes.
 
+**¿Qué ocurre si ve un error de actualización al actualizar el dispositivo a la actualización 4 y ambos controladores ejecutan la actualización 4?**
 
+A partir de la actualización 4, si ambos controladores ejecutan la misma versión de software y si se produce un error de actualización, los controladores no entran en modo de recuperación. Esta situación puede ocurrir si la revisión de software de dispositivo (actualización de primer orden) se aplica a ambos controladores correctamente pero otras revisiones (de segundo y tercer orden) todavía tienen que aplicarse. Desde la actualización 4, los controladores pasarán al modo de recuperación solo si los dos controladores ejecutan diferentes versiones de software. 
 
-<!--HONumber=Nov16_HO3-->
-
-
+Si el usuario ve un error de actualización cuando ejecutan ambos controladores la actualización 4, se recomienda esperar unos minutos y, después, volver a intentar la actualización. Si el reintento no funciona, debe ponerse en contacto con el soporte técnico de Microsoft.

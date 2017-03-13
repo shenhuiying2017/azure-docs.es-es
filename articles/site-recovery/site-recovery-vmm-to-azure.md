@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,7 +129,7 @@ Comience la experiencia de introducción decidiendo cómo desea implementar Site
 ## <a name="step-1-choose-your-protection-goals"></a>Paso 1: Seleccione los objetivos de protección
 Seleccione aquello que desea replicar y la ubicación en donde se va a realizar la replicación.
 
-1. En la hoja **Almacenes de servicios de recuperación**, seleccione el almacén y haga clic en **Configuración**.
+1. En la hoja **Almacenes de Recovery Services**, seleccione el almacén.
 2. En **Introducción**, haga clic en **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
 
     ![Elegir objetivos](./media/site-recovery-vmm-to-azure/choose-goals.png)
@@ -143,17 +143,17 @@ Instale el Proveedor de Azure Site Recovery en el servidor VMM y registre el ser
 1. Haga clic en **Paso 2: Preparar la infraestructura** > **Origen**.
 
     ![Configurar origen](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. En **Preparar origen**, haga clic en **+ VMM** para agregar un servidor VMM.
 
     ![Configurar origen](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. En la hoja **Agregar servidor**, compruebe que aparece el **servidor de System Center VMM** en **Tipo de servidor** y que este cumple los [requisitos previos y los requisitos de direcciones URL](#on-premises-prerequisites).
 4. Descargue el archivo de instalación del proveedor de Azure Site Recovery.
 5. Descargue la clave de registro. Se le solicitará cuando ejecute el programa de instalación. La clave será válida durante cinco días a partir del momento en que se genera.
 
     ![Configurar origen](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Instale el proveedor de Azure Site Recovery en el servidor VMM.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Instalación del proveedor de Azure Site Recovery
@@ -180,7 +180,7 @@ Instale el Proveedor de Azure Site Recovery en el servidor VMM y registre el ser
 9. Habilite la **sincronización de metadatos de la nube** si quiere sincronizar los metadatos de todas las nubes del servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este parámetro sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola de VMM. Haga clic en **Register** para finalizar el proceso.
 
     ![Registro de servidor](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Con ello, se iniciará el registro. Después de finalizar el registro, el servidor aparecerá en la hoja **Configuración** > **Servidores** del almacén.
+10. Con ello, se iniciará el registro. Después de finalizar el registro, el servidor aparece en **Infraestructura de Site Recovery** >  **Servidores VMM**.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Instalación mediante la línea de comandos del proveedor de Azure Site Recovery
 El proveedor de Azure Site Recovery puede instalarse desde la línea de comandos. Este método se puede usar para instalar el proveedor en un Server Core para Windows Server 2012 R2.
@@ -266,7 +266,7 @@ Especifique la cuenta de almacenamiento de Azure que se utilizará para la repli
 
 Configure la asignación como sigue:
 
-1. En **Configuración** > **Site Recovery Infrastructure** >  (Infraestructura de Site Recovery) **Asignaciones de red** > **Asignación de red**, haga clic en el icono de **+Asignación de red**.
+1. En **Infraestructura de Site Recovery** > **Asignaciones de red** > **Asignación de red**, haga clic en el icono de **+Asignación de red**.
 
     ![Asignación de red](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. En **Agregar asignación de red**, seleccione el servidor VMM de origen y **Azure** como destino.
@@ -295,7 +295,7 @@ Esto es lo que sucede cuando comienza la asignación de red:
 7. En **Cifrar datos almacenados en Azure**especifique si desea cifrar los datos en reposo en Almacenamiento de Azure. y, a continuación, haga clic en **Aceptar**.
 
     ![Directiva de replicación](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Cuando se crea una nueva directiva se asocia automáticamente con la nube de VMM. Haga clic en **OK**. Puede asociar más nubes VMM (y las máquinas virtuales que contienen) a esta directiva de replicación en **Configuración** > **Replicación** > nombre de directiva > **Associate VMM Cloud** (Asociar nube VMM).
+8. Cuando se crea una nueva directiva se asocia automáticamente con la nube de VMM. Haga clic en **Aceptar**. Puede asociar más nubes VMM (y las máquinas virtuales que contienen) a esta directiva de replicación en **Replicación** > nombre de directiva > **Associate VMM Cloud** (Asociar nube VMM).
 
     ![Directiva de replicación](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ Ahora habilite la replicación como sigue:
     >
 
 
-8. En **Configuración de replicación** > **Establecer configuración de replicación**, seleccione la directiva de replicación que desea aplicar para las máquinas virtuales protegidas. A continuación, haga clic en **Aceptar**. Puede modificar la directiva de replicación en **Configuración** > **Directivas de replicación** > Nombre de directiva > **Editar configuración**. Los cambios que aplique se utilizarán tanto para las máquinas que ya se estén replicando como para otras nuevas.
+8. En **Configuración de replicación** > **Establecer configuración de replicación**, seleccione la directiva de replicación que desea aplicar para las máquinas virtuales protegidas. A continuación, haga clic en **Aceptar**. Puede modificar la directiva de replicación en **Directivas de replicación** > nombre de directiva > **Editar configuración**. Los cambios que aplique se utilizarán tanto para las máquinas que ya se estén replicando como para otras nuevas.
 
    ![Habilitar replicación](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
+Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
 
 ### <a name="view-and-manage-vm-properties"></a>Visualización y administración de las propiedades de la máquina virtual
 Es recomendable que compruebe las propiedades de la máquina de origen. Recuerde que el nombre de la máquina virtual de Azure debe cumplir los [requisitos para las máquinas virtuales de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Haga clic en **Configuración** > **Elementos protegidos** > **Elementos replicados** y seleccione la máquina para ver sus detalles.
+1. En **Elementos protegidos**, haga clic en **Elementos replicados** y seleccione la máquina para ver sus detalles.
 
     ![Habilitar replicación](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. En **Propiedades** puede ver la información de replicación y conmutación por error de la máquina virtual.
@@ -438,10 +438,10 @@ Si desea acceder a una máquina virtual de Azure con Linux después de la conmut
 ## <a name="step-7-test-your-deployment"></a>Paso 7: Prueba de la implementación
 Para probar la implementación, puede ejecutar una conmutación por error de prueba para una sola máquina virtual o un plan de recuperación que contenga una o varias máquinas virtuales.
 
-1. Para conmutar por error una sola máquina virtual, en **Configuración** > **Elementos replicados**, haga clic en la máquina virtual > **+Probar conmutación por error**.
-1. Para conmutar por error un plan de recuperación, en **Configuración** > **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).
+1. Para conmutar por error una sola máquina virtual, en **Elementos replicados**, haga clic en la máquina virtual > **+Conmutación por error de prueba**.
+1. Para conmutar por error un plan de recuperación, en **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).
 1. En **Probar conmutación por error**, seleccione la red de Azure a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error.
-1. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede hacer un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo de **Probar conmutación por error** en **Configuración** > **Site Recovery jobs** (Trabajos de Site Recovery).
+1. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede hacer un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo de **Conmutación por error de prueba** en **Trabajos de Site Recovery**.
 1. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure en Azure Portal > **Virtual Machines**. Debe asegurarse de que la máquina virtual tiene el tamaño adecuado, que se ha conectado a la red correspondiente y que se está ejecutando.
 1. Si se [preparó para las conexiones después de la conmutación por error](#prepare-to-connect-to-Azure-VMs-after-failover), debe ser capaz de conectarse a la máquina virtual de Azure.
 1. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En **Notas** , registre y guarde las observaciones asociadas a la conmutación por error de prueba. Así se eliminarán las máquinas virtuales que se crearon durante la conmutación por error de prueba.
@@ -454,9 +454,9 @@ Le mostramos cómo puede supervisar la configuración y el estado de la implemen
 1. Haga clic en el nombre del almacén para acceder al panel **Essentials** . En este panel puede ver los trabajos de Site Recovery, el estado de la replicación, los planes de recuperación, y el estado y los eventos del servidor.  Puede personalizar **Essentials** para mostrar los iconos y los diseños que sean más útiles para usted, incluido el estado de otros almacenes de Backup y Site Recovery.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. En *Estado**, puede supervisar problemas en los servidores locales (servidores VMM o de configuración) y los eventos que Site Recovery generó en las últimas 24 horas.
-3. Puede administrar y supervisar la replicación en los iconos de **Elementos replicados**, **Planes de recuperación** y **Trabajos de Site Recovery**. Puede ver más detalles de los trabajos en **Configuración** > **Trabajos** > **Site Recovery Jobs** (Trabajos de Site Recovery).
+2. En **Estado**, puede supervisar problemas en los servidores locales (servidores VMM o de configuración) y los eventos que Site Recovery generó en las últimas 24 horas.
+3. Puede administrar y supervisar la replicación en los iconos de **Elementos replicados**, **Planes de recuperación** y **Trabajos de Site Recovery**. Puede ver más detalles de los trabajos en **Trabajos** > **Trabajos de Site Recovery**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
+Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
