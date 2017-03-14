@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
+ms.sourcegitcommit: 265bb284d23e42c16c84a718c402b1bc6f6a30f9
+ms.openlocfilehash: c5521c3a02e36fa388e4da90faf4d8b9fa219356
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -175,7 +176,7 @@ Las redes neuronales son algoritmos de aprendizaje inspirados en el cerebro que 
 Sin embargo, el alto rendimiento no es gratuito. Las redes neuronales pueden tardar mucho tiempo para entrenarse, especialmente para grandes conjuntos de datos con muchas características. También tienen más parámetros que la mayoría de los algoritmos, lo que implica que el barrido de parámetros alargue mucho el tiempo de entrenamiento.
 Para los que quieren obtener resultados óptimos y [especificar su propia estructura de red](http://go.microsoft.com/fwlink/?LinkId=402867), las posibilidades son inagotables.
 
-## <a name="boundaries-learned-by-neural-networks6"></a>![Límites aprendidos por las redes neuronales][6]
+![Límites que aprenden las redes neuronales][6]
 ***Los límites que aprenden las redes neuronales pueden ser complejos e irregulares***
 
 El [perceptrón promedio de dos clases](https://msdn.microsoft.com/library/azure/dn906036.aspx) es la respuesta de las redes neuronales para acortar en gran medida los tiempos de entrenamiento. Este perceptrón usa una estructura de red que proporciona límites de clase lineal. Es casi primitivo según los estándares actuales, pero tiene un largo historial de trabajo sólido y es lo suficientemente pequeño como para aprender rápidamente.
@@ -219,6 +220,13 @@ Aprendizaje automático de Azure también incluye acceso a un marco de aprendiza
 VW es un reto a la categorización, ya que puede aprender problemas tanto de clasificación como de regresión, e incluso puede aprender a partir de datos parcialmente etiquetados. Puede configurarlo para usar algoritmos de aprendizaje, funciones de pérdida y algoritmos de optimización. Está totalmente diseñado para ser eficiente, paralelo y extremadamente rápido. Administra enormes conjuntos de características con mucha facilidad.
 VW, iniciado y liderado por el propio John Langford de Microsoft Research, es una entrada de Fórmula Uno en un campo de algoritmos de coches de línea. No todos los problemas se adaptan a VW, pero si el suyo lo hace, es posible que valga la pena que aumente la curva de aprendizaje en esa interfaz. También está disponible como [código fuente abierto independiente](https://github.com/JohnLangford/vowpal_wabbit) en varios idiomas.
 
+## <a name="more-help-with-algorithms"></a>Más ayuda con los algoritmos
+* Para obtener una infografía descargable que describe los algoritmos y proporciona ejemplos, vea [Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](machine-learning-basics-infographic-with-algorithm-examples.md).
+* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Azure Machine Learning Studio, vea [Initialize Model][initialize-model] (Inicializar modelo) en Machine Learning Studio: Algorithm and Module Help (Ayuda de módulos y algoritmos de Machine Learning Studio).
+* Para ver una lista completa de todos los algoritmos de Azure Machine Learning Studio, consulte [A-Z List of Machine Learning Studio Modules] (Lista de la A a la Z de módulos de Machine Learning Studio) en Machine Learning Studio: Algorithm and Module Help (Ayuda de módulos y algoritmos de Machine Learning Studio).
+* Para descargar e imprimir un diagrama con información general de las funcionalidades de Azure Machine Learning Studio, consulte [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+
+
 <!-- Media -->
 
 [1]: ./media/machine-learning-algorithm-choice/image1.png
@@ -231,9 +239,4 @@ VW, iniciado y liderado por el propio John Langford de Microsoft Research, es un
 [8]: ./media/machine-learning-algorithm-choice/image8.png
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

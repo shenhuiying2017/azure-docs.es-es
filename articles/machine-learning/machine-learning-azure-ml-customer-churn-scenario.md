@@ -12,23 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/13/2016
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cfaa14eb1dd8d958c210f95997d291aba79c5da7
+ms.sourcegitcommit: 80bede0dc3ad3934d63feabb946744aeb45f334d
+ms.openlocfilehash: f239a2a270df00cecbe263fa61b84af06af817db
+ms.lasthandoff: 12/15/2016
 
 
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Análisis del el abandono de clientes mediante el Aprendizaje automático de Azure
 ## <a name="overview"></a>Información general
-En este tema se presenta una implementación de referencia de un proyecto de análisis del abandono de clientes creado mediante Azure Machine Learning Studio. Describe los modelos asociados genéricos para solucionar holísticamente el problema del abandono de clientes industrial. También medimos la precisión de los modelos generados mediante el aprendizaje automático y evaluamos instrucciones para su posterior desarrollo.  
+En este artículo se presenta una implementación de referencia de un proyecto de análisis de pérdida de clientes creado mediante Azure Machine Learning. Se describen los modelos asociados genéricos para solucionar holísticamente el problema de pérdida de clientes industrial. También medimos la precisión de los modelos generados mediante el aprendizaje automático y evaluamos instrucciones para su posterior desarrollo.  
 
 ### <a name="acknowledgements"></a>Agradecimientos
 Este experimento lo desarrolló y probó Serge Berger, principal científico de datos de Microsoft y Roger Barga, anterior director de productos para Aprendizaje automático de Microsoft Azure. El equipo de documentación de Azure quiere expresar su agradecimiento por los conocimientos aportados y por compartir estas notas del producto.
 
 > [!NOTE]
-> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de aprendizaje automático de análisis de pérdida de clientes, consulte la [plantilla de modelo de pérdida de clientes de telecomunicaciones](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) de la [galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
+> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de aprendizaje automático de análisis de pérdida de clientes, consulte la [plantilla de modelo de pérdida de clientes minoristas](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) de la [galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 > 
 > 
 
@@ -250,9 +251,4 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

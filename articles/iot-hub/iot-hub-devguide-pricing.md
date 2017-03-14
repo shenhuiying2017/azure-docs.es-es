@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/12/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 05122f59de5a1c888fd6aa90e1f3466badef4fe9
+ms.sourcegitcommit: 3598f490752fa275d7c9c5a7d924c315e92f5b33
+ms.openlocfilehash: e1f1dc43af2096fb9affc1d12433f091dd28c69c
+ms.lasthandoff: 12/13/2016
 
 
 ---
 
-# <a name="pricing-information"></a>Información de precios
+# <a name="azure-iot-hub-pricing-information"></a>Información de precios de IoT Hub de Azure
 
 [Precios de Azure IoT Hub][lnk-pricing] proporciona información general sobre diferentes SKU y precios de IoT Hub. Este artículo contiene información adicional acerca de cómo se mide el uso de las distintas funcionalidades de IoT Hub como mensajes de IoT Hub.
 
@@ -30,17 +31,18 @@ ms.openlocfilehash: 05122f59de5a1c888fd6aa90e1f3466badef4fe9
 | Operación | Información de facturación | 
 | --------- | ------------------- |
 | Operaciones de registro de identidad <br/> (crear, recuperar, enumerar, actualizar, eliminar) | No se aplicará ningún cargo. |
-| Mensajes de dispositivo a nube | Los mensajes enviados correctamente se cobran en fragmentos de 4 KB, por ejemplo, un mensaje de 6 KB se cobra como dos mensajes. |
-| Mensajes de nube a dispositivo | Los mensajes enviados correctamente se cobran en fragmentos de 4 KB, por ejemplo, un mensaje de 6 KB se cobra como dos mensajes. |
+| Mensajes de dispositivo a nube | Los mensajes enviados correctamente se cobran en fragmentos de 4 KB por cada ingreso en IoT Hub; por ejemplo, un mensaje de 6 KB se cobra como dos mensajes. |
+| Mensajes de nube a dispositivo | Los mensajes enviados correctamente se cobran en fragmentos de 4 KB; por ejemplo, un mensaje de 6 KB se cobra como dos mensajes. |
 | Cargas de archivos | IoT Hub no mide el uso de la transferencia de archivos a Azure Storage. Los mensajes de inicio y finalización de transferencia de archivos se cobran como mensajes medidos en incrementos de 4 KB. Por ejemplo, por transferir un archivo de 10 MB se cobra el precio de dos mensajes, además del costo de Azure Storage. |
-| Métodos directos | Las solicitudes de métodos correctas se cobrarán en fragmentos de 4 KB; las respuestas con cuerpos no vacíos se cobrarán en fragmentos de 4 KB como mensajes adicionales. Las solicitudes a dispositivos desconectados se cobran como mensajes en fragmentos de 4 KB. Por ejemplo, un método con un cuerpo de 6 KB que da como resultado una respuesta sin cuerpo desde el dispositivo se cobra como dos mensajes; un método con un cuerpo de 6 KB que da como resultado una respuesta de 1 KB desde el dispositivo se cobra como dos mensajes para la solicitud más otro mensaje para la respuesta. |
+| Métodos directos | Las solicitudes de métodos correctas se cobrarán en fragmentos de 4 KB; las respuestas con cuerpos no vacíos se cobran en fragmentos de 4 KB como mensajes adicionales. Las solicitudes a dispositivos desconectados se cobran como mensajes en fragmentos de 4 KB. Por ejemplo, un método con un cuerpo de 6 KB que da como resultado una respuesta sin cuerpo desde el dispositivo se cobra como dos mensajes; un método con un cuerpo de 6 KB que da como resultado una respuesta de 1 KB desde el dispositivo se cobra como dos mensajes para la solicitud más otro mensaje para la respuesta. |
 | Lecturas de dispositivos gemelos | Las lecturas de dispositivos gemelos desde el dispositivo y desde el back-end de solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
 | Actualizaciones de dispositivos gemelos (etiquetas y propiedades) | Las actualizaciones de dispositivos gemelos desde el dispositivo y desde el dispositivo cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
 | Consultas de dispositivos gemelos | Las consultas se cobran como mensajes según el tamaño de los resultados en fragmentos de 512 bytes. |
 | Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | No se aplicará ningún cargo. |
-| Operaciones por dispositivo de trabajos | Las operaciones de trabajos (como actualizaciones de dispositivos gemelos y métodos) se cobran del modo habitual. Por ejemplo, un trabajo que dé como resultado 1000 llamadas de método con solicitudes de 1 KB y respuestas con cuerpo vacío se cobrará como 1000 mensajes. |
+| Operaciones por dispositivo de trabajos | Las operaciones de trabajos (como actualizaciones de dispositivos gemelos y métodos) se cobran del modo habitual. Por ejemplo, un trabajo que dé como resultado 1000 llamadas de método con solicitudes de 1 KB y respuestas con cuerpo vacío se cobra como 1000 mensajes. |
 
-> AZURE.NOTE Todos los tamaños se calculan teniendo en cuenta el tamaño de carga en bytes (se omiten las tramas de protocolo). En el caso de los mensajes (que tienen propiedades y cuerpo), el tamaño se calcula de una manera independiente del protocolo, tal como se describe en la sección sobre el [tamaño de los mensajes de IoT Hub de la guía del desarrollador][lnk-message-size].
+> [!NOTE]
+> Todos los tamaños se calculan teniendo en cuenta el tamaño de carga en bytes (se omiten las tramas de protocolo). En el caso de los mensajes (que tienen propiedades y cuerpo), el tamaño se calcula de una manera independiente del protocolo, tal como se describe en la sección sobre el [tamaño de los mensajes de IoT Hub de la guía del desarrollador][lnk-message-size].
 
 ## <a name="example-1"></a>Ejemplo 1
 
@@ -60,8 +62,4 @@ En total, el dispositivo y el back-end de solución consumen 185 mensajes al dí
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-message-size]: iot-hub-devguide-messaging.md#message-size
-
-
-<!--HONumber=Dec16_HO1-->
-
 
