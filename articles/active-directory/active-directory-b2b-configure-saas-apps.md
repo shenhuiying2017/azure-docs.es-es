@@ -16,98 +16,95 @@ ms.workload: identity
 ms.date: 02/06/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 3f41fdaa4f0ec31c9f11f2826b5cb9ccbf4db30d
+ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
+ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configuración de aplicaciones de SaaS para la colaboración B2B
 
-La colaboración B2B de Active Directory (Azure AD) de Azure funciona con la mayoría de las aplicaciones que se integran con Azure AD. En esta sección, veremos las instrucciones sobre cómo configurar algunas aplicaciones populares de SAS para usarse con Azure AD B2B.
-Antes de adentrarnos en las instrucciones concretas de la aplicación, estas son algunas reglas generales:
+La colaboración de B2B de Azure Active Directory (Azure AD) funciona con la mayoría de las aplicaciones que se integran con Azure AD. En esta sección, se proporcionan las instrucciones necesarias para configurar varias aplicaciones populares de SAS para usarlas con B2B de Azure AD.
 
-* Recuerde que, para la mayoría de las aplicaciones, el aprovisionamiento de usuarios debe producirse manualmente (es decir, los usuarios deben crearse de forma manual en la aplicación).
+Antes de examinar las instrucciones específicas de la aplicación, estas son algunas reglas generales:
 
-* Para las aplicaciones que admiten el aprovisionamiento (por ejemplo, Dropbox) automático, se crearán invitaciones aparte a partir de las aplicaciones. El usuario debe estar seguro de aceptar cada invitación.
+* En la mayoría de las aplicaciones, la instalación del usuario se debe realizar de forma manual. Es decir, los usuarios deben crearse de forma manual también en la aplicación.
 
-* En los atributos de usuario, siempre establezca el identificador de usuario en user.mail (para mitigar los problemas con UPD alterados en usuarios invitados).
+* En el caso de las aplicaciones que admiten la instalación automática, como Dropbox, se crean invitaciones independientes desde las aplicaciones. Los usuarios debe asegurarse de aceptar cada invitación.
+
+* En los atributos del usuario, para mitigar cualquier problema de alteración del disco de perfil de usuario (UPD) en usuarios invitados, en **Identificador de usuario**, seleccione siempre **user.mail**.
 
 
-##<a name="dropbox-for-business"></a>Dropbox para Empresas
+## <a name="dropbox-business"></a>Dropbox Business
 
-Para que los usuarios puedan iniciar sesión con su cuenta de organización, se debe configurar manualmente Dropbox para Empresas para usar Azure AD como proveedor de identidades SAML. Dropbox para Empresas no puede solicitar o, en caso contrario, permitir a los usuarios que inicien sesión con Azure AD si no se ha configurado para ello.
+Para permitir que los usuarios inicien sesión con su cuenta de organización, es preciso configurar manualmente Dropbox Business para que use Azure AD como proveedor de identidades del lenguaje de marcado de aserción de seguridad (SAML). Si Dropbox Business no se ha configurado para ello, no puede solicitar o, en caso contrario, permitir a los usuarios que inicien sesión con Azure AD.
 
-1. Agregue la aplicación de Dropbox para Empresas en Azure AD como se muestra en la captura de pantalla.
+1. Para agregar la aplicación Dropbox Business a Azure AD, seleccione **Aplicaciones empresariales** en el panel izquierdo y, después, haga clic en **Agregar**.
 
-  ![Incorporación de Azure AD a Dropbox](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
+  ![El botón "Agregar" de la página Aplicaciones empresariales](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
 
-  ![Incorporación de Azure AD a Dropbox](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
+2. En la ventana **Agregar una aplicación**, escriba **dropbox** en el cuadro de búsqueda y seleccione **Dropbox for Business** en la lista de resultados.
 
-2. Configure la aplicación.
+  ![Busque "dropbox" en la página Agregar una aplicación](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
 
-  ![Configuración del inicio de sesión único de la aplicación](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
+3. En la página **Inicio de sesión único**, seleccione **Inicio de sesión único** en el panel izquierdo y, después, escriba **user.mail** en el cuando **Identificador de usuario** (de manera predeterminada se establece como UPN).
 
-3. Seleccione la configuración de inicio de sesión único y cambie el identificador de usuario en user.mail (su UPN de forma predeterminada)
+  ![Configuración del inicio de sesión único para la aplicación](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
 
-4. Descargue el certificado que se va a usar para la configuración de Dropbox.
+4. Para descargar el certificado que se va a usar para la configuración de Dropbox, seleccione **Configurar DropBox**y, después, seleccione **SAML Single Sign On Service URL** (URL del servicio de inicio de sesión único de SAML) en la lista.
 
-  ![Descarga del certificado](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
+  ![Descarga del certificado para la configuración de Dropbox](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
 
-5. Use la opción de configurar Dropbox (el proceso se explica con detalle en las capturas de pantalla siguientes).
+5. Inicie sesión en Dropbox con la URL de inicio de sesión desde la página **Inicio de sesión único**.
 
-6. Obtenga el inicio de sesión único de SAML en la URL que se usó en la configuración.
+  ![La página de inicio de sesión de Dropbox](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
 
-7. Obtenga la URL de inicio de sesión desde la página de configuración de Dropbox.
+6. En el menú, seleccione **Admin Console** (Consola de administración).
 
-  ![Inicio de sesión en Dropbox](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
+  ![El vínculo "Admin Console" (Consola de administración) en el menú de Dropbox](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
 
-  ![Menú de Dropbox](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
+7. En el cuadro de diálogo **Authentication** (Autenticación), seleccione **More** (Más), cargue el certificado y, después, en el cuadro **Sign in URL** (URL de inicio de sesión), escriba la URL de inicio de sesión único de SAML.
 
-  ![Cuadro de diálogo de autenticación de Dropbox contraído](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
+  ![El vínculo "More" (Más) en el cuadro de diálogo Authentication (Autenticación) contraído](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
 
-  ![Cuadro de diálogo de autenticación de Dropbox expandido](media/active-directory-b2b-configure-saas-apps/dropbox-auth-02.png)
+  ![El vínculo "Sign in URL" (URL de inicio de sesión) en el cuadro de diálogo Authentication (Autenticación) expandido](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
 
-8. Cargue el certificado y pegue la URL de inicio de sesión único de SAML aquí.
+8. Para configurar la instalación automática del usuario en Azure Portal, seleccione **Aprovisionamiento** en el panel izquierdo, después **Automático** en el cuadro **Modo de aprovisionamiento** y, finalmente, seleccione **Autorizar**.
 
-  ![Pegado de la URL de SSO de SAML](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
+  ![Configuración del aprovisionamiento automático de usuarios en Azure Portal](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
 
-9. Configure el aprovisionamiento automático de usuarios en Azure Portal.
-
-  ![Configuración del aprovisionamiento automático de usuarios](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
-
-10. Una vez aprovisionados en la aplicación de Dropbox, el usuario invitado o miembro obtendrá una invitación independiente de Dropbox. Los invitados deben aceptarla haciendo clic en el vínculo para usar el inicio de sesión único en Dropbox.
+Una vez que los usuarios miembros o invitados se hayan configurado en la aplicación de Dropbox, reciben una invitación independiente de Dropbox. Para usar el inicio de sesión único de Dropbox, los invitados deben aceptar dicha invitación haciendo clic en un vínculo de ella.
 
 ## <a name="box"></a>Box
-En esta sección se describe cómo habilitar usuarios para que se autentiquen usuarios invitados en Box con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario cargar metadatos en Box.com.
+Puede permitir que los usuarios autentiquen usuarios invitados de Box con su cuenta de Azure AD mediante el uso de una federación basada en el protocolo SAML. En este procedimiento, se cargan metadatos en Box.com.
 
-1. Incorporación de Box desde las aplicaciones empresariales
+1. Agregue la aplicación Box desde las aplicaciones empresariales.
 
-2. Configurar inicio de sesión único
+2. Configure el inicio de sesión único, para lo que debe seguir estos pasos:
 
   ![Configuración del inicio de sesión único de Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
-3. En primer lugar, asegúrese de que la URL de inicio de sesión está establecida correctamente para Box en el Portal de administración de Azure. Esta es la URL de su inquilino de Box.com y debe seguir el formato: https://.box.com.
+ a. En el cuadro **URL de inicio de sesión**, asegúrese de que la dirección URL de inicio de sesión se ha establecido correctamente para Box en Azure Portal. Esta es la dirección URL de su inquilino de Box.com. Debe seguir la convención de nomenclatura *https://.box.com*.  
+ **Identificador** no se aplica a esta aplicación, pero sigue apareciendo como campo obligatorio.
 
-4. Debe tener en cuenta que el identificador no sirve para esta aplicación, pero todavía se muestra como campo obligatorio.
+ b. En el cuadro **Identificador de usuario**, escriba **user.mail** (para el SSO de las cuentas de invitado).
 
-5. Identificador de usuario en user.mail (asegúrese de que se use SSO en las cuentas de invitado)
+ c. En **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-6. Creación de un certificado SAML
+ d. Para empezar a configurar el inquilino de Box.com para que use Azure AD como proveedor de identidades, descargue el archivo de metadatos y guárdelo en una unidad local.
 
-7. Para empezar a configurar el inquilino de Box.com con el fin de usar Azure Active Directory como proveedor de identidades, empiece descargando el siguiente archivo de metadatos y guardándolo localmente en el equipo: Descarga del archivo de metadatos (asegúrese de que esté activo)
+ e. Reenvíe el archivo de metadatos al equipo de soporte técnico de Box para que configure el inicio de sesión único.
 
-8. Reenvíe el archivo de metadatos al equipo de soporte técnico de Box. El equipo de soporte técnico configura un inicio de sesión único para usted.
+3. Para la instalación automática de usuarios de Azure AD, en el panel izquierdo, seleccione **Aprovisionamiento**y, después, **Autorizar**.
 
-9. Configure el aprovisionamiento automático de usuarios de Azure AD.
+  ![Autorizar a Azure AD para conectarse a Box](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
-  ![Autorización a Azure AD para conectarse a Box](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
-
-Los invitados también deben canjear su invitación en la aplicación de Box.
+Los invitados de Box deben canjear su invitación desde la aplicación de Box tal como lo hacen los de Dropbox.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
+Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
 * [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propiedades de usuario de la colaboración B2B](active-directory-b2b-user-properties.md)
@@ -119,9 +116,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Asignación de notificaciones de usuario de colaboración B2B](active-directory-b2b-claims-mapping.md)
 * [Uso compartido externo de Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitaciones actuales de la colaboración B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

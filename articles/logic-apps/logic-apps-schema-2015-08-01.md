@@ -1,6 +1,6 @@
 ---
-title: "Nueva versión de esquema 2015-08-01-preview"
-description: "Aprenda a escribir la definición de JSON de la versión más reciente de Aplicaciones lógicas"
+title: "Actualizaciones del esquema de versión preliminar del&1; de agosto de&2015;: Azure Logic Apps | Microsoft Docs"
+description: "Creación de definiciones de JSON para Azure Logic Apps con la versión de esquema 2015-08-01-preview"
 author: stepsic-microsoft-com
 manager: anneta
 editor: 
@@ -12,35 +12,40 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 061b68ec5fc9c14fd0c3f00cc0be9f09717fc1ad
-ms.openlocfilehash: 8f1e2680aff5c1d5c9b90654a334cae2245db5fb
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
+ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="new-schema-version-2015-08-01-preview"></a>Nueva versión de esquema 2015-08-01-preview
-La nueva versión de esquema y API de Azure Logic Apps presenta varias mejoras que optimizan la confiabilidad y la facilidad de uso de las aplicaciones lógicas. Hay cuatro diferencias claves:
+# <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Actualizaciones de esquema para Azure Logic Apps de la versión preliminar del 1 de agosto de 2015
 
-1. El tipo de acción **APIApp** se ha actualizado a un nuevo tipo de acción **APIConnection**.
-2. La instrucción **Repeat** se llama ahora **Foreach**.
-3. La aplicación de API **Agente de escucha HTTP** ya no es necesaria.
-4. En la llamada a los flujos de trabajo secundarios se usa un nuevo esquema.
+Esta nueva versión de esquema y API de Azure Logic Apps incluye importantes mejoras que aportan una mayor confiabilidad a las aplicaciones lógicas y facilitan su uso:
 
-## <a name="1-moving-to-api-connections"></a>1. Paso a las conexiones de API
-El cambio más importante es que ya no es necesario implementar aplicaciones de API en la suscripción de Azure para usar las API. Las API se pueden usar de dos formas:
+*    El tipo de acción **APIApp** se actualizó a un nuevo tipo de acción [**APIConnection**](#api-connections).
+*    Cambio de nombre de **Repeat** a [**Foreach**](#foreach).
+*    La aplicación de API [**Agente de escucha HTTP**](#http-listener) ya no es necesaria.
+*    En la llamada a los flujos de trabajo secundarios se usa un [nuevo esquema](#child-workflows).
+
+<a name="api-connections"></a>
+## <a name="move-to-api-connections"></a>Paso a las conexiones de API
+
+El cambio más importante es que ya no es necesario implementar aplicaciones de API en la suscripción de Azure para poder usar las API. Estas son las formas en que puede usar las API:
 
 * API administradas
 * Sus API web personalizadas
 
-Cada una se controla de forma algo distinta, ya que sus modelos de administración y hospedaje son diferentes. Una ventaja de este modelo es que ya no está limitado a los recursos que se implementan en el grupo de recursos. 
+Cada una se controla de forma algo distinta, ya que sus modelos de administración y hospedaje son diferentes. Una ventaja de este modelo es que ya no está limitado a los recursos que se implementan en el grupo de recursos de Azure. 
 
 ### <a name="managed-apis"></a>API administradas
+
 Algunas API se administran de forma automática, como Office 365, Salesforce, Twitter y FTP. Puede usar algunas API administradas tal y como están, como en el caso de Bing Translate, mientras que otras requieren configuración. Esta configuración se conoce como *conexión*.
 
-Por ejemplo, cuando utilice Office 365, deberá crear una conexión que contenga el token de inicio de sesión de Office 365. Este token se almacena y actualiza de forma segura para que la aplicación lógica pueda llamar siempre a la API de Office 365. Como alternativa, si desea conectarse a su servidor SQL o FTP, debe crear una conexión que tenga la cadena de conexión. 
+Por ejemplo, cuando use Office 365, debe crear una conexión que contenga el token de inicio de sesión de Office 365. Este token se almacena y actualiza de forma segura para que la aplicación lógica pueda llamar siempre a la API de Office 365. Como alternativa, si quiere conectarse a su servidor SQL o FTP, debe crear una conexión que tenga la cadena de conexión. 
 
 En esta definición, estas acciones se denominan `APIConnection`. A continuación se muestra un ejemplo de una conexión que llama a Office 365 para enviar un correo electrónico:
 
@@ -71,11 +76,11 @@ En esta definición, estas acciones se denominan `APIConnection`. A continuació
 }
 ```
 
-El objeto `host` es una parte de las entradas exclusiva para las conexiones de API y contiene dos partes: `api` y `connection`.
+El objeto `host` es una parte de las entradas que es exclusiva de las conexiones de API y contiene dos partes: `api` y `connection`.
 
 La parte `api` contiene la URL de tiempo de ejecución del lugar donde se hospeda la API administrada. Puede ver todas las API administradas disponibles mediante una llamada a `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Al usar una API, esta puede o no tener **parámetros de conexión** definidos. Si no los tiene, no se requiere ninguna **conexión**. En caso de que sí los tenga, tiene que crear una conexión. Cuando crea esa conexión, la conexión tiene el nombre que elija. Haga referencia al nombre del objeto `connection` dentro del objeto `host`. Para crear una conexión en un grupo de recursos, llame a:
+Al usar una API, esta puede o no tener *parámetros de conexión* definidos. Si no los tiene, no se requiere ninguna *conexión*. Si los tienes, tiene que crear una conexión. La conexión creada tendrá el nombre que elija. Haga referencia al nombre del objeto `connection` dentro del objeto `host`. Para crear una conexión en un grupo de recursos, llame a:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
@@ -97,7 +102,8 @@ Con el siguiente cuerpo:
 }
 ```
 
-### <a name="deploying-managed-apis-in-an-azure-resource-manager-template"></a>Implementación de API administradas en una plantilla de Azure Resource Manager
+### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Implementación de API administradas en una plantilla de Azure Resource Manager
+
 Puede crear una aplicación completa en una plantilla de Azure Resource Manager siempre que no se requiera inicio de sesión interactivo.
 Si se requiere inicio de sesión, puede configurar todo con la plantilla de Azure Resource Manager, pero aun así tendrá que visitar el portal para autorizar las conexiones. 
 
@@ -192,7 +198,8 @@ Si se requiere inicio de sesión, puede configurar todo con la plantilla de Azur
 En este ejemplo puede ver que las conexiones son solo recursos que residen en su grupo de recursos. Haga referencia a las API administradas disponibles en su suscripción.
 
 ### <a name="your-custom-web-apis"></a>Sus API web personalizadas
-Si utiliza sus propias API (en concreto, las que no están administradas por Microsoft), debe usar la acción **HTTP** integrada para llamarlas. Para tener una experiencia ideal, debe exponer un punto de conexión de Swagger para la API. Este punto de conexión permite al Diseñador de aplicación lógica representar las entradas y salidas de la API. Sin Swagger, el diseñador solo puede mostrar las entradas y salidas como objetos JSON opacos.
+
+Si usa sus propias API, las no administradas por Microsoft, use la acción integrada **HTTP** para llamarlas. Para tener una experiencia ideal, debe exponer un punto de conexión de Swagger para la API. Este punto de conexión permite al Diseñador de aplicación lógica representar las entradas y salidas de la API. Sin Swagger, el diseñador solo puede mostrar las entradas y salidas como objetos JSON opacos.
 
 Este es un ejemplo que muestra la nueva propiedad `metadata.apiDefinitionUrl` :
 
@@ -213,10 +220,11 @@ Este es un ejemplo que muestra la nueva propiedad `metadata.apiDefinitionUrl` :
 }
 ```
 
-Si hospeda su API web en **App Service**, esta se muestra automáticamente en la lista de acciones disponibles en el diseñador. De lo contrario, tiene que pegar la dirección URL directamente. El punto de conexión de Swagger debe estar sin autenticar para que se pueda usarlo dentro del Diseñador de aplicación lógica (aunque puede proteger la API propiamente dicha con cualquier método admitido en Swagger).
+Si hospeda su API web en Azure App Service, esta se muestra automáticamente en la lista de acciones disponibles en el diseñador. De lo contrario, tiene que pegar la dirección URL directamente. El punto de conexión de Swagger debe estar sin autenticar para que se pueda usar dentro del Diseñador de aplicación lógica, aunque puede proteger la API propiamente dicha con cualquier método que admita Swagger.
 
-### <a name="using-your-already-deployed-api-apps-with-2015-08-01-preview"></a>Uso de las aplicaciones de API ya implementadas con 2015-08-01-preview
-Si anteriormente implementó una aplicación de API, puede llamarla mediante la acción **HTTP** .
+### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>Llamada a las aplicaciones de API implementadas con 2015-08-01-preview
+
+Si anteriormente implementó una aplicación de API, puede llamarla mediante la acción **HTTP**.
 
 Por ejemplo, si utiliza Dropbox para enumerar archivos, la definición de la versión de esquema **2014-12-01-preview** puede presentarse de manera similar a:
 
@@ -259,7 +267,7 @@ Por ejemplo, si utiliza Dropbox para enumerar archivos, la definición de la ver
 }
 ```
 
-Puede construir la acción HTTP equivalente como se indica a continuación (la sección de parámetros de la definición de aplicación lógica permanece sin cambios):
+Puede construir la acción HTTP equivalente como en este ejemplo (la sección de parámetros de la definición de aplicación lógica permanece sin cambios):
 
 ```
 {
@@ -297,11 +305,12 @@ Vamos a recorrer estas propiedades una a una:
 | `inputs.body` |Idéntico a los parámetros de la aplicación de API |
 | `inputs.authentication` |Idéntico a la autenticación de la aplicación de API |
 
-Este enfoque debería funcionar para todas las acciones de aplicación de API. Sin embargo, tenga en cuenta que estas aplicaciones de API anteriores ya no se admiten, y debe cambiar a una de las otras dos opciones anteriores (una API administrada u hospedar la API web personalizada).
+Este enfoque debería funcionar para todas las acciones de aplicación de API. Sin embargo, recuerde que estas aplicaciones de API anteriores ya no se admiten. Por lo que debe mover una API administrada a una de las dos opciones anteriores u hospedar su propia API web personalizada.
 
-## <a name="2-repeat-renamed-to-foreach"></a>2. Cambio de nombre de Repeat a Foreach
+<a name="foreach"></a>
+## <a name="renamed-repeat-to-foreach"></a>Cambio de nombre de "repeat" a "foreach"
 
-En la versión de esquema anterior, se recibieron numerosos comentarios de los clientes en que se indicaba que la instrucción **Repeat** era confusa y no captaba adecuadamente que **Repeat** era realmente para cada bucle. Por ello, el nombre de **Repeat** se ha cambiado por **Foreach**. Por ejemplo, anteriormente escribiría:
+En la versión de esquema anterior, se recibieron numerosos comentarios de los clientes en que se indicaba que la instrucción **Repeat** era confusa y no captaba adecuadamente que **Repeat** era realmente para cada bucle. Como resultado, hemos cambiado el nombre `repeat` por `foreach`. Por ejemplo, anteriormente escribiría:
 
 ```
 {
@@ -337,8 +346,9 @@ Ahora debe escribir:
 
 Anteriormente, la función `@repeatItem()` se utilizaba para hacer referencia al elemento actual que se itera. Esta función ahora se reduce a `@item()`. 
 
-### <a name="referencing-the-outputs-of-the-foreach"></a>Referencia a las salidas de Foreach
-Para simplificarlo aún más, las salidas de las acciones de **Foreach** no se encapsulan en un objeto llamado **repeatItems**. Mientras que las salidas de la instrucción Repeat anterior eran:
+### <a name="reference-outputs-from-foreach"></a>Salidas de referencia de "foreach"
+
+Por motivos de simplificación, los resultados de las acciones `foreach` no se ajustan en un objeto denominado `repeatItems`. Mientras que las salidas del ejemplo anterior de `repeat` eran:
 
 ```
 {
@@ -378,7 +388,7 @@ Ahora, estas salidas son:
 ]
 ```
 
-Al hacer referencia a estas salidas, para obtener el cuerpo de la acción, debe hacer lo siguiente:
+Anteriormente, para obtener el cuerpo de la acción al hacer referencia a estas salidas, debía hacer lo siguiente:
 
 ```
 {
@@ -416,13 +426,17 @@ Ahora puede hacer esto en su lugar:
 
 Con estos cambios se eliminan las funciones `@repeatItem()`, `@repeatBody()` y `@repeatOutputs()`.
 
-## <a name="3-native-http-listener"></a>3. Agente de escucha HTTP nativo
-Las funcionalidades de agente de escucha HTTP ahora están integradas, así que ya no necesita implementar una aplicación de API de agente de escucha HTTP. Consulte aquí [los detalles completos de cómo hacer que los puntos de conexión de Aplicaciones lógicas se pueden llamar](../logic-apps/logic-apps-http-endpoint.md). 
+<a name="http-listener"></a>
+## <a name="native-http-listener"></a>Agente de escucha HTTP nativo
 
-Con estos cambios, se elimina la función `@accessKeys()` y se reemplaza por la función `@listCallbackURL()`, a efectos de obtener el punto de conexión (cuando sea necesario). Además, ahora debe definir al menos un desencadenador en la aplicación lógica. Si desea `/run` el flujo de trabajo, debe tener uno de estos desencadenadores: `manual`, `apiConnectionWebhook` o `httpWebhook`.
+Las funcionalidades de la escucha HTTP ahora están integradas. Así que ya no necesita implementar una aplicación de API de escucha HTTP. Consulte aquí [los detalles completos de cómo hacer que los puntos de conexión de aplicación lógica](../logic-apps/logic-apps-http-endpoint.md). 
 
-## <a name="4-calling-child-workflows"></a>4. Llamada a flujos de trabajo secundarios
-Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir a cada uno de ellos, obtener el token de acceso y luego pegarlo en la definición de la aplicación lógica deseada. Con la nueva versión de esquema, el motor de Logic Apps genera automáticamente una firma SAS en tiempo de ejecución del flujo de trabajo secundario, lo que significa que no tendrá que pegar ningún secreto en la definición.  Aquí tiene un ejemplo:
+Con estos cambios, eliminamos la función `@accessKeys()`, que sustituimos por la función `@listCallbackURL()` para obtener el punto de conexión cuando sea necesario. Además, ahora debe definir al menos un desencadenador en la aplicación lógica. Si desea `/run` el flujo de trabajo, debe tener uno de estos desencadenadores: `manual`, `apiConnectionWebhook` o `httpWebhook`.
+
+<a name="child-workflows"></a>
+## <a name="call-child-workflows"></a>Llamada a flujos de trabajo secundarios
+
+Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir al flujo de trabajo, obtener el token de acceso y luego pegarlo en la definición de la aplicación lógica donde quiere llamar a ese flujo de trabajo secundario. Con la nueva versión de esquema, el motor de Logic Apps genera automáticamente una firma SAS en tiempo de ejecución para el flujo de trabajo secundario, lo que significa que no tiene que pegar ningún secreto en la definición. Aquí tiene un ejemplo:
 
 ```
 "mynestedwf": {
@@ -450,16 +464,19 @@ Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir 
 
 Una segunda mejora es se va a proporcionar a los flujos de trabajo secundarios acceso completo a la solicitud entrante. Eso significa que puede pasar parámetros en la sección *queries* y en el objeto *headers*, y que puede definir completamente todo el cuerpo.
 
-Por último, hay cambios necesarios en el flujo de trabajo secundario. Mientras que antes podía llamar a un flujo de trabajo secundario directamente, ahora debe definir un punto de conexión de desencadenador en el flujo de trabajo para que el elemento primario realice la llamada. Por lo general, esto significa agregar un desencadenador del tipo **manual** y luego usarlo en la definición del elemento primario. Tenga en cuenta que la propiedad `host` tiene un valor `triggerName`, ya que siempre debe especificar el desencadenador que va a invocar.
+Por último, hay cambios necesarios en el flujo de trabajo secundario. Mientras que antes podía llamar a un flujo de trabajo secundario directamente, ahora debe definir un punto de conexión de desencadenador en el flujo de trabajo para que el elemento primario realice la llamada. Por lo general, agrega un desencadenador que tiene el tipo `manual` y luego usa desencadenador en la definición del elemento primario. Tenga en cuenta que la propiedad `host` tiene un valor `triggerName`, ya que siempre debe especificar el desencadenador que va a invocar.
 
 ## <a name="other-changes"></a>Otros cambios
-### <a name="new-queries-property"></a>Nueva propiedad queries
-Todos los tipos de acción admiten una nueva entrada llamada **queries**. Esta entrada puede ser un objeto estructurado en lugar de tener que ensamblar la cadena a mano.
 
-### <a name="parse-function-renamed"></a>Cambio de nombre de la función parse()
-Pronto se van a agregar más tipos de contenido, por lo que se cambia el nombre de la función `parse()` por `json()`.
+### <a name="new-queries-property"></a>Nueva propiedad "queries"
+
+Todos los tipos de acción admiten ahora una nueva entrada llamada `queries`. Esta entrada puede ser un objeto estructurado en lugar de tener que ensamblar la cadena a mano.
+
+### <a name="renamed-parse-function-to-json"></a>Cambio de nombre de la función "parse()" a "json()"
+
+Pronto se agregarán más tipos de contenido, por lo que hemos cambiado el nombre de la función `parse()` a `json()`.
 
 ## <a name="coming-soon-enterprise-integration-apis"></a>Próximamente: API de Enterprise Integration
-Aún no existen versiones administradas de API de Enterprise Integration (como AS2). Estas API se encontrarán disponibles pronto, como se explica en el [mapa de ruta](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Mientras tanto, puede usar sus API de BizTalk implementadas existentes mediante la acción HTTP, como se ha explicado anteriormente en "Uso de las aplicaciones de API ya implementadas".
 
+Aún no disponemos de versiones administradas de las API de integración empresarial, como AS2. Mientras tanto, puede usar sus API de BizTalk implementadas existentes a través de la acción HTTP. Para más información, consulte el uso de aplicaciones de API ya administradas en el [plan de integración](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
 
