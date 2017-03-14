@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure Disk Encryption para máquinas virtuales IaaS con Linux y Windows| Microsoft Docs"
 description: "En este artículo se ofrece información general de Microsoft Azure Disk Encryption para máquinas virtuales IaaS con Windows y Linux."
 services: security
