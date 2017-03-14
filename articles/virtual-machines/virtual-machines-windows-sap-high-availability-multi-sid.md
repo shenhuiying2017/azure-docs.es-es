@@ -457,7 +457,7 @@ En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/S
 > Esta característica solo está disponible en el modelo de implementación de Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Ya ha configurado un clúster de WSFC que se usa para una instancia de ASCS/SCS de SAP, tal como se describe en la [guía de alta disponibilidad SAP NetWeaver en máquinas virtuales Windows] [ sap-ha-guide] y se muestra en este diagrama.
+Ya ha configurado un clúster de WSFC que se usa para una instancia de ASCS/SCS de SAP, tal como se describe en la [guía de alta disponibilidad SAP NetWeaver en máquinas virtuales Windows][sap-ha-guide] y se muestra en este diagrama.
 
 ![Instancia de ASCS/SCS de SAP de alta disponibilidad][sap-ha-guide-figure-6001]
 
