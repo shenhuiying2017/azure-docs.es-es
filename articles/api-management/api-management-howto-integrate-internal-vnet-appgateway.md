@@ -114,7 +114,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressP
 Asigne el intervalo de direcciones 10.0.1.0/24 a la variable subnet que se va a usar para API Management al crear la red virtual.
 
 ```powershell
-$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressPrefix 10.0.1.0/24
+$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim02 -AddressPrefix 10.0.1.0/24
 ```
 
 ### <a name="step-3"></a>Paso 3
@@ -165,7 +165,7 @@ Una vez cargado el certificado, cree un objeto de configuración de nombre de ho
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
-$result = Set-AzureRmApiManagementHostnames -Name "ContosoApi" -ResourceGroupName "apim-appGw-RG" –PortalHostnameConfiguration $proxyHostnameConfig
+$result = Set-AzureRmApiManagementHostnames -Name "ContosoApi" -ResourceGroupName "apim-appGw-RG" -ProxyHostnameConfiguration $proxyHostnameConfig
 ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creación de una dirección IP pública para la configuración del front-end
