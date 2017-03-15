@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
@@ -32,7 +32,7 @@ La aplicación de ejemplo es un tablón de anuncios publicitario. Los usuarios p
 
 Esta aplicación de ejemplo funciona con [colas de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) y [blobs de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). El tutorial muestra cómo implementar la aplicación en [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) y en [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279).
 
-## <a name="a-idprerequisitesaprerequisites"></a><a id="prerequisites"></a>Requisitos previos
+## <a id="prerequisites"></a>Requisitos previos
 En el tutorial se presupone que sabe cómo trabajar con proyectos de [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) en Visual Studio.
 
 El tutorial se escribió para Visual Studio 2013. Si no aún no tiene Visual Studio, se instalará automáticamente al instalar el SDK de Azure para .NET.
@@ -49,7 +49,7 @@ El tutorial se puede usar con Visual Studio 2015 pero, antes de ejecutar la apli
 >
 >
 
-## <a name="a-idlearnawhat-youll-learn"></a><a id="learn"></a>Temas que se abordarán
+## <a id="learn"></a>Temas que se abordarán
 En el tutorial se muestra cómo realizar las siguientes tareas:
 
 * Habilitar su equipo para desarrollar contenido de Azure mediante la instalación del SDK de Azure.
@@ -59,7 +59,7 @@ En el tutorial se muestra cómo realizar las siguientes tareas:
 * Cargar archivos y almacenarlos en el servicio Blob de Azure.
 * Usar el SDK de WebJobs de Azure para trabajar con colas y blobs de Almacenamiento de Azure.
 
-## <a name="a-idcontosoadsaapplication-architecture"></a><a id="contosoads"></a>Arquitectura de la aplicación
+## <a id="contosoads"></a>Arquitectura de la aplicación
 La aplicación de ejemplo usa el [patrón de trabajo centrado en colas](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descargar el trabajo de uso intensivo de CPU de creación de miniaturas y pasarlo a un proceso back-end.
 
 La aplicación almacena anuncios en una base de datos SQL, usando Entity Framework Code First para crear las tablas y acceder a los datos. Por cada anuncio, la base de datos almacena dos direcciones URL, una para la imagen a tamaño completo y otra para la miniatura.
@@ -74,7 +74,7 @@ Cuando un usuario carga una imagen, la aplicación web la almacena en un [blob d
 
 Las instrucciones del tutorial se aplican al SDK de Azure para .NET 2.7.1 o posterior.
 
-## <a name="a-idstorageacreate-an-azure-storage-account"></a><a id="storage"></a>Creación de una cuenta de almacenamiento de Azure
+## <a id="storage"></a>Creación de una cuenta de almacenamiento de Azure
 Una cuenta de almacenamiento de Azure proporciona recursos para almacenar datos de cola y blob en la nube. El SDK de WebJobs también usa esta cuenta para almacenar datos para el panel.
 
 En una aplicación real, normalmente crea cuentas independientes para los datos de aplicación frente a los datos de registro, y cuentas diferentes para datos de prueba frente a datos de producción. Para este tutorial, usará solamente una cuenta.
@@ -100,7 +100,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
     ![New storage account](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
-## <a name="a-iddownloadadownload-the-application"></a><a id="download"></a>Descarga de la aplicación
+## <a id="download"></a>Descarga de la aplicación
 1. Descargue y descomprima la [solución completa](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb).
 2. Inicie Visual Studio.
 3. En el menú **Archivo**, seleccione **Abrir > Proyecto/Solución**, vaya a la ubicación donde descargó la solución y abra el archivo de la solución.
@@ -109,7 +109,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
     De forma predeterminada, Visual Studio restaura automáticamente el contenido del paquete NuGet, que no se incluyó en el archivo *.zip* . Si los paquetes no se restauran, instálelos manualmente mediante el cuadro de diálogo **Administrar paquetes NuGet para la solución** y haciendo clic en el botón **Restaurar** situado en la parte superior derecha.
 5. En el **Explorador de soluciones**, asegúrese de que **ContosoAdsWeb** se encuentra seleccionado como proyecto de inicio.
 
-## <a name="a-idconfigurestorageaconfigure-the-application-to-use-your-storage-account"></a><a id="configurestorage"></a>Configuración de la aplicación para usar una cuenta de almacenamiento
+## <a id="configurestorage"></a>Configuración de la aplicación para usar una cuenta de almacenamiento
 1. Abra el archivo *Web.config* de la aplicación en el proyecto ContosoAdsWeb.
 
     El archivo contiene una cadena de conexión SQL y una cadena de conexión de almacenamiento de Azure para trabajar con blobs y colas.
@@ -153,7 +153,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 7. Reemplace ambas cadenas de conexión de almacenamiento por la cadena de conexión que copió anteriormente.
 8. Guarde los cambios.
 
-## <a name="a-idrunarun-the-application-locally"></a><a id="run"></a>Ejecución de la aplicación de forma local
+## <a id="run"></a>Ejecución de la aplicación de forma local
 1. Para iniciar el front-end web de la aplicación, presione CTRL+F5.
 
     El explorador predeterminado se abre en la página principal. (El proyecto web se ejecuta porque lo ha creado en el proyecto de inicio.)
@@ -183,7 +183,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 Aunque haya ejecutado la aplicación en el equipo local y use una base de datos SQL Server ubicada en su equipo, la aplicación trabaja con colas y blobs en la nube. En la siguiente sección ejecutará la aplicación en la nube mediante una base de datos en la nube, así como blobs y colas en la nube.  
 
-## <a name="a-idrunincloudarun-the-application-in-the-cloud"></a><a id="runincloud"></a>Ejecución de la aplicación en la nube
+## <a id="runincloud"></a>Ejecución de la aplicación en la nube
 Llevará a cabo los pasos siguientes para ejecutar la aplicación en la nube:
 
 * Impleméntela en aplicaciones Web. Visual Studio crea automáticamente una aplicación web en el Servicio de aplicaciones y una instancia de Base de datos SQL.
@@ -308,7 +308,7 @@ En esta sección se usa el **Explorador de servidores** para definir los valores
 >
 >
 
-## <a name="a-idcreateacreate-the-application-from-scratch"></a><a id="create"></a>Creación de la aplicación desde cero
+## <a id="create"></a>Creación de la aplicación desde cero
 En esta sección realizará las siguientes tareas:
 
 * Crear una solución de Visual Studio con un proyecto web.
@@ -407,7 +407,7 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundari
 
 Ahora puede generar, ejecutar e implementar la aplicación como se indicó anteriormente en el tutorial. No obstante, antes de hacerlo, detenga el WebJob que esté aún ejecutándose en la primera aplicación web en el que lo implementó. De lo contrario, ese WebJob procesará los mensajes de cola creados localmente o mediante la aplicación que se ejecute en una aplicación web nueva, ya que todos usan la misma cuenta de almacenamiento.
 
-## <a name="a-idcodeareview-the-application-code"></a><a id="code"></a>Revisión del código de la aplicación
+## <a id="code"></a>Revisión del código de la aplicación
 En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure.
 
 > [!NOTE]
@@ -636,7 +636,7 @@ Un elemento `<input>` indica al explorador que proporcione un cuadro de dialogo 
 
         <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
-### <a name="a-idprogramcsacontosoadswebjob---programcs"></a><a id="programcs"></a>ContosoAdsWebJob: Program.cs
+### <a id="programcs"></a>ContosoAdsWebJob: Program.cs
 Cuando se inicia el WebJob, el método `Main` llama al método `JobHost.RunAndBlock` del SDK de WebJobs para comenzar la ejecución de funciones desencadenadas en el subproceso actual.
 
         static void Main(string[] args)
@@ -645,7 +645,7 @@ Cuando se inicia el WebJob, el método `Main` llama al método `JobHost.RunAndBl
             host.RunAndBlock();
         }
 
-### <a name="a-idgeneratethumbnailacontosoadswebjob---functionscs---generatethumbnail-method"></a><a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - Método GenerateThumbnail
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - Método GenerateThumbnail
 El SDK de WebJobs llama a este método cuando se recibe un mensaje en cola. El método crea una miniatura y coloca la URL de la miniatura en la base de datos.
 
         public static void GenerateThumbnail(

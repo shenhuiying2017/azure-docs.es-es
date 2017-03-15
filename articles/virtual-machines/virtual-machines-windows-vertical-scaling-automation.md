@@ -1,6 +1,6 @@
 ---
-title: "Escalado vertical de máquinas virtuales de Azure con Azure Automation | Microsoft Docs"
-description: "Escalado verticalmente una máquina virtual de Windows en respuesta a las alertas de supervisión con Automatización de Azure"
+title: "Usar Azure Automation para escalar verticalmente máquinas virtuales Windows | Microsoft Docs"
+description: "Escalado vertical de una máquina virtual de Windows en respuesta a las alertas de supervisión con Azure Automation"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -17,13 +17,15 @@ ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0a888f945a39a8bb88a730a226af6ec21d133f44
-ms.openlocfilehash: 0075160ea9c0dae991fc2344c46d216a8203bec3
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 861552da68c2268c42122b0da6633c7935bb3502
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="how-to-vertically-scale-virtual-machines-with-azure-automation"></a>Procedimiento para usar el escalado vertical de máquinas virtuales de Azure con Azure Automation
+
+# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Escalado vertical de máquinas virtuales de Windows con Azure Automation
+
 El escalado vertical es el proceso de aumentar o disminuir los recursos de una máquina como respuesta a la carga de trabajo. Para lograrlo en Azure, cambie el tamaño de la máquina virtual. Esto puede ser útil en los siguientes escenarios:
 
 * Si la máquina virtual no se utiliza con frecuencia, puede disminuir su tamaño para reducir los costos mensuales.

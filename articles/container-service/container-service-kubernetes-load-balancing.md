@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 545ec23bc720dc1a17ce3d084642e96c2397d482
-ms.openlocfilehash: e61638db3c6c3acdc58f374b94b28d855161cf59
+ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
+ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -127,9 +128,9 @@ Los pasos siguientes utilizan el [ejemplo del libro de visitas](https://github.c
 
 Para equilibrar la carga del tráfico HTTP o HTTPS para las aplicaciones web de contenedor y administrar certificados para Seguridad de la capa de transporte (TLS), puede usar el recurso [Ingress](https://kubernetes.io/docs/user-guide/ingress/) de Kubernetes. Ingress es una colección de reglas que permiten que las conexiones entrantes lleguen a los servicios de clúster. Para que un recurso Ingress funcione, el clúster de Kubernetes debe tener un [controlador Ingress](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers) ejecutándose.
 
-Azure Container Service no implementa un controlador Ingress de Kubernetes automáticamente. Hay varias implementaciones de controlador disponibles. Actualmente, se recomienda el [controlador Ingress de Nginx](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md) para configurar las reglas Ingress y equilibrar la carga del tráfico HTTP y HTTPS. 
+Azure Container Service no implementa un controlador Ingress de Kubernetes automáticamente. Hay varias implementaciones de controlador disponibles. Actualmente, se recomienda el [controlador Ingress de Nginx](https://github.com/kubernetes/ingress/tree/master/examples/deployment/nginx) para configurar las reglas Ingress y equilibrar la carga del tráfico HTTP y HTTPS. 
 
-Para más información y ejemplos, consulte la [documentación del controlador Ingress de Nginx](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md).
+Para más información, vea la [documentación del controlador Ingress de Nginx](https://github.com/kubernetes/ingress/tree/master/controllers/nginx/README.md).
 
 > [!IMPORTANT]
 > Cuando use el controlador Ingress de Nginx en Azure Container Service, debe exponer la implementación del controlador como un servicio con `type: LoadBalancer`. Esto configura Azure Load Balancer para enrutar tráfico hacia el controlador. Para más información, consulte la sección anterior.
@@ -140,10 +141,5 @@ Para más información y ejemplos, consulte la [documentación del controlador I
 * Consultar la [documentación del equilibrador de carga de Kubernetes](https://kubernetes.io/docs/user-guide/load-balancer/)
 * Obtener más información sobre los controladores [Ingress de Kubernetes](https://kubernetes.io/docs/user-guide/ingress/)
 * Consultar [ejemplos de Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

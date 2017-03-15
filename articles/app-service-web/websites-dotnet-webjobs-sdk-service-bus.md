@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
@@ -44,7 +44,7 @@ public class Program
 
 Puede encontrar un [ejemplo de código de Bus de servicio completo](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) en el repositorio azure-webjobs-sdk-samples en GitHub.com.
 
-## <a name="a-idprerequisitesa-prerequisites"></a><a id="prerequisites"></a> Requisitos previos
+## <a id="prerequisites"></a> Requisitos previos
 Para trabajar con el Bus de servicio debe instalar el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) además de los otros paquetes del SDK de trabajos web. 
 
 También debe establecer la cadena de conexión AzureWebJobsServiceBus además de las cadenas de conexión de almacenamiento.  Esto puede hacerlo en la sección `connectionStrings` del archivo App.config, como se muestra en el ejemplo siguiente:
@@ -59,7 +59,7 @@ Para ver un proyecto de muestra que incluye la configuración de la cadena de co
 
 Las cadenas de conexión también se puede definir en el entorno de tiempo de ejecución de Azure, con lo que se reemplaza la configuración de App.config cuando WebJob se ejecuta en Azure. Si desea más información, consulte [Introducción al SDK de WebJobs](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-service-bus-queue-message-is-received"></a><a id="trigger"></a> Cómo desencadenar una función cuando se recibe un mensaje de la cola de Bus de servicio
+## <a id="trigger"></a> Cómo desencadenar una función cuando se recibe un mensaje de la cola de Bus de servicio
 Para escribir una función que el SDK de WebJobs llama cuando se recibe un mensaje en cola, use el atributo `ServiceBusTrigger` . El constructor de atributo toma un parámetro de cadena que especifica el nombre de la cola que se va a sondear.
 
 ### <a name="how-servicebustrigger-works"></a>Cómo funciona ServiceBusTrigger
@@ -99,7 +99,7 @@ Si el código que crea el mensaje en cola no usa el SDK de WebJobs, use código 
 ### <a name="types-servicebustrigger-works-with"></a>Los tipos ServiceBusTrigger funcionan con
 Además de los tipos `string` y POCO, puede usar el atributo `ServiceBusTrigger` con una matriz de bytes o un objeto `BrokeredMessage`.
 
-## <a name="a-idcreatea-how-to-create-service-bus-queue-messages"></a><a id="create"></a> Creación de mensajes en cola del Bus de servicio
+## <a id="create"></a> Creación de mensajes en cola del Bus de servicio
 Para escribir una función que cree un nuevo mensaje en cola, use el atributo `ServiceBus` y pase el nombre de la cola al constructor de atributos. 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>Crear un mensaje en cola único en una función no asincrónica
@@ -136,7 +136,7 @@ Para crear varios mensajes, utilice el atributo `ServiceBus` con `ICollector<T>`
 
 Cada mensaje en cola se crea inmediatamente cuando se llama al método `Add` .
 
-## <a name="a-idtopicsahow-to-work-with-service-bus-topics"></a><a id="topics"></a>Trabajo con temas del Bus de servicio
+## <a id="topics"></a>Trabajo con temas del Bus de servicio
 Para escribir una función a la que llama el SDK cuando se recibe un mensaje en un tema del Bus de servicio, use el atributo `ServiceBusTrigger` con el constructor que toma el nombre del tema y el nombre de la suscripción, como se muestra en el siguiente código de ejemplo:
 
         public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
@@ -157,7 +157,7 @@ Las siguientes características se agregaron en la versión 1.1:
 * La personalización sencilla de `OnMessageOptions` a través de `ServiceBusConfiguration.MessageOptions`.
 * Se permite especificar [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) en `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (en los escenarios donde es probable que no tenga derechos de administración). 
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-storage-queues-how-to-article"></a><a id="queues"></a>Temas relacionados tratados en el artículo de procedimientos de las colas de almacenamiento
+## <a id="queues"></a>Temas relacionados tratados en el artículo de procedimientos de las colas de almacenamiento
 Para obtener información acerca de los escenarios del SDK de trabajos web no específicos del Bus de servicio, vea [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Entre los temas tratados en este artículo se incluyen los siguientes:
@@ -171,7 +171,7 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 * Desencadenar una función manualmente
 * Escribir registros
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
+## <a id="nextsteps"></a> Pasos siguientes
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
 

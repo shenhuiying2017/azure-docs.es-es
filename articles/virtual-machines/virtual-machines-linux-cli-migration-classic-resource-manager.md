@@ -101,7 +101,7 @@ Si quiere migrar las máquinas virtuales a una red virtual creada en una platafo
 
 Si quiere migrar a una red virtual existente en el modelo de implementación de Resource Manager, utilice el siguiente comando.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
+    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
 Una vez finalizada la operación de preparación, puede consultar la salida detallada para obtener el estado de migración de las máquinas virtuales y asegurarse de que están en estado `Prepared` .
 
