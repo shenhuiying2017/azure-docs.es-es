@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/24/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8930a73c334265c828cd01ca1910201b231f3b
+ms.sourcegitcommit: 0dc1f1ef73334187fe76302ff3bd5a5446dec768
+ms.openlocfilehash: 21370f9c30ac1dcaa979ab9724155c91bda128f7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ En este se artículo explica cómo agregar información de perfil de usuario, co
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
-   ![Apertura de Administración de usuarios](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
+   ![Apertura de Usuarios y grupos](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
 
    ![Apertura de la hoja Usuarios](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
@@ -38,14 +39,9 @@ En este se artículo explica cómo agregar información de perfil de usuario, co
 6. Agregue o cambie la información de perfil. En la barra de comandos, haga clic en **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Agregar nuevos usuarios a la versión preliminar de Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Restablecer la contraseña de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Asignar un usuario a roles de administrador en la versión preliminar de Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Incorporación de nuevos usuarios a la versión preliminar de Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Restablecimiento de la contraseña de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Asignación de roles de administrador en la versión preliminar de Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Agregar o cambiar la información de perfil de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-work-info-azure-portal.md)
-* [Eliminar un usuario de un directorio en la versión preliminar de Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [Eliminación de un usuario de un directorio en la versión preliminar de Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
 

@@ -31,8 +31,3 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-<!--HONumber=Nov16_HO5-->
-
-
