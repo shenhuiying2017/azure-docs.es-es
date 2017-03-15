@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
 ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -67,7 +68,7 @@ Si la aplicación se hospeda en un servidor IIS, habilite Application Insights c
 2. Si todavía no está instalado el Monitor de estado de Application Insights, descargue y ejecute el [instalador del Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648).
 3. En el Monitor de estado, seleccione la aplicación web instalada o el sitio web que desea supervisar. Inicie sesión con sus credenciales de Azure.
 
-    Configure el recurso donde desee ver los resultados en el portal de Application Insights. (Normalmente, es mejor crear un nuevo recurso. Seleccione un recurso existente si ya tiene [pruebas web] [ availability] o la [supervisión de cliente] [ client] para esta aplicación). 
+    Configure el recurso donde desee ver los resultados en el portal de Application Insights. (Normalmente, es mejor crear un nuevo recurso. Seleccione un recurso existente si ya tiene [pruebas web][availability] o la [supervisión de cliente][client] para esta aplicación). 
 
     ![Elija una aplicación y un recurso.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -183,7 +184,7 @@ Encuentre las aplicaciones en supervisión:
 
 * Permite descargar el SDK más reciente de Application Insights en el servidor.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
+## <a name="next"></a>Pasos siguientes
 
 Vea la telemetría:
 
@@ -208,9 +209,4 @@ Agregue más telemetría:
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

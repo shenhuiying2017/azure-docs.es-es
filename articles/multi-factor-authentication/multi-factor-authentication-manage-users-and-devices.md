@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 27ff53646992308d574dcc2e631cd63b8227f9c8
-ms.openlocfilehash: 826fc2b2eaaf180d922c7a9a4c329ec4379c2ae0
+ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
+ms.openlocfilehash: 43ab735b91bf3f3f1e9631067827f2c456dd7b72
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="managing-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Administración de la configuración de usuario con Azure Multi-Factor Authentication en la nube
-Como administrador, puede gestionar las siguientes opciones de configuración de usuario y de dispositivo.  
+Como administrador, puede administrar las siguientes opciones de configuración de usuario y de dispositivo:
 
-* [Requerir a los usuarios seleccionados que vuelvan a proporcionar métodos de contacto](#require-selected-users-to-provide-contact-methods-again)
-* [Eliminar las contraseñas de aplicación existentes de los usuarios](#delete-users-existing-app-passwords)
-* [Restauración de MFA en todos los dispositivos suspendidos para un usuario](#restore-mfa-on-all-suspended-devices-for-a-user)
-
-Esto resulta útil si un equipo o dispositivo se pierde o es objeto de un robo o si tiene que quitar el acceso de un usuario.
+* Requerir a los usuarios seleccionados que vuelvan a proporcionar métodos de contacto
+* Eliminar las contraseñas de aplicación existentes de los usuarios
+* Restauración de MFA en todos los dispositivos suspendidos para un usuario
 
 ## <a name="require-selected-users-to-provide-contact-methods-again"></a>Requerir a los usuarios seleccionados que vuelvan a proporcionar métodos de contacto
 Esto obliga a un usuario a volver a realizar el proceso de registro cuando inicia sesión. Tenga en cuenta que las aplicaciones sin explorador continuarán funcionando si el usuario tiene las contraseñas de aplicación para ellas.  Puede eliminar las contraseñas de aplicación de los usuarios seleccionando también **Eliminar todas las contraseñas de aplicación existentes generadas por los usuarios seleccionados**.
@@ -62,7 +61,11 @@ Con esto se eliminan todas las contraseñas de aplicación que ha creado un usua
 10. Haga clic en Cerrar.
 
 ## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Restauración de MFA en todos los dispositivos recordados de un usuario
-Los administradores tienen la capacidad de restablecer Multi-Factor Authentication en los dispositivos y exploradores de los usuarios. Al hacerlo, se dejará de recordar MFA en todos los dispositivos y los exploradores del usuario, y el usuario deberá usar MFA al iniciar sesión la próxima vez.
+Una de las características configurables de Azure Multi-Factor Authentication es dar la opción a los usuarios de marcar los dispositivos como de confianza. Para más información, vea [Configuración de Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md#remember-multi-factor-authentication-for-devices-that-users-trust).
+
+Los usuarios pueden optar por no utilizar la verificación en dos pasos durante un número de días configurable en sus dispositivos habituales. Si se compromete la seguridad de la cuenta o se pierde un dispositivo de confianza, necesita tener la posibilidad de quitar el estado de confianza y volver a solicitar la verificación en dos pasos.
+
+La opción **Restaurar autenticación multifactor en todos los dispositivos recordados** supone que el usuario tendrá que realizar la verificación en dos pasos la próxima vez que inicie sesión, con independencia de que decida o no marcar su dispositivo como de confianza. 
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Cómo restaurar MFA en todos los dispositivos suspendidos para un usuario
 1. Inicie sesión en el Portal de Azure clásico.
@@ -76,9 +79,4 @@ Los administradores tienen la capacidad de restablecer Multi-Factor Authenticati
    ![Eliminar contraseñas de aplicación](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

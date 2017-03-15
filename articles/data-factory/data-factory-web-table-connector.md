@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
+ms.sourcegitcommit: 5046ec3f6a29fb4791cd6badc67c2111a9e3ab2c
+ms.openlocfilehash: 132ecec8aef2f166753214fce410237103583c08
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -186,9 +187,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **Web** |Sí |
 | URL |Dirección URL para el origen de Web |Sí |
-| authenticationType |Anonymous o Basic. |Sí |
-| userName |Nombre de usuario en autenticación básica |Sí (para la autenticación básica) |
-| contraseña |Contraseña en autenticación básica |Sí (para la autenticación básica) |
+| authenticationType |Anonymous. |Sí |
 
 ### <a name="using-anonymous-authentication"></a>Uso de autenticación anónima
 
@@ -202,25 +201,6 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
         {
             "authenticationType": "Anonymous",
             "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-### <a name="using-basic-authentication"></a>Uso de la autenticación básica
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "http://myit.mycompany.com/",
-            "userName": "Administrator",
-            "password": "password"
         }
     }
 }
@@ -296,9 +276,4 @@ Si usa Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

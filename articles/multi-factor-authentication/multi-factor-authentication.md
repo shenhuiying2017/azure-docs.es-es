@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 757a26ed6c39e6eb498a4f717a2eb5da3cb5c0a6
+ms.sourcegitcommit: e028130569a1e55834f68bde87f21f6f7505d41f
+ms.openlocfilehash: 7a47c0278d42d62cc273c6f0671f0613671db4f3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -51,82 +52,11 @@ Azure Multi-Factor Authentication es una solución fácil de usar, escalable y c
 * **Confiable** : se garantiza la disponibilidad del 99,9% de Azure Multi-Factor Authenticaton. Se considera que el servicio no está disponible cuando no puede recibir ni procesar las solicitudes de comprobación para la comprobación en dos pasos.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
->
->
 
-## <a name="how-azure-multi-factor-authentication-works"></a>Cómo funciona Azure Multi-Factor Authentication
-La seguridad de la comprobación en pos pasos se basa en el enfoque por niveles. Poner en peligro los distintos métodos de comprobación supone un reto importante para los atacantes. Aunque un atacante consiga descifrar su contraseña, no le servirá de nada si no dispone también del dispositivo de confianza. Si pierde el dispositivo, quien lo encuentre no podrá usarlo, salvo que conozca la contraseña.
-
-> [!VIDEO https://channel9.msdn.com/Events/TechEd/Europe/2014/EM-B313/player]
->
->
-
-## <a name="methods-available-for-multi-factor-authentication"></a>Métodos disponibles para Multi-Factor Authentication
-Cuando un usuario inicia sesión, se envía una solicitud de comprobación adicional al usuario. Lo siguiente es una lista de métodos que pueden usarse para esta segunda comprobación.
-
-| Método de comprobación | Description |
-| --- | --- |
-| llamada de teléfono |Se realiza una llamada al teléfono del usuario para solicitarle que compruebe si ha iniciado sesión. Presione la tecla # para completar el proceso de comprobación. Esta opción es configurable y puede cambiarse por un código que especifique. |
-| mensaje de texto |Se envía un mensaje de texto al smartphone del usuario con un código de seis dígitos. Escriba este código para completar el proceso de comprobación. |
-| Notificación en aplicación móvil |Se envía al smartphone del usuario una solicitud de comprobación en la que se le solicita que complete la comprobación mediante la selección de **Verify** (Comprobar) en la aplicación móvil. Esto se realiza si la notificación en la aplicación es el método de comprobación principal. Si el usuario recibe dicha notificación sin estar conectado, pueden notificar que se ha producido un fraude. |
-| Código de comprobación con la aplicación móvil |La aplicación móvil en un dispositivo de usuario genera un código de comprobación. Esto sucede si ha seleccionado un código de verificación como método de comprobación principal. |
-
-Para los métodos de verificación de la aplicación móvil, Azure Multi-Factor Authentication funciona con aplicaciones de autenticación de terceros para smartphones. Sin embargo, recomendamos la aplicación Microsoft Authenticator, que está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
-
-## <a name="available-versions-of-azure-multi-factor-authentication"></a>Versiones disponibles de Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication está disponible en tres versiones diferentes.
-
-| Versión | Description |
-| --- | --- |
-| Multi-Factor Authentication para Office 365 |Esta versión funciona exclusivamente con aplicaciones de Office 365 y se administra desde el portal de Office 365. De este modo, los administradores pueden proteger ahora sus recursos de Office 365 con la comprobación en dos fases. Esta versión forma parte de una suscripción a Office 365. |
-| Multi-Factor Authentication para administradores de Azure |Todos los administradores de Azure tienen a su disposición, sin costo adicional, el mismo subconjunto de funciones de comprobación en dos pasos que para Office 365. Cada cuenta administrativa de una suscripción de Azure puede habilitar esta funcionalidad para obtener una protección adicional. Los administradores que deseen acceder a Azure Portal para crear una máquina virtual o un sitio web, administrar el almacenamiento o usar cualquier otro servicio de Azure, pueden agregar MFA a su cuenta de administrador. |
-| Azure Multi-Factor Authentication | La versión Azure Multi-Factor Authentication, también conocida como versión "completa", es la que más funcionalidades tiene. Proporciona opciones de configuración adicionales a través del [Portal de Azure clásico](https://manage.windowsazure.com), capacidades de generación de informes avanzadas y soporte técnico para una amplia variedad de aplicaciones locales y en la nube. Azure Multi-Factor Authentication se incluye como parte de Azure Active Directory Premium y Enterprise Mobility Suite, y puede implementarse en la nube o localmente. A continuación, encontrará [otras maneras de obtener Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication). |
-
-## <a name="feature-comparison-of-versions"></a>Comparación de características de las versiones
-En la tabla siguiente se proporciona una lista de las características que están disponibles en las distintas versiones de Azure Multi-Factor Authentication.
-
-> [!NOTE]
-> En esta tabla comparativa, se describen las características incluidas en cada versión de Multi-Factor Authentication. En caso de que tenga el servicio completo de Azure Multi-Factor Authentication, es posible que algunas características no estén disponibles en función de si usa [MFA en la nube o MFA en local](multi-factor-authentication-get-started.md).
-
-
-| Característica | Multi-Factor Authentication para Office 365 | Multi-Factor Authentication para administradores de Azure | Azure Multi-Factor Authentication |
-| --- |:---:|:---:|:---:|
-| Protección de cuentas de administrador con MFA |● |● (Disponible solo para las cuentas de administrador de Azure) |● |
-| Aplicación móvil como segundo factor |● |● |● |
-| Llamada de teléfono como segundo factor |● |● |● |
-| SMS como segundo factor |● |● |● |
-| Contraseñas de aplicación para clientes que no admiten MFA |● |● |● |
-| Control administrativo sobre métodos de comprobación |● |● |● |
-| Modo de PIN | | |● |
-| Alerta de fraude | | |● |
-| Informes de MFA | | |● |
-| Omisión por única vez | | |● |
-| Saludos personalizados para las llamadas de teléfono | | |● |
-| Identificador de llamada personalizado para llamadas telefónicas | | |● |
-| Confirmación de evento | | |● |
-| IP de confianza | | |● |
-| Recordar MFA para dispositivos de confianza |● |● |● |
-| SDK de MFA | | |● requiere un proveedor de Multi-Factor Authentication y una suscripción completa a Azure |
-| MFA para aplicaciones locales | | |● |
-
-## <a name="how-to-get-azure-multi-factor-authentication"></a>Cómo conseguir Azure Multi-Factor Authentication
-Si desea todas las funcionalidades que ofrece Azure Multi-Factor Authentication, hay varias opciones:
-
-1. Comprar licencias de Azure Multi-Factor Authentication y asignarlas a los usuarios.
-2. Comprar licencias que incluyen Azure Multi-Factor Authentication, como Azure Active Directory Premium, Enterprise Mobility Suite o Enterprise Cloud Suite, y asignarlas a los usuarios.
-3. Crear un proveedor de Azure Multi-Factor Authentication dentro de una suscripción a Azure. Si se utiliza un proveedor de Azure Multi-Factor Authentication, hay dos modelos de uso disponibles que se facturan a través de la suscripción a Azure:  
-   * **Por usuario**. Destinado a empresas que quieren habilitar la comprobación en dos pasos para un número fijo de empleados que con frecuencia necesitan autenticación.  
-   * **Por autenticación**. Destinado a empresas que quieren habilitar la comprobación en dos pasos para un número mayor de usuarios externos que no suelen necesitar frecuentemente autenticación.  
-
-Azure Multi-Factor Authentication proporciona métodos de comprobación seleccionables tanto para la nube y como para servidor. Esto significa que puede elegir qué métodos estarán disponibles para los usuarios; llamada telefónica, texto, notificación en aplicación o códigos de aplicación. Para más información, vea [Métodos de comprobación seleccionables](multi-factor-authentication-whats-next.md#selectable-verification-methods).
-
-Para obtener información detallada sobre los precios, vea [Precios de Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para empezar a usar Azure Multi-Factor Authentication, el primer paso es [elegir entre MFA en la nube o local](multi-factor-authentication-get-started.md)
 
+- Lea [Cómo funciona Azure Multi-Factor Authentication](multi-factor-authentication-how-it-works.md).
 
-
-<!--HONumber=Jan17_HO5-->
-
+- Obtenga información sobre las diferentes [versiones y métodos de utilización de Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
