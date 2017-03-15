@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 8c96cacadb34a3d4eca1fe523d8a159c69a0ebe3
-ms.openlocfilehash: 01c855972d66d8ae2e975b206791ab8f9abcec41
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 24410a07995d5ac813b2bf4cdeed320c72ce7e06
+ms.openlocfilehash: 7845b552bd1360927eae414f57fefbd74ac0b7f7
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,10 +38,47 @@ El agente es responsable de la comunicación entre la VM de FreeBSD y el tejido 
 En lo que respecta a futuras versiones de FreeBSD, la estrategia es mantenerse al día y que las últimas versiones estén disponibles al poco tiempo de que el equipo de ingeniería de lanzamientos de FreeBSD las publique.
 
 ## <a name="deploying-a-freebsd-virtual-machine"></a>Implementación de una máquina virtual de FreeBSD
-La implementación de una máquina virtual de FreeBSD es un proceso sencillo cuando se usa una imagen de Azure Marketplace:
+La implementación de una máquina virtual de FreeBSD es un proceso sencillo cuando se usa una imagen de Azure Marketplace desde Azure Portal:
 
 - [FreeBSD 10.3 en Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [FreeBSD 11.0 en Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+
+### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Crear una máquina virtual de FreeBSD mediante la CLI de Azure 2.0 en FreeBSD
+Primero necesita instalar la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) mediante el siguiente comando en una máquina de FreeBSD.
+
+```bash 
+    curl -L https://aka.ms/InstallAzureCli | bash
+```
+
+Si Bash no está instalado en su máquina de FreeBSD, ejecute el siguiente comando antes de la instalación. 
+
+```
+    sudo pkg install bash
+```
+
+Si Python no está instalado en su máquina de FreeBSD, ejecute los siguientes comandos antes de la instalación. 
+
+```
+    sudo pkg install python35
+    cd /usr/local/bin 
+    sudo rm /usr/local/bin/python 
+    sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+```
+
+Durante la instalación, se le preguntará lo siguiente: `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Si su respuesta es `y` y escribe `/etc/rc.conf` como `a path to an rc file to update`, puede encontrarse el problema `ERROR: [Errno 13] Permission denied`. Para resolverlo, debe conceder el derecho de escritura al usuario actual en el archivo `etc/rc.conf`.
+
+Ahora puede iniciar sesión en Azure y crear su máquina virtual de FreeBSD. A continuación se muestra un ejemplo para crear una máquina virtual de FreeBSD 11.0. También puede agregar el parámetro `--public-ip-address-dns-name` con un nombre DNS único globalmente para una IP pública recién creada. 
+
+```azurecli
+    az login 
+    az group create -n myResourceGroup -l westus az vm create -n myFreeBSD11 -g myResourceGroup --image MicrosoftOSTC:FreeBSD:11.0:latest --admin-username azureuser --ssh-key-value /etc/ssh/ssh_host_rsa_key.pub 
+```
+
+Después, puede iniciar sesión en su máquina virtual de FreeBSD mediante la dirección IP que se imprime en la salida de la implementación anterior. 
+
+```bash
+    ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
+```   
 
 ## <a name="vm-extensions-for-freebsd"></a>Extensiones de VM para FreeBSD
 A continuación se muestran las extensiones de VM compatibles en FreeBSD.
@@ -68,7 +105,8 @@ La extensión [CustomScript](https://github.com/Azure/azure-linux-extensions/tre
 * Quitar la marca BOM en scripts de Shell y Python automáticamente.
 * Proteger la información confidencial en CommandToExecute.
 
-[!NOTE]Por el momento, la máquina virtual de FreeBSD solo es compatible con la versión 1.x de CustomScript.  
+> [!NOTE]
+> Por el momento, la máquina virtual de FreeBSD solo es compatible con la versión 1.x de CustomScript.  
 
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Autenticación: nombres de usuario, contraseñas y claves SSH
 Al crear una máquina virtual FreeBSD con el Azure Portal, debe proporcionar un nombre de usuario, una contraseña o una clave pública SSH.
@@ -79,12 +117,14 @@ Actualmente, solo se admite la clave RSA SSH. Una clave SSH multilínea debe com
 La cuenta de usuario especificada durante la implementación de la instancia de máquina virtual en Azure es una cuenta con privilegios. Se instaló el paquete de sudo en la imagen de FreeBSD publicada.
 Después de iniciar sesión con esta cuenta de usuario, puede ejecutar comandos como root con usando la sintaxis de comando.
 
+```
     $ sudo <COMMAND>
+```
 
 También puede obtener un shell root con `sudo -s`.
 
 ## <a name="known-issues"></a>Problemas conocidos
-1. La versión 2.2.2 de [Agente invitado de máquina virtual de Azure](https://github.com/Azure/WALinuxAgent/) tiene un [problema conocido] (https://github.com/Azure/WALinuxAgent/pull/517) que provoca un error de aprovisionamiento de la máquina virtual de FreeBSD en Azure. La corrección se incluirá en la versión 2.2.3 de [Agente invitado de máquina virtual de Azure](https://github.com/Azure/WALinuxAgent/) y posteriores. 
+La versión 2.2.2 de [Agente invitado de máquina virtual de Azure](https://github.com/Azure/WALinuxAgent/) tiene un [problema conocido] (https://github.com/Azure/WALinuxAgent/pull/517) que provoca un error de aprovisionamiento de la máquina virtual de FreeBSD en Azure. La corrección se incluirá en la versión 2.2.3 de [Agente invitado de máquina virtual de Azure](https://github.com/Azure/WALinuxAgent/) y posteriores. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Acuda a [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) para crear una máquina virtual de FreeBSD.

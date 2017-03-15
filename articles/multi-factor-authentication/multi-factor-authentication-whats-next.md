@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: c8a53cbbfdb0f3d5d5b4b3a1e70f2c08d50c6004
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
+ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora que ya está preparado y con todo funcionando.  Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication.  No todas estas características están disponibles en todas las versiones de Azure Multi-Factor Authentication.
 
-| Característica | Descripción | |:--- |:--- || | [Alerta de fraude](#fraud-alert) |La alerta de fraude se puede instalar y configurar de tal forma que los usuarios puedan informar acerca de intentos fraudulentos de acceder a sus recursos. | | [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez y "omitir" la autenticación multifactor. | | [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados le permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. | | [almacenamiento en caché](#caching-in-azure-multi-factor-authentication) |El almacenamiento en caché le permite establecer un período específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. | | [IP de confianza](#trusted-ips) |Los administradores de un inquilino administrado o federado pueden usar IP de confianza para omitir la verificación en dos pasos de los usuarios que inician sesión desde la intranet local de la empresa. | | [Contraseñas de aplicación](#app-passwords) |Las contraseñas de aplicación permiten omitir la autenticación multifactor de aplicaciones no compatibles con esta funcionalidad sin que por ello dejen de funcionar. | | [Recordar Multi-Factor Authentication en dispositivos y exploradores recordados](#remember-multi-factor-authentication-for-devices-users-trust) | Le permite recordar dispositivos durante un número determinado de días después de que un usuario haya iniciado sesión correctamente en el uso de MFA. | | [Métodos de comprobación seleccionables](#selectable-verification-methods) | Le permite elegir los métodos de autenticación que los usuarios pueden utilizar. |
+| Característica | Descripción | |:--- |:--- || | [Alerta de fraude](#fraud-alert) |La alerta de fraude se puede instalar y configurar de tal forma que los usuarios puedan informar acerca de intentos fraudulentos de acceder a sus recursos. | | [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez y "omitir" la autenticación multifactor. | | [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados le permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. | | [almacenamiento en caché](#caching-in-azure-multi-factor-authentication) |El almacenamiento en caché le permite establecer un período específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. | | [IP de confianza](#trusted-ips) |Los administradores de un inquilino administrado o federado pueden usar IP de confianza para omitir la verificación en dos pasos de los usuarios que inician sesión desde la intranet local de la empresa. | | [Contraseñas de aplicación](#app-passwords) |Las contraseñas de aplicación permiten omitir la autenticación multifactor de aplicaciones no compatibles con esta funcionalidad sin que por ello dejen de funcionar. | | [Recordar Multi-Factor Authentication en dispositivos y exploradores recordados](#remember-multi-factor-authentication-for-devices-that-users-trust) | Le permite recordar dispositivos durante un número determinado de días después de que un usuario haya iniciado sesión correctamente en el uso de MFA. | | [Métodos de comprobación seleccionables](#selectable-verification-methods) | Le permite elegir los métodos de autenticación que los usuarios pueden utilizar. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Acceso al Portal de administración de Azure MFA
 
@@ -164,7 +164,7 @@ El almacenamiento en caché no está concebido para usarse en los inicios de ses
 <center>![Nube](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>IP de confianza
-IP de confianza es una característica de Azure MFA que los administradores de un inquilino administrado o federado pueden usar para omitir la verificación en dos pasos de los usuarios que inicien sesión desde la intranet local de la empresa. Esta característica está disponible con la versión completa de Azure Multi-Factor Authentication, no la versión gratuita para administradores. Para más información acerca de cómo obtener la versión completa de Azure Multi-Factor Authentication, consulte [How to get Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication) (Obtención de Azure Multi-Factor Authentication).
+IP de confianza es una característica de Azure MFA que los administradores de un inquilino administrado o federado pueden usar para omitir la verificación en dos pasos de los usuarios que inicien sesión desde la intranet local de la empresa. Esta característica está disponible con la versión completa de Azure Multi-Factor Authentication, no la versión gratuita para administradores. Para más información sobre cómo obtener la versión completa de Azure Multi-Factor Authentication, consulte [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 | Tipo de un inquilino de Azure AD. | Opciones de IP de confianza disponibles |
 |:--- |:--- |
@@ -260,13 +260,18 @@ Los usuarios también pueden crear contraseñas de aplicación después del regi
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Recuerdo de Multi-Factor Authentication para los dispositivos en los que los usuarios confían
 Recordar Multi-Factor Authentication para los dispositivos y exploradores en los que los usuarios confían es una característica gratuita para todos los usuarios de MFA. Permite ofrecer a los usuarios la opción de omitir MFA durante un número determinado de días después de realizar un inicio de sesión correcto con MFA. Esto puede mejorar la facilidad de uso, ya que minimiza el número de veces que un usuario puede realizar la comprobación en dos pasos en el mismo dispositivo.
 
+Sin embargo, si una cuenta o un dispositivo corren peligro, el hecho de recordar MFA para los dispositivos de confianza puede afectar a la seguridad. Si una cuenta corporativa se pone en peligro o un dispositivo de confianza es objeto de pérdida o robo, debe [restaurar Multi-Factor Authentication en todos los dispositivos](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Esta acción revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la comprobación en dos pasos. También puede indicar a los usuarios que restauren MFA en sus propios dispositivos con las instrucciones que se indican en [Administración de la configuración de la comprobación en dos pasos](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+
+### <a name="how-it-works"></a>Cómo funciona
+
+Recordar que Multi-Factor Authentication funciona mediante el establecimiento de una cookie persistente en el explorador cuando un usuario marca el cuadro "Don't ask again for **X** days" (No preguntar de nuevo durante X días) al inicio de sesión. No se volverá a pedir al usuario MFA desde ese explorador hasta que la cookie expire. Si el usuario abre un explorador diferente en el mismo dispositivo o borra sus cookies, se le pedirá de nuevo la comprobación. 
+
+La casilla "Don't ask again for **X** days" (No preguntar de nuevo durante X días) no se muestra en aplicaciones sin explorador, ya admitan o no la autenticación moderna. Estas aplicaciones usan tokens de actualización que proporcionan nuevos tokens de acceso cada hora. Cuando un token de actualización se valida, Azure AD comprueba que la última vez que se realizara la comprobación en dos pasos estuviera dentro del número de días configurado. 
+
+Por tanto, recordar MFA en dispositivos de confianza reduce el número de autenticaciones en aplicaciones web (que normalmente la solicitan cada vez) pero aumenta el número de autenticaciones en clientes de autenticación moderna (que normalmente la solicitan cada 90 días).
+
 > [!NOTE]
-> Esta característica se implementa como una caché de cookies del explorador. No funcionará si no están habilitadas las cookies del explorador.
-
-Sin embargo, si una cuenta o un dispositivo corren peligro, el hecho de recordar MFA para los dispositivos de confianza puede afectar a la seguridad. Para garantizar la seguridad de la cuenta, hay una opción para restaurar Multi-Factor Authentication en todos los dispositivos, lo que significa que todos los dispositivos pierden su estado de confianza y que el usuario tiene que volver a realizar la verificación en dos pasos. Para garantizar la seguridad de las cuentas, debe restaurar Multi-Factor Authentication para sus dispositivos si se presenta cualquiera de los siguientes escenarios:
-
-* Si  su cuenta corporativa se ha visto comprometida
-* Si un dispositivo recordado se ha perdido o ha sido robado
+>Esta característica no es compatible con la característica de AD FS "Mantener la sesión iniciada" cuando los usuarios realizan la comprobación en dos pasos para AD FS mediante el Servidor Azure MFA o una solución MFA de terceros. Si los usuarios seleccionan "Mantener la sesión iniciada" en AD FS y también marcan su dispositivo como de confianza para MFA, no podrán realizar la comprobación después de que expire el número de días de "Recordar MFA". Azure AD solicita una nueva comprobación en dos pasos, pero AD FS devuelve un token con la fecha y la notificación de MFA originales en lugar de volver a realizar la comprobación en dos pasos. Como consecuencia se crea un bucle de comprobación entre Azure AD y AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitación del recuerdo de la autenticación multifactor
 1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com/).

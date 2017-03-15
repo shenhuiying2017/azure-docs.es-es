@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
-ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
+ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
 ms.lasthandoff: 03/01/2017
 
 
@@ -42,7 +42,8 @@ Storage Service Encryption: SSE Files Preview se puede utilizar para cifrar los 
 Para participar en SSE Files Preview, póngase en contacto con ssediscussions@microsoft.com.
 
 Para más información, consulte la sección de preguntas más frecuentes.
-Disponibilidad de File Storage Storage Service Encryption para File Storage está disponible en la región Asia oriental, Europa del Norte y este de EE. UU. 2.
+### <a name="availability-for-file-storage"></a>Disponibilidad de File Storage
+El cifrado del servicio Storage para File Storage está disponible actualmente en las regiones de Asia oriental, Europa del Norte y este de EE. UU. 2.
 
 
 Para habilitar o deshabilitar el cifrado del servicio Storage para una cuenta de almacenamiento, inicie sesión en [Azure Portal](https://azure.portal.com) y seleccione una cuenta de almacenamiento. En la hoja Configuración, busque la sección Blob service como se muestra en esta captura de pantalla y haga clic en Cifrado.

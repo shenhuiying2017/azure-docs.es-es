@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f76277ab93c58098648ee65ea5aba0757495da68
-ms.openlocfilehash: 1222a670a1bf530871a19c79b7da441c03f8df51
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 353677bc7eb7fe791d23bcfdb79f3a0df6366c6f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -44,6 +44,13 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 ## <a id="rest_version_history"></a>Historial de versiones de API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
+
+## <a name="march-2017-release"></a>Versión de marzo de 2017
+
+Ahora puede usar Azure Media Standard para [generar automáticamente una escala de velocidad de bits](media-services-autogen-bitrate-ladder-with-mes.md) especificando la cadena preestablecida "Streaming adaptable" al crear la tarea de codificación. "Streaming adaptable" es el valor predeterminado recomendado si quiere codificar un vídeo para streaming con Media Services. Si necesita personalizar un valor predeterminado de codificación para su escenario específico, puede comenzar con [estos](media-services-mes-presets-overview.md) valores predeterminados.
+
+Ahora puede usar Azure Media Standard o Flujo de trabajo premium de codificación de medios para [crear una tarea de codificación que genera fragmentos de fMP4](media-services-generate-fmp4-chunks.md). 
+
 
 ## <a name="febuary-2017-release"></a>Versión de febrero de 2017
 

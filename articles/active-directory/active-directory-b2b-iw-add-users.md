@@ -37,7 +37,7 @@ Asigne usuarios de colaboración B2B a una aplicación como un trabajador de la 
 
 Los trabajadores de la información pueden agregar del mismo modo usuarios de colaboración B2B a un grupo asignado que está habilitado para administrar grupos automáticamente.
 > [!NOTE]
-No puede agregar usuarios de colaboración B2B a un grupo dinámico o a uno que se ha sincronizado con la instancia local de Active Directory.
+> No puede agregar usuarios de colaboración B2B a un grupo dinámico o a uno que se ha sincronizado con la instancia local de Active Directory.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

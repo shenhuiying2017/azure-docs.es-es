@@ -13,12 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/02/2017
 ms.author: bprakash
 translationtype: Human Translation
-ms.sourcegitcommit: 0371c6ba2434c315db1bdbacab8639fd40d5c999
-ms.openlocfilehash: 1986a4f19d89f1451ca47a94511ff998705ed785
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: d9c85736e9578ff4f821a118a25055e360e33ae9
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,7 +39,7 @@ Azure HDInsight proporciona las ofertas de macrodatos en la nube en dos categor�
 | --- | --- |
 | Usuarios de clústeres de HDInsight unidos a dominio |Una clústeres de HDInsight a dominios de Azure Active Directory (AAD) para obtener una seguridad de nivel empresarial. Ahora puede configurar una lista de empleados de su empresa que pueden autenticarse a través de Azure Active Directory para iniciar sesión en el clúster de HDInsight. El administrador de la empresa también puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/), que restringe el acceso a datos solo en la medida que sea necesario. Finalmente, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de control de acceso, con lo que se consigue un alto grado de control de los recursos corporativos. Para obtener más información, consulte [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a dominio). |
 
-### <a name="cluster-types-supported-for-premium"></a>Tipos de clúster compatibles con Premium
+### <a name="cluster-types-supported-for-hdinsight-premium"></a>Tipos de clúster compatibles con HDInsight Premium
 En la tabla siguiente se recoge el tipo de clúster de HDInsight y la matriz de compatibilidad Premium.
 
 | Tipo de clúster | Estándar | Premium |
@@ -48,10 +48,17 @@ En la tabla siguiente se recoge el tipo de clúster de HDInsight y la matriz de 
 | Spark |Sí |No |
 | HBase |Sí |No |
 | Storm |Sí |No |
+| R Server  |Sí |No |
 | Interactive Hive (versión preliminar) |Sí |No |
-| R Server (versión preliminar de R Server) |Sí |No |
+| Kafka (Versión preliminar)|Sí|No| 
 
 Esta tabla se actualizará cuando se incluyan nuevos tipos de clúster en HDInsight Premium.
+
+### <a name="features-not-supported-for-hdinsight-premium"></a>Características no compatibles con HDInsight Premium
+
+Las siguientes características no son compatibles en estos momentos con clústeres de HDInsight Premium.
+
+* **Sin compatibilidad con Azure Data Lake Store como almacenamiento principal**. Todavía puede usar Azure Data Lake Store como almacenamiento complementario con clústeres de HDInsight Premium.
 
 ### <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 Para obtener información sobre los precios y el contrato de nivel de servicio de HDInsight Premium, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -65,9 +72,22 @@ HDInsight de Azure es compatible con varias versiones de clústeres de Hadoop qu
 >
 
 
-| Componente | HDInsight versión 3.5 (predeterminada) | HDInsight versión 3.4 | HDInsight versión 3.3 | HDInsight versión 3.2 | HDInsight versión 3.1 | HDInsight versión 3.0 |
-
-| --- | --- | --- | --- | --- | --- | --- | | Hortonworks Data Platform |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 | | Apache Hadoop & YARN |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 | | Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 | | | Apache Pig |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 | | Apache Hive y HCatalog |1.2.1.2.5 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 | | Apache HBase |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 | | | Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 | | Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 | | Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 | | Apache Storm |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 | | | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 | | | Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 | | | Apache Spark |1.6.2 + 2.0 (solo Linux) |1.6.0 (solo Linux) |1.5.2 (solo Linux; compilación experimental) |1.3.1 (solo Windows) | | |
+| Componente | HDInsight versión 3.5 (predeterminada) | Versión de HDInsight 3.4 | Versión de HDInsight 3.3 | HDInsight versión 3.2 | Versión de HDInsight 3.1 | HDInsight versión 3.0 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Hortonworks Data Platform |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
+| Apache Hadoop y YARN |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
+| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
+| Apache Pig |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
+| Apache Hive y HCatalog |1.2.1.2.5 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
+| HBase Apache |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
+| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
+| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
+| Apache Storm |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
+| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
+| Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
+| Spark de Apache |1.6.2 y 2.0 (solo Linux) |1.6.0 (solo Linux) |1.5.2 (solo Linux/compilación experimental) |1.3.1 (solo Windows) |-|-|
+| Apache Kafka | 0.10.0 | 0.9.0 |-|-|-|-|
 
 **Obtención de información sobre las versiones actuales de componentes**
 

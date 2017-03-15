@@ -32,8 +32,8 @@ En el ejemplo siguiente se asocia un `50`disco GB a la máquina virtual denomina
 Para usar discos administrados:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 Para usar discos no administrados:
@@ -53,8 +53,8 @@ Los discos administrados le permiten centrarse en sus máquinas virtuales y sus 
 Si solo necesita un nuevo disco en la máquina virtual, puede usar el comando `az vm disk attach`.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 ### <a name="attach-an-existing-disk"></a>un disco existente 

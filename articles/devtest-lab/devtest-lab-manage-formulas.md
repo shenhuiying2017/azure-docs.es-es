@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7ea1762e3a3ffe8d3c0c6af307b846dc1f3c696
+ms.sourcegitcommit: 52590f0c47954d115f39cbe988e04a0ed3feb94d
+ms.openlocfilehash: cd3352ae30734cce116fda5a838f95e5e0b86a8a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -95,7 +96,7 @@ Los siguientes pasos le guiarán a través del proceso de creación de una fórm
 7. Seleccione **Aceptar** para crear la fórmula.
 
 ## <a name="use-a-formula-to-provision-a-vm"></a>Uso de una fórmula para aprovisionar una máquina virtual
-Una vez creada una fórmula, puede crear una máquina virtual basada en esa fórmula. La sección [Incorporación de una máquina virtual con artefactos](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) le guiará a través del proceso.
+Una vez creada una fórmula, puede crear una máquina virtual basada en esa fórmula. En el artículo [Incorporación de una máquina virtual con artefactos](devtest-lab-add-vm-with-artifacts.md) se le guiará a través del proceso.
 
 ## <a name="modify-a-formula"></a>Modificación de una fórmula
 Para modificar una fórmula, siga estos pasos:
@@ -133,10 +134,5 @@ Para eliminar una fórmula, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando haya creado una fórmula para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual al laboratorio](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

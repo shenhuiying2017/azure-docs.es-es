@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 8245c9d86d7a37bfb12c06b1cb2cbe9dae01d653
-ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
+ms.sourcegitcommit: eac5027f39d15e355d1c9f60a31ded567272d5fa
+ms.openlocfilehash: b94ceac2298509817020b32b65125c5f767d8089
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -59,14 +60,22 @@ A continuación se muestran los detalles de la solicitud HTTP 1.1 para ejecutar 
         cloudToDeviceMethod: {
             methodName: '<methodName>',
             payload: <payload>,                 
-            timeoutInSeconds: methodTimeoutInSeconds 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
+La condición de consulta puede estar también en un solo identificador de dispositivo o en una lista de identificadores de dispositivos, como se muestra a continuación.
+
+**Ejemplos**
+```
+queryCondition = "deviceId = 'MyDevice1'"
+queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
+queryCondition = "deviceId IN ['MyDevice1']
+```
+[Lenguaje de consulta de IoT Hub][lnk-query] aborda el lenguaje de consulta de IoT Hub con más detalle.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Trabajos para actualizar las propiedades del dispositivo gemelo
 A continuación se muestran los detalles de la solicitud HTTP 1.1 para la actualización de las propiedades del dispositivo gemelo con un trabajo:
@@ -82,8 +91,7 @@ A continuación se muestran los detalles de la solicitud HTTP 1.1 para la actual
         jobId: '<jobId>',
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
@@ -109,8 +117,8 @@ La siguiente es una lista de propiedades y las descripciones correspondientes, q
 | Propiedad | Descripción |
 | --- | --- |
 | **jobId** |Id. proporcionado de la aplicación para el trabajo. |
-| **startTime** |Hora de inicio proporcionada de la aplicación (ISO 8601) para el trabajo. |
-| **endTime** |Fecha proporcionada de IoT Hub (ISO 8601) cuando hay un trabajo completado. Válido solo después de que el trabajo alcance el estado 'completado'. |
+| **startTime** |Hora de inicio proporcionada de la aplicación (ISO&8601;) para el trabajo. |
+| **endTime** |Fecha proporcionada de IoT Hub (ISO&8601;) cuando hay un trabajo completado. Válido solo después de que el trabajo alcance el estado 'completado'. |
 | **type** |Tipos de trabajos: |
 | **scheduledUpdateTwin**: un trabajo que se usa para actualizar un conjunto de propiedades deseadas o etiquetas. | |
 | **scheduledDeviceMethod**: un trabajo que se utiliza para invocar un método de dispositivo en un conjunto de dispositivos gemelos. | |
@@ -134,7 +142,7 @@ Propiedades **deviceJobStatistics**.
 | **deviceJobStatistics.pendingCount** |Número de dispositivos pendientes de ejecutar el trabajo. |
 
 ### <a name="additional-reference-material"></a>Material de referencia adicional
-Otros temas de referencia en la Guía del desarrollador de IoT Hub son los siguientes:
+Otros temas de referencia en la guía del desarrollador de IoT Hub son los siguientes:
 
 * En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
 * En [Cuotas y limitación][lnk-quotas], se describen las cuotas que se aplican al servicio IoT Hub y el comportamiento de limitación que se espera al usar el servicio.
@@ -159,9 +167,4 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

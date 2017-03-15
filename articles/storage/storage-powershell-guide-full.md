@@ -11,12 +11,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b046dcb32e6796f4e66009361783fa95936794b8
-ms.openlocfilehash: 662fbbdda2c6d4d7da2c7c94dabb984a6bfc7296
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 8b9e174523b3d08be20a4d30cc83c11f5bc93cd5
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -693,8 +693,7 @@ El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para apl
 Para más información sobre Azure File Storage, consulte [Introducción a Azure File Storage en Windows](storage-dotnet-how-to-use-files.md) y [API de REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## <a name="how-to-set-and-query-storage-analytics"></a>Cómo establecer y consultar el análisis de almacenamiento
-Puede usar el [Análisis de almacenamiento de Azure](storage-analytics.md) para recopilar las métricas de sus cuentas de almacenamiento de Azure y de los datos de registro acerca de las solicitudes enviadas a su cuenta de almacenamiento. Puede usar las métricas de almacenamiento para supervisar el estado de una cuenta de almacenamiento y los registros de almacenamiento para diagnosticar y solucionar los problemas que surjan con su cuenta de almacenamiento.
-Las métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión a través de Azure Portal o Windows PowerShell o mediante programación a través de la biblioteca del cliente de almacenamiento. Los registros de almacenamiento se dan en el lado servidor y le permiten grabar en la cuenta de almacenamiento detalles de solicitudes correctas e incorrectas. Estos registros le permiten no solo ver detalles de lectura y escritura, sino que también le permitirán eliminar operaciones de tablas, colas, blobs y las razones por las cuales las solicitudes fallaron.
+Puede usar el [Análisis de almacenamiento de Azure](storage-analytics.md) para recopilar las métricas de sus cuentas de almacenamiento de Azure y de los datos de registro acerca de las solicitudes enviadas a su cuenta de almacenamiento. Puede usar las métricas de almacenamiento para supervisar el estado de una cuenta de almacenamiento y los registros de almacenamiento para diagnosticar y solucionar los problemas que surjan con su cuenta de almacenamiento. Puede configurar la supervisión a través de Azure Portal o Windows PowerShell, o mediante programación a través de la biblioteca del cliente de almacenamiento. Los registros de almacenamiento se dan en el lado servidor y le permiten grabar en la cuenta de almacenamiento detalles de solicitudes correctas e incorrectas. Estos registros le permiten no solo ver detalles de lectura y escritura, sino que también le permitirán eliminar operaciones de tablas, colas, blobs y las razones por las cuales las solicitudes fallaron.
 
 Para obtener más información sobre cómo habilitar y ver los datos de las métricas de almacenamiento mediante PowerShell, consulte [Cómo habilitar las métricas de almacenamiento mediante PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/22/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: bf58d333e81fb76ffc3cca8a8e1ccb3f71ac72c9
+ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
+ms.openlocfilehash: 7c32d69f3d6d2cc60f830db96b6aea47ce8712ca
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -26,7 +27,11 @@ Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.
 ![Calculadora de rendimiento][5]
 
 ## <a name="introduction"></a>Introducción
-Este artículo proporciona información general sobre las unidades de solicitud en [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) es un servicio de bases de datos NoSQL escalable y totalmente administrado para documentos JSON. Con DocumentDB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los ingenieros de Microsoft operan y supervisan de forma continua DocumentDB para ofrecer disponibilidad, rendimiento y protección de datos universales. Los datos de DocumentDB se almacenan en colecciones que son contenedores elásticos, altamente disponibles. En lugar de pensar y administrar recursos de hardware como CPU, memoria e IOPS para una colección, puede reservar el rendimiento en términos de solicitudes por segundo. DocumentDB administrará automáticamente el aprovisionamiento, la realización transparente de particiones y el escalado de la colección a fin de prestar servicio para el número aprovisionado de solicitudes. 
+
+DocumentDB admite varias API de ejecuciones de lecturas, escrituras, consultas y procedimientos almacenados. Puesto que no todas las solicitudes son iguales, se les asigna una cantidad normalizada de **unidades de solicitud** según la cantidad de procesamiento requerida para prestar servicio a la solicitud. El número de unidades de solicitud para una operación es determinista y puede realizar un seguimiento del número de unidades de solicitud consumidas por cualquier operación de DocumentDB a través de un encabezado de respuesta.
+
+Cada colección de DocumentDB se puede reservar según el rendimiento. Este también se puede expresar en términos de unidades de solicitud. Este se expresa en bloques de 100 unidades de solicitud por segundo, desde cientos hasta millones de unidades de solicitud por segundo. El rendimiento aprovisionado se puede ajustar durante la vida de una colección para adaptarse a las cambiantes necesidades de procesamiento y a los patrones de acceso de la aplicación. 
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:  
 
@@ -47,9 +52,45 @@ Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramach
 > 
 
 ## <a name="specifying-request-unit-capacity"></a>Especificación de la capacidad de unidad de solicitud
-Al crear una colección de DocumentDB, especifique el número de unidades de solicitud por segundo (RU) que desee reservar para la colección.  Una vez creada la colección, la asignación completa de RU especificadas está reservada para el uso de la colección.  Se garantiza que cada colección tiene características de rendimiento dedicadas y aisladas.  
+Al crear una colección de DocumentDB, especifique el número de unidades de solicitud por segundo (RU por segundo) que desee reservar para la colección. Según el rendimiento aprovisionado, DocumentDB asigna las particiones físicas para hospedar la colección y divide y reequilibra los datos entre las particiones a medida que va creciendo.
 
-Es importante tener en cuenta que DocumentDB funciona en un modelo de reserva; es decir, se le cobrará por la cantidad de capacidad de proceso *reservada* para la colección, independientemente de la que *use* activamente.  Sin embargo, tenga en cuenta que a medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de RU reservados mediante el SDK de DocumentDB o con el [Portal de Azure](https://portal.azure.com).  Para más información sobre el escalado y la reducción verticales, consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md).
+DocumentDB requiere que se especifique una clave de partición cuando se aprovisiona una colección con 10 000 unidades de solicitud o un valor superior. También se requiere una clave de partición para escalar el rendimiento de la colección a más de 10 000 unidades de solicitud en el futuro. Por lo tanto, se recomienda encarecidamente configurar una [clave de partición](documentdb-partition-data.md) al crear una colección, sea cual sea su rendimiento inicial. Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos) para que DocumentDB pueda escalar la colección y las solicitudes uniformemente. 
+
+> [!NOTE]
+> Una clave de partición es un límite lógico, no uno físico. Por lo tanto, no es necesario limitar el número de los valores de clave de partición distintos. De hecho, es mejor tener más valores distintos de clave de partición que tener menos, ya que DocumentDB dispondrá de más opciones de equilibrio de carga.
+
+Este es un fragmento de código para crear una colección con 3000 unidades de solicitud por segundo con el SDK de .NET:
+
+```C#
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 3000 });
+```
+
+DocumentDB funciona con un modelo de reserva del rendimiento. Es decir, se le cobrará por la cantidad de rendimiento *reservada* para la colección, independientemente de la que *use* activamente. A medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de unidades de solicitud reservadas mediante los SDK de DocumentDB o con [Azure Portal](https://portal.azure.com).
+
+Cada colección está asignada a un recurso `Offer` de DocumentDB que contiene metadatos sobre el rendimiento aprovisionado de la colección. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para una colección y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento de la colección a 5000 unidades de solicitud por segundo mediante el SDK de .NET:
+
+```C#
+// Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
+
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
+
+// Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
+```
+
+No se producirá ningún cambio en la disponibilidad de la colección cuando cambie el rendimiento. Por lo general, el nuevo rendimiento reservado es efectivo en cuestión de segundos después de su aplicación.
 
 ## <a name="request-unit-considerations"></a>Consideraciones de la unidad de solicitud
 Al estimar el número de unidades de solicitud que se reservan para la colección de DocumentDB, es importante tener en cuenta las siguientes variables:
@@ -69,6 +110,55 @@ Una unidad de solicitud es una medida normalizada del costo de procesamiento de 
 > La línea de base de 1 unidad de solicitud de un documento de 1 KB corresponde a una operación GET sencilla mediante una vinculación automática o un Id. del documento.
 > 
 > 
+
+Por ejemplo, esta es una tabla que muestra el número de unidades de solicitud que se deben aprovisionar en tres tamaños diferentes de documento (1 KB, 4 KB y 64 KB) y en dos niveles de rendimiento diferentes (500 lecturas/segundo + 100 escrituras/segundo y 500 lecturas/segundo + 500 escrituras/segundo). Se configuró la coherencia de datos en la sesión y la directiva de indexación se estableció en None.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Tamaño del documento</strong></p></td>
+            <td valign="top"><p><strong>Lecturas/segundo</strong></p></td>
+            <td valign="top"><p><strong>Escrituras/segundo</strong></p></td>
+            <td valign="top"><p><strong>Unidades de solicitud</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1000 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 5) + (100 * 5) = 3000 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1350 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4150 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9800 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29 000 RU/s</p></td>
+        </tr>
+    </tbody>
+</table>
 
 ### <a name="use-the-request-unit-calculator"></a>Uso de la calculadora de unidades de solicitud
 Para ayudar a los clientes a optimizar sus estimaciones de rendimiento, existe una [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) basada en web que le ayuda a calcular los requisitos de unidades de solicitud para las operaciones habituales, entre las cuales se incluye:
@@ -99,7 +189,7 @@ El uso de la herramienta es simple:
 > 
 
 ### <a name="use-the-documentdb-request-charge-response-header"></a>Uso del encabezado de respuesta de cargo de solicitud de DocumentDB
-Cada respuesta del servicio de DocumentDB incluye un encabezado personalizado (x-ms-request-charge) que contiene las unidades de solicitud usadas por la solicitud. Este encabezado también es accesible a través de los SDK de DocumentDB. En el SDK de .NET, RequestCharge es una propiedad del objeto ResourceResponse.  Para las consultas, el Explorador de consultas de DocumentDB en el Portal de Azure proporciona la información de carga de solicitud para las consultas ejecutadas.
+Cada respuesta del servicio de DocumentDB incluye un encabezado personalizado (`x-ms-request-charge`) que contiene las unidades de solicitud consumidas por la solicitud. Este encabezado también es accesible a través de los SDK de DocumentDB. En el SDK de .NET, RequestCharge es una propiedad del objeto ResourceResponse.  Para las consultas, el Explorador de consultas de DocumentDB en el Portal de Azure proporciona la información de carga de solicitud para las consultas ejecutadas.
 
 ![Comprobación de los cargos de RU en el Explorador de consultas][1]
 
@@ -122,53 +212,55 @@ Por ejemplo:
 ## <a name="a-request-unit-estimation-example"></a>Un ejemplo de estimación de la unidad de solicitud
 Considere el siguiente documento de ~1 KB:
 
+```JSON
+{
+ "id": "08259",
+  "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+  "tags": [
     {
-     "id": "08259",
-      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-      "tags": [
-        {
-          "name": "cereals ready-to-eat"
-        },
-        {
-          "name": "kellogg"
-        },
-        {
-          "name": "kellogg's crispix"
-        }
-    ],
-      "version": 1,
-      "commonName": "Includes USDA Commodity B855",
-      "manufacturerName": "Kellogg, Co.",
-      "isFromSurvey": false,
-      "foodGroup": "Breakfast Cereals",
-      "nutrients": [
-        {
-          "id": "262",
-          "description": "Caffeine",
-          "nutritionValue": 0,
-          "units": "mg"
-        },
-        {
-          "id": "307",
-          "description": "Sodium, Na",
-          "nutritionValue": 611,
-          "units": "mg"
-        },
-        {
-          "id": "309",
-          "description": "Zinc, Zn",
-          "nutritionValue": 5.2,
-          "units": "mg"
-        }
-      ],
-      "servings": [
-        {
-          "amount": 1,
-          "description": "cup (1 NLEA serving)",
-          "weightInGrams": 29
-        }
-      ]
+      "name": "cereals ready-to-eat"
+    },
+    {
+      "name": "kellogg"
+    },
+    {
+      "name": "kellogg's crispix"
     }
+  ],
+  "version": 1,
+  "commonName": "Includes USDA Commodity B855",
+  "manufacturerName": "Kellogg, Co.",
+  "isFromSurvey": false,
+  "foodGroup": "Breakfast Cereals",
+  "nutrients": [
+    {
+      "id": "262",
+      "description": "Caffeine",
+      "nutritionValue": 0,
+      "units": "mg"
+    },
+    {
+      "id": "307",
+      "description": "Sodium, Na",
+      "nutritionValue": 611,
+      "units": "mg"
+    },
+    {
+      "id": "309",
+      "description": "Zinc, Zn",
+      "nutritionValue": 5.2,
+      "units": "mg"
+    }
+  ],
+  "servings": [
+    {
+      "amount": 1,
+      "description": "cup (1 NLEA serving)",
+      "weightInGrams": 29
+    }
+  ]
+}
+```
 
 > [!NOTE]
 > Los documentos se han minimizado en DocumentDB, por lo que el tamaño calculado del sistema del documento anterior es ligeramente menor de 1 KB.
@@ -209,7 +301,7 @@ Con esta información, podemos hacer una estimación de los requisitos de RU par
 
 En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden proporciona 1300 RU/s para esta colección de la aplicación.
 
-## <a name="a-idrequestratetoolargea-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados
+## <a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados
 La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
     HTTP Status 429
@@ -236,9 +328,4 @@ Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

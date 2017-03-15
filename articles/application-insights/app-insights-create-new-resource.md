@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: 60a94a333ffb4bf674e370972abd6fa0caf37d91
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: f73a24993fdeaced422b2f7a1283722a82c2be77
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -36,11 +37,11 @@ En el [portal.azure.com](https://portal.azure.com), agregue un recurso de Applic
 
 ![Haga clic en Nuevo, Application Insights.](./media/app-insights-create-new-resource/01-new.png)
 
-* **Tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [Explorador de métricas de Azure][metrics]. Si no ve el tipo de aplicación, elija ASP.NET.
-* **grupo de recursos** resulta práctico para administrar las propiedades, como el control de acceso. Si ya ha creado otros recursos de Azure, puede optar por colocar este recurso nuevo en el mismo grupo.
+* **Tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [Explorador de métricas de Azure][metrics]. Si no ve el tipo de aplicación, elija General.
 * **suscripción** es su cuenta de pago de Azure.
+* **grupo de recursos** resulta práctico para administrar las propiedades, como el control de acceso. Si ya ha creado otros recursos de Azure, puede optar por colocar este recurso nuevo en el mismo grupo.
 * **ubicación** es donde se guardan los datos.
-* **agregar al panel de inicio** coloca un icono de acceso rápido al recurso en la página principal de Azure. Se recomienda su uso.
+* **Anclar al panel** coloca un icono de acceso rápido al recurso en la página principal de Azure. Se recomienda su uso.
 
 Cuando se haya creado la aplicación, se abrirá una nueva hoja. Aquí es donde podrá ver datos de uso y rendimiento sobre la aplicación. 
 
@@ -58,7 +59,7 @@ Use la clave de instrumentación para configurar [el SDK que instala en la aplic
 
 El SDK incluye módulos estándar que envían telemetría sin tener que escribir código. Para realizar un seguimiento de las acciones del usuario o diagnosticar los problemas con más detalle, [use la API][api] para enviar su propia telemetría.
 
-## <a name="a-namemonitorasee-telemetry-data"></a><a name="monitor"></a>Visualización de los datos de telemetría
+## <a name="monitor"></a>Visualización de los datos de telemetría
 Cierre la hoja de inicio rápido para volver a la hoja de aplicación en el portal de Azure.
 
 Haga clic en el icono de búsqueda para ver la [Búsqueda de diagnóstico][diagnostic], donde aparecerán los primeros eventos. 
@@ -66,7 +67,7 @@ Haga clic en el icono de búsqueda para ver la [Búsqueda de diagnóstico][diagn
 Si espera más datos, haga clic en Actualizar después de unos segundos.
 
 ## <a name="creating-a-resource-automatically"></a>Creación de un recurso de forma automática
-Puede escribir un [script de PowerShell](app-insights-powershell-script-create-resource.md) para crear automáticamente un recurso.
+Puede escribir un [script de PowerShell](app-insights-powershell.md) para crear automáticamente un recurso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un panel](app-insights-dashboards.md)
@@ -80,10 +81,5 @@ Puede escribir un [script de PowerShell](app-insights-powershell-script-create-r
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
