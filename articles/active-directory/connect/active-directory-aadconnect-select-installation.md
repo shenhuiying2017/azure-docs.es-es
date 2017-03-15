@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
 ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -73,9 +74,4 @@ Si actualmente utiliza Forefront Identity Manager 2010 o Microsoft Identity Mana
 
 ## <a name="next-steps"></a>Pasos siguientes
 Dependiendo de la opción seleccionada, use la tabla de contenido a la izquierda para encontrar su artículo con los pasos detallados.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
