@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: cd5ab90167501d5876381e0575042e19a23e702c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 8377c936e37b464c2d566f9482ebda63a1e374df
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -38,19 +39,14 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Una **cuenta de almacenamiento de Azure**. Vea [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account).
-* **Visual Studio 2013 o 2015**.
+* **Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017**.
 
 ### <a name="access-control-requirements"></a>Requisitos de control de acceso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Creación de clústeres
-1. Abra Visual Studio 2013 o 2015
-2. Cree un nuevo proyecto de Visual Studio con la siguiente configuración:
-   
-   | Propiedad | Valor |
-   | --- | --- |
-   | Plantilla |Plantillas/Visual C#/Windows/Aplicación de consola |
-   | Nombre |CrearClústerHDI |
+1. Abra Visual Studio 2017.
+2. Cree una aplicación de consola nueva de Visual C#.
 3. En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y luego haga clic en **Consola del administrador de paquetes**.
 4. Ejecute el siguiente comando en la consola para instalar los paquetes:
    
@@ -92,7 +88,7 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
                 private const string NewClusterType = "Hadoop";
-                private const string NewClusterVersion = "3.4";
+                private const string NewClusterVersion = "3.5";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
                 private const string NewClusterSshUserName = "sshuser";
@@ -381,10 +377,5 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Run Pig jobs in HDInsight using .NET SDK (Ejecución de trabajos de Pig en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Run Sqoop jobs in HDInsight using .NET SDK (Ejecución de trabajos de Sqoop en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Run Oozie jobs in HDInsightt (Ejecución de trabajos de Oozie en HDInsight)](hdinsight-use-oozie.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
