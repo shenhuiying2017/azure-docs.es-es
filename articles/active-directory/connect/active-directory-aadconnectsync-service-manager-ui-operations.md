@@ -1,5 +1,5 @@
 ---
-title: "Sincronización de Azure AD Connect: interfaz de usuario de Synchronization Service Manager | Microsoft Docs"
+title: Operaciones de Synchronization Service Manager de Azure AD Connect | Microsoft Docs
 description: "Conozca la pestaña Operaciones de Synchronization Service Manager para Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: fadb15a95edb3ec82b284faa594706963618b9eb
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Sincronización de Azure AD Connect: Synchronization Service Manager
+# <a name="using-the-sync-service-manager-operations-tab"></a>Uso de la pestaña Operaciones de Synchronization Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
 En la pestaña Operaciones se muestran los resultados de las operaciones más recientes. Esta pestaña es clave para entender y solucionar los problemas.
 
 ## <a name="understand-the-information-visible-in-the-operations-tab"></a>Información visible en la pestaña Operaciones
-La mitad superior muestra todas las ejecuciones en orden cronológico. De forma predeterminada, el registro de operaciones conservará información sobre los últimos 7 días, pero puede cambiar este parámetro con el [programador](active-directory-aadconnectsync-feature-scheduler.md). Debe buscar las ejecuciones que no muestran un estado de operación correcta. Para cambiar la ordenación, haga clic en los encabezados.
+La mitad superior muestra todas las ejecuciones en orden cronológico. De forma predeterminada, el registro de operaciones conservará información sobre los últimos&7; días, pero puede cambiar este parámetro con el [programador](active-directory-aadconnectsync-feature-scheduler.md). Debe buscar las ejecuciones que no muestran un estado de operación correcta. Para cambiar la ordenación, haga clic en los encabezados.
 
 En la columna **Estado** se encuentra la información más importante, puesto que muestra el problema más grave de una ejecución. A continuación tiene un resumen rápido de los estados más comunes que debe analizar por orden de prioridad (donde * indica varias cadenas de error posibles).
 
@@ -59,9 +60,4 @@ Si el error no proporciona suficiente información, puede fijarse en los datos. 
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

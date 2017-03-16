@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 3ed1b4121e8e64b07abaeb1117f2b8a0cfd75406
-ms.openlocfilehash: 7b2380e45c62684ed29fe819db7e254b968d55d0
+ms.sourcegitcommit: cf8873a3cc5067717edf586da209b05cef3092ff
+ms.openlocfilehash: fc921785e5e4aae84982a348814c1760ddd6bb8c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -500,7 +501,7 @@ Para leer datos de un blob en una cuenta de Azure Storage vinculada, debe utiliz
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/<path to source>
 
-Por ejemplo, si un archivo de origen (SearchLog.tsv) se almacena en un contenedor de blobs denominado "samples" en la cuenta de almacenamiento "contso_33", la ruta de acceso de la instrucción FROM sería:
+Por ejemplo, si un archivo de origen (SearchLog.tsv) se almacena en un contenedor de blobs denominado "samples" de la cuenta de almacenamiento "contoso_33", la ruta de acceso de la instrucción FROM sería:
 
     FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
 
@@ -528,9 +529,4 @@ Sin embargo, el grupo de Resource Manager se puede ubicar en un centro de datos 
 * [Introducción a Data Lake Analytics mediante el portal de Azure](data-lake-analytics-get-started-portal.md)
 * [Administración de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-manage-use-portal.md)
 * [Supervisión y solución de problemas de trabajos de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

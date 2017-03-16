@@ -1,6 +1,6 @@
 ---
-title: "Configuración de tareas que dependen de otras tareas: Azure Batch | Microsoft Docs"
-description: "Cree tareas que dependan de la finalización correcta de otras para procesar grandes cargas de trabajo de datos similares y de estilo MapReduce en Lote de Azure."
+title: "Uso de las dependencias de las tareas para ejecutar tareas en función de la finalización de otras tareas: Azure Batch | Microsoft Docs"
+description: "Cree tareas que dependan de la finalización de otras para procesar grandes cargas de trabajo de macrodatos similares y de estilo MapReduce en Azure Batch."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,16 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 32293e15b6f610a3613d6b666bdd0eea0495b2b8
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: d7cca5d71d3db45599b47328755c53a023e9c4ae
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="task-dependencies-in-azure-batch"></a>Dependencias de tareas en Lote de Azure
-La característica de dependencias de tareas de Lote de Azure es muy útil si desea procesar:
+# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas
+
+La característica de dependencias de tareas de Azure Batch es muy útil si desea procesar:
 
 * Cargas de trabajo del estilo MapReduce en la nube.
 * Trabajos cuyas tareas de procesamiento de datos se pueden expresar como un gráfico acíclico dirigido (DAG).
@@ -166,9 +169,4 @@ Consulte el artículo [Installing applications and staging data on Batch compute
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagrama: dependencia uno a uno"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependencia uno a varios"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependencia de intervalo de id. de tarea"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

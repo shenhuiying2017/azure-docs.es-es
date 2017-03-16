@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/22/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e8cac4af4b971320429cc4c76b8d806e314e1143
+ms.sourcegitcommit: 3f3ff3d196e9c640e9bd7cf01f9f1218c774ec6b
+ms.openlocfilehash: c06c43d430760a56d08dc0c2f9d158f4124db6d3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -37,24 +38,59 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>Las métricas de IoT Hub y su uso
 IoT Hub proporciona varias métricas para ofrecerle una visión general del estado de su centro y el número total de dispositivos conectados. Puede combinar información de varias métricas para conseguir una imagen más amplia del estado del Centro de IoT. La tabla siguiente describe las métricas de las que cada Centro de IoT realiza un seguimiento y cómo se relaciona cada métrica con el estado general del Centro de IoT.
 
-| Métrica | Descripción de la métrica | Para qué se usa la métrica |
-| --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol | Número de mensajes enviados en todos los dispositivos | Datos de información general sobre el envío de mensajes |
-| d2c.telemetry.ingress.success | Número de mensajes completados correctamente en el Centro | Información general de las recepciones de mensajes completadas correctamente en el Centro |
-| d2c.telemetry.egress.success | El recuento de todas las escrituras correctas en un punto de conexión | Información general de distribución ramificada de mensajes en función de las rutas de un usuario |
-| d2c.telemetry.egress.invalid | El recuento de mensajes no entregados debido a incompatibilidad con el punto de conexión | Información general del número de errores al escribir en el conjunto de puntos de conexión del usuario. Los valores altos pueden indicar puntos de conexión configurados incorrectamente. |
-| d2c.telemetry.egress.dropped | El recuento de mensajes descartados debido a un punto de conexión incorrecto | Información general sobre el número de mensajes descartados dada la configuración actual del centro de IoT |
-| d2c.telemetry.egress.fallback | El recuento de mensajes que coinciden con la ruta de reserva | Para los usuarios que canalizan todos los mensajes a puntos de conexión diferentes del integrado, esta métrica muestra carencias en la configuración de enrutamiento |
-| d2c.telemetry.egress.orphaned | El recuento de mensajes no coincide con ninguna ruta, incluida la ruta de reserva | Información general sobre el número de mensajes huérfanos dada la configuración actual del centro de IoT |
-| d2c.endpoints.latency.eventHubs | La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión de Event Hubs, en milisegundos | La propagación ayuda a los usuarios a identificar una configuración de punto de conexión deficiente |
-| d2c.endpoints.latency.serviceBusQueues | La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión de la cola de Service Bus, en milisegundos | La propagación ayuda a los usuarios a identificar una configuración de punto de conexión deficiente |
-| d2c.endpoints.latency.serviceBusTopic | La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión del tema de Service Bus, en milisegundos | La propagación ayuda a los usuarios a identificar una configuración de punto de conexión deficiente |
-| d2c.endpoints.latency.builtIn.events | La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en el punto de conexión integrado (mensajes/eventos), en milisegundos | La propagación ayuda a los usuarios a identificar una configuración de punto de conexión deficiente |
-| c2d.commands.egress.complete.success | Número de todos los mensajes de comando completados por el dispositivo receptor en todos los dispositivos |Junto con las métricas de abandono y rechazo, ofrece una visión general de la tasa de éxito global de comandos de nube a dispositivo |
-| c2d.commands.egress.abandon.success | Número de todos los mensajes abandonados correctamente por el dispositivo receptor en todos los dispositivos |Destaca los posibles problemas si se están abandonando mensajes con una frecuencia superior a la esperada |
-| c2d.commands.egress.reject.success | Número de todos los mensajes rechazados correctamente por el dispositivo receptor en todos los dispositivos |Destaca los posibles problemas si se están rechazando mensajes con una frecuencia superior a la esperada |
-| devices.totalDevices | Número de dispositivos registrados en el centro de IoT |Número de dispositivos registrados en el Centro |
-| devices.connectedDevices.allProtocol | Número de dispositivos conectados simultáneamente |Información general sobre el número de dispositivos conectados en el Centro |
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
+|---|---|---|---|---|
+|d2c.telemetry.ingress.allProtocol|Intentos de envío de mensajes de telemetría|Recuento|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|
+|d2c.telemetry.ingress.success|Mensajes de telemetría enviados|Recuento|Total|Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub|
+|c2d.commands.egress.complete.success|Comandos completados|Recuento|Total|Número de comandos de la nube al dispositivo que el dispositivo ha completado correctamente|
+|c2d.commands.egress.abandon.success|Comandos abandonados|Recuento|Total|Número de comandos de la nube al dispositivo que el dispositivo ha abandonado|
+|c2d.commands.egress.reject.success|Comandos rechazados|Recuento|Total|Número de comandos de la nube al dispositivo que el dispositivo ha rechazado|
+|devices.totalDevices|Número total de dispositivos|Recuento|Total|Número de dispositivos registrados en IoT Hub|
+|devices.connectedDevices.allProtocol|Dispositivos conectados|Recuento|Total|Número de dispositivos conectados a IoT Hub|
+|d2c.telemetry.egress.success|Mensajes de telemetría entregados|Recuento|Total|Número de veces que los mensajes se han escrito correctamente mensajes en los puntos de conexión (total)|
+|d2c.telemetry.egress.dropped|Mensajes descartados|Recuento|Total|Número de mensajes descartados porque no coincidían con ninguna ruta y porque la ruta de reserva se deshabilitó|
+|d2c.telemetry.egress.orphaned|Mensajes huérfanos|Recuento|Total|El recuento de mensajes no coincide con ninguna ruta, incluida la ruta de reserva|
+|d2c.telemetry.egress.invalid|Mensajes no válidos|Recuento|Total|El recuento de mensajes no entregados debido a incompatibilidad con el punto de conexión|
+|d2c.telemetry.egress.fallback|Mensajes que coinciden con la condición de reserva|Recuento|Total|Número de mensajes escritos en el punto de conexión de reserva|
+|d2c.endpoints.egress.eventHubs|Mensajes entregados a los puntos de conexión de Event Hub|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en los puntos de conexión de Event Hub|
+|d2c.endpoints.latency.eventHubs|Latencia de mensajes para los puntos de conexión del Centro de eventos|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión de Event Hubs, en milisegundos|
+|d2c.endpoints.egress.serviceBusQueues|Mensajes entregados a los puntos de conexión de la cola de Service Bus|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en los puntos de conexión de la cola de Service Bus|
+|d2c.endpoints.latency.serviceBusQueues|Latencia de mensajes para los puntos de conexión de la cola de Service Bus|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión de la cola de Service Bus, en milisegundos|
+|d2c.endpoints.egress.serviceBusTopics|Mensajes entregados a los puntos de conexión del tema de Service Bus|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en los puntos de conexión del tema de Service Bus|
+|d2c.endpoints.latency.serviceBusTopics|Latencia de mensajes para los puntos de conexión del tema de Service Bus|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en un punto de conexión del tema de Service Bus, en milisegundos|
+|d2c.endpoints.egress.builtIn.events|Mensajes entregados al punto de conexión integrado (mensajes y eventos)|Recuento|Total|Número de veces que los mensajes se han escrito correctamente en el punto de conexión integrado (mensajes y eventos)|
+|d2c.endpoints.latency.builtIn.events|Latencia de mensajes para el punto de conexión integrado (mensajes y eventos)|Milisegundos|Media|La latencia media entre la entrada de mensajes en el centro de IoT y la entrada de mensajes en el punto de conexión integrado (mensajes/eventos), en milisegundos |
+|d2c.twin.read.success|Lecturas gemelas correctas de los dispositivos|Recuento|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el dispositivo.|
+|d2c.twin.read.failure|Lecturas gemelas con error de los dispositivos|Recuento|Total|El recuento de todas las lecturas gemelas con error iniciadas por el dispositivo.|
+|d2c.twin.read.size|Tamaño de la respuesta de las lecturas gemelas de dispositivos|Bytes|Media|El valor medio, mínimo y máximo de todas las lecturas gemelas correctas iniciadas por el dispositivo.|
+|d2c.twin.update.success|Actualizaciones gemelas correctas de los dispositivos|Recuento|Total|El recuento de todas las actualizaciones gemelas correctas iniciadas por el dispositivo.|
+|d2c.twin.update.failure|Actualizaciones gemelas con error de los dispositivos|Recuento|Total|El recuento de todas las actualizaciones gemelas con error iniciadas por el dispositivo.|
+|d2c.twin.update.size|Tamaño de las actualizaciones gemelas de los dispositivos|Bytes|Media|El tamaño medio, mínimo y máximo de todas las actualizaciones gemelas correctas iniciadas por el dispositivo.|
+|c2d.methods.success|Invocaciones correctas al método directo|Recuento|Total|El número de todas las llamadas correctas al método directo.|
+|c2d.methods.failure|Invocaciones al método directo con error|Recuento|Total|El número de todas las llamadas al método directo con error.|
+|c2d.methods.requestSize|Tamaño de la solicitud de las invocaciones a métodos directos|Bytes|Media|El valor medio, mínimo y máximo de todas las solicitudes correctas de método directo.|
+|c2d.methods.responseSize|Tamaño de la respuesta de las invocaciones a métodos directos|Bytes|Media|El valor medio, mínimo y máximo de todas las respuestas correctas de método directo.|
+|c2d.twin.read.success|Lecturas gemelas correctas del back-end|Recuento|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el back-end.|
+|c2d.twin.read.failure|Lecturas gemelas con error del back-end|Recuento|Total|El recuento de todas las lecturas gemelas con error iniciadas por el back-end.|
+|c2d.twin.read.size|Tamaño de la respuesta de las lecturas gemelas del back-end|Bytes|Media|El valor medio, mínimo y máximo de todas las lecturas gemelas correctas iniciadas por el back-end.|
+|c2d.twin.update.success|Actualizaciones gemelas correctas del back-end|Recuento|Total|El recuento de todas las actualizaciones gemelas correctas iniciadas por el back-end.|
+|c2d.twin.update.failure|Actualizaciones gemelas con error del back-end|Recuento|Total|El recuento de todas las actualizaciones gemelas con error iniciadas por el back-end.|
+|c2d.twin.update.size|Tamaño de las actualizaciones gemelas del back-end|Bytes|Media|El tamaño medio, mínimo y máximo de todas las actualizaciones gemelas correctas iniciadas por el back-end.|
+|twinQueries.success|Consultas gemelas correctas|Recuento|Total|El recuento de todas las consultas gemelas correctas.|
+|twinQueries.failure|Consultas gemelas con error|Recuento|Total|El recuento de todas las consultas gemelas con error.|
+|twinQueries.resultSize|Tamaño de resultado de consultas gemelas|Bytes|Media|El valor medio, mínimo y máximo del tamaño del resultado de todas las consultas gemelas correctas.|
+|jobs.createTwinUpdateJob.success|Creaciones correctas de trabajos de actualización gemelos|Recuento|Total|El recuento de todas las creaciones correctas de trabajos de actualización gemelos.|
+|jobs.createTwinUpdateJob.failure|Creaciones con error de trabajos de actualización gemelos|Recuento|Total|El recuento de todas las creaciones con error de trabajos de actualización gemelos.|
+|jobs.createDirectMethodJob.success|Creaciones correctas de trabajos de invocación de método|Recuento|Total|El recuento de todas las creaciones correctas de los trabajos de invocación de método directos.|
+|jobs.createDirectMethodJob.failure|Creaciones con error de trabajos de invocación de método|Recuento|Total|El recuento de todas las creaciones con error de los trabajos de invocación de método directos.|
+|jobs.listJobs.success|Llamadas correctas para enumerar trabajos|Recuento|Total|El recuento de todas las llamadas correctas para enumerar trabajos.|
+|jobs.listJobs.failure|Llamadas con error para enumerar trabajos|Recuento|Total|El recuento de todas las llamadas con error para enumerar trabajos.|
+|jobs.cancelJob.success|Cancelaciones de trabajos correctas|Recuento|Total|El recuento de todas las llamadas correctas para cancelar un trabajo.|
+|jobs.cancelJob.failure|Cancelaciones de trabajos con error|Recuento|Total|El recuento de todas las llamadas con error para cancelar un trabajo.|
+|jobs.queryJobs.success|Consultas de trabajo correctas|Recuento|Total|El recuento de todas las llamadas correctas para consultar trabajos.|
+|jobs.queryJobs.failure|Consultas de trabajo con error|Recuento|Total|El recuento de todas las llamadas con error para consultar trabajos.|
+|jobs.completed|Trabajos completados|Recuento|Total|El recuento de todos los trabajos completados.|
+|jobs.failed|Trabajos con error|Recuento|Total|El recuento de todos los trabajos con error.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha visto la información general sobre las métricas de IoT Hub, siga este vínculo para más información sobre la administración de IoT Hub de Azure:
@@ -79,9 +115,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
