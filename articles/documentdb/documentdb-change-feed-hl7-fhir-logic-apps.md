@@ -18,6 +18,7 @@ ms.author: b-hoedid
 translationtype: Human Translation
 ms.sourcegitcommit: c25274ad48edb0c89e3f177277af1a4ae5fb3eec
 ms.openlocfilehash: dafd6aa1172661e82bccb35dc29fd59b2c04dd6e
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -232,10 +233,5 @@ La siguiente imagen muestra todos los servicios de Azure para esta solución eje
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de DocumentDB, consulte la [página principal de DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/). Para más información acerca de Logic Apps, consulte [Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

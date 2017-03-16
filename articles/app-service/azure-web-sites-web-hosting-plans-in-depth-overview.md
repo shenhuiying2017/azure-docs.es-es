@@ -90,7 +90,7 @@ Puede mover una aplicación a un plan distinto de App Service en [Azure Portal](
 
 Para mover una aplicación a otro plan, vaya a la aplicación que desea mover. En el menú **Configuración**, busque **Change App Service plan** (Cambiar plan de App Service).
 
-Se abre el selector del **plan de App Service ******. Llegados a este punto, puede elegir un plan existente o crear uno nuevo. Se muestran únicamente los planes válidos (es decir, los que están en el mismo grupo de recursos y ubicación geográfica).
+**Cambiar plan de App Service** abre el selector **plan de App Service**. Llegados a este punto, puede elegir un plan existente o crear uno nuevo. Se muestran únicamente los planes válidos (es decir, los que están en el mismo grupo de recursos y ubicación geográfica).
 
 ![Selector de plan del Servicio de aplicaciones.][change]
 
