@@ -35,7 +35,7 @@ El artículo contiene dos secciones:
 * La sección [Configuración de la autenticación de usuarios en el Servicio de aplicaciones de Azure](#authconfig) explica de forma general cómo configurar la autenticación de usuarios de cualquier aplicación de API y se aplica por igual a todos los marcos compatibles con el Servicio de aplicaciones, incluyendo .NET, Node.js y Java.
 * A partir de la sección [Continuación de los tutoriales de aplicaciones de API de .NET](#tutorialstart) , el artículo lo guía en la configuración de una aplicación de ejemplo con un back-end de .NET y un front-end de AngularJS para que use Azure Active Directory para la autenticación de los usuarios. 
 
-## <a name="a-idauthconfiga-how-to-configure-user-authentication-in-azure-app-service"></a><a id="authconfig"></a> Configuración de la autenticación de usuarios en el Servicio de aplicaciones de Azure
+## <a id="authconfig"></a> Configuración de la autenticación de usuarios en el Servicio de aplicaciones de Azure
 Esta sección proporciona instrucciones generales que se aplican a cualquier aplicación de API. Para obtener los pasos específicos para la aplicación de ejemplo de .NET To Do List, vaya a [Continuación de los tutoriales de aplicaciones de API de .NET](#tutorialstart).
 
 1. En [Azure Portal](https://portal.azure.com/), vaya a la hoja **Configuración** de la aplicación de API que quiere proteger, busque la sección **Características** y haga clic en **Autenticación/autorización**.
@@ -64,7 +64,7 @@ Al hacerlo, el Servicio de aplicaciones autentica todas las llamadas API antes d
 
 Para realizar llamadas API autenticadas, el autor de la llamada incluye el token de portador de OAuth 2.0 del proveedor de autenticación en el encabezado de autorización de las solicitudes HTTP. El token se puede adquirir mediante el SDK del proveedor de autenticación.
 
-## <a name="a-idtutorialstarta-continuing-the-net-api-apps-tutorials"></a><a id="tutorialstart"></a> Continuación de los tutoriales de aplicaciones de API de .NET
+## <a id="tutorialstart"></a> Continuación de los tutoriales de aplicaciones de API de .NET
 Si está siguiendo la serie de tutoriales de Node.js o Java para aplicaciones de API, vaya al siguiente artículo, [Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-service-principal-auth.md). 
 
 Si está siguiendo la serie de tutoriales de .NET para aplicaciones de API y ya ha implementado la aplicación de ejemplo como se indica en el [primer](app-service-api-dotnet-get-started.md) y el [segundo](app-service-api-cors-consume-javascript.md) tutorial, vaya a la sección [Configuración de la autenticación en App Service y Azure AD](#azureauth).
@@ -80,7 +80,7 @@ Si desea seguir este tutorial sin completar el primero ni el segundo, lleve a ca
 2. Haga clic en el botón **Deploy to Azure** (Implementar en Azure) en el [archivo Léame del repositorio del ejemplo To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) para implementar las aplicaciones de API y la aplicación web. Tome nota del grupo de recursos de Azure que se crea, ya que puede usar más adelante esta información para buscar nombres de aplicación web y de aplicación de API.
 3. Descargue o clone el [repositorio del ejemplo To Do List](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) para obtener el código que funcionará localmente en Visual Studio.
 
-## <a name="a-idazureautha-set-up-authentication-in-app-service-and-azure-ad"></a><a id="azureauth"></a> Configuración de la autenticación en el Servicio de aplicaciones y Azure AD
+## <a id="azureauth"></a> Configuración de la autenticación en el Servicio de aplicaciones y Azure AD
 En este momento. la aplicación se ejecuta en el Servicio de aplicaciones de Azure sin necesidad de que los usuarios se autentiquen. En esta sección se agregará la autenticación, para lo que es preciso realizar las siguientes tareas:
 
 * Configurar el Servicio de aplicaciones para que requiera la autenticación de Azure Active Directory (Azure AD) para llamar a la aplicación de API de nivel intermedio.
@@ -100,7 +100,7 @@ Si experimenta problemas al seguir las instrucciones del tutorial, consulte la s
 4. En **Proveedores de autenticación**, haga clic en **Azure Active Directory**.
    
     ![Hoja Autenticación/autorización del Portal de Azure](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
-5. En la hoja** Configuración de Azure Active Directory**, haga clic en **Rápido**.
+5. En la hoja**Configuración de Azure Active Directory**, haga clic en **Rápido**.
    
     ![Opción Express de Autenticación/autorización del Portal de Azure](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
    
