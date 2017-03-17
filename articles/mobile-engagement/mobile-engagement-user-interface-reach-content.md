@@ -76,7 +76,7 @@ Cada repetición del patrón {deviceid} se reemplaza automáticamente por el ide
   * Ejemplo:geo:0,0?q=starbucks,paris
 * **Acciones solo para iOS**
   * Descargar una aplicación de la App Store
-  * http://itunes.apple.com/[país]/app/[nombre de la aplicación]/id[id. de la aplicación]?mt=8 
+  * http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
   * Ejemplo: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Acciones de Windows
   * Abrir una página web
