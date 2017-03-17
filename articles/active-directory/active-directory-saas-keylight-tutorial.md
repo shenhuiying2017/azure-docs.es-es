@@ -123,7 +123,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     3. En la vista de árbol de la izquierda, haga clic en **SAML**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/402.png) 
-    4. En el cuadro de diálogo **SAML Settings ** (Configuración de SAML), haga clic en **Edit** (Editar).
+    4. En el cuadro de diálogo **SAML Settings** (Configuración de SAML), haga clic en **Edit** (Editar).
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/404.png) 
 6. En la página del cuadro de diálogo **Edit SAML Settings** (Editar la configuración de SAML), realice los pasos siguientes:
@@ -135,7 +135,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     3. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión del proveedor de identidades**.
     4. Haga clic en **Elegir archivo** para seleccionar el certificado de Keylight descargado y después haga clic en **Abrir** para cargarlo.
     5. Establezca **SAML User Id location** (Ubicación de id. de usuario de SAML) en **NameIdentifier element of the subject statement** (Elemento NameIdentifier de la instrucción Subject).
-    6. Proporcione la información del campo **Proveedor de servicios de Keylight mediante el siguiente patrón:**https://&lt;Company Name&gt;.keylightgrc.com**.
+    6. Proporcione la información del campo **Proveedor de servicios de Keylight mediante el siguiente patrón:**https://&lt;Company Name&gt;.keylightgrc.com.
     7. Configure las opciones siguientes:
      * **Auto-provision users** (Usuarios de aprovisionamiento automático) en **Active** (Activado).
      * **Auto-provision account type** (Tipo de cuenta de aprovisionamiento automático) en **Full User** (Usuario completo).
