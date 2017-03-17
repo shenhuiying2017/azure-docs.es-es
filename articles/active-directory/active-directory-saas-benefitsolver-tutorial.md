@@ -11,27 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 8a13dd5ebd872f86247158379b28bc291a9c9d83
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integración de Azure Active Directory con Benefitsolver
 El objetivo de este tutorial es mostrar la integración de Azure y Benefitsolver.  
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para inicio de sesión único en Benefitsolver
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Benefitsolver
 
 Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Benefitsolver podrán realizar inicios de sesión únicos en la aplicación utilizando [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para Benefitsolver
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
@@ -61,15 +63,18 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
    ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
    
-   ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Benefitsolver con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.  
-La aplicación Benefitsolver espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token de SAML** .  
+
+La aplicación Benefitsolver espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token de SAML** . 
+
 La siguiente captura de pantalla le muestra un ejemplo de esto.
 
 ![Atributos](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Atributos")
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Benefitsolver**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configurar inicio de sesión único")
@@ -88,11 +93,10 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
    ![Configurar inicio de sesión único](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configurar inicio de sesión único")
 5. Envíe el archivo de metadatos descargado al equipo de soporte técnico de Benefitsolver.
    
-   > [!NOTE]
-   > El equipo de soporte técnico de Benefitsolver es el que tiene que realizar la configuración real de SSO.
-   > Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
-   > 
-   > 
+   >[!NOTE]
+   >El equipo de soporte técnico de Benefitsolver es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
+   >
+
 6. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configurar inicio de sesión único")
@@ -116,13 +120,13 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
    4. Haga clic en **Complete**.
 9. Haga clic en **Aplicar cambios**.
 
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 Para permitir que los usuarios de Azure AD inicien sesión en Benefitsolver, deben aprovisionarse a Benefitsolver.  
+
 En el caso de Benefitsolver, los datos de empleados en la aplicación se rellenan a través de un archivo Census de su sistema HRIS (normalmente por la noche).  
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Benefitsolver para aprovisionar cuentas de usuario de AAD.
-> 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Benefitsolver para aprovisionar cuentas de usuario de AAD. 
 > 
 
 ## <a name="assigning-users"></a>Asignación de usuarios
@@ -138,10 +142,5 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
    ![Sí](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

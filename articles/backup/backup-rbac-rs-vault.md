@@ -1,6 +1,6 @@
 ---
-title: "Uso del control de acceso basado en rol de Azure para la administración de copias de seguridad | Microsoft Docs"
-description: "Utilice el control de acceso basado en rol para administrar el acceso a las operaciones de administración de copia de seguridad en el almacén de Recovery Services."
+title: "Administración de copias de seguridad con el control de acceso basado en roles de Azure | Microsoft Docs"
+description: "Utilice el control de acceso basado en roles para administrar el acceso a las operaciones de administración de copia de seguridad en el almacén de Recovery Services."
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -13,32 +13,33 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/10/2017
-ms.author: markgal; trinadhk
+ms.author: trinadhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 67c782d13742896812e2398dd9d165d5c0f88dd2
-ms.openlocfilehash: 2a0b9b6be5a639d9b05c16b452274ca7efce771b
+ms.sourcegitcommit: 4bf4814c25f09c4c8637f13753316cd9f200fc42
+ms.openlocfilehash: f7e090916dbe6c6db84c1a110a6627feeb7e20ab
+ms.lasthandoff: 02/23/2017
 
 
 ---
 
-# <a name="use-role-based-access-control-for-backup-management"></a>Uso del control de acceso basado en rol para la administración de copias de seguridad
+# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 > [!IMPORTANT]
-> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure Portal o a los cmdlets de PowerShell del almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del servidor de copia de seguridad de Azure están fuera del control de estos roles. 
+> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure Portal o a los cmdlets de PowerShell del almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del servidor de copia de seguridad de Azure están fuera del control de estos roles.
 
 Azure Backup proporciona 3 roles integrados para controlar las operaciones de administración de copia de seguridad. Más información sobre [roles integrados del control de acceso basado en rol de Azure](../active-directory/role-based-access-built-in-roles.md)
 
-* [Colaborador de copia de seguridad](../active-directory/role-based-access-built-in-roles.md#backup-contributor): Este rol tiene todos los permisos para crear y administrar copias de seguridad, excepto para crear el almacén de Recovery Services y facilitar acceso a otros usuarios. Imagine este rol como administrador de copias de seguridad que puede realizar todas las operaciones de administración de copia de seguridad. 
-* [Operador de copia de seguridad](../active-directory/role-based-access-built-in-roles.md#backup-operator): Este rol tiene permisos para todo lo que puede hacer un colaborador, excepto quitar copias de seguridad y administrar directivas de copia de seguridad. Este rol es equivalente al de colaborador, salvo que no puede realizar operaciones destructivas, como detener copias de seguridad con la eliminación de datos o quitar el registro de recursos locales. 
-* [Lector de copia de seguridad](../active-directory/role-based-access-built-in-roles.md#backup-reader): Este rol tiene permisos para ver todas las operaciones de administración de copia de seguridad. Imagine este rol como una persona de supervisión. 
+* [Colaborador de copia de seguridad](../active-directory/role-based-access-built-in-roles.md#backup-contributor): Este rol tiene todos los permisos para crear y administrar copias de seguridad, excepto para crear el almacén de Recovery Services y facilitar acceso a otros usuarios. Imagine este rol como administrador de copias de seguridad que puede realizar todas las operaciones de administración de copia de seguridad.
+* [Operador de copia de seguridad](../active-directory/role-based-access-built-in-roles.md#backup-operator): Este rol tiene permisos para todo lo que puede hacer un colaborador, excepto quitar copias de seguridad y administrar directivas de copia de seguridad. Este rol es equivalente al de colaborador, salvo que no puede realizar operaciones destructivas, como detener copias de seguridad con la eliminación de datos o quitar el registro de recursos locales.
+* [Lector de copia de seguridad](../active-directory/role-based-access-built-in-roles.md#backup-reader): Este rol tiene permisos para ver todas las operaciones de administración de copia de seguridad. Imagine este rol como una persona de supervisión.
 
 Si quiere definir sus propios roles para tener un mayor control, consulte cómo [crear roles personalizados](../active-directory/role-based-access-control-custom-roles.md) en RBAC de Azure.
 
 
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Asignación de roles integrados de Backup a las acciones de administración de copia de seguridad
-En la tabla siguiente se capturan acciones de administración de Backup y el rol RBAC mínimo correspondiente necesario para realizar esa operación. 
+En la tabla siguiente se capturan acciones de administración de Backup y el rol RBAC mínimo correspondiente necesario para realizar esa operación.
 
 | Operación de administración | Rol RBAC mínimo necesario |
 | --- | --- |
@@ -61,11 +62,4 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
   * [CLI de Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [API DE REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Solución de problemas del control de acceso basado en roles](../active-directory/role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

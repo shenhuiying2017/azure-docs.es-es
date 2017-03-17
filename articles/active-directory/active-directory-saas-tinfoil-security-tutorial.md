@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: e3a93cc039d4e24d19f2df2d859c5899cd2a402e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798965.png "Configure Single Sign-On")
+![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798965.png "Configurar inicio de sesión único")
 
 ## <a name="enabling-the-application-integration-for-tinfoil-security"></a>Habilitación de la integración de aplicaciones para Tinfoil Security
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Tinfoil Security.
@@ -49,19 +50,19 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-    ![Applications](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Aplicaciones")
 
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-    ![Agregar aplicación](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Add application")
+    ![Agregar aplicaciones](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Agregar aplicaciones")
 
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
 6. En el **cuadro de búsqueda**, escriba **Tinfoil Security**.
    
-    ![Galería de aplicaciones](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Application Gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Galería de aplicaciones")
 
 7. En el panel de resultados, seleccione **Tinfoil Security** y, después, haga clic en **Completar** para agregar la aplicación.
    
@@ -75,11 +76,11 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de la aplicación **Tinfoil Security**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configurar inicio de sesión único")
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Tinfoil Security?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, después, haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configurar inicio de sesión único")
 
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **Dirección URL de respuesta de Tinfoil Security**, escriba la dirección URL del Servicio de consumidor de aserciones (ACS) de Tinfoil Security (por ejemplo: "*https://www.tinfoilsecurity.com/saml/consume*" y haga clic en **Siguiente**.
    
@@ -88,25 +89,25 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
     > 
     > 
    
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configurar dirección URL de la aplicación")
 
 4. En la página **Configurar inicio de sesión único en Tinfoil Security**, para descargar el certificado, haga clic en **Descargar certificado** y guarde el archivo de certificado en como **c:\\Tinfoil Security.cer**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Configurar inicio de sesión único")
 
 5. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Tinfoil Security.
 
 6. En la barra de herramientas de la parte superior, haga clic en el icono de **Mi cuenta**.
    
-    ![Panel](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Dashboard")
+    ![Panel](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Panel")
 
 7. Haga clic en **Seguridad**.
    
-    ![Seguridad](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Security")
+    ![Seguridad](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Seguridad")
 
 8. Siga estos pasos en la página de configuración **Inicio de sesión único** :
    
-    ![Inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Single Sign-On")
+    ![Inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Inicio de sesión único")
    
     a. Seleccione **Habilitar SAML**.
    
@@ -127,15 +128,15 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
 9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configurar inicio de sesión único")
 
 10. En el menú de la parte superior, haga clic en **Atributos** to open the **SAML Token Atributos** .
     
-    ![Atributos](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Attributes")
+    ![Atributos](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Atributos")
 
 11. Para agregar las asignaciones de los atributos necesarios, realice los pasos siguientes:
     
-    ![Attributes](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Attributes")
+    ![Atributos](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Atributos")
     
     a. Haga clic en **agregar atributo de usuario**.
 
@@ -167,17 +168,12 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de la aplicación **Tinfoil Security**, haga clic en **Asignar usuarios**.
    
-    ![Asignar usuarios](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Assign Users")
+    ![Asignar usuarios](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Asignar usuarios")
 
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-    ![Sí](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Yes")
+    ![Sí](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

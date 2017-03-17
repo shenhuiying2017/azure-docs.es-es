@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
+ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
+ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -139,6 +140,9 @@ namespaceManager.CreateTopic(td);
 
 Si se envía un mensaje que contiene información importante y que no debe perderse a una entidad exprés, el remitente puede forzar que Service Bus lo conserve inmediatamente en almacenamiento estable si se establece la propiedad [ForcePersistence][ForcePersistence] en **true**.
 
+> [!NOTE]
+> Tenga en cuenta que las entidades exprés no admiten transacciones.
+
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso de colas o temas con particiones
 De forma interna, Service Bus usa el mismo nodo y almacén de mensajería para procesar y almacenar todos los mensajes de una entidad de mensajería (cola o tema). Por otra parte, una cola o un tema con particiones se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas con particiones no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][EnablePartitioning] en **true** como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
@@ -256,9 +260,4 @@ Para obtener más información sobre cómo optimizar el rendimiento de Service B
 [EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
 [TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

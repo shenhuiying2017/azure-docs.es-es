@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
-ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
+ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
+ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
@@ -44,7 +45,7 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 * [¿Por qué se obtiene un error de autenticación al intentar clonar un repositorio?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [¿Funciona API Management con Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [¿Se puede mover un servicio API Management de una suscripción a otra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
-* [¿Existen restricciones de la importación de mi API o problemas conocidos con ella?](#api-management-api-import-restrictions)
+* [¿Existen restricciones de la importación de mi API o problemas conocidos con ella?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>¿Cómo se puede hacer una pregunta al equipo de Microsoft Azure API Management?
 Puede ponerse en contacto con nosotros mediante una de estas opciones:
@@ -62,7 +63,7 @@ Tiene varias opciones para proteger la conexión entre la puerta de enlace de AP
 * Use la autenticación básica HTTP. Para más información, consulte [Definición de la configuración de la API](api-management-howto-create-apis.md#configure-api-settings).
 * Use la autenticación mutua de SSL como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
 * Utilice la lista blanca IP en su servicio back-end. Si tiene una instancia de API Management de nivel Estándar o Premium, la dirección IP de la puerta de enlace permanece constante. Puede establecer una lista blanca para permitir esta dirección IP. Puede obtener la dirección IP de la instancia de API Management en el Panel de Azure Portal.
-* Conecte la instancia de API Management a Azure Virtual Network. Para obtener más información, consulte [Configuración de conexiones VPN en Administración de API de Azure](api-management-howto-setup-vpn.md).
+* Conecte la instancia de API Management a Azure Virtual Network. 
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>¿Cómo se puede copiar mi instancia de servicio de API Management en una nueva instancia?
 Tiene varias opciones si desea copiar una instancia de API Management a una nueva instancia. Puede:
@@ -149,9 +150,4 @@ Sí. Para más información, consulte vea [Traslado de los recursos a un nuevo g
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>¿Existen restricciones de la importación de mi API o problemas conocidos con ella?
 [Problemas conocidos y restricciones](api-management-api-import-restrictions.md) para formatos Open API(Swagger), WSDL y WADL.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

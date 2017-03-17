@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
-ms.openlocfilehash: 2000e2005533d4e4d4c7bba9d5168c395af1499f
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
+ms.openlocfilehash: e41620d3192dbb77a26b79663494e441ccd96d40
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -169,9 +169,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri |recomendado |La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto.  Si no se incluye, se muestra un mensaje genérico al usuario. |
 
 ## <a name="single-sign-out"></a>Cierre de sesión único
-Azure AD utiliza las cookies para identificar una sesión de usuario. La aplicación web también puede establecer cookies para administrar sesiones dentro de la aplicación. Cuando un usuario inicia sesión por vez primera en una aplicación, Azure AD establece una cookie en el explorador del usuario. Si el usuario inicia sesión en otra aplicación, Azure AD comprobará primero la cookie para determinar si el usuario tiene una sesión válida de inicio de sesión con el punto de conexión de Azure AD, en lugar de volver a autenticar al usuario.
-
-De igual manera, si el usuario cierra sesión primero en una aplicación, Azure AD borrará la cookie del explorador. Sin embargo, el usuario podrá permanecer conectado a otras aplicaciones que utilizan Azure AD para la autenticación. Para asegurarse de que el usuario cierra la sesión de todas las aplicaciones, Azure AD envía una solicitud HTTP GET a la `LogoutUrl` de todas las aplicaciones a las que el usuario está conectado en este momento. Las aplicaciones deben responder a esta solicitud borrando las cookies que identifican la sesión del usuario. Puede habilitar `LogoutUrl` desde Azure Portal.
+Cuando redirige al usuario a `end_session_endpoint`, Azure AD borra la sesión del usuario del explorador. Sin embargo, el usuario podrá permanecer conectado a otras aplicaciones que utilizan Azure AD para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, Azure AD envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que tiene una sesión iniciada. Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`.  Si quiere admitir el inicio de sesión único en la aplicación, debe implementar este elemento `LogoutUrl` en el código de la aplicación.  Puede habilitar `LogoutUrl` desde Azure Portal:
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Para elegir la instancia de Active Directory, haga clic en su cuenta en la esquina superior derecha de la página.

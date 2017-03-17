@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: fc681f21925464d37c43a7fae4f6deaf75e357b2
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: c1357e93a1d02e40411696bb36e93fabd1a99400
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure
+# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
+
 Las tareas de instancias múltiples le permiten ejecutar una tarea de Lote de Azure en varios nodos de proceso al mismo tiempo. Estas tareas permiten escenarios de informática de alto rendimiento como las aplicaciones de interfaz de paso de mensajes (MPI) en Lote. En este artículo, aprenderá a ejecutar tareas de instancias múltiples mediante la biblioteca [.NET de Batch][api_net].
 
 > [!NOTE]
@@ -366,9 +369,4 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Información general de instancias múltiples"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

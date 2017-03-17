@@ -1,5 +1,5 @@
 ---
-title: Azure AD Privileged Identity Management | Microsoft Docs
+title: "Configuración de Azure AD Privileged Identity Management | Microsoft Docs"
 description: "Un tema que explica qué es Privileged Identity Management de Azure AD y cómo usar PIM para mejorar la seguridad de la nube."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b52a475008c9d15912c0b363d76118df74112107
-ms.openlocfilehash: b289b9befc67d01689fa87db955b1a10c210a724
-ms.lasthandoff: 02/21/2017
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 89174dad8fcd3bcceafd728feb2211926266720a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-privileged-identity-management"></a>Administración de identidades con privilegios de Azure AD
+# <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 Con Privileged Identity Management de Azure Active Directory (AD), puede administrar, controlar y supervisar el acceso dentro de su organización. Esto incluye el acceso a los recursos de Azure AD y de otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.  
 
 > [!NOTE]

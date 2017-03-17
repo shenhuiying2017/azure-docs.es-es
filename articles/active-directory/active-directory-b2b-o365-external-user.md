@@ -16,29 +16,28 @@ ms.workload: identity
 ms.date: 02/06/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d3f68340592d9032999ecb5cc16ac1fedcce4c33
-ms.openlocfilehash: 716d19be09085db91c17d7ed76422e05d164d137
+ms.sourcegitcommit: 6c8d7dc7d070ce65cbe637359bf7933eac68ce23
+ms.openlocfilehash: ae87c3487abd194c524d067a2a9b7bb9f8df8ac7
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Uso compartido externo de Office 365 y colaboración B2B de Azure Active Directory
 
-Técnicamente, es lo mismo utilizar el uso compartido externo de Office&365; (OneDrive, SharePoint Online, grupos unificados, etc.) y la colaboración B2B de Azure Active Directory (Azure AD). Todos los usos compartidos externos (excepto OneDrive o SharePoint Online), incluidos los **invitados de grupos unificados**, ya están usando la API de invitación de colaboración B2B de Azure AD para el uso compartido.
+Técnicamente, es lo mismo utilizar el uso compartido externo de Office 365 (OneDrive, SharePoint Online, grupos unificados, etc.) y la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD). Todos los usos compartidos externos (excepto OneDrive o SharePoint Online), incluidos los invitados de grupos unificados, ya utilizan la API de invitación de colaboración B2B de Azure AD para el uso compartido.
 
-OneDrive y SharePoint Online (ODSP) tienen un administrador de invitaciones independiente porque su compatibilidad con el uso compartido externo empezó antes de que se ofreciera de forma inherente como parte del tejido de Azure AD. Con el tiempo, el uso compartido externo de ODSP ha acumulado varias características y muchos millones usuarios usan el patrón de uso compartido integrado del producto. Estamos trabajando con ODSP para incorporarlo a las API de invitación de Azure AD B2B (consúltese en esta documentación), con el fin de unificar todas las ventajas de extremo a extremo y aportar todas las innovaciones en las experiencias que crea Azure AD. Mientras tanto, existen algunas diferencias sutiles entre el funcionamiento del uso compartido externo de ODSP y cómo funciona Azure AD B2B:
+OneDrive y SharePoint Online tiene un administrador de invitaciones independiente. La compatibilidad con el uso compartido externo en OneDrive o SharePoint Online comenzó antes que Azure AD desarrollara su compatibilidad. Con el tiempo, el uso compartido externo de OneDrive o SharePoint Online ha acumulado varias características y muchos millones de usuarios que usan el patrón de uso compartido integrado del producto. Estamos trabajando con OneDrive y SharePoint Online para agregar las API de invitación B2B de Azure AD (a las que se hace referencia en esta documentación) con el fin de unificar el proceso entre los productos y adoptar todas las innovaciones que está haciendo Azure AD. Mientras tanto, existen algunas diferencias sutiles entre cómo funciona el uso compartido de OneDrive y SharePoint Online y la colaboración B2B de Azure AD:
 
-1. ODSP agrega el usuario al directorio después de que el usuario haya canjeado su invitación. Por lo tanto, hasta que el usuario no haya canjeado, no verá lo verá en el Portal de Azure AD. Si un usuario recibe una invitación de otro sitio, se genera una nueva invitación. Sin embargo, cuando se utiliza la colaboración B2B, agregamos al usuario inmediatamente en la invitación para que aparezca en todas partes.
+- OneDrive y SharePoint Online agregan usuarios al directorio después de que los usuarios han canjeado sus invitaciones. Por lo tanto, antes del canje, el usuario no se muestra en el portal de Azure AD. Si, mientras tanto, un usuario recibe una invitación de otro sitio, se genera una nueva invitación. Sin embargo, cuando se usa la colaboración B2B de Azure AD, los usuarios se agregan inmediatamente cuando se les invita por lo que se muestran en todas partes.
 
-2. La experiencia de canje de ODSP es diferente a la de la colaboración B2B.
+- La experiencia de canje en OneDrive y SharePoint Online parece diferente de la experiencia de colaboración B2B de Azure AD. Después de que un usuario canjea una invitación, las experiencias se asemejan.
 
-3. Sin embargo, sí que se parecen cuando el usuario canjea la invitación.
+- Los usuarios invitados a la colaboración B2B de Azure AD se pueden seleccionar en los cuadros de diálogo de uso compartido de OneDrive y SharePoint Online. Los usuarios invitados a OneDrive y SharePoint Online también se muestran en Azure AD después de que canjean sus invitaciones.
 
-4. Los usuarios invitados de la colaboración B2B se pueden seleccionar en los cuadros diálogos del uso compartido de ODSP. Los usuarios invitados de ODSP aparecen también en Azure AD una vez hayan canjeado su invitación.
+- Para usar el uso compartido externo de OneDrive o SharePoint Online junto con la colaboración B2B de Azure AD de una forma controlada por los administradores, establezca la configuración del uso compartido externo de OneDrive o SharePoint Online en **Only allow sharing with external users already in the directory** (Solo permitir uso compartido con usuarios externos que ya se encuentren en el directorio). Los usuarios pueden acceder a los sitios compartidos externamente y elegir entre colaboradores externos que haya agregado el administrador. El administrador puede agregar los colaboradores externos a través de la API de invitación de colaboración B2B.
 
-5. Para utilizar el uso compartido externo de ODSP junto con la colaboración B2B de una forma controlada por los administradores, establezca la configuración del uso compartido externo de ODSP en **Only allow sharing with external users already in the directory** (Solo permitir uso compartido con usuarios externos que ya se encuentren en el directorio). Los usuarios pueden acceder a los sitios compartidos externamente y elegir entre colaboradores externos que ha agregado el administrador. El administrador puede agregar los colaboradores externos a través de la API de invitación de colaboración B2B.
-
-![La configuración del uso compartido externo de ODSP](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
+![La configuración de uso compartido externo de OneDrive y SharePoint Online](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -54,9 +53,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Tokens de usuario de colaboración B2B](active-directory-b2b-user-token.md)
 * [Asignación de notificaciones de usuario de colaboración B2B](active-directory-b2b-claims-mapping.md)
 * [Limitaciones actuales de la colaboración B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

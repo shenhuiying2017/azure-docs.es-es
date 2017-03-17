@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: 4e127422e2ad4644aa028cdb987ca5bafa101868
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="query-the-azure-batch-service-efficiently"></a>Consulta eficaz del servicio Lote de Azure
+# <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
+
 Aquí obtendrá información sobre cómo mejorar el rendimiento de la aplicación de Azure Batch reduciendo la cantidad de datos que devuelve el servicio al consultar trabajos, tareas, y nodos de proceso mediante la biblioteca de [.NET de Batch][api_net].
 
 Casi todas las aplicaciones que usan Lote realizan algún tipo de supervisión u otra operación que consulta el servicio de Lote, a menudo a intervalos regulares. Por ejemplo, para determinar si quedan tareas en cola en un trabajo, debe obtener información de cada una de las tareas del trabajo. Para determinar el estado de los nodos de un grupo, tiene que obtener los datos de cada nodo del grupo. En este artículo, se explica cómo ejecutar este tipo de consultas de la manera más eficaz.
@@ -289,9 +292,4 @@ El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y for
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

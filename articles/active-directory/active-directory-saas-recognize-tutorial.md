@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43e9febd4bc230db69b55ae3f5bb13ff17b2e3f6
+ms.sourcegitcommit: a2ce8c3a6aad76ca491ca17beab8555ad77a1142
+ms.openlocfilehash: 3bfb340639674406a0a983106b56ca4a993aaf14
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -37,15 +38,14 @@ Para configurar la integración de Azure AD con Recognize, necesita los siguient
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en Recognize
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
-> 
+ >[!NOTE]
+ >Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
+ > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.
@@ -80,7 +80,7 @@ Para configurar la integración de Recognize en Azure AD, deberá agregar Recogn
    
     ![Selección de la aplicación en la galería](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Recognize con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Recognize para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Recognize.
@@ -89,16 +89,16 @@ Esta relación de vínculo se establece asignando el valor de **nombre de usuari
 
 Para configurar y probar el inicio de sesión único de Azure AD con Recognize, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Recognize](#creating-a-recognize-test-user)**: para tener un homólogo de Britta Simon en Recognize que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Recognize.
 
-**Para configurar el inicio de sesión único de Azure AD con Recognize, siga estos pasos:**
+**Para configurar el inicio de sesión único de Azure AD con Recognize, realice los pasos siguientes:**
 
 1. En el Portal clásico, en la página de integración de aplicaciones de **Recognize**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
@@ -109,17 +109,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 3. En el cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_04.png)
-   
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/sso`.
-   
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/metadata`.
-   
-    c. Haga clic en **Siguiente**
-   
-   > [!NOTE]
-   > Si no conoce estas direcciones URL, escriba las direcciones URL de ejemplo con el patrón de ejemplo. Para obtener estos valores, puede consultar al paso 9 o ponerse en contacto con el equipo de soporte técnico de Recognize en <mailto:support@recognizeapp.com>.
-   > 
-   > 
+  1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/sso`. 
+  2. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/metadata`.
+  3. Haga clic en **Siguiente**.
+  
+    >[!NOTE]
+    >Si no conoce estas direcciones URL, escriba las direcciones URL de ejemplo con el patrón de ejemplo. Para obtener estos valores, puede consultar al paso 9 o ponerse en contacto con el equipo de soporte técnico de Recognize en <mailto:support@recognizeapp.com>.
+    >
+
 4. En la página **Configuración de inicio de sesión único en Recognize**, haga clic en **Descargar certificado** y guarde el archivo de certificado en el equipo.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_05.png)
@@ -133,18 +130,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 8. Siga estos pasos en la sección **SSO Settings** (Configuración de SSO).
    
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_002.png)
-   
-    a. En **Enable SSO** (Habilitar SSO), seleccione **ON** (Activado).
-   
-    b. En el cuadro de texto **IDP Entity ID** (Id. de entidad de IDP), coloque el valor de **Issuer URL** (URL del emisor) del Asistente para configuración de aplicaciones de Azure AD.
-   
-    c. En el cuadro de texto **SSO target URL** (Dirección URL de destino de SSO), coloque el valor de **Dirección URL del servicio de inicio de sesión único** en el Asistente para configuración de aplicaciones de Azure AD.
-   
-    d. En el cuadro de texto **SSO target URL** (Dirección URL de destino de SSO), coloque el valor de **Dirección URL del servicio de cierre de sesión único** en el Asistente para configuración de aplicaciones de Azure AD.
-   
-    e. Abra el archivo de certificado descargado en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado**. 
-   
-    f. Haga clic en el botón **Guardar configuración**. 
+ 1. En **Enable SSO** (Habilitar SSO), seleccione **ON** (Activado).
+ 2. En el cuadro de texto **IDP Entity ID** (Id. de entidad de IDP), coloque el valor de **Issuer URL** (URL del emisor) del Asistente para configuración de aplicaciones de Azure AD. 
+ 3. En el cuadro de texto **SSO target URL** (Dirección URL de destino de SSO), coloque el valor de **Dirección URL del servicio de inicio de sesión único** en el Asistente para configuración de aplicaciones de Azure AD. 
+ 4. En el cuadro de texto **SSO target URL** (Dirección URL de destino de SSO), coloque el valor de **Dirección URL del servicio de cierre de sesión único** en el Asistente para configuración de aplicaciones de Azure AD. 
+ 5. Abra el archivo de certificado descargado en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado**.  
+ 6. Haga clic en el botón **Guardar configuración**. 
 9. Junto a la sección de **configuración de SSO**, copie la dirección URL en **Service Provider Metadata url** (Dirección URL de metadatos del proveedor de servicio).
    
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_003.png)
@@ -158,7 +149,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
@@ -178,56 +169,44 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_05.png)
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+ 1. En Tipo de usuario, seleccione Nuevo usuario de la organización.  
+ 2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**. 
+ 3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_06.png)
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_06.png) 
+ 1. En el cuadro de texto **Nombre**, escriba **Britta**.   
+ 2. En el cuadro de texto **Apellidos**, escriba **Simon**. 
+ 3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**. 
+ 4. En la lista **Rol**, seleccione **Usuario**. 
+ 5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_07.png)
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_08.png)
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_08.png) 
+ 1. Anote el valor del campo **Nueva contraseña**. 
+ 2. Haga clic en **Completo**.   
 
-### <a name="creating-a-recognize-test-user"></a>Creación de un usuario de prueba de Recognize
+### <a name="create-a-recognize-test-user"></a>Creación de un usuario de prueba de Recognize
 Para permitir que los usuarios de Azure AD inicien sesión en Recognize, deben aprovisionarse en Recognize. En el caso de Recognize, el aprovisionamiento es una tarea manual.
 
 Esta aplicación no admite el aprovisionamiento SCIM, pero tiene una sincronización de usuario alternativa que aprovisiona a los usuarios. 
 
-#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para aprovisionar una cuenta de usuario, realice estos pasos:
+**Para aprovisionar una cuenta de usuario, realice estos pasos:**
+
 1. Inicie sesión en su sitio de la compañía de Recognize como administrador.
 2. En la esquina superior derecha, haga clic en **Menú**. Vaya a **Company Admin** (Administrador de empresa).
 3. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración).
 4. En la sección **User Sync** (Sincronización de usuario), siga estos pasos.
    
-   ![Nuevo usuario](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_005.png "New User")
-   
-   a. En **Sync Enabled** (Sincronización habilitada), seleccione **ON** (Activado).
-   
-   b. En **Choose sync provider** (Elegir proveedor de sincronización), seleccione **Microsoft/Office 365**.
-   
-   c. Haga clic en **Run User Sync** (Ejecutar sincronización de usuario).
+   ![Nuevo usuario](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_005.png "Nuevo usuario")   
+ 1. En **Sync Enabled** (Sincronización habilitada), seleccione **ON** (Activado). 
+ 2. En **Choose sync provider** (Elegir proveedor de sincronización), seleccione **Microsoft/Office 365**. 
+ 3. Haga clic en **Run User Sync** (Ejecutar sincronización de usuario).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Recognize.
 
 ![Asignar usuario][200]
@@ -248,7 +227,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Recognize en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Recognize.
@@ -274,9 +253,4 @@ Al hacer clic en el icono de Recognize en el Panel de acceso, debería iniciar s
 [203]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

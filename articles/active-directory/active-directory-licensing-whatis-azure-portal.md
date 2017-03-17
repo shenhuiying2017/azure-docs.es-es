@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 1f4e0904c9025ce0b21d904acc7b959e823039ef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 0591b536a9be901085074f4b49fc65b097382835
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>¿En qué consisten las licencias basadas en grupos de Azure Active Directory?
+# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Aspectos básicos de las licencias basadas en grupos en Azure Active Directory
 
 Los Servicios en la nube de Microsoft como Office 365, Enterprise Mobility + Security, Dynamics CRM y otros productos similares requieren la asignación de licencias a cada usuario que necesita acceder a estos servicios. La administración de licencias se expone a los administradores a través de uno de los portales de administración (Office o Azure) y los cmdlets de PowerShell. El estado de asignación de licencia se almacena en Azure Active Directory; la infraestructura subyacente compatible con la administración de identidades para todos los Servicios en la nube de Microsoft.
 
-Hasta ahora, las licencias solo pueden asignarse a nivel de cada usuario, lo que puede dificultar a los clientes una administración a gran escala. Por ejemplo, para agregar o quitar licencias de usuario en función de los cambios que se producen en la organización, por ejemplo, la incorporación o la baja de un usuario en la organización o en un departamento, un administrador a menudo debe escribir un script de PowerShell complejo para realizar llamadas individuales al servicio en la nube.
+Hasta ahora, las licencias solo podían asignarse a nivel de cada usuario, lo que puede dificultar a los clientes una administración a gran escala. Por ejemplo, para agregar o quitar licencias de usuario en función de los cambios que se producen en la organización, por ejemplo, la incorporación o la baja de un usuario en la organización o en un departamento, un administrador a menudo debe escribir un script de PowerShell complejo para realizar llamadas individuales al servicio en la nube.
 
 Para abordar estos desafíos, se ha introducido una nueva funcionalidad en el sistema de administración de licencias de Azure AD: licencias basadas en grupos. Ahora es posible asignar una o varias licencias de producto a un grupo. Azure AD se asegurará de que las licencias se asignen a todos los miembros del grupo. A todos los miembros nuevos que se unan al grupo se les asignarán las licencias correspondientes, y cuando dejen el grupo, dichas licencias se retirarán. De esta forma, ya no es necesario automatizar la administración de licencias a través de PowerShell para reflejar los cambios que se producen en la organización y en la estructura de departamento por cada usuario.
 
@@ -59,5 +60,5 @@ Para más información sobre otros escenarios de administración de licencias ba
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) (Asignación de licencias a un grupo en Azure Active Directory)
 * [Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md) (Escenarios adicionales de licencias basadas en grupos de Azure Active Directory)
+* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](active-directory-licensing-group-advanced.md)
 

@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 02/27/2017
 ms.author: chrande; glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b41a5aacec6748af5ee05b01487310cc339af1f9
-ms.openlocfilehash: 542e5378aff893741a68c979bc2c5e8bfe58ba26
+ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
+ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-functions-timer-trigger"></a>Desencadenador de temporizador de funciones de Azure
+# <a name="schedule-code-execution-with-azure-functions"></a>Programación de la ejecución de código con Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-En este artículo se explica cómo configurar y codificar desencadenadores de temporizador en Azure Functions. Azure Functions admite los desencadenadores de temporizadores. El temporizador desencadena las funciones de llamada según una programación, una hora o de forma periódica. 
+En este artículo se explica cómo configurar y codificar desencadenadores de temporizador en Azure Functions. Azure Functions incluye un enlace a un desencadenador de temporizador que le permite ejecutar su código de función según una programación definida. 
 
 El desencadenador de temporizador admite varias instancias de escalado horizontal. Una sola instancia de una función de temporizador determinada se ejecuta en todas las instancias.
 
@@ -45,21 +47,26 @@ El desencadenador de temporizador de una función usa el siguiente objeto JSON e
 }
 ```
 
-El valor de `schedule` es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`. En muchas de las expresiones CRON que se encuentran en Internet se omite el campo `{second}`. Si copia alguna de ellas, deberá ajustarla para el campo `{second}` adicional. Para obtener ejemplos específicos, vea [Programación de ejemplos](#examples) a continuación.
+El valor de `schedule` es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye estos seis campos: 
 
-La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Si desea que la expresión CRON se base en otra zona horaria, cree una nueva configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx) (Índice de zona horaria de Microsoft). 
+    {second} {minute} {hour} {day} {month} {day-of-week}
+&nbsp;
+>[!NOTE]   
+>En muchas de las expresiones CRON que se encuentran en Internet se omite el campo `{second}`. Si copia alguna de ellas, deberá ajustarla para el campo `{second}` adicional. Para obtener ejemplos específicos, vea [Programación de ejemplos](#examples) a continuación.
 
-Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Si desea que el desencadenador de temporizador se active a las 10:00 EST todos los días, puede utilizar la siguiente expresión CRON que tiene en cuenta la zona horaria UTC:
+La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una nueva configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx) (Índice de zona horaria de Microsoft). 
+
+Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desencadenador de temporizador se dispare a las 10 a.m. (Hora estándar), use la siguiente expresión CRON que representa la zona horaria UTC:
 
 ```json
 "schedule": "0 0 15 * * *",
-``` 
+```    
 
 Si lo prefiere, puede agregar una nueva configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE` y establecer el valor en **Hora estándar del Este**.  A continuación, se podría usar la siguiente expresión CRON para las 10:00 EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
-``` 
+```    
 
 
 <a name="examples"></a>
@@ -67,7 +74,7 @@ Si lo prefiere, puede agregar una nueva configuración de aplicación para la ap
 ## <a name="schedule-examples"></a>Ejemplos de programación
 Estos son algunos ejemplos de expresiones CRON que puede utilizar para la propiedad `schedule`. 
 
-Para desencadenar una vez cada cinco minutos:
+Para que se desencadene una vez cada cinco minutos:
 
 ```json
 "schedule": "0 */5 * * * *"
@@ -184,10 +191,5 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

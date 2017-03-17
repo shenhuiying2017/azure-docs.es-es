@@ -3,7 +3,7 @@ title: "Actualización de la propia contraseña mediante Azure Active Directory 
 description: "Descubra los modos en los que puede registrarse para el restablecimiento de contraseña, cambiar la contraseña y restablecer la contraseña en caso de que alguna vez la olvide."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1535ce0e68b710feed6c7c063a7e0570535fe3dc
+ms.sourcegitcommit: 030e6a202ff111ef1a51d00a3ef5826ada536711
+ms.openlocfilehash: e7ccdbdee8bf29646e05bd168562f6e141790c5d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -33,34 +34,34 @@ Si no está seguro de cómo administrar la contraseña de su cuenta profesional 
 ## <a name="dont-lose-access-to-your-account"></a>Actualización de la propia contraseña
 > [!IMPORTANT]
 > **¿Por qué veo esto?** Si ha seguido un vínculo para llegar aquí, probablemente verá esto porque el administrador requiere que se registre para el restablecimiento de contraseña y acceder a la aplicación. Es posible que se le solicite información de teléfono o correo electrónico, o que tenga que configurar preguntas de seguridad.  No se preocupe: no usaremos esa información para enviarle correo no deseado. El único objetivo es mantener su cuenta aún más protegida. Los pasos que aparecen a continuación deben ayudarle a alcanzar su objetivo.
-> 
-> 
+>
+>
 
 La forma más rápida de registrarse para el restablecimiento de contraseña es ir a [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
 
 1. Vaya a [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
 2. Escriba su nombre de usuario y contraseña.
 3. Elija una opción para registrarse haciendo clic en **Configurar ahora**.  En este caso, demostraré el registro de mi **teléfono de autenticación**.
-   
+
    ![][011]
 4. Seleccione el código de país en la lista desplegable y escriba su **número de teléfono completo + el código de área**.
-   
+
    ![][012]
    ![][013]
 5. Seleccione una de las opciones **enviarme un mensaje de texto** o **llamarme**.  En este caso, seleccionaré **enviarme un mensaje de texto**, lo cual enviará un código de 6 dígitos a mi teléfono.  Espere a que el código llegue a su teléfono.
-   
+
    ![][014]
 6. Una vez que llega el código, escríbalo en el cuadro de entrada y haga clic en Comprobar.
 7. Cuando vea **gracias**, ya está. Ahora puede usar el registro para restablecer la contraseña en cualquier momento yendo a [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-   
+
    ![][015]
-   
+
    > [!IMPORTANT]
    > Si el administrador le permite registrarse para más de una opción, es muy recomendable que también se registre para una opción de copia de seguridad por si acaso pierde su teléfono o el acceso a su correo electrónico.
-   > 
-   > 
+   >
+   >
 
-## <a name="how-to-change-your-password-from-o365"></a>Cambio de la contraseña en Office 365
+## <a name="how-to-change-your-password-from-o365"></a>Cambio de la contraseña en Office&365;
 Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o educativa en Office 365.  Si ha olvidado su contraseña y desea restablecerla, siga los pasos que se describen [aquí](#how-to-reset-your-password).
 
 1. Inicie sesión en Office 365 con su cuenta profesional o educativa.
@@ -78,7 +79,7 @@ Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o
 3. Haga clic en el icono **Cambiar mi contraseña** en el lado derecho de la pantalla.
 4. Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
 5. Haga clic en **Enviar**.
-   
+
    ¿Surge un problema al cambiar la contraseña?  Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
 
 ## <a name="how-to-reset-your-password"></a>Restablecimiento de la contraseña
@@ -86,43 +87,43 @@ Para restablecer la contraseña de su cuenta profesional o educativa desde cualq
 
 > [!IMPORTANT]
 > Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica.  Puede hacer clic en el vínculo Póngase en contacto con el administrador en este caso para ponerse en contacto con el administrador y desbloquear la cuenta.
-> 
+>
 > Si el administrador ha habilitado para usted esta característica, primero debe registrarse antes de utilizarla. Puede hacerlo aquí: http://aka.ms/ssprsetup.
-> 
-> 
+>
+>
 
 1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en uno de los vínculos ¿No se puede tener acceso a su cuenta? u ¿Olvidó su contraseña?, , o bien vaya a https://passwordreset.microsoftonline.com directamente.
-   
+
    ![][001]
 2. En la página ¿Quién es usted?, escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot.
-   
+
    ![][002]
 3. Haga clic en el botón "Siguiente".
 4. Elija una opción para restablecer su contraseña.  Según cómo su administrador haya configurado el sistema, puede que vea una o varias de las siguientes opciones:
-   
+
    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**: envía un correo electrónico con un código de 6 dígitos a su **correo electrónico alternativo** o **correo electrónico de autenticación** (según elija).
    * **Enviar mensaje de texto a mi teléfono móvil**: envía un mensaje de texto con un código de 6 dígitos a su **teléfono móvil** o al **correo electrónico de autenticación** (según elija).
    * **Llamar a mi teléfono móvil**: llama a su **teléfono móvil** o **teléfono de autenticación** (según elija); presione la tecla *#* para verificar la llamada.
    * **Llamar a mi teléfono del trabajo**: llama a su **teléfono del trabajo**; presione la tecla *#* para verificar la llamada.
    * **Responder a mis preguntas de seguridad** : muestra las preguntas de seguridad registradas previamente para que responda.
-   
+
    ![][003]
 5. Como ejemplo usaremos la opción "Enviar mensajes de texto a mi teléfono móvil".  Si va a usar una opción basada en el teléfono, antes de que le podamos enviar un mensaje de texto deberá confirmar el número de teléfono.  Escriba su número de teléfono completo y luego haga clic en **Siguiente** para confirmar que es correcto y enviar un mensaje de texto.
-   
+
    ![][004]
 6. Cuando reciba el texto, asegúrese de usar el código de verificación que aparece en el cuerpo del mensaje, no el número desde el que se le envió el código.  Puede que el mensaje de texto tarde un poco en llegar, ¡puede aprovechar para tomarse un café!.
-   
+
    ![][009]
 7. Ahora, escriba el código que acaba de recibir en el teléfono en el cuadro de entrada de la página.
-   
+
    ![][005]
 8. Es posible que el administrador solicite un segundo paso de verificación, en cuyo caso repita el paso 4 con una opción diferente seleccionada.
 9. En la pantalla "Elegir una nueva contraseña", seleccione una nueva contraseña y confirme su elección, y luego haga clic **Finalizar**.
-   
+
    ![][006]
    ![][007]
 10. Cuando vea la página de que todo ha ido bien, está preparado para comenzar.  Ahora puede iniciar sesión con la nueva contraseña.
-    
+
     ![][008]
 
 ¿Surge un problema al restablecer la contraseña?  Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
@@ -132,45 +133,45 @@ Para desbloquear la cuenta local, siga estos pasos desde la pantalla de inicio d
 
 > [!IMPORTANT]
 > Esta característica solo está disponible si el administrador la ha activado.  Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica.  Puede hacer clic en el vínculo Póngase en contacto con el administrador en este caso para ponerse en contacto con el administrador y desbloquear la cuenta.
-> 
+>
 > Si el administrador ha habilitado para usted esta característica, primero debe registrarse antes de utilizarla.  Puede hacerlo aquí: http://aka.ms/ssprsetup.
-> 
-> 
+>
+>
 
 1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en uno de los vínculos ¿No se puede tener acceso a su cuenta? u ¿Olvidó su contraseña?, , o bien vaya a https://passwordreset.microsoftonline.com directamente.
-   
+
    ![][001]
 2. En la página ¿Quién es usted?, escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot.
-   
+
    ![][002]
 3. Haga clic en el botón "Siguiente".
 4. Elija una opción para desbloquear la cuenta.  Según cómo su administrador haya configurado el sistema, puede que vea una o varias de las siguientes opciones:
-   
+
    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**: envía un correo electrónico con un código de 6 dígitos a su **correo electrónico alternativo** o **correo electrónico de autenticación** (según elija).
    * **Enviar mensaje de texto a mi teléfono móvil**: envía un mensaje de texto con un código de 6 dígitos a su **teléfono móvil** o al **correo electrónico de autenticación** (según elija).
    * **Llamar a mi teléfono móvil**: llama a su **teléfono móvil** o **teléfono de autenticación** (según elija); presione la tecla *#* para verificar la llamada.
    * **Llamar a mi teléfono del trabajo**: llama a su **teléfono del trabajo**; presione la tecla *#* para verificar la llamada.
    * **Responder a mis preguntas de seguridad** : muestra las preguntas de seguridad registradas previamente para que responda.
-   
+
    ![][003]
 5. Como ejemplo usaremos la opción "Enviar mensajes de texto a mi teléfono móvil".  Si va a usar una opción basada en el teléfono, antes de que le podamos enviar un mensaje de texto deberá confirmar el número de teléfono.  Escriba su número de teléfono completo y luego haga clic en **Siguiente** para confirmar que es correcto y enviar un mensaje de texto.
-   
+
    ![][004]
 6. Cuando reciba el texto, asegúrese de usar el código de verificación que aparece en el cuerpo del mensaje, no el número desde el que se le envió el código.  Puede que el mensaje de texto tarde un poco en llegar, ¡puede aprovechar para tomarse un café!.
-   
+
    ![][009]
 7. Ahora, escriba el código que acaba de recibir en el teléfono en el cuadro de entrada de la página.
-   
+
    ![][005]
 8. Es posible que el administrador solicite un segundo paso de verificación, en cuyo caso debe repetir el paso 4 con una opción diferente seleccionada.
 9. Cuando vea la página de que todo ha ido bien, está preparado para comenzar.  La cuenta local se ha desbloqueado y ahora puede iniciar sesión una vez más.
-   
+
    ![][010]
-   
+
    > [!IMPORTANT]
    > Asegúrese de actualizar todos los dispositivos con la contraseña más reciente, dado que en ocasiones una aplicación no autorizada con una contraseña antigua (por ejemplo, su cliente de correo electrónico del teléfono) puede ser la principal causa de que su cuenta se haya bloqueado.
-   > 
-   > 
+   >
+   >
 
 ¿Surge un problema al desbloquear la cuenta?  Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
 
@@ -231,7 +232,7 @@ A continuación se presentan algunos casos terror comunes y sus soluciones:
         </tbody></table>
 
 
-## <a name="links-to-password-reset-documentation"></a>Vínculos a la documentación de restablecimiento de la contraseña
+## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
@@ -257,10 +258,5 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [012]: ./media/active-directory-passwords-update-your-own-password/012.jpg "Image_012.jpg"
 [013]: ./media/active-directory-passwords-update-your-own-password/013.jpg "Image_013.jpg"
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
-[015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[015]: ./media/active-directory-passwords-update-your-own-password/015.png "Image_015.png"
 

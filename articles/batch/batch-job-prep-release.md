@@ -1,5 +1,5 @@
 ---
-title: "Uso de tareas de preparación y liberación de trabajos: Azure Batch | Microsoft Docs"
+title: "Creación de tareas para preparar trabajos y completarlos en nodos de proceso - Azure Batch | Microsoft Docs"
 description: "Utilice las tareas de preparación en el nivel de trabajo para minimizar la transferencia de datos a los nodos de proceso de Azure Batch y las tareas de liberación para la limpieza del nodo tras la finalización del trabajo."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3b34a9665bfab85abbd633d01139ba2da2249bbf
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="run-job-preparation-and-completion-tasks-on-azure-batch-compute-nodes"></a>Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure
+# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
+
  A menudo, Azure Batch requiere algún tipo de configuración antes de ejecutar sus tareas y un mantenimiento posterior al trabajo una vez completadas sus tareas. Puede ser necesario descargar los datos de entrada de tareas comunes en los nodos de proceso, o bien cargar datos de salida de tareas en Azure Storage una vez completado el trabajo. Puede usar las tareas de **preparación del trabajo** y **liberación del trabajo** para realizar estas operaciones.
 
 ## <a name="what-are-job-preparation-and-release-tasks"></a>Tareas de preparación y liberación de trabajos
@@ -222,9 +225,4 @@ Escrito por uno de los miembros del equipo de Azure Batch, describe varias técn
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,9 +1,9 @@
 ---
-title: "Personalizar: Administración de contraseñas de Azure AD | Microsoft Docs"
-description: "Cómo personalizar el aspecto, el comportamiento y las notificaciones de la Administración de contraseñas en Azure AD para satisfacer sus necesidades."
+title: "Personalización: administración de contraseñas de Azure Active Directory | Microsoft Docs"
+description: "Cómo personalizar el aspecto, el comportamiento y las notificaciones de administración de contraseñas en Azure AD para satisfacer sus necesidades."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 88a1d39337a8aebf58b6b35841acc4348e1baeae
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
 > [!IMPORTANT]
 > **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda explorar y jugar con todas las opciones de configuración de administración de contraseñas que están a su disposición. De hecho, puede empezar a explorarlas de inmediato en la pestaña de configuración de la **extensión de Active Directory** en el [Portal de Azure clásico](https://manage.windowsazure.com). Este tema le guiará a través de todas las diferentes personalizaciones de la Administración de contraseñas que puede realizar como administrador desde la pestaña **Configurar** del directorio dentro del [Portal de Azure clásico](https://manage.windowsazure.com), entre las que se incluyen las siguientes:
+A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda explorar y jugar con todas las opciones de configuración de administración de contraseñas que están a su disposición. De hecho, puede empezar a explorarlas de inmediato en la pestaña de configuración de la **extensión de Active Directory** en el [Portal de Azure clásico](https://manage.windowsazure.com). Este tema le guiará a través de todas las diferentes personalizaciones de la administración de contraseñas que puede realizar como administrador desde la pestaña **Configurar** del directorio dentro del [Portal de Azure clásico](https://manage.windowsazure.com), entre las que se incluyen las siguientes:
 
 | Tema. |  |
 | --- | --- |
@@ -40,7 +41,7 @@ A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda expl
 | ¿Cómo puedo forzar a que mis usuarios se registren al iniciar sesión? |[Implementación de restablecimiento de contraseña basado en registro forzoso](#require-users-to-register-when-signing-in) |
 | ¿Cómo se puede forzar a que los usuarios confirmen de nuevo su registro periódicamente? |[Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) |
 | ¿Cómo puedo personalizar cómo los usuarios se ponen en contacto con un administrador? |[Configuración: personalización del vínculo "póngase en contacto con su administrador"](#customize-the-contact-your-administrator-link) |
-| ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? |[Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD locales sin restablecer una contraseña? |[Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? |[Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? |[Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) |
 | ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? |[Configuración: nombre, marca y logotipo de la empresa ](#password-management-look-and-feel) |
@@ -135,13 +136,13 @@ Determina si el logotipo se muestra en la parte inferior de los correos electró
             </tr>
           </tbody></table>
 
-## <a name="password-management-behavior"></a>Comportamiento de la Administración de contraseñas
+## <a name="password-management-behavior"></a>Comportamiento de la administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas.  Puede configurar estas opciones en la sección **Directiva de restablecimiento de contraseña** del usuario en la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
 
 > [!NOTE]
 > La cuenta de administrador que se está usando debe tener una licencia de AAD Premium asignada para ver estos controles de directivas.<br><br>Estos controles de directiva solo se aplican a usuarios finales que restablecen sus contraseñas, no a administradores.  **Los administradores tienen una directiva predeterminada de correo electrónico alternativo o teléfono móvil que se especifica para ellos por parte de Microsoft y que no se puede cambiar.**
-> 
-> 
+>
+>
 
 <table>
             <tbody><tr>
@@ -744,12 +745,12 @@ Si se ha implementado y configurado la escritura diferida y este modificador se 
                   <li class="unordered">
 Si el modificador se establece en <strong>Sí</strong>, se habilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña pueden restablecer sus contraseñas.<br><br></li>
                 </ul>
-              </td>
+              </td
             </tr>
              <tr>
               <td>
                 <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
-                  <p>Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña</p>
+                  <p>Permitir que los usuarios desbloqueen cuentas de Active Directory locales sin restablecer la contraseña</p>
                 </div>
               </td>
               <td>
@@ -783,7 +784,7 @@ Después de habilitar esta opción, cuando un usuario con una cuenta local que e
             </tr>
           </tbody></table>
 
-## <a name="password-management-notifications"></a>Notificaciones de Administración de contraseñas
+## <a name="password-management-notifications"></a>Notificaciones de administración de contraseñas
 En la tabla siguiente se describe cómo afecta cada control a la experiencia de los usuarios y administradores que reciben notificaciones de restablecimiento de contraseña.  Puede configurar estas opciones en la sección **Notificaciones** de la pestaña **Configurar** de su directorio en el [Portal de administración de Azure](https://manage.windowsazure.com).
 
 <table>
@@ -864,7 +865,7 @@ Esta notificación se envía por correo electrónico al nombre principal del usu
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Vínculos a la documentación de restablecimiento de contraseña
+## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
 * **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
@@ -877,9 +878,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

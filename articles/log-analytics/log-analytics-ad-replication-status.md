@@ -1,5 +1,5 @@
 ---
-title: "Solución de Estado de replicación de Active Directory en Log Analytics | Microsoft Docs"
+title: "Supervisión del estado de replicación de Active Directory con Azure Log Analytics | Microsoft Docs"
 description: "El paquete de la solución de Estado de replicación de Active Directory supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación y muestra los resultados en el panel de OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
-ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="active-directory-replication-status-solution-in-log-analytics"></a>Solución de Estado de replicación de Active Directory en Log Analytics
+# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Supervisión del estado de replicación de Active Directory con Azure Log Analytics
+
 Active Directory es un componente clave de un entorno de TI empresarial. Para garantizar la alta disponibilidad y el alto rendimiento, cada controlador de dominio tiene su propia copia de la base de datos de Active Directory. Los controladores de dominio se replican entre sí con el fin de propagar los cambios en toda la empresa. Los errores en este proceso de replicación pueden provocar una serie de problemas en toda la empresa.
 
 El paquete de la solución de Estado de replicación de AD supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación y muestra los resultados en el panel de OMS.
@@ -150,9 +153,4 @@ Si no desea conectar ninguno de los controladores de dominio directamente a OMS 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Utilice [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de estado de replicación de Active Directory.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

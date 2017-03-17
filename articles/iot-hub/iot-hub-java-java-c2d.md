@@ -12,11 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 02/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: bd3b92e044a28237706fb004fdc43cca056047ad
+ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
+ms.openlocfilehash: 6bf9136e1d95d4abd98010a1debbe875dc152e3f
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -97,7 +98,7 @@ En esta sección, escribirá una aplicación de consola de Java que envía mensa
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <version>1.0.11</version>
     </dependency>
     ```
 4. Guarde y cierre el archivo pom.xml.
@@ -114,9 +115,9 @@ En esta sección, escribirá una aplicación de consola de Java que envía mensa
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "{yourdeviceid}";
-    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQP;
+    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
-8. Reemplace el método **main** por el siguiente código que conecta con el centro de IoT, envía un mensaje al dispositivo y luego espera una confirmación de que el dispositivo ha recibido y procesado el mensaje:
+8. Reemplace el método **main** por el código siguiente: Este código conecta con el centro de IoT, envía un mensaje al dispositivo y luego espera una confirmación de que el dispositivo ha recibido y procesado el mensaje:
    
     ```
     public static void main(String[] args) throws IOException,
@@ -192,9 +193,4 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://portal.azure.com
 [Documentación del Conjunto de aplicaciones de IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dae5382a07ca1308f9c543155dd93ecbecf72f4f
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: e7b00e2dd5031303e5837e8eb0290a27a177965b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -35,20 +36,21 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Expensify, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para el inicio de sesión único de Expensify
+* Una suscripción habilitada para el inicio de sesión único en Expensify
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único (SSO) de Azure AD en un entorno de prueba. 
+
+La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar Expensify desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -76,24 +78,25 @@ Para configurar la integración de Expensify en Azure AD, deberá agregar Expens
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_01.png)
 7. En el panel de resultados, seleccione **Expensify** y haga clic en **Completar** para agregar la aplicación.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Expensify con un usuario de prueba denominado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Expensify para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Expensify.  
+
 Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como valor del **nombre de usuario** en Expensify.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Expensify, necesita completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Expensify, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Expensify](#creating-an-expensify-test-user)** : para tener un homólogo de Britta Simon en Expensify que esté vinculado a su representación en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Expensify.
 
-**Para configurar el inicio de sesión único de Azure AD con Expensify, siga estos pasos:**
+**Para configurar el inicio de sesión único de Azure AD con Expensify, realice los pasos siguientes:**
 
 1. En el Portal clásico, en la página de integración de aplicaciones de **Expensify**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
@@ -104,40 +107,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_04.png) 
-
-    a. En el cuadro de texto de la dirección URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Expensify con el siguiente patrón: **“https://www.expensify.com/authentication/saml/login”**.
-
-
-1. En la página **Configurar inicio de sesión único en Expensify** , siga estos pasos:
+  1. En el cuadro de texto de la dirección URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Expensify con el siguiente patrón: **“https://www.expensify.com/authentication/saml/login”**.
+4. En la página **Configurar inicio de sesión único en Expensify** , siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_05.png) 
-   
-    a. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
-2. Para habilitar SSO en Expensify, primero deberá habilitar el **control de dominio** en la aplicación. Se puede habilitar el control de dominio de la aplicación. Se enumeran los pasos [aquí](http://help.expensify.com/domain-control). Si necesita más ayuda, puede ponerse en contacto a través de la compatibilidad de Expensify [help@expensify.com](mailto:help@expensify.com). Una vez habilitado el control de dominio, siga estos pasos:
+    ![Configurar inicio de sesión único](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_05.png)   
+  1. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
+5. Para habilitar SSO en Expensify, primero deberá habilitar el **control de dominio** en la aplicación. Se puede habilitar el control de dominio de la aplicación. Se enumeran los pasos [aquí](http://help.expensify.com/domain-control). Si necesita más ayuda, puede ponerse en contacto a través de la compatibilidad de Expensify [help@expensify.com](mailto:help@expensify.com). Una vez habilitado el control de dominio, siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png) 
-   
-    a. Inicie sesión en la aplicación Expensify.
-   
-    b. En la barra de herramientas de la parte superior, haga clic en **Administración**.
-   
-    c. Haga clic en **Control de dominio**en el panel izquierdo.
-   
-    d. Haga clic en su nombre de dominio comprobado.
-   
-    e. En el panel izquierdo, haga clic en **SAML** y, a continuación, seleccione **Habilitado**.
-   
-    f. Abra el documento de metadatos de federación descargado desde Azure AD, copie el contenido y péguelo en el cuadro de texto **Metadatos del proveedor de identidades** que se proporciona.
-3. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+  1. Inicie sesión en la aplicación Expensify.
+  2. En la barra de herramientas de la parte superior, haga clic en **Administración**.
+  3. Haga clic en **Control de dominio**en el panel izquierdo.
+  4. Haga clic en su nombre de dominio comprobado.
+  5. En el panel izquierdo, haga clic en **SAML** y, a continuación, seleccione **Habilitado**.
+  6. Abra el documento de metadatos de federación descargado desde Azure AD, copie el contenido y péguelo en el cuadro de texto **Metadatos del proveedor de identidades** que se proporciona.
+6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
-4. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 ![Creación de un usuario de Azure AD][20]
@@ -157,45 +149,34 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-an-expensify-test-user"></a>Creación de un usuario de prueba de Expensify
+### <a name="create-an-expensify-test-user"></a>Creación de un usuario de prueba de Expensify
 En esta sección, creará un usuario denominado Britta Simon en Expensify. Trabaje con el equipo de soporte técnico de Expensify para agregar los usuarios a la plataforma de Expensify.
 
-> [!NOTE]
-> Si necesita crear manualmente un usuario, deberá ponerse en contacto con el equipo de soporte técnico de Expensify.
-> 
+>[!NOTE]
+>Si necesita crear manualmente un usuario, deberá ponerse en contacto con el equipo de soporte técnico de Expensify. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Expensify.
 
 ![Asignar usuario][200] 
@@ -216,8 +197,9 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.  
+
 Al hacer clic en el icono de Expensify en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Expensify.
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -241,9 +223,4 @@ Al hacer clic en el icono de Expensify en el panel de acceso, debería iniciar s
 [203]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

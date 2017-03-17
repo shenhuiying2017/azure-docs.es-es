@@ -1,5 +1,5 @@
 ---
-title: "Solución de problemas de la extensión del Panel de acceso para Internet Explorer | Microsoft Docs"
+title: "Solución de problemas de la extensión del panel de acceso de Azure para Internet Explorer | Microsoft Docs"
 description: "Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal de Mis aplicaciones."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
+ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
+ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -78,10 +80,10 @@ Para desinstalar la extensión del Panel de acceso desde el equipo:
 1. En el teclado, presione la **clave de Windows** para abrir el menú Inicio. Cuando se abre el menú, puede escribir cualquier cosa para realizar una búsqueda. Escriba "Panel de Control" y luego abra el **Panel de Control** cuando aparezca en los resultados de la búsqueda.
    
     ![Buscar el Panel de Control](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
-2. En la esquina superior derecha del Panel de control, cambie la opción **Ver** a **Iconos grandes**. Luego busque y haga clic en el botón **Programas y características** .
+2. En la esquina superior derecha del Panel de control, cambie la opción **Ver** a **Iconos grandes**. Luego busque y haga clic en el botón **Programas y características**.
    
     ![Cambiar la vista para mostrar iconos grandes](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
-3. En la lista, seleccione **Extensión del Panel de acceso** y, después, haga clic en el botón **Desinstalar**.
+3. En la lista, seleccione **Access Panel Extension** (Extensión del Panel de acceso) y, después, haga clic en el botón **Desinstalar**.
    
     ![Hacer clic en Desinstalar](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
 4. Después, puede intentar instalar la extensión de nuevo para ver si se ha resuelto el problema.
@@ -92,10 +94,5 @@ Si encuentra problemas al desinstalar la extensión, también puede quitarla usa
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

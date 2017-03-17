@@ -1,23 +1,7 @@
----
-title: "Cifrado de una máquina virtual de Azure | Microsoft Docs"
-description: "Este documento le ayuda a cifrar una máquina virtual de Azure después de recibir una alerta de Azure Security Center."
-services: security, security-center
-documentationcenter: na
-author: TomShinder
-manager: swadhwa
-editor: 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
-ms.service: security
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/27/2016
-ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+le--- title: Cifrado de una máquina virtual de Azure | Microsoft Docs description: Este documento lo ayuda a cifrar una máquina virtual de Azure después de recibir una alerta de Azure Security Center.
+services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Cifrado de una máquina virtual de Azure
@@ -26,7 +10,7 @@ Azure Security Center le avisará si tiene máquinas virtuales que no estén cif
 ![Recomendación de cifrado de disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
+> La información de este documento corresponde al cifrado de máquinas virtuales sin usar una clave de cifrado de clave (que resulta necesaria para realizar copias de seguridad de máquinas virtuales con Azure Backup). Vea el artículo [Azure Disk Encryption para máquinas virtuales IaaS con Linux y Windows](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) para obtener información sobre cómo usar una clave de cifrado de clave para poder usar Azure Backup con máquinas virtuales cifradas de Azure Virtual Machines.
 >
 >
 
@@ -178,9 +162,3 @@ En este documento, ha aprendido cómo cifrar una máquina virtual de Azure. Para
 * [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md) : Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
 * [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) : Encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

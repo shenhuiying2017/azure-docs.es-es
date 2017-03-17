@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/31/2017
+ms.date: 02/21/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
-ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
-
+ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
+ms.openlocfilehash: c8189af2ebd9cabfa3e20e6b3520ba347d6147ff
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="custom-roles-in-azure-rbac"></a>Roles personalizados en RBAC de Azure
+# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Creación de roles personalizados para el control de acceso basado en roles de Azure
 Cree un rol personalizado en Control de acceso basado en rol (RBAC) de Azure si ninguno de los roles integrados satisface sus necesidades de acceso específicas. Se pueden crear roles personalizados con [Azure PowerShell](role-based-access-control-manage-access-powershell.md), la [interfaz de la línea de comandos (CLI) de Azure](role-based-access-control-manage-access-azure-cli.md) y la [API de REST](role-based-access-control-manage-access-rest.md). Igual que los roles integrados, los roles personalizados pueden asignarse a usuarios, grupos y aplicaciones en ámbitos de suscripciones, grupos de recursos y recursos. Los roles personalizados se almacenan en un inquilino de Azure AD y se pueden compartir entre todas las suscripciones que utilizan dicho inquilino como directorio de Azure AD para la suscripción.
 
 A continuación se muestra un ejemplo de un rol personalizado para supervisar y reiniciar máquinas virtuales:
@@ -120,9 +121,4 @@ La propiedad **AssignableScopes** del rol personalizado también controla quién
   * [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
   * [API DE REST](role-based-access-control-manage-access-rest.md)
 * [Roles integrados](role-based-access-built-in-roles.md): obtenga información sobre los roles incluidos de forma predeterminada en RBAC.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

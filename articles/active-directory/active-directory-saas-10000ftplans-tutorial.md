@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs"
+title: "Tutorial: Integración de Azure Active Directory con 10,000ft Plans | Microsoft Docs"
 description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y 10,000ft Plans."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
-ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
+ms.sourcegitcommit: 2a1f3df856116e372518b2f88460b3c6905c4c9a
+ms.openlocfilehash: 584ddcfc53afee6a8ff11a03d662d8acf58e4820
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -112,7 +113,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. En el cuadro de texto **Identificador**, escriba: `https://app.10000ft.com/saml/metadata`.
 
     > [!NOTE] 
-    > El valor de **Identificador** es distinto si tiene un dominio personalizado. Si necesita ayuda, póngase en contacto con el [equipo de soporte técnico de 10,000ft Plans](mailto:support@10000ft.com).  
+    > El valor de **Identificador** es distinto si tiene un dominio personalizado. Si necesita ayuda, póngase en contacto con el [equipo de soporte técnico de&10;,000ft Plans](mailto:support@10000ft.com).  
 
     c. Haga clic en **Siguiente**
 
@@ -124,7 +125,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
    
     b. Haga clic en **Next**.
-2. Con el fin de que se configure el SSO para la aplicación, póngase en contacto con el [equipo de soporte técnico de 10,000ft Plans](mailto:support@10000ft.com), adjunte el certificado descargado y proporcione la dirección URL del emisor, la dirección URL de inicio de sesión único de SAML y la dirección URL de cierre de sesión.
+2. Con el fin de que se configure el SSO para la aplicación, póngase en contacto con el [equipo de soporte técnico de&10;,000ft Plans](mailto:support@10000ft.com), adjunte el certificado descargado y proporcione la dirección URL del emisor, la dirección URL de inicio de sesión único de SAML y la dirección URL de cierre de sesión.
 3. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -239,9 +240,4 @@ Al hacer clic en el icono de 10,000ft Plans en el panel de acceso, debería inic
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

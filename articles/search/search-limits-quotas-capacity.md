@@ -13,24 +13,25 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 02/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
-ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
+ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
+ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en la Búsqueda de Azure
-Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si agrega Azure Search a un plan de tarifa **Gratis**, **Básico** o **Estándar**.
+Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico** o **Estándar**.
 
 * **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. Es una opción sin costo adicional para los suscriptores existentes que permite experimentar con el servicio antes de registrarse para obtener recursos dedicados.
 * El plan **Básico** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña.
 * **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel. Standard incluye cuatro niveles: S1, S2, S3 y S3 High Density (S3 HD).
 
-Todos los niveles pueden ser [aprovisionados en el portal](search-create-service-portal.md). A un servicio se le asigna inicialmente una partición y una réplica, pero puede aumentar la asignación de recursos una vez creado el servicio.
-
-Un servicio se aprovisiona en un nivel específico. Si necesita saltar niveles para obtener más capacidad, debe aprovisionar un nuevo servicio (no hay ninguna actualización en contexto). Para más información sobre los niveles, consulte [Selección de SKU o plan de tarifa de Azure Search](search-sku-tier.md). Para información sobre cómo ajustar la capacidad dentro de un servicio que ya ha aprovisionado, vea [Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Azure Search](search-capacity-planning.md).
+> [!NOTE]
+> Un servicio se aprovisiona en un nivel específico. Si necesita saltar niveles para obtener más capacidad, debe aprovisionar un nuevo servicio (no hay ninguna actualización en contexto). Para más información, vea [Selección de SKU o plan de tarifa](search-sku-tier.md). Para información sobre cómo ajustar la capacidad dentro de un servicio que ya ha aprovisionado, vea [Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Azure Search](search-capacity-planning.md).
+>
 
 ## <a name="per-subscription-limits"></a>Límites por suscripción
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -93,9 +94,4 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 
 * Máximo de 2 claves de administración por servicio
 * Máximo de 50 claves de consultas por servicio
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

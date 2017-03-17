@@ -1,10 +1,10 @@
 ---
-title: "Creación de grupos de seguridad de red en el modo ARM mediante una plantilla | Microsoft Docs"
-description: Aprenda a crear e implementar grupos de seguridad de red en ARM mediante una plantilla
+title: "Creación de grupos de seguridad de red (plantilla de Azure Resource Manager) | Microsoft Docs"
+description: "Obtenga información sobre cómo crear e implementar grupos de seguridad de red mediante una plantilla de Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: f3e7385d-717c-44ff-be20-f9aa450aa99b
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 627dba0f3a0a65ad75ef2799b7e5df56e9d8bfcb
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-create-nsgs-using-a-template"></a>Creación de grupos de seguridad de red mediante una plantilla
+# <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Creación de grupos de seguridad de red mediante una plantilla de Azure Resource Manager
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -187,10 +190,5 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
    * **-l (o --location)**. Región de Azure donde se creará el nuevo grupo de recursos.
    * **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
    * **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

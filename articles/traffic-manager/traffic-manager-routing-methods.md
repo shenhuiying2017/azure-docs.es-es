@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 993408c9d008a94dfd4004ed6826a2fe6180b20c
-ms.openlocfilehash: aa3c77c0bf9db1f875dd992c4eb7a494af58c400
+ms.sourcegitcommit: 11a120338a9f76bfb0a56a70d0c566625bc518b9
+ms.openlocfilehash: ee3265032a839b1c35821e60e1143ae772389804
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -46,7 +47,6 @@ Todos los perfiles de Traffic Manager incluyen supervisión del estado y conmuta
 ## <a name="priority-traffic-routing-method"></a>Método de enrutamiento del tráfico prioritario
 
 Habitualmente, las organizaciones desean ofrecer confiabilidad en sus servicios y, para ello, implementan uno o varios servicios de reserva en caso de que su servicio principal se vuelva inactivo. El método de enrutamiento de tráfico de "Prioridad" permite que los clientes de Azure implementen fácilmente este patrón de conmutación por error.
-
 ![Método de enrutamiento de tráfico de "prioridad" de Azure Traffic Manager][1]
 
 El perfil de Traffic Manager contiene una lista de puntos de conexión de servicio ordenada por prioridad. De forma predeterminada, Traffic Manager envía todo el tráfico al punto de conexión primario (prioridad más alta). Si el punto de conexión primario no está disponible, Traffic Manager enruta el tráfico al segundo punto de conexión. Si los puntos de conexión principal y secundario no están disponibles, el tráfico pasa al tercero, y así sucesivamente. La disponibilidad del punto de conexión se basa en el estado configurado (habilitado o deshabilitado) y en la supervisión continuada del punto de conexión.
@@ -58,7 +58,6 @@ Con Azure Resource Manager, el usuario configura explícitamente la prioridad de
 Con la interfaz clásica, la prioridad del punto de conexión se configura implícitamente. La prioridad se basa en el orden en que se enumeran los puntos de conexión en la definición de perfil.
 
 ## <a name="weighted-traffic-routing-method"></a>Método de enrutamiento del tráfico ponderado
-
 El método de enrutamiento de tráfico "Ponderado" le permite distribuir el tráfico uniformemente o utilizar una ponderación predefinida.
 
 ![Método de enrutamiento de tráfico "ponderado" de Azure Traffic Manager][2]
@@ -97,7 +96,9 @@ Traffic Manager busca la dirección IP de origen de la solicitud de DNS entrante
 
 Como se explica en [Cómo funciona Traffic Manager](traffic-manager-how-traffic-manager-works.md), Traffic Manager no recibe consultas de DNS directamente desde los clientes. En su lugar, las consultas de DNS proceden del servicio DNS recursivo que se ha configurado para que lo usen los clientes. Por lo tanto, la dirección IP usada para determinar el punto de conexión "más cercano" no es la dirección IP del cliente, sino la dirección IP de su servicio DNS recursivo. En la práctica, esta dirección IP constituye un buen proxy para el cliente.
 
-Para explicar los cambios en la red de Internet mundial y la incorporación de nuevas regiones de Azure, Traffic Manager actualiza regularmente la tabla de latencia de Internet. Sin embargo, el rendimiento de la aplicación varía en función de las variaciones en tiempo real de la carga en Internet. El enrutamiento de tráfico de rendimiento no supervisa la carga en un punto de conexión de servicio determinado. Sin embargo, si un punto de conexión no está disponible, Traffic Manager no lo devolverá en las respuestas a las consultas de DNS.
+
+Para explicar los cambios en la red de Internet mundial y la incorporación de nuevas regiones de Azure, Traffic Manager actualiza regularmente la tabla de latencia de Internet. Sin embargo, el rendimiento de la aplicación varía en función de las variaciones en tiempo real de la carga en Internet. El enrutamiento de tráfico de rendimiento no supervisa la carga en un punto de conexión de servicio determinado. Sin embargo, si un punto de conexión no está disponible, Traffic Manager no lo incluye en las respuestas a las consultas de DNS.
+
 
 Puntos a tener en cuenta:
 
@@ -117,9 +118,4 @@ Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-manage-
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

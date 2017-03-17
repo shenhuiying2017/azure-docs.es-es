@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 8c8ac0af8a39afdd9755040d21585185ceca890e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-veracode-tutorial/IC802903.png "Scenario")
+![Escenario](./media/active-directory-saas-veracode-tutorial/IC802903.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-veracode"></a>Habilitación de la integración de aplicaciones para Veracode
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones en Veracode.
@@ -48,19 +49,19 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-    ![Applications](./media/active-directory-saas-veracode-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-veracode-tutorial/IC700994.png "Aplicaciones")
 
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-    ![Agregar aplicación](./media/active-directory-saas-veracode-tutorial/IC749321.png "Add application")
+    ![Agregar aplicaciones](./media/active-directory-saas-veracode-tutorial/IC749321.png "Agregar aplicaciones")
 
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-veracode-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-veracode-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
 6. En el **cuadro de búsqueda**, escriba **Veracode**.
    
-    ![Galería de aplicaciones](./media/active-directory-saas-veracode-tutorial/IC802904.png "Application Gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-veracode-tutorial/IC802904.png "Galería de aplicaciones")
 
 7. En el panel de resultados, seleccione **Veracode** y, después, haga clic en **Completar** para agregar la aplicación.
    
@@ -71,36 +72,36 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 La aplicación Veracode espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token de SAML** .  
 La siguiente captura de pantalla le muestra un ejemplo de esto.
 
-![Atributos](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+![Atributos](./media/active-directory-saas-veracode-tutorial/IC802906.png "Atributos")
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Veracode**, haga clic en **Configurar inicio de sesión único** para abrir el diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configurar inicio de sesión único")
 
 2. En la página **¿Cómo quiere que los usuarios inicien sesión en Veracode?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, después, haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configurar inicio de sesión único")
 
 3. En la página **Configurar las opciones de la aplicación**, haga clic en **Siguiente**.
    
-    ![Configurar las opciones de la aplicación](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configure App Settings")
+    ![Configurar las opciones de la aplicación](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configurar las opciones de la aplicación")
 
 4. En la página **Configurar inicio de sesión único en Veracode**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configurar inicio de sesión único")
 
 5. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de Veracode como administrador.
 
 6. En el menú de la parte superior, haga clic en **Configuración** y luego en **Administración**.
    
-    ![Administración](./media/active-directory-saas-veracode-tutorial/IC802911.png "Administration")
+    ![Administración](./media/active-directory-saas-veracode-tutorial/IC802911.png "Administración")
 
 7. Haga clic en la pestaña **SAML** .
 
 8. En la sección **Configuración de SAML de organización** siga estos pasos:
    
-    ![Administración](./media/active-directory-saas-veracode-tutorial/IC802912.png "Administration")
+    ![Administración](./media/active-directory-saas-veracode-tutorial/IC802912.png "Administración")
    
     a. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Veracode**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
    
@@ -110,7 +111,7 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
 
 9. En la sección **Configuración de registro automático**, siga este procedimiento y, después, haga clic en **Guardar**:
    
-    ![Administración](./media/active-directory-saas-veracode-tutorial/IC802913.png "Administration")
+    ![Administración](./media/active-directory-saas-veracode-tutorial/IC802913.png "Administración")
    
     a. Como **Activación de nuevo usuario**, seleccione **No se requiere ninguna activación**.
    
@@ -130,15 +131,15 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
 
 10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configurar inicio de sesión único")
 
 11. En el menú de la parte superior, haga clic en **Atributos** to open the **SAML Token Atributos** .
     
-    ![Atributos](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributes")
+    ![Atributos](./media/active-directory-saas-veracode-tutorial/IC795920.png "Atributos")
 
 12. Para agregar las asignaciones de los atributos necesarios, realice los pasos siguientes:
     
-    ![Atributos](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+    ![Atributos](./media/active-directory-saas-veracode-tutorial/IC802906.png "Atributos")
     
     | Nombre del atributo | Valor de atributo |
     |:--- |:--- |
@@ -176,17 +177,12 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 2. En la página de integración de aplicaciones de **Veracode**, haga clic en **Asignar usuarios**.
    
-    ![Asignar usuarios](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assign Users")
+    ![Asignar usuarios](./media/active-directory-saas-veracode-tutorial/IC802915.png "Asignar usuarios")
 
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-    ![Sí](./media/active-directory-saas-veracode-tutorial/IC767830.png "Yes")
+    ![Sí](./media/active-directory-saas-veracode-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

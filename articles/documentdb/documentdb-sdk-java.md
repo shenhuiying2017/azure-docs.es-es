@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/22/2017
 ms.author: khdang
 translationtype: Human Translation
-ms.sourcegitcommit: 47a54e51fa7378336aabe3fa6f93794852152cfe
-ms.openlocfilehash: d61ed82cc7841e427d422d4e48f2b1a42cf97521
+ms.sourcegitcommit: 64858123a75686ba460de5e0f26b143c29f9f067
+ms.openlocfilehash: 7b7afa0ac55327b83e7ea8983a5e25782bda9f07
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -50,8 +51,12 @@ ms.openlocfilehash: d61ed82cc7841e427d422d4e48f2b1a42cf97521
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+* Se ha corregido un error en la configuración del motor de consulta que puede provocar excepciones para las consultas en modo de puerta de enlace.
+* Se han corregido algunos errores en el contenedor de sesiones que pueden provocar una excepción "Recurso de propietario no encontrado" para las solicitudes inmediatamente después de la creación de la colección.
+
 ### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
-* Se agregó compatibilidad para las consultas de agregación (AVG, COUNT, MIN, MAX y SUM).
+* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](documentdb-sql-query.md#Aggregates).
 * Compatibilidad agregada para cambiar la fuente.
 * Compatibilidad agregada para la recopilación de la información de cuota mediante RequestOptions.setPopulateQuotaInfo.
 * Compatibilidad agregada para el registro de scripts de procedimiento almacenados mediante RequestOptions.setScriptLoggingEnabled.
@@ -151,6 +156,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.9.6](#1.9.6) |21 de febrero de 2017 |--- |
 | [1.9.5](#1.9.5) |31 de enero de 2017 |--- |
 | [1.9.4](#1.9.4) |24 de noviembre de 2016 |--- |
 | [1.9.3](#1.9.3) |30 de octubre de 2016 |--- |
@@ -182,10 +188,5 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 ## <a name="see-also"></a>Otras referencias
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) .
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

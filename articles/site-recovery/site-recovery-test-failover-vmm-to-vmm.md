@@ -12,15 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 1c3a3a3e9381e20382bb537299b04993180ee729
-ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
+ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
+ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Conmutación por error de prueba (VMM a VMM) en Site Recovery
+> [!div class="op_single_selector"]
+> * [Conmutación por error de pruebas en Azure](./site-recovery-test-failover-to-azure.md)
+> * [Conmutación por error de pruebas (de VMM a VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 En este artículo, se proporcionan información e instrucciones para realizar una conmutación por error de prueba o una exploración de recuperación ante desastres de máquinas virtuales y servidores físicos que están protegidos con Site Recovery, utilizando para ello un sitio local administrado con VMM como sitio de recuperación. 
 
@@ -67,6 +72,8 @@ Prepare un servidor DNS para la conmutación por error de prueba de la forma sig
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 En este procedimiento se describe cómo ejecutar una conmutación por error de prueba para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina virtual o un único servidor físico en la pestaña **Máquinas virtuales** .
 
+![Test Failover](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+
 1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Test Conmutación por error**.
 1. En la hoja **Conmutación por error de prueba**, especifique cómo se deben conectar las máquinas virtuales a las redes después de la conmutación por error de prueba. Consulte las [opciones de red](#network-options-in-site-recovery) para más información.
 1. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . 
@@ -100,9 +107,4 @@ Se recomienda que, cuando realice una conmutación por error de prueba, elija un
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de ejecutar correctamente una conmutación por error de prueba, puede intentar realizar una [conmutación por error](site-recovery-failover.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

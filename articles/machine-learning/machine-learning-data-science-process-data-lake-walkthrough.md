@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 34441f27e842214d009d64fbc658ff5b7c05df5d
-ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: c7444d457592538a26834091c77f49a3c1ef8591
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -45,8 +46,8 @@ En este tutorial solo se describen los principales pasos. Tanto el **script U-SQ
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar estos temas, debe tener lo siguiente:
 
-* Una suscripción de Azure. Si aún no tiene una, consulte [How to get Azure Free trial for testing Hadoop in HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)(Obtener una evaluación gratuita de Azure para probar Hadoop en HDInsight).
-* [Recomendado] Visual Studio 2013 o 2015. Si aún no tiene ninguna de estas versiones instaladas, puede descargar una versión gratuita de Community Edition desde [aquí](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Haga clic en el botón **Descargar Community 2015** en la sección de Visual Studio. 
+* Una suscripción de Azure. Si aún no tiene una, consulte [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)(Obtener una evaluación gratuita de Azure).
+* [Recomendado] Visual Studio 2013 o posterior. Si aún no tiene ninguna de estas versiones instaladas, puede descargar una versión gratuita de Community desde [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
 > En lugar de Visual Studio, también puede usar el Portal de Azure para enviar las consultas de Azure Data Lake. Se proporcionarán instrucciones sobre cómo hacerlo con Visual Studio y en el portal en la sección titulada **Procesamiento de datos con U-SQL**. 
@@ -145,7 +146,7 @@ Para ejecutar U-SQL, abra Visual Studio, haga clic en **Archivo --> Nuevo --> Pr
 
 ![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="a-nameingestadata-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Ingesta de datos: leer datos de un blob público
+### <a name="ingest"></a>Ingesta de datos: leer datos de un blob público
 A la ubicación de los datos en el blob de Azure se hace referencia como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()**. Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container_name@blob_storage_account_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data_{\*\}.csv** para leer los 12 archivos de carreras. 
 
     ///Read in Trip data
@@ -207,7 +208,7 @@ Del mismo modo podemos leer en los conjuntos de datos de tarifas. Haga clic con 
 
  ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="a-namequalityadata-quality-checks"></a><a name="quality"></a>Comprobaciones de la calidad de los datos
+### <a name="quality"></a>Comprobaciones de la calidad de los datos
 Después de que se hayan leído las tablas de carreras y tarifas, las comprobaciones de la calidad de los datos pueden realizarse de la manera siguiente. Los archivos CSV resultantes pueden ser la salida de Almacenamiento de blobs de Azure o de Almacén de Azure Data Lake. 
 
 Busque el número de placas de licencia y un número único de placas de licencia:
@@ -279,7 +280,7 @@ Busque los valores que faltan en algunas variables:
 
 
 
-### <a name="a-nameexploreadata-exploration"></a><a name="explore"></a>Exploración de datos
+### <a name="explore"></a>Exploración de datos
 Podemos realizar una exploración de datos para comprenderlos mejor.
 
 Busque la distribución de las carreras con y sin propina:
@@ -346,7 +347,7 @@ Busque los percentiles de la distancia de las carreras:
     USING Outputters.Csv(); 
 
 
-### <a name="a-namejoinajoin-trip-and-fare-tables"></a><a name="join"></a>Combinación de las tablas de carreras y tarifas
+### <a name="join"></a>Combinación de las tablas de carreras y tarifas
 Las tablas de carreras y tarifas pueden combinarse por placa de licencia, hack_license y pickup_time.
 
     //join trip and fare table
@@ -388,7 +389,7 @@ Para cada nivel de recuento de pasajeros, calcule el número de registros, el im
     USING Outputters.Csv();
 
 
-### <a name="a-namesampleadata-sampling"></a><a name="sample"></a>Muestreo de datos
+### <a name="sample"></a>Muestreo de datos
 En primer lugar, se selecciona aleatoriamente un 0,1 % de los datos de la tabla combinada:
 
     //random select 1/1000 data for modeling purpose
@@ -428,7 +429,7 @@ A continuación, se realiza un muestreo estratificado por la variable binaria ti
     USING Outputters.Csv(); 
 
 
-### <a name="a-namerunarun-u-sql-jobs"></a><a name="run"></a>Ejecución de trabajos U-SQL
+### <a name="run"></a>Ejecución de trabajos U-SQL
 Cuando termine la edición de los scripts U-SQL, puede enviarlos al servidor mediante su cuenta de Análisis de Azure Data Lake. Haga clic en **Data Lake**, **Enviar trabajo**, seleccione su **cuenta de Analytics**, elija **Paralelismo** y haga clic en el botón **Enviar**.  
 
  ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
@@ -685,10 +686,5 @@ La ruta de aprendizaje del [proceso de ciencia de datos en equipos (TDSP)](http:
 * [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
 * [Proceso de ciencia de datos en equipos: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 * [Información general sobre el proceso de ciencia de datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

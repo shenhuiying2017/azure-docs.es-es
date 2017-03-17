@@ -14,19 +14,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2016
-ms.author: wesmc
+ms.date: 02/27/2017
+ms.author: glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: c638bf42b9adf906f195d77268637d056f7b00a9
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
+ms.lasthandoff: 03/01/2017
+
 
 ---
 
-# <a name="best-practices-for-azure-functions"></a>Procedimientos recomendados de Azure Functions
+# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Sugerencias para mejorar el rendimiento y la confiabilidad de Azure Functions
 
 ##<a name="overview"></a>Información general
 
-En este artículo se proporciona una colección de prácticas recomendadas para tener en cuenta al implementar aplicaciones de funciones. Tenga en cuenta que Azure Function App es un Azure App Service. Por tanto, se aplicarán los procedimientos recomendados.
+En este artículo se proporciona una colección de prácticas recomendadas para tener en cuenta al implementar aplicaciones de funciones. Tenga en cuenta que su aplicación de función es una aplicación de Azure App Service. Por lo tanto, también se aplican los procedimientos recomendados de App Service.
 
 
 ## <a name="avoid-large-long-running-functions"></a>Evitar funciones grandes de ejecución prolongada
@@ -71,8 +74,6 @@ Si ya se ha procesado un elemento de la cola, permita que la función sea no ope
 Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación del [desencadenador de cola de Azure Storage](functions-bindings-storage-queue.md#trigger).
  
 
-
-
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>No mezclar código de prueba y producción en la misma aplicación de función
 
 Las funciones dentro de una aplicación de función compartan recursos. Por ejemplo, la memoria se comparte. Si usa una aplicación de función en producción, no agregue recursos y funciones relacionados con pruebas a ella. Se podría producir una sobrecarga inesperada durante la ejecución de código de producción.
@@ -103,10 +104,6 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
 * [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+* [Patterns and Practices HTTP Performance Optimizations](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md) (Patrones y procedimientos de optimización del rendimiento de HTTP)
 
 

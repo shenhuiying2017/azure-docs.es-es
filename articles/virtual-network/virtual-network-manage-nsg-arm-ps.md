@@ -1,10 +1,10 @@
 ---
-title: "Administración de grupos de seguridad de red con PowerShell | Microsoft Docs"
-description: Aprenda a administrar grupos de seguridad de red existentes mediante PowerShell.
+title: "Administración de grupos de seguridad de red (Azure PowerShell) | Microsoft Docs"
+description: "Obtenga información sobre cómo administrar grupos de seguridad de red mediante PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3706ce6c-d9ae-46cb-a048-f0a4e84dc5cc
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8ecda7d59b3631b07e807ee018017c75b963dac5
-ms.openlocfilehash: 8eaca4e52363e577c015d9d183f200abedbf4d43
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: edb23ae41e175061607d3a191c839e1194fa862b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="manage-nsgs-using-powershell"></a>Administración de los NSG con PowerShell
+# <a name="manage-network-security-groups-using-powershell"></a>Administración de grupos de seguridad de red mediante PowerShell
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
@@ -513,10 +515,5 @@ Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para elim
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Habilite el registro](virtual-network-nsg-manage-log.md) para los NSG.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

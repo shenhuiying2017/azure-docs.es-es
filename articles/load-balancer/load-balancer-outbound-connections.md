@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: 0bf40c5b44ea87c88d4464baf958e8afb7a59c38
+ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
+ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
+ms.lasthandoff: 02/28/2017
 
 ---
 
@@ -36,7 +37,7 @@ Si no desea que una máquina virtual se comunique con puntos de conexión fuera 
 
 ## <a name="standalone-vm-with-no-instance-level-public-ip-address"></a>Máquina virtual independiente con ninguna dirección IP pública a nivel de instancia
 
-En este escenario, la máquina virtual no forma parte de un grupo de Azure Load Balancer y no tiene una dirección IP pública a nivel de instancia (ILPIP) asignada a ella. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública que se utiliza para este flujo de salida no es configurable. Azure usa la traducción de direcciones de red de origen (SNAT) para realizar esta función. Se utilizan puertos efímeros de la dirección IP pública para distinguir flujos individuales que la máquina virtual originó. SNAT asigna dinámicamente puertos efímeros cuando se crean flujos. En este contexto, los puertos efímeros utilizados para SNAT se conocen como puertos SNAT.
+En este escenario, la máquina virtual no forma parte de un grupo de Azure Load Balancer y no tiene una dirección IP pública a nivel de instancia (ILPIP) asignada a ella. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción. Azure usa la traducción de direcciones de red de origen (SNAT) para realizar esta función. Se utilizan puertos efímeros de la dirección IP pública para distinguir flujos individuales que la máquina virtual originó. SNAT asigna dinámicamente puertos efímeros cuando se crean flujos. En este contexto, los puertos efímeros utilizados para SNAT se conocen como puertos SNAT.
 
 Los puertos SNAT son un recurso finito que puede agotarse. Es importante entender cómo se consumen. Se consume un puerto SNAT por cada flujo a una sola dirección IP de destino. En el caso de varios flujos a la misma dirección IP de destino, cada flujo consume un solo puerto SNAT. Esto garantiza que los flujos son únicos si se han originado desde la misma dirección IP pública y se dirigen a la misma dirección IP de destino. En el caso de varios flujos, cada uno de ellos dirigido a una dirección IP de destino diferente, se consume un solo puerto SNAT por cada destino. La dirección IP de destino hace que los flujos sean únicos.
 
@@ -65,9 +66,4 @@ Hay muchas maneras de determinar la dirección IP de origen público de una cone
 En ocasiones no es deseable que se le permita a una máquina virtual crear un flujo de salida o puede que haya algún requisito para administrar los destinos a los que pueden llegar los flujos de salida. En este caso, utilice los [grupos de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md) para administrar los destinos a los que puede llegar la máquina virtual. Cuando se aplica un grupo de seguridad de red a una máquina virtual de carga equilibrada, debe prestar atención a las [etiquetas predeterminadas](../virtual-network/virtual-networks-nsg.md#default-tags) y a las [reglas predeterminadas](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 Debe asegurarse de que la máquina virtual puede recibir solicitudes de sondeo de mantenimiento desde Azure Load Balancer. Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimiento de la etiqueta predeterminada AZURE_LOADBALANCER, se producirá un error en el sondeo de mantenimiento de la máquina virtual y esta se marca como inactiva. Load Balancer dejará de enviar nuevos flujos a esa máquina virtual.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

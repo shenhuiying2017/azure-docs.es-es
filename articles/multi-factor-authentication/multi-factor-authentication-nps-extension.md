@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/23/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 68f1088a7303b5eddecc9ff99f7330c0462baafc
-ms.openlocfilehash: 9fb517a08fb56a1adb9e23f820aa2e4aa20eacf6
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 804e811c0db5f72b6764b3cb120eb5ec8898baac
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="augment-your-existing-authentication-infrastructure-with-the-nps-extension-for-azure-multi-factor-authentication---public-preview"></a>Aumento de la infraestructura de autenticación existente con la extensión de NPS para Azure Multi-Factor Authentication - Versión preliminar pública
+# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication (versión preliminar pública)
 
 La extensión de Servidor de directivas de redes (NPS) para Azure MFA agrega funcionalidades de MFA basadas en la nube a la infraestructura de autenticación mediante los servidores existentes. Con la extensión de NPS, puede agregar verificación de llamadas de teléfono, SMS o de aplicaciones de teléfono al flujo de autenticación existente sin tener que instalar, configurar ni mantener servidores nuevos. 
  
@@ -155,9 +156,4 @@ Compruebe que https://adnotifications.windowsazure.com sea accesible desde el se
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea cómo integrar Azure MFA con [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [Autenticación de RADIUS](multi-factor-authentication-get-started-server-radius.md) y [Autenticación de LDAP](multi-factor-authentication-get-started-server-ldap.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

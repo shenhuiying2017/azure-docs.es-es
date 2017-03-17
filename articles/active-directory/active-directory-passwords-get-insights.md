@@ -1,9 +1,9 @@
 ---
-title: "Visión operativa con los informes de la administración de contraseñas | Microsoft Docs"
+title: "Visión operativa con los informes de administración de contraseñas de Azure AD | Microsoft Docs"
 description: "En este artículo se describe cómo usar los informes para obtener información sobre las operaciones de administración de contraseñas en su organización."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
@@ -12,29 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 50255c1eabc5ac0f51fa8d45851fb632928070cc
+ms.lasthandoff: 02/24/2017
 
 
 ---
-# <a name="how-to-get-operational-insights-with-password-management-reports"></a>Visión operativa con los informes de la administración de contraseñas
+# <a name="how-to-get-operational-insights-with-password-management-reports"></a>Visión operativa con los informes de administración de contraseñas
 > [!IMPORTANT]
 > **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-En esta sección se describe cómo puede usar informes de administración de contraseñas de Azure Active Directory para ver cómo utilizan los usuarios el restablecimiento y el cambio de contraseña en su organización.
+En esta sección se describe cómo puede usar informes de administración de contraseñas de Azure Active Directory para ver cómo los usuarios utilizan el restablecimiento y el cambio de contraseña en su organización.
 
-* [**Información general sobre los informes de administración de contraseñas**](#overview-of-password-management-reports)
+* [**Información general de los informes de administración de contraseñas**](#overview-of-password-management-reports)
 * [**Visualización de los informes de administración de contraseñas**](#how-to-view-password-management-reports)
 * [**Ver la actividad de registro de restablecimiento de contraseña en su organización**](#view-password-reset-registration-activity)
 * [**Ver la actividad de restablecimiento de contraseña en su organización**](#view-password-reset-activity)
 
 ## <a name="overview-of-password-management-reports"></a>Información general de los informes de administración de contraseñas
-Después de implementar el restablecimiento de contraseña, uno de los siguientes pasos más comunes es ver cómo se usa en su organización.  Por ejemplo, puede que desee saber cómo se registran los usuarios para el restablecimiento de contraseña o cuántos restablecimientos de contraseña se han realizado en los últimos días.  Estas son algunas de las preguntas comunes que podrá responder con los informes de administración de contraseñas que existen actualmente en el [Portal de administración de Azure](https://manage.windowsazure.com) :
+Después de implementar el restablecimiento de contraseña, uno de los siguientes pasos más comunes es ver cómo se usa en su organización.  Por ejemplo, puede que desee saber cómo se registran los usuarios para el restablecimiento de contraseña o cuántos restablecimientos de contraseña se han realizado en los últimos días.  Estas son algunas de las preguntas comunes que podrá responder con los informes de administración de contraseñas que existen actualmente en el [Portal de administración de Azure](https://manage.windowsazure.com):
 
 * ¿Cuántas personas se han registrado para el restablecimiento de contraseña?
 * ¿Quién se ha registrado para el restablecimiento de contraseña?
@@ -48,16 +49,16 @@ Después de implementar el restablecimiento de contraseña, uno de los siguiente
 ## <a name="how-to-view-password-management-reports"></a>Visualización de los informes de administración de contraseñas
 Para buscar los informes de administración de contraseñas, siga estos pasos:
 
-1. Haga clic en la extensión de **Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com).
-2.  Seleccione el directorio de la lista que aparece en el portal.
+1. Haga clic en la extensión de **Active Directory** en el [Portal de Azure clásico](https://manage.windowsazure.com).
+2. Seleccione el directorio de la lista que aparece en el portal.
 3. Haga clic en la pestaña **Informes** .
 4. Busque en la sección **Registros de actividad** .
 5. Seleccione el informe **Actividad de restablecimiento de contraseña** o el informe **Actividad de registro de restablecimiento de contraseña**.
-   
+
    ![][001]
 
-## <a name="how-to-access-password-management-reports-from-an-api"></a>Cómo obtener acceso a los informes de administración de contraseñas desde una API
-A partir de agosto de 2015, los informes y eventos de Azure AD admiten ahora la recuperación de toda la información incluida en los informes de restablecimiento de contraseña y del registro de restablecimiento de contraseña.
+## <a name="how-to-access-password-management-reports-from-an-api"></a>Acceso a los informes de administración de contraseñas desde una API
+A partir de agosto de 2015, los informes y eventos de Azure AD admiten ahora la recuperación de toda la información incluida en los informes de restablecimiento de contraseñas y del registro de restablecimiento de contraseñas.
 
 Para obtener acceso a estos datos, deberá escribir una pequeña aplicación o un script para recuperarlos de nuestros servidores. [Obtenga información sobre cómo empezar con la API de informes de Azure AD](active-directory-reporting-api-getting-started.md).
 
@@ -72,7 +73,7 @@ El informe de actividad de registro de restablecimiento de contraseña muestra t
 * **Intervalo de tiempo máximo**: 1 mes
 * **Número máximo de filas**: ilimitado
 * **Se puede descargar**: Sí, en un archivo CSV
-  
+
     ![][002]
 
 ### <a name="description-of-report-columns"></a>Descripción de las columnas del informe
@@ -96,7 +97,7 @@ Este informe muestra todos los intentos de restablecimiento de contraseña que s
 * **Intervalo de tiempo máximo**: 1 mes
 * **Número máximo de filas**: ilimitado
 * **Se puede descargar**: Sí, en un archivo CSV
-  
+
     ![][003]
 
 ### <a name="description-of-report-columns"></a>Descripción de las columnas del informe
@@ -159,7 +160,7 @@ A continuación se muestra la lista de los tipos de resultados que puede esperar
 | El restablecimiento de contraseña se ha deshabilitado por completo para este inquilino. Consulte [aquí](http://aka.ms/ssprtroubleshoot) para resolver este problema. |Con error |
 | El usuario restableció la contraseña correctamente. |Correcto |
 
-## <a name="links-to-password-reset-documentation"></a>Vínculos a la documentación de restablecimiento de la contraseña
+## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
 * **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
@@ -174,9 +175,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

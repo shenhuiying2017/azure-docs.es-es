@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: heidist
-experimental: true
-experiment_id: heidist-experiment1-20170221
+experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: f7e657906d24693dffd84ebbd348d1940f271931
-ms.openlocfilehash: a4e28e17cd3ce2488bd292a4c5e95fb532526a56
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 71694028366f48682881523c0220a4158078a76c
+ms.openlocfilehash: b851f906b57225dce516d9704fdace80c44c4897
+ms.lasthandoff: 02/23/2017
 
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Búsqueda de Azure?
@@ -29,7 +28,7 @@ Azure Search ofrece un motor de búsqueda dedicado y programable con comportamie
 
 Tener una experiencia de búsqueda sólida es algo necesario para la mayoría de aplicaciones móviles y web. La búsqueda de texto completo con términos de consulta que se completan automáticamente, correcciones ortográficas y coincidencias basadas en entradas semánticamente idénticas pero superficialmente diferentes (como "coche" y "auto") conforman las características mínimas de una barra de búsqueda, a pesar de la complejidad técnica que requiere poder ofrecer una experiencia así. Igualmente importantes son los requisitos operativos de escalabilidad, confiabilidad y sincronización entre la búsqueda y los almacenes de datos de back-end. 
 
-Azure Search proporciona una gama completa de funcionalidades que le permite satisfacer sus requisitos operativos y de búsqueda.
+Azure Search proporciona una funcionalidad completa que permite satisfacer sus requisitos operativos y de búsqueda.
 
 ![Barra y página de búsqueda personalizada con las características de búsqueda típicas](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -50,7 +49,7 @@ Los servicios dedicados se ejecutan ininterrumpidamente a escala en el [99,9% de
 
 Otros proveedores de servicios en la nube ofrecen motores de búsqueda personalizados con características que proporcionan una barra de búsqueda en aplicaciones personalizadas. Algunos ofrecen características de línea base similares, con búsqueda de texto completo, búsqueda geográfica y la capacidad para controlar un cierto nivel de ambigüedad en entradas de búsqueda. Normalmente, es una [característica especializada](#feature-drilldown) o la facilidad y sencillez general de las API, las herramientas y la administración, lo que determina la solución que mejor se ajusta a nuestras necesidades.
 
-En comparación con otras soluciones de búsqueda, Azure Search es la más potente con cargas de trabajo de búsqueda de texto completo en almacenes de contenido y bases de datos de Azure, y ofrece un nivel adicional de funcionalidad que es necesario para las aplicaciones que se basan principalmente en la búsqueda para navegar por el contenido. 
+En comparación con otras soluciones de búsqueda, Azure Search es la más potente con cargas de trabajo de búsqueda de texto completo en almacenes de contenido y bases de datos de Azure, y ofrece un nivel adicional de funcionalidad que es necesario para las aplicaciones que se basan principalmente en la búsqueda para navegar por el contenido y recuperar información. 
 
 + Integración de datos de Azure (rastreadores o crawlers) en el nivel de indexación
 + Azure Portal para administración central
@@ -61,7 +60,9 @@ En comparación con otras soluciones de búsqueda, Azure Search es la más poten
 > [!Note]
 > Totalmente compatibles con los orígenes de datos que no son de Azure. Puede canalizar cualquier colección de documentos JSON hacia un índice de Azure Search.
 
-### <a name="a-namefeature-drilldownafeature-drilldown"></a><a name="feature-drilldown"></a>Exploración en profundidad de las características
+Los casos de uso capaces de utilizar la gama más amplia de características de Azure Search comprenden catálogos en línea, programas de línea de negocio y aplicaciones de detección de documentos.
+
+### <a name="feature-drilldown"></a>Exploración en profundidad de las características
 
 #### <a name="full-text-search-and-text-analysis"></a>Búsqueda de texto completo y análisis de texto
 

@@ -1,9 +1,9 @@
 ---
-title: "Más información: administración de contraseñas de Azure AD | Microsoft Docs"
+title: "Más información: administración de contraseñas de Azure Active Directory | Microsoft Docs"
 description: "Temas avanzados sobre administración de contraseñas de Azure AD, entre otros, el funcionamiento de la escritura diferida de contraseñas, la seguridad de la escritura diferida de contraseñas, el funcionamiento del portal de restablecimiento de contraseñas y los datos que sirven para el restablecimiento de contraseñas."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: d3be2912-76c8-40a0-9507-b7b1a7ce2f8f
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 534373f72a4181914e3b7ea98ded507418e3d299
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 8a9e412776acf4e08658517b714d9644b172f523
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -42,13 +43,13 @@ La escritura diferida de contraseñas es un componente de [Azure Active Director
 
 La escritura diferida de contraseñas le permite configurar el inquilino de nube para que escriba contraseñas en diferido en su Active Directory local.  Evita tener que configurar y administrar una solución de restablecimiento de contraseñas de autoservicio local y ofrece una manera conveniente basada en la nube para que los usuarios restablezcan sus contraseñas locales dondequiera que estén.  Siga leyendo para conocer algunas de las características clave de la escritura diferida de contraseñas:
 
-* **Comentarios sin ningún retraso.**   La escritura diferida de contraseñas es una operación sincrónica.  Si la contraseña de un usuario no cumple la directiva o no se puede restablecer o modificar por algún motivo, a dicho usuario se le enviará una notificación inmediatamente.
-* **Admite el restablecimiento de contraseñas de los usuarios que usan AD FS u otras tecnologías de federación.**   Con la escritura diferida de contraseñas, siempre que las cuentas de usuario federadas estén sincronizadas en el inquilino de Azure AD, podrán administrar sus contraseñas de AD locales desde la nube.
-* **Admite el restablecimiento de las contraseñas de usuario mediante la sincronización de hash de contraseñas.**  Cuando el servicio de restablecimiento de contraseñas detecta que una cuenta de usuario sincronizada está habilitada para la sincronización de hash de contraseñas, restablecemos la contraseña local y de la nube de la cuenta al mismo tiempo.
-* **Permite cambiar las contraseñas del panel de acceso y Office 365.**   Si los usuarios con sincronización de contraseñas o federados modifican las contraseñas expiradas o no expiradas, escribiremos tales contraseñas en diferido en el entorno local de AD.
+* **Comentarios sin ningún retraso.**  La escritura diferida de contraseñas es una operación sincrónica.  Si la contraseña de un usuario no cumple la directiva o no se puede restablecer o modificar por algún motivo, a dicho usuario se le enviará una notificación inmediatamente.
+* **Admite el restablecimiento de contraseñas de los usuarios que usan AD FS u otras tecnologías de federación.**  Con la escritura diferida de contraseñas, siempre que las cuentas de usuario federadas estén sincronizadas en el inquilino de Azure AD, podrán administrar sus contraseñas de AD locales desde la nube.
+* **Admite el restablecimiento de las contraseñas de usuario mediante la sincronización de hash de contraseñas.** Cuando el servicio de restablecimiento de contraseñas detecta que una cuenta de usuario sincronizada está habilitada para la sincronización de hash de contraseñas, restablecemos la contraseña local y de la nube de la cuenta al mismo tiempo.
+* **Permite cambiar las contraseñas del panel de acceso y Office 365.**  Si los usuarios con sincronización de contraseñas o federados modifican las contraseñas expiradas o no expiradas, escribiremos tales contraseñas en diferido en el entorno local de AD.
 * **Admite la reescritura de contraseñas cuando un administrador las restablece desde el** [**Portal de administración de Azure**](https://manage.windowsazure.com).  Cada vez que un administrador restablece una contraseña de usuario en el [Portal de administración de Azure](https://manage.windowsazure.com), si ese usuario se federa o se sincroniza con contraseña, también estableceremos la contraseña que el administrador seleccione en el entorno local de AD.  Esto actualmente no se admite en el Portal de administración de Office.
-* **Aplica las directivas de contraseñas del entorno de AD local.**   Cuando un usuario restablece su contraseña, nos aseguramos de que cumple la directiva del entorno local de AD antes de enviarla a ese directorio.  Esto incluye el historial, la complejidad, la antigüedad, los filtros de contraseñas y otras restricciones de contraseña que ha definido en el entorno local de AD.
-* **No requiere ninguna regla de firewall de entrada.**   La escritura diferida de contraseñas usa una retransmisión de Bus de servicio de Azure como un canal de comunicación subyacente, lo que significa que no tendrá que abrir puertos de entrada en el firewall para que esta característica funcione.
+* **Aplica las directivas de contraseñas del entorno de AD local.**  Cuando un usuario restablece su contraseña, nos aseguramos de que cumple la directiva del entorno local de AD antes de enviarla a ese directorio.  Esto incluye el historial, la complejidad, la antigüedad, los filtros de contraseñas y otras restricciones de contraseña que ha definido en el entorno local de AD.
+* **No requiere ninguna regla de firewall de entrada.**  La escritura diferida de contraseñas usa una retransmisión de Bus de servicio de Azure como un canal de comunicación subyacente, lo que significa que no tendrá que abrir puertos de entrada en el firewall para que esta característica funcione.
 * **No se admite para las cuentas de usuario que se encuentran en grupos protegidos del entorno local de Active Directory.** Para obtener más información sobre los grupos protegidos, consulte [Cuentas y grupos protegidos en Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
 ### <a name="how-password-writeback-works"></a>Funcionamiento de la escritura diferida de contraseñas
@@ -121,7 +122,7 @@ Cuando un usuario navega al portal de restablecimiento de contraseñas, se inici
      * Si la escritura diferida de contraseñas no está implementada y la contraseña del usuario se administra de forma local, se le pide que se ponga en contacto con el administrador para restablecer la contraseña.
 4. Si se determina que el usuario puede restablecer correctamente la contraseña, se le guiará a través del proceso de restablecimiento.
 
-Obtenga más información sobre cómo implementar la escritura diferida de contraseñas en [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
+Aprenda más sobre cómo implementar la escritura diferida de contraseñas en [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
 
 ### <a name="what-data-is-used-by-password-reset"></a>¿Qué datos sirven para restablecer la contraseña?
 En la tabla siguiente se describe dónde y cómo se usan estos datos durante el restablecimiento de la contraseña y está diseñada para ayudarle a decidir qué opciones de autenticación resultan apropiadas para su organización. En esta tabla también se indican los requisitos de formato para los casos donde va a proporcionar datos en nombre de usuarios desde rutas de acceso de entrada que no validan estos datos.
@@ -245,7 +246,7 @@ No se admiten extensiones; por tanto, si ha especificado extensiones, las ignora
               <p>AlternateEmailAddresses[0] </p>
               <p>(El correo electrónico de autenticación se utiliza si hay datos presentes; en caso contrario, recurre al campo de correo electrónico alternativo).</p>
               <p>Nota: El campo de correo electrónico alternativo se especifica como una matriz de cadenas en el directorio.  Usamos la primera entrada de esta matriz.</p>
-              <p>P. ej., Set-MsolUser -UserPrincipalName JWarner@contoso.com -AlternateEmailAddresses "email@live.com"</p>
+              <p>Por ejemplo, Set-MsolUser -UserPrincipalName JWarner@contoso.com -AlternateEmailAddresses "email@live.com".</p>
             </td>
             <td>
               <p>Usado en:</p>
@@ -390,7 +391,7 @@ Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-## <a name="links-to-password-reset-documentation"></a>Vínculos a la documentación de restablecimiento de la contraseña
+## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
 * **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
@@ -404,9 +405,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

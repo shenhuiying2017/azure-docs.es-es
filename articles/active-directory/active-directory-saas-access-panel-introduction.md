@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 2dd9c96e1c15e424588869b61eb26501b1b66be3
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: ef589c768f60e9a68ac7bc952fa181758452b1bd
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="introduction-to-the-access-panel"></a>Introducción al Panel de acceso
+# <a name="what-is-the-access-panel"></a>¿Qué es el panel de acceso?
 El Panel de acceso es un portal basado en web que permite que los usuarios finales que tengan cuenta organizativa en Azure Active Directory puedan ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD les haya concedido acceso. Si es un usuario final con ediciones de Azure Active Directory, también puede utilizar las capacidades de autoservicio de administración de grupos a través del Panel de acceso. <br>
- El Panel de acceso es independiente del Portal de administración de Azure y no requiere que los usuarios tengan una suscripción de Azure. 
+El Panel de acceso es independiente del Portal de administración de Azure y no requiere que los usuarios tengan una suscripción de Azure. 
 
 ![Panel de acceso][1] 
 
@@ -49,8 +51,8 @@ Esta dirección URL se debe distribuir a todos los usuarios que vayan a iniciar 
 
 ## <a name="authentication"></a>Autenticación
 Para llegar al Panel de acceso, un usuario debe autenticarse utilizando una cuenta de organización en Azure AD. <br>
- Un usuario se puede autenticar en Azure AD directamente. <br>
- Además, si una organización ha configurado la federación usando ADFS u otras tecnologías, Windows Server Active Directory puede autenticar a los usuarios.
+Un usuario se puede autenticar en Azure AD directamente. <br>
+Además, si una organización ha configurado la federación usando ADFS u otras tecnologías, Windows Server Active Directory puede autenticar a los usuarios.
 
 Si un usuario tiene una suscripción para Azure u Office 365 y ha estado utilizando el Portal de administración de Azure o una aplicación de Office 365, verá la lista de aplicaciones sin necesidad de volver a iniciar sesión. A los usuarios que no se han autenticado se les solicitará que inicien sesión utilizando el nombre de usuario y la contraseña de su cuenta en Azure AD. Si la organización ha configurado federación, bastará con escribir el nombre de usuario.
 
@@ -102,7 +104,7 @@ Estas son aplicaciones que el administrador ha agregado en la sección de Active
 Cuando un usuario hace clic en un título de aplicación para una de estas aplicaciones, se redirigirá a esa aplicación e iniciará sesión automáticamente.
 
 ### <a name="password-based-sso-without-identity-provisioning"></a>SSO basado en contraseña sin aprovisionamiento de identidad
-Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en "*Inicio de sesión único basado en contraseña*”. <br>  Todos los usuarios del directorio verán todas las aplicaciones que se han configurado en este modo.
+Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en "*Inicio de sesión único basado en contraseña*”. <br> Todos los usuarios del directorio verán todas las aplicaciones que se han configurado en este modo.
 
 La primera vez que un usuario hace clic en un título de aplicación para una de estas aplicaciones, se le solicitará que instale el complemento SSO de contraseña para Internet Explorer o Chrome, lo que pueden requerir el reinicio del explorador web. Cuando vuelva al Panel de acceso y haga clic en el título de aplicación otra vez, se le solicitará un nombre de usuario y contraseña para la aplicación. Después de introducir el nombre de usuario y la contraseña, estas credenciales se almacenarán de forma segura en Azure AD y se vincularán a su cuenta en Azure AD, y el Panel de acceso iniciará la sesión del usuario automáticamente en la aplicación utilizando estas credenciales.
 
@@ -131,9 +133,4 @@ Al configurar un inicio de sesión único para una aplicación, el portal de adm
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

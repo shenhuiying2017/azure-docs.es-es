@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 06/23/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
+ms.sourcegitcommit: f2d009477a614c3b2876ce98a355d3775abf772b
+ms.openlocfilehash: 04f2d5d8e501ebf41cf95ea925d238f64b096c1d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Para crear un almacén de claves, agregue el siguiente esquema a la sección de 
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
-            "enabledForVolumeEncryption": bool,
+            "enabledForDiskEncryption": bool,
             "tenantId": string,
             "accessPolicies": [
                 {
@@ -75,7 +76,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 | --- | --- |
 | enabledForDeployment |Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para la implementación de Service Fabric o máquinas virtuales. |
 | enabledForTemplateDeployment |Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para usarse en implementaciones de plantilla de Azure Resource Manager. Para obtener más información, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption |Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para el cifrado de volúmenes. |
+| enabledForDiskEncryption |BOOLEAN<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para el cifrado de volúmenes. |
 | tenantId |String<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador del inquilino para la suscripción. Puede recuperarlo con el cmdlet de PowerShell [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) o el comando de la CLI de Azure **azure account show** . |
 | accessPolicies |Matriz<br />Obligatorio<br />[objeto accessPolicies](#accesspolicies)<br /><br />Matriz de hasta 16 objetos que especifican los permisos para el usuario o la entidad de servicio. |
 | sku |Objeto<br />Obligatorio<br />[objeto de SKU](#sku)<br /><br />SKU para el almacén de claves. |
@@ -169,7 +170,7 @@ En el ejemplo siguiente se implementa un almacén de claves y un secreto.
                     "description": "Specifies if the vault is enabled for ARM template deployment"
                 }
             },
-            "enableVaultForVolumeEncryption": {
+            "enableVaultForDiskEncryption": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -201,7 +202,7 @@ En el ejemplo siguiente se implementa un almacén de claves y un secreto.
             "properties": {
                 "enabledForDeployment": "[parameters('enabledForDeployment')]",
                 "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
-                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
                 "tenantId": "[parameters('tenantId')]",
                 "accessPolicies": [
                 {
@@ -240,10 +241,5 @@ La siguiente plantilla de inicio rápido implementa un almacén de claves.
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información general sobre almacenes de claves, consulte el artículo de [introducción a Azure Key Vault](../key-vault/key-vault-get-started.md).
 * Para obtener un ejemplo de referencia de un secreto de almacén de claves al implementar plantillas, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

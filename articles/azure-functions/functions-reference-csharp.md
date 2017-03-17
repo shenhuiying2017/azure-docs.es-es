@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: da9da90e7ccd5d324b8f87a3585555ea5d5ed475
-ms.openlocfilehash: d587ff744fea5393a34d5a576e6af32cac5d2b44
+ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
+ms.openlocfilehash: 6b2473ef6336aea5c9a79aad78e02bcfc38b9018
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -52,6 +53,11 @@ public class MyClass
     public string Id { get; set; }
 }
 ```
+
+> [!TIP]
+>
+> Si tiene pensado usar los enlaces HTTP o webhook, le sugerimos que lea este documento de procedimientos recomendados en [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
+>
 
 ## <a name="logging"></a>Registro
 Para registrar la salida en sus registros de streaming en C#, puede incluir un argumento con tipo `TraceWriter` . Es recomendable que lo denomine `log`. Le recomendamos que evite `Console.Write` en Azure Functions.
@@ -314,10 +320,5 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/16/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a21fb8c22b5c429fc768e128162836275ff18bf1
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 87236d58018cd6696a97fad5d1413fa0975519b0
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ En este tutorial, obtendrá información sobre cómo integrar SanSan con Azure A
 Integrar SanSan con Azure AD proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a SanSan.
-* Puede permitir que los usuarios inicien sesión automáticamente en SanSan (inicio de sesión único) con sus cuentas de Azure AD
+* Puede permitir que los usuarios inicien sesión automáticamente en SanSan (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -37,23 +38,24 @@ Para configurar la integración de Azure AD con SanSan, se necesitan los siguien
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en SanSan
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Microsoft Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Microsoft Azure AD en un entorno de prueba. 
+
+La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de SanSan desde la galería
 2. Configuración y prueba del inicio de sesión único de Microsoft Azure AD
 
-## <a name="adding-sansan-from-the-gallery"></a>Incorporación de SanSan desde la galería
+## <a name="add-sansan-from-the-gallery"></a>Adición de SanSan desde la galería
 Para configurar la integración de SanSan en Azure AD, deberá agregar SanSan desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar SanSan desde la galería, realice los pasos siguientes:**
@@ -78,21 +80,23 @@ Para configurar la integración de SanSan en Azure AD, deberá agregar SanSan de
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_06.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único de Microsoft Azure AD
+## <a name="configure-and-test-microsoft-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Microsoft Azure AD.
 En esta sección, podrá configurar y probar el inicio de sesión único de Microsoft Azure AD con SanSan con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de SanSan para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de SanSan.
+
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en SanSan.
 
 Para configurar y probar el inicio de sesión único de Microsoft Azure AD con SanSan, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** : para que los usuarios puedan usar esta característica.
+1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Microsoft Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de SanSan](#creating-an-sansan-test-user)** : para tener un homólogo de Britta Simon en SanSan que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para que Britta Simon pueda usar el inicio de sesión único de Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Microsoft Azure AD
+### <a name="configure-microsoft-azure-ad-sso"></a>Configuración del inicio de sesión único de Microsoft Azure AD
+
 En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación SanSan.
 
 **Para configurar el inicio de sesión único de Microsoft Azure AD con SanSan, realice los pasos siguientes:**
@@ -105,47 +109,37 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     ![Configurar inicio de sesión único](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_03.png) 
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_04.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_04.png)    
+  1. En el cuadro de texto **URL de inicio de sesión** , escriba la dirección URL con el siguiente patrón:
    
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba la dirección URL con el siguiente patrón:
-   
-   | Environment | URL |
-   |:--- |:--- |
-   | Web de PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-   | Aplicación nativa móvil |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-   | Configuración del explorador móvil |`https://ap.sansan.com/s/saml2/<company name>/acs` |
-
-    b. En el cuadro de texto **Identificador** , escriba la dirección URL con el siguiente patrón: 
+    | Environment | URL |
+    |:--- |:--- |
+    | Web de PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
+    | Aplicación nativa móvil |`https://internal.api.sansan.com/saml2/<company name>/acs` |
+    | Configuración del explorador móvil |`https://ap.sansan.com/s/saml2/<company name>/acs` 
+  2. En el cuadro de texto **Identificador** , escriba la dirección URL con el siguiente patrón: 
 
     | Environment             | URL |
     | :--                     | :-- |
     | Web de PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
     | Aplicación nativa móvil       | `https://internal.api.sansan.com/saml2/<company name>` |
     | Configuración del explorador móvil | `https://ap.sansan.com/s/saml2/<company name>` |
-
-
-    c. Haga clic en **Next**.
+  3. Haga clic en **Siguiente**.
 
 1. En la página **Configurar inicio de sesión único en SanSan** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_05.png) 
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Next**.
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
 2. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de SanSan, que le ayudará a configurarlo. Proporcione la siguiente información:
    
-   • El **certificado**
-   
-   • El **Id. del proveedor de identidades**
-   
-   • La **dirección URL de inicio de sesión único de SAML**
-   
-   • La **dirección URL del servicio de cierre de sesión único**
+  * El **certificado** descargado
+  * El **id. del proveedor de identidades**   
+  * La **dirección URL de inicio de sesión único de SAML**
+  * La **dirección URL del servicio de cierre de sesión único**
 
-> [!NOTE]
-> La configuración del explorador de PC también funciona para aplicaciones y exploradores móviles junto con la web del PC. 
-> 
+>[!NOTE]
+>La configuración del explorador de PC también funciona para aplicaciones y exploradores móviles junto con la web del PC.  
 > 
 
 1. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
@@ -155,9 +149,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
-En la lista Usuarios, seleccione **Britta Simon**.
+
+* En la lista Usuarios, seleccione **Britta Simon**.
 
 ![Creación de un usuario de Azure AD][20]
 
@@ -175,46 +170,35 @@ En la lista Usuarios, seleccione **Britta Simon**.
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_04.png) 
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_05.png)  
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización. 
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+   1. Anote el valor del campo **Nueva contraseña**.
+   2. Haga clic en **Completo**.   
 
-### <a name="creating-an-sansan-test-user"></a>Creación de un usuario de prueba de SanSan
+### <a name="create-an-sansan-test-user"></a>Creación de un usuario de prueba de SanSan
 En esta sección, creará un usuario llamado Britta Simon en SanSan. La aplicación SanSan necesita que todos los usuarios estén aprovisionados en la aplicación antes de realizar el inicio de sesión único. 
 
-> [!NOTE]
-> Si necesita crear un usuario de forma manual o por lotes de los usuarios, póngase en contacto con el equipo de soporte técnico de SanSan.
-> 
+>[!NOTE]
+>Si necesita crear un usuario de forma manual o por lotes de los usuarios, póngase en contacto con el equipo de soporte técnico de SanSan. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a SanSan.
 
 ![Asignar usuario][200] 
@@ -235,8 +219,9 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
-En esta sección, probará la configuración de inicio de sesión único de Microsoft Azure AD mediante el Panel de acceso.
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+En esta sección, probará la configuración de inicio de sesión único de Microsoft Azure AD mediante el panel de acceso.
+
 Al hacer clic en el icono de SanSan en el panel de acceso, debería iniciar sesión automáticamente en su aplicación SanSan.
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -260,9 +245,4 @@ Al hacer clic en el icono de SanSan en el panel de acceso, debería iniciar sesi
 [203]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

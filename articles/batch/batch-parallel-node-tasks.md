@@ -1,5 +1,5 @@
 ---
-title: "Ejecución de tareas paralelas para maximizar el uso de nodo: Azure Batch | Microsoft Docs"
+title: "Ejecución de tareas en paralelo para usar recursos de procesos con eficacia - Azure Batch | Microsoft Docs"
 description: "Aumente la eficiencia y reduzca los costos usando menos nodos de proceso y ejecutando tareas simultáneas en cada nodo de un grupo de Lote de Azure"
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: 8080c8c43d1e88381cd49bdac6a5f36b6cd82709
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: c4053ded725ad7ab2acc6d5d54e8343ffb961408
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="maximize-azure-batch-compute-resource-usage-with-concurrent-node-tasks"></a>Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas de nodo
+# <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Ejecución simultánea de tareas para maximizar el uso de los nodos de proceso de Batch 
+
 A través de la ejecución simultánea de más de una tarea en cada nodo de proceso dentro del grupo de Lote de Azure, puede maximizar el uso de recursos en un menor número de nodos en el grupo. Para algunas cargas de trabajo, esto puede reducir los costos y el tiempo dedicado al trabajo.
 
 Aunque en algunos casos puede resultar beneficioso que todos los recursos de un nodo estén dedicados a una sola tarea, en otras situaciones será conveniente permitir que varias tareas compartan esos recursos:
@@ -143,9 +146,4 @@ El [Azure Batch Explorer][batch_explorer], una de las aplicaciones de ejemplo de
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: 89ff5d5deeda72361cb619516681aca386c5a422
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: b8cad4541d4e17f98a35289c6c031b9331ab4a8b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="automatically-scale-compute-nodes-in-an-azure-batch-pool"></a>Escalación automática de los nodos de ejecución en un grupo de Lote de Azure
+# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
+
 Con la escala automática, el servicio Lote de Azure puede agregar o quitar de forma dinámica nodos de ejecución en un grupo en función de los parámetros definidos. Con esto puede ahorrar tiempo y dinero ajustando automáticamente la cantidad de potencia de procesamiento utilizada por la aplicación: agregar nodos a medida que las demandas de la tarea del trabajo aumentan y quitarlos cuando disminuyen.
 
 Habilitar el escalado automático en un grupo de nodos de proceso mediante la asociación con una fórmula de *escalado automático* que defina, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca de [.NET para Batch](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Lote responde a las muestras de datos de métricas de servicio que se recopilan periódicamente y ajusta el número de nodos de proceso del grupo a un intervalo configurable según la fórmula asociada.
@@ -182,7 +185,7 @@ Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista
 
 El valor *doubleVecList* se convierte en un *doubleVec* individual antes de la evaluación. Por ejemplo, si `v = [1,2,3]`, entonces, llamar a `avg(v)` es equivalente a llamar a `avg(1,2,3)`. Llamar a `avg(v, 7)` es equivalente a llamar a `avg(1,2,3,7)`.
 
-## <a name="a-namegetsampledataaobtain-sample-data"></a><a name="getsampledata"></a>Obtención de datos de ejemplo
+## <a name="getsampledata"></a>Obtención de datos de ejemplo
 Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Lote. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para acceder a los datos que están asociados a cada objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
 
 ```
@@ -643,9 +646,4 @@ string formula = string.Format(@"
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_autoscaleinterval]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

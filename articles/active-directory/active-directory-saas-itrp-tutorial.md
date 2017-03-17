@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
-ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
+ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
+ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scenario")
+![Escenario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-itrp"></a>Habilitación de la integración de aplicaciones para ITRP
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para ITRP.
@@ -49,19 +50,19 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-    ![Applications](./media/active-directory-saas-itrp-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-itrp-tutorial/IC700994.png "Aplicaciones")
 
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-    ![Agregar aplicación](./media/active-directory-saas-itrp-tutorial/IC749321.png "Add application")
+    ![Agregar aplicaciones](./media/active-directory-saas-itrp-tutorial/IC749321.png "Agregar aplicaciones")
 
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-itrp-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-itrp-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
 6. En el **cuadro de búsqueda**, escriba **ITRP**.
    
-    ![Galería de aplicaciones](./media/active-directory-saas-itrp-tutorial/IC775565.png "Application Gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-itrp-tutorial/IC775565.png "Galería de aplicaciones")
 
 7. En el panel de resultados, seleccione **ITRP** y luego haga clic en **Completar** para agregar la aplicación.
    
@@ -76,19 +77,19 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de la aplicación **ITRP**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurar inicio de sesión único")
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en ITRP?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configurar inicio de sesión único")
 
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **Dirección URL de inicio de sesión de ITRP**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino\>.ITRP.com*" y, a continuación, haga clic en **Siguiente**.
    
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configurar dirección URL de la aplicación")
 
 4. En la página **Configurar inicio de sesión único en ITRP**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo como **c:\\ITRP.cer**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configurar inicio de sesión único")
 
 5. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de ITRP.
 
@@ -98,13 +99,13 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
 7. En el panel de navegación izquierdo, haga clic en **Inicio de sesión único**.
    
-    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775571.png "Single Sign-On")
+    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775571.png "Inicio de sesión único")
 
 8. Siga estos pasos en la sección de configuración de Single Sign-On (Inicio de sesión único):
    
-    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")
+    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775572.png "Inicio de sesión único")
     
-    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
+    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Inicio de sesión único")
    
     a. Hacer clic en **Habilitar**.
    
@@ -123,7 +124,7 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
 9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurar inicio de sesión único")
    
 ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 
@@ -135,19 +136,19 @@ En el caso de ITRP, el aprovisionamiento es una tarea manual.
 
 2. En la barra de herramientas de la parte superior, haga clic en el icono de **Registros**.
    
-    ![Administrador](./media/active-directory-saas-itrp-tutorial/IC775575.png "Admin")
+    ![Administración](./media/active-directory-saas-itrp-tutorial/IC775575.png "Administración")
 
 3. En el menú emergente, seleccione **Contactos**.
    
-    ![Contactos](./media/active-directory-saas-itrp-tutorial/IC775587.png "People")
+    ![Personas](./media/active-directory-saas-itrp-tutorial/IC775587.png "Personas")
 
 4. Haga clic en **Agregar nueva persona** (“+”).
    
-    ![Administrador](./media/active-directory-saas-itrp-tutorial/IC775576.png "Admin")
+    ![Administración](./media/active-directory-saas-itrp-tutorial/IC775576.png "Administración")
 
 5. En el cuadro de diálogo Add New Person (Agregar nueva persona), realice los pasos siguientes:
    
-    ![Usuario](./media/active-directory-saas-itrp-tutorial/IC775577.png "User")
+    ![Usuario](./media/active-directory-saas-itrp-tutorial/IC775577.png "Usuario")
    
     a. Escriba el **nombre** y el **correo electrónico** de la cuenta válida de AAD que desee aprovisionar.
    
@@ -166,17 +167,12 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 2. En la página de integración de la aplicación **ITRP**, haga clic en **Asignar usuarios**.
    
-    ![Asignar usuarios](./media/active-directory-saas-itrp-tutorial/IC775588.png "Assign Users")
+    ![Asignar usuarios](./media/active-directory-saas-itrp-tutorial/IC775588.png "Asignar usuarios")
 
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-    ![Sí](./media/active-directory-saas-itrp-tutorial/IC767830.png "Yes")
+    ![Sí](./media/active-directory-saas-itrp-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Optimización del entorno con la solución de evaluación de Active Directory en Log Analytics | Microsoft Docs"
+title: "Optimización del entorno de Active Directory con Azure Log Analytics | Microsoft Docs"
 description: "Puede usar periódicamente la solución de evaluación de Active Directory para evaluar el riesgo y el estado de los entornos de servidor."
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
-ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d5caa7a6c1b1a36a4ad08e1b28c7f9157a2c6349
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimización del entorno con la solución de evaluación de Active Directory en Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución de evaluación de Active Directory en Log Analytics
+
 Puede usar periódicamente la solución de evaluación de Active Directory para evaluar el riesgo y el estado de los entornos de servidor. Este artículo le ayudará a instalar y usar la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
 
 Esta solución proporciona una lista priorizada de recomendaciones específicas para su infraestructura de servidor implementada. Las recomendaciones se clasifican en cuatro áreas de enfoque que ayudan a comprender rápidamente el riesgo y a tomar una acción correctiva.

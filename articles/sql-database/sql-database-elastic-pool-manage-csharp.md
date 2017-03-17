@@ -16,15 +16,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
-ms.openlocfilehash: c511a73794a4b1333e149d286ae43c6929d58f75
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
+ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-cx23"></a>Creación y administración de un grupo elástico con C&#x23;
 
-En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con C#. También puede crear y administrar un grupo elástico de Azure en [Azure Portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), la API de REST. También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+En este tema se muestra cómo crear y administrar [grupos elásticos](sql-database-elastic-pool.md) escalables con C#. También puede crear y administrar un grupo elástico de Azure en [Azure Portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md) o con la API de REST. También puede crear y mover bases de datos dentro y fuera de los grupos elásticos mediante [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 > [!NOTE]
 > Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), por lo que siempre debe usar la **biblioteca de administración más reciente de Azure SQL Database para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las antiguas [bibliotecas basadas en el modelo de implementación clásico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) solo se admiten para la compatibilidad con versiones anteriores, así que se recomienda usar las bibliotecas más basadas en Resource Manager más nuevas.

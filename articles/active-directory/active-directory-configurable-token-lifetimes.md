@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b520b4672dd403981d218c9855c3beb09ef55021
-ms.openlocfilehash: 6da28e6273d92445e4b14ea22752a6e59b1dd93a
+ms.sourcegitcommit: d7e635f7e84ac53399309bf4ec8a7fa9e70e3728
+ms.openlocfilehash: aa18efb0c622ae38eea0de28f25c72788e6d0f20
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -192,103 +193,135 @@ En los escenarios de ejemplo, crearemos, actualizaremos, vincularemos y eliminar
 
 1. Para empezar, descargue la [versión preliminar más reciente de los cmdlets de Azure PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Cuando tenga los cmdlets de Azure AD PowerShell, ejecute el comando Conectar para iniciar sesión en la cuenta de administrador de Azure AD. Debe hacer esto cada vez que inicie una nueva sesión.
+
+    ```PowerShell
+    Connect-AzureAD -Confirm
+    ```
+
+3. Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización.  Este comando debe usarse después de la mayoría de las operaciones en los escenarios siguientes.  También le ayudará a obtener el valor de **ObjectId** de sus directivas. 
    
-     Connect-AzureAD -Confirm
-3. Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización.  Este comando debe usarse después de la mayoría de las operaciones en los escenarios siguientes.  También le ayudará a obtener el **id. de objeto** de sus directivas. 
-   
-     Get-AzureADPolicy
+    ```PowerShell
+    Get-AzureADPolicy
+    ```
 
 ### <a name="sample-managing-a-organizations-default-policy"></a>Ejemplo: administración de la directiva predeterminada de una organización
 En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesión con menos frecuencia en toda su organización. 
 
 Para ello, creamos una directiva de vigencia del token para tokens de actualización de un solo factor que se aplica en toda la organización. Esta directiva se aplicará a todas las aplicaciones de su organización y a todas las entidades de servicio que aún no tengan una directiva establecida en ella. 
 
-1. **Cree una directiva de vigencia del token.** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Cree una directiva de vigencia del token.
 
 Establezca el token de actualización de un solo factor en "hasta que se revoque", lo que significa que no expirará hasta que se revoque el acceso.  La definición de la directiva que se indica a continuación es lo que crearemos:
 
-        @("{
-          `"TokenLifetimePolicy`":
-              {
-                 `"Version`":1, 
-                 `"MaxAgeSingleFactor`":`"until-revoked`"
-              }
-        }")
+```PowerShell
+@('{
+    "TokenLifetimePolicy":
+    {
+        "Version":1, 
+        "MaxAgeSingleFactor":"until-revoked"
+    }
+}')
+```
 
 Ahora, ejecute el siguiente comando para crear esta directiva. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
 
-Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando.
+Para ver la nueva directiva y obtener el valor de ObjectID, ejecute el siguiente comando.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Actualización de la directiva**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-update-the-policy"></a>2. Actualice la directiva.
 
 Ha decidido que la primera directiva no es tan estricta como requiere su servicio y que sus tokens de actualización de un solo factor expiren en 2 días. Ejecute el siguiente comando. 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+```
 
-&nbsp;&nbsp;3. **Ha terminado.** 
+#### <a name="3-youre-done"></a>3. ¡Y ya está! 
 
 ### <a name="sample-creating-a-policy-for-web-sign-in"></a>Ejemplo: Creación de una directiva para el inicio de sesión web
+
 En este ejemplo, crearemos una directiva que requerirá que los usuarios se autentiquen con más frecuencia en la aplicación web. Esta directiva establecerá la vigencia de los tokens de acceso y de identificador y la antigüedad máxima de un token de sesión de varios factores en la entidad de servicio de su aplicación web.
 
-1. **Cree una directiva de vigencia del token.**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Cree una directiva de vigencia del token.
 
 Para el inicio de sesión web esta directiva establecerá la vigencia del token de acceso y de identificador y la antigüedad máxima del token de sesión de un solo factor en 2 horas.
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
-Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando.
+Para ver la nueva directiva y obtener el valor de ObjectID, ejecute el siguiente comando.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Asigne la directiva a su entidad de servicio.**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-assign-the-policy-to-your-service-principal"></a>2. Asigne la directiva a su entidad de servicio.
 
 Vamos a vincular esta nueva directiva con una entidad de servicio.  También necesitará una forma de acceder al valor de **ObjectId** de su entidad de servicio. Puede consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) o ir a nuestra [herramienta del Explorador de gráficos](https://graphexplorer.cloudapp.net/) e iniciar sesión en su cuenta de Azure AD para ver las entidades de servicio de todas sus organizaciones. 
 
 Una vez que tenga el valor de **ObjectId**, ejecute el siguiente comando.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.    **Ha terminado.** 
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
- 
+#### <a name="3-youre-done"></a>3. ¡Y ya está! 
 
 ### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Ejemplo: Creación de una directiva para aplicaciones nativas mediante la llamada a una API web
 En este ejemplo, crearemos una directiva que requiera que los usuarios se autentiquen menos y alargaremos la cantidad de tiempo que pueden estar inactivos sin tener que volver a autenticarse. La directiva se aplicará a la API web, así cuando la aplicación nativa la solicite como recurso, se aplicará esta directiva.
 
-1. **Cree una directiva de vigencia del token.** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Cree una directiva de vigencia del token. 
 
 Este comando creará una directiva estricta para una API web. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
-Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando.
+Para ver la nueva directiva y obtener el valor de ObjectID, ejecute el siguiente comando.
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Asigne la directiva a la API web**.
+#### <a name="2-assign-the-policy-to-your-web-api"></a>2. Asigne la directiva a la API web.
 
 Vamos a vincular esta nueva directiva a una aplicación.  También necesitará una manera de acceder al valor de **ObjectId** de su aplicación. La mejor manera de encontrar el valor de **ObjectId** de la aplicación es usar [Azure Portal](https://portal.azure.com/). 
 
 Una vez que tenga el valor de **ObjectId**, ejecute el siguiente comando.
 
-    Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Ha terminado.** 
+#### <a name="3-youre-done"></a>3. ¡Y ya está! 
 
 ### <a name="sample-managing-an-advanced-policy"></a>Ejemplo: Administración de una directiva avanzada
 En este ejemplo, crearemos algunas directivas para demostrar cómo funciona el sistema de prioridad y cómo puede administrar varias directivas aplicadas a varios objetos. Esto le dará una idea de la prioridad de las directivas que se han explicado anteriormente y le ayudará a tratar con las situaciones más complicadas. 
 
-1. **Creación de una directiva de vigencia del token**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Cree una directiva de vigencia del token.
 
 Hasta ahora ha sido bastante simple. Hemos creado una directiva predeterminada de organización que establece la vigencia del token de actualización de un solo factor en 30 días. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
 Para ver su nueva directiva y obtener su ObjectID, ejecute el siguiente comando.
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Asigne la directiva a una entidad de servicio**.
+#### <a name="2-assign-the-policy-to-a-service-principal"></a>2. Asigne la directiva a una entidad de servicio.
 
 Ahora tenemos una directiva en toda la organización.  Supongamos que queremos conservar esta directiva 30 días para una entidad de servicio específica, pero cambiar la directiva predeterminada de organización para que sea el límite superior de "hasta que se revoque". 
 
@@ -296,84 +329,104 @@ En primer lugar, vamos a vincular esta nueva directiva a nuestra entidad de serv
 
 Una vez que tenga el valor de **ObjectId**, ejecute el siguiente comando.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Establezca el indicador IsOrganizationDefault en false mediante el comando siguiente**. 
+#### <a name="3-set-the-isorganizationdefault-flag-to-false"></a>3. Establezca la marca de IsOrganizationDefault en false.
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
-&nbsp;&nbsp;4.    **Cree una nueva directiva predeterminada de organización**
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+```
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
+#### <a name="4-create-a-new-organization-default-policy"></a>4. Cree una nueva directiva predeterminada de organización.
 
-&nbsp;&nbsp;5.     **Ha terminado.** 
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
+#### <a name="5-youre-done"></a>5. ¡Y ya está! 
 
 Ahora tiene la directiva original vinculada a la entidad de servicio y la nueva directiva establecida como su directiva predeterminada de organización.  Es importante recordar que las directivas aplicadas a las entidades de servicio tienen prioridad sobre las directivas predeterminadas de organización. 
 
 ## <a name="cmdlet-reference"></a>Referencia de cmdlets
+
 ### <a name="manage-policies"></a>Administración de directivas
-Los cmdlets siguientes se pueden usar para administrar directivas.</br></br>
+
+Los cmdlets siguientes se pueden usar para administrar directivas.
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
+
 Crea una nueva directiva.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```PowerShell
+New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -Definition |La matriz de cadenas JSON que contiene todas las reglas de la directiva. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |Cadena del nombre de la directiva |-DisplayName MyTokenPolicy |
-| -IsOrganizationDefault |Si es true establece la directiva como directiva predeterminada de la organización, si es false no hace nada. |-IsOrganizationDefault $true |
-| -Type |El tipo de directiva para la vigencia de los tokens siempre usa "TokenLifetimePolicy". |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [opcional] |Establece un id alternativo para la directiva. |-AlternativeIdentifier myAltId |
+| <code>&#8209;Definition</code> |La matriz de cadenas JSON que contiene todas las reglas de la directiva. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |Si es true establece la directiva como directiva predeterminada de la organización, si es false no hace nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> |El tipo de directiva para la vigencia de los tokens siempre usa "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Establece un id alternativo para la directiva. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
 Obtiene todas las directivas de AzureAD o la directiva especificada. 
 
-    Get-AzureADPolicy 
+```PowerShell
+Get-AzureADPolicy 
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId [opcional] |El id. de objeto de la directiva que le gustaría obtener. |-ObjectId &lt;ObjectID de la directiva&gt; |
+| <code>&#8209;ObjectId</code> [Opcional] |El valor de ObjectId de la directiva que le gustaría obtener. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
 Obtiene todas las aplicaciones y entidades de servicio vinculadas a una directiva.
 
-    Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
+```PowerShell
+Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy> 
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la directiva que le gustaría obtener. |-ObjectId &lt;ObjectID de la directiva&gt; |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la directiva que le gustaría obtener. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Actualiza una directiva existente.
 
-    Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string> 
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la directiva que le gustaría obtener. |-ObjectId &lt;ObjectID de la directiva&gt; |
-| -DisplayName |Cadena del nombre de la directiva |-DisplayName MyTokenPolicy |
-| -Definition [opcional] |La matriz de cadenas JSON que contiene todas las reglas de la directiva. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsOrganizationDefault [Optional] |Si es true establece la directiva como directiva predeterminada de la organización, si es false no hace nada. |-IsOrganizationDefault $true |
-| -Type [opcional] |El tipo de directiva para la vigencia de los tokens siempre usa "TokenLifetimePolicy". |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [opcional] |Establece un id alternativo para la directiva. |-AlternativeIdentifier myAltId |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la directiva que le gustaría obtener. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code> [Opcional] |La matriz de cadenas JSON que contiene todas las reglas de la directiva. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Opcional] |Si es true establece la directiva como directiva predeterminada de la organización, si es false no hace nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Opcional] |El tipo de directiva para la vigencia de los tokens siempre usa "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Establece un id alternativo para la directiva. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Elimina la directiva especificada.
 
-     Remove-AzureADPolicy -ObjectId <object id of policy>
+```PowerShell
+ Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la directiva que le gustaría obtener. |-ObjectId &lt;ObjectID de la directiva&gt; |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la directiva que le gustaría obtener. | `-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -383,35 +436,41 @@ Los cmdlets siguientes se pueden usar para directivas de aplicación.</br></br>
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Vincula la directiva especificada a una aplicación.
 
-    Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la aplicación. |-ObjectId &lt;ObjectID de la aplicación&gt; |
-| -RefObjectId |El id. de objeto de la directiva. |-RefObjectId &lt;ObjectID de la directiva&gt; |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |El valor de ObjectId de la directiva. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
 Obtiene la directiva asignada a una aplicación.
 
-    Get-AzureADApplicationPolicy -ObjectId <object id of application>
+```PowerShell
+Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la aplicación. |-ObjectId &lt;ObjectID de la aplicación&gt; |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la aplicación. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Quita una directiva de una aplicación.
 
-    Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la aplicación. |-ObjectId &lt;ObjectID de la aplicación&gt; |
-| -PolicyId |El valor de ObjectId de la directiva. |-PolicyId &lt;ObjectID de la directiva&gt; |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |El valor de ObjectId de la directiva. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -421,39 +480,40 @@ Los cmdlets siguientes se pueden usar para las directivas de entidad de servicio
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Vincula la directiva especificada a una entidad de servicio.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la aplicación. |-ObjectId &lt;ObjectID de la aplicación&gt; |
-| -RefObjectId |El id. de objeto de la directiva. |-RefObjectId &lt;ObjectID de la directiva&gt; |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |El valor de ObjectId de la directiva. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
 Obtiene cualquier directiva vinculada a la entidad de servicio especificada.
 
-    Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
+```PowerShell
+Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la aplicación. |-ObjectId &lt;ObjectID de la aplicación&gt; |
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la aplicación. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Quita la directiva de la entidad de servicio especificada.
 
-    Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+```
 
 | parameters | Descripción | Ejemplo |
 | --- | --- | --- |
-| -ObjectId |El id. de objeto de la aplicación. |-ObjectId &lt;ObjectID de la aplicación&gt; |
-| -PolicyId |El valor de ObjectId de la directiva. |-PolicyId &lt;ObjectID de la directiva&gt; |
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+| <code>&#8209;ObjectId</code> |El valor de ObjectId de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |El valor de ObjectId de la directiva. | `-PolicyId <ObjectId of Policy>` |
 
 

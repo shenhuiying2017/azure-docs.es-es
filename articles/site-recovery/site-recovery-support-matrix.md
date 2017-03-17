@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
-ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
+ms.sourcegitcommit: 3b9d269a780e9a4c61263208f26f440b1121c682
+ms.openlocfilehash: f437598b612a145c5dd8b46a1ba340d298a76981
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -62,7 +63,7 @@ vCenter 5.5 o 6.0 (compatible solo con características de 5.5)  <br/><br/> vSph
 
 ### <a name="machines-replicate-to-azure"></a>Máquinas (se replican en Azure)
 
-Las máquinas virtuales de deben cumplir los [requisitos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Las máquinas virtuales de deben cumplir los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 **Requisito** | **Servidores físicos o de VMware** | **Hyper-V (sin VMM)** | **Hyper-V (con VMM)**
 --- | --- | --- | ---
@@ -163,17 +164,17 @@ Disco > 1 TB | No | No | No
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí | Sí | Sí
 Espacios de almacenamiento | No | Sí | Sí
 Agregar/quitar disco en caliente | No | No | No
-Excluir el disco | Sí | No | No
+Excluir el disco | Sí | Sí | Sí
 Varias rutas (MPIO) | N/D | Sí | Sí
 
 **Almacenamiento de Azure** | **Servidores físicos o de VMware** | **Hyper-V (sin VMM)** | **Hyper-V (con VMM)**
 --- | --- | --- | ---
 LRS | Sí | Sí | Sí
-GRS | Sí | Sí | Sí
+GRS (solo para almacenamiento estándar) | Sí | Sí | Sí
 Almacenamiento de acceso esporádico | No | No | No
 Almacenamiento de acceso frecuente| No | No | No
 Cifrado en reposo | Sí | Sí | Sí
-Premium Storage | Sí | No | No
+Premium Storage | Sí | Sí | Sí
 Servicio Import/Export | No | No | No
 
 
@@ -241,7 +242,7 @@ Puede implementar Site Recovery para replicar máquinas virtuales y servidores f
 **Arquitectura del sistema operativo invitado** | 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Tamaño del disco del sistema operativo** | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Número de discos del sistema operativo** | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Número de discos de datos** | 64 o menos si está va a replicar **máquinas virtuales de VMware a Azure**; 16 o menos si va a replicar **máquinas virtuales de Hyper-V a Azure** | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+**Número de discos de datos** | 64 o menos si está va a replicar **VM de VMware a Azure**; 16 o menos si va a replicar **VM de Hyper-V a Azure** | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Tamaño de VHD del disco de datos** | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Adaptadores de red** | Se admiten varios adaptadores |
 **Dirección IP estática** | Compatible | Si la máquina virtual principal usa una dirección IP estática, puede especificar la dirección IP estática para la máquina virtual que se creará en Azure.<br/><br/> No se admiten direcciones IP estáticas de una **máquina virtual Linux con Hyper-V** no se admite.
@@ -261,10 +262,5 @@ Puede implementar Site Recovery para replicar máquinas virtuales y servidores f
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Preparación de la implementación](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Compruebe los [requisitos previos](site-recovery-prereq.md).
 

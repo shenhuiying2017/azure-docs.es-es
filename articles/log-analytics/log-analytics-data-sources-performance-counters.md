@@ -1,5 +1,5 @@
 ---
-title: "Recopilación y análisis de contadores de rendimiento en Log Analytics | Microsoft Docs"
+title: "Recopilación y análisis de contadores de rendimiento en Azure Log Analytics | Microsoft Docs"
 description: "Log Analytics recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en el repositorio de OMS y se indica cómo analizarlos en el portal de OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
+ms.sourcegitcommit: 853177202e4724546242d4e8d1b41b456a444eeb
+ms.openlocfilehash: 2381b7e9ab4514d6668569c2a58d108af5008a7e
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ La primera vez que se configuran los contadores de rendimiento de Windows o Linu
 
 Siga este procedimiento para agregar un nuevo contador de rendimiento de Windows para recopilar.
 
-1. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  También puede devolver todas las instancias de un contador determinado, para lo que debe especificar *objeto\contador*. 
+1. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  También puede devolver todas las instancias de un contador determinado, para lo que debe especificar *objeto\contador*.
 2. Haga clic en **+** o presione **ENTRAR** para agregar el contador a la lista.
 3. Cuando se agrega un contador, se usa el valor predeterminado de 10 segundos en **Intervalo de ejemplo**.  Este valor se puede cambiar por otro mayor, siempre que no supere los 1800 segundos (30 minutos), en caso de que se desee reducir los requisitos de almacenamiento de los datos de rendimiento recopilados.
 4. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
@@ -92,19 +93,9 @@ Cuando se ejecuta una búsqueda del registro de los datos de rendimiento, de for
 
 ![Vista Métricas contraída](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-Si el intervalo de tiempo que ha seleccionado es de 6 horas o menos, el gráfico se actualiza cada pocos segundos.  Los datos en directo se muestran en el lado derecho del gráfico, en color azul claro.
-
-![Vista Métricas expandido con datos en directo](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
-
 Para agregar datos de rendimiento en una búsqueda de registro, consulte [On-demand metric aggregation and visualization in OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/) (Agregación de métricas a petición y visualización en OMS).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 * Exporte los datos recopilados a [Power BI](log-analytics-powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

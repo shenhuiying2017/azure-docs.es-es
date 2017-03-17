@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 34bb02d93f74d437962334802f3bfbf938bbb258
-ms.openlocfilehash: 2bc98da479e6efea322a3782879fae72b106538a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -190,7 +190,7 @@ Compruebe la barra de estado para confirmar que el almacén se ha creado correct
 
    * Si desea usar un proxy personalizado, configúrelo antes de instalar el proveedor. Cuando se configuran las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy.
    * Si usa un proxy personalizado o el proxy predeterminado requiere autenticación, debería especificar los detalles del proxy, incluida la dirección y el puerto.
-   * Estas [direcciones URL](site-recovery-best-practices.md#url-access) deben ser accesibles desde el servidor VMM.
+   * Las direcciones URL requeridas deben ser accesibles desde el servidor VMM.
    * Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse. Puede modificar la configuración de la cuenta de ejecución en la consola VMM (**Configuración** > **Seguridad** > **Cuentas de ejecución** > **DRAProxyAccount**). Debe reiniciar el servicio VMM para que el cambio surta efecto.
 10. En **Clave de registro**, seleccione la clave que ha descargado del portal y ha copiado en el servidor VMM.
 11. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor.
@@ -321,7 +321,7 @@ Pruebe la implementación para asegurarse de que la conmutación por error de la
 
     ![Selección de máquinas virtuales](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. Una vez creado un plan de recuperación, aparece en la lista de la pestaña **Planes de recuperación**. Seleccione el plan y elija **Probar conmutación por error**.
-5. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Con esta opción habilitada, las máquinas virtuales de réplica conmutadas por error no estarán conectadas a ninguna red. Esto prueba si las máquinas virtuales conmutan por error según lo previsto, pero no prueba el entorno de red. Para más información sobre otras opciones de redes, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md#run-a-test-failover).
+5. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Con esta opción habilitada, las máquinas virtuales de réplica conmutadas por error no estarán conectadas a ninguna red. Esto prueba si las máquinas virtuales conmutan por error según lo previsto, pero no prueba el entorno de red. Para más información sobre otras opciones de redes, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
     ![Selección de la red de prueba](./media/site-recovery-vmm-san/test-fail1.png)
 

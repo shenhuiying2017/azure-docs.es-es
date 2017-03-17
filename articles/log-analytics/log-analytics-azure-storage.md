@@ -1,5 +1,5 @@
 ---
-title: "Recopilar registros y métricas para servicios de Azure en Log Analytics | Microsoft Docs"
+title: "Recopilación de registros y métricas de servicios de Azure en Log Analytics | Microsoft Docs"
 description: "Configure los diagnósticos en recursos de Azure para escribir registros y métricas en Log Analytics."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
-ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 935680e33c1b32619b7acb8d50a61e48b6703402
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="collecting-logs-and-metrics-for-azure-services-in-log-analytics"></a>Recopilación de registros y métricas para servicios de Azure en Log Analytics
+# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recopilación de registros y métricas de Azure para servicios de Log Analytics
 
 Hay cuatro maneras diferentes de recopilar registros y métricas para servicios de Azure:
 
@@ -149,9 +151,4 @@ La galería de plantillas de Azure tiene [ejemplos del uso de Azure Automation](
 * Consulte [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) (Uso de Blob Storage para IIS y de Table Storage para eventos) para aprender a leer los registros para servicios de Azure que escriben diagnósticos en Table Storage o registros ISS en Blob Storage.
 * [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para más información sobre los datos.
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para analizar los datos.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

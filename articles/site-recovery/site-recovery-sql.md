@@ -3,8 +3,8 @@ title: "Replicación de aplicaciones con SQL Server y Azure Site Recovery | Micr
 description: "En este artículo se describe cómo replicar SQL Server mediante Azure Site Recovery, una de las funcionalidades de recuperación ante desastres de SQL Server."
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
-manager: jwhit
+author: prateek9us
+manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2017
-ms.author: raynew
+ms.date: 02/22/2017
+ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: f822756c0ce45c98b95a0cec2efd1353aff71561
-ms.openlocfilehash: f2d8a9221a989f9e79b6f4e17d9448303544ffd6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 9ea73dd91c9637692bbc3d6d2aa97fbed7ae500d
+ms.openlocfilehash: 79c110031a47f1bdb78f4acfcadd7bff1e909807
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -33,12 +33,12 @@ Antes de empezar, asegúrese de que comprende las funcionalidades de recuperaci�
 Muchas cargas de trabajo usan SQL Server como base que, además, se puede integrar con aplicaciones como SharePoint, Dynamics y SAP para implementar servicios de datos.  SQL Server se puede implementar de varias maneras:
 
 * **Servidor SQL independiente**: SQL Server y todas las bases de datos se hospedan en una sola máquina (física o virtual). Cuando se virtualiza, la agrupación en clústeres de host se utiliza para conseguir una elevada disponibilidad local. No se implementa alta disponibilidad de nivel de invitado.
-* **Instancias de agrupación en clústeres de conmutación por error de SQL Server**: dos o más nodos que ejecutan instancias de SQL Server con discos compartidos se configuran en un clúster de conmutación por error de Windows. Si un nodo está inactivo, el clúster puede conmutar por error SQL Server en otra instancia. Esta configuración normalmente se usa para implementar la alta disponibilidad en un sitio principal. Esta implementación no protege frente a errores o una interrupción en la capa de almacenamiento compartido. Un disco compartido se puede implementar con iSCSI, canal de fibra o VHDx compartido.
+* **Instancias de agrupación en clústeres de conmutación por error de SQL Server (FCI AlwaysOn)**: dos o más nodos que ejecutan instancias de SQL Server con discos compartidos se configuran en un clúster de conmutación por error de Windows. Si un nodo está inactivo, el clúster puede conmutar por error SQL Server en otra instancia. Esta configuración normalmente se usa para implementar la alta disponibilidad en un sitio principal. Esta implementación no protege frente a errores o una interrupción en la capa de almacenamiento compartido. Un disco compartido se puede implementar con iSCSI, canal de fibra o VHDx compartido.
 * **Grupos de disponibilidad AlwaysOn de SQL**: se configuran dos o más nodos en un clúster no compartido, con bases de datos SQL Server configuradas en un grupo de disponibilidad, con replicación sincrónica y conmutación por error automática.
 
  En este artículo se aprovechan las siguientes tecnologías nativas de recuperación ante desastres de SQL para recuperar bases datos en un sitio de remoto:
 
-* Grupos de disponibilidad AlwayOn de SQL para proponer recuperación ante desastres para ediciones empresariales de SQL 2012 o 2014.
+* Grupos de disponibilidad AlwayOn de SQL para proponer recuperación ante desastres para las ediciones SQL Server 2012 o 2014 Enterprise.
 * Reflejo de base de datos SQL en modo de alta seguridad para SQL Server Standard Edition (cualquier versión) o SQL Server 2008 R2.
 
 ## <a name="site-recovery-support"></a>Compatibilidad de Site Recovery
@@ -65,22 +65,24 @@ Site Recovery se puede integrar con las tecnologías nativas de SQL Server BCDR 
 
 **Característica** | **Detalles** | **SQL Server** |
 --- | --- | ---
-**Grupos de disponibilidad AlwaysOn** | Se ejecutan varias instancias independientes de SQL Server, cada una en un clúster de conmutación por error que tiene varios nodos.<br/><br/>Las bases de datos se pueden agrupar en grupos de conmutación por error que se puede copiar (reflejar) en instancias de SQL Server para que no se necesite ningún almacenamiento compartido.<br/><br/>Proporciona recuperación ante desastres entre un sitio principal y uno o más sitios secundarios. Dos nodos pueden configurarse en un clúster no compartido con Bases de datos de SQL Server configurado en un grupo de disponibilidad con replicación sincrónica y conmutación por error automática. | SQL Server 2014 y 2012 Enterprise Edition
+**Grupo de disponibilidad AlwaysOn** | Se ejecutan varias instancias independientes de SQL Server, cada una en un clúster de conmutación por error que tiene varios nodos.<br/><br/>Las bases de datos se pueden agrupar en grupos de conmutación por error que se puede copiar (reflejar) en instancias de SQL Server para que no se necesite ningún almacenamiento compartido.<br/><br/>Proporciona recuperación ante desastres entre un sitio principal y uno o más sitios secundarios. Dos nodos pueden configurarse en un clúster no compartido con Bases de datos de SQL Server configurado en un grupo de disponibilidad con replicación sincrónica y conmutación por error automática. | SQL Server 2014 y 2012 Enterprise Edition
 **Clústeres de conmutación por error (FCI AlwaysOn)** | SQL Server aprovecha la agrupación en clústeres de conmutación por error de Windows para conseguir alta disponibilidad de las cargas de trabajo locales de SQL Server.<br/><br/>Los nodos que ejecutan instancias de SQL Server con discos compartidos se configuran en un clúster de conmutación por error. Si una instancia está inactiva, el clúster conmuta por error a una diferente.<br/><br/>El clúster no protege frente a errores o interrupciones en el almacenamiento compartido. El disco compartido se puede implementar con iSCSI, canal de fibra o VHDX compartido. | SQL Server Enterprise Edition<br/><br/>SQL Server Standard Edition (limitada a solo dos nodos)
 **Creación de un reflejo de la base de datos (modo de alta seguridad)** | Protege una sola base de datos en una única copia secundaria. Disponible en modos de replicación de seguridad alta (sincrónica) y de alto rendimiento (asincrónica). No requiere un clúster de conmutación por error. | SQL Server 2008 R2<br/><br/>Todas las ediciones de SQL Server Enterprise
 **SQL Server independiente** | SQL Server y la base de datos se hospedan en un único servidor (físico o virtual). Los clústeres de host se utilizan para lograr alta disponibilidad, si el servidor virtual. Sin alta disponibilidad de nivel de invitado. | Edición Enterprise o Standard
 
 ## <a name="deployment-recommendations"></a>Recomendaciones de implementación
 
-**Versión** | **Implementación** | **De local a secundario** | **De local a Azure** |
---- | --- | --- | --- | --- |
-**SQL Server 2014/2012 Enterprise FCI** | Clúster de conmutación por error | Grupos de disponibilidad AlwaysOn | Grupos de disponibilidad AlwaysOn
-**SQL Server 2014/2012 AlwaysOn** | Grupos de disponibilidad AlwaysOn | AlwaysOn | AlwaysOn
-**SQL Server 2014/2012 Standard FCI** | Clúster de conmutación por error | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
-**SQL Server 2014/2012 Enterprise/Standard** | Independiente | Replicación de Site Recovery | Replicación de Site Recovery
-**SQL Server 2008 R2 Enterprise/Standard** | FCI |Replicación de Site Recovery con un reflejo local |Replicación de Site Recovery con un reflejo local |
-**SQL Server 2008 R2 Enterprise/Standard** | Independiente |Replicación de Site Recovery | Replicación de Site Recovery
-**SQL Server (todas las versiones) Enterprise/Standard** |FCI: aplicación de DTC | Replicación de Site Recovery |No compatible
+En la siguiente tabla se resumen nuestras recomendaciones para integrar las tecnologías de SQL Server BCDR con Site Recovery.
+
+| **Versión** | **Edición** | **Implementación** | **De local a local** | **De local a Azure** |
+| --- | --- | --- | --- | --- |
+| SQL Server 2014 o 2012 |Enterprise |Instancia de clúster de conmutación por error |Grupos de disponibilidad AlwaysOn |Grupos de disponibilidad AlwaysOn |
+|| Enterprise |Grupos de disponibilidad AlwaysOn para alta disponibilidad |Grupos de disponibilidad AlwaysOn |Grupos de disponibilidad AlwaysOn | |
+|| Estándar |Instancia de clúster de conmutación por error (FCI) |Replicación de Site Recovery con un reflejo local |Replicación de Site Recovery con un reflejo local | |
+|| Enterprise o Standard |Independiente |Replicación de Site Recovery |Replicación de Site Recovery | |
+| SQL Server 2008 R2 |Enterprise o Standard |Instancia de clúster de conmutación por error (FCI) |Replicación de Site Recovery con un reflejo local |Replicación de Site Recovery con un reflejo local |
+|| Enterprise o Standard |Independiente |Replicación de Site Recovery |Replicación de Site Recovery | |
+| SQL Server (cualquier versión) |Enterprise o Standard |Instancia de clúster de conmutación por error: aplicación de DTC |Replicación de Site Recovery |No compatible |
 
 ## <a name="deployment-prerequisites"></a>Requisitos previos de implementación
 
@@ -97,15 +99,16 @@ Configure Active Directory en el sitio de recuperación secundario para que SQL 
 
 Las instrucciones de este artículo suponen que un controlador de dominio está disponible en la ubicación secundaria. [Más información](site-recovery-active-directory.md) sobre la protección de Active Directory con Site Recovery.
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Integración con SQL Server Always On para la replicación en Azure (portal clásico con un servidor VMM o de configuración)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Integración con SQL Server AlwaysOn para la replicación en Azure (portal clásico con un servidor VMM o de configuración)
 
 
 Site Recovery admite SQL AlwaysOn de forma nativa. Si creó un grupo de disponibilidad de SQL con una máquina virtual de Azure configurada como ubicación secundaria, puede usar Site Recovery para administrar la conmutación por error de los grupos de disponibilidad.
 
 > [!NOTE]
-> Esta funcionalidad actualmente se encuentra disponible en modo de vista previa. Está disponible cuando el sitio primario tiene servidores host de Hyper-V administrados en nubes de System Center VMM, o cuando ha configurado la [replicación de VMware](site-recovery-vmware-to-azure.md). La funcionalidad no está actualmente disponible en el nuevo Azure Portal. En este momento, no está disponible en el nuevo Portal de Azure.
+> Esta funcionalidad actualmente se encuentra disponible en modo de vista previa. Está disponible cuando el sitio primario tiene servidores host de Hyper-V administrados en nubes de System Center VMM, o cuando ha configurado la [replicación de VMware](site-recovery-vmware-to-azure.md). La funcionalidad no está actualmente disponible en el nuevo Azure Portal. Siga los pasos que aparecen en [esta sección](site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server) si usa la versión nueva de Azure Portal.
 >
 >
+
 
 #### <a name="before-you-start"></a>Antes de comenzar
 
@@ -169,7 +172,7 @@ En el ejemplo, la aplicación de Sharepoint consta de tres máquinas virtuales q
 
 ![Personalización de planes de recuperación](./media/site-recovery-sql/customize-rp.png)
 
-### <a name="fail-over"></a>Conmutación por error
+### <a name="failover"></a>Conmutación por error
 
 Una vez que se agrega un grupo de disponibilidad a un plan de recuperación hay diferentes opciones disponibles.
 
@@ -195,7 +198,7 @@ Si desea que el grupo de disponibilidad vuelva a ser principal en el servidor lo
 >
 >
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Integración con SQL Server Always On para la replicación en Azure (Azure Portal, portal clásico con un servidor VMM o de configuración)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Integración con SQL Server AlwaysOn para la replicación en Azure (Azure Portal, portal clásico con un servidor VMM o de configuración)
 
 Estas instrucciones son relevantes si va a realizar la integración con grupos de disponibilidad de SQL Server en el nuevo Azure Portal, o en el portal clásico si no usa un servidor VMM o un servidor de configuración. En este escenario, se pueden usar los runbooks de Azure Automation para configurar una conmutación por error con script de los grupos de disponibilidad de SQL.
 
@@ -304,7 +307,7 @@ Esto es lo que debe hacer:
          }
      }``
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>Integración con SQL Server Always On para la replicación en un sitio local secundario
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-a-secondary-on-premises-site"></a>Integración con SQL Server AlwaysOn para la replicación en un sitio local secundario
 
 Si el servidor SQL Server utiliza grupos de disponibilidad para alta disponibilidad (o un FCI), se recomienda utilizar también grupos de disponibilidad en el sitio de recuperación. Tenga en cuenta que esto es aplicable a aplicaciones que no utilizan transacciones distribuidas.
 
@@ -343,7 +346,7 @@ Para un clúster que ejecuta SQL Server Standard Edition o SQL Server 2008 R2, s
 
 ### <a name="on-premises-to-azure"></a>De local a Azure
 
-Site Recovery no proporciona la compatibilidad con clústeres de invitado al replicar en Azure. SQL Server tampoco proporciona una solución de recuperación ante desastres de bajo costo para la edición Standard. En este escenario, se recomienda proteger el clúster de SQL Server local en un servidor SQL Server independiente y recuperarlo en Azure.
+Site Recovery no proporciona la compatibilidad con clústeres invitados al replicar en Azure. SQL Server tampoco proporciona una solución de recuperación ante desastres de bajo costo para la edición Standard. En este escenario, se recomienda proteger el clúster de SQL Server local en un servidor SQL Server independiente y recuperarlo en Azure.
 
 1. Configure una instancia de SQL Server independiente adicional en el sitio local.
 2. Configure esta instancia para actuar como un reflejo para las bases de datos que desea proteger. Configure el reflejo en modo de alta seguridad.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/23/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
-ms.openlocfilehash: 76fb321dbe909730f72eba71042264caba407aed
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 116344308a1173994ec85bcb8a7112ce158f4f60
+ms.openlocfilehash: d4cb0ad3ad88aad6cabc67b32d048da9ed797d07
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -47,16 +47,17 @@ Los pasos de modelado también contienen código que muestra cómo entrenar, eva
 Necesita una cuenta de Azure y un clúster de Spark 1.6 o Spark 2.0 HDInsight para completar este tutorial. Consulte el artículo [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para obtener instrucciones sobre cómo satisfacer estos requisitos. Ese tema también contiene una descripción de los datos de taxis de Nueva York de 2013 que se usan aquí, además de instrucciones sobre cómo ejecutar el código de un cuaderno de Jupyter Notebook en el clúster Spark. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Clústeres y cuadernos de Spark
-Los pasos de instalación y el código proporcionado en este tutorial son para HDInsight Spark 1.6. Sin embargo, Jupyter Notebooks se proporciona para clústeres de HDInsight Spark 1.6 y Spark 2.0. Se proporciona una descripción de los cuadernos y de los vínculos a estos en el archivo [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) del repositorio de GitHub que los contiene. No obstante, este código y los cuadernos vinculados son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight. Para mayor comodidad, estos son los vínculos a los cuadernos de Jupyter para Spark 1.6 y 2.0 para ejecutarse en el kernel pyspark del servidor de Jupyter Notebooks:
+Los pasos de instalación y el código proporcionado en este tutorial son para HDInsight Spark 1.6. Sin embargo, Jupyter Notebooks se proporciona para clústeres de HDInsight Spark 1.6 y Spark 2.0. Se proporciona una descripción de los cuadernos y de los vínculos a estos en el archivo [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) del repositorio de GitHub que los contiene. No obstante, este código y los cuadernos vinculados son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight. Para mayor comodidad, estos son los vínculos a los cuadernos de Jupyter para Spark 1.6 (para ejecutarse en el kernel pySpark del servidor de Jupyter Notebook) y Spark 2.0 (para ejecutarse en el kernel pySpark3 del servidor de Jupyter Notebook):
 
 ### <a name="spark-16-notebooks"></a>Cuadernos de Spark 1.6
 
 [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): proporciona información sobre cómo realizar una exploración de datos, el modelado y la puntuación con diversos algoritmos.
 
 ### <a name="spark-20-notebooks"></a>Cuadernos de Spark 2.0
-Las tareas de clasificación y regresión que se implementan mediante un clúster de Spark 2.0 usan otro conjunto de datos y se encuentran en cuadernos independientes:
+Las tareas de clasificación y regresión que se implementan mediante un clúster de Spark 2.0 se encuentran en cuadernos diferentes y el cuaderno de clasificación usa un conjunto de datos distinto:
 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): este archivo muestra cómo realizar la comparación de datos (Spark SQL y operaciones de trama de datos), la exploración, modelado y puntuación mediante el conjunto de datos de carreras y tarifas de NYC Taxi descrito [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview).
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este archivo proporciona información sobre cómo realizar el modelado, la puntuación y la exploración de datos en clústeres de Spark 2.0 mediante el conjunto de datos de carreras y tarifas de taxis en Nueva York que se describe [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este cuaderno puede ser un buen punto de partida para explorar rápidamente el código proporcionado para Spark 2.0. Para obtener un análisis más pormenorizado de los datos del cuaderno sobre taxis en Nueva York, vea el siguiente cuaderno de esta lista. Vea las notas después de esta lista en las que se establece una comparación de estos cuadernos. 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): este archivo muestra cómo realizar la comparación de datos (Spark SQL y operaciones de trama de datos), la exploración, modelado y puntuación mediante el conjunto de datos de carreras y tarifas de NYC Taxi descrito [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
 - [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): este archivo muestra cómo realizar la comparación de datos (Spark SQL y operaciones de trama de datos), la exploración, modelado y puntuación mediante el conocido conjunto de datos de salidas puntuales de líneas aéreas de 2011 y 2012. Se ha integrado el conjunto de datos de las líneas aéreas con los datos climatológicos del aeropuerto (por ejemplo, velocidad del viento, temperatura, altitud, etc.), antes de realizar el modelado, para que estas características climatológicas puedan incluirse en el modelo.
 
 <!-- -->
@@ -72,7 +73,21 @@ Las tareas de clasificación y regresión que se implementan mediante un clúste
 
 <!-- -->
 
+<!-- -->
+
+> [!NOTE]
+Los cuadernos de Spark 2.0 sobre los conjuntos de datos de los taxis de Nueva York y de retrasos en los vuelos pueden tardar 10 minutos o más en ejecutarse (dependiendo del tamaño del clúster de HDI). En el primer cuaderno de la lista anterior se reflejan muchos aspectos de la exploración de datos, la visualización y el entrenamiento del modelo de ML en un cuaderno que tarda menos tiempo en ejecutarse con el conjunto de datos de Nueva York muestreado, en el que los archivos de taxis y tarifas se han unido previamente: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) Este cuaderno tarda mucho menos tiempo en terminar (2-3 minutos) y puede ser un buen punto de partida para realizar una exploración rápida del código proporcionado para Spark 2.0. 
+
+<!-- -->
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+<!-- -->
+
+> [!NOTE]
+Las descripciones siguientes guardan relación con el uso de Spark 1.6. En las versiones de Spark 2.0, use los cuadernos descritos anteriormente, con sus correspondientes vínculos. 
+
+<!-- -->
 
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configuración: Ubicaciones de almacenamiento, bibliotecas y el contexto de Spark preestablecido
 Spark puede leer y escribir en un blob de Almacenamiento de Azure (también conocido como WASB), por lo que cualquiera de los datos existentes almacenados allí pueden procesarse mediante Spark y volver a almacenarse en WASB.

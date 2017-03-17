@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
-ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: f254b4a9b942004f0d1d1065ec2efb2ea5df8418
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,8 +30,8 @@ En este artículo se enumeran algunos de los términos comunes que se utilizan e
 ## <a name="azure-cli"></a>Azure CLI
 La [CLI de Azure](../xplat-cli-install.md) es una herramienta de comandos multiplataforma, de código abierto y basada en shell que se utiliza para crear y administrar recursos en Microsoft Azure. Esta versión de la CLI se implementa mediante Node.js.
 
-## <a name="azure-cli-20-preview"></a>Versión preliminar de la CLI de Azure 2.0
-La [versión preliminar de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) es una herramienta de comandos multiplataforma, de código abierto y basada en shell que se utiliza para crear y administrar recursos en Microsoft Azure. Esta versión preliminar de la CLI se implementa mediante Python.
+## <a name="azure-cli-20"></a>CLI de Azure 2.0
+La [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) es una herramienta de comandos multiplataforma, de código abierto y basada en shell que se usa para crear y administrar recursos en Microsoft Azure. Esta versión preliminar de la CLI se implementa mediante Python.
 
 
 ## <a name="azure-iot-device-sdks"></a>SDK de dispositivos IoT de Azure
@@ -256,8 +257,3 @@ Se puede utilizar un servicio de token a fin de implementar un mecanismo de aute
 
 ## <a name="x509-client-certificate"></a>Certificado de cliente X.509
 Un dispositivo puede usar un certificado X.509 para autenticarse con [IoT Hub](#iot-hub). Un certificado X.509 es una alternativa al uso de un [token de SAS](#shared-access-signature).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

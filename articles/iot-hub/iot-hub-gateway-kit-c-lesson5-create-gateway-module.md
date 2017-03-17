@@ -16,13 +16,14 @@ ms.workload: na
 ms.date: 2/17/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 6b12d39ce8c6062df5fb78de654bf22183b6ecd9
-ms.openlocfilehash: 42c22192bc3cccdea97f7d8dac575fa7cbc9a6c6
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 027597c73d7282ef929363bab904e7d3d423d3d4
+ms.openlocfilehash: db2757015cf8e821cffcfe39bcbd1559c23fc7ed
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Lección 5: Creación del primer módulo de puerta de enlace de IoT de Azure
+Aunque el SDK de puerta de enlace permite compilar módulos escritos en Java, .NET o Node.js, este tutorial le guía por los pasos para compilar un módulo en C.
 
 ## <a name="what-you-will-do"></a>Lo que hará
 
